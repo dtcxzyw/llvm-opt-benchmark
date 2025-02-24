@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.NFA = type { i32, i32, i8, i8, i8, i8, %union.anon, i32, i32, i32, i32, i32, i32, i32, [20 x i8] }
 %union.anon = type { i16 }
@@ -7,305 +7,304 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.mq_item = type { i32, i64, i64 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaCheckFinalState(ptr noundef %nfa, ptr noundef %state, ptr noundef %streamState, i64 noundef %offset, ptr noundef %callback, ptr noundef %context) #0 {
-entry:
-  %retval = alloca i8, align 1
-  %nfa.addr = alloca ptr, align 8
-  %state.addr = alloca ptr, align 8
-  %streamState.addr = alloca ptr, align 8
-  %offset.addr = alloca i64, align 8
-  %callback.addr = alloca ptr, align 8
-  %context.addr = alloca ptr, align 8
-  %tmp = alloca i32, align 4
-  %tmp22 = alloca i32, align 4
-  %tmp25 = alloca i32, align 4
-  %tmp28 = alloca i32, align 4
-  %tmp31 = alloca i32, align 4
-  %tmp34 = alloca i32, align 4
-  %tmp37 = alloca i32, align 4
-  %tmp48 = alloca i32, align 4
-  %tmp51 = alloca i32, align 4
-  %tmp54 = alloca i32, align 4
-  %tmp57 = alloca i32, align 4
-  store ptr %nfa, ptr %nfa.addr, align 8
-  store ptr %state, ptr %state.addr, align 8
-  store ptr %streamState, ptr %streamState.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  store ptr %callback, ptr %callback.addr, align 8
-  store ptr %context, ptr %context.addr, align 8
-  %0 = load ptr, ptr %nfa.addr, align 8
-  %type = getelementptr inbounds %struct.NFA, ptr %0, i32 0, i32 2
-  %1 = load i8, ptr %type, align 8
-  %conv = zext i8 %1 to i32
-  switch i32 %conv, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb1
-    i32 2, label %sw.bb3
-    i32 3, label %sw.bb5
-    i32 4, label %sw.bb7
-    i32 5, label %sw.bb9
-    i32 6, label %sw.bb11
-    i32 7, label %sw.bb13
-    i32 8, label %sw.bb15
-    i32 9, label %sw.bb17
-    i32 10, label %sw.bb19
-    i32 11, label %sw.bb21
-    i32 12, label %sw.bb24
-    i32 13, label %sw.bb27
-    i32 14, label %sw.bb30
-    i32 15, label %sw.bb33
-    i32 16, label %sw.bb36
-    i32 17, label %sw.bb39
-    i32 18, label %sw.bb41
-    i32 19, label %sw.bb43
-    i32 20, label %sw.bb45
-    i32 21, label %sw.bb47
-    i32 22, label %sw.bb50
-    i32 23, label %sw.bb53
-    i32 24, label %sw.bb56
+define hidden signext i8 @nfaCheckFinalState(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i8, align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  %23 = alloca i32, align 4
+  %24 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8
+  store ptr %1, ptr %9, align 8
+  store ptr %2, ptr %10, align 8
+  store i64 %3, ptr %11, align 8
+  store ptr %4, ptr %12, align 8
+  store ptr %5, ptr %13, align 8
+  %25 = load ptr, ptr %8, align 8
+  %26 = getelementptr inbounds nuw %struct.NFA, ptr %25, i32 0, i32 2
+  %27 = load i8, ptr %26, align 8
+  %28 = zext i8 %27 to i32
+  switch i32 %28, label %174 [
+    i32 0, label %29
+    i32 1, label %37
+    i32 2, label %45
+    i32 3, label %53
+    i32 4, label %61
+    i32 5, label %69
+    i32 6, label %77
+    i32 7, label %85
+    i32 8, label %93
+    i32 9, label %101
+    i32 10, label %109
+    i32 11, label %112
+    i32 12, label %115
+    i32 13, label %118
+    i32 14, label %121
+    i32 15, label %124
+    i32 16, label %127
+    i32 17, label %130
+    i32 18, label %138
+    i32 19, label %146
+    i32 20, label %154
+    i32 21, label %162
+    i32 22, label %165
+    i32 23, label %168
+    i32 24, label %171
   ]
 
-sw.bb:                                            ; preds = %entry
-  %2 = load ptr, ptr %nfa.addr, align 8
-  %3 = load ptr, ptr %state.addr, align 8
-  %4 = load ptr, ptr %streamState.addr, align 8
-  %5 = load i64, ptr %offset.addr, align 8
-  %6 = load ptr, ptr %callback.addr, align 8
-  %7 = load ptr, ptr %context.addr, align 8
-  %call = call signext i8 @nfaExecLimEx32_testEOD(ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7)
-  store i8 %call, ptr %retval, align 1
-  br label %return
+29:                                               ; preds = %6
+  %30 = load ptr, ptr %8, align 8
+  %31 = load ptr, ptr %9, align 8
+  %32 = load ptr, ptr %10, align 8
+  %33 = load i64, ptr %11, align 8
+  %34 = load ptr, ptr %12, align 8
+  %35 = load ptr, ptr %13, align 8
+  %36 = call signext i8 @nfaExecLimEx32_testEOD(ptr noundef %30, ptr noundef %31, ptr noundef %32, i64 noundef %33, ptr noundef %34, ptr noundef %35)
+  store i8 %36, ptr %7, align 1
+  br label %176
 
-sw.bb1:                                           ; preds = %entry
-  %8 = load ptr, ptr %nfa.addr, align 8
-  %9 = load ptr, ptr %state.addr, align 8
-  %10 = load ptr, ptr %streamState.addr, align 8
-  %11 = load i64, ptr %offset.addr, align 8
-  %12 = load ptr, ptr %callback.addr, align 8
-  %13 = load ptr, ptr %context.addr, align 8
-  %call2 = call signext i8 @nfaExecLimEx64_testEOD(ptr noundef %8, ptr noundef %9, ptr noundef %10, i64 noundef %11, ptr noundef %12, ptr noundef %13)
-  store i8 %call2, ptr %retval, align 1
-  br label %return
+37:                                               ; preds = %6
+  %38 = load ptr, ptr %8, align 8
+  %39 = load ptr, ptr %9, align 8
+  %40 = load ptr, ptr %10, align 8
+  %41 = load i64, ptr %11, align 8
+  %42 = load ptr, ptr %12, align 8
+  %43 = load ptr, ptr %13, align 8
+  %44 = call signext i8 @nfaExecLimEx64_testEOD(ptr noundef %38, ptr noundef %39, ptr noundef %40, i64 noundef %41, ptr noundef %42, ptr noundef %43)
+  store i8 %44, ptr %7, align 1
+  br label %176
 
-sw.bb3:                                           ; preds = %entry
-  %14 = load ptr, ptr %nfa.addr, align 8
-  %15 = load ptr, ptr %state.addr, align 8
-  %16 = load ptr, ptr %streamState.addr, align 8
-  %17 = load i64, ptr %offset.addr, align 8
-  %18 = load ptr, ptr %callback.addr, align 8
-  %19 = load ptr, ptr %context.addr, align 8
-  %call4 = call signext i8 @nfaExecLimEx128_testEOD(ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, ptr noundef %18, ptr noundef %19)
-  store i8 %call4, ptr %retval, align 1
-  br label %return
+45:                                               ; preds = %6
+  %46 = load ptr, ptr %8, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load ptr, ptr %10, align 8
+  %49 = load i64, ptr %11, align 8
+  %50 = load ptr, ptr %12, align 8
+  %51 = load ptr, ptr %13, align 8
+  %52 = call signext i8 @nfaExecLimEx128_testEOD(ptr noundef %46, ptr noundef %47, ptr noundef %48, i64 noundef %49, ptr noundef %50, ptr noundef %51)
+  store i8 %52, ptr %7, align 1
+  br label %176
 
-sw.bb5:                                           ; preds = %entry
-  %20 = load ptr, ptr %nfa.addr, align 8
-  %21 = load ptr, ptr %state.addr, align 8
-  %22 = load ptr, ptr %streamState.addr, align 8
-  %23 = load i64, ptr %offset.addr, align 8
-  %24 = load ptr, ptr %callback.addr, align 8
-  %25 = load ptr, ptr %context.addr, align 8
-  %call6 = call signext i8 @nfaExecLimEx256_testEOD(ptr noundef %20, ptr noundef %21, ptr noundef %22, i64 noundef %23, ptr noundef %24, ptr noundef %25)
-  store i8 %call6, ptr %retval, align 1
-  br label %return
+53:                                               ; preds = %6
+  %54 = load ptr, ptr %8, align 8
+  %55 = load ptr, ptr %9, align 8
+  %56 = load ptr, ptr %10, align 8
+  %57 = load i64, ptr %11, align 8
+  %58 = load ptr, ptr %12, align 8
+  %59 = load ptr, ptr %13, align 8
+  %60 = call signext i8 @nfaExecLimEx256_testEOD(ptr noundef %54, ptr noundef %55, ptr noundef %56, i64 noundef %57, ptr noundef %58, ptr noundef %59)
+  store i8 %60, ptr %7, align 1
+  br label %176
 
-sw.bb7:                                           ; preds = %entry
-  %26 = load ptr, ptr %nfa.addr, align 8
-  %27 = load ptr, ptr %state.addr, align 8
-  %28 = load ptr, ptr %streamState.addr, align 8
-  %29 = load i64, ptr %offset.addr, align 8
-  %30 = load ptr, ptr %callback.addr, align 8
-  %31 = load ptr, ptr %context.addr, align 8
-  %call8 = call signext i8 @nfaExecLimEx384_testEOD(ptr noundef %26, ptr noundef %27, ptr noundef %28, i64 noundef %29, ptr noundef %30, ptr noundef %31)
-  store i8 %call8, ptr %retval, align 1
-  br label %return
+61:                                               ; preds = %6
+  %62 = load ptr, ptr %8, align 8
+  %63 = load ptr, ptr %9, align 8
+  %64 = load ptr, ptr %10, align 8
+  %65 = load i64, ptr %11, align 8
+  %66 = load ptr, ptr %12, align 8
+  %67 = load ptr, ptr %13, align 8
+  %68 = call signext i8 @nfaExecLimEx384_testEOD(ptr noundef %62, ptr noundef %63, ptr noundef %64, i64 noundef %65, ptr noundef %66, ptr noundef %67)
+  store i8 %68, ptr %7, align 1
+  br label %176
 
-sw.bb9:                                           ; preds = %entry
-  %32 = load ptr, ptr %nfa.addr, align 8
-  %33 = load ptr, ptr %state.addr, align 8
-  %34 = load ptr, ptr %streamState.addr, align 8
-  %35 = load i64, ptr %offset.addr, align 8
-  %36 = load ptr, ptr %callback.addr, align 8
-  %37 = load ptr, ptr %context.addr, align 8
-  %call10 = call signext i8 @nfaExecLimEx512_testEOD(ptr noundef %32, ptr noundef %33, ptr noundef %34, i64 noundef %35, ptr noundef %36, ptr noundef %37)
-  store i8 %call10, ptr %retval, align 1
-  br label %return
+69:                                               ; preds = %6
+  %70 = load ptr, ptr %8, align 8
+  %71 = load ptr, ptr %9, align 8
+  %72 = load ptr, ptr %10, align 8
+  %73 = load i64, ptr %11, align 8
+  %74 = load ptr, ptr %12, align 8
+  %75 = load ptr, ptr %13, align 8
+  %76 = call signext i8 @nfaExecLimEx512_testEOD(ptr noundef %70, ptr noundef %71, ptr noundef %72, i64 noundef %73, ptr noundef %74, ptr noundef %75)
+  store i8 %76, ptr %7, align 1
+  br label %176
 
-sw.bb11:                                          ; preds = %entry
-  %38 = load ptr, ptr %nfa.addr, align 8
-  %39 = load ptr, ptr %state.addr, align 8
-  %40 = load ptr, ptr %streamState.addr, align 8
-  %41 = load i64, ptr %offset.addr, align 8
-  %42 = load ptr, ptr %callback.addr, align 8
-  %43 = load ptr, ptr %context.addr, align 8
-  %call12 = call signext i8 @nfaExecMcClellan8_testEOD(ptr noundef %38, ptr noundef %39, ptr noundef %40, i64 noundef %41, ptr noundef %42, ptr noundef %43)
-  store i8 %call12, ptr %retval, align 1
-  br label %return
+77:                                               ; preds = %6
+  %78 = load ptr, ptr %8, align 8
+  %79 = load ptr, ptr %9, align 8
+  %80 = load ptr, ptr %10, align 8
+  %81 = load i64, ptr %11, align 8
+  %82 = load ptr, ptr %12, align 8
+  %83 = load ptr, ptr %13, align 8
+  %84 = call signext i8 @nfaExecMcClellan8_testEOD(ptr noundef %78, ptr noundef %79, ptr noundef %80, i64 noundef %81, ptr noundef %82, ptr noundef %83)
+  store i8 %84, ptr %7, align 1
+  br label %176
 
-sw.bb13:                                          ; preds = %entry
-  %44 = load ptr, ptr %nfa.addr, align 8
-  %45 = load ptr, ptr %state.addr, align 8
-  %46 = load ptr, ptr %streamState.addr, align 8
-  %47 = load i64, ptr %offset.addr, align 8
-  %48 = load ptr, ptr %callback.addr, align 8
-  %49 = load ptr, ptr %context.addr, align 8
-  %call14 = call signext i8 @nfaExecMcClellan16_testEOD(ptr noundef %44, ptr noundef %45, ptr noundef %46, i64 noundef %47, ptr noundef %48, ptr noundef %49)
-  store i8 %call14, ptr %retval, align 1
-  br label %return
+85:                                               ; preds = %6
+  %86 = load ptr, ptr %8, align 8
+  %87 = load ptr, ptr %9, align 8
+  %88 = load ptr, ptr %10, align 8
+  %89 = load i64, ptr %11, align 8
+  %90 = load ptr, ptr %12, align 8
+  %91 = load ptr, ptr %13, align 8
+  %92 = call signext i8 @nfaExecMcClellan16_testEOD(ptr noundef %86, ptr noundef %87, ptr noundef %88, i64 noundef %89, ptr noundef %90, ptr noundef %91)
+  store i8 %92, ptr %7, align 1
+  br label %176
 
-sw.bb15:                                          ; preds = %entry
-  %50 = load ptr, ptr %nfa.addr, align 8
-  %51 = load ptr, ptr %state.addr, align 8
-  %52 = load ptr, ptr %streamState.addr, align 8
-  %53 = load i64, ptr %offset.addr, align 8
-  %54 = load ptr, ptr %callback.addr, align 8
-  %55 = load ptr, ptr %context.addr, align 8
-  %call16 = call signext i8 @nfaExecGough8_testEOD(ptr noundef %50, ptr noundef %51, ptr noundef %52, i64 noundef %53, ptr noundef %54, ptr noundef %55)
-  store i8 %call16, ptr %retval, align 1
-  br label %return
+93:                                               ; preds = %6
+  %94 = load ptr, ptr %8, align 8
+  %95 = load ptr, ptr %9, align 8
+  %96 = load ptr, ptr %10, align 8
+  %97 = load i64, ptr %11, align 8
+  %98 = load ptr, ptr %12, align 8
+  %99 = load ptr, ptr %13, align 8
+  %100 = call signext i8 @nfaExecGough8_testEOD(ptr noundef %94, ptr noundef %95, ptr noundef %96, i64 noundef %97, ptr noundef %98, ptr noundef %99)
+  store i8 %100, ptr %7, align 1
+  br label %176
 
-sw.bb17:                                          ; preds = %entry
-  %56 = load ptr, ptr %nfa.addr, align 8
-  %57 = load ptr, ptr %state.addr, align 8
-  %58 = load ptr, ptr %streamState.addr, align 8
-  %59 = load i64, ptr %offset.addr, align 8
-  %60 = load ptr, ptr %callback.addr, align 8
-  %61 = load ptr, ptr %context.addr, align 8
-  %call18 = call signext i8 @nfaExecGough16_testEOD(ptr noundef %56, ptr noundef %57, ptr noundef %58, i64 noundef %59, ptr noundef %60, ptr noundef %61)
-  store i8 %call18, ptr %retval, align 1
-  br label %return
+101:                                              ; preds = %6
+  %102 = load ptr, ptr %8, align 8
+  %103 = load ptr, ptr %9, align 8
+  %104 = load ptr, ptr %10, align 8
+  %105 = load i64, ptr %11, align 8
+  %106 = load ptr, ptr %12, align 8
+  %107 = load ptr, ptr %13, align 8
+  %108 = call signext i8 @nfaExecGough16_testEOD(ptr noundef %102, ptr noundef %103, ptr noundef %104, i64 noundef %105, ptr noundef %106, ptr noundef %107)
+  store i8 %108, ptr %7, align 1
+  br label %176
 
-sw.bb19:                                          ; preds = %entry
-  store i32 0, ptr %tmp, align 4
-  %62 = load i32, ptr %tmp, align 4
-  %conv20 = trunc i32 %62 to i8
-  store i8 %conv20, ptr %retval, align 1
-  br label %return
+109:                                              ; preds = %6
+  store i32 0, ptr %14, align 4
+  %110 = load i32, ptr %14, align 4
+  %111 = trunc i32 %110 to i8
+  store i8 %111, ptr %7, align 1
+  br label %176
 
-sw.bb21:                                          ; preds = %entry
-  store i32 0, ptr %tmp22, align 4
-  %63 = load i32, ptr %tmp22, align 4
-  %conv23 = trunc i32 %63 to i8
-  store i8 %conv23, ptr %retval, align 1
-  br label %return
+112:                                              ; preds = %6
+  store i32 0, ptr %15, align 4
+  %113 = load i32, ptr %15, align 4
+  %114 = trunc i32 %113 to i8
+  store i8 %114, ptr %7, align 1
+  br label %176
 
-sw.bb24:                                          ; preds = %entry
-  store i32 0, ptr %tmp25, align 4
-  %64 = load i32, ptr %tmp25, align 4
-  %conv26 = trunc i32 %64 to i8
-  store i8 %conv26, ptr %retval, align 1
-  br label %return
+115:                                              ; preds = %6
+  store i32 0, ptr %16, align 4
+  %116 = load i32, ptr %16, align 4
+  %117 = trunc i32 %116 to i8
+  store i8 %117, ptr %7, align 1
+  br label %176
 
-sw.bb27:                                          ; preds = %entry
-  store i32 0, ptr %tmp28, align 4
-  %65 = load i32, ptr %tmp28, align 4
-  %conv29 = trunc i32 %65 to i8
-  store i8 %conv29, ptr %retval, align 1
-  br label %return
+118:                                              ; preds = %6
+  store i32 0, ptr %17, align 4
+  %119 = load i32, ptr %17, align 4
+  %120 = trunc i32 %119 to i8
+  store i8 %120, ptr %7, align 1
+  br label %176
 
-sw.bb30:                                          ; preds = %entry
-  store i32 0, ptr %tmp31, align 4
-  %66 = load i32, ptr %tmp31, align 4
-  %conv32 = trunc i32 %66 to i8
-  store i8 %conv32, ptr %retval, align 1
-  br label %return
+121:                                              ; preds = %6
+  store i32 0, ptr %18, align 4
+  %122 = load i32, ptr %18, align 4
+  %123 = trunc i32 %122 to i8
+  store i8 %123, ptr %7, align 1
+  br label %176
 
-sw.bb33:                                          ; preds = %entry
-  store i32 0, ptr %tmp34, align 4
-  %67 = load i32, ptr %tmp34, align 4
-  %conv35 = trunc i32 %67 to i8
-  store i8 %conv35, ptr %retval, align 1
-  br label %return
+124:                                              ; preds = %6
+  store i32 0, ptr %19, align 4
+  %125 = load i32, ptr %19, align 4
+  %126 = trunc i32 %125 to i8
+  store i8 %126, ptr %7, align 1
+  br label %176
 
-sw.bb36:                                          ; preds = %entry
-  store i32 0, ptr %tmp37, align 4
-  %68 = load i32, ptr %tmp37, align 4
-  %conv38 = trunc i32 %68 to i8
-  store i8 %conv38, ptr %retval, align 1
-  br label %return
+127:                                              ; preds = %6
+  store i32 0, ptr %20, align 4
+  %128 = load i32, ptr %20, align 4
+  %129 = trunc i32 %128 to i8
+  store i8 %129, ptr %7, align 1
+  br label %176
 
-sw.bb39:                                          ; preds = %entry
-  %69 = load ptr, ptr %nfa.addr, align 8
-  %70 = load ptr, ptr %state.addr, align 8
-  %71 = load ptr, ptr %streamState.addr, align 8
-  %72 = load i64, ptr %offset.addr, align 8
-  %73 = load ptr, ptr %callback.addr, align 8
-  %74 = load ptr, ptr %context.addr, align 8
-  %call40 = call signext i8 @nfaExecSheng_testEOD(ptr noundef %69, ptr noundef %70, ptr noundef %71, i64 noundef %72, ptr noundef %73, ptr noundef %74)
-  store i8 %call40, ptr %retval, align 1
-  br label %return
+130:                                              ; preds = %6
+  %131 = load ptr, ptr %8, align 8
+  %132 = load ptr, ptr %9, align 8
+  %133 = load ptr, ptr %10, align 8
+  %134 = load i64, ptr %11, align 8
+  %135 = load ptr, ptr %12, align 8
+  %136 = load ptr, ptr %13, align 8
+  %137 = call signext i8 @nfaExecSheng_testEOD(ptr noundef %131, ptr noundef %132, ptr noundef %133, i64 noundef %134, ptr noundef %135, ptr noundef %136)
+  store i8 %137, ptr %7, align 1
+  br label %176
 
-sw.bb41:                                          ; preds = %entry
-  %75 = load ptr, ptr %nfa.addr, align 8
-  %76 = load ptr, ptr %state.addr, align 8
-  %77 = load ptr, ptr %streamState.addr, align 8
-  %78 = load i64, ptr %offset.addr, align 8
-  %79 = load ptr, ptr %callback.addr, align 8
-  %80 = load ptr, ptr %context.addr, align 8
-  %call42 = call signext i8 @nfaExecTamarama_testEOD(ptr noundef %75, ptr noundef %76, ptr noundef %77, i64 noundef %78, ptr noundef %79, ptr noundef %80)
-  store i8 %call42, ptr %retval, align 1
-  br label %return
+138:                                              ; preds = %6
+  %139 = load ptr, ptr %8, align 8
+  %140 = load ptr, ptr %9, align 8
+  %141 = load ptr, ptr %10, align 8
+  %142 = load i64, ptr %11, align 8
+  %143 = load ptr, ptr %12, align 8
+  %144 = load ptr, ptr %13, align 8
+  %145 = call signext i8 @nfaExecTamarama_testEOD(ptr noundef %139, ptr noundef %140, ptr noundef %141, i64 noundef %142, ptr noundef %143, ptr noundef %144)
+  store i8 %145, ptr %7, align 1
+  br label %176
 
-sw.bb43:                                          ; preds = %entry
-  %81 = load ptr, ptr %nfa.addr, align 8
-  %82 = load ptr, ptr %state.addr, align 8
-  %83 = load ptr, ptr %streamState.addr, align 8
-  %84 = load i64, ptr %offset.addr, align 8
-  %85 = load ptr, ptr %callback.addr, align 8
-  %86 = load ptr, ptr %context.addr, align 8
-  %call44 = call signext i8 @nfaExecMcSheng8_testEOD(ptr noundef %81, ptr noundef %82, ptr noundef %83, i64 noundef %84, ptr noundef %85, ptr noundef %86)
-  store i8 %call44, ptr %retval, align 1
-  br label %return
+146:                                              ; preds = %6
+  %147 = load ptr, ptr %8, align 8
+  %148 = load ptr, ptr %9, align 8
+  %149 = load ptr, ptr %10, align 8
+  %150 = load i64, ptr %11, align 8
+  %151 = load ptr, ptr %12, align 8
+  %152 = load ptr, ptr %13, align 8
+  %153 = call signext i8 @nfaExecMcSheng8_testEOD(ptr noundef %147, ptr noundef %148, ptr noundef %149, i64 noundef %150, ptr noundef %151, ptr noundef %152)
+  store i8 %153, ptr %7, align 1
+  br label %176
 
-sw.bb45:                                          ; preds = %entry
-  %87 = load ptr, ptr %nfa.addr, align 8
-  %88 = load ptr, ptr %state.addr, align 8
-  %89 = load ptr, ptr %streamState.addr, align 8
-  %90 = load i64, ptr %offset.addr, align 8
-  %91 = load ptr, ptr %callback.addr, align 8
-  %92 = load ptr, ptr %context.addr, align 8
-  %call46 = call signext i8 @nfaExecMcSheng16_testEOD(ptr noundef %87, ptr noundef %88, ptr noundef %89, i64 noundef %90, ptr noundef %91, ptr noundef %92)
-  store i8 %call46, ptr %retval, align 1
-  br label %return
+154:                                              ; preds = %6
+  %155 = load ptr, ptr %8, align 8
+  %156 = load ptr, ptr %9, align 8
+  %157 = load ptr, ptr %10, align 8
+  %158 = load i64, ptr %11, align 8
+  %159 = load ptr, ptr %12, align 8
+  %160 = load ptr, ptr %13, align 8
+  %161 = call signext i8 @nfaExecMcSheng16_testEOD(ptr noundef %155, ptr noundef %156, ptr noundef %157, i64 noundef %158, ptr noundef %159, ptr noundef %160)
+  store i8 %161, ptr %7, align 1
+  br label %176
 
-sw.bb47:                                          ; preds = %entry
-  store i32 0, ptr %tmp48, align 4
-  %93 = load i32, ptr %tmp48, align 4
-  %conv49 = trunc i32 %93 to i8
-  store i8 %conv49, ptr %retval, align 1
-  br label %return
+162:                                              ; preds = %6
+  store i32 0, ptr %21, align 4
+  %163 = load i32, ptr %21, align 4
+  %164 = trunc i32 %163 to i8
+  store i8 %164, ptr %7, align 1
+  br label %176
 
-sw.bb50:                                          ; preds = %entry
-  store i32 0, ptr %tmp51, align 4
-  %94 = load i32, ptr %tmp51, align 4
-  %conv52 = trunc i32 %94 to i8
-  store i8 %conv52, ptr %retval, align 1
-  br label %return
+165:                                              ; preds = %6
+  store i32 0, ptr %22, align 4
+  %166 = load i32, ptr %22, align 4
+  %167 = trunc i32 %166 to i8
+  store i8 %167, ptr %7, align 1
+  br label %176
 
-sw.bb53:                                          ; preds = %entry
-  store i32 0, ptr %tmp54, align 4
-  %95 = load i32, ptr %tmp54, align 4
-  %conv55 = trunc i32 %95 to i8
-  store i8 %conv55, ptr %retval, align 1
-  br label %return
+168:                                              ; preds = %6
+  store i32 0, ptr %23, align 4
+  %169 = load i32, ptr %23, align 4
+  %170 = trunc i32 %169 to i8
+  store i8 %170, ptr %7, align 1
+  br label %176
 
-sw.bb56:                                          ; preds = %entry
-  store i32 0, ptr %tmp57, align 4
-  %96 = load i32, ptr %tmp57, align 4
-  %conv58 = trunc i32 %96 to i8
-  store i8 %conv58, ptr %retval, align 1
-  br label %return
+171:                                              ; preds = %6
+  store i32 0, ptr %24, align 4
+  %172 = load i32, ptr %24, align 4
+  %173 = trunc i32 %172 to i8
+  store i8 %173, ptr %7, align 1
+  br label %176
 
-sw.default:                                       ; preds = %entry
-  br label %sw.epilog
+174:                                              ; preds = %6
+  br label %175
 
-sw.epilog:                                        ; preds = %sw.default
-  store i8 0, ptr %retval, align 1
-  br label %return
+175:                                              ; preds = %174
+  store i8 0, ptr %7, align 1
+  br label %176
 
-return:                                           ; preds = %sw.epilog, %sw.bb56, %sw.bb53, %sw.bb50, %sw.bb47, %sw.bb45, %sw.bb43, %sw.bb41, %sw.bb39, %sw.bb36, %sw.bb33, %sw.bb30, %sw.bb27, %sw.bb24, %sw.bb21, %sw.bb19, %sw.bb17, %sw.bb15, %sw.bb13, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb1, %sw.bb
-  %97 = load i8, ptr %retval, align 1
-  ret i8 %97
+176:                                              ; preds = %175, %171, %168, %165, %162, %154, %146, %138, %130, %127, %124, %121, %118, %115, %112, %109, %101, %93, %85, %77, %69, %61, %53, %45, %37, %29
+  %177 = load i8, ptr %7, align 1
+  ret i8 %177
 }
 
 declare signext i8 @nfaExecLimEx32_testEOD(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) #1
@@ -337,234 +336,233 @@ declare signext i8 @nfaExecMcSheng8_testEOD(ptr noundef, ptr noundef, ptr nounde
 declare signext i8 @nfaExecMcSheng16_testEOD(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaQueueInitState(ptr noundef %nfa, ptr noundef %q) #0 {
-entry:
-  %retval = alloca i8, align 1
-  %nfa.addr = alloca ptr, align 8
-  %q.addr = alloca ptr, align 8
-  %tmp = alloca i32, align 4
-  %tmp44 = alloca i32, align 4
-  %tmp47 = alloca i32, align 4
-  %tmp50 = alloca i32, align 4
-  store ptr %nfa, ptr %nfa.addr, align 8
-  store ptr %q, ptr %q.addr, align 8
-  %0 = load ptr, ptr %nfa.addr, align 8
-  %type = getelementptr inbounds %struct.NFA, ptr %0, i32 0, i32 2
-  %1 = load i8, ptr %type, align 8
-  %conv = zext i8 %1 to i32
-  switch i32 %conv, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb1
-    i32 2, label %sw.bb3
-    i32 3, label %sw.bb5
-    i32 4, label %sw.bb7
-    i32 5, label %sw.bb9
-    i32 6, label %sw.bb11
-    i32 7, label %sw.bb13
-    i32 8, label %sw.bb15
-    i32 9, label %sw.bb17
-    i32 10, label %sw.bb19
-    i32 11, label %sw.bb21
-    i32 12, label %sw.bb23
-    i32 13, label %sw.bb25
-    i32 14, label %sw.bb27
-    i32 15, label %sw.bb29
-    i32 16, label %sw.bb31
-    i32 17, label %sw.bb33
-    i32 18, label %sw.bb35
-    i32 19, label %sw.bb37
-    i32 20, label %sw.bb39
-    i32 21, label %sw.bb41
-    i32 22, label %sw.bb43
-    i32 23, label %sw.bb46
-    i32 24, label %sw.bb49
+define hidden signext i8 @nfaQueueInitState(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i8, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds nuw %struct.NFA, ptr %10, i32 0, i32 2
+  %12 = load i8, ptr %11, align 8
+  %13 = zext i8 %12 to i32
+  switch i32 %13, label %110 [
+    i32 0, label %14
+    i32 1, label %18
+    i32 2, label %22
+    i32 3, label %26
+    i32 4, label %30
+    i32 5, label %34
+    i32 6, label %38
+    i32 7, label %42
+    i32 8, label %46
+    i32 9, label %50
+    i32 10, label %54
+    i32 11, label %58
+    i32 12, label %62
+    i32 13, label %66
+    i32 14, label %70
+    i32 15, label %74
+    i32 16, label %78
+    i32 17, label %82
+    i32 18, label %86
+    i32 19, label %90
+    i32 20, label %94
+    i32 21, label %98
+    i32 22, label %101
+    i32 23, label %104
+    i32 24, label %107
   ]
 
-sw.bb:                                            ; preds = %entry
-  %2 = load ptr, ptr %nfa.addr, align 8
-  %3 = load ptr, ptr %q.addr, align 8
-  %call = call signext i8 @nfaExecLimEx32_queueInitState(ptr noundef %2, ptr noundef %3)
-  store i8 %call, ptr %retval, align 1
-  br label %return
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %4, align 8
+  %16 = load ptr, ptr %5, align 8
+  %17 = call signext i8 @nfaExecLimEx32_queueInitState(ptr noundef %15, ptr noundef %16)
+  store i8 %17, ptr %3, align 1
+  br label %112
 
-sw.bb1:                                           ; preds = %entry
-  %4 = load ptr, ptr %nfa.addr, align 8
-  %5 = load ptr, ptr %q.addr, align 8
-  %call2 = call signext i8 @nfaExecLimEx64_queueInitState(ptr noundef %4, ptr noundef %5)
-  store i8 %call2, ptr %retval, align 1
-  br label %return
+18:                                               ; preds = %2
+  %19 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %5, align 8
+  %21 = call signext i8 @nfaExecLimEx64_queueInitState(ptr noundef %19, ptr noundef %20)
+  store i8 %21, ptr %3, align 1
+  br label %112
 
-sw.bb3:                                           ; preds = %entry
-  %6 = load ptr, ptr %nfa.addr, align 8
-  %7 = load ptr, ptr %q.addr, align 8
-  %call4 = call signext i8 @nfaExecLimEx128_queueInitState(ptr noundef %6, ptr noundef %7)
-  store i8 %call4, ptr %retval, align 1
-  br label %return
+22:                                               ; preds = %2
+  %23 = load ptr, ptr %4, align 8
+  %24 = load ptr, ptr %5, align 8
+  %25 = call signext i8 @nfaExecLimEx128_queueInitState(ptr noundef %23, ptr noundef %24)
+  store i8 %25, ptr %3, align 1
+  br label %112
 
-sw.bb5:                                           ; preds = %entry
-  %8 = load ptr, ptr %nfa.addr, align 8
-  %9 = load ptr, ptr %q.addr, align 8
-  %call6 = call signext i8 @nfaExecLimEx256_queueInitState(ptr noundef %8, ptr noundef %9)
-  store i8 %call6, ptr %retval, align 1
-  br label %return
+26:                                               ; preds = %2
+  %27 = load ptr, ptr %4, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = call signext i8 @nfaExecLimEx256_queueInitState(ptr noundef %27, ptr noundef %28)
+  store i8 %29, ptr %3, align 1
+  br label %112
 
-sw.bb7:                                           ; preds = %entry
-  %10 = load ptr, ptr %nfa.addr, align 8
-  %11 = load ptr, ptr %q.addr, align 8
-  %call8 = call signext i8 @nfaExecLimEx384_queueInitState(ptr noundef %10, ptr noundef %11)
-  store i8 %call8, ptr %retval, align 1
-  br label %return
+30:                                               ; preds = %2
+  %31 = load ptr, ptr %4, align 8
+  %32 = load ptr, ptr %5, align 8
+  %33 = call signext i8 @nfaExecLimEx384_queueInitState(ptr noundef %31, ptr noundef %32)
+  store i8 %33, ptr %3, align 1
+  br label %112
 
-sw.bb9:                                           ; preds = %entry
-  %12 = load ptr, ptr %nfa.addr, align 8
-  %13 = load ptr, ptr %q.addr, align 8
-  %call10 = call signext i8 @nfaExecLimEx512_queueInitState(ptr noundef %12, ptr noundef %13)
-  store i8 %call10, ptr %retval, align 1
-  br label %return
+34:                                               ; preds = %2
+  %35 = load ptr, ptr %4, align 8
+  %36 = load ptr, ptr %5, align 8
+  %37 = call signext i8 @nfaExecLimEx512_queueInitState(ptr noundef %35, ptr noundef %36)
+  store i8 %37, ptr %3, align 1
+  br label %112
 
-sw.bb11:                                          ; preds = %entry
-  %14 = load ptr, ptr %nfa.addr, align 8
-  %15 = load ptr, ptr %q.addr, align 8
-  %call12 = call signext i8 @nfaExecMcClellan8_queueInitState(ptr noundef %14, ptr noundef %15)
-  store i8 %call12, ptr %retval, align 1
-  br label %return
+38:                                               ; preds = %2
+  %39 = load ptr, ptr %4, align 8
+  %40 = load ptr, ptr %5, align 8
+  %41 = call signext i8 @nfaExecMcClellan8_queueInitState(ptr noundef %39, ptr noundef %40)
+  store i8 %41, ptr %3, align 1
+  br label %112
 
-sw.bb13:                                          ; preds = %entry
-  %16 = load ptr, ptr %nfa.addr, align 8
-  %17 = load ptr, ptr %q.addr, align 8
-  %call14 = call signext i8 @nfaExecMcClellan16_queueInitState(ptr noundef %16, ptr noundef %17)
-  store i8 %call14, ptr %retval, align 1
-  br label %return
+42:                                               ; preds = %2
+  %43 = load ptr, ptr %4, align 8
+  %44 = load ptr, ptr %5, align 8
+  %45 = call signext i8 @nfaExecMcClellan16_queueInitState(ptr noundef %43, ptr noundef %44)
+  store i8 %45, ptr %3, align 1
+  br label %112
 
-sw.bb15:                                          ; preds = %entry
-  %18 = load ptr, ptr %nfa.addr, align 8
-  %19 = load ptr, ptr %q.addr, align 8
-  %call16 = call signext i8 @nfaExecGough8_queueInitState(ptr noundef %18, ptr noundef %19)
-  store i8 %call16, ptr %retval, align 1
-  br label %return
+46:                                               ; preds = %2
+  %47 = load ptr, ptr %4, align 8
+  %48 = load ptr, ptr %5, align 8
+  %49 = call signext i8 @nfaExecGough8_queueInitState(ptr noundef %47, ptr noundef %48)
+  store i8 %49, ptr %3, align 1
+  br label %112
 
-sw.bb17:                                          ; preds = %entry
-  %20 = load ptr, ptr %nfa.addr, align 8
-  %21 = load ptr, ptr %q.addr, align 8
-  %call18 = call signext i8 @nfaExecGough16_queueInitState(ptr noundef %20, ptr noundef %21)
-  store i8 %call18, ptr %retval, align 1
-  br label %return
+50:                                               ; preds = %2
+  %51 = load ptr, ptr %4, align 8
+  %52 = load ptr, ptr %5, align 8
+  %53 = call signext i8 @nfaExecGough16_queueInitState(ptr noundef %51, ptr noundef %52)
+  store i8 %53, ptr %3, align 1
+  br label %112
 
-sw.bb19:                                          ; preds = %entry
-  %22 = load ptr, ptr %nfa.addr, align 8
-  %23 = load ptr, ptr %q.addr, align 8
-  %call20 = call signext i8 @nfaExecMpv_queueInitState(ptr noundef %22, ptr noundef %23)
-  store i8 %call20, ptr %retval, align 1
-  br label %return
+54:                                               ; preds = %2
+  %55 = load ptr, ptr %4, align 8
+  %56 = load ptr, ptr %5, align 8
+  %57 = call signext i8 @nfaExecMpv_queueInitState(ptr noundef %55, ptr noundef %56)
+  store i8 %57, ptr %3, align 1
+  br label %112
 
-sw.bb21:                                          ; preds = %entry
-  %24 = load ptr, ptr %nfa.addr, align 8
-  %25 = load ptr, ptr %q.addr, align 8
-  %call22 = call signext i8 @nfaExecLbrDot_queueInitState(ptr noundef %24, ptr noundef %25)
-  store i8 %call22, ptr %retval, align 1
-  br label %return
+58:                                               ; preds = %2
+  %59 = load ptr, ptr %4, align 8
+  %60 = load ptr, ptr %5, align 8
+  %61 = call signext i8 @nfaExecLbrDot_queueInitState(ptr noundef %59, ptr noundef %60)
+  store i8 %61, ptr %3, align 1
+  br label %112
 
-sw.bb23:                                          ; preds = %entry
-  %26 = load ptr, ptr %nfa.addr, align 8
-  %27 = load ptr, ptr %q.addr, align 8
-  %call24 = call signext i8 @nfaExecLbrVerm_queueInitState(ptr noundef %26, ptr noundef %27)
-  store i8 %call24, ptr %retval, align 1
-  br label %return
+62:                                               ; preds = %2
+  %63 = load ptr, ptr %4, align 8
+  %64 = load ptr, ptr %5, align 8
+  %65 = call signext i8 @nfaExecLbrVerm_queueInitState(ptr noundef %63, ptr noundef %64)
+  store i8 %65, ptr %3, align 1
+  br label %112
 
-sw.bb25:                                          ; preds = %entry
-  %28 = load ptr, ptr %nfa.addr, align 8
-  %29 = load ptr, ptr %q.addr, align 8
-  %call26 = call signext i8 @nfaExecLbrNVerm_queueInitState(ptr noundef %28, ptr noundef %29)
-  store i8 %call26, ptr %retval, align 1
-  br label %return
+66:                                               ; preds = %2
+  %67 = load ptr, ptr %4, align 8
+  %68 = load ptr, ptr %5, align 8
+  %69 = call signext i8 @nfaExecLbrNVerm_queueInitState(ptr noundef %67, ptr noundef %68)
+  store i8 %69, ptr %3, align 1
+  br label %112
 
-sw.bb27:                                          ; preds = %entry
-  %30 = load ptr, ptr %nfa.addr, align 8
-  %31 = load ptr, ptr %q.addr, align 8
-  %call28 = call signext i8 @nfaExecLbrShuf_queueInitState(ptr noundef %30, ptr noundef %31)
-  store i8 %call28, ptr %retval, align 1
-  br label %return
+70:                                               ; preds = %2
+  %71 = load ptr, ptr %4, align 8
+  %72 = load ptr, ptr %5, align 8
+  %73 = call signext i8 @nfaExecLbrShuf_queueInitState(ptr noundef %71, ptr noundef %72)
+  store i8 %73, ptr %3, align 1
+  br label %112
 
-sw.bb29:                                          ; preds = %entry
-  %32 = load ptr, ptr %nfa.addr, align 8
-  %33 = load ptr, ptr %q.addr, align 8
-  %call30 = call signext i8 @nfaExecLbrTruf_queueInitState(ptr noundef %32, ptr noundef %33)
-  store i8 %call30, ptr %retval, align 1
-  br label %return
+74:                                               ; preds = %2
+  %75 = load ptr, ptr %4, align 8
+  %76 = load ptr, ptr %5, align 8
+  %77 = call signext i8 @nfaExecLbrTruf_queueInitState(ptr noundef %75, ptr noundef %76)
+  store i8 %77, ptr %3, align 1
+  br label %112
 
-sw.bb31:                                          ; preds = %entry
-  %34 = load ptr, ptr %nfa.addr, align 8
-  %35 = load ptr, ptr %q.addr, align 8
-  %call32 = call signext i8 @nfaExecCastle_queueInitState(ptr noundef %34, ptr noundef %35)
-  store i8 %call32, ptr %retval, align 1
-  br label %return
+78:                                               ; preds = %2
+  %79 = load ptr, ptr %4, align 8
+  %80 = load ptr, ptr %5, align 8
+  %81 = call signext i8 @nfaExecCastle_queueInitState(ptr noundef %79, ptr noundef %80)
+  store i8 %81, ptr %3, align 1
+  br label %112
 
-sw.bb33:                                          ; preds = %entry
-  %36 = load ptr, ptr %nfa.addr, align 8
-  %37 = load ptr, ptr %q.addr, align 8
-  %call34 = call signext i8 @nfaExecSheng_queueInitState(ptr noundef %36, ptr noundef %37)
-  store i8 %call34, ptr %retval, align 1
-  br label %return
+82:                                               ; preds = %2
+  %83 = load ptr, ptr %4, align 8
+  %84 = load ptr, ptr %5, align 8
+  %85 = call signext i8 @nfaExecSheng_queueInitState(ptr noundef %83, ptr noundef %84)
+  store i8 %85, ptr %3, align 1
+  br label %112
 
-sw.bb35:                                          ; preds = %entry
-  %38 = load ptr, ptr %nfa.addr, align 8
-  %39 = load ptr, ptr %q.addr, align 8
-  %call36 = call signext i8 @nfaExecTamarama_queueInitState(ptr noundef %38, ptr noundef %39)
-  store i8 %call36, ptr %retval, align 1
-  br label %return
+86:                                               ; preds = %2
+  %87 = load ptr, ptr %4, align 8
+  %88 = load ptr, ptr %5, align 8
+  %89 = call signext i8 @nfaExecTamarama_queueInitState(ptr noundef %87, ptr noundef %88)
+  store i8 %89, ptr %3, align 1
+  br label %112
 
-sw.bb37:                                          ; preds = %entry
-  %40 = load ptr, ptr %nfa.addr, align 8
-  %41 = load ptr, ptr %q.addr, align 8
-  %call38 = call signext i8 @nfaExecMcSheng8_queueInitState(ptr noundef %40, ptr noundef %41)
-  store i8 %call38, ptr %retval, align 1
-  br label %return
+90:                                               ; preds = %2
+  %91 = load ptr, ptr %4, align 8
+  %92 = load ptr, ptr %5, align 8
+  %93 = call signext i8 @nfaExecMcSheng8_queueInitState(ptr noundef %91, ptr noundef %92)
+  store i8 %93, ptr %3, align 1
+  br label %112
 
-sw.bb39:                                          ; preds = %entry
-  %42 = load ptr, ptr %nfa.addr, align 8
-  %43 = load ptr, ptr %q.addr, align 8
-  %call40 = call signext i8 @nfaExecMcSheng16_queueInitState(ptr noundef %42, ptr noundef %43)
-  store i8 %call40, ptr %retval, align 1
-  br label %return
+94:                                               ; preds = %2
+  %95 = load ptr, ptr %4, align 8
+  %96 = load ptr, ptr %5, align 8
+  %97 = call signext i8 @nfaExecMcSheng16_queueInitState(ptr noundef %95, ptr noundef %96)
+  store i8 %97, ptr %3, align 1
+  br label %112
 
-sw.bb41:                                          ; preds = %entry
-  store i32 0, ptr %tmp, align 4
-  %44 = load i32, ptr %tmp, align 4
-  %conv42 = trunc i32 %44 to i8
-  store i8 %conv42, ptr %retval, align 1
-  br label %return
+98:                                               ; preds = %2
+  store i32 0, ptr %6, align 4
+  %99 = load i32, ptr %6, align 4
+  %100 = trunc i32 %99 to i8
+  store i8 %100, ptr %3, align 1
+  br label %112
 
-sw.bb43:                                          ; preds = %entry
-  store i32 0, ptr %tmp44, align 4
-  %45 = load i32, ptr %tmp44, align 4
-  %conv45 = trunc i32 %45 to i8
-  store i8 %conv45, ptr %retval, align 1
-  br label %return
+101:                                              ; preds = %2
+  store i32 0, ptr %7, align 4
+  %102 = load i32, ptr %7, align 4
+  %103 = trunc i32 %102 to i8
+  store i8 %103, ptr %3, align 1
+  br label %112
 
-sw.bb46:                                          ; preds = %entry
-  store i32 0, ptr %tmp47, align 4
-  %46 = load i32, ptr %tmp47, align 4
-  %conv48 = trunc i32 %46 to i8
-  store i8 %conv48, ptr %retval, align 1
-  br label %return
+104:                                              ; preds = %2
+  store i32 0, ptr %8, align 4
+  %105 = load i32, ptr %8, align 4
+  %106 = trunc i32 %105 to i8
+  store i8 %106, ptr %3, align 1
+  br label %112
 
-sw.bb49:                                          ; preds = %entry
-  store i32 0, ptr %tmp50, align 4
-  %47 = load i32, ptr %tmp50, align 4
-  %conv51 = trunc i32 %47 to i8
-  store i8 %conv51, ptr %retval, align 1
-  br label %return
+107:                                              ; preds = %2
+  store i32 0, ptr %9, align 4
+  %108 = load i32, ptr %9, align 4
+  %109 = trunc i32 %108 to i8
+  store i8 %109, ptr %3, align 1
+  br label %112
 
-sw.default:                                       ; preds = %entry
-  br label %sw.epilog
+110:                                              ; preds = %2
+  br label %111
 
-sw.epilog:                                        ; preds = %sw.default
-  store i8 0, ptr %retval, align 1
-  br label %return
+111:                                              ; preds = %110
+  store i8 0, ptr %3, align 1
+  br label %112
 
-return:                                           ; preds = %sw.epilog, %sw.bb49, %sw.bb46, %sw.bb43, %sw.bb41, %sw.bb39, %sw.bb37, %sw.bb35, %sw.bb33, %sw.bb31, %sw.bb29, %sw.bb27, %sw.bb25, %sw.bb23, %sw.bb21, %sw.bb19, %sw.bb17, %sw.bb15, %sw.bb13, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb1, %sw.bb
-  %48 = load i8, ptr %retval, align 1
-  ret i8 %48
+112:                                              ; preds = %111, %107, %104, %101, %98, %94, %90, %86, %82, %78, %74, %70, %66, %62, %58, %54, %50, %46, %42, %38, %34, %30, %26, %22, %18, %14
+  %113 = load i8, ptr %3, align 1
+  ret i8 %113
 }
 
 declare signext i8 @nfaExecLimEx32_queueInitState(ptr noundef, ptr noundef) #1
@@ -610,1903 +608,1348 @@ declare signext i8 @nfaExecMcSheng8_queueInitState(ptr noundef, ptr noundef) #1
 declare signext i8 @nfaExecMcSheng16_queueInitState(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaQueueExec_raw(ptr noundef %nfa, ptr noundef %q, i64 noundef %end) #0 {
-entry:
-  %retval.i = alloca i8, align 1
-  %nfa.addr.i = alloca ptr, align 8
-  %q.addr.i = alloca ptr, align 8
-  %end.addr.i = alloca i64, align 8
-  %tmp.i = alloca i32, align 4
-  %tmp44.i = alloca i32, align 4
-  %tmp47.i = alloca i32, align 4
-  %tmp50.i = alloca i32, align 4
-  %nfa.addr = alloca ptr, align 8
-  %q.addr = alloca ptr, align 8
-  %end.addr = alloca i64, align 8
-  store ptr %nfa, ptr %nfa.addr, align 8
-  store ptr %q, ptr %q.addr, align 8
-  store i64 %end, ptr %end.addr, align 8
-  %0 = load ptr, ptr %nfa.addr, align 8
-  %1 = load ptr, ptr %q.addr, align 8
-  %2 = load i64, ptr %end.addr, align 8
-  store ptr %0, ptr %nfa.addr.i, align 8
-  store ptr %1, ptr %q.addr.i, align 8
-  store i64 %2, ptr %end.addr.i, align 8
-  %3 = load ptr, ptr %nfa.addr.i, align 8
-  %type.i = getelementptr inbounds %struct.NFA, ptr %3, i32 0, i32 2
-  %4 = load i8, ptr %type.i, align 8
-  %conv.i = zext i8 %4 to i32
-  switch i32 %conv.i, label %sw.default.i [
-    i32 0, label %sw.bb.i
-    i32 1, label %sw.bb1.i
-    i32 2, label %sw.bb3.i
-    i32 3, label %sw.bb5.i
-    i32 4, label %sw.bb7.i
-    i32 5, label %sw.bb9.i
-    i32 6, label %sw.bb11.i
-    i32 7, label %sw.bb13.i
-    i32 8, label %sw.bb15.i
-    i32 9, label %sw.bb17.i
-    i32 10, label %sw.bb19.i
-    i32 11, label %sw.bb21.i
-    i32 12, label %sw.bb23.i
-    i32 13, label %sw.bb25.i
-    i32 14, label %sw.bb27.i
-    i32 15, label %sw.bb29.i
-    i32 16, label %sw.bb31.i
-    i32 17, label %sw.bb33.i
-    i32 18, label %sw.bb35.i
-    i32 19, label %sw.bb37.i
-    i32 20, label %sw.bb39.i
-    i32 21, label %sw.bb41.i
-    i32 22, label %sw.bb43.i
-    i32 23, label %sw.bb46.i
-    i32 24, label %sw.bb49.i
+define hidden signext i8 @nfaQueueExec_raw(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  %10 = call signext i8 @nfaQueueExec_i(ptr noundef %7, ptr noundef %8, i64 noundef %9)
+  ret i8 %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal signext i8 @nfaQueueExec_i(ptr noundef %0, ptr noundef %1, i64 noundef %2) #2 {
+  %4 = alloca i8, align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  %12 = load ptr, ptr %5, align 8
+  %13 = getelementptr inbounds nuw %struct.NFA, ptr %12, i32 0, i32 2
+  %14 = load i8, ptr %13, align 8
+  %15 = zext i8 %14 to i32
+  switch i32 %15, label %133 [
+    i32 0, label %16
+    i32 1, label %21
+    i32 2, label %26
+    i32 3, label %31
+    i32 4, label %36
+    i32 5, label %41
+    i32 6, label %46
+    i32 7, label %51
+    i32 8, label %56
+    i32 9, label %61
+    i32 10, label %66
+    i32 11, label %71
+    i32 12, label %76
+    i32 13, label %81
+    i32 14, label %86
+    i32 15, label %91
+    i32 16, label %96
+    i32 17, label %101
+    i32 18, label %106
+    i32 19, label %111
+    i32 20, label %116
+    i32 21, label %121
+    i32 22, label %124
+    i32 23, label %127
+    i32 24, label %130
   ]
 
-sw.bb.i:                                          ; preds = %entry
-  %5 = load ptr, ptr %nfa.addr.i, align 8
-  %6 = load ptr, ptr %q.addr.i, align 8
-  %7 = load i64, ptr %end.addr.i, align 8
-  %call.i = call signext i8 @nfaExecLimEx32_Q(ptr noundef %5, ptr noundef %6, i64 noundef %7) #2
-  store i8 %call.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %5, align 8
+  %18 = load ptr, ptr %6, align 8
+  %19 = load i64, ptr %7, align 8
+  %20 = call signext i8 @nfaExecLimEx32_Q(ptr noundef %17, ptr noundef %18, i64 noundef %19)
+  store i8 %20, ptr %4, align 1
+  br label %135
 
-sw.bb1.i:                                         ; preds = %entry
-  %8 = load ptr, ptr %nfa.addr.i, align 8
-  %9 = load ptr, ptr %q.addr.i, align 8
-  %10 = load i64, ptr %end.addr.i, align 8
-  %call2.i = call signext i8 @nfaExecLimEx64_Q(ptr noundef %8, ptr noundef %9, i64 noundef %10) #2
-  store i8 %call2.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
+21:                                               ; preds = %3
+  %22 = load ptr, ptr %5, align 8
+  %23 = load ptr, ptr %6, align 8
+  %24 = load i64, ptr %7, align 8
+  %25 = call signext i8 @nfaExecLimEx64_Q(ptr noundef %22, ptr noundef %23, i64 noundef %24)
+  store i8 %25, ptr %4, align 1
+  br label %135
 
-sw.bb3.i:                                         ; preds = %entry
-  %11 = load ptr, ptr %nfa.addr.i, align 8
-  %12 = load ptr, ptr %q.addr.i, align 8
-  %13 = load i64, ptr %end.addr.i, align 8
-  %call4.i = call signext i8 @nfaExecLimEx128_Q(ptr noundef %11, ptr noundef %12, i64 noundef %13) #2
-  store i8 %call4.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
+26:                                               ; preds = %3
+  %27 = load ptr, ptr %5, align 8
+  %28 = load ptr, ptr %6, align 8
+  %29 = load i64, ptr %7, align 8
+  %30 = call signext i8 @nfaExecLimEx128_Q(ptr noundef %27, ptr noundef %28, i64 noundef %29)
+  store i8 %30, ptr %4, align 1
+  br label %135
 
-sw.bb5.i:                                         ; preds = %entry
-  %14 = load ptr, ptr %nfa.addr.i, align 8
-  %15 = load ptr, ptr %q.addr.i, align 8
-  %16 = load i64, ptr %end.addr.i, align 8
-  %call6.i = call signext i8 @nfaExecLimEx256_Q(ptr noundef %14, ptr noundef %15, i64 noundef %16) #2
-  store i8 %call6.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
+31:                                               ; preds = %3
+  %32 = load ptr, ptr %5, align 8
+  %33 = load ptr, ptr %6, align 8
+  %34 = load i64, ptr %7, align 8
+  %35 = call signext i8 @nfaExecLimEx256_Q(ptr noundef %32, ptr noundef %33, i64 noundef %34)
+  store i8 %35, ptr %4, align 1
+  br label %135
 
-sw.bb7.i:                                         ; preds = %entry
-  %17 = load ptr, ptr %nfa.addr.i, align 8
-  %18 = load ptr, ptr %q.addr.i, align 8
-  %19 = load i64, ptr %end.addr.i, align 8
-  %call8.i = call signext i8 @nfaExecLimEx384_Q(ptr noundef %17, ptr noundef %18, i64 noundef %19) #2
-  store i8 %call8.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
+36:                                               ; preds = %3
+  %37 = load ptr, ptr %5, align 8
+  %38 = load ptr, ptr %6, align 8
+  %39 = load i64, ptr %7, align 8
+  %40 = call signext i8 @nfaExecLimEx384_Q(ptr noundef %37, ptr noundef %38, i64 noundef %39)
+  store i8 %40, ptr %4, align 1
+  br label %135
 
-sw.bb9.i:                                         ; preds = %entry
-  %20 = load ptr, ptr %nfa.addr.i, align 8
-  %21 = load ptr, ptr %q.addr.i, align 8
-  %22 = load i64, ptr %end.addr.i, align 8
-  %call10.i = call signext i8 @nfaExecLimEx512_Q(ptr noundef %20, ptr noundef %21, i64 noundef %22) #2
-  store i8 %call10.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
+41:                                               ; preds = %3
+  %42 = load ptr, ptr %5, align 8
+  %43 = load ptr, ptr %6, align 8
+  %44 = load i64, ptr %7, align 8
+  %45 = call signext i8 @nfaExecLimEx512_Q(ptr noundef %42, ptr noundef %43, i64 noundef %44)
+  store i8 %45, ptr %4, align 1
+  br label %135
 
-sw.bb11.i:                                        ; preds = %entry
-  %23 = load ptr, ptr %nfa.addr.i, align 8
-  %24 = load ptr, ptr %q.addr.i, align 8
-  %25 = load i64, ptr %end.addr.i, align 8
-  %call12.i = call signext i8 @nfaExecMcClellan8_Q(ptr noundef %23, ptr noundef %24, i64 noundef %25) #2
-  store i8 %call12.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
+46:                                               ; preds = %3
+  %47 = load ptr, ptr %5, align 8
+  %48 = load ptr, ptr %6, align 8
+  %49 = load i64, ptr %7, align 8
+  %50 = call signext i8 @nfaExecMcClellan8_Q(ptr noundef %47, ptr noundef %48, i64 noundef %49)
+  store i8 %50, ptr %4, align 1
+  br label %135
 
-sw.bb13.i:                                        ; preds = %entry
-  %26 = load ptr, ptr %nfa.addr.i, align 8
-  %27 = load ptr, ptr %q.addr.i, align 8
-  %28 = load i64, ptr %end.addr.i, align 8
-  %call14.i = call signext i8 @nfaExecMcClellan16_Q(ptr noundef %26, ptr noundef %27, i64 noundef %28) #2
-  store i8 %call14.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
+51:                                               ; preds = %3
+  %52 = load ptr, ptr %5, align 8
+  %53 = load ptr, ptr %6, align 8
+  %54 = load i64, ptr %7, align 8
+  %55 = call signext i8 @nfaExecMcClellan16_Q(ptr noundef %52, ptr noundef %53, i64 noundef %54)
+  store i8 %55, ptr %4, align 1
+  br label %135
 
-sw.bb15.i:                                        ; preds = %entry
-  %29 = load ptr, ptr %nfa.addr.i, align 8
-  %30 = load ptr, ptr %q.addr.i, align 8
-  %31 = load i64, ptr %end.addr.i, align 8
-  %call16.i = call signext i8 @nfaExecGough8_Q(ptr noundef %29, ptr noundef %30, i64 noundef %31) #2
-  store i8 %call16.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
+56:                                               ; preds = %3
+  %57 = load ptr, ptr %5, align 8
+  %58 = load ptr, ptr %6, align 8
+  %59 = load i64, ptr %7, align 8
+  %60 = call signext i8 @nfaExecGough8_Q(ptr noundef %57, ptr noundef %58, i64 noundef %59)
+  store i8 %60, ptr %4, align 1
+  br label %135
 
-sw.bb17.i:                                        ; preds = %entry
-  %32 = load ptr, ptr %nfa.addr.i, align 8
-  %33 = load ptr, ptr %q.addr.i, align 8
-  %34 = load i64, ptr %end.addr.i, align 8
-  %call18.i = call signext i8 @nfaExecGough16_Q(ptr noundef %32, ptr noundef %33, i64 noundef %34) #2
-  store i8 %call18.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
+61:                                               ; preds = %3
+  %62 = load ptr, ptr %5, align 8
+  %63 = load ptr, ptr %6, align 8
+  %64 = load i64, ptr %7, align 8
+  %65 = call signext i8 @nfaExecGough16_Q(ptr noundef %62, ptr noundef %63, i64 noundef %64)
+  store i8 %65, ptr %4, align 1
+  br label %135
 
-sw.bb19.i:                                        ; preds = %entry
-  %35 = load ptr, ptr %nfa.addr.i, align 8
-  %36 = load ptr, ptr %q.addr.i, align 8
-  %37 = load i64, ptr %end.addr.i, align 8
-  %call20.i = call signext i8 @nfaExecMpv_Q(ptr noundef %35, ptr noundef %36, i64 noundef %37) #2
-  store i8 %call20.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
+66:                                               ; preds = %3
+  %67 = load ptr, ptr %5, align 8
+  %68 = load ptr, ptr %6, align 8
+  %69 = load i64, ptr %7, align 8
+  %70 = call signext i8 @nfaExecMpv_Q(ptr noundef %67, ptr noundef %68, i64 noundef %69)
+  store i8 %70, ptr %4, align 1
+  br label %135
 
-sw.bb21.i:                                        ; preds = %entry
-  %38 = load ptr, ptr %nfa.addr.i, align 8
-  %39 = load ptr, ptr %q.addr.i, align 8
-  %40 = load i64, ptr %end.addr.i, align 8
-  %call22.i = call signext i8 @nfaExecLbrDot_Q(ptr noundef %38, ptr noundef %39, i64 noundef %40) #2
-  store i8 %call22.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
+71:                                               ; preds = %3
+  %72 = load ptr, ptr %5, align 8
+  %73 = load ptr, ptr %6, align 8
+  %74 = load i64, ptr %7, align 8
+  %75 = call signext i8 @nfaExecLbrDot_Q(ptr noundef %72, ptr noundef %73, i64 noundef %74)
+  store i8 %75, ptr %4, align 1
+  br label %135
 
-sw.bb23.i:                                        ; preds = %entry
-  %41 = load ptr, ptr %nfa.addr.i, align 8
-  %42 = load ptr, ptr %q.addr.i, align 8
-  %43 = load i64, ptr %end.addr.i, align 8
-  %call24.i = call signext i8 @nfaExecLbrVerm_Q(ptr noundef %41, ptr noundef %42, i64 noundef %43) #2
-  store i8 %call24.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
+76:                                               ; preds = %3
+  %77 = load ptr, ptr %5, align 8
+  %78 = load ptr, ptr %6, align 8
+  %79 = load i64, ptr %7, align 8
+  %80 = call signext i8 @nfaExecLbrVerm_Q(ptr noundef %77, ptr noundef %78, i64 noundef %79)
+  store i8 %80, ptr %4, align 1
+  br label %135
 
-sw.bb25.i:                                        ; preds = %entry
-  %44 = load ptr, ptr %nfa.addr.i, align 8
-  %45 = load ptr, ptr %q.addr.i, align 8
-  %46 = load i64, ptr %end.addr.i, align 8
-  %call26.i = call signext i8 @nfaExecLbrNVerm_Q(ptr noundef %44, ptr noundef %45, i64 noundef %46) #2
-  store i8 %call26.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
+81:                                               ; preds = %3
+  %82 = load ptr, ptr %5, align 8
+  %83 = load ptr, ptr %6, align 8
+  %84 = load i64, ptr %7, align 8
+  %85 = call signext i8 @nfaExecLbrNVerm_Q(ptr noundef %82, ptr noundef %83, i64 noundef %84)
+  store i8 %85, ptr %4, align 1
+  br label %135
 
-sw.bb27.i:                                        ; preds = %entry
-  %47 = load ptr, ptr %nfa.addr.i, align 8
-  %48 = load ptr, ptr %q.addr.i, align 8
-  %49 = load i64, ptr %end.addr.i, align 8
-  %call28.i = call signext i8 @nfaExecLbrShuf_Q(ptr noundef %47, ptr noundef %48, i64 noundef %49) #2
-  store i8 %call28.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
+86:                                               ; preds = %3
+  %87 = load ptr, ptr %5, align 8
+  %88 = load ptr, ptr %6, align 8
+  %89 = load i64, ptr %7, align 8
+  %90 = call signext i8 @nfaExecLbrShuf_Q(ptr noundef %87, ptr noundef %88, i64 noundef %89)
+  store i8 %90, ptr %4, align 1
+  br label %135
 
-sw.bb29.i:                                        ; preds = %entry
-  %50 = load ptr, ptr %nfa.addr.i, align 8
-  %51 = load ptr, ptr %q.addr.i, align 8
-  %52 = load i64, ptr %end.addr.i, align 8
-  %call30.i = call signext i8 @nfaExecLbrTruf_Q(ptr noundef %50, ptr noundef %51, i64 noundef %52) #2
-  store i8 %call30.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
+91:                                               ; preds = %3
+  %92 = load ptr, ptr %5, align 8
+  %93 = load ptr, ptr %6, align 8
+  %94 = load i64, ptr %7, align 8
+  %95 = call signext i8 @nfaExecLbrTruf_Q(ptr noundef %92, ptr noundef %93, i64 noundef %94)
+  store i8 %95, ptr %4, align 1
+  br label %135
 
-sw.bb31.i:                                        ; preds = %entry
-  %53 = load ptr, ptr %nfa.addr.i, align 8
-  %54 = load ptr, ptr %q.addr.i, align 8
-  %55 = load i64, ptr %end.addr.i, align 8
-  %call32.i = call signext i8 @nfaExecCastle_Q(ptr noundef %53, ptr noundef %54, i64 noundef %55) #2
-  store i8 %call32.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
+96:                                               ; preds = %3
+  %97 = load ptr, ptr %5, align 8
+  %98 = load ptr, ptr %6, align 8
+  %99 = load i64, ptr %7, align 8
+  %100 = call signext i8 @nfaExecCastle_Q(ptr noundef %97, ptr noundef %98, i64 noundef %99)
+  store i8 %100, ptr %4, align 1
+  br label %135
 
-sw.bb33.i:                                        ; preds = %entry
-  %56 = load ptr, ptr %nfa.addr.i, align 8
-  %57 = load ptr, ptr %q.addr.i, align 8
-  %58 = load i64, ptr %end.addr.i, align 8
-  %call34.i = call signext i8 @nfaExecSheng_Q(ptr noundef %56, ptr noundef %57, i64 noundef %58) #2
-  store i8 %call34.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
+101:                                              ; preds = %3
+  %102 = load ptr, ptr %5, align 8
+  %103 = load ptr, ptr %6, align 8
+  %104 = load i64, ptr %7, align 8
+  %105 = call signext i8 @nfaExecSheng_Q(ptr noundef %102, ptr noundef %103, i64 noundef %104)
+  store i8 %105, ptr %4, align 1
+  br label %135
 
-sw.bb35.i:                                        ; preds = %entry
-  %59 = load ptr, ptr %nfa.addr.i, align 8
-  %60 = load ptr, ptr %q.addr.i, align 8
-  %61 = load i64, ptr %end.addr.i, align 8
-  %call36.i = call signext i8 @nfaExecTamarama_Q(ptr noundef %59, ptr noundef %60, i64 noundef %61) #2
-  store i8 %call36.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
+106:                                              ; preds = %3
+  %107 = load ptr, ptr %5, align 8
+  %108 = load ptr, ptr %6, align 8
+  %109 = load i64, ptr %7, align 8
+  %110 = call signext i8 @nfaExecTamarama_Q(ptr noundef %107, ptr noundef %108, i64 noundef %109)
+  store i8 %110, ptr %4, align 1
+  br label %135
 
-sw.bb37.i:                                        ; preds = %entry
-  %62 = load ptr, ptr %nfa.addr.i, align 8
-  %63 = load ptr, ptr %q.addr.i, align 8
-  %64 = load i64, ptr %end.addr.i, align 8
-  %call38.i = call signext i8 @nfaExecMcSheng8_Q(ptr noundef %62, ptr noundef %63, i64 noundef %64) #2
-  store i8 %call38.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
+111:                                              ; preds = %3
+  %112 = load ptr, ptr %5, align 8
+  %113 = load ptr, ptr %6, align 8
+  %114 = load i64, ptr %7, align 8
+  %115 = call signext i8 @nfaExecMcSheng8_Q(ptr noundef %112, ptr noundef %113, i64 noundef %114)
+  store i8 %115, ptr %4, align 1
+  br label %135
 
-sw.bb39.i:                                        ; preds = %entry
-  %65 = load ptr, ptr %nfa.addr.i, align 8
-  %66 = load ptr, ptr %q.addr.i, align 8
-  %67 = load i64, ptr %end.addr.i, align 8
-  %call40.i = call signext i8 @nfaExecMcSheng16_Q(ptr noundef %65, ptr noundef %66, i64 noundef %67) #2
-  store i8 %call40.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
+116:                                              ; preds = %3
+  %117 = load ptr, ptr %5, align 8
+  %118 = load ptr, ptr %6, align 8
+  %119 = load i64, ptr %7, align 8
+  %120 = call signext i8 @nfaExecMcSheng16_Q(ptr noundef %117, ptr noundef %118, i64 noundef %119)
+  store i8 %120, ptr %4, align 1
+  br label %135
 
-sw.bb41.i:                                        ; preds = %entry
-  store i32 0, ptr %tmp.i, align 4
-  %68 = load i32, ptr %tmp.i, align 4
-  %conv42.i = trunc i32 %68 to i8
-  store i8 %conv42.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
+121:                                              ; preds = %3
+  store i32 0, ptr %8, align 4
+  %122 = load i32, ptr %8, align 4
+  %123 = trunc i32 %122 to i8
+  store i8 %123, ptr %4, align 1
+  br label %135
 
-sw.bb43.i:                                        ; preds = %entry
-  store i32 0, ptr %tmp44.i, align 4
-  %69 = load i32, ptr %tmp44.i, align 4
-  %conv45.i = trunc i32 %69 to i8
-  store i8 %conv45.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
+124:                                              ; preds = %3
+  store i32 0, ptr %9, align 4
+  %125 = load i32, ptr %9, align 4
+  %126 = trunc i32 %125 to i8
+  store i8 %126, ptr %4, align 1
+  br label %135
 
-sw.bb46.i:                                        ; preds = %entry
-  store i32 0, ptr %tmp47.i, align 4
-  %70 = load i32, ptr %tmp47.i, align 4
-  %conv48.i = trunc i32 %70 to i8
-  store i8 %conv48.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
+127:                                              ; preds = %3
+  store i32 0, ptr %10, align 4
+  %128 = load i32, ptr %10, align 4
+  %129 = trunc i32 %128 to i8
+  store i8 %129, ptr %4, align 1
+  br label %135
 
-sw.bb49.i:                                        ; preds = %entry
-  store i32 0, ptr %tmp50.i, align 4
-  %71 = load i32, ptr %tmp50.i, align 4
-  %conv51.i = trunc i32 %71 to i8
-  store i8 %conv51.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
+130:                                              ; preds = %3
+  store i32 0, ptr %11, align 4
+  %131 = load i32, ptr %11, align 4
+  %132 = trunc i32 %131 to i8
+  store i8 %132, ptr %4, align 1
+  br label %135
 
-sw.default.i:                                     ; preds = %entry
-  store i8 0, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
+133:                                              ; preds = %3
+  br label %134
 
-nfaQueueExec_i.exit:                              ; preds = %sw.default.i, %sw.bb49.i, %sw.bb46.i, %sw.bb43.i, %sw.bb41.i, %sw.bb39.i, %sw.bb37.i, %sw.bb35.i, %sw.bb33.i, %sw.bb31.i, %sw.bb29.i, %sw.bb27.i, %sw.bb25.i, %sw.bb23.i, %sw.bb21.i, %sw.bb19.i, %sw.bb17.i, %sw.bb15.i, %sw.bb13.i, %sw.bb11.i, %sw.bb9.i, %sw.bb7.i, %sw.bb5.i, %sw.bb3.i, %sw.bb1.i, %sw.bb.i
-  %72 = load i8, ptr %retval.i, align 1
-  ret i8 %72
+134:                                              ; preds = %133
+  store i8 0, ptr %4, align 1
+  br label %135
+
+135:                                              ; preds = %134, %130, %127, %124, %121, %116, %111, %106, %101, %96, %91, %86, %81, %76, %71, %66, %61, %56, %51, %46, %41, %36, %31, %26, %21, %16
+  %136 = load i8, ptr %4, align 1
+  ret i8 %136
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaQueueExec2_raw(ptr noundef %nfa, ptr noundef %q, i64 noundef %end) #0 {
-entry:
-  %retval.i = alloca i8, align 1
-  %nfa.addr.i = alloca ptr, align 8
-  %q.addr.i = alloca ptr, align 8
-  %end.addr.i = alloca i64, align 8
-  %tmp.i = alloca i32, align 4
-  %tmp42.i = alloca i32, align 4
-  %tmp45.i = alloca i32, align 4
-  %tmp48.i = alloca i32, align 4
-  %tmp51.i = alloca i32, align 4
-  %nfa.addr = alloca ptr, align 8
-  %q.addr = alloca ptr, align 8
-  %end.addr = alloca i64, align 8
-  store ptr %nfa, ptr %nfa.addr, align 8
-  store ptr %q, ptr %q.addr, align 8
-  store i64 %end, ptr %end.addr, align 8
-  %0 = load ptr, ptr %nfa.addr, align 8
-  %1 = load ptr, ptr %q.addr, align 8
-  %2 = load i64, ptr %end.addr, align 8
-  store ptr %0, ptr %nfa.addr.i, align 8
-  store ptr %1, ptr %q.addr.i, align 8
-  store i64 %2, ptr %end.addr.i, align 8
-  %3 = load ptr, ptr %nfa.addr.i, align 8
-  %type.i = getelementptr inbounds %struct.NFA, ptr %3, i32 0, i32 2
-  %4 = load i8, ptr %type.i, align 8
-  %conv.i = zext i8 %4 to i32
-  switch i32 %conv.i, label %sw.default.i [
-    i32 0, label %sw.bb.i
-    i32 1, label %sw.bb1.i
-    i32 2, label %sw.bb3.i
-    i32 3, label %sw.bb5.i
-    i32 4, label %sw.bb7.i
-    i32 5, label %sw.bb9.i
-    i32 6, label %sw.bb11.i
-    i32 7, label %sw.bb13.i
-    i32 8, label %sw.bb15.i
-    i32 9, label %sw.bb17.i
-    i32 10, label %sw.bb19.i
-    i32 11, label %sw.bb21.i
-    i32 12, label %sw.bb23.i
-    i32 13, label %sw.bb25.i
-    i32 14, label %sw.bb27.i
-    i32 15, label %sw.bb29.i
-    i32 16, label %sw.bb31.i
-    i32 17, label %sw.bb33.i
-    i32 18, label %sw.bb35.i
-    i32 19, label %sw.bb37.i
-    i32 20, label %sw.bb39.i
-    i32 21, label %sw.bb41.i
-    i32 22, label %sw.bb44.i
-    i32 23, label %sw.bb47.i
-    i32 24, label %sw.bb50.i
+define hidden signext i8 @nfaQueueExec2_raw(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  %10 = call signext i8 @nfaQueueExec2_i(ptr noundef %7, ptr noundef %8, i64 noundef %9)
+  ret i8 %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal signext i8 @nfaQueueExec2_i(ptr noundef %0, ptr noundef %1, i64 noundef %2) #2 {
+  %4 = alloca i8, align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  %13 = load ptr, ptr %5, align 8
+  %14 = getelementptr inbounds nuw %struct.NFA, ptr %13, i32 0, i32 2
+  %15 = load i8, ptr %14, align 8
+  %16 = zext i8 %15 to i32
+  switch i32 %16, label %132 [
+    i32 0, label %17
+    i32 1, label %22
+    i32 2, label %27
+    i32 3, label %32
+    i32 4, label %37
+    i32 5, label %42
+    i32 6, label %47
+    i32 7, label %52
+    i32 8, label %57
+    i32 9, label %62
+    i32 10, label %67
+    i32 11, label %70
+    i32 12, label %75
+    i32 13, label %80
+    i32 14, label %85
+    i32 15, label %90
+    i32 16, label %95
+    i32 17, label %100
+    i32 18, label %105
+    i32 19, label %110
+    i32 20, label %115
+    i32 21, label %120
+    i32 22, label %123
+    i32 23, label %126
+    i32 24, label %129
   ]
 
-sw.bb.i:                                          ; preds = %entry
-  %5 = load ptr, ptr %nfa.addr.i, align 8
-  %6 = load ptr, ptr %q.addr.i, align 8
-  %7 = load i64, ptr %end.addr.i, align 8
-  %call.i = call signext i8 @nfaExecLimEx32_Q2(ptr noundef %5, ptr noundef %6, i64 noundef %7) #2
-  store i8 %call.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %5, align 8
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i64, ptr %7, align 8
+  %21 = call signext i8 @nfaExecLimEx32_Q2(ptr noundef %18, ptr noundef %19, i64 noundef %20)
+  store i8 %21, ptr %4, align 1
+  br label %134
 
-sw.bb1.i:                                         ; preds = %entry
-  %8 = load ptr, ptr %nfa.addr.i, align 8
-  %9 = load ptr, ptr %q.addr.i, align 8
-  %10 = load i64, ptr %end.addr.i, align 8
-  %call2.i = call signext i8 @nfaExecLimEx64_Q2(ptr noundef %8, ptr noundef %9, i64 noundef %10) #2
-  store i8 %call2.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
+22:                                               ; preds = %3
+  %23 = load ptr, ptr %5, align 8
+  %24 = load ptr, ptr %6, align 8
+  %25 = load i64, ptr %7, align 8
+  %26 = call signext i8 @nfaExecLimEx64_Q2(ptr noundef %23, ptr noundef %24, i64 noundef %25)
+  store i8 %26, ptr %4, align 1
+  br label %134
 
-sw.bb3.i:                                         ; preds = %entry
-  %11 = load ptr, ptr %nfa.addr.i, align 8
-  %12 = load ptr, ptr %q.addr.i, align 8
-  %13 = load i64, ptr %end.addr.i, align 8
-  %call4.i = call signext i8 @nfaExecLimEx128_Q2(ptr noundef %11, ptr noundef %12, i64 noundef %13) #2
-  store i8 %call4.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
+27:                                               ; preds = %3
+  %28 = load ptr, ptr %5, align 8
+  %29 = load ptr, ptr %6, align 8
+  %30 = load i64, ptr %7, align 8
+  %31 = call signext i8 @nfaExecLimEx128_Q2(ptr noundef %28, ptr noundef %29, i64 noundef %30)
+  store i8 %31, ptr %4, align 1
+  br label %134
 
-sw.bb5.i:                                         ; preds = %entry
-  %14 = load ptr, ptr %nfa.addr.i, align 8
-  %15 = load ptr, ptr %q.addr.i, align 8
-  %16 = load i64, ptr %end.addr.i, align 8
-  %call6.i = call signext i8 @nfaExecLimEx256_Q2(ptr noundef %14, ptr noundef %15, i64 noundef %16) #2
-  store i8 %call6.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
+32:                                               ; preds = %3
+  %33 = load ptr, ptr %5, align 8
+  %34 = load ptr, ptr %6, align 8
+  %35 = load i64, ptr %7, align 8
+  %36 = call signext i8 @nfaExecLimEx256_Q2(ptr noundef %33, ptr noundef %34, i64 noundef %35)
+  store i8 %36, ptr %4, align 1
+  br label %134
 
-sw.bb7.i:                                         ; preds = %entry
-  %17 = load ptr, ptr %nfa.addr.i, align 8
-  %18 = load ptr, ptr %q.addr.i, align 8
-  %19 = load i64, ptr %end.addr.i, align 8
-  %call8.i = call signext i8 @nfaExecLimEx384_Q2(ptr noundef %17, ptr noundef %18, i64 noundef %19) #2
-  store i8 %call8.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
+37:                                               ; preds = %3
+  %38 = load ptr, ptr %5, align 8
+  %39 = load ptr, ptr %6, align 8
+  %40 = load i64, ptr %7, align 8
+  %41 = call signext i8 @nfaExecLimEx384_Q2(ptr noundef %38, ptr noundef %39, i64 noundef %40)
+  store i8 %41, ptr %4, align 1
+  br label %134
 
-sw.bb9.i:                                         ; preds = %entry
-  %20 = load ptr, ptr %nfa.addr.i, align 8
-  %21 = load ptr, ptr %q.addr.i, align 8
-  %22 = load i64, ptr %end.addr.i, align 8
-  %call10.i = call signext i8 @nfaExecLimEx512_Q2(ptr noundef %20, ptr noundef %21, i64 noundef %22) #2
-  store i8 %call10.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
+42:                                               ; preds = %3
+  %43 = load ptr, ptr %5, align 8
+  %44 = load ptr, ptr %6, align 8
+  %45 = load i64, ptr %7, align 8
+  %46 = call signext i8 @nfaExecLimEx512_Q2(ptr noundef %43, ptr noundef %44, i64 noundef %45)
+  store i8 %46, ptr %4, align 1
+  br label %134
 
-sw.bb11.i:                                        ; preds = %entry
-  %23 = load ptr, ptr %nfa.addr.i, align 8
-  %24 = load ptr, ptr %q.addr.i, align 8
-  %25 = load i64, ptr %end.addr.i, align 8
-  %call12.i = call signext i8 @nfaExecMcClellan8_Q2(ptr noundef %23, ptr noundef %24, i64 noundef %25) #2
-  store i8 %call12.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
+47:                                               ; preds = %3
+  %48 = load ptr, ptr %5, align 8
+  %49 = load ptr, ptr %6, align 8
+  %50 = load i64, ptr %7, align 8
+  %51 = call signext i8 @nfaExecMcClellan8_Q2(ptr noundef %48, ptr noundef %49, i64 noundef %50)
+  store i8 %51, ptr %4, align 1
+  br label %134
 
-sw.bb13.i:                                        ; preds = %entry
-  %26 = load ptr, ptr %nfa.addr.i, align 8
-  %27 = load ptr, ptr %q.addr.i, align 8
-  %28 = load i64, ptr %end.addr.i, align 8
-  %call14.i = call signext i8 @nfaExecMcClellan16_Q2(ptr noundef %26, ptr noundef %27, i64 noundef %28) #2
-  store i8 %call14.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
+52:                                               ; preds = %3
+  %53 = load ptr, ptr %5, align 8
+  %54 = load ptr, ptr %6, align 8
+  %55 = load i64, ptr %7, align 8
+  %56 = call signext i8 @nfaExecMcClellan16_Q2(ptr noundef %53, ptr noundef %54, i64 noundef %55)
+  store i8 %56, ptr %4, align 1
+  br label %134
 
-sw.bb15.i:                                        ; preds = %entry
-  %29 = load ptr, ptr %nfa.addr.i, align 8
-  %30 = load ptr, ptr %q.addr.i, align 8
-  %31 = load i64, ptr %end.addr.i, align 8
-  %call16.i = call signext i8 @nfaExecGough8_Q2(ptr noundef %29, ptr noundef %30, i64 noundef %31) #2
-  store i8 %call16.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
+57:                                               ; preds = %3
+  %58 = load ptr, ptr %5, align 8
+  %59 = load ptr, ptr %6, align 8
+  %60 = load i64, ptr %7, align 8
+  %61 = call signext i8 @nfaExecGough8_Q2(ptr noundef %58, ptr noundef %59, i64 noundef %60)
+  store i8 %61, ptr %4, align 1
+  br label %134
 
-sw.bb17.i:                                        ; preds = %entry
-  %32 = load ptr, ptr %nfa.addr.i, align 8
-  %33 = load ptr, ptr %q.addr.i, align 8
-  %34 = load i64, ptr %end.addr.i, align 8
-  %call18.i = call signext i8 @nfaExecGough16_Q2(ptr noundef %32, ptr noundef %33, i64 noundef %34) #2
-  store i8 %call18.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
+62:                                               ; preds = %3
+  %63 = load ptr, ptr %5, align 8
+  %64 = load ptr, ptr %6, align 8
+  %65 = load i64, ptr %7, align 8
+  %66 = call signext i8 @nfaExecGough16_Q2(ptr noundef %63, ptr noundef %64, i64 noundef %65)
+  store i8 %66, ptr %4, align 1
+  br label %134
 
-sw.bb19.i:                                        ; preds = %entry
-  store i32 0, ptr %tmp.i, align 4
-  %35 = load i32, ptr %tmp.i, align 4
-  %conv20.i = trunc i32 %35 to i8
-  store i8 %conv20.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
+67:                                               ; preds = %3
+  store i32 0, ptr %8, align 4
+  %68 = load i32, ptr %8, align 4
+  %69 = trunc i32 %68 to i8
+  store i8 %69, ptr %4, align 1
+  br label %134
 
-sw.bb21.i:                                        ; preds = %entry
-  %36 = load ptr, ptr %nfa.addr.i, align 8
-  %37 = load ptr, ptr %q.addr.i, align 8
-  %38 = load i64, ptr %end.addr.i, align 8
-  %call22.i = call signext i8 @nfaExecLbrDot_Q2(ptr noundef %36, ptr noundef %37, i64 noundef %38) #2
-  store i8 %call22.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
+70:                                               ; preds = %3
+  %71 = load ptr, ptr %5, align 8
+  %72 = load ptr, ptr %6, align 8
+  %73 = load i64, ptr %7, align 8
+  %74 = call signext i8 @nfaExecLbrDot_Q2(ptr noundef %71, ptr noundef %72, i64 noundef %73)
+  store i8 %74, ptr %4, align 1
+  br label %134
 
-sw.bb23.i:                                        ; preds = %entry
-  %39 = load ptr, ptr %nfa.addr.i, align 8
-  %40 = load ptr, ptr %q.addr.i, align 8
-  %41 = load i64, ptr %end.addr.i, align 8
-  %call24.i = call signext i8 @nfaExecLbrVerm_Q2(ptr noundef %39, ptr noundef %40, i64 noundef %41) #2
-  store i8 %call24.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
+75:                                               ; preds = %3
+  %76 = load ptr, ptr %5, align 8
+  %77 = load ptr, ptr %6, align 8
+  %78 = load i64, ptr %7, align 8
+  %79 = call signext i8 @nfaExecLbrVerm_Q2(ptr noundef %76, ptr noundef %77, i64 noundef %78)
+  store i8 %79, ptr %4, align 1
+  br label %134
 
-sw.bb25.i:                                        ; preds = %entry
-  %42 = load ptr, ptr %nfa.addr.i, align 8
-  %43 = load ptr, ptr %q.addr.i, align 8
-  %44 = load i64, ptr %end.addr.i, align 8
-  %call26.i = call signext i8 @nfaExecLbrNVerm_Q2(ptr noundef %42, ptr noundef %43, i64 noundef %44) #2
-  store i8 %call26.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
+80:                                               ; preds = %3
+  %81 = load ptr, ptr %5, align 8
+  %82 = load ptr, ptr %6, align 8
+  %83 = load i64, ptr %7, align 8
+  %84 = call signext i8 @nfaExecLbrNVerm_Q2(ptr noundef %81, ptr noundef %82, i64 noundef %83)
+  store i8 %84, ptr %4, align 1
+  br label %134
 
-sw.bb27.i:                                        ; preds = %entry
-  %45 = load ptr, ptr %nfa.addr.i, align 8
-  %46 = load ptr, ptr %q.addr.i, align 8
-  %47 = load i64, ptr %end.addr.i, align 8
-  %call28.i = call signext i8 @nfaExecLbrShuf_Q2(ptr noundef %45, ptr noundef %46, i64 noundef %47) #2
-  store i8 %call28.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
+85:                                               ; preds = %3
+  %86 = load ptr, ptr %5, align 8
+  %87 = load ptr, ptr %6, align 8
+  %88 = load i64, ptr %7, align 8
+  %89 = call signext i8 @nfaExecLbrShuf_Q2(ptr noundef %86, ptr noundef %87, i64 noundef %88)
+  store i8 %89, ptr %4, align 1
+  br label %134
 
-sw.bb29.i:                                        ; preds = %entry
-  %48 = load ptr, ptr %nfa.addr.i, align 8
-  %49 = load ptr, ptr %q.addr.i, align 8
-  %50 = load i64, ptr %end.addr.i, align 8
-  %call30.i = call signext i8 @nfaExecLbrTruf_Q2(ptr noundef %48, ptr noundef %49, i64 noundef %50) #2
-  store i8 %call30.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
+90:                                               ; preds = %3
+  %91 = load ptr, ptr %5, align 8
+  %92 = load ptr, ptr %6, align 8
+  %93 = load i64, ptr %7, align 8
+  %94 = call signext i8 @nfaExecLbrTruf_Q2(ptr noundef %91, ptr noundef %92, i64 noundef %93)
+  store i8 %94, ptr %4, align 1
+  br label %134
 
-sw.bb31.i:                                        ; preds = %entry
-  %51 = load ptr, ptr %nfa.addr.i, align 8
-  %52 = load ptr, ptr %q.addr.i, align 8
-  %53 = load i64, ptr %end.addr.i, align 8
-  %call32.i = call signext i8 @nfaExecCastle_Q2(ptr noundef %51, ptr noundef %52, i64 noundef %53) #2
-  store i8 %call32.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
+95:                                               ; preds = %3
+  %96 = load ptr, ptr %5, align 8
+  %97 = load ptr, ptr %6, align 8
+  %98 = load i64, ptr %7, align 8
+  %99 = call signext i8 @nfaExecCastle_Q2(ptr noundef %96, ptr noundef %97, i64 noundef %98)
+  store i8 %99, ptr %4, align 1
+  br label %134
 
-sw.bb33.i:                                        ; preds = %entry
-  %54 = load ptr, ptr %nfa.addr.i, align 8
-  %55 = load ptr, ptr %q.addr.i, align 8
-  %56 = load i64, ptr %end.addr.i, align 8
-  %call34.i = call signext i8 @nfaExecSheng_Q2(ptr noundef %54, ptr noundef %55, i64 noundef %56) #2
-  store i8 %call34.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
+100:                                              ; preds = %3
+  %101 = load ptr, ptr %5, align 8
+  %102 = load ptr, ptr %6, align 8
+  %103 = load i64, ptr %7, align 8
+  %104 = call signext i8 @nfaExecSheng_Q2(ptr noundef %101, ptr noundef %102, i64 noundef %103)
+  store i8 %104, ptr %4, align 1
+  br label %134
 
-sw.bb35.i:                                        ; preds = %entry
-  %57 = load ptr, ptr %nfa.addr.i, align 8
-  %58 = load ptr, ptr %q.addr.i, align 8
-  %59 = load i64, ptr %end.addr.i, align 8
-  %call36.i = call signext i8 @nfaExecTamarama_Q2(ptr noundef %57, ptr noundef %58, i64 noundef %59) #2
-  store i8 %call36.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
+105:                                              ; preds = %3
+  %106 = load ptr, ptr %5, align 8
+  %107 = load ptr, ptr %6, align 8
+  %108 = load i64, ptr %7, align 8
+  %109 = call signext i8 @nfaExecTamarama_Q2(ptr noundef %106, ptr noundef %107, i64 noundef %108)
+  store i8 %109, ptr %4, align 1
+  br label %134
 
-sw.bb37.i:                                        ; preds = %entry
-  %60 = load ptr, ptr %nfa.addr.i, align 8
-  %61 = load ptr, ptr %q.addr.i, align 8
-  %62 = load i64, ptr %end.addr.i, align 8
-  %call38.i = call signext i8 @nfaExecMcSheng8_Q2(ptr noundef %60, ptr noundef %61, i64 noundef %62) #2
-  store i8 %call38.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
+110:                                              ; preds = %3
+  %111 = load ptr, ptr %5, align 8
+  %112 = load ptr, ptr %6, align 8
+  %113 = load i64, ptr %7, align 8
+  %114 = call signext i8 @nfaExecMcSheng8_Q2(ptr noundef %111, ptr noundef %112, i64 noundef %113)
+  store i8 %114, ptr %4, align 1
+  br label %134
 
-sw.bb39.i:                                        ; preds = %entry
-  %63 = load ptr, ptr %nfa.addr.i, align 8
-  %64 = load ptr, ptr %q.addr.i, align 8
-  %65 = load i64, ptr %end.addr.i, align 8
-  %call40.i = call signext i8 @nfaExecMcSheng16_Q2(ptr noundef %63, ptr noundef %64, i64 noundef %65) #2
-  store i8 %call40.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
+115:                                              ; preds = %3
+  %116 = load ptr, ptr %5, align 8
+  %117 = load ptr, ptr %6, align 8
+  %118 = load i64, ptr %7, align 8
+  %119 = call signext i8 @nfaExecMcSheng16_Q2(ptr noundef %116, ptr noundef %117, i64 noundef %118)
+  store i8 %119, ptr %4, align 1
+  br label %134
 
-sw.bb41.i:                                        ; preds = %entry
-  store i32 0, ptr %tmp42.i, align 4
-  %66 = load i32, ptr %tmp42.i, align 4
-  %conv43.i = trunc i32 %66 to i8
-  store i8 %conv43.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
+120:                                              ; preds = %3
+  store i32 0, ptr %9, align 4
+  %121 = load i32, ptr %9, align 4
+  %122 = trunc i32 %121 to i8
+  store i8 %122, ptr %4, align 1
+  br label %134
 
-sw.bb44.i:                                        ; preds = %entry
-  store i32 0, ptr %tmp45.i, align 4
-  %67 = load i32, ptr %tmp45.i, align 4
-  %conv46.i = trunc i32 %67 to i8
-  store i8 %conv46.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
+123:                                              ; preds = %3
+  store i32 0, ptr %10, align 4
+  %124 = load i32, ptr %10, align 4
+  %125 = trunc i32 %124 to i8
+  store i8 %125, ptr %4, align 1
+  br label %134
 
-sw.bb47.i:                                        ; preds = %entry
-  store i32 0, ptr %tmp48.i, align 4
-  %68 = load i32, ptr %tmp48.i, align 4
-  %conv49.i = trunc i32 %68 to i8
-  store i8 %conv49.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
+126:                                              ; preds = %3
+  store i32 0, ptr %11, align 4
+  %127 = load i32, ptr %11, align 4
+  %128 = trunc i32 %127 to i8
+  store i8 %128, ptr %4, align 1
+  br label %134
 
-sw.bb50.i:                                        ; preds = %entry
-  store i32 0, ptr %tmp51.i, align 4
-  %69 = load i32, ptr %tmp51.i, align 4
-  %conv52.i = trunc i32 %69 to i8
-  store i8 %conv52.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
+129:                                              ; preds = %3
+  store i32 0, ptr %12, align 4
+  %130 = load i32, ptr %12, align 4
+  %131 = trunc i32 %130 to i8
+  store i8 %131, ptr %4, align 1
+  br label %134
 
-sw.default.i:                                     ; preds = %entry
-  store i8 0, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
+132:                                              ; preds = %3
+  br label %133
 
-nfaQueueExec2_i.exit:                             ; preds = %sw.default.i, %sw.bb50.i, %sw.bb47.i, %sw.bb44.i, %sw.bb41.i, %sw.bb39.i, %sw.bb37.i, %sw.bb35.i, %sw.bb33.i, %sw.bb31.i, %sw.bb29.i, %sw.bb27.i, %sw.bb25.i, %sw.bb23.i, %sw.bb21.i, %sw.bb19.i, %sw.bb17.i, %sw.bb15.i, %sw.bb13.i, %sw.bb11.i, %sw.bb9.i, %sw.bb7.i, %sw.bb5.i, %sw.bb3.i, %sw.bb1.i, %sw.bb.i
-  %70 = load i8, ptr %retval.i, align 1
-  ret i8 %70
+133:                                              ; preds = %132
+  store i8 0, ptr %4, align 1
+  br label %134
+
+134:                                              ; preds = %133, %129, %126, %123, %120, %115, %110, %105, %100, %95, %90, %85, %80, %75, %70, %67, %62, %57, %52, %47, %42, %37, %32, %27, %22, %17
+  %135 = load i8, ptr %4, align 1
+  ret i8 %135
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaQueueExec(ptr noundef %nfa, ptr noundef %q, i64 noundef %end) #0 {
-entry:
-  %retval.i18 = alloca i8, align 1
-  %nfa.addr.i19 = alloca ptr, align 8
-  %q.addr.i20 = alloca ptr, align 8
-  %end.addr.i21 = alloca i64, align 8
-  %q_trimmed.addr.i = alloca ptr, align 8
-  %maxEnd.i = alloca i64, align 8
-  %retval.i = alloca i8, align 1
-  %nfa.addr.i = alloca ptr, align 8
-  %q.addr.i = alloca ptr, align 8
-  %end.addr.i = alloca i64, align 8
-  %tmp.i = alloca i32, align 4
-  %tmp44.i = alloca i32, align 4
-  %tmp47.i = alloca i32, align 4
-  %tmp50.i = alloca i32, align 4
-  %retval = alloca i8, align 1
-  %nfa.addr = alloca ptr, align 8
-  %q.addr = alloca ptr, align 8
-  %end.addr = alloca i64, align 8
-  %q_trimmed = alloca i8, align 1
-  %rv = alloca i8, align 1
-  store ptr %nfa, ptr %nfa.addr, align 8
-  store ptr %q, ptr %q.addr, align 8
-  store i64 %end, ptr %end.addr, align 8
-  br label %do.body
+define hidden signext i8 @nfaQueueExec(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca i8, align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i8, align 1
+  %9 = alloca i32, align 4
+  %10 = alloca i8, align 1
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  br label %11
 
-do.body:                                          ; preds = %entry
-  br label %do.end
+11:                                               ; preds = %3
+  br label %12
 
-do.end:                                           ; preds = %do.body
-  %0 = load ptr, ptr %q.addr, align 8
-  %items = getelementptr inbounds %struct.mq, ptr %0, i32 0, i32 14
-  %1 = load ptr, ptr %q.addr, align 8
-  %cur = getelementptr inbounds %struct.mq, ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %cur, align 8
-  %idxprom = zext i32 %2 to i64
-  %arrayidx = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom
-  %location = getelementptr inbounds %struct.mq_item, ptr %arrayidx, i32 0, i32 1
-  %3 = load i64, ptr %location, align 8
-  %4 = load i64, ptr %end.addr, align 8
-  %cmp = icmp sgt i64 %3, %4
-  br i1 %cmp, label %if.then, label %if.end
+12:                                               ; preds = %11
+  %13 = load ptr, ptr %6, align 8
+  %14 = getelementptr inbounds nuw %struct.mq, ptr %13, i32 0, i32 14
+  %15 = load ptr, ptr %6, align 8
+  %16 = getelementptr inbounds nuw %struct.mq, ptr %15, i32 0, i32 1
+  %17 = load i32, ptr %16, align 8
+  %18 = zext i32 %17 to i64
+  %19 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %14, i64 0, i64 %18
+  %20 = getelementptr inbounds nuw %struct.mq_item, ptr %19, i32 0, i32 1
+  %21 = load i64, ptr %20, align 8
+  %22 = load i64, ptr %7, align 8
+  %23 = icmp sgt i64 %21, %22
+  br i1 %23, label %24, label %25
 
-if.then:                                          ; preds = %do.end
-  store i8 1, ptr %retval, align 1
-  br label %return
+24:                                               ; preds = %12
+  store i8 1, ptr %4, align 1
+  br label %73
 
-if.end:                                           ; preds = %do.end
-  store i8 0, ptr %q_trimmed, align 1
-  %5 = load i64, ptr %end.addr, align 8
-  %6 = load ptr, ptr %q.addr, align 8
-  %length = getelementptr inbounds %struct.mq, ptr %6, i32 0, i32 7
-  %7 = load i64, ptr %length, align 8
-  %cmp1 = icmp sgt i64 %5, %7
-  br i1 %cmp1, label %if.then2, label %if.end4
+25:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #4
+  store i8 0, ptr %8, align 1
+  %26 = load i64, ptr %7, align 8
+  %27 = load ptr, ptr %6, align 8
+  %28 = getelementptr inbounds nuw %struct.mq, ptr %27, i32 0, i32 7
+  %29 = load i64, ptr %28, align 8
+  %30 = icmp sgt i64 %26, %29
+  br i1 %30, label %31, label %35
 
-if.then2:                                         ; preds = %if.end
-  %8 = load ptr, ptr %q.addr, align 8
-  %length3 = getelementptr inbounds %struct.mq, ptr %8, i32 0, i32 7
-  %9 = load i64, ptr %length3, align 8
-  store i64 %9, ptr %end.addr, align 8
-  store i8 1, ptr %q_trimmed, align 1
-  br label %if.end4
+31:                                               ; preds = %25
+  %32 = load ptr, ptr %6, align 8
+  %33 = getelementptr inbounds nuw %struct.mq, ptr %32, i32 0, i32 7
+  %34 = load i64, ptr %33, align 8
+  store i64 %34, ptr %7, align 8
+  store i8 1, ptr %8, align 1
+  br label %35
 
-if.end4:                                          ; preds = %if.then2, %if.end
-  %10 = load ptr, ptr %nfa.addr, align 8
-  %11 = load ptr, ptr %q.addr, align 8
-  %12 = load i64, ptr %end.addr, align 8
-  store ptr %10, ptr %nfa.addr.i19, align 8
-  store ptr %11, ptr %q.addr.i20, align 8
-  store i64 %12, ptr %end.addr.i21, align 8
-  store ptr %q_trimmed, ptr %q_trimmed.addr.i, align 8
-  %13 = load ptr, ptr %nfa.addr.i19, align 8
-  %maxBiAnchoredWidth.i = getelementptr inbounds %struct.NFA, ptr %13, i32 0, i32 5
-  %14 = load i8, ptr %maxBiAnchoredWidth.i, align 1
-  %conv.i22 = zext i8 %14 to i32
-  %tobool.i = icmp ne i32 %conv.i22, 0
-  br i1 %tobool.i, label %land.lhs.true.i, label %if.end.i
+35:                                               ; preds = %31, %25
+  %36 = load ptr, ptr %5, align 8
+  %37 = load ptr, ptr %6, align 8
+  %38 = load i64, ptr %7, align 8
+  %39 = call signext i8 @nfaQueueCanMatch(ptr noundef %36, ptr noundef %37, i64 noundef %38, ptr noundef %8)
+  %40 = icmp ne i8 %39, 0
+  br i1 %40, label %53, label %41
 
-land.lhs.true.i:                                  ; preds = %if.end4
-  %15 = load i64, ptr %end.addr.i21, align 8
-  %16 = load ptr, ptr %q.addr.i20, align 8
-  %offset.i = getelementptr inbounds %struct.mq, ptr %16, i32 0, i32 5
-  %17 = load i64, ptr %offset.i, align 8
-  %add.i = add i64 %15, %17
-  %18 = load ptr, ptr %nfa.addr.i19, align 8
-  %maxBiAnchoredWidth3.i = getelementptr inbounds %struct.NFA, ptr %18, i32 0, i32 5
-  %19 = load i8, ptr %maxBiAnchoredWidth3.i, align 1
-  %conv4.i = zext i8 %19 to i64
-  %cmp.i = icmp ugt i64 %add.i, %conv4.i
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
+41:                                               ; preds = %35
+  %42 = load ptr, ptr %6, align 8
+  %43 = getelementptr inbounds nuw %struct.mq, ptr %42, i32 0, i32 11
+  %44 = load i8, ptr %43, align 8
+  %45 = icmp ne i8 %44, 0
+  br i1 %45, label %46, label %52
 
-if.then.i:                                        ; preds = %land.lhs.true.i
-  store i8 0, ptr %retval.i18, align 1
-  br label %nfaQueueCanMatch.exit
+46:                                               ; preds = %41
+  %47 = load ptr, ptr %5, align 8
+  %48 = load ptr, ptr %6, align 8
+  %49 = call signext i8 @nfaReportCurrentMatches(ptr noundef %47, ptr noundef %48)
+  %50 = load ptr, ptr %6, align 8
+  %51 = getelementptr inbounds nuw %struct.mq, ptr %50, i32 0, i32 11
+  store i8 0, ptr %51, align 8
+  br label %52
 
-if.end.i:                                         ; preds = %land.lhs.true.i, %if.end4
-  %20 = load ptr, ptr %nfa.addr.i19, align 8
-  %maxOffset.i = getelementptr inbounds %struct.NFA, ptr %20, i32 0, i32 13
-  %21 = load i32, ptr %maxOffset.i, align 8
-  %tobool8.i = icmp ne i32 %21, 0
-  br i1 %tobool8.i, label %if.then9.i, label %if.end77.i
+52:                                               ; preds = %46, %41
+  store i8 0, ptr %4, align 1
+  store i32 1, ptr %9, align 4
+  br label %72
 
-if.then9.i:                                       ; preds = %if.end.i
-  %22 = load ptr, ptr %q.addr.i20, align 8
-  %offset10.i = getelementptr inbounds %struct.mq, ptr %22, i32 0, i32 5
-  %23 = load i64, ptr %offset10.i, align 8
-  %24 = load ptr, ptr %nfa.addr.i19, align 8
-  %maxOffset11.i = getelementptr inbounds %struct.NFA, ptr %24, i32 0, i32 13
-  %25 = load i32, ptr %maxOffset11.i, align 8
-  %conv12.i = zext i32 %25 to i64
-  %cmp13.i = icmp uge i64 %23, %conv12.i
-  br i1 %cmp13.i, label %if.then15.i, label %if.end18.i
+53:                                               ; preds = %35
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #4
+  %54 = load ptr, ptr %5, align 8
+  %55 = load ptr, ptr %6, align 8
+  %56 = load i64, ptr %7, align 8
+  %57 = call signext i8 @nfaQueueExec_i(ptr noundef %54, ptr noundef %55, i64 noundef %56)
+  store i8 %57, ptr %10, align 1
+  br label %58
 
-if.then15.i:                                      ; preds = %if.then9.i
-  store i8 0, ptr %retval.i18, align 1
-  br label %nfaQueueCanMatch.exit
+58:                                               ; preds = %53
+  br label %59
 
-if.end18.i:                                       ; preds = %if.then9.i
-  %26 = load ptr, ptr %q.addr.i20, align 8
-  %offset19.i = getelementptr inbounds %struct.mq, ptr %26, i32 0, i32 5
-  %27 = load i64, ptr %offset19.i, align 8
-  %28 = load i64, ptr %end.addr.i21, align 8
-  %add20.i = add i64 %27, %28
-  %29 = load ptr, ptr %nfa.addr.i19, align 8
-  %maxOffset21.i = getelementptr inbounds %struct.NFA, ptr %29, i32 0, i32 13
-  %30 = load i32, ptr %maxOffset21.i, align 8
-  %conv22.i = zext i32 %30 to i64
-  %cmp23.i = icmp ugt i64 %add20.i, %conv22.i
-  br i1 %cmp23.i, label %if.then25.i, label %if.end76.i
+59:                                               ; preds = %58
+  br label %60
 
-if.then25.i:                                      ; preds = %if.end18.i
-  %31 = load ptr, ptr %nfa.addr.i19, align 8
-  %maxOffset26.i = getelementptr inbounds %struct.NFA, ptr %31, i32 0, i32 13
-  %32 = load i32, ptr %maxOffset26.i, align 8
-  %conv27.i = zext i32 %32 to i64
-  %33 = load ptr, ptr %q.addr.i20, align 8
-  %offset28.i = getelementptr inbounds %struct.mq, ptr %33, i32 0, i32 5
-  %34 = load i64, ptr %offset28.i, align 8
-  %sub.i = sub i64 %conv27.i, %34
-  store i64 %sub.i, ptr %maxEnd.i, align 8
-  br label %while.cond.i
+60:                                               ; preds = %59
+  %61 = load i8, ptr %10, align 1
+  %62 = sext i8 %61 to i32
+  %63 = icmp ne i32 %62, 0
+  br i1 %63, label %64, label %68
 
-while.cond.i:                                     ; preds = %if.end65.i, %if.then25.i
-  %35 = load ptr, ptr %q.addr.i20, align 8
-  %end31.i = getelementptr inbounds %struct.mq, ptr %35, i32 0, i32 2
-  %36 = load i32, ptr %end31.i, align 4
-  %37 = load ptr, ptr %q.addr.i20, align 8
-  %cur.i = getelementptr inbounds %struct.mq, ptr %37, i32 0, i32 1
-  %38 = load i32, ptr %cur.i, align 8
-  %cmp32.i = icmp ugt i32 %36, %38
-  br i1 %cmp32.i, label %land.rhs.i, label %land.end.i
+64:                                               ; preds = %60
+  %65 = load i8, ptr %8, align 1
+  %66 = icmp ne i8 %65, 0
+  %67 = xor i1 %66, true
+  br label %68
 
-land.rhs.i:                                       ; preds = %while.cond.i
-  %39 = load ptr, ptr %q.addr.i20, align 8
-  %items.i = getelementptr inbounds %struct.mq, ptr %39, i32 0, i32 14
-  %40 = load ptr, ptr %q.addr.i20, align 8
-  %end34.i = getelementptr inbounds %struct.mq, ptr %40, i32 0, i32 2
-  %41 = load i32, ptr %end34.i, align 4
-  %sub35.i = sub i32 %41, 1
-  %idxprom.i = zext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i, i64 0, i64 %idxprom.i
-  %location.i = getelementptr inbounds %struct.mq_item, ptr %arrayidx.i, i32 0, i32 1
-  %42 = load i64, ptr %location.i, align 8
-  %43 = load i64, ptr %maxEnd.i, align 8
-  %cmp36.i = icmp sgt i64 %42, %43
-  br label %land.end.i
+68:                                               ; preds = %64, %60
+  %69 = phi i1 [ false, %60 ], [ %67, %64 ]
+  %70 = zext i1 %69 to i32
+  %71 = trunc i32 %70 to i8
+  store i8 %71, ptr %4, align 1
+  store i32 1, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #4
+  br label %72
 
-land.end.i:                                       ; preds = %land.rhs.i, %while.cond.i
-  %44 = phi i1 [ false, %while.cond.i ], [ %cmp36.i, %land.rhs.i ]
-  br i1 %44, label %while.body.i, label %while.end.i
+72:                                               ; preds = %68, %52
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #4
+  br label %73
 
-while.body.i:                                     ; preds = %land.end.i
-  %45 = load ptr, ptr %q_trimmed.addr.i, align 8
-  store i8 1, ptr %45, align 1
-  %46 = load i64, ptr %maxEnd.i, align 8
-  %47 = load ptr, ptr %q.addr.i20, align 8
-  %items40.i = getelementptr inbounds %struct.mq, ptr %47, i32 0, i32 14
-  %48 = load ptr, ptr %q.addr.i20, align 8
-  %end41.i = getelementptr inbounds %struct.mq, ptr %48, i32 0, i32 2
-  %49 = load i32, ptr %end41.i, align 4
-  %sub42.i = sub i32 %49, 1
-  %idxprom43.i = zext i32 %sub42.i to i64
-  %arrayidx44.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items40.i, i64 0, i64 %idxprom43.i
-  %location45.i = getelementptr inbounds %struct.mq_item, ptr %arrayidx44.i, i32 0, i32 1
-  store i64 %46, ptr %location45.i, align 8
-  %50 = load ptr, ptr %q.addr.i20, align 8
-  %items46.i = getelementptr inbounds %struct.mq, ptr %50, i32 0, i32 14
-  %51 = load ptr, ptr %q.addr.i20, align 8
-  %end47.i = getelementptr inbounds %struct.mq, ptr %51, i32 0, i32 2
-  %52 = load i32, ptr %end47.i, align 4
-  %sub48.i = sub i32 %52, 1
-  %idxprom49.i = zext i32 %sub48.i to i64
-  %arrayidx50.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items46.i, i64 0, i64 %idxprom49.i
-  store i32 1, ptr %arrayidx50.i, align 8
-  %53 = load ptr, ptr %q.addr.i20, align 8
-  %end51.i = getelementptr inbounds %struct.mq, ptr %53, i32 0, i32 2
-  %54 = load i32, ptr %end51.i, align 4
-  %55 = load ptr, ptr %q.addr.i20, align 8
-  %cur52.i = getelementptr inbounds %struct.mq, ptr %55, i32 0, i32 1
-  %56 = load i32, ptr %cur52.i, align 8
-  %sub53.i = sub i32 %54, %56
-  %cmp54.i = icmp ult i32 %sub53.i, 2
-  br i1 %cmp54.i, label %if.then64.i, label %lor.lhs.false.i
+73:                                               ; preds = %72, %24
+  %74 = load i8, ptr %4, align 1
+  ret i8 %74
+}
 
-lor.lhs.false.i:                                  ; preds = %while.body.i
-  %57 = load ptr, ptr %q.addr.i20, align 8
-  %items56.i = getelementptr inbounds %struct.mq, ptr %57, i32 0, i32 14
-  %58 = load ptr, ptr %q.addr.i20, align 8
-  %end57.i = getelementptr inbounds %struct.mq, ptr %58, i32 0, i32 2
-  %59 = load i32, ptr %end57.i, align 4
-  %sub58.i = sub i32 %59, 2
-  %idxprom59.i = zext i32 %sub58.i to i64
-  %arrayidx60.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items56.i, i64 0, i64 %idxprom59.i
-  %location61.i = getelementptr inbounds %struct.mq_item, ptr %arrayidx60.i, i32 0, i32 1
-  %60 = load i64, ptr %location61.i, align 8
-  %61 = load i64, ptr %maxEnd.i, align 8
-  %cmp62.i = icmp sle i64 %60, %61
-  br i1 %cmp62.i, label %if.then64.i, label %if.end65.i
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
-if.then64.i:                                      ; preds = %lor.lhs.false.i, %while.body.i
-  br label %while.end.i
+; Function Attrs: alwaysinline nounwind uwtable
+define internal signext i8 @nfaQueueCanMatch(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #2 {
+  %5 = alloca i8, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store i64 %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  br label %12
 
-if.end65.i:                                       ; preds = %lor.lhs.false.i
-  %62 = load ptr, ptr %q.addr.i20, align 8
-  %end66.i = getelementptr inbounds %struct.mq, ptr %62, i32 0, i32 2
-  %63 = load i32, ptr %end66.i, align 4
-  %dec.i = add i32 %63, -1
-  store i32 %dec.i, ptr %end66.i, align 4
-  br label %while.cond.i, !llvm.loop !5
+12:                                               ; preds = %4
+  br label %13
 
-while.end.i:                                      ; preds = %if.then64.i, %land.end.i
-  %64 = load ptr, ptr %q.addr.i20, align 8
-  %end67.i = getelementptr inbounds %struct.mq, ptr %64, i32 0, i32 2
-  %65 = load i32, ptr %end67.i, align 4
-  %66 = load ptr, ptr %q.addr.i20, align 8
-  %cur68.i = getelementptr inbounds %struct.mq, ptr %66, i32 0, i32 1
-  %67 = load i32, ptr %cur68.i, align 8
-  %sub69.i = sub i32 %65, %67
-  %cmp70.i = icmp ult i32 %sub69.i, 2
-  br i1 %cmp70.i, label %if.then72.i, label %if.end75.i
+13:                                               ; preds = %12
+  br label %14
 
-if.then72.i:                                      ; preds = %while.end.i
-  store i8 0, ptr %retval.i18, align 1
-  br label %nfaQueueCanMatch.exit
+14:                                               ; preds = %13
+  br label %15
 
-if.end75.i:                                       ; preds = %while.end.i
-  br label %if.end76.i
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %6, align 8
+  %17 = getelementptr inbounds nuw %struct.NFA, ptr %16, i32 0, i32 5
+  %18 = load i8, ptr %17, align 1
+  %19 = zext i8 %18 to i32
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %35
 
-if.end76.i:                                       ; preds = %if.end75.i, %if.end18.i
-  br label %if.end77.i
+21:                                               ; preds = %15
+  %22 = load i64, ptr %8, align 8
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr inbounds nuw %struct.mq, ptr %23, i32 0, i32 5
+  %25 = load i64, ptr %24, align 8
+  %26 = add i64 %22, %25
+  %27 = load ptr, ptr %6, align 8
+  %28 = getelementptr inbounds nuw %struct.NFA, ptr %27, i32 0, i32 5
+  %29 = load i8, ptr %28, align 1
+  %30 = zext i8 %29 to i64
+  %31 = icmp ugt i64 %26, %30
+  br i1 %31, label %32, label %35
 
-if.end77.i:                                       ; preds = %if.end76.i, %if.end.i
-  store i8 1, ptr %retval.i18, align 1
-  br label %nfaQueueCanMatch.exit
+32:                                               ; preds = %21
+  br label %33
 
-nfaQueueCanMatch.exit:                            ; preds = %if.end77.i, %if.then72.i, %if.then15.i, %if.then.i
-  %68 = load i8, ptr %retval.i18, align 1
-  %tobool = icmp ne i8 %68, 0
-  br i1 %tobool, label %if.end11, label %if.then5
+33:                                               ; preds = %32
+  br label %34
 
-if.then5:                                         ; preds = %nfaQueueCanMatch.exit
-  %69 = load ptr, ptr %q.addr, align 8
-  %report_current = getelementptr inbounds %struct.mq, ptr %69, i32 0, i32 11
-  %70 = load i8, ptr %report_current, align 8
-  %tobool6 = icmp ne i8 %70, 0
-  br i1 %tobool6, label %if.then7, label %if.end10
+34:                                               ; preds = %33
+  store i8 0, ptr %5, align 1
+  br label %168
 
-if.then7:                                         ; preds = %if.then5
-  %71 = load ptr, ptr %nfa.addr, align 8
-  %72 = load ptr, ptr %q.addr, align 8
-  %call8 = call signext i8 @nfaReportCurrentMatches(ptr noundef %71, ptr noundef %72)
-  %73 = load ptr, ptr %q.addr, align 8
-  %report_current9 = getelementptr inbounds %struct.mq, ptr %73, i32 0, i32 11
-  store i8 0, ptr %report_current9, align 8
-  br label %if.end10
+35:                                               ; preds = %21, %15
+  %36 = load ptr, ptr %6, align 8
+  %37 = getelementptr inbounds nuw %struct.NFA, ptr %36, i32 0, i32 13
+  %38 = load i32, ptr %37, align 8
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %40, label %167
 
-if.end10:                                         ; preds = %if.then7, %if.then5
-  store i8 0, ptr %retval, align 1
-  br label %return
+40:                                               ; preds = %35
+  %41 = load ptr, ptr %7, align 8
+  %42 = getelementptr inbounds nuw %struct.mq, ptr %41, i32 0, i32 5
+  %43 = load i64, ptr %42, align 8
+  %44 = load ptr, ptr %6, align 8
+  %45 = getelementptr inbounds nuw %struct.NFA, ptr %44, i32 0, i32 13
+  %46 = load i32, ptr %45, align 8
+  %47 = zext i32 %46 to i64
+  %48 = icmp uge i64 %43, %47
+  br i1 %48, label %49, label %52
 
-if.end11:                                         ; preds = %nfaQueueCanMatch.exit
-  %74 = load ptr, ptr %nfa.addr, align 8
-  %75 = load ptr, ptr %q.addr, align 8
-  %76 = load i64, ptr %end.addr, align 8
-  store ptr %74, ptr %nfa.addr.i, align 8
-  store ptr %75, ptr %q.addr.i, align 8
-  store i64 %76, ptr %end.addr.i, align 8
-  %77 = load ptr, ptr %nfa.addr.i, align 8
-  %type.i = getelementptr inbounds %struct.NFA, ptr %77, i32 0, i32 2
-  %78 = load i8, ptr %type.i, align 8
-  %conv.i = zext i8 %78 to i32
-  switch i32 %conv.i, label %sw.default.i [
-    i32 0, label %sw.bb.i
-    i32 1, label %sw.bb1.i
-    i32 2, label %sw.bb3.i
-    i32 3, label %sw.bb5.i
-    i32 4, label %sw.bb7.i
-    i32 5, label %sw.bb9.i
-    i32 6, label %sw.bb11.i
-    i32 7, label %sw.bb13.i
-    i32 8, label %sw.bb15.i
-    i32 9, label %sw.bb17.i
-    i32 10, label %sw.bb19.i
-    i32 11, label %sw.bb21.i
-    i32 12, label %sw.bb23.i
-    i32 13, label %sw.bb25.i
-    i32 14, label %sw.bb27.i
-    i32 15, label %sw.bb29.i
-    i32 16, label %sw.bb31.i
-    i32 17, label %sw.bb33.i
-    i32 18, label %sw.bb35.i
-    i32 19, label %sw.bb37.i
-    i32 20, label %sw.bb39.i
-    i32 21, label %sw.bb41.i
-    i32 22, label %sw.bb43.i
-    i32 23, label %sw.bb46.i
-    i32 24, label %sw.bb49.i
+49:                                               ; preds = %40
+  br label %50
+
+50:                                               ; preds = %49
+  br label %51
+
+51:                                               ; preds = %50
+  store i8 0, ptr %5, align 1
+  br label %168
+
+52:                                               ; preds = %40
+  %53 = load ptr, ptr %7, align 8
+  %54 = getelementptr inbounds nuw %struct.mq, ptr %53, i32 0, i32 5
+  %55 = load i64, ptr %54, align 8
+  %56 = load i64, ptr %8, align 8
+  %57 = add i64 %55, %56
+  %58 = load ptr, ptr %6, align 8
+  %59 = getelementptr inbounds nuw %struct.NFA, ptr %58, i32 0, i32 13
+  %60 = load i32, ptr %59, align 8
+  %61 = zext i32 %60 to i64
+  %62 = icmp ugt i64 %57, %61
+  br i1 %62, label %63, label %166
+
+63:                                               ; preds = %52
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  %64 = load ptr, ptr %6, align 8
+  %65 = getelementptr inbounds nuw %struct.NFA, ptr %64, i32 0, i32 13
+  %66 = load i32, ptr %65, align 8
+  %67 = zext i32 %66 to i64
+  %68 = load ptr, ptr %7, align 8
+  %69 = getelementptr inbounds nuw %struct.mq, ptr %68, i32 0, i32 5
+  %70 = load i64, ptr %69, align 8
+  %71 = sub i64 %67, %70
+  store i64 %71, ptr %10, align 8
+  br label %72
+
+72:                                               ; preds = %63
+  br label %73
+
+73:                                               ; preds = %72
+  br label %74
+
+74:                                               ; preds = %73
+  br label %75
+
+75:                                               ; preds = %144, %74
+  %76 = load ptr, ptr %7, align 8
+  %77 = getelementptr inbounds nuw %struct.mq, ptr %76, i32 0, i32 2
+  %78 = load i32, ptr %77, align 4
+  %79 = load ptr, ptr %7, align 8
+  %80 = getelementptr inbounds nuw %struct.mq, ptr %79, i32 0, i32 1
+  %81 = load i32, ptr %80, align 8
+  %82 = icmp ugt i32 %78, %81
+  br i1 %82, label %83, label %96
+
+83:                                               ; preds = %75
+  %84 = load ptr, ptr %7, align 8
+  %85 = getelementptr inbounds nuw %struct.mq, ptr %84, i32 0, i32 14
+  %86 = load ptr, ptr %7, align 8
+  %87 = getelementptr inbounds nuw %struct.mq, ptr %86, i32 0, i32 2
+  %88 = load i32, ptr %87, align 4
+  %89 = sub i32 %88, 1
+  %90 = zext i32 %89 to i64
+  %91 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %85, i64 0, i64 %90
+  %92 = getelementptr inbounds nuw %struct.mq_item, ptr %91, i32 0, i32 1
+  %93 = load i64, ptr %92, align 8
+  %94 = load i64, ptr %10, align 8
+  %95 = icmp sgt i64 %93, %94
+  br label %96
+
+96:                                               ; preds = %83, %75
+  %97 = phi i1 [ false, %75 ], [ %95, %83 ]
+  br i1 %97, label %98, label %149
+
+98:                                               ; preds = %96
+  %99 = load ptr, ptr %9, align 8
+  store i8 1, ptr %99, align 1
+  br label %100
+
+100:                                              ; preds = %98
+  br label %101
+
+101:                                              ; preds = %100
+  br label %102
+
+102:                                              ; preds = %101
+  %103 = load i64, ptr %10, align 8
+  %104 = load ptr, ptr %7, align 8
+  %105 = getelementptr inbounds nuw %struct.mq, ptr %104, i32 0, i32 14
+  %106 = load ptr, ptr %7, align 8
+  %107 = getelementptr inbounds nuw %struct.mq, ptr %106, i32 0, i32 2
+  %108 = load i32, ptr %107, align 4
+  %109 = sub i32 %108, 1
+  %110 = zext i32 %109 to i64
+  %111 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %105, i64 0, i64 %110
+  %112 = getelementptr inbounds nuw %struct.mq_item, ptr %111, i32 0, i32 1
+  store i64 %103, ptr %112, align 8
+  %113 = load ptr, ptr %7, align 8
+  %114 = getelementptr inbounds nuw %struct.mq, ptr %113, i32 0, i32 14
+  %115 = load ptr, ptr %7, align 8
+  %116 = getelementptr inbounds nuw %struct.mq, ptr %115, i32 0, i32 2
+  %117 = load i32, ptr %116, align 4
+  %118 = sub i32 %117, 1
+  %119 = zext i32 %118 to i64
+  %120 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %114, i64 0, i64 %119
+  %121 = getelementptr inbounds nuw %struct.mq_item, ptr %120, i32 0, i32 0
+  store i32 1, ptr %121, align 8
+  %122 = load ptr, ptr %7, align 8
+  %123 = getelementptr inbounds nuw %struct.mq, ptr %122, i32 0, i32 2
+  %124 = load i32, ptr %123, align 4
+  %125 = load ptr, ptr %7, align 8
+  %126 = getelementptr inbounds nuw %struct.mq, ptr %125, i32 0, i32 1
+  %127 = load i32, ptr %126, align 8
+  %128 = sub i32 %124, %127
+  %129 = icmp ult i32 %128, 2
+  br i1 %129, label %143, label %130
+
+130:                                              ; preds = %102
+  %131 = load ptr, ptr %7, align 8
+  %132 = getelementptr inbounds nuw %struct.mq, ptr %131, i32 0, i32 14
+  %133 = load ptr, ptr %7, align 8
+  %134 = getelementptr inbounds nuw %struct.mq, ptr %133, i32 0, i32 2
+  %135 = load i32, ptr %134, align 4
+  %136 = sub i32 %135, 2
+  %137 = zext i32 %136 to i64
+  %138 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %132, i64 0, i64 %137
+  %139 = getelementptr inbounds nuw %struct.mq_item, ptr %138, i32 0, i32 1
+  %140 = load i64, ptr %139, align 8
+  %141 = load i64, ptr %10, align 8
+  %142 = icmp sle i64 %140, %141
+  br i1 %142, label %143, label %144
+
+143:                                              ; preds = %130, %102
+  br label %149
+
+144:                                              ; preds = %130
+  %145 = load ptr, ptr %7, align 8
+  %146 = getelementptr inbounds nuw %struct.mq, ptr %145, i32 0, i32 2
+  %147 = load i32, ptr %146, align 4
+  %148 = add i32 %147, -1
+  store i32 %148, ptr %146, align 4
+  br label %75
+
+149:                                              ; preds = %143, %96
+  %150 = load ptr, ptr %7, align 8
+  %151 = getelementptr inbounds nuw %struct.mq, ptr %150, i32 0, i32 2
+  %152 = load i32, ptr %151, align 4
+  %153 = load ptr, ptr %7, align 8
+  %154 = getelementptr inbounds nuw %struct.mq, ptr %153, i32 0, i32 1
+  %155 = load i32, ptr %154, align 8
+  %156 = sub i32 %152, %155
+  %157 = icmp ult i32 %156, 2
+  br i1 %157, label %158, label %162
+
+158:                                              ; preds = %149
+  br label %159
+
+159:                                              ; preds = %158
+  br label %160
+
+160:                                              ; preds = %159
+  br label %161
+
+161:                                              ; preds = %160
+  store i8 0, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %163
+
+162:                                              ; preds = %149
+  store i32 0, ptr %11, align 4
+  br label %163
+
+163:                                              ; preds = %162, %161
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  %164 = load i32, ptr %11, align 4
+  switch i32 %164, label %170 [
+    i32 0, label %165
+    i32 1, label %168
   ]
 
-sw.bb.i:                                          ; preds = %if.end11
-  %79 = load ptr, ptr %nfa.addr.i, align 8
-  %80 = load ptr, ptr %q.addr.i, align 8
-  %81 = load i64, ptr %end.addr.i, align 8
-  %call.i = call signext i8 @nfaExecLimEx32_Q(ptr noundef %79, ptr noundef %80, i64 noundef %81) #2
-  store i8 %call.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
+165:                                              ; preds = %163
+  br label %166
 
-sw.bb1.i:                                         ; preds = %if.end11
-  %82 = load ptr, ptr %nfa.addr.i, align 8
-  %83 = load ptr, ptr %q.addr.i, align 8
-  %84 = load i64, ptr %end.addr.i, align 8
-  %call2.i = call signext i8 @nfaExecLimEx64_Q(ptr noundef %82, ptr noundef %83, i64 noundef %84) #2
-  store i8 %call2.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
+166:                                              ; preds = %165, %52
+  br label %167
 
-sw.bb3.i:                                         ; preds = %if.end11
-  %85 = load ptr, ptr %nfa.addr.i, align 8
-  %86 = load ptr, ptr %q.addr.i, align 8
-  %87 = load i64, ptr %end.addr.i, align 8
-  %call4.i = call signext i8 @nfaExecLimEx128_Q(ptr noundef %85, ptr noundef %86, i64 noundef %87) #2
-  store i8 %call4.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
+167:                                              ; preds = %166, %35
+  store i8 1, ptr %5, align 1
+  br label %168
 
-sw.bb5.i:                                         ; preds = %if.end11
-  %88 = load ptr, ptr %nfa.addr.i, align 8
-  %89 = load ptr, ptr %q.addr.i, align 8
-  %90 = load i64, ptr %end.addr.i, align 8
-  %call6.i = call signext i8 @nfaExecLimEx256_Q(ptr noundef %88, ptr noundef %89, i64 noundef %90) #2
-  store i8 %call6.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
+168:                                              ; preds = %167, %163, %51, %34
+  %169 = load i8, ptr %5, align 1
+  ret i8 %169
 
-sw.bb7.i:                                         ; preds = %if.end11
-  %91 = load ptr, ptr %nfa.addr.i, align 8
-  %92 = load ptr, ptr %q.addr.i, align 8
-  %93 = load i64, ptr %end.addr.i, align 8
-  %call8.i = call signext i8 @nfaExecLimEx384_Q(ptr noundef %91, ptr noundef %92, i64 noundef %93) #2
-  store i8 %call8.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
-
-sw.bb9.i:                                         ; preds = %if.end11
-  %94 = load ptr, ptr %nfa.addr.i, align 8
-  %95 = load ptr, ptr %q.addr.i, align 8
-  %96 = load i64, ptr %end.addr.i, align 8
-  %call10.i = call signext i8 @nfaExecLimEx512_Q(ptr noundef %94, ptr noundef %95, i64 noundef %96) #2
-  store i8 %call10.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
-
-sw.bb11.i:                                        ; preds = %if.end11
-  %97 = load ptr, ptr %nfa.addr.i, align 8
-  %98 = load ptr, ptr %q.addr.i, align 8
-  %99 = load i64, ptr %end.addr.i, align 8
-  %call12.i = call signext i8 @nfaExecMcClellan8_Q(ptr noundef %97, ptr noundef %98, i64 noundef %99) #2
-  store i8 %call12.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
-
-sw.bb13.i:                                        ; preds = %if.end11
-  %100 = load ptr, ptr %nfa.addr.i, align 8
-  %101 = load ptr, ptr %q.addr.i, align 8
-  %102 = load i64, ptr %end.addr.i, align 8
-  %call14.i = call signext i8 @nfaExecMcClellan16_Q(ptr noundef %100, ptr noundef %101, i64 noundef %102) #2
-  store i8 %call14.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
-
-sw.bb15.i:                                        ; preds = %if.end11
-  %103 = load ptr, ptr %nfa.addr.i, align 8
-  %104 = load ptr, ptr %q.addr.i, align 8
-  %105 = load i64, ptr %end.addr.i, align 8
-  %call16.i = call signext i8 @nfaExecGough8_Q(ptr noundef %103, ptr noundef %104, i64 noundef %105) #2
-  store i8 %call16.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
-
-sw.bb17.i:                                        ; preds = %if.end11
-  %106 = load ptr, ptr %nfa.addr.i, align 8
-  %107 = load ptr, ptr %q.addr.i, align 8
-  %108 = load i64, ptr %end.addr.i, align 8
-  %call18.i = call signext i8 @nfaExecGough16_Q(ptr noundef %106, ptr noundef %107, i64 noundef %108) #2
-  store i8 %call18.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
-
-sw.bb19.i:                                        ; preds = %if.end11
-  %109 = load ptr, ptr %nfa.addr.i, align 8
-  %110 = load ptr, ptr %q.addr.i, align 8
-  %111 = load i64, ptr %end.addr.i, align 8
-  %call20.i = call signext i8 @nfaExecMpv_Q(ptr noundef %109, ptr noundef %110, i64 noundef %111) #2
-  store i8 %call20.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
-
-sw.bb21.i:                                        ; preds = %if.end11
-  %112 = load ptr, ptr %nfa.addr.i, align 8
-  %113 = load ptr, ptr %q.addr.i, align 8
-  %114 = load i64, ptr %end.addr.i, align 8
-  %call22.i = call signext i8 @nfaExecLbrDot_Q(ptr noundef %112, ptr noundef %113, i64 noundef %114) #2
-  store i8 %call22.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
-
-sw.bb23.i:                                        ; preds = %if.end11
-  %115 = load ptr, ptr %nfa.addr.i, align 8
-  %116 = load ptr, ptr %q.addr.i, align 8
-  %117 = load i64, ptr %end.addr.i, align 8
-  %call24.i = call signext i8 @nfaExecLbrVerm_Q(ptr noundef %115, ptr noundef %116, i64 noundef %117) #2
-  store i8 %call24.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
-
-sw.bb25.i:                                        ; preds = %if.end11
-  %118 = load ptr, ptr %nfa.addr.i, align 8
-  %119 = load ptr, ptr %q.addr.i, align 8
-  %120 = load i64, ptr %end.addr.i, align 8
-  %call26.i = call signext i8 @nfaExecLbrNVerm_Q(ptr noundef %118, ptr noundef %119, i64 noundef %120) #2
-  store i8 %call26.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
-
-sw.bb27.i:                                        ; preds = %if.end11
-  %121 = load ptr, ptr %nfa.addr.i, align 8
-  %122 = load ptr, ptr %q.addr.i, align 8
-  %123 = load i64, ptr %end.addr.i, align 8
-  %call28.i = call signext i8 @nfaExecLbrShuf_Q(ptr noundef %121, ptr noundef %122, i64 noundef %123) #2
-  store i8 %call28.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
-
-sw.bb29.i:                                        ; preds = %if.end11
-  %124 = load ptr, ptr %nfa.addr.i, align 8
-  %125 = load ptr, ptr %q.addr.i, align 8
-  %126 = load i64, ptr %end.addr.i, align 8
-  %call30.i = call signext i8 @nfaExecLbrTruf_Q(ptr noundef %124, ptr noundef %125, i64 noundef %126) #2
-  store i8 %call30.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
-
-sw.bb31.i:                                        ; preds = %if.end11
-  %127 = load ptr, ptr %nfa.addr.i, align 8
-  %128 = load ptr, ptr %q.addr.i, align 8
-  %129 = load i64, ptr %end.addr.i, align 8
-  %call32.i = call signext i8 @nfaExecCastle_Q(ptr noundef %127, ptr noundef %128, i64 noundef %129) #2
-  store i8 %call32.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
-
-sw.bb33.i:                                        ; preds = %if.end11
-  %130 = load ptr, ptr %nfa.addr.i, align 8
-  %131 = load ptr, ptr %q.addr.i, align 8
-  %132 = load i64, ptr %end.addr.i, align 8
-  %call34.i = call signext i8 @nfaExecSheng_Q(ptr noundef %130, ptr noundef %131, i64 noundef %132) #2
-  store i8 %call34.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
-
-sw.bb35.i:                                        ; preds = %if.end11
-  %133 = load ptr, ptr %nfa.addr.i, align 8
-  %134 = load ptr, ptr %q.addr.i, align 8
-  %135 = load i64, ptr %end.addr.i, align 8
-  %call36.i = call signext i8 @nfaExecTamarama_Q(ptr noundef %133, ptr noundef %134, i64 noundef %135) #2
-  store i8 %call36.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
-
-sw.bb37.i:                                        ; preds = %if.end11
-  %136 = load ptr, ptr %nfa.addr.i, align 8
-  %137 = load ptr, ptr %q.addr.i, align 8
-  %138 = load i64, ptr %end.addr.i, align 8
-  %call38.i = call signext i8 @nfaExecMcSheng8_Q(ptr noundef %136, ptr noundef %137, i64 noundef %138) #2
-  store i8 %call38.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
-
-sw.bb39.i:                                        ; preds = %if.end11
-  %139 = load ptr, ptr %nfa.addr.i, align 8
-  %140 = load ptr, ptr %q.addr.i, align 8
-  %141 = load i64, ptr %end.addr.i, align 8
-  %call40.i = call signext i8 @nfaExecMcSheng16_Q(ptr noundef %139, ptr noundef %140, i64 noundef %141) #2
-  store i8 %call40.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
-
-sw.bb41.i:                                        ; preds = %if.end11
-  store i32 0, ptr %tmp.i, align 4
-  %142 = load i32, ptr %tmp.i, align 4
-  %conv42.i = trunc i32 %142 to i8
-  store i8 %conv42.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
-
-sw.bb43.i:                                        ; preds = %if.end11
-  store i32 0, ptr %tmp44.i, align 4
-  %143 = load i32, ptr %tmp44.i, align 4
-  %conv45.i = trunc i32 %143 to i8
-  store i8 %conv45.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
-
-sw.bb46.i:                                        ; preds = %if.end11
-  store i32 0, ptr %tmp47.i, align 4
-  %144 = load i32, ptr %tmp47.i, align 4
-  %conv48.i = trunc i32 %144 to i8
-  store i8 %conv48.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
-
-sw.bb49.i:                                        ; preds = %if.end11
-  store i32 0, ptr %tmp50.i, align 4
-  %145 = load i32, ptr %tmp50.i, align 4
-  %conv51.i = trunc i32 %145 to i8
-  store i8 %conv51.i, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
-
-sw.default.i:                                     ; preds = %if.end11
-  store i8 0, ptr %retval.i, align 1
-  br label %nfaQueueExec_i.exit
-
-nfaQueueExec_i.exit:                              ; preds = %sw.default.i, %sw.bb49.i, %sw.bb46.i, %sw.bb43.i, %sw.bb41.i, %sw.bb39.i, %sw.bb37.i, %sw.bb35.i, %sw.bb33.i, %sw.bb31.i, %sw.bb29.i, %sw.bb27.i, %sw.bb25.i, %sw.bb23.i, %sw.bb21.i, %sw.bb19.i, %sw.bb17.i, %sw.bb15.i, %sw.bb13.i, %sw.bb11.i, %sw.bb9.i, %sw.bb7.i, %sw.bb5.i, %sw.bb3.i, %sw.bb1.i, %sw.bb.i
-  %146 = load i8, ptr %retval.i, align 1
-  store i8 %146, ptr %rv, align 1
-  br label %do.body13
-
-do.body13:                                        ; preds = %nfaQueueExec_i.exit
-  br label %do.end14
-
-do.end14:                                         ; preds = %do.body13
-  %147 = load i8, ptr %rv, align 1
-  %conv = sext i8 %147 to i32
-  %tobool15 = icmp ne i32 %conv, 0
-  br i1 %tobool15, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %do.end14
-  %148 = load i8, ptr %q_trimmed, align 1
-  %tobool16 = icmp ne i8 %148, 0
-  %lnot = xor i1 %tobool16, true
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %do.end14
-  %149 = phi i1 [ false, %do.end14 ], [ %lnot, %land.rhs ]
-  %land.ext = zext i1 %149 to i32
-  %conv17 = trunc i32 %land.ext to i8
-  store i8 %conv17, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %land.end, %if.end10, %if.then
-  %150 = load i8, ptr %retval, align 1
-  ret i8 %150
+170:                                              ; preds = %163
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaReportCurrentMatches(ptr noundef %nfa, ptr noundef %q) #0 {
-entry:
-  %retval = alloca i8, align 1
-  %nfa.addr = alloca ptr, align 8
-  %q.addr = alloca ptr, align 8
-  %tmp = alloca i32, align 4
-  %tmp44 = alloca i32, align 4
-  %tmp47 = alloca i32, align 4
-  %tmp50 = alloca i32, align 4
-  store ptr %nfa, ptr %nfa.addr, align 8
-  store ptr %q, ptr %q.addr, align 8
-  %0 = load ptr, ptr %nfa.addr, align 8
-  %type = getelementptr inbounds %struct.NFA, ptr %0, i32 0, i32 2
-  %1 = load i8, ptr %type, align 8
-  %conv = zext i8 %1 to i32
-  switch i32 %conv, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb1
-    i32 2, label %sw.bb3
-    i32 3, label %sw.bb5
-    i32 4, label %sw.bb7
-    i32 5, label %sw.bb9
-    i32 6, label %sw.bb11
-    i32 7, label %sw.bb13
-    i32 8, label %sw.bb15
-    i32 9, label %sw.bb17
-    i32 10, label %sw.bb19
-    i32 11, label %sw.bb21
-    i32 12, label %sw.bb23
-    i32 13, label %sw.bb25
-    i32 14, label %sw.bb27
-    i32 15, label %sw.bb29
-    i32 16, label %sw.bb31
-    i32 17, label %sw.bb33
-    i32 18, label %sw.bb35
-    i32 19, label %sw.bb37
-    i32 20, label %sw.bb39
-    i32 21, label %sw.bb41
-    i32 22, label %sw.bb43
-    i32 23, label %sw.bb46
-    i32 24, label %sw.bb49
+define hidden signext i8 @nfaReportCurrentMatches(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i8, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds nuw %struct.NFA, ptr %10, i32 0, i32 2
+  %12 = load i8, ptr %11, align 8
+  %13 = zext i8 %12 to i32
+  switch i32 %13, label %110 [
+    i32 0, label %14
+    i32 1, label %18
+    i32 2, label %22
+    i32 3, label %26
+    i32 4, label %30
+    i32 5, label %34
+    i32 6, label %38
+    i32 7, label %42
+    i32 8, label %46
+    i32 9, label %50
+    i32 10, label %54
+    i32 11, label %58
+    i32 12, label %62
+    i32 13, label %66
+    i32 14, label %70
+    i32 15, label %74
+    i32 16, label %78
+    i32 17, label %82
+    i32 18, label %86
+    i32 19, label %90
+    i32 20, label %94
+    i32 21, label %98
+    i32 22, label %101
+    i32 23, label %104
+    i32 24, label %107
   ]
 
-sw.bb:                                            ; preds = %entry
-  %2 = load ptr, ptr %nfa.addr, align 8
-  %3 = load ptr, ptr %q.addr, align 8
-  %call = call signext i8 @nfaExecLimEx32_reportCurrent(ptr noundef %2, ptr noundef %3)
-  store i8 %call, ptr %retval, align 1
-  br label %return
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %4, align 8
+  %16 = load ptr, ptr %5, align 8
+  %17 = call signext i8 @nfaExecLimEx32_reportCurrent(ptr noundef %15, ptr noundef %16)
+  store i8 %17, ptr %3, align 1
+  br label %112
 
-sw.bb1:                                           ; preds = %entry
-  %4 = load ptr, ptr %nfa.addr, align 8
-  %5 = load ptr, ptr %q.addr, align 8
-  %call2 = call signext i8 @nfaExecLimEx64_reportCurrent(ptr noundef %4, ptr noundef %5)
-  store i8 %call2, ptr %retval, align 1
-  br label %return
+18:                                               ; preds = %2
+  %19 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %5, align 8
+  %21 = call signext i8 @nfaExecLimEx64_reportCurrent(ptr noundef %19, ptr noundef %20)
+  store i8 %21, ptr %3, align 1
+  br label %112
 
-sw.bb3:                                           ; preds = %entry
-  %6 = load ptr, ptr %nfa.addr, align 8
-  %7 = load ptr, ptr %q.addr, align 8
-  %call4 = call signext i8 @nfaExecLimEx128_reportCurrent(ptr noundef %6, ptr noundef %7)
-  store i8 %call4, ptr %retval, align 1
-  br label %return
+22:                                               ; preds = %2
+  %23 = load ptr, ptr %4, align 8
+  %24 = load ptr, ptr %5, align 8
+  %25 = call signext i8 @nfaExecLimEx128_reportCurrent(ptr noundef %23, ptr noundef %24)
+  store i8 %25, ptr %3, align 1
+  br label %112
 
-sw.bb5:                                           ; preds = %entry
-  %8 = load ptr, ptr %nfa.addr, align 8
-  %9 = load ptr, ptr %q.addr, align 8
-  %call6 = call signext i8 @nfaExecLimEx256_reportCurrent(ptr noundef %8, ptr noundef %9)
-  store i8 %call6, ptr %retval, align 1
-  br label %return
+26:                                               ; preds = %2
+  %27 = load ptr, ptr %4, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = call signext i8 @nfaExecLimEx256_reportCurrent(ptr noundef %27, ptr noundef %28)
+  store i8 %29, ptr %3, align 1
+  br label %112
 
-sw.bb7:                                           ; preds = %entry
-  %10 = load ptr, ptr %nfa.addr, align 8
-  %11 = load ptr, ptr %q.addr, align 8
-  %call8 = call signext i8 @nfaExecLimEx384_reportCurrent(ptr noundef %10, ptr noundef %11)
-  store i8 %call8, ptr %retval, align 1
-  br label %return
+30:                                               ; preds = %2
+  %31 = load ptr, ptr %4, align 8
+  %32 = load ptr, ptr %5, align 8
+  %33 = call signext i8 @nfaExecLimEx384_reportCurrent(ptr noundef %31, ptr noundef %32)
+  store i8 %33, ptr %3, align 1
+  br label %112
 
-sw.bb9:                                           ; preds = %entry
-  %12 = load ptr, ptr %nfa.addr, align 8
-  %13 = load ptr, ptr %q.addr, align 8
-  %call10 = call signext i8 @nfaExecLimEx512_reportCurrent(ptr noundef %12, ptr noundef %13)
-  store i8 %call10, ptr %retval, align 1
-  br label %return
+34:                                               ; preds = %2
+  %35 = load ptr, ptr %4, align 8
+  %36 = load ptr, ptr %5, align 8
+  %37 = call signext i8 @nfaExecLimEx512_reportCurrent(ptr noundef %35, ptr noundef %36)
+  store i8 %37, ptr %3, align 1
+  br label %112
 
-sw.bb11:                                          ; preds = %entry
-  %14 = load ptr, ptr %nfa.addr, align 8
-  %15 = load ptr, ptr %q.addr, align 8
-  %call12 = call signext i8 @nfaExecMcClellan8_reportCurrent(ptr noundef %14, ptr noundef %15)
-  store i8 %call12, ptr %retval, align 1
-  br label %return
+38:                                               ; preds = %2
+  %39 = load ptr, ptr %4, align 8
+  %40 = load ptr, ptr %5, align 8
+  %41 = call signext i8 @nfaExecMcClellan8_reportCurrent(ptr noundef %39, ptr noundef %40)
+  store i8 %41, ptr %3, align 1
+  br label %112
 
-sw.bb13:                                          ; preds = %entry
-  %16 = load ptr, ptr %nfa.addr, align 8
-  %17 = load ptr, ptr %q.addr, align 8
-  %call14 = call signext i8 @nfaExecMcClellan16_reportCurrent(ptr noundef %16, ptr noundef %17)
-  store i8 %call14, ptr %retval, align 1
-  br label %return
+42:                                               ; preds = %2
+  %43 = load ptr, ptr %4, align 8
+  %44 = load ptr, ptr %5, align 8
+  %45 = call signext i8 @nfaExecMcClellan16_reportCurrent(ptr noundef %43, ptr noundef %44)
+  store i8 %45, ptr %3, align 1
+  br label %112
 
-sw.bb15:                                          ; preds = %entry
-  %18 = load ptr, ptr %nfa.addr, align 8
-  %19 = load ptr, ptr %q.addr, align 8
-  %call16 = call signext i8 @nfaExecGough8_reportCurrent(ptr noundef %18, ptr noundef %19)
-  store i8 %call16, ptr %retval, align 1
-  br label %return
+46:                                               ; preds = %2
+  %47 = load ptr, ptr %4, align 8
+  %48 = load ptr, ptr %5, align 8
+  %49 = call signext i8 @nfaExecGough8_reportCurrent(ptr noundef %47, ptr noundef %48)
+  store i8 %49, ptr %3, align 1
+  br label %112
 
-sw.bb17:                                          ; preds = %entry
-  %20 = load ptr, ptr %nfa.addr, align 8
-  %21 = load ptr, ptr %q.addr, align 8
-  %call18 = call signext i8 @nfaExecGough16_reportCurrent(ptr noundef %20, ptr noundef %21)
-  store i8 %call18, ptr %retval, align 1
-  br label %return
+50:                                               ; preds = %2
+  %51 = load ptr, ptr %4, align 8
+  %52 = load ptr, ptr %5, align 8
+  %53 = call signext i8 @nfaExecGough16_reportCurrent(ptr noundef %51, ptr noundef %52)
+  store i8 %53, ptr %3, align 1
+  br label %112
 
-sw.bb19:                                          ; preds = %entry
-  %22 = load ptr, ptr %nfa.addr, align 8
-  %23 = load ptr, ptr %q.addr, align 8
-  %call20 = call signext i8 @nfaExecMpv_reportCurrent(ptr noundef %22, ptr noundef %23)
-  store i8 %call20, ptr %retval, align 1
-  br label %return
+54:                                               ; preds = %2
+  %55 = load ptr, ptr %4, align 8
+  %56 = load ptr, ptr %5, align 8
+  %57 = call signext i8 @nfaExecMpv_reportCurrent(ptr noundef %55, ptr noundef %56)
+  store i8 %57, ptr %3, align 1
+  br label %112
 
-sw.bb21:                                          ; preds = %entry
-  %24 = load ptr, ptr %nfa.addr, align 8
-  %25 = load ptr, ptr %q.addr, align 8
-  %call22 = call signext i8 @nfaExecLbrDot_reportCurrent(ptr noundef %24, ptr noundef %25)
-  store i8 %call22, ptr %retval, align 1
-  br label %return
+58:                                               ; preds = %2
+  %59 = load ptr, ptr %4, align 8
+  %60 = load ptr, ptr %5, align 8
+  %61 = call signext i8 @nfaExecLbrDot_reportCurrent(ptr noundef %59, ptr noundef %60)
+  store i8 %61, ptr %3, align 1
+  br label %112
 
-sw.bb23:                                          ; preds = %entry
-  %26 = load ptr, ptr %nfa.addr, align 8
-  %27 = load ptr, ptr %q.addr, align 8
-  %call24 = call signext i8 @nfaExecLbrVerm_reportCurrent(ptr noundef %26, ptr noundef %27)
-  store i8 %call24, ptr %retval, align 1
-  br label %return
+62:                                               ; preds = %2
+  %63 = load ptr, ptr %4, align 8
+  %64 = load ptr, ptr %5, align 8
+  %65 = call signext i8 @nfaExecLbrVerm_reportCurrent(ptr noundef %63, ptr noundef %64)
+  store i8 %65, ptr %3, align 1
+  br label %112
 
-sw.bb25:                                          ; preds = %entry
-  %28 = load ptr, ptr %nfa.addr, align 8
-  %29 = load ptr, ptr %q.addr, align 8
-  %call26 = call signext i8 @nfaExecLbrNVerm_reportCurrent(ptr noundef %28, ptr noundef %29)
-  store i8 %call26, ptr %retval, align 1
-  br label %return
+66:                                               ; preds = %2
+  %67 = load ptr, ptr %4, align 8
+  %68 = load ptr, ptr %5, align 8
+  %69 = call signext i8 @nfaExecLbrNVerm_reportCurrent(ptr noundef %67, ptr noundef %68)
+  store i8 %69, ptr %3, align 1
+  br label %112
 
-sw.bb27:                                          ; preds = %entry
-  %30 = load ptr, ptr %nfa.addr, align 8
-  %31 = load ptr, ptr %q.addr, align 8
-  %call28 = call signext i8 @nfaExecLbrShuf_reportCurrent(ptr noundef %30, ptr noundef %31)
-  store i8 %call28, ptr %retval, align 1
-  br label %return
+70:                                               ; preds = %2
+  %71 = load ptr, ptr %4, align 8
+  %72 = load ptr, ptr %5, align 8
+  %73 = call signext i8 @nfaExecLbrShuf_reportCurrent(ptr noundef %71, ptr noundef %72)
+  store i8 %73, ptr %3, align 1
+  br label %112
 
-sw.bb29:                                          ; preds = %entry
-  %32 = load ptr, ptr %nfa.addr, align 8
-  %33 = load ptr, ptr %q.addr, align 8
-  %call30 = call signext i8 @nfaExecLbrTruf_reportCurrent(ptr noundef %32, ptr noundef %33)
-  store i8 %call30, ptr %retval, align 1
-  br label %return
+74:                                               ; preds = %2
+  %75 = load ptr, ptr %4, align 8
+  %76 = load ptr, ptr %5, align 8
+  %77 = call signext i8 @nfaExecLbrTruf_reportCurrent(ptr noundef %75, ptr noundef %76)
+  store i8 %77, ptr %3, align 1
+  br label %112
 
-sw.bb31:                                          ; preds = %entry
-  %34 = load ptr, ptr %nfa.addr, align 8
-  %35 = load ptr, ptr %q.addr, align 8
-  %call32 = call signext i8 @nfaExecCastle_reportCurrent(ptr noundef %34, ptr noundef %35)
-  store i8 %call32, ptr %retval, align 1
-  br label %return
+78:                                               ; preds = %2
+  %79 = load ptr, ptr %4, align 8
+  %80 = load ptr, ptr %5, align 8
+  %81 = call signext i8 @nfaExecCastle_reportCurrent(ptr noundef %79, ptr noundef %80)
+  store i8 %81, ptr %3, align 1
+  br label %112
 
-sw.bb33:                                          ; preds = %entry
-  %36 = load ptr, ptr %nfa.addr, align 8
-  %37 = load ptr, ptr %q.addr, align 8
-  %call34 = call signext i8 @nfaExecSheng_reportCurrent(ptr noundef %36, ptr noundef %37)
-  store i8 %call34, ptr %retval, align 1
-  br label %return
+82:                                               ; preds = %2
+  %83 = load ptr, ptr %4, align 8
+  %84 = load ptr, ptr %5, align 8
+  %85 = call signext i8 @nfaExecSheng_reportCurrent(ptr noundef %83, ptr noundef %84)
+  store i8 %85, ptr %3, align 1
+  br label %112
 
-sw.bb35:                                          ; preds = %entry
-  %38 = load ptr, ptr %nfa.addr, align 8
-  %39 = load ptr, ptr %q.addr, align 8
-  %call36 = call signext i8 @nfaExecTamarama_reportCurrent(ptr noundef %38, ptr noundef %39)
-  store i8 %call36, ptr %retval, align 1
-  br label %return
+86:                                               ; preds = %2
+  %87 = load ptr, ptr %4, align 8
+  %88 = load ptr, ptr %5, align 8
+  %89 = call signext i8 @nfaExecTamarama_reportCurrent(ptr noundef %87, ptr noundef %88)
+  store i8 %89, ptr %3, align 1
+  br label %112
 
-sw.bb37:                                          ; preds = %entry
-  %40 = load ptr, ptr %nfa.addr, align 8
-  %41 = load ptr, ptr %q.addr, align 8
-  %call38 = call signext i8 @nfaExecMcSheng8_reportCurrent(ptr noundef %40, ptr noundef %41)
-  store i8 %call38, ptr %retval, align 1
-  br label %return
+90:                                               ; preds = %2
+  %91 = load ptr, ptr %4, align 8
+  %92 = load ptr, ptr %5, align 8
+  %93 = call signext i8 @nfaExecMcSheng8_reportCurrent(ptr noundef %91, ptr noundef %92)
+  store i8 %93, ptr %3, align 1
+  br label %112
 
-sw.bb39:                                          ; preds = %entry
-  %42 = load ptr, ptr %nfa.addr, align 8
-  %43 = load ptr, ptr %q.addr, align 8
-  %call40 = call signext i8 @nfaExecMcSheng16_reportCurrent(ptr noundef %42, ptr noundef %43)
-  store i8 %call40, ptr %retval, align 1
-  br label %return
+94:                                               ; preds = %2
+  %95 = load ptr, ptr %4, align 8
+  %96 = load ptr, ptr %5, align 8
+  %97 = call signext i8 @nfaExecMcSheng16_reportCurrent(ptr noundef %95, ptr noundef %96)
+  store i8 %97, ptr %3, align 1
+  br label %112
 
-sw.bb41:                                          ; preds = %entry
-  store i32 0, ptr %tmp, align 4
-  %44 = load i32, ptr %tmp, align 4
-  %conv42 = trunc i32 %44 to i8
-  store i8 %conv42, ptr %retval, align 1
-  br label %return
+98:                                               ; preds = %2
+  store i32 0, ptr %6, align 4
+  %99 = load i32, ptr %6, align 4
+  %100 = trunc i32 %99 to i8
+  store i8 %100, ptr %3, align 1
+  br label %112
 
-sw.bb43:                                          ; preds = %entry
-  store i32 0, ptr %tmp44, align 4
-  %45 = load i32, ptr %tmp44, align 4
-  %conv45 = trunc i32 %45 to i8
-  store i8 %conv45, ptr %retval, align 1
-  br label %return
+101:                                              ; preds = %2
+  store i32 0, ptr %7, align 4
+  %102 = load i32, ptr %7, align 4
+  %103 = trunc i32 %102 to i8
+  store i8 %103, ptr %3, align 1
+  br label %112
 
-sw.bb46:                                          ; preds = %entry
-  store i32 0, ptr %tmp47, align 4
-  %46 = load i32, ptr %tmp47, align 4
-  %conv48 = trunc i32 %46 to i8
-  store i8 %conv48, ptr %retval, align 1
-  br label %return
+104:                                              ; preds = %2
+  store i32 0, ptr %8, align 4
+  %105 = load i32, ptr %8, align 4
+  %106 = trunc i32 %105 to i8
+  store i8 %106, ptr %3, align 1
+  br label %112
 
-sw.bb49:                                          ; preds = %entry
-  store i32 0, ptr %tmp50, align 4
-  %47 = load i32, ptr %tmp50, align 4
-  %conv51 = trunc i32 %47 to i8
-  store i8 %conv51, ptr %retval, align 1
-  br label %return
+107:                                              ; preds = %2
+  store i32 0, ptr %9, align 4
+  %108 = load i32, ptr %9, align 4
+  %109 = trunc i32 %108 to i8
+  store i8 %109, ptr %3, align 1
+  br label %112
 
-sw.default:                                       ; preds = %entry
-  br label %sw.epilog
+110:                                              ; preds = %2
+  br label %111
 
-sw.epilog:                                        ; preds = %sw.default
-  store i8 0, ptr %retval, align 1
-  br label %return
+111:                                              ; preds = %110
+  store i8 0, ptr %3, align 1
+  br label %112
 
-return:                                           ; preds = %sw.epilog, %sw.bb49, %sw.bb46, %sw.bb43, %sw.bb41, %sw.bb39, %sw.bb37, %sw.bb35, %sw.bb33, %sw.bb31, %sw.bb29, %sw.bb27, %sw.bb25, %sw.bb23, %sw.bb21, %sw.bb19, %sw.bb17, %sw.bb15, %sw.bb13, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb1, %sw.bb
-  %48 = load i8, ptr %retval, align 1
-  ret i8 %48
+112:                                              ; preds = %111, %107, %104, %101, %98, %94, %90, %86, %82, %78, %74, %70, %66, %62, %58, %54, %50, %46, %42, %38, %34, %30, %26, %22, %18, %14
+  %113 = load i8, ptr %3, align 1
+  ret i8 %113
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaQueueExecToMatch(ptr noundef %nfa, ptr noundef %q, i64 noundef %end) #0 {
-entry:
-  %retval.i33 = alloca i8, align 1
-  %nfa.addr.i34 = alloca ptr, align 8
-  %q.addr.i35 = alloca ptr, align 8
-  %end.addr.i36 = alloca i64, align 8
-  %q_trimmed.addr.i = alloca ptr, align 8
-  %maxEnd.i = alloca i64, align 8
-  %retval.i = alloca i8, align 1
-  %nfa.addr.i = alloca ptr, align 8
-  %q.addr.i = alloca ptr, align 8
-  %end.addr.i = alloca i64, align 8
-  %tmp.i = alloca i32, align 4
-  %tmp42.i = alloca i32, align 4
-  %tmp45.i = alloca i32, align 4
-  %tmp48.i = alloca i32, align 4
-  %tmp51.i = alloca i32, align 4
-  %retval = alloca i8, align 1
-  %nfa.addr = alloca ptr, align 8
-  %q.addr = alloca ptr, align 8
-  %end.addr = alloca i64, align 8
-  %q_trimmed_ra = alloca i8, align 1
-  %q_trimmed = alloca i8, align 1
-  %rv = alloca i8, align 1
-  store ptr %nfa, ptr %nfa.addr, align 8
-  store ptr %q, ptr %q.addr, align 8
-  store i64 %end, ptr %end.addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  store i8 0, ptr %q_trimmed_ra, align 1
-  %0 = load ptr, ptr %q.addr, align 8
-  %items = getelementptr inbounds %struct.mq, ptr %0, i32 0, i32 14
-  %1 = load ptr, ptr %q.addr, align 8
-  %cur = getelementptr inbounds %struct.mq, ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %cur, align 8
-  %idxprom = zext i32 %2 to i64
-  %arrayidx = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom
-  %location = getelementptr inbounds %struct.mq_item, ptr %arrayidx, i32 0, i32 1
-  %3 = load i64, ptr %location, align 8
-  %4 = load i64, ptr %end.addr, align 8
-  %cmp = icmp sgt i64 %3, %4
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %do.end
-  store i8 1, ptr %retval, align 1
-  br label %return
-
-if.end:                                           ; preds = %do.end
-  %5 = load i64, ptr %end.addr, align 8
-  %6 = load ptr, ptr %q.addr, align 8
-  %length = getelementptr inbounds %struct.mq, ptr %6, i32 0, i32 7
-  %7 = load i64, ptr %length, align 8
-  %cmp1 = icmp sgt i64 %5, %7
-  br i1 %cmp1, label %if.then2, label %if.end4
-
-if.then2:                                         ; preds = %if.end
-  %8 = load ptr, ptr %q.addr, align 8
-  %length3 = getelementptr inbounds %struct.mq, ptr %8, i32 0, i32 7
-  %9 = load i64, ptr %length3, align 8
-  store i64 %9, ptr %end.addr, align 8
-  store i8 1, ptr %q_trimmed_ra, align 1
-  br label %if.end4
-
-if.end4:                                          ; preds = %if.then2, %if.end
-  store i8 0, ptr %q_trimmed, align 1
-  %10 = load ptr, ptr %nfa.addr, align 8
-  %11 = load ptr, ptr %q.addr, align 8
-  %12 = load i64, ptr %end.addr, align 8
-  store ptr %10, ptr %nfa.addr.i34, align 8
-  store ptr %11, ptr %q.addr.i35, align 8
-  store i64 %12, ptr %end.addr.i36, align 8
-  store ptr %q_trimmed, ptr %q_trimmed.addr.i, align 8
-  %13 = load ptr, ptr %nfa.addr.i34, align 8
-  %maxBiAnchoredWidth.i = getelementptr inbounds %struct.NFA, ptr %13, i32 0, i32 5
-  %14 = load i8, ptr %maxBiAnchoredWidth.i, align 1
-  %conv.i37 = zext i8 %14 to i32
-  %tobool.i = icmp ne i32 %conv.i37, 0
-  br i1 %tobool.i, label %land.lhs.true.i, label %if.end.i
-
-land.lhs.true.i:                                  ; preds = %if.end4
-  %15 = load i64, ptr %end.addr.i36, align 8
-  %16 = load ptr, ptr %q.addr.i35, align 8
-  %offset.i = getelementptr inbounds %struct.mq, ptr %16, i32 0, i32 5
-  %17 = load i64, ptr %offset.i, align 8
-  %add.i = add i64 %15, %17
-  %18 = load ptr, ptr %nfa.addr.i34, align 8
-  %maxBiAnchoredWidth3.i = getelementptr inbounds %struct.NFA, ptr %18, i32 0, i32 5
-  %19 = load i8, ptr %maxBiAnchoredWidth3.i, align 1
-  %conv4.i = zext i8 %19 to i64
-  %cmp.i = icmp ugt i64 %add.i, %conv4.i
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %land.lhs.true.i
-  store i8 0, ptr %retval.i33, align 1
-  br label %nfaQueueCanMatch.exit
-
-if.end.i:                                         ; preds = %land.lhs.true.i, %if.end4
-  %20 = load ptr, ptr %nfa.addr.i34, align 8
-  %maxOffset.i = getelementptr inbounds %struct.NFA, ptr %20, i32 0, i32 13
-  %21 = load i32, ptr %maxOffset.i, align 8
-  %tobool8.i = icmp ne i32 %21, 0
-  br i1 %tobool8.i, label %if.then9.i, label %if.end77.i
-
-if.then9.i:                                       ; preds = %if.end.i
-  %22 = load ptr, ptr %q.addr.i35, align 8
-  %offset10.i = getelementptr inbounds %struct.mq, ptr %22, i32 0, i32 5
-  %23 = load i64, ptr %offset10.i, align 8
-  %24 = load ptr, ptr %nfa.addr.i34, align 8
-  %maxOffset11.i = getelementptr inbounds %struct.NFA, ptr %24, i32 0, i32 13
-  %25 = load i32, ptr %maxOffset11.i, align 8
-  %conv12.i = zext i32 %25 to i64
-  %cmp13.i = icmp uge i64 %23, %conv12.i
-  br i1 %cmp13.i, label %if.then15.i, label %if.end18.i
-
-if.then15.i:                                      ; preds = %if.then9.i
-  store i8 0, ptr %retval.i33, align 1
-  br label %nfaQueueCanMatch.exit
-
-if.end18.i:                                       ; preds = %if.then9.i
-  %26 = load ptr, ptr %q.addr.i35, align 8
-  %offset19.i = getelementptr inbounds %struct.mq, ptr %26, i32 0, i32 5
-  %27 = load i64, ptr %offset19.i, align 8
-  %28 = load i64, ptr %end.addr.i36, align 8
-  %add20.i = add i64 %27, %28
-  %29 = load ptr, ptr %nfa.addr.i34, align 8
-  %maxOffset21.i = getelementptr inbounds %struct.NFA, ptr %29, i32 0, i32 13
-  %30 = load i32, ptr %maxOffset21.i, align 8
-  %conv22.i = zext i32 %30 to i64
-  %cmp23.i = icmp ugt i64 %add20.i, %conv22.i
-  br i1 %cmp23.i, label %if.then25.i, label %if.end76.i
-
-if.then25.i:                                      ; preds = %if.end18.i
-  %31 = load ptr, ptr %nfa.addr.i34, align 8
-  %maxOffset26.i = getelementptr inbounds %struct.NFA, ptr %31, i32 0, i32 13
-  %32 = load i32, ptr %maxOffset26.i, align 8
-  %conv27.i = zext i32 %32 to i64
-  %33 = load ptr, ptr %q.addr.i35, align 8
-  %offset28.i = getelementptr inbounds %struct.mq, ptr %33, i32 0, i32 5
-  %34 = load i64, ptr %offset28.i, align 8
-  %sub.i = sub i64 %conv27.i, %34
-  store i64 %sub.i, ptr %maxEnd.i, align 8
-  br label %while.cond.i
-
-while.cond.i:                                     ; preds = %if.end65.i, %if.then25.i
-  %35 = load ptr, ptr %q.addr.i35, align 8
-  %end31.i = getelementptr inbounds %struct.mq, ptr %35, i32 0, i32 2
-  %36 = load i32, ptr %end31.i, align 4
-  %37 = load ptr, ptr %q.addr.i35, align 8
-  %cur.i = getelementptr inbounds %struct.mq, ptr %37, i32 0, i32 1
-  %38 = load i32, ptr %cur.i, align 8
-  %cmp32.i = icmp ugt i32 %36, %38
-  br i1 %cmp32.i, label %land.rhs.i, label %land.end.i
-
-land.rhs.i:                                       ; preds = %while.cond.i
-  %39 = load ptr, ptr %q.addr.i35, align 8
-  %items.i = getelementptr inbounds %struct.mq, ptr %39, i32 0, i32 14
-  %40 = load ptr, ptr %q.addr.i35, align 8
-  %end34.i = getelementptr inbounds %struct.mq, ptr %40, i32 0, i32 2
-  %41 = load i32, ptr %end34.i, align 4
-  %sub35.i = sub i32 %41, 1
-  %idxprom.i = zext i32 %sub35.i to i64
-  %arrayidx.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i, i64 0, i64 %idxprom.i
-  %location.i = getelementptr inbounds %struct.mq_item, ptr %arrayidx.i, i32 0, i32 1
-  %42 = load i64, ptr %location.i, align 8
-  %43 = load i64, ptr %maxEnd.i, align 8
-  %cmp36.i = icmp sgt i64 %42, %43
-  br label %land.end.i
-
-land.end.i:                                       ; preds = %land.rhs.i, %while.cond.i
-  %44 = phi i1 [ false, %while.cond.i ], [ %cmp36.i, %land.rhs.i ]
-  br i1 %44, label %while.body.i, label %while.end.i
-
-while.body.i:                                     ; preds = %land.end.i
-  %45 = load ptr, ptr %q_trimmed.addr.i, align 8
-  store i8 1, ptr %45, align 1
-  %46 = load i64, ptr %maxEnd.i, align 8
-  %47 = load ptr, ptr %q.addr.i35, align 8
-  %items40.i = getelementptr inbounds %struct.mq, ptr %47, i32 0, i32 14
-  %48 = load ptr, ptr %q.addr.i35, align 8
-  %end41.i = getelementptr inbounds %struct.mq, ptr %48, i32 0, i32 2
-  %49 = load i32, ptr %end41.i, align 4
-  %sub42.i = sub i32 %49, 1
-  %idxprom43.i = zext i32 %sub42.i to i64
-  %arrayidx44.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items40.i, i64 0, i64 %idxprom43.i
-  %location45.i = getelementptr inbounds %struct.mq_item, ptr %arrayidx44.i, i32 0, i32 1
-  store i64 %46, ptr %location45.i, align 8
-  %50 = load ptr, ptr %q.addr.i35, align 8
-  %items46.i = getelementptr inbounds %struct.mq, ptr %50, i32 0, i32 14
-  %51 = load ptr, ptr %q.addr.i35, align 8
-  %end47.i = getelementptr inbounds %struct.mq, ptr %51, i32 0, i32 2
-  %52 = load i32, ptr %end47.i, align 4
-  %sub48.i = sub i32 %52, 1
-  %idxprom49.i = zext i32 %sub48.i to i64
-  %arrayidx50.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items46.i, i64 0, i64 %idxprom49.i
-  store i32 1, ptr %arrayidx50.i, align 8
-  %53 = load ptr, ptr %q.addr.i35, align 8
-  %end51.i = getelementptr inbounds %struct.mq, ptr %53, i32 0, i32 2
-  %54 = load i32, ptr %end51.i, align 4
-  %55 = load ptr, ptr %q.addr.i35, align 8
-  %cur52.i = getelementptr inbounds %struct.mq, ptr %55, i32 0, i32 1
-  %56 = load i32, ptr %cur52.i, align 8
-  %sub53.i = sub i32 %54, %56
-  %cmp54.i = icmp ult i32 %sub53.i, 2
-  br i1 %cmp54.i, label %if.then64.i, label %lor.lhs.false.i
-
-lor.lhs.false.i:                                  ; preds = %while.body.i
-  %57 = load ptr, ptr %q.addr.i35, align 8
-  %items56.i = getelementptr inbounds %struct.mq, ptr %57, i32 0, i32 14
-  %58 = load ptr, ptr %q.addr.i35, align 8
-  %end57.i = getelementptr inbounds %struct.mq, ptr %58, i32 0, i32 2
-  %59 = load i32, ptr %end57.i, align 4
-  %sub58.i = sub i32 %59, 2
-  %idxprom59.i = zext i32 %sub58.i to i64
-  %arrayidx60.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items56.i, i64 0, i64 %idxprom59.i
-  %location61.i = getelementptr inbounds %struct.mq_item, ptr %arrayidx60.i, i32 0, i32 1
-  %60 = load i64, ptr %location61.i, align 8
-  %61 = load i64, ptr %maxEnd.i, align 8
-  %cmp62.i = icmp sle i64 %60, %61
-  br i1 %cmp62.i, label %if.then64.i, label %if.end65.i
-
-if.then64.i:                                      ; preds = %lor.lhs.false.i, %while.body.i
-  br label %while.end.i
-
-if.end65.i:                                       ; preds = %lor.lhs.false.i
-  %62 = load ptr, ptr %q.addr.i35, align 8
-  %end66.i = getelementptr inbounds %struct.mq, ptr %62, i32 0, i32 2
-  %63 = load i32, ptr %end66.i, align 4
-  %dec.i = add i32 %63, -1
-  store i32 %dec.i, ptr %end66.i, align 4
-  br label %while.cond.i, !llvm.loop !5
-
-while.end.i:                                      ; preds = %if.then64.i, %land.end.i
-  %64 = load ptr, ptr %q.addr.i35, align 8
-  %end67.i = getelementptr inbounds %struct.mq, ptr %64, i32 0, i32 2
-  %65 = load i32, ptr %end67.i, align 4
-  %66 = load ptr, ptr %q.addr.i35, align 8
-  %cur68.i = getelementptr inbounds %struct.mq, ptr %66, i32 0, i32 1
-  %67 = load i32, ptr %cur68.i, align 8
-  %sub69.i = sub i32 %65, %67
-  %cmp70.i = icmp ult i32 %sub69.i, 2
-  br i1 %cmp70.i, label %if.then72.i, label %if.end75.i
-
-if.then72.i:                                      ; preds = %while.end.i
-  store i8 0, ptr %retval.i33, align 1
-  br label %nfaQueueCanMatch.exit
-
-if.end75.i:                                       ; preds = %while.end.i
-  br label %if.end76.i
-
-if.end76.i:                                       ; preds = %if.end75.i, %if.end18.i
-  br label %if.end77.i
-
-if.end77.i:                                       ; preds = %if.end76.i, %if.end.i
-  store i8 1, ptr %retval.i33, align 1
-  br label %nfaQueueCanMatch.exit
-
-nfaQueueCanMatch.exit:                            ; preds = %if.end77.i, %if.then72.i, %if.then15.i, %if.then.i
-  %68 = load i8, ptr %retval.i33, align 1
-  %tobool = icmp ne i8 %68, 0
-  br i1 %tobool, label %if.end11, label %if.then5
-
-if.then5:                                         ; preds = %nfaQueueCanMatch.exit
-  %69 = load ptr, ptr %q.addr, align 8
-  %report_current = getelementptr inbounds %struct.mq, ptr %69, i32 0, i32 11
-  %70 = load i8, ptr %report_current, align 8
-  %tobool6 = icmp ne i8 %70, 0
-  br i1 %tobool6, label %if.then7, label %if.end10
-
-if.then7:                                         ; preds = %if.then5
-  %71 = load ptr, ptr %nfa.addr, align 8
-  %72 = load ptr, ptr %q.addr, align 8
-  %call8 = call signext i8 @nfaReportCurrentMatches(ptr noundef %71, ptr noundef %72)
-  %73 = load ptr, ptr %q.addr, align 8
-  %report_current9 = getelementptr inbounds %struct.mq, ptr %73, i32 0, i32 11
-  store i8 0, ptr %report_current9, align 8
-  br label %if.end10
-
-if.end10:                                         ; preds = %if.then7, %if.then5
-  store i8 0, ptr %retval, align 1
-  br label %return
-
-if.end11:                                         ; preds = %nfaQueueCanMatch.exit
-  %74 = load ptr, ptr %nfa.addr, align 8
-  %75 = load ptr, ptr %q.addr, align 8
-  %76 = load i64, ptr %end.addr, align 8
-  store ptr %74, ptr %nfa.addr.i, align 8
-  store ptr %75, ptr %q.addr.i, align 8
-  store i64 %76, ptr %end.addr.i, align 8
-  %77 = load ptr, ptr %nfa.addr.i, align 8
-  %type.i = getelementptr inbounds %struct.NFA, ptr %77, i32 0, i32 2
-  %78 = load i8, ptr %type.i, align 8
-  %conv.i = zext i8 %78 to i32
-  switch i32 %conv.i, label %sw.default.i [
-    i32 0, label %sw.bb.i
-    i32 1, label %sw.bb1.i
-    i32 2, label %sw.bb3.i
-    i32 3, label %sw.bb5.i
-    i32 4, label %sw.bb7.i
-    i32 5, label %sw.bb9.i
-    i32 6, label %sw.bb11.i
-    i32 7, label %sw.bb13.i
-    i32 8, label %sw.bb15.i
-    i32 9, label %sw.bb17.i
-    i32 10, label %sw.bb19.i
-    i32 11, label %sw.bb21.i
-    i32 12, label %sw.bb23.i
-    i32 13, label %sw.bb25.i
-    i32 14, label %sw.bb27.i
-    i32 15, label %sw.bb29.i
-    i32 16, label %sw.bb31.i
-    i32 17, label %sw.bb33.i
-    i32 18, label %sw.bb35.i
-    i32 19, label %sw.bb37.i
-    i32 20, label %sw.bb39.i
-    i32 21, label %sw.bb41.i
-    i32 22, label %sw.bb44.i
-    i32 23, label %sw.bb47.i
-    i32 24, label %sw.bb50.i
-  ]
-
-sw.bb.i:                                          ; preds = %if.end11
-  %79 = load ptr, ptr %nfa.addr.i, align 8
-  %80 = load ptr, ptr %q.addr.i, align 8
-  %81 = load i64, ptr %end.addr.i, align 8
-  %call.i = call signext i8 @nfaExecLimEx32_Q2(ptr noundef %79, ptr noundef %80, i64 noundef %81) #2
-  store i8 %call.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
-
-sw.bb1.i:                                         ; preds = %if.end11
-  %82 = load ptr, ptr %nfa.addr.i, align 8
-  %83 = load ptr, ptr %q.addr.i, align 8
-  %84 = load i64, ptr %end.addr.i, align 8
-  %call2.i = call signext i8 @nfaExecLimEx64_Q2(ptr noundef %82, ptr noundef %83, i64 noundef %84) #2
-  store i8 %call2.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
-
-sw.bb3.i:                                         ; preds = %if.end11
-  %85 = load ptr, ptr %nfa.addr.i, align 8
-  %86 = load ptr, ptr %q.addr.i, align 8
-  %87 = load i64, ptr %end.addr.i, align 8
-  %call4.i = call signext i8 @nfaExecLimEx128_Q2(ptr noundef %85, ptr noundef %86, i64 noundef %87) #2
-  store i8 %call4.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
-
-sw.bb5.i:                                         ; preds = %if.end11
-  %88 = load ptr, ptr %nfa.addr.i, align 8
-  %89 = load ptr, ptr %q.addr.i, align 8
-  %90 = load i64, ptr %end.addr.i, align 8
-  %call6.i = call signext i8 @nfaExecLimEx256_Q2(ptr noundef %88, ptr noundef %89, i64 noundef %90) #2
-  store i8 %call6.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
-
-sw.bb7.i:                                         ; preds = %if.end11
-  %91 = load ptr, ptr %nfa.addr.i, align 8
-  %92 = load ptr, ptr %q.addr.i, align 8
-  %93 = load i64, ptr %end.addr.i, align 8
-  %call8.i = call signext i8 @nfaExecLimEx384_Q2(ptr noundef %91, ptr noundef %92, i64 noundef %93) #2
-  store i8 %call8.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
-
-sw.bb9.i:                                         ; preds = %if.end11
-  %94 = load ptr, ptr %nfa.addr.i, align 8
-  %95 = load ptr, ptr %q.addr.i, align 8
-  %96 = load i64, ptr %end.addr.i, align 8
-  %call10.i = call signext i8 @nfaExecLimEx512_Q2(ptr noundef %94, ptr noundef %95, i64 noundef %96) #2
-  store i8 %call10.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
-
-sw.bb11.i:                                        ; preds = %if.end11
-  %97 = load ptr, ptr %nfa.addr.i, align 8
-  %98 = load ptr, ptr %q.addr.i, align 8
-  %99 = load i64, ptr %end.addr.i, align 8
-  %call12.i = call signext i8 @nfaExecMcClellan8_Q2(ptr noundef %97, ptr noundef %98, i64 noundef %99) #2
-  store i8 %call12.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
-
-sw.bb13.i:                                        ; preds = %if.end11
-  %100 = load ptr, ptr %nfa.addr.i, align 8
-  %101 = load ptr, ptr %q.addr.i, align 8
-  %102 = load i64, ptr %end.addr.i, align 8
-  %call14.i = call signext i8 @nfaExecMcClellan16_Q2(ptr noundef %100, ptr noundef %101, i64 noundef %102) #2
-  store i8 %call14.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
-
-sw.bb15.i:                                        ; preds = %if.end11
-  %103 = load ptr, ptr %nfa.addr.i, align 8
-  %104 = load ptr, ptr %q.addr.i, align 8
-  %105 = load i64, ptr %end.addr.i, align 8
-  %call16.i = call signext i8 @nfaExecGough8_Q2(ptr noundef %103, ptr noundef %104, i64 noundef %105) #2
-  store i8 %call16.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
-
-sw.bb17.i:                                        ; preds = %if.end11
-  %106 = load ptr, ptr %nfa.addr.i, align 8
-  %107 = load ptr, ptr %q.addr.i, align 8
-  %108 = load i64, ptr %end.addr.i, align 8
-  %call18.i = call signext i8 @nfaExecGough16_Q2(ptr noundef %106, ptr noundef %107, i64 noundef %108) #2
-  store i8 %call18.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
-
-sw.bb19.i:                                        ; preds = %if.end11
-  store i32 0, ptr %tmp.i, align 4
-  %109 = load i32, ptr %tmp.i, align 4
-  %conv20.i = trunc i32 %109 to i8
-  store i8 %conv20.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
-
-sw.bb21.i:                                        ; preds = %if.end11
-  %110 = load ptr, ptr %nfa.addr.i, align 8
-  %111 = load ptr, ptr %q.addr.i, align 8
-  %112 = load i64, ptr %end.addr.i, align 8
-  %call22.i = call signext i8 @nfaExecLbrDot_Q2(ptr noundef %110, ptr noundef %111, i64 noundef %112) #2
-  store i8 %call22.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
-
-sw.bb23.i:                                        ; preds = %if.end11
-  %113 = load ptr, ptr %nfa.addr.i, align 8
-  %114 = load ptr, ptr %q.addr.i, align 8
-  %115 = load i64, ptr %end.addr.i, align 8
-  %call24.i = call signext i8 @nfaExecLbrVerm_Q2(ptr noundef %113, ptr noundef %114, i64 noundef %115) #2
-  store i8 %call24.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
-
-sw.bb25.i:                                        ; preds = %if.end11
-  %116 = load ptr, ptr %nfa.addr.i, align 8
-  %117 = load ptr, ptr %q.addr.i, align 8
-  %118 = load i64, ptr %end.addr.i, align 8
-  %call26.i = call signext i8 @nfaExecLbrNVerm_Q2(ptr noundef %116, ptr noundef %117, i64 noundef %118) #2
-  store i8 %call26.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
-
-sw.bb27.i:                                        ; preds = %if.end11
-  %119 = load ptr, ptr %nfa.addr.i, align 8
-  %120 = load ptr, ptr %q.addr.i, align 8
-  %121 = load i64, ptr %end.addr.i, align 8
-  %call28.i = call signext i8 @nfaExecLbrShuf_Q2(ptr noundef %119, ptr noundef %120, i64 noundef %121) #2
-  store i8 %call28.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
-
-sw.bb29.i:                                        ; preds = %if.end11
-  %122 = load ptr, ptr %nfa.addr.i, align 8
-  %123 = load ptr, ptr %q.addr.i, align 8
-  %124 = load i64, ptr %end.addr.i, align 8
-  %call30.i = call signext i8 @nfaExecLbrTruf_Q2(ptr noundef %122, ptr noundef %123, i64 noundef %124) #2
-  store i8 %call30.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
-
-sw.bb31.i:                                        ; preds = %if.end11
-  %125 = load ptr, ptr %nfa.addr.i, align 8
-  %126 = load ptr, ptr %q.addr.i, align 8
-  %127 = load i64, ptr %end.addr.i, align 8
-  %call32.i = call signext i8 @nfaExecCastle_Q2(ptr noundef %125, ptr noundef %126, i64 noundef %127) #2
-  store i8 %call32.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
-
-sw.bb33.i:                                        ; preds = %if.end11
-  %128 = load ptr, ptr %nfa.addr.i, align 8
-  %129 = load ptr, ptr %q.addr.i, align 8
-  %130 = load i64, ptr %end.addr.i, align 8
-  %call34.i = call signext i8 @nfaExecSheng_Q2(ptr noundef %128, ptr noundef %129, i64 noundef %130) #2
-  store i8 %call34.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
-
-sw.bb35.i:                                        ; preds = %if.end11
-  %131 = load ptr, ptr %nfa.addr.i, align 8
-  %132 = load ptr, ptr %q.addr.i, align 8
-  %133 = load i64, ptr %end.addr.i, align 8
-  %call36.i = call signext i8 @nfaExecTamarama_Q2(ptr noundef %131, ptr noundef %132, i64 noundef %133) #2
-  store i8 %call36.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
-
-sw.bb37.i:                                        ; preds = %if.end11
-  %134 = load ptr, ptr %nfa.addr.i, align 8
-  %135 = load ptr, ptr %q.addr.i, align 8
-  %136 = load i64, ptr %end.addr.i, align 8
-  %call38.i = call signext i8 @nfaExecMcSheng8_Q2(ptr noundef %134, ptr noundef %135, i64 noundef %136) #2
-  store i8 %call38.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
-
-sw.bb39.i:                                        ; preds = %if.end11
-  %137 = load ptr, ptr %nfa.addr.i, align 8
-  %138 = load ptr, ptr %q.addr.i, align 8
-  %139 = load i64, ptr %end.addr.i, align 8
-  %call40.i = call signext i8 @nfaExecMcSheng16_Q2(ptr noundef %137, ptr noundef %138, i64 noundef %139) #2
-  store i8 %call40.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
-
-sw.bb41.i:                                        ; preds = %if.end11
-  store i32 0, ptr %tmp42.i, align 4
-  %140 = load i32, ptr %tmp42.i, align 4
-  %conv43.i = trunc i32 %140 to i8
-  store i8 %conv43.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
-
-sw.bb44.i:                                        ; preds = %if.end11
-  store i32 0, ptr %tmp45.i, align 4
-  %141 = load i32, ptr %tmp45.i, align 4
-  %conv46.i = trunc i32 %141 to i8
-  store i8 %conv46.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
-
-sw.bb47.i:                                        ; preds = %if.end11
-  store i32 0, ptr %tmp48.i, align 4
-  %142 = load i32, ptr %tmp48.i, align 4
-  %conv49.i = trunc i32 %142 to i8
-  store i8 %conv49.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
-
-sw.bb50.i:                                        ; preds = %if.end11
-  store i32 0, ptr %tmp51.i, align 4
-  %143 = load i32, ptr %tmp51.i, align 4
-  %conv52.i = trunc i32 %143 to i8
-  store i8 %conv52.i, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
-
-sw.default.i:                                     ; preds = %if.end11
-  store i8 0, ptr %retval.i, align 1
-  br label %nfaQueueExec2_i.exit
-
-nfaQueueExec2_i.exit:                             ; preds = %sw.default.i, %sw.bb50.i, %sw.bb47.i, %sw.bb44.i, %sw.bb41.i, %sw.bb39.i, %sw.bb37.i, %sw.bb35.i, %sw.bb33.i, %sw.bb31.i, %sw.bb29.i, %sw.bb27.i, %sw.bb25.i, %sw.bb23.i, %sw.bb21.i, %sw.bb19.i, %sw.bb17.i, %sw.bb15.i, %sw.bb13.i, %sw.bb11.i, %sw.bb9.i, %sw.bb7.i, %sw.bb5.i, %sw.bb3.i, %sw.bb1.i, %sw.bb.i
-  %144 = load i8, ptr %retval.i, align 1
-  store i8 %144, ptr %rv, align 1
-  br label %do.body13
-
-do.body13:                                        ; preds = %nfaQueueExec2_i.exit
-  br label %do.end14
-
-do.end14:                                         ; preds = %do.body13
-  %145 = load i8, ptr %rv, align 1
-  %conv = sext i8 %145 to i32
-  %cmp15 = icmp eq i32 %conv, 2
-  br i1 %cmp15, label %if.then17, label %if.end27
-
-if.then17:                                        ; preds = %do.end14
-  %146 = load i8, ptr %q_trimmed, align 1
-  %tobool18 = icmp ne i8 %146, 0
-  br i1 %tobool18, label %if.then19, label %if.end26
-
-if.then19:                                        ; preds = %if.then17
-  %147 = load ptr, ptr %nfa.addr, align 8
-  %maxOffset = getelementptr inbounds %struct.NFA, ptr %147, i32 0, i32 13
-  %148 = load i32, ptr %maxOffset, align 8
-  %add = add i32 %148, 1
-  %conv20 = zext i32 %add to i64
-  %149 = load ptr, ptr %q.addr, align 8
-  %items21 = getelementptr inbounds %struct.mq, ptr %149, i32 0, i32 14
-  %150 = load ptr, ptr %q.addr, align 8
-  %end22 = getelementptr inbounds %struct.mq, ptr %150, i32 0, i32 2
-  %151 = load i32, ptr %end22, align 4
-  %sub = sub i32 %151, 1
-  %idxprom23 = zext i32 %sub to i64
-  %arrayidx24 = getelementptr inbounds [10 x %struct.mq_item], ptr %items21, i64 0, i64 %idxprom23
-  %location25 = getelementptr inbounds %struct.mq_item, ptr %arrayidx24, i32 0, i32 1
-  store i64 %conv20, ptr %location25, align 8
-  br label %if.end26
-
-if.end26:                                         ; preds = %if.then19, %if.then17
-  %152 = load i8, ptr %rv, align 1
-  store i8 %152, ptr %retval, align 1
-  br label %return
-
-if.end27:                                         ; preds = %do.end14
-  %153 = load i8, ptr %rv, align 1
-  %conv28 = sext i8 %153 to i32
-  %tobool29 = icmp ne i32 %conv28, 0
-  br i1 %tobool29, label %land.lhs.true, label %land.end
-
-land.lhs.true:                                    ; preds = %if.end27
-  %154 = load i8, ptr %q_trimmed, align 1
-  %tobool30 = icmp ne i8 %154, 0
-  br i1 %tobool30, label %land.end, label %land.rhs
-
-land.rhs:                                         ; preds = %land.lhs.true
-  %155 = load i8, ptr %q_trimmed_ra, align 1
-  %tobool31 = icmp ne i8 %155, 0
-  %lnot = xor i1 %tobool31, true
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %land.lhs.true, %if.end27
-  %156 = phi i1 [ false, %land.lhs.true ], [ false, %if.end27 ], [ %lnot, %land.rhs ]
-  %land.ext = zext i1 %156 to i32
-  %conv32 = trunc i32 %land.ext to i8
-  store i8 %conv32, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %land.end, %if.end26, %if.end10, %if.then
-  %157 = load i8, ptr %retval, align 1
-  ret i8 %157
+define hidden signext i8 @nfaQueueExecToMatch(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca i8, align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i8, align 1
+  %9 = alloca i32, align 4
+  %10 = alloca i8, align 1
+  %11 = alloca i8, align 1
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  br label %12
+
+12:                                               ; preds = %3
+  br label %13
+
+13:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #4
+  store i8 0, ptr %8, align 1
+  %14 = load ptr, ptr %6, align 8
+  %15 = getelementptr inbounds nuw %struct.mq, ptr %14, i32 0, i32 14
+  %16 = load ptr, ptr %6, align 8
+  %17 = getelementptr inbounds nuw %struct.mq, ptr %16, i32 0, i32 1
+  %18 = load i32, ptr %17, align 8
+  %19 = zext i32 %18 to i64
+  %20 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %15, i64 0, i64 %19
+  %21 = getelementptr inbounds nuw %struct.mq_item, ptr %20, i32 0, i32 1
+  %22 = load i64, ptr %21, align 8
+  %23 = load i64, ptr %7, align 8
+  %24 = icmp sgt i64 %22, %23
+  br i1 %24, label %25, label %26
+
+25:                                               ; preds = %13
+  store i8 1, ptr %4, align 1
+  store i32 1, ptr %9, align 4
+  br label %102
+
+26:                                               ; preds = %13
+  %27 = load i64, ptr %7, align 8
+  %28 = load ptr, ptr %6, align 8
+  %29 = getelementptr inbounds nuw %struct.mq, ptr %28, i32 0, i32 7
+  %30 = load i64, ptr %29, align 8
+  %31 = icmp sgt i64 %27, %30
+  br i1 %31, label %32, label %36
+
+32:                                               ; preds = %26
+  %33 = load ptr, ptr %6, align 8
+  %34 = getelementptr inbounds nuw %struct.mq, ptr %33, i32 0, i32 7
+  %35 = load i64, ptr %34, align 8
+  store i64 %35, ptr %7, align 8
+  store i8 1, ptr %8, align 1
+  br label %36
+
+36:                                               ; preds = %32, %26
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #4
+  store i8 0, ptr %10, align 1
+  %37 = load ptr, ptr %5, align 8
+  %38 = load ptr, ptr %6, align 8
+  %39 = load i64, ptr %7, align 8
+  %40 = call signext i8 @nfaQueueCanMatch(ptr noundef %37, ptr noundef %38, i64 noundef %39, ptr noundef %10)
+  %41 = icmp ne i8 %40, 0
+  br i1 %41, label %54, label %42
+
+42:                                               ; preds = %36
+  %43 = load ptr, ptr %6, align 8
+  %44 = getelementptr inbounds nuw %struct.mq, ptr %43, i32 0, i32 11
+  %45 = load i8, ptr %44, align 8
+  %46 = icmp ne i8 %45, 0
+  br i1 %46, label %47, label %53
+
+47:                                               ; preds = %42
+  %48 = load ptr, ptr %5, align 8
+  %49 = load ptr, ptr %6, align 8
+  %50 = call signext i8 @nfaReportCurrentMatches(ptr noundef %48, ptr noundef %49)
+  %51 = load ptr, ptr %6, align 8
+  %52 = getelementptr inbounds nuw %struct.mq, ptr %51, i32 0, i32 11
+  store i8 0, ptr %52, align 8
+  br label %53
+
+53:                                               ; preds = %47, %42
+  store i8 0, ptr %4, align 1
+  store i32 1, ptr %9, align 4
+  br label %101
+
+54:                                               ; preds = %36
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #4
+  %55 = load ptr, ptr %5, align 8
+  %56 = load ptr, ptr %6, align 8
+  %57 = load i64, ptr %7, align 8
+  %58 = call signext i8 @nfaQueueExec2_i(ptr noundef %55, ptr noundef %56, i64 noundef %57)
+  store i8 %58, ptr %11, align 1
+  br label %59
+
+59:                                               ; preds = %54
+  br label %60
+
+60:                                               ; preds = %59
+  br label %61
+
+61:                                               ; preds = %60
+  %62 = load i8, ptr %11, align 1
+  %63 = sext i8 %62 to i32
+  %64 = icmp eq i32 %63, 2
+  br i1 %64, label %65, label %85
+
+65:                                               ; preds = %61
+  %66 = load i8, ptr %10, align 1
+  %67 = icmp ne i8 %66, 0
+  br i1 %67, label %68, label %83
+
+68:                                               ; preds = %65
+  %69 = load ptr, ptr %5, align 8
+  %70 = getelementptr inbounds nuw %struct.NFA, ptr %69, i32 0, i32 13
+  %71 = load i32, ptr %70, align 8
+  %72 = add i32 %71, 1
+  %73 = zext i32 %72 to i64
+  %74 = load ptr, ptr %6, align 8
+  %75 = getelementptr inbounds nuw %struct.mq, ptr %74, i32 0, i32 14
+  %76 = load ptr, ptr %6, align 8
+  %77 = getelementptr inbounds nuw %struct.mq, ptr %76, i32 0, i32 2
+  %78 = load i32, ptr %77, align 4
+  %79 = sub i32 %78, 1
+  %80 = zext i32 %79 to i64
+  %81 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %75, i64 0, i64 %80
+  %82 = getelementptr inbounds nuw %struct.mq_item, ptr %81, i32 0, i32 1
+  store i64 %73, ptr %82, align 8
+  br label %83
+
+83:                                               ; preds = %68, %65
+  %84 = load i8, ptr %11, align 1
+  store i8 %84, ptr %4, align 1
+  store i32 1, ptr %9, align 4
+  br label %100
+
+85:                                               ; preds = %61
+  %86 = load i8, ptr %11, align 1
+  %87 = sext i8 %86 to i32
+  %88 = icmp ne i32 %87, 0
+  br i1 %88, label %89, label %96
+
+89:                                               ; preds = %85
+  %90 = load i8, ptr %10, align 1
+  %91 = icmp ne i8 %90, 0
+  br i1 %91, label %96, label %92
+
+92:                                               ; preds = %89
+  %93 = load i8, ptr %8, align 1
+  %94 = icmp ne i8 %93, 0
+  %95 = xor i1 %94, true
+  br label %96
+
+96:                                               ; preds = %92, %89, %85
+  %97 = phi i1 [ false, %89 ], [ false, %85 ], [ %95, %92 ]
+  %98 = zext i1 %97 to i32
+  %99 = trunc i32 %98 to i8
+  store i8 %99, ptr %4, align 1
+  store i32 1, ptr %9, align 4
+  br label %100
+
+100:                                              ; preds = %96, %83
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #4
+  br label %101
+
+101:                                              ; preds = %100, %53
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #4
+  br label %102
+
+102:                                              ; preds = %101, %25
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #4
+  %103 = load i8, ptr %4, align 1
+  ret i8 %103
 }
 
 declare signext i8 @nfaExecLimEx32_reportCurrent(ptr noundef, ptr noundef) #1
@@ -2552,257 +1995,256 @@ declare signext i8 @nfaExecMcSheng8_reportCurrent(ptr noundef, ptr noundef) #1
 declare signext i8 @nfaExecMcSheng16_reportCurrent(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaInAcceptState(ptr noundef %nfa, i32 noundef %report, ptr noundef %q) #0 {
-entry:
-  %retval = alloca i8, align 1
-  %nfa.addr = alloca ptr, align 8
-  %report.addr = alloca i32, align 4
-  %q.addr = alloca ptr, align 8
-  %tmp = alloca i32, align 4
-  %tmp42 = alloca i32, align 4
-  %tmp45 = alloca i32, align 4
-  %tmp48 = alloca i32, align 4
-  %tmp51 = alloca i32, align 4
-  store ptr %nfa, ptr %nfa.addr, align 8
-  store i32 %report, ptr %report.addr, align 4
-  store ptr %q, ptr %q.addr, align 8
-  %0 = load ptr, ptr %nfa.addr, align 8
-  %type = getelementptr inbounds %struct.NFA, ptr %0, i32 0, i32 2
-  %1 = load i8, ptr %type, align 8
-  %conv = zext i8 %1 to i32
-  switch i32 %conv, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb1
-    i32 2, label %sw.bb3
-    i32 3, label %sw.bb5
-    i32 4, label %sw.bb7
-    i32 5, label %sw.bb9
-    i32 6, label %sw.bb11
-    i32 7, label %sw.bb13
-    i32 8, label %sw.bb15
-    i32 9, label %sw.bb17
-    i32 10, label %sw.bb19
-    i32 11, label %sw.bb21
-    i32 12, label %sw.bb23
-    i32 13, label %sw.bb25
-    i32 14, label %sw.bb27
-    i32 15, label %sw.bb29
-    i32 16, label %sw.bb31
-    i32 17, label %sw.bb33
-    i32 18, label %sw.bb35
-    i32 19, label %sw.bb37
-    i32 20, label %sw.bb39
-    i32 21, label %sw.bb41
-    i32 22, label %sw.bb44
-    i32 23, label %sw.bb47
-    i32 24, label %sw.bb50
+define hidden signext i8 @nfaInAcceptState(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i8, align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  %13 = load ptr, ptr %5, align 8
+  %14 = getelementptr inbounds nuw %struct.NFA, ptr %13, i32 0, i32 2
+  %15 = load i8, ptr %14, align 8
+  %16 = zext i8 %15 to i32
+  switch i32 %16, label %132 [
+    i32 0, label %17
+    i32 1, label %22
+    i32 2, label %27
+    i32 3, label %32
+    i32 4, label %37
+    i32 5, label %42
+    i32 6, label %47
+    i32 7, label %52
+    i32 8, label %57
+    i32 9, label %62
+    i32 10, label %67
+    i32 11, label %70
+    i32 12, label %75
+    i32 13, label %80
+    i32 14, label %85
+    i32 15, label %90
+    i32 16, label %95
+    i32 17, label %100
+    i32 18, label %105
+    i32 19, label %110
+    i32 20, label %115
+    i32 21, label %120
+    i32 22, label %123
+    i32 23, label %126
+    i32 24, label %129
   ]
 
-sw.bb:                                            ; preds = %entry
-  %2 = load ptr, ptr %nfa.addr, align 8
-  %3 = load i32, ptr %report.addr, align 4
-  %4 = load ptr, ptr %q.addr, align 8
-  %call = call signext i8 @nfaExecLimEx32_inAccept(ptr noundef %2, i32 noundef %3, ptr noundef %4)
-  store i8 %call, ptr %retval, align 1
-  br label %return
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %5, align 8
+  %19 = load i32, ptr %6, align 4
+  %20 = load ptr, ptr %7, align 8
+  %21 = call signext i8 @nfaExecLimEx32_inAccept(ptr noundef %18, i32 noundef %19, ptr noundef %20)
+  store i8 %21, ptr %4, align 1
+  br label %134
 
-sw.bb1:                                           ; preds = %entry
-  %5 = load ptr, ptr %nfa.addr, align 8
-  %6 = load i32, ptr %report.addr, align 4
-  %7 = load ptr, ptr %q.addr, align 8
-  %call2 = call signext i8 @nfaExecLimEx64_inAccept(ptr noundef %5, i32 noundef %6, ptr noundef %7)
-  store i8 %call2, ptr %retval, align 1
-  br label %return
+22:                                               ; preds = %3
+  %23 = load ptr, ptr %5, align 8
+  %24 = load i32, ptr %6, align 4
+  %25 = load ptr, ptr %7, align 8
+  %26 = call signext i8 @nfaExecLimEx64_inAccept(ptr noundef %23, i32 noundef %24, ptr noundef %25)
+  store i8 %26, ptr %4, align 1
+  br label %134
 
-sw.bb3:                                           ; preds = %entry
-  %8 = load ptr, ptr %nfa.addr, align 8
-  %9 = load i32, ptr %report.addr, align 4
-  %10 = load ptr, ptr %q.addr, align 8
-  %call4 = call signext i8 @nfaExecLimEx128_inAccept(ptr noundef %8, i32 noundef %9, ptr noundef %10)
-  store i8 %call4, ptr %retval, align 1
-  br label %return
+27:                                               ; preds = %3
+  %28 = load ptr, ptr %5, align 8
+  %29 = load i32, ptr %6, align 4
+  %30 = load ptr, ptr %7, align 8
+  %31 = call signext i8 @nfaExecLimEx128_inAccept(ptr noundef %28, i32 noundef %29, ptr noundef %30)
+  store i8 %31, ptr %4, align 1
+  br label %134
 
-sw.bb5:                                           ; preds = %entry
-  %11 = load ptr, ptr %nfa.addr, align 8
-  %12 = load i32, ptr %report.addr, align 4
-  %13 = load ptr, ptr %q.addr, align 8
-  %call6 = call signext i8 @nfaExecLimEx256_inAccept(ptr noundef %11, i32 noundef %12, ptr noundef %13)
-  store i8 %call6, ptr %retval, align 1
-  br label %return
+32:                                               ; preds = %3
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i32, ptr %6, align 4
+  %35 = load ptr, ptr %7, align 8
+  %36 = call signext i8 @nfaExecLimEx256_inAccept(ptr noundef %33, i32 noundef %34, ptr noundef %35)
+  store i8 %36, ptr %4, align 1
+  br label %134
 
-sw.bb7:                                           ; preds = %entry
-  %14 = load ptr, ptr %nfa.addr, align 8
-  %15 = load i32, ptr %report.addr, align 4
-  %16 = load ptr, ptr %q.addr, align 8
-  %call8 = call signext i8 @nfaExecLimEx384_inAccept(ptr noundef %14, i32 noundef %15, ptr noundef %16)
-  store i8 %call8, ptr %retval, align 1
-  br label %return
+37:                                               ; preds = %3
+  %38 = load ptr, ptr %5, align 8
+  %39 = load i32, ptr %6, align 4
+  %40 = load ptr, ptr %7, align 8
+  %41 = call signext i8 @nfaExecLimEx384_inAccept(ptr noundef %38, i32 noundef %39, ptr noundef %40)
+  store i8 %41, ptr %4, align 1
+  br label %134
 
-sw.bb9:                                           ; preds = %entry
-  %17 = load ptr, ptr %nfa.addr, align 8
-  %18 = load i32, ptr %report.addr, align 4
-  %19 = load ptr, ptr %q.addr, align 8
-  %call10 = call signext i8 @nfaExecLimEx512_inAccept(ptr noundef %17, i32 noundef %18, ptr noundef %19)
-  store i8 %call10, ptr %retval, align 1
-  br label %return
+42:                                               ; preds = %3
+  %43 = load ptr, ptr %5, align 8
+  %44 = load i32, ptr %6, align 4
+  %45 = load ptr, ptr %7, align 8
+  %46 = call signext i8 @nfaExecLimEx512_inAccept(ptr noundef %43, i32 noundef %44, ptr noundef %45)
+  store i8 %46, ptr %4, align 1
+  br label %134
 
-sw.bb11:                                          ; preds = %entry
-  %20 = load ptr, ptr %nfa.addr, align 8
-  %21 = load i32, ptr %report.addr, align 4
-  %22 = load ptr, ptr %q.addr, align 8
-  %call12 = call signext i8 @nfaExecMcClellan8_inAccept(ptr noundef %20, i32 noundef %21, ptr noundef %22)
-  store i8 %call12, ptr %retval, align 1
-  br label %return
+47:                                               ; preds = %3
+  %48 = load ptr, ptr %5, align 8
+  %49 = load i32, ptr %6, align 4
+  %50 = load ptr, ptr %7, align 8
+  %51 = call signext i8 @nfaExecMcClellan8_inAccept(ptr noundef %48, i32 noundef %49, ptr noundef %50)
+  store i8 %51, ptr %4, align 1
+  br label %134
 
-sw.bb13:                                          ; preds = %entry
-  %23 = load ptr, ptr %nfa.addr, align 8
-  %24 = load i32, ptr %report.addr, align 4
-  %25 = load ptr, ptr %q.addr, align 8
-  %call14 = call signext i8 @nfaExecMcClellan16_inAccept(ptr noundef %23, i32 noundef %24, ptr noundef %25)
-  store i8 %call14, ptr %retval, align 1
-  br label %return
+52:                                               ; preds = %3
+  %53 = load ptr, ptr %5, align 8
+  %54 = load i32, ptr %6, align 4
+  %55 = load ptr, ptr %7, align 8
+  %56 = call signext i8 @nfaExecMcClellan16_inAccept(ptr noundef %53, i32 noundef %54, ptr noundef %55)
+  store i8 %56, ptr %4, align 1
+  br label %134
 
-sw.bb15:                                          ; preds = %entry
-  %26 = load ptr, ptr %nfa.addr, align 8
-  %27 = load i32, ptr %report.addr, align 4
-  %28 = load ptr, ptr %q.addr, align 8
-  %call16 = call signext i8 @nfaExecGough8_inAccept(ptr noundef %26, i32 noundef %27, ptr noundef %28)
-  store i8 %call16, ptr %retval, align 1
-  br label %return
+57:                                               ; preds = %3
+  %58 = load ptr, ptr %5, align 8
+  %59 = load i32, ptr %6, align 4
+  %60 = load ptr, ptr %7, align 8
+  %61 = call signext i8 @nfaExecGough8_inAccept(ptr noundef %58, i32 noundef %59, ptr noundef %60)
+  store i8 %61, ptr %4, align 1
+  br label %134
 
-sw.bb17:                                          ; preds = %entry
-  %29 = load ptr, ptr %nfa.addr, align 8
-  %30 = load i32, ptr %report.addr, align 4
-  %31 = load ptr, ptr %q.addr, align 8
-  %call18 = call signext i8 @nfaExecGough16_inAccept(ptr noundef %29, i32 noundef %30, ptr noundef %31)
-  store i8 %call18, ptr %retval, align 1
-  br label %return
+62:                                               ; preds = %3
+  %63 = load ptr, ptr %5, align 8
+  %64 = load i32, ptr %6, align 4
+  %65 = load ptr, ptr %7, align 8
+  %66 = call signext i8 @nfaExecGough16_inAccept(ptr noundef %63, i32 noundef %64, ptr noundef %65)
+  store i8 %66, ptr %4, align 1
+  br label %134
 
-sw.bb19:                                          ; preds = %entry
-  store i32 0, ptr %tmp, align 4
-  %32 = load i32, ptr %tmp, align 4
-  %conv20 = trunc i32 %32 to i8
-  store i8 %conv20, ptr %retval, align 1
-  br label %return
+67:                                               ; preds = %3
+  store i32 0, ptr %8, align 4
+  %68 = load i32, ptr %8, align 4
+  %69 = trunc i32 %68 to i8
+  store i8 %69, ptr %4, align 1
+  br label %134
 
-sw.bb21:                                          ; preds = %entry
-  %33 = load ptr, ptr %nfa.addr, align 8
-  %34 = load i32, ptr %report.addr, align 4
-  %35 = load ptr, ptr %q.addr, align 8
-  %call22 = call signext i8 @nfaExecLbrDot_inAccept(ptr noundef %33, i32 noundef %34, ptr noundef %35)
-  store i8 %call22, ptr %retval, align 1
-  br label %return
+70:                                               ; preds = %3
+  %71 = load ptr, ptr %5, align 8
+  %72 = load i32, ptr %6, align 4
+  %73 = load ptr, ptr %7, align 8
+  %74 = call signext i8 @nfaExecLbrDot_inAccept(ptr noundef %71, i32 noundef %72, ptr noundef %73)
+  store i8 %74, ptr %4, align 1
+  br label %134
 
-sw.bb23:                                          ; preds = %entry
-  %36 = load ptr, ptr %nfa.addr, align 8
-  %37 = load i32, ptr %report.addr, align 4
-  %38 = load ptr, ptr %q.addr, align 8
-  %call24 = call signext i8 @nfaExecLbrVerm_inAccept(ptr noundef %36, i32 noundef %37, ptr noundef %38)
-  store i8 %call24, ptr %retval, align 1
-  br label %return
+75:                                               ; preds = %3
+  %76 = load ptr, ptr %5, align 8
+  %77 = load i32, ptr %6, align 4
+  %78 = load ptr, ptr %7, align 8
+  %79 = call signext i8 @nfaExecLbrVerm_inAccept(ptr noundef %76, i32 noundef %77, ptr noundef %78)
+  store i8 %79, ptr %4, align 1
+  br label %134
 
-sw.bb25:                                          ; preds = %entry
-  %39 = load ptr, ptr %nfa.addr, align 8
-  %40 = load i32, ptr %report.addr, align 4
-  %41 = load ptr, ptr %q.addr, align 8
-  %call26 = call signext i8 @nfaExecLbrNVerm_inAccept(ptr noundef %39, i32 noundef %40, ptr noundef %41)
-  store i8 %call26, ptr %retval, align 1
-  br label %return
+80:                                               ; preds = %3
+  %81 = load ptr, ptr %5, align 8
+  %82 = load i32, ptr %6, align 4
+  %83 = load ptr, ptr %7, align 8
+  %84 = call signext i8 @nfaExecLbrNVerm_inAccept(ptr noundef %81, i32 noundef %82, ptr noundef %83)
+  store i8 %84, ptr %4, align 1
+  br label %134
 
-sw.bb27:                                          ; preds = %entry
-  %42 = load ptr, ptr %nfa.addr, align 8
-  %43 = load i32, ptr %report.addr, align 4
-  %44 = load ptr, ptr %q.addr, align 8
-  %call28 = call signext i8 @nfaExecLbrShuf_inAccept(ptr noundef %42, i32 noundef %43, ptr noundef %44)
-  store i8 %call28, ptr %retval, align 1
-  br label %return
+85:                                               ; preds = %3
+  %86 = load ptr, ptr %5, align 8
+  %87 = load i32, ptr %6, align 4
+  %88 = load ptr, ptr %7, align 8
+  %89 = call signext i8 @nfaExecLbrShuf_inAccept(ptr noundef %86, i32 noundef %87, ptr noundef %88)
+  store i8 %89, ptr %4, align 1
+  br label %134
 
-sw.bb29:                                          ; preds = %entry
-  %45 = load ptr, ptr %nfa.addr, align 8
-  %46 = load i32, ptr %report.addr, align 4
-  %47 = load ptr, ptr %q.addr, align 8
-  %call30 = call signext i8 @nfaExecLbrTruf_inAccept(ptr noundef %45, i32 noundef %46, ptr noundef %47)
-  store i8 %call30, ptr %retval, align 1
-  br label %return
+90:                                               ; preds = %3
+  %91 = load ptr, ptr %5, align 8
+  %92 = load i32, ptr %6, align 4
+  %93 = load ptr, ptr %7, align 8
+  %94 = call signext i8 @nfaExecLbrTruf_inAccept(ptr noundef %91, i32 noundef %92, ptr noundef %93)
+  store i8 %94, ptr %4, align 1
+  br label %134
 
-sw.bb31:                                          ; preds = %entry
-  %48 = load ptr, ptr %nfa.addr, align 8
-  %49 = load i32, ptr %report.addr, align 4
-  %50 = load ptr, ptr %q.addr, align 8
-  %call32 = call signext i8 @nfaExecCastle_inAccept(ptr noundef %48, i32 noundef %49, ptr noundef %50)
-  store i8 %call32, ptr %retval, align 1
-  br label %return
+95:                                               ; preds = %3
+  %96 = load ptr, ptr %5, align 8
+  %97 = load i32, ptr %6, align 4
+  %98 = load ptr, ptr %7, align 8
+  %99 = call signext i8 @nfaExecCastle_inAccept(ptr noundef %96, i32 noundef %97, ptr noundef %98)
+  store i8 %99, ptr %4, align 1
+  br label %134
 
-sw.bb33:                                          ; preds = %entry
-  %51 = load ptr, ptr %nfa.addr, align 8
-  %52 = load i32, ptr %report.addr, align 4
-  %53 = load ptr, ptr %q.addr, align 8
-  %call34 = call signext i8 @nfaExecSheng_inAccept(ptr noundef %51, i32 noundef %52, ptr noundef %53)
-  store i8 %call34, ptr %retval, align 1
-  br label %return
+100:                                              ; preds = %3
+  %101 = load ptr, ptr %5, align 8
+  %102 = load i32, ptr %6, align 4
+  %103 = load ptr, ptr %7, align 8
+  %104 = call signext i8 @nfaExecSheng_inAccept(ptr noundef %101, i32 noundef %102, ptr noundef %103)
+  store i8 %104, ptr %4, align 1
+  br label %134
 
-sw.bb35:                                          ; preds = %entry
-  %54 = load ptr, ptr %nfa.addr, align 8
-  %55 = load i32, ptr %report.addr, align 4
-  %56 = load ptr, ptr %q.addr, align 8
-  %call36 = call signext i8 @nfaExecTamarama_inAccept(ptr noundef %54, i32 noundef %55, ptr noundef %56)
-  store i8 %call36, ptr %retval, align 1
-  br label %return
+105:                                              ; preds = %3
+  %106 = load ptr, ptr %5, align 8
+  %107 = load i32, ptr %6, align 4
+  %108 = load ptr, ptr %7, align 8
+  %109 = call signext i8 @nfaExecTamarama_inAccept(ptr noundef %106, i32 noundef %107, ptr noundef %108)
+  store i8 %109, ptr %4, align 1
+  br label %134
 
-sw.bb37:                                          ; preds = %entry
-  %57 = load ptr, ptr %nfa.addr, align 8
-  %58 = load i32, ptr %report.addr, align 4
-  %59 = load ptr, ptr %q.addr, align 8
-  %call38 = call signext i8 @nfaExecMcSheng8_inAccept(ptr noundef %57, i32 noundef %58, ptr noundef %59)
-  store i8 %call38, ptr %retval, align 1
-  br label %return
+110:                                              ; preds = %3
+  %111 = load ptr, ptr %5, align 8
+  %112 = load i32, ptr %6, align 4
+  %113 = load ptr, ptr %7, align 8
+  %114 = call signext i8 @nfaExecMcSheng8_inAccept(ptr noundef %111, i32 noundef %112, ptr noundef %113)
+  store i8 %114, ptr %4, align 1
+  br label %134
 
-sw.bb39:                                          ; preds = %entry
-  %60 = load ptr, ptr %nfa.addr, align 8
-  %61 = load i32, ptr %report.addr, align 4
-  %62 = load ptr, ptr %q.addr, align 8
-  %call40 = call signext i8 @nfaExecMcSheng16_inAccept(ptr noundef %60, i32 noundef %61, ptr noundef %62)
-  store i8 %call40, ptr %retval, align 1
-  br label %return
+115:                                              ; preds = %3
+  %116 = load ptr, ptr %5, align 8
+  %117 = load i32, ptr %6, align 4
+  %118 = load ptr, ptr %7, align 8
+  %119 = call signext i8 @nfaExecMcSheng16_inAccept(ptr noundef %116, i32 noundef %117, ptr noundef %118)
+  store i8 %119, ptr %4, align 1
+  br label %134
 
-sw.bb41:                                          ; preds = %entry
-  store i32 0, ptr %tmp42, align 4
-  %63 = load i32, ptr %tmp42, align 4
-  %conv43 = trunc i32 %63 to i8
-  store i8 %conv43, ptr %retval, align 1
-  br label %return
+120:                                              ; preds = %3
+  store i32 0, ptr %9, align 4
+  %121 = load i32, ptr %9, align 4
+  %122 = trunc i32 %121 to i8
+  store i8 %122, ptr %4, align 1
+  br label %134
 
-sw.bb44:                                          ; preds = %entry
-  store i32 0, ptr %tmp45, align 4
-  %64 = load i32, ptr %tmp45, align 4
-  %conv46 = trunc i32 %64 to i8
-  store i8 %conv46, ptr %retval, align 1
-  br label %return
+123:                                              ; preds = %3
+  store i32 0, ptr %10, align 4
+  %124 = load i32, ptr %10, align 4
+  %125 = trunc i32 %124 to i8
+  store i8 %125, ptr %4, align 1
+  br label %134
 
-sw.bb47:                                          ; preds = %entry
-  store i32 0, ptr %tmp48, align 4
-  %65 = load i32, ptr %tmp48, align 4
-  %conv49 = trunc i32 %65 to i8
-  store i8 %conv49, ptr %retval, align 1
-  br label %return
+126:                                              ; preds = %3
+  store i32 0, ptr %11, align 4
+  %127 = load i32, ptr %11, align 4
+  %128 = trunc i32 %127 to i8
+  store i8 %128, ptr %4, align 1
+  br label %134
 
-sw.bb50:                                          ; preds = %entry
-  store i32 0, ptr %tmp51, align 4
-  %66 = load i32, ptr %tmp51, align 4
-  %conv52 = trunc i32 %66 to i8
-  store i8 %conv52, ptr %retval, align 1
-  br label %return
+129:                                              ; preds = %3
+  store i32 0, ptr %12, align 4
+  %130 = load i32, ptr %12, align 4
+  %131 = trunc i32 %130 to i8
+  store i8 %131, ptr %4, align 1
+  br label %134
 
-sw.default:                                       ; preds = %entry
-  br label %sw.epilog
+132:                                              ; preds = %3
+  br label %133
 
-sw.epilog:                                        ; preds = %sw.default
-  store i8 0, ptr %retval, align 1
-  br label %return
+133:                                              ; preds = %132
+  store i8 0, ptr %4, align 1
+  br label %134
 
-return:                                           ; preds = %sw.epilog, %sw.bb50, %sw.bb47, %sw.bb44, %sw.bb41, %sw.bb39, %sw.bb37, %sw.bb35, %sw.bb33, %sw.bb31, %sw.bb29, %sw.bb27, %sw.bb25, %sw.bb23, %sw.bb21, %sw.bb19, %sw.bb17, %sw.bb15, %sw.bb13, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb1, %sw.bb
-  %67 = load i8, ptr %retval, align 1
-  ret i8 %67
+134:                                              ; preds = %133, %129, %126, %123, %120, %115, %110, %105, %100, %95, %90, %85, %80, %75, %70, %67, %62, %57, %52, %47, %42, %37, %32, %27, %22, %17
+  %135 = load i8, ptr %4, align 1
+  ret i8 %135
 }
 
 declare signext i8 @nfaExecLimEx32_inAccept(ptr noundef, i32 noundef, ptr noundef) #1
@@ -2846,235 +2288,234 @@ declare signext i8 @nfaExecMcSheng8_inAccept(ptr noundef, i32 noundef, ptr nound
 declare signext i8 @nfaExecMcSheng16_inAccept(ptr noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaInAnyAcceptState(ptr noundef %nfa, ptr noundef %q) #0 {
-entry:
-  %retval = alloca i8, align 1
-  %nfa.addr = alloca ptr, align 8
-  %q.addr = alloca ptr, align 8
-  %tmp = alloca i32, align 4
-  %tmp42 = alloca i32, align 4
-  %tmp45 = alloca i32, align 4
-  %tmp48 = alloca i32, align 4
-  %tmp51 = alloca i32, align 4
-  store ptr %nfa, ptr %nfa.addr, align 8
-  store ptr %q, ptr %q.addr, align 8
-  %0 = load ptr, ptr %nfa.addr, align 8
-  %type = getelementptr inbounds %struct.NFA, ptr %0, i32 0, i32 2
-  %1 = load i8, ptr %type, align 8
-  %conv = zext i8 %1 to i32
-  switch i32 %conv, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb1
-    i32 2, label %sw.bb3
-    i32 3, label %sw.bb5
-    i32 4, label %sw.bb7
-    i32 5, label %sw.bb9
-    i32 6, label %sw.bb11
-    i32 7, label %sw.bb13
-    i32 8, label %sw.bb15
-    i32 9, label %sw.bb17
-    i32 10, label %sw.bb19
-    i32 11, label %sw.bb21
-    i32 12, label %sw.bb23
-    i32 13, label %sw.bb25
-    i32 14, label %sw.bb27
-    i32 15, label %sw.bb29
-    i32 16, label %sw.bb31
-    i32 17, label %sw.bb33
-    i32 18, label %sw.bb35
-    i32 19, label %sw.bb37
-    i32 20, label %sw.bb39
-    i32 21, label %sw.bb41
-    i32 22, label %sw.bb44
-    i32 23, label %sw.bb47
-    i32 24, label %sw.bb50
+define hidden signext i8 @nfaInAnyAcceptState(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i8, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds nuw %struct.NFA, ptr %11, i32 0, i32 2
+  %13 = load i8, ptr %12, align 8
+  %14 = zext i8 %13 to i32
+  switch i32 %14, label %110 [
+    i32 0, label %15
+    i32 1, label %19
+    i32 2, label %23
+    i32 3, label %27
+    i32 4, label %31
+    i32 5, label %35
+    i32 6, label %39
+    i32 7, label %43
+    i32 8, label %47
+    i32 9, label %51
+    i32 10, label %55
+    i32 11, label %58
+    i32 12, label %62
+    i32 13, label %66
+    i32 14, label %70
+    i32 15, label %74
+    i32 16, label %78
+    i32 17, label %82
+    i32 18, label %86
+    i32 19, label %90
+    i32 20, label %94
+    i32 21, label %98
+    i32 22, label %101
+    i32 23, label %104
+    i32 24, label %107
   ]
 
-sw.bb:                                            ; preds = %entry
-  %2 = load ptr, ptr %nfa.addr, align 8
-  %3 = load ptr, ptr %q.addr, align 8
-  %call = call signext i8 @nfaExecLimEx32_inAnyAccept(ptr noundef %2, ptr noundef %3)
-  store i8 %call, ptr %retval, align 1
-  br label %return
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %4, align 8
+  %17 = load ptr, ptr %5, align 8
+  %18 = call signext i8 @nfaExecLimEx32_inAnyAccept(ptr noundef %16, ptr noundef %17)
+  store i8 %18, ptr %3, align 1
+  br label %112
 
-sw.bb1:                                           ; preds = %entry
-  %4 = load ptr, ptr %nfa.addr, align 8
-  %5 = load ptr, ptr %q.addr, align 8
-  %call2 = call signext i8 @nfaExecLimEx64_inAnyAccept(ptr noundef %4, ptr noundef %5)
-  store i8 %call2, ptr %retval, align 1
-  br label %return
+19:                                               ; preds = %2
+  %20 = load ptr, ptr %4, align 8
+  %21 = load ptr, ptr %5, align 8
+  %22 = call signext i8 @nfaExecLimEx64_inAnyAccept(ptr noundef %20, ptr noundef %21)
+  store i8 %22, ptr %3, align 1
+  br label %112
 
-sw.bb3:                                           ; preds = %entry
-  %6 = load ptr, ptr %nfa.addr, align 8
-  %7 = load ptr, ptr %q.addr, align 8
-  %call4 = call signext i8 @nfaExecLimEx128_inAnyAccept(ptr noundef %6, ptr noundef %7)
-  store i8 %call4, ptr %retval, align 1
-  br label %return
+23:                                               ; preds = %2
+  %24 = load ptr, ptr %4, align 8
+  %25 = load ptr, ptr %5, align 8
+  %26 = call signext i8 @nfaExecLimEx128_inAnyAccept(ptr noundef %24, ptr noundef %25)
+  store i8 %26, ptr %3, align 1
+  br label %112
 
-sw.bb5:                                           ; preds = %entry
-  %8 = load ptr, ptr %nfa.addr, align 8
-  %9 = load ptr, ptr %q.addr, align 8
-  %call6 = call signext i8 @nfaExecLimEx256_inAnyAccept(ptr noundef %8, ptr noundef %9)
-  store i8 %call6, ptr %retval, align 1
-  br label %return
+27:                                               ; preds = %2
+  %28 = load ptr, ptr %4, align 8
+  %29 = load ptr, ptr %5, align 8
+  %30 = call signext i8 @nfaExecLimEx256_inAnyAccept(ptr noundef %28, ptr noundef %29)
+  store i8 %30, ptr %3, align 1
+  br label %112
 
-sw.bb7:                                           ; preds = %entry
-  %10 = load ptr, ptr %nfa.addr, align 8
-  %11 = load ptr, ptr %q.addr, align 8
-  %call8 = call signext i8 @nfaExecLimEx384_inAnyAccept(ptr noundef %10, ptr noundef %11)
-  store i8 %call8, ptr %retval, align 1
-  br label %return
+31:                                               ; preds = %2
+  %32 = load ptr, ptr %4, align 8
+  %33 = load ptr, ptr %5, align 8
+  %34 = call signext i8 @nfaExecLimEx384_inAnyAccept(ptr noundef %32, ptr noundef %33)
+  store i8 %34, ptr %3, align 1
+  br label %112
 
-sw.bb9:                                           ; preds = %entry
-  %12 = load ptr, ptr %nfa.addr, align 8
-  %13 = load ptr, ptr %q.addr, align 8
-  %call10 = call signext i8 @nfaExecLimEx512_inAnyAccept(ptr noundef %12, ptr noundef %13)
-  store i8 %call10, ptr %retval, align 1
-  br label %return
+35:                                               ; preds = %2
+  %36 = load ptr, ptr %4, align 8
+  %37 = load ptr, ptr %5, align 8
+  %38 = call signext i8 @nfaExecLimEx512_inAnyAccept(ptr noundef %36, ptr noundef %37)
+  store i8 %38, ptr %3, align 1
+  br label %112
 
-sw.bb11:                                          ; preds = %entry
-  %14 = load ptr, ptr %nfa.addr, align 8
-  %15 = load ptr, ptr %q.addr, align 8
-  %call12 = call signext i8 @nfaExecMcClellan8_inAnyAccept(ptr noundef %14, ptr noundef %15)
-  store i8 %call12, ptr %retval, align 1
-  br label %return
+39:                                               ; preds = %2
+  %40 = load ptr, ptr %4, align 8
+  %41 = load ptr, ptr %5, align 8
+  %42 = call signext i8 @nfaExecMcClellan8_inAnyAccept(ptr noundef %40, ptr noundef %41)
+  store i8 %42, ptr %3, align 1
+  br label %112
 
-sw.bb13:                                          ; preds = %entry
-  %16 = load ptr, ptr %nfa.addr, align 8
-  %17 = load ptr, ptr %q.addr, align 8
-  %call14 = call signext i8 @nfaExecMcClellan16_inAnyAccept(ptr noundef %16, ptr noundef %17)
-  store i8 %call14, ptr %retval, align 1
-  br label %return
+43:                                               ; preds = %2
+  %44 = load ptr, ptr %4, align 8
+  %45 = load ptr, ptr %5, align 8
+  %46 = call signext i8 @nfaExecMcClellan16_inAnyAccept(ptr noundef %44, ptr noundef %45)
+  store i8 %46, ptr %3, align 1
+  br label %112
 
-sw.bb15:                                          ; preds = %entry
-  %18 = load ptr, ptr %nfa.addr, align 8
-  %19 = load ptr, ptr %q.addr, align 8
-  %call16 = call signext i8 @nfaExecGough8_inAnyAccept(ptr noundef %18, ptr noundef %19)
-  store i8 %call16, ptr %retval, align 1
-  br label %return
+47:                                               ; preds = %2
+  %48 = load ptr, ptr %4, align 8
+  %49 = load ptr, ptr %5, align 8
+  %50 = call signext i8 @nfaExecGough8_inAnyAccept(ptr noundef %48, ptr noundef %49)
+  store i8 %50, ptr %3, align 1
+  br label %112
 
-sw.bb17:                                          ; preds = %entry
-  %20 = load ptr, ptr %nfa.addr, align 8
-  %21 = load ptr, ptr %q.addr, align 8
-  %call18 = call signext i8 @nfaExecGough16_inAnyAccept(ptr noundef %20, ptr noundef %21)
-  store i8 %call18, ptr %retval, align 1
-  br label %return
+51:                                               ; preds = %2
+  %52 = load ptr, ptr %4, align 8
+  %53 = load ptr, ptr %5, align 8
+  %54 = call signext i8 @nfaExecGough16_inAnyAccept(ptr noundef %52, ptr noundef %53)
+  store i8 %54, ptr %3, align 1
+  br label %112
 
-sw.bb19:                                          ; preds = %entry
-  store i32 0, ptr %tmp, align 4
-  %22 = load i32, ptr %tmp, align 4
-  %conv20 = trunc i32 %22 to i8
-  store i8 %conv20, ptr %retval, align 1
-  br label %return
+55:                                               ; preds = %2
+  store i32 0, ptr %6, align 4
+  %56 = load i32, ptr %6, align 4
+  %57 = trunc i32 %56 to i8
+  store i8 %57, ptr %3, align 1
+  br label %112
 
-sw.bb21:                                          ; preds = %entry
-  %23 = load ptr, ptr %nfa.addr, align 8
-  %24 = load ptr, ptr %q.addr, align 8
-  %call22 = call signext i8 @nfaExecLbrDot_inAnyAccept(ptr noundef %23, ptr noundef %24)
-  store i8 %call22, ptr %retval, align 1
-  br label %return
+58:                                               ; preds = %2
+  %59 = load ptr, ptr %4, align 8
+  %60 = load ptr, ptr %5, align 8
+  %61 = call signext i8 @nfaExecLbrDot_inAnyAccept(ptr noundef %59, ptr noundef %60)
+  store i8 %61, ptr %3, align 1
+  br label %112
 
-sw.bb23:                                          ; preds = %entry
-  %25 = load ptr, ptr %nfa.addr, align 8
-  %26 = load ptr, ptr %q.addr, align 8
-  %call24 = call signext i8 @nfaExecLbrVerm_inAnyAccept(ptr noundef %25, ptr noundef %26)
-  store i8 %call24, ptr %retval, align 1
-  br label %return
+62:                                               ; preds = %2
+  %63 = load ptr, ptr %4, align 8
+  %64 = load ptr, ptr %5, align 8
+  %65 = call signext i8 @nfaExecLbrVerm_inAnyAccept(ptr noundef %63, ptr noundef %64)
+  store i8 %65, ptr %3, align 1
+  br label %112
 
-sw.bb25:                                          ; preds = %entry
-  %27 = load ptr, ptr %nfa.addr, align 8
-  %28 = load ptr, ptr %q.addr, align 8
-  %call26 = call signext i8 @nfaExecLbrNVerm_inAnyAccept(ptr noundef %27, ptr noundef %28)
-  store i8 %call26, ptr %retval, align 1
-  br label %return
+66:                                               ; preds = %2
+  %67 = load ptr, ptr %4, align 8
+  %68 = load ptr, ptr %5, align 8
+  %69 = call signext i8 @nfaExecLbrNVerm_inAnyAccept(ptr noundef %67, ptr noundef %68)
+  store i8 %69, ptr %3, align 1
+  br label %112
 
-sw.bb27:                                          ; preds = %entry
-  %29 = load ptr, ptr %nfa.addr, align 8
-  %30 = load ptr, ptr %q.addr, align 8
-  %call28 = call signext i8 @nfaExecLbrShuf_inAnyAccept(ptr noundef %29, ptr noundef %30)
-  store i8 %call28, ptr %retval, align 1
-  br label %return
+70:                                               ; preds = %2
+  %71 = load ptr, ptr %4, align 8
+  %72 = load ptr, ptr %5, align 8
+  %73 = call signext i8 @nfaExecLbrShuf_inAnyAccept(ptr noundef %71, ptr noundef %72)
+  store i8 %73, ptr %3, align 1
+  br label %112
 
-sw.bb29:                                          ; preds = %entry
-  %31 = load ptr, ptr %nfa.addr, align 8
-  %32 = load ptr, ptr %q.addr, align 8
-  %call30 = call signext i8 @nfaExecLbrTruf_inAnyAccept(ptr noundef %31, ptr noundef %32)
-  store i8 %call30, ptr %retval, align 1
-  br label %return
+74:                                               ; preds = %2
+  %75 = load ptr, ptr %4, align 8
+  %76 = load ptr, ptr %5, align 8
+  %77 = call signext i8 @nfaExecLbrTruf_inAnyAccept(ptr noundef %75, ptr noundef %76)
+  store i8 %77, ptr %3, align 1
+  br label %112
 
-sw.bb31:                                          ; preds = %entry
-  %33 = load ptr, ptr %nfa.addr, align 8
-  %34 = load ptr, ptr %q.addr, align 8
-  %call32 = call signext i8 @nfaExecCastle_inAnyAccept(ptr noundef %33, ptr noundef %34)
-  store i8 %call32, ptr %retval, align 1
-  br label %return
+78:                                               ; preds = %2
+  %79 = load ptr, ptr %4, align 8
+  %80 = load ptr, ptr %5, align 8
+  %81 = call signext i8 @nfaExecCastle_inAnyAccept(ptr noundef %79, ptr noundef %80)
+  store i8 %81, ptr %3, align 1
+  br label %112
 
-sw.bb33:                                          ; preds = %entry
-  %35 = load ptr, ptr %nfa.addr, align 8
-  %36 = load ptr, ptr %q.addr, align 8
-  %call34 = call signext i8 @nfaExecSheng_inAnyAccept(ptr noundef %35, ptr noundef %36)
-  store i8 %call34, ptr %retval, align 1
-  br label %return
+82:                                               ; preds = %2
+  %83 = load ptr, ptr %4, align 8
+  %84 = load ptr, ptr %5, align 8
+  %85 = call signext i8 @nfaExecSheng_inAnyAccept(ptr noundef %83, ptr noundef %84)
+  store i8 %85, ptr %3, align 1
+  br label %112
 
-sw.bb35:                                          ; preds = %entry
-  %37 = load ptr, ptr %nfa.addr, align 8
-  %38 = load ptr, ptr %q.addr, align 8
-  %call36 = call signext i8 @nfaExecTamarama_inAnyAccept(ptr noundef %37, ptr noundef %38)
-  store i8 %call36, ptr %retval, align 1
-  br label %return
+86:                                               ; preds = %2
+  %87 = load ptr, ptr %4, align 8
+  %88 = load ptr, ptr %5, align 8
+  %89 = call signext i8 @nfaExecTamarama_inAnyAccept(ptr noundef %87, ptr noundef %88)
+  store i8 %89, ptr %3, align 1
+  br label %112
 
-sw.bb37:                                          ; preds = %entry
-  %39 = load ptr, ptr %nfa.addr, align 8
-  %40 = load ptr, ptr %q.addr, align 8
-  %call38 = call signext i8 @nfaExecMcSheng8_inAnyAccept(ptr noundef %39, ptr noundef %40)
-  store i8 %call38, ptr %retval, align 1
-  br label %return
+90:                                               ; preds = %2
+  %91 = load ptr, ptr %4, align 8
+  %92 = load ptr, ptr %5, align 8
+  %93 = call signext i8 @nfaExecMcSheng8_inAnyAccept(ptr noundef %91, ptr noundef %92)
+  store i8 %93, ptr %3, align 1
+  br label %112
 
-sw.bb39:                                          ; preds = %entry
-  %41 = load ptr, ptr %nfa.addr, align 8
-  %42 = load ptr, ptr %q.addr, align 8
-  %call40 = call signext i8 @nfaExecMcSheng16_inAnyAccept(ptr noundef %41, ptr noundef %42)
-  store i8 %call40, ptr %retval, align 1
-  br label %return
+94:                                               ; preds = %2
+  %95 = load ptr, ptr %4, align 8
+  %96 = load ptr, ptr %5, align 8
+  %97 = call signext i8 @nfaExecMcSheng16_inAnyAccept(ptr noundef %95, ptr noundef %96)
+  store i8 %97, ptr %3, align 1
+  br label %112
 
-sw.bb41:                                          ; preds = %entry
-  store i32 0, ptr %tmp42, align 4
-  %43 = load i32, ptr %tmp42, align 4
-  %conv43 = trunc i32 %43 to i8
-  store i8 %conv43, ptr %retval, align 1
-  br label %return
+98:                                               ; preds = %2
+  store i32 0, ptr %7, align 4
+  %99 = load i32, ptr %7, align 4
+  %100 = trunc i32 %99 to i8
+  store i8 %100, ptr %3, align 1
+  br label %112
 
-sw.bb44:                                          ; preds = %entry
-  store i32 0, ptr %tmp45, align 4
-  %44 = load i32, ptr %tmp45, align 4
-  %conv46 = trunc i32 %44 to i8
-  store i8 %conv46, ptr %retval, align 1
-  br label %return
+101:                                              ; preds = %2
+  store i32 0, ptr %8, align 4
+  %102 = load i32, ptr %8, align 4
+  %103 = trunc i32 %102 to i8
+  store i8 %103, ptr %3, align 1
+  br label %112
 
-sw.bb47:                                          ; preds = %entry
-  store i32 0, ptr %tmp48, align 4
-  %45 = load i32, ptr %tmp48, align 4
-  %conv49 = trunc i32 %45 to i8
-  store i8 %conv49, ptr %retval, align 1
-  br label %return
+104:                                              ; preds = %2
+  store i32 0, ptr %9, align 4
+  %105 = load i32, ptr %9, align 4
+  %106 = trunc i32 %105 to i8
+  store i8 %106, ptr %3, align 1
+  br label %112
 
-sw.bb50:                                          ; preds = %entry
-  store i32 0, ptr %tmp51, align 4
-  %46 = load i32, ptr %tmp51, align 4
-  %conv52 = trunc i32 %46 to i8
-  store i8 %conv52, ptr %retval, align 1
-  br label %return
+107:                                              ; preds = %2
+  store i32 0, ptr %10, align 4
+  %108 = load i32, ptr %10, align 4
+  %109 = trunc i32 %108 to i8
+  store i8 %109, ptr %3, align 1
+  br label %112
 
-sw.default:                                       ; preds = %entry
-  br label %sw.epilog
+110:                                              ; preds = %2
+  br label %111
 
-sw.epilog:                                        ; preds = %sw.default
-  store i8 0, ptr %retval, align 1
-  br label %return
+111:                                              ; preds = %110
+  store i8 0, ptr %3, align 1
+  br label %112
 
-return:                                           ; preds = %sw.epilog, %sw.bb50, %sw.bb47, %sw.bb44, %sw.bb41, %sw.bb39, %sw.bb37, %sw.bb35, %sw.bb33, %sw.bb31, %sw.bb29, %sw.bb27, %sw.bb25, %sw.bb23, %sw.bb21, %sw.bb19, %sw.bb17, %sw.bb15, %sw.bb13, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb1, %sw.bb
-  %47 = load i8, ptr %retval, align 1
-  ret i8 %47
+112:                                              ; preds = %111, %107, %104, %101, %98, %94, %90, %86, %82, %78, %74, %70, %66, %62, %58, %55, %51, %47, %43, %39, %35, %31, %27, %23, %19, %15
+  %113 = load i8, ptr %3, align 1
+  ret i8 %113
 }
 
 declare signext i8 @nfaExecLimEx32_inAnyAccept(ptr noundef, ptr noundef) #1
@@ -3118,563 +2559,570 @@ declare signext i8 @nfaExecMcSheng8_inAnyAccept(ptr noundef, ptr noundef) #1
 declare signext i8 @nfaExecMcSheng16_inAnyAccept(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaQueueExecRose(ptr noundef %nfa, ptr noundef %q, i32 noundef %r) #0 {
-entry:
-  %retval.i = alloca i8, align 1
-  %nfa.addr.i = alloca ptr, align 8
-  %q.addr.i = alloca ptr, align 8
-  %report.addr.i = alloca i32, align 4
-  %tmp.i = alloca i32, align 4
-  %tmp42.i = alloca i32, align 4
-  %tmp45.i = alloca i32, align 4
-  %tmp48.i = alloca i32, align 4
-  %tmp51.i = alloca i32, align 4
-  %nfa.addr = alloca ptr, align 8
-  %q.addr = alloca ptr, align 8
-  %r.addr = alloca i32, align 4
-  store ptr %nfa, ptr %nfa.addr, align 8
-  store ptr %q, ptr %q.addr, align 8
-  store i32 %r, ptr %r.addr, align 4
-  br label %do.body
+define hidden signext i8 @nfaQueueExecRose(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i32 %2, ptr %6, align 4
+  br label %7
 
-do.body:                                          ; preds = %entry
-  br label %do.end
+7:                                                ; preds = %3
+  br label %8
 
-do.end:                                           ; preds = %do.body
-  %0 = load ptr, ptr %nfa.addr, align 8
-  %1 = load ptr, ptr %q.addr, align 8
-  %2 = load i32, ptr %r.addr, align 4
-  store ptr %0, ptr %nfa.addr.i, align 8
-  store ptr %1, ptr %q.addr.i, align 8
-  store i32 %2, ptr %report.addr.i, align 4
-  %3 = load ptr, ptr %nfa.addr.i, align 8
-  %type.i = getelementptr inbounds %struct.NFA, ptr %3, i32 0, i32 2
-  %4 = load i8, ptr %type.i, align 8
-  %conv.i = zext i8 %4 to i32
-  switch i32 %conv.i, label %sw.default.i [
-    i32 0, label %sw.bb.i
-    i32 1, label %sw.bb1.i
-    i32 2, label %sw.bb3.i
-    i32 3, label %sw.bb5.i
-    i32 4, label %sw.bb7.i
-    i32 5, label %sw.bb9.i
-    i32 6, label %sw.bb11.i
-    i32 7, label %sw.bb13.i
-    i32 8, label %sw.bb15.i
-    i32 9, label %sw.bb17.i
-    i32 10, label %sw.bb19.i
-    i32 11, label %sw.bb21.i
-    i32 12, label %sw.bb23.i
-    i32 13, label %sw.bb25.i
-    i32 14, label %sw.bb27.i
-    i32 15, label %sw.bb29.i
-    i32 16, label %sw.bb31.i
-    i32 17, label %sw.bb33.i
-    i32 18, label %sw.bb35.i
-    i32 19, label %sw.bb37.i
-    i32 20, label %sw.bb39.i
-    i32 21, label %sw.bb41.i
-    i32 22, label %sw.bb44.i
-    i32 23, label %sw.bb47.i
-    i32 24, label %sw.bb50.i
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = load i32, ptr %6, align 4
+  %12 = call signext i8 @nfaQueueExecRose_i(ptr noundef %9, ptr noundef %10, i32 noundef %11)
+  ret i8 %12
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal signext i8 @nfaQueueExecRose_i(ptr noundef %0, ptr noundef %1, i32 noundef %2) #2 {
+  %4 = alloca i8, align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i32 %2, ptr %7, align 4
+  %13 = load ptr, ptr %5, align 8
+  %14 = getelementptr inbounds nuw %struct.NFA, ptr %13, i32 0, i32 2
+  %15 = load i8, ptr %14, align 8
+  %16 = zext i8 %15 to i32
+  switch i32 %16, label %132 [
+    i32 0, label %17
+    i32 1, label %22
+    i32 2, label %27
+    i32 3, label %32
+    i32 4, label %37
+    i32 5, label %42
+    i32 6, label %47
+    i32 7, label %52
+    i32 8, label %57
+    i32 9, label %62
+    i32 10, label %67
+    i32 11, label %70
+    i32 12, label %75
+    i32 13, label %80
+    i32 14, label %85
+    i32 15, label %90
+    i32 16, label %95
+    i32 17, label %100
+    i32 18, label %105
+    i32 19, label %110
+    i32 20, label %115
+    i32 21, label %120
+    i32 22, label %123
+    i32 23, label %126
+    i32 24, label %129
   ]
 
-sw.bb.i:                                          ; preds = %do.end
-  %5 = load ptr, ptr %nfa.addr.i, align 8
-  %6 = load ptr, ptr %q.addr.i, align 8
-  %7 = load i32, ptr %report.addr.i, align 4
-  %call.i = call signext i8 @nfaExecLimEx32_QR(ptr noundef %5, ptr noundef %6, i32 noundef %7) #2
-  store i8 %call.i, ptr %retval.i, align 1
-  br label %nfaQueueExecRose_i.exit
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %5, align 8
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = call signext i8 @nfaExecLimEx32_QR(ptr noundef %18, ptr noundef %19, i32 noundef %20)
+  store i8 %21, ptr %4, align 1
+  br label %134
 
-sw.bb1.i:                                         ; preds = %do.end
-  %8 = load ptr, ptr %nfa.addr.i, align 8
-  %9 = load ptr, ptr %q.addr.i, align 8
-  %10 = load i32, ptr %report.addr.i, align 4
-  %call2.i = call signext i8 @nfaExecLimEx64_QR(ptr noundef %8, ptr noundef %9, i32 noundef %10) #2
-  store i8 %call2.i, ptr %retval.i, align 1
-  br label %nfaQueueExecRose_i.exit
+22:                                               ; preds = %3
+  %23 = load ptr, ptr %5, align 8
+  %24 = load ptr, ptr %6, align 8
+  %25 = load i32, ptr %7, align 4
+  %26 = call signext i8 @nfaExecLimEx64_QR(ptr noundef %23, ptr noundef %24, i32 noundef %25)
+  store i8 %26, ptr %4, align 1
+  br label %134
 
-sw.bb3.i:                                         ; preds = %do.end
-  %11 = load ptr, ptr %nfa.addr.i, align 8
-  %12 = load ptr, ptr %q.addr.i, align 8
-  %13 = load i32, ptr %report.addr.i, align 4
-  %call4.i = call signext i8 @nfaExecLimEx128_QR(ptr noundef %11, ptr noundef %12, i32 noundef %13) #2
-  store i8 %call4.i, ptr %retval.i, align 1
-  br label %nfaQueueExecRose_i.exit
+27:                                               ; preds = %3
+  %28 = load ptr, ptr %5, align 8
+  %29 = load ptr, ptr %6, align 8
+  %30 = load i32, ptr %7, align 4
+  %31 = call signext i8 @nfaExecLimEx128_QR(ptr noundef %28, ptr noundef %29, i32 noundef %30)
+  store i8 %31, ptr %4, align 1
+  br label %134
 
-sw.bb5.i:                                         ; preds = %do.end
-  %14 = load ptr, ptr %nfa.addr.i, align 8
-  %15 = load ptr, ptr %q.addr.i, align 8
-  %16 = load i32, ptr %report.addr.i, align 4
-  %call6.i = call signext i8 @nfaExecLimEx256_QR(ptr noundef %14, ptr noundef %15, i32 noundef %16) #2
-  store i8 %call6.i, ptr %retval.i, align 1
-  br label %nfaQueueExecRose_i.exit
+32:                                               ; preds = %3
+  %33 = load ptr, ptr %5, align 8
+  %34 = load ptr, ptr %6, align 8
+  %35 = load i32, ptr %7, align 4
+  %36 = call signext i8 @nfaExecLimEx256_QR(ptr noundef %33, ptr noundef %34, i32 noundef %35)
+  store i8 %36, ptr %4, align 1
+  br label %134
 
-sw.bb7.i:                                         ; preds = %do.end
-  %17 = load ptr, ptr %nfa.addr.i, align 8
-  %18 = load ptr, ptr %q.addr.i, align 8
-  %19 = load i32, ptr %report.addr.i, align 4
-  %call8.i = call signext i8 @nfaExecLimEx384_QR(ptr noundef %17, ptr noundef %18, i32 noundef %19) #2
-  store i8 %call8.i, ptr %retval.i, align 1
-  br label %nfaQueueExecRose_i.exit
+37:                                               ; preds = %3
+  %38 = load ptr, ptr %5, align 8
+  %39 = load ptr, ptr %6, align 8
+  %40 = load i32, ptr %7, align 4
+  %41 = call signext i8 @nfaExecLimEx384_QR(ptr noundef %38, ptr noundef %39, i32 noundef %40)
+  store i8 %41, ptr %4, align 1
+  br label %134
 
-sw.bb9.i:                                         ; preds = %do.end
-  %20 = load ptr, ptr %nfa.addr.i, align 8
-  %21 = load ptr, ptr %q.addr.i, align 8
-  %22 = load i32, ptr %report.addr.i, align 4
-  %call10.i = call signext i8 @nfaExecLimEx512_QR(ptr noundef %20, ptr noundef %21, i32 noundef %22) #2
-  store i8 %call10.i, ptr %retval.i, align 1
-  br label %nfaQueueExecRose_i.exit
+42:                                               ; preds = %3
+  %43 = load ptr, ptr %5, align 8
+  %44 = load ptr, ptr %6, align 8
+  %45 = load i32, ptr %7, align 4
+  %46 = call signext i8 @nfaExecLimEx512_QR(ptr noundef %43, ptr noundef %44, i32 noundef %45)
+  store i8 %46, ptr %4, align 1
+  br label %134
 
-sw.bb11.i:                                        ; preds = %do.end
-  %23 = load ptr, ptr %nfa.addr.i, align 8
-  %24 = load ptr, ptr %q.addr.i, align 8
-  %25 = load i32, ptr %report.addr.i, align 4
-  %call12.i = call signext i8 @nfaExecMcClellan8_QR(ptr noundef %23, ptr noundef %24, i32 noundef %25) #2
-  store i8 %call12.i, ptr %retval.i, align 1
-  br label %nfaQueueExecRose_i.exit
+47:                                               ; preds = %3
+  %48 = load ptr, ptr %5, align 8
+  %49 = load ptr, ptr %6, align 8
+  %50 = load i32, ptr %7, align 4
+  %51 = call signext i8 @nfaExecMcClellan8_QR(ptr noundef %48, ptr noundef %49, i32 noundef %50)
+  store i8 %51, ptr %4, align 1
+  br label %134
 
-sw.bb13.i:                                        ; preds = %do.end
-  %26 = load ptr, ptr %nfa.addr.i, align 8
-  %27 = load ptr, ptr %q.addr.i, align 8
-  %28 = load i32, ptr %report.addr.i, align 4
-  %call14.i = call signext i8 @nfaExecMcClellan16_QR(ptr noundef %26, ptr noundef %27, i32 noundef %28) #2
-  store i8 %call14.i, ptr %retval.i, align 1
-  br label %nfaQueueExecRose_i.exit
+52:                                               ; preds = %3
+  %53 = load ptr, ptr %5, align 8
+  %54 = load ptr, ptr %6, align 8
+  %55 = load i32, ptr %7, align 4
+  %56 = call signext i8 @nfaExecMcClellan16_QR(ptr noundef %53, ptr noundef %54, i32 noundef %55)
+  store i8 %56, ptr %4, align 1
+  br label %134
 
-sw.bb15.i:                                        ; preds = %do.end
-  %29 = load ptr, ptr %nfa.addr.i, align 8
-  %30 = load ptr, ptr %q.addr.i, align 8
-  %31 = load i32, ptr %report.addr.i, align 4
-  %call16.i = call signext i8 @nfaExecGough8_QR(ptr noundef %29, ptr noundef %30, i32 noundef %31) #2
-  store i8 %call16.i, ptr %retval.i, align 1
-  br label %nfaQueueExecRose_i.exit
+57:                                               ; preds = %3
+  %58 = load ptr, ptr %5, align 8
+  %59 = load ptr, ptr %6, align 8
+  %60 = load i32, ptr %7, align 4
+  %61 = call signext i8 @nfaExecGough8_QR(ptr noundef %58, ptr noundef %59, i32 noundef %60)
+  store i8 %61, ptr %4, align 1
+  br label %134
 
-sw.bb17.i:                                        ; preds = %do.end
-  %32 = load ptr, ptr %nfa.addr.i, align 8
-  %33 = load ptr, ptr %q.addr.i, align 8
-  %34 = load i32, ptr %report.addr.i, align 4
-  %call18.i = call signext i8 @nfaExecGough16_QR(ptr noundef %32, ptr noundef %33, i32 noundef %34) #2
-  store i8 %call18.i, ptr %retval.i, align 1
-  br label %nfaQueueExecRose_i.exit
+62:                                               ; preds = %3
+  %63 = load ptr, ptr %5, align 8
+  %64 = load ptr, ptr %6, align 8
+  %65 = load i32, ptr %7, align 4
+  %66 = call signext i8 @nfaExecGough16_QR(ptr noundef %63, ptr noundef %64, i32 noundef %65)
+  store i8 %66, ptr %4, align 1
+  br label %134
 
-sw.bb19.i:                                        ; preds = %do.end
-  store i32 0, ptr %tmp.i, align 4
-  %35 = load i32, ptr %tmp.i, align 4
-  %conv20.i = trunc i32 %35 to i8
-  store i8 %conv20.i, ptr %retval.i, align 1
-  br label %nfaQueueExecRose_i.exit
+67:                                               ; preds = %3
+  store i32 0, ptr %8, align 4
+  %68 = load i32, ptr %8, align 4
+  %69 = trunc i32 %68 to i8
+  store i8 %69, ptr %4, align 1
+  br label %134
 
-sw.bb21.i:                                        ; preds = %do.end
-  %36 = load ptr, ptr %nfa.addr.i, align 8
-  %37 = load ptr, ptr %q.addr.i, align 8
-  %38 = load i32, ptr %report.addr.i, align 4
-  %call22.i = call signext i8 @nfaExecLbrDot_QR(ptr noundef %36, ptr noundef %37, i32 noundef %38) #2
-  store i8 %call22.i, ptr %retval.i, align 1
-  br label %nfaQueueExecRose_i.exit
+70:                                               ; preds = %3
+  %71 = load ptr, ptr %5, align 8
+  %72 = load ptr, ptr %6, align 8
+  %73 = load i32, ptr %7, align 4
+  %74 = call signext i8 @nfaExecLbrDot_QR(ptr noundef %71, ptr noundef %72, i32 noundef %73)
+  store i8 %74, ptr %4, align 1
+  br label %134
 
-sw.bb23.i:                                        ; preds = %do.end
-  %39 = load ptr, ptr %nfa.addr.i, align 8
-  %40 = load ptr, ptr %q.addr.i, align 8
-  %41 = load i32, ptr %report.addr.i, align 4
-  %call24.i = call signext i8 @nfaExecLbrVerm_QR(ptr noundef %39, ptr noundef %40, i32 noundef %41) #2
-  store i8 %call24.i, ptr %retval.i, align 1
-  br label %nfaQueueExecRose_i.exit
+75:                                               ; preds = %3
+  %76 = load ptr, ptr %5, align 8
+  %77 = load ptr, ptr %6, align 8
+  %78 = load i32, ptr %7, align 4
+  %79 = call signext i8 @nfaExecLbrVerm_QR(ptr noundef %76, ptr noundef %77, i32 noundef %78)
+  store i8 %79, ptr %4, align 1
+  br label %134
 
-sw.bb25.i:                                        ; preds = %do.end
-  %42 = load ptr, ptr %nfa.addr.i, align 8
-  %43 = load ptr, ptr %q.addr.i, align 8
-  %44 = load i32, ptr %report.addr.i, align 4
-  %call26.i = call signext i8 @nfaExecLbrNVerm_QR(ptr noundef %42, ptr noundef %43, i32 noundef %44) #2
-  store i8 %call26.i, ptr %retval.i, align 1
-  br label %nfaQueueExecRose_i.exit
+80:                                               ; preds = %3
+  %81 = load ptr, ptr %5, align 8
+  %82 = load ptr, ptr %6, align 8
+  %83 = load i32, ptr %7, align 4
+  %84 = call signext i8 @nfaExecLbrNVerm_QR(ptr noundef %81, ptr noundef %82, i32 noundef %83)
+  store i8 %84, ptr %4, align 1
+  br label %134
 
-sw.bb27.i:                                        ; preds = %do.end
-  %45 = load ptr, ptr %nfa.addr.i, align 8
-  %46 = load ptr, ptr %q.addr.i, align 8
-  %47 = load i32, ptr %report.addr.i, align 4
-  %call28.i = call signext i8 @nfaExecLbrShuf_QR(ptr noundef %45, ptr noundef %46, i32 noundef %47) #2
-  store i8 %call28.i, ptr %retval.i, align 1
-  br label %nfaQueueExecRose_i.exit
+85:                                               ; preds = %3
+  %86 = load ptr, ptr %5, align 8
+  %87 = load ptr, ptr %6, align 8
+  %88 = load i32, ptr %7, align 4
+  %89 = call signext i8 @nfaExecLbrShuf_QR(ptr noundef %86, ptr noundef %87, i32 noundef %88)
+  store i8 %89, ptr %4, align 1
+  br label %134
 
-sw.bb29.i:                                        ; preds = %do.end
-  %48 = load ptr, ptr %nfa.addr.i, align 8
-  %49 = load ptr, ptr %q.addr.i, align 8
-  %50 = load i32, ptr %report.addr.i, align 4
-  %call30.i = call signext i8 @nfaExecLbrTruf_QR(ptr noundef %48, ptr noundef %49, i32 noundef %50) #2
-  store i8 %call30.i, ptr %retval.i, align 1
-  br label %nfaQueueExecRose_i.exit
+90:                                               ; preds = %3
+  %91 = load ptr, ptr %5, align 8
+  %92 = load ptr, ptr %6, align 8
+  %93 = load i32, ptr %7, align 4
+  %94 = call signext i8 @nfaExecLbrTruf_QR(ptr noundef %91, ptr noundef %92, i32 noundef %93)
+  store i8 %94, ptr %4, align 1
+  br label %134
 
-sw.bb31.i:                                        ; preds = %do.end
-  %51 = load ptr, ptr %nfa.addr.i, align 8
-  %52 = load ptr, ptr %q.addr.i, align 8
-  %53 = load i32, ptr %report.addr.i, align 4
-  %call32.i = call signext i8 @nfaExecCastle_QR(ptr noundef %51, ptr noundef %52, i32 noundef %53) #2
-  store i8 %call32.i, ptr %retval.i, align 1
-  br label %nfaQueueExecRose_i.exit
+95:                                               ; preds = %3
+  %96 = load ptr, ptr %5, align 8
+  %97 = load ptr, ptr %6, align 8
+  %98 = load i32, ptr %7, align 4
+  %99 = call signext i8 @nfaExecCastle_QR(ptr noundef %96, ptr noundef %97, i32 noundef %98)
+  store i8 %99, ptr %4, align 1
+  br label %134
 
-sw.bb33.i:                                        ; preds = %do.end
-  %54 = load ptr, ptr %nfa.addr.i, align 8
-  %55 = load ptr, ptr %q.addr.i, align 8
-  %56 = load i32, ptr %report.addr.i, align 4
-  %call34.i = call signext i8 @nfaExecSheng_QR(ptr noundef %54, ptr noundef %55, i32 noundef %56) #2
-  store i8 %call34.i, ptr %retval.i, align 1
-  br label %nfaQueueExecRose_i.exit
+100:                                              ; preds = %3
+  %101 = load ptr, ptr %5, align 8
+  %102 = load ptr, ptr %6, align 8
+  %103 = load i32, ptr %7, align 4
+  %104 = call signext i8 @nfaExecSheng_QR(ptr noundef %101, ptr noundef %102, i32 noundef %103)
+  store i8 %104, ptr %4, align 1
+  br label %134
 
-sw.bb35.i:                                        ; preds = %do.end
-  %57 = load ptr, ptr %nfa.addr.i, align 8
-  %58 = load ptr, ptr %q.addr.i, align 8
-  %59 = load i32, ptr %report.addr.i, align 4
-  %call36.i = call signext i8 @nfaExecTamarama_QR(ptr noundef %57, ptr noundef %58, i32 noundef %59) #2
-  store i8 %call36.i, ptr %retval.i, align 1
-  br label %nfaQueueExecRose_i.exit
+105:                                              ; preds = %3
+  %106 = load ptr, ptr %5, align 8
+  %107 = load ptr, ptr %6, align 8
+  %108 = load i32, ptr %7, align 4
+  %109 = call signext i8 @nfaExecTamarama_QR(ptr noundef %106, ptr noundef %107, i32 noundef %108)
+  store i8 %109, ptr %4, align 1
+  br label %134
 
-sw.bb37.i:                                        ; preds = %do.end
-  %60 = load ptr, ptr %nfa.addr.i, align 8
-  %61 = load ptr, ptr %q.addr.i, align 8
-  %62 = load i32, ptr %report.addr.i, align 4
-  %call38.i = call signext i8 @nfaExecMcSheng8_QR(ptr noundef %60, ptr noundef %61, i32 noundef %62) #2
-  store i8 %call38.i, ptr %retval.i, align 1
-  br label %nfaQueueExecRose_i.exit
+110:                                              ; preds = %3
+  %111 = load ptr, ptr %5, align 8
+  %112 = load ptr, ptr %6, align 8
+  %113 = load i32, ptr %7, align 4
+  %114 = call signext i8 @nfaExecMcSheng8_QR(ptr noundef %111, ptr noundef %112, i32 noundef %113)
+  store i8 %114, ptr %4, align 1
+  br label %134
 
-sw.bb39.i:                                        ; preds = %do.end
-  %63 = load ptr, ptr %nfa.addr.i, align 8
-  %64 = load ptr, ptr %q.addr.i, align 8
-  %65 = load i32, ptr %report.addr.i, align 4
-  %call40.i = call signext i8 @nfaExecMcSheng16_QR(ptr noundef %63, ptr noundef %64, i32 noundef %65) #2
-  store i8 %call40.i, ptr %retval.i, align 1
-  br label %nfaQueueExecRose_i.exit
+115:                                              ; preds = %3
+  %116 = load ptr, ptr %5, align 8
+  %117 = load ptr, ptr %6, align 8
+  %118 = load i32, ptr %7, align 4
+  %119 = call signext i8 @nfaExecMcSheng16_QR(ptr noundef %116, ptr noundef %117, i32 noundef %118)
+  store i8 %119, ptr %4, align 1
+  br label %134
 
-sw.bb41.i:                                        ; preds = %do.end
-  store i32 0, ptr %tmp42.i, align 4
-  %66 = load i32, ptr %tmp42.i, align 4
-  %conv43.i = trunc i32 %66 to i8
-  store i8 %conv43.i, ptr %retval.i, align 1
-  br label %nfaQueueExecRose_i.exit
+120:                                              ; preds = %3
+  store i32 0, ptr %9, align 4
+  %121 = load i32, ptr %9, align 4
+  %122 = trunc i32 %121 to i8
+  store i8 %122, ptr %4, align 1
+  br label %134
 
-sw.bb44.i:                                        ; preds = %do.end
-  store i32 0, ptr %tmp45.i, align 4
-  %67 = load i32, ptr %tmp45.i, align 4
-  %conv46.i = trunc i32 %67 to i8
-  store i8 %conv46.i, ptr %retval.i, align 1
-  br label %nfaQueueExecRose_i.exit
+123:                                              ; preds = %3
+  store i32 0, ptr %10, align 4
+  %124 = load i32, ptr %10, align 4
+  %125 = trunc i32 %124 to i8
+  store i8 %125, ptr %4, align 1
+  br label %134
 
-sw.bb47.i:                                        ; preds = %do.end
-  store i32 0, ptr %tmp48.i, align 4
-  %68 = load i32, ptr %tmp48.i, align 4
-  %conv49.i = trunc i32 %68 to i8
-  store i8 %conv49.i, ptr %retval.i, align 1
-  br label %nfaQueueExecRose_i.exit
+126:                                              ; preds = %3
+  store i32 0, ptr %11, align 4
+  %127 = load i32, ptr %11, align 4
+  %128 = trunc i32 %127 to i8
+  store i8 %128, ptr %4, align 1
+  br label %134
 
-sw.bb50.i:                                        ; preds = %do.end
-  store i32 0, ptr %tmp51.i, align 4
-  %69 = load i32, ptr %tmp51.i, align 4
-  %conv52.i = trunc i32 %69 to i8
-  store i8 %conv52.i, ptr %retval.i, align 1
-  br label %nfaQueueExecRose_i.exit
+129:                                              ; preds = %3
+  store i32 0, ptr %12, align 4
+  %130 = load i32, ptr %12, align 4
+  %131 = trunc i32 %130 to i8
+  store i8 %131, ptr %4, align 1
+  br label %134
 
-sw.default.i:                                     ; preds = %do.end
-  store i8 0, ptr %retval.i, align 1
-  br label %nfaQueueExecRose_i.exit
+132:                                              ; preds = %3
+  br label %133
 
-nfaQueueExecRose_i.exit:                          ; preds = %sw.default.i, %sw.bb50.i, %sw.bb47.i, %sw.bb44.i, %sw.bb41.i, %sw.bb39.i, %sw.bb37.i, %sw.bb35.i, %sw.bb33.i, %sw.bb31.i, %sw.bb29.i, %sw.bb27.i, %sw.bb25.i, %sw.bb23.i, %sw.bb21.i, %sw.bb19.i, %sw.bb17.i, %sw.bb15.i, %sw.bb13.i, %sw.bb11.i, %sw.bb9.i, %sw.bb7.i, %sw.bb5.i, %sw.bb3.i, %sw.bb1.i, %sw.bb.i
-  %70 = load i8, ptr %retval.i, align 1
-  ret i8 %70
+133:                                              ; preds = %132
+  store i8 0, ptr %4, align 1
+  br label %134
+
+134:                                              ; preds = %133, %129, %126, %123, %120, %115, %110, %105, %100, %95, %90, %85, %80, %75, %70, %67, %62, %57, %52, %47, %42, %37, %32, %27, %22, %17
+  %135 = load i8, ptr %4, align 1
+  ret i8 %135
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaBlockExecReverse(ptr noundef %nfa, i64 noundef %offset, ptr noundef %buf, i64 noundef %buflen, ptr noundef %hbuf, i64 noundef %hlen, ptr noundef %callback, ptr noundef %context) #0 {
-entry:
-  %retval = alloca i8, align 1
-  %nfa.addr = alloca ptr, align 8
-  %offset.addr = alloca i64, align 8
-  %buf.addr = alloca ptr, align 8
-  %buflen.addr = alloca i64, align 8
-  %hbuf.addr = alloca ptr, align 8
-  %hlen.addr = alloca i64, align 8
-  %callback.addr = alloca ptr, align 8
-  %context.addr = alloca ptr, align 8
-  %tmp = alloca i32, align 4
-  %tmp14 = alloca i32, align 4
-  %tmp17 = alloca i32, align 4
-  %tmp20 = alloca i32, align 4
-  %tmp23 = alloca i32, align 4
-  %tmp26 = alloca i32, align 4
-  %tmp29 = alloca i32, align 4
-  %tmp32 = alloca i32, align 4
-  %tmp35 = alloca i32, align 4
-  %tmp38 = alloca i32, align 4
-  %tmp41 = alloca i32, align 4
-  %tmp44 = alloca i32, align 4
-  %tmp47 = alloca i32, align 4
-  %tmp50 = alloca i32, align 4
-  %tmp53 = alloca i32, align 4
-  %tmp56 = alloca i32, align 4
-  %tmp59 = alloca i32, align 4
-  %tmp62 = alloca i32, align 4
-  %tmp65 = alloca i32, align 4
-  store ptr %nfa, ptr %nfa.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  store ptr %buf, ptr %buf.addr, align 8
-  store i64 %buflen, ptr %buflen.addr, align 8
-  store ptr %hbuf, ptr %hbuf.addr, align 8
-  store i64 %hlen, ptr %hlen.addr, align 8
-  store ptr %callback, ptr %callback.addr, align 8
-  store ptr %context, ptr %context.addr, align 8
-  %0 = load ptr, ptr %nfa.addr, align 8
-  %type = getelementptr inbounds %struct.NFA, ptr %0, i32 0, i32 2
-  %1 = load i8, ptr %type, align 8
-  %conv = zext i8 %1 to i32
-  switch i32 %conv, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb1
-    i32 2, label %sw.bb3
-    i32 3, label %sw.bb5
-    i32 4, label %sw.bb7
-    i32 5, label %sw.bb9
-    i32 6, label %sw.bb11
-    i32 7, label %sw.bb13
-    i32 8, label %sw.bb16
-    i32 9, label %sw.bb19
-    i32 10, label %sw.bb22
-    i32 11, label %sw.bb25
-    i32 12, label %sw.bb28
-    i32 13, label %sw.bb31
-    i32 14, label %sw.bb34
-    i32 15, label %sw.bb37
-    i32 16, label %sw.bb40
-    i32 17, label %sw.bb43
-    i32 18, label %sw.bb46
-    i32 19, label %sw.bb49
-    i32 20, label %sw.bb52
-    i32 21, label %sw.bb55
-    i32 22, label %sw.bb58
-    i32 23, label %sw.bb61
-    i32 24, label %sw.bb64
+define hidden signext i8 @nfaBlockExecReverse(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #0 {
+  %9 = alloca i8, align 1
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  %23 = alloca i32, align 4
+  %24 = alloca i32, align 4
+  %25 = alloca i32, align 4
+  %26 = alloca i32, align 4
+  %27 = alloca i32, align 4
+  %28 = alloca i32, align 4
+  %29 = alloca i32, align 4
+  %30 = alloca i32, align 4
+  %31 = alloca i32, align 4
+  %32 = alloca i32, align 4
+  %33 = alloca i32, align 4
+  %34 = alloca i32, align 4
+  %35 = alloca i32, align 4
+  %36 = alloca i32, align 4
+  store ptr %0, ptr %10, align 8
+  store i64 %1, ptr %11, align 8
+  store ptr %2, ptr %12, align 8
+  store i64 %3, ptr %13, align 8
+  store ptr %4, ptr %14, align 8
+  store i64 %5, ptr %15, align 8
+  store ptr %6, ptr %16, align 8
+  store ptr %7, ptr %17, align 8
+  %37 = load ptr, ptr %10, align 8
+  %38 = getelementptr inbounds nuw %struct.NFA, ptr %37, i32 0, i32 2
+  %39 = load i8, ptr %38, align 8
+  %40 = zext i8 %39 to i32
+  switch i32 %40, label %158 [
+    i32 0, label %41
+    i32 1, label %51
+    i32 2, label %61
+    i32 3, label %71
+    i32 4, label %81
+    i32 5, label %91
+    i32 6, label %101
+    i32 7, label %104
+    i32 8, label %107
+    i32 9, label %110
+    i32 10, label %113
+    i32 11, label %116
+    i32 12, label %119
+    i32 13, label %122
+    i32 14, label %125
+    i32 15, label %128
+    i32 16, label %131
+    i32 17, label %134
+    i32 18, label %137
+    i32 19, label %140
+    i32 20, label %143
+    i32 21, label %146
+    i32 22, label %149
+    i32 23, label %152
+    i32 24, label %155
   ]
 
-sw.bb:                                            ; preds = %entry
-  %2 = load ptr, ptr %nfa.addr, align 8
-  %3 = load i64, ptr %offset.addr, align 8
-  %4 = load ptr, ptr %buf.addr, align 8
-  %5 = load i64, ptr %buflen.addr, align 8
-  %6 = load ptr, ptr %hbuf.addr, align 8
-  %7 = load i64, ptr %hlen.addr, align 8
-  %8 = load ptr, ptr %callback.addr, align 8
-  %9 = load ptr, ptr %context.addr, align 8
-  %call = call signext i8 @nfaExecLimEx32_B_Reverse(ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8, ptr noundef %9)
-  store i8 %call, ptr %retval, align 1
-  br label %return
+41:                                               ; preds = %8
+  %42 = load ptr, ptr %10, align 8
+  %43 = load i64, ptr %11, align 8
+  %44 = load ptr, ptr %12, align 8
+  %45 = load i64, ptr %13, align 8
+  %46 = load ptr, ptr %14, align 8
+  %47 = load i64, ptr %15, align 8
+  %48 = load ptr, ptr %16, align 8
+  %49 = load ptr, ptr %17, align 8
+  %50 = call signext i8 @nfaExecLimEx32_B_Reverse(ptr noundef %42, i64 noundef %43, ptr noundef %44, i64 noundef %45, ptr noundef %46, i64 noundef %47, ptr noundef %48, ptr noundef %49)
+  store i8 %50, ptr %9, align 1
+  br label %160
 
-sw.bb1:                                           ; preds = %entry
-  %10 = load ptr, ptr %nfa.addr, align 8
-  %11 = load i64, ptr %offset.addr, align 8
-  %12 = load ptr, ptr %buf.addr, align 8
-  %13 = load i64, ptr %buflen.addr, align 8
-  %14 = load ptr, ptr %hbuf.addr, align 8
-  %15 = load i64, ptr %hlen.addr, align 8
-  %16 = load ptr, ptr %callback.addr, align 8
-  %17 = load ptr, ptr %context.addr, align 8
-  %call2 = call signext i8 @nfaExecLimEx64_B_Reverse(ptr noundef %10, i64 noundef %11, ptr noundef %12, i64 noundef %13, ptr noundef %14, i64 noundef %15, ptr noundef %16, ptr noundef %17)
-  store i8 %call2, ptr %retval, align 1
-  br label %return
+51:                                               ; preds = %8
+  %52 = load ptr, ptr %10, align 8
+  %53 = load i64, ptr %11, align 8
+  %54 = load ptr, ptr %12, align 8
+  %55 = load i64, ptr %13, align 8
+  %56 = load ptr, ptr %14, align 8
+  %57 = load i64, ptr %15, align 8
+  %58 = load ptr, ptr %16, align 8
+  %59 = load ptr, ptr %17, align 8
+  %60 = call signext i8 @nfaExecLimEx64_B_Reverse(ptr noundef %52, i64 noundef %53, ptr noundef %54, i64 noundef %55, ptr noundef %56, i64 noundef %57, ptr noundef %58, ptr noundef %59)
+  store i8 %60, ptr %9, align 1
+  br label %160
 
-sw.bb3:                                           ; preds = %entry
-  %18 = load ptr, ptr %nfa.addr, align 8
-  %19 = load i64, ptr %offset.addr, align 8
-  %20 = load ptr, ptr %buf.addr, align 8
-  %21 = load i64, ptr %buflen.addr, align 8
-  %22 = load ptr, ptr %hbuf.addr, align 8
-  %23 = load i64, ptr %hlen.addr, align 8
-  %24 = load ptr, ptr %callback.addr, align 8
-  %25 = load ptr, ptr %context.addr, align 8
-  %call4 = call signext i8 @nfaExecLimEx128_B_Reverse(ptr noundef %18, i64 noundef %19, ptr noundef %20, i64 noundef %21, ptr noundef %22, i64 noundef %23, ptr noundef %24, ptr noundef %25)
-  store i8 %call4, ptr %retval, align 1
-  br label %return
+61:                                               ; preds = %8
+  %62 = load ptr, ptr %10, align 8
+  %63 = load i64, ptr %11, align 8
+  %64 = load ptr, ptr %12, align 8
+  %65 = load i64, ptr %13, align 8
+  %66 = load ptr, ptr %14, align 8
+  %67 = load i64, ptr %15, align 8
+  %68 = load ptr, ptr %16, align 8
+  %69 = load ptr, ptr %17, align 8
+  %70 = call signext i8 @nfaExecLimEx128_B_Reverse(ptr noundef %62, i64 noundef %63, ptr noundef %64, i64 noundef %65, ptr noundef %66, i64 noundef %67, ptr noundef %68, ptr noundef %69)
+  store i8 %70, ptr %9, align 1
+  br label %160
 
-sw.bb5:                                           ; preds = %entry
-  %26 = load ptr, ptr %nfa.addr, align 8
-  %27 = load i64, ptr %offset.addr, align 8
-  %28 = load ptr, ptr %buf.addr, align 8
-  %29 = load i64, ptr %buflen.addr, align 8
-  %30 = load ptr, ptr %hbuf.addr, align 8
-  %31 = load i64, ptr %hlen.addr, align 8
-  %32 = load ptr, ptr %callback.addr, align 8
-  %33 = load ptr, ptr %context.addr, align 8
-  %call6 = call signext i8 @nfaExecLimEx256_B_Reverse(ptr noundef %26, i64 noundef %27, ptr noundef %28, i64 noundef %29, ptr noundef %30, i64 noundef %31, ptr noundef %32, ptr noundef %33)
-  store i8 %call6, ptr %retval, align 1
-  br label %return
+71:                                               ; preds = %8
+  %72 = load ptr, ptr %10, align 8
+  %73 = load i64, ptr %11, align 8
+  %74 = load ptr, ptr %12, align 8
+  %75 = load i64, ptr %13, align 8
+  %76 = load ptr, ptr %14, align 8
+  %77 = load i64, ptr %15, align 8
+  %78 = load ptr, ptr %16, align 8
+  %79 = load ptr, ptr %17, align 8
+  %80 = call signext i8 @nfaExecLimEx256_B_Reverse(ptr noundef %72, i64 noundef %73, ptr noundef %74, i64 noundef %75, ptr noundef %76, i64 noundef %77, ptr noundef %78, ptr noundef %79)
+  store i8 %80, ptr %9, align 1
+  br label %160
 
-sw.bb7:                                           ; preds = %entry
-  %34 = load ptr, ptr %nfa.addr, align 8
-  %35 = load i64, ptr %offset.addr, align 8
-  %36 = load ptr, ptr %buf.addr, align 8
-  %37 = load i64, ptr %buflen.addr, align 8
-  %38 = load ptr, ptr %hbuf.addr, align 8
-  %39 = load i64, ptr %hlen.addr, align 8
-  %40 = load ptr, ptr %callback.addr, align 8
-  %41 = load ptr, ptr %context.addr, align 8
-  %call8 = call signext i8 @nfaExecLimEx384_B_Reverse(ptr noundef %34, i64 noundef %35, ptr noundef %36, i64 noundef %37, ptr noundef %38, i64 noundef %39, ptr noundef %40, ptr noundef %41)
-  store i8 %call8, ptr %retval, align 1
-  br label %return
+81:                                               ; preds = %8
+  %82 = load ptr, ptr %10, align 8
+  %83 = load i64, ptr %11, align 8
+  %84 = load ptr, ptr %12, align 8
+  %85 = load i64, ptr %13, align 8
+  %86 = load ptr, ptr %14, align 8
+  %87 = load i64, ptr %15, align 8
+  %88 = load ptr, ptr %16, align 8
+  %89 = load ptr, ptr %17, align 8
+  %90 = call signext i8 @nfaExecLimEx384_B_Reverse(ptr noundef %82, i64 noundef %83, ptr noundef %84, i64 noundef %85, ptr noundef %86, i64 noundef %87, ptr noundef %88, ptr noundef %89)
+  store i8 %90, ptr %9, align 1
+  br label %160
 
-sw.bb9:                                           ; preds = %entry
-  %42 = load ptr, ptr %nfa.addr, align 8
-  %43 = load i64, ptr %offset.addr, align 8
-  %44 = load ptr, ptr %buf.addr, align 8
-  %45 = load i64, ptr %buflen.addr, align 8
-  %46 = load ptr, ptr %hbuf.addr, align 8
-  %47 = load i64, ptr %hlen.addr, align 8
-  %48 = load ptr, ptr %callback.addr, align 8
-  %49 = load ptr, ptr %context.addr, align 8
-  %call10 = call signext i8 @nfaExecLimEx512_B_Reverse(ptr noundef %42, i64 noundef %43, ptr noundef %44, i64 noundef %45, ptr noundef %46, i64 noundef %47, ptr noundef %48, ptr noundef %49)
-  store i8 %call10, ptr %retval, align 1
-  br label %return
+91:                                               ; preds = %8
+  %92 = load ptr, ptr %10, align 8
+  %93 = load i64, ptr %11, align 8
+  %94 = load ptr, ptr %12, align 8
+  %95 = load i64, ptr %13, align 8
+  %96 = load ptr, ptr %14, align 8
+  %97 = load i64, ptr %15, align 8
+  %98 = load ptr, ptr %16, align 8
+  %99 = load ptr, ptr %17, align 8
+  %100 = call signext i8 @nfaExecLimEx512_B_Reverse(ptr noundef %92, i64 noundef %93, ptr noundef %94, i64 noundef %95, ptr noundef %96, i64 noundef %97, ptr noundef %98, ptr noundef %99)
+  store i8 %100, ptr %9, align 1
+  br label %160
 
-sw.bb11:                                          ; preds = %entry
-  store i32 0, ptr %tmp, align 4
-  %50 = load i32, ptr %tmp, align 4
-  %conv12 = trunc i32 %50 to i8
-  store i8 %conv12, ptr %retval, align 1
-  br label %return
+101:                                              ; preds = %8
+  store i32 0, ptr %18, align 4
+  %102 = load i32, ptr %18, align 4
+  %103 = trunc i32 %102 to i8
+  store i8 %103, ptr %9, align 1
+  br label %160
 
-sw.bb13:                                          ; preds = %entry
-  store i32 0, ptr %tmp14, align 4
-  %51 = load i32, ptr %tmp14, align 4
-  %conv15 = trunc i32 %51 to i8
-  store i8 %conv15, ptr %retval, align 1
-  br label %return
+104:                                              ; preds = %8
+  store i32 0, ptr %19, align 4
+  %105 = load i32, ptr %19, align 4
+  %106 = trunc i32 %105 to i8
+  store i8 %106, ptr %9, align 1
+  br label %160
 
-sw.bb16:                                          ; preds = %entry
-  store i32 0, ptr %tmp17, align 4
-  %52 = load i32, ptr %tmp17, align 4
-  %conv18 = trunc i32 %52 to i8
-  store i8 %conv18, ptr %retval, align 1
-  br label %return
+107:                                              ; preds = %8
+  store i32 0, ptr %20, align 4
+  %108 = load i32, ptr %20, align 4
+  %109 = trunc i32 %108 to i8
+  store i8 %109, ptr %9, align 1
+  br label %160
 
-sw.bb19:                                          ; preds = %entry
-  store i32 0, ptr %tmp20, align 4
-  %53 = load i32, ptr %tmp20, align 4
-  %conv21 = trunc i32 %53 to i8
-  store i8 %conv21, ptr %retval, align 1
-  br label %return
+110:                                              ; preds = %8
+  store i32 0, ptr %21, align 4
+  %111 = load i32, ptr %21, align 4
+  %112 = trunc i32 %111 to i8
+  store i8 %112, ptr %9, align 1
+  br label %160
 
-sw.bb22:                                          ; preds = %entry
-  store i32 0, ptr %tmp23, align 4
-  %54 = load i32, ptr %tmp23, align 4
-  %conv24 = trunc i32 %54 to i8
-  store i8 %conv24, ptr %retval, align 1
-  br label %return
+113:                                              ; preds = %8
+  store i32 0, ptr %22, align 4
+  %114 = load i32, ptr %22, align 4
+  %115 = trunc i32 %114 to i8
+  store i8 %115, ptr %9, align 1
+  br label %160
 
-sw.bb25:                                          ; preds = %entry
-  store i32 0, ptr %tmp26, align 4
-  %55 = load i32, ptr %tmp26, align 4
-  %conv27 = trunc i32 %55 to i8
-  store i8 %conv27, ptr %retval, align 1
-  br label %return
+116:                                              ; preds = %8
+  store i32 0, ptr %23, align 4
+  %117 = load i32, ptr %23, align 4
+  %118 = trunc i32 %117 to i8
+  store i8 %118, ptr %9, align 1
+  br label %160
 
-sw.bb28:                                          ; preds = %entry
-  store i32 0, ptr %tmp29, align 4
-  %56 = load i32, ptr %tmp29, align 4
-  %conv30 = trunc i32 %56 to i8
-  store i8 %conv30, ptr %retval, align 1
-  br label %return
+119:                                              ; preds = %8
+  store i32 0, ptr %24, align 4
+  %120 = load i32, ptr %24, align 4
+  %121 = trunc i32 %120 to i8
+  store i8 %121, ptr %9, align 1
+  br label %160
 
-sw.bb31:                                          ; preds = %entry
-  store i32 0, ptr %tmp32, align 4
-  %57 = load i32, ptr %tmp32, align 4
-  %conv33 = trunc i32 %57 to i8
-  store i8 %conv33, ptr %retval, align 1
-  br label %return
+122:                                              ; preds = %8
+  store i32 0, ptr %25, align 4
+  %123 = load i32, ptr %25, align 4
+  %124 = trunc i32 %123 to i8
+  store i8 %124, ptr %9, align 1
+  br label %160
 
-sw.bb34:                                          ; preds = %entry
-  store i32 0, ptr %tmp35, align 4
-  %58 = load i32, ptr %tmp35, align 4
-  %conv36 = trunc i32 %58 to i8
-  store i8 %conv36, ptr %retval, align 1
-  br label %return
+125:                                              ; preds = %8
+  store i32 0, ptr %26, align 4
+  %126 = load i32, ptr %26, align 4
+  %127 = trunc i32 %126 to i8
+  store i8 %127, ptr %9, align 1
+  br label %160
 
-sw.bb37:                                          ; preds = %entry
-  store i32 0, ptr %tmp38, align 4
-  %59 = load i32, ptr %tmp38, align 4
-  %conv39 = trunc i32 %59 to i8
-  store i8 %conv39, ptr %retval, align 1
-  br label %return
+128:                                              ; preds = %8
+  store i32 0, ptr %27, align 4
+  %129 = load i32, ptr %27, align 4
+  %130 = trunc i32 %129 to i8
+  store i8 %130, ptr %9, align 1
+  br label %160
 
-sw.bb40:                                          ; preds = %entry
-  store i32 0, ptr %tmp41, align 4
-  %60 = load i32, ptr %tmp41, align 4
-  %conv42 = trunc i32 %60 to i8
-  store i8 %conv42, ptr %retval, align 1
-  br label %return
+131:                                              ; preds = %8
+  store i32 0, ptr %28, align 4
+  %132 = load i32, ptr %28, align 4
+  %133 = trunc i32 %132 to i8
+  store i8 %133, ptr %9, align 1
+  br label %160
 
-sw.bb43:                                          ; preds = %entry
-  store i32 0, ptr %tmp44, align 4
-  %61 = load i32, ptr %tmp44, align 4
-  %conv45 = trunc i32 %61 to i8
-  store i8 %conv45, ptr %retval, align 1
-  br label %return
+134:                                              ; preds = %8
+  store i32 0, ptr %29, align 4
+  %135 = load i32, ptr %29, align 4
+  %136 = trunc i32 %135 to i8
+  store i8 %136, ptr %9, align 1
+  br label %160
 
-sw.bb46:                                          ; preds = %entry
-  store i32 0, ptr %tmp47, align 4
-  %62 = load i32, ptr %tmp47, align 4
-  %conv48 = trunc i32 %62 to i8
-  store i8 %conv48, ptr %retval, align 1
-  br label %return
+137:                                              ; preds = %8
+  store i32 0, ptr %30, align 4
+  %138 = load i32, ptr %30, align 4
+  %139 = trunc i32 %138 to i8
+  store i8 %139, ptr %9, align 1
+  br label %160
 
-sw.bb49:                                          ; preds = %entry
-  store i32 0, ptr %tmp50, align 4
-  %63 = load i32, ptr %tmp50, align 4
-  %conv51 = trunc i32 %63 to i8
-  store i8 %conv51, ptr %retval, align 1
-  br label %return
+140:                                              ; preds = %8
+  store i32 0, ptr %31, align 4
+  %141 = load i32, ptr %31, align 4
+  %142 = trunc i32 %141 to i8
+  store i8 %142, ptr %9, align 1
+  br label %160
 
-sw.bb52:                                          ; preds = %entry
-  store i32 0, ptr %tmp53, align 4
-  %64 = load i32, ptr %tmp53, align 4
-  %conv54 = trunc i32 %64 to i8
-  store i8 %conv54, ptr %retval, align 1
-  br label %return
+143:                                              ; preds = %8
+  store i32 0, ptr %32, align 4
+  %144 = load i32, ptr %32, align 4
+  %145 = trunc i32 %144 to i8
+  store i8 %145, ptr %9, align 1
+  br label %160
 
-sw.bb55:                                          ; preds = %entry
-  store i32 0, ptr %tmp56, align 4
-  %65 = load i32, ptr %tmp56, align 4
-  %conv57 = trunc i32 %65 to i8
-  store i8 %conv57, ptr %retval, align 1
-  br label %return
+146:                                              ; preds = %8
+  store i32 0, ptr %33, align 4
+  %147 = load i32, ptr %33, align 4
+  %148 = trunc i32 %147 to i8
+  store i8 %148, ptr %9, align 1
+  br label %160
 
-sw.bb58:                                          ; preds = %entry
-  store i32 0, ptr %tmp59, align 4
-  %66 = load i32, ptr %tmp59, align 4
-  %conv60 = trunc i32 %66 to i8
-  store i8 %conv60, ptr %retval, align 1
-  br label %return
+149:                                              ; preds = %8
+  store i32 0, ptr %34, align 4
+  %150 = load i32, ptr %34, align 4
+  %151 = trunc i32 %150 to i8
+  store i8 %151, ptr %9, align 1
+  br label %160
 
-sw.bb61:                                          ; preds = %entry
-  store i32 0, ptr %tmp62, align 4
-  %67 = load i32, ptr %tmp62, align 4
-  %conv63 = trunc i32 %67 to i8
-  store i8 %conv63, ptr %retval, align 1
-  br label %return
+152:                                              ; preds = %8
+  store i32 0, ptr %35, align 4
+  %153 = load i32, ptr %35, align 4
+  %154 = trunc i32 %153 to i8
+  store i8 %154, ptr %9, align 1
+  br label %160
 
-sw.bb64:                                          ; preds = %entry
-  store i32 0, ptr %tmp65, align 4
-  %68 = load i32, ptr %tmp65, align 4
-  %conv66 = trunc i32 %68 to i8
-  store i8 %conv66, ptr %retval, align 1
-  br label %return
+155:                                              ; preds = %8
+  store i32 0, ptr %36, align 4
+  %156 = load i32, ptr %36, align 4
+  %157 = trunc i32 %156 to i8
+  store i8 %157, ptr %9, align 1
+  br label %160
 
-sw.default:                                       ; preds = %entry
-  br label %sw.epilog
+158:                                              ; preds = %8
+  br label %159
 
-sw.epilog:                                        ; preds = %sw.default
-  store i8 0, ptr %retval, align 1
-  br label %return
+159:                                              ; preds = %158
+  store i8 0, ptr %9, align 1
+  br label %160
 
-return:                                           ; preds = %sw.epilog, %sw.bb64, %sw.bb61, %sw.bb58, %sw.bb55, %sw.bb52, %sw.bb49, %sw.bb46, %sw.bb43, %sw.bb40, %sw.bb37, %sw.bb34, %sw.bb31, %sw.bb28, %sw.bb25, %sw.bb22, %sw.bb19, %sw.bb16, %sw.bb13, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb1, %sw.bb
-  %69 = load i8, ptr %retval, align 1
-  ret i8 %69
+160:                                              ; preds = %159, %155, %152, %149, %146, %143, %140, %137, %134, %131, %128, %125, %122, %119, %116, %113, %110, %107, %104, %101, %91, %81, %71, %61, %51, %41
+  %161 = load i8, ptr %9, align 1
+  ret i8 %161
 }
 
 declare signext i8 @nfaExecLimEx32_B_Reverse(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) #1
@@ -3690,257 +3138,256 @@ declare signext i8 @nfaExecLimEx384_B_Reverse(ptr noundef, i64 noundef, ptr noun
 declare signext i8 @nfaExecLimEx512_B_Reverse(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaQueueCompressState(ptr noundef %nfa, ptr noundef %q, i64 noundef %loc) #0 {
-entry:
-  %retval = alloca i8, align 1
-  %nfa.addr = alloca ptr, align 8
-  %q.addr = alloca ptr, align 8
-  %loc.addr = alloca i64, align 8
-  %tmp = alloca i32, align 4
-  %tmp44 = alloca i32, align 4
-  %tmp47 = alloca i32, align 4
-  %tmp50 = alloca i32, align 4
-  store ptr %nfa, ptr %nfa.addr, align 8
-  store ptr %q, ptr %q.addr, align 8
-  store i64 %loc, ptr %loc.addr, align 8
-  %0 = load ptr, ptr %nfa.addr, align 8
-  %type = getelementptr inbounds %struct.NFA, ptr %0, i32 0, i32 2
-  %1 = load i8, ptr %type, align 8
-  %conv = zext i8 %1 to i32
-  switch i32 %conv, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb1
-    i32 2, label %sw.bb3
-    i32 3, label %sw.bb5
-    i32 4, label %sw.bb7
-    i32 5, label %sw.bb9
-    i32 6, label %sw.bb11
-    i32 7, label %sw.bb13
-    i32 8, label %sw.bb15
-    i32 9, label %sw.bb17
-    i32 10, label %sw.bb19
-    i32 11, label %sw.bb21
-    i32 12, label %sw.bb23
-    i32 13, label %sw.bb25
-    i32 14, label %sw.bb27
-    i32 15, label %sw.bb29
-    i32 16, label %sw.bb31
-    i32 17, label %sw.bb33
-    i32 18, label %sw.bb35
-    i32 19, label %sw.bb37
-    i32 20, label %sw.bb39
-    i32 21, label %sw.bb41
-    i32 22, label %sw.bb43
-    i32 23, label %sw.bb46
-    i32 24, label %sw.bb49
+define hidden signext i8 @nfaQueueCompressState(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca i8, align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  %12 = load ptr, ptr %5, align 8
+  %13 = getelementptr inbounds nuw %struct.NFA, ptr %12, i32 0, i32 2
+  %14 = load i8, ptr %13, align 8
+  %15 = zext i8 %14 to i32
+  switch i32 %15, label %133 [
+    i32 0, label %16
+    i32 1, label %21
+    i32 2, label %26
+    i32 3, label %31
+    i32 4, label %36
+    i32 5, label %41
+    i32 6, label %46
+    i32 7, label %51
+    i32 8, label %56
+    i32 9, label %61
+    i32 10, label %66
+    i32 11, label %71
+    i32 12, label %76
+    i32 13, label %81
+    i32 14, label %86
+    i32 15, label %91
+    i32 16, label %96
+    i32 17, label %101
+    i32 18, label %106
+    i32 19, label %111
+    i32 20, label %116
+    i32 21, label %121
+    i32 22, label %124
+    i32 23, label %127
+    i32 24, label %130
   ]
 
-sw.bb:                                            ; preds = %entry
-  %2 = load ptr, ptr %nfa.addr, align 8
-  %3 = load ptr, ptr %q.addr, align 8
-  %4 = load i64, ptr %loc.addr, align 8
-  %call = call signext i8 @nfaExecLimEx32_queueCompressState(ptr noundef %2, ptr noundef %3, i64 noundef %4)
-  store i8 %call, ptr %retval, align 1
-  br label %return
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %5, align 8
+  %18 = load ptr, ptr %6, align 8
+  %19 = load i64, ptr %7, align 8
+  %20 = call signext i8 @nfaExecLimEx32_queueCompressState(ptr noundef %17, ptr noundef %18, i64 noundef %19)
+  store i8 %20, ptr %4, align 1
+  br label %135
 
-sw.bb1:                                           ; preds = %entry
-  %5 = load ptr, ptr %nfa.addr, align 8
-  %6 = load ptr, ptr %q.addr, align 8
-  %7 = load i64, ptr %loc.addr, align 8
-  %call2 = call signext i8 @nfaExecLimEx64_queueCompressState(ptr noundef %5, ptr noundef %6, i64 noundef %7)
-  store i8 %call2, ptr %retval, align 1
-  br label %return
+21:                                               ; preds = %3
+  %22 = load ptr, ptr %5, align 8
+  %23 = load ptr, ptr %6, align 8
+  %24 = load i64, ptr %7, align 8
+  %25 = call signext i8 @nfaExecLimEx64_queueCompressState(ptr noundef %22, ptr noundef %23, i64 noundef %24)
+  store i8 %25, ptr %4, align 1
+  br label %135
 
-sw.bb3:                                           ; preds = %entry
-  %8 = load ptr, ptr %nfa.addr, align 8
-  %9 = load ptr, ptr %q.addr, align 8
-  %10 = load i64, ptr %loc.addr, align 8
-  %call4 = call signext i8 @nfaExecLimEx128_queueCompressState(ptr noundef %8, ptr noundef %9, i64 noundef %10)
-  store i8 %call4, ptr %retval, align 1
-  br label %return
+26:                                               ; preds = %3
+  %27 = load ptr, ptr %5, align 8
+  %28 = load ptr, ptr %6, align 8
+  %29 = load i64, ptr %7, align 8
+  %30 = call signext i8 @nfaExecLimEx128_queueCompressState(ptr noundef %27, ptr noundef %28, i64 noundef %29)
+  store i8 %30, ptr %4, align 1
+  br label %135
 
-sw.bb5:                                           ; preds = %entry
-  %11 = load ptr, ptr %nfa.addr, align 8
-  %12 = load ptr, ptr %q.addr, align 8
-  %13 = load i64, ptr %loc.addr, align 8
-  %call6 = call signext i8 @nfaExecLimEx256_queueCompressState(ptr noundef %11, ptr noundef %12, i64 noundef %13)
-  store i8 %call6, ptr %retval, align 1
-  br label %return
+31:                                               ; preds = %3
+  %32 = load ptr, ptr %5, align 8
+  %33 = load ptr, ptr %6, align 8
+  %34 = load i64, ptr %7, align 8
+  %35 = call signext i8 @nfaExecLimEx256_queueCompressState(ptr noundef %32, ptr noundef %33, i64 noundef %34)
+  store i8 %35, ptr %4, align 1
+  br label %135
 
-sw.bb7:                                           ; preds = %entry
-  %14 = load ptr, ptr %nfa.addr, align 8
-  %15 = load ptr, ptr %q.addr, align 8
-  %16 = load i64, ptr %loc.addr, align 8
-  %call8 = call signext i8 @nfaExecLimEx384_queueCompressState(ptr noundef %14, ptr noundef %15, i64 noundef %16)
-  store i8 %call8, ptr %retval, align 1
-  br label %return
+36:                                               ; preds = %3
+  %37 = load ptr, ptr %5, align 8
+  %38 = load ptr, ptr %6, align 8
+  %39 = load i64, ptr %7, align 8
+  %40 = call signext i8 @nfaExecLimEx384_queueCompressState(ptr noundef %37, ptr noundef %38, i64 noundef %39)
+  store i8 %40, ptr %4, align 1
+  br label %135
 
-sw.bb9:                                           ; preds = %entry
-  %17 = load ptr, ptr %nfa.addr, align 8
-  %18 = load ptr, ptr %q.addr, align 8
-  %19 = load i64, ptr %loc.addr, align 8
-  %call10 = call signext i8 @nfaExecLimEx512_queueCompressState(ptr noundef %17, ptr noundef %18, i64 noundef %19)
-  store i8 %call10, ptr %retval, align 1
-  br label %return
+41:                                               ; preds = %3
+  %42 = load ptr, ptr %5, align 8
+  %43 = load ptr, ptr %6, align 8
+  %44 = load i64, ptr %7, align 8
+  %45 = call signext i8 @nfaExecLimEx512_queueCompressState(ptr noundef %42, ptr noundef %43, i64 noundef %44)
+  store i8 %45, ptr %4, align 1
+  br label %135
 
-sw.bb11:                                          ; preds = %entry
-  %20 = load ptr, ptr %nfa.addr, align 8
-  %21 = load ptr, ptr %q.addr, align 8
-  %22 = load i64, ptr %loc.addr, align 8
-  %call12 = call signext i8 @nfaExecMcClellan8_queueCompressState(ptr noundef %20, ptr noundef %21, i64 noundef %22)
-  store i8 %call12, ptr %retval, align 1
-  br label %return
+46:                                               ; preds = %3
+  %47 = load ptr, ptr %5, align 8
+  %48 = load ptr, ptr %6, align 8
+  %49 = load i64, ptr %7, align 8
+  %50 = call signext i8 @nfaExecMcClellan8_queueCompressState(ptr noundef %47, ptr noundef %48, i64 noundef %49)
+  store i8 %50, ptr %4, align 1
+  br label %135
 
-sw.bb13:                                          ; preds = %entry
-  %23 = load ptr, ptr %nfa.addr, align 8
-  %24 = load ptr, ptr %q.addr, align 8
-  %25 = load i64, ptr %loc.addr, align 8
-  %call14 = call signext i8 @nfaExecMcClellan16_queueCompressState(ptr noundef %23, ptr noundef %24, i64 noundef %25)
-  store i8 %call14, ptr %retval, align 1
-  br label %return
+51:                                               ; preds = %3
+  %52 = load ptr, ptr %5, align 8
+  %53 = load ptr, ptr %6, align 8
+  %54 = load i64, ptr %7, align 8
+  %55 = call signext i8 @nfaExecMcClellan16_queueCompressState(ptr noundef %52, ptr noundef %53, i64 noundef %54)
+  store i8 %55, ptr %4, align 1
+  br label %135
 
-sw.bb15:                                          ; preds = %entry
-  %26 = load ptr, ptr %nfa.addr, align 8
-  %27 = load ptr, ptr %q.addr, align 8
-  %28 = load i64, ptr %loc.addr, align 8
-  %call16 = call signext i8 @nfaExecGough8_queueCompressState(ptr noundef %26, ptr noundef %27, i64 noundef %28)
-  store i8 %call16, ptr %retval, align 1
-  br label %return
+56:                                               ; preds = %3
+  %57 = load ptr, ptr %5, align 8
+  %58 = load ptr, ptr %6, align 8
+  %59 = load i64, ptr %7, align 8
+  %60 = call signext i8 @nfaExecGough8_queueCompressState(ptr noundef %57, ptr noundef %58, i64 noundef %59)
+  store i8 %60, ptr %4, align 1
+  br label %135
 
-sw.bb17:                                          ; preds = %entry
-  %29 = load ptr, ptr %nfa.addr, align 8
-  %30 = load ptr, ptr %q.addr, align 8
-  %31 = load i64, ptr %loc.addr, align 8
-  %call18 = call signext i8 @nfaExecGough16_queueCompressState(ptr noundef %29, ptr noundef %30, i64 noundef %31)
-  store i8 %call18, ptr %retval, align 1
-  br label %return
+61:                                               ; preds = %3
+  %62 = load ptr, ptr %5, align 8
+  %63 = load ptr, ptr %6, align 8
+  %64 = load i64, ptr %7, align 8
+  %65 = call signext i8 @nfaExecGough16_queueCompressState(ptr noundef %62, ptr noundef %63, i64 noundef %64)
+  store i8 %65, ptr %4, align 1
+  br label %135
 
-sw.bb19:                                          ; preds = %entry
-  %32 = load ptr, ptr %nfa.addr, align 8
-  %33 = load ptr, ptr %q.addr, align 8
-  %34 = load i64, ptr %loc.addr, align 8
-  %call20 = call signext i8 @nfaExecMpv_queueCompressState(ptr noundef %32, ptr noundef %33, i64 noundef %34)
-  store i8 %call20, ptr %retval, align 1
-  br label %return
+66:                                               ; preds = %3
+  %67 = load ptr, ptr %5, align 8
+  %68 = load ptr, ptr %6, align 8
+  %69 = load i64, ptr %7, align 8
+  %70 = call signext i8 @nfaExecMpv_queueCompressState(ptr noundef %67, ptr noundef %68, i64 noundef %69)
+  store i8 %70, ptr %4, align 1
+  br label %135
 
-sw.bb21:                                          ; preds = %entry
-  %35 = load ptr, ptr %nfa.addr, align 8
-  %36 = load ptr, ptr %q.addr, align 8
-  %37 = load i64, ptr %loc.addr, align 8
-  %call22 = call signext i8 @nfaExecLbrDot_queueCompressState(ptr noundef %35, ptr noundef %36, i64 noundef %37)
-  store i8 %call22, ptr %retval, align 1
-  br label %return
+71:                                               ; preds = %3
+  %72 = load ptr, ptr %5, align 8
+  %73 = load ptr, ptr %6, align 8
+  %74 = load i64, ptr %7, align 8
+  %75 = call signext i8 @nfaExecLbrDot_queueCompressState(ptr noundef %72, ptr noundef %73, i64 noundef %74)
+  store i8 %75, ptr %4, align 1
+  br label %135
 
-sw.bb23:                                          ; preds = %entry
-  %38 = load ptr, ptr %nfa.addr, align 8
-  %39 = load ptr, ptr %q.addr, align 8
-  %40 = load i64, ptr %loc.addr, align 8
-  %call24 = call signext i8 @nfaExecLbrVerm_queueCompressState(ptr noundef %38, ptr noundef %39, i64 noundef %40)
-  store i8 %call24, ptr %retval, align 1
-  br label %return
+76:                                               ; preds = %3
+  %77 = load ptr, ptr %5, align 8
+  %78 = load ptr, ptr %6, align 8
+  %79 = load i64, ptr %7, align 8
+  %80 = call signext i8 @nfaExecLbrVerm_queueCompressState(ptr noundef %77, ptr noundef %78, i64 noundef %79)
+  store i8 %80, ptr %4, align 1
+  br label %135
 
-sw.bb25:                                          ; preds = %entry
-  %41 = load ptr, ptr %nfa.addr, align 8
-  %42 = load ptr, ptr %q.addr, align 8
-  %43 = load i64, ptr %loc.addr, align 8
-  %call26 = call signext i8 @nfaExecLbrNVerm_queueCompressState(ptr noundef %41, ptr noundef %42, i64 noundef %43)
-  store i8 %call26, ptr %retval, align 1
-  br label %return
+81:                                               ; preds = %3
+  %82 = load ptr, ptr %5, align 8
+  %83 = load ptr, ptr %6, align 8
+  %84 = load i64, ptr %7, align 8
+  %85 = call signext i8 @nfaExecLbrNVerm_queueCompressState(ptr noundef %82, ptr noundef %83, i64 noundef %84)
+  store i8 %85, ptr %4, align 1
+  br label %135
 
-sw.bb27:                                          ; preds = %entry
-  %44 = load ptr, ptr %nfa.addr, align 8
-  %45 = load ptr, ptr %q.addr, align 8
-  %46 = load i64, ptr %loc.addr, align 8
-  %call28 = call signext i8 @nfaExecLbrShuf_queueCompressState(ptr noundef %44, ptr noundef %45, i64 noundef %46)
-  store i8 %call28, ptr %retval, align 1
-  br label %return
+86:                                               ; preds = %3
+  %87 = load ptr, ptr %5, align 8
+  %88 = load ptr, ptr %6, align 8
+  %89 = load i64, ptr %7, align 8
+  %90 = call signext i8 @nfaExecLbrShuf_queueCompressState(ptr noundef %87, ptr noundef %88, i64 noundef %89)
+  store i8 %90, ptr %4, align 1
+  br label %135
 
-sw.bb29:                                          ; preds = %entry
-  %47 = load ptr, ptr %nfa.addr, align 8
-  %48 = load ptr, ptr %q.addr, align 8
-  %49 = load i64, ptr %loc.addr, align 8
-  %call30 = call signext i8 @nfaExecLbrTruf_queueCompressState(ptr noundef %47, ptr noundef %48, i64 noundef %49)
-  store i8 %call30, ptr %retval, align 1
-  br label %return
+91:                                               ; preds = %3
+  %92 = load ptr, ptr %5, align 8
+  %93 = load ptr, ptr %6, align 8
+  %94 = load i64, ptr %7, align 8
+  %95 = call signext i8 @nfaExecLbrTruf_queueCompressState(ptr noundef %92, ptr noundef %93, i64 noundef %94)
+  store i8 %95, ptr %4, align 1
+  br label %135
 
-sw.bb31:                                          ; preds = %entry
-  %50 = load ptr, ptr %nfa.addr, align 8
-  %51 = load ptr, ptr %q.addr, align 8
-  %52 = load i64, ptr %loc.addr, align 8
-  %call32 = call signext i8 @nfaExecCastle_queueCompressState(ptr noundef %50, ptr noundef %51, i64 noundef %52)
-  store i8 %call32, ptr %retval, align 1
-  br label %return
+96:                                               ; preds = %3
+  %97 = load ptr, ptr %5, align 8
+  %98 = load ptr, ptr %6, align 8
+  %99 = load i64, ptr %7, align 8
+  %100 = call signext i8 @nfaExecCastle_queueCompressState(ptr noundef %97, ptr noundef %98, i64 noundef %99)
+  store i8 %100, ptr %4, align 1
+  br label %135
 
-sw.bb33:                                          ; preds = %entry
-  %53 = load ptr, ptr %nfa.addr, align 8
-  %54 = load ptr, ptr %q.addr, align 8
-  %55 = load i64, ptr %loc.addr, align 8
-  %call34 = call signext i8 @nfaExecSheng_queueCompressState(ptr noundef %53, ptr noundef %54, i64 noundef %55)
-  store i8 %call34, ptr %retval, align 1
-  br label %return
+101:                                              ; preds = %3
+  %102 = load ptr, ptr %5, align 8
+  %103 = load ptr, ptr %6, align 8
+  %104 = load i64, ptr %7, align 8
+  %105 = call signext i8 @nfaExecSheng_queueCompressState(ptr noundef %102, ptr noundef %103, i64 noundef %104)
+  store i8 %105, ptr %4, align 1
+  br label %135
 
-sw.bb35:                                          ; preds = %entry
-  %56 = load ptr, ptr %nfa.addr, align 8
-  %57 = load ptr, ptr %q.addr, align 8
-  %58 = load i64, ptr %loc.addr, align 8
-  %call36 = call signext i8 @nfaExecTamarama_queueCompressState(ptr noundef %56, ptr noundef %57, i64 noundef %58)
-  store i8 %call36, ptr %retval, align 1
-  br label %return
+106:                                              ; preds = %3
+  %107 = load ptr, ptr %5, align 8
+  %108 = load ptr, ptr %6, align 8
+  %109 = load i64, ptr %7, align 8
+  %110 = call signext i8 @nfaExecTamarama_queueCompressState(ptr noundef %107, ptr noundef %108, i64 noundef %109)
+  store i8 %110, ptr %4, align 1
+  br label %135
 
-sw.bb37:                                          ; preds = %entry
-  %59 = load ptr, ptr %nfa.addr, align 8
-  %60 = load ptr, ptr %q.addr, align 8
-  %61 = load i64, ptr %loc.addr, align 8
-  %call38 = call signext i8 @nfaExecMcSheng8_queueCompressState(ptr noundef %59, ptr noundef %60, i64 noundef %61)
-  store i8 %call38, ptr %retval, align 1
-  br label %return
+111:                                              ; preds = %3
+  %112 = load ptr, ptr %5, align 8
+  %113 = load ptr, ptr %6, align 8
+  %114 = load i64, ptr %7, align 8
+  %115 = call signext i8 @nfaExecMcSheng8_queueCompressState(ptr noundef %112, ptr noundef %113, i64 noundef %114)
+  store i8 %115, ptr %4, align 1
+  br label %135
 
-sw.bb39:                                          ; preds = %entry
-  %62 = load ptr, ptr %nfa.addr, align 8
-  %63 = load ptr, ptr %q.addr, align 8
-  %64 = load i64, ptr %loc.addr, align 8
-  %call40 = call signext i8 @nfaExecMcSheng16_queueCompressState(ptr noundef %62, ptr noundef %63, i64 noundef %64)
-  store i8 %call40, ptr %retval, align 1
-  br label %return
+116:                                              ; preds = %3
+  %117 = load ptr, ptr %5, align 8
+  %118 = load ptr, ptr %6, align 8
+  %119 = load i64, ptr %7, align 8
+  %120 = call signext i8 @nfaExecMcSheng16_queueCompressState(ptr noundef %117, ptr noundef %118, i64 noundef %119)
+  store i8 %120, ptr %4, align 1
+  br label %135
 
-sw.bb41:                                          ; preds = %entry
-  store i32 0, ptr %tmp, align 4
-  %65 = load i32, ptr %tmp, align 4
-  %conv42 = trunc i32 %65 to i8
-  store i8 %conv42, ptr %retval, align 1
-  br label %return
+121:                                              ; preds = %3
+  store i32 0, ptr %8, align 4
+  %122 = load i32, ptr %8, align 4
+  %123 = trunc i32 %122 to i8
+  store i8 %123, ptr %4, align 1
+  br label %135
 
-sw.bb43:                                          ; preds = %entry
-  store i32 0, ptr %tmp44, align 4
-  %66 = load i32, ptr %tmp44, align 4
-  %conv45 = trunc i32 %66 to i8
-  store i8 %conv45, ptr %retval, align 1
-  br label %return
+124:                                              ; preds = %3
+  store i32 0, ptr %9, align 4
+  %125 = load i32, ptr %9, align 4
+  %126 = trunc i32 %125 to i8
+  store i8 %126, ptr %4, align 1
+  br label %135
 
-sw.bb46:                                          ; preds = %entry
-  store i32 0, ptr %tmp47, align 4
-  %67 = load i32, ptr %tmp47, align 4
-  %conv48 = trunc i32 %67 to i8
-  store i8 %conv48, ptr %retval, align 1
-  br label %return
+127:                                              ; preds = %3
+  store i32 0, ptr %10, align 4
+  %128 = load i32, ptr %10, align 4
+  %129 = trunc i32 %128 to i8
+  store i8 %129, ptr %4, align 1
+  br label %135
 
-sw.bb49:                                          ; preds = %entry
-  store i32 0, ptr %tmp50, align 4
-  %68 = load i32, ptr %tmp50, align 4
-  %conv51 = trunc i32 %68 to i8
-  store i8 %conv51, ptr %retval, align 1
-  br label %return
+130:                                              ; preds = %3
+  store i32 0, ptr %11, align 4
+  %131 = load i32, ptr %11, align 4
+  %132 = trunc i32 %131 to i8
+  store i8 %132, ptr %4, align 1
+  br label %135
 
-sw.default:                                       ; preds = %entry
-  br label %sw.epilog
+133:                                              ; preds = %3
+  br label %134
 
-sw.epilog:                                        ; preds = %sw.default
-  store i8 0, ptr %retval, align 1
-  br label %return
+134:                                              ; preds = %133
+  store i8 0, ptr %4, align 1
+  br label %135
 
-return:                                           ; preds = %sw.epilog, %sw.bb49, %sw.bb46, %sw.bb43, %sw.bb41, %sw.bb39, %sw.bb37, %sw.bb35, %sw.bb33, %sw.bb31, %sw.bb29, %sw.bb27, %sw.bb25, %sw.bb23, %sw.bb21, %sw.bb19, %sw.bb17, %sw.bb15, %sw.bb13, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb1, %sw.bb
-  %69 = load i8, ptr %retval, align 1
-  ret i8 %69
+135:                                              ; preds = %134, %130, %127, %124, %121, %116, %111, %106, %101, %96, %91, %86, %81, %76, %71, %66, %61, %56, %51, %46, %41, %36, %31, %26, %21, %16
+  %136 = load i8, ptr %4, align 1
+  ret i8 %136
 }
 
 declare signext i8 @nfaExecLimEx32_queueCompressState(ptr noundef, ptr noundef, i64 noundef) #1
@@ -3986,303 +3433,302 @@ declare signext i8 @nfaExecMcSheng8_queueCompressState(ptr noundef, ptr noundef,
 declare signext i8 @nfaExecMcSheng16_queueCompressState(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaExpandState(ptr noundef %nfa, ptr noundef %dest, ptr noundef %src, i64 noundef %offset, i8 noundef zeroext %key) #0 {
-entry:
-  %retval = alloca i8, align 1
-  %nfa.addr = alloca ptr, align 8
-  %dest.addr = alloca ptr, align 8
-  %src.addr = alloca ptr, align 8
-  %offset.addr = alloca i64, align 8
-  %key.addr = alloca i8, align 1
-  %tmp = alloca i32, align 4
-  %tmp44 = alloca i32, align 4
-  %tmp47 = alloca i32, align 4
-  %tmp50 = alloca i32, align 4
-  store ptr %nfa, ptr %nfa.addr, align 8
-  store ptr %dest, ptr %dest.addr, align 8
-  store ptr %src, ptr %src.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  store i8 %key, ptr %key.addr, align 1
-  %0 = load ptr, ptr %nfa.addr, align 8
-  %type = getelementptr inbounds %struct.NFA, ptr %0, i32 0, i32 2
-  %1 = load i8, ptr %type, align 8
-  %conv = zext i8 %1 to i32
-  switch i32 %conv, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb1
-    i32 2, label %sw.bb3
-    i32 3, label %sw.bb5
-    i32 4, label %sw.bb7
-    i32 5, label %sw.bb9
-    i32 6, label %sw.bb11
-    i32 7, label %sw.bb13
-    i32 8, label %sw.bb15
-    i32 9, label %sw.bb17
-    i32 10, label %sw.bb19
-    i32 11, label %sw.bb21
-    i32 12, label %sw.bb23
-    i32 13, label %sw.bb25
-    i32 14, label %sw.bb27
-    i32 15, label %sw.bb29
-    i32 16, label %sw.bb31
-    i32 17, label %sw.bb33
-    i32 18, label %sw.bb35
-    i32 19, label %sw.bb37
-    i32 20, label %sw.bb39
-    i32 21, label %sw.bb41
-    i32 22, label %sw.bb43
-    i32 23, label %sw.bb46
-    i32 24, label %sw.bb49
+define hidden signext i8 @nfaExpandState(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i8 noundef zeroext %4) #0 {
+  %6 = alloca i8, align 1
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i8, align 1
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i8 %4, ptr %11, align 1
+  %16 = load ptr, ptr %7, align 8
+  %17 = getelementptr inbounds nuw %struct.NFA, ptr %16, i32 0, i32 2
+  %18 = load i8, ptr %17, align 8
+  %19 = zext i8 %18 to i32
+  switch i32 %19, label %179 [
+    i32 0, label %20
+    i32 1, label %27
+    i32 2, label %34
+    i32 3, label %41
+    i32 4, label %48
+    i32 5, label %55
+    i32 6, label %62
+    i32 7, label %69
+    i32 8, label %76
+    i32 9, label %83
+    i32 10, label %90
+    i32 11, label %97
+    i32 12, label %104
+    i32 13, label %111
+    i32 14, label %118
+    i32 15, label %125
+    i32 16, label %132
+    i32 17, label %139
+    i32 18, label %146
+    i32 19, label %153
+    i32 20, label %160
+    i32 21, label %167
+    i32 22, label %170
+    i32 23, label %173
+    i32 24, label %176
   ]
 
-sw.bb:                                            ; preds = %entry
-  %2 = load ptr, ptr %nfa.addr, align 8
-  %3 = load ptr, ptr %dest.addr, align 8
-  %4 = load ptr, ptr %src.addr, align 8
-  %5 = load i64, ptr %offset.addr, align 8
-  %6 = load i8, ptr %key.addr, align 1
-  %call = call signext i8 @nfaExecLimEx32_expandState(ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, i8 noundef zeroext %6)
-  store i8 %call, ptr %retval, align 1
-  br label %return
+20:                                               ; preds = %5
+  %21 = load ptr, ptr %7, align 8
+  %22 = load ptr, ptr %8, align 8
+  %23 = load ptr, ptr %9, align 8
+  %24 = load i64, ptr %10, align 8
+  %25 = load i8, ptr %11, align 1
+  %26 = call signext i8 @nfaExecLimEx32_expandState(ptr noundef %21, ptr noundef %22, ptr noundef %23, i64 noundef %24, i8 noundef zeroext %25)
+  store i8 %26, ptr %6, align 1
+  br label %181
 
-sw.bb1:                                           ; preds = %entry
-  %7 = load ptr, ptr %nfa.addr, align 8
-  %8 = load ptr, ptr %dest.addr, align 8
-  %9 = load ptr, ptr %src.addr, align 8
-  %10 = load i64, ptr %offset.addr, align 8
-  %11 = load i8, ptr %key.addr, align 1
-  %call2 = call signext i8 @nfaExecLimEx64_expandState(ptr noundef %7, ptr noundef %8, ptr noundef %9, i64 noundef %10, i8 noundef zeroext %11)
-  store i8 %call2, ptr %retval, align 1
-  br label %return
+27:                                               ; preds = %5
+  %28 = load ptr, ptr %7, align 8
+  %29 = load ptr, ptr %8, align 8
+  %30 = load ptr, ptr %9, align 8
+  %31 = load i64, ptr %10, align 8
+  %32 = load i8, ptr %11, align 1
+  %33 = call signext i8 @nfaExecLimEx64_expandState(ptr noundef %28, ptr noundef %29, ptr noundef %30, i64 noundef %31, i8 noundef zeroext %32)
+  store i8 %33, ptr %6, align 1
+  br label %181
 
-sw.bb3:                                           ; preds = %entry
-  %12 = load ptr, ptr %nfa.addr, align 8
-  %13 = load ptr, ptr %dest.addr, align 8
-  %14 = load ptr, ptr %src.addr, align 8
-  %15 = load i64, ptr %offset.addr, align 8
-  %16 = load i8, ptr %key.addr, align 1
-  %call4 = call signext i8 @nfaExecLimEx128_expandState(ptr noundef %12, ptr noundef %13, ptr noundef %14, i64 noundef %15, i8 noundef zeroext %16)
-  store i8 %call4, ptr %retval, align 1
-  br label %return
+34:                                               ; preds = %5
+  %35 = load ptr, ptr %7, align 8
+  %36 = load ptr, ptr %8, align 8
+  %37 = load ptr, ptr %9, align 8
+  %38 = load i64, ptr %10, align 8
+  %39 = load i8, ptr %11, align 1
+  %40 = call signext i8 @nfaExecLimEx128_expandState(ptr noundef %35, ptr noundef %36, ptr noundef %37, i64 noundef %38, i8 noundef zeroext %39)
+  store i8 %40, ptr %6, align 1
+  br label %181
 
-sw.bb5:                                           ; preds = %entry
-  %17 = load ptr, ptr %nfa.addr, align 8
-  %18 = load ptr, ptr %dest.addr, align 8
-  %19 = load ptr, ptr %src.addr, align 8
-  %20 = load i64, ptr %offset.addr, align 8
-  %21 = load i8, ptr %key.addr, align 1
-  %call6 = call signext i8 @nfaExecLimEx256_expandState(ptr noundef %17, ptr noundef %18, ptr noundef %19, i64 noundef %20, i8 noundef zeroext %21)
-  store i8 %call6, ptr %retval, align 1
-  br label %return
+41:                                               ; preds = %5
+  %42 = load ptr, ptr %7, align 8
+  %43 = load ptr, ptr %8, align 8
+  %44 = load ptr, ptr %9, align 8
+  %45 = load i64, ptr %10, align 8
+  %46 = load i8, ptr %11, align 1
+  %47 = call signext i8 @nfaExecLimEx256_expandState(ptr noundef %42, ptr noundef %43, ptr noundef %44, i64 noundef %45, i8 noundef zeroext %46)
+  store i8 %47, ptr %6, align 1
+  br label %181
 
-sw.bb7:                                           ; preds = %entry
-  %22 = load ptr, ptr %nfa.addr, align 8
-  %23 = load ptr, ptr %dest.addr, align 8
-  %24 = load ptr, ptr %src.addr, align 8
-  %25 = load i64, ptr %offset.addr, align 8
-  %26 = load i8, ptr %key.addr, align 1
-  %call8 = call signext i8 @nfaExecLimEx384_expandState(ptr noundef %22, ptr noundef %23, ptr noundef %24, i64 noundef %25, i8 noundef zeroext %26)
-  store i8 %call8, ptr %retval, align 1
-  br label %return
+48:                                               ; preds = %5
+  %49 = load ptr, ptr %7, align 8
+  %50 = load ptr, ptr %8, align 8
+  %51 = load ptr, ptr %9, align 8
+  %52 = load i64, ptr %10, align 8
+  %53 = load i8, ptr %11, align 1
+  %54 = call signext i8 @nfaExecLimEx384_expandState(ptr noundef %49, ptr noundef %50, ptr noundef %51, i64 noundef %52, i8 noundef zeroext %53)
+  store i8 %54, ptr %6, align 1
+  br label %181
 
-sw.bb9:                                           ; preds = %entry
-  %27 = load ptr, ptr %nfa.addr, align 8
-  %28 = load ptr, ptr %dest.addr, align 8
-  %29 = load ptr, ptr %src.addr, align 8
-  %30 = load i64, ptr %offset.addr, align 8
-  %31 = load i8, ptr %key.addr, align 1
-  %call10 = call signext i8 @nfaExecLimEx512_expandState(ptr noundef %27, ptr noundef %28, ptr noundef %29, i64 noundef %30, i8 noundef zeroext %31)
-  store i8 %call10, ptr %retval, align 1
-  br label %return
+55:                                               ; preds = %5
+  %56 = load ptr, ptr %7, align 8
+  %57 = load ptr, ptr %8, align 8
+  %58 = load ptr, ptr %9, align 8
+  %59 = load i64, ptr %10, align 8
+  %60 = load i8, ptr %11, align 1
+  %61 = call signext i8 @nfaExecLimEx512_expandState(ptr noundef %56, ptr noundef %57, ptr noundef %58, i64 noundef %59, i8 noundef zeroext %60)
+  store i8 %61, ptr %6, align 1
+  br label %181
 
-sw.bb11:                                          ; preds = %entry
-  %32 = load ptr, ptr %nfa.addr, align 8
-  %33 = load ptr, ptr %dest.addr, align 8
-  %34 = load ptr, ptr %src.addr, align 8
-  %35 = load i64, ptr %offset.addr, align 8
-  %36 = load i8, ptr %key.addr, align 1
-  %call12 = call signext i8 @nfaExecMcClellan8_expandState(ptr noundef %32, ptr noundef %33, ptr noundef %34, i64 noundef %35, i8 noundef zeroext %36)
-  store i8 %call12, ptr %retval, align 1
-  br label %return
+62:                                               ; preds = %5
+  %63 = load ptr, ptr %7, align 8
+  %64 = load ptr, ptr %8, align 8
+  %65 = load ptr, ptr %9, align 8
+  %66 = load i64, ptr %10, align 8
+  %67 = load i8, ptr %11, align 1
+  %68 = call signext i8 @nfaExecMcClellan8_expandState(ptr noundef %63, ptr noundef %64, ptr noundef %65, i64 noundef %66, i8 noundef zeroext %67)
+  store i8 %68, ptr %6, align 1
+  br label %181
 
-sw.bb13:                                          ; preds = %entry
-  %37 = load ptr, ptr %nfa.addr, align 8
-  %38 = load ptr, ptr %dest.addr, align 8
-  %39 = load ptr, ptr %src.addr, align 8
-  %40 = load i64, ptr %offset.addr, align 8
-  %41 = load i8, ptr %key.addr, align 1
-  %call14 = call signext i8 @nfaExecMcClellan16_expandState(ptr noundef %37, ptr noundef %38, ptr noundef %39, i64 noundef %40, i8 noundef zeroext %41)
-  store i8 %call14, ptr %retval, align 1
-  br label %return
+69:                                               ; preds = %5
+  %70 = load ptr, ptr %7, align 8
+  %71 = load ptr, ptr %8, align 8
+  %72 = load ptr, ptr %9, align 8
+  %73 = load i64, ptr %10, align 8
+  %74 = load i8, ptr %11, align 1
+  %75 = call signext i8 @nfaExecMcClellan16_expandState(ptr noundef %70, ptr noundef %71, ptr noundef %72, i64 noundef %73, i8 noundef zeroext %74)
+  store i8 %75, ptr %6, align 1
+  br label %181
 
-sw.bb15:                                          ; preds = %entry
-  %42 = load ptr, ptr %nfa.addr, align 8
-  %43 = load ptr, ptr %dest.addr, align 8
-  %44 = load ptr, ptr %src.addr, align 8
-  %45 = load i64, ptr %offset.addr, align 8
-  %46 = load i8, ptr %key.addr, align 1
-  %call16 = call signext i8 @nfaExecGough8_expandState(ptr noundef %42, ptr noundef %43, ptr noundef %44, i64 noundef %45, i8 noundef zeroext %46)
-  store i8 %call16, ptr %retval, align 1
-  br label %return
+76:                                               ; preds = %5
+  %77 = load ptr, ptr %7, align 8
+  %78 = load ptr, ptr %8, align 8
+  %79 = load ptr, ptr %9, align 8
+  %80 = load i64, ptr %10, align 8
+  %81 = load i8, ptr %11, align 1
+  %82 = call signext i8 @nfaExecGough8_expandState(ptr noundef %77, ptr noundef %78, ptr noundef %79, i64 noundef %80, i8 noundef zeroext %81)
+  store i8 %82, ptr %6, align 1
+  br label %181
 
-sw.bb17:                                          ; preds = %entry
-  %47 = load ptr, ptr %nfa.addr, align 8
-  %48 = load ptr, ptr %dest.addr, align 8
-  %49 = load ptr, ptr %src.addr, align 8
-  %50 = load i64, ptr %offset.addr, align 8
-  %51 = load i8, ptr %key.addr, align 1
-  %call18 = call signext i8 @nfaExecGough16_expandState(ptr noundef %47, ptr noundef %48, ptr noundef %49, i64 noundef %50, i8 noundef zeroext %51)
-  store i8 %call18, ptr %retval, align 1
-  br label %return
+83:                                               ; preds = %5
+  %84 = load ptr, ptr %7, align 8
+  %85 = load ptr, ptr %8, align 8
+  %86 = load ptr, ptr %9, align 8
+  %87 = load i64, ptr %10, align 8
+  %88 = load i8, ptr %11, align 1
+  %89 = call signext i8 @nfaExecGough16_expandState(ptr noundef %84, ptr noundef %85, ptr noundef %86, i64 noundef %87, i8 noundef zeroext %88)
+  store i8 %89, ptr %6, align 1
+  br label %181
 
-sw.bb19:                                          ; preds = %entry
-  %52 = load ptr, ptr %nfa.addr, align 8
-  %53 = load ptr, ptr %dest.addr, align 8
-  %54 = load ptr, ptr %src.addr, align 8
-  %55 = load i64, ptr %offset.addr, align 8
-  %56 = load i8, ptr %key.addr, align 1
-  %call20 = call signext i8 @nfaExecMpv_expandState(ptr noundef %52, ptr noundef %53, ptr noundef %54, i64 noundef %55, i8 noundef zeroext %56)
-  store i8 %call20, ptr %retval, align 1
-  br label %return
+90:                                               ; preds = %5
+  %91 = load ptr, ptr %7, align 8
+  %92 = load ptr, ptr %8, align 8
+  %93 = load ptr, ptr %9, align 8
+  %94 = load i64, ptr %10, align 8
+  %95 = load i8, ptr %11, align 1
+  %96 = call signext i8 @nfaExecMpv_expandState(ptr noundef %91, ptr noundef %92, ptr noundef %93, i64 noundef %94, i8 noundef zeroext %95)
+  store i8 %96, ptr %6, align 1
+  br label %181
 
-sw.bb21:                                          ; preds = %entry
-  %57 = load ptr, ptr %nfa.addr, align 8
-  %58 = load ptr, ptr %dest.addr, align 8
-  %59 = load ptr, ptr %src.addr, align 8
-  %60 = load i64, ptr %offset.addr, align 8
-  %61 = load i8, ptr %key.addr, align 1
-  %call22 = call signext i8 @nfaExecLbrDot_expandState(ptr noundef %57, ptr noundef %58, ptr noundef %59, i64 noundef %60, i8 noundef zeroext %61)
-  store i8 %call22, ptr %retval, align 1
-  br label %return
+97:                                               ; preds = %5
+  %98 = load ptr, ptr %7, align 8
+  %99 = load ptr, ptr %8, align 8
+  %100 = load ptr, ptr %9, align 8
+  %101 = load i64, ptr %10, align 8
+  %102 = load i8, ptr %11, align 1
+  %103 = call signext i8 @nfaExecLbrDot_expandState(ptr noundef %98, ptr noundef %99, ptr noundef %100, i64 noundef %101, i8 noundef zeroext %102)
+  store i8 %103, ptr %6, align 1
+  br label %181
 
-sw.bb23:                                          ; preds = %entry
-  %62 = load ptr, ptr %nfa.addr, align 8
-  %63 = load ptr, ptr %dest.addr, align 8
-  %64 = load ptr, ptr %src.addr, align 8
-  %65 = load i64, ptr %offset.addr, align 8
-  %66 = load i8, ptr %key.addr, align 1
-  %call24 = call signext i8 @nfaExecLbrVerm_expandState(ptr noundef %62, ptr noundef %63, ptr noundef %64, i64 noundef %65, i8 noundef zeroext %66)
-  store i8 %call24, ptr %retval, align 1
-  br label %return
+104:                                              ; preds = %5
+  %105 = load ptr, ptr %7, align 8
+  %106 = load ptr, ptr %8, align 8
+  %107 = load ptr, ptr %9, align 8
+  %108 = load i64, ptr %10, align 8
+  %109 = load i8, ptr %11, align 1
+  %110 = call signext i8 @nfaExecLbrVerm_expandState(ptr noundef %105, ptr noundef %106, ptr noundef %107, i64 noundef %108, i8 noundef zeroext %109)
+  store i8 %110, ptr %6, align 1
+  br label %181
 
-sw.bb25:                                          ; preds = %entry
-  %67 = load ptr, ptr %nfa.addr, align 8
-  %68 = load ptr, ptr %dest.addr, align 8
-  %69 = load ptr, ptr %src.addr, align 8
-  %70 = load i64, ptr %offset.addr, align 8
-  %71 = load i8, ptr %key.addr, align 1
-  %call26 = call signext i8 @nfaExecLbrNVerm_expandState(ptr noundef %67, ptr noundef %68, ptr noundef %69, i64 noundef %70, i8 noundef zeroext %71)
-  store i8 %call26, ptr %retval, align 1
-  br label %return
+111:                                              ; preds = %5
+  %112 = load ptr, ptr %7, align 8
+  %113 = load ptr, ptr %8, align 8
+  %114 = load ptr, ptr %9, align 8
+  %115 = load i64, ptr %10, align 8
+  %116 = load i8, ptr %11, align 1
+  %117 = call signext i8 @nfaExecLbrNVerm_expandState(ptr noundef %112, ptr noundef %113, ptr noundef %114, i64 noundef %115, i8 noundef zeroext %116)
+  store i8 %117, ptr %6, align 1
+  br label %181
 
-sw.bb27:                                          ; preds = %entry
-  %72 = load ptr, ptr %nfa.addr, align 8
-  %73 = load ptr, ptr %dest.addr, align 8
-  %74 = load ptr, ptr %src.addr, align 8
-  %75 = load i64, ptr %offset.addr, align 8
-  %76 = load i8, ptr %key.addr, align 1
-  %call28 = call signext i8 @nfaExecLbrShuf_expandState(ptr noundef %72, ptr noundef %73, ptr noundef %74, i64 noundef %75, i8 noundef zeroext %76)
-  store i8 %call28, ptr %retval, align 1
-  br label %return
+118:                                              ; preds = %5
+  %119 = load ptr, ptr %7, align 8
+  %120 = load ptr, ptr %8, align 8
+  %121 = load ptr, ptr %9, align 8
+  %122 = load i64, ptr %10, align 8
+  %123 = load i8, ptr %11, align 1
+  %124 = call signext i8 @nfaExecLbrShuf_expandState(ptr noundef %119, ptr noundef %120, ptr noundef %121, i64 noundef %122, i8 noundef zeroext %123)
+  store i8 %124, ptr %6, align 1
+  br label %181
 
-sw.bb29:                                          ; preds = %entry
-  %77 = load ptr, ptr %nfa.addr, align 8
-  %78 = load ptr, ptr %dest.addr, align 8
-  %79 = load ptr, ptr %src.addr, align 8
-  %80 = load i64, ptr %offset.addr, align 8
-  %81 = load i8, ptr %key.addr, align 1
-  %call30 = call signext i8 @nfaExecLbrTruf_expandState(ptr noundef %77, ptr noundef %78, ptr noundef %79, i64 noundef %80, i8 noundef zeroext %81)
-  store i8 %call30, ptr %retval, align 1
-  br label %return
+125:                                              ; preds = %5
+  %126 = load ptr, ptr %7, align 8
+  %127 = load ptr, ptr %8, align 8
+  %128 = load ptr, ptr %9, align 8
+  %129 = load i64, ptr %10, align 8
+  %130 = load i8, ptr %11, align 1
+  %131 = call signext i8 @nfaExecLbrTruf_expandState(ptr noundef %126, ptr noundef %127, ptr noundef %128, i64 noundef %129, i8 noundef zeroext %130)
+  store i8 %131, ptr %6, align 1
+  br label %181
 
-sw.bb31:                                          ; preds = %entry
-  %82 = load ptr, ptr %nfa.addr, align 8
-  %83 = load ptr, ptr %dest.addr, align 8
-  %84 = load ptr, ptr %src.addr, align 8
-  %85 = load i64, ptr %offset.addr, align 8
-  %86 = load i8, ptr %key.addr, align 1
-  %call32 = call signext i8 @nfaExecCastle_expandState(ptr noundef %82, ptr noundef %83, ptr noundef %84, i64 noundef %85, i8 noundef zeroext %86)
-  store i8 %call32, ptr %retval, align 1
-  br label %return
+132:                                              ; preds = %5
+  %133 = load ptr, ptr %7, align 8
+  %134 = load ptr, ptr %8, align 8
+  %135 = load ptr, ptr %9, align 8
+  %136 = load i64, ptr %10, align 8
+  %137 = load i8, ptr %11, align 1
+  %138 = call signext i8 @nfaExecCastle_expandState(ptr noundef %133, ptr noundef %134, ptr noundef %135, i64 noundef %136, i8 noundef zeroext %137)
+  store i8 %138, ptr %6, align 1
+  br label %181
 
-sw.bb33:                                          ; preds = %entry
-  %87 = load ptr, ptr %nfa.addr, align 8
-  %88 = load ptr, ptr %dest.addr, align 8
-  %89 = load ptr, ptr %src.addr, align 8
-  %90 = load i64, ptr %offset.addr, align 8
-  %91 = load i8, ptr %key.addr, align 1
-  %call34 = call signext i8 @nfaExecSheng_expandState(ptr noundef %87, ptr noundef %88, ptr noundef %89, i64 noundef %90, i8 noundef zeroext %91)
-  store i8 %call34, ptr %retval, align 1
-  br label %return
+139:                                              ; preds = %5
+  %140 = load ptr, ptr %7, align 8
+  %141 = load ptr, ptr %8, align 8
+  %142 = load ptr, ptr %9, align 8
+  %143 = load i64, ptr %10, align 8
+  %144 = load i8, ptr %11, align 1
+  %145 = call signext i8 @nfaExecSheng_expandState(ptr noundef %140, ptr noundef %141, ptr noundef %142, i64 noundef %143, i8 noundef zeroext %144)
+  store i8 %145, ptr %6, align 1
+  br label %181
 
-sw.bb35:                                          ; preds = %entry
-  %92 = load ptr, ptr %nfa.addr, align 8
-  %93 = load ptr, ptr %dest.addr, align 8
-  %94 = load ptr, ptr %src.addr, align 8
-  %95 = load i64, ptr %offset.addr, align 8
-  %96 = load i8, ptr %key.addr, align 1
-  %call36 = call signext i8 @nfaExecTamarama_expandState(ptr noundef %92, ptr noundef %93, ptr noundef %94, i64 noundef %95, i8 noundef zeroext %96)
-  store i8 %call36, ptr %retval, align 1
-  br label %return
+146:                                              ; preds = %5
+  %147 = load ptr, ptr %7, align 8
+  %148 = load ptr, ptr %8, align 8
+  %149 = load ptr, ptr %9, align 8
+  %150 = load i64, ptr %10, align 8
+  %151 = load i8, ptr %11, align 1
+  %152 = call signext i8 @nfaExecTamarama_expandState(ptr noundef %147, ptr noundef %148, ptr noundef %149, i64 noundef %150, i8 noundef zeroext %151)
+  store i8 %152, ptr %6, align 1
+  br label %181
 
-sw.bb37:                                          ; preds = %entry
-  %97 = load ptr, ptr %nfa.addr, align 8
-  %98 = load ptr, ptr %dest.addr, align 8
-  %99 = load ptr, ptr %src.addr, align 8
-  %100 = load i64, ptr %offset.addr, align 8
-  %101 = load i8, ptr %key.addr, align 1
-  %call38 = call signext i8 @nfaExecMcSheng8_expandState(ptr noundef %97, ptr noundef %98, ptr noundef %99, i64 noundef %100, i8 noundef zeroext %101)
-  store i8 %call38, ptr %retval, align 1
-  br label %return
+153:                                              ; preds = %5
+  %154 = load ptr, ptr %7, align 8
+  %155 = load ptr, ptr %8, align 8
+  %156 = load ptr, ptr %9, align 8
+  %157 = load i64, ptr %10, align 8
+  %158 = load i8, ptr %11, align 1
+  %159 = call signext i8 @nfaExecMcSheng8_expandState(ptr noundef %154, ptr noundef %155, ptr noundef %156, i64 noundef %157, i8 noundef zeroext %158)
+  store i8 %159, ptr %6, align 1
+  br label %181
 
-sw.bb39:                                          ; preds = %entry
-  %102 = load ptr, ptr %nfa.addr, align 8
-  %103 = load ptr, ptr %dest.addr, align 8
-  %104 = load ptr, ptr %src.addr, align 8
-  %105 = load i64, ptr %offset.addr, align 8
-  %106 = load i8, ptr %key.addr, align 1
-  %call40 = call signext i8 @nfaExecMcSheng16_expandState(ptr noundef %102, ptr noundef %103, ptr noundef %104, i64 noundef %105, i8 noundef zeroext %106)
-  store i8 %call40, ptr %retval, align 1
-  br label %return
+160:                                              ; preds = %5
+  %161 = load ptr, ptr %7, align 8
+  %162 = load ptr, ptr %8, align 8
+  %163 = load ptr, ptr %9, align 8
+  %164 = load i64, ptr %10, align 8
+  %165 = load i8, ptr %11, align 1
+  %166 = call signext i8 @nfaExecMcSheng16_expandState(ptr noundef %161, ptr noundef %162, ptr noundef %163, i64 noundef %164, i8 noundef zeroext %165)
+  store i8 %166, ptr %6, align 1
+  br label %181
 
-sw.bb41:                                          ; preds = %entry
-  store i32 0, ptr %tmp, align 4
-  %107 = load i32, ptr %tmp, align 4
-  %conv42 = trunc i32 %107 to i8
-  store i8 %conv42, ptr %retval, align 1
-  br label %return
+167:                                              ; preds = %5
+  store i32 0, ptr %12, align 4
+  %168 = load i32, ptr %12, align 4
+  %169 = trunc i32 %168 to i8
+  store i8 %169, ptr %6, align 1
+  br label %181
 
-sw.bb43:                                          ; preds = %entry
-  store i32 0, ptr %tmp44, align 4
-  %108 = load i32, ptr %tmp44, align 4
-  %conv45 = trunc i32 %108 to i8
-  store i8 %conv45, ptr %retval, align 1
-  br label %return
+170:                                              ; preds = %5
+  store i32 0, ptr %13, align 4
+  %171 = load i32, ptr %13, align 4
+  %172 = trunc i32 %171 to i8
+  store i8 %172, ptr %6, align 1
+  br label %181
 
-sw.bb46:                                          ; preds = %entry
-  store i32 0, ptr %tmp47, align 4
-  %109 = load i32, ptr %tmp47, align 4
-  %conv48 = trunc i32 %109 to i8
-  store i8 %conv48, ptr %retval, align 1
-  br label %return
+173:                                              ; preds = %5
+  store i32 0, ptr %14, align 4
+  %174 = load i32, ptr %14, align 4
+  %175 = trunc i32 %174 to i8
+  store i8 %175, ptr %6, align 1
+  br label %181
 
-sw.bb49:                                          ; preds = %entry
-  store i32 0, ptr %tmp50, align 4
-  %110 = load i32, ptr %tmp50, align 4
-  %conv51 = trunc i32 %110 to i8
-  store i8 %conv51, ptr %retval, align 1
-  br label %return
+176:                                              ; preds = %5
+  store i32 0, ptr %15, align 4
+  %177 = load i32, ptr %15, align 4
+  %178 = trunc i32 %177 to i8
+  store i8 %178, ptr %6, align 1
+  br label %181
 
-sw.default:                                       ; preds = %entry
-  br label %sw.epilog
+179:                                              ; preds = %5
+  br label %180
 
-sw.epilog:                                        ; preds = %sw.default
-  store i8 0, ptr %retval, align 1
-  br label %return
+180:                                              ; preds = %179
+  store i8 0, ptr %6, align 1
+  br label %181
 
-return:                                           ; preds = %sw.epilog, %sw.bb49, %sw.bb46, %sw.bb43, %sw.bb41, %sw.bb39, %sw.bb37, %sw.bb35, %sw.bb33, %sw.bb31, %sw.bb29, %sw.bb27, %sw.bb25, %sw.bb23, %sw.bb21, %sw.bb19, %sw.bb17, %sw.bb15, %sw.bb13, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb1, %sw.bb
-  %111 = load i8, ptr %retval, align 1
-  ret i8 %111
+181:                                              ; preds = %180, %176, %173, %170, %167, %160, %153, %146, %139, %132, %125, %118, %111, %104, %97, %90, %83, %76, %69, %62, %55, %48, %41, %34, %27, %20
+  %182 = load i8, ptr %6, align 1
+  ret i8 %182
 }
 
 declare signext i8 @nfaExecLimEx32_expandState(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext) #1
@@ -4328,279 +3774,278 @@ declare signext i8 @nfaExecMcSheng8_expandState(ptr noundef, ptr noundef, ptr no
 declare signext i8 @nfaExecMcSheng16_expandState(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaInitCompressedState(ptr noundef %nfa, i64 noundef %offset, ptr noundef %state, i8 noundef zeroext %key) #0 {
-entry:
-  %retval = alloca i8, align 1
-  %nfa.addr = alloca ptr, align 8
-  %offset.addr = alloca i64, align 8
-  %state.addr = alloca ptr, align 8
-  %key.addr = alloca i8, align 1
-  %tmp = alloca i32, align 4
-  %tmp42 = alloca i32, align 4
-  %tmp45 = alloca i32, align 4
-  %tmp48 = alloca i32, align 4
-  %tmp51 = alloca i32, align 4
-  store ptr %nfa, ptr %nfa.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  store ptr %state, ptr %state.addr, align 8
-  store i8 %key, ptr %key.addr, align 1
-  %0 = load ptr, ptr %nfa.addr, align 8
-  %type = getelementptr inbounds %struct.NFA, ptr %0, i32 0, i32 2
-  %1 = load i8, ptr %type, align 8
-  %conv = zext i8 %1 to i32
-  switch i32 %conv, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb1
-    i32 2, label %sw.bb3
-    i32 3, label %sw.bb5
-    i32 4, label %sw.bb7
-    i32 5, label %sw.bb9
-    i32 6, label %sw.bb11
-    i32 7, label %sw.bb13
-    i32 8, label %sw.bb15
-    i32 9, label %sw.bb17
-    i32 10, label %sw.bb19
-    i32 11, label %sw.bb21
-    i32 12, label %sw.bb23
-    i32 13, label %sw.bb25
-    i32 14, label %sw.bb27
-    i32 15, label %sw.bb29
-    i32 16, label %sw.bb31
-    i32 17, label %sw.bb33
-    i32 18, label %sw.bb35
-    i32 19, label %sw.bb37
-    i32 20, label %sw.bb39
-    i32 21, label %sw.bb41
-    i32 22, label %sw.bb44
-    i32 23, label %sw.bb47
-    i32 24, label %sw.bb50
+define hidden signext i8 @nfaInitCompressedState(ptr noundef %0, i64 noundef %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
+  %5 = alloca i8, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i8, align 1
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store i64 %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store i8 %3, ptr %9, align 1
+  %15 = load ptr, ptr %6, align 8
+  %16 = getelementptr inbounds nuw %struct.NFA, ptr %15, i32 0, i32 2
+  %17 = load i8, ptr %16, align 8
+  %18 = zext i8 %17 to i32
+  switch i32 %18, label %154 [
+    i32 0, label %19
+    i32 1, label %25
+    i32 2, label %31
+    i32 3, label %37
+    i32 4, label %43
+    i32 5, label %49
+    i32 6, label %55
+    i32 7, label %61
+    i32 8, label %67
+    i32 9, label %73
+    i32 10, label %79
+    i32 11, label %85
+    i32 12, label %91
+    i32 13, label %97
+    i32 14, label %103
+    i32 15, label %109
+    i32 16, label %115
+    i32 17, label %121
+    i32 18, label %127
+    i32 19, label %130
+    i32 20, label %136
+    i32 21, label %142
+    i32 22, label %145
+    i32 23, label %148
+    i32 24, label %151
   ]
 
-sw.bb:                                            ; preds = %entry
-  %2 = load ptr, ptr %nfa.addr, align 8
-  %3 = load i64, ptr %offset.addr, align 8
-  %4 = load ptr, ptr %state.addr, align 8
-  %5 = load i8, ptr %key.addr, align 1
-  %call = call signext i8 @nfaExecLimEx32_initCompressedState(ptr noundef %2, i64 noundef %3, ptr noundef %4, i8 noundef zeroext %5)
-  store i8 %call, ptr %retval, align 1
-  br label %return
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %6, align 8
+  %21 = load i64, ptr %7, align 8
+  %22 = load ptr, ptr %8, align 8
+  %23 = load i8, ptr %9, align 1
+  %24 = call signext i8 @nfaExecLimEx32_initCompressedState(ptr noundef %20, i64 noundef %21, ptr noundef %22, i8 noundef zeroext %23)
+  store i8 %24, ptr %5, align 1
+  br label %156
 
-sw.bb1:                                           ; preds = %entry
-  %6 = load ptr, ptr %nfa.addr, align 8
-  %7 = load i64, ptr %offset.addr, align 8
-  %8 = load ptr, ptr %state.addr, align 8
-  %9 = load i8, ptr %key.addr, align 1
-  %call2 = call signext i8 @nfaExecLimEx64_initCompressedState(ptr noundef %6, i64 noundef %7, ptr noundef %8, i8 noundef zeroext %9)
-  store i8 %call2, ptr %retval, align 1
-  br label %return
+25:                                               ; preds = %4
+  %26 = load ptr, ptr %6, align 8
+  %27 = load i64, ptr %7, align 8
+  %28 = load ptr, ptr %8, align 8
+  %29 = load i8, ptr %9, align 1
+  %30 = call signext i8 @nfaExecLimEx64_initCompressedState(ptr noundef %26, i64 noundef %27, ptr noundef %28, i8 noundef zeroext %29)
+  store i8 %30, ptr %5, align 1
+  br label %156
 
-sw.bb3:                                           ; preds = %entry
-  %10 = load ptr, ptr %nfa.addr, align 8
-  %11 = load i64, ptr %offset.addr, align 8
-  %12 = load ptr, ptr %state.addr, align 8
-  %13 = load i8, ptr %key.addr, align 1
-  %call4 = call signext i8 @nfaExecLimEx128_initCompressedState(ptr noundef %10, i64 noundef %11, ptr noundef %12, i8 noundef zeroext %13)
-  store i8 %call4, ptr %retval, align 1
-  br label %return
+31:                                               ; preds = %4
+  %32 = load ptr, ptr %6, align 8
+  %33 = load i64, ptr %7, align 8
+  %34 = load ptr, ptr %8, align 8
+  %35 = load i8, ptr %9, align 1
+  %36 = call signext i8 @nfaExecLimEx128_initCompressedState(ptr noundef %32, i64 noundef %33, ptr noundef %34, i8 noundef zeroext %35)
+  store i8 %36, ptr %5, align 1
+  br label %156
 
-sw.bb5:                                           ; preds = %entry
-  %14 = load ptr, ptr %nfa.addr, align 8
-  %15 = load i64, ptr %offset.addr, align 8
-  %16 = load ptr, ptr %state.addr, align 8
-  %17 = load i8, ptr %key.addr, align 1
-  %call6 = call signext i8 @nfaExecLimEx256_initCompressedState(ptr noundef %14, i64 noundef %15, ptr noundef %16, i8 noundef zeroext %17)
-  store i8 %call6, ptr %retval, align 1
-  br label %return
+37:                                               ; preds = %4
+  %38 = load ptr, ptr %6, align 8
+  %39 = load i64, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load i8, ptr %9, align 1
+  %42 = call signext i8 @nfaExecLimEx256_initCompressedState(ptr noundef %38, i64 noundef %39, ptr noundef %40, i8 noundef zeroext %41)
+  store i8 %42, ptr %5, align 1
+  br label %156
 
-sw.bb7:                                           ; preds = %entry
-  %18 = load ptr, ptr %nfa.addr, align 8
-  %19 = load i64, ptr %offset.addr, align 8
-  %20 = load ptr, ptr %state.addr, align 8
-  %21 = load i8, ptr %key.addr, align 1
-  %call8 = call signext i8 @nfaExecLimEx384_initCompressedState(ptr noundef %18, i64 noundef %19, ptr noundef %20, i8 noundef zeroext %21)
-  store i8 %call8, ptr %retval, align 1
-  br label %return
+43:                                               ; preds = %4
+  %44 = load ptr, ptr %6, align 8
+  %45 = load i64, ptr %7, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load i8, ptr %9, align 1
+  %48 = call signext i8 @nfaExecLimEx384_initCompressedState(ptr noundef %44, i64 noundef %45, ptr noundef %46, i8 noundef zeroext %47)
+  store i8 %48, ptr %5, align 1
+  br label %156
 
-sw.bb9:                                           ; preds = %entry
-  %22 = load ptr, ptr %nfa.addr, align 8
-  %23 = load i64, ptr %offset.addr, align 8
-  %24 = load ptr, ptr %state.addr, align 8
-  %25 = load i8, ptr %key.addr, align 1
-  %call10 = call signext i8 @nfaExecLimEx512_initCompressedState(ptr noundef %22, i64 noundef %23, ptr noundef %24, i8 noundef zeroext %25)
-  store i8 %call10, ptr %retval, align 1
-  br label %return
+49:                                               ; preds = %4
+  %50 = load ptr, ptr %6, align 8
+  %51 = load i64, ptr %7, align 8
+  %52 = load ptr, ptr %8, align 8
+  %53 = load i8, ptr %9, align 1
+  %54 = call signext i8 @nfaExecLimEx512_initCompressedState(ptr noundef %50, i64 noundef %51, ptr noundef %52, i8 noundef zeroext %53)
+  store i8 %54, ptr %5, align 1
+  br label %156
 
-sw.bb11:                                          ; preds = %entry
-  %26 = load ptr, ptr %nfa.addr, align 8
-  %27 = load i64, ptr %offset.addr, align 8
-  %28 = load ptr, ptr %state.addr, align 8
-  %29 = load i8, ptr %key.addr, align 1
-  %call12 = call signext i8 @nfaExecMcClellan8_initCompressedState(ptr noundef %26, i64 noundef %27, ptr noundef %28, i8 noundef zeroext %29)
-  store i8 %call12, ptr %retval, align 1
-  br label %return
+55:                                               ; preds = %4
+  %56 = load ptr, ptr %6, align 8
+  %57 = load i64, ptr %7, align 8
+  %58 = load ptr, ptr %8, align 8
+  %59 = load i8, ptr %9, align 1
+  %60 = call signext i8 @nfaExecMcClellan8_initCompressedState(ptr noundef %56, i64 noundef %57, ptr noundef %58, i8 noundef zeroext %59)
+  store i8 %60, ptr %5, align 1
+  br label %156
 
-sw.bb13:                                          ; preds = %entry
-  %30 = load ptr, ptr %nfa.addr, align 8
-  %31 = load i64, ptr %offset.addr, align 8
-  %32 = load ptr, ptr %state.addr, align 8
-  %33 = load i8, ptr %key.addr, align 1
-  %call14 = call signext i8 @nfaExecMcClellan16_initCompressedState(ptr noundef %30, i64 noundef %31, ptr noundef %32, i8 noundef zeroext %33)
-  store i8 %call14, ptr %retval, align 1
-  br label %return
+61:                                               ; preds = %4
+  %62 = load ptr, ptr %6, align 8
+  %63 = load i64, ptr %7, align 8
+  %64 = load ptr, ptr %8, align 8
+  %65 = load i8, ptr %9, align 1
+  %66 = call signext i8 @nfaExecMcClellan16_initCompressedState(ptr noundef %62, i64 noundef %63, ptr noundef %64, i8 noundef zeroext %65)
+  store i8 %66, ptr %5, align 1
+  br label %156
 
-sw.bb15:                                          ; preds = %entry
-  %34 = load ptr, ptr %nfa.addr, align 8
-  %35 = load i64, ptr %offset.addr, align 8
-  %36 = load ptr, ptr %state.addr, align 8
-  %37 = load i8, ptr %key.addr, align 1
-  %call16 = call signext i8 @nfaExecGough8_initCompressedState(ptr noundef %34, i64 noundef %35, ptr noundef %36, i8 noundef zeroext %37)
-  store i8 %call16, ptr %retval, align 1
-  br label %return
+67:                                               ; preds = %4
+  %68 = load ptr, ptr %6, align 8
+  %69 = load i64, ptr %7, align 8
+  %70 = load ptr, ptr %8, align 8
+  %71 = load i8, ptr %9, align 1
+  %72 = call signext i8 @nfaExecGough8_initCompressedState(ptr noundef %68, i64 noundef %69, ptr noundef %70, i8 noundef zeroext %71)
+  store i8 %72, ptr %5, align 1
+  br label %156
 
-sw.bb17:                                          ; preds = %entry
-  %38 = load ptr, ptr %nfa.addr, align 8
-  %39 = load i64, ptr %offset.addr, align 8
-  %40 = load ptr, ptr %state.addr, align 8
-  %41 = load i8, ptr %key.addr, align 1
-  %call18 = call signext i8 @nfaExecGough16_initCompressedState(ptr noundef %38, i64 noundef %39, ptr noundef %40, i8 noundef zeroext %41)
-  store i8 %call18, ptr %retval, align 1
-  br label %return
+73:                                               ; preds = %4
+  %74 = load ptr, ptr %6, align 8
+  %75 = load i64, ptr %7, align 8
+  %76 = load ptr, ptr %8, align 8
+  %77 = load i8, ptr %9, align 1
+  %78 = call signext i8 @nfaExecGough16_initCompressedState(ptr noundef %74, i64 noundef %75, ptr noundef %76, i8 noundef zeroext %77)
+  store i8 %78, ptr %5, align 1
+  br label %156
 
-sw.bb19:                                          ; preds = %entry
-  %42 = load ptr, ptr %nfa.addr, align 8
-  %43 = load i64, ptr %offset.addr, align 8
-  %44 = load ptr, ptr %state.addr, align 8
-  %45 = load i8, ptr %key.addr, align 1
-  %call20 = call signext i8 @nfaExecMpv_initCompressedState(ptr noundef %42, i64 noundef %43, ptr noundef %44, i8 noundef zeroext %45)
-  store i8 %call20, ptr %retval, align 1
-  br label %return
+79:                                               ; preds = %4
+  %80 = load ptr, ptr %6, align 8
+  %81 = load i64, ptr %7, align 8
+  %82 = load ptr, ptr %8, align 8
+  %83 = load i8, ptr %9, align 1
+  %84 = call signext i8 @nfaExecMpv_initCompressedState(ptr noundef %80, i64 noundef %81, ptr noundef %82, i8 noundef zeroext %83)
+  store i8 %84, ptr %5, align 1
+  br label %156
 
-sw.bb21:                                          ; preds = %entry
-  %46 = load ptr, ptr %nfa.addr, align 8
-  %47 = load i64, ptr %offset.addr, align 8
-  %48 = load ptr, ptr %state.addr, align 8
-  %49 = load i8, ptr %key.addr, align 1
-  %call22 = call signext i8 @nfaExecLbrDot_initCompressedState(ptr noundef %46, i64 noundef %47, ptr noundef %48, i8 noundef zeroext %49)
-  store i8 %call22, ptr %retval, align 1
-  br label %return
+85:                                               ; preds = %4
+  %86 = load ptr, ptr %6, align 8
+  %87 = load i64, ptr %7, align 8
+  %88 = load ptr, ptr %8, align 8
+  %89 = load i8, ptr %9, align 1
+  %90 = call signext i8 @nfaExecLbrDot_initCompressedState(ptr noundef %86, i64 noundef %87, ptr noundef %88, i8 noundef zeroext %89)
+  store i8 %90, ptr %5, align 1
+  br label %156
 
-sw.bb23:                                          ; preds = %entry
-  %50 = load ptr, ptr %nfa.addr, align 8
-  %51 = load i64, ptr %offset.addr, align 8
-  %52 = load ptr, ptr %state.addr, align 8
-  %53 = load i8, ptr %key.addr, align 1
-  %call24 = call signext i8 @nfaExecLbrVerm_initCompressedState(ptr noundef %50, i64 noundef %51, ptr noundef %52, i8 noundef zeroext %53)
-  store i8 %call24, ptr %retval, align 1
-  br label %return
+91:                                               ; preds = %4
+  %92 = load ptr, ptr %6, align 8
+  %93 = load i64, ptr %7, align 8
+  %94 = load ptr, ptr %8, align 8
+  %95 = load i8, ptr %9, align 1
+  %96 = call signext i8 @nfaExecLbrVerm_initCompressedState(ptr noundef %92, i64 noundef %93, ptr noundef %94, i8 noundef zeroext %95)
+  store i8 %96, ptr %5, align 1
+  br label %156
 
-sw.bb25:                                          ; preds = %entry
-  %54 = load ptr, ptr %nfa.addr, align 8
-  %55 = load i64, ptr %offset.addr, align 8
-  %56 = load ptr, ptr %state.addr, align 8
-  %57 = load i8, ptr %key.addr, align 1
-  %call26 = call signext i8 @nfaExecLbrNVerm_initCompressedState(ptr noundef %54, i64 noundef %55, ptr noundef %56, i8 noundef zeroext %57)
-  store i8 %call26, ptr %retval, align 1
-  br label %return
+97:                                               ; preds = %4
+  %98 = load ptr, ptr %6, align 8
+  %99 = load i64, ptr %7, align 8
+  %100 = load ptr, ptr %8, align 8
+  %101 = load i8, ptr %9, align 1
+  %102 = call signext i8 @nfaExecLbrNVerm_initCompressedState(ptr noundef %98, i64 noundef %99, ptr noundef %100, i8 noundef zeroext %101)
+  store i8 %102, ptr %5, align 1
+  br label %156
 
-sw.bb27:                                          ; preds = %entry
-  %58 = load ptr, ptr %nfa.addr, align 8
-  %59 = load i64, ptr %offset.addr, align 8
-  %60 = load ptr, ptr %state.addr, align 8
-  %61 = load i8, ptr %key.addr, align 1
-  %call28 = call signext i8 @nfaExecLbrShuf_initCompressedState(ptr noundef %58, i64 noundef %59, ptr noundef %60, i8 noundef zeroext %61)
-  store i8 %call28, ptr %retval, align 1
-  br label %return
+103:                                              ; preds = %4
+  %104 = load ptr, ptr %6, align 8
+  %105 = load i64, ptr %7, align 8
+  %106 = load ptr, ptr %8, align 8
+  %107 = load i8, ptr %9, align 1
+  %108 = call signext i8 @nfaExecLbrShuf_initCompressedState(ptr noundef %104, i64 noundef %105, ptr noundef %106, i8 noundef zeroext %107)
+  store i8 %108, ptr %5, align 1
+  br label %156
 
-sw.bb29:                                          ; preds = %entry
-  %62 = load ptr, ptr %nfa.addr, align 8
-  %63 = load i64, ptr %offset.addr, align 8
-  %64 = load ptr, ptr %state.addr, align 8
-  %65 = load i8, ptr %key.addr, align 1
-  %call30 = call signext i8 @nfaExecLbrTruf_initCompressedState(ptr noundef %62, i64 noundef %63, ptr noundef %64, i8 noundef zeroext %65)
-  store i8 %call30, ptr %retval, align 1
-  br label %return
+109:                                              ; preds = %4
+  %110 = load ptr, ptr %6, align 8
+  %111 = load i64, ptr %7, align 8
+  %112 = load ptr, ptr %8, align 8
+  %113 = load i8, ptr %9, align 1
+  %114 = call signext i8 @nfaExecLbrTruf_initCompressedState(ptr noundef %110, i64 noundef %111, ptr noundef %112, i8 noundef zeroext %113)
+  store i8 %114, ptr %5, align 1
+  br label %156
 
-sw.bb31:                                          ; preds = %entry
-  %66 = load ptr, ptr %nfa.addr, align 8
-  %67 = load i64, ptr %offset.addr, align 8
-  %68 = load ptr, ptr %state.addr, align 8
-  %69 = load i8, ptr %key.addr, align 1
-  %call32 = call signext i8 @nfaExecCastle_initCompressedState(ptr noundef %66, i64 noundef %67, ptr noundef %68, i8 noundef zeroext %69)
-  store i8 %call32, ptr %retval, align 1
-  br label %return
+115:                                              ; preds = %4
+  %116 = load ptr, ptr %6, align 8
+  %117 = load i64, ptr %7, align 8
+  %118 = load ptr, ptr %8, align 8
+  %119 = load i8, ptr %9, align 1
+  %120 = call signext i8 @nfaExecCastle_initCompressedState(ptr noundef %116, i64 noundef %117, ptr noundef %118, i8 noundef zeroext %119)
+  store i8 %120, ptr %5, align 1
+  br label %156
 
-sw.bb33:                                          ; preds = %entry
-  %70 = load ptr, ptr %nfa.addr, align 8
-  %71 = load i64, ptr %offset.addr, align 8
-  %72 = load ptr, ptr %state.addr, align 8
-  %73 = load i8, ptr %key.addr, align 1
-  %call34 = call signext i8 @nfaExecSheng_initCompressedState(ptr noundef %70, i64 noundef %71, ptr noundef %72, i8 noundef zeroext %73)
-  store i8 %call34, ptr %retval, align 1
-  br label %return
+121:                                              ; preds = %4
+  %122 = load ptr, ptr %6, align 8
+  %123 = load i64, ptr %7, align 8
+  %124 = load ptr, ptr %8, align 8
+  %125 = load i8, ptr %9, align 1
+  %126 = call signext i8 @nfaExecSheng_initCompressedState(ptr noundef %122, i64 noundef %123, ptr noundef %124, i8 noundef zeroext %125)
+  store i8 %126, ptr %5, align 1
+  br label %156
 
-sw.bb35:                                          ; preds = %entry
-  store i32 0, ptr %tmp, align 4
-  %74 = load i32, ptr %tmp, align 4
-  %conv36 = trunc i32 %74 to i8
-  store i8 %conv36, ptr %retval, align 1
-  br label %return
+127:                                              ; preds = %4
+  store i32 0, ptr %10, align 4
+  %128 = load i32, ptr %10, align 4
+  %129 = trunc i32 %128 to i8
+  store i8 %129, ptr %5, align 1
+  br label %156
 
-sw.bb37:                                          ; preds = %entry
-  %75 = load ptr, ptr %nfa.addr, align 8
-  %76 = load i64, ptr %offset.addr, align 8
-  %77 = load ptr, ptr %state.addr, align 8
-  %78 = load i8, ptr %key.addr, align 1
-  %call38 = call signext i8 @nfaExecMcSheng8_initCompressedState(ptr noundef %75, i64 noundef %76, ptr noundef %77, i8 noundef zeroext %78)
-  store i8 %call38, ptr %retval, align 1
-  br label %return
+130:                                              ; preds = %4
+  %131 = load ptr, ptr %6, align 8
+  %132 = load i64, ptr %7, align 8
+  %133 = load ptr, ptr %8, align 8
+  %134 = load i8, ptr %9, align 1
+  %135 = call signext i8 @nfaExecMcSheng8_initCompressedState(ptr noundef %131, i64 noundef %132, ptr noundef %133, i8 noundef zeroext %134)
+  store i8 %135, ptr %5, align 1
+  br label %156
 
-sw.bb39:                                          ; preds = %entry
-  %79 = load ptr, ptr %nfa.addr, align 8
-  %80 = load i64, ptr %offset.addr, align 8
-  %81 = load ptr, ptr %state.addr, align 8
-  %82 = load i8, ptr %key.addr, align 1
-  %call40 = call signext i8 @nfaExecMcSheng16_initCompressedState(ptr noundef %79, i64 noundef %80, ptr noundef %81, i8 noundef zeroext %82)
-  store i8 %call40, ptr %retval, align 1
-  br label %return
+136:                                              ; preds = %4
+  %137 = load ptr, ptr %6, align 8
+  %138 = load i64, ptr %7, align 8
+  %139 = load ptr, ptr %8, align 8
+  %140 = load i8, ptr %9, align 1
+  %141 = call signext i8 @nfaExecMcSheng16_initCompressedState(ptr noundef %137, i64 noundef %138, ptr noundef %139, i8 noundef zeroext %140)
+  store i8 %141, ptr %5, align 1
+  br label %156
 
-sw.bb41:                                          ; preds = %entry
-  store i32 0, ptr %tmp42, align 4
-  %83 = load i32, ptr %tmp42, align 4
-  %conv43 = trunc i32 %83 to i8
-  store i8 %conv43, ptr %retval, align 1
-  br label %return
+142:                                              ; preds = %4
+  store i32 0, ptr %11, align 4
+  %143 = load i32, ptr %11, align 4
+  %144 = trunc i32 %143 to i8
+  store i8 %144, ptr %5, align 1
+  br label %156
 
-sw.bb44:                                          ; preds = %entry
-  store i32 0, ptr %tmp45, align 4
-  %84 = load i32, ptr %tmp45, align 4
-  %conv46 = trunc i32 %84 to i8
-  store i8 %conv46, ptr %retval, align 1
-  br label %return
+145:                                              ; preds = %4
+  store i32 0, ptr %12, align 4
+  %146 = load i32, ptr %12, align 4
+  %147 = trunc i32 %146 to i8
+  store i8 %147, ptr %5, align 1
+  br label %156
 
-sw.bb47:                                          ; preds = %entry
-  store i32 0, ptr %tmp48, align 4
-  %85 = load i32, ptr %tmp48, align 4
-  %conv49 = trunc i32 %85 to i8
-  store i8 %conv49, ptr %retval, align 1
-  br label %return
+148:                                              ; preds = %4
+  store i32 0, ptr %13, align 4
+  %149 = load i32, ptr %13, align 4
+  %150 = trunc i32 %149 to i8
+  store i8 %150, ptr %5, align 1
+  br label %156
 
-sw.bb50:                                          ; preds = %entry
-  store i32 0, ptr %tmp51, align 4
-  %86 = load i32, ptr %tmp51, align 4
-  %conv52 = trunc i32 %86 to i8
-  store i8 %conv52, ptr %retval, align 1
-  br label %return
+151:                                              ; preds = %4
+  store i32 0, ptr %14, align 4
+  %152 = load i32, ptr %14, align 4
+  %153 = trunc i32 %152 to i8
+  store i8 %153, ptr %5, align 1
+  br label %156
 
-sw.default:                                       ; preds = %entry
-  br label %sw.epilog
+154:                                              ; preds = %4
+  br label %155
 
-sw.epilog:                                        ; preds = %sw.default
-  store i8 0, ptr %retval, align 1
-  br label %return
+155:                                              ; preds = %154
+  store i8 0, ptr %5, align 1
+  br label %156
 
-return:                                           ; preds = %sw.epilog, %sw.bb50, %sw.bb47, %sw.bb44, %sw.bb41, %sw.bb39, %sw.bb37, %sw.bb35, %sw.bb33, %sw.bb31, %sw.bb29, %sw.bb27, %sw.bb25, %sw.bb23, %sw.bb21, %sw.bb19, %sw.bb17, %sw.bb15, %sw.bb13, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb1, %sw.bb
-  %87 = load i8, ptr %retval, align 1
-  ret i8 %87
+156:                                              ; preds = %155, %151, %148, %145, %142, %136, %130, %127, %121, %115, %109, %103, %97, %91, %85, %79, %73, %67, %61, %55, %49, %43, %37, %31, %25, %19
+  %157 = load i8, ptr %5, align 1
+  ret i8 %157
 }
 
 declare signext i8 @nfaExecLimEx32_initCompressedState(ptr noundef, i64 noundef, ptr noundef, i8 noundef zeroext) #1
@@ -4644,239 +4089,238 @@ declare signext i8 @nfaExecMcSheng8_initCompressedState(ptr noundef, i64 noundef
 declare signext i8 @nfaExecMcSheng16_initCompressedState(ptr noundef, i64 noundef, ptr noundef, i8 noundef zeroext) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nfaGetZombieStatus(ptr noundef %nfa, ptr noundef %q, i64 noundef %loc) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %nfa.addr = alloca ptr, align 8
-  %q.addr = alloca ptr, align 8
-  %loc.addr = alloca i64, align 8
-  %tmp = alloca i32, align 4
-  %tmp13 = alloca i32, align 4
-  %tmp15 = alloca i32, align 4
-  %tmp17 = alloca i32, align 4
-  %tmp19 = alloca i32, align 4
-  %tmp21 = alloca i32, align 4
-  %tmp23 = alloca i32, align 4
-  %tmp25 = alloca i32, align 4
-  %tmp27 = alloca i32, align 4
-  %tmp29 = alloca i32, align 4
-  %tmp31 = alloca i32, align 4
-  %tmp33 = alloca i32, align 4
-  %tmp37 = alloca i32, align 4
-  %tmp39 = alloca i32, align 4
-  %tmp41 = alloca i32, align 4
-  %tmp43 = alloca i32, align 4
-  %tmp45 = alloca i32, align 4
-  %tmp47 = alloca i32, align 4
-  store ptr %nfa, ptr %nfa.addr, align 8
-  store ptr %q, ptr %q.addr, align 8
-  store i64 %loc, ptr %loc.addr, align 8
-  %0 = load ptr, ptr %nfa.addr, align 8
-  %type = getelementptr inbounds %struct.NFA, ptr %0, i32 0, i32 2
-  %1 = load i8, ptr %type, align 8
-  %conv = zext i8 %1 to i32
-  switch i32 %conv, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb1
-    i32 2, label %sw.bb3
-    i32 3, label %sw.bb5
-    i32 4, label %sw.bb7
-    i32 5, label %sw.bb9
-    i32 6, label %sw.bb11
-    i32 7, label %sw.bb12
-    i32 8, label %sw.bb14
-    i32 9, label %sw.bb16
-    i32 10, label %sw.bb18
-    i32 11, label %sw.bb20
-    i32 12, label %sw.bb22
-    i32 13, label %sw.bb24
-    i32 14, label %sw.bb26
-    i32 15, label %sw.bb28
-    i32 16, label %sw.bb30
-    i32 17, label %sw.bb32
-    i32 18, label %sw.bb34
-    i32 19, label %sw.bb36
-    i32 20, label %sw.bb38
-    i32 21, label %sw.bb40
-    i32 22, label %sw.bb42
-    i32 23, label %sw.bb44
-    i32 24, label %sw.bb46
+define hidden i32 @nfaGetZombieStatus(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  %23 = alloca i32, align 4
+  %24 = alloca i32, align 4
+  %25 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  %26 = load ptr, ptr %5, align 8
+  %27 = getelementptr inbounds nuw %struct.NFA, ptr %26, i32 0, i32 2
+  %28 = load i8, ptr %27, align 8
+  %29 = zext i8 %28 to i32
+  switch i32 %29, label %101 [
+    i32 0, label %30
+    i32 1, label %35
+    i32 2, label %40
+    i32 3, label %45
+    i32 4, label %50
+    i32 5, label %55
+    i32 6, label %60
+    i32 7, label %62
+    i32 8, label %64
+    i32 9, label %66
+    i32 10, label %68
+    i32 11, label %70
+    i32 12, label %72
+    i32 13, label %74
+    i32 14, label %76
+    i32 15, label %78
+    i32 16, label %80
+    i32 17, label %82
+    i32 18, label %84
+    i32 19, label %89
+    i32 20, label %91
+    i32 21, label %93
+    i32 22, label %95
+    i32 23, label %97
+    i32 24, label %99
   ]
 
-sw.bb:                                            ; preds = %entry
-  %2 = load ptr, ptr %nfa.addr, align 8
-  %3 = load ptr, ptr %q.addr, align 8
-  %4 = load i64, ptr %loc.addr, align 8
-  %call = call i32 @nfaExecLimEx32_zombie_status(ptr noundef %2, ptr noundef %3, i64 noundef %4)
-  store i32 %call, ptr %retval, align 4
-  br label %return
+30:                                               ; preds = %3
+  %31 = load ptr, ptr %5, align 8
+  %32 = load ptr, ptr %6, align 8
+  %33 = load i64, ptr %7, align 8
+  %34 = call i32 @nfaExecLimEx32_zombie_status(ptr noundef %31, ptr noundef %32, i64 noundef %33)
+  store i32 %34, ptr %4, align 4
+  br label %103
 
-sw.bb1:                                           ; preds = %entry
-  %5 = load ptr, ptr %nfa.addr, align 8
-  %6 = load ptr, ptr %q.addr, align 8
-  %7 = load i64, ptr %loc.addr, align 8
-  %call2 = call i32 @nfaExecLimEx64_zombie_status(ptr noundef %5, ptr noundef %6, i64 noundef %7)
-  store i32 %call2, ptr %retval, align 4
-  br label %return
+35:                                               ; preds = %3
+  %36 = load ptr, ptr %5, align 8
+  %37 = load ptr, ptr %6, align 8
+  %38 = load i64, ptr %7, align 8
+  %39 = call i32 @nfaExecLimEx64_zombie_status(ptr noundef %36, ptr noundef %37, i64 noundef %38)
+  store i32 %39, ptr %4, align 4
+  br label %103
 
-sw.bb3:                                           ; preds = %entry
-  %8 = load ptr, ptr %nfa.addr, align 8
-  %9 = load ptr, ptr %q.addr, align 8
-  %10 = load i64, ptr %loc.addr, align 8
-  %call4 = call i32 @nfaExecLimEx128_zombie_status(ptr noundef %8, ptr noundef %9, i64 noundef %10)
-  store i32 %call4, ptr %retval, align 4
-  br label %return
+40:                                               ; preds = %3
+  %41 = load ptr, ptr %5, align 8
+  %42 = load ptr, ptr %6, align 8
+  %43 = load i64, ptr %7, align 8
+  %44 = call i32 @nfaExecLimEx128_zombie_status(ptr noundef %41, ptr noundef %42, i64 noundef %43)
+  store i32 %44, ptr %4, align 4
+  br label %103
 
-sw.bb5:                                           ; preds = %entry
-  %11 = load ptr, ptr %nfa.addr, align 8
-  %12 = load ptr, ptr %q.addr, align 8
-  %13 = load i64, ptr %loc.addr, align 8
-  %call6 = call i32 @nfaExecLimEx256_zombie_status(ptr noundef %11, ptr noundef %12, i64 noundef %13)
-  store i32 %call6, ptr %retval, align 4
-  br label %return
+45:                                               ; preds = %3
+  %46 = load ptr, ptr %5, align 8
+  %47 = load ptr, ptr %6, align 8
+  %48 = load i64, ptr %7, align 8
+  %49 = call i32 @nfaExecLimEx256_zombie_status(ptr noundef %46, ptr noundef %47, i64 noundef %48)
+  store i32 %49, ptr %4, align 4
+  br label %103
 
-sw.bb7:                                           ; preds = %entry
-  %14 = load ptr, ptr %nfa.addr, align 8
-  %15 = load ptr, ptr %q.addr, align 8
-  %16 = load i64, ptr %loc.addr, align 8
-  %call8 = call i32 @nfaExecLimEx384_zombie_status(ptr noundef %14, ptr noundef %15, i64 noundef %16)
-  store i32 %call8, ptr %retval, align 4
-  br label %return
+50:                                               ; preds = %3
+  %51 = load ptr, ptr %5, align 8
+  %52 = load ptr, ptr %6, align 8
+  %53 = load i64, ptr %7, align 8
+  %54 = call i32 @nfaExecLimEx384_zombie_status(ptr noundef %51, ptr noundef %52, i64 noundef %53)
+  store i32 %54, ptr %4, align 4
+  br label %103
 
-sw.bb9:                                           ; preds = %entry
-  %17 = load ptr, ptr %nfa.addr, align 8
-  %18 = load ptr, ptr %q.addr, align 8
-  %19 = load i64, ptr %loc.addr, align 8
-  %call10 = call i32 @nfaExecLimEx512_zombie_status(ptr noundef %17, ptr noundef %18, i64 noundef %19)
-  store i32 %call10, ptr %retval, align 4
-  br label %return
+55:                                               ; preds = %3
+  %56 = load ptr, ptr %5, align 8
+  %57 = load ptr, ptr %6, align 8
+  %58 = load i64, ptr %7, align 8
+  %59 = call i32 @nfaExecLimEx512_zombie_status(ptr noundef %56, ptr noundef %57, i64 noundef %58)
+  store i32 %59, ptr %4, align 4
+  br label %103
 
-sw.bb11:                                          ; preds = %entry
-  store i32 0, ptr %tmp, align 4
-  %20 = load i32, ptr %tmp, align 4
-  store i32 %20, ptr %retval, align 4
-  br label %return
+60:                                               ; preds = %3
+  store i32 0, ptr %8, align 4
+  %61 = load i32, ptr %8, align 4
+  store i32 %61, ptr %4, align 4
+  br label %103
 
-sw.bb12:                                          ; preds = %entry
-  store i32 0, ptr %tmp13, align 4
-  %21 = load i32, ptr %tmp13, align 4
-  store i32 %21, ptr %retval, align 4
-  br label %return
+62:                                               ; preds = %3
+  store i32 0, ptr %9, align 4
+  %63 = load i32, ptr %9, align 4
+  store i32 %63, ptr %4, align 4
+  br label %103
 
-sw.bb14:                                          ; preds = %entry
-  store i32 0, ptr %tmp15, align 4
-  %22 = load i32, ptr %tmp15, align 4
-  store i32 %22, ptr %retval, align 4
-  br label %return
+64:                                               ; preds = %3
+  store i32 0, ptr %10, align 4
+  %65 = load i32, ptr %10, align 4
+  store i32 %65, ptr %4, align 4
+  br label %103
 
-sw.bb16:                                          ; preds = %entry
-  store i32 0, ptr %tmp17, align 4
-  %23 = load i32, ptr %tmp17, align 4
-  store i32 %23, ptr %retval, align 4
-  br label %return
+66:                                               ; preds = %3
+  store i32 0, ptr %11, align 4
+  %67 = load i32, ptr %11, align 4
+  store i32 %67, ptr %4, align 4
+  br label %103
 
-sw.bb18:                                          ; preds = %entry
-  store i32 0, ptr %tmp19, align 4
-  %24 = load i32, ptr %tmp19, align 4
-  store i32 %24, ptr %retval, align 4
-  br label %return
+68:                                               ; preds = %3
+  store i32 0, ptr %12, align 4
+  %69 = load i32, ptr %12, align 4
+  store i32 %69, ptr %4, align 4
+  br label %103
 
-sw.bb20:                                          ; preds = %entry
-  store i32 0, ptr %tmp21, align 4
-  %25 = load i32, ptr %tmp21, align 4
-  store i32 %25, ptr %retval, align 4
-  br label %return
+70:                                               ; preds = %3
+  store i32 0, ptr %13, align 4
+  %71 = load i32, ptr %13, align 4
+  store i32 %71, ptr %4, align 4
+  br label %103
 
-sw.bb22:                                          ; preds = %entry
-  store i32 0, ptr %tmp23, align 4
-  %26 = load i32, ptr %tmp23, align 4
-  store i32 %26, ptr %retval, align 4
-  br label %return
+72:                                               ; preds = %3
+  store i32 0, ptr %14, align 4
+  %73 = load i32, ptr %14, align 4
+  store i32 %73, ptr %4, align 4
+  br label %103
 
-sw.bb24:                                          ; preds = %entry
-  store i32 0, ptr %tmp25, align 4
-  %27 = load i32, ptr %tmp25, align 4
-  store i32 %27, ptr %retval, align 4
-  br label %return
+74:                                               ; preds = %3
+  store i32 0, ptr %15, align 4
+  %75 = load i32, ptr %15, align 4
+  store i32 %75, ptr %4, align 4
+  br label %103
 
-sw.bb26:                                          ; preds = %entry
-  store i32 0, ptr %tmp27, align 4
-  %28 = load i32, ptr %tmp27, align 4
-  store i32 %28, ptr %retval, align 4
-  br label %return
+76:                                               ; preds = %3
+  store i32 0, ptr %16, align 4
+  %77 = load i32, ptr %16, align 4
+  store i32 %77, ptr %4, align 4
+  br label %103
 
-sw.bb28:                                          ; preds = %entry
-  store i32 0, ptr %tmp29, align 4
-  %29 = load i32, ptr %tmp29, align 4
-  store i32 %29, ptr %retval, align 4
-  br label %return
+78:                                               ; preds = %3
+  store i32 0, ptr %17, align 4
+  %79 = load i32, ptr %17, align 4
+  store i32 %79, ptr %4, align 4
+  br label %103
 
-sw.bb30:                                          ; preds = %entry
-  store i32 0, ptr %tmp31, align 4
-  %30 = load i32, ptr %tmp31, align 4
-  store i32 %30, ptr %retval, align 4
-  br label %return
+80:                                               ; preds = %3
+  store i32 0, ptr %18, align 4
+  %81 = load i32, ptr %18, align 4
+  store i32 %81, ptr %4, align 4
+  br label %103
 
-sw.bb32:                                          ; preds = %entry
-  store i32 0, ptr %tmp33, align 4
-  %31 = load i32, ptr %tmp33, align 4
-  store i32 %31, ptr %retval, align 4
-  br label %return
+82:                                               ; preds = %3
+  store i32 0, ptr %19, align 4
+  %83 = load i32, ptr %19, align 4
+  store i32 %83, ptr %4, align 4
+  br label %103
 
-sw.bb34:                                          ; preds = %entry
-  %32 = load ptr, ptr %nfa.addr, align 8
-  %33 = load ptr, ptr %q.addr, align 8
-  %34 = load i64, ptr %loc.addr, align 8
-  %call35 = call i32 @nfaExecTamarama_zombie_status(ptr noundef %32, ptr noundef %33, i64 noundef %34)
-  store i32 %call35, ptr %retval, align 4
-  br label %return
+84:                                               ; preds = %3
+  %85 = load ptr, ptr %5, align 8
+  %86 = load ptr, ptr %6, align 8
+  %87 = load i64, ptr %7, align 8
+  %88 = call i32 @nfaExecTamarama_zombie_status(ptr noundef %85, ptr noundef %86, i64 noundef %87)
+  store i32 %88, ptr %4, align 4
+  br label %103
 
-sw.bb36:                                          ; preds = %entry
-  store i32 0, ptr %tmp37, align 4
-  %35 = load i32, ptr %tmp37, align 4
-  store i32 %35, ptr %retval, align 4
-  br label %return
+89:                                               ; preds = %3
+  store i32 0, ptr %20, align 4
+  %90 = load i32, ptr %20, align 4
+  store i32 %90, ptr %4, align 4
+  br label %103
 
-sw.bb38:                                          ; preds = %entry
-  store i32 0, ptr %tmp39, align 4
-  %36 = load i32, ptr %tmp39, align 4
-  store i32 %36, ptr %retval, align 4
-  br label %return
+91:                                               ; preds = %3
+  store i32 0, ptr %21, align 4
+  %92 = load i32, ptr %21, align 4
+  store i32 %92, ptr %4, align 4
+  br label %103
 
-sw.bb40:                                          ; preds = %entry
-  store i32 0, ptr %tmp41, align 4
-  %37 = load i32, ptr %tmp41, align 4
-  store i32 %37, ptr %retval, align 4
-  br label %return
+93:                                               ; preds = %3
+  store i32 0, ptr %22, align 4
+  %94 = load i32, ptr %22, align 4
+  store i32 %94, ptr %4, align 4
+  br label %103
 
-sw.bb42:                                          ; preds = %entry
-  store i32 0, ptr %tmp43, align 4
-  %38 = load i32, ptr %tmp43, align 4
-  store i32 %38, ptr %retval, align 4
-  br label %return
+95:                                               ; preds = %3
+  store i32 0, ptr %23, align 4
+  %96 = load i32, ptr %23, align 4
+  store i32 %96, ptr %4, align 4
+  br label %103
 
-sw.bb44:                                          ; preds = %entry
-  store i32 0, ptr %tmp45, align 4
-  %39 = load i32, ptr %tmp45, align 4
-  store i32 %39, ptr %retval, align 4
-  br label %return
+97:                                               ; preds = %3
+  store i32 0, ptr %24, align 4
+  %98 = load i32, ptr %24, align 4
+  store i32 %98, ptr %4, align 4
+  br label %103
 
-sw.bb46:                                          ; preds = %entry
-  store i32 0, ptr %tmp47, align 4
-  %40 = load i32, ptr %tmp47, align 4
-  store i32 %40, ptr %retval, align 4
-  br label %return
+99:                                               ; preds = %3
+  store i32 0, ptr %25, align 4
+  %100 = load i32, ptr %25, align 4
+  store i32 %100, ptr %4, align 4
+  br label %103
 
-sw.default:                                       ; preds = %entry
-  br label %sw.epilog
+101:                                              ; preds = %3
+  br label %102
 
-sw.epilog:                                        ; preds = %sw.default
-  store i32 0, ptr %retval, align 4
-  br label %return
+102:                                              ; preds = %101
+  store i32 0, ptr %4, align 4
+  br label %103
 
-return:                                           ; preds = %sw.epilog, %sw.bb46, %sw.bb44, %sw.bb42, %sw.bb40, %sw.bb38, %sw.bb36, %sw.bb34, %sw.bb32, %sw.bb30, %sw.bb28, %sw.bb26, %sw.bb24, %sw.bb22, %sw.bb20, %sw.bb18, %sw.bb16, %sw.bb14, %sw.bb12, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb1, %sw.bb
-  %41 = load i32, ptr %retval, align 4
-  ret i32 %41
+103:                                              ; preds = %102, %99, %97, %95, %93, %91, %89, %84, %82, %80, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %55, %50, %45, %40, %35, %30
+  %104 = load i32, ptr %4, align 4
+  ret i32 %104
 }
 
 declare i32 @nfaExecLimEx32_zombie_status(ptr noundef, ptr noundef, i64 noundef) #1
@@ -5015,9 +4459,11 @@ declare signext i8 @nfaExecMcSheng8_QR(ptr noundef, ptr noundef, i32 noundef) #1
 
 declare signext i8 @nfaExecMcSheng16_QR(ptr noundef, ptr noundef, i32 noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #2 = { nounwind }
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #2 = { alwaysinline nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 
@@ -5026,5 +4472,3 @@ attributes #2 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}

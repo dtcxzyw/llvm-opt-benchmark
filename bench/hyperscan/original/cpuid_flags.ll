@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.family_id = type { i32, i32, i32 }
 
@@ -7,505 +7,649 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden i64 @cpuid_flags() #0 {
-entry:
-  %cap = alloca i64, align 8
-  store i64 0, ptr %cap, align 8
-  %call = call i32 @check_avx2()
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+  %1 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #3
+  store i64 0, ptr %1, align 8
+  %2 = call i32 @check_avx2()
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %10
 
-if.then:                                          ; preds = %entry
-  br label %do.body
+4:                                                ; preds = %0
+  br label %5
 
-do.body:                                          ; preds = %if.then
-  br label %do.end
+5:                                                ; preds = %4
+  br label %6
 
-do.end:                                           ; preds = %do.body
-  %0 = load i64, ptr %cap, align 8
-  %or = or i64 %0, 4
-  store i64 %or, ptr %cap, align 8
-  br label %if.end
+6:                                                ; preds = %5
+  br label %7
 
-if.end:                                           ; preds = %do.end, %entry
-  %call1 = call i32 @check_avx512()
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %if.then3, label %if.end7
+7:                                                ; preds = %6
+  %8 = load i64, ptr %1, align 8
+  %9 = or i64 %8, 4
+  store i64 %9, ptr %1, align 8
+  br label %10
 
-if.then3:                                         ; preds = %if.end
-  br label %do.body4
+10:                                               ; preds = %7, %0
+  %11 = call i32 @check_avx512()
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %13, label %19
 
-do.body4:                                         ; preds = %if.then3
-  br label %do.end5
+13:                                               ; preds = %10
+  br label %14
 
-do.end5:                                          ; preds = %do.body4
-  %1 = load i64, ptr %cap, align 8
-  %or6 = or i64 %1, 8
-  store i64 %or6, ptr %cap, align 8
-  br label %if.end7
+14:                                               ; preds = %13
+  br label %15
 
-if.end7:                                          ; preds = %do.end5, %if.end
-  %call8 = call i32 @check_avx512vbmi()
-  %tobool9 = icmp ne i32 %call8, 0
-  br i1 %tobool9, label %if.then10, label %if.end14
+15:                                               ; preds = %14
+  br label %16
 
-if.then10:                                        ; preds = %if.end7
-  br label %do.body11
+16:                                               ; preds = %15
+  %17 = load i64, ptr %1, align 8
+  %18 = or i64 %17, 8
+  store i64 %18, ptr %1, align 8
+  br label %19
 
-do.body11:                                        ; preds = %if.then10
-  br label %do.end12
+19:                                               ; preds = %16, %10
+  %20 = call i32 @check_avx512vbmi()
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %28
 
-do.end12:                                         ; preds = %do.body11
-  %2 = load i64, ptr %cap, align 8
-  %or13 = or i64 %2, 16
-  store i64 %or13, ptr %cap, align 8
-  br label %if.end14
+22:                                               ; preds = %19
+  br label %23
 
-if.end14:                                         ; preds = %do.end12, %if.end7
-  %3 = load i64, ptr %cap, align 8
-  %and = and i64 %3, -9
-  store i64 %and, ptr %cap, align 8
-  %4 = load i64, ptr %cap, align 8
-  %and15 = and i64 %4, -17
-  store i64 %and15, ptr %cap, align 8
-  %5 = load i64, ptr %cap, align 8
-  ret i64 %5
+23:                                               ; preds = %22
+  br label %24
+
+24:                                               ; preds = %23
+  br label %25
+
+25:                                               ; preds = %24
+  %26 = load i64, ptr %1, align 8
+  %27 = or i64 %26, 16
+  store i64 %27, ptr %1, align 8
+  br label %28
+
+28:                                               ; preds = %25, %19
+  %29 = load i64, ptr %1, align 8
+  %30 = and i64 %29, -9
+  store i64 %30, ptr %1, align 8
+  %31 = load i64, ptr %1, align 8
+  %32 = and i64 %31, -17
+  store i64 %32, ptr %1, align 8
+  %33 = load i64, ptr %1, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #3
+  ret i64 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @check_avx2() #0 {
-entry:
-  %retval = alloca i32, align 4
-  %eax = alloca i32, align 4
-  %ebx = alloca i32, align 4
-  %ecx = alloca i32, align 4
-  %edx = alloca i32, align 4
-  %xcr0 = alloca i64, align 8
-  call void @cpuid(i32 noundef 1, i32 noundef 0, ptr noundef %eax, ptr noundef %ebx, ptr noundef %ecx, ptr noundef %edx)
-  %0 = load i32, ptr %ecx, align 4
-  %and = and i32 %0, 402653184
-  %cmp = icmp ne i32 %and, 402653184
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-if.then:                                          ; preds = %entry
-  br label %do.body
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @check_avx2() #2 {
+  %1 = alloca i32, align 4
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %2) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
+  call void @cpuid(i32 noundef 1, i32 noundef 0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %8 = load i32, ptr %4, align 4
+  %9 = and i32 %8, 402653184
+  %10 = icmp ne i32 %9, 402653184
+  br i1 %10, label %11, label %15
 
-do.body:                                          ; preds = %if.then
-  br label %do.end
+11:                                               ; preds = %0
+  br label %12
 
-do.end:                                           ; preds = %do.body
-  store i32 0, ptr %retval, align 4
-  br label %return
+12:                                               ; preds = %11
+  br label %13
 
-if.end:                                           ; preds = %entry
-  %call = call i64 @xgetbv(i32 noundef 0)
-  store i64 %call, ptr %xcr0, align 8
-  %1 = load i64, ptr %xcr0, align 8
-  %and1 = and i64 %1, 6
-  %cmp2 = icmp ne i64 %and1, 6
-  br i1 %cmp2, label %if.then3, label %if.end6
+13:                                               ; preds = %12
+  br label %14
 
-if.then3:                                         ; preds = %if.end
-  br label %do.body4
+14:                                               ; preds = %13
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %6, align 4
+  br label %34
 
-do.body4:                                         ; preds = %if.then3
-  br label %do.end5
+15:                                               ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  %16 = call i64 @xgetbv(i32 noundef 0)
+  store i64 %16, ptr %7, align 8
+  %17 = load i64, ptr %7, align 8
+  %18 = and i64 %17, 6
+  %19 = icmp ne i64 %18, 6
+  br i1 %19, label %20, label %24
 
-do.end5:                                          ; preds = %do.body4
-  store i32 0, ptr %retval, align 4
-  br label %return
+20:                                               ; preds = %15
+  br label %21
 
-if.end6:                                          ; preds = %if.end
-  store i32 0, ptr %ecx, align 4
-  call void @cpuid(i32 noundef 7, i32 noundef 0, ptr noundef %eax, ptr noundef %ebx, ptr noundef %ecx, ptr noundef %edx)
-  %2 = load i32, ptr %ebx, align 4
-  %and7 = and i32 %2, 32
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.end11
+21:                                               ; preds = %20
+  br label %22
 
-if.then8:                                         ; preds = %if.end6
-  br label %do.body9
+22:                                               ; preds = %21
+  br label %23
 
-do.body9:                                         ; preds = %if.then8
-  br label %do.end10
+23:                                               ; preds = %22
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %6, align 4
+  br label %33
 
-do.end10:                                         ; preds = %do.body9
-  store i32 1, ptr %retval, align 4
-  br label %return
+24:                                               ; preds = %15
+  store i32 0, ptr %4, align 4
+  call void @cpuid(i32 noundef 7, i32 noundef 0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %25 = load i32, ptr %3, align 4
+  %26 = and i32 %25, 32
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %28, label %32
 
-if.end11:                                         ; preds = %if.end6
-  store i32 0, ptr %retval, align 4
-  br label %return
+28:                                               ; preds = %24
+  br label %29
 
-return:                                           ; preds = %if.end11, %do.end10, %do.end5, %do.end
-  %3 = load i32, ptr %retval, align 4
-  ret i32 %3
+29:                                               ; preds = %28
+  br label %30
+
+30:                                               ; preds = %29
+  br label %31
+
+31:                                               ; preds = %30
+  store i32 1, ptr %1, align 4
+  store i32 1, ptr %6, align 4
+  br label %33
+
+32:                                               ; preds = %24
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %6, align 4
+  br label %33
+
+33:                                               ; preds = %32, %31, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  br label %34
+
+34:                                               ; preds = %33, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %2) #3
+  %35 = load i32, ptr %1, align 4
+  ret i32 %35
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @check_avx512() #0 {
-entry:
-  %retval = alloca i32, align 4
-  %eax = alloca i32, align 4
-  %ebx = alloca i32, align 4
-  %ecx = alloca i32, align 4
-  %edx = alloca i32, align 4
-  %xcr0 = alloca i64, align 8
-  call void @cpuid(i32 noundef 1, i32 noundef 0, ptr noundef %eax, ptr noundef %ebx, ptr noundef %ecx, ptr noundef %edx)
-  %0 = load i32, ptr %ecx, align 4
-  %and = and i32 %0, 134217728
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.end, label %if.then
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @check_avx512() #2 {
+  %1 = alloca i32, align 4
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %2) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
+  call void @cpuid(i32 noundef 1, i32 noundef 0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %8 = load i32, ptr %4, align 4
+  %9 = and i32 %8, 134217728
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %15, label %11
 
-if.then:                                          ; preds = %entry
-  br label %do.body
+11:                                               ; preds = %0
+  br label %12
 
-do.body:                                          ; preds = %if.then
-  br label %do.end
+12:                                               ; preds = %11
+  br label %13
 
-do.end:                                           ; preds = %do.body
-  store i32 0, ptr %retval, align 4
-  br label %return
+13:                                               ; preds = %12
+  br label %14
 
-if.end:                                           ; preds = %entry
-  %call = call i64 @xgetbv(i32 noundef 0)
-  store i64 %call, ptr %xcr0, align 8
-  %1 = load i64, ptr %xcr0, align 8
-  %and1 = and i64 %1, 224
-  %cmp = icmp ne i64 %and1, 224
-  br i1 %cmp, label %if.then2, label %if.end5
+14:                                               ; preds = %13
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %6, align 4
+  br label %42
 
-if.then2:                                         ; preds = %if.end
-  br label %do.body3
+15:                                               ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  %16 = call i64 @xgetbv(i32 noundef 0)
+  store i64 %16, ptr %7, align 8
+  %17 = load i64, ptr %7, align 8
+  %18 = and i64 %17, 224
+  %19 = icmp ne i64 %18, 224
+  br i1 %19, label %20, label %24
 
-do.body3:                                         ; preds = %if.then2
-  br label %do.end4
+20:                                               ; preds = %15
+  br label %21
 
-do.end4:                                          ; preds = %do.body3
-  store i32 0, ptr %retval, align 4
-  br label %return
+21:                                               ; preds = %20
+  br label %22
 
-if.end5:                                          ; preds = %if.end
-  store i32 0, ptr %ecx, align 4
-  call void @cpuid(i32 noundef 7, i32 noundef 0, ptr noundef %eax, ptr noundef %ebx, ptr noundef %ecx, ptr noundef %edx)
-  %2 = load i32, ptr %ebx, align 4
-  %and6 = and i32 %2, 65536
-  %tobool7 = icmp ne i32 %and6, 0
-  br i1 %tobool7, label %if.end11, label %if.then8
+22:                                               ; preds = %21
+  br label %23
 
-if.then8:                                         ; preds = %if.end5
-  br label %do.body9
+23:                                               ; preds = %22
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %6, align 4
+  br label %41
 
-do.body9:                                         ; preds = %if.then8
-  br label %do.end10
+24:                                               ; preds = %15
+  store i32 0, ptr %4, align 4
+  call void @cpuid(i32 noundef 7, i32 noundef 0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %25 = load i32, ptr %3, align 4
+  %26 = and i32 %25, 65536
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %32, label %28
 
-do.end10:                                         ; preds = %do.body9
-  store i32 0, ptr %retval, align 4
-  br label %return
+28:                                               ; preds = %24
+  br label %29
 
-if.end11:                                         ; preds = %if.end5
-  %3 = load i32, ptr %ebx, align 4
-  %and12 = and i32 %3, 1073741824
-  %tobool13 = icmp ne i32 %and12, 0
-  br i1 %tobool13, label %if.then14, label %if.end17
+29:                                               ; preds = %28
+  br label %30
 
-if.then14:                                        ; preds = %if.end11
-  br label %do.body15
+30:                                               ; preds = %29
+  br label %31
 
-do.body15:                                        ; preds = %if.then14
-  br label %do.end16
+31:                                               ; preds = %30
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %6, align 4
+  br label %41
 
-do.end16:                                         ; preds = %do.body15
-  store i32 1, ptr %retval, align 4
-  br label %return
+32:                                               ; preds = %24
+  %33 = load i32, ptr %3, align 4
+  %34 = and i32 %33, 1073741824
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %36, label %40
 
-if.end17:                                         ; preds = %if.end11
-  store i32 0, ptr %retval, align 4
-  br label %return
+36:                                               ; preds = %32
+  br label %37
 
-return:                                           ; preds = %if.end17, %do.end16, %do.end10, %do.end4, %do.end
-  %4 = load i32, ptr %retval, align 4
-  ret i32 %4
+37:                                               ; preds = %36
+  br label %38
+
+38:                                               ; preds = %37
+  br label %39
+
+39:                                               ; preds = %38
+  store i32 1, ptr %1, align 4
+  store i32 1, ptr %6, align 4
+  br label %41
+
+40:                                               ; preds = %32
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %6, align 4
+  br label %41
+
+41:                                               ; preds = %40, %39, %31, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  br label %42
+
+42:                                               ; preds = %41, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %2) #3
+  %43 = load i32, ptr %1, align 4
+  ret i32 %43
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @check_avx512vbmi() #0 {
-entry:
-  %retval = alloca i32, align 4
-  %eax = alloca i32, align 4
-  %ebx = alloca i32, align 4
-  %ecx = alloca i32, align 4
-  %edx = alloca i32, align 4
-  %xcr0 = alloca i64, align 8
-  call void @cpuid(i32 noundef 1, i32 noundef 0, ptr noundef %eax, ptr noundef %ebx, ptr noundef %ecx, ptr noundef %edx)
-  %0 = load i32, ptr %ecx, align 4
-  %and = and i32 %0, 134217728
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.end, label %if.then
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @check_avx512vbmi() #2 {
+  %1 = alloca i32, align 4
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %2) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
+  call void @cpuid(i32 noundef 1, i32 noundef 0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %8 = load i32, ptr %4, align 4
+  %9 = and i32 %8, 134217728
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %15, label %11
 
-if.then:                                          ; preds = %entry
-  br label %do.body
+11:                                               ; preds = %0
+  br label %12
 
-do.body:                                          ; preds = %if.then
-  br label %do.end
+12:                                               ; preds = %11
+  br label %13
 
-do.end:                                           ; preds = %do.body
-  store i32 0, ptr %retval, align 4
-  br label %return
+13:                                               ; preds = %12
+  br label %14
 
-if.end:                                           ; preds = %entry
-  %call = call i64 @xgetbv(i32 noundef 0)
-  store i64 %call, ptr %xcr0, align 8
-  %1 = load i64, ptr %xcr0, align 8
-  %and1 = and i64 %1, 224
-  %cmp = icmp ne i64 %and1, 224
-  br i1 %cmp, label %if.then2, label %if.end5
+14:                                               ; preds = %13
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %6, align 4
+  br label %50
 
-if.then2:                                         ; preds = %if.end
-  br label %do.body3
+15:                                               ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  %16 = call i64 @xgetbv(i32 noundef 0)
+  store i64 %16, ptr %7, align 8
+  %17 = load i64, ptr %7, align 8
+  %18 = and i64 %17, 224
+  %19 = icmp ne i64 %18, 224
+  br i1 %19, label %20, label %24
 
-do.body3:                                         ; preds = %if.then2
-  br label %do.end4
+20:                                               ; preds = %15
+  br label %21
 
-do.end4:                                          ; preds = %do.body3
-  store i32 0, ptr %retval, align 4
-  br label %return
+21:                                               ; preds = %20
+  br label %22
 
-if.end5:                                          ; preds = %if.end
-  store i32 0, ptr %ecx, align 4
-  call void @cpuid(i32 noundef 7, i32 noundef 0, ptr noundef %eax, ptr noundef %ebx, ptr noundef %ecx, ptr noundef %edx)
-  %2 = load i32, ptr %ebx, align 4
-  %and6 = and i32 %2, 65536
-  %tobool7 = icmp ne i32 %and6, 0
-  br i1 %tobool7, label %if.end11, label %if.then8
+22:                                               ; preds = %21
+  br label %23
 
-if.then8:                                         ; preds = %if.end5
-  br label %do.body9
+23:                                               ; preds = %22
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %6, align 4
+  br label %49
 
-do.body9:                                         ; preds = %if.then8
-  br label %do.end10
+24:                                               ; preds = %15
+  store i32 0, ptr %4, align 4
+  call void @cpuid(i32 noundef 7, i32 noundef 0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %25 = load i32, ptr %3, align 4
+  %26 = and i32 %25, 65536
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %32, label %28
 
-do.end10:                                         ; preds = %do.body9
-  store i32 0, ptr %retval, align 4
-  br label %return
+28:                                               ; preds = %24
+  br label %29
 
-if.end11:                                         ; preds = %if.end5
-  %3 = load i32, ptr %ebx, align 4
-  %and12 = and i32 %3, 1073741824
-  %tobool13 = icmp ne i32 %and12, 0
-  br i1 %tobool13, label %if.end17, label %if.then14
+29:                                               ; preds = %28
+  br label %30
 
-if.then14:                                        ; preds = %if.end11
-  br label %do.body15
+30:                                               ; preds = %29
+  br label %31
 
-do.body15:                                        ; preds = %if.then14
-  br label %do.end16
+31:                                               ; preds = %30
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %6, align 4
+  br label %49
 
-do.end16:                                         ; preds = %do.body15
-  store i32 0, ptr %retval, align 4
-  br label %return
+32:                                               ; preds = %24
+  %33 = load i32, ptr %3, align 4
+  %34 = and i32 %33, 1073741824
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %40, label %36
 
-if.end17:                                         ; preds = %if.end11
-  %4 = load i32, ptr %ecx, align 4
-  %and18 = and i32 %4, 2
-  %tobool19 = icmp ne i32 %and18, 0
-  br i1 %tobool19, label %if.then20, label %if.end23
+36:                                               ; preds = %32
+  br label %37
 
-if.then20:                                        ; preds = %if.end17
-  br label %do.body21
+37:                                               ; preds = %36
+  br label %38
 
-do.body21:                                        ; preds = %if.then20
-  br label %do.end22
+38:                                               ; preds = %37
+  br label %39
 
-do.end22:                                         ; preds = %do.body21
-  store i32 1, ptr %retval, align 4
-  br label %return
+39:                                               ; preds = %38
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %6, align 4
+  br label %49
 
-if.end23:                                         ; preds = %if.end17
-  store i32 0, ptr %retval, align 4
-  br label %return
+40:                                               ; preds = %32
+  %41 = load i32, ptr %4, align 4
+  %42 = and i32 %41, 2
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %44, label %48
 
-return:                                           ; preds = %if.end23, %do.end22, %do.end16, %do.end10, %do.end4, %do.end
-  %5 = load i32, ptr %retval, align 4
-  ret i32 %5
+44:                                               ; preds = %40
+  br label %45
+
+45:                                               ; preds = %44
+  br label %46
+
+46:                                               ; preds = %45
+  br label %47
+
+47:                                               ; preds = %46
+  store i32 1, ptr %1, align 4
+  store i32 1, ptr %6, align 4
+  br label %49
+
+48:                                               ; preds = %40
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %6, align 4
+  br label %49
+
+49:                                               ; preds = %48, %47, %39, %31, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  br label %50
+
+50:                                               ; preds = %49, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %2) #3
+  %51 = load i32, ptr %1, align 4
+  ret i32 %51
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @cpuid_tune() #0 {
-entry:
-  %retval = alloca i32, align 4
-  %eax = alloca i32, align 4
-  %ebx = alloca i32, align 4
-  %ecx = alloca i32, align 4
-  %edx = alloca i32, align 4
-  %family = alloca i32, align 4
-  %model = alloca i32, align 4
-  %i = alloca i32, align 4
-  %tune = alloca i32, align 4
-  call void @cpuid(i32 noundef 1, i32 noundef 0, ptr noundef %eax, ptr noundef %ebx, ptr noundef %ecx, ptr noundef %edx)
-  %0 = load i32, ptr %eax, align 4
-  %shr = lshr i32 %0, 8
-  %and = and i32 %shr, 15
-  store i32 %and, ptr %family, align 4
-  store i32 0, ptr %model, align 4
-  %1 = load i32, ptr %family, align 4
-  %cmp = icmp eq i32 %1, 6
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+  %1 = alloca i32, align 4
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %2) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
+  call void @cpuid(i32 noundef 1, i32 noundef 0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  %11 = load i32, ptr %2, align 4
+  %12 = lshr i32 %11, 8
+  %13 = and i32 %12, 15
+  store i32 %13, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  store i32 0, ptr %7, align 4
+  %14 = load i32, ptr %6, align 4
+  %15 = icmp eq i32 %14, 6
+  br i1 %15, label %19, label %16
 
-lor.lhs.false:                                    ; preds = %entry
-  %2 = load i32, ptr %family, align 4
-  %cmp1 = icmp eq i32 %2, 15
-  br i1 %cmp1, label %if.then, label %if.else
+16:                                               ; preds = %0
+  %17 = load i32, ptr %6, align 4
+  %18 = icmp eq i32 %17, 15
+  br i1 %18, label %19, label %27
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  %3 = load i32, ptr %eax, align 4
-  %shr2 = lshr i32 %3, 4
-  %and3 = and i32 %shr2, 15
-  %4 = load i32, ptr %eax, align 4
-  %shr4 = lshr i32 %4, 12
-  %and5 = and i32 %shr4, 240
-  %or = or i32 %and3, %and5
-  store i32 %or, ptr %model, align 4
-  br label %if.end
+19:                                               ; preds = %16, %0
+  %20 = load i32, ptr %2, align 4
+  %21 = lshr i32 %20, 4
+  %22 = and i32 %21, 15
+  %23 = load i32, ptr %2, align 4
+  %24 = lshr i32 %23, 12
+  %25 = and i32 %24, 240
+  %26 = or i32 %22, %25
+  store i32 %26, ptr %7, align 4
+  br label %31
 
-if.else:                                          ; preds = %lor.lhs.false
-  %5 = load i32, ptr %eax, align 4
-  %shr6 = lshr i32 %5, 4
-  %and7 = and i32 %shr6, 15
-  store i32 %and7, ptr %model, align 4
-  br label %if.end
+27:                                               ; preds = %16
+  %28 = load i32, ptr %2, align 4
+  %29 = lshr i32 %28, 4
+  %30 = and i32 %29, 15
+  store i32 %30, ptr %7, align 4
+  br label %31
 
-if.end:                                           ; preds = %if.else, %if.then
-  br label %do.body
+31:                                               ; preds = %27, %19
+  br label %32
 
-do.body:                                          ; preds = %if.end
-  br label %do.end
+32:                                               ; preds = %31
+  br label %33
 
-do.end:                                           ; preds = %do.body
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+33:                                               ; preds = %32
+  br label %34
 
-for.cond:                                         ; preds = %for.inc, %do.end
-  %6 = load i32, ptr %i, align 4
-  %conv = zext i32 %6 to i64
-  %cmp8 = icmp ult i64 %conv, 29
-  br i1 %cmp8, label %for.body, label %for.end
+34:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  store i32 0, ptr %8, align 4
+  br label %35
 
-for.body:                                         ; preds = %for.cond
-  %7 = load i32, ptr %family, align 4
-  %8 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %8 to i64
-  %arrayidx = getelementptr inbounds [29 x %struct.family_id], ptr @known_microarch, i64 0, i64 %idxprom
-  %full_family = getelementptr inbounds %struct.family_id, ptr %arrayidx, i32 0, i32 0
-  %9 = load i32, ptr %full_family, align 4
-  %cmp10 = icmp ne i32 %7, %9
-  br i1 %cmp10, label %if.then12, label %if.end13
+35:                                               ; preds = %68, %34
+  %36 = load i32, ptr %8, align 4
+  %37 = zext i32 %36 to i64
+  %38 = icmp ult i64 %37, 29
+  br i1 %38, label %40, label %39
 
-if.then12:                                        ; preds = %for.body
-  br label %for.inc
+39:                                               ; preds = %35
+  store i32 4, ptr %9, align 4
+  br label %71
 
-if.end13:                                         ; preds = %for.body
-  %10 = load i32, ptr %model, align 4
-  %11 = load i32, ptr %i, align 4
-  %idxprom14 = zext i32 %11 to i64
-  %arrayidx15 = getelementptr inbounds [29 x %struct.family_id], ptr @known_microarch, i64 0, i64 %idxprom14
-  %full_model = getelementptr inbounds %struct.family_id, ptr %arrayidx15, i32 0, i32 1
-  %12 = load i32, ptr %full_model, align 4
-  %cmp16 = icmp ne i32 %10, %12
-  br i1 %cmp16, label %if.then18, label %if.end19
+40:                                               ; preds = %35
+  %41 = load i32, ptr %6, align 4
+  %42 = load i32, ptr %8, align 4
+  %43 = zext i32 %42 to i64
+  %44 = getelementptr inbounds nuw [29 x %struct.family_id], ptr @known_microarch, i64 0, i64 %43
+  %45 = getelementptr inbounds nuw %struct.family_id, ptr %44, i32 0, i32 0
+  %46 = load i32, ptr %45, align 4
+  %47 = icmp ne i32 %41, %46
+  br i1 %47, label %48, label %49
 
-if.then18:                                        ; preds = %if.end13
-  br label %for.inc
+48:                                               ; preds = %40
+  br label %68
 
-if.end19:                                         ; preds = %if.end13
-  %13 = load i32, ptr %i, align 4
-  %idxprom20 = zext i32 %13 to i64
-  %arrayidx21 = getelementptr inbounds [29 x %struct.family_id], ptr @known_microarch, i64 0, i64 %idxprom20
-  %tune22 = getelementptr inbounds %struct.family_id, ptr %arrayidx21, i32 0, i32 2
-  %14 = load i32, ptr %tune22, align 4
-  store i32 %14, ptr %tune, align 4
-  br label %do.body23
+49:                                               ; preds = %40
+  %50 = load i32, ptr %7, align 4
+  %51 = load i32, ptr %8, align 4
+  %52 = zext i32 %51 to i64
+  %53 = getelementptr inbounds nuw [29 x %struct.family_id], ptr @known_microarch, i64 0, i64 %52
+  %54 = getelementptr inbounds nuw %struct.family_id, ptr %53, i32 0, i32 1
+  %55 = load i32, ptr %54, align 4
+  %56 = icmp ne i32 %50, %55
+  br i1 %56, label %57, label %58
 
-do.body23:                                        ; preds = %if.end19
-  br label %do.end24
+57:                                               ; preds = %49
+  br label %68
 
-do.end24:                                         ; preds = %do.body23
-  %15 = load i32, ptr %tune, align 4
-  store i32 %15, ptr %retval, align 4
-  br label %return
+58:                                               ; preds = %49
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  %59 = load i32, ptr %8, align 4
+  %60 = zext i32 %59 to i64
+  %61 = getelementptr inbounds nuw [29 x %struct.family_id], ptr @known_microarch, i64 0, i64 %60
+  %62 = getelementptr inbounds nuw %struct.family_id, ptr %61, i32 0, i32 2
+  %63 = load i32, ptr %62, align 4
+  store i32 %63, ptr %10, align 4
+  br label %64
 
-for.inc:                                          ; preds = %if.then18, %if.then12
-  %16 = load i32, ptr %i, align 4
-  %inc = add i32 %16, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !5
+64:                                               ; preds = %58
+  br label %65
 
-for.end:                                          ; preds = %for.cond
-  store i32 0, ptr %retval, align 4
-  br label %return
+65:                                               ; preds = %64
+  br label %66
 
-return:                                           ; preds = %for.end, %do.end24
-  %17 = load i32, ptr %retval, align 4
-  ret i32 %17
+66:                                               ; preds = %65
+  %67 = load i32, ptr %10, align 4
+  store i32 %67, ptr %1, align 4
+  store i32 1, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  br label %71
+
+68:                                               ; preds = %57, %48
+  %69 = load i32, ptr %8, align 4
+  %70 = add i32 %69, 1
+  store i32 %70, ptr %8, align 4
+  br label %35
+
+71:                                               ; preds = %66, %39
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  %72 = load i32, ptr %9, align 4
+  switch i32 %72, label %74 [
+    i32 4, label %73
+  ]
+
+73:                                               ; preds = %71
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %9, align 4
+  br label %74
+
+74:                                               ; preds = %73, %71
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %2) #3
+  %75 = load i32, ptr %1, align 4
+  ret i32 %75
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @cpuid(i32 noundef %op, i32 noundef %leaf, ptr noundef %eax, ptr noundef %ebx, ptr noundef %ecx, ptr noundef %edx) #0 {
-entry:
-  %op.addr = alloca i32, align 4
-  %leaf.addr = alloca i32, align 4
-  %eax.addr = alloca ptr, align 8
-  %ebx.addr = alloca ptr, align 8
-  %ecx.addr = alloca ptr, align 8
-  %edx.addr = alloca ptr, align 8
-  store i32 %op, ptr %op.addr, align 4
-  store i32 %leaf, ptr %leaf.addr, align 4
-  store ptr %eax, ptr %eax.addr, align 8
-  store ptr %ebx, ptr %ebx.addr, align 8
-  store ptr %ecx, ptr %ecx.addr, align 8
-  store ptr %edx, ptr %edx.addr, align 8
-  %0 = load ptr, ptr %eax.addr, align 8
-  %1 = load ptr, ptr %ebx.addr, align 8
-  %2 = load ptr, ptr %ecx.addr, align 8
-  %3 = load ptr, ptr %edx.addr, align 8
-  %4 = load i32, ptr %op.addr, align 4
-  %5 = load i32, ptr %leaf.addr, align 4
-  %6 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 %4, i32 %5) #1, !srcloc !7
-  %asmresult = extractvalue { i32, i32, i32, i32 } %6, 0
-  %asmresult1 = extractvalue { i32, i32, i32, i32 } %6, 1
-  %asmresult2 = extractvalue { i32, i32, i32, i32 } %6, 2
-  %asmresult3 = extractvalue { i32, i32, i32, i32 } %6, 3
-  store i32 %asmresult, ptr %0, align 4
-  store i32 %asmresult1, ptr %1, align 4
-  store i32 %asmresult2, ptr %2, align 4
-  store i32 %asmresult3, ptr %3, align 4
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @cpuid(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #2 {
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store i32 %0, ptr %7, align 4
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %9, align 8
+  %14 = load ptr, ptr %10, align 8
+  %15 = load ptr, ptr %11, align 8
+  %16 = load ptr, ptr %12, align 8
+  %17 = load i32, ptr %7, align 4
+  %18 = load i32, ptr %8, align 4
+  %19 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 %17, i32 %18) #4, !srcloc !5
+  %20 = extractvalue { i32, i32, i32, i32 } %19, 0
+  %21 = extractvalue { i32, i32, i32, i32 } %19, 1
+  %22 = extractvalue { i32, i32, i32, i32 } %19, 2
+  %23 = extractvalue { i32, i32, i32, i32 } %19, 3
+  store i32 %20, ptr %13, align 4
+  store i32 %21, ptr %14, align 4
+  store i32 %22, ptr %15, align 4
+  store i32 %23, ptr %16, align 4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @xgetbv(i32 noundef %op) #0 {
-entry:
-  %op.addr = alloca i32, align 4
-  %a = alloca i32, align 4
-  %d = alloca i32, align 4
-  store i32 %op, ptr %op.addr, align 4
-  %0 = load i32, ptr %op.addr, align 4
-  %1 = call { i32, i32 } asm sideeffect "xgetbv\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %0) #2, !srcloc !8
-  %asmresult = extractvalue { i32, i32 } %1, 0
-  %asmresult1 = extractvalue { i32, i32 } %1, 1
-  store i32 %asmresult, ptr %a, align 4
-  store i32 %asmresult1, ptr %d, align 4
-  %2 = load i32, ptr %d, align 4
-  %conv = zext i32 %2 to i64
-  %shl = shl i64 %conv, 32
-  %3 = load i32, ptr %a, align 4
-  %conv2 = zext i32 %3 to i64
-  %add = add i64 %shl, %conv2
-  ret i64 %add
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @xgetbv(i32 noundef %0) #2 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  %5 = load i32, ptr %2, align 4
+  %6 = call { i32, i32 } asm sideeffect "xgetbv\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %5) #3, !srcloc !6
+  %7 = extractvalue { i32, i32 } %6, 0
+  %8 = extractvalue { i32, i32 } %6, 1
+  store i32 %7, ptr %3, align 4
+  store i32 %8, ptr %4, align 4
+  %9 = load i32, ptr %4, align 4
+  %10 = zext i32 %9 to i64
+  %11 = shl i64 %10, 32
+  %12 = load i32, ptr %3, align 4
+  %13 = zext i32 %12 to i64
+  %14 = add i64 %11, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #3
+  ret i64 %14
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind memory(none) }
-attributes #2 = { nounwind }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
+attributes #4 = { nounwind memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 
@@ -514,7 +658,5 @@ attributes #2 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i64 2151448397, i64 2151448433, i64 2151448457}
-!8 = !{i64 3961006}
+!5 = !{i64 2151948397, i64 2151948433, i64 2151948457}
+!6 = !{i64 4461006}

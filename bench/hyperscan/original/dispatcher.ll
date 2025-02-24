@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @hs_scan = dso_local ifunc i32 (ptr, ptr, i32, i32, ptr, ptr, ptr), ptr @resolve_hs_scan
 @hs_stream_size = dso_local ifunc i32 (ptr, ptr), ptr @resolve_hs_stream_size
@@ -26,1172 +26,344 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
 define internal ptr @resolve_hs_scan() #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %call = call i32 @check_avx2()
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+  %1 = alloca ptr, align 8
+  %2 = call i32 @check_avx2()
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %5
 
-if.then:                                          ; preds = %entry
-  store ptr @avx2_hs_scan, ptr %retval, align 8
-  br label %return
+4:                                                ; preds = %0
+  store ptr @avx2_hs_scan, ptr %1, align 8
+  br label %17
 
-if.end:                                           ; preds = %entry
-  %call1 = call i32 @check_sse42()
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %land.lhs.true, label %if.end6
+5:                                                ; preds = %0
+  %6 = call i32 @check_sse42()
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %12
 
-land.lhs.true:                                    ; preds = %if.end
-  %call3 = call i32 @check_popcnt()
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %if.then5, label %if.end6
+8:                                                ; preds = %5
+  %9 = call i32 @check_popcnt()
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %12
 
-if.then5:                                         ; preds = %land.lhs.true
-  store ptr @corei7_hs_scan, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %8
+  store ptr @corei7_hs_scan, ptr %1, align 8
+  br label %17
 
-if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = call i32 @check_ssse3()
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.then9, label %if.end10
+12:                                               ; preds = %8, %5
+  %13 = call i32 @check_ssse3()
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %16
 
-if.then9:                                         ; preds = %if.end6
-  store ptr @core2_hs_scan, ptr %retval, align 8
-  br label %return
+15:                                               ; preds = %12
+  store ptr @core2_hs_scan, ptr %1, align 8
+  br label %17
 
-if.end10:                                         ; preds = %if.end6
-  store ptr @error_hs_scan, ptr %retval, align 8
-  br label %return
+16:                                               ; preds = %12
+  store ptr @error_hs_scan, ptr %1, align 8
+  br label %17
 
-return:                                           ; preds = %if.end10, %if.then9, %if.then5, %if.then
-  %0 = load ptr, ptr %retval, align 8
-  ret ptr %0
+17:                                               ; preds = %16, %15, %11, %4
+  %18 = load ptr, ptr %1, align 8
+  ret ptr %18
 }
 
-; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
-define internal ptr @resolve_hs_stream_size() #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %call = call i32 @check_avx2()
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr @avx2_hs_stream_size, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call1 = call i32 @check_sse42()
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %land.lhs.true, label %if.end6
-
-land.lhs.true:                                    ; preds = %if.end
-  %call3 = call i32 @check_popcnt()
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %land.lhs.true
-  store ptr @corei7_hs_stream_size, ptr %retval, align 8
-  br label %return
-
-if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = call i32 @check_ssse3()
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %if.end6
-  store ptr @core2_hs_stream_size, ptr %retval, align 8
-  br label %return
-
-if.end10:                                         ; preds = %if.end6
-  store ptr @error_hs_stream_size, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end10, %if.then9, %if.then5, %if.then
-  %0 = load ptr, ptr %retval, align 8
-  ret ptr %0
-}
-
-; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
-define internal ptr @resolve_hs_database_size() #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %call = call i32 @check_avx2()
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr @avx2_hs_database_size, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call1 = call i32 @check_sse42()
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %land.lhs.true, label %if.end6
-
-land.lhs.true:                                    ; preds = %if.end
-  %call3 = call i32 @check_popcnt()
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %land.lhs.true
-  store ptr @corei7_hs_database_size, ptr %retval, align 8
-  br label %return
-
-if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = call i32 @check_ssse3()
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %if.end6
-  store ptr @core2_hs_database_size, ptr %retval, align 8
-  br label %return
-
-if.end10:                                         ; preds = %if.end6
-  store ptr @error_hs_database_size, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end10, %if.then9, %if.then5, %if.then
-  %0 = load ptr, ptr %retval, align 8
-  ret ptr %0
-}
-
-; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
-define internal ptr @resolve_dbIsValid() #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %call = call i32 @check_avx2()
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr @avx2_dbIsValid, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call1 = call i32 @check_sse42()
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %land.lhs.true, label %if.end6
-
-land.lhs.true:                                    ; preds = %if.end
-  %call3 = call i32 @check_popcnt()
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %land.lhs.true
-  store ptr @corei7_dbIsValid, ptr %retval, align 8
-  br label %return
-
-if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = call i32 @check_ssse3()
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %if.end6
-  store ptr @core2_dbIsValid, ptr %retval, align 8
-  br label %return
-
-if.end10:                                         ; preds = %if.end6
-  store ptr @error_dbIsValid, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end10, %if.then9, %if.then5, %if.then
-  %0 = load ptr, ptr %retval, align 8
-  ret ptr %0
-}
-
-; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
-define internal ptr @resolve_hs_free_database() #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %call = call i32 @check_avx2()
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr @avx2_hs_free_database, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call1 = call i32 @check_sse42()
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %land.lhs.true, label %if.end6
-
-land.lhs.true:                                    ; preds = %if.end
-  %call3 = call i32 @check_popcnt()
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %land.lhs.true
-  store ptr @corei7_hs_free_database, ptr %retval, align 8
-  br label %return
-
-if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = call i32 @check_ssse3()
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %if.end6
-  store ptr @core2_hs_free_database, ptr %retval, align 8
-  br label %return
-
-if.end10:                                         ; preds = %if.end6
-  store ptr @error_hs_free_database, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end10, %if.then9, %if.then5, %if.then
-  %0 = load ptr, ptr %retval, align 8
-  ret ptr %0
-}
-
-; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
-define internal ptr @resolve_hs_open_stream() #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %call = call i32 @check_avx2()
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr @avx2_hs_open_stream, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call1 = call i32 @check_sse42()
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %land.lhs.true, label %if.end6
-
-land.lhs.true:                                    ; preds = %if.end
-  %call3 = call i32 @check_popcnt()
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %land.lhs.true
-  store ptr @corei7_hs_open_stream, ptr %retval, align 8
-  br label %return
-
-if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = call i32 @check_ssse3()
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %if.end6
-  store ptr @core2_hs_open_stream, ptr %retval, align 8
-  br label %return
-
-if.end10:                                         ; preds = %if.end6
-  store ptr @error_hs_open_stream, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end10, %if.then9, %if.then5, %if.then
-  %0 = load ptr, ptr %retval, align 8
-  ret ptr %0
-}
-
-; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
-define internal ptr @resolve_hs_scan_stream() #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %call = call i32 @check_avx2()
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr @avx2_hs_scan_stream, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call1 = call i32 @check_sse42()
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %land.lhs.true, label %if.end6
-
-land.lhs.true:                                    ; preds = %if.end
-  %call3 = call i32 @check_popcnt()
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %land.lhs.true
-  store ptr @corei7_hs_scan_stream, ptr %retval, align 8
-  br label %return
-
-if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = call i32 @check_ssse3()
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %if.end6
-  store ptr @core2_hs_scan_stream, ptr %retval, align 8
-  br label %return
-
-if.end10:                                         ; preds = %if.end6
-  store ptr @error_hs_scan_stream, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end10, %if.then9, %if.then5, %if.then
-  %0 = load ptr, ptr %retval, align 8
-  ret ptr %0
-}
-
-; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
-define internal ptr @resolve_hs_close_stream() #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %call = call i32 @check_avx2()
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr @avx2_hs_close_stream, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call1 = call i32 @check_sse42()
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %land.lhs.true, label %if.end6
-
-land.lhs.true:                                    ; preds = %if.end
-  %call3 = call i32 @check_popcnt()
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %land.lhs.true
-  store ptr @corei7_hs_close_stream, ptr %retval, align 8
-  br label %return
-
-if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = call i32 @check_ssse3()
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %if.end6
-  store ptr @core2_hs_close_stream, ptr %retval, align 8
-  br label %return
-
-if.end10:                                         ; preds = %if.end6
-  store ptr @error_hs_close_stream, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end10, %if.then9, %if.then5, %if.then
-  %0 = load ptr, ptr %retval, align 8
-  ret ptr %0
-}
-
-; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
-define internal ptr @resolve_hs_scan_vector() #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %call = call i32 @check_avx2()
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr @avx2_hs_scan_vector, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call1 = call i32 @check_sse42()
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %land.lhs.true, label %if.end6
-
-land.lhs.true:                                    ; preds = %if.end
-  %call3 = call i32 @check_popcnt()
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %land.lhs.true
-  store ptr @corei7_hs_scan_vector, ptr %retval, align 8
-  br label %return
-
-if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = call i32 @check_ssse3()
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %if.end6
-  store ptr @core2_hs_scan_vector, ptr %retval, align 8
-  br label %return
-
-if.end10:                                         ; preds = %if.end6
-  store ptr @error_hs_scan_vector, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end10, %if.then9, %if.then5, %if.then
-  %0 = load ptr, ptr %retval, align 8
-  ret ptr %0
-}
-
-; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
-define internal ptr @resolve_hs_database_info() #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %call = call i32 @check_avx2()
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr @avx2_hs_database_info, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call1 = call i32 @check_sse42()
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %land.lhs.true, label %if.end6
-
-land.lhs.true:                                    ; preds = %if.end
-  %call3 = call i32 @check_popcnt()
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %land.lhs.true
-  store ptr @corei7_hs_database_info, ptr %retval, align 8
-  br label %return
-
-if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = call i32 @check_ssse3()
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %if.end6
-  store ptr @core2_hs_database_info, ptr %retval, align 8
-  br label %return
-
-if.end10:                                         ; preds = %if.end6
-  store ptr @error_hs_database_info, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end10, %if.then9, %if.then5, %if.then
-  %0 = load ptr, ptr %retval, align 8
-  ret ptr %0
-}
-
-; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
-define internal ptr @resolve_hs_copy_stream() #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %call = call i32 @check_avx2()
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr @avx2_hs_copy_stream, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call1 = call i32 @check_sse42()
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %land.lhs.true, label %if.end6
-
-land.lhs.true:                                    ; preds = %if.end
-  %call3 = call i32 @check_popcnt()
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %land.lhs.true
-  store ptr @corei7_hs_copy_stream, ptr %retval, align 8
-  br label %return
-
-if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = call i32 @check_ssse3()
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %if.end6
-  store ptr @core2_hs_copy_stream, ptr %retval, align 8
-  br label %return
-
-if.end10:                                         ; preds = %if.end6
-  store ptr @error_hs_copy_stream, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end10, %if.then9, %if.then5, %if.then
-  %0 = load ptr, ptr %retval, align 8
-  ret ptr %0
-}
-
-; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
-define internal ptr @resolve_hs_reset_stream() #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %call = call i32 @check_avx2()
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr @avx2_hs_reset_stream, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call1 = call i32 @check_sse42()
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %land.lhs.true, label %if.end6
-
-land.lhs.true:                                    ; preds = %if.end
-  %call3 = call i32 @check_popcnt()
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %land.lhs.true
-  store ptr @corei7_hs_reset_stream, ptr %retval, align 8
-  br label %return
-
-if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = call i32 @check_ssse3()
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %if.end6
-  store ptr @core2_hs_reset_stream, ptr %retval, align 8
-  br label %return
-
-if.end10:                                         ; preds = %if.end6
-  store ptr @error_hs_reset_stream, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end10, %if.then9, %if.then5, %if.then
-  %0 = load ptr, ptr %retval, align 8
-  ret ptr %0
-}
-
-; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
-define internal ptr @resolve_hs_reset_and_copy_stream() #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %call = call i32 @check_avx2()
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr @avx2_hs_reset_and_copy_stream, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call1 = call i32 @check_sse42()
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %land.lhs.true, label %if.end6
-
-land.lhs.true:                                    ; preds = %if.end
-  %call3 = call i32 @check_popcnt()
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %land.lhs.true
-  store ptr @corei7_hs_reset_and_copy_stream, ptr %retval, align 8
-  br label %return
-
-if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = call i32 @check_ssse3()
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %if.end6
-  store ptr @core2_hs_reset_and_copy_stream, ptr %retval, align 8
-  br label %return
-
-if.end10:                                         ; preds = %if.end6
-  store ptr @error_hs_reset_and_copy_stream, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end10, %if.then9, %if.then5, %if.then
-  %0 = load ptr, ptr %retval, align 8
-  ret ptr %0
-}
-
-; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
-define internal ptr @resolve_hs_serialize_database() #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %call = call i32 @check_avx2()
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr @avx2_hs_serialize_database, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call1 = call i32 @check_sse42()
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %land.lhs.true, label %if.end6
-
-land.lhs.true:                                    ; preds = %if.end
-  %call3 = call i32 @check_popcnt()
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %land.lhs.true
-  store ptr @corei7_hs_serialize_database, ptr %retval, align 8
-  br label %return
-
-if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = call i32 @check_ssse3()
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %if.end6
-  store ptr @core2_hs_serialize_database, ptr %retval, align 8
-  br label %return
-
-if.end10:                                         ; preds = %if.end6
-  store ptr @error_hs_serialize_database, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end10, %if.then9, %if.then5, %if.then
-  %0 = load ptr, ptr %retval, align 8
-  ret ptr %0
-}
-
-; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
-define internal ptr @resolve_hs_deserialize_database() #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %call = call i32 @check_avx2()
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr @avx2_hs_deserialize_database, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call1 = call i32 @check_sse42()
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %land.lhs.true, label %if.end6
-
-land.lhs.true:                                    ; preds = %if.end
-  %call3 = call i32 @check_popcnt()
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %land.lhs.true
-  store ptr @corei7_hs_deserialize_database, ptr %retval, align 8
-  br label %return
-
-if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = call i32 @check_ssse3()
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %if.end6
-  store ptr @core2_hs_deserialize_database, ptr %retval, align 8
-  br label %return
-
-if.end10:                                         ; preds = %if.end6
-  store ptr @error_hs_deserialize_database, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end10, %if.then9, %if.then5, %if.then
-  %0 = load ptr, ptr %retval, align 8
-  ret ptr %0
-}
-
-; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
-define internal ptr @resolve_hs_deserialize_database_at() #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %call = call i32 @check_avx2()
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr @avx2_hs_deserialize_database_at, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call1 = call i32 @check_sse42()
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %land.lhs.true, label %if.end6
-
-land.lhs.true:                                    ; preds = %if.end
-  %call3 = call i32 @check_popcnt()
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %land.lhs.true
-  store ptr @corei7_hs_deserialize_database_at, ptr %retval, align 8
-  br label %return
-
-if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = call i32 @check_ssse3()
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %if.end6
-  store ptr @core2_hs_deserialize_database_at, ptr %retval, align 8
-  br label %return
-
-if.end10:                                         ; preds = %if.end6
-  store ptr @error_hs_deserialize_database_at, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end10, %if.then9, %if.then5, %if.then
-  %0 = load ptr, ptr %retval, align 8
-  ret ptr %0
-}
-
-; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
-define internal ptr @resolve_hs_serialized_database_info() #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %call = call i32 @check_avx2()
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr @avx2_hs_serialized_database_info, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call1 = call i32 @check_sse42()
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %land.lhs.true, label %if.end6
-
-land.lhs.true:                                    ; preds = %if.end
-  %call3 = call i32 @check_popcnt()
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %land.lhs.true
-  store ptr @corei7_hs_serialized_database_info, ptr %retval, align 8
-  br label %return
-
-if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = call i32 @check_ssse3()
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %if.end6
-  store ptr @core2_hs_serialized_database_info, ptr %retval, align 8
-  br label %return
-
-if.end10:                                         ; preds = %if.end6
-  store ptr @error_hs_serialized_database_info, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end10, %if.then9, %if.then5, %if.then
-  %0 = load ptr, ptr %retval, align 8
-  ret ptr %0
-}
-
-; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
-define internal ptr @resolve_hs_serialized_database_size() #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %call = call i32 @check_avx2()
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr @avx2_hs_serialized_database_size, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call1 = call i32 @check_sse42()
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %land.lhs.true, label %if.end6
-
-land.lhs.true:                                    ; preds = %if.end
-  %call3 = call i32 @check_popcnt()
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %land.lhs.true
-  store ptr @corei7_hs_serialized_database_size, ptr %retval, align 8
-  br label %return
-
-if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = call i32 @check_ssse3()
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %if.end6
-  store ptr @core2_hs_serialized_database_size, ptr %retval, align 8
-  br label %return
-
-if.end10:                                         ; preds = %if.end6
-  store ptr @error_hs_serialized_database_size, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end10, %if.then9, %if.then5, %if.then
-  %0 = load ptr, ptr %retval, align 8
-  ret ptr %0
-}
-
-; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
-define internal ptr @resolve_hs_compress_stream() #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %call = call i32 @check_avx2()
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr @avx2_hs_compress_stream, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call1 = call i32 @check_sse42()
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %land.lhs.true, label %if.end6
-
-land.lhs.true:                                    ; preds = %if.end
-  %call3 = call i32 @check_popcnt()
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %land.lhs.true
-  store ptr @corei7_hs_compress_stream, ptr %retval, align 8
-  br label %return
-
-if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = call i32 @check_ssse3()
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %if.end6
-  store ptr @core2_hs_compress_stream, ptr %retval, align 8
-  br label %return
-
-if.end10:                                         ; preds = %if.end6
-  store ptr @error_hs_compress_stream, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end10, %if.then9, %if.then5, %if.then
-  %0 = load ptr, ptr %retval, align 8
-  ret ptr %0
-}
-
-; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
-define internal ptr @resolve_hs_expand_stream() #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %call = call i32 @check_avx2()
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr @avx2_hs_expand_stream, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call1 = call i32 @check_sse42()
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %land.lhs.true, label %if.end6
-
-land.lhs.true:                                    ; preds = %if.end
-  %call3 = call i32 @check_popcnt()
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %land.lhs.true
-  store ptr @corei7_hs_expand_stream, ptr %retval, align 8
-  br label %return
-
-if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = call i32 @check_ssse3()
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %if.end6
-  store ptr @core2_hs_expand_stream, ptr %retval, align 8
-  br label %return
-
-if.end10:                                         ; preds = %if.end6
-  store ptr @error_hs_expand_stream, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end10, %if.then9, %if.then5, %if.then
-  %0 = load ptr, ptr %retval, align 8
-  ret ptr %0
-}
-
-; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
-define internal ptr @resolve_hs_reset_and_expand_stream() #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %call = call i32 @check_avx2()
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr @avx2_hs_reset_and_expand_stream, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call1 = call i32 @check_sse42()
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %land.lhs.true, label %if.end6
-
-land.lhs.true:                                    ; preds = %if.end
-  %call3 = call i32 @check_popcnt()
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %land.lhs.true
-  store ptr @corei7_hs_reset_and_expand_stream, ptr %retval, align 8
-  br label %return
-
-if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = call i32 @check_ssse3()
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %if.end6
-  store ptr @core2_hs_reset_and_expand_stream, ptr %retval, align 8
-  br label %return
-
-if.end10:                                         ; preds = %if.end6
-  store ptr @error_hs_reset_and_expand_stream, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end10, %if.then9, %if.then5, %if.then
-  %0 = load ptr, ptr %retval, align 8
-  ret ptr %0
-}
-
-; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
-define internal ptr @resolve_Crc32c_ComputeBuf() #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %call = call i32 @check_avx2()
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr @avx2_Crc32c_ComputeBuf, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call1 = call i32 @check_sse42()
-  %tobool2 = icmp ne i32 %call1, 0
-  br i1 %tobool2, label %land.lhs.true, label %if.end6
-
-land.lhs.true:                                    ; preds = %if.end
-  %call3 = call i32 @check_popcnt()
-  %tobool4 = icmp ne i32 %call3, 0
-  br i1 %tobool4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %land.lhs.true
-  store ptr @corei7_Crc32c_ComputeBuf, ptr %retval, align 8
-  br label %return
-
-if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = call i32 @check_ssse3()
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %if.end6
-  store ptr @core2_Crc32c_ComputeBuf, ptr %retval, align 8
-  br label %return
-
-if.end10:                                         ; preds = %if.end6
-  store ptr @error_Crc32c_ComputeBuf, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end10, %if.then9, %if.then5, %if.then
-  %0 = load ptr, ptr %retval, align 8
-  ret ptr %0
-}
-
-; Function Attrs: nounwind uwtable
+; Function Attrs: inlinehint nounwind uwtable
 define internal i32 @check_avx2() #1 {
-entry:
-  %retval = alloca i32, align 4
-  %eax = alloca i32, align 4
-  %ebx = alloca i32, align 4
-  %ecx = alloca i32, align 4
-  %edx = alloca i32, align 4
-  %xcr0 = alloca i64, align 8
-  call void @cpuid(i32 noundef 1, i32 noundef 0, ptr noundef %eax, ptr noundef %ebx, ptr noundef %ecx, ptr noundef %edx)
-  %0 = load i32, ptr %ecx, align 4
-  %and = and i32 %0, 402653184
-  %cmp = icmp ne i32 %and, 402653184
-  br i1 %cmp, label %if.then, label %if.end
+  %1 = alloca i32, align 4
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %2) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  call void @cpuid(i32 noundef 1, i32 noundef 0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %8 = load i32, ptr %4, align 4
+  %9 = and i32 %8, 402653184
+  %10 = icmp ne i32 %9, 402653184
+  br i1 %10, label %11, label %15
 
-if.then:                                          ; preds = %entry
-  br label %do.body
+11:                                               ; preds = %0
+  br label %12
 
-do.body:                                          ; preds = %if.then
-  br label %do.end
+12:                                               ; preds = %11
+  br label %13
 
-do.end:                                           ; preds = %do.body
-  store i32 0, ptr %retval, align 4
-  br label %return
+13:                                               ; preds = %12
+  br label %14
 
-if.end:                                           ; preds = %entry
-  %call = call i64 @xgetbv(i32 noundef 0)
-  store i64 %call, ptr %xcr0, align 8
-  %1 = load i64, ptr %xcr0, align 8
-  %and1 = and i64 %1, 6
-  %cmp2 = icmp ne i64 %and1, 6
-  br i1 %cmp2, label %if.then3, label %if.end6
+14:                                               ; preds = %13
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %6, align 4
+  br label %34
 
-if.then3:                                         ; preds = %if.end
-  br label %do.body4
+15:                                               ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  %16 = call i64 @xgetbv(i32 noundef 0)
+  store i64 %16, ptr %7, align 8
+  %17 = load i64, ptr %7, align 8
+  %18 = and i64 %17, 6
+  %19 = icmp ne i64 %18, 6
+  br i1 %19, label %20, label %24
 
-do.body4:                                         ; preds = %if.then3
-  br label %do.end5
+20:                                               ; preds = %15
+  br label %21
 
-do.end5:                                          ; preds = %do.body4
-  store i32 0, ptr %retval, align 4
-  br label %return
+21:                                               ; preds = %20
+  br label %22
 
-if.end6:                                          ; preds = %if.end
-  store i32 0, ptr %ecx, align 4
-  call void @cpuid(i32 noundef 7, i32 noundef 0, ptr noundef %eax, ptr noundef %ebx, ptr noundef %ecx, ptr noundef %edx)
-  %2 = load i32, ptr %ebx, align 4
-  %and7 = and i32 %2, 32
-  %tobool = icmp ne i32 %and7, 0
-  br i1 %tobool, label %if.then8, label %if.end11
+22:                                               ; preds = %21
+  br label %23
 
-if.then8:                                         ; preds = %if.end6
-  br label %do.body9
+23:                                               ; preds = %22
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %6, align 4
+  br label %33
 
-do.body9:                                         ; preds = %if.then8
-  br label %do.end10
+24:                                               ; preds = %15
+  store i32 0, ptr %4, align 4
+  call void @cpuid(i32 noundef 7, i32 noundef 0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %25 = load i32, ptr %3, align 4
+  %26 = and i32 %25, 32
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %28, label %32
 
-do.end10:                                         ; preds = %do.body9
-  store i32 1, ptr %retval, align 4
-  br label %return
+28:                                               ; preds = %24
+  br label %29
 
-if.end11:                                         ; preds = %if.end6
-  store i32 0, ptr %retval, align 4
-  br label %return
+29:                                               ; preds = %28
+  br label %30
 
-return:                                           ; preds = %if.end11, %do.end10, %do.end5, %do.end
-  %3 = load i32, ptr %retval, align 4
-  ret i32 %3
+30:                                               ; preds = %29
+  br label %31
+
+31:                                               ; preds = %30
+  store i32 1, ptr %1, align 4
+  store i32 1, ptr %6, align 4
+  br label %33
+
+32:                                               ; preds = %24
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %6, align 4
+  br label %33
+
+33:                                               ; preds = %32, %31, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  br label %34
+
+34:                                               ; preds = %33, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %2) #4
+  %35 = load i32, ptr %1, align 4
+  ret i32 %35
 }
 
 declare i32 @avx2_hs_scan(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: inlinehint nounwind uwtable
 define internal i32 @check_sse42() #1 {
-entry:
-  %eax = alloca i32, align 4
-  %ebx = alloca i32, align 4
-  %ecx = alloca i32, align 4
-  %edx = alloca i32, align 4
-  call void @cpuid(i32 noundef 1, i32 noundef 0, ptr noundef %eax, ptr noundef %ebx, ptr noundef %ecx, ptr noundef %edx)
-  %0 = load i32, ptr %ecx, align 4
-  %and = and i32 %0, 1048576
-  %tobool = icmp ne i32 %and, 0
-  %lnot = xor i1 %tobool, true
-  %lnot1 = xor i1 %lnot, true
-  %lnot.ext = zext i1 %lnot1 to i32
-  ret i32 %lnot.ext
+  %1 = alloca i32, align 4
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %1) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %2) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  call void @cpuid(i32 noundef 1, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %5 = load i32, ptr %3, align 4
+  %6 = and i32 %5, 1048576
+  %7 = icmp ne i32 %6, 0
+  %8 = xor i1 %7, true
+  %9 = xor i1 %8, true
+  %10 = zext i1 %9 to i32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %2) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %1) #4
+  ret i32 %10
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: inlinehint nounwind uwtable
 define internal i32 @check_popcnt() #1 {
-entry:
-  %eax = alloca i32, align 4
-  %ebx = alloca i32, align 4
-  %ecx = alloca i32, align 4
-  %edx = alloca i32, align 4
-  call void @cpuid(i32 noundef 1, i32 noundef 0, ptr noundef %eax, ptr noundef %ebx, ptr noundef %ecx, ptr noundef %edx)
-  %0 = load i32, ptr %ecx, align 4
-  %and = and i32 %0, 8388608
-  %tobool = icmp ne i32 %and, 0
-  %lnot = xor i1 %tobool, true
-  %lnot1 = xor i1 %lnot, true
-  %lnot.ext = zext i1 %lnot1 to i32
-  ret i32 %lnot.ext
+  %1 = alloca i32, align 4
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %1) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %2) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  call void @cpuid(i32 noundef 1, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %5 = load i32, ptr %3, align 4
+  %6 = and i32 %5, 8388608
+  %7 = icmp ne i32 %6, 0
+  %8 = xor i1 %7, true
+  %9 = xor i1 %8, true
+  %10 = zext i1 %9 to i32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %2) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %1) #4
+  ret i32 %10
 }
 
 declare i32 @corei7_hs_scan(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: inlinehint nounwind uwtable
 define internal i32 @check_ssse3() #1 {
-entry:
-  %eax = alloca i32, align 4
-  %ebx = alloca i32, align 4
-  %ecx = alloca i32, align 4
-  %edx = alloca i32, align 4
-  call void @cpuid(i32 noundef 1, i32 noundef 0, ptr noundef %eax, ptr noundef %ebx, ptr noundef %ecx, ptr noundef %edx)
-  %0 = load i32, ptr %ecx, align 4
-  %and = and i32 %0, 512
-  %tobool = icmp ne i32 %and, 0
-  %lnot = xor i1 %tobool, true
-  %lnot1 = xor i1 %lnot, true
-  %lnot.ext = zext i1 %lnot1 to i32
-  ret i32 %lnot.ext
+  %1 = alloca i32, align 4
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %1) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %2) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  call void @cpuid(i32 noundef 1, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %5 = load i32, ptr %3, align 4
+  %6 = and i32 %5, 512
+  %7 = icmp ne i32 %6, 0
+  %8 = xor i1 %7, true
+  %9 = xor i1 %8, true
+  %10 = zext i1 %9 to i32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %2) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %1) #4
+  ret i32 %10
 }
 
 declare i32 @core2_hs_scan(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @error_hs_scan(ptr noundef %db, ptr noundef %data, i32 noundef %length, i32 noundef %flags, ptr noundef %scratch, ptr noundef %onEvent, ptr noundef %userCtx) #1 {
-entry:
-  %db.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %length.addr = alloca i32, align 4
-  %flags.addr = alloca i32, align 4
-  %scratch.addr = alloca ptr, align 8
-  %onEvent.addr = alloca ptr, align 8
-  %userCtx.addr = alloca ptr, align 8
-  store ptr %db, ptr %db.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store i32 %length, ptr %length.addr, align 4
-  store i32 %flags, ptr %flags.addr, align 4
-  store ptr %scratch, ptr %scratch.addr, align 8
-  store ptr %onEvent, ptr %onEvent.addr, align 8
-  store ptr %userCtx, ptr %userCtx.addr, align 8
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @error_hs_scan(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #1 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8
+  store ptr %1, ptr %9, align 8
+  store i32 %2, ptr %10, align 4
+  store i32 %3, ptr %11, align 4
+  store ptr %4, ptr %12, align 8
+  store ptr %5, ptr %13, align 8
+  store ptr %6, ptr %14, align 8
   ret i32 -11
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @cpuid(i32 noundef %op, i32 noundef %leaf, ptr noundef %eax, ptr noundef %ebx, ptr noundef %ecx, ptr noundef %edx) #1 {
-entry:
-  %op.addr = alloca i32, align 4
-  %leaf.addr = alloca i32, align 4
-  %eax.addr = alloca ptr, align 8
-  %ebx.addr = alloca ptr, align 8
-  %ecx.addr = alloca ptr, align 8
-  %edx.addr = alloca ptr, align 8
-  store i32 %op, ptr %op.addr, align 4
-  store i32 %leaf, ptr %leaf.addr, align 4
-  store ptr %eax, ptr %eax.addr, align 8
-  store ptr %ebx, ptr %ebx.addr, align 8
-  store ptr %ecx, ptr %ecx.addr, align 8
-  store ptr %edx, ptr %edx.addr, align 8
-  %0 = load ptr, ptr %eax.addr, align 8
-  %1 = load ptr, ptr %ebx.addr, align 8
-  %2 = load ptr, ptr %ecx.addr, align 8
-  %3 = load ptr, ptr %edx.addr, align 8
-  %4 = load i32, ptr %op.addr, align 4
-  %5 = load i32, ptr %leaf.addr, align 4
-  %6 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 %4, i32 %5) #3, !srcloc !5
-  %asmresult = extractvalue { i32, i32, i32, i32 } %6, 0
-  %asmresult1 = extractvalue { i32, i32, i32, i32 } %6, 1
-  %asmresult2 = extractvalue { i32, i32, i32, i32 } %6, 2
-  %asmresult3 = extractvalue { i32, i32, i32, i32 } %6, 3
-  store i32 %asmresult, ptr %0, align 4
-  store i32 %asmresult1, ptr %1, align 4
-  store i32 %asmresult2, ptr %2, align 4
-  store i32 %asmresult3, ptr %3, align 4
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @cpuid(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #1 {
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store i32 %0, ptr %7, align 4
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %9, align 8
+  %14 = load ptr, ptr %10, align 8
+  %15 = load ptr, ptr %11, align 8
+  %16 = load ptr, ptr %12, align 8
+  %17 = load i32, ptr %7, align 4
+  %18 = load i32, ptr %8, align 4
+  %19 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 %17, i32 %18) #5, !srcloc !5
+  %20 = extractvalue { i32, i32, i32, i32 } %19, 0
+  %21 = extractvalue { i32, i32, i32, i32 } %19, 1
+  %22 = extractvalue { i32, i32, i32, i32 } %19, 2
+  %23 = extractvalue { i32, i32, i32, i32 } %19, 3
+  store i32 %20, ptr %13, align 4
+  store i32 %21, ptr %14, align 4
+  store i32 %22, ptr %15, align 4
+  store i32 %23, ptr %16, align 4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @xgetbv(i32 noundef %op) #1 {
-entry:
-  %op.addr = alloca i32, align 4
-  %a = alloca i32, align 4
-  %d = alloca i32, align 4
-  store i32 %op, ptr %op.addr, align 4
-  %0 = load i32, ptr %op.addr, align 4
-  %1 = call { i32, i32 } asm sideeffect "xgetbv\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %0) #4, !srcloc !6
-  %asmresult = extractvalue { i32, i32 } %1, 0
-  %asmresult1 = extractvalue { i32, i32 } %1, 1
-  store i32 %asmresult, ptr %a, align 4
-  store i32 %asmresult1, ptr %d, align 4
-  %2 = load i32, ptr %d, align 4
-  %conv = zext i32 %2 to i64
-  %shl = shl i64 %conv, 32
-  %3 = load i32, ptr %a, align 4
-  %conv2 = zext i32 %3 to i64
-  %add = add i64 %shl, %conv2
-  ret i64 %add
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @xgetbv(i32 noundef %0) #1 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  %5 = load i32, ptr %2, align 4
+  %6 = call { i32, i32 } asm sideeffect "xgetbv\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %5) #4, !srcloc !6
+  %7 = extractvalue { i32, i32 } %6, 0
+  %8 = extractvalue { i32, i32 } %6, 1
+  store i32 %7, ptr %3, align 4
+  store i32 %8, ptr %4, align 4
+  %9 = load i32, ptr %4, align 4
+  %10 = zext i32 %9 to i64
+  %11 = shl i64 %10, 32
+  %12 = load i32, ptr %3, align 4
+  %13 = zext i32 %12 to i64
+  %14 = add i64 %11, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #4
+  ret i64 %14
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
+define internal ptr @resolve_hs_stream_size() #0 {
+  %1 = alloca ptr, align 8
+  %2 = call i32 @check_avx2()
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %5
+
+4:                                                ; preds = %0
+  store ptr @avx2_hs_stream_size, ptr %1, align 8
+  br label %17
+
+5:                                                ; preds = %0
+  %6 = call i32 @check_sse42()
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %5
+  %9 = call i32 @check_popcnt()
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %8
+  store ptr @corei7_hs_stream_size, ptr %1, align 8
+  br label %17
+
+12:                                               ; preds = %8, %5
+  %13 = call i32 @check_ssse3()
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %12
+  store ptr @core2_hs_stream_size, ptr %1, align 8
+  br label %17
+
+16:                                               ; preds = %12
+  store ptr @error_hs_stream_size, ptr %1, align 8
+  br label %17
+
+17:                                               ; preds = %16, %15, %11, %4
+  %18 = load ptr, ptr %1, align 8
+  ret ptr %18
 }
 
 declare i32 @avx2_hs_stream_size(ptr noundef, ptr noundef) #2
@@ -1200,14 +372,56 @@ declare i32 @corei7_hs_stream_size(ptr noundef, ptr noundef) #2
 
 declare i32 @core2_hs_stream_size(ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @error_hs_stream_size(ptr noundef %database, ptr noundef %stream_size) #1 {
-entry:
-  %database.addr = alloca ptr, align 8
-  %stream_size.addr = alloca ptr, align 8
-  store ptr %database, ptr %database.addr, align 8
-  store ptr %stream_size, ptr %stream_size.addr, align 8
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @error_hs_stream_size(ptr noundef %0, ptr noundef %1) #1 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
   ret i32 -11
+}
+
+; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
+define internal ptr @resolve_hs_database_size() #0 {
+  %1 = alloca ptr, align 8
+  %2 = call i32 @check_avx2()
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %5
+
+4:                                                ; preds = %0
+  store ptr @avx2_hs_database_size, ptr %1, align 8
+  br label %17
+
+5:                                                ; preds = %0
+  %6 = call i32 @check_sse42()
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %5
+  %9 = call i32 @check_popcnt()
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %8
+  store ptr @corei7_hs_database_size, ptr %1, align 8
+  br label %17
+
+12:                                               ; preds = %8, %5
+  %13 = call i32 @check_ssse3()
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %12
+  store ptr @core2_hs_database_size, ptr %1, align 8
+  br label %17
+
+16:                                               ; preds = %12
+  store ptr @error_hs_database_size, ptr %1, align 8
+  br label %17
+
+17:                                               ; preds = %16, %15, %11, %4
+  %18 = load ptr, ptr %1, align 8
+  ret ptr %18
 }
 
 declare i32 @avx2_hs_database_size(ptr noundef, ptr noundef) #2
@@ -1216,14 +430,56 @@ declare i32 @corei7_hs_database_size(ptr noundef, ptr noundef) #2
 
 declare i32 @core2_hs_database_size(ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @error_hs_database_size(ptr noundef %db, ptr noundef %size) #1 {
-entry:
-  %db.addr = alloca ptr, align 8
-  %size.addr = alloca ptr, align 8
-  store ptr %db, ptr %db.addr, align 8
-  store ptr %size, ptr %size.addr, align 8
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @error_hs_database_size(ptr noundef %0, ptr noundef %1) #1 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
   ret i32 -11
+}
+
+; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
+define internal ptr @resolve_dbIsValid() #0 {
+  %1 = alloca ptr, align 8
+  %2 = call i32 @check_avx2()
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %5
+
+4:                                                ; preds = %0
+  store ptr @avx2_dbIsValid, ptr %1, align 8
+  br label %17
+
+5:                                                ; preds = %0
+  %6 = call i32 @check_sse42()
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %5
+  %9 = call i32 @check_popcnt()
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %8
+  store ptr @corei7_dbIsValid, ptr %1, align 8
+  br label %17
+
+12:                                               ; preds = %8, %5
+  %13 = call i32 @check_ssse3()
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %12
+  store ptr @core2_dbIsValid, ptr %1, align 8
+  br label %17
+
+16:                                               ; preds = %12
+  store ptr @error_dbIsValid, ptr %1, align 8
+  br label %17
+
+17:                                               ; preds = %16, %15, %11, %4
+  %18 = load ptr, ptr %1, align 8
+  ret ptr %18
 }
 
 declare i32 @avx2_dbIsValid(ptr noundef) #2
@@ -1232,12 +488,54 @@ declare i32 @corei7_dbIsValid(ptr noundef) #2
 
 declare i32 @core2_dbIsValid(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @error_dbIsValid(ptr noundef %db) #1 {
-entry:
-  %db.addr = alloca ptr, align 8
-  store ptr %db, ptr %db.addr, align 8
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @error_dbIsValid(ptr noundef %0) #1 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
   ret i32 -11
+}
+
+; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
+define internal ptr @resolve_hs_free_database() #0 {
+  %1 = alloca ptr, align 8
+  %2 = call i32 @check_avx2()
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %5
+
+4:                                                ; preds = %0
+  store ptr @avx2_hs_free_database, ptr %1, align 8
+  br label %17
+
+5:                                                ; preds = %0
+  %6 = call i32 @check_sse42()
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %5
+  %9 = call i32 @check_popcnt()
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %8
+  store ptr @corei7_hs_free_database, ptr %1, align 8
+  br label %17
+
+12:                                               ; preds = %8, %5
+  %13 = call i32 @check_ssse3()
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %12
+  store ptr @core2_hs_free_database, ptr %1, align 8
+  br label %17
+
+16:                                               ; preds = %12
+  store ptr @error_hs_free_database, ptr %1, align 8
+  br label %17
+
+17:                                               ; preds = %16, %15, %11, %4
+  %18 = load ptr, ptr %1, align 8
+  ret ptr %18
 }
 
 declare i32 @avx2_hs_free_database(ptr noundef) #2
@@ -1246,12 +544,54 @@ declare i32 @corei7_hs_free_database(ptr noundef) #2
 
 declare i32 @core2_hs_free_database(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @error_hs_free_database(ptr noundef %db) #1 {
-entry:
-  %db.addr = alloca ptr, align 8
-  store ptr %db, ptr %db.addr, align 8
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @error_hs_free_database(ptr noundef %0) #1 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
   ret i32 -11
+}
+
+; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
+define internal ptr @resolve_hs_open_stream() #0 {
+  %1 = alloca ptr, align 8
+  %2 = call i32 @check_avx2()
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %5
+
+4:                                                ; preds = %0
+  store ptr @avx2_hs_open_stream, ptr %1, align 8
+  br label %17
+
+5:                                                ; preds = %0
+  %6 = call i32 @check_sse42()
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %5
+  %9 = call i32 @check_popcnt()
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %8
+  store ptr @corei7_hs_open_stream, ptr %1, align 8
+  br label %17
+
+12:                                               ; preds = %8, %5
+  %13 = call i32 @check_ssse3()
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %12
+  store ptr @core2_hs_open_stream, ptr %1, align 8
+  br label %17
+
+16:                                               ; preds = %12
+  store ptr @error_hs_open_stream, ptr %1, align 8
+  br label %17
+
+17:                                               ; preds = %16, %15, %11, %4
+  %18 = load ptr, ptr %1, align 8
+  ret ptr %18
 }
 
 declare i32 @avx2_hs_open_stream(ptr noundef, i32 noundef, ptr noundef) #2
@@ -1260,16 +600,58 @@ declare i32 @corei7_hs_open_stream(ptr noundef, i32 noundef, ptr noundef) #2
 
 declare i32 @core2_hs_open_stream(ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @error_hs_open_stream(ptr noundef %db, i32 noundef %flags, ptr noundef %stream) #1 {
-entry:
-  %db.addr = alloca ptr, align 8
-  %flags.addr = alloca i32, align 4
-  %stream.addr = alloca ptr, align 8
-  store ptr %db, ptr %db.addr, align 8
-  store i32 %flags, ptr %flags.addr, align 4
-  store ptr %stream, ptr %stream.addr, align 8
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @error_hs_open_stream(ptr noundef %0, i32 noundef %1, ptr noundef %2) #1 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store ptr %2, ptr %6, align 8
   ret i32 -11
+}
+
+; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
+define internal ptr @resolve_hs_scan_stream() #0 {
+  %1 = alloca ptr, align 8
+  %2 = call i32 @check_avx2()
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %5
+
+4:                                                ; preds = %0
+  store ptr @avx2_hs_scan_stream, ptr %1, align 8
+  br label %17
+
+5:                                                ; preds = %0
+  %6 = call i32 @check_sse42()
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %5
+  %9 = call i32 @check_popcnt()
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %8
+  store ptr @corei7_hs_scan_stream, ptr %1, align 8
+  br label %17
+
+12:                                               ; preds = %8, %5
+  %13 = call i32 @check_ssse3()
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %12
+  store ptr @core2_hs_scan_stream, ptr %1, align 8
+  br label %17
+
+16:                                               ; preds = %12
+  store ptr @error_hs_scan_stream, ptr %1, align 8
+  br label %17
+
+17:                                               ; preds = %16, %15, %11, %4
+  %18 = load ptr, ptr %1, align 8
+  ret ptr %18
 }
 
 declare i32 @avx2_hs_scan_stream(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
@@ -1278,24 +660,66 @@ declare i32 @corei7_hs_scan_stream(ptr noundef, ptr noundef, i32 noundef, i32 no
 
 declare i32 @core2_hs_scan_stream(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @error_hs_scan_stream(ptr noundef %id, ptr noundef %data, i32 noundef %length, i32 noundef %flags, ptr noundef %scratch, ptr noundef %onEvent, ptr noundef %ctxt) #1 {
-entry:
-  %id.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %length.addr = alloca i32, align 4
-  %flags.addr = alloca i32, align 4
-  %scratch.addr = alloca ptr, align 8
-  %onEvent.addr = alloca ptr, align 8
-  %ctxt.addr = alloca ptr, align 8
-  store ptr %id, ptr %id.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store i32 %length, ptr %length.addr, align 4
-  store i32 %flags, ptr %flags.addr, align 4
-  store ptr %scratch, ptr %scratch.addr, align 8
-  store ptr %onEvent, ptr %onEvent.addr, align 8
-  store ptr %ctxt, ptr %ctxt.addr, align 8
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @error_hs_scan_stream(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #1 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8
+  store ptr %1, ptr %9, align 8
+  store i32 %2, ptr %10, align 4
+  store i32 %3, ptr %11, align 4
+  store ptr %4, ptr %12, align 8
+  store ptr %5, ptr %13, align 8
+  store ptr %6, ptr %14, align 8
   ret i32 -11
+}
+
+; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
+define internal ptr @resolve_hs_close_stream() #0 {
+  %1 = alloca ptr, align 8
+  %2 = call i32 @check_avx2()
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %5
+
+4:                                                ; preds = %0
+  store ptr @avx2_hs_close_stream, ptr %1, align 8
+  br label %17
+
+5:                                                ; preds = %0
+  %6 = call i32 @check_sse42()
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %5
+  %9 = call i32 @check_popcnt()
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %8
+  store ptr @corei7_hs_close_stream, ptr %1, align 8
+  br label %17
+
+12:                                               ; preds = %8, %5
+  %13 = call i32 @check_ssse3()
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %12
+  store ptr @core2_hs_close_stream, ptr %1, align 8
+  br label %17
+
+16:                                               ; preds = %12
+  store ptr @error_hs_close_stream, ptr %1, align 8
+  br label %17
+
+17:                                               ; preds = %16, %15, %11, %4
+  %18 = load ptr, ptr %1, align 8
+  ret ptr %18
 }
 
 declare i32 @avx2_hs_close_stream(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
@@ -1304,18 +728,60 @@ declare i32 @corei7_hs_close_stream(ptr noundef, ptr noundef, ptr noundef, ptr n
 
 declare i32 @core2_hs_close_stream(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @error_hs_close_stream(ptr noundef %id, ptr noundef %scratch, ptr noundef %onEvent, ptr noundef %ctxt) #1 {
-entry:
-  %id.addr = alloca ptr, align 8
-  %scratch.addr = alloca ptr, align 8
-  %onEvent.addr = alloca ptr, align 8
-  %ctxt.addr = alloca ptr, align 8
-  store ptr %id, ptr %id.addr, align 8
-  store ptr %scratch, ptr %scratch.addr, align 8
-  store ptr %onEvent, ptr %onEvent.addr, align 8
-  store ptr %ctxt, ptr %ctxt.addr, align 8
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @error_hs_close_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
   ret i32 -11
+}
+
+; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
+define internal ptr @resolve_hs_scan_vector() #0 {
+  %1 = alloca ptr, align 8
+  %2 = call i32 @check_avx2()
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %5
+
+4:                                                ; preds = %0
+  store ptr @avx2_hs_scan_vector, ptr %1, align 8
+  br label %17
+
+5:                                                ; preds = %0
+  %6 = call i32 @check_sse42()
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %5
+  %9 = call i32 @check_popcnt()
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %8
+  store ptr @corei7_hs_scan_vector, ptr %1, align 8
+  br label %17
+
+12:                                               ; preds = %8, %5
+  %13 = call i32 @check_ssse3()
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %12
+  store ptr @core2_hs_scan_vector, ptr %1, align 8
+  br label %17
+
+16:                                               ; preds = %12
+  store ptr @error_hs_scan_vector, ptr %1, align 8
+  br label %17
+
+17:                                               ; preds = %16, %15, %11, %4
+  %18 = load ptr, ptr %1, align 8
+  ret ptr %18
 }
 
 declare i32 @avx2_hs_scan_vector(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
@@ -1324,26 +790,68 @@ declare i32 @corei7_hs_scan_vector(ptr noundef, ptr noundef, ptr noundef, i32 no
 
 declare i32 @core2_hs_scan_vector(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @error_hs_scan_vector(ptr noundef %db, ptr noundef %data, ptr noundef %length, i32 noundef %count, i32 noundef %flags, ptr noundef %scratch, ptr noundef %onevent, ptr noundef %context) #1 {
-entry:
-  %db.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %length.addr = alloca ptr, align 8
-  %count.addr = alloca i32, align 4
-  %flags.addr = alloca i32, align 4
-  %scratch.addr = alloca ptr, align 8
-  %onevent.addr = alloca ptr, align 8
-  %context.addr = alloca ptr, align 8
-  store ptr %db, ptr %db.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store ptr %length, ptr %length.addr, align 8
-  store i32 %count, ptr %count.addr, align 4
-  store i32 %flags, ptr %flags.addr, align 4
-  store ptr %scratch, ptr %scratch.addr, align 8
-  store ptr %onevent, ptr %onevent.addr, align 8
-  store ptr %context, ptr %context.addr, align 8
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @error_hs_scan_vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #1 {
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  store ptr %0, ptr %9, align 8
+  store ptr %1, ptr %10, align 8
+  store ptr %2, ptr %11, align 8
+  store i32 %3, ptr %12, align 4
+  store i32 %4, ptr %13, align 4
+  store ptr %5, ptr %14, align 8
+  store ptr %6, ptr %15, align 8
+  store ptr %7, ptr %16, align 8
   ret i32 -11
+}
+
+; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
+define internal ptr @resolve_hs_database_info() #0 {
+  %1 = alloca ptr, align 8
+  %2 = call i32 @check_avx2()
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %5
+
+4:                                                ; preds = %0
+  store ptr @avx2_hs_database_info, ptr %1, align 8
+  br label %17
+
+5:                                                ; preds = %0
+  %6 = call i32 @check_sse42()
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %5
+  %9 = call i32 @check_popcnt()
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %8
+  store ptr @corei7_hs_database_info, ptr %1, align 8
+  br label %17
+
+12:                                               ; preds = %8, %5
+  %13 = call i32 @check_ssse3()
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %12
+  store ptr @core2_hs_database_info, ptr %1, align 8
+  br label %17
+
+16:                                               ; preds = %12
+  store ptr @error_hs_database_info, ptr %1, align 8
+  br label %17
+
+17:                                               ; preds = %16, %15, %11, %4
+  %18 = load ptr, ptr %1, align 8
+  ret ptr %18
 }
 
 declare i32 @avx2_hs_database_info(ptr noundef, ptr noundef) #2
@@ -1352,14 +860,56 @@ declare i32 @corei7_hs_database_info(ptr noundef, ptr noundef) #2
 
 declare i32 @core2_hs_database_info(ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @error_hs_database_info(ptr noundef %db, ptr noundef %info) #1 {
-entry:
-  %db.addr = alloca ptr, align 8
-  %info.addr = alloca ptr, align 8
-  store ptr %db, ptr %db.addr, align 8
-  store ptr %info, ptr %info.addr, align 8
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @error_hs_database_info(ptr noundef %0, ptr noundef %1) #1 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
   ret i32 -11
+}
+
+; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
+define internal ptr @resolve_hs_copy_stream() #0 {
+  %1 = alloca ptr, align 8
+  %2 = call i32 @check_avx2()
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %5
+
+4:                                                ; preds = %0
+  store ptr @avx2_hs_copy_stream, ptr %1, align 8
+  br label %17
+
+5:                                                ; preds = %0
+  %6 = call i32 @check_sse42()
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %5
+  %9 = call i32 @check_popcnt()
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %8
+  store ptr @corei7_hs_copy_stream, ptr %1, align 8
+  br label %17
+
+12:                                               ; preds = %8, %5
+  %13 = call i32 @check_ssse3()
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %12
+  store ptr @core2_hs_copy_stream, ptr %1, align 8
+  br label %17
+
+16:                                               ; preds = %12
+  store ptr @error_hs_copy_stream, ptr %1, align 8
+  br label %17
+
+17:                                               ; preds = %16, %15, %11, %4
+  %18 = load ptr, ptr %1, align 8
+  ret ptr %18
 }
 
 declare i32 @avx2_hs_copy_stream(ptr noundef, ptr noundef) #2
@@ -1368,14 +918,56 @@ declare i32 @corei7_hs_copy_stream(ptr noundef, ptr noundef) #2
 
 declare i32 @core2_hs_copy_stream(ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @error_hs_copy_stream(ptr noundef %to_id, ptr noundef %from_id) #1 {
-entry:
-  %to_id.addr = alloca ptr, align 8
-  %from_id.addr = alloca ptr, align 8
-  store ptr %to_id, ptr %to_id.addr, align 8
-  store ptr %from_id, ptr %from_id.addr, align 8
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @error_hs_copy_stream(ptr noundef %0, ptr noundef %1) #1 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
   ret i32 -11
+}
+
+; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
+define internal ptr @resolve_hs_reset_stream() #0 {
+  %1 = alloca ptr, align 8
+  %2 = call i32 @check_avx2()
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %5
+
+4:                                                ; preds = %0
+  store ptr @avx2_hs_reset_stream, ptr %1, align 8
+  br label %17
+
+5:                                                ; preds = %0
+  %6 = call i32 @check_sse42()
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %5
+  %9 = call i32 @check_popcnt()
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %8
+  store ptr @corei7_hs_reset_stream, ptr %1, align 8
+  br label %17
+
+12:                                               ; preds = %8, %5
+  %13 = call i32 @check_ssse3()
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %12
+  store ptr @core2_hs_reset_stream, ptr %1, align 8
+  br label %17
+
+16:                                               ; preds = %12
+  store ptr @error_hs_reset_stream, ptr %1, align 8
+  br label %17
+
+17:                                               ; preds = %16, %15, %11, %4
+  %18 = load ptr, ptr %1, align 8
+  ret ptr %18
 }
 
 declare i32 @avx2_hs_reset_stream(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
@@ -1384,20 +976,62 @@ declare i32 @corei7_hs_reset_stream(ptr noundef, i32 noundef, ptr noundef, ptr n
 
 declare i32 @core2_hs_reset_stream(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @error_hs_reset_stream(ptr noundef %id, i32 noundef %flags, ptr noundef %scratch, ptr noundef %onEvent, ptr noundef %context) #1 {
-entry:
-  %id.addr = alloca ptr, align 8
-  %flags.addr = alloca i32, align 4
-  %scratch.addr = alloca ptr, align 8
-  %onEvent.addr = alloca ptr, align 8
-  %context.addr = alloca ptr, align 8
-  store ptr %id, ptr %id.addr, align 8
-  store i32 %flags, ptr %flags.addr, align 4
-  store ptr %scratch, ptr %scratch.addr, align 8
-  store ptr %onEvent, ptr %onEvent.addr, align 8
-  store ptr %context, ptr %context.addr, align 8
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @error_hs_reset_stream(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store i32 %1, ptr %7, align 4
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
   ret i32 -11
+}
+
+; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
+define internal ptr @resolve_hs_reset_and_copy_stream() #0 {
+  %1 = alloca ptr, align 8
+  %2 = call i32 @check_avx2()
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %5
+
+4:                                                ; preds = %0
+  store ptr @avx2_hs_reset_and_copy_stream, ptr %1, align 8
+  br label %17
+
+5:                                                ; preds = %0
+  %6 = call i32 @check_sse42()
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %5
+  %9 = call i32 @check_popcnt()
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %8
+  store ptr @corei7_hs_reset_and_copy_stream, ptr %1, align 8
+  br label %17
+
+12:                                               ; preds = %8, %5
+  %13 = call i32 @check_ssse3()
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %12
+  store ptr @core2_hs_reset_and_copy_stream, ptr %1, align 8
+  br label %17
+
+16:                                               ; preds = %12
+  store ptr @error_hs_reset_and_copy_stream, ptr %1, align 8
+  br label %17
+
+17:                                               ; preds = %16, %15, %11, %4
+  %18 = load ptr, ptr %1, align 8
+  ret ptr %18
 }
 
 declare i32 @avx2_hs_reset_and_copy_stream(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
@@ -1406,20 +1040,62 @@ declare i32 @corei7_hs_reset_and_copy_stream(ptr noundef, ptr noundef, ptr nound
 
 declare i32 @core2_hs_reset_and_copy_stream(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @error_hs_reset_and_copy_stream(ptr noundef %to_id, ptr noundef %from_id, ptr noundef %scratch, ptr noundef %onEvent, ptr noundef %context) #1 {
-entry:
-  %to_id.addr = alloca ptr, align 8
-  %from_id.addr = alloca ptr, align 8
-  %scratch.addr = alloca ptr, align 8
-  %onEvent.addr = alloca ptr, align 8
-  %context.addr = alloca ptr, align 8
-  store ptr %to_id, ptr %to_id.addr, align 8
-  store ptr %from_id, ptr %from_id.addr, align 8
-  store ptr %scratch, ptr %scratch.addr, align 8
-  store ptr %onEvent, ptr %onEvent.addr, align 8
-  store ptr %context, ptr %context.addr, align 8
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @error_hs_reset_and_copy_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
   ret i32 -11
+}
+
+; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
+define internal ptr @resolve_hs_serialize_database() #0 {
+  %1 = alloca ptr, align 8
+  %2 = call i32 @check_avx2()
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %5
+
+4:                                                ; preds = %0
+  store ptr @avx2_hs_serialize_database, ptr %1, align 8
+  br label %17
+
+5:                                                ; preds = %0
+  %6 = call i32 @check_sse42()
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %5
+  %9 = call i32 @check_popcnt()
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %8
+  store ptr @corei7_hs_serialize_database, ptr %1, align 8
+  br label %17
+
+12:                                               ; preds = %8, %5
+  %13 = call i32 @check_ssse3()
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %12
+  store ptr @core2_hs_serialize_database, ptr %1, align 8
+  br label %17
+
+16:                                               ; preds = %12
+  store ptr @error_hs_serialize_database, ptr %1, align 8
+  br label %17
+
+17:                                               ; preds = %16, %15, %11, %4
+  %18 = load ptr, ptr %1, align 8
+  ret ptr %18
 }
 
 declare i32 @avx2_hs_serialize_database(ptr noundef, ptr noundef, ptr noundef) #2
@@ -1428,16 +1104,58 @@ declare i32 @corei7_hs_serialize_database(ptr noundef, ptr noundef, ptr noundef)
 
 declare i32 @core2_hs_serialize_database(ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @error_hs_serialize_database(ptr noundef %db, ptr noundef %bytes, ptr noundef %length) #1 {
-entry:
-  %db.addr = alloca ptr, align 8
-  %bytes.addr = alloca ptr, align 8
-  %length.addr = alloca ptr, align 8
-  store ptr %db, ptr %db.addr, align 8
-  store ptr %bytes, ptr %bytes.addr, align 8
-  store ptr %length, ptr %length.addr, align 8
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @error_hs_serialize_database(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
   ret i32 -11
+}
+
+; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
+define internal ptr @resolve_hs_deserialize_database() #0 {
+  %1 = alloca ptr, align 8
+  %2 = call i32 @check_avx2()
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %5
+
+4:                                                ; preds = %0
+  store ptr @avx2_hs_deserialize_database, ptr %1, align 8
+  br label %17
+
+5:                                                ; preds = %0
+  %6 = call i32 @check_sse42()
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %5
+  %9 = call i32 @check_popcnt()
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %8
+  store ptr @corei7_hs_deserialize_database, ptr %1, align 8
+  br label %17
+
+12:                                               ; preds = %8, %5
+  %13 = call i32 @check_ssse3()
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %12
+  store ptr @core2_hs_deserialize_database, ptr %1, align 8
+  br label %17
+
+16:                                               ; preds = %12
+  store ptr @error_hs_deserialize_database, ptr %1, align 8
+  br label %17
+
+17:                                               ; preds = %16, %15, %11, %4
+  %18 = load ptr, ptr %1, align 8
+  ret ptr %18
 }
 
 declare i32 @avx2_hs_deserialize_database(ptr noundef, i64 noundef, ptr noundef) #2
@@ -1446,16 +1164,58 @@ declare i32 @corei7_hs_deserialize_database(ptr noundef, i64 noundef, ptr nounde
 
 declare i32 @core2_hs_deserialize_database(ptr noundef, i64 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @error_hs_deserialize_database(ptr noundef %bytes, i64 noundef %length, ptr noundef %db) #1 {
-entry:
-  %bytes.addr = alloca ptr, align 8
-  %length.addr = alloca i64, align 8
-  %db.addr = alloca ptr, align 8
-  store ptr %bytes, ptr %bytes.addr, align 8
-  store i64 %length, ptr %length.addr, align 8
-  store ptr %db, ptr %db.addr, align 8
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @error_hs_deserialize_database(ptr noundef %0, i64 noundef %1, ptr noundef %2) #1 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
   ret i32 -11
+}
+
+; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
+define internal ptr @resolve_hs_deserialize_database_at() #0 {
+  %1 = alloca ptr, align 8
+  %2 = call i32 @check_avx2()
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %5
+
+4:                                                ; preds = %0
+  store ptr @avx2_hs_deserialize_database_at, ptr %1, align 8
+  br label %17
+
+5:                                                ; preds = %0
+  %6 = call i32 @check_sse42()
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %5
+  %9 = call i32 @check_popcnt()
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %8
+  store ptr @corei7_hs_deserialize_database_at, ptr %1, align 8
+  br label %17
+
+12:                                               ; preds = %8, %5
+  %13 = call i32 @check_ssse3()
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %12
+  store ptr @core2_hs_deserialize_database_at, ptr %1, align 8
+  br label %17
+
+16:                                               ; preds = %12
+  store ptr @error_hs_deserialize_database_at, ptr %1, align 8
+  br label %17
+
+17:                                               ; preds = %16, %15, %11, %4
+  %18 = load ptr, ptr %1, align 8
+  ret ptr %18
 }
 
 declare i32 @avx2_hs_deserialize_database_at(ptr noundef, i64 noundef, ptr noundef) #2
@@ -1464,16 +1224,58 @@ declare i32 @corei7_hs_deserialize_database_at(ptr noundef, i64 noundef, ptr nou
 
 declare i32 @core2_hs_deserialize_database_at(ptr noundef, i64 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @error_hs_deserialize_database_at(ptr noundef %bytes, i64 noundef %length, ptr noundef %db) #1 {
-entry:
-  %bytes.addr = alloca ptr, align 8
-  %length.addr = alloca i64, align 8
-  %db.addr = alloca ptr, align 8
-  store ptr %bytes, ptr %bytes.addr, align 8
-  store i64 %length, ptr %length.addr, align 8
-  store ptr %db, ptr %db.addr, align 8
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @error_hs_deserialize_database_at(ptr noundef %0, i64 noundef %1, ptr noundef %2) #1 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
   ret i32 -11
+}
+
+; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
+define internal ptr @resolve_hs_serialized_database_info() #0 {
+  %1 = alloca ptr, align 8
+  %2 = call i32 @check_avx2()
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %5
+
+4:                                                ; preds = %0
+  store ptr @avx2_hs_serialized_database_info, ptr %1, align 8
+  br label %17
+
+5:                                                ; preds = %0
+  %6 = call i32 @check_sse42()
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %5
+  %9 = call i32 @check_popcnt()
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %8
+  store ptr @corei7_hs_serialized_database_info, ptr %1, align 8
+  br label %17
+
+12:                                               ; preds = %8, %5
+  %13 = call i32 @check_ssse3()
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %12
+  store ptr @core2_hs_serialized_database_info, ptr %1, align 8
+  br label %17
+
+16:                                               ; preds = %12
+  store ptr @error_hs_serialized_database_info, ptr %1, align 8
+  br label %17
+
+17:                                               ; preds = %16, %15, %11, %4
+  %18 = load ptr, ptr %1, align 8
+  ret ptr %18
 }
 
 declare i32 @avx2_hs_serialized_database_info(ptr noundef, i64 noundef, ptr noundef) #2
@@ -1482,16 +1284,58 @@ declare i32 @corei7_hs_serialized_database_info(ptr noundef, i64 noundef, ptr no
 
 declare i32 @core2_hs_serialized_database_info(ptr noundef, i64 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @error_hs_serialized_database_info(ptr noundef %bytes, i64 noundef %length, ptr noundef %info) #1 {
-entry:
-  %bytes.addr = alloca ptr, align 8
-  %length.addr = alloca i64, align 8
-  %info.addr = alloca ptr, align 8
-  store ptr %bytes, ptr %bytes.addr, align 8
-  store i64 %length, ptr %length.addr, align 8
-  store ptr %info, ptr %info.addr, align 8
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @error_hs_serialized_database_info(ptr noundef %0, i64 noundef %1, ptr noundef %2) #1 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
   ret i32 -11
+}
+
+; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
+define internal ptr @resolve_hs_serialized_database_size() #0 {
+  %1 = alloca ptr, align 8
+  %2 = call i32 @check_avx2()
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %5
+
+4:                                                ; preds = %0
+  store ptr @avx2_hs_serialized_database_size, ptr %1, align 8
+  br label %17
+
+5:                                                ; preds = %0
+  %6 = call i32 @check_sse42()
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %5
+  %9 = call i32 @check_popcnt()
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %8
+  store ptr @corei7_hs_serialized_database_size, ptr %1, align 8
+  br label %17
+
+12:                                               ; preds = %8, %5
+  %13 = call i32 @check_ssse3()
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %12
+  store ptr @core2_hs_serialized_database_size, ptr %1, align 8
+  br label %17
+
+16:                                               ; preds = %12
+  store ptr @error_hs_serialized_database_size, ptr %1, align 8
+  br label %17
+
+17:                                               ; preds = %16, %15, %11, %4
+  %18 = load ptr, ptr %1, align 8
+  ret ptr %18
 }
 
 declare i32 @avx2_hs_serialized_database_size(ptr noundef, i64 noundef, ptr noundef) #2
@@ -1500,16 +1344,58 @@ declare i32 @corei7_hs_serialized_database_size(ptr noundef, i64 noundef, ptr no
 
 declare i32 @core2_hs_serialized_database_size(ptr noundef, i64 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @error_hs_serialized_database_size(ptr noundef %bytes, i64 noundef %length, ptr noundef %deserialized_size) #1 {
-entry:
-  %bytes.addr = alloca ptr, align 8
-  %length.addr = alloca i64, align 8
-  %deserialized_size.addr = alloca ptr, align 8
-  store ptr %bytes, ptr %bytes.addr, align 8
-  store i64 %length, ptr %length.addr, align 8
-  store ptr %deserialized_size, ptr %deserialized_size.addr, align 8
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @error_hs_serialized_database_size(ptr noundef %0, i64 noundef %1, ptr noundef %2) #1 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
   ret i32 -11
+}
+
+; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
+define internal ptr @resolve_hs_compress_stream() #0 {
+  %1 = alloca ptr, align 8
+  %2 = call i32 @check_avx2()
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %5
+
+4:                                                ; preds = %0
+  store ptr @avx2_hs_compress_stream, ptr %1, align 8
+  br label %17
+
+5:                                                ; preds = %0
+  %6 = call i32 @check_sse42()
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %5
+  %9 = call i32 @check_popcnt()
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %8
+  store ptr @corei7_hs_compress_stream, ptr %1, align 8
+  br label %17
+
+12:                                               ; preds = %8, %5
+  %13 = call i32 @check_ssse3()
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %12
+  store ptr @core2_hs_compress_stream, ptr %1, align 8
+  br label %17
+
+16:                                               ; preds = %12
+  store ptr @error_hs_compress_stream, ptr %1, align 8
+  br label %17
+
+17:                                               ; preds = %16, %15, %11, %4
+  %18 = load ptr, ptr %1, align 8
+  ret ptr %18
 }
 
 declare i32 @avx2_hs_compress_stream(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
@@ -1518,18 +1404,60 @@ declare i32 @corei7_hs_compress_stream(ptr noundef, ptr noundef, i64 noundef, pt
 
 declare i32 @core2_hs_compress_stream(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @error_hs_compress_stream(ptr noundef %stream, ptr noundef %buf, i64 noundef %buf_space, ptr noundef %used_space) #1 {
-entry:
-  %stream.addr = alloca ptr, align 8
-  %buf.addr = alloca ptr, align 8
-  %buf_space.addr = alloca i64, align 8
-  %used_space.addr = alloca ptr, align 8
-  store ptr %stream, ptr %stream.addr, align 8
-  store ptr %buf, ptr %buf.addr, align 8
-  store i64 %buf_space, ptr %buf_space.addr, align 8
-  store ptr %used_space, ptr %used_space.addr, align 8
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @error_hs_compress_stream(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #1 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
   ret i32 -11
+}
+
+; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
+define internal ptr @resolve_hs_expand_stream() #0 {
+  %1 = alloca ptr, align 8
+  %2 = call i32 @check_avx2()
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %5
+
+4:                                                ; preds = %0
+  store ptr @avx2_hs_expand_stream, ptr %1, align 8
+  br label %17
+
+5:                                                ; preds = %0
+  %6 = call i32 @check_sse42()
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %5
+  %9 = call i32 @check_popcnt()
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %8
+  store ptr @corei7_hs_expand_stream, ptr %1, align 8
+  br label %17
+
+12:                                               ; preds = %8, %5
+  %13 = call i32 @check_ssse3()
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %12
+  store ptr @core2_hs_expand_stream, ptr %1, align 8
+  br label %17
+
+16:                                               ; preds = %12
+  store ptr @error_hs_expand_stream, ptr %1, align 8
+  br label %17
+
+17:                                               ; preds = %16, %15, %11, %4
+  %18 = load ptr, ptr %1, align 8
+  ret ptr %18
 }
 
 declare i32 @avx2_hs_expand_stream(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #2
@@ -1538,18 +1466,60 @@ declare i32 @corei7_hs_expand_stream(ptr noundef, ptr noundef, ptr noundef, i64 
 
 declare i32 @core2_hs_expand_stream(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @error_hs_expand_stream(ptr noundef %db, ptr noundef %stream, ptr noundef %buf, i64 noundef %buf_size) #1 {
-entry:
-  %db.addr = alloca ptr, align 8
-  %stream.addr = alloca ptr, align 8
-  %buf.addr = alloca ptr, align 8
-  %buf_size.addr = alloca i64, align 8
-  store ptr %db, ptr %db.addr, align 8
-  store ptr %stream, ptr %stream.addr, align 8
-  store ptr %buf, ptr %buf.addr, align 8
-  store i64 %buf_size, ptr %buf_size.addr, align 8
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @error_hs_expand_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #1 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store i64 %3, ptr %8, align 8
   ret i32 -11
+}
+
+; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
+define internal ptr @resolve_hs_reset_and_expand_stream() #0 {
+  %1 = alloca ptr, align 8
+  %2 = call i32 @check_avx2()
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %5
+
+4:                                                ; preds = %0
+  store ptr @avx2_hs_reset_and_expand_stream, ptr %1, align 8
+  br label %17
+
+5:                                                ; preds = %0
+  %6 = call i32 @check_sse42()
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %5
+  %9 = call i32 @check_popcnt()
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %8
+  store ptr @corei7_hs_reset_and_expand_stream, ptr %1, align 8
+  br label %17
+
+12:                                               ; preds = %8, %5
+  %13 = call i32 @check_ssse3()
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %12
+  store ptr @core2_hs_reset_and_expand_stream, ptr %1, align 8
+  br label %17
+
+16:                                               ; preds = %12
+  store ptr @error_hs_reset_and_expand_stream, ptr %1, align 8
+  br label %17
+
+17:                                               ; preds = %16, %15, %11, %4
+  %18 = load ptr, ptr %1, align 8
+  ret ptr %18
 }
 
 declare i32 @avx2_hs_reset_and_expand_stream(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) #2
@@ -1558,22 +1528,64 @@ declare i32 @corei7_hs_reset_and_expand_stream(ptr noundef, ptr noundef, i64 nou
 
 declare i32 @core2_hs_reset_and_expand_stream(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @error_hs_reset_and_expand_stream(ptr noundef %to_stream, ptr noundef %buf, i64 noundef %buf_size, ptr noundef %scratch, ptr noundef %onEvent, ptr noundef %context) #1 {
-entry:
-  %to_stream.addr = alloca ptr, align 8
-  %buf.addr = alloca ptr, align 8
-  %buf_size.addr = alloca i64, align 8
-  %scratch.addr = alloca ptr, align 8
-  %onEvent.addr = alloca ptr, align 8
-  %context.addr = alloca ptr, align 8
-  store ptr %to_stream, ptr %to_stream.addr, align 8
-  store ptr %buf, ptr %buf.addr, align 8
-  store i64 %buf_size, ptr %buf_size.addr, align 8
-  store ptr %scratch, ptr %scratch.addr, align 8
-  store ptr %onEvent, ptr %onEvent.addr, align 8
-  store ptr %context, ptr %context.addr, align 8
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @error_hs_reset_and_expand_stream(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #1 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store i64 %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
   ret i32 -11
+}
+
+; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
+define internal ptr @resolve_Crc32c_ComputeBuf() #0 {
+  %1 = alloca ptr, align 8
+  %2 = call i32 @check_avx2()
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %5
+
+4:                                                ; preds = %0
+  store ptr @avx2_Crc32c_ComputeBuf, ptr %1, align 8
+  br label %17
+
+5:                                                ; preds = %0
+  %6 = call i32 @check_sse42()
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %5
+  %9 = call i32 @check_popcnt()
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %8
+  store ptr @corei7_Crc32c_ComputeBuf, ptr %1, align 8
+  br label %17
+
+12:                                               ; preds = %8, %5
+  %13 = call i32 @check_ssse3()
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %12
+  store ptr @core2_Crc32c_ComputeBuf, ptr %1, align 8
+  br label %17
+
+16:                                               ; preds = %12
+  store ptr @error_Crc32c_ComputeBuf, ptr %1, align 8
+  br label %17
+
+17:                                               ; preds = %16, %15, %11, %4
+  %18 = load ptr, ptr %1, align 8
+  ret ptr %18
 }
 
 declare i32 @avx2_Crc32c_ComputeBuf(i32 noundef, ptr noundef, i64 noundef) #2
@@ -1582,23 +1594,23 @@ declare i32 @corei7_Crc32c_ComputeBuf(i32 noundef, ptr noundef, i64 noundef) #2
 
 declare i32 @core2_Crc32c_ComputeBuf(i32 noundef, ptr noundef, i64 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @error_Crc32c_ComputeBuf(i32 noundef %inCrc32, ptr noundef %buf, i64 noundef %bufLen) #1 {
-entry:
-  %inCrc32.addr = alloca i32, align 4
-  %buf.addr = alloca ptr, align 8
-  %bufLen.addr = alloca i64, align 8
-  store i32 %inCrc32, ptr %inCrc32.addr, align 4
-  store ptr %buf, ptr %buf.addr, align 8
-  store i64 %bufLen, ptr %bufLen.addr, align 8
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @error_Crc32c_ComputeBuf(i32 noundef %0, ptr noundef %1, i64 noundef %2) #1 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store i32 %0, ptr %4, align 4
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
   ret i32 -11
 }
 
-attributes #0 = { disable_sanitizer_instrumentation nounwind uwtable "min-legal-vector-width"="0" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { disable_sanitizer_instrumentation nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { inlinehint nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind memory(none) }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
+attributes #5 = { nounwind memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 
@@ -1607,5 +1619,5 @@ attributes #4 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 2151494993, i64 2151495029, i64 2151495053}
-!6 = !{i64 3993709}
+!5 = !{i64 2151994993, i64 2151995029, i64 2151995053}
+!6 = !{i64 4492530}

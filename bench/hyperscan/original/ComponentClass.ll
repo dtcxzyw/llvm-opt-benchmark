@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.ue2::CharReach" = type { %"class.ue2::bitfield" }
 %"class.ue2::bitfield" = type { %"struct.std::array" }
@@ -13,9 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.boost::icl::interval_base_set" = type { %"class.std::set" }
 %"class.std::set" = type { %"class.std::_Rb_tree" }
 %"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<boost::icl::closed_interval<unsigned int>, boost::icl::closed_interval<unsigned int>, std::_Identity<boost::icl::closed_interval<unsigned int>>, boost::icl::exclusive_less_than<boost::icl::closed_interval<unsigned int>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<boost::icl::closed_interval<unsigned int>, boost::icl::closed_interval<unsigned int>, std::_Identity<boost::icl::closed_interval<unsigned int>>, boost::icl::exclusive_less_than<boost::icl::closed_interval<unsigned int>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.boost::icl::exclusive_less_than" }
-%"struct.boost::icl::exclusive_less_than" = type { i8 }
+%"struct.std::_Rb_tree<boost::icl::closed_interval<unsigned int>, boost::icl::closed_interval<unsigned int>, std::_Identity<boost::icl::closed_interval<unsigned int>>, boost::icl::exclusive_less_than<boost::icl::closed_interval<unsigned int>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"struct.ue2::ParseMode" = type { i8, i8, i8, i8, i8, i8 }
@@ -54,8 +52,6 @@ $_ZN3ue29CharReachC2Ev = comdat any
 $_ZNK3ue29CharReachcoEv = comdat any
 
 $_ZN3ue29CharReachC2Eh = comdat any
-
-$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
 
 $_ZN3ue29CharReachC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = comdat any
 
@@ -163,8 +159,6 @@ $_ZN5boost3icl15interval_traitsINS0_15closed_intervalIjSt4lessEEE5upperERKS4_ = 
 
 $_ZNK5boost3icl15closed_intervalIjSt4lessE5upperEv = comdat any
 
-$_ZN5boost3icl12interval_setIjSt4lessNS0_15closed_intervalIjS2_EESaED2Ev = comdat any
-
 $_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaED2Ev = comdat any
 
 $_ZNSt3setIN5boost3icl15closed_intervalIjSt4lessEENS1_19exclusive_less_thanIS4_EESaIS4_EED2Ev = comdat any
@@ -175,7 +169,7 @@ $_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_1
 
 $_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_M_beginEv = comdat any
 
-$_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE13_Rb_tree_implIS8_Lb1EED2Ev = comdat any
+$_ZNSt15__new_allocatorISt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEEED2Ev = comdat any
 
 $_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_S_rightEPSt18_Rb_tree_node_base = comdat any
 
@@ -205,15 +199,23 @@ $_ZNSt15__new_allocatorISt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessE
 
 $_ZNKSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE9_M_mbeginEv = comdat any
 
-$_ZNSaISt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEEED2Ev = comdat any
+$_ZNSt15__new_allocatorIcEC2Ev = comdat any
 
-$_ZNSt15__new_allocatorISt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEEED2Ev = comdat any
+$_ZNSt15__new_allocatorIcED2Ev = comdat any
+
+$_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_ = comdat any
+
+$_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm = comdat any
+
+$_ZNSt15__new_allocatorIcE10deallocateEPcm = comdat any
 
 $_ZNSt11char_traitsIcE6lengthEPKc = comdat any
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
 
-$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev = comdat any
+$_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc = comdat any
+
+$_ZNSt15__new_allocatorIcEC2ERKS0_ = comdat any
 
 $_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_ = comdat any
 
@@ -224,6 +226,10 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 $_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag = comdat any
 
 $_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_ = comdat any
+
+$_ZNSt11char_traitsIcE6assignERcRKc = comdat any
+
+$_ZNSt11char_traitsIcE4copyEPcPKcm = comdat any
 
 $_ZNSt10unique_ptrIN3ue218UTF8ComponentClassESt14default_deleteIS1_EEC2IS3_vEEPS1_ = comdat any
 
@@ -285,6 +291,30 @@ $_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue214ComponentClassEELb1EEC2IS0_INS1
 
 $_ZNSt14default_deleteIN3ue214ComponentClassEEC2INS0_18UTF8ComponentClassEvEERKS_IT_E = comdat any
 
+$_ZNSt15__uniq_ptr_implIN3ue214ComponentClassESt14default_deleteIS1_EE6_M_ptrEv = comdat any
+
+$_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EE11get_deleterEv = comdat any
+
+$_ZNKSt14default_deleteIN3ue214ComponentClassEEclEPS1_ = comdat any
+
+$_ZSt3getILm0EJPN3ue214ComponentClassESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_ = comdat any
+
+$_ZSt12__get_helperILm0EPN3ue214ComponentClassEJSt14default_deleteIS1_EEERT0_RSt11_Tuple_implIXT_EJS5_DpT1_EE = comdat any
+
+$_ZNSt11_Tuple_implILm0EJPN3ue214ComponentClassESt14default_deleteIS1_EEE7_M_headERS5_ = comdat any
+
+$_ZNSt10_Head_baseILm0EPN3ue214ComponentClassELb0EE7_M_headERS3_ = comdat any
+
+$_ZNSt15__uniq_ptr_implIN3ue214ComponentClassESt14default_deleteIS1_EE10_M_deleterEv = comdat any
+
+$_ZSt3getILm1EJPN3ue214ComponentClassESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_ = comdat any
+
+$_ZSt12__get_helperILm1ESt14default_deleteIN3ue214ComponentClassEEJEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE = comdat any
+
+$_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3ue214ComponentClassEEEE7_M_headERS4_ = comdat any
+
+$_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue214ComponentClassEELb1EE7_M_headERS4_ = comdat any
+
 $_ZNSt10unique_ptrIN3ue219AsciiComponentClassESt14default_deleteIS1_EEC2IS3_vEEPS1_ = comdat any
 
 $_ZNSt15__uniq_ptr_dataIN3ue219AsciiComponentClassESt14default_deleteIS1_ELb1ELb1EECI2St15__uniq_ptr_implIS1_S3_EEPS1_ = comdat any
@@ -343,30 +373,6 @@ $_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue214ComponentClassEELb1EEC2IS0_INS1
 
 $_ZNSt14default_deleteIN3ue214ComponentClassEEC2INS0_19AsciiComponentClassEvEERKS_IT_E = comdat any
 
-$_ZNSt15__uniq_ptr_implIN3ue214ComponentClassESt14default_deleteIS1_EE6_M_ptrEv = comdat any
-
-$_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EE11get_deleterEv = comdat any
-
-$_ZNKSt14default_deleteIN3ue214ComponentClassEEclEPS1_ = comdat any
-
-$_ZSt3getILm0EJPN3ue214ComponentClassESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_ = comdat any
-
-$_ZSt12__get_helperILm0EPN3ue214ComponentClassEJSt14default_deleteIS1_EEERT0_RSt11_Tuple_implIXT_EJS5_DpT1_EE = comdat any
-
-$_ZNSt11_Tuple_implILm0EJPN3ue214ComponentClassESt14default_deleteIS1_EEE7_M_headERS5_ = comdat any
-
-$_ZNSt10_Head_baseILm0EPN3ue214ComponentClassELb0EE7_M_headERS3_ = comdat any
-
-$_ZNSt15__uniq_ptr_implIN3ue214ComponentClassESt14default_deleteIS1_EE10_M_deleterEv = comdat any
-
-$_ZSt3getILm1EJPN3ue214ComponentClassESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_ = comdat any
-
-$_ZSt12__get_helperILm1ESt14default_deleteIN3ue214ComponentClassEEJEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE = comdat any
-
-$_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3ue214ComponentClassEEEE7_M_headERS4_ = comdat any
-
-$_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue214ComponentClassEELb1EE7_M_headERS4_ = comdat any
-
 $_ZNKSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EE3getEv = comdat any
 
 $_ZNKSt15__uniq_ptr_implIN3ue214ComponentClassESt14default_deleteIS1_EE6_M_ptrEv = comdat any
@@ -385,5114 +391,5809 @@ $_ZNSt10_Head_baseILm0EPN3ue214ComponentClassELb0EE7_M_headERKS3_ = comdat any
 @.str.3 = private unnamed_addr constant [6 x i8] c"\0A\0B\0C\0D\85\00", align 1
 @.str.4 = private unnamed_addr constant [23 x i8] c"0123456789abcdefABCDEF\00", align 1
 @_ZTVN3ue214ComponentClassE = hidden unnamed_addr constant { [22 x ptr] } { [22 x ptr] [ptr null, ptr @_ZTIN3ue214ComponentClassE, ptr @_ZN3ue214ComponentClassD1Ev, ptr @_ZN3ue214ComponentClassD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZNK3ue214ComponentClass5emptyEv, ptr @_ZNK3ue29Component18vacuous_everywhereEv, ptr @_ZNK3ue29Component10repeatableEv, ptr @_ZN3ue29Component8optimiseEb, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZNK3ue29Component24checkEmbeddedStartAnchorEb, ptr @_ZNK3ue29Component22checkEmbeddedEndAnchorEb, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
+@_ZTIN3ue214ComponentClassE = hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3ue214ComponentClassE, ptr @_ZTIN3ue29ComponentE }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN3ue214ComponentClassE = hidden constant [23 x i8] c"N3ue214ComponentClassE\00", align 1
 @_ZTIN3ue29ComponentE = external constant ptr
-@_ZTIN3ue214ComponentClassE = hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3ue214ComponentClassE, ptr @_ZTIN3ue29ComponentE }, align 8
 @.str.5 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 
 @_ZN3ue214ComponentClassD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN3ue214ComponentClassD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue222getPredefinedCharReachENS_15PredefinedClassERKNS_9ParseModeE(ptr noalias sret(%"class.ue2::CharReach") align 8 %agg.result, i32 noundef %c, ptr noundef nonnull align 1 dereferenceable(6) %mode) #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %c.addr = alloca i32, align 4
-  %mode.addr = alloca ptr, align 8
-  %lower = alloca %"class.ue2::CharReach", align 8
-  %upper = alloca %"class.ue2::CharReach", align 8
-  %number = alloca %"class.ue2::CharReach", align 8
-  %ref.tmp = alloca %"class.ue2::CharReach", align 8
-  %ref.tmp3 = alloca %"class.ue2::CharReach", align 8
-  %ref.tmp4 = alloca %"class.ue2::CharReach", align 8
-  %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
-  %ref.tmp8 = alloca %"class.std::allocator", align 1
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %ref.tmp12 = alloca %"class.ue2::CharReach", align 8
-  %ref.tmp13 = alloca %"class.ue2::CharReach", align 8
-  %ref.tmp17 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp22 = alloca %"class.std::__cxx11::basic_string", align 8
-  %ref.tmp23 = alloca %"class.std::allocator", align 1
-  %ref.tmp36 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp41 = alloca %"class.ue2::CharReach", align 8
-  %ref.tmp42 = alloca %"class.ue2::CharReach", align 8
-  %ref.tmp43 = alloca %"class.ue2::CharReach", align 8
-  %ref.tmp44 = alloca %"class.ue2::CharReach", align 8
-  %ref.tmp45 = alloca %"class.ue2::CharReach", align 8
-  %ref.tmp46 = alloca %"class.ue2::CharReach", align 8
-  %ref.tmp48 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp53 = alloca %"class.std::__cxx11::basic_string", align 8
-  %ref.tmp54 = alloca %"class.std::allocator", align 1
-  %ref.tmp67 = alloca %"class.std::__cxx11::basic_string", align 8
-  %ref.tmp68 = alloca %"class.std::allocator", align 1
-  %ref.tmp76 = alloca %"class.ue2::CharReach", align 8
-  %ref.tmp77 = alloca %"class.ue2::CharReach", align 8
-  %ref.tmp78 = alloca %"class.ue2::CharReach", align 8
-  %ref.tmp80 = alloca %"class.std::__cxx11::basic_string", align 8
-  %ref.tmp81 = alloca %"class.std::allocator", align 1
-  %ref.tmp89 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp94 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp99 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp104 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp109 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp114 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp119 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp124 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp129 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp134 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp139 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp144 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp149 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp154 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp159 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp164 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp169 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp174 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp179 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp184 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp189 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp194 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp199 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp204 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp209 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp214 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp219 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp224 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp229 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp234 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp239 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp244 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp249 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp254 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp259 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp264 = alloca %"class.ue2::CharReach", align 8
-  %ref.tmp265 = alloca %"class.ue2::CharReach", align 8
-  %ref.tmp267 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp272 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp277 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp282 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp287 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp292 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp297 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp302 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp307 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp312 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp317 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp322 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp327 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp332 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp337 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp342 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp347 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp352 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp357 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp362 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp367 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp372 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp377 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp382 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp387 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp392 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp397 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp402 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp407 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp412 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp417 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp422 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp427 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp432 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp437 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp442 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp447 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp452 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp457 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp462 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp467 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp472 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp477 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp482 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp487 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp492 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp497 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp502 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp507 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp512 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp517 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp522 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp527 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp532 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp537 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp542 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp547 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp552 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp557 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp562 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp567 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp572 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp577 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp582 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp587 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp592 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp597 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp602 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp607 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp612 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp617 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp622 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp627 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp632 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp637 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp642 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp647 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp652 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp657 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp662 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp667 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp672 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp677 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp682 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp687 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp692 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp697 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp702 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp707 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp712 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp717 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp722 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp727 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp732 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp737 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp742 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp747 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp752 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp757 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp762 = alloca %"class.ue2::CodePointSet", align 8
-  %ref.tmp767 = alloca %"class.ue2::CharReach", align 8
-  store i32 %c, ptr %c.addr, align 4
-  store ptr %mode, ptr %mode.addr, align 8
-  call void @_ZN3ue29CharReachC2Ehh(ptr noundef nonnull align 8 dereferenceable(32) %lower, i8 noundef zeroext 97, i8 noundef zeroext 122)
-  call void @_ZN3ue29CharReachC2Ehh(ptr noundef nonnull align 8 dereferenceable(32) %upper, i8 noundef zeroext 65, i8 noundef zeroext 90)
-  call void @_ZN3ue29CharReachC2Ehh(ptr noundef nonnull align 8 dereferenceable(32) %number, i8 noundef zeroext 48, i8 noundef zeroext 57)
-  %0 = load i32, ptr %c.addr, align 4
-  switch i32 %0, label %sw.epilog [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb1
-    i32 2, label %sw.bb2
-    i32 3, label %sw.bb5
-    i32 4, label %sw.bb6
-    i32 5, label %sw.bb11
-    i32 6, label %sw.bb14
-    i32 7, label %sw.bb15
-    i32 17, label %sw.bb16
-    i32 8, label %sw.bb21
-    i32 9, label %sw.bb30
-    i32 10, label %sw.bb34
-    i32 18, label %sw.bb35
-    i32 11, label %sw.bb40
-    i32 19, label %sw.bb47
-    i32 12, label %sw.bb52
-    i32 13, label %sw.bb61
-    i32 14, label %sw.bb66
-    i32 15, label %sw.bb75
-    i32 16, label %sw.bb79
-    i32 20, label %sw.bb88
-    i32 21, label %sw.bb93
-    i32 22, label %sw.bb98
-    i32 23, label %sw.bb103
-    i32 24, label %sw.bb108
-    i32 25, label %sw.bb113
-    i32 26, label %sw.bb118
-    i32 32, label %sw.bb123
-    i32 27, label %sw.bb128
-    i32 28, label %sw.bb133
-    i32 29, label %sw.bb138
-    i32 30, label %sw.bb143
-    i32 31, label %sw.bb148
-    i32 33, label %sw.bb153
-    i32 34, label %sw.bb158
-    i32 35, label %sw.bb163
-    i32 36, label %sw.bb168
-    i32 37, label %sw.bb173
-    i32 38, label %sw.bb178
-    i32 39, label %sw.bb183
-    i32 40, label %sw.bb188
-    i32 41, label %sw.bb193
-    i32 42, label %sw.bb198
-    i32 43, label %sw.bb203
-    i32 44, label %sw.bb208
-    i32 45, label %sw.bb213
-    i32 46, label %sw.bb218
-    i32 47, label %sw.bb223
-    i32 48, label %sw.bb228
-    i32 49, label %sw.bb233
-    i32 50, label %sw.bb238
-    i32 51, label %sw.bb243
-    i32 52, label %sw.bb248
-    i32 53, label %sw.bb253
-    i32 58, label %sw.bb258
-    i32 59, label %sw.bb263
-    i32 60, label %sw.bb263
-    i32 61, label %sw.bb266
-    i32 54, label %sw.bb271
-    i32 55, label %sw.bb276
-    i32 56, label %sw.bb281
-    i32 57, label %sw.bb286
-    i32 62, label %sw.bb291
-    i32 63, label %sw.bb296
-    i32 64, label %sw.bb301
-    i32 65, label %sw.bb306
-    i32 66, label %sw.bb311
-    i32 67, label %sw.bb316
-    i32 68, label %sw.bb321
-    i32 69, label %sw.bb326
-    i32 70, label %sw.bb331
-    i32 71, label %sw.bb336
-    i32 72, label %sw.bb341
-    i32 73, label %sw.bb346
-    i32 74, label %sw.bb351
-    i32 75, label %sw.bb356
-    i32 76, label %sw.bb361
-    i32 77, label %sw.bb366
-    i32 78, label %sw.bb371
-    i32 79, label %sw.bb376
-    i32 80, label %sw.bb381
-    i32 81, label %sw.bb386
-    i32 82, label %sw.bb391
-    i32 83, label %sw.bb396
-    i32 84, label %sw.bb401
-    i32 85, label %sw.bb406
-    i32 86, label %sw.bb411
-    i32 87, label %sw.bb416
-    i32 88, label %sw.bb421
-    i32 89, label %sw.bb426
-    i32 90, label %sw.bb431
-    i32 91, label %sw.bb436
-    i32 92, label %sw.bb441
-    i32 93, label %sw.bb446
-    i32 94, label %sw.bb451
-    i32 95, label %sw.bb456
-    i32 96, label %sw.bb461
-    i32 97, label %sw.bb466
-    i32 98, label %sw.bb471
-    i32 99, label %sw.bb476
-    i32 100, label %sw.bb481
-    i32 101, label %sw.bb486
-    i32 102, label %sw.bb491
-    i32 103, label %sw.bb496
-    i32 104, label %sw.bb501
-    i32 105, label %sw.bb506
-    i32 106, label %sw.bb511
-    i32 107, label %sw.bb516
-    i32 108, label %sw.bb521
-    i32 109, label %sw.bb526
-    i32 110, label %sw.bb531
-    i32 111, label %sw.bb536
-    i32 112, label %sw.bb541
-    i32 113, label %sw.bb546
-    i32 114, label %sw.bb551
-    i32 115, label %sw.bb556
-    i32 116, label %sw.bb561
-    i32 117, label %sw.bb566
-    i32 118, label %sw.bb571
-    i32 119, label %sw.bb576
-    i32 120, label %sw.bb581
-    i32 121, label %sw.bb586
-    i32 122, label %sw.bb591
-    i32 123, label %sw.bb596
-    i32 124, label %sw.bb601
-    i32 125, label %sw.bb606
-    i32 126, label %sw.bb611
-    i32 127, label %sw.bb616
-    i32 128, label %sw.bb621
-    i32 129, label %sw.bb626
-    i32 130, label %sw.bb631
-    i32 131, label %sw.bb636
-    i32 132, label %sw.bb641
-    i32 133, label %sw.bb646
-    i32 134, label %sw.bb651
-    i32 135, label %sw.bb656
-    i32 136, label %sw.bb661
-    i32 137, label %sw.bb666
-    i32 138, label %sw.bb671
-    i32 139, label %sw.bb676
-    i32 140, label %sw.bb681
-    i32 141, label %sw.bb686
-    i32 142, label %sw.bb691
-    i32 143, label %sw.bb696
-    i32 144, label %sw.bb701
-    i32 145, label %sw.bb706
-    i32 146, label %sw.bb711
-    i32 147, label %sw.bb716
-    i32 148, label %sw.bb721
-    i32 149, label %sw.bb726
-    i32 150, label %sw.bb731
-    i32 151, label %sw.bb736
-    i32 152, label %sw.bb741
-    i32 153, label %sw.bb746
-    i32 154, label %sw.bb751
-    i32 155, label %sw.bb756
-    i32 156, label %sw.bb761
-    i32 157, label %sw.bb766
+define hidden void @_ZN3ue222getPredefinedCharReachENS_15PredefinedClassERKNS_9ParseModeE(ptr dead_on_unwind noalias writable sret(%"class.ue2::CharReach") align 8 %0, i32 noundef %1, ptr noundef nonnull align 1 dereferenceable(6) %2) #0 personality ptr @__gxx_personality_v0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca %"class.ue2::CharReach", align 8
+  %7 = alloca %"class.ue2::CharReach", align 8
+  %8 = alloca %"class.ue2::CharReach", align 8
+  %9 = alloca %"class.ue2::CharReach", align 8
+  %10 = alloca i32, align 4
+  %11 = alloca %"class.ue2::CharReach", align 8
+  %12 = alloca %"class.ue2::CharReach", align 8
+  %13 = alloca %"class.std::__cxx11::basic_string", align 8
+  %14 = alloca %"class.std::allocator", align 1
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca %"class.ue2::CharReach", align 8
+  %18 = alloca %"class.ue2::CharReach", align 8
+  %19 = alloca %"class.ue2::CodePointSet", align 8
+  %20 = alloca %"class.std::__cxx11::basic_string", align 8
+  %21 = alloca %"class.std::allocator", align 1
+  %22 = alloca %"class.ue2::CodePointSet", align 8
+  %23 = alloca %"class.ue2::CharReach", align 8
+  %24 = alloca %"class.ue2::CharReach", align 8
+  %25 = alloca %"class.ue2::CharReach", align 8
+  %26 = alloca %"class.ue2::CharReach", align 8
+  %27 = alloca %"class.ue2::CharReach", align 8
+  %28 = alloca %"class.ue2::CharReach", align 8
+  %29 = alloca %"class.ue2::CodePointSet", align 8
+  %30 = alloca %"class.std::__cxx11::basic_string", align 8
+  %31 = alloca %"class.std::allocator", align 1
+  %32 = alloca %"class.std::__cxx11::basic_string", align 8
+  %33 = alloca %"class.std::allocator", align 1
+  %34 = alloca %"class.ue2::CharReach", align 8
+  %35 = alloca %"class.ue2::CharReach", align 8
+  %36 = alloca %"class.ue2::CharReach", align 8
+  %37 = alloca %"class.std::__cxx11::basic_string", align 8
+  %38 = alloca %"class.std::allocator", align 1
+  %39 = alloca %"class.ue2::CodePointSet", align 8
+  %40 = alloca %"class.ue2::CodePointSet", align 8
+  %41 = alloca %"class.ue2::CodePointSet", align 8
+  %42 = alloca %"class.ue2::CodePointSet", align 8
+  %43 = alloca %"class.ue2::CodePointSet", align 8
+  %44 = alloca %"class.ue2::CodePointSet", align 8
+  %45 = alloca %"class.ue2::CodePointSet", align 8
+  %46 = alloca %"class.ue2::CodePointSet", align 8
+  %47 = alloca %"class.ue2::CodePointSet", align 8
+  %48 = alloca %"class.ue2::CodePointSet", align 8
+  %49 = alloca %"class.ue2::CodePointSet", align 8
+  %50 = alloca %"class.ue2::CodePointSet", align 8
+  %51 = alloca %"class.ue2::CodePointSet", align 8
+  %52 = alloca %"class.ue2::CodePointSet", align 8
+  %53 = alloca %"class.ue2::CodePointSet", align 8
+  %54 = alloca %"class.ue2::CodePointSet", align 8
+  %55 = alloca %"class.ue2::CodePointSet", align 8
+  %56 = alloca %"class.ue2::CodePointSet", align 8
+  %57 = alloca %"class.ue2::CodePointSet", align 8
+  %58 = alloca %"class.ue2::CodePointSet", align 8
+  %59 = alloca %"class.ue2::CodePointSet", align 8
+  %60 = alloca %"class.ue2::CodePointSet", align 8
+  %61 = alloca %"class.ue2::CodePointSet", align 8
+  %62 = alloca %"class.ue2::CodePointSet", align 8
+  %63 = alloca %"class.ue2::CodePointSet", align 8
+  %64 = alloca %"class.ue2::CodePointSet", align 8
+  %65 = alloca %"class.ue2::CodePointSet", align 8
+  %66 = alloca %"class.ue2::CodePointSet", align 8
+  %67 = alloca %"class.ue2::CodePointSet", align 8
+  %68 = alloca %"class.ue2::CodePointSet", align 8
+  %69 = alloca %"class.ue2::CodePointSet", align 8
+  %70 = alloca %"class.ue2::CodePointSet", align 8
+  %71 = alloca %"class.ue2::CodePointSet", align 8
+  %72 = alloca %"class.ue2::CodePointSet", align 8
+  %73 = alloca %"class.ue2::CodePointSet", align 8
+  %74 = alloca %"class.ue2::CharReach", align 8
+  %75 = alloca %"class.ue2::CharReach", align 8
+  %76 = alloca %"class.ue2::CodePointSet", align 8
+  %77 = alloca %"class.ue2::CodePointSet", align 8
+  %78 = alloca %"class.ue2::CodePointSet", align 8
+  %79 = alloca %"class.ue2::CodePointSet", align 8
+  %80 = alloca %"class.ue2::CodePointSet", align 8
+  %81 = alloca %"class.ue2::CodePointSet", align 8
+  %82 = alloca %"class.ue2::CodePointSet", align 8
+  %83 = alloca %"class.ue2::CodePointSet", align 8
+  %84 = alloca %"class.ue2::CodePointSet", align 8
+  %85 = alloca %"class.ue2::CodePointSet", align 8
+  %86 = alloca %"class.ue2::CodePointSet", align 8
+  %87 = alloca %"class.ue2::CodePointSet", align 8
+  %88 = alloca %"class.ue2::CodePointSet", align 8
+  %89 = alloca %"class.ue2::CodePointSet", align 8
+  %90 = alloca %"class.ue2::CodePointSet", align 8
+  %91 = alloca %"class.ue2::CodePointSet", align 8
+  %92 = alloca %"class.ue2::CodePointSet", align 8
+  %93 = alloca %"class.ue2::CodePointSet", align 8
+  %94 = alloca %"class.ue2::CodePointSet", align 8
+  %95 = alloca %"class.ue2::CodePointSet", align 8
+  %96 = alloca %"class.ue2::CodePointSet", align 8
+  %97 = alloca %"class.ue2::CodePointSet", align 8
+  %98 = alloca %"class.ue2::CodePointSet", align 8
+  %99 = alloca %"class.ue2::CodePointSet", align 8
+  %100 = alloca %"class.ue2::CodePointSet", align 8
+  %101 = alloca %"class.ue2::CodePointSet", align 8
+  %102 = alloca %"class.ue2::CodePointSet", align 8
+  %103 = alloca %"class.ue2::CodePointSet", align 8
+  %104 = alloca %"class.ue2::CodePointSet", align 8
+  %105 = alloca %"class.ue2::CodePointSet", align 8
+  %106 = alloca %"class.ue2::CodePointSet", align 8
+  %107 = alloca %"class.ue2::CodePointSet", align 8
+  %108 = alloca %"class.ue2::CodePointSet", align 8
+  %109 = alloca %"class.ue2::CodePointSet", align 8
+  %110 = alloca %"class.ue2::CodePointSet", align 8
+  %111 = alloca %"class.ue2::CodePointSet", align 8
+  %112 = alloca %"class.ue2::CodePointSet", align 8
+  %113 = alloca %"class.ue2::CodePointSet", align 8
+  %114 = alloca %"class.ue2::CodePointSet", align 8
+  %115 = alloca %"class.ue2::CodePointSet", align 8
+  %116 = alloca %"class.ue2::CodePointSet", align 8
+  %117 = alloca %"class.ue2::CodePointSet", align 8
+  %118 = alloca %"class.ue2::CodePointSet", align 8
+  %119 = alloca %"class.ue2::CodePointSet", align 8
+  %120 = alloca %"class.ue2::CodePointSet", align 8
+  %121 = alloca %"class.ue2::CodePointSet", align 8
+  %122 = alloca %"class.ue2::CodePointSet", align 8
+  %123 = alloca %"class.ue2::CodePointSet", align 8
+  %124 = alloca %"class.ue2::CodePointSet", align 8
+  %125 = alloca %"class.ue2::CodePointSet", align 8
+  %126 = alloca %"class.ue2::CodePointSet", align 8
+  %127 = alloca %"class.ue2::CodePointSet", align 8
+  %128 = alloca %"class.ue2::CodePointSet", align 8
+  %129 = alloca %"class.ue2::CodePointSet", align 8
+  %130 = alloca %"class.ue2::CodePointSet", align 8
+  %131 = alloca %"class.ue2::CodePointSet", align 8
+  %132 = alloca %"class.ue2::CodePointSet", align 8
+  %133 = alloca %"class.ue2::CodePointSet", align 8
+  %134 = alloca %"class.ue2::CodePointSet", align 8
+  %135 = alloca %"class.ue2::CodePointSet", align 8
+  %136 = alloca %"class.ue2::CodePointSet", align 8
+  %137 = alloca %"class.ue2::CodePointSet", align 8
+  %138 = alloca %"class.ue2::CodePointSet", align 8
+  %139 = alloca %"class.ue2::CodePointSet", align 8
+  %140 = alloca %"class.ue2::CodePointSet", align 8
+  %141 = alloca %"class.ue2::CodePointSet", align 8
+  %142 = alloca %"class.ue2::CodePointSet", align 8
+  %143 = alloca %"class.ue2::CodePointSet", align 8
+  %144 = alloca %"class.ue2::CodePointSet", align 8
+  %145 = alloca %"class.ue2::CodePointSet", align 8
+  %146 = alloca %"class.ue2::CodePointSet", align 8
+  %147 = alloca %"class.ue2::CodePointSet", align 8
+  %148 = alloca %"class.ue2::CodePointSet", align 8
+  %149 = alloca %"class.ue2::CodePointSet", align 8
+  %150 = alloca %"class.ue2::CodePointSet", align 8
+  %151 = alloca %"class.ue2::CodePointSet", align 8
+  %152 = alloca %"class.ue2::CodePointSet", align 8
+  %153 = alloca %"class.ue2::CodePointSet", align 8
+  %154 = alloca %"class.ue2::CodePointSet", align 8
+  %155 = alloca %"class.ue2::CodePointSet", align 8
+  %156 = alloca %"class.ue2::CodePointSet", align 8
+  %157 = alloca %"class.ue2::CodePointSet", align 8
+  %158 = alloca %"class.ue2::CodePointSet", align 8
+  %159 = alloca %"class.ue2::CodePointSet", align 8
+  %160 = alloca %"class.ue2::CodePointSet", align 8
+  %161 = alloca %"class.ue2::CodePointSet", align 8
+  %162 = alloca %"class.ue2::CodePointSet", align 8
+  %163 = alloca %"class.ue2::CodePointSet", align 8
+  %164 = alloca %"class.ue2::CodePointSet", align 8
+  %165 = alloca %"class.ue2::CodePointSet", align 8
+  %166 = alloca %"class.ue2::CodePointSet", align 8
+  %167 = alloca %"class.ue2::CodePointSet", align 8
+  %168 = alloca %"class.ue2::CodePointSet", align 8
+  %169 = alloca %"class.ue2::CodePointSet", align 8
+  %170 = alloca %"class.ue2::CodePointSet", align 8
+  %171 = alloca %"class.ue2::CodePointSet", align 8
+  %172 = alloca %"class.ue2::CodePointSet", align 8
+  %173 = alloca %"class.ue2::CodePointSet", align 8
+  %174 = alloca %"class.ue2::CodePointSet", align 8
+  %175 = alloca %"class.ue2::CodePointSet", align 8
+  %176 = alloca %"class.ue2::CharReach", align 8
+  store i32 %1, ptr %4, align 4
+  store ptr %2, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %6) #17
+  call void @_ZN3ue29CharReachC2Ehh(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 noundef zeroext 97, i8 noundef zeroext 122)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %7) #17
+  call void @_ZN3ue29CharReachC2Ehh(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 noundef zeroext 65, i8 noundef zeroext 90)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %8) #17
+  call void @_ZN3ue29CharReachC2Ehh(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 noundef zeroext 48, i8 noundef zeroext 57)
+  %177 = load i32, ptr %4, align 4
+  switch i32 %177, label %1106 [
+    i32 0, label %178
+    i32 1, label %179
+    i32 2, label %180
+    i32 3, label %187
+    i32 4, label %188
+    i32 5, label %200
+    i32 6, label %201
+    i32 7, label %202
+    i32 17, label %203
+    i32 8, label %211
+    i32 9, label %223
+    i32 10, label %230
+    i32 18, label %231
+    i32 11, label %239
+    i32 19, label %240
+    i32 12, label %248
+    i32 13, label %260
+    i32 14, label %267
+    i32 15, label %279
+    i32 16, label %280
+    i32 20, label %292
+    i32 21, label %298
+    i32 22, label %304
+    i32 23, label %310
+    i32 24, label %316
+    i32 25, label %322
+    i32 26, label %328
+    i32 32, label %334
+    i32 27, label %340
+    i32 28, label %346
+    i32 29, label %352
+    i32 30, label %358
+    i32 31, label %364
+    i32 33, label %370
+    i32 34, label %376
+    i32 35, label %382
+    i32 36, label %388
+    i32 37, label %394
+    i32 38, label %400
+    i32 39, label %406
+    i32 40, label %412
+    i32 41, label %418
+    i32 42, label %424
+    i32 43, label %430
+    i32 44, label %436
+    i32 45, label %442
+    i32 46, label %448
+    i32 47, label %454
+    i32 48, label %460
+    i32 49, label %466
+    i32 50, label %472
+    i32 51, label %478
+    i32 52, label %484
+    i32 53, label %490
+    i32 58, label %496
+    i32 59, label %502
+    i32 60, label %502
+    i32 61, label %505
+    i32 54, label %511
+    i32 55, label %517
+    i32 56, label %523
+    i32 57, label %529
+    i32 62, label %535
+    i32 63, label %541
+    i32 64, label %547
+    i32 65, label %553
+    i32 66, label %559
+    i32 67, label %565
+    i32 68, label %571
+    i32 69, label %577
+    i32 70, label %583
+    i32 71, label %589
+    i32 72, label %595
+    i32 73, label %601
+    i32 74, label %607
+    i32 75, label %613
+    i32 76, label %619
+    i32 77, label %625
+    i32 78, label %631
+    i32 79, label %637
+    i32 80, label %643
+    i32 81, label %649
+    i32 82, label %655
+    i32 83, label %661
+    i32 84, label %667
+    i32 85, label %673
+    i32 86, label %679
+    i32 87, label %685
+    i32 88, label %691
+    i32 89, label %697
+    i32 90, label %703
+    i32 91, label %709
+    i32 92, label %715
+    i32 93, label %721
+    i32 94, label %727
+    i32 95, label %733
+    i32 96, label %739
+    i32 97, label %745
+    i32 98, label %751
+    i32 99, label %757
+    i32 100, label %763
+    i32 101, label %769
+    i32 102, label %775
+    i32 103, label %781
+    i32 104, label %787
+    i32 105, label %793
+    i32 106, label %799
+    i32 107, label %805
+    i32 108, label %811
+    i32 109, label %817
+    i32 110, label %823
+    i32 111, label %829
+    i32 112, label %835
+    i32 113, label %841
+    i32 114, label %847
+    i32 115, label %853
+    i32 116, label %859
+    i32 117, label %865
+    i32 118, label %871
+    i32 119, label %877
+    i32 120, label %883
+    i32 121, label %889
+    i32 122, label %895
+    i32 123, label %901
+    i32 124, label %907
+    i32 125, label %913
+    i32 126, label %919
+    i32 127, label %925
+    i32 128, label %931
+    i32 129, label %937
+    i32 130, label %943
+    i32 131, label %949
+    i32 132, label %955
+    i32 133, label %961
+    i32 134, label %967
+    i32 135, label %973
+    i32 136, label %979
+    i32 137, label %985
+    i32 138, label %991
+    i32 139, label %997
+    i32 140, label %1003
+    i32 141, label %1009
+    i32 142, label %1015
+    i32 143, label %1021
+    i32 144, label %1027
+    i32 145, label %1033
+    i32 146, label %1039
+    i32 147, label %1045
+    i32 148, label %1051
+    i32 149, label %1057
+    i32 150, label %1063
+    i32 151, label %1069
+    i32 152, label %1075
+    i32 153, label %1081
+    i32 154, label %1087
+    i32 155, label %1093
+    i32 156, label %1099
+    i32 157, label %1105
   ]
 
-sw.bb:                                            ; preds = %entry
-  call void @_ZNK3ue29CharReachorERKS0_(ptr sret(%"class.ue2::CharReach") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %lower, ptr noundef nonnull align 8 dereferenceable(32) %upper)
-  call void @_ZNK3ue29CharReachorERKS0_(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %number)
-  br label %return
-
-sw.bb1:                                           ; preds = %entry
-  call void @_ZNK3ue29CharReachorERKS0_(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %lower, ptr noundef nonnull align 8 dereferenceable(32) %upper)
-  br label %return
-
-sw.bb2:                                           ; preds = %entry
-  %1 = load ptr, ptr %mode.addr, align 8
-  %dotall = getelementptr inbounds %"struct.ue2::ParseMode", ptr %1, i32 0, i32 1
-  %2 = load i8, ptr %dotall, align 1
-  %tobool = trunc i8 %2 to i1
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %sw.bb2
-  call void @_ZN3ue29CharReachC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3)
-  call void @_ZNK3ue29CharReachcoEv(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3)
-  br label %return
-
-if.else:                                          ; preds = %sw.bb2
-  call void @_ZN3ue29CharReachC2Eh(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, i8 noundef zeroext 10)
-  call void @_ZNK3ue29CharReachcoEv(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4)
-  br label %return
-
-sw.bb5:                                           ; preds = %entry
-  call void @_ZN3ue29CharReachC2Ehh(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef zeroext 0, i8 noundef zeroext 127)
-  br label %return
-
-sw.bb6:                                           ; preds = %entry
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7, ptr noundef @.str, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %sw.bb6
-  invoke void @_ZN3ue29CharReachC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7)
-          to label %invoke.cont10 unwind label %lpad9
-
-invoke.cont10:                                    ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #13
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #13
-  br label %return
-
-lpad:                                             ; preds = %sw.bb6
-  %3 = landingpad { ptr, i32 }
-          cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
-  br label %ehcleanup
-
-lpad9:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
-          cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #13
-  br label %ehcleanup
-
-ehcleanup:                                        ; preds = %lpad9, %lpad
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #13
-  br label %eh.resume
-
-sw.bb11:                                          ; preds = %entry
-  call void @_ZN3ue29CharReachC2Ehh(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12, i8 noundef zeroext 0, i8 noundef zeroext 31)
-  call void @_ZN3ue29CharReachC2Eh(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, i8 noundef zeroext 127)
-  call void @_ZNK3ue29CharReachorERKS0_(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13)
-  br label %return
-
-sw.bb14:                                          ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.result, ptr align 8 %number, i64 32, i1 false)
-  br label %return
-
-sw.bb15:                                          ; preds = %entry
-  call void @_ZN3ue29CharReachC2Ehh(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef zeroext 33, i8 noundef zeroext 126)
-  br label %return
-
-sw.bb16:                                          ; preds = %entry
-  %9 = load i32, ptr %c.addr, align 4
-  %10 = load ptr, ptr %mode.addr, align 8
-  call void @_ZN3ue225getPredefinedCodePointSetENS_15PredefinedClassERKNS_9ParseModeE(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp17, i32 noundef %9, ptr noundef nonnull align 1 dereferenceable(6) %10)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp17)
-          to label %invoke.cont19 unwind label %lpad18
-
-invoke.cont19:                                    ; preds = %sw.bb16
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp17) #13
-  br label %return
-
-lpad18:                                           ; preds = %sw.bb16
-  %11 = landingpad { ptr, i32 }
-          cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp17) #13
-  br label %eh.resume
-
-sw.bb21:                                          ; preds = %entry
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23) #13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22, ptr noundef @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23)
-          to label %invoke.cont25 unwind label %lpad24
-
-invoke.cont25:                                    ; preds = %sw.bb21
-  invoke void @_ZN3ue29CharReachC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22)
-          to label %invoke.cont27 unwind label %lpad26
-
-invoke.cont27:                                    ; preds = %invoke.cont25
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #13
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23) #13
-  br label %return
-
-lpad24:                                           ; preds = %sw.bb21
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
-  br label %ehcleanup29
-
-lpad26:                                           ; preds = %invoke.cont25
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #13
-  br label %ehcleanup29
-
-ehcleanup29:                                      ; preds = %lpad26, %lpad24
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23) #13
-  br label %eh.resume
-
-sw.bb30:                                          ; preds = %entry
-  %20 = load ptr, ptr %mode.addr, align 8
-  %caseless = getelementptr inbounds %"struct.ue2::ParseMode", ptr %20, i32 0, i32 0
-  %21 = load i8, ptr %caseless, align 1
-  %tobool31 = trunc i8 %21 to i1
-  br i1 %tobool31, label %if.then32, label %if.else33
-
-if.then32:                                        ; preds = %sw.bb30
-  call void @_ZNK3ue29CharReachorERKS0_(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %lower, ptr noundef nonnull align 8 dereferenceable(32) %upper)
-  br label %return
-
-if.else33:                                        ; preds = %sw.bb30
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.result, ptr align 8 %lower, i64 32, i1 false)
-  br label %return
-
-sw.bb34:                                          ; preds = %entry
-  call void @_ZN3ue29CharReachC2Ehh(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef zeroext 32, i8 noundef zeroext 126)
-  br label %return
-
-sw.bb35:                                          ; preds = %entry
-  %22 = load i32, ptr %c.addr, align 4
-  %23 = load ptr, ptr %mode.addr, align 8
-  call void @_ZN3ue225getPredefinedCodePointSetENS_15PredefinedClassERKNS_9ParseModeE(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp36, i32 noundef %22, ptr noundef nonnull align 1 dereferenceable(6) %23)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp36)
-          to label %invoke.cont38 unwind label %lpad37
-
-invoke.cont38:                                    ; preds = %sw.bb35
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp36) #13
-  br label %return
-
-lpad37:                                           ; preds = %sw.bb35
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %exn.slot, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp36) #13
-  br label %eh.resume
-
-sw.bb40:                                          ; preds = %entry
-  call void @_ZN3ue29CharReachC2Ehh(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43, i8 noundef zeroext 33, i8 noundef zeroext 47)
-  call void @_ZN3ue29CharReachC2Ehh(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44, i8 noundef zeroext 58, i8 noundef zeroext 64)
-  call void @_ZNK3ue29CharReachorERKS0_(ptr sret(%"class.ue2::CharReach") align 8 %ref.tmp42, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44)
-  call void @_ZN3ue29CharReachC2Ehh(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp45, i8 noundef zeroext 91, i8 noundef zeroext 96)
-  call void @_ZNK3ue29CharReachorERKS0_(ptr sret(%"class.ue2::CharReach") align 8 %ref.tmp41, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp42, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp45)
-  call void @_ZN3ue29CharReachC2Ehh(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp46, i8 noundef zeroext 123, i8 noundef zeroext 126)
-  call void @_ZNK3ue29CharReachorERKS0_(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp41, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp46)
-  br label %return
-
-sw.bb47:                                          ; preds = %entry
-  %27 = load i32, ptr %c.addr, align 4
-  %28 = load ptr, ptr %mode.addr, align 8
-  call void @_ZN3ue225getPredefinedCodePointSetENS_15PredefinedClassERKNS_9ParseModeE(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp48, i32 noundef %27, ptr noundef nonnull align 1 dereferenceable(6) %28)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp48)
-          to label %invoke.cont50 unwind label %lpad49
-
-invoke.cont50:                                    ; preds = %sw.bb47
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp48) #13
-  br label %return
-
-lpad49:                                           ; preds = %sw.bb47
-  %29 = landingpad { ptr, i32 }
-          cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %exn.slot, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp48) #13
-  br label %eh.resume
-
-sw.bb52:                                          ; preds = %entry
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp54) #13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp53, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp54)
-          to label %invoke.cont56 unwind label %lpad55
-
-invoke.cont56:                                    ; preds = %sw.bb52
-  invoke void @_ZN3ue29CharReachC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp53)
-          to label %invoke.cont58 unwind label %lpad57
-
-invoke.cont58:                                    ; preds = %invoke.cont56
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp53) #13
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp54) #13
-  br label %return
-
-lpad55:                                           ; preds = %sw.bb52
-  %32 = landingpad { ptr, i32 }
-          cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %exn.slot, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %ehselector.slot, align 4
-  br label %ehcleanup60
-
-lpad57:                                           ; preds = %invoke.cont56
-  %35 = landingpad { ptr, i32 }
-          cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %exn.slot, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %ehselector.slot, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp53) #13
-  br label %ehcleanup60
-
-ehcleanup60:                                      ; preds = %lpad57, %lpad55
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp54) #13
-  br label %eh.resume
-
-sw.bb61:                                          ; preds = %entry
-  %38 = load ptr, ptr %mode.addr, align 8
-  %caseless62 = getelementptr inbounds %"struct.ue2::ParseMode", ptr %38, i32 0, i32 0
-  %39 = load i8, ptr %caseless62, align 1
-  %tobool63 = trunc i8 %39 to i1
-  br i1 %tobool63, label %if.then64, label %if.else65
-
-if.then64:                                        ; preds = %sw.bb61
-  call void @_ZNK3ue29CharReachorERKS0_(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %lower, ptr noundef nonnull align 8 dereferenceable(32) %upper)
-  br label %return
-
-if.else65:                                        ; preds = %sw.bb61
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.result, ptr align 8 %upper, i64 32, i1 false)
-  br label %return
-
-sw.bb66:                                          ; preds = %entry
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp68) #13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp68)
-          to label %invoke.cont70 unwind label %lpad69
-
-invoke.cont70:                                    ; preds = %sw.bb66
-  invoke void @_ZN3ue29CharReachC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67)
-          to label %invoke.cont72 unwind label %lpad71
-
-invoke.cont72:                                    ; preds = %invoke.cont70
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67) #13
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp68) #13
-  br label %return
-
-lpad69:                                           ; preds = %sw.bb66
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %exn.slot, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %ehselector.slot, align 4
-  br label %ehcleanup74
-
-lpad71:                                           ; preds = %invoke.cont70
-  %43 = landingpad { ptr, i32 }
-          cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %exn.slot, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %ehselector.slot, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67) #13
-  br label %ehcleanup74
-
-ehcleanup74:                                      ; preds = %lpad71, %lpad69
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp68) #13
-  br label %eh.resume
-
-sw.bb75:                                          ; preds = %entry
-  call void @_ZNK3ue29CharReachorERKS0_(ptr sret(%"class.ue2::CharReach") align 8 %ref.tmp77, ptr noundef nonnull align 8 dereferenceable(32) %lower, ptr noundef nonnull align 8 dereferenceable(32) %upper)
-  call void @_ZNK3ue29CharReachorERKS0_(ptr sret(%"class.ue2::CharReach") align 8 %ref.tmp76, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp77, ptr noundef nonnull align 8 dereferenceable(32) %number)
-  call void @_ZN3ue29CharReachC2Eh(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp78, i8 noundef zeroext 95)
-  call void @_ZNK3ue29CharReachorERKS0_(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp78)
-  br label %return
-
-sw.bb79:                                          ; preds = %entry
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp81) #13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80, ptr noundef @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp81)
-          to label %invoke.cont83 unwind label %lpad82
-
-invoke.cont83:                                    ; preds = %sw.bb79
-  invoke void @_ZN3ue29CharReachC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80)
-          to label %invoke.cont85 unwind label %lpad84
-
-invoke.cont85:                                    ; preds = %invoke.cont83
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80) #13
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp81) #13
-  br label %return
-
-lpad82:                                           ; preds = %sw.bb79
-  %46 = landingpad { ptr, i32 }
-          cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %exn.slot, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %ehselector.slot, align 4
-  br label %ehcleanup87
-
-lpad84:                                           ; preds = %invoke.cont83
-  %49 = landingpad { ptr, i32 }
-          cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %exn.slot, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %ehselector.slot, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80) #13
-  br label %ehcleanup87
-
-ehcleanup87:                                      ; preds = %lpad84, %lpad82
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp81) #13
-  br label %eh.resume
-
-sw.bb88:                                          ; preds = %entry
-  call void @_ZN3ue27getUcpCEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp89)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp89)
-          to label %invoke.cont91 unwind label %lpad90
-
-invoke.cont91:                                    ; preds = %sw.bb88
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp89) #13
-  br label %return
-
-lpad90:                                           ; preds = %sw.bb88
-  %52 = landingpad { ptr, i32 }
-          cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %exn.slot, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp89) #13
-  br label %eh.resume
-
-sw.bb93:                                          ; preds = %entry
-  call void @_ZN3ue28getUcpCcEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp94)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp94)
-          to label %invoke.cont96 unwind label %lpad95
-
-invoke.cont96:                                    ; preds = %sw.bb93
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp94) #13
-  br label %return
-
-lpad95:                                           ; preds = %sw.bb93
-  %55 = landingpad { ptr, i32 }
-          cleanup
-  %56 = extractvalue { ptr, i32 } %55, 0
-  store ptr %56, ptr %exn.slot, align 8
-  %57 = extractvalue { ptr, i32 } %55, 1
-  store i32 %57, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp94) #13
-  br label %eh.resume
-
-sw.bb98:                                          ; preds = %entry
-  call void @_ZN3ue28getUcpCfEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp99)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp99)
-          to label %invoke.cont101 unwind label %lpad100
-
-invoke.cont101:                                   ; preds = %sw.bb98
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp99) #13
-  br label %return
-
-lpad100:                                          ; preds = %sw.bb98
-  %58 = landingpad { ptr, i32 }
-          cleanup
-  %59 = extractvalue { ptr, i32 } %58, 0
-  store ptr %59, ptr %exn.slot, align 8
-  %60 = extractvalue { ptr, i32 } %58, 1
-  store i32 %60, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp99) #13
-  br label %eh.resume
-
-sw.bb103:                                         ; preds = %entry
-  call void @_ZN3ue28getUcpCnEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp104)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp104)
-          to label %invoke.cont106 unwind label %lpad105
-
-invoke.cont106:                                   ; preds = %sw.bb103
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp104) #13
-  br label %return
-
-lpad105:                                          ; preds = %sw.bb103
-  %61 = landingpad { ptr, i32 }
-          cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  store ptr %62, ptr %exn.slot, align 8
-  %63 = extractvalue { ptr, i32 } %61, 1
-  store i32 %63, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp104) #13
-  br label %eh.resume
-
-sw.bb108:                                         ; preds = %entry
-  call void @_ZN3ue28getUcpCoEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp109)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp109)
-          to label %invoke.cont111 unwind label %lpad110
-
-invoke.cont111:                                   ; preds = %sw.bb108
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp109) #13
-  br label %return
-
-lpad110:                                          ; preds = %sw.bb108
-  %64 = landingpad { ptr, i32 }
-          cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %exn.slot, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp109) #13
-  br label %eh.resume
-
-sw.bb113:                                         ; preds = %entry
-  call void @_ZN3ue28getUcpCsEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp114)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp114)
-          to label %invoke.cont116 unwind label %lpad115
-
-invoke.cont116:                                   ; preds = %sw.bb113
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp114) #13
-  br label %return
-
-lpad115:                                          ; preds = %sw.bb113
-  %67 = landingpad { ptr, i32 }
-          cleanup
-  %68 = extractvalue { ptr, i32 } %67, 0
-  store ptr %68, ptr %exn.slot, align 8
-  %69 = extractvalue { ptr, i32 } %67, 1
-  store i32 %69, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp114) #13
-  br label %eh.resume
-
-sw.bb118:                                         ; preds = %entry
-  call void @_ZN3ue27getUcpLEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp119)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp119)
-          to label %invoke.cont121 unwind label %lpad120
-
-invoke.cont121:                                   ; preds = %sw.bb118
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp119) #13
-  br label %return
-
-lpad120:                                          ; preds = %sw.bb118
-  %70 = landingpad { ptr, i32 }
-          cleanup
-  %71 = extractvalue { ptr, i32 } %70, 0
-  store ptr %71, ptr %exn.slot, align 8
-  %72 = extractvalue { ptr, i32 } %70, 1
-  store i32 %72, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp119) #13
-  br label %eh.resume
-
-sw.bb123:                                         ; preds = %entry
-  call void @_ZN3ue211getUcpL_andEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp124)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp124)
-          to label %invoke.cont126 unwind label %lpad125
-
-invoke.cont126:                                   ; preds = %sw.bb123
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp124) #13
-  br label %return
-
-lpad125:                                          ; preds = %sw.bb123
-  %73 = landingpad { ptr, i32 }
-          cleanup
-  %74 = extractvalue { ptr, i32 } %73, 0
-  store ptr %74, ptr %exn.slot, align 8
-  %75 = extractvalue { ptr, i32 } %73, 1
-  store i32 %75, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp124) #13
-  br label %eh.resume
-
-sw.bb128:                                         ; preds = %entry
-  call void @_ZN3ue28getUcpLlEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp129)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp129)
-          to label %invoke.cont131 unwind label %lpad130
-
-invoke.cont131:                                   ; preds = %sw.bb128
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp129) #13
-  br label %return
-
-lpad130:                                          ; preds = %sw.bb128
-  %76 = landingpad { ptr, i32 }
-          cleanup
-  %77 = extractvalue { ptr, i32 } %76, 0
-  store ptr %77, ptr %exn.slot, align 8
-  %78 = extractvalue { ptr, i32 } %76, 1
-  store i32 %78, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp129) #13
-  br label %eh.resume
-
-sw.bb133:                                         ; preds = %entry
-  call void @_ZN3ue28getUcpLmEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp134)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp134)
-          to label %invoke.cont136 unwind label %lpad135
-
-invoke.cont136:                                   ; preds = %sw.bb133
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp134) #13
-  br label %return
-
-lpad135:                                          ; preds = %sw.bb133
-  %79 = landingpad { ptr, i32 }
-          cleanup
-  %80 = extractvalue { ptr, i32 } %79, 0
-  store ptr %80, ptr %exn.slot, align 8
-  %81 = extractvalue { ptr, i32 } %79, 1
-  store i32 %81, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp134) #13
-  br label %eh.resume
-
-sw.bb138:                                         ; preds = %entry
-  call void @_ZN3ue28getUcpLoEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp139)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp139)
-          to label %invoke.cont141 unwind label %lpad140
-
-invoke.cont141:                                   ; preds = %sw.bb138
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp139) #13
-  br label %return
-
-lpad140:                                          ; preds = %sw.bb138
-  %82 = landingpad { ptr, i32 }
-          cleanup
-  %83 = extractvalue { ptr, i32 } %82, 0
-  store ptr %83, ptr %exn.slot, align 8
-  %84 = extractvalue { ptr, i32 } %82, 1
-  store i32 %84, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp139) #13
-  br label %eh.resume
-
-sw.bb143:                                         ; preds = %entry
-  call void @_ZN3ue28getUcpLtEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp144)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp144)
-          to label %invoke.cont146 unwind label %lpad145
-
-invoke.cont146:                                   ; preds = %sw.bb143
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp144) #13
-  br label %return
-
-lpad145:                                          ; preds = %sw.bb143
-  %85 = landingpad { ptr, i32 }
-          cleanup
-  %86 = extractvalue { ptr, i32 } %85, 0
-  store ptr %86, ptr %exn.slot, align 8
-  %87 = extractvalue { ptr, i32 } %85, 1
-  store i32 %87, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp144) #13
-  br label %eh.resume
-
-sw.bb148:                                         ; preds = %entry
-  call void @_ZN3ue28getUcpLuEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp149)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp149)
-          to label %invoke.cont151 unwind label %lpad150
-
-invoke.cont151:                                   ; preds = %sw.bb148
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp149) #13
-  br label %return
-
-lpad150:                                          ; preds = %sw.bb148
-  %88 = landingpad { ptr, i32 }
-          cleanup
-  %89 = extractvalue { ptr, i32 } %88, 0
-  store ptr %89, ptr %exn.slot, align 8
-  %90 = extractvalue { ptr, i32 } %88, 1
-  store i32 %90, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp149) #13
-  br label %eh.resume
-
-sw.bb153:                                         ; preds = %entry
-  call void @_ZN3ue27getUcpMEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp154)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp154)
-          to label %invoke.cont156 unwind label %lpad155
-
-invoke.cont156:                                   ; preds = %sw.bb153
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp154) #13
-  br label %return
-
-lpad155:                                          ; preds = %sw.bb153
-  %91 = landingpad { ptr, i32 }
-          cleanup
-  %92 = extractvalue { ptr, i32 } %91, 0
-  store ptr %92, ptr %exn.slot, align 8
-  %93 = extractvalue { ptr, i32 } %91, 1
-  store i32 %93, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp154) #13
-  br label %eh.resume
-
-sw.bb158:                                         ; preds = %entry
-  call void @_ZN3ue28getUcpMcEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp159)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp159)
-          to label %invoke.cont161 unwind label %lpad160
-
-invoke.cont161:                                   ; preds = %sw.bb158
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp159) #13
-  br label %return
-
-lpad160:                                          ; preds = %sw.bb158
-  %94 = landingpad { ptr, i32 }
-          cleanup
-  %95 = extractvalue { ptr, i32 } %94, 0
-  store ptr %95, ptr %exn.slot, align 8
-  %96 = extractvalue { ptr, i32 } %94, 1
-  store i32 %96, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp159) #13
-  br label %eh.resume
-
-sw.bb163:                                         ; preds = %entry
-  call void @_ZN3ue28getUcpMeEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp164)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp164)
-          to label %invoke.cont166 unwind label %lpad165
-
-invoke.cont166:                                   ; preds = %sw.bb163
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp164) #13
-  br label %return
-
-lpad165:                                          ; preds = %sw.bb163
-  %97 = landingpad { ptr, i32 }
-          cleanup
-  %98 = extractvalue { ptr, i32 } %97, 0
-  store ptr %98, ptr %exn.slot, align 8
-  %99 = extractvalue { ptr, i32 } %97, 1
-  store i32 %99, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp164) #13
-  br label %eh.resume
-
-sw.bb168:                                         ; preds = %entry
-  call void @_ZN3ue28getUcpMnEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp169)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp169)
-          to label %invoke.cont171 unwind label %lpad170
-
-invoke.cont171:                                   ; preds = %sw.bb168
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp169) #13
-  br label %return
-
-lpad170:                                          ; preds = %sw.bb168
-  %100 = landingpad { ptr, i32 }
-          cleanup
-  %101 = extractvalue { ptr, i32 } %100, 0
-  store ptr %101, ptr %exn.slot, align 8
-  %102 = extractvalue { ptr, i32 } %100, 1
-  store i32 %102, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp169) #13
-  br label %eh.resume
-
-sw.bb173:                                         ; preds = %entry
-  call void @_ZN3ue27getUcpNEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp174)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp174)
-          to label %invoke.cont176 unwind label %lpad175
-
-invoke.cont176:                                   ; preds = %sw.bb173
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp174) #13
-  br label %return
-
-lpad175:                                          ; preds = %sw.bb173
-  %103 = landingpad { ptr, i32 }
-          cleanup
-  %104 = extractvalue { ptr, i32 } %103, 0
-  store ptr %104, ptr %exn.slot, align 8
-  %105 = extractvalue { ptr, i32 } %103, 1
-  store i32 %105, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp174) #13
-  br label %eh.resume
-
-sw.bb178:                                         ; preds = %entry
-  call void @_ZN3ue28getUcpNdEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp179)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp179)
-          to label %invoke.cont181 unwind label %lpad180
-
-invoke.cont181:                                   ; preds = %sw.bb178
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp179) #13
-  br label %return
-
-lpad180:                                          ; preds = %sw.bb178
-  %106 = landingpad { ptr, i32 }
-          cleanup
-  %107 = extractvalue { ptr, i32 } %106, 0
-  store ptr %107, ptr %exn.slot, align 8
-  %108 = extractvalue { ptr, i32 } %106, 1
-  store i32 %108, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp179) #13
-  br label %eh.resume
-
-sw.bb183:                                         ; preds = %entry
-  call void @_ZN3ue28getUcpNlEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp184)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp184)
-          to label %invoke.cont186 unwind label %lpad185
-
-invoke.cont186:                                   ; preds = %sw.bb183
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp184) #13
-  br label %return
-
-lpad185:                                          ; preds = %sw.bb183
-  %109 = landingpad { ptr, i32 }
-          cleanup
-  %110 = extractvalue { ptr, i32 } %109, 0
-  store ptr %110, ptr %exn.slot, align 8
-  %111 = extractvalue { ptr, i32 } %109, 1
-  store i32 %111, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp184) #13
-  br label %eh.resume
-
-sw.bb188:                                         ; preds = %entry
-  call void @_ZN3ue28getUcpNoEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp189)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp189)
-          to label %invoke.cont191 unwind label %lpad190
-
-invoke.cont191:                                   ; preds = %sw.bb188
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp189) #13
-  br label %return
-
-lpad190:                                          ; preds = %sw.bb188
-  %112 = landingpad { ptr, i32 }
-          cleanup
-  %113 = extractvalue { ptr, i32 } %112, 0
-  store ptr %113, ptr %exn.slot, align 8
-  %114 = extractvalue { ptr, i32 } %112, 1
-  store i32 %114, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp189) #13
-  br label %eh.resume
-
-sw.bb193:                                         ; preds = %entry
-  call void @_ZN3ue27getUcpPEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp194)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp194)
-          to label %invoke.cont196 unwind label %lpad195
-
-invoke.cont196:                                   ; preds = %sw.bb193
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp194) #13
-  br label %return
-
-lpad195:                                          ; preds = %sw.bb193
-  %115 = landingpad { ptr, i32 }
-          cleanup
-  %116 = extractvalue { ptr, i32 } %115, 0
-  store ptr %116, ptr %exn.slot, align 8
-  %117 = extractvalue { ptr, i32 } %115, 1
-  store i32 %117, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp194) #13
-  br label %eh.resume
-
-sw.bb198:                                         ; preds = %entry
-  call void @_ZN3ue28getUcpPcEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp199)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp199)
-          to label %invoke.cont201 unwind label %lpad200
-
-invoke.cont201:                                   ; preds = %sw.bb198
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp199) #13
-  br label %return
-
-lpad200:                                          ; preds = %sw.bb198
-  %118 = landingpad { ptr, i32 }
-          cleanup
-  %119 = extractvalue { ptr, i32 } %118, 0
-  store ptr %119, ptr %exn.slot, align 8
-  %120 = extractvalue { ptr, i32 } %118, 1
-  store i32 %120, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp199) #13
-  br label %eh.resume
-
-sw.bb203:                                         ; preds = %entry
-  call void @_ZN3ue28getUcpPdEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp204)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp204)
-          to label %invoke.cont206 unwind label %lpad205
-
-invoke.cont206:                                   ; preds = %sw.bb203
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp204) #13
-  br label %return
-
-lpad205:                                          ; preds = %sw.bb203
-  %121 = landingpad { ptr, i32 }
-          cleanup
-  %122 = extractvalue { ptr, i32 } %121, 0
-  store ptr %122, ptr %exn.slot, align 8
-  %123 = extractvalue { ptr, i32 } %121, 1
-  store i32 %123, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp204) #13
-  br label %eh.resume
-
-sw.bb208:                                         ; preds = %entry
-  call void @_ZN3ue28getUcpPeEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp209)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp209)
-          to label %invoke.cont211 unwind label %lpad210
-
-invoke.cont211:                                   ; preds = %sw.bb208
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp209) #13
-  br label %return
-
-lpad210:                                          ; preds = %sw.bb208
-  %124 = landingpad { ptr, i32 }
-          cleanup
-  %125 = extractvalue { ptr, i32 } %124, 0
-  store ptr %125, ptr %exn.slot, align 8
-  %126 = extractvalue { ptr, i32 } %124, 1
-  store i32 %126, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp209) #13
-  br label %eh.resume
-
-sw.bb213:                                         ; preds = %entry
-  call void @_ZN3ue28getUcpPfEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp214)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp214)
-          to label %invoke.cont216 unwind label %lpad215
-
-invoke.cont216:                                   ; preds = %sw.bb213
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp214) #13
-  br label %return
-
-lpad215:                                          ; preds = %sw.bb213
-  %127 = landingpad { ptr, i32 }
-          cleanup
-  %128 = extractvalue { ptr, i32 } %127, 0
-  store ptr %128, ptr %exn.slot, align 8
-  %129 = extractvalue { ptr, i32 } %127, 1
-  store i32 %129, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp214) #13
-  br label %eh.resume
-
-sw.bb218:                                         ; preds = %entry
-  call void @_ZN3ue28getUcpPiEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp219)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp219)
-          to label %invoke.cont221 unwind label %lpad220
-
-invoke.cont221:                                   ; preds = %sw.bb218
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp219) #13
-  br label %return
-
-lpad220:                                          ; preds = %sw.bb218
-  %130 = landingpad { ptr, i32 }
-          cleanup
-  %131 = extractvalue { ptr, i32 } %130, 0
-  store ptr %131, ptr %exn.slot, align 8
-  %132 = extractvalue { ptr, i32 } %130, 1
-  store i32 %132, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp219) #13
-  br label %eh.resume
-
-sw.bb223:                                         ; preds = %entry
-  call void @_ZN3ue28getUcpPoEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp224)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp224)
-          to label %invoke.cont226 unwind label %lpad225
-
-invoke.cont226:                                   ; preds = %sw.bb223
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp224) #13
-  br label %return
-
-lpad225:                                          ; preds = %sw.bb223
-  %133 = landingpad { ptr, i32 }
-          cleanup
-  %134 = extractvalue { ptr, i32 } %133, 0
-  store ptr %134, ptr %exn.slot, align 8
-  %135 = extractvalue { ptr, i32 } %133, 1
-  store i32 %135, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp224) #13
-  br label %eh.resume
-
-sw.bb228:                                         ; preds = %entry
-  call void @_ZN3ue28getUcpPsEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp229)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp229)
-          to label %invoke.cont231 unwind label %lpad230
-
-invoke.cont231:                                   ; preds = %sw.bb228
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp229) #13
-  br label %return
-
-lpad230:                                          ; preds = %sw.bb228
-  %136 = landingpad { ptr, i32 }
-          cleanup
-  %137 = extractvalue { ptr, i32 } %136, 0
-  store ptr %137, ptr %exn.slot, align 8
-  %138 = extractvalue { ptr, i32 } %136, 1
-  store i32 %138, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp229) #13
-  br label %eh.resume
-
-sw.bb233:                                         ; preds = %entry
-  call void @_ZN3ue27getUcpSEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp234)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp234)
-          to label %invoke.cont236 unwind label %lpad235
-
-invoke.cont236:                                   ; preds = %sw.bb233
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp234) #13
-  br label %return
-
-lpad235:                                          ; preds = %sw.bb233
-  %139 = landingpad { ptr, i32 }
-          cleanup
-  %140 = extractvalue { ptr, i32 } %139, 0
-  store ptr %140, ptr %exn.slot, align 8
-  %141 = extractvalue { ptr, i32 } %139, 1
-  store i32 %141, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp234) #13
-  br label %eh.resume
-
-sw.bb238:                                         ; preds = %entry
-  call void @_ZN3ue28getUcpScEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp239)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp239)
-          to label %invoke.cont241 unwind label %lpad240
-
-invoke.cont241:                                   ; preds = %sw.bb238
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp239) #13
-  br label %return
-
-lpad240:                                          ; preds = %sw.bb238
-  %142 = landingpad { ptr, i32 }
-          cleanup
-  %143 = extractvalue { ptr, i32 } %142, 0
-  store ptr %143, ptr %exn.slot, align 8
-  %144 = extractvalue { ptr, i32 } %142, 1
-  store i32 %144, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp239) #13
-  br label %eh.resume
-
-sw.bb243:                                         ; preds = %entry
-  call void @_ZN3ue28getUcpSkEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp244)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp244)
-          to label %invoke.cont246 unwind label %lpad245
-
-invoke.cont246:                                   ; preds = %sw.bb243
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp244) #13
-  br label %return
-
-lpad245:                                          ; preds = %sw.bb243
-  %145 = landingpad { ptr, i32 }
-          cleanup
-  %146 = extractvalue { ptr, i32 } %145, 0
-  store ptr %146, ptr %exn.slot, align 8
-  %147 = extractvalue { ptr, i32 } %145, 1
-  store i32 %147, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp244) #13
-  br label %eh.resume
-
-sw.bb248:                                         ; preds = %entry
-  call void @_ZN3ue28getUcpSmEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp249)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp249)
-          to label %invoke.cont251 unwind label %lpad250
-
-invoke.cont251:                                   ; preds = %sw.bb248
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp249) #13
-  br label %return
-
-lpad250:                                          ; preds = %sw.bb248
-  %148 = landingpad { ptr, i32 }
-          cleanup
-  %149 = extractvalue { ptr, i32 } %148, 0
-  store ptr %149, ptr %exn.slot, align 8
-  %150 = extractvalue { ptr, i32 } %148, 1
-  store i32 %150, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp249) #13
-  br label %eh.resume
-
-sw.bb253:                                         ; preds = %entry
-  call void @_ZN3ue28getUcpSoEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp254)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp254)
-          to label %invoke.cont256 unwind label %lpad255
-
-invoke.cont256:                                   ; preds = %sw.bb253
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp254) #13
-  br label %return
-
-lpad255:                                          ; preds = %sw.bb253
-  %151 = landingpad { ptr, i32 }
-          cleanup
-  %152 = extractvalue { ptr, i32 } %151, 0
-  store ptr %152, ptr %exn.slot, align 8
-  %153 = extractvalue { ptr, i32 } %151, 1
-  store i32 %153, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp254) #13
-  br label %eh.resume
-
-sw.bb258:                                         ; preds = %entry
-  call void @_ZN3ue29getUcpXanEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp259)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp259)
-          to label %invoke.cont261 unwind label %lpad260
-
-invoke.cont261:                                   ; preds = %sw.bb258
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp259) #13
-  br label %return
-
-lpad260:                                          ; preds = %sw.bb258
-  %154 = landingpad { ptr, i32 }
-          cleanup
-  %155 = extractvalue { ptr, i32 } %154, 0
-  store ptr %155, ptr %exn.slot, align 8
-  %156 = extractvalue { ptr, i32 } %154, 1
-  store i32 %156, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp259) #13
-  br label %eh.resume
-
-sw.bb263:                                         ; preds = %entry, %entry
-  %157 = load ptr, ptr %mode.addr, align 8
-  call void @_ZN3ue222getPredefinedCharReachENS_15PredefinedClassERKNS_9ParseModeE(ptr sret(%"class.ue2::CharReach") align 8 %ref.tmp264, i32 noundef 14, ptr noundef nonnull align 1 dereferenceable(6) %157)
-  %158 = load ptr, ptr %mode.addr, align 8
-  call void @_ZN3ue222getPredefinedCharReachENS_15PredefinedClassERKNS_9ParseModeE(ptr sret(%"class.ue2::CharReach") align 8 %ref.tmp265, i32 noundef 8, ptr noundef nonnull align 1 dereferenceable(6) %158)
-  call void @_ZNK3ue29CharReachorERKS0_(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp264, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp265)
-  br label %return
-
-sw.bb266:                                         ; preds = %entry
-  call void @_ZN3ue29getUcpXwdEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp267)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp267)
-          to label %invoke.cont269 unwind label %lpad268
-
-invoke.cont269:                                   ; preds = %sw.bb266
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp267) #13
-  br label %return
-
-lpad268:                                          ; preds = %sw.bb266
-  %159 = landingpad { ptr, i32 }
-          cleanup
-  %160 = extractvalue { ptr, i32 } %159, 0
-  store ptr %160, ptr %exn.slot, align 8
-  %161 = extractvalue { ptr, i32 } %159, 1
-  store i32 %161, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp267) #13
-  br label %eh.resume
-
-sw.bb271:                                         ; preds = %entry
-  call void @_ZN3ue27getUcpZEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp272)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp272)
-          to label %invoke.cont274 unwind label %lpad273
-
-invoke.cont274:                                   ; preds = %sw.bb271
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp272) #13
-  br label %return
-
-lpad273:                                          ; preds = %sw.bb271
-  %162 = landingpad { ptr, i32 }
-          cleanup
-  %163 = extractvalue { ptr, i32 } %162, 0
-  store ptr %163, ptr %exn.slot, align 8
-  %164 = extractvalue { ptr, i32 } %162, 1
-  store i32 %164, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp272) #13
-  br label %eh.resume
-
-sw.bb276:                                         ; preds = %entry
-  call void @_ZN3ue28getUcpZlEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp277)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp277)
-          to label %invoke.cont279 unwind label %lpad278
-
-invoke.cont279:                                   ; preds = %sw.bb276
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp277) #13
-  br label %return
-
-lpad278:                                          ; preds = %sw.bb276
-  %165 = landingpad { ptr, i32 }
-          cleanup
-  %166 = extractvalue { ptr, i32 } %165, 0
-  store ptr %166, ptr %exn.slot, align 8
-  %167 = extractvalue { ptr, i32 } %165, 1
-  store i32 %167, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp277) #13
-  br label %eh.resume
-
-sw.bb281:                                         ; preds = %entry
-  call void @_ZN3ue28getUcpZpEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp282)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp282)
-          to label %invoke.cont284 unwind label %lpad283
-
-invoke.cont284:                                   ; preds = %sw.bb281
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp282) #13
-  br label %return
-
-lpad283:                                          ; preds = %sw.bb281
-  %168 = landingpad { ptr, i32 }
-          cleanup
-  %169 = extractvalue { ptr, i32 } %168, 0
-  store ptr %169, ptr %exn.slot, align 8
-  %170 = extractvalue { ptr, i32 } %168, 1
-  store i32 %170, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp282) #13
-  br label %eh.resume
-
-sw.bb286:                                         ; preds = %entry
-  call void @_ZN3ue28getUcpZsEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp287)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp287)
-          to label %invoke.cont289 unwind label %lpad288
-
-invoke.cont289:                                   ; preds = %sw.bb286
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp287) #13
-  br label %return
-
-lpad288:                                          ; preds = %sw.bb286
-  %171 = landingpad { ptr, i32 }
-          cleanup
-  %172 = extractvalue { ptr, i32 } %171, 0
-  store ptr %172, ptr %exn.slot, align 8
-  %173 = extractvalue { ptr, i32 } %171, 1
-  store i32 %173, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp287) #13
-  br label %eh.resume
-
-sw.bb291:                                         ; preds = %entry
-  call void @_ZN3ue212getUcpArabicEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp292)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp292)
-          to label %invoke.cont294 unwind label %lpad293
-
-invoke.cont294:                                   ; preds = %sw.bb291
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp292) #13
-  br label %return
-
-lpad293:                                          ; preds = %sw.bb291
-  %174 = landingpad { ptr, i32 }
-          cleanup
-  %175 = extractvalue { ptr, i32 } %174, 0
-  store ptr %175, ptr %exn.slot, align 8
-  %176 = extractvalue { ptr, i32 } %174, 1
-  store i32 %176, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp292) #13
-  br label %eh.resume
-
-sw.bb296:                                         ; preds = %entry
-  call void @_ZN3ue214getUcpArmenianEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp297)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp297)
-          to label %invoke.cont299 unwind label %lpad298
-
-invoke.cont299:                                   ; preds = %sw.bb296
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp297) #13
-  br label %return
-
-lpad298:                                          ; preds = %sw.bb296
-  %177 = landingpad { ptr, i32 }
-          cleanup
-  %178 = extractvalue { ptr, i32 } %177, 0
-  store ptr %178, ptr %exn.slot, align 8
-  %179 = extractvalue { ptr, i32 } %177, 1
-  store i32 %179, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp297) #13
-  br label %eh.resume
-
-sw.bb301:                                         ; preds = %entry
-  call void @_ZN3ue213getUcpAvestanEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp302)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp302)
-          to label %invoke.cont304 unwind label %lpad303
-
-invoke.cont304:                                   ; preds = %sw.bb301
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp302) #13
-  br label %return
-
-lpad303:                                          ; preds = %sw.bb301
-  %180 = landingpad { ptr, i32 }
-          cleanup
-  %181 = extractvalue { ptr, i32 } %180, 0
-  store ptr %181, ptr %exn.slot, align 8
-  %182 = extractvalue { ptr, i32 } %180, 1
-  store i32 %182, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp302) #13
-  br label %eh.resume
-
-sw.bb306:                                         ; preds = %entry
-  call void @_ZN3ue214getUcpBalineseEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp307)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp307)
-          to label %invoke.cont309 unwind label %lpad308
-
-invoke.cont309:                                   ; preds = %sw.bb306
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp307) #13
-  br label %return
-
-lpad308:                                          ; preds = %sw.bb306
-  %183 = landingpad { ptr, i32 }
-          cleanup
-  %184 = extractvalue { ptr, i32 } %183, 0
-  store ptr %184, ptr %exn.slot, align 8
-  %185 = extractvalue { ptr, i32 } %183, 1
-  store i32 %185, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp307) #13
-  br label %eh.resume
-
-sw.bb311:                                         ; preds = %entry
-  call void @_ZN3ue211getUcpBamumEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp312)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp312)
-          to label %invoke.cont314 unwind label %lpad313
-
-invoke.cont314:                                   ; preds = %sw.bb311
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp312) #13
-  br label %return
-
-lpad313:                                          ; preds = %sw.bb311
-  %186 = landingpad { ptr, i32 }
-          cleanup
-  %187 = extractvalue { ptr, i32 } %186, 0
-  store ptr %187, ptr %exn.slot, align 8
-  %188 = extractvalue { ptr, i32 } %186, 1
-  store i32 %188, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp312) #13
-  br label %eh.resume
-
-sw.bb316:                                         ; preds = %entry
-  call void @_ZN3ue211getUcpBatakEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp317)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp317)
-          to label %invoke.cont319 unwind label %lpad318
-
-invoke.cont319:                                   ; preds = %sw.bb316
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp317) #13
-  br label %return
-
-lpad318:                                          ; preds = %sw.bb316
-  %189 = landingpad { ptr, i32 }
-          cleanup
-  %190 = extractvalue { ptr, i32 } %189, 0
-  store ptr %190, ptr %exn.slot, align 8
-  %191 = extractvalue { ptr, i32 } %189, 1
-  store i32 %191, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp317) #13
-  br label %eh.resume
-
-sw.bb321:                                         ; preds = %entry
-  call void @_ZN3ue213getUcpBengaliEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp322)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp322)
-          to label %invoke.cont324 unwind label %lpad323
-
-invoke.cont324:                                   ; preds = %sw.bb321
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp322) #13
-  br label %return
-
-lpad323:                                          ; preds = %sw.bb321
+178:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %9) #17
+  call void @_ZNK3ue29CharReachorERKS0_(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  call void @_ZNK3ue29CharReachorERKS0_(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %9) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+179:                                              ; preds = %3
+  call void @_ZNK3ue29CharReachorERKS0_(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+180:                                              ; preds = %3
+  %181 = load ptr, ptr %5, align 8
+  %182 = getelementptr inbounds nuw %"struct.ue2::ParseMode", ptr %181, i32 0, i32 1
+  %183 = load i8, ptr %182, align 1, !range !5, !noundef !6
+  %184 = trunc i8 %183 to i1
+  br i1 %184, label %185, label %186
+
+185:                                              ; preds = %180
+  call void @llvm.lifetime.start.p0(i64 32, ptr %11) #17
+  call void @_ZN3ue29CharReachC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11)
+  call void @_ZNK3ue29CharReachcoEv(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %11)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %11) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+186:                                              ; preds = %180
+  call void @llvm.lifetime.start.p0(i64 32, ptr %12) #17
+  call void @_ZN3ue29CharReachC2Eh(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 noundef zeroext 10)
+  call void @_ZNK3ue29CharReachcoEv(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %12) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+187:                                              ; preds = %3
+  call void @_ZN3ue29CharReachC2Ehh(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef zeroext 0, i8 noundef zeroext 127)
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+188:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %13) #17
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #17
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #17
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef @.str, ptr noundef nonnull align 1 dereferenceable(1) %14)
+          to label %189 unwind label %191
+
+189:                                              ; preds = %188
+  invoke void @_ZN3ue29CharReachC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %13)
+          to label %190 unwind label %195
+
+190:                                              ; preds = %189
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #17
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %13) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+191:                                              ; preds = %188
   %192 = landingpad { ptr, i32 }
           cleanup
   %193 = extractvalue { ptr, i32 } %192, 0
-  store ptr %193, ptr %exn.slot, align 8
+  store ptr %193, ptr %15, align 8
   %194 = extractvalue { ptr, i32 } %192, 1
-  store i32 %194, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp322) #13
-  br label %eh.resume
+  store i32 %194, ptr %16, align 4
+  br label %199
 
-sw.bb326:                                         ; preds = %entry
-  call void @_ZN3ue214getUcpBopomofoEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp327)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp327)
-          to label %invoke.cont329 unwind label %lpad328
-
-invoke.cont329:                                   ; preds = %sw.bb326
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp327) #13
-  br label %return
-
-lpad328:                                          ; preds = %sw.bb326
-  %195 = landingpad { ptr, i32 }
+195:                                              ; preds = %189
+  %196 = landingpad { ptr, i32 }
           cleanup
-  %196 = extractvalue { ptr, i32 } %195, 0
-  store ptr %196, ptr %exn.slot, align 8
-  %197 = extractvalue { ptr, i32 } %195, 1
-  store i32 %197, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp327) #13
-  br label %eh.resume
+  %197 = extractvalue { ptr, i32 } %196, 0
+  store ptr %197, ptr %15, align 8
+  %198 = extractvalue { ptr, i32 } %196, 1
+  store i32 %198, ptr %16, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #17
+  br label %199
 
-sw.bb331:                                         ; preds = %entry
-  call void @_ZN3ue212getUcpBrahmiEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp332)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp332)
-          to label %invoke.cont334 unwind label %lpad333
+199:                                              ; preds = %195, %191
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %13) #17
+  br label %1108
 
-invoke.cont334:                                   ; preds = %sw.bb331
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp332) #13
-  br label %return
+200:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %17) #17
+  call void @_ZN3ue29CharReachC2Ehh(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 noundef zeroext 0, i8 noundef zeroext 31)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %18) #17
+  call void @_ZN3ue29CharReachC2Eh(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 noundef zeroext 127)
+  call void @_ZNK3ue29CharReachorERKS0_(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %18) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %17) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad333:                                          ; preds = %sw.bb331
-  %198 = landingpad { ptr, i32 }
+201:                                              ; preds = %3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %8, i64 32, i1 false)
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+202:                                              ; preds = %3
+  call void @_ZN3ue29CharReachC2Ehh(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef zeroext 33, i8 noundef zeroext 126)
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+203:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %19) #17
+  %204 = load i32, ptr %4, align 4
+  %205 = load ptr, ptr %5, align 8
+  call void @_ZN3ue225getPredefinedCodePointSetENS_15PredefinedClassERKNS_9ParseModeE(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %19, i32 noundef %204, ptr noundef nonnull align 1 dereferenceable(6) %205)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %19)
+          to label %206 unwind label %207
+
+206:                                              ; preds = %203
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %19) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %19) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+207:                                              ; preds = %203
+  %208 = landingpad { ptr, i32 }
           cleanup
-  %199 = extractvalue { ptr, i32 } %198, 0
-  store ptr %199, ptr %exn.slot, align 8
-  %200 = extractvalue { ptr, i32 } %198, 1
-  store i32 %200, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp332) #13
-  br label %eh.resume
+  %209 = extractvalue { ptr, i32 } %208, 0
+  store ptr %209, ptr %15, align 8
+  %210 = extractvalue { ptr, i32 } %208, 1
+  store i32 %210, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %19) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %19) #17
+  br label %1108
 
-sw.bb336:                                         ; preds = %entry
-  call void @_ZN3ue213getUcpBrailleEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp337)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp337)
-          to label %invoke.cont339 unwind label %lpad338
+211:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %20) #17
+  call void @llvm.lifetime.start.p0(i64 1, ptr %21) #17
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #17
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %21)
+          to label %212 unwind label %214
 
-invoke.cont339:                                   ; preds = %sw.bb336
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp337) #13
-  br label %return
+212:                                              ; preds = %211
+  invoke void @_ZN3ue29CharReachC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %20)
+          to label %213 unwind label %218
 
-lpad338:                                          ; preds = %sw.bb336
-  %201 = landingpad { ptr, i32 }
+213:                                              ; preds = %212
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #17
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %21) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %20) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+214:                                              ; preds = %211
+  %215 = landingpad { ptr, i32 }
           cleanup
-  %202 = extractvalue { ptr, i32 } %201, 0
-  store ptr %202, ptr %exn.slot, align 8
-  %203 = extractvalue { ptr, i32 } %201, 1
-  store i32 %203, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp337) #13
-  br label %eh.resume
+  %216 = extractvalue { ptr, i32 } %215, 0
+  store ptr %216, ptr %15, align 8
+  %217 = extractvalue { ptr, i32 } %215, 1
+  store i32 %217, ptr %16, align 4
+  br label %222
 
-sw.bb341:                                         ; preds = %entry
-  call void @_ZN3ue214getUcpBugineseEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp342)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp342)
-          to label %invoke.cont344 unwind label %lpad343
-
-invoke.cont344:                                   ; preds = %sw.bb341
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp342) #13
-  br label %return
-
-lpad343:                                          ; preds = %sw.bb341
-  %204 = landingpad { ptr, i32 }
-          cleanup
-  %205 = extractvalue { ptr, i32 } %204, 0
-  store ptr %205, ptr %exn.slot, align 8
-  %206 = extractvalue { ptr, i32 } %204, 1
-  store i32 %206, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp342) #13
-  br label %eh.resume
-
-sw.bb346:                                         ; preds = %entry
-  call void @_ZN3ue211getUcpBuhidEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp347)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp347)
-          to label %invoke.cont349 unwind label %lpad348
-
-invoke.cont349:                                   ; preds = %sw.bb346
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp347) #13
-  br label %return
-
-lpad348:                                          ; preds = %sw.bb346
-  %207 = landingpad { ptr, i32 }
-          cleanup
-  %208 = extractvalue { ptr, i32 } %207, 0
-  store ptr %208, ptr %exn.slot, align 8
-  %209 = extractvalue { ptr, i32 } %207, 1
-  store i32 %209, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp347) #13
-  br label %eh.resume
-
-sw.bb351:                                         ; preds = %entry
-  call void @_ZN3ue225getUcpCanadian_AboriginalEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp352)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp352)
-          to label %invoke.cont354 unwind label %lpad353
-
-invoke.cont354:                                   ; preds = %sw.bb351
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp352) #13
-  br label %return
-
-lpad353:                                          ; preds = %sw.bb351
-  %210 = landingpad { ptr, i32 }
-          cleanup
-  %211 = extractvalue { ptr, i32 } %210, 0
-  store ptr %211, ptr %exn.slot, align 8
-  %212 = extractvalue { ptr, i32 } %210, 1
-  store i32 %212, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp352) #13
-  br label %eh.resume
-
-sw.bb356:                                         ; preds = %entry
-  call void @_ZN3ue212getUcpCarianEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp357)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp357)
-          to label %invoke.cont359 unwind label %lpad358
-
-invoke.cont359:                                   ; preds = %sw.bb356
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp357) #13
-  br label %return
-
-lpad358:                                          ; preds = %sw.bb356
-  %213 = landingpad { ptr, i32 }
-          cleanup
-  %214 = extractvalue { ptr, i32 } %213, 0
-  store ptr %214, ptr %exn.slot, align 8
-  %215 = extractvalue { ptr, i32 } %213, 1
-  store i32 %215, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp357) #13
-  br label %eh.resume
-
-sw.bb361:                                         ; preds = %entry
-  call void @_ZN3ue210getUcpChamEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp362)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp362)
-          to label %invoke.cont364 unwind label %lpad363
-
-invoke.cont364:                                   ; preds = %sw.bb361
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp362) #13
-  br label %return
-
-lpad363:                                          ; preds = %sw.bb361
-  %216 = landingpad { ptr, i32 }
-          cleanup
-  %217 = extractvalue { ptr, i32 } %216, 0
-  store ptr %217, ptr %exn.slot, align 8
-  %218 = extractvalue { ptr, i32 } %216, 1
-  store i32 %218, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp362) #13
-  br label %eh.resume
-
-sw.bb366:                                         ; preds = %entry
-  call void @_ZN3ue214getUcpCherokeeEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp367)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp367)
-          to label %invoke.cont369 unwind label %lpad368
-
-invoke.cont369:                                   ; preds = %sw.bb366
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp367) #13
-  br label %return
-
-lpad368:                                          ; preds = %sw.bb366
+218:                                              ; preds = %212
   %219 = landingpad { ptr, i32 }
           cleanup
   %220 = extractvalue { ptr, i32 } %219, 0
-  store ptr %220, ptr %exn.slot, align 8
+  store ptr %220, ptr %15, align 8
   %221 = extractvalue { ptr, i32 } %219, 1
-  store i32 %221, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp367) #13
-  br label %eh.resume
+  store i32 %221, ptr %16, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #17
+  br label %222
 
-sw.bb371:                                         ; preds = %entry
-  call void @_ZN3ue212getUcpCommonEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp372)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp372)
-          to label %invoke.cont374 unwind label %lpad373
+222:                                              ; preds = %218, %214
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %21) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %20) #17
+  br label %1108
 
-invoke.cont374:                                   ; preds = %sw.bb371
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp372) #13
-  br label %return
+223:                                              ; preds = %3
+  %224 = load ptr, ptr %5, align 8
+  %225 = getelementptr inbounds nuw %"struct.ue2::ParseMode", ptr %224, i32 0, i32 0
+  %226 = load i8, ptr %225, align 1, !range !5, !noundef !6
+  %227 = trunc i8 %226 to i1
+  br i1 %227, label %228, label %229
 
-lpad373:                                          ; preds = %sw.bb371
-  %222 = landingpad { ptr, i32 }
+228:                                              ; preds = %223
+  call void @_ZNK3ue29CharReachorERKS0_(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+229:                                              ; preds = %223
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %6, i64 32, i1 false)
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+230:                                              ; preds = %3
+  call void @_ZN3ue29CharReachC2Ehh(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef zeroext 32, i8 noundef zeroext 126)
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+231:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %22) #17
+  %232 = load i32, ptr %4, align 4
+  %233 = load ptr, ptr %5, align 8
+  call void @_ZN3ue225getPredefinedCodePointSetENS_15PredefinedClassERKNS_9ParseModeE(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %22, i32 noundef %232, ptr noundef nonnull align 1 dereferenceable(6) %233)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %22)
+          to label %234 unwind label %235
+
+234:                                              ; preds = %231
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %22) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %22) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+235:                                              ; preds = %231
+  %236 = landingpad { ptr, i32 }
           cleanup
-  %223 = extractvalue { ptr, i32 } %222, 0
-  store ptr %223, ptr %exn.slot, align 8
-  %224 = extractvalue { ptr, i32 } %222, 1
-  store i32 %224, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp372) #13
-  br label %eh.resume
+  %237 = extractvalue { ptr, i32 } %236, 0
+  store ptr %237, ptr %15, align 8
+  %238 = extractvalue { ptr, i32 } %236, 1
+  store i32 %238, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %22) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %22) #17
+  br label %1108
 
-sw.bb376:                                         ; preds = %entry
-  call void @_ZN3ue212getUcpCopticEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp377)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp377)
-          to label %invoke.cont379 unwind label %lpad378
+239:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %23) #17
+  call void @llvm.lifetime.start.p0(i64 32, ptr %24) #17
+  call void @llvm.lifetime.start.p0(i64 32, ptr %25) #17
+  call void @_ZN3ue29CharReachC2Ehh(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 noundef zeroext 33, i8 noundef zeroext 47)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %26) #17
+  call void @_ZN3ue29CharReachC2Ehh(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 noundef zeroext 58, i8 noundef zeroext 64)
+  call void @_ZNK3ue29CharReachorERKS0_(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %24, ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %26)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %27) #17
+  call void @_ZN3ue29CharReachC2Ehh(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 noundef zeroext 91, i8 noundef zeroext 96)
+  call void @_ZNK3ue29CharReachorERKS0_(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %27)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %28) #17
+  call void @_ZN3ue29CharReachC2Ehh(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 noundef zeroext 123, i8 noundef zeroext 126)
+  call void @_ZNK3ue29CharReachorERKS0_(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %28)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %28) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %27) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %26) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %25) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %24) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %23) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-invoke.cont379:                                   ; preds = %sw.bb376
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp377) #13
-  br label %return
+240:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %29) #17
+  %241 = load i32, ptr %4, align 4
+  %242 = load ptr, ptr %5, align 8
+  call void @_ZN3ue225getPredefinedCodePointSetENS_15PredefinedClassERKNS_9ParseModeE(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %29, i32 noundef %241, ptr noundef nonnull align 1 dereferenceable(6) %242)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %29)
+          to label %243 unwind label %244
 
-lpad378:                                          ; preds = %sw.bb376
-  %225 = landingpad { ptr, i32 }
+243:                                              ; preds = %240
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %29) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %29) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+244:                                              ; preds = %240
+  %245 = landingpad { ptr, i32 }
           cleanup
-  %226 = extractvalue { ptr, i32 } %225, 0
-  store ptr %226, ptr %exn.slot, align 8
-  %227 = extractvalue { ptr, i32 } %225, 1
-  store i32 %227, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp377) #13
-  br label %eh.resume
+  %246 = extractvalue { ptr, i32 } %245, 0
+  store ptr %246, ptr %15, align 8
+  %247 = extractvalue { ptr, i32 } %245, 1
+  store i32 %247, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %29) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %29) #17
+  br label %1108
 
-sw.bb381:                                         ; preds = %entry
-  call void @_ZN3ue215getUcpCuneiformEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp382)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp382)
-          to label %invoke.cont384 unwind label %lpad383
+248:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %30) #17
+  call void @llvm.lifetime.start.p0(i64 1, ptr %31) #17
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #17
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %31)
+          to label %249 unwind label %251
 
-invoke.cont384:                                   ; preds = %sw.bb381
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp382) #13
-  br label %return
+249:                                              ; preds = %248
+  invoke void @_ZN3ue29CharReachC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %30)
+          to label %250 unwind label %255
 
-lpad383:                                          ; preds = %sw.bb381
-  %228 = landingpad { ptr, i32 }
-          cleanup
-  %229 = extractvalue { ptr, i32 } %228, 0
-  store ptr %229, ptr %exn.slot, align 8
-  %230 = extractvalue { ptr, i32 } %228, 1
-  store i32 %230, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp382) #13
-  br label %eh.resume
+250:                                              ; preds = %249
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #17
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %31) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %30) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-sw.bb386:                                         ; preds = %entry
-  call void @_ZN3ue213getUcpCypriotEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp387)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp387)
-          to label %invoke.cont389 unwind label %lpad388
-
-invoke.cont389:                                   ; preds = %sw.bb386
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp387) #13
-  br label %return
-
-lpad388:                                          ; preds = %sw.bb386
-  %231 = landingpad { ptr, i32 }
-          cleanup
-  %232 = extractvalue { ptr, i32 } %231, 0
-  store ptr %232, ptr %exn.slot, align 8
-  %233 = extractvalue { ptr, i32 } %231, 1
-  store i32 %233, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp387) #13
-  br label %eh.resume
-
-sw.bb391:                                         ; preds = %entry
-  call void @_ZN3ue214getUcpCyrillicEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp392)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp392)
-          to label %invoke.cont394 unwind label %lpad393
-
-invoke.cont394:                                   ; preds = %sw.bb391
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp392) #13
-  br label %return
-
-lpad393:                                          ; preds = %sw.bb391
-  %234 = landingpad { ptr, i32 }
-          cleanup
-  %235 = extractvalue { ptr, i32 } %234, 0
-  store ptr %235, ptr %exn.slot, align 8
-  %236 = extractvalue { ptr, i32 } %234, 1
-  store i32 %236, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp392) #13
-  br label %eh.resume
-
-sw.bb396:                                         ; preds = %entry
-  call void @_ZN3ue213getUcpDeseretEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp397)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp397)
-          to label %invoke.cont399 unwind label %lpad398
-
-invoke.cont399:                                   ; preds = %sw.bb396
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp397) #13
-  br label %return
-
-lpad398:                                          ; preds = %sw.bb396
-  %237 = landingpad { ptr, i32 }
-          cleanup
-  %238 = extractvalue { ptr, i32 } %237, 0
-  store ptr %238, ptr %exn.slot, align 8
-  %239 = extractvalue { ptr, i32 } %237, 1
-  store i32 %239, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp397) #13
-  br label %eh.resume
-
-sw.bb401:                                         ; preds = %entry
-  call void @_ZN3ue216getUcpDevanagariEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp402)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp402)
-          to label %invoke.cont404 unwind label %lpad403
-
-invoke.cont404:                                   ; preds = %sw.bb401
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp402) #13
-  br label %return
-
-lpad403:                                          ; preds = %sw.bb401
-  %240 = landingpad { ptr, i32 }
-          cleanup
-  %241 = extractvalue { ptr, i32 } %240, 0
-  store ptr %241, ptr %exn.slot, align 8
-  %242 = extractvalue { ptr, i32 } %240, 1
-  store i32 %242, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp402) #13
-  br label %eh.resume
-
-sw.bb406:                                         ; preds = %entry
-  call void @_ZN3ue226getUcpEgyptian_HieroglyphsEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp407)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp407)
-          to label %invoke.cont409 unwind label %lpad408
-
-invoke.cont409:                                   ; preds = %sw.bb406
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp407) #13
-  br label %return
-
-lpad408:                                          ; preds = %sw.bb406
-  %243 = landingpad { ptr, i32 }
-          cleanup
-  %244 = extractvalue { ptr, i32 } %243, 0
-  store ptr %244, ptr %exn.slot, align 8
-  %245 = extractvalue { ptr, i32 } %243, 1
-  store i32 %245, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp407) #13
-  br label %eh.resume
-
-sw.bb411:                                         ; preds = %entry
-  call void @_ZN3ue214getUcpEthiopicEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp412)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp412)
-          to label %invoke.cont414 unwind label %lpad413
-
-invoke.cont414:                                   ; preds = %sw.bb411
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp412) #13
-  br label %return
-
-lpad413:                                          ; preds = %sw.bb411
-  %246 = landingpad { ptr, i32 }
-          cleanup
-  %247 = extractvalue { ptr, i32 } %246, 0
-  store ptr %247, ptr %exn.slot, align 8
-  %248 = extractvalue { ptr, i32 } %246, 1
-  store i32 %248, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp412) #13
-  br label %eh.resume
-
-sw.bb416:                                         ; preds = %entry
-  call void @_ZN3ue214getUcpGeorgianEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp417)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp417)
-          to label %invoke.cont419 unwind label %lpad418
-
-invoke.cont419:                                   ; preds = %sw.bb416
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp417) #13
-  br label %return
-
-lpad418:                                          ; preds = %sw.bb416
-  %249 = landingpad { ptr, i32 }
-          cleanup
-  %250 = extractvalue { ptr, i32 } %249, 0
-  store ptr %250, ptr %exn.slot, align 8
-  %251 = extractvalue { ptr, i32 } %249, 1
-  store i32 %251, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp417) #13
-  br label %eh.resume
-
-sw.bb421:                                         ; preds = %entry
-  call void @_ZN3ue216getUcpGlagoliticEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp422)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp422)
-          to label %invoke.cont424 unwind label %lpad423
-
-invoke.cont424:                                   ; preds = %sw.bb421
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp422) #13
-  br label %return
-
-lpad423:                                          ; preds = %sw.bb421
+251:                                              ; preds = %248
   %252 = landingpad { ptr, i32 }
           cleanup
   %253 = extractvalue { ptr, i32 } %252, 0
-  store ptr %253, ptr %exn.slot, align 8
+  store ptr %253, ptr %15, align 8
   %254 = extractvalue { ptr, i32 } %252, 1
-  store i32 %254, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp422) #13
-  br label %eh.resume
+  store i32 %254, ptr %16, align 4
+  br label %259
 
-sw.bb426:                                         ; preds = %entry
-  call void @_ZN3ue212getUcpGothicEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp427)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp427)
-          to label %invoke.cont429 unwind label %lpad428
-
-invoke.cont429:                                   ; preds = %sw.bb426
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp427) #13
-  br label %return
-
-lpad428:                                          ; preds = %sw.bb426
-  %255 = landingpad { ptr, i32 }
+255:                                              ; preds = %249
+  %256 = landingpad { ptr, i32 }
           cleanup
-  %256 = extractvalue { ptr, i32 } %255, 0
-  store ptr %256, ptr %exn.slot, align 8
-  %257 = extractvalue { ptr, i32 } %255, 1
-  store i32 %257, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp427) #13
-  br label %eh.resume
+  %257 = extractvalue { ptr, i32 } %256, 0
+  store ptr %257, ptr %15, align 8
+  %258 = extractvalue { ptr, i32 } %256, 1
+  store i32 %258, ptr %16, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #17
+  br label %259
 
-sw.bb431:                                         ; preds = %entry
-  call void @_ZN3ue211getUcpGreekEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp432)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp432)
-          to label %invoke.cont434 unwind label %lpad433
+259:                                              ; preds = %255, %251
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %31) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %30) #17
+  br label %1108
 
-invoke.cont434:                                   ; preds = %sw.bb431
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp432) #13
-  br label %return
+260:                                              ; preds = %3
+  %261 = load ptr, ptr %5, align 8
+  %262 = getelementptr inbounds nuw %"struct.ue2::ParseMode", ptr %261, i32 0, i32 0
+  %263 = load i8, ptr %262, align 1, !range !5, !noundef !6
+  %264 = trunc i8 %263 to i1
+  br i1 %264, label %265, label %266
 
-lpad433:                                          ; preds = %sw.bb431
-  %258 = landingpad { ptr, i32 }
+265:                                              ; preds = %260
+  call void @_ZNK3ue29CharReachorERKS0_(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+266:                                              ; preds = %260
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %7, i64 32, i1 false)
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+267:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %32) #17
+  call void @llvm.lifetime.start.p0(i64 1, ptr %33) #17
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #17
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %33)
+          to label %268 unwind label %270
+
+268:                                              ; preds = %267
+  invoke void @_ZN3ue29CharReachC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %32)
+          to label %269 unwind label %274
+
+269:                                              ; preds = %268
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #17
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %33) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %32) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+270:                                              ; preds = %267
+  %271 = landingpad { ptr, i32 }
           cleanup
-  %259 = extractvalue { ptr, i32 } %258, 0
-  store ptr %259, ptr %exn.slot, align 8
-  %260 = extractvalue { ptr, i32 } %258, 1
-  store i32 %260, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp432) #13
-  br label %eh.resume
+  %272 = extractvalue { ptr, i32 } %271, 0
+  store ptr %272, ptr %15, align 8
+  %273 = extractvalue { ptr, i32 } %271, 1
+  store i32 %273, ptr %16, align 4
+  br label %278
 
-sw.bb436:                                         ; preds = %entry
-  call void @_ZN3ue214getUcpGujaratiEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp437)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp437)
-          to label %invoke.cont439 unwind label %lpad438
-
-invoke.cont439:                                   ; preds = %sw.bb436
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp437) #13
-  br label %return
-
-lpad438:                                          ; preds = %sw.bb436
-  %261 = landingpad { ptr, i32 }
+274:                                              ; preds = %268
+  %275 = landingpad { ptr, i32 }
           cleanup
-  %262 = extractvalue { ptr, i32 } %261, 0
-  store ptr %262, ptr %exn.slot, align 8
-  %263 = extractvalue { ptr, i32 } %261, 1
-  store i32 %263, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp437) #13
-  br label %eh.resume
+  %276 = extractvalue { ptr, i32 } %275, 0
+  store ptr %276, ptr %15, align 8
+  %277 = extractvalue { ptr, i32 } %275, 1
+  store i32 %277, ptr %16, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #17
+  br label %278
 
-sw.bb441:                                         ; preds = %entry
-  call void @_ZN3ue214getUcpGurmukhiEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp442)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp442)
-          to label %invoke.cont444 unwind label %lpad443
+278:                                              ; preds = %274, %270
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %33) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %32) #17
+  br label %1108
 
-invoke.cont444:                                   ; preds = %sw.bb441
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp442) #13
-  br label %return
+279:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %34) #17
+  call void @llvm.lifetime.start.p0(i64 32, ptr %35) #17
+  call void @_ZNK3ue29CharReachorERKS0_(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %35, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  call void @_ZNK3ue29CharReachorERKS0_(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %34, ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %36) #17
+  call void @_ZN3ue29CharReachC2Eh(ptr noundef nonnull align 8 dereferenceable(32) %36, i8 noundef zeroext 95)
+  call void @_ZNK3ue29CharReachorERKS0_(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %36)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %36) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %35) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %34) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad443:                                          ; preds = %sw.bb441
-  %264 = landingpad { ptr, i32 }
+280:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %37) #17
+  call void @llvm.lifetime.start.p0(i64 1, ptr %38) #17
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #17
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %38)
+          to label %281 unwind label %283
+
+281:                                              ; preds = %280
+  invoke void @_ZN3ue29CharReachC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %37)
+          to label %282 unwind label %287
+
+282:                                              ; preds = %281
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #17
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %38) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %37) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+283:                                              ; preds = %280
+  %284 = landingpad { ptr, i32 }
           cleanup
-  %265 = extractvalue { ptr, i32 } %264, 0
-  store ptr %265, ptr %exn.slot, align 8
-  %266 = extractvalue { ptr, i32 } %264, 1
-  store i32 %266, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp442) #13
-  br label %eh.resume
+  %285 = extractvalue { ptr, i32 } %284, 0
+  store ptr %285, ptr %15, align 8
+  %286 = extractvalue { ptr, i32 } %284, 1
+  store i32 %286, ptr %16, align 4
+  br label %291
 
-sw.bb446:                                         ; preds = %entry
-  call void @_ZN3ue29getUcpHanEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp447)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp447)
-          to label %invoke.cont449 unwind label %lpad448
-
-invoke.cont449:                                   ; preds = %sw.bb446
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp447) #13
-  br label %return
-
-lpad448:                                          ; preds = %sw.bb446
-  %267 = landingpad { ptr, i32 }
-          cleanup
-  %268 = extractvalue { ptr, i32 } %267, 0
-  store ptr %268, ptr %exn.slot, align 8
-  %269 = extractvalue { ptr, i32 } %267, 1
-  store i32 %269, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp447) #13
-  br label %eh.resume
-
-sw.bb451:                                         ; preds = %entry
-  call void @_ZN3ue212getUcpHangulEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp452)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp452)
-          to label %invoke.cont454 unwind label %lpad453
-
-invoke.cont454:                                   ; preds = %sw.bb451
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp452) #13
-  br label %return
-
-lpad453:                                          ; preds = %sw.bb451
-  %270 = landingpad { ptr, i32 }
-          cleanup
-  %271 = extractvalue { ptr, i32 } %270, 0
-  store ptr %271, ptr %exn.slot, align 8
-  %272 = extractvalue { ptr, i32 } %270, 1
-  store i32 %272, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp452) #13
-  br label %eh.resume
-
-sw.bb456:                                         ; preds = %entry
-  call void @_ZN3ue213getUcpHanunooEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp457)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp457)
-          to label %invoke.cont459 unwind label %lpad458
-
-invoke.cont459:                                   ; preds = %sw.bb456
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp457) #13
-  br label %return
-
-lpad458:                                          ; preds = %sw.bb456
-  %273 = landingpad { ptr, i32 }
-          cleanup
-  %274 = extractvalue { ptr, i32 } %273, 0
-  store ptr %274, ptr %exn.slot, align 8
-  %275 = extractvalue { ptr, i32 } %273, 1
-  store i32 %275, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp457) #13
-  br label %eh.resume
-
-sw.bb461:                                         ; preds = %entry
-  call void @_ZN3ue212getUcpHebrewEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp462)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp462)
-          to label %invoke.cont464 unwind label %lpad463
-
-invoke.cont464:                                   ; preds = %sw.bb461
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp462) #13
-  br label %return
-
-lpad463:                                          ; preds = %sw.bb461
-  %276 = landingpad { ptr, i32 }
-          cleanup
-  %277 = extractvalue { ptr, i32 } %276, 0
-  store ptr %277, ptr %exn.slot, align 8
-  %278 = extractvalue { ptr, i32 } %276, 1
-  store i32 %278, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp462) #13
-  br label %eh.resume
-
-sw.bb466:                                         ; preds = %entry
-  call void @_ZN3ue214getUcpHiraganaEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp467)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp467)
-          to label %invoke.cont469 unwind label %lpad468
-
-invoke.cont469:                                   ; preds = %sw.bb466
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp467) #13
-  br label %return
-
-lpad468:                                          ; preds = %sw.bb466
-  %279 = landingpad { ptr, i32 }
-          cleanup
-  %280 = extractvalue { ptr, i32 } %279, 0
-  store ptr %280, ptr %exn.slot, align 8
-  %281 = extractvalue { ptr, i32 } %279, 1
-  store i32 %281, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp467) #13
-  br label %eh.resume
-
-sw.bb471:                                         ; preds = %entry
-  call void @_ZN3ue222getUcpImperial_AramaicEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp472)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp472)
-          to label %invoke.cont474 unwind label %lpad473
-
-invoke.cont474:                                   ; preds = %sw.bb471
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp472) #13
-  br label %return
-
-lpad473:                                          ; preds = %sw.bb471
-  %282 = landingpad { ptr, i32 }
-          cleanup
-  %283 = extractvalue { ptr, i32 } %282, 0
-  store ptr %283, ptr %exn.slot, align 8
-  %284 = extractvalue { ptr, i32 } %282, 1
-  store i32 %284, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp472) #13
-  br label %eh.resume
-
-sw.bb476:                                         ; preds = %entry
-  call void @_ZN3ue215getUcpInheritedEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp477)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp477)
-          to label %invoke.cont479 unwind label %lpad478
-
-invoke.cont479:                                   ; preds = %sw.bb476
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp477) #13
-  br label %return
-
-lpad478:                                          ; preds = %sw.bb476
-  %285 = landingpad { ptr, i32 }
-          cleanup
-  %286 = extractvalue { ptr, i32 } %285, 0
-  store ptr %286, ptr %exn.slot, align 8
-  %287 = extractvalue { ptr, i32 } %285, 1
-  store i32 %287, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp477) #13
-  br label %eh.resume
-
-sw.bb481:                                         ; preds = %entry
-  call void @_ZN3ue227getUcpInscriptional_PahlaviEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp482)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp482)
-          to label %invoke.cont484 unwind label %lpad483
-
-invoke.cont484:                                   ; preds = %sw.bb481
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp482) #13
-  br label %return
-
-lpad483:                                          ; preds = %sw.bb481
+287:                                              ; preds = %281
   %288 = landingpad { ptr, i32 }
           cleanup
   %289 = extractvalue { ptr, i32 } %288, 0
-  store ptr %289, ptr %exn.slot, align 8
+  store ptr %289, ptr %15, align 8
   %290 = extractvalue { ptr, i32 } %288, 1
-  store i32 %290, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp482) #13
-  br label %eh.resume
+  store i32 %290, ptr %16, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #17
+  br label %291
 
-sw.bb486:                                         ; preds = %entry
-  call void @_ZN3ue228getUcpInscriptional_ParthianEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp487)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp487)
-          to label %invoke.cont489 unwind label %lpad488
+291:                                              ; preds = %287, %283
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %38) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %37) #17
+  br label %1108
 
-invoke.cont489:                                   ; preds = %sw.bb486
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp487) #13
-  br label %return
+292:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %39) #17
+  call void @_ZN3ue27getUcpCEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %39)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %39)
+          to label %293 unwind label %294
 
-lpad488:                                          ; preds = %sw.bb486
-  %291 = landingpad { ptr, i32 }
+293:                                              ; preds = %292
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %39) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %39) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+294:                                              ; preds = %292
+  %295 = landingpad { ptr, i32 }
           cleanup
-  %292 = extractvalue { ptr, i32 } %291, 0
-  store ptr %292, ptr %exn.slot, align 8
-  %293 = extractvalue { ptr, i32 } %291, 1
-  store i32 %293, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp487) #13
-  br label %eh.resume
+  %296 = extractvalue { ptr, i32 } %295, 0
+  store ptr %296, ptr %15, align 8
+  %297 = extractvalue { ptr, i32 } %295, 1
+  store i32 %297, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %39) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %39) #17
+  br label %1108
 
-sw.bb491:                                         ; preds = %entry
-  call void @_ZN3ue214getUcpJavaneseEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp492)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp492)
-          to label %invoke.cont494 unwind label %lpad493
+298:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %40) #17
+  call void @_ZN3ue28getUcpCcEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %40)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %40)
+          to label %299 unwind label %300
 
-invoke.cont494:                                   ; preds = %sw.bb491
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp492) #13
-  br label %return
+299:                                              ; preds = %298
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %40) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %40) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad493:                                          ; preds = %sw.bb491
-  %294 = landingpad { ptr, i32 }
+300:                                              ; preds = %298
+  %301 = landingpad { ptr, i32 }
           cleanup
-  %295 = extractvalue { ptr, i32 } %294, 0
-  store ptr %295, ptr %exn.slot, align 8
-  %296 = extractvalue { ptr, i32 } %294, 1
-  store i32 %296, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp492) #13
-  br label %eh.resume
+  %302 = extractvalue { ptr, i32 } %301, 0
+  store ptr %302, ptr %15, align 8
+  %303 = extractvalue { ptr, i32 } %301, 1
+  store i32 %303, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %40) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %40) #17
+  br label %1108
 
-sw.bb496:                                         ; preds = %entry
-  call void @_ZN3ue212getUcpKaithiEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp497)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp497)
-          to label %invoke.cont499 unwind label %lpad498
+304:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %41) #17
+  call void @_ZN3ue28getUcpCfEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %41)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %41)
+          to label %305 unwind label %306
 
-invoke.cont499:                                   ; preds = %sw.bb496
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp497) #13
-  br label %return
+305:                                              ; preds = %304
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %41) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %41) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad498:                                          ; preds = %sw.bb496
-  %297 = landingpad { ptr, i32 }
+306:                                              ; preds = %304
+  %307 = landingpad { ptr, i32 }
           cleanup
-  %298 = extractvalue { ptr, i32 } %297, 0
-  store ptr %298, ptr %exn.slot, align 8
-  %299 = extractvalue { ptr, i32 } %297, 1
-  store i32 %299, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp497) #13
-  br label %eh.resume
+  %308 = extractvalue { ptr, i32 } %307, 0
+  store ptr %308, ptr %15, align 8
+  %309 = extractvalue { ptr, i32 } %307, 1
+  store i32 %309, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %41) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %41) #17
+  br label %1108
 
-sw.bb501:                                         ; preds = %entry
-  call void @_ZN3ue213getUcpKannadaEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp502)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp502)
-          to label %invoke.cont504 unwind label %lpad503
+310:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %42) #17
+  call void @_ZN3ue28getUcpCnEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %42)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %42)
+          to label %311 unwind label %312
 
-invoke.cont504:                                   ; preds = %sw.bb501
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp502) #13
-  br label %return
+311:                                              ; preds = %310
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %42) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %42) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad503:                                          ; preds = %sw.bb501
-  %300 = landingpad { ptr, i32 }
+312:                                              ; preds = %310
+  %313 = landingpad { ptr, i32 }
           cleanup
-  %301 = extractvalue { ptr, i32 } %300, 0
-  store ptr %301, ptr %exn.slot, align 8
-  %302 = extractvalue { ptr, i32 } %300, 1
-  store i32 %302, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp502) #13
-  br label %eh.resume
+  %314 = extractvalue { ptr, i32 } %313, 0
+  store ptr %314, ptr %15, align 8
+  %315 = extractvalue { ptr, i32 } %313, 1
+  store i32 %315, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %42) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %42) #17
+  br label %1108
 
-sw.bb506:                                         ; preds = %entry
-  call void @_ZN3ue214getUcpKatakanaEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp507)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp507)
-          to label %invoke.cont509 unwind label %lpad508
+316:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %43) #17
+  call void @_ZN3ue28getUcpCoEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %43)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %43)
+          to label %317 unwind label %318
 
-invoke.cont509:                                   ; preds = %sw.bb506
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp507) #13
-  br label %return
+317:                                              ; preds = %316
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %43) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %43) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad508:                                          ; preds = %sw.bb506
-  %303 = landingpad { ptr, i32 }
+318:                                              ; preds = %316
+  %319 = landingpad { ptr, i32 }
           cleanup
-  %304 = extractvalue { ptr, i32 } %303, 0
-  store ptr %304, ptr %exn.slot, align 8
-  %305 = extractvalue { ptr, i32 } %303, 1
-  store i32 %305, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp507) #13
-  br label %eh.resume
+  %320 = extractvalue { ptr, i32 } %319, 0
+  store ptr %320, ptr %15, align 8
+  %321 = extractvalue { ptr, i32 } %319, 1
+  store i32 %321, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %43) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %43) #17
+  br label %1108
 
-sw.bb511:                                         ; preds = %entry
-  call void @_ZN3ue214getUcpKayah_LiEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp512)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp512)
-          to label %invoke.cont514 unwind label %lpad513
+322:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %44) #17
+  call void @_ZN3ue28getUcpCsEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %44)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %44)
+          to label %323 unwind label %324
 
-invoke.cont514:                                   ; preds = %sw.bb511
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp512) #13
-  br label %return
+323:                                              ; preds = %322
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %44) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %44) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad513:                                          ; preds = %sw.bb511
-  %306 = landingpad { ptr, i32 }
+324:                                              ; preds = %322
+  %325 = landingpad { ptr, i32 }
           cleanup
-  %307 = extractvalue { ptr, i32 } %306, 0
-  store ptr %307, ptr %exn.slot, align 8
-  %308 = extractvalue { ptr, i32 } %306, 1
-  store i32 %308, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp512) #13
-  br label %eh.resume
+  %326 = extractvalue { ptr, i32 } %325, 0
+  store ptr %326, ptr %15, align 8
+  %327 = extractvalue { ptr, i32 } %325, 1
+  store i32 %327, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %44) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %44) #17
+  br label %1108
 
-sw.bb516:                                         ; preds = %entry
-  call void @_ZN3ue216getUcpKharoshthiEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp517)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp517)
-          to label %invoke.cont519 unwind label %lpad518
+328:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %45) #17
+  call void @_ZN3ue27getUcpLEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %45)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %45)
+          to label %329 unwind label %330
 
-invoke.cont519:                                   ; preds = %sw.bb516
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp517) #13
-  br label %return
+329:                                              ; preds = %328
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %45) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %45) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad518:                                          ; preds = %sw.bb516
-  %309 = landingpad { ptr, i32 }
+330:                                              ; preds = %328
+  %331 = landingpad { ptr, i32 }
           cleanup
-  %310 = extractvalue { ptr, i32 } %309, 0
-  store ptr %310, ptr %exn.slot, align 8
-  %311 = extractvalue { ptr, i32 } %309, 1
-  store i32 %311, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp517) #13
-  br label %eh.resume
+  %332 = extractvalue { ptr, i32 } %331, 0
+  store ptr %332, ptr %15, align 8
+  %333 = extractvalue { ptr, i32 } %331, 1
+  store i32 %333, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %45) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %45) #17
+  br label %1108
 
-sw.bb521:                                         ; preds = %entry
-  call void @_ZN3ue211getUcpKhmerEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp522)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp522)
-          to label %invoke.cont524 unwind label %lpad523
+334:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %46) #17
+  call void @_ZN3ue211getUcpL_andEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %46)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %46)
+          to label %335 unwind label %336
 
-invoke.cont524:                                   ; preds = %sw.bb521
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp522) #13
-  br label %return
+335:                                              ; preds = %334
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %46) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %46) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad523:                                          ; preds = %sw.bb521
-  %312 = landingpad { ptr, i32 }
+336:                                              ; preds = %334
+  %337 = landingpad { ptr, i32 }
           cleanup
-  %313 = extractvalue { ptr, i32 } %312, 0
-  store ptr %313, ptr %exn.slot, align 8
-  %314 = extractvalue { ptr, i32 } %312, 1
-  store i32 %314, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp522) #13
-  br label %eh.resume
+  %338 = extractvalue { ptr, i32 } %337, 0
+  store ptr %338, ptr %15, align 8
+  %339 = extractvalue { ptr, i32 } %337, 1
+  store i32 %339, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %46) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %46) #17
+  br label %1108
 
-sw.bb526:                                         ; preds = %entry
-  call void @_ZN3ue29getUcpLaoEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp527)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp527)
-          to label %invoke.cont529 unwind label %lpad528
+340:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %47) #17
+  call void @_ZN3ue28getUcpLlEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %47)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %47)
+          to label %341 unwind label %342
 
-invoke.cont529:                                   ; preds = %sw.bb526
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp527) #13
-  br label %return
+341:                                              ; preds = %340
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %47) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %47) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad528:                                          ; preds = %sw.bb526
-  %315 = landingpad { ptr, i32 }
+342:                                              ; preds = %340
+  %343 = landingpad { ptr, i32 }
           cleanup
-  %316 = extractvalue { ptr, i32 } %315, 0
-  store ptr %316, ptr %exn.slot, align 8
-  %317 = extractvalue { ptr, i32 } %315, 1
-  store i32 %317, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp527) #13
-  br label %eh.resume
+  %344 = extractvalue { ptr, i32 } %343, 0
+  store ptr %344, ptr %15, align 8
+  %345 = extractvalue { ptr, i32 } %343, 1
+  store i32 %345, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %47) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %47) #17
+  br label %1108
 
-sw.bb531:                                         ; preds = %entry
-  call void @_ZN3ue211getUcpLatinEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp532)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp532)
-          to label %invoke.cont534 unwind label %lpad533
+346:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %48) #17
+  call void @_ZN3ue28getUcpLmEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %48)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %48)
+          to label %347 unwind label %348
 
-invoke.cont534:                                   ; preds = %sw.bb531
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp532) #13
-  br label %return
+347:                                              ; preds = %346
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %48) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %48) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad533:                                          ; preds = %sw.bb531
-  %318 = landingpad { ptr, i32 }
+348:                                              ; preds = %346
+  %349 = landingpad { ptr, i32 }
           cleanup
-  %319 = extractvalue { ptr, i32 } %318, 0
-  store ptr %319, ptr %exn.slot, align 8
-  %320 = extractvalue { ptr, i32 } %318, 1
-  store i32 %320, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp532) #13
-  br label %eh.resume
+  %350 = extractvalue { ptr, i32 } %349, 0
+  store ptr %350, ptr %15, align 8
+  %351 = extractvalue { ptr, i32 } %349, 1
+  store i32 %351, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %48) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %48) #17
+  br label %1108
 
-sw.bb536:                                         ; preds = %entry
-  call void @_ZN3ue212getUcpLepchaEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp537)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp537)
-          to label %invoke.cont539 unwind label %lpad538
+352:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %49) #17
+  call void @_ZN3ue28getUcpLoEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %49)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %49)
+          to label %353 unwind label %354
 
-invoke.cont539:                                   ; preds = %sw.bb536
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp537) #13
-  br label %return
+353:                                              ; preds = %352
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %49) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %49) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad538:                                          ; preds = %sw.bb536
-  %321 = landingpad { ptr, i32 }
+354:                                              ; preds = %352
+  %355 = landingpad { ptr, i32 }
           cleanup
-  %322 = extractvalue { ptr, i32 } %321, 0
-  store ptr %322, ptr %exn.slot, align 8
-  %323 = extractvalue { ptr, i32 } %321, 1
-  store i32 %323, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp537) #13
-  br label %eh.resume
+  %356 = extractvalue { ptr, i32 } %355, 0
+  store ptr %356, ptr %15, align 8
+  %357 = extractvalue { ptr, i32 } %355, 1
+  store i32 %357, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %49) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %49) #17
+  br label %1108
 
-sw.bb541:                                         ; preds = %entry
-  call void @_ZN3ue211getUcpLimbuEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp542)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp542)
-          to label %invoke.cont544 unwind label %lpad543
+358:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %50) #17
+  call void @_ZN3ue28getUcpLtEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %50)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %50)
+          to label %359 unwind label %360
 
-invoke.cont544:                                   ; preds = %sw.bb541
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp542) #13
-  br label %return
+359:                                              ; preds = %358
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %50) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %50) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad543:                                          ; preds = %sw.bb541
-  %324 = landingpad { ptr, i32 }
+360:                                              ; preds = %358
+  %361 = landingpad { ptr, i32 }
           cleanup
-  %325 = extractvalue { ptr, i32 } %324, 0
-  store ptr %325, ptr %exn.slot, align 8
-  %326 = extractvalue { ptr, i32 } %324, 1
-  store i32 %326, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp542) #13
-  br label %eh.resume
+  %362 = extractvalue { ptr, i32 } %361, 0
+  store ptr %362, ptr %15, align 8
+  %363 = extractvalue { ptr, i32 } %361, 1
+  store i32 %363, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %50) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %50) #17
+  br label %1108
 
-sw.bb546:                                         ; preds = %entry
-  call void @_ZN3ue214getUcpLinear_BEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp547)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp547)
-          to label %invoke.cont549 unwind label %lpad548
+364:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %51) #17
+  call void @_ZN3ue28getUcpLuEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %51)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %51)
+          to label %365 unwind label %366
 
-invoke.cont549:                                   ; preds = %sw.bb546
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp547) #13
-  br label %return
+365:                                              ; preds = %364
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %51) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %51) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad548:                                          ; preds = %sw.bb546
-  %327 = landingpad { ptr, i32 }
+366:                                              ; preds = %364
+  %367 = landingpad { ptr, i32 }
           cleanup
-  %328 = extractvalue { ptr, i32 } %327, 0
-  store ptr %328, ptr %exn.slot, align 8
-  %329 = extractvalue { ptr, i32 } %327, 1
-  store i32 %329, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp547) #13
-  br label %eh.resume
+  %368 = extractvalue { ptr, i32 } %367, 0
+  store ptr %368, ptr %15, align 8
+  %369 = extractvalue { ptr, i32 } %367, 1
+  store i32 %369, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %51) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %51) #17
+  br label %1108
 
-sw.bb551:                                         ; preds = %entry
-  call void @_ZN3ue210getUcpLisuEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp552)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp552)
-          to label %invoke.cont554 unwind label %lpad553
+370:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %52) #17
+  call void @_ZN3ue27getUcpMEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %52)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %52)
+          to label %371 unwind label %372
 
-invoke.cont554:                                   ; preds = %sw.bb551
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp552) #13
-  br label %return
+371:                                              ; preds = %370
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %52) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %52) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad553:                                          ; preds = %sw.bb551
-  %330 = landingpad { ptr, i32 }
+372:                                              ; preds = %370
+  %373 = landingpad { ptr, i32 }
           cleanup
-  %331 = extractvalue { ptr, i32 } %330, 0
-  store ptr %331, ptr %exn.slot, align 8
-  %332 = extractvalue { ptr, i32 } %330, 1
-  store i32 %332, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp552) #13
-  br label %eh.resume
+  %374 = extractvalue { ptr, i32 } %373, 0
+  store ptr %374, ptr %15, align 8
+  %375 = extractvalue { ptr, i32 } %373, 1
+  store i32 %375, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %52) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %52) #17
+  br label %1108
 
-sw.bb556:                                         ; preds = %entry
-  call void @_ZN3ue212getUcpLycianEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp557)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp557)
-          to label %invoke.cont559 unwind label %lpad558
+376:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %53) #17
+  call void @_ZN3ue28getUcpMcEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %53)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %53)
+          to label %377 unwind label %378
 
-invoke.cont559:                                   ; preds = %sw.bb556
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp557) #13
-  br label %return
+377:                                              ; preds = %376
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %53) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %53) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad558:                                          ; preds = %sw.bb556
-  %333 = landingpad { ptr, i32 }
+378:                                              ; preds = %376
+  %379 = landingpad { ptr, i32 }
           cleanup
-  %334 = extractvalue { ptr, i32 } %333, 0
-  store ptr %334, ptr %exn.slot, align 8
-  %335 = extractvalue { ptr, i32 } %333, 1
-  store i32 %335, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp557) #13
-  br label %eh.resume
+  %380 = extractvalue { ptr, i32 } %379, 0
+  store ptr %380, ptr %15, align 8
+  %381 = extractvalue { ptr, i32 } %379, 1
+  store i32 %381, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %53) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %53) #17
+  br label %1108
 
-sw.bb561:                                         ; preds = %entry
-  call void @_ZN3ue212getUcpLydianEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp562)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp562)
-          to label %invoke.cont564 unwind label %lpad563
+382:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %54) #17
+  call void @_ZN3ue28getUcpMeEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %54)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %54)
+          to label %383 unwind label %384
 
-invoke.cont564:                                   ; preds = %sw.bb561
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp562) #13
-  br label %return
+383:                                              ; preds = %382
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %54) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %54) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad563:                                          ; preds = %sw.bb561
-  %336 = landingpad { ptr, i32 }
+384:                                              ; preds = %382
+  %385 = landingpad { ptr, i32 }
           cleanup
-  %337 = extractvalue { ptr, i32 } %336, 0
-  store ptr %337, ptr %exn.slot, align 8
-  %338 = extractvalue { ptr, i32 } %336, 1
-  store i32 %338, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp562) #13
-  br label %eh.resume
+  %386 = extractvalue { ptr, i32 } %385, 0
+  store ptr %386, ptr %15, align 8
+  %387 = extractvalue { ptr, i32 } %385, 1
+  store i32 %387, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %54) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %54) #17
+  br label %1108
 
-sw.bb566:                                         ; preds = %entry
-  call void @_ZN3ue215getUcpMalayalamEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp567)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp567)
-          to label %invoke.cont569 unwind label %lpad568
+388:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %55) #17
+  call void @_ZN3ue28getUcpMnEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %55)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %55)
+          to label %389 unwind label %390
 
-invoke.cont569:                                   ; preds = %sw.bb566
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp567) #13
-  br label %return
+389:                                              ; preds = %388
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %55) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %55) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad568:                                          ; preds = %sw.bb566
-  %339 = landingpad { ptr, i32 }
+390:                                              ; preds = %388
+  %391 = landingpad { ptr, i32 }
           cleanup
-  %340 = extractvalue { ptr, i32 } %339, 0
-  store ptr %340, ptr %exn.slot, align 8
-  %341 = extractvalue { ptr, i32 } %339, 1
-  store i32 %341, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp567) #13
-  br label %eh.resume
+  %392 = extractvalue { ptr, i32 } %391, 0
+  store ptr %392, ptr %15, align 8
+  %393 = extractvalue { ptr, i32 } %391, 1
+  store i32 %393, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %55) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %55) #17
+  br label %1108
 
-sw.bb571:                                         ; preds = %entry
-  call void @_ZN3ue213getUcpMandaicEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp572)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp572)
-          to label %invoke.cont574 unwind label %lpad573
+394:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %56) #17
+  call void @_ZN3ue27getUcpNEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %56)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %56)
+          to label %395 unwind label %396
 
-invoke.cont574:                                   ; preds = %sw.bb571
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp572) #13
-  br label %return
+395:                                              ; preds = %394
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %56) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %56) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad573:                                          ; preds = %sw.bb571
-  %342 = landingpad { ptr, i32 }
+396:                                              ; preds = %394
+  %397 = landingpad { ptr, i32 }
           cleanup
-  %343 = extractvalue { ptr, i32 } %342, 0
-  store ptr %343, ptr %exn.slot, align 8
-  %344 = extractvalue { ptr, i32 } %342, 1
-  store i32 %344, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp572) #13
-  br label %eh.resume
+  %398 = extractvalue { ptr, i32 } %397, 0
+  store ptr %398, ptr %15, align 8
+  %399 = extractvalue { ptr, i32 } %397, 1
+  store i32 %399, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %56) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %56) #17
+  br label %1108
 
-sw.bb576:                                         ; preds = %entry
-  call void @_ZN3ue218getUcpMeetei_MayekEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp577)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp577)
-          to label %invoke.cont579 unwind label %lpad578
+400:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %57) #17
+  call void @_ZN3ue28getUcpNdEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %57)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %57)
+          to label %401 unwind label %402
 
-invoke.cont579:                                   ; preds = %sw.bb576
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp577) #13
-  br label %return
+401:                                              ; preds = %400
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %57) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %57) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad578:                                          ; preds = %sw.bb576
-  %345 = landingpad { ptr, i32 }
+402:                                              ; preds = %400
+  %403 = landingpad { ptr, i32 }
           cleanup
-  %346 = extractvalue { ptr, i32 } %345, 0
-  store ptr %346, ptr %exn.slot, align 8
-  %347 = extractvalue { ptr, i32 } %345, 1
-  store i32 %347, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp577) #13
-  br label %eh.resume
+  %404 = extractvalue { ptr, i32 } %403, 0
+  store ptr %404, ptr %15, align 8
+  %405 = extractvalue { ptr, i32 } %403, 1
+  store i32 %405, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %57) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %57) #17
+  br label %1108
 
-sw.bb581:                                         ; preds = %entry
-  call void @_ZN3ue215getUcpMongolianEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp582)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp582)
-          to label %invoke.cont584 unwind label %lpad583
+406:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %58) #17
+  call void @_ZN3ue28getUcpNlEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %58)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %58)
+          to label %407 unwind label %408
 
-invoke.cont584:                                   ; preds = %sw.bb581
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp582) #13
-  br label %return
+407:                                              ; preds = %406
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %58) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %58) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad583:                                          ; preds = %sw.bb581
-  %348 = landingpad { ptr, i32 }
+408:                                              ; preds = %406
+  %409 = landingpad { ptr, i32 }
           cleanup
-  %349 = extractvalue { ptr, i32 } %348, 0
-  store ptr %349, ptr %exn.slot, align 8
-  %350 = extractvalue { ptr, i32 } %348, 1
-  store i32 %350, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp582) #13
-  br label %eh.resume
+  %410 = extractvalue { ptr, i32 } %409, 0
+  store ptr %410, ptr %15, align 8
+  %411 = extractvalue { ptr, i32 } %409, 1
+  store i32 %411, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %58) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %58) #17
+  br label %1108
 
-sw.bb586:                                         ; preds = %entry
-  call void @_ZN3ue213getUcpMyanmarEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp587)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp587)
-          to label %invoke.cont589 unwind label %lpad588
+412:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %59) #17
+  call void @_ZN3ue28getUcpNoEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %59)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %59)
+          to label %413 unwind label %414
 
-invoke.cont589:                                   ; preds = %sw.bb586
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp587) #13
-  br label %return
+413:                                              ; preds = %412
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %59) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %59) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad588:                                          ; preds = %sw.bb586
-  %351 = landingpad { ptr, i32 }
+414:                                              ; preds = %412
+  %415 = landingpad { ptr, i32 }
           cleanup
-  %352 = extractvalue { ptr, i32 } %351, 0
-  store ptr %352, ptr %exn.slot, align 8
-  %353 = extractvalue { ptr, i32 } %351, 1
-  store i32 %353, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp587) #13
-  br label %eh.resume
+  %416 = extractvalue { ptr, i32 } %415, 0
+  store ptr %416, ptr %15, align 8
+  %417 = extractvalue { ptr, i32 } %415, 1
+  store i32 %417, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %59) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %59) #17
+  br label %1108
 
-sw.bb591:                                         ; preds = %entry
-  call void @_ZN3ue217getUcpNew_Tai_LueEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp592)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp592)
-          to label %invoke.cont594 unwind label %lpad593
+418:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %60) #17
+  call void @_ZN3ue27getUcpPEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %60)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %60)
+          to label %419 unwind label %420
 
-invoke.cont594:                                   ; preds = %sw.bb591
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp592) #13
-  br label %return
+419:                                              ; preds = %418
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %60) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %60) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad593:                                          ; preds = %sw.bb591
-  %354 = landingpad { ptr, i32 }
+420:                                              ; preds = %418
+  %421 = landingpad { ptr, i32 }
           cleanup
-  %355 = extractvalue { ptr, i32 } %354, 0
-  store ptr %355, ptr %exn.slot, align 8
-  %356 = extractvalue { ptr, i32 } %354, 1
-  store i32 %356, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp592) #13
-  br label %eh.resume
+  %422 = extractvalue { ptr, i32 } %421, 0
+  store ptr %422, ptr %15, align 8
+  %423 = extractvalue { ptr, i32 } %421, 1
+  store i32 %423, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %60) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %60) #17
+  br label %1108
 
-sw.bb596:                                         ; preds = %entry
-  call void @_ZN3ue29getUcpNkoEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp597)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp597)
-          to label %invoke.cont599 unwind label %lpad598
+424:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %61) #17
+  call void @_ZN3ue28getUcpPcEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %61)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %61)
+          to label %425 unwind label %426
 
-invoke.cont599:                                   ; preds = %sw.bb596
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp597) #13
-  br label %return
+425:                                              ; preds = %424
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %61) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %61) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad598:                                          ; preds = %sw.bb596
-  %357 = landingpad { ptr, i32 }
+426:                                              ; preds = %424
+  %427 = landingpad { ptr, i32 }
           cleanup
-  %358 = extractvalue { ptr, i32 } %357, 0
-  store ptr %358, ptr %exn.slot, align 8
-  %359 = extractvalue { ptr, i32 } %357, 1
-  store i32 %359, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp597) #13
-  br label %eh.resume
+  %428 = extractvalue { ptr, i32 } %427, 0
+  store ptr %428, ptr %15, align 8
+  %429 = extractvalue { ptr, i32 } %427, 1
+  store i32 %429, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %61) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %61) #17
+  br label %1108
 
-sw.bb601:                                         ; preds = %entry
-  call void @_ZN3ue211getUcpOghamEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp602)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp602)
-          to label %invoke.cont604 unwind label %lpad603
+430:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %62) #17
+  call void @_ZN3ue28getUcpPdEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %62)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %62)
+          to label %431 unwind label %432
 
-invoke.cont604:                                   ; preds = %sw.bb601
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp602) #13
-  br label %return
+431:                                              ; preds = %430
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %62) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %62) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad603:                                          ; preds = %sw.bb601
-  %360 = landingpad { ptr, i32 }
+432:                                              ; preds = %430
+  %433 = landingpad { ptr, i32 }
           cleanup
-  %361 = extractvalue { ptr, i32 } %360, 0
-  store ptr %361, ptr %exn.slot, align 8
-  %362 = extractvalue { ptr, i32 } %360, 1
-  store i32 %362, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp602) #13
-  br label %eh.resume
+  %434 = extractvalue { ptr, i32 } %433, 0
+  store ptr %434, ptr %15, align 8
+  %435 = extractvalue { ptr, i32 } %433, 1
+  store i32 %435, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %62) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %62) #17
+  br label %1108
 
-sw.bb606:                                         ; preds = %entry
-  call void @_ZN3ue214getUcpOl_ChikiEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp607)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp607)
-          to label %invoke.cont609 unwind label %lpad608
+436:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %63) #17
+  call void @_ZN3ue28getUcpPeEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %63)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %63)
+          to label %437 unwind label %438
 
-invoke.cont609:                                   ; preds = %sw.bb606
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp607) #13
-  br label %return
+437:                                              ; preds = %436
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %63) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %63) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad608:                                          ; preds = %sw.bb606
-  %363 = landingpad { ptr, i32 }
+438:                                              ; preds = %436
+  %439 = landingpad { ptr, i32 }
           cleanup
-  %364 = extractvalue { ptr, i32 } %363, 0
-  store ptr %364, ptr %exn.slot, align 8
-  %365 = extractvalue { ptr, i32 } %363, 1
-  store i32 %365, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp607) #13
-  br label %eh.resume
+  %440 = extractvalue { ptr, i32 } %439, 0
+  store ptr %440, ptr %15, align 8
+  %441 = extractvalue { ptr, i32 } %439, 1
+  store i32 %441, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %63) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %63) #17
+  br label %1108
 
-sw.bb611:                                         ; preds = %entry
-  call void @_ZN3ue216getUcpOld_ItalicEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp612)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp612)
-          to label %invoke.cont614 unwind label %lpad613
+442:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %64) #17
+  call void @_ZN3ue28getUcpPfEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %64)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %64)
+          to label %443 unwind label %444
 
-invoke.cont614:                                   ; preds = %sw.bb611
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp612) #13
-  br label %return
+443:                                              ; preds = %442
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %64) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %64) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad613:                                          ; preds = %sw.bb611
-  %366 = landingpad { ptr, i32 }
+444:                                              ; preds = %442
+  %445 = landingpad { ptr, i32 }
           cleanup
-  %367 = extractvalue { ptr, i32 } %366, 0
-  store ptr %367, ptr %exn.slot, align 8
-  %368 = extractvalue { ptr, i32 } %366, 1
-  store i32 %368, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp612) #13
-  br label %eh.resume
+  %446 = extractvalue { ptr, i32 } %445, 0
+  store ptr %446, ptr %15, align 8
+  %447 = extractvalue { ptr, i32 } %445, 1
+  store i32 %447, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %64) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %64) #17
+  br label %1108
 
-sw.bb616:                                         ; preds = %entry
-  call void @_ZN3ue217getUcpOld_PersianEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp617)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp617)
-          to label %invoke.cont619 unwind label %lpad618
+448:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %65) #17
+  call void @_ZN3ue28getUcpPiEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %65)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %65)
+          to label %449 unwind label %450
 
-invoke.cont619:                                   ; preds = %sw.bb616
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp617) #13
-  br label %return
+449:                                              ; preds = %448
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %65) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %65) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad618:                                          ; preds = %sw.bb616
-  %369 = landingpad { ptr, i32 }
+450:                                              ; preds = %448
+  %451 = landingpad { ptr, i32 }
           cleanup
-  %370 = extractvalue { ptr, i32 } %369, 0
-  store ptr %370, ptr %exn.slot, align 8
-  %371 = extractvalue { ptr, i32 } %369, 1
-  store i32 %371, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp617) #13
-  br label %eh.resume
+  %452 = extractvalue { ptr, i32 } %451, 0
+  store ptr %452, ptr %15, align 8
+  %453 = extractvalue { ptr, i32 } %451, 1
+  store i32 %453, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %65) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %65) #17
+  br label %1108
 
-sw.bb621:                                         ; preds = %entry
-  call void @_ZN3ue223getUcpOld_South_ArabianEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp622)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp622)
-          to label %invoke.cont624 unwind label %lpad623
+454:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %66) #17
+  call void @_ZN3ue28getUcpPoEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %66)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %66)
+          to label %455 unwind label %456
 
-invoke.cont624:                                   ; preds = %sw.bb621
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp622) #13
-  br label %return
+455:                                              ; preds = %454
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %66) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %66) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad623:                                          ; preds = %sw.bb621
-  %372 = landingpad { ptr, i32 }
+456:                                              ; preds = %454
+  %457 = landingpad { ptr, i32 }
           cleanup
-  %373 = extractvalue { ptr, i32 } %372, 0
-  store ptr %373, ptr %exn.slot, align 8
-  %374 = extractvalue { ptr, i32 } %372, 1
-  store i32 %374, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp622) #13
-  br label %eh.resume
+  %458 = extractvalue { ptr, i32 } %457, 0
+  store ptr %458, ptr %15, align 8
+  %459 = extractvalue { ptr, i32 } %457, 1
+  store i32 %459, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %66) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %66) #17
+  br label %1108
 
-sw.bb626:                                         ; preds = %entry
-  call void @_ZN3ue216getUcpOld_TurkicEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp627)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp627)
-          to label %invoke.cont629 unwind label %lpad628
+460:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %67) #17
+  call void @_ZN3ue28getUcpPsEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %67)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %67)
+          to label %461 unwind label %462
 
-invoke.cont629:                                   ; preds = %sw.bb626
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp627) #13
-  br label %return
+461:                                              ; preds = %460
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %67) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %67) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad628:                                          ; preds = %sw.bb626
-  %375 = landingpad { ptr, i32 }
+462:                                              ; preds = %460
+  %463 = landingpad { ptr, i32 }
           cleanup
-  %376 = extractvalue { ptr, i32 } %375, 0
-  store ptr %376, ptr %exn.slot, align 8
-  %377 = extractvalue { ptr, i32 } %375, 1
-  store i32 %377, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp627) #13
-  br label %eh.resume
+  %464 = extractvalue { ptr, i32 } %463, 0
+  store ptr %464, ptr %15, align 8
+  %465 = extractvalue { ptr, i32 } %463, 1
+  store i32 %465, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %67) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %67) #17
+  br label %1108
 
-sw.bb631:                                         ; preds = %entry
-  call void @_ZN3ue211getUcpOriyaEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp632)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp632)
-          to label %invoke.cont634 unwind label %lpad633
+466:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %68) #17
+  call void @_ZN3ue27getUcpSEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %68)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %68)
+          to label %467 unwind label %468
 
-invoke.cont634:                                   ; preds = %sw.bb631
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp632) #13
-  br label %return
+467:                                              ; preds = %466
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %68) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %68) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad633:                                          ; preds = %sw.bb631
-  %378 = landingpad { ptr, i32 }
+468:                                              ; preds = %466
+  %469 = landingpad { ptr, i32 }
           cleanup
-  %379 = extractvalue { ptr, i32 } %378, 0
-  store ptr %379, ptr %exn.slot, align 8
-  %380 = extractvalue { ptr, i32 } %378, 1
-  store i32 %380, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp632) #13
-  br label %eh.resume
+  %470 = extractvalue { ptr, i32 } %469, 0
+  store ptr %470, ptr %15, align 8
+  %471 = extractvalue { ptr, i32 } %469, 1
+  store i32 %471, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %68) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %68) #17
+  br label %1108
 
-sw.bb636:                                         ; preds = %entry
-  call void @_ZN3ue213getUcpOsmanyaEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp637)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp637)
-          to label %invoke.cont639 unwind label %lpad638
+472:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %69) #17
+  call void @_ZN3ue28getUcpScEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %69)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %69)
+          to label %473 unwind label %474
 
-invoke.cont639:                                   ; preds = %sw.bb636
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp637) #13
-  br label %return
+473:                                              ; preds = %472
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %69) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %69) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad638:                                          ; preds = %sw.bb636
-  %381 = landingpad { ptr, i32 }
+474:                                              ; preds = %472
+  %475 = landingpad { ptr, i32 }
           cleanup
-  %382 = extractvalue { ptr, i32 } %381, 0
-  store ptr %382, ptr %exn.slot, align 8
-  %383 = extractvalue { ptr, i32 } %381, 1
-  store i32 %383, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp637) #13
-  br label %eh.resume
+  %476 = extractvalue { ptr, i32 } %475, 0
+  store ptr %476, ptr %15, align 8
+  %477 = extractvalue { ptr, i32 } %475, 1
+  store i32 %477, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %69) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %69) #17
+  br label %1108
 
-sw.bb641:                                         ; preds = %entry
-  call void @_ZN3ue214getUcpPhags_PaEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp642)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp642)
-          to label %invoke.cont644 unwind label %lpad643
+478:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %70) #17
+  call void @_ZN3ue28getUcpSkEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %70)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %70)
+          to label %479 unwind label %480
 
-invoke.cont644:                                   ; preds = %sw.bb641
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp642) #13
-  br label %return
+479:                                              ; preds = %478
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %70) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %70) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad643:                                          ; preds = %sw.bb641
-  %384 = landingpad { ptr, i32 }
+480:                                              ; preds = %478
+  %481 = landingpad { ptr, i32 }
           cleanup
-  %385 = extractvalue { ptr, i32 } %384, 0
-  store ptr %385, ptr %exn.slot, align 8
-  %386 = extractvalue { ptr, i32 } %384, 1
-  store i32 %386, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp642) #13
-  br label %eh.resume
+  %482 = extractvalue { ptr, i32 } %481, 0
+  store ptr %482, ptr %15, align 8
+  %483 = extractvalue { ptr, i32 } %481, 1
+  store i32 %483, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %70) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %70) #17
+  br label %1108
 
-sw.bb646:                                         ; preds = %entry
-  call void @_ZN3ue216getUcpPhoenicianEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp647)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp647)
-          to label %invoke.cont649 unwind label %lpad648
+484:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %71) #17
+  call void @_ZN3ue28getUcpSmEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %71)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %71)
+          to label %485 unwind label %486
 
-invoke.cont649:                                   ; preds = %sw.bb646
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp647) #13
-  br label %return
+485:                                              ; preds = %484
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %71) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %71) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad648:                                          ; preds = %sw.bb646
-  %387 = landingpad { ptr, i32 }
+486:                                              ; preds = %484
+  %487 = landingpad { ptr, i32 }
           cleanup
-  %388 = extractvalue { ptr, i32 } %387, 0
-  store ptr %388, ptr %exn.slot, align 8
-  %389 = extractvalue { ptr, i32 } %387, 1
-  store i32 %389, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp647) #13
-  br label %eh.resume
+  %488 = extractvalue { ptr, i32 } %487, 0
+  store ptr %488, ptr %15, align 8
+  %489 = extractvalue { ptr, i32 } %487, 1
+  store i32 %489, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %71) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %71) #17
+  br label %1108
 
-sw.bb651:                                         ; preds = %entry
-  call void @_ZN3ue212getUcpRejangEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp652)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp652)
-          to label %invoke.cont654 unwind label %lpad653
+490:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %72) #17
+  call void @_ZN3ue28getUcpSoEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %72)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %72)
+          to label %491 unwind label %492
 
-invoke.cont654:                                   ; preds = %sw.bb651
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp652) #13
-  br label %return
+491:                                              ; preds = %490
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %72) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %72) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad653:                                          ; preds = %sw.bb651
-  %390 = landingpad { ptr, i32 }
+492:                                              ; preds = %490
+  %493 = landingpad { ptr, i32 }
           cleanup
-  %391 = extractvalue { ptr, i32 } %390, 0
-  store ptr %391, ptr %exn.slot, align 8
-  %392 = extractvalue { ptr, i32 } %390, 1
-  store i32 %392, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp652) #13
-  br label %eh.resume
+  %494 = extractvalue { ptr, i32 } %493, 0
+  store ptr %494, ptr %15, align 8
+  %495 = extractvalue { ptr, i32 } %493, 1
+  store i32 %495, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %72) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %72) #17
+  br label %1108
 
-sw.bb656:                                         ; preds = %entry
-  call void @_ZN3ue211getUcpRunicEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp657)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp657)
-          to label %invoke.cont659 unwind label %lpad658
+496:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %73) #17
+  call void @_ZN3ue29getUcpXanEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %73)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %73)
+          to label %497 unwind label %498
 
-invoke.cont659:                                   ; preds = %sw.bb656
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp657) #13
-  br label %return
+497:                                              ; preds = %496
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %73) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %73) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad658:                                          ; preds = %sw.bb656
-  %393 = landingpad { ptr, i32 }
+498:                                              ; preds = %496
+  %499 = landingpad { ptr, i32 }
           cleanup
-  %394 = extractvalue { ptr, i32 } %393, 0
-  store ptr %394, ptr %exn.slot, align 8
-  %395 = extractvalue { ptr, i32 } %393, 1
-  store i32 %395, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp657) #13
-  br label %eh.resume
+  %500 = extractvalue { ptr, i32 } %499, 0
+  store ptr %500, ptr %15, align 8
+  %501 = extractvalue { ptr, i32 } %499, 1
+  store i32 %501, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %73) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %73) #17
+  br label %1108
 
-sw.bb661:                                         ; preds = %entry
-  call void @_ZN3ue215getUcpSamaritanEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp662)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp662)
-          to label %invoke.cont664 unwind label %lpad663
+502:                                              ; preds = %3, %3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %74) #17
+  %503 = load ptr, ptr %5, align 8
+  call void @_ZN3ue222getPredefinedCharReachENS_15PredefinedClassERKNS_9ParseModeE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %74, i32 noundef 14, ptr noundef nonnull align 1 dereferenceable(6) %503)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %75) #17
+  %504 = load ptr, ptr %5, align 8
+  call void @_ZN3ue222getPredefinedCharReachENS_15PredefinedClassERKNS_9ParseModeE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %75, i32 noundef 8, ptr noundef nonnull align 1 dereferenceable(6) %504)
+  call void @_ZNK3ue29CharReachorERKS0_(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 8 dereferenceable(32) %75)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %75) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %74) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-invoke.cont664:                                   ; preds = %sw.bb661
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp662) #13
-  br label %return
+505:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %76) #17
+  call void @_ZN3ue29getUcpXwdEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %76)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %76)
+          to label %506 unwind label %507
 
-lpad663:                                          ; preds = %sw.bb661
-  %396 = landingpad { ptr, i32 }
+506:                                              ; preds = %505
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %76) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %76) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+507:                                              ; preds = %505
+  %508 = landingpad { ptr, i32 }
           cleanup
-  %397 = extractvalue { ptr, i32 } %396, 0
-  store ptr %397, ptr %exn.slot, align 8
-  %398 = extractvalue { ptr, i32 } %396, 1
-  store i32 %398, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp662) #13
-  br label %eh.resume
+  %509 = extractvalue { ptr, i32 } %508, 0
+  store ptr %509, ptr %15, align 8
+  %510 = extractvalue { ptr, i32 } %508, 1
+  store i32 %510, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %76) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %76) #17
+  br label %1108
 
-sw.bb666:                                         ; preds = %entry
-  call void @_ZN3ue216getUcpSaurashtraEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp667)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp667)
-          to label %invoke.cont669 unwind label %lpad668
+511:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %77) #17
+  call void @_ZN3ue27getUcpZEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %77)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %77)
+          to label %512 unwind label %513
 
-invoke.cont669:                                   ; preds = %sw.bb666
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp667) #13
-  br label %return
+512:                                              ; preds = %511
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %77) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %77) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad668:                                          ; preds = %sw.bb666
-  %399 = landingpad { ptr, i32 }
+513:                                              ; preds = %511
+  %514 = landingpad { ptr, i32 }
           cleanup
-  %400 = extractvalue { ptr, i32 } %399, 0
-  store ptr %400, ptr %exn.slot, align 8
-  %401 = extractvalue { ptr, i32 } %399, 1
-  store i32 %401, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp667) #13
-  br label %eh.resume
+  %515 = extractvalue { ptr, i32 } %514, 0
+  store ptr %515, ptr %15, align 8
+  %516 = extractvalue { ptr, i32 } %514, 1
+  store i32 %516, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %77) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %77) #17
+  br label %1108
 
-sw.bb671:                                         ; preds = %entry
-  call void @_ZN3ue213getUcpShavianEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp672)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp672)
-          to label %invoke.cont674 unwind label %lpad673
+517:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %78) #17
+  call void @_ZN3ue28getUcpZlEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %78)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %78)
+          to label %518 unwind label %519
 
-invoke.cont674:                                   ; preds = %sw.bb671
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp672) #13
-  br label %return
+518:                                              ; preds = %517
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %78) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %78) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad673:                                          ; preds = %sw.bb671
-  %402 = landingpad { ptr, i32 }
+519:                                              ; preds = %517
+  %520 = landingpad { ptr, i32 }
           cleanup
-  %403 = extractvalue { ptr, i32 } %402, 0
-  store ptr %403, ptr %exn.slot, align 8
-  %404 = extractvalue { ptr, i32 } %402, 1
-  store i32 %404, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp672) #13
-  br label %eh.resume
+  %521 = extractvalue { ptr, i32 } %520, 0
+  store ptr %521, ptr %15, align 8
+  %522 = extractvalue { ptr, i32 } %520, 1
+  store i32 %522, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %78) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %78) #17
+  br label %1108
 
-sw.bb676:                                         ; preds = %entry
-  call void @_ZN3ue213getUcpSinhalaEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp677)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp677)
-          to label %invoke.cont679 unwind label %lpad678
+523:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %79) #17
+  call void @_ZN3ue28getUcpZpEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %79)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %79)
+          to label %524 unwind label %525
 
-invoke.cont679:                                   ; preds = %sw.bb676
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp677) #13
-  br label %return
+524:                                              ; preds = %523
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %79) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %79) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad678:                                          ; preds = %sw.bb676
-  %405 = landingpad { ptr, i32 }
+525:                                              ; preds = %523
+  %526 = landingpad { ptr, i32 }
           cleanup
-  %406 = extractvalue { ptr, i32 } %405, 0
-  store ptr %406, ptr %exn.slot, align 8
-  %407 = extractvalue { ptr, i32 } %405, 1
-  store i32 %407, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp677) #13
-  br label %eh.resume
+  %527 = extractvalue { ptr, i32 } %526, 0
+  store ptr %527, ptr %15, align 8
+  %528 = extractvalue { ptr, i32 } %526, 1
+  store i32 %528, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %79) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %79) #17
+  br label %1108
 
-sw.bb681:                                         ; preds = %entry
-  call void @_ZN3ue215getUcpSundaneseEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp682)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp682)
-          to label %invoke.cont684 unwind label %lpad683
+529:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %80) #17
+  call void @_ZN3ue28getUcpZsEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %80)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %80)
+          to label %530 unwind label %531
 
-invoke.cont684:                                   ; preds = %sw.bb681
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp682) #13
-  br label %return
+530:                                              ; preds = %529
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %80) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %80) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad683:                                          ; preds = %sw.bb681
-  %408 = landingpad { ptr, i32 }
+531:                                              ; preds = %529
+  %532 = landingpad { ptr, i32 }
           cleanup
-  %409 = extractvalue { ptr, i32 } %408, 0
-  store ptr %409, ptr %exn.slot, align 8
-  %410 = extractvalue { ptr, i32 } %408, 1
-  store i32 %410, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp682) #13
-  br label %eh.resume
+  %533 = extractvalue { ptr, i32 } %532, 0
+  store ptr %533, ptr %15, align 8
+  %534 = extractvalue { ptr, i32 } %532, 1
+  store i32 %534, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %80) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %80) #17
+  br label %1108
 
-sw.bb686:                                         ; preds = %entry
-  call void @_ZN3ue218getUcpSyloti_NagriEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp687)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp687)
-          to label %invoke.cont689 unwind label %lpad688
+535:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %81) #17
+  call void @_ZN3ue212getUcpArabicEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %81)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %81)
+          to label %536 unwind label %537
 
-invoke.cont689:                                   ; preds = %sw.bb686
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp687) #13
-  br label %return
+536:                                              ; preds = %535
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %81) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %81) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad688:                                          ; preds = %sw.bb686
-  %411 = landingpad { ptr, i32 }
+537:                                              ; preds = %535
+  %538 = landingpad { ptr, i32 }
           cleanup
-  %412 = extractvalue { ptr, i32 } %411, 0
-  store ptr %412, ptr %exn.slot, align 8
-  %413 = extractvalue { ptr, i32 } %411, 1
-  store i32 %413, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp687) #13
-  br label %eh.resume
+  %539 = extractvalue { ptr, i32 } %538, 0
+  store ptr %539, ptr %15, align 8
+  %540 = extractvalue { ptr, i32 } %538, 1
+  store i32 %540, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %81) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %81) #17
+  br label %1108
 
-sw.bb691:                                         ; preds = %entry
-  call void @_ZN3ue212getUcpSyriacEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp692)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp692)
-          to label %invoke.cont694 unwind label %lpad693
+541:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %82) #17
+  call void @_ZN3ue214getUcpArmenianEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %82)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %82)
+          to label %542 unwind label %543
 
-invoke.cont694:                                   ; preds = %sw.bb691
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp692) #13
-  br label %return
+542:                                              ; preds = %541
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %82) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %82) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad693:                                          ; preds = %sw.bb691
-  %414 = landingpad { ptr, i32 }
+543:                                              ; preds = %541
+  %544 = landingpad { ptr, i32 }
           cleanup
-  %415 = extractvalue { ptr, i32 } %414, 0
-  store ptr %415, ptr %exn.slot, align 8
-  %416 = extractvalue { ptr, i32 } %414, 1
-  store i32 %416, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp692) #13
-  br label %eh.resume
+  %545 = extractvalue { ptr, i32 } %544, 0
+  store ptr %545, ptr %15, align 8
+  %546 = extractvalue { ptr, i32 } %544, 1
+  store i32 %546, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %82) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %82) #17
+  br label %1108
 
-sw.bb696:                                         ; preds = %entry
-  call void @_ZN3ue213getUcpTagalogEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp697)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp697)
-          to label %invoke.cont699 unwind label %lpad698
+547:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %83) #17
+  call void @_ZN3ue213getUcpAvestanEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %83)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %83)
+          to label %548 unwind label %549
 
-invoke.cont699:                                   ; preds = %sw.bb696
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp697) #13
-  br label %return
+548:                                              ; preds = %547
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %83) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %83) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad698:                                          ; preds = %sw.bb696
-  %417 = landingpad { ptr, i32 }
+549:                                              ; preds = %547
+  %550 = landingpad { ptr, i32 }
           cleanup
-  %418 = extractvalue { ptr, i32 } %417, 0
-  store ptr %418, ptr %exn.slot, align 8
-  %419 = extractvalue { ptr, i32 } %417, 1
-  store i32 %419, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp697) #13
-  br label %eh.resume
+  %551 = extractvalue { ptr, i32 } %550, 0
+  store ptr %551, ptr %15, align 8
+  %552 = extractvalue { ptr, i32 } %550, 1
+  store i32 %552, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %83) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %83) #17
+  br label %1108
 
-sw.bb701:                                         ; preds = %entry
-  call void @_ZN3ue214getUcpTagbanwaEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp702)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp702)
-          to label %invoke.cont704 unwind label %lpad703
+553:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %84) #17
+  call void @_ZN3ue214getUcpBalineseEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %84)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %84)
+          to label %554 unwind label %555
 
-invoke.cont704:                                   ; preds = %sw.bb701
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp702) #13
-  br label %return
+554:                                              ; preds = %553
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %84) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %84) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad703:                                          ; preds = %sw.bb701
-  %420 = landingpad { ptr, i32 }
+555:                                              ; preds = %553
+  %556 = landingpad { ptr, i32 }
           cleanup
-  %421 = extractvalue { ptr, i32 } %420, 0
-  store ptr %421, ptr %exn.slot, align 8
-  %422 = extractvalue { ptr, i32 } %420, 1
-  store i32 %422, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp702) #13
-  br label %eh.resume
+  %557 = extractvalue { ptr, i32 } %556, 0
+  store ptr %557, ptr %15, align 8
+  %558 = extractvalue { ptr, i32 } %556, 1
+  store i32 %558, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %84) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %84) #17
+  br label %1108
 
-sw.bb706:                                         ; preds = %entry
-  call void @_ZN3ue212getUcpTai_LeEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp707)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp707)
-          to label %invoke.cont709 unwind label %lpad708
+559:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %85) #17
+  call void @_ZN3ue211getUcpBamumEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %85)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %85)
+          to label %560 unwind label %561
 
-invoke.cont709:                                   ; preds = %sw.bb706
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp707) #13
-  br label %return
+560:                                              ; preds = %559
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %85) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %85) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad708:                                          ; preds = %sw.bb706
-  %423 = landingpad { ptr, i32 }
+561:                                              ; preds = %559
+  %562 = landingpad { ptr, i32 }
           cleanup
-  %424 = extractvalue { ptr, i32 } %423, 0
-  store ptr %424, ptr %exn.slot, align 8
-  %425 = extractvalue { ptr, i32 } %423, 1
-  store i32 %425, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp707) #13
-  br label %eh.resume
+  %563 = extractvalue { ptr, i32 } %562, 0
+  store ptr %563, ptr %15, align 8
+  %564 = extractvalue { ptr, i32 } %562, 1
+  store i32 %564, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %85) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %85) #17
+  br label %1108
 
-sw.bb711:                                         ; preds = %entry
-  call void @_ZN3ue214getUcpTai_ThamEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp712)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp712)
-          to label %invoke.cont714 unwind label %lpad713
+565:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %86) #17
+  call void @_ZN3ue211getUcpBatakEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %86)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %86)
+          to label %566 unwind label %567
 
-invoke.cont714:                                   ; preds = %sw.bb711
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp712) #13
-  br label %return
+566:                                              ; preds = %565
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %86) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %86) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad713:                                          ; preds = %sw.bb711
-  %426 = landingpad { ptr, i32 }
+567:                                              ; preds = %565
+  %568 = landingpad { ptr, i32 }
           cleanup
-  %427 = extractvalue { ptr, i32 } %426, 0
-  store ptr %427, ptr %exn.slot, align 8
-  %428 = extractvalue { ptr, i32 } %426, 1
-  store i32 %428, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp712) #13
-  br label %eh.resume
+  %569 = extractvalue { ptr, i32 } %568, 0
+  store ptr %569, ptr %15, align 8
+  %570 = extractvalue { ptr, i32 } %568, 1
+  store i32 %570, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %86) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %86) #17
+  br label %1108
 
-sw.bb716:                                         ; preds = %entry
-  call void @_ZN3ue214getUcpTai_VietEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp717)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp717)
-          to label %invoke.cont719 unwind label %lpad718
+571:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %87) #17
+  call void @_ZN3ue213getUcpBengaliEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %87)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %87)
+          to label %572 unwind label %573
 
-invoke.cont719:                                   ; preds = %sw.bb716
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp717) #13
-  br label %return
+572:                                              ; preds = %571
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %87) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %87) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad718:                                          ; preds = %sw.bb716
-  %429 = landingpad { ptr, i32 }
+573:                                              ; preds = %571
+  %574 = landingpad { ptr, i32 }
           cleanup
-  %430 = extractvalue { ptr, i32 } %429, 0
-  store ptr %430, ptr %exn.slot, align 8
-  %431 = extractvalue { ptr, i32 } %429, 1
-  store i32 %431, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp717) #13
-  br label %eh.resume
+  %575 = extractvalue { ptr, i32 } %574, 0
+  store ptr %575, ptr %15, align 8
+  %576 = extractvalue { ptr, i32 } %574, 1
+  store i32 %576, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %87) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %87) #17
+  br label %1108
 
-sw.bb721:                                         ; preds = %entry
-  call void @_ZN3ue211getUcpTamilEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp722)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp722)
-          to label %invoke.cont724 unwind label %lpad723
+577:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %88) #17
+  call void @_ZN3ue214getUcpBopomofoEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %88)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %88)
+          to label %578 unwind label %579
 
-invoke.cont724:                                   ; preds = %sw.bb721
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp722) #13
-  br label %return
+578:                                              ; preds = %577
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %88) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %88) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad723:                                          ; preds = %sw.bb721
-  %432 = landingpad { ptr, i32 }
+579:                                              ; preds = %577
+  %580 = landingpad { ptr, i32 }
           cleanup
-  %433 = extractvalue { ptr, i32 } %432, 0
-  store ptr %433, ptr %exn.slot, align 8
-  %434 = extractvalue { ptr, i32 } %432, 1
-  store i32 %434, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp722) #13
-  br label %eh.resume
+  %581 = extractvalue { ptr, i32 } %580, 0
+  store ptr %581, ptr %15, align 8
+  %582 = extractvalue { ptr, i32 } %580, 1
+  store i32 %582, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %88) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %88) #17
+  br label %1108
 
-sw.bb726:                                         ; preds = %entry
-  call void @_ZN3ue212getUcpTeluguEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp727)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp727)
-          to label %invoke.cont729 unwind label %lpad728
+583:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %89) #17
+  call void @_ZN3ue212getUcpBrahmiEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %89)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %89)
+          to label %584 unwind label %585
 
-invoke.cont729:                                   ; preds = %sw.bb726
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp727) #13
-  br label %return
+584:                                              ; preds = %583
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %89) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %89) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad728:                                          ; preds = %sw.bb726
-  %435 = landingpad { ptr, i32 }
+585:                                              ; preds = %583
+  %586 = landingpad { ptr, i32 }
           cleanup
-  %436 = extractvalue { ptr, i32 } %435, 0
-  store ptr %436, ptr %exn.slot, align 8
-  %437 = extractvalue { ptr, i32 } %435, 1
-  store i32 %437, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp727) #13
-  br label %eh.resume
+  %587 = extractvalue { ptr, i32 } %586, 0
+  store ptr %587, ptr %15, align 8
+  %588 = extractvalue { ptr, i32 } %586, 1
+  store i32 %588, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %89) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %89) #17
+  br label %1108
 
-sw.bb731:                                         ; preds = %entry
-  call void @_ZN3ue212getUcpThaanaEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp732)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp732)
-          to label %invoke.cont734 unwind label %lpad733
+589:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %90) #17
+  call void @_ZN3ue213getUcpBrailleEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %90)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %90)
+          to label %590 unwind label %591
 
-invoke.cont734:                                   ; preds = %sw.bb731
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp732) #13
-  br label %return
+590:                                              ; preds = %589
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %90) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %90) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad733:                                          ; preds = %sw.bb731
-  %438 = landingpad { ptr, i32 }
+591:                                              ; preds = %589
+  %592 = landingpad { ptr, i32 }
           cleanup
-  %439 = extractvalue { ptr, i32 } %438, 0
-  store ptr %439, ptr %exn.slot, align 8
-  %440 = extractvalue { ptr, i32 } %438, 1
-  store i32 %440, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp732) #13
-  br label %eh.resume
+  %593 = extractvalue { ptr, i32 } %592, 0
+  store ptr %593, ptr %15, align 8
+  %594 = extractvalue { ptr, i32 } %592, 1
+  store i32 %594, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %90) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %90) #17
+  br label %1108
 
-sw.bb736:                                         ; preds = %entry
-  call void @_ZN3ue210getUcpThaiEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp737)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp737)
-          to label %invoke.cont739 unwind label %lpad738
+595:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %91) #17
+  call void @_ZN3ue214getUcpBugineseEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %91)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %91)
+          to label %596 unwind label %597
 
-invoke.cont739:                                   ; preds = %sw.bb736
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp737) #13
-  br label %return
+596:                                              ; preds = %595
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %91) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %91) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad738:                                          ; preds = %sw.bb736
-  %441 = landingpad { ptr, i32 }
+597:                                              ; preds = %595
+  %598 = landingpad { ptr, i32 }
           cleanup
-  %442 = extractvalue { ptr, i32 } %441, 0
-  store ptr %442, ptr %exn.slot, align 8
-  %443 = extractvalue { ptr, i32 } %441, 1
-  store i32 %443, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp737) #13
-  br label %eh.resume
+  %599 = extractvalue { ptr, i32 } %598, 0
+  store ptr %599, ptr %15, align 8
+  %600 = extractvalue { ptr, i32 } %598, 1
+  store i32 %600, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %91) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %91) #17
+  br label %1108
 
-sw.bb741:                                         ; preds = %entry
-  call void @_ZN3ue213getUcpTibetanEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp742)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp742)
-          to label %invoke.cont744 unwind label %lpad743
+601:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %92) #17
+  call void @_ZN3ue211getUcpBuhidEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %92)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %92)
+          to label %602 unwind label %603
 
-invoke.cont744:                                   ; preds = %sw.bb741
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp742) #13
-  br label %return
+602:                                              ; preds = %601
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %92) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %92) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad743:                                          ; preds = %sw.bb741
-  %444 = landingpad { ptr, i32 }
+603:                                              ; preds = %601
+  %604 = landingpad { ptr, i32 }
           cleanup
-  %445 = extractvalue { ptr, i32 } %444, 0
-  store ptr %445, ptr %exn.slot, align 8
-  %446 = extractvalue { ptr, i32 } %444, 1
-  store i32 %446, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp742) #13
-  br label %eh.resume
+  %605 = extractvalue { ptr, i32 } %604, 0
+  store ptr %605, ptr %15, align 8
+  %606 = extractvalue { ptr, i32 } %604, 1
+  store i32 %606, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %92) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %92) #17
+  br label %1108
 
-sw.bb746:                                         ; preds = %entry
-  call void @_ZN3ue214getUcpTifinaghEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp747)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp747)
-          to label %invoke.cont749 unwind label %lpad748
+607:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %93) #17
+  call void @_ZN3ue225getUcpCanadian_AboriginalEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %93)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %93)
+          to label %608 unwind label %609
 
-invoke.cont749:                                   ; preds = %sw.bb746
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp747) #13
-  br label %return
+608:                                              ; preds = %607
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %93) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %93) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad748:                                          ; preds = %sw.bb746
-  %447 = landingpad { ptr, i32 }
+609:                                              ; preds = %607
+  %610 = landingpad { ptr, i32 }
           cleanup
-  %448 = extractvalue { ptr, i32 } %447, 0
-  store ptr %448, ptr %exn.slot, align 8
-  %449 = extractvalue { ptr, i32 } %447, 1
-  store i32 %449, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp747) #13
-  br label %eh.resume
+  %611 = extractvalue { ptr, i32 } %610, 0
+  store ptr %611, ptr %15, align 8
+  %612 = extractvalue { ptr, i32 } %610, 1
+  store i32 %612, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %93) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %93) #17
+  br label %1108
 
-sw.bb751:                                         ; preds = %entry
-  call void @_ZN3ue214getUcpUgariticEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp752)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp752)
-          to label %invoke.cont754 unwind label %lpad753
+613:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %94) #17
+  call void @_ZN3ue212getUcpCarianEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %94)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %94)
+          to label %614 unwind label %615
 
-invoke.cont754:                                   ; preds = %sw.bb751
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp752) #13
-  br label %return
+614:                                              ; preds = %613
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %94) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %94) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad753:                                          ; preds = %sw.bb751
-  %450 = landingpad { ptr, i32 }
+615:                                              ; preds = %613
+  %616 = landingpad { ptr, i32 }
           cleanup
-  %451 = extractvalue { ptr, i32 } %450, 0
-  store ptr %451, ptr %exn.slot, align 8
-  %452 = extractvalue { ptr, i32 } %450, 1
-  store i32 %452, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp752) #13
-  br label %eh.resume
+  %617 = extractvalue { ptr, i32 } %616, 0
+  store ptr %617, ptr %15, align 8
+  %618 = extractvalue { ptr, i32 } %616, 1
+  store i32 %618, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %94) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %94) #17
+  br label %1108
 
-sw.bb756:                                         ; preds = %entry
-  call void @_ZN3ue29getUcpVaiEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp757)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp757)
-          to label %invoke.cont759 unwind label %lpad758
+619:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %95) #17
+  call void @_ZN3ue210getUcpChamEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %95)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %95)
+          to label %620 unwind label %621
 
-invoke.cont759:                                   ; preds = %sw.bb756
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp757) #13
-  br label %return
+620:                                              ; preds = %619
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %95) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %95) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad758:                                          ; preds = %sw.bb756
-  %453 = landingpad { ptr, i32 }
+621:                                              ; preds = %619
+  %622 = landingpad { ptr, i32 }
           cleanup
-  %454 = extractvalue { ptr, i32 } %453, 0
-  store ptr %454, ptr %exn.slot, align 8
-  %455 = extractvalue { ptr, i32 } %453, 1
-  store i32 %455, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp757) #13
-  br label %eh.resume
+  %623 = extractvalue { ptr, i32 } %622, 0
+  store ptr %623, ptr %15, align 8
+  %624 = extractvalue { ptr, i32 } %622, 1
+  store i32 %624, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %95) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %95) #17
+  br label %1108
 
-sw.bb761:                                         ; preds = %entry
-  call void @_ZN3ue28getUcpYiEv(ptr sret(%"class.ue2::CodePointSet") align 8 %ref.tmp762)
-  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp762)
-          to label %invoke.cont764 unwind label %lpad763
+625:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %96) #17
+  call void @_ZN3ue214getUcpCherokeeEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %96)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %96)
+          to label %626 unwind label %627
 
-invoke.cont764:                                   ; preds = %sw.bb761
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp762) #13
-  br label %return
+626:                                              ; preds = %625
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %96) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %96) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-lpad763:                                          ; preds = %sw.bb761
-  %456 = landingpad { ptr, i32 }
+627:                                              ; preds = %625
+  %628 = landingpad { ptr, i32 }
           cleanup
-  %457 = extractvalue { ptr, i32 } %456, 0
-  store ptr %457, ptr %exn.slot, align 8
-  %458 = extractvalue { ptr, i32 } %456, 1
-  store i32 %458, ptr %ehselector.slot, align 4
-  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp762) #13
-  br label %eh.resume
+  %629 = extractvalue { ptr, i32 } %628, 0
+  store ptr %629, ptr %15, align 8
+  %630 = extractvalue { ptr, i32 } %628, 1
+  store i32 %630, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %96) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %96) #17
+  br label %1108
 
-sw.bb766:                                         ; preds = %entry
-  call void @_ZN3ue29CharReachC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp767)
-  call void @_ZNK3ue29CharReachcoEv(ptr sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp767)
-  br label %return
+631:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %97) #17
+  call void @_ZN3ue212getUcpCommonEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %97)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %97)
+          to label %632 unwind label %633
 
-sw.epilog:                                        ; preds = %entry
-  call void @_ZN3ue29CharReachC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
-  br label %return
+632:                                              ; preds = %631
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %97) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %97) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
 
-return:                                           ; preds = %sw.epilog, %sw.bb766, %invoke.cont764, %invoke.cont759, %invoke.cont754, %invoke.cont749, %invoke.cont744, %invoke.cont739, %invoke.cont734, %invoke.cont729, %invoke.cont724, %invoke.cont719, %invoke.cont714, %invoke.cont709, %invoke.cont704, %invoke.cont699, %invoke.cont694, %invoke.cont689, %invoke.cont684, %invoke.cont679, %invoke.cont674, %invoke.cont669, %invoke.cont664, %invoke.cont659, %invoke.cont654, %invoke.cont649, %invoke.cont644, %invoke.cont639, %invoke.cont634, %invoke.cont629, %invoke.cont624, %invoke.cont619, %invoke.cont614, %invoke.cont609, %invoke.cont604, %invoke.cont599, %invoke.cont594, %invoke.cont589, %invoke.cont584, %invoke.cont579, %invoke.cont574, %invoke.cont569, %invoke.cont564, %invoke.cont559, %invoke.cont554, %invoke.cont549, %invoke.cont544, %invoke.cont539, %invoke.cont534, %invoke.cont529, %invoke.cont524, %invoke.cont519, %invoke.cont514, %invoke.cont509, %invoke.cont504, %invoke.cont499, %invoke.cont494, %invoke.cont489, %invoke.cont484, %invoke.cont479, %invoke.cont474, %invoke.cont469, %invoke.cont464, %invoke.cont459, %invoke.cont454, %invoke.cont449, %invoke.cont444, %invoke.cont439, %invoke.cont434, %invoke.cont429, %invoke.cont424, %invoke.cont419, %invoke.cont414, %invoke.cont409, %invoke.cont404, %invoke.cont399, %invoke.cont394, %invoke.cont389, %invoke.cont384, %invoke.cont379, %invoke.cont374, %invoke.cont369, %invoke.cont364, %invoke.cont359, %invoke.cont354, %invoke.cont349, %invoke.cont344, %invoke.cont339, %invoke.cont334, %invoke.cont329, %invoke.cont324, %invoke.cont319, %invoke.cont314, %invoke.cont309, %invoke.cont304, %invoke.cont299, %invoke.cont294, %invoke.cont289, %invoke.cont284, %invoke.cont279, %invoke.cont274, %invoke.cont269, %sw.bb263, %invoke.cont261, %invoke.cont256, %invoke.cont251, %invoke.cont246, %invoke.cont241, %invoke.cont236, %invoke.cont231, %invoke.cont226, %invoke.cont221, %invoke.cont216, %invoke.cont211, %invoke.cont206, %invoke.cont201, %invoke.cont196, %invoke.cont191, %invoke.cont186, %invoke.cont181, %invoke.cont176, %invoke.cont171, %invoke.cont166, %invoke.cont161, %invoke.cont156, %invoke.cont151, %invoke.cont146, %invoke.cont141, %invoke.cont136, %invoke.cont131, %invoke.cont126, %invoke.cont121, %invoke.cont116, %invoke.cont111, %invoke.cont106, %invoke.cont101, %invoke.cont96, %invoke.cont91, %invoke.cont85, %sw.bb75, %invoke.cont72, %if.else65, %if.then64, %invoke.cont58, %invoke.cont50, %sw.bb40, %invoke.cont38, %sw.bb34, %if.else33, %if.then32, %invoke.cont27, %invoke.cont19, %sw.bb15, %sw.bb14, %sw.bb11, %invoke.cont10, %sw.bb5, %if.else, %if.then, %sw.bb1, %sw.bb
+633:                                              ; preds = %631
+  %634 = landingpad { ptr, i32 }
+          cleanup
+  %635 = extractvalue { ptr, i32 } %634, 0
+  store ptr %635, ptr %15, align 8
+  %636 = extractvalue { ptr, i32 } %634, 1
+  store i32 %636, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %97) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %97) #17
+  br label %1108
+
+637:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %98) #17
+  call void @_ZN3ue212getUcpCopticEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %98)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %98)
+          to label %638 unwind label %639
+
+638:                                              ; preds = %637
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %98) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %98) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+639:                                              ; preds = %637
+  %640 = landingpad { ptr, i32 }
+          cleanup
+  %641 = extractvalue { ptr, i32 } %640, 0
+  store ptr %641, ptr %15, align 8
+  %642 = extractvalue { ptr, i32 } %640, 1
+  store i32 %642, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %98) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %98) #17
+  br label %1108
+
+643:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %99) #17
+  call void @_ZN3ue215getUcpCuneiformEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %99)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %99)
+          to label %644 unwind label %645
+
+644:                                              ; preds = %643
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %99) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %99) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+645:                                              ; preds = %643
+  %646 = landingpad { ptr, i32 }
+          cleanup
+  %647 = extractvalue { ptr, i32 } %646, 0
+  store ptr %647, ptr %15, align 8
+  %648 = extractvalue { ptr, i32 } %646, 1
+  store i32 %648, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %99) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %99) #17
+  br label %1108
+
+649:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %100) #17
+  call void @_ZN3ue213getUcpCypriotEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %100)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %100)
+          to label %650 unwind label %651
+
+650:                                              ; preds = %649
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %100) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %100) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+651:                                              ; preds = %649
+  %652 = landingpad { ptr, i32 }
+          cleanup
+  %653 = extractvalue { ptr, i32 } %652, 0
+  store ptr %653, ptr %15, align 8
+  %654 = extractvalue { ptr, i32 } %652, 1
+  store i32 %654, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %100) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %100) #17
+  br label %1108
+
+655:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %101) #17
+  call void @_ZN3ue214getUcpCyrillicEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %101)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %101)
+          to label %656 unwind label %657
+
+656:                                              ; preds = %655
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %101) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %101) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+657:                                              ; preds = %655
+  %658 = landingpad { ptr, i32 }
+          cleanup
+  %659 = extractvalue { ptr, i32 } %658, 0
+  store ptr %659, ptr %15, align 8
+  %660 = extractvalue { ptr, i32 } %658, 1
+  store i32 %660, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %101) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %101) #17
+  br label %1108
+
+661:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %102) #17
+  call void @_ZN3ue213getUcpDeseretEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %102)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %102)
+          to label %662 unwind label %663
+
+662:                                              ; preds = %661
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %102) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %102) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+663:                                              ; preds = %661
+  %664 = landingpad { ptr, i32 }
+          cleanup
+  %665 = extractvalue { ptr, i32 } %664, 0
+  store ptr %665, ptr %15, align 8
+  %666 = extractvalue { ptr, i32 } %664, 1
+  store i32 %666, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %102) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %102) #17
+  br label %1108
+
+667:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %103) #17
+  call void @_ZN3ue216getUcpDevanagariEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %103)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %103)
+          to label %668 unwind label %669
+
+668:                                              ; preds = %667
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %103) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %103) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+669:                                              ; preds = %667
+  %670 = landingpad { ptr, i32 }
+          cleanup
+  %671 = extractvalue { ptr, i32 } %670, 0
+  store ptr %671, ptr %15, align 8
+  %672 = extractvalue { ptr, i32 } %670, 1
+  store i32 %672, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %103) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %103) #17
+  br label %1108
+
+673:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %104) #17
+  call void @_ZN3ue226getUcpEgyptian_HieroglyphsEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %104)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %104)
+          to label %674 unwind label %675
+
+674:                                              ; preds = %673
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %104) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %104) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+675:                                              ; preds = %673
+  %676 = landingpad { ptr, i32 }
+          cleanup
+  %677 = extractvalue { ptr, i32 } %676, 0
+  store ptr %677, ptr %15, align 8
+  %678 = extractvalue { ptr, i32 } %676, 1
+  store i32 %678, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %104) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %104) #17
+  br label %1108
+
+679:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %105) #17
+  call void @_ZN3ue214getUcpEthiopicEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %105)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %105)
+          to label %680 unwind label %681
+
+680:                                              ; preds = %679
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %105) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %105) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+681:                                              ; preds = %679
+  %682 = landingpad { ptr, i32 }
+          cleanup
+  %683 = extractvalue { ptr, i32 } %682, 0
+  store ptr %683, ptr %15, align 8
+  %684 = extractvalue { ptr, i32 } %682, 1
+  store i32 %684, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %105) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %105) #17
+  br label %1108
+
+685:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %106) #17
+  call void @_ZN3ue214getUcpGeorgianEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %106)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %106)
+          to label %686 unwind label %687
+
+686:                                              ; preds = %685
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %106) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %106) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+687:                                              ; preds = %685
+  %688 = landingpad { ptr, i32 }
+          cleanup
+  %689 = extractvalue { ptr, i32 } %688, 0
+  store ptr %689, ptr %15, align 8
+  %690 = extractvalue { ptr, i32 } %688, 1
+  store i32 %690, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %106) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %106) #17
+  br label %1108
+
+691:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %107) #17
+  call void @_ZN3ue216getUcpGlagoliticEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %107)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %107)
+          to label %692 unwind label %693
+
+692:                                              ; preds = %691
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %107) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %107) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+693:                                              ; preds = %691
+  %694 = landingpad { ptr, i32 }
+          cleanup
+  %695 = extractvalue { ptr, i32 } %694, 0
+  store ptr %695, ptr %15, align 8
+  %696 = extractvalue { ptr, i32 } %694, 1
+  store i32 %696, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %107) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %107) #17
+  br label %1108
+
+697:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %108) #17
+  call void @_ZN3ue212getUcpGothicEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %108)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %108)
+          to label %698 unwind label %699
+
+698:                                              ; preds = %697
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %108) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %108) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+699:                                              ; preds = %697
+  %700 = landingpad { ptr, i32 }
+          cleanup
+  %701 = extractvalue { ptr, i32 } %700, 0
+  store ptr %701, ptr %15, align 8
+  %702 = extractvalue { ptr, i32 } %700, 1
+  store i32 %702, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %108) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %108) #17
+  br label %1108
+
+703:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %109) #17
+  call void @_ZN3ue211getUcpGreekEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %109)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %109)
+          to label %704 unwind label %705
+
+704:                                              ; preds = %703
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %109) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %109) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+705:                                              ; preds = %703
+  %706 = landingpad { ptr, i32 }
+          cleanup
+  %707 = extractvalue { ptr, i32 } %706, 0
+  store ptr %707, ptr %15, align 8
+  %708 = extractvalue { ptr, i32 } %706, 1
+  store i32 %708, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %109) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %109) #17
+  br label %1108
+
+709:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %110) #17
+  call void @_ZN3ue214getUcpGujaratiEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %110)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %110)
+          to label %710 unwind label %711
+
+710:                                              ; preds = %709
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %110) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %110) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+711:                                              ; preds = %709
+  %712 = landingpad { ptr, i32 }
+          cleanup
+  %713 = extractvalue { ptr, i32 } %712, 0
+  store ptr %713, ptr %15, align 8
+  %714 = extractvalue { ptr, i32 } %712, 1
+  store i32 %714, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %110) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %110) #17
+  br label %1108
+
+715:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %111) #17
+  call void @_ZN3ue214getUcpGurmukhiEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %111)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %111)
+          to label %716 unwind label %717
+
+716:                                              ; preds = %715
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %111) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %111) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+717:                                              ; preds = %715
+  %718 = landingpad { ptr, i32 }
+          cleanup
+  %719 = extractvalue { ptr, i32 } %718, 0
+  store ptr %719, ptr %15, align 8
+  %720 = extractvalue { ptr, i32 } %718, 1
+  store i32 %720, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %111) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %111) #17
+  br label %1108
+
+721:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %112) #17
+  call void @_ZN3ue29getUcpHanEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %112)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %112)
+          to label %722 unwind label %723
+
+722:                                              ; preds = %721
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %112) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %112) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+723:                                              ; preds = %721
+  %724 = landingpad { ptr, i32 }
+          cleanup
+  %725 = extractvalue { ptr, i32 } %724, 0
+  store ptr %725, ptr %15, align 8
+  %726 = extractvalue { ptr, i32 } %724, 1
+  store i32 %726, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %112) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %112) #17
+  br label %1108
+
+727:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %113) #17
+  call void @_ZN3ue212getUcpHangulEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %113)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %113)
+          to label %728 unwind label %729
+
+728:                                              ; preds = %727
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %113) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %113) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+729:                                              ; preds = %727
+  %730 = landingpad { ptr, i32 }
+          cleanup
+  %731 = extractvalue { ptr, i32 } %730, 0
+  store ptr %731, ptr %15, align 8
+  %732 = extractvalue { ptr, i32 } %730, 1
+  store i32 %732, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %113) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %113) #17
+  br label %1108
+
+733:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %114) #17
+  call void @_ZN3ue213getUcpHanunooEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %114)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %114)
+          to label %734 unwind label %735
+
+734:                                              ; preds = %733
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %114) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %114) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+735:                                              ; preds = %733
+  %736 = landingpad { ptr, i32 }
+          cleanup
+  %737 = extractvalue { ptr, i32 } %736, 0
+  store ptr %737, ptr %15, align 8
+  %738 = extractvalue { ptr, i32 } %736, 1
+  store i32 %738, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %114) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %114) #17
+  br label %1108
+
+739:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %115) #17
+  call void @_ZN3ue212getUcpHebrewEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %115)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %115)
+          to label %740 unwind label %741
+
+740:                                              ; preds = %739
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %115) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %115) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+741:                                              ; preds = %739
+  %742 = landingpad { ptr, i32 }
+          cleanup
+  %743 = extractvalue { ptr, i32 } %742, 0
+  store ptr %743, ptr %15, align 8
+  %744 = extractvalue { ptr, i32 } %742, 1
+  store i32 %744, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %115) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %115) #17
+  br label %1108
+
+745:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %116) #17
+  call void @_ZN3ue214getUcpHiraganaEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %116)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %116)
+          to label %746 unwind label %747
+
+746:                                              ; preds = %745
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %116) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %116) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+747:                                              ; preds = %745
+  %748 = landingpad { ptr, i32 }
+          cleanup
+  %749 = extractvalue { ptr, i32 } %748, 0
+  store ptr %749, ptr %15, align 8
+  %750 = extractvalue { ptr, i32 } %748, 1
+  store i32 %750, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %116) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %116) #17
+  br label %1108
+
+751:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %117) #17
+  call void @_ZN3ue222getUcpImperial_AramaicEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %117)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %117)
+          to label %752 unwind label %753
+
+752:                                              ; preds = %751
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %117) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %117) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+753:                                              ; preds = %751
+  %754 = landingpad { ptr, i32 }
+          cleanup
+  %755 = extractvalue { ptr, i32 } %754, 0
+  store ptr %755, ptr %15, align 8
+  %756 = extractvalue { ptr, i32 } %754, 1
+  store i32 %756, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %117) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %117) #17
+  br label %1108
+
+757:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %118) #17
+  call void @_ZN3ue215getUcpInheritedEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %118)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %118)
+          to label %758 unwind label %759
+
+758:                                              ; preds = %757
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %118) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %118) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+759:                                              ; preds = %757
+  %760 = landingpad { ptr, i32 }
+          cleanup
+  %761 = extractvalue { ptr, i32 } %760, 0
+  store ptr %761, ptr %15, align 8
+  %762 = extractvalue { ptr, i32 } %760, 1
+  store i32 %762, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %118) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %118) #17
+  br label %1108
+
+763:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %119) #17
+  call void @_ZN3ue227getUcpInscriptional_PahlaviEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %119)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %119)
+          to label %764 unwind label %765
+
+764:                                              ; preds = %763
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %119) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %119) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+765:                                              ; preds = %763
+  %766 = landingpad { ptr, i32 }
+          cleanup
+  %767 = extractvalue { ptr, i32 } %766, 0
+  store ptr %767, ptr %15, align 8
+  %768 = extractvalue { ptr, i32 } %766, 1
+  store i32 %768, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %119) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %119) #17
+  br label %1108
+
+769:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %120) #17
+  call void @_ZN3ue228getUcpInscriptional_ParthianEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %120)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %120)
+          to label %770 unwind label %771
+
+770:                                              ; preds = %769
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %120) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %120) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+771:                                              ; preds = %769
+  %772 = landingpad { ptr, i32 }
+          cleanup
+  %773 = extractvalue { ptr, i32 } %772, 0
+  store ptr %773, ptr %15, align 8
+  %774 = extractvalue { ptr, i32 } %772, 1
+  store i32 %774, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %120) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %120) #17
+  br label %1108
+
+775:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %121) #17
+  call void @_ZN3ue214getUcpJavaneseEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %121)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %121)
+          to label %776 unwind label %777
+
+776:                                              ; preds = %775
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %121) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %121) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+777:                                              ; preds = %775
+  %778 = landingpad { ptr, i32 }
+          cleanup
+  %779 = extractvalue { ptr, i32 } %778, 0
+  store ptr %779, ptr %15, align 8
+  %780 = extractvalue { ptr, i32 } %778, 1
+  store i32 %780, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %121) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %121) #17
+  br label %1108
+
+781:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %122) #17
+  call void @_ZN3ue212getUcpKaithiEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %122)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %122)
+          to label %782 unwind label %783
+
+782:                                              ; preds = %781
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %122) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %122) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+783:                                              ; preds = %781
+  %784 = landingpad { ptr, i32 }
+          cleanup
+  %785 = extractvalue { ptr, i32 } %784, 0
+  store ptr %785, ptr %15, align 8
+  %786 = extractvalue { ptr, i32 } %784, 1
+  store i32 %786, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %122) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %122) #17
+  br label %1108
+
+787:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %123) #17
+  call void @_ZN3ue213getUcpKannadaEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %123)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %123)
+          to label %788 unwind label %789
+
+788:                                              ; preds = %787
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %123) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %123) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+789:                                              ; preds = %787
+  %790 = landingpad { ptr, i32 }
+          cleanup
+  %791 = extractvalue { ptr, i32 } %790, 0
+  store ptr %791, ptr %15, align 8
+  %792 = extractvalue { ptr, i32 } %790, 1
+  store i32 %792, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %123) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %123) #17
+  br label %1108
+
+793:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %124) #17
+  call void @_ZN3ue214getUcpKatakanaEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %124)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %124)
+          to label %794 unwind label %795
+
+794:                                              ; preds = %793
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %124) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %124) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+795:                                              ; preds = %793
+  %796 = landingpad { ptr, i32 }
+          cleanup
+  %797 = extractvalue { ptr, i32 } %796, 0
+  store ptr %797, ptr %15, align 8
+  %798 = extractvalue { ptr, i32 } %796, 1
+  store i32 %798, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %124) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %124) #17
+  br label %1108
+
+799:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %125) #17
+  call void @_ZN3ue214getUcpKayah_LiEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %125)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %125)
+          to label %800 unwind label %801
+
+800:                                              ; preds = %799
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %125) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %125) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+801:                                              ; preds = %799
+  %802 = landingpad { ptr, i32 }
+          cleanup
+  %803 = extractvalue { ptr, i32 } %802, 0
+  store ptr %803, ptr %15, align 8
+  %804 = extractvalue { ptr, i32 } %802, 1
+  store i32 %804, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %125) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %125) #17
+  br label %1108
+
+805:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %126) #17
+  call void @_ZN3ue216getUcpKharoshthiEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %126)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %126)
+          to label %806 unwind label %807
+
+806:                                              ; preds = %805
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %126) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %126) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+807:                                              ; preds = %805
+  %808 = landingpad { ptr, i32 }
+          cleanup
+  %809 = extractvalue { ptr, i32 } %808, 0
+  store ptr %809, ptr %15, align 8
+  %810 = extractvalue { ptr, i32 } %808, 1
+  store i32 %810, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %126) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %126) #17
+  br label %1108
+
+811:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %127) #17
+  call void @_ZN3ue211getUcpKhmerEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %127)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %127)
+          to label %812 unwind label %813
+
+812:                                              ; preds = %811
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %127) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %127) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+813:                                              ; preds = %811
+  %814 = landingpad { ptr, i32 }
+          cleanup
+  %815 = extractvalue { ptr, i32 } %814, 0
+  store ptr %815, ptr %15, align 8
+  %816 = extractvalue { ptr, i32 } %814, 1
+  store i32 %816, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %127) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %127) #17
+  br label %1108
+
+817:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %128) #17
+  call void @_ZN3ue29getUcpLaoEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %128)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %128)
+          to label %818 unwind label %819
+
+818:                                              ; preds = %817
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %128) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %128) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+819:                                              ; preds = %817
+  %820 = landingpad { ptr, i32 }
+          cleanup
+  %821 = extractvalue { ptr, i32 } %820, 0
+  store ptr %821, ptr %15, align 8
+  %822 = extractvalue { ptr, i32 } %820, 1
+  store i32 %822, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %128) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %128) #17
+  br label %1108
+
+823:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %129) #17
+  call void @_ZN3ue211getUcpLatinEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %129)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %129)
+          to label %824 unwind label %825
+
+824:                                              ; preds = %823
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %129) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %129) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+825:                                              ; preds = %823
+  %826 = landingpad { ptr, i32 }
+          cleanup
+  %827 = extractvalue { ptr, i32 } %826, 0
+  store ptr %827, ptr %15, align 8
+  %828 = extractvalue { ptr, i32 } %826, 1
+  store i32 %828, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %129) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %129) #17
+  br label %1108
+
+829:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %130) #17
+  call void @_ZN3ue212getUcpLepchaEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %130)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %130)
+          to label %830 unwind label %831
+
+830:                                              ; preds = %829
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %130) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %130) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+831:                                              ; preds = %829
+  %832 = landingpad { ptr, i32 }
+          cleanup
+  %833 = extractvalue { ptr, i32 } %832, 0
+  store ptr %833, ptr %15, align 8
+  %834 = extractvalue { ptr, i32 } %832, 1
+  store i32 %834, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %130) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %130) #17
+  br label %1108
+
+835:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %131) #17
+  call void @_ZN3ue211getUcpLimbuEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %131)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %131)
+          to label %836 unwind label %837
+
+836:                                              ; preds = %835
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %131) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %131) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+837:                                              ; preds = %835
+  %838 = landingpad { ptr, i32 }
+          cleanup
+  %839 = extractvalue { ptr, i32 } %838, 0
+  store ptr %839, ptr %15, align 8
+  %840 = extractvalue { ptr, i32 } %838, 1
+  store i32 %840, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %131) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %131) #17
+  br label %1108
+
+841:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %132) #17
+  call void @_ZN3ue214getUcpLinear_BEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %132)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %132)
+          to label %842 unwind label %843
+
+842:                                              ; preds = %841
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %132) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %132) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+843:                                              ; preds = %841
+  %844 = landingpad { ptr, i32 }
+          cleanup
+  %845 = extractvalue { ptr, i32 } %844, 0
+  store ptr %845, ptr %15, align 8
+  %846 = extractvalue { ptr, i32 } %844, 1
+  store i32 %846, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %132) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %132) #17
+  br label %1108
+
+847:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %133) #17
+  call void @_ZN3ue210getUcpLisuEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %133)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %133)
+          to label %848 unwind label %849
+
+848:                                              ; preds = %847
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %133) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %133) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+849:                                              ; preds = %847
+  %850 = landingpad { ptr, i32 }
+          cleanup
+  %851 = extractvalue { ptr, i32 } %850, 0
+  store ptr %851, ptr %15, align 8
+  %852 = extractvalue { ptr, i32 } %850, 1
+  store i32 %852, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %133) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %133) #17
+  br label %1108
+
+853:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %134) #17
+  call void @_ZN3ue212getUcpLycianEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %134)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %134)
+          to label %854 unwind label %855
+
+854:                                              ; preds = %853
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %134) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %134) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+855:                                              ; preds = %853
+  %856 = landingpad { ptr, i32 }
+          cleanup
+  %857 = extractvalue { ptr, i32 } %856, 0
+  store ptr %857, ptr %15, align 8
+  %858 = extractvalue { ptr, i32 } %856, 1
+  store i32 %858, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %134) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %134) #17
+  br label %1108
+
+859:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %135) #17
+  call void @_ZN3ue212getUcpLydianEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %135)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %135)
+          to label %860 unwind label %861
+
+860:                                              ; preds = %859
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %135) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %135) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+861:                                              ; preds = %859
+  %862 = landingpad { ptr, i32 }
+          cleanup
+  %863 = extractvalue { ptr, i32 } %862, 0
+  store ptr %863, ptr %15, align 8
+  %864 = extractvalue { ptr, i32 } %862, 1
+  store i32 %864, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %135) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %135) #17
+  br label %1108
+
+865:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %136) #17
+  call void @_ZN3ue215getUcpMalayalamEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %136)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %136)
+          to label %866 unwind label %867
+
+866:                                              ; preds = %865
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %136) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %136) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+867:                                              ; preds = %865
+  %868 = landingpad { ptr, i32 }
+          cleanup
+  %869 = extractvalue { ptr, i32 } %868, 0
+  store ptr %869, ptr %15, align 8
+  %870 = extractvalue { ptr, i32 } %868, 1
+  store i32 %870, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %136) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %136) #17
+  br label %1108
+
+871:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %137) #17
+  call void @_ZN3ue213getUcpMandaicEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %137)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %137)
+          to label %872 unwind label %873
+
+872:                                              ; preds = %871
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %137) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %137) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+873:                                              ; preds = %871
+  %874 = landingpad { ptr, i32 }
+          cleanup
+  %875 = extractvalue { ptr, i32 } %874, 0
+  store ptr %875, ptr %15, align 8
+  %876 = extractvalue { ptr, i32 } %874, 1
+  store i32 %876, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %137) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %137) #17
+  br label %1108
+
+877:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %138) #17
+  call void @_ZN3ue218getUcpMeetei_MayekEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %138)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %138)
+          to label %878 unwind label %879
+
+878:                                              ; preds = %877
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %138) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %138) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+879:                                              ; preds = %877
+  %880 = landingpad { ptr, i32 }
+          cleanup
+  %881 = extractvalue { ptr, i32 } %880, 0
+  store ptr %881, ptr %15, align 8
+  %882 = extractvalue { ptr, i32 } %880, 1
+  store i32 %882, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %138) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %138) #17
+  br label %1108
+
+883:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %139) #17
+  call void @_ZN3ue215getUcpMongolianEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %139)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %139)
+          to label %884 unwind label %885
+
+884:                                              ; preds = %883
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %139) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %139) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+885:                                              ; preds = %883
+  %886 = landingpad { ptr, i32 }
+          cleanup
+  %887 = extractvalue { ptr, i32 } %886, 0
+  store ptr %887, ptr %15, align 8
+  %888 = extractvalue { ptr, i32 } %886, 1
+  store i32 %888, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %139) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %139) #17
+  br label %1108
+
+889:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %140) #17
+  call void @_ZN3ue213getUcpMyanmarEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %140)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %140)
+          to label %890 unwind label %891
+
+890:                                              ; preds = %889
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %140) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %140) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+891:                                              ; preds = %889
+  %892 = landingpad { ptr, i32 }
+          cleanup
+  %893 = extractvalue { ptr, i32 } %892, 0
+  store ptr %893, ptr %15, align 8
+  %894 = extractvalue { ptr, i32 } %892, 1
+  store i32 %894, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %140) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %140) #17
+  br label %1108
+
+895:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %141) #17
+  call void @_ZN3ue217getUcpNew_Tai_LueEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %141)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %141)
+          to label %896 unwind label %897
+
+896:                                              ; preds = %895
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %141) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %141) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+897:                                              ; preds = %895
+  %898 = landingpad { ptr, i32 }
+          cleanup
+  %899 = extractvalue { ptr, i32 } %898, 0
+  store ptr %899, ptr %15, align 8
+  %900 = extractvalue { ptr, i32 } %898, 1
+  store i32 %900, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %141) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %141) #17
+  br label %1108
+
+901:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %142) #17
+  call void @_ZN3ue29getUcpNkoEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %142)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %142)
+          to label %902 unwind label %903
+
+902:                                              ; preds = %901
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %142) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %142) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+903:                                              ; preds = %901
+  %904 = landingpad { ptr, i32 }
+          cleanup
+  %905 = extractvalue { ptr, i32 } %904, 0
+  store ptr %905, ptr %15, align 8
+  %906 = extractvalue { ptr, i32 } %904, 1
+  store i32 %906, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %142) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %142) #17
+  br label %1108
+
+907:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %143) #17
+  call void @_ZN3ue211getUcpOghamEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %143)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %143)
+          to label %908 unwind label %909
+
+908:                                              ; preds = %907
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %143) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %143) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+909:                                              ; preds = %907
+  %910 = landingpad { ptr, i32 }
+          cleanup
+  %911 = extractvalue { ptr, i32 } %910, 0
+  store ptr %911, ptr %15, align 8
+  %912 = extractvalue { ptr, i32 } %910, 1
+  store i32 %912, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %143) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %143) #17
+  br label %1108
+
+913:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %144) #17
+  call void @_ZN3ue214getUcpOl_ChikiEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %144)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %144)
+          to label %914 unwind label %915
+
+914:                                              ; preds = %913
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %144) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %144) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+915:                                              ; preds = %913
+  %916 = landingpad { ptr, i32 }
+          cleanup
+  %917 = extractvalue { ptr, i32 } %916, 0
+  store ptr %917, ptr %15, align 8
+  %918 = extractvalue { ptr, i32 } %916, 1
+  store i32 %918, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %144) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %144) #17
+  br label %1108
+
+919:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %145) #17
+  call void @_ZN3ue216getUcpOld_ItalicEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %145)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %145)
+          to label %920 unwind label %921
+
+920:                                              ; preds = %919
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %145) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %145) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+921:                                              ; preds = %919
+  %922 = landingpad { ptr, i32 }
+          cleanup
+  %923 = extractvalue { ptr, i32 } %922, 0
+  store ptr %923, ptr %15, align 8
+  %924 = extractvalue { ptr, i32 } %922, 1
+  store i32 %924, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %145) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %145) #17
+  br label %1108
+
+925:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %146) #17
+  call void @_ZN3ue217getUcpOld_PersianEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %146)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %146)
+          to label %926 unwind label %927
+
+926:                                              ; preds = %925
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %146) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %146) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+927:                                              ; preds = %925
+  %928 = landingpad { ptr, i32 }
+          cleanup
+  %929 = extractvalue { ptr, i32 } %928, 0
+  store ptr %929, ptr %15, align 8
+  %930 = extractvalue { ptr, i32 } %928, 1
+  store i32 %930, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %146) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %146) #17
+  br label %1108
+
+931:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %147) #17
+  call void @_ZN3ue223getUcpOld_South_ArabianEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %147)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %147)
+          to label %932 unwind label %933
+
+932:                                              ; preds = %931
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %147) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %147) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+933:                                              ; preds = %931
+  %934 = landingpad { ptr, i32 }
+          cleanup
+  %935 = extractvalue { ptr, i32 } %934, 0
+  store ptr %935, ptr %15, align 8
+  %936 = extractvalue { ptr, i32 } %934, 1
+  store i32 %936, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %147) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %147) #17
+  br label %1108
+
+937:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %148) #17
+  call void @_ZN3ue216getUcpOld_TurkicEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %148)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %148)
+          to label %938 unwind label %939
+
+938:                                              ; preds = %937
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %148) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %148) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+939:                                              ; preds = %937
+  %940 = landingpad { ptr, i32 }
+          cleanup
+  %941 = extractvalue { ptr, i32 } %940, 0
+  store ptr %941, ptr %15, align 8
+  %942 = extractvalue { ptr, i32 } %940, 1
+  store i32 %942, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %148) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %148) #17
+  br label %1108
+
+943:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %149) #17
+  call void @_ZN3ue211getUcpOriyaEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %149)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %149)
+          to label %944 unwind label %945
+
+944:                                              ; preds = %943
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %149) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %149) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+945:                                              ; preds = %943
+  %946 = landingpad { ptr, i32 }
+          cleanup
+  %947 = extractvalue { ptr, i32 } %946, 0
+  store ptr %947, ptr %15, align 8
+  %948 = extractvalue { ptr, i32 } %946, 1
+  store i32 %948, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %149) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %149) #17
+  br label %1108
+
+949:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %150) #17
+  call void @_ZN3ue213getUcpOsmanyaEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %150)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %150)
+          to label %950 unwind label %951
+
+950:                                              ; preds = %949
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %150) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %150) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+951:                                              ; preds = %949
+  %952 = landingpad { ptr, i32 }
+          cleanup
+  %953 = extractvalue { ptr, i32 } %952, 0
+  store ptr %953, ptr %15, align 8
+  %954 = extractvalue { ptr, i32 } %952, 1
+  store i32 %954, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %150) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %150) #17
+  br label %1108
+
+955:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %151) #17
+  call void @_ZN3ue214getUcpPhags_PaEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %151)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %151)
+          to label %956 unwind label %957
+
+956:                                              ; preds = %955
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %151) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %151) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+957:                                              ; preds = %955
+  %958 = landingpad { ptr, i32 }
+          cleanup
+  %959 = extractvalue { ptr, i32 } %958, 0
+  store ptr %959, ptr %15, align 8
+  %960 = extractvalue { ptr, i32 } %958, 1
+  store i32 %960, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %151) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %151) #17
+  br label %1108
+
+961:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %152) #17
+  call void @_ZN3ue216getUcpPhoenicianEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %152)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %152)
+          to label %962 unwind label %963
+
+962:                                              ; preds = %961
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %152) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %152) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+963:                                              ; preds = %961
+  %964 = landingpad { ptr, i32 }
+          cleanup
+  %965 = extractvalue { ptr, i32 } %964, 0
+  store ptr %965, ptr %15, align 8
+  %966 = extractvalue { ptr, i32 } %964, 1
+  store i32 %966, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %152) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %152) #17
+  br label %1108
+
+967:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %153) #17
+  call void @_ZN3ue212getUcpRejangEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %153)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %153)
+          to label %968 unwind label %969
+
+968:                                              ; preds = %967
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %153) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %153) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+969:                                              ; preds = %967
+  %970 = landingpad { ptr, i32 }
+          cleanup
+  %971 = extractvalue { ptr, i32 } %970, 0
+  store ptr %971, ptr %15, align 8
+  %972 = extractvalue { ptr, i32 } %970, 1
+  store i32 %972, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %153) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %153) #17
+  br label %1108
+
+973:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %154) #17
+  call void @_ZN3ue211getUcpRunicEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %154)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %154)
+          to label %974 unwind label %975
+
+974:                                              ; preds = %973
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %154) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %154) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+975:                                              ; preds = %973
+  %976 = landingpad { ptr, i32 }
+          cleanup
+  %977 = extractvalue { ptr, i32 } %976, 0
+  store ptr %977, ptr %15, align 8
+  %978 = extractvalue { ptr, i32 } %976, 1
+  store i32 %978, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %154) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %154) #17
+  br label %1108
+
+979:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %155) #17
+  call void @_ZN3ue215getUcpSamaritanEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %155)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %155)
+          to label %980 unwind label %981
+
+980:                                              ; preds = %979
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %155) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %155) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+981:                                              ; preds = %979
+  %982 = landingpad { ptr, i32 }
+          cleanup
+  %983 = extractvalue { ptr, i32 } %982, 0
+  store ptr %983, ptr %15, align 8
+  %984 = extractvalue { ptr, i32 } %982, 1
+  store i32 %984, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %155) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %155) #17
+  br label %1108
+
+985:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %156) #17
+  call void @_ZN3ue216getUcpSaurashtraEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %156)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %156)
+          to label %986 unwind label %987
+
+986:                                              ; preds = %985
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %156) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %156) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+987:                                              ; preds = %985
+  %988 = landingpad { ptr, i32 }
+          cleanup
+  %989 = extractvalue { ptr, i32 } %988, 0
+  store ptr %989, ptr %15, align 8
+  %990 = extractvalue { ptr, i32 } %988, 1
+  store i32 %990, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %156) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %156) #17
+  br label %1108
+
+991:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %157) #17
+  call void @_ZN3ue213getUcpShavianEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %157)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %157)
+          to label %992 unwind label %993
+
+992:                                              ; preds = %991
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %157) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %157) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+993:                                              ; preds = %991
+  %994 = landingpad { ptr, i32 }
+          cleanup
+  %995 = extractvalue { ptr, i32 } %994, 0
+  store ptr %995, ptr %15, align 8
+  %996 = extractvalue { ptr, i32 } %994, 1
+  store i32 %996, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %157) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %157) #17
+  br label %1108
+
+997:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %158) #17
+  call void @_ZN3ue213getUcpSinhalaEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %158)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %158)
+          to label %998 unwind label %999
+
+998:                                              ; preds = %997
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %158) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %158) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+999:                                              ; preds = %997
+  %1000 = landingpad { ptr, i32 }
+          cleanup
+  %1001 = extractvalue { ptr, i32 } %1000, 0
+  store ptr %1001, ptr %15, align 8
+  %1002 = extractvalue { ptr, i32 } %1000, 1
+  store i32 %1002, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %158) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %158) #17
+  br label %1108
+
+1003:                                             ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %159) #17
+  call void @_ZN3ue215getUcpSundaneseEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %159)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %159)
+          to label %1004 unwind label %1005
+
+1004:                                             ; preds = %1003
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %159) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %159) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+1005:                                             ; preds = %1003
+  %1006 = landingpad { ptr, i32 }
+          cleanup
+  %1007 = extractvalue { ptr, i32 } %1006, 0
+  store ptr %1007, ptr %15, align 8
+  %1008 = extractvalue { ptr, i32 } %1006, 1
+  store i32 %1008, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %159) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %159) #17
+  br label %1108
+
+1009:                                             ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %160) #17
+  call void @_ZN3ue218getUcpSyloti_NagriEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %160)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %160)
+          to label %1010 unwind label %1011
+
+1010:                                             ; preds = %1009
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %160) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %160) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+1011:                                             ; preds = %1009
+  %1012 = landingpad { ptr, i32 }
+          cleanup
+  %1013 = extractvalue { ptr, i32 } %1012, 0
+  store ptr %1013, ptr %15, align 8
+  %1014 = extractvalue { ptr, i32 } %1012, 1
+  store i32 %1014, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %160) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %160) #17
+  br label %1108
+
+1015:                                             ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %161) #17
+  call void @_ZN3ue212getUcpSyriacEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %161)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %161)
+          to label %1016 unwind label %1017
+
+1016:                                             ; preds = %1015
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %161) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %161) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+1017:                                             ; preds = %1015
+  %1018 = landingpad { ptr, i32 }
+          cleanup
+  %1019 = extractvalue { ptr, i32 } %1018, 0
+  store ptr %1019, ptr %15, align 8
+  %1020 = extractvalue { ptr, i32 } %1018, 1
+  store i32 %1020, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %161) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %161) #17
+  br label %1108
+
+1021:                                             ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %162) #17
+  call void @_ZN3ue213getUcpTagalogEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %162)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %162)
+          to label %1022 unwind label %1023
+
+1022:                                             ; preds = %1021
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %162) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %162) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+1023:                                             ; preds = %1021
+  %1024 = landingpad { ptr, i32 }
+          cleanup
+  %1025 = extractvalue { ptr, i32 } %1024, 0
+  store ptr %1025, ptr %15, align 8
+  %1026 = extractvalue { ptr, i32 } %1024, 1
+  store i32 %1026, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %162) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %162) #17
+  br label %1108
+
+1027:                                             ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %163) #17
+  call void @_ZN3ue214getUcpTagbanwaEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %163)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %163)
+          to label %1028 unwind label %1029
+
+1028:                                             ; preds = %1027
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %163) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %163) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+1029:                                             ; preds = %1027
+  %1030 = landingpad { ptr, i32 }
+          cleanup
+  %1031 = extractvalue { ptr, i32 } %1030, 0
+  store ptr %1031, ptr %15, align 8
+  %1032 = extractvalue { ptr, i32 } %1030, 1
+  store i32 %1032, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %163) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %163) #17
+  br label %1108
+
+1033:                                             ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %164) #17
+  call void @_ZN3ue212getUcpTai_LeEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %164)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %164)
+          to label %1034 unwind label %1035
+
+1034:                                             ; preds = %1033
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %164) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %164) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+1035:                                             ; preds = %1033
+  %1036 = landingpad { ptr, i32 }
+          cleanup
+  %1037 = extractvalue { ptr, i32 } %1036, 0
+  store ptr %1037, ptr %15, align 8
+  %1038 = extractvalue { ptr, i32 } %1036, 1
+  store i32 %1038, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %164) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %164) #17
+  br label %1108
+
+1039:                                             ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %165) #17
+  call void @_ZN3ue214getUcpTai_ThamEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %165)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %165)
+          to label %1040 unwind label %1041
+
+1040:                                             ; preds = %1039
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %165) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %165) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+1041:                                             ; preds = %1039
+  %1042 = landingpad { ptr, i32 }
+          cleanup
+  %1043 = extractvalue { ptr, i32 } %1042, 0
+  store ptr %1043, ptr %15, align 8
+  %1044 = extractvalue { ptr, i32 } %1042, 1
+  store i32 %1044, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %165) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %165) #17
+  br label %1108
+
+1045:                                             ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %166) #17
+  call void @_ZN3ue214getUcpTai_VietEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %166)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %166)
+          to label %1046 unwind label %1047
+
+1046:                                             ; preds = %1045
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %166) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %166) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+1047:                                             ; preds = %1045
+  %1048 = landingpad { ptr, i32 }
+          cleanup
+  %1049 = extractvalue { ptr, i32 } %1048, 0
+  store ptr %1049, ptr %15, align 8
+  %1050 = extractvalue { ptr, i32 } %1048, 1
+  store i32 %1050, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %166) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %166) #17
+  br label %1108
+
+1051:                                             ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %167) #17
+  call void @_ZN3ue211getUcpTamilEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %167)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %167)
+          to label %1052 unwind label %1053
+
+1052:                                             ; preds = %1051
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %167) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %167) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+1053:                                             ; preds = %1051
+  %1054 = landingpad { ptr, i32 }
+          cleanup
+  %1055 = extractvalue { ptr, i32 } %1054, 0
+  store ptr %1055, ptr %15, align 8
+  %1056 = extractvalue { ptr, i32 } %1054, 1
+  store i32 %1056, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %167) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %167) #17
+  br label %1108
+
+1057:                                             ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %168) #17
+  call void @_ZN3ue212getUcpTeluguEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %168)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %168)
+          to label %1058 unwind label %1059
+
+1058:                                             ; preds = %1057
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %168) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %168) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+1059:                                             ; preds = %1057
+  %1060 = landingpad { ptr, i32 }
+          cleanup
+  %1061 = extractvalue { ptr, i32 } %1060, 0
+  store ptr %1061, ptr %15, align 8
+  %1062 = extractvalue { ptr, i32 } %1060, 1
+  store i32 %1062, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %168) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %168) #17
+  br label %1108
+
+1063:                                             ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %169) #17
+  call void @_ZN3ue212getUcpThaanaEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %169)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %169)
+          to label %1064 unwind label %1065
+
+1064:                                             ; preds = %1063
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %169) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %169) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+1065:                                             ; preds = %1063
+  %1066 = landingpad { ptr, i32 }
+          cleanup
+  %1067 = extractvalue { ptr, i32 } %1066, 0
+  store ptr %1067, ptr %15, align 8
+  %1068 = extractvalue { ptr, i32 } %1066, 1
+  store i32 %1068, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %169) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %169) #17
+  br label %1108
+
+1069:                                             ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %170) #17
+  call void @_ZN3ue210getUcpThaiEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %170)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %170)
+          to label %1070 unwind label %1071
+
+1070:                                             ; preds = %1069
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %170) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %170) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+1071:                                             ; preds = %1069
+  %1072 = landingpad { ptr, i32 }
+          cleanup
+  %1073 = extractvalue { ptr, i32 } %1072, 0
+  store ptr %1073, ptr %15, align 8
+  %1074 = extractvalue { ptr, i32 } %1072, 1
+  store i32 %1074, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %170) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %170) #17
+  br label %1108
+
+1075:                                             ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %171) #17
+  call void @_ZN3ue213getUcpTibetanEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %171)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %171)
+          to label %1076 unwind label %1077
+
+1076:                                             ; preds = %1075
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %171) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %171) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+1077:                                             ; preds = %1075
+  %1078 = landingpad { ptr, i32 }
+          cleanup
+  %1079 = extractvalue { ptr, i32 } %1078, 0
+  store ptr %1079, ptr %15, align 8
+  %1080 = extractvalue { ptr, i32 } %1078, 1
+  store i32 %1080, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %171) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %171) #17
+  br label %1108
+
+1081:                                             ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %172) #17
+  call void @_ZN3ue214getUcpTifinaghEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %172)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %172)
+          to label %1082 unwind label %1083
+
+1082:                                             ; preds = %1081
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %172) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %172) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+1083:                                             ; preds = %1081
+  %1084 = landingpad { ptr, i32 }
+          cleanup
+  %1085 = extractvalue { ptr, i32 } %1084, 0
+  store ptr %1085, ptr %15, align 8
+  %1086 = extractvalue { ptr, i32 } %1084, 1
+  store i32 %1086, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %172) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %172) #17
+  br label %1108
+
+1087:                                             ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %173) #17
+  call void @_ZN3ue214getUcpUgariticEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %173)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %173)
+          to label %1088 unwind label %1089
+
+1088:                                             ; preds = %1087
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %173) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %173) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+1089:                                             ; preds = %1087
+  %1090 = landingpad { ptr, i32 }
+          cleanup
+  %1091 = extractvalue { ptr, i32 } %1090, 0
+  store ptr %1091, ptr %15, align 8
+  %1092 = extractvalue { ptr, i32 } %1090, 1
+  store i32 %1092, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %173) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %173) #17
+  br label %1108
+
+1093:                                             ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %174) #17
+  call void @_ZN3ue29getUcpVaiEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %174)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %174)
+          to label %1094 unwind label %1095
+
+1094:                                             ; preds = %1093
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %174) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %174) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+1095:                                             ; preds = %1093
+  %1096 = landingpad { ptr, i32 }
+          cleanup
+  %1097 = extractvalue { ptr, i32 } %1096, 0
+  store ptr %1097, ptr %15, align 8
+  %1098 = extractvalue { ptr, i32 } %1096, 1
+  store i32 %1098, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %174) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %174) #17
+  br label %1108
+
+1099:                                             ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %175) #17
+  call void @_ZN3ue28getUcpYiEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8 %175)
+  invoke void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %175)
+          to label %1100 unwind label %1101
+
+1100:                                             ; preds = %1099
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %175) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %175) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+1101:                                             ; preds = %1099
+  %1102 = landingpad { ptr, i32 }
+          cleanup
+  %1103 = extractvalue { ptr, i32 } %1102, 0
+  store ptr %1103, ptr %15, align 8
+  %1104 = extractvalue { ptr, i32 } %1102, 1
+  store i32 %1104, ptr %16, align 4
+  call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %175) #17
+  call void @llvm.lifetime.end.p0(i64 48, ptr %175) #17
+  br label %1108
+
+1105:                                             ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %176) #17
+  call void @_ZN3ue29CharReachC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %176)
+  call void @_ZNK3ue29CharReachcoEv(ptr dead_on_unwind writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %176)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %176) #17
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+1106:                                             ; preds = %3
+  call void @_ZN3ue29CharReachC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0)
+  store i32 1, ptr %10, align 4
+  br label %1107
+
+1107:                                             ; preds = %1106, %1105, %1100, %1094, %1088, %1082, %1076, %1070, %1064, %1058, %1052, %1046, %1040, %1034, %1028, %1022, %1016, %1010, %1004, %998, %992, %986, %980, %974, %968, %962, %956, %950, %944, %938, %932, %926, %920, %914, %908, %902, %896, %890, %884, %878, %872, %866, %860, %854, %848, %842, %836, %830, %824, %818, %812, %806, %800, %794, %788, %782, %776, %770, %764, %758, %752, %746, %740, %734, %728, %722, %716, %710, %704, %698, %692, %686, %680, %674, %668, %662, %656, %650, %644, %638, %632, %626, %620, %614, %608, %602, %596, %590, %584, %578, %572, %566, %560, %554, %548, %542, %536, %530, %524, %518, %512, %506, %502, %497, %491, %485, %479, %473, %467, %461, %455, %449, %443, %437, %431, %425, %419, %413, %407, %401, %395, %389, %383, %377, %371, %365, %359, %353, %347, %341, %335, %329, %323, %317, %311, %305, %299, %293, %282, %279, %269, %266, %265, %250, %243, %239, %234, %230, %229, %228, %213, %206, %202, %201, %200, %190, %187, %186, %185, %179, %178
+  call void @llvm.lifetime.end.p0(i64 32, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %7) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %6) #17
   ret void
 
-eh.resume:                                        ; preds = %lpad763, %lpad758, %lpad753, %lpad748, %lpad743, %lpad738, %lpad733, %lpad728, %lpad723, %lpad718, %lpad713, %lpad708, %lpad703, %lpad698, %lpad693, %lpad688, %lpad683, %lpad678, %lpad673, %lpad668, %lpad663, %lpad658, %lpad653, %lpad648, %lpad643, %lpad638, %lpad633, %lpad628, %lpad623, %lpad618, %lpad613, %lpad608, %lpad603, %lpad598, %lpad593, %lpad588, %lpad583, %lpad578, %lpad573, %lpad568, %lpad563, %lpad558, %lpad553, %lpad548, %lpad543, %lpad538, %lpad533, %lpad528, %lpad523, %lpad518, %lpad513, %lpad508, %lpad503, %lpad498, %lpad493, %lpad488, %lpad483, %lpad478, %lpad473, %lpad468, %lpad463, %lpad458, %lpad453, %lpad448, %lpad443, %lpad438, %lpad433, %lpad428, %lpad423, %lpad418, %lpad413, %lpad408, %lpad403, %lpad398, %lpad393, %lpad388, %lpad383, %lpad378, %lpad373, %lpad368, %lpad363, %lpad358, %lpad353, %lpad348, %lpad343, %lpad338, %lpad333, %lpad328, %lpad323, %lpad318, %lpad313, %lpad308, %lpad303, %lpad298, %lpad293, %lpad288, %lpad283, %lpad278, %lpad273, %lpad268, %lpad260, %lpad255, %lpad250, %lpad245, %lpad240, %lpad235, %lpad230, %lpad225, %lpad220, %lpad215, %lpad210, %lpad205, %lpad200, %lpad195, %lpad190, %lpad185, %lpad180, %lpad175, %lpad170, %lpad165, %lpad160, %lpad155, %lpad150, %lpad145, %lpad140, %lpad135, %lpad130, %lpad125, %lpad120, %lpad115, %lpad110, %lpad105, %lpad100, %lpad95, %lpad90, %ehcleanup87, %ehcleanup74, %ehcleanup60, %lpad49, %lpad37, %ehcleanup29, %lpad18, %ehcleanup
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val768 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val768
+1108:                                             ; preds = %1101, %1095, %1089, %1083, %1077, %1071, %1065, %1059, %1053, %1047, %1041, %1035, %1029, %1023, %1017, %1011, %1005, %999, %993, %987, %981, %975, %969, %963, %957, %951, %945, %939, %933, %927, %921, %915, %909, %903, %897, %891, %885, %879, %873, %867, %861, %855, %849, %843, %837, %831, %825, %819, %813, %807, %801, %795, %789, %783, %777, %771, %765, %759, %753, %747, %741, %735, %729, %723, %717, %711, %705, %699, %693, %687, %681, %675, %669, %663, %657, %651, %645, %639, %633, %627, %621, %615, %609, %603, %597, %591, %585, %579, %573, %567, %561, %555, %549, %543, %537, %531, %525, %519, %513, %507, %498, %492, %486, %480, %474, %468, %462, %456, %450, %444, %438, %432, %426, %420, %414, %408, %402, %396, %390, %384, %378, %372, %366, %360, %354, %348, %342, %336, %330, %324, %318, %312, %306, %300, %294, %291, %278, %259, %244, %235, %222, %207, %199
+  call void @llvm.lifetime.end.p0(i64 32, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %7) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %6) #17
+  br label %1109
+
+1109:                                             ; preds = %1108
+  %1110 = load ptr, ptr %15, align 8
+  %1111 = load i32, ptr %16, align 4
+  %1112 = insertvalue { ptr, i32 } poison, ptr %1110, 0
+  %1113 = insertvalue { ptr, i32 } %1112, i32 %1111, 1
+  resume { ptr, i32 } %1113
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN3ue29CharReachC2Ehh(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef zeroext %1, i8 noundef zeroext %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8
+  store i8 %1, ptr %5, align 1
+  store i8 %2, ptr %6, align 1
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %7, i32 0, i32 0
+  call void @_ZN3ue28bitfieldILm256EEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8)
+  %9 = load i8, ptr %5, align 1
+  %10 = load i8, ptr %6, align 1
+  call void @_ZN3ue29CharReach8setRangeEhh(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 noundef zeroext %9, i8 noundef zeroext %10)
+  ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3ue29CharReachC2Ehh(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 noundef zeroext %from, i8 noundef zeroext %to) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %from.addr = alloca i8, align 1
-  %to.addr = alloca i8, align 1
-  store ptr %this, ptr %this.addr, align 8
-  store i8 %from, ptr %from.addr, align 1
-  store i8 %to, ptr %to.addr, align 1
-  %this1 = load ptr, ptr %this.addr, align 8
-  %bits = getelementptr inbounds %"class.ue2::CharReach", ptr %this1, i32 0, i32 0
-  call void @_ZN3ue28bitfieldILm256EEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %bits)
-  %0 = load i8, ptr %from.addr, align 1
-  %1 = load i8, ptr %to.addr, align 1
-  call void @_ZN3ue29CharReach8setRangeEhh(ptr noundef nonnull align 8 dereferenceable(32) %this1, i8 noundef zeroext %0, i8 noundef zeroext %1)
+define linkonce_odr hidden void @_ZNK3ue29CharReachorERKS0_(ptr dead_on_unwind noalias writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %1, ptr %4, align 8
+  store ptr %2, ptr %5, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %6, i64 32, i1 false)
+  %7 = load ptr, ptr %5, align 8
+  %8 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %7, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %0, i32 0, i32 0
+  call void @_ZN3ue28bitfieldILm256EEoRERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN3ue29CharReachC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %3, i32 0, i32 0
+  call void @_ZN3ue28bitfieldILm256EEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK3ue29CharReachorERKS0_(ptr noalias sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %a) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.result, ptr align 8 %this1, i64 32, i1 false)
-  %0 = load ptr, ptr %a.addr, align 8
-  %bits = getelementptr inbounds %"class.ue2::CharReach", ptr %0, i32 0, i32 0
-  %bits2 = getelementptr inbounds %"class.ue2::CharReach", ptr %agg.result, i32 0, i32 0
-  call void @_ZN3ue28bitfieldILm256EEoRERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %bits2, ptr noundef nonnull align 8 dereferenceable(32) %bits)
+define linkonce_odr hidden void @_ZNK3ue29CharReachcoEv(ptr dead_on_unwind noalias writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  store ptr %1, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %4, i64 32, i1 false)
+  call void @_ZN3ue29CharReach4flipEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3ue29CharReachC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %bits = getelementptr inbounds %"class.ue2::CharReach", ptr %this1, i32 0, i32 0
-  call void @_ZN3ue28bitfieldILm256EEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %bits)
+define linkonce_odr hidden void @_ZN3ue29CharReachC2Eh(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef zeroext %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8
+  store i8 %1, ptr %4, align 1
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %5, i32 0, i32 0
+  call void @_ZN3ue28bitfieldILm256EEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %7 = load i8, ptr %4, align 1
+  call void @_ZN3ue29CharReach3setEh(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 noundef zeroext %7)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK3ue29CharReachcoEv(ptr noalias sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.result, ptr align 8 %this1, i64 32, i1 false)
-  call void @_ZN3ue29CharReach4flipEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
-  ret void
-}
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %10, i32 0, i32 0
+  %12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10)
+  %13 = load ptr, ptr %6, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+  %14 = load ptr, ptr %5, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %22
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3ue29CharReachC2Eh(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 noundef zeroext %c) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %c.addr = alloca i8, align 1
-  store ptr %this, ptr %this.addr, align 8
-  store i8 %c, ptr %c.addr, align 1
-  %this1 = load ptr, ptr %this.addr, align 8
-  %bits = getelementptr inbounds %"class.ue2::CharReach", ptr %this1, i32 0, i32 0
-  call void @_ZN3ue28bitfieldILm256EEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %bits)
-  %0 = load i8, ptr %c.addr, align 1
-  call void @_ZN3ue29CharReach3setEh(ptr noundef nonnull align 8 dereferenceable(32) %this1, i8 noundef zeroext %0)
-  ret void
-}
+16:                                               ; preds = %3
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef @.str.5) #18
+          to label %17 unwind label %18
 
-; Function Attrs: nounwind
-declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__s, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__s.addr = alloca ptr, align 8
-  %__a.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %__end = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__s, ptr %__s.addr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_dataplus = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this1, i32 0, i32 0
-  %call = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  %0 = load ptr, ptr %__a.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %_M_dataplus, ptr noundef %call, ptr noundef nonnull align 1 dereferenceable(1) %0)
-  %1 = load ptr, ptr %__s.addr, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef @.str.5) #14
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %if.then
+17:                                               ; preds = %16
   unreachable
 
-lpad:                                             ; preds = %invoke.cont2, %if.end, %if.then
-  %2 = landingpad { ptr, i32 }
+18:                                               ; preds = %16
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_dataplus) #13
-  br label %eh.resume
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %7, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %8, align 4
+  br label %35
 
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %__s.addr, align 8
-  %6 = load ptr, ptr %__s.addr, align 8
-  %call3 = invoke noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %6)
-          to label %invoke.cont2 unwind label %lpad
+22:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  %23 = load ptr, ptr %5, align 8
+  %24 = load ptr, ptr %5, align 8
+  %25 = invoke noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %24)
+          to label %26 unwind label %31
 
-invoke.cont2:                                     ; preds = %if.end
-  %add.ptr = getelementptr inbounds i8, ptr %5, i64 %call3
-  store ptr %add.ptr, ptr %__end, align 8
-  %7 = load ptr, ptr %__s.addr, align 8
-  %8 = load ptr, ptr %__end, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %7, ptr noundef %8)
-          to label %invoke.cont4 unwind label %lpad
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %25
+  store ptr %27, ptr %9, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = load ptr, ptr %9, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %28, ptr noundef %29)
+          to label %30 unwind label %31
 
-invoke.cont4:                                     ; preds = %invoke.cont2
+30:                                               ; preds = %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
   ret void
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val5 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val5
+31:                                               ; preds = %26, %22
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %7, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  br label %35
+
+35:                                               ; preds = %31, %18
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #17
+  br label %36
+
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %7, align 8
+  %38 = load i32, ptr %8, align 4
+  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
+  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
+  resume { ptr, i32 } %40
 }
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3ue29CharReachC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %str) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %str.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %str, ptr %str.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %bits = getelementptr inbounds %"class.ue2::CharReach", ptr %this1, i32 0, i32 0
-  call void @_ZN3ue28bitfieldILm256EEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %bits)
-  %0 = load ptr, ptr %str.addr, align 8
-  call void @_ZN3ue29CharReach3setERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
+define linkonce_odr hidden void @_ZN3ue29CharReachC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %5, i32 0, i32 0
+  call void @_ZN3ue28bitfieldILm256EEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZN3ue29CharReach3setERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %7)
   ret void
 }
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %4 unwind label %6
 
-; Function Attrs: nounwind
-declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  ret void
+
+6:                                                ; preds = %1
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #19
+  unreachable
+}
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias sret(%"class.ue2::CharReach") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %cps) #0 {
-entry:
-  %cps.addr = alloca ptr, align 8
-  %__range1 = alloca ptr, align 8
-  %__begin1 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
-  %__end1 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
-  %cp = alloca ptr, align 8
-  store ptr %cps, ptr %cps.addr, align 8
-  call void @_ZN3ue29CharReachC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
-  %0 = load ptr, ptr %cps.addr, align 8
-  store ptr %0, ptr %__range1, align 8
-  %1 = load ptr, ptr %__range1, align 8
-  %call = call ptr @_ZNK3ue212CodePointSet5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
-  %coerce.dive = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %__begin1, i32 0, i32 0
-  store ptr %call, ptr %coerce.dive, align 8
-  %2 = load ptr, ptr %__range1, align 8
-  %call1 = call ptr @_ZNK3ue212CodePointSet3endEv(ptr noundef nonnull align 8 dereferenceable(48) %2)
-  %coerce.dive2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %__end1, i32 0, i32 0
-  store ptr %call1, ptr %coerce.dive2, align 8
-  br label %for.cond
+define internal void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unwind noalias writable sret(%"class.ue2::CharReach") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %6 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  store ptr %1, ptr %3, align 8
+  call void @_ZN3ue29CharReachC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #17
+  %9 = load ptr, ptr %3, align 8
+  store ptr %9, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #17
+  %10 = load ptr, ptr %4, align 8
+  %11 = call ptr @_ZNK3ue212CodePointSet5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %10)
+  %12 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %5, i32 0, i32 0
+  store ptr %11, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #17
+  %13 = load ptr, ptr %4, align 8
+  %14 = call ptr @_ZNK3ue212CodePointSet3endEv(ptr noundef nonnull align 8 dereferenceable(48) %13)
+  %15 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %6, i32 0, i32 0
+  store ptr %14, ptr %15, align 8
+  br label %16
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %call3 = call noundef zeroext i1 @_ZStneRKSt23_Rb_tree_const_iteratorIN5boost3icl15closed_intervalIjSt4lessEEES7_(ptr noundef nonnull align 8 dereferenceable(8) %__begin1, ptr noundef nonnull align 8 dereferenceable(8) %__end1) #13
-  br i1 %call3, label %for.body, label %for.end
+16:                                               ; preds = %45, %2
+  %17 = call noundef zeroext i1 @_ZStneRKSt23_Rb_tree_const_iteratorIN5boost3icl15closed_intervalIjSt4lessEEES7_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #17
+  br i1 %17, label %19, label %18
 
-for.body:                                         ; preds = %for.cond
-  %call4 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNKSt23_Rb_tree_const_iteratorIN5boost3icl15closed_intervalIjSt4lessEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin1) #13
-  store ptr %call4, ptr %cp, align 8
-  %3 = load ptr, ptr %cp, align 8
-  %call5 = call noundef i32 @_ZN5boost3icl5lowerINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_11is_intervalIT_EENS0_15interval_traitsIS7_E11domain_typeEE4typeERKS7_(ptr noundef nonnull align 4 dereferenceable(8) %3)
-  %conv = zext i32 %call5 to i64
-  %cmp = icmp uge i64 %conv, 256
-  br i1 %cmp, label %if.then, label %if.end
+18:                                               ; preds = %16
+  store i32 2, ptr %7, align 4
+  br label %47
 
-if.then:                                          ; preds = %for.body
-  br label %for.end
+19:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  %20 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNKSt23_Rb_tree_const_iteratorIN5boost3icl15closed_intervalIjSt4lessEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  store ptr %20, ptr %8, align 8
+  %21 = load ptr, ptr %8, align 8
+  %22 = call noundef i32 @_ZN5boost3icl5lowerINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_11is_intervalIT_EENS0_15interval_traitsIS7_E11domain_typeEE4typeERKS7_(ptr noundef nonnull align 4 dereferenceable(8) %21)
+  %23 = zext i32 %22 to i64
+  %24 = icmp uge i64 %23, 256
+  br i1 %24, label %25, label %26
 
-if.end:                                           ; preds = %for.body
-  %4 = load ptr, ptr %cp, align 8
-  %call6 = call noundef i32 @_ZN5boost3icl5lowerINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_11is_intervalIT_EENS0_15interval_traitsIS7_E11domain_typeEE4typeERKS7_(ptr noundef nonnull align 4 dereferenceable(8) %4)
-  %conv7 = trunc i32 %call6 to i8
-  %5 = load ptr, ptr %cp, align 8
-  %call8 = call noundef i32 @_ZN5boost3icl5upperINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_11is_intervalIT_EENS0_15interval_traitsIS7_E11domain_typeEE4typeERKS7_(ptr noundef nonnull align 4 dereferenceable(8) %5)
-  %conv9 = zext i32 %call8 to i64
-  %cmp10 = icmp ult i64 %conv9, 255
-  br i1 %cmp10, label %cond.true, label %cond.false
+25:                                               ; preds = %19
+  store i32 2, ptr %7, align 4
+  br label %42
 
-cond.true:                                        ; preds = %if.end
-  %6 = load ptr, ptr %cp, align 8
-  %call11 = call noundef i32 @_ZN5boost3icl5upperINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_11is_intervalIT_EENS0_15interval_traitsIS7_E11domain_typeEE4typeERKS7_(ptr noundef nonnull align 4 dereferenceable(8) %6)
-  %conv12 = zext i32 %call11 to i64
-  br label %cond.end
+26:                                               ; preds = %19
+  %27 = load ptr, ptr %8, align 8
+  %28 = call noundef i32 @_ZN5boost3icl5lowerINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_11is_intervalIT_EENS0_15interval_traitsIS7_E11domain_typeEE4typeERKS7_(ptr noundef nonnull align 4 dereferenceable(8) %27)
+  %29 = trunc i32 %28 to i8
+  %30 = load ptr, ptr %8, align 8
+  %31 = call noundef i32 @_ZN5boost3icl5upperINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_11is_intervalIT_EENS0_15interval_traitsIS7_E11domain_typeEE4typeERKS7_(ptr noundef nonnull align 4 dereferenceable(8) %30)
+  %32 = zext i32 %31 to i64
+  %33 = icmp ult i64 %32, 255
+  br i1 %33, label %34, label %38
 
-cond.false:                                       ; preds = %if.end
-  br label %cond.end
+34:                                               ; preds = %26
+  %35 = load ptr, ptr %8, align 8
+  %36 = call noundef i32 @_ZN5boost3icl5upperINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_11is_intervalIT_EENS0_15interval_traitsIS7_E11domain_typeEE4typeERKS7_(ptr noundef nonnull align 4 dereferenceable(8) %35)
+  %37 = zext i32 %36 to i64
+  br label %39
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %conv12, %cond.true ], [ 255, %cond.false ]
-  %conv13 = trunc i64 %cond to i8
-  call void @_ZN3ue29CharReach8setRangeEhh(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef zeroext %conv7, i8 noundef zeroext %conv13)
-  br label %for.inc
+38:                                               ; preds = %26
+  br label %39
 
-for.inc:                                          ; preds = %cond.end
-  %call14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt23_Rb_tree_const_iteratorIN5boost3icl15closed_intervalIjSt4lessEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin1) #13
-  br label %for.cond
+39:                                               ; preds = %38, %34
+  %40 = phi i64 [ %37, %34 ], [ 255, %38 ]
+  %41 = trunc i64 %40 to i8
+  call void @_ZN3ue29CharReach8setRangeEhh(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef zeroext %29, i8 noundef zeroext %41)
+  store i32 0, ptr %7, align 4
+  br label %42
 
-for.end:                                          ; preds = %if.then, %for.cond
+42:                                               ; preds = %39, %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  %43 = load i32, ptr %7, align 4
+  switch i32 %43, label %47 [
+    i32 0, label %44
+  ]
+
+44:                                               ; preds = %42
+  br label %45
+
+45:                                               ; preds = %44
+  %46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt23_Rb_tree_const_iteratorIN5boost3icl15closed_intervalIjSt4lessEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  br label %16
+
+47:                                               ; preds = %42, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #17
+  br label %48
+
+48:                                               ; preds = %47
   ret void
 }
 
-declare void @_ZN3ue225getPredefinedCodePointSetENS_15PredefinedClassERKNS_9ParseModeE(ptr sret(%"class.ue2::CodePointSet") align 8, i32 noundef, ptr noundef nonnull align 1 dereferenceable(6)) #3
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %impl = getelementptr inbounds %"class.ue2::CodePointSet", ptr %this1, i32 0, i32 0
-  call void @_ZN5boost3icl12interval_setIjSt4lessNS0_15closed_intervalIjS2_EESaED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %impl) #13
-  ret void
-}
-
-declare void @_ZN3ue27getUcpCEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpCcEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpCfEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpCnEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpCoEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpCsEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue27getUcpLEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue211getUcpL_andEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpLlEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpLmEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpLoEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpLtEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpLuEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue27getUcpMEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpMcEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpMeEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpMnEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue27getUcpNEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpNdEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpNlEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpNoEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue27getUcpPEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpPcEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpPdEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpPeEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpPfEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpPiEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpPoEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpPsEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue27getUcpSEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpScEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpSkEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpSmEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpSoEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue29getUcpXanEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue29getUcpXwdEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue27getUcpZEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpZlEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpZpEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpZsEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue212getUcpArabicEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue214getUcpArmenianEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue213getUcpAvestanEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue214getUcpBalineseEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue211getUcpBamumEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue211getUcpBatakEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue213getUcpBengaliEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue214getUcpBopomofoEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue212getUcpBrahmiEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue213getUcpBrailleEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue214getUcpBugineseEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue211getUcpBuhidEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue225getUcpCanadian_AboriginalEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue212getUcpCarianEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue210getUcpChamEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue214getUcpCherokeeEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue212getUcpCommonEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue212getUcpCopticEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue215getUcpCuneiformEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue213getUcpCypriotEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue214getUcpCyrillicEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue213getUcpDeseretEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue216getUcpDevanagariEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue226getUcpEgyptian_HieroglyphsEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue214getUcpEthiopicEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue214getUcpGeorgianEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue216getUcpGlagoliticEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue212getUcpGothicEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue211getUcpGreekEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue214getUcpGujaratiEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue214getUcpGurmukhiEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue29getUcpHanEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue212getUcpHangulEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue213getUcpHanunooEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue212getUcpHebrewEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue214getUcpHiraganaEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue222getUcpImperial_AramaicEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue215getUcpInheritedEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue227getUcpInscriptional_PahlaviEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue228getUcpInscriptional_ParthianEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue214getUcpJavaneseEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue212getUcpKaithiEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue213getUcpKannadaEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue214getUcpKatakanaEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue214getUcpKayah_LiEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue216getUcpKharoshthiEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue211getUcpKhmerEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue29getUcpLaoEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue211getUcpLatinEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue212getUcpLepchaEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue211getUcpLimbuEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue214getUcpLinear_BEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue210getUcpLisuEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue212getUcpLycianEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue212getUcpLydianEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue215getUcpMalayalamEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue213getUcpMandaicEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue218getUcpMeetei_MayekEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue215getUcpMongolianEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue213getUcpMyanmarEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue217getUcpNew_Tai_LueEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue29getUcpNkoEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue211getUcpOghamEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue214getUcpOl_ChikiEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue216getUcpOld_ItalicEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue217getUcpOld_PersianEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue223getUcpOld_South_ArabianEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue216getUcpOld_TurkicEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue211getUcpOriyaEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue213getUcpOsmanyaEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue214getUcpPhags_PaEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue216getUcpPhoenicianEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue212getUcpRejangEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue211getUcpRunicEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue215getUcpSamaritanEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue216getUcpSaurashtraEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue213getUcpShavianEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue213getUcpSinhalaEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue215getUcpSundaneseEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue218getUcpSyloti_NagriEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue212getUcpSyriacEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue213getUcpTagalogEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue214getUcpTagbanwaEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue212getUcpTai_LeEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue214getUcpTai_ThamEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue214getUcpTai_VietEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue211getUcpTamilEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue212getUcpTeluguEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue212getUcpThaanaEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue210getUcpThaiEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue213getUcpTibetanEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue214getUcpTifinaghEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue214getUcpUgariticEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue29getUcpVaiEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-declare void @_ZN3ue28getUcpYiEv(ptr sret(%"class.ue2::CodePointSet") align 8) #3
-
-; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue217getComponentClassERKNS_9ParseModeE(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(6) %mode) #0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %mode.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.std::unique_ptr.5", align 8
-  %ref.tmp1 = alloca %"class.std::unique_ptr.13", align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %mode, ptr %mode.addr, align 8
-  %0 = load ptr, ptr %mode.addr, align 8
-  %utf8 = getelementptr inbounds %"struct.ue2::ParseMode", ptr %0, i32 0, i32 5
-  %1 = load i8, ptr %utf8, align 1
-  %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %mode.addr, align 8
-  call void @_ZN5boost11make_uniqueIN3ue218UTF8ComponentClassEJRKNS1_9ParseModeEEEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS7_St14default_deleteIS7_EEE4typeEDpOT0_(ptr sret(%"class.std::unique_ptr.5") align 8 %ref.tmp, ptr noundef nonnull align 1 dereferenceable(6) %2)
-  call void @_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EEC2INS0_18UTF8ComponentClassES2_IS6_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
-  call void @_ZNSt10unique_ptrIN3ue218UTF8ComponentClassESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
-  br label %return
-
-if.else:                                          ; preds = %entry
-  %3 = load ptr, ptr %mode.addr, align 8
-  call void @_ZN5boost11make_uniqueIN3ue219AsciiComponentClassEJRKNS1_9ParseModeEEEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS7_St14default_deleteIS7_EEE4typeEDpOT0_(ptr sret(%"class.std::unique_ptr.13") align 8 %ref.tmp1, ptr noundef nonnull align 1 dereferenceable(6) %3)
-  call void @_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EEC2INS0_19AsciiComponentClassES2_IS6_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1) #13
-  call void @_ZNSt10unique_ptrIN3ue219AsciiComponentClassESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1) #13
-  br label %return
-
-return:                                           ; preds = %if.else, %if.then
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost11make_uniqueIN3ue218UTF8ComponentClassEJRKNS1_9ParseModeEEEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS7_St14default_deleteIS7_EEE4typeEDpOT0_(ptr noalias sret(%"class.std::unique_ptr.5") align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(6) %args) #0 comdat personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %args.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %args, ptr %args.addr, align 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 208) #15
-  %0 = load ptr, ptr %args.addr, align 8
-  invoke void @_ZN3ue218UTF8ComponentClassC1ERKNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(208) %call, ptr noundef nonnull align 1 dereferenceable(6) %0)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt10unique_ptrIN3ue218UTF8ComponentClassESt14default_deleteIS1_EEC2IS3_vEEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call) #13
-  ret void
-
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
-          cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call) #16
-  br label %eh.resume
-
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val1 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val1
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EEC2INS0_18UTF8ComponentClassES2_IS6_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__u) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__u.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__u, ptr %__u.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__u.addr, align 8
-  %call = call noundef ptr @_ZNSt10unique_ptrIN3ue218UTF8ComponentClassESt14default_deleteIS1_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
-  %1 = load ptr, ptr %__u.addr, align 8
-  %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN3ue218UTF8ComponentClassESt14default_deleteIS1_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #13
-  invoke void @_ZNSt15__uniq_ptr_dataIN3ue214ComponentClassESt14default_deleteIS1_ELb1ELb1EECI2St15__uniq_ptr_implIS1_S3_EIS2_INS0_18UTF8ComponentClassEEEEPS1_OT_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t, ptr noundef %call, ptr noundef nonnull align 1 dereferenceable(1) %call2)
-          to label %invoke.cont unwind label %terminate.lpad
-
-invoke.cont:                                      ; preds = %entry
-  ret void
-
-terminate.lpad:                                   ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #17
-  unreachable
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrIN3ue218UTF8ComponentClassESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__ptr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr.5", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3ue218UTF8ComponentClassESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
-  store ptr %call, ptr %__ptr, align 8
-  %0 = load ptr, ptr %__ptr, align 8
-  %1 = load ptr, ptr %0, align 8
-  %cmp = icmp ne ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN3ue218UTF8ComponentClassESt14default_deleteIS1_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  %2 = load ptr, ptr %__ptr, align 8
+declare void @_ZN3ue225getPredefinedCodePointSetENS_15PredefinedClassERKNS_9ParseModeE(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8, i32 noundef, ptr noundef nonnull align 1 dereferenceable(6)) #4
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  invoke void @_ZNKSt14default_deleteIN3ue218UTF8ComponentClassEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %call2, ptr noundef %3)
-          to label %invoke.cont unwind label %terminate.lpad
+  %4 = getelementptr inbounds nuw %"class.ue2::CodePointSet", ptr %3, i32 0, i32 0
+  call void @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #17
+  ret void
+}
 
-invoke.cont:                                      ; preds = %if.then
-  br label %if.end
+declare void @_ZN3ue27getUcpCEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
 
-if.end:                                           ; preds = %invoke.cont, %entry
-  %4 = load ptr, ptr %__ptr, align 8
-  store ptr null, ptr %4, align 8
+declare void @_ZN3ue28getUcpCcEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue28getUcpCfEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue28getUcpCnEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue28getUcpCoEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue28getUcpCsEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue27getUcpLEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue211getUcpL_andEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue28getUcpLlEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue28getUcpLmEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue28getUcpLoEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue28getUcpLtEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue28getUcpLuEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue27getUcpMEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue28getUcpMcEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue28getUcpMeEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue28getUcpMnEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue27getUcpNEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue28getUcpNdEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue28getUcpNlEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue28getUcpNoEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue27getUcpPEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue28getUcpPcEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue28getUcpPdEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue28getUcpPeEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue28getUcpPfEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue28getUcpPiEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue28getUcpPoEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue28getUcpPsEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue27getUcpSEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue28getUcpScEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue28getUcpSkEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue28getUcpSmEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue28getUcpSoEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue29getUcpXanEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue29getUcpXwdEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue27getUcpZEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue28getUcpZlEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue28getUcpZpEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue28getUcpZsEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue212getUcpArabicEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue214getUcpArmenianEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue213getUcpAvestanEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue214getUcpBalineseEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue211getUcpBamumEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue211getUcpBatakEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue213getUcpBengaliEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue214getUcpBopomofoEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue212getUcpBrahmiEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue213getUcpBrailleEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue214getUcpBugineseEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue211getUcpBuhidEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue225getUcpCanadian_AboriginalEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue212getUcpCarianEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue210getUcpChamEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue214getUcpCherokeeEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue212getUcpCommonEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue212getUcpCopticEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue215getUcpCuneiformEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue213getUcpCypriotEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue214getUcpCyrillicEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue213getUcpDeseretEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue216getUcpDevanagariEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue226getUcpEgyptian_HieroglyphsEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue214getUcpEthiopicEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue214getUcpGeorgianEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue216getUcpGlagoliticEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue212getUcpGothicEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue211getUcpGreekEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue214getUcpGujaratiEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue214getUcpGurmukhiEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue29getUcpHanEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue212getUcpHangulEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue213getUcpHanunooEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue212getUcpHebrewEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue214getUcpHiraganaEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue222getUcpImperial_AramaicEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue215getUcpInheritedEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue227getUcpInscriptional_PahlaviEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue228getUcpInscriptional_ParthianEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue214getUcpJavaneseEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue212getUcpKaithiEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue213getUcpKannadaEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue214getUcpKatakanaEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue214getUcpKayah_LiEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue216getUcpKharoshthiEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue211getUcpKhmerEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue29getUcpLaoEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue211getUcpLatinEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue212getUcpLepchaEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue211getUcpLimbuEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue214getUcpLinear_BEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue210getUcpLisuEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue212getUcpLycianEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue212getUcpLydianEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue215getUcpMalayalamEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue213getUcpMandaicEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue218getUcpMeetei_MayekEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue215getUcpMongolianEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue213getUcpMyanmarEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue217getUcpNew_Tai_LueEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue29getUcpNkoEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue211getUcpOghamEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue214getUcpOl_ChikiEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue216getUcpOld_ItalicEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue217getUcpOld_PersianEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue223getUcpOld_South_ArabianEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue216getUcpOld_TurkicEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue211getUcpOriyaEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue213getUcpOsmanyaEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue214getUcpPhags_PaEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue216getUcpPhoenicianEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue212getUcpRejangEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue211getUcpRunicEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue215getUcpSamaritanEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue216getUcpSaurashtraEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue213getUcpShavianEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue213getUcpSinhalaEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue215getUcpSundaneseEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue218getUcpSyloti_NagriEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue212getUcpSyriacEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue213getUcpTagalogEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue214getUcpTagbanwaEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue212getUcpTai_LeEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue214getUcpTai_ThamEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue214getUcpTai_VietEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue211getUcpTamilEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue212getUcpTeluguEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue212getUcpThaanaEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue210getUcpThaiEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue213getUcpTibetanEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue214getUcpTifinaghEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue214getUcpUgariticEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue29getUcpVaiEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+declare void @_ZN3ue28getUcpYiEv(ptr dead_on_unwind writable sret(%"class.ue2::CodePointSet") align 8) #4
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN3ue217getComponentClassERKNS_9ParseModeE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(6) %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::unique_ptr.5", align 8
+  %6 = alloca %"class.std::unique_ptr.13", align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.ue2::ParseMode", ptr %7, i32 0, i32 5
+  %9 = load i8, ptr %8, align 1, !range !5, !noundef !6
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %13
+
+11:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #17
+  %12 = load ptr, ptr %4, align 8
+  call void @_ZN5boost11make_uniqueIN3ue218UTF8ComponentClassEJRKNS1_9ParseModeEEEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS7_St14default_deleteIS7_EEE4typeEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.5") align 8 %5, ptr noundef nonnull align 1 dereferenceable(6) %12)
+  call void @_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EEC2INS0_18UTF8ComponentClassES2_IS6_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  call void @_ZNSt10unique_ptrIN3ue218UTF8ComponentClassESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #17
+  br label %15
+
+13:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #17
+  %14 = load ptr, ptr %4, align 8
+  call void @_ZN5boost11make_uniqueIN3ue219AsciiComponentClassEJRKNS1_9ParseModeEEEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS7_St14default_deleteIS7_EEE4typeEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.13") align 8 %6, ptr noundef nonnull align 1 dereferenceable(6) %14)
+  call void @_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EEC2INS0_19AsciiComponentClassES2_IS6_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %6) #17
+  call void @_ZNSt10unique_ptrIN3ue219AsciiComponentClassESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #17
+  br label %15
+
+15:                                               ; preds = %13, %11
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN5boost11make_uniqueIN3ue218UTF8ComponentClassEJRKNS1_9ParseModeEEEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS7_St14default_deleteIS7_EEE4typeEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.5") align 8 %0, ptr noundef nonnull align 1 dereferenceable(6) %1) #6 comdat personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %7 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 208) #20
+  %8 = load ptr, ptr %4, align 8
+  invoke void @_ZN3ue218UTF8ComponentClassC1ERKNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(208) %7, ptr noundef nonnull align 1 dereferenceable(6) %8)
+          to label %9 unwind label %10
+
+9:                                                ; preds = %2
+  call void @_ZNSt10unique_ptrIN3ue218UTF8ComponentClassESt14default_deleteIS1_EEC2IS3_vEEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7) #17
   ret void
 
-terminate.lpad:                                   ; preds = %if.then
-  %5 = landingpad { ptr, i32 }
+10:                                               ; preds = %2
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %5, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %6, align 4
+  call void @_ZdlPv(ptr noundef %7) #21
+  br label %14
+
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %5, align 8
+  %16 = load i32, ptr %6, align 4
+  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
+  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
+  resume { ptr, i32 } %18
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EEC2INS0_18UTF8ComponentClassES2_IS6_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = call noundef ptr @_ZNSt10unique_ptrIN3ue218UTF8ComponentClassESt14default_deleteIS1_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
+  %9 = load ptr, ptr %4, align 8
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN3ue218UTF8ComponentClassESt14default_deleteIS1_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #17
+  invoke void @_ZNSt15__uniq_ptr_dataIN3ue214ComponentClassESt14default_deleteIS1_ELb1ELb1EECI2St15__uniq_ptr_implIS1_S3_EIS2_INS0_18UTF8ComponentClassEEEEPS1_OT_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %11 unwind label %12
+
+11:                                               ; preds = %2
+  ret void
+
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #17
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #19
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt10unique_ptrIN3ue218UTF8ComponentClassESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #17
+  %5 = getelementptr inbounds nuw %"class.std::unique_ptr.5", ptr %4, i32 0, i32 0
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3ue218UTF8ComponentClassESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  store ptr %6, ptr %3, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %15
+
+10:                                               ; preds = %1
+  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN3ue218UTF8ComponentClassESt14default_deleteIS1_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  %12 = load ptr, ptr %3, align 8
+  %13 = load ptr, ptr %12, align 8
+  invoke void @_ZNKSt14default_deleteIN3ue218UTF8ComponentClassEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %13)
+          to label %14 unwind label %17
+
+14:                                               ; preds = %10
+  br label %15
+
+15:                                               ; preds = %14, %1
+  %16 = load ptr, ptr %3, align 8
+  store ptr null, ptr %16, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #17
+  ret void
+
+17:                                               ; preds = %10
+  %18 = landingpad { ptr, i32 }
+          catch ptr null
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #19
+  unreachable
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN5boost11make_uniqueIN3ue219AsciiComponentClassEJRKNS1_9ParseModeEEEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS7_St14default_deleteIS7_EEE4typeEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.13") align 8 %0, ptr noundef nonnull align 1 dereferenceable(6) %1) #6 comdat personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %7 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #20
+  %8 = load ptr, ptr %4, align 8
+  invoke void @_ZN3ue219AsciiComponentClassC1ERKNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 1 dereferenceable(6) %8)
+          to label %9 unwind label %10
+
+9:                                                ; preds = %2
+  call void @_ZNSt10unique_ptrIN3ue219AsciiComponentClassESt14default_deleteIS1_EEC2IS3_vEEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7) #17
+  ret void
+
+10:                                               ; preds = %2
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %5, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %6, align 4
+  call void @_ZdlPv(ptr noundef %7) #21
+  br label %14
+
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %5, align 8
+  %16 = load i32, ptr %6, align 4
+  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
+  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
+  resume { ptr, i32 } %18
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EEC2INS0_19AsciiComponentClassES2_IS6_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = call noundef ptr @_ZNSt10unique_ptrIN3ue219AsciiComponentClassESt14default_deleteIS1_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
+  %9 = load ptr, ptr %4, align 8
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN3ue219AsciiComponentClassESt14default_deleteIS1_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #17
+  invoke void @_ZNSt15__uniq_ptr_dataIN3ue214ComponentClassESt14default_deleteIS1_ELb1ELb1EECI2St15__uniq_ptr_implIS1_S3_EIS2_INS0_19AsciiComponentClassEEEEPS1_OT_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %11 unwind label %12
+
+11:                                               ; preds = %2
+  ret void
+
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #19
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt10unique_ptrIN3ue219AsciiComponentClassESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #17
+  %5 = getelementptr inbounds nuw %"class.std::unique_ptr.13", ptr %4, i32 0, i32 0
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3ue219AsciiComponentClassESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  store ptr %6, ptr %3, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %15
+
+10:                                               ; preds = %1
+  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN3ue219AsciiComponentClassESt14default_deleteIS1_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  %12 = load ptr, ptr %3, align 8
+  %13 = load ptr, ptr %12, align 8
+  invoke void @_ZNKSt14default_deleteIN3ue219AsciiComponentClassEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %13)
+          to label %14 unwind label %17
+
+14:                                               ; preds = %10
+  br label %15
+
+15:                                               ; preds = %14, %1
+  %16 = load ptr, ptr %3, align 8
+  store ptr null, ptr %16, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #17
+  ret void
+
+17:                                               ; preds = %10
+  %18 = landingpad { ptr, i32 }
+          catch ptr null
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #19
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost11make_uniqueIN3ue219AsciiComponentClassEJRKNS1_9ParseModeEEEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS7_St14default_deleteIS7_EEE4typeEDpOT0_(ptr noalias sret(%"class.std::unique_ptr.13") align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(6) %args) #0 comdat personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %args.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %args, ptr %args.addr, align 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #15
-  %0 = load ptr, ptr %args.addr, align 8
-  invoke void @_ZN3ue219AsciiComponentClassC1ERKNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(72) %call, ptr noundef nonnull align 1 dereferenceable(6) %0)
-          to label %invoke.cont unwind label %lpad
+define hidden void @_ZN3ue217generateComponentENS_15PredefinedClassEbRKNS_9ParseModeE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 1 dereferenceable(6) %3) #0 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i8, align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca i1, align 1
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  %12 = zext i1 %2 to i8
+  store i8 %12, ptr %7, align 1
+  store ptr %3, ptr %8, align 8
+  store i1 false, ptr %9, align 1
+  %13 = load ptr, ptr %8, align 8
+  call void @_ZN3ue217getComponentClassERKNS_9ParseModeE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(6) %13)
+  %14 = call noundef ptr @_ZNKSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  %15 = load i32, ptr %6, align 4
+  %16 = load i8, ptr %7, align 1, !range !5, !noundef !6
+  %17 = trunc i8 %16 to i1
+  %18 = load ptr, ptr %14, align 8
+  %19 = getelementptr inbounds ptr, ptr %18, i64 16
+  %20 = load ptr, ptr %19, align 8
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(29) %14, i32 noundef %15, i1 noundef zeroext %17)
+          to label %21 unwind label %28
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt10unique_ptrIN3ue219AsciiComponentClassESt14default_deleteIS1_EEC2IS3_vEEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call) #13
-  ret void
+21:                                               ; preds = %4
+  %22 = call noundef ptr @_ZNKSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds ptr, ptr %23, i64 18
+  %25 = load ptr, ptr %24, align 8
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(29) %22)
+          to label %26 unwind label %28
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+26:                                               ; preds = %21
+  store i1 true, ptr %9, align 1
+  %27 = load i1, ptr %9, align 1
+  br i1 %27, label %33, label %32
+
+28:                                               ; preds = %21, %4
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call) #16
-  br label %eh.resume
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %10, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %11, align 4
+  call void @_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  br label %34
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val1 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val1
-}
+32:                                               ; preds = %26
+  call void @_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  br label %33
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EEC2INS0_19AsciiComponentClassES2_IS6_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__u) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__u.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__u, ptr %__u.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__u.addr, align 8
-  %call = call noundef ptr @_ZNSt10unique_ptrIN3ue219AsciiComponentClassESt14default_deleteIS1_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
-  %1 = load ptr, ptr %__u.addr, align 8
-  %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN3ue219AsciiComponentClassESt14default_deleteIS1_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #13
-  invoke void @_ZNSt15__uniq_ptr_dataIN3ue214ComponentClassESt14default_deleteIS1_ELb1ELb1EECI2St15__uniq_ptr_implIS1_S3_EIS2_INS0_19AsciiComponentClassEEEEPS1_OT_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t, ptr noundef %call, ptr noundef nonnull align 1 dereferenceable(1) %call2)
-          to label %invoke.cont unwind label %terminate.lpad
-
-invoke.cont:                                      ; preds = %entry
+33:                                               ; preds = %32, %26
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #17
-  unreachable
+34:                                               ; preds = %28
+  %35 = load ptr, ptr %10, align 8
+  %36 = load i32, ptr %11, align 4
+  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
+  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
+  resume { ptr, i32 } %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrIN3ue219AsciiComponentClassESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__ptr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr.13", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3ue219AsciiComponentClassESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
-  store ptr %call, ptr %__ptr, align 8
-  %0 = load ptr, ptr %__ptr, align 8
-  %1 = load ptr, ptr %0, align 8
-  %cmp = icmp ne ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN3ue219AsciiComponentClassESt14default_deleteIS1_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  %2 = load ptr, ptr %__ptr, align 8
+define linkonce_odr hidden noundef ptr @_ZNKSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  invoke void @_ZNKSt14default_deleteIN3ue219AsciiComponentClassEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %call2, ptr noundef %3)
-          to label %invoke.cont unwind label %terminate.lpad
+  %4 = call noundef ptr @_ZNKSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #17
+  ret ptr %4
+}
 
-invoke.cont:                                      ; preds = %if.then
-  br label %if.end
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #17
+  %5 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %4, i32 0, i32 0
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3ue214ComponentClassESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  store ptr %6, ptr %3, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %15
 
-if.end:                                           ; preds = %invoke.cont, %entry
-  %4 = load ptr, ptr %__ptr, align 8
-  store ptr null, ptr %4, align 8
+10:                                               ; preds = %1
+  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  %12 = load ptr, ptr %3, align 8
+  %13 = load ptr, ptr %12, align 8
+  invoke void @_ZNKSt14default_deleteIN3ue214ComponentClassEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %13)
+          to label %14 unwind label %17
+
+14:                                               ; preds = %10
+  br label %15
+
+15:                                               ; preds = %14, %1
+  %16 = load ptr, ptr %3, align 8
+  store ptr null, ptr %16, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #17
   ret void
 
-terminate.lpad:                                   ; preds = %if.then
-  %5 = landingpad { ptr, i32 }
+17:                                               ; preds = %10
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #17
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #19
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue217generateComponentENS_15PredefinedClassEbRKNS_9ParseModeE(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, i32 noundef %c, i1 noundef zeroext %negate, ptr noundef nonnull align 1 dereferenceable(6) %mode) #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %c.addr = alloca i32, align 4
-  %negate.addr = alloca i8, align 1
-  %mode.addr = alloca ptr, align 8
-  %nrvo = alloca i1, align 1
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store i32 %c, ptr %c.addr, align 4
-  %frombool = zext i1 %negate to i8
-  store i8 %frombool, ptr %negate.addr, align 1
-  store ptr %mode, ptr %mode.addr, align 8
-  store i1 false, ptr %nrvo, align 1
-  %0 = load ptr, ptr %mode.addr, align 8
-  call void @_ZN3ue217getComponentClassERKNS_9ParseModeE(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(6) %0)
-  %call = call noundef ptr @_ZNKSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #13
-  %1 = load i32, ptr %c.addr, align 4
-  %2 = load i8, ptr %negate.addr, align 1
-  %tobool = trunc i8 %2 to i1
-  %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 16
-  %3 = load ptr, ptr %vfn, align 8
-  invoke void %3(ptr noundef nonnull align 8 dereferenceable(29) %call, i32 noundef %1, i1 noundef zeroext %tobool)
-          to label %invoke.cont unwind label %lpad
+define hidden void @_ZN3ue224getLiteralComponentClassEhb(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, i8 noundef zeroext %1, i1 noundef zeroext %2) #0 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca i8, align 1
+  %7 = alloca %"struct.ue2::ParseMode", align 1
+  %8 = alloca i1, align 1
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i8 %1, ptr %5, align 1
+  %11 = zext i1 %2 to i8
+  store i8 %11, ptr %6, align 1
+  call void @llvm.lifetime.start.p0(i64 6, ptr %7) #17
+  call void @_ZN3ue29ParseModeC2Ev(ptr noundef nonnull align 1 dereferenceable(6) %7)
+  %12 = load i8, ptr %6, align 1, !range !5, !noundef !6
+  %13 = trunc i8 %12 to i1
+  %14 = getelementptr inbounds nuw %"struct.ue2::ParseMode", ptr %7, i32 0, i32 0
+  %15 = zext i1 %13 to i8
+  store i8 %15, ptr %14, align 1
+  store i1 false, ptr %8, align 1
+  call void @_ZN3ue217getComponentClassERKNS_9ParseModeE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(6) %7)
+  %16 = call noundef ptr @_ZNKSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  %17 = load i8, ptr %5, align 1
+  %18 = zext i8 %17 to i32
+  %19 = load ptr, ptr %16, align 8
+  %20 = getelementptr inbounds ptr, ptr %19, i64 17
+  %21 = load ptr, ptr %20, align 8
+  invoke void %21(ptr noundef nonnull align 8 dereferenceable(29) %16, i32 noundef %18)
+          to label %22 unwind label %29
 
-invoke.cont:                                      ; preds = %entry
-  %call1 = call noundef ptr @_ZNKSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #13
-  %vtable2 = load ptr, ptr %call1, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 18
-  %4 = load ptr, ptr %vfn3, align 8
-  invoke void %4(ptr noundef nonnull align 8 dereferenceable(29) %call1)
-          to label %invoke.cont4 unwind label %lpad
+22:                                               ; preds = %3
+  %23 = call noundef ptr @_ZNKSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds ptr, ptr %24, i64 18
+  %26 = load ptr, ptr %25, align 8
+  invoke void %26(ptr noundef nonnull align 8 dereferenceable(29) %23)
+          to label %27 unwind label %29
 
-invoke.cont4:                                     ; preds = %invoke.cont
-  store i1 true, ptr %nrvo, align 1
-  %nrvo.val = load i1, ptr %nrvo, align 1
-  br i1 %nrvo.val, label %nrvo.skipdtor, label %nrvo.unused
+27:                                               ; preds = %22
+  store i1 true, ptr %8, align 1
+  %28 = load i1, ptr %8, align 1
+  br i1 %28, label %34, label %33
 
-lpad:                                             ; preds = %invoke.cont, %entry
-  %5 = landingpad { ptr, i32 }
+29:                                               ; preds = %22, %3
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
-  call void @_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #13
-  br label %eh.resume
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %9, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %10, align 4
+  call void @_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  call void @llvm.lifetime.end.p0(i64 6, ptr %7) #17
+  br label %35
 
-nrvo.unused:                                      ; preds = %invoke.cont4
-  call void @_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #13
-  br label %nrvo.skipdtor
+33:                                               ; preds = %27
+  call void @_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  br label %34
 
-nrvo.skipdtor:                                    ; preds = %nrvo.unused, %invoke.cont4
+34:                                               ; preds = %33, %27
+  call void @llvm.lifetime.end.p0(i64 6, ptr %7) #17
   ret void
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val5 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val5
+35:                                               ; preds = %29
+  %36 = load ptr, ptr %9, align 8
+  %37 = load i32, ptr %10, align 4
+  %38 = insertvalue { ptr, i32 } poison, ptr %36, 0
+  %39 = insertvalue { ptr, i32 } %38, i32 %37, 1
+  resume { ptr, i32 } %39
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNKSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZNKSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__ptr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3ue214ComponentClassESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
-  store ptr %call, ptr %__ptr, align 8
-  %0 = load ptr, ptr %__ptr, align 8
-  %1 = load ptr, ptr %0, align 8
-  %cmp = icmp ne ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  %2 = load ptr, ptr %__ptr, align 8
+define linkonce_odr hidden void @_ZN3ue29ParseModeC2Ev(ptr noundef nonnull align 1 dereferenceable(6) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  invoke void @_ZNKSt14default_deleteIN3ue214ComponentClassEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %call2, ptr noundef %3)
-          to label %invoke.cont unwind label %terminate.lpad
-
-invoke.cont:                                      ; preds = %if.then
-  br label %if.end
-
-if.end:                                           ; preds = %invoke.cont, %entry
-  %4 = load ptr, ptr %__ptr, align 8
-  store ptr null, ptr %4, align 8
-  ret void
-
-terminate.lpad:                                   ; preds = %if.then
-  %5 = landingpad { ptr, i32 }
-          catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #17
-  unreachable
-}
-
-; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue224getLiteralComponentClassEhb(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, i8 noundef zeroext %c, i1 noundef zeroext %nocase) #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %c.addr = alloca i8, align 1
-  %nocase.addr = alloca i8, align 1
-  %mode = alloca %"struct.ue2::ParseMode", align 1
-  %nrvo = alloca i1, align 1
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store i8 %c, ptr %c.addr, align 1
-  %frombool = zext i1 %nocase to i8
-  store i8 %frombool, ptr %nocase.addr, align 1
-  call void @_ZN3ue29ParseModeC2Ev(ptr noundef nonnull align 1 dereferenceable(6) %mode)
-  %0 = load i8, ptr %nocase.addr, align 1
-  %tobool = trunc i8 %0 to i1
-  %caseless = getelementptr inbounds %"struct.ue2::ParseMode", ptr %mode, i32 0, i32 0
-  %frombool1 = zext i1 %tobool to i8
-  store i8 %frombool1, ptr %caseless, align 1
-  store i1 false, ptr %nrvo, align 1
-  call void @_ZN3ue217getComponentClassERKNS_9ParseModeE(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(6) %mode)
-  %call = call noundef ptr @_ZNKSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #13
-  %1 = load i8, ptr %c.addr, align 1
-  %conv = zext i8 %1 to i32
-  %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 17
-  %2 = load ptr, ptr %vfn, align 8
-  invoke void %2(ptr noundef nonnull align 8 dereferenceable(29) %call, i32 noundef %conv)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %call2 = call noundef ptr @_ZNKSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #13
-  %vtable3 = load ptr, ptr %call2, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 18
-  %3 = load ptr, ptr %vfn4, align 8
-  invoke void %3(ptr noundef nonnull align 8 dereferenceable(29) %call2)
-          to label %invoke.cont5 unwind label %lpad
-
-invoke.cont5:                                     ; preds = %invoke.cont
-  store i1 true, ptr %nrvo, align 1
-  %nrvo.val = load i1, ptr %nrvo, align 1
-  br i1 %nrvo.val, label %nrvo.skipdtor, label %nrvo.unused
-
-lpad:                                             ; preds = %invoke.cont, %entry
-  %4 = landingpad { ptr, i32 }
-          cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
-  call void @_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #13
-  br label %eh.resume
-
-nrvo.unused:                                      ; preds = %invoke.cont5
-  call void @_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #13
-  br label %nrvo.skipdtor
-
-nrvo.skipdtor:                                    ; preds = %nrvo.unused, %invoke.cont5
-  ret void
-
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val6 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val6
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue29ParseModeC2Ev(ptr noundef nonnull align 1 dereferenceable(6) %this) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %caseless = getelementptr inbounds %"struct.ue2::ParseMode", ptr %this1, i32 0, i32 0
-  store i8 0, ptr %caseless, align 1
-  %dotall = getelementptr inbounds %"struct.ue2::ParseMode", ptr %this1, i32 0, i32 1
-  store i8 0, ptr %dotall, align 1
-  %ignore_space = getelementptr inbounds %"struct.ue2::ParseMode", ptr %this1, i32 0, i32 2
-  store i8 0, ptr %ignore_space, align 1
-  %multiline = getelementptr inbounds %"struct.ue2::ParseMode", ptr %this1, i32 0, i32 3
-  store i8 0, ptr %multiline, align 1
-  %ucp = getelementptr inbounds %"struct.ue2::ParseMode", ptr %this1, i32 0, i32 4
-  store i8 0, ptr %ucp, align 1
-  %utf8 = getelementptr inbounds %"struct.ue2::ParseMode", ptr %this1, i32 0, i32 5
-  store i8 0, ptr %utf8, align 1
+  %4 = getelementptr inbounds nuw %"struct.ue2::ParseMode", ptr %3, i32 0, i32 0
+  store i8 0, ptr %4, align 1
+  %5 = getelementptr inbounds nuw %"struct.ue2::ParseMode", ptr %3, i32 0, i32 1
+  store i8 0, ptr %5, align 1
+  %6 = getelementptr inbounds nuw %"struct.ue2::ParseMode", ptr %3, i32 0, i32 2
+  store i8 0, ptr %6, align 1
+  %7 = getelementptr inbounds nuw %"struct.ue2::ParseMode", ptr %3, i32 0, i32 3
+  store i8 0, ptr %7, align 1
+  %8 = getelementptr inbounds nuw %"struct.ue2::ParseMode", ptr %3, i32 0, i32 4
+  store i8 0, ptr %8, align 1
+  %9 = getelementptr inbounds nuw %"struct.ue2::ParseMode", ptr %3, i32 0, i32 5
+  store i8 0, ptr %9, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214ComponentClassC2ERKNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(29) %this, ptr noundef nonnull align 1 dereferenceable(6) %mode_in) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %mode_in.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %mode_in, ptr %mode_in.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN3ue214ComponentClassE, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  %m_negate = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this1, i32 0, i32 1
-  store i8 0, ptr %m_negate, align 8
-  %mode = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %mode_in.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %mode, ptr align 1 %1, i64 6, i1 false)
-  %in_cand_range = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this1, i32 0, i32 3
-  store i8 0, ptr %in_cand_range, align 1
-  %range_start = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this1, i32 0, i32 4
-  store i32 -1, ptr %range_start, align 8
-  %finalized = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this1, i32 0, i32 5
-  store i8 0, ptr %finalized, align 4
+define hidden void @_ZN3ue214ComponentClassC2ERKNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(29) %0, ptr noundef nonnull align 1 dereferenceable(6) %1) unnamed_addr #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  call void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  store ptr getelementptr inbounds inrange(-16, 160) ({ [22 x ptr] }, ptr @_ZTVN3ue214ComponentClassE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds nuw %"class.ue2::ComponentClass", ptr %5, i32 0, i32 1
+  store i8 0, ptr %6, align 8
+  %7 = getelementptr inbounds nuw %"class.ue2::ComponentClass", ptr %5, i32 0, i32 2
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %8, i64 6, i1 false)
+  %9 = getelementptr inbounds nuw %"class.ue2::ComponentClass", ptr %5, i32 0, i32 3
+  store i8 0, ptr %9, align 1
+  %10 = getelementptr inbounds nuw %"class.ue2::ComponentClass", ptr %5, i32 0, i32 4
+  store i32 -1, ptr %10, align 8
+  %11 = getelementptr inbounds nuw %"class.ue2::ComponentClass", ptr %5, i32 0, i32 5
+  store i8 0, ptr %11, align 4
   ret void
 }
 
-declare void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
-
-; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3ue214ComponentClassD2Ev(ptr noundef nonnull align 8 dereferenceable(29) %this) unnamed_addr #4 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #13
-  ret void
-}
+declare void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
+declare void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3ue214ComponentClassD0Ev(ptr noundef nonnull align 8 dereferenceable(29) %this) unnamed_addr #4 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  call void @llvm.trap() #17
+define hidden void @_ZN3ue214ComponentClassD2Ev(ptr noundef nonnull align 8 dereferenceable(29) %0) unnamed_addr #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN3ue214ComponentClassD0Ev(ptr noundef nonnull align 8 dereferenceable(29) %0) unnamed_addr #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.trap() #19
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #5
+declare void @llvm.trap() #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214ComponentClass7addDashEv(ptr noundef nonnull align 8 dereferenceable(29) %this) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %in_cand_range = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this1, i32 0, i32 3
-  %0 = load i8, ptr %in_cand_range, align 1
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.else4, label %if.then
+define hidden void @_ZN3ue214ComponentClass7addDashEv(ptr noundef nonnull align 8 dereferenceable(29) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.ue2::ComponentClass", ptr %3, i32 0, i32 3
+  %5 = load i8, ptr %4, align 1, !range !5, !noundef !6
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %18, label %7
 
-if.then:                                          ; preds = %entry
-  %range_start = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this1, i32 0, i32 4
-  %1 = load i32, ptr %range_start, align 8
-  %cmp = icmp ne i32 %1, -1
-  br i1 %cmp, label %if.then2, label %if.else
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %"class.ue2::ComponentClass", ptr %3, i32 0, i32 4
+  %9 = load i32, ptr %8, align 8
+  %10 = icmp ne i32 %9, -1
+  br i1 %10, label %11, label %13
 
-if.then2:                                         ; preds = %if.then
-  %in_cand_range3 = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this1, i32 0, i32 3
-  store i8 1, ptr %in_cand_range3, align 1
-  br label %if.end
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw %"class.ue2::ComponentClass", ptr %3, i32 0, i32 3
+  store i8 1, ptr %12, align 1
+  br label %17
 
-if.else:                                          ; preds = %if.then
-  %vtable = load ptr, ptr %this1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 17
-  %2 = load ptr, ptr %vfn, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(29) %this1, i32 noundef 45)
-  br label %if.end
+13:                                               ; preds = %7
+  %14 = load ptr, ptr %3, align 8
+  %15 = getelementptr inbounds ptr, ptr %14, i64 17
+  %16 = load ptr, ptr %15, align 8
+  call void %16(ptr noundef nonnull align 8 dereferenceable(29) %3, i32 noundef 45)
+  br label %17
 
-if.end:                                           ; preds = %if.else, %if.then2
-  br label %if.end8
+17:                                               ; preds = %13, %11
+  br label %23
 
-if.else4:                                         ; preds = %entry
-  %in_cand_range5 = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this1, i32 0, i32 3
-  store i8 0, ptr %in_cand_range5, align 1
-  %vtable6 = load ptr, ptr %this1, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 19
-  %3 = load ptr, ptr %vfn7, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(29) %this1, i32 noundef 45)
-  br label %if.end8
+18:                                               ; preds = %1
+  %19 = getelementptr inbounds nuw %"class.ue2::ComponentClass", ptr %3, i32 0, i32 3
+  store i8 0, ptr %19, align 1
+  %20 = load ptr, ptr %3, align 8
+  %21 = getelementptr inbounds ptr, ptr %20, i64 19
+  %22 = load ptr, ptr %21, align 8
+  call void %22(ptr noundef nonnull align 8 dereferenceable(29) %3, i32 noundef 45)
+  br label %23
 
-if.end8:                                          ; preds = %if.else4, %if.end
+23:                                               ; preds = %18, %17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3ue214ComponentClass6negateEv(ptr noundef nonnull align 8 dereferenceable(29) %this) #4 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_negate = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this1, i32 0, i32 1
-  store i8 1, ptr %m_negate, align 8
+define hidden void @_ZN3ue214ComponentClass6negateEv(ptr noundef nonnull align 8 dereferenceable(29) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.ue2::ComponentClass", ptr %3, i32 0, i32 1
+  store i8 1, ptr %4, align 8
   ret void
 }
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue214ComponentClass5emptyEv(ptr noundef nonnull align 8 dereferenceable(29) %this) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue214ComponentClass5emptyEv(ptr noundef nonnull align 8 dereferenceable(29) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
   ret i1 false
 }
 
-declare noundef zeroext i1 @_ZNK3ue29Component18vacuous_everywhereEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
+declare noundef zeroext i1 @_ZNK3ue29Component18vacuous_everywhereEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
-declare noundef zeroext i1 @_ZNK3ue29Component10repeatableEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
+declare noundef zeroext i1 @_ZNK3ue29Component10repeatableEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
-declare void @_ZN3ue29Component8optimiseEb(ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) unnamed_addr #3
+declare void @_ZN3ue29Component8optimiseEb(ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) unnamed_addr #4
 
-declare noundef zeroext i1 @_ZNK3ue29Component24checkEmbeddedStartAnchorEb(ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) unnamed_addr #3
+declare noundef zeroext i1 @_ZNK3ue29Component24checkEmbeddedStartAnchorEb(ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) unnamed_addr #4
 
-declare noundef zeroext i1 @_ZNK3ue29Component22checkEmbeddedEndAnchorEb(ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) unnamed_addr #3
+declare noundef zeroext i1 @_ZNK3ue29Component22checkEmbeddedEndAnchorEb(ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue28bitfieldILm256EEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %bits = getelementptr inbounds %"class.ue2::bitfield", ptr %this1, i32 0, i32 0
-  call void @llvm.memset.p0.i64(ptr align 8 %bits, i8 0, i64 32, i1 false)
+define linkonce_odr hidden void @_ZN3ue28bitfieldILm256EEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.ue2::bitfield", ptr %3, i32 0, i32 0
+  call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3ue29CharReach8setRangeEhh(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 noundef zeroext %from, i8 noundef zeroext %to) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %from.addr = alloca i8, align 1
-  %to.addr = alloca i8, align 1
-  store ptr %this, ptr %this.addr, align 8
-  store i8 %from, ptr %from.addr, align 1
-  store i8 %to, ptr %to.addr, align 1
-  %this1 = load ptr, ptr %this.addr, align 8
-  %bits = getelementptr inbounds %"class.ue2::CharReach", ptr %this1, i32 0, i32 0
-  %0 = load i8, ptr %from.addr, align 1
-  %conv = zext i8 %0 to i64
-  %1 = load i8, ptr %to.addr, align 1
-  %conv2 = zext i8 %1 to i64
-  call void @_ZN3ue28bitfieldILm256EE9set_rangeEmm(ptr noundef nonnull align 8 dereferenceable(32) %bits, i64 noundef %conv, i64 noundef %conv2)
+define linkonce_odr hidden void @_ZN3ue29CharReach8setRangeEhh(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef zeroext %1, i8 noundef zeroext %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8
+  store i8 %1, ptr %5, align 1
+  store i8 %2, ptr %6, align 1
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %7, i32 0, i32 0
+  %9 = load i8, ptr %5, align 1
+  %10 = zext i8 %9 to i64
+  %11 = load i8, ptr %6, align 1
+  %12 = zext i8 %11 to i64
+  call void @_ZN3ue28bitfieldILm256EE9set_rangeEmm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %10, i64 noundef %12)
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3ue28bitfieldILm256EE9set_rangeEmm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %from, i64 noundef %to) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %from.addr = alloca i64, align 8
-  %to.addr = alloca i64, align 8
-  %block = alloca i64, align 8
-  %i = alloca i64, align 8
-  %block11 = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %from, ptr %from.addr, align 8
-  store i64 %to, ptr %to.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i64, ptr %from.addr, align 8
-  %div = udiv i64 %0, 64
-  %1 = load i64, ptr %to.addr, align 8
-  %div2 = udiv i64 %1, 64
-  %cmp = icmp eq i64 %div, %div2
-  br i1 %cmp, label %if.then, label %if.end8
+define linkonce_odr hidden void @_ZN3ue28bitfieldILm256EE9set_rangeEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = load i64, ptr %5, align 8
+  %12 = udiv i64 %11, 64
+  %13 = load i64, ptr %6, align 8
+  %14 = udiv i64 %13, 64
+  %15 = icmp eq i64 %12, %14
+  br i1 %15, label %16, label %38
 
-if.then:                                          ; preds = %entry
-  %2 = load i64, ptr %from.addr, align 8
-  %rem = urem i64 %2, 64
-  %shl = shl i64 -1, %rem
-  store i64 %shl, ptr %block, align 8
-  %3 = load i64, ptr %to.addr, align 8
-  %rem3 = urem i64 %3, 64
-  %cmp4 = icmp ne i64 %rem3, 63
-  br i1 %cmp4, label %if.then5, label %if.end
+16:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %17 = load i64, ptr %5, align 8
+  %18 = urem i64 %17, 64
+  %19 = shl i64 -1, %18
+  store i64 %19, ptr %7, align 8
+  %20 = load i64, ptr %6, align 8
+  %21 = urem i64 %20, 64
+  %22 = icmp ne i64 %21, 63
+  br i1 %22, label %23, label %30
 
-if.then5:                                         ; preds = %if.then
-  %4 = load i64, ptr %to.addr, align 8
-  %add = add i64 %4, 1
-  %call = call noundef i64 @_ZN3ue28bitfieldILm256EE7maskbitEm(i64 noundef %add)
-  %sub = sub i64 %call, 1
-  %5 = load i64, ptr %block, align 8
-  %and = and i64 %5, %sub
-  store i64 %and, ptr %block, align 8
-  br label %if.end
+23:                                               ; preds = %16
+  %24 = load i64, ptr %6, align 8
+  %25 = add i64 %24, 1
+  %26 = call noundef i64 @_ZN3ue28bitfieldILm256EE7maskbitEm(i64 noundef %25)
+  %27 = sub i64 %26, 1
+  %28 = load i64, ptr %7, align 8
+  %29 = and i64 %28, %27
+  store i64 %29, ptr %7, align 8
+  br label %30
 
-if.end:                                           ; preds = %if.then5, %if.then
-  %6 = load i64, ptr %block, align 8
-  %bits = getelementptr inbounds %"class.ue2::bitfield", ptr %this1, i32 0, i32 0
-  %7 = load i64, ptr %from.addr, align 8
-  %div6 = udiv i64 %7, 64
-  %call7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %bits, i64 noundef %div6) #13
-  %8 = load i64, ptr %call7, align 8
-  %or = or i64 %8, %6
-  store i64 %or, ptr %call7, align 8
-  br label %if.end37
+30:                                               ; preds = %23, %16
+  %31 = load i64, ptr %7, align 8
+  %32 = getelementptr inbounds nuw %"class.ue2::bitfield", ptr %10, i32 0, i32 0
+  %33 = load i64, ptr %5, align 8
+  %34 = udiv i64 %33, 64
+  %35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %32, i64 noundef %34) #17
+  %36 = load i64, ptr %35, align 8
+  %37 = or i64 %36, %31
+  store i64 %37, ptr %35, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  br label %88
 
-if.end8:                                          ; preds = %entry
-  %9 = load i64, ptr %from.addr, align 8
-  store i64 %9, ptr %i, align 8
-  %10 = load i64, ptr %i, align 8
-  %rem9 = urem i64 %10, 64
-  %tobool = icmp ne i64 %rem9, 0
-  br i1 %tobool, label %if.then10, label %if.end20
+38:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  %39 = load i64, ptr %5, align 8
+  store i64 %39, ptr %8, align 8
+  %40 = load i64, ptr %8, align 8
+  %41 = urem i64 %40, 64
+  %42 = icmp ne i64 %41, 0
+  br i1 %42, label %43, label %57
 
-if.then10:                                        ; preds = %if.end8
-  %11 = load i64, ptr %i, align 8
-  %rem12 = urem i64 %11, 64
-  %shl13 = shl i64 -1, %rem12
-  store i64 %shl13, ptr %block11, align 8
-  %12 = load i64, ptr %block11, align 8
-  %bits14 = getelementptr inbounds %"class.ue2::bitfield", ptr %this1, i32 0, i32 0
-  %13 = load i64, ptr %i, align 8
-  %div15 = udiv i64 %13, 64
-  %call16 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %bits14, i64 noundef %div15) #13
-  %14 = load i64, ptr %call16, align 8
-  %or17 = or i64 %14, %12
-  store i64 %or17, ptr %call16, align 8
-  %15 = load i64, ptr %i, align 8
-  %add18 = add i64 %15, 63
-  %and19 = and i64 %add18, -64
-  store i64 %and19, ptr %i, align 8
-  br label %if.end20
+43:                                               ; preds = %38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  %44 = load i64, ptr %8, align 8
+  %45 = urem i64 %44, 64
+  %46 = shl i64 -1, %45
+  store i64 %46, ptr %9, align 8
+  %47 = load i64, ptr %9, align 8
+  %48 = getelementptr inbounds nuw %"class.ue2::bitfield", ptr %10, i32 0, i32 0
+  %49 = load i64, ptr %8, align 8
+  %50 = udiv i64 %49, 64
+  %51 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %48, i64 noundef %50) #17
+  %52 = load i64, ptr %51, align 8
+  %53 = or i64 %52, %47
+  store i64 %53, ptr %51, align 8
+  %54 = load i64, ptr %8, align 8
+  %55 = add i64 %54, 63
+  %56 = and i64 %55, -64
+  store i64 %56, ptr %8, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  br label %57
 
-if.end20:                                         ; preds = %if.then10, %if.end8
-  br label %for.cond
+57:                                               ; preds = %43, %38
+  br label %58
 
-for.cond:                                         ; preds = %for.inc, %if.end20
-  %16 = load i64, ptr %i, align 8
-  %add21 = add i64 %16, 64
-  %17 = load i64, ptr %to.addr, align 8
-  %add22 = add i64 %17, 1
-  %cmp23 = icmp ule i64 %add21, %add22
-  br i1 %cmp23, label %for.body, label %for.end
+58:                                               ; preds = %69, %57
+  %59 = load i64, ptr %8, align 8
+  %60 = add i64 %59, 64
+  %61 = load i64, ptr %6, align 8
+  %62 = add i64 %61, 1
+  %63 = icmp ule i64 %60, %62
+  br i1 %63, label %64, label %72
 
-for.body:                                         ; preds = %for.cond
-  %bits24 = getelementptr inbounds %"class.ue2::bitfield", ptr %this1, i32 0, i32 0
-  %18 = load i64, ptr %i, align 8
-  %div25 = udiv i64 %18, 64
-  %call26 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %bits24, i64 noundef %div25) #13
-  store i64 -1, ptr %call26, align 8
-  br label %for.inc
+64:                                               ; preds = %58
+  %65 = getelementptr inbounds nuw %"class.ue2::bitfield", ptr %10, i32 0, i32 0
+  %66 = load i64, ptr %8, align 8
+  %67 = udiv i64 %66, 64
+  %68 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %65, i64 noundef %67) #17
+  store i64 -1, ptr %68, align 8
+  br label %69
 
-for.inc:                                          ; preds = %for.body
-  %19 = load i64, ptr %i, align 8
-  %add27 = add i64 %19, 64
-  store i64 %add27, ptr %i, align 8
-  br label %for.cond, !llvm.loop !5
+69:                                               ; preds = %64
+  %70 = load i64, ptr %8, align 8
+  %71 = add i64 %70, 64
+  store i64 %71, ptr %8, align 8
+  br label %58, !llvm.loop !7
 
-for.end:                                          ; preds = %for.cond
-  %20 = load i64, ptr %i, align 8
-  %21 = load i64, ptr %to.addr, align 8
-  %cmp28 = icmp ule i64 %20, %21
-  br i1 %cmp28, label %if.then29, label %if.end37
+72:                                               ; preds = %58
+  %73 = load i64, ptr %8, align 8
+  %74 = load i64, ptr %6, align 8
+  %75 = icmp ule i64 %73, %74
+  br i1 %75, label %76, label %87
 
-if.then29:                                        ; preds = %for.end
-  %22 = load i64, ptr %to.addr, align 8
-  %add30 = add i64 %22, 1
-  %call31 = call noundef i64 @_ZN3ue28bitfieldILm256EE7maskbitEm(i64 noundef %add30)
-  %sub32 = sub i64 %call31, 1
-  %bits33 = getelementptr inbounds %"class.ue2::bitfield", ptr %this1, i32 0, i32 0
-  %23 = load i64, ptr %i, align 8
-  %div34 = udiv i64 %23, 64
-  %call35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %bits33, i64 noundef %div34) #13
-  %24 = load i64, ptr %call35, align 8
-  %or36 = or i64 %24, %sub32
-  store i64 %or36, ptr %call35, align 8
-  br label %if.end37
+76:                                               ; preds = %72
+  %77 = load i64, ptr %6, align 8
+  %78 = add i64 %77, 1
+  %79 = call noundef i64 @_ZN3ue28bitfieldILm256EE7maskbitEm(i64 noundef %78)
+  %80 = sub i64 %79, 1
+  %81 = getelementptr inbounds nuw %"class.ue2::bitfield", ptr %10, i32 0, i32 0
+  %82 = load i64, ptr %8, align 8
+  %83 = udiv i64 %82, 64
+  %84 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %81, i64 noundef %83) #17
+  %85 = load i64, ptr %84, align 8
+  %86 = or i64 %85, %80
+  store i64 %86, ptr %84, align 8
+  br label %87
 
-if.end37:                                         ; preds = %if.then29, %for.end, %if.end
+87:                                               ; preds = %76, %72
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  br label %88
+
+88:                                               ; preds = %87, %30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i64 @_ZN3ue28bitfieldILm256EE7maskbitEm(i64 noundef %n) #4 comdat align 2 {
-entry:
-  %n.addr = alloca i64, align 8
-  store i64 %n, ptr %n.addr, align 8
-  %0 = load i64, ptr %n.addr, align 8
-  %rem = urem i64 %0, 64
-  %shl = shl i64 1, %rem
-  ret i64 %shl
+define linkonce_odr hidden noundef i64 @_ZN3ue28bitfieldILm256EE7maskbitEm(i64 noundef %0) #2 comdat align 2 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8
+  %3 = load i64, ptr %2, align 8
+  %4 = urem i64 %3, 64
+  %5 = shl i64 1, %4
+  ret i64 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %__n) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_elems = getelementptr inbounds %"struct.std::array", ptr %this1, i32 0, i32 0
-  %0 = load i64, ptr %__n.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt14__array_traitsIyLm4EE6_S_refERA4_Kym(ptr noundef nonnull align 8 dereferenceable(32) %_M_elems, i64 noundef %0) #13
-  ret ptr %call
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::array", ptr %5, i32 0, i32 0
+  %7 = load i64, ptr %4, align 8
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt14__array_traitsIyLm4EE6_S_refERA4_Kym(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %7) #17
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt14__array_traitsIyLm4EE6_S_refERA4_Kym(ptr noundef nonnull align 8 dereferenceable(32) %__t, i64 noundef %__n) #4 comdat align 2 {
-entry:
-  %__t.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %arrayidx = getelementptr inbounds [4 x i64], ptr %0, i64 0, i64 %1
-  ret ptr %arrayidx
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt14__array_traitsIyLm4EE6_S_refERA4_Kym(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %6
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue28bitfieldILm256EEoRERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %a) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  %i = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+define linkonce_odr hidden void @_ZN3ue28bitfieldILm256EEoRERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #17
+  store i64 0, ptr %5, align 8
+  br label %7
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
-  %add = add i64 %0, 4
-  %cmp = icmp ule i64 %add, 4
-  br i1 %cmp, label %for.body, label %for.end
+7:                                                ; preds = %58, %2
+  %8 = load i64, ptr %5, align 8
+  %9 = add i64 %8, 4
+  %10 = icmp ule i64 %9, 4
+  br i1 %10, label %11, label %61
 
-for.body:                                         ; preds = %for.cond
-  %1 = load ptr, ptr %a.addr, align 8
-  %bits = getelementptr inbounds %"class.ue2::bitfield", ptr %1, i32 0, i32 0
-  %2 = load i64, ptr %i, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %bits, i64 noundef %2) #13
-  %3 = load i64, ptr %call, align 8
-  %bits2 = getelementptr inbounds %"class.ue2::bitfield", ptr %this1, i32 0, i32 0
-  %4 = load i64, ptr %i, align 8
-  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %bits2, i64 noundef %4) #13
-  %5 = load i64, ptr %call3, align 8
-  %or = or i64 %5, %3
-  store i64 %or, ptr %call3, align 8
-  %6 = load ptr, ptr %a.addr, align 8
-  %bits4 = getelementptr inbounds %"class.ue2::bitfield", ptr %6, i32 0, i32 0
-  %7 = load i64, ptr %i, align 8
-  %add5 = add i64 %7, 1
-  %call6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %bits4, i64 noundef %add5) #13
-  %8 = load i64, ptr %call6, align 8
-  %bits7 = getelementptr inbounds %"class.ue2::bitfield", ptr %this1, i32 0, i32 0
-  %9 = load i64, ptr %i, align 8
-  %add8 = add i64 %9, 1
-  %call9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %bits7, i64 noundef %add8) #13
-  %10 = load i64, ptr %call9, align 8
-  %or10 = or i64 %10, %8
-  store i64 %or10, ptr %call9, align 8
-  %11 = load ptr, ptr %a.addr, align 8
-  %bits11 = getelementptr inbounds %"class.ue2::bitfield", ptr %11, i32 0, i32 0
-  %12 = load i64, ptr %i, align 8
-  %add12 = add i64 %12, 2
-  %call13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %bits11, i64 noundef %add12) #13
-  %13 = load i64, ptr %call13, align 8
-  %bits14 = getelementptr inbounds %"class.ue2::bitfield", ptr %this1, i32 0, i32 0
-  %14 = load i64, ptr %i, align 8
-  %add15 = add i64 %14, 2
-  %call16 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %bits14, i64 noundef %add15) #13
-  %15 = load i64, ptr %call16, align 8
-  %or17 = or i64 %15, %13
-  store i64 %or17, ptr %call16, align 8
-  %16 = load ptr, ptr %a.addr, align 8
-  %bits18 = getelementptr inbounds %"class.ue2::bitfield", ptr %16, i32 0, i32 0
-  %17 = load i64, ptr %i, align 8
-  %add19 = add i64 %17, 3
-  %call20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %bits18, i64 noundef %add19) #13
-  %18 = load i64, ptr %call20, align 8
-  %bits21 = getelementptr inbounds %"class.ue2::bitfield", ptr %this1, i32 0, i32 0
-  %19 = load i64, ptr %i, align 8
-  %add22 = add i64 %19, 3
-  %call23 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %bits21, i64 noundef %add22) #13
-  %20 = load i64, ptr %call23, align 8
-  %or24 = or i64 %20, %18
-  store i64 %or24, ptr %call23, align 8
-  br label %for.inc
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds nuw %"class.ue2::bitfield", ptr %12, i32 0, i32 0
+  %14 = load i64, ptr %5, align 8
+  %15 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef %14) #17
+  %16 = load i64, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %"class.ue2::bitfield", ptr %6, i32 0, i32 0
+  %18 = load i64, ptr %5, align 8
+  %19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef %18) #17
+  %20 = load i64, ptr %19, align 8
+  %21 = or i64 %20, %16
+  store i64 %21, ptr %19, align 8
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds nuw %"class.ue2::bitfield", ptr %22, i32 0, i32 0
+  %24 = load i64, ptr %5, align 8
+  %25 = add i64 %24, 1
+  %26 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %23, i64 noundef %25) #17
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %"class.ue2::bitfield", ptr %6, i32 0, i32 0
+  %29 = load i64, ptr %5, align 8
+  %30 = add i64 %29, 1
+  %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %28, i64 noundef %30) #17
+  %32 = load i64, ptr %31, align 8
+  %33 = or i64 %32, %27
+  store i64 %33, ptr %31, align 8
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr inbounds nuw %"class.ue2::bitfield", ptr %34, i32 0, i32 0
+  %36 = load i64, ptr %5, align 8
+  %37 = add i64 %36, 2
+  %38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %35, i64 noundef %37) #17
+  %39 = load i64, ptr %38, align 8
+  %40 = getelementptr inbounds nuw %"class.ue2::bitfield", ptr %6, i32 0, i32 0
+  %41 = load i64, ptr %5, align 8
+  %42 = add i64 %41, 2
+  %43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %40, i64 noundef %42) #17
+  %44 = load i64, ptr %43, align 8
+  %45 = or i64 %44, %39
+  store i64 %45, ptr %43, align 8
+  %46 = load ptr, ptr %4, align 8
+  %47 = getelementptr inbounds nuw %"class.ue2::bitfield", ptr %46, i32 0, i32 0
+  %48 = load i64, ptr %5, align 8
+  %49 = add i64 %48, 3
+  %50 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %47, i64 noundef %49) #17
+  %51 = load i64, ptr %50, align 8
+  %52 = getelementptr inbounds nuw %"class.ue2::bitfield", ptr %6, i32 0, i32 0
+  %53 = load i64, ptr %5, align 8
+  %54 = add i64 %53, 3
+  %55 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %52, i64 noundef %54) #17
+  %56 = load i64, ptr %55, align 8
+  %57 = or i64 %56, %51
+  store i64 %57, ptr %55, align 8
+  br label %58
 
-for.inc:                                          ; preds = %for.body
-  %21 = load i64, ptr %i, align 8
-  %add25 = add i64 %21, 4
-  store i64 %add25, ptr %i, align 8
-  br label %for.cond, !llvm.loop !7
+58:                                               ; preds = %11
+  %59 = load i64, ptr %5, align 8
+  %60 = add i64 %59, 4
+  store i64 %60, ptr %5, align 8
+  br label %7, !llvm.loop !9
 
-for.end:                                          ; preds = %for.cond
-  br label %for.cond26
+61:                                               ; preds = %7
+  br label %62
 
-for.cond26:                                       ; preds = %for.inc34, %for.end
-  %22 = load i64, ptr %i, align 8
-  %cmp27 = icmp ult i64 %22, 4
-  br i1 %cmp27, label %for.body28, label %for.end35
+62:                                               ; preds = %76, %61
+  %63 = load i64, ptr %5, align 8
+  %64 = icmp ult i64 %63, 4
+  br i1 %64, label %65, label %79
 
-for.body28:                                       ; preds = %for.cond26
-  %23 = load ptr, ptr %a.addr, align 8
-  %bits29 = getelementptr inbounds %"class.ue2::bitfield", ptr %23, i32 0, i32 0
-  %24 = load i64, ptr %i, align 8
-  %call30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %bits29, i64 noundef %24) #13
-  %25 = load i64, ptr %call30, align 8
-  %bits31 = getelementptr inbounds %"class.ue2::bitfield", ptr %this1, i32 0, i32 0
-  %26 = load i64, ptr %i, align 8
-  %call32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %bits31, i64 noundef %26) #13
-  %27 = load i64, ptr %call32, align 8
-  %or33 = or i64 %27, %25
-  store i64 %or33, ptr %call32, align 8
-  br label %for.inc34
+65:                                               ; preds = %62
+  %66 = load ptr, ptr %4, align 8
+  %67 = getelementptr inbounds nuw %"class.ue2::bitfield", ptr %66, i32 0, i32 0
+  %68 = load i64, ptr %5, align 8
+  %69 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %67, i64 noundef %68) #17
+  %70 = load i64, ptr %69, align 8
+  %71 = getelementptr inbounds nuw %"class.ue2::bitfield", ptr %6, i32 0, i32 0
+  %72 = load i64, ptr %5, align 8
+  %73 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %71, i64 noundef %72) #17
+  %74 = load i64, ptr %73, align 8
+  %75 = or i64 %74, %70
+  store i64 %75, ptr %73, align 8
+  br label %76
 
-for.inc34:                                        ; preds = %for.body28
-  %28 = load i64, ptr %i, align 8
-  %inc = add i64 %28, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond26, !llvm.loop !8
+76:                                               ; preds = %65
+  %77 = load i64, ptr %5, align 8
+  %78 = add i64 %77, 1
+  store i64 %78, ptr %5, align 8
+  br label %62, !llvm.loop !10
 
-for.end35:                                        ; preds = %for.cond26
+79:                                               ; preds = %62
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %__n) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_elems = getelementptr inbounds %"struct.std::array", ptr %this1, i32 0, i32 0
-  %0 = load i64, ptr %__n.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt14__array_traitsIyLm4EE6_S_refERA4_Kym(ptr noundef nonnull align 8 dereferenceable(32) %_M_elems, i64 noundef %0) #13
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3ue29CharReach4flipEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %bits = getelementptr inbounds %"class.ue2::CharReach", ptr %this1, i32 0, i32 0
-  call void @_ZN3ue28bitfieldILm256EE4flipEv(ptr noundef nonnull align 8 dereferenceable(32) %bits)
-  ret void
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::array", ptr %5, i32 0, i32 0
+  %7 = load i64, ptr %4, align 8
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt14__array_traitsIyLm4EE6_S_refERA4_Kym(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %7) #17
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3ue28bitfieldILm256EE4flipEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__range2 = alloca ptr, align 8
-  %__begin0 = alloca ptr, align 8
-  %__end0 = alloca ptr, align 8
-  %e = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %bits = getelementptr inbounds %"class.ue2::bitfield", ptr %this1, i32 0, i32 0
-  store ptr %bits, ptr %__range2, align 8
-  %0 = load ptr, ptr %__range2, align 8
-  %call = call noundef ptr @_ZNSt5arrayIyLm4EE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
-  store ptr %call, ptr %__begin0, align 8
-  %1 = load ptr, ptr %__range2, align 8
-  %call2 = call noundef ptr @_ZNSt5arrayIyLm4EE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
-  store ptr %call2, ptr %__end0, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load ptr, ptr %__begin0, align 8
-  %3 = load ptr, ptr %__end0, align 8
-  %cmp = icmp ne ptr %2, %3
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %__begin0, align 8
-  store ptr %4, ptr %e, align 8
-  %5 = load ptr, ptr %e, align 8
-  %6 = load i64, ptr %5, align 8
-  %not = xor i64 %6, -1
-  %7 = load ptr, ptr %e, align 8
-  store i64 %not, ptr %7, align 8
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %8 = load ptr, ptr %__begin0, align 8
-  %incdec.ptr = getelementptr inbounds i64, ptr %8, i32 1
-  store ptr %incdec.ptr, ptr %__begin0, align 8
-  br label %for.cond
-
-for.end:                                          ; preds = %for.cond
-  call void @_ZN3ue28bitfieldILm256EE13clear_trailerEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
+define linkonce_odr hidden void @_ZN3ue29CharReach4flipEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %3, i32 0, i32 0
+  call void @_ZN3ue28bitfieldILm256EE4flipEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIyLm4EE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #7 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZNSt5arrayIyLm4EE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #18
-  ret ptr %call
-}
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN3ue28bitfieldILm256EE4flipEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %7 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #17
+  %8 = getelementptr inbounds nuw %"class.ue2::bitfield", ptr %7, i32 0, i32 0
+  store ptr %8, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #17
+  %9 = load ptr, ptr %3, align 8
+  %10 = call noundef ptr @_ZNSt5arrayIyLm4EE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #22
+  store ptr %10, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #17
+  %11 = load ptr, ptr %3, align 8
+  %12 = call noundef ptr @_ZNSt5arrayIyLm4EE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #22
+  store ptr %12, ptr %5, align 8
+  br label %13
 
-; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIyLm4EE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #7 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZNSt5arrayIyLm4EE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #18
-  %add.ptr = getelementptr inbounds i64, ptr %call, i64 4
-  ret ptr %add.ptr
-}
+13:                                               ; preds = %24, %1
+  %14 = load ptr, ptr %4, align 8
+  %15 = load ptr, ptr %5, align 8
+  %16 = icmp ne ptr %14, %15
+  br i1 %16, label %18, label %17
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue28bitfieldILm256EE13clear_trailerEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %final_bits = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i64 0, ptr %final_bits, align 8
-  %0 = load i64, ptr %final_bits, align 8
-  %tobool = icmp ne i64 %0, 0
-  br i1 %tobool, label %if.then, label %if.end
+17:                                               ; preds = %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #17
+  br label %27
 
-if.then:                                          ; preds = %entry
-  %1 = load i64, ptr %final_bits, align 8
-  %shl = shl i64 1, %1
-  %sub = sub i64 %shl, 1
-  %bits = getelementptr inbounds %"class.ue2::bitfield", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIyLm4EE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %bits) #13
-  %2 = load i64, ptr %call, align 8
-  %and = and i64 %2, %sub
-  store i64 %and, ptr %call, align 8
-  br label %if.end
+18:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #17
+  %19 = load ptr, ptr %4, align 8
+  store ptr %19, ptr %6, align 8
+  %20 = load ptr, ptr %6, align 8
+  %21 = load i64, ptr %20, align 8
+  %22 = xor i64 %21, -1
+  %23 = load ptr, ptr %6, align 8
+  store i64 %22, ptr %23, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #17
+  br label %24
 
-if.end:                                           ; preds = %if.then, %entry
+24:                                               ; preds = %18
+  %25 = load ptr, ptr %4, align 8
+  %26 = getelementptr inbounds nuw i64, ptr %25, i32 1
+  store ptr %26, ptr %4, align 8
+  br label %13
+
+27:                                               ; preds = %17
+  call void @_ZN3ue28bitfieldILm256EE13clear_trailerEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIyLm4EE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #7 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_elems = getelementptr inbounds %"struct.std::array", ptr %this1, i32 0, i32 0
-  %call = call noundef ptr @_ZNSt14__array_traitsIyLm4EE6_S_ptrERA4_Ky(ptr noundef nonnull align 8 dereferenceable(32) %_M_elems) #13
-  ret ptr %call
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIyLm4EE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #10 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt5arrayIyLm4EE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIyLm4EE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #10 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt5arrayIyLm4EE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
+  %5 = getelementptr inbounds nuw i64, ptr %4, i64 4
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt14__array_traitsIyLm4EE6_S_ptrERA4_Ky(ptr noundef nonnull align 8 dereferenceable(32) %__t) #4 comdat align 2 {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %arraydecay = getelementptr inbounds [4 x i64], ptr %0, i64 0, i64 0
-  ret ptr %arraydecay
+define linkonce_odr hidden void @_ZN3ue28bitfieldILm256EE13clear_trailerEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #17
+  store i64 0, ptr %3, align 8
+  %5 = load i64, ptr %3, align 8
+  %6 = icmp ne i64 %5, 0
+  br i1 %6, label %7, label %15
+
+7:                                                ; preds = %1
+  %8 = load i64, ptr %3, align 8
+  %9 = shl i64 1, %8
+  %10 = sub i64 %9, 1
+  %11 = getelementptr inbounds nuw %"class.ue2::bitfield", ptr %4, i32 0, i32 0
+  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIyLm4EE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #17
+  %13 = load i64, ptr %12, align 8
+  %14 = and i64 %13, %10
+  store i64 %14, ptr %12, align 8
+  br label %15
+
+15:                                               ; preds = %7, %1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIyLm4EE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #10 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::array", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNSt14__array_traitsIyLm4EE6_S_ptrERA4_Ky(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIyLm4EE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZNSt5arrayIyLm4EE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #18
-  %add.ptr = getelementptr inbounds i64, ptr %call, i64 -1
-  ret ptr %add.ptr
+define linkonce_odr dso_local noundef ptr @_ZNSt14__array_traitsIyLm4EE6_S_ptrERA4_Ky(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds [4 x i64], ptr %3, i64 0, i64 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIyLm4EE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt5arrayIyLm4EE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
+  %5 = getelementptr inbounds i64, ptr %4, i64 -1
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3ue29CharReach3setEh(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 noundef zeroext %n) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i8, align 1
-  store ptr %this, ptr %this.addr, align 8
-  store i8 %n, ptr %n.addr, align 1
-  %this1 = load ptr, ptr %this.addr, align 8
-  %bits = getelementptr inbounds %"class.ue2::CharReach", ptr %this1, i32 0, i32 0
-  %0 = load i8, ptr %n.addr, align 1
-  %conv = zext i8 %0 to i64
-  call void @_ZN3ue28bitfieldILm256EE3setEm(ptr noundef nonnull align 8 dereferenceable(32) %bits, i64 noundef %conv)
+define linkonce_odr hidden void @_ZN3ue29CharReach3setEh(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef zeroext %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8
+  store i8 %1, ptr %4, align 1
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %5, i32 0, i32 0
+  %7 = load i8, ptr %4, align 1
+  %8 = zext i8 %7 to i64
+  call void @_ZN3ue28bitfieldILm256EE3setEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %8)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3ue28bitfieldILm256EE3setEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %n) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %n, ptr %n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i64, ptr %n.addr, align 8
-  %call = call noundef i64 @_ZN3ue28bitfieldILm256EE7maskbitEm(i64 noundef %0)
-  %bits = getelementptr inbounds %"class.ue2::bitfield", ptr %this1, i32 0, i32 0
-  %1 = load i64, ptr %n.addr, align 8
-  %call2 = call noundef i64 @_ZN3ue28bitfieldILm256EE7getwordEm(i64 noundef %1)
-  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %bits, i64 noundef %call2) #13
-  %2 = load i64, ptr %call3, align 8
-  %or = or i64 %2, %call
-  store i64 %or, ptr %call3, align 8
+define linkonce_odr hidden void @_ZN3ue28bitfieldILm256EE3setEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = call noundef i64 @_ZN3ue28bitfieldILm256EE7maskbitEm(i64 noundef %6)
+  %8 = getelementptr inbounds nuw %"class.ue2::bitfield", ptr %5, i32 0, i32 0
+  %9 = load i64, ptr %4, align 8
+  %10 = call noundef i64 @_ZN3ue28bitfieldILm256EE7getwordEm(i64 noundef %9)
+  %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIyLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %10) #17
+  %12 = load i64, ptr %11, align 8
+  %13 = or i64 %12, %7
+  store i64 %13, ptr %11, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i64 @_ZN3ue28bitfieldILm256EE7getwordEm(i64 noundef %n) #4 comdat align 2 {
-entry:
-  %n.addr = alloca i64, align 8
-  store i64 %n, ptr %n.addr, align 8
-  %0 = load i64, ptr %n.addr, align 8
-  %div = udiv i64 %0, 64
-  ret i64 %div
+define linkonce_odr hidden noundef i64 @_ZN3ue28bitfieldILm256EE7getwordEm(i64 noundef %0) #2 comdat align 2 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8
+  %3 = load i64, ptr %2, align 8
+  %4 = udiv i64 %3, 64
+  ret i64 %4
 }
 
-declare void @_ZN3ue29CharReach3setERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) #3
+declare void @_ZN3ue29CharReach3setERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) #4
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZNK3ue212CodePointSet5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %this) #0 comdat align 2 {
-entry:
-  %retval = alloca %"struct.std::_Rb_tree_const_iterator", align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %impl = getelementptr inbounds %"class.ue2::CodePointSet", ptr %this1, i32 0, i32 0
-  %call = call ptr @_ZNK5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %impl)
-  %coerce.dive = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %retval, i32 0, i32 0
-  store ptr %call, ptr %coerce.dive, align 8
-  %coerce.dive2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %retval, i32 0, i32 0
-  %0 = load ptr, ptr %coerce.dive2, align 8
-  ret ptr %0
+define linkonce_odr hidden ptr @_ZNK3ue212CodePointSet5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
+  %2 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.ue2::CodePointSet", ptr %4, i32 0, i32 0
+  %6 = call ptr @_ZNK5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %5)
+  %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %2, i32 0, i32 0
+  store ptr %6, ptr %7, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %2, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  ret ptr %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZNK3ue212CodePointSet3endEv(ptr noundef nonnull align 8 dereferenceable(48) %this) #0 comdat align 2 {
-entry:
-  %retval = alloca %"struct.std::_Rb_tree_const_iterator", align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %impl = getelementptr inbounds %"class.ue2::CodePointSet", ptr %this1, i32 0, i32 0
-  %call = call ptr @_ZNK5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %impl)
-  %coerce.dive = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %retval, i32 0, i32 0
-  store ptr %call, ptr %coerce.dive, align 8
-  %coerce.dive2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %retval, i32 0, i32 0
-  %0 = load ptr, ptr %coerce.dive2, align 8
-  ret ptr %0
+define linkonce_odr hidden ptr @_ZNK3ue212CodePointSet3endEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
+  %2 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.ue2::CodePointSet", ptr %4, i32 0, i32 0
+  %6 = call ptr @_ZNK5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %5)
+  %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %2, i32 0, i32 0
+  store ptr %6, ptr %7, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %2, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  ret ptr %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZStneRKSt23_Rb_tree_const_iteratorIN5boost3icl15closed_intervalIjSt4lessEEES7_(ptr noundef nonnull align 8 dereferenceable(8) %__x, ptr noundef nonnull align 8 dereferenceable(8) %__y) #4 comdat {
-entry:
-  %__x.addr = alloca ptr, align 8
-  %__y.addr = alloca ptr, align 8
-  store ptr %__x, ptr %__x.addr, align 8
-  store ptr %__y, ptr %__y.addr, align 8
-  %0 = load ptr, ptr %__x.addr, align 8
-  %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %_M_node, align 8
-  %2 = load ptr, ptr %__y.addr, align 8
-  %_M_node1 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %_M_node1, align 8
-  %cmp = icmp ne ptr %1, %3
-  ret i1 %cmp
+define linkonce_odr dso_local noundef zeroext i1 @_ZStneRKSt23_Rb_tree_const_iteratorIN5boost3icl15closed_intervalIjSt4lessEEES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp ne ptr %7, %10
+  ret i1 %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNKSt23_Rb_tree_const_iteratorIN5boost3icl15closed_intervalIjSt4lessEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %_M_node, align 8
-  %call = invoke noundef ptr @_ZNKSt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNKSt23_Rb_tree_const_iteratorIN5boost3icl15closed_intervalIjSt4lessEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = invoke noundef ptr @_ZNKSt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(40) %5)
+          to label %7 unwind label %8
 
-invoke.cont:                                      ; preds = %entry
-  ret ptr %call
+7:                                                ; preds = %1
+  ret ptr %6
 
-terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+8:                                                ; preds = %1
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #17
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #19
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZN5boost3icl5lowerINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_11is_intervalIT_EENS0_15interval_traitsIS7_E11domain_typeEE4typeERKS7_(ptr noundef nonnull align 4 dereferenceable(8) %object) #0 comdat {
-entry:
-  %object.addr = alloca ptr, align 8
-  store ptr %object, ptr %object.addr, align 8
-  %0 = load ptr, ptr %object.addr, align 8
-  %call = call noundef i32 @_ZN5boost3icl15interval_traitsINS0_15closed_intervalIjSt4lessEEE5lowerERKS4_(ptr noundef nonnull align 4 dereferenceable(8) %0)
-  ret i32 %call
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef i32 @_ZN5boost3icl5lowerINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_11is_intervalIT_EENS0_15interval_traitsIS7_E11domain_typeEE4typeERKS7_(ptr noundef nonnull align 4 dereferenceable(8) %0) #6 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZN5boost3icl15interval_traitsINS0_15closed_intervalIjSt4lessEEE5lowerERKS4_(ptr noundef nonnull align 4 dereferenceable(8) %3)
+  ret i32 %4
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZN5boost3icl5upperINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_11is_intervalIT_EENS0_15interval_traitsIS7_E11domain_typeEE4typeERKS7_(ptr noundef nonnull align 4 dereferenceable(8) %object) #0 comdat {
-entry:
-  %object.addr = alloca ptr, align 8
-  store ptr %object, ptr %object.addr, align 8
-  %0 = load ptr, ptr %object.addr, align 8
-  %call = call noundef i32 @_ZN5boost3icl15interval_traitsINS0_15closed_intervalIjSt4lessEEE5upperERKS4_(ptr noundef nonnull align 4 dereferenceable(8) %0)
-  ret i32 %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt23_Rb_tree_const_iteratorIN5boost3icl15closed_intervalIjSt4lessEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #19
-  %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %this1, i32 0, i32 0
-  store ptr %call, ptr %_M_node2, align 8
-  ret ptr %this1
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef i32 @_ZN5boost3icl5upperINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_11is_intervalIT_EENS0_15interval_traitsIS7_E11domain_typeEE4typeERKS7_(ptr noundef nonnull align 4 dereferenceable(8) %0) #6 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZN5boost3icl15interval_traitsINS0_15closed_intervalIjSt4lessEEE5upperERKS4_(ptr noundef nonnull align 4 dereferenceable(8) %3)
+  ret i32 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden ptr @_ZNK5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %this) #4 comdat align 2 {
-entry:
-  %retval = alloca %"struct.std::_Rb_tree_const_iterator", align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_set = getelementptr inbounds %"class.boost::icl::interval_base_set", ptr %this1, i32 0, i32 0
-  %call = call ptr @_ZNKSt3setIN5boost3icl15closed_intervalIjSt4lessEENS1_19exclusive_less_thanIS4_EESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %_set) #13
-  %coerce.dive = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %retval, i32 0, i32 0
-  store ptr %call, ptr %coerce.dive, align 8
-  %coerce.dive2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %retval, i32 0, i32 0
-  %0 = load ptr, ptr %coerce.dive2, align 8
-  ret ptr %0
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt23_Rb_tree_const_iteratorIN5boost3icl15closed_intervalIjSt4lessEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %5) #23
+  %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %3, i32 0, i32 0
+  store ptr %6, ptr %7, align 8
+  ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden ptr @_ZNKSt3setIN5boost3icl15closed_intervalIjSt4lessEENS1_19exclusive_less_thanIS4_EESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %this) #4 comdat align 2 {
-entry:
-  %retval = alloca %"struct.std::_Rb_tree_const_iterator", align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::set", ptr %this1, i32 0, i32 0
-  %call = call ptr @_ZNKSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %_M_t) #13
-  %coerce.dive = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %retval, i32 0, i32 0
-  store ptr %call, ptr %coerce.dive, align 8
-  %coerce.dive2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %retval, i32 0, i32 0
-  %0 = load ptr, ptr %coerce.dive2, align 8
-  ret ptr %0
+define linkonce_odr hidden ptr @_ZNK5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #2 comdat align 2 {
+  %2 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.boost::icl::interval_base_set", ptr %4, i32 0, i32 0
+  %6 = call ptr @_ZNKSt3setIN5boost3icl15closed_intervalIjSt4lessEENS1_19exclusive_less_thanIS4_EESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #17
+  %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %2, i32 0, i32 0
+  store ptr %6, ptr %7, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %2, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  ret ptr %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden ptr @_ZNKSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %this) #4 comdat align 2 {
-entry:
-  %retval = alloca %"struct.std::_Rb_tree_const_iterator", align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"class.std::_Rb_tree", ptr %this1, i32 0, i32 0
-  %add.ptr = getelementptr inbounds i8, ptr %_M_impl, i64 8
-  %_M_header = getelementptr inbounds %"struct.std::_Rb_tree_header", ptr %add.ptr, i32 0, i32 0
-  %_M_left = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %_M_header, i32 0, i32 2
-  %0 = load ptr, ptr %_M_left, align 8
-  call void @_ZNSt23_Rb_tree_const_iteratorIN5boost3icl15closed_intervalIjSt4lessEEEC2EPKSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef %0) #13
-  %coerce.dive = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %retval, i32 0, i32 0
-  %1 = load ptr, ptr %coerce.dive, align 8
-  ret ptr %1
+define linkonce_odr hidden ptr @_ZNKSt3setIN5boost3icl15closed_intervalIjSt4lessEENS1_19exclusive_less_thanIS4_EESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #2 comdat align 2 {
+  %2 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.std::set", ptr %4, i32 0, i32 0
+  %6 = call ptr @_ZNKSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #17
+  %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %2, i32 0, i32 0
+  store ptr %6, ptr %7, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %2, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  ret ptr %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Rb_tree_const_iteratorIN5boost3icl15closed_intervalIjSt4lessEEEC2EPKSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__x) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__x.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__x, ptr %__x.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__x.addr, align 8
-  store ptr %0, ptr %_M_node, align 8
+define linkonce_odr hidden ptr @_ZNKSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #2 comdat align 2 {
+  %2 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %7, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8
+  call void @_ZNSt23_Rb_tree_const_iteratorIN5boost3icl15closed_intervalIjSt4lessEEEC2EPKSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %9) #17
+  %10 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %2, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  ret ptr %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt23_Rb_tree_const_iteratorIN5boost3icl15closed_intervalIjSt4lessEEEC2EPKSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden ptr @_ZNK5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %this) #4 comdat align 2 {
-entry:
-  %retval = alloca %"struct.std::_Rb_tree_const_iterator", align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_set = getelementptr inbounds %"class.boost::icl::interval_base_set", ptr %this1, i32 0, i32 0
-  %call = call ptr @_ZNKSt3setIN5boost3icl15closed_intervalIjSt4lessEENS1_19exclusive_less_thanIS4_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %_set) #13
-  %coerce.dive = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %retval, i32 0, i32 0
-  store ptr %call, ptr %coerce.dive, align 8
-  %coerce.dive2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %retval, i32 0, i32 0
-  %0 = load ptr, ptr %coerce.dive2, align 8
-  ret ptr %0
+define linkonce_odr hidden ptr @_ZNK5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #2 comdat align 2 {
+  %2 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.boost::icl::interval_base_set", ptr %4, i32 0, i32 0
+  %6 = call ptr @_ZNKSt3setIN5boost3icl15closed_intervalIjSt4lessEENS1_19exclusive_less_thanIS4_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #17
+  %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %2, i32 0, i32 0
+  store ptr %6, ptr %7, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %2, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  ret ptr %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden ptr @_ZNKSt3setIN5boost3icl15closed_intervalIjSt4lessEENS1_19exclusive_less_thanIS4_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %this) #4 comdat align 2 {
-entry:
-  %retval = alloca %"struct.std::_Rb_tree_const_iterator", align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::set", ptr %this1, i32 0, i32 0
-  %call = call ptr @_ZNKSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %_M_t) #13
-  %coerce.dive = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %retval, i32 0, i32 0
-  store ptr %call, ptr %coerce.dive, align 8
-  %coerce.dive2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %retval, i32 0, i32 0
-  %0 = load ptr, ptr %coerce.dive2, align 8
-  ret ptr %0
+define linkonce_odr hidden ptr @_ZNKSt3setIN5boost3icl15closed_intervalIjSt4lessEENS1_19exclusive_less_thanIS4_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #2 comdat align 2 {
+  %2 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.std::set", ptr %4, i32 0, i32 0
+  %6 = call ptr @_ZNKSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #17
+  %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %2, i32 0, i32 0
+  store ptr %6, ptr %7, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %2, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  ret ptr %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden ptr @_ZNKSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %this) #4 comdat align 2 {
-entry:
-  %retval = alloca %"struct.std::_Rb_tree_const_iterator", align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"class.std::_Rb_tree", ptr %this1, i32 0, i32 0
-  %add.ptr = getelementptr inbounds i8, ptr %_M_impl, i64 8
-  %_M_header = getelementptr inbounds %"struct.std::_Rb_tree_header", ptr %add.ptr, i32 0, i32 0
-  call void @_ZNSt23_Rb_tree_const_iteratorIN5boost3icl15closed_intervalIjSt4lessEEEC2EPKSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef %_M_header) #13
-  %coerce.dive = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %retval, i32 0, i32 0
-  %0 = load ptr, ptr %coerce.dive, align 8
-  ret ptr %0
+define linkonce_odr hidden ptr @_ZNKSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #2 comdat align 2 {
+  %2 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %6, i32 0, i32 0
+  call void @_ZNSt23_Rb_tree_const_iteratorIN5boost3icl15closed_intervalIjSt4lessEEEC2EPKSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %7) #17
+  %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %2, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  ret ptr %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNKSt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(40) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_storage = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %this1, i32 0, i32 1
-  %call = call noundef ptr @_ZNK9__gnu_cxx16__aligned_membufIN5boost3icl15closed_intervalIjSt4lessEEE6_M_ptrEv(ptr noundef nonnull align 4 dereferenceable(8) %_M_storage) #13
-  ret ptr %call
+define linkonce_odr hidden noundef ptr @_ZNKSt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node", ptr %3, i32 0, i32 1
+  %5 = call noundef ptr @_ZNK9__gnu_cxx16__aligned_membufIN5boost3icl15closed_intervalIjSt4lessEEE6_M_ptrEv(ptr noundef nonnull align 4 dereferenceable(8) %4) #17
+  ret ptr %5
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #8 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #13
-  call void @_ZSt9terminatev() #17
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #11 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #17
+  call void @_ZSt9terminatev() #19
   unreachable
 }
 
@@ -5501,1615 +6202,1844 @@ declare ptr @__cxa_begin_catch(ptr)
 declare void @_ZSt9terminatev()
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK9__gnu_cxx16__aligned_membufIN5boost3icl15closed_intervalIjSt4lessEEE6_M_ptrEv(ptr noundef nonnull align 4 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZNK9__gnu_cxx16__aligned_membufIN5boost3icl15closed_intervalIjSt4lessEEE7_M_addrEv(ptr noundef nonnull align 4 dereferenceable(8) %this1) #13
-  ret ptr %call
+define linkonce_odr hidden noundef ptr @_ZNK9__gnu_cxx16__aligned_membufIN5boost3icl15closed_intervalIjSt4lessEEE6_M_ptrEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNK9__gnu_cxx16__aligned_membufIN5boost3icl15closed_intervalIjSt4lessEEE7_M_addrEv(ptr noundef nonnull align 4 dereferenceable(8) %3) #17
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK9__gnu_cxx16__aligned_membufIN5boost3icl15closed_intervalIjSt4lessEEE7_M_addrEv(ptr noundef nonnull align 4 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_storage = getelementptr inbounds %"struct.__gnu_cxx::__aligned_membuf", ptr %this1, i32 0, i32 0
-  ret ptr %_M_storage
+define linkonce_odr hidden noundef ptr @_ZNK9__gnu_cxx16__aligned_membufIN5boost3icl15closed_intervalIjSt4lessEEE7_M_addrEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.__gnu_cxx::__aligned_membuf", ptr %3, i32 0, i32 0
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZN5boost3icl15interval_traitsINS0_15closed_intervalIjSt4lessEEE5lowerERKS4_(ptr noundef nonnull align 4 dereferenceable(8) %inter_val) #0 comdat align 2 {
-entry:
-  %inter_val.addr = alloca ptr, align 8
-  store ptr %inter_val, ptr %inter_val.addr, align 8
-  %0 = load ptr, ptr %inter_val.addr, align 8
-  %call = call noundef i32 @_ZNK5boost3icl15closed_intervalIjSt4lessE5lowerEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
-  ret i32 %call
+define linkonce_odr hidden noundef i32 @_ZN5boost3icl15interval_traitsINS0_15closed_intervalIjSt4lessEEE5lowerERKS4_(ptr noundef nonnull align 4 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZNK5boost3icl15closed_intervalIjSt4lessE5lowerEv(ptr noundef nonnull align 4 dereferenceable(8) %3)
+  ret i32 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZNK5boost3icl15closed_intervalIjSt4lessE5lowerEv(ptr noundef nonnull align 4 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_lwb = getelementptr inbounds %"class.boost::icl::closed_interval", ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %_lwb, align 4
-  ret i32 %0
+define linkonce_odr hidden noundef i32 @_ZNK5boost3icl15closed_intervalIjSt4lessE5lowerEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.boost::icl::closed_interval", ptr %3, i32 0, i32 0
+  %5 = load i32, ptr %4, align 4
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZN5boost3icl15interval_traitsINS0_15closed_intervalIjSt4lessEEE5upperERKS4_(ptr noundef nonnull align 4 dereferenceable(8) %inter_val) #0 comdat align 2 {
-entry:
-  %inter_val.addr = alloca ptr, align 8
-  store ptr %inter_val, ptr %inter_val.addr, align 8
-  %0 = load ptr, ptr %inter_val.addr, align 8
-  %call = call noundef i32 @_ZNK5boost3icl15closed_intervalIjSt4lessE5upperEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
-  ret i32 %call
+define linkonce_odr hidden noundef i32 @_ZN5boost3icl15interval_traitsINS0_15closed_intervalIjSt4lessEEE5upperERKS4_(ptr noundef nonnull align 4 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZNK5boost3icl15closed_intervalIjSt4lessE5upperEv(ptr noundef nonnull align 4 dereferenceable(8) %3)
+  ret i32 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZNK5boost3icl15closed_intervalIjSt4lessE5upperEv(ptr noundef nonnull align 4 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_upb = getelementptr inbounds %"class.boost::icl::closed_interval", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %_upb, align 4
-  ret i32 %0
+define linkonce_odr hidden noundef i32 @_ZNK5boost3icl15closed_intervalIjSt4lessE5upperEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.boost::icl::closed_interval", ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4
+  ret i32 %5
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) #9
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) #12
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost3icl12interval_setIjSt4lessNS0_15closed_intervalIjS2_EESaED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #13
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.boost::icl::interval_base_set", ptr %3, i32 0, i32 0
+  call void @_ZNSt3setIN5boost3icl15closed_intervalIjSt4lessEENS1_19exclusive_less_thanIS4_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_set = getelementptr inbounds %"class.boost::icl::interval_base_set", ptr %this1, i32 0, i32 0
-  call void @_ZNSt3setIN5boost3icl15closed_intervalIjSt4lessEENS1_19exclusive_less_thanIS4_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %_set) #13
+define linkonce_odr hidden void @_ZNSt3setIN5boost3icl15closed_intervalIjSt4lessEENS1_19exclusive_less_thanIS4_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::set", ptr %3, i32 0, i32 0
+  call void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt3setIN5boost3icl15closed_intervalIjSt4lessEENS1_19exclusive_less_thanIS4_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::set", ptr %this1, i32 0, i32 0
-  call void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %_M_t) #13
-  ret void
-}
+define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #17
+  invoke void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %4)
+          to label %5 unwind label %7
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(48) %this1) #13
-  invoke void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %call)
-          to label %invoke.cont unwind label %terminate.lpad
-
-invoke.cont:                                      ; preds = %entry
-  %_M_impl = getelementptr inbounds %"class.std::_Rb_tree", ptr %this1, i32 0, i32 0
-  call void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE13_Rb_tree_implIS8_Lb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %_M_impl) #13
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
+  call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #17
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #17
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #19
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__x.addr = alloca ptr, align 8
-  %__y = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__x, ptr %__x.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  br label %while.cond
+define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  br label %7
 
-while.cond:                                       ; preds = %while.body, %entry
-  %0 = load ptr, ptr %__x.addr, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %while.body, label %while.end
+7:                                                ; preds = %10, %2
+  %8 = load ptr, ptr %4, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %17
 
-while.body:                                       ; preds = %while.cond
-  %1 = load ptr, ptr %__x.addr, align 8
-  %call = call noundef ptr @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %1) #13
-  call void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %call)
-  %2 = load ptr, ptr %__x.addr, align 8
-  %call2 = call noundef ptr @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE7_S_leftEPSt18_Rb_tree_node_base(ptr noundef %2) #13
-  store ptr %call2, ptr %__y, align 8
-  %3 = load ptr, ptr %__x.addr, align 8
-  call void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %3) #13
-  %4 = load ptr, ptr %__y, align 8
-  store ptr %4, ptr %__x.addr, align 8
-  br label %while.cond, !llvm.loop !9
+10:                                               ; preds = %7
+  %11 = load ptr, ptr %4, align 8
+  %12 = call noundef ptr @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %11) #17
+  call void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %12)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #17
+  %13 = load ptr, ptr %4, align 8
+  %14 = call noundef ptr @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE7_S_leftEPSt18_Rb_tree_node_base(ptr noundef %13) #17
+  store ptr %14, ptr %5, align 8
+  %15 = load ptr, ptr %4, align 8
+  call void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %15) #17
+  %16 = load ptr, ptr %5, align 8
+  store ptr %16, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #17
+  br label %7, !llvm.loop !11
 
-while.end:                                        ; preds = %while.cond
+17:                                               ; preds = %7
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(48) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZNKSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE9_M_mbeginEv(ptr noundef nonnull align 8 dereferenceable(48) %this1) #13
-  ret ptr %call
+define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNKSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE9_M_mbeginEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #17
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE13_Rb_tree_implIS8_Lb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSaISt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #13
+define linkonce_odr hidden void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %__x) #4 comdat align 2 {
-entry:
-  %__x.addr = alloca ptr, align 8
-  store ptr %__x, ptr %__x.addr, align 8
-  %0 = load ptr, ptr %__x.addr, align 8
-  %_M_right = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %0, i32 0, i32 3
-  %1 = load ptr, ptr %_M_right, align 8
-  ret ptr %1
+define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %3, i32 0, i32 3
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE7_S_leftEPSt18_Rb_tree_node_base(ptr noundef %__x) #4 comdat align 2 {
-entry:
-  %__x.addr = alloca ptr, align 8
-  store ptr %__x, ptr %__x.addr, align 8
-  %0 = load ptr, ptr %__x.addr, align 8
-  %_M_left = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %0, i32 0, i32 2
-  %1 = load ptr, ptr %_M_left, align 8
-  ret ptr %1
+define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE7_S_leftEPSt18_Rb_tree_node_base(ptr noundef %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__p) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %0) #13
-  %1 = load ptr, ptr %__p.addr, align 8
-  call void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE11_M_put_nodeEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %1) #13
+define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %6) #17
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE11_M_put_nodeEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %7) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__p) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %this1) #13
-  %0 = load ptr, ptr %__p.addr, align 8
-  %call2 = invoke noundef ptr @_ZNSt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #17
+  %7 = load ptr, ptr %4, align 8
+  %8 = invoke noundef ptr @_ZNSt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(40) %7)
+          to label %9 unwind label %10
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEEEE7destroyIS5_EEvRS7_PT_(ptr noundef nonnull align 1 dereferenceable(1) %call, ptr noundef %call2) #13
+9:                                                ; preds = %2
+  call void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEEEE7destroyIS5_EEvRS7_PT_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %8) #17
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+10:                                               ; preds = %2
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #17
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #19
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE11_M_put_nodeEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__p) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %this1) #13
-  %0 = load ptr, ptr %__p.addr, align 8
-  invoke void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEEEE10deallocateERS7_PS6_m(ptr noundef nonnull align 1 dereferenceable(1) %call, ptr noundef %0, i64 noundef 1)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE11_M_put_nodeEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #17
+  %7 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEEEE10deallocateERS7_PS6_m(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %7, i64 noundef 1)
+          to label %8 unwind label %9
 
-invoke.cont:                                      ; preds = %entry
+8:                                                ; preds = %2
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+9:                                                ; preds = %2
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #17
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #19
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEEEE7destroyIS5_EEvRS7_PT_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p) #4 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load ptr, ptr %__p.addr, align 8
-  call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEEE7destroyIS5_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #13
+define linkonce_odr hidden void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEEEE7destroyIS5_EEvRS7_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEEE7destroyIS5_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"class.std::_Rb_tree", ptr %this1, i32 0, i32 0
-  ret ptr %_M_impl
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(40) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_storage = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %this1, i32 0, i32 1
-  %call = call noundef ptr @_ZN9__gnu_cxx16__aligned_membufIN5boost3icl15closed_intervalIjSt4lessEEE6_M_ptrEv(ptr noundef nonnull align 4 dereferenceable(8) %_M_storage) #13
-  ret ptr %call
+define linkonce_odr hidden noundef ptr @_ZNSt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node", ptr %3, i32 0, i32 1
+  %5 = call noundef ptr @_ZN9__gnu_cxx16__aligned_membufIN5boost3icl15closed_intervalIjSt4lessEEE6_M_ptrEv(ptr noundef nonnull align 4 dereferenceable(8) %4) #17
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEEE7destroyIS5_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__p) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
+define linkonce_odr hidden void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEEE7destroyIS5_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZN9__gnu_cxx16__aligned_membufIN5boost3icl15closed_intervalIjSt4lessEEE6_M_ptrEv(ptr noundef nonnull align 4 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZN9__gnu_cxx16__aligned_membufIN5boost3icl15closed_intervalIjSt4lessEEE7_M_addrEv(ptr noundef nonnull align 4 dereferenceable(8) %this1) #13
-  ret ptr %call
+define linkonce_odr hidden noundef ptr @_ZN9__gnu_cxx16__aligned_membufIN5boost3icl15closed_intervalIjSt4lessEEE6_M_ptrEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZN9__gnu_cxx16__aligned_membufIN5boost3icl15closed_intervalIjSt4lessEEE7_M_addrEv(ptr noundef nonnull align 4 dereferenceable(8) %3) #17
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZN9__gnu_cxx16__aligned_membufIN5boost3icl15closed_intervalIjSt4lessEEE7_M_addrEv(ptr noundef nonnull align 4 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_storage = getelementptr inbounds %"struct.__gnu_cxx::__aligned_membuf", ptr %this1, i32 0, i32 0
-  ret ptr %_M_storage
+define linkonce_odr hidden noundef ptr @_ZN9__gnu_cxx16__aligned_membufIN5boost3icl15closed_intervalIjSt4lessEEE7_M_addrEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.__gnu_cxx::__aligned_membuf", ptr %3, i32 0, i32 0
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEEEE10deallocateERS7_PS6_m(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p, i64 noundef %__n) #0 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load ptr, ptr %__p.addr, align 8
-  %2 = load i64, ptr %__n.addr, align 8
-  call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEEE10deallocateEPS6_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2)
+define linkonce_odr hidden void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEEEE10deallocateERS7_PS6_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEEE10deallocateEPS6_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEEE10deallocateEPS6_m(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__p, i64 noundef %__n) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #16
+define linkonce_odr hidden void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEEE10deallocateEPS6_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  call void @_ZdlPv(ptr noundef %7) #21
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #10
+declare void @_ZdlPv(ptr noundef) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNKSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE9_M_mbeginEv(ptr noundef nonnull align 8 dereferenceable(48) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"class.std::_Rb_tree", ptr %this1, i32 0, i32 0
-  %add.ptr = getelementptr inbounds i8, ptr %_M_impl, i64 8
-  %_M_header = getelementptr inbounds %"struct.std::_Rb_tree_header", ptr %add.ptr, i32 0, i32 0
-  %_M_parent = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %_M_header, i32 0, i32 1
-  %0 = load ptr, ptr %_M_parent, align 8
-  ret ptr %0
+define linkonce_odr hidden noundef ptr @_ZNKSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE9_M_mbeginEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %6, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSaISt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #13
+define linkonce_odr dso_local void @_ZNSt15__new_allocatorIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  br i1 %4, label %8, label %5
+
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %7 = load i64, ptr %6, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %7) #17
+  br label %8
+
+8:                                                ; preds = %5, %1
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeIN5boost3icl15closed_intervalIjSt4lessEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr dso_local void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
   ret void
 }
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #3
+; Function Attrs: mustprogress uwtable
+define available_externally noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %7 = icmp eq ptr %5, %6
+  br i1 %7, label %8, label %14
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8
+  %11 = icmp ugt i64 %10, 15
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %8
+  unreachable
+
+13:                                               ; preds = %8
+  store i1 true, ptr %2, align 1
+  br label %15
+
+14:                                               ; preds = %1
+  store i1 false, ptr %2, align 1
+  br label %15
+
+15:                                               ; preds = %14, %13
+  %16 = load i1, ptr %2, align 1
+  ret i1 %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #2 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
+          to label %9 unwind label %14
+
+9:                                                ; preds = %2
+  %10 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
+  %11 = load i64, ptr %4, align 8
+  %12 = add i64 %11, 1
+  invoke void @_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef %10, i64 noundef %12)
+          to label %13 unwind label %14
+
+13:                                               ; preds = %9
+  ret void
+
+14:                                               ; preds = %9, %2
+  %15 = landingpad { ptr, i32 }
+          filter [0 x ptr] zeroinitializer
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  call void @__cxa_call_unexpected(ptr %19) #18
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %6 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  call void @_ZNSt15__new_allocatorIcE10deallocateEPcm(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+declare void @__cxa_call_unexpected(ptr)
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNSt15__new_allocatorIcE10deallocateEPcm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  call void @_ZdlPv(ptr noundef %7) #21
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %6 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #2 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #17
+  %9 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %9, align 8
+  ret void
+}
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #11
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %__s) #4 comdat align 2 {
-entry:
-  %__s.addr = alloca ptr, align 8
-  store ptr %__s, ptr %__s.addr, align 8
-  %0 = load ptr, ptr %__s.addr, align 8
-  %call = call i64 @strlen(ptr noundef %0) #13
-  ret i64 %call
+define linkonce_odr dso_local noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call i64 @strlen(ptr noundef %3) #17
+  ret i64 %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr.i = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %__beg.addr = alloca ptr, align 8
-  %__end.addr = alloca ptr, align 8
-  %__dnew = alloca i64, align 8
-  %__guard = alloca %struct._Guard, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__beg, ptr %__beg.addr, align 8
-  store ptr %__end, ptr %__end.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %__beg.addr, align 8
-  %1 = load ptr, ptr %__end.addr, align 8
-  %call = call noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %0, ptr noundef %1)
-  store i64 %call, ptr %__dnew, align 8
-  %2 = load i64, ptr %__dnew, align 8
-  %cmp = icmp ugt i64 %2, 15
-  br i1 %cmp, label %if.then, label %if.else
+define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca %struct._Guard, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %11 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  %14 = call noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %12, ptr noundef %13)
+  store i64 %14, ptr %7, align 8
+  %15 = load i64, ptr %7, align 8
+  %16 = icmp ugt i64 %15, 15
+  br i1 %16, label %17, label %20
 
-if.then:                                          ; preds = %entry
-  %call2 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(8) %__dnew, i64 noundef 0)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %call2)
-  %3 = load i64, ptr %__dnew, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %this1, i64 noundef %3)
-  br label %if.end
+17:                                               ; preds = %3
+  %18 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %18)
+  %19 = load i64, ptr %7, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %19)
+  br label %22
 
-if.else:                                          ; preds = %entry
-  store ptr %this1, ptr %this.addr.i, align 8
-  %this1.i = load ptr, ptr %this.addr.i, align 8
-  %call.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this1.i)
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv.exit unwind label %terminate.lpad.i
+20:                                               ; preds = %3
+  %21 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #17
+  br label %22
 
-terminate.lpad.i:                                 ; preds = %if.else
-  %4 = landingpad { ptr, i32 }
-          catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #17
-  unreachable
+22:                                               ; preds = %20, %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %11)
+  %23 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %24 = load ptr, ptr %5, align 8
+  %25 = load ptr, ptr %6, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %23, ptr noundef %24, ptr noundef %25) #17
+  %26 = getelementptr inbounds nuw %struct._Guard, ptr %8, i32 0, i32 0
+  store ptr null, ptr %26, align 8
+  %27 = load i64, ptr %7, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %27)
+          to label %28 unwind label %29
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv.exit: ; preds = %if.else
-  br label %if.end
-
-if.end:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv.exit, %if.then
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %__guard, ptr noundef %this1)
-  %call4 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %if.end
-  %6 = load ptr, ptr %__beg.addr, align 8
-  %7 = load ptr, ptr %__end.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %6, ptr noundef %7) #13
-  %_M_guarded = getelementptr inbounds %struct._Guard, ptr %__guard, i32 0, i32 0
-  store ptr null, ptr %_M_guarded, align 8
-  %8 = load i64, ptr %__dnew, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %this1, i64 noundef %8)
-          to label %invoke.cont5 unwind label %lpad
-
-invoke.cont5:                                     ; preds = %invoke.cont
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #13
+28:                                               ; preds = %22
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
   ret void
 
-lpad:                                             ; preds = %invoke.cont, %if.end
-  %9 = landingpad { ptr, i32 }
+29:                                               ; preds = %22
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #13
-  br label %eh.resume
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %9, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %10, align 4
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  br label %33
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val6 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val6
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %9, align 8
+  %35 = load i32, ptr %10, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #13
+define linkonce_odr dso_local noundef ptr @_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt15__new_allocatorIcEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNSt15__new_allocatorIcEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i64 @strlen(ptr noundef) #1
+declare i64 @strlen(ptr noundef) #7
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %__first, ptr noundef %__last) #0 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  %0 = load ptr, ptr %__first.addr, align 8
-  %1 = load ptr, ptr %__last.addr, align 8
-  call void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr)
-  %call = call noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1)
-  ret i64 %call
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %0, ptr noundef %1) #6 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %7 = call noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %5, ptr noundef %6)
+  ret i64 %7
 }
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) #3
-
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) #3
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #3
-
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__s) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__s.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__s, ptr %__s.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_guarded = getelementptr inbounds %struct._Guard, ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__s.addr, align 8
-  store ptr %0, ptr %_M_guarded, align 8
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  store ptr %6, ptr %8, align 8
   ret void
 }
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef, ptr noundef, ptr noundef) #1
-
-declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #3
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #3
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_guarded = getelementptr inbounds %struct._Guard, ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %_M_guarded, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 2
+  store i64 %6, ptr %7, align 8
+  ret void
+}
 
-if.then:                                          ; preds = %entry
-  %_M_guarded2 = getelementptr inbounds %struct._Guard, ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %_M_guarded2, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
-          to label %invoke.cont unwind label %terminate.lpad
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #15 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  ret ptr %4
+}
 
-invoke.cont:                                      ; preds = %if.then
-  br label %if.end
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct._Guard, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
+  ret void
+}
 
-if.end:                                           ; preds = %invoke.cont, %entry
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = ptrtoint ptr %9 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %7, ptr noundef %8, i64 noundef %13)
+          to label %14 unwind label %15
+
+14:                                               ; preds = %3
   ret void
 
-terminate.lpad:                                   ; preds = %if.then
-  %2 = landingpad { ptr, i32 }
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #17
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #19
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %__first, ptr noundef %__last) #4 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  %0 = load ptr, ptr %__last.addr, align 8
-  %1 = load ptr, ptr %__first.addr, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  ret i64 %sub.ptr.sub
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat {
-entry:
-  %.addr = alloca ptr, align 8
-  store ptr %0, ptr %.addr, align 8
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = load i64, ptr %4, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %7)
+  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %9 = load i64, ptr %4, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #17
+  store i8 0, ptr %5, align 1
+  call void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %5) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #17
   ret void
 }
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32)) #3
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct._Guard, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %11
 
-; Function Attrs: nounwind
-declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %struct._Guard, ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %10 unwind label %12
+
+10:                                               ; preds = %7
+  br label %11
+
+11:                                               ; preds = %10, %1
+  ret void
+
+12:                                               ; preds = %7
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #19
+  unreachable
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1) #5 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = ptrtoint ptr %5 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = sub i64 %7, %8
+  ret i64 %9
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load i64, ptr %6, align 8
+  %8 = icmp eq i64 %7, 1
+  br i1 %8, label %9, label %12
+
+9:                                                ; preds = %3
+  %10 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %5, align 8
+  call void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #17
+  br label %17
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i64, ptr %6, align 8
+  %16 = call noundef ptr @_ZNSt11char_traitsIcE4copyEPcPKcm(ptr noundef %13, ptr noundef %14, i64 noundef %15)
+  br label %17
+
+17:                                               ; preds = %12, %9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = load i8, ptr %5, align 1
+  %7 = load ptr, ptr %3, align 8
+  store i8 %6, ptr %7, align 1
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZNSt11char_traitsIcE4copyEPcPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  %8 = load i64, ptr %7, align 8
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %10, label %12
+
+10:                                               ; preds = %3
+  %11 = load ptr, ptr %5, align 8
+  store ptr %11, ptr %4, align 8
+  br label %16
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %5, align 8
+  %14 = load ptr, ptr %6, align 8
+  %15 = load i64, ptr %7, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %14, i64 %15, i1 false)
+  store ptr %13, ptr %4, align 8
+  br label %16
+
+16:                                               ; preds = %12, %10
+  %17 = load ptr, ptr %4, align 8
+  ret ptr %17
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 1
+  store i64 %6, ptr %7, align 8
+  ret void
+}
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #12
+declare noundef nonnull ptr @_Znwm(i64 noundef) #16
 
-declare void @_ZN3ue218UTF8ComponentClassC1ERKNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(208), ptr noundef nonnull align 1 dereferenceable(6)) unnamed_addr #3
+declare void @_ZN3ue218UTF8ComponentClassC1ERKNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(208), ptr noundef nonnull align 1 dereferenceable(6)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrIN3ue218UTF8ComponentClassESt14default_deleteIS1_EEC2IS3_vEEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr.5", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__p.addr, align 8
-  invoke void @_ZNSt15__uniq_ptr_dataIN3ue218UTF8ComponentClassESt14default_deleteIS1_ELb1ELb1EECI2St15__uniq_ptr_implIS1_S3_EEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t, ptr noundef %0)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr hidden void @_ZNSt10unique_ptrIN3ue218UTF8ComponentClassESt14default_deleteIS1_EEC2IS3_vEEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr.5", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt15__uniq_ptr_dataIN3ue218UTF8ComponentClassESt14default_deleteIS1_ELb1ELb1EECI2St15__uniq_ptr_implIS1_S3_EEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7)
+          to label %8 unwind label %9
 
-invoke.cont:                                      ; preds = %entry
+8:                                                ; preds = %2
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+9:                                                ; preds = %2
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #17
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #19
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt15__uniq_ptr_dataIN3ue218UTF8ComponentClassESt14default_deleteIS1_ELb1ELb1EECI2St15__uniq_ptr_implIS1_S3_EEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %0) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %1 = load ptr, ptr %.addr, align 8
-  call void @_ZNSt15__uniq_ptr_implIN3ue218UTF8ComponentClassESt14default_deleteIS1_EEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %1)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt15__uniq_ptr_dataIN3ue218UTF8ComponentClassESt14default_deleteIS1_ELb1ELb1EECI2St15__uniq_ptr_implIS1_S3_EEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt15__uniq_ptr_implIN3ue218UTF8ComponentClassESt14default_deleteIS1_EEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__uniq_ptr_implIN3ue218UTF8ComponentClassESt14default_deleteIS1_EEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl.7", ptr %this1, i32 0, i32 0
-  call void @_ZNSt5tupleIJPN3ue218UTF8ComponentClassESt14default_deleteIS1_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES2_S4_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
-  %0 = load ptr, ptr %__p.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3ue218UTF8ComponentClassESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr %0, ptr %call, align 8
+define linkonce_odr hidden void @_ZNSt15__uniq_ptr_implIN3ue218UTF8ComponentClassESt14default_deleteIS1_EEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl.7", ptr %5, i32 0, i32 0
+  call void @_ZNSt5tupleIJPN3ue218UTF8ComponentClassESt14default_deleteIS1_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES2_S4_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
+  %7 = load ptr, ptr %4, align 8
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3ue218UTF8ComponentClassESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  store ptr %7, ptr %8, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt5tupleIJPN3ue218UTF8ComponentClassESt14default_deleteIS1_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES2_S4_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  invoke void @_ZNSt11_Tuple_implILm0EJPN3ue218UTF8ComponentClassESt14default_deleteIS1_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr hidden void @_ZNSt5tupleIJPN3ue218UTF8ComponentClassESt14default_deleteIS1_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES2_S4_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZNSt11_Tuple_implILm0EJPN3ue218UTF8ComponentClassESt14default_deleteIS1_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %4 unwind label %5
 
-invoke.cont:                                      ; preds = %entry
+4:                                                ; preds = %1
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+5:                                                ; preds = %1
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #17
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #19
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3ue218UTF8ComponentClassESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl.7", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3ue218UTF8ComponentClassESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3ue218UTF8ComponentClassESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl.7", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3ue218UTF8ComponentClassESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJPN3ue218UTF8ComponentClassESt14default_deleteIS1_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3ue218UTF8ComponentClassEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1)
-  call void @_ZNSt10_Head_baseILm0EPN3ue218UTF8ComponentClassELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
+define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJPN3ue218UTF8ComponentClassESt14default_deleteIS1_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3ue218UTF8ComponentClassEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  call void @_ZNSt10_Head_baseILm0EPN3ue218UTF8ComponentClassELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3ue218UTF8ComponentClassEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue218UTF8ComponentClassEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1)
+define linkonce_odr hidden void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3ue218UTF8ComponentClassEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue218UTF8ComponentClassEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_Head_baseILm0EPN3ue218UTF8ComponentClassELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.12", ptr %this1, i32 0, i32 0
-  store ptr null, ptr %_M_head_impl, align 8
+define linkonce_odr hidden void @_ZNSt10_Head_baseILm0EPN3ue218UTF8ComponentClassELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.12", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue218UTF8ComponentClassEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr hidden void @_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue218UTF8ComponentClassEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3ue218UTF8ComponentClassESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #4 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3ue218UTF8ComponentClassEJSt14default_deleteIS1_EEERT0_RSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3ue218UTF8ComponentClassESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3ue218UTF8ComponentClassEJSt14default_deleteIS1_EEERT0_RSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #17
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3ue218UTF8ComponentClassEJSt14default_deleteIS1_EEERT0_RSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %__t) #4 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3ue218UTF8ComponentClassESt14default_deleteIS1_EEE7_M_headERS5_(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3ue218UTF8ComponentClassEJSt14default_deleteIS1_EEERT0_RSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3ue218UTF8ComponentClassESt14default_deleteIS1_EEE7_M_headERS5_(ptr noundef nonnull align 8 dereferenceable(8) %3) #17
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3ue218UTF8ComponentClassESt14default_deleteIS1_EEE7_M_headERS5_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #4 comdat align 2 {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3ue218UTF8ComponentClassELb0EE7_M_headERS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3ue218UTF8ComponentClassESt14default_deleteIS1_EEE7_M_headERS5_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3ue218UTF8ComponentClassELb0EE7_M_headERS3_(ptr noundef nonnull align 8 dereferenceable(8) %3) #17
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3ue218UTF8ComponentClassELb0EE7_M_headERS3_(ptr noundef nonnull align 8 dereferenceable(8) %__b) #4 comdat align 2 {
-entry:
-  %__b.addr = alloca ptr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__b.addr, align 8
-  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.12", ptr %0, i32 0, i32 0
-  ret ptr %_M_head_impl
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3ue218UTF8ComponentClassELb0EE7_M_headERS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.12", ptr %3, i32 0, i32 0
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN3ue218UTF8ComponentClassESt14default_deleteIS1_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr.5", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN3ue218UTF8ComponentClassESt14default_deleteIS1_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN3ue218UTF8ComponentClassESt14default_deleteIS1_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::unique_ptr.5", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN3ue218UTF8ComponentClassESt14default_deleteIS1_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNKSt14default_deleteIN3ue218UTF8ComponentClassEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__ptr) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__ptr.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__ptr, ptr %__ptr.addr, align 8
-  %0 = load ptr, ptr %__ptr.addr, align 8
-  %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
+define linkonce_odr hidden void @_ZNKSt14default_deleteIN3ue218UTF8ComponentClassEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %11, label %7
 
-delete.notnull:                                   ; preds = %entry
-  %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %1 = load ptr, ptr %vfn, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(208) %0) #13
-  br label %delete.end
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %5, align 8
+  %9 = getelementptr inbounds ptr, ptr %8, i64 1
+  %10 = load ptr, ptr %9, align 8
+  call void %10(ptr noundef nonnull align 8 dereferenceable(208) %5) #17
+  br label %11
 
-delete.end:                                       ; preds = %delete.notnull, %entry
+11:                                               ; preds = %7, %2
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN3ue218UTF8ComponentClassESt14default_deleteIS1_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl.7", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN3ue218UTF8ComponentClassESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN3ue218UTF8ComponentClassESt14default_deleteIS1_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl.7", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN3ue218UTF8ComponentClassESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN3ue218UTF8ComponentClassESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #4 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN3ue218UTF8ComponentClassEEJEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #13
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN3ue218UTF8ComponentClassESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN3ue218UTF8ComponentClassEEJEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN3ue218UTF8ComponentClassEEJEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %__t) #4 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3ue218UTF8ComponentClassEEEE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %0) #13
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN3ue218UTF8ComponentClassEEJEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3ue218UTF8ComponentClassEEEE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3ue218UTF8ComponentClassEEEE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %__t) #4 comdat align 2 {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue218UTF8ComponentClassEELb1EE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %0) #13
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3ue218UTF8ComponentClassEEEE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue218UTF8ComponentClassEELb1EE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue218UTF8ComponentClassEELb1EE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %__b) #4 comdat align 2 {
-entry:
-  %__b.addr = alloca ptr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__b.addr, align 8
-  ret ptr %0
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue218UTF8ComponentClassEELb1EE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt10unique_ptrIN3ue218UTF8ComponentClassESt14default_deleteIS1_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr.5", ptr %this1, i32 0, i32 0
-  %call = call noundef ptr @_ZNSt15__uniq_ptr_implIN3ue218UTF8ComponentClassESt14default_deleteIS1_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
-  ret ptr %call
+define linkonce_odr hidden noundef ptr @_ZNSt10unique_ptrIN3ue218UTF8ComponentClassESt14default_deleteIS1_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::unique_ptr.5", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNSt15__uniq_ptr_implIN3ue218UTF8ComponentClassESt14default_deleteIS1_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  ret ptr %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt15__uniq_ptr_dataIN3ue214ComponentClassESt14default_deleteIS1_ELb1ELb1EECI2St15__uniq_ptr_implIS1_S3_EIS2_INS0_18UTF8ComponentClassEEEEPS1_OT_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  %.addr1 = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  store ptr %1, ptr %.addr1, align 8
-  %this2 = load ptr, ptr %this.addr, align 8
-  %2 = load ptr, ptr %.addr, align 8
-  %3 = load ptr, ptr %.addr1, align 8
-  call void @_ZNSt15__uniq_ptr_implIN3ue214ComponentClassESt14default_deleteIS1_EEC2IS2_INS0_18UTF8ComponentClassEEEEPS1_OT_(ptr noundef nonnull align 8 dereferenceable(8) %this2, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt15__uniq_ptr_dataIN3ue214ComponentClassESt14default_deleteIS1_ELb1ELb1EECI2St15__uniq_ptr_implIS1_S3_EIS2_INS0_18UTF8ComponentClassEEEEPS1_OT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #6 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  call void @_ZNSt15__uniq_ptr_implIN3ue214ComponentClassESt14default_deleteIS1_EEC2IS2_INS0_18UTF8ComponentClassEEEEPS1_OT_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %9)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt15__uniq_ptr_implIN3ue218UTF8ComponentClassESt14default_deleteIS1_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3ue218UTF8ComponentClassESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  %0 = load ptr, ptr %call, align 8
-  store ptr %0, ptr %__p, align 8
-  %call2 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3ue218UTF8ComponentClassESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr null, ptr %call2, align 8
-  %1 = load ptr, ptr %__p, align 8
-  ret ptr %1
+define linkonce_odr hidden noundef ptr @_ZNSt15__uniq_ptr_implIN3ue218UTF8ComponentClassESt14default_deleteIS1_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #17
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3ue218UTF8ComponentClassESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  %6 = load ptr, ptr %5, align 8
+  store ptr %6, ptr %3, align 8
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3ue218UTF8ComponentClassESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  store ptr null, ptr %7, align 8
+  %8 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #17
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__uniq_ptr_implIN3ue214ComponentClassESt14default_deleteIS1_EEC2IS2_INS0_18UTF8ComponentClassEEEEPS1_OT_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p, ptr noundef nonnull align 1 dereferenceable(1) %__d) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__d.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store ptr %__d, ptr %__d.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__d.addr, align 8
-  call void @_ZNSt5tupleIJPN3ue214ComponentClassESt14default_deleteIS1_EEEC2IRS2_S3_INS0_18UTF8ComponentClassEETnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleISB_T0_EEEbE4typeELb1EEEOSB_OSC_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t, ptr noundef nonnull align 8 dereferenceable(8) %__p.addr, ptr noundef nonnull align 1 dereferenceable(1) %0) #13
+define linkonce_odr hidden void @_ZNSt15__uniq_ptr_implIN3ue214ComponentClassESt14default_deleteIS1_EEC2IS2_INS0_18UTF8ComponentClassEEEEPS1_OT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %6, align 8
+  call void @_ZNSt5tupleIJPN3ue214ComponentClassESt14default_deleteIS1_EEEC2IRS2_S3_INS0_18UTF8ComponentClassEETnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleISB_T0_EEEbE4typeELb1EEEOSB_OSC_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %9) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt5tupleIJPN3ue214ComponentClassESt14default_deleteIS1_EEEC2IRS2_S3_INS0_18UTF8ComponentClassEETnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleISB_T0_EEEbE4typeELb1EEEOSB_OSC_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__a1, ptr noundef nonnull align 1 dereferenceable(1) %__a2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__a1.addr = alloca ptr, align 8
-  %__a2.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__a1, ptr %__a1.addr, align 8
-  store ptr %__a2, ptr %__a2.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %__a1.addr, align 8
-  %1 = load ptr, ptr %__a2.addr, align 8
-  invoke void @_ZNSt11_Tuple_implILm0EJPN3ue214ComponentClassESt14default_deleteIS1_EEEC2IRS2_JS3_INS0_18UTF8ComponentClassEEEvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %1)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr hidden void @_ZNSt5tupleIJPN3ue214ComponentClassESt14default_deleteIS1_EEEC2IRS2_S3_INS0_18UTF8ComponentClassEETnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleISB_T0_EEEbE4typeELb1EEEOSB_OSC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt11_Tuple_implILm0EJPN3ue214ComponentClassESt14default_deleteIS1_EEEC2IRS2_JS3_INS0_18UTF8ComponentClassEEEvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 1 dereferenceable(1) %9)
+          to label %10 unwind label %11
 
-invoke.cont:                                      ; preds = %entry
+10:                                               ; preds = %3
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+11:                                               ; preds = %3
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #17
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #19
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJPN3ue214ComponentClassESt14default_deleteIS1_EEEC2IRS2_JS3_INS0_18UTF8ComponentClassEEEvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__head, ptr noundef nonnull align 1 dereferenceable(1) %__tail) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__head.addr = alloca ptr, align 8
-  %__tail.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__head, ptr %__head.addr, align 8
-  store ptr %__tail, ptr %__tail.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %__tail.addr, align 8
-  call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3ue214ComponentClassEEEEC2IS0_INS1_18UTF8ComponentClassEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef nonnull align 1 dereferenceable(1) %0)
-  %1 = load ptr, ptr %__head.addr, align 8
-  call void @_ZNSt10_Head_baseILm0EPN3ue214ComponentClassELb0EEC2IRS2_EEOT_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1)
+define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJPN3ue214ComponentClassESt14default_deleteIS1_EEEC2IRS2_JS3_INS0_18UTF8ComponentClassEEEvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8
+  call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3ue214ComponentClassEEEEC2IS0_INS1_18UTF8ComponentClassEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  %9 = load ptr, ptr %5, align 8
+  call void @_ZNSt10_Head_baseILm0EPN3ue214ComponentClassELb0EEC2IRS2_EEOT_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3ue214ComponentClassEEEEC2IS0_INS1_18UTF8ComponentClassEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %__head) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__head.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__head, ptr %__head.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %__head.addr, align 8
-  call void @_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue214ComponentClassEELb1EEC2IS0_INS1_18UTF8ComponentClassEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef nonnull align 1 dereferenceable(1) %0)
+define linkonce_odr hidden void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3ue214ComponentClassEEEEC2IS0_INS1_18UTF8ComponentClassEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue214ComponentClassEELb1EEC2IS0_INS1_18UTF8ComponentClassEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_Head_baseILm0EPN3ue214ComponentClassELb0EEC2IRS2_EEOT_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__h) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__h.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__h, ptr %__h.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.4", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__h.addr, align 8
-  %1 = load ptr, ptr %0, align 8
-  store ptr %1, ptr %_M_head_impl, align 8
+define linkonce_odr hidden void @_ZNSt10_Head_baseILm0EPN3ue214ComponentClassELb0EEC2IRS2_EEOT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Head_base.4", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %7, align 8
+  store ptr %8, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue214ComponentClassEELb1EEC2IS0_INS1_18UTF8ComponentClassEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %__h) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__h.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__h, ptr %__h.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %__h.addr, align 8
-  call void @_ZNSt14default_deleteIN3ue214ComponentClassEEC2INS0_18UTF8ComponentClassEvEERKS_IT_E(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef nonnull align 1 dereferenceable(1) %0) #13
+define linkonce_odr hidden void @_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue214ComponentClassEELb1EEC2IS0_INS1_18UTF8ComponentClassEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt14default_deleteIN3ue214ComponentClassEEC2INS0_18UTF8ComponentClassEvEERKS_IT_E(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt14default_deleteIN3ue214ComponentClassEEC2INS0_18UTF8ComponentClassEvEERKS_IT_E(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
+define linkonce_odr hidden void @_ZNSt14default_deleteIN3ue214ComponentClassEEC2INS0_18UTF8ComponentClassEvEERKS_IT_E(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
   ret void
 }
 
-declare void @_ZN3ue219AsciiComponentClassC1ERKNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 1 dereferenceable(6)) unnamed_addr #3
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3ue214ComponentClassESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3ue214ComponentClassESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  ret ptr %5
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrIN3ue219AsciiComponentClassESt14default_deleteIS1_EEC2IS3_vEEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr.13", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__p.addr, align 8
-  invoke void @_ZNSt15__uniq_ptr_dataIN3ue219AsciiComponentClassESt14default_deleteIS1_ELb1ELb1EECI2St15__uniq_ptr_implIS1_S3_EEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t, ptr noundef %0)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN3ue214ComponentClassESt14default_deleteIS1_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  ret ptr %5
+}
 
-invoke.cont:                                      ; preds = %entry
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNKSt14default_deleteIN3ue214ComponentClassEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %11, label %7
+
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %5, align 8
+  %9 = getelementptr inbounds ptr, ptr %8, i64 1
+  %10 = load ptr, ptr %9, align 8
+  call void %10(ptr noundef nonnull align 8 dereferenceable(29) %5) #17
+  br label %11
+
+11:                                               ; preds = %7, %2
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3ue214ComponentClassESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3ue214ComponentClassEJSt14default_deleteIS1_EEERT0_RSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #17
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3ue214ComponentClassEJSt14default_deleteIS1_EEERT0_RSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3ue214ComponentClassESt14default_deleteIS1_EEE7_M_headERS5_(ptr noundef nonnull align 8 dereferenceable(8) %3) #17
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3ue214ComponentClassESt14default_deleteIS1_EEE7_M_headERS5_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3ue214ComponentClassELb0EE7_M_headERS3_(ptr noundef nonnull align 8 dereferenceable(8) %3) #17
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3ue214ComponentClassELb0EE7_M_headERS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.4", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN3ue214ComponentClassESt14default_deleteIS1_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN3ue214ComponentClassESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN3ue214ComponentClassESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN3ue214ComponentClassEEJEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN3ue214ComponentClassEEJEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3ue214ComponentClassEEEE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3ue214ComponentClassEEEE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue214ComponentClassEELb1EE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue214ComponentClassEELb1EE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+declare void @_ZN3ue219AsciiComponentClassC1ERKNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 1 dereferenceable(6)) unnamed_addr #4
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt10unique_ptrIN3ue219AsciiComponentClassESt14default_deleteIS1_EEC2IS3_vEEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr.13", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt15__uniq_ptr_dataIN3ue219AsciiComponentClassESt14default_deleteIS1_ELb1ELb1EECI2St15__uniq_ptr_implIS1_S3_EEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7)
+          to label %8 unwind label %9
+
+8:                                                ; preds = %2
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+9:                                                ; preds = %2
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #17
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #19
+  unreachable
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt15__uniq_ptr_dataIN3ue219AsciiComponentClassESt14default_deleteIS1_ELb1ELb1EECI2St15__uniq_ptr_implIS1_S3_EEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt15__uniq_ptr_implIN3ue219AsciiComponentClassESt14default_deleteIS1_EEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__uniq_ptr_implIN3ue219AsciiComponentClassESt14default_deleteIS1_EEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl.15", ptr %5, i32 0, i32 0
+  call void @_ZNSt5tupleIJPN3ue219AsciiComponentClassESt14default_deleteIS1_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES2_S4_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
+  %7 = load ptr, ptr %4, align 8
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3ue219AsciiComponentClassESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  store ptr %7, ptr %8, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt5tupleIJPN3ue219AsciiComponentClassESt14default_deleteIS1_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES2_S4_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZNSt11_Tuple_implILm0EJPN3ue219AsciiComponentClassESt14default_deleteIS1_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %4 unwind label %5
+
+4:                                                ; preds = %1
+  ret void
+
+5:                                                ; preds = %1
+  %6 = landingpad { ptr, i32 }
+          catch ptr null
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #19
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3ue219AsciiComponentClassESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl.15", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3ue219AsciiComponentClassESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJPN3ue219AsciiComponentClassESt14default_deleteIS1_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3ue219AsciiComponentClassEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  call void @_ZNSt10_Head_baseILm0EPN3ue219AsciiComponentClassELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3ue219AsciiComponentClassEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue219AsciiComponentClassEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt10_Head_baseILm0EPN3ue219AsciiComponentClassELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.20", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue219AsciiComponentClassEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3ue219AsciiComponentClassESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3ue219AsciiComponentClassEJSt14default_deleteIS1_EEERT0_RSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #17
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3ue219AsciiComponentClassEJSt14default_deleteIS1_EEERT0_RSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3ue219AsciiComponentClassESt14default_deleteIS1_EEE7_M_headERS5_(ptr noundef nonnull align 8 dereferenceable(8) %3) #17
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3ue219AsciiComponentClassESt14default_deleteIS1_EEE7_M_headERS5_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3ue219AsciiComponentClassELb0EE7_M_headERS3_(ptr noundef nonnull align 8 dereferenceable(8) %3) #17
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3ue219AsciiComponentClassELb0EE7_M_headERS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.20", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN3ue219AsciiComponentClassESt14default_deleteIS1_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::unique_ptr.13", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN3ue219AsciiComponentClassESt14default_deleteIS1_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNKSt14default_deleteIN3ue219AsciiComponentClassEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %11, label %7
+
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %5, align 8
+  %9 = getelementptr inbounds ptr, ptr %8, i64 1
+  %10 = load ptr, ptr %9, align 8
+  call void %10(ptr noundef nonnull align 8 dereferenceable(72) %5) #17
+  br label %11
+
+11:                                               ; preds = %7, %2
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN3ue219AsciiComponentClassESt14default_deleteIS1_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl.15", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN3ue219AsciiComponentClassESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN3ue219AsciiComponentClassESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN3ue219AsciiComponentClassEEJEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN3ue219AsciiComponentClassEEJEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3ue219AsciiComponentClassEEEE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3ue219AsciiComponentClassEEEE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue219AsciiComponentClassEELb1EE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue219AsciiComponentClassEELb1EE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt10unique_ptrIN3ue219AsciiComponentClassESt14default_deleteIS1_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::unique_ptr.13", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNSt15__uniq_ptr_implIN3ue219AsciiComponentClassESt14default_deleteIS1_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  ret ptr %5
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt15__uniq_ptr_dataIN3ue214ComponentClassESt14default_deleteIS1_ELb1ELb1EECI2St15__uniq_ptr_implIS1_S3_EIS2_INS0_19AsciiComponentClassEEEEPS1_OT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #6 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  call void @_ZNSt15__uniq_ptr_implIN3ue214ComponentClassESt14default_deleteIS1_EEC2IS2_INS0_19AsciiComponentClassEEEEPS1_OT_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt15__uniq_ptr_implIN3ue219AsciiComponentClassESt14default_deleteIS1_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #17
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3ue219AsciiComponentClassESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  %6 = load ptr, ptr %5, align 8
+  store ptr %6, ptr %3, align 8
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3ue219AsciiComponentClassESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  store ptr null, ptr %7, align 8
+  %8 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #17
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__uniq_ptr_implIN3ue214ComponentClassESt14default_deleteIS1_EEC2IS2_INS0_19AsciiComponentClassEEEEPS1_OT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %6, align 8
+  call void @_ZNSt5tupleIJPN3ue214ComponentClassESt14default_deleteIS1_EEEC2IRS2_S3_INS0_19AsciiComponentClassEETnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleISB_T0_EEEbE4typeELb1EEEOSB_OSC_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %9) #17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt5tupleIJPN3ue214ComponentClassESt14default_deleteIS1_EEEC2IRS2_S3_INS0_19AsciiComponentClassEETnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleISB_T0_EEEbE4typeELb1EEEOSB_OSC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt11_Tuple_implILm0EJPN3ue214ComponentClassESt14default_deleteIS1_EEEC2IRS2_JS3_INS0_19AsciiComponentClassEEEvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 1 dereferenceable(1) %9)
+          to label %10 unwind label %11
+
+10:                                               ; preds = %3
+  ret void
+
+11:                                               ; preds = %3
+  %12 = landingpad { ptr, i32 }
+          catch ptr null
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #19
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt15__uniq_ptr_dataIN3ue219AsciiComponentClassESt14default_deleteIS1_ELb1ELb1EECI2St15__uniq_ptr_implIS1_S3_EEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %0) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %1 = load ptr, ptr %.addr, align 8
-  call void @_ZNSt15__uniq_ptr_implIN3ue219AsciiComponentClassESt14default_deleteIS1_EEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %1)
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__uniq_ptr_implIN3ue219AsciiComponentClassESt14default_deleteIS1_EEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl.15", ptr %this1, i32 0, i32 0
-  call void @_ZNSt5tupleIJPN3ue219AsciiComponentClassESt14default_deleteIS1_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES2_S4_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
-  %0 = load ptr, ptr %__p.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3ue219AsciiComponentClassESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr %0, ptr %call, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt5tupleIJPN3ue219AsciiComponentClassESt14default_deleteIS1_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES2_S4_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  invoke void @_ZNSt11_Tuple_implILm0EJPN3ue219AsciiComponentClassESt14default_deleteIS1_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-          to label %invoke.cont unwind label %terminate.lpad
-
-invoke.cont:                                      ; preds = %entry
-  ret void
-
-terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #17
-  unreachable
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3ue219AsciiComponentClassESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl.15", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3ue219AsciiComponentClassESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJPN3ue219AsciiComponentClassESt14default_deleteIS1_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3ue219AsciiComponentClassEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1)
-  call void @_ZNSt10_Head_baseILm0EPN3ue219AsciiComponentClassELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
+define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJPN3ue214ComponentClassESt14default_deleteIS1_EEEC2IRS2_JS3_INS0_19AsciiComponentClassEEEvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8
+  call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3ue214ComponentClassEEEEC2IS0_INS1_19AsciiComponentClassEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  %9 = load ptr, ptr %5, align 8
+  call void @_ZNSt10_Head_baseILm0EPN3ue214ComponentClassELb0EEC2IRS2_EEOT_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3ue219AsciiComponentClassEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue219AsciiComponentClassEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1)
+define linkonce_odr hidden void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3ue214ComponentClassEEEEC2IS0_INS1_19AsciiComponentClassEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue214ComponentClassEELb1EEC2IS0_INS1_19AsciiComponentClassEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_Head_baseILm0EPN3ue219AsciiComponentClassELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.20", ptr %this1, i32 0, i32 0
-  store ptr null, ptr %_M_head_impl, align 8
+define linkonce_odr hidden void @_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue214ComponentClassEELb1EEC2IS0_INS1_19AsciiComponentClassEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt14default_deleteIN3ue214ComponentClassEEC2INS0_19AsciiComponentClassEvEERKS_IT_E(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue219AsciiComponentClassEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr hidden void @_ZNSt14default_deleteIN3ue214ComponentClassEEC2INS0_19AsciiComponentClassEvEERKS_IT_E(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3ue219AsciiComponentClassESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #4 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3ue219AsciiComponentClassEJSt14default_deleteIS1_EEERT0_RSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
-  ret ptr %call
+define linkonce_odr hidden noundef ptr @_ZNKSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNKSt15__uniq_ptr_implIN3ue214ComponentClassESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3ue219AsciiComponentClassEJSt14default_deleteIS1_EEERT0_RSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %__t) #4 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3ue219AsciiComponentClassESt14default_deleteIS1_EEE7_M_headERS5_(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
-  ret ptr %call
+define linkonce_odr hidden noundef ptr @_ZNKSt15__uniq_ptr_implIN3ue214ComponentClassESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3ue214ComponentClassESt14default_deleteIS1_EEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS9_(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  %6 = load ptr, ptr %5, align 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3ue219AsciiComponentClassESt14default_deleteIS1_EEE7_M_headERS5_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #4 comdat align 2 {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3ue219AsciiComponentClassELb0EE7_M_headERS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3ue214ComponentClassESt14default_deleteIS1_EEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS9_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3ue214ComponentClassEJSt14default_deleteIS1_EEERKT0_RKSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #17
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3ue219AsciiComponentClassELb0EE7_M_headERS3_(ptr noundef nonnull align 8 dereferenceable(8) %__b) #4 comdat align 2 {
-entry:
-  %__b.addr = alloca ptr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__b.addr, align 8
-  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.20", ptr %0, i32 0, i32 0
-  ret ptr %_M_head_impl
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3ue214ComponentClassEJSt14default_deleteIS1_EEERKT0_RKSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3ue214ComponentClassESt14default_deleteIS1_EEE7_M_headERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %3) #17
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN3ue219AsciiComponentClassESt14default_deleteIS1_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr.13", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN3ue219AsciiComponentClassESt14default_deleteIS1_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3ue214ComponentClassESt14default_deleteIS1_EEE7_M_headERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3ue214ComponentClassELb0EE7_M_headERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3) #17
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNKSt14default_deleteIN3ue219AsciiComponentClassEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__ptr) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__ptr.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__ptr, ptr %__ptr.addr, align 8
-  %0 = load ptr, ptr %__ptr.addr, align 8
-  %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
-
-delete.notnull:                                   ; preds = %entry
-  %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %1 = load ptr, ptr %vfn, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(72) %0) #13
-  br label %delete.end
-
-delete.end:                                       ; preds = %delete.notnull, %entry
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN3ue219AsciiComponentClassESt14default_deleteIS1_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl.15", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN3ue219AsciiComponentClassESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN3ue219AsciiComponentClassESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #4 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN3ue219AsciiComponentClassEEJEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #13
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN3ue219AsciiComponentClassEEJEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %__t) #4 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3ue219AsciiComponentClassEEEE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %0) #13
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3ue219AsciiComponentClassEEEE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %__t) #4 comdat align 2 {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue219AsciiComponentClassEELb1EE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %0) #13
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue219AsciiComponentClassEELb1EE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %__b) #4 comdat align 2 {
-entry:
-  %__b.addr = alloca ptr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__b.addr, align 8
-  ret ptr %0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt10unique_ptrIN3ue219AsciiComponentClassESt14default_deleteIS1_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr.13", ptr %this1, i32 0, i32 0
-  %call = call noundef ptr @_ZNSt15__uniq_ptr_implIN3ue219AsciiComponentClassESt14default_deleteIS1_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt15__uniq_ptr_dataIN3ue214ComponentClassESt14default_deleteIS1_ELb1ELb1EECI2St15__uniq_ptr_implIS1_S3_EIS2_INS0_19AsciiComponentClassEEEEPS1_OT_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  %.addr1 = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  store ptr %1, ptr %.addr1, align 8
-  %this2 = load ptr, ptr %this.addr, align 8
-  %2 = load ptr, ptr %.addr, align 8
-  %3 = load ptr, ptr %.addr1, align 8
-  call void @_ZNSt15__uniq_ptr_implIN3ue214ComponentClassESt14default_deleteIS1_EEC2IS2_INS0_19AsciiComponentClassEEEEPS1_OT_(ptr noundef nonnull align 8 dereferenceable(8) %this2, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3)
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt15__uniq_ptr_implIN3ue219AsciiComponentClassESt14default_deleteIS1_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3ue219AsciiComponentClassESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  %0 = load ptr, ptr %call, align 8
-  store ptr %0, ptr %__p, align 8
-  %call2 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3ue219AsciiComponentClassESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr null, ptr %call2, align 8
-  %1 = load ptr, ptr %__p, align 8
-  ret ptr %1
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__uniq_ptr_implIN3ue214ComponentClassESt14default_deleteIS1_EEC2IS2_INS0_19AsciiComponentClassEEEEPS1_OT_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p, ptr noundef nonnull align 1 dereferenceable(1) %__d) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__d.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store ptr %__d, ptr %__d.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__d.addr, align 8
-  call void @_ZNSt5tupleIJPN3ue214ComponentClassESt14default_deleteIS1_EEEC2IRS2_S3_INS0_19AsciiComponentClassEETnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleISB_T0_EEEbE4typeELb1EEEOSB_OSC_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t, ptr noundef nonnull align 8 dereferenceable(8) %__p.addr, ptr noundef nonnull align 1 dereferenceable(1) %0) #13
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt5tupleIJPN3ue214ComponentClassESt14default_deleteIS1_EEEC2IRS2_S3_INS0_19AsciiComponentClassEETnNSt9enable_ifIXclsr4_TCCIXntcl14__is_alloc_argIT_EEEEE29__is_implicitly_constructibleISB_T0_EEEbE4typeELb1EEEOSB_OSC_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__a1, ptr noundef nonnull align 1 dereferenceable(1) %__a2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__a1.addr = alloca ptr, align 8
-  %__a2.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__a1, ptr %__a1.addr, align 8
-  store ptr %__a2, ptr %__a2.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %__a1.addr, align 8
-  %1 = load ptr, ptr %__a2.addr, align 8
-  invoke void @_ZNSt11_Tuple_implILm0EJPN3ue214ComponentClassESt14default_deleteIS1_EEEC2IRS2_JS3_INS0_19AsciiComponentClassEEEvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %1)
-          to label %invoke.cont unwind label %terminate.lpad
-
-invoke.cont:                                      ; preds = %entry
-  ret void
-
-terminate.lpad:                                   ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #17
-  unreachable
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJPN3ue214ComponentClassESt14default_deleteIS1_EEEC2IRS2_JS3_INS0_19AsciiComponentClassEEEvEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__head, ptr noundef nonnull align 1 dereferenceable(1) %__tail) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__head.addr = alloca ptr, align 8
-  %__tail.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__head, ptr %__head.addr, align 8
-  store ptr %__tail, ptr %__tail.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %__tail.addr, align 8
-  call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3ue214ComponentClassEEEEC2IS0_INS1_19AsciiComponentClassEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef nonnull align 1 dereferenceable(1) %0)
-  %1 = load ptr, ptr %__head.addr, align 8
-  call void @_ZNSt10_Head_baseILm0EPN3ue214ComponentClassELb0EEC2IRS2_EEOT_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3ue214ComponentClassEEEEC2IS0_INS1_19AsciiComponentClassEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %__head) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__head.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__head, ptr %__head.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %__head.addr, align 8
-  call void @_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue214ComponentClassEELb1EEC2IS0_INS1_19AsciiComponentClassEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef nonnull align 1 dereferenceable(1) %0)
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue214ComponentClassEELb1EEC2IS0_INS1_19AsciiComponentClassEEEEOT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %__h) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__h.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__h, ptr %__h.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %__h.addr, align 8
-  call void @_ZNSt14default_deleteIN3ue214ComponentClassEEC2INS0_19AsciiComponentClassEvEERKS_IT_E(ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef nonnull align 1 dereferenceable(1) %0) #13
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt14default_deleteIN3ue214ComponentClassEEC2INS0_19AsciiComponentClassEvEERKS_IT_E(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3ue214ComponentClassESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3ue214ComponentClassESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN3ue214ComponentClassESt14default_deleteIS1_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNKSt14default_deleteIN3ue214ComponentClassEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__ptr) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__ptr.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__ptr, ptr %__ptr.addr, align 8
-  %0 = load ptr, ptr %__ptr.addr, align 8
-  %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
-
-delete.notnull:                                   ; preds = %entry
-  %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %1 = load ptr, ptr %vfn, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(29) %0) #13
-  br label %delete.end
-
-delete.end:                                       ; preds = %delete.notnull, %entry
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3ue214ComponentClassESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #4 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3ue214ComponentClassEJSt14default_deleteIS1_EEERT0_RSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3ue214ComponentClassEJSt14default_deleteIS1_EEERT0_RSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %__t) #4 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3ue214ComponentClassESt14default_deleteIS1_EEE7_M_headERS5_(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3ue214ComponentClassESt14default_deleteIS1_EEE7_M_headERS5_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #4 comdat align 2 {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3ue214ComponentClassELb0EE7_M_headERS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3ue214ComponentClassELb0EE7_M_headERS3_(ptr noundef nonnull align 8 dereferenceable(8) %__b) #4 comdat align 2 {
-entry:
-  %__b.addr = alloca ptr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__b.addr, align 8
-  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.4", ptr %0, i32 0, i32 0
-  ret ptr %_M_head_impl
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN3ue214ComponentClassESt14default_deleteIS1_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN3ue214ComponentClassESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN3ue214ComponentClassESt14default_deleteIS1_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #4 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN3ue214ComponentClassEEJEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #13
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN3ue214ComponentClassEEJEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %__t) #4 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3ue214ComponentClassEEEE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %0) #13
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3ue214ComponentClassEEEE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %__t) #4 comdat align 2 {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue214ComponentClassEELb1EE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %0) #13
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN3ue214ComponentClassEELb1EE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %__b) #4 comdat align 2 {
-entry:
-  %__b.addr = alloca ptr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__b.addr, align 8
-  ret ptr %0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNKSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::unique_ptr", ptr %this1, i32 0, i32 0
-  %call = call noundef ptr @_ZNKSt15__uniq_ptr_implIN3ue214ComponentClassESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNKSt15__uniq_ptr_implIN3ue214ComponentClassESt14default_deleteIS1_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_t = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3ue214ComponentClassESt14default_deleteIS1_EEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS9_(ptr noundef nonnull align 8 dereferenceable(8) %_M_t) #13
-  %0 = load ptr, ptr %call, align 8
-  ret ptr %0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3ue214ComponentClassESt14default_deleteIS1_EEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS9_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #4 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3ue214ComponentClassEJSt14default_deleteIS1_EEERKT0_RKSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3ue214ComponentClassEJSt14default_deleteIS1_EEERKT0_RKSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %__t) #4 comdat {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3ue214ComponentClassESt14default_deleteIS1_EEE7_M_headERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3ue214ComponentClassESt14default_deleteIS1_EEE7_M_headERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %__t) #4 comdat align 2 {
-entry:
-  %__t.addr = alloca ptr, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3ue214ComponentClassELb0EE7_M_headERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3ue214ComponentClassELb0EE7_M_headERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %__b) #4 comdat align 2 {
-entry:
-  %__b.addr = alloca ptr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__b.addr, align 8
-  %_M_head_impl = getelementptr inbounds %"struct.std::_Head_base.4", ptr %0, i32 0, i32 0
-  ret ptr %_M_head_impl
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3ue214ComponentClassELb0EE7_M_headERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.4", ptr %3, i32 0, i32 0
+  ret ptr %4
 }
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind }
-attributes #14 = { noreturn }
-attributes #15 = { builtin allocsize(0) }
-attributes #16 = { builtin nounwind }
-attributes #17 = { noreturn nounwind }
-attributes #18 = { nounwind willreturn memory(none) }
-attributes #19 = { nounwind willreturn memory(read) }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noinline noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { alwaysinline mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nounwind }
+attributes #18 = { noreturn }
+attributes #19 = { noreturn nounwind }
+attributes #20 = { builtin allocsize(0) }
+attributes #21 = { builtin nounwind }
+attributes #22 = { nounwind willreturn memory(none) }
+attributes #23 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 
@@ -7118,8 +8048,10 @@ attributes #19 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!5 = !{i8 0, i8 2}
+!6 = !{}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}

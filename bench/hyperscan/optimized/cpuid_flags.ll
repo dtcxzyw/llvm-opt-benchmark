@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/hyperscan/original/cpuid_flags.ll'
 source_filename = "bench/hyperscan/original/cpuid_flags.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.family_id = type { i32, i32, i32 }
 
@@ -9,114 +9,112 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i64 0, 5) i64 @cpuid_flags() local_unnamed_addr #0 {
-entry:
-  %0 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #2, !srcloc !5
-  %asmresult2.i.i = extractvalue { i32, i32, i32, i32 } %0, 2
-  %and.i = and i32 %asmresult2.i.i, 402653184
-  %cmp.not.i = icmp eq i32 %and.i, 402653184
-  br i1 %cmp.not.i, label %if.end.i, label %check_avx2.exit.thread
+  %1 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #2, !srcloc !5
+  %2 = extractvalue { i32, i32, i32, i32 } %1, 2
+  %3 = and i32 %2, 402653184
+  %.not.i = icmp eq i32 %3, 402653184
+  br i1 %.not.i, label %4, label %check_avx2.exit.thread
 
-if.end.i:                                         ; preds = %entry
-  %1 = tail call { i32, i32 } asm sideeffect "xgetbv\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #3, !srcloc !6
-  %asmresult.i1.i = extractvalue { i32, i32 } %1, 0
-  %2 = and i32 %asmresult.i1.i, 6
-  %cmp2.not.i = icmp eq i32 %2, 6
-  br i1 %cmp2.not.i, label %check_avx2.exit, label %check_avx2.exit.thread
+4:                                                ; preds = %0
+  %5 = tail call { i32, i32 } asm sideeffect "xgetbv\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #3, !srcloc !6
+  %6 = extractvalue { i32, i32 } %5, 0
+  %7 = and i32 %6, 6
+  %.not2.i = icmp eq i32 %7, 6
+  br i1 %.not2.i, label %check_avx2.exit, label %check_avx2.exit.thread
 
-check_avx2.exit:                                  ; preds = %if.end.i
-  %3 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #2, !srcloc !5
-  %.fr = freeze { i32, i32, i32, i32 } %3
-  %asmresult1.i4.i = extractvalue { i32, i32, i32, i32 } %.fr, 1
-  %4 = and i32 %asmresult1.i4.i, 32
-  %tobool.not = icmp eq i32 %4, 0
-  br i1 %tobool.not, label %check_avx2.exit.thread, label %5
+check_avx2.exit:                                  ; preds = %4
+  %8 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #2, !srcloc !5
+  %.fr = freeze { i32, i32, i32, i32 } %8
+  %9 = extractvalue { i32, i32, i32, i32 } %.fr, 1
+  %10 = and i32 %9, 32
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %check_avx2.exit.thread, label %11
 
-check_avx2.exit.thread:                           ; preds = %if.end.i, %entry, %check_avx2.exit
-  br label %5
+check_avx2.exit.thread:                           ; preds = %4, %0, %check_avx2.exit
+  br label %11
 
-5:                                                ; preds = %check_avx2.exit, %check_avx2.exit.thread
-  %6 = phi i64 [ 0, %check_avx2.exit.thread ], [ 4, %check_avx2.exit ]
-  %and.i7 = and i32 %asmresult2.i.i, 134217728
-  %tobool.not.i = icmp eq i32 %and.i7, 0
-  br i1 %tobool.not.i, label %check_avx512vbmi.exit.thread, label %if.end.i8
+11:                                               ; preds = %check_avx2.exit, %check_avx2.exit.thread
+  %12 = phi i64 [ 0, %check_avx2.exit.thread ], [ 4, %check_avx2.exit ]
+  %13 = and i32 %2, 134217728
+  %.not.i8 = icmp eq i32 %13, 0
+  br i1 %.not.i8, label %check_avx512vbmi.exit.thread, label %14
 
-if.end.i8:                                        ; preds = %5
-  %7 = tail call { i32, i32 } asm sideeffect "xgetbv\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #3, !srcloc !6
-  %asmresult.i1.i9 = extractvalue { i32, i32 } %7, 0
-  %8 = and i32 %asmresult.i1.i9, 224
-  %cmp.not.i10 = icmp eq i32 %8, 224
-  br i1 %cmp.not.i10, label %if.end5.i, label %if.end.i16
+14:                                               ; preds = %11
+  %15 = tail call { i32, i32 } asm sideeffect "xgetbv\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #3, !srcloc !6
+  %16 = extractvalue { i32, i32 } %15, 0
+  %17 = and i32 %16, 224
+  %.not2.i9 = icmp eq i32 %17, 224
+  br i1 %.not2.i9, label %18, label %.thread23
 
-if.end5.i:                                        ; preds = %if.end.i8
-  %9 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #2, !srcloc !5
-  br label %if.end.i16
+18:                                               ; preds = %14
+  %19 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #2, !srcloc !5
+  br label %.thread23
 
-if.end.i16:                                       ; preds = %if.end5.i, %if.end.i8
-  %10 = tail call { i32, i32 } asm sideeffect "xgetbv\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #3, !srcloc !6
-  %asmresult.i1.i17 = extractvalue { i32, i32 } %10, 0
-  %11 = and i32 %asmresult.i1.i17, 224
-  %cmp.not.i18 = icmp eq i32 %11, 224
-  br i1 %cmp.not.i18, label %if.end5.i20, label %check_avx512vbmi.exit.thread
+.thread23:                                        ; preds = %18, %14
+  %20 = tail call { i32, i32 } asm sideeffect "xgetbv\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #3, !srcloc !6
+  %21 = extractvalue { i32, i32 } %20, 0
+  %22 = and i32 %21, 224
+  %.not2.i13 = icmp eq i32 %22, 224
+  br i1 %.not2.i13, label %23, label %check_avx512vbmi.exit.thread
 
-if.end5.i20:                                      ; preds = %if.end.i16
-  %12 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #2, !srcloc !5
+23:                                               ; preds = %.thread23
+  %24 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #2, !srcloc !5
   br label %check_avx512vbmi.exit.thread
 
-check_avx512vbmi.exit.thread:                     ; preds = %if.end5.i20, %5, %if.end.i16
-  ret i64 %6
+check_avx512vbmi.exit.thread:                     ; preds = %23, %11, %.thread23
+  ret i64 %12
 }
 
 ; Function Attrs: nofree nosync nounwind memory(none) uwtable
 define hidden i32 @cpuid_tune() local_unnamed_addr #1 {
-entry:
-  %0 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #2, !srcloc !5
-  %asmresult.i = extractvalue { i32, i32, i32, i32 } %0, 0
-  %shr = lshr i32 %asmresult.i, 8
-  %and = and i32 %shr, 15
-  switch i32 %and, label %if.else [
-    i32 15, label %if.then
-    i32 6, label %if.then
+  %1 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #2, !srcloc !5
+  %2 = extractvalue { i32, i32, i32, i32 } %1, 0
+  %3 = lshr i32 %2, 8
+  %4 = and i32 %3, 15
+  switch i32 %4, label %11 [
+    i32 15, label %5
+    i32 6, label %5
   ]
 
-if.then:                                          ; preds = %entry, %entry
-  %shr2 = lshr i32 %asmresult.i, 4
-  %and3 = and i32 %shr2, 15
-  %shr4 = lshr i32 %asmresult.i, 12
-  %and5 = and i32 %shr4, 240
-  %or = or disjoint i32 %and3, %and5
-  br label %do.end
+5:                                                ; preds = %0, %0
+  %6 = lshr i32 %2, 4
+  %7 = and i32 %6, 15
+  %8 = lshr i32 %2, 12
+  %9 = and i32 %8, 240
+  %10 = or disjoint i32 %7, %9
+  br label %14
 
-if.else:                                          ; preds = %entry
-  %shr6 = lshr i32 %asmresult.i, 4
-  %and7 = and i32 %shr6, 15
-  br label %do.end
+11:                                               ; preds = %0
+  %12 = lshr i32 %2, 4
+  %13 = and i32 %12, 15
+  br label %14
 
-do.end:                                           ; preds = %if.else, %if.then
-  %model.0 = phi i32 [ %or, %if.then ], [ %and7, %if.else ]
-  %cmp10.not = icmp eq i32 %and, 6
-  br i1 %cmp10.not, label %for.body.us, label %return
+14:                                               ; preds = %5, %11
+  %.015 = phi i32 [ %10, %5 ], [ %13, %11 ]
+  %.not = icmp eq i32 %4, 6
+  br i1 %.not, label %.split.us, label %.loopexit
 
-for.body.us:                                      ; preds = %do.end, %for.inc.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc.us ], [ 0, %do.end ]
-  %arrayidx.us = getelementptr inbounds nuw [29 x %struct.family_id], ptr @known_microarch, i64 0, i64 %indvars.iv
-  %full_model.us = getelementptr inbounds nuw i8, ptr %arrayidx.us, i64 4
-  %1 = load i32, ptr %full_model.us, align 4
-  %cmp16.not.us = icmp eq i32 %model.0, %1
-  br i1 %cmp16.not.us, label %if.end19, label %for.inc.us
+.split.us:                                        ; preds = %14, %18
+  %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %14 ]
+  %15 = getelementptr inbounds nuw [29 x %struct.family_id], ptr @known_microarch, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %17 = load i32, ptr %16, align 4
+  %.not17.us = icmp eq i32 %.015, %17
+  br i1 %.not17.us, label %.split20.us, label %18
 
-for.inc.us:                                       ; preds = %for.body.us
+18:                                               ; preds = %.split.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 29
-  br i1 %exitcond.not, label %return, label %for.body.us, !llvm.loop !7
+  %exitcond = icmp eq i64 %indvars.iv.next, 29
+  br i1 %exitcond, label %.loopexit, label %.split.us
 
-if.end19:                                         ; preds = %for.body.us
-  %tune22 = getelementptr inbounds nuw i8, ptr %arrayidx.us, i64 8
-  %2 = load i32, ptr %tune22, align 4
-  br label %return
+.split20.us:                                      ; preds = %.split.us
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %20 = load i32, ptr %19, align 4
+  br label %.loopexit
 
-return:                                           ; preds = %for.inc.us, %do.end, %if.end19
-  %retval.0 = phi i32 [ %2, %if.end19 ], [ 0, %do.end ], [ 0, %for.inc.us ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %18, %14, %.split20.us
+  %spec.select = phi i32 [ %20, %.split20.us ], [ 0, %14 ], [ 0, %18 ]
+  ret i32 %spec.select
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -131,7 +129,5 @@ attributes #3 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 2151448397, i64 2151448433, i64 2151448457}
-!6 = !{i64 3961006}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
+!5 = !{i64 2151948397, i64 2151948433, i64 2151948457}
+!6 = !{i64 4461006}

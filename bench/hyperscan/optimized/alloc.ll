@@ -1,22 +1,21 @@
 ; ModuleID = 'bench/hyperscan/original/alloc.ll'
 source_filename = "bench/hyperscan/original/alloc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @_ZTISt9bad_alloc = external constant ptr
 @_ZTVSt9bad_alloc = external unnamed_addr constant { [5 x ptr] }, align 8
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef ptr @_ZN3ue223aligned_malloc_internalEmm(i64 noundef %size, i64 noundef %align) local_unnamed_addr #0 {
-entry:
-  %mem = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mem) #9
-  %call = call i32 @posix_memalign(ptr noundef nonnull %mem, i64 noundef %align, i64 noundef %size) #9
-  %cmp.not = icmp eq i32 %call, 0
-  %0 = load ptr, ptr %mem, align 8
-  %retval.0 = select i1 %cmp.not, ptr %0, ptr null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mem) #9
-  ret ptr %retval.0
+define hidden noundef ptr @_ZN3ue223aligned_malloc_internalEmm(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  %4 = call i32 @posix_memalign(ptr noundef nonnull %3, i64 noundef %1, i64 noundef %0) #9
+  %.not = icmp eq i32 %4, 0
+  %5 = load ptr, ptr %3, align 8
+  %.0 = select i1 %.not, ptr %5, ptr null
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -29,16 +28,15 @@ declare i32 @posix_memalign(ptr noundef, i64 noundef, i64 noundef) local_unnamed
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN3ue221aligned_free_internalEPv(ptr noundef %ptr) local_unnamed_addr #3 {
-entry:
-  %tobool.not = icmp eq ptr %ptr, null
-  br i1 %tobool.not, label %return, label %if.end
+define hidden void @_ZN3ue221aligned_free_internalEPv(ptr noundef %0) local_unnamed_addr #3 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %3, label %2
 
-if.end:                                           ; preds = %entry
-  tail call void @free(ptr noundef nonnull %ptr) #9
-  br label %return
+2:                                                ; preds = %1
+  tail call void @free(ptr noundef nonnull %0) #9
+  br label %3
 
-return:                                           ; preds = %if.end, %entry
+3:                                                ; preds = %1, %2
   ret void
 }
 
@@ -46,27 +44,26 @@ return:                                           ; preds = %if.end, %entry
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN3ue215aligned_zmallocEm(i64 noundef %size) local_unnamed_addr #5 {
-entry:
-  %mem.i = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mem.i) #9
-  %call.i = call i32 @posix_memalign(ptr noundef nonnull %mem.i, i64 noundef 64, i64 noundef %size) #9
-  %cmp.not.i = icmp ne i32 %call.i, 0
-  %0 = load ptr, ptr %mem.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mem.i) #9
-  %tobool.not7 = icmp eq ptr %0, null
-  %tobool.not = select i1 %cmp.not.i, i1 true, i1 %tobool.not7
-  br i1 %tobool.not, label %do.end, label %do.end3
+define hidden noundef nonnull ptr @_ZN3ue215aligned_zmallocEm(i64 noundef %0) local_unnamed_addr #5 {
+  %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  %3 = call i32 @posix_memalign(ptr noundef nonnull %2, i64 noundef 64, i64 noundef %0) #9
+  %.not.i = icmp ne i32 %3, 0
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  %.not5 = icmp eq ptr %4, null
+  %.not = select i1 %.not.i, i1 true, i1 %.not5
+  br i1 %.not, label %5, label %7
 
-do.end:                                           ; preds = %entry
-  %exception = call ptr @__cxa_allocate_exception(i64 8) #9
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
-  call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #10
+5:                                                ; preds = %1
+  %6 = call ptr @__cxa_allocate_exception(i64 8) #9
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %6, align 8
+  call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #10
   unreachable
 
-do.end3:                                          ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %0, i8 0, i64 %size, i1 false)
-  ret ptr %0
+7:                                                ; preds = %1
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %4, i8 0, i64 %0, i1 false)
+  ret ptr %4
 }
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
@@ -81,16 +78,15 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN3ue212aligned_freeEPv(ptr noundef %ptr) local_unnamed_addr #3 {
-entry:
-  %tobool.not = icmp eq ptr %ptr, null
-  br i1 %tobool.not, label %return, label %_ZN3ue221aligned_free_internalEPv.exit
+define hidden void @_ZN3ue212aligned_freeEPv(ptr noundef %0) local_unnamed_addr #3 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %2, label %_ZN3ue221aligned_free_internalEPv.exit
 
-_ZN3ue221aligned_free_internalEPv.exit:           ; preds = %entry
-  tail call void @free(ptr noundef nonnull %ptr) #9
-  br label %return
+_ZN3ue221aligned_free_internalEPv.exit:           ; preds = %1
+  tail call void @free(ptr noundef nonnull %0) #9
+  br label %2
 
-return:                                           ; preds = %_ZN3ue221aligned_free_internalEPv.exit, %entry
+2:                                                ; preds = %1, %_ZN3ue221aligned_free_internalEPv.exit
   ret void
 }
 
