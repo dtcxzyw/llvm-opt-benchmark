@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/grpc/original/alts_iovec_record_protocol.ll'
 source_filename = "bench/grpc/original/alts_iovec_record_protocol.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.iovec = type { ptr, i64 }
 
@@ -30,1018 +30,1073 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i64 @_Z44alts_iovec_record_protocol_get_header_lengthv() local_unnamed_addr #0 {
-entry:
   ret i64 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_Z41alts_iovec_record_protocol_get_tag_lengthPK26alts_iovec_record_protocol(ptr noundef readonly %rp) local_unnamed_addr #1 {
-entry:
-  %cmp.not = icmp eq ptr %rp, null
-  br i1 %cmp.not, label %return, label %if.then
+define noundef i64 @_Z41alts_iovec_record_protocol_get_tag_lengthPK26alts_iovec_record_protocol(ptr noundef readonly %0) local_unnamed_addr #1 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %5, label %2
 
-if.then:                                          ; preds = %entry
-  %tag_length = getelementptr inbounds nuw i8, ptr %rp, i64 16
-  %0 = load i64, ptr %tag_length, align 8
-  br label %return
+2:                                                ; preds = %1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = load i64, ptr %3, align 8, !tbaa !3
+  br label %5
 
-return:                                           ; preds = %entry, %if.then
-  %retval.0 = phi i64 [ %0, %if.then ], [ 0, %entry ]
-  ret i64 %retval.0
+5:                                                ; preds = %1, %2
+  %.0 = phi i64 [ %4, %2 ], [ 0, %1 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_Z52alts_iovec_record_protocol_max_unprotected_data_sizePK26alts_iovec_record_protocolm(ptr noundef readonly %rp, i64 noundef %max_protected_frame_size) local_unnamed_addr #1 {
-entry:
-  %cmp = icmp eq ptr %rp, null
-  br i1 %cmp, label %return, label %if.end
+define noundef i64 @_Z52alts_iovec_record_protocol_max_unprotected_data_sizePK26alts_iovec_record_protocolm(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #1 {
+  %3 = icmp eq ptr %0, null
+  br i1 %3, label %8, label %4
 
-if.end:                                           ; preds = %entry
-  %tag_length = getelementptr inbounds nuw i8, ptr %rp, i64 16
-  %0 = load i64, ptr %tag_length, align 8
-  %add = add i64 %0, 4
-  %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %max_protected_frame_size, i64 %add)
-  br label %return
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load i64, ptr %5, align 8, !tbaa !3
+  %7 = add i64 %6, 4
+  %.1 = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 %7)
+  br label %8
 
-return:                                           ; preds = %if.end, %entry
-  %retval.0 = phi i64 [ 0, %entry ], [ %spec.select, %if.end ]
-  ret i64 %retval.0
+8:                                                ; preds = %2, %4
+  %.0 = phi i64 [ %.1, %4 ], [ 0, %2 ]
+  ret i64 %.0
+}
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: mustprogress uwtable
+define noundef i32 @_Z49alts_iovec_record_protocol_integrity_only_protectP26alts_iovec_record_protocolPK5iovecmS1_S1_PPc(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr writeonly %3, i64 %4, ptr noundef readonly byval(%struct.iovec) align 8 captures(none) %5, ptr noundef %6) local_unnamed_addr #3 {
+  %8 = alloca i64, align 8
+  %9 = icmp eq ptr %0, null
+  br i1 %9, label %10, label %13
+
+10:                                               ; preds = %7
+  %.not47 = icmp eq ptr %6, null
+  br i1 %.not47, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %11
+
+11:                                               ; preds = %10
+  %12 = tail call ptr @gpr_malloc(i64 noundef 40)
+  store ptr %12, ptr %6, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %12, ptr noundef nonnull align 1 dereferenceable(40) @.str, i64 40, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
+
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = load i8, ptr %14, align 8, !tbaa !14, !range !15, !noundef !16
+  %16 = trunc nuw i8 %15 to i1
+  br i1 %16, label %20, label %17
+
+17:                                               ; preds = %13
+  %.not = icmp eq ptr %6, null
+  br i1 %.not, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %18
+
+18:                                               ; preds = %17
+  %19 = tail call ptr @gpr_malloc(i64 noundef 59)
+  store ptr %19, ptr %6, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(59) %19, ptr noundef nonnull align 1 dereferenceable(59) @.str.1, i64 59, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
+
+20:                                               ; preds = %13
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 25
+  %22 = load i8, ptr %21, align 1, !tbaa !17, !range !15, !noundef !16
+  %23 = trunc nuw i8 %22 to i1
+  br i1 %23, label %27, label %24
+
+24:                                               ; preds = %20
+  %.not46 = icmp eq ptr %6, null
+  br i1 %.not46, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %25
+
+25:                                               ; preds = %24
+  %26 = tail call ptr @gpr_malloc(i64 noundef 52)
+  store ptr %26, ptr %6, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(52) %26, ptr noundef nonnull align 1 dereferenceable(52) @.str.2, i64 52, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
+
+27:                                               ; preds = %20
+  %.sroa.0.0.copyload = load ptr, ptr %5, align 8, !tbaa !18
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !19
+  %28 = icmp eq ptr %3, null
+  br i1 %28, label %29, label %32
+
+29:                                               ; preds = %27
+  %.not16.i = icmp eq ptr %6, null
+  br i1 %.not16.i, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %30
+
+30:                                               ; preds = %29
+  %31 = tail call ptr @gpr_malloc(i64 noundef 19)
+  store ptr %31, ptr %6, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %31, ptr noundef nonnull align 1 dereferenceable(19) @.str.11, i64 19, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
+
+32:                                               ; preds = %27
+  %.not.i = icmp eq i64 %4, 8
+  br i1 %.not.i, label %36, label %33
+
+33:                                               ; preds = %32
+  %.not13.i = icmp eq ptr %6, null
+  br i1 %.not13.i, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %34
+
+34:                                               ; preds = %33
+  %35 = tail call ptr @gpr_malloc(i64 noundef 28)
+  store ptr %35, ptr %6, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %35, ptr noundef nonnull align 1 dereferenceable(28) @.str.12, i64 28, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
+
+36:                                               ; preds = %32
+  %37 = icmp eq ptr %.sroa.0.0.copyload, null
+  br i1 %37, label %38, label %41
+
+38:                                               ; preds = %36
+  %.not15.i = icmp eq ptr %6, null
+  br i1 %.not15.i, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %39
+
+39:                                               ; preds = %38
+  %40 = tail call ptr @gpr_malloc(i64 noundef 16)
+  store ptr %40, ptr %6, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %40, ptr noundef nonnull align 1 dereferenceable(16) @.str.17, i64 16, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
+
+41:                                               ; preds = %36
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %43 = load i64, ptr %42, align 8, !tbaa !3
+  %.not9.i = icmp eq i64 %.sroa.2.0.copyload, %43
+  br i1 %.not9.i, label %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit, label %44
+
+44:                                               ; preds = %41
+  %.not14.i = icmp eq ptr %6, null
+  br i1 %.not14.i, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %45
+
+45:                                               ; preds = %44
+  %46 = tail call ptr @gpr_malloc(i64 noundef 25)
+  store ptr %46, ptr %6, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %46, ptr noundef nonnull align 1 dereferenceable(25) @.str.18, i64 25, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
+
+_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit: ; preds = %41
+  %.not.i41 = icmp eq i64 %2, 0
+  br i1 %.not.i41, label %.loopexit, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit, %.lr.ph.i
+  %.08.i = phi i64 [ %50, %.lr.ph.i ], [ 0, %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit ]
+  %.067.i = phi i64 [ %49, %.lr.ph.i ], [ 0, %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit ]
+  %47 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %.08.i, i32 1
+  %48 = load i64, ptr %47, align 8, !tbaa !20
+  %49 = add i64 %48, %.067.i
+  %50 = add nuw i64 %.08.i, 1
+  %exitcond.not.i = icmp eq i64 %50, %2
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !22
+
+.loopexit:                                        ; preds = %.lr.ph.i, %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit
+  %.06.lcssa.i = phi i64 [ 0, %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit ], [ %49, %.lr.ph.i ]
+  %51 = add i64 %.sroa.2.0.copyload, %.06.lcssa.i
+  %52 = trunc i64 %51 to i32
+  %53 = add i32 %52, 4
+  %54 = lshr i32 %53, 24
+  %55 = trunc nuw i32 %54 to i8
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 3
+  store i8 %55, ptr %56, align 1, !tbaa !24
+  %57 = lshr i32 %53, 16
+  %58 = trunc i32 %57 to i8
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i8 %58, ptr %59, align 1, !tbaa !24
+  %60 = lshr i32 %53, 8
+  %61 = trunc i32 %60 to i8
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  store i8 %61, ptr %62, align 1, !tbaa !24
+  %63 = trunc i32 %53 to i8
+  store i8 %63, ptr %3, align 1, !tbaa !24
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 7
+  store i8 0, ptr %65, align 1, !tbaa !24
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  store i8 0, ptr %66, align 1, !tbaa !24
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 5
+  store i8 0, ptr %67, align 1, !tbaa !24
+  store i8 6, ptr %64, align 1, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
+  store i64 0, ptr %8, align 8, !tbaa !19
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %69 = load ptr, ptr %68, align 8, !tbaa !25
+  %70 = load ptr, ptr %0, align 8, !tbaa !26
+  %71 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %70)
+  %72 = load ptr, ptr %0, align 8, !tbaa !26
+  %73 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %72)
+  %74 = call noundef i32 @_Z31gsec_aead_crypter_encrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef %69, ptr noundef %71, i64 noundef %73, ptr noundef %1, i64 noundef %2, ptr noundef null, i64 noundef 0, ptr noundef nonnull byval(%struct.iovec) align 8 %5, ptr noundef nonnull %8, ptr noundef %6)
+  %.not37 = icmp eq i32 %74, 0
+  br i1 %.not37, label %75, label %82
+
+75:                                               ; preds = %.loopexit
+  %76 = load i64, ptr %8, align 8, !tbaa !19
+  %77 = load i64, ptr %42, align 8, !tbaa !3
+  %.not38 = icmp eq i64 %76, %77
+  br i1 %.not38, label %79, label %78
+
+78:                                               ; preds = %75
+  call fastcc void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef nonnull @.str.3, ptr noundef %6)
+  br label %82
+
+79:                                               ; preds = %75
+  %80 = load ptr, ptr %0, align 8, !tbaa !26
+  %81 = call fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %80, ptr noundef %6)
+  br label %82
+
+82:                                               ; preds = %.loopexit, %79, %78
+  %.3 = phi i32 [ 13, %78 ], [ %81, %79 ], [ %74, %.loopexit ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
+
+_ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %45, %44, %39, %38, %34, %33, %30, %29, %25, %24, %18, %17, %11, %10, %82
+  %.0 = phi i32 [ %.3, %82 ], [ 3, %10 ], [ 3, %11 ], [ 9, %17 ], [ 9, %18 ], [ 9, %24 ], [ 9, %25 ], [ 3, %29 ], [ 3, %30 ], [ 3, %33 ], [ 3, %34 ], [ 3, %38 ], [ 3, %39 ], [ 3, %44 ], [ 3, %45 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z49alts_iovec_record_protocol_integrity_only_protectP26alts_iovec_record_protocolPK5iovecmS1_S1_PPc(ptr noundef readonly %rp, ptr noundef %unprotected_vec, i64 noundef %unprotected_vec_length, ptr writeonly %header.coerce0, i64 %header.coerce1, ptr noundef readonly byval(%struct.iovec) align 8 captures(none) %tag, ptr noundef %error_details) local_unnamed_addr #2 {
-entry:
-  %bytes_written = alloca i64, align 8
-  %cmp = icmp eq ptr %rp, null
-  br i1 %cmp, label %if.then, label %if.end
+define internal fastcc void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef readonly %0, ptr noundef writeonly %1) unnamed_addr #3 {
+  %3 = icmp ne ptr %1, null
+  %4 = icmp ne ptr %0, null
+  %or.cond = and i1 %4, %3
+  br i1 %or.cond, label %5, label %11
 
-if.then:                                          ; preds = %entry
-  %cmp.i.not = icmp eq ptr %error_details, null
-  br i1 %cmp.i.not, label %return, label %if.then.i
+5:                                                ; preds = %2
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
+  %7 = add i64 %6, 1
+  %8 = tail call ptr @gpr_malloc(i64 noundef %7)
+  store ptr %8, ptr %1, align 8, !tbaa !12
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
+  %10 = add i64 %9, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr nonnull align 1 %0, i64 %10, i1 false)
+  br label %11
 
-if.then.i:                                        ; preds = %if.then
-  %call2.i = tail call ptr @gpr_malloc(i64 noundef 40)
-  store ptr %call2.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %call2.i, ptr noundef nonnull align 1 dereferenceable(40) @.str, i64 40, i1 false)
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %is_integrity_only = getelementptr inbounds nuw i8, ptr %rp, i64 24
-  %0 = load i8, ptr %is_integrity_only, align 8
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.end2, label %if.then1
-
-if.then1:                                         ; preds = %if.end
-  %cmp.i24.not = icmp eq ptr %error_details, null
-  br i1 %cmp.i24.not, label %return, label %if.then.i25
-
-if.then.i25:                                      ; preds = %if.then1
-  %call2.i28 = tail call ptr @gpr_malloc(i64 noundef 59)
-  store ptr %call2.i28, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(59) %call2.i28, ptr noundef nonnull align 1 dereferenceable(59) @.str.1, i64 59, i1 false)
-  br label %return
-
-if.end2:                                          ; preds = %if.end
-  %is_protect = getelementptr inbounds nuw i8, ptr %rp, i64 25
-  %1 = load i8, ptr %is_protect, align 1
-  %tobool3 = trunc i8 %1 to i1
-  br i1 %tobool3, label %if.end5, label %if.then4
-
-if.then4:                                         ; preds = %if.end2
-  %cmp.i32.not = icmp eq ptr %error_details, null
-  br i1 %cmp.i32.not, label %return, label %if.then.i33
-
-if.then.i33:                                      ; preds = %if.then4
-  %call2.i36 = tail call ptr @gpr_malloc(i64 noundef 52)
-  store ptr %call2.i36, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(52) %call2.i36, ptr noundef nonnull align 1 dereferenceable(52) @.str.2, i64 52, i1 false)
-  br label %return
-
-if.end5:                                          ; preds = %if.end2
-  %agg.tmp6.sroa.0.0.copyload = load ptr, ptr %tag, align 8
-  %agg.tmp6.sroa.2.0.tag.sroa_idx = getelementptr inbounds nuw i8, ptr %tag, i64 8
-  %agg.tmp6.sroa.2.0.copyload = load i64, ptr %agg.tmp6.sroa.2.0.tag.sroa_idx, align 8
-  %cmp1.i = icmp eq ptr %header.coerce0, null
-  br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
-
-if.then2.i:                                       ; preds = %if.end5
-  %cmp.i.not.i = icmp eq ptr %error_details, null
-  br i1 %cmp.i.not.i, label %return, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %if.then2.i
-  %call2.i.i = tail call ptr @gpr_malloc(i64 noundef 19)
-  store ptr %call2.i.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %call2.i.i, ptr noundef nonnull align 1 dereferenceable(19) @.str.11, i64 19, i1 false)
-  br label %return
-
-if.end3.i:                                        ; preds = %if.end5
-  %cmp4.not.i = icmp eq i64 %header.coerce1, 8
-  br i1 %cmp4.not.i, label %if.end6.i, label %if.then5.i
-
-if.then5.i:                                       ; preds = %if.end3.i
-  %cmp.i5.not.i = icmp eq ptr %error_details, null
-  br i1 %cmp.i5.not.i, label %return, label %if.then.i6.i
-
-if.then.i6.i:                                     ; preds = %if.then5.i
-  %call2.i9.i = tail call ptr @gpr_malloc(i64 noundef 28)
-  store ptr %call2.i9.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %call2.i9.i, ptr noundef nonnull align 1 dereferenceable(28) @.str.12, i64 28, i1 false)
-  br label %return
-
-if.end6.i:                                        ; preds = %if.end3.i
-  %cmp8.i = icmp eq ptr %agg.tmp6.sroa.0.0.copyload, null
-  br i1 %cmp8.i, label %if.then9.i, label %if.end10.i
-
-if.then9.i:                                       ; preds = %if.end6.i
-  %cmp.i13.not.i = icmp eq ptr %error_details, null
-  br i1 %cmp.i13.not.i, label %return, label %if.then.i14.i
-
-if.then.i14.i:                                    ; preds = %if.then9.i
-  %call2.i17.i = tail call ptr @gpr_malloc(i64 noundef 16)
-  store ptr %call2.i17.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call2.i17.i, ptr noundef nonnull align 1 dereferenceable(16) @.str.17, i64 16, i1 false)
-  br label %return
-
-if.end10.i:                                       ; preds = %if.end6.i
-  %tag_length.i = getelementptr inbounds nuw i8, ptr %rp, i64 16
-  %2 = load i64, ptr %tag_length.i, align 8
-  %cmp12.not.i = icmp eq i64 %agg.tmp6.sroa.2.0.copyload, %2
-  br i1 %cmp12.not.i, label %if.end9, label %if.then13.i
-
-if.then13.i:                                      ; preds = %if.end10.i
-  %cmp.i21.not.i = icmp eq ptr %error_details, null
-  br i1 %cmp.i21.not.i, label %return, label %if.then.i22.i
-
-if.then.i22.i:                                    ; preds = %if.then13.i
-  %call2.i25.i = tail call ptr @gpr_malloc(i64 noundef 25)
-  store ptr %call2.i25.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %call2.i25.i, ptr noundef nonnull align 1 dereferenceable(25) @.str.18, i64 25, i1 false)
-  br label %return
-
-if.end9:                                          ; preds = %if.end10.i
-  %cmp4.not.i40 = icmp eq i64 %unprotected_vec_length, 0
-  br i1 %cmp4.not.i40, label %if.end14, label %for.body.i
-
-for.body.i:                                       ; preds = %if.end9, %for.body.i
-  %i.06.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.end9 ]
-  %total_length.05.i = phi i64 [ %add.i41, %for.body.i ], [ 0, %if.end9 ]
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %unprotected_vec, i64 %i.06.i, i32 1
-  %3 = load i64, ptr %iov_len.i, align 8
-  %add.i41 = add i64 %3, %total_length.05.i
-  %inc.i = add nuw i64 %i.06.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %unprotected_vec_length
-  br i1 %exitcond.not.i, label %if.end14, label %for.body.i, !llvm.loop !4
-
-if.end14:                                         ; preds = %for.body.i, %if.end9
-  %total_length.0.lcssa.i = phi i64 [ 0, %if.end9 ], [ %add.i41, %for.body.i ]
-  %add = add i64 %agg.tmp6.sroa.2.0.copyload, %total_length.0.lcssa.i
-  %4 = trunc i64 %add to i32
-  %conv.i = add i32 %4, 4
-  %shr.i.i = lshr i32 %conv.i, 24
-  %conv2.i.i = trunc nuw i32 %shr.i.i to i8
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %header.coerce0, i64 3
-  store i8 %conv2.i.i, ptr %arrayidx.i.i, align 1
-  %shr3.i.i = lshr i32 %conv.i, 16
-  %conv7.i.i = trunc i32 %shr3.i.i to i8
-  %arrayidx8.i.i = getelementptr inbounds nuw i8, ptr %header.coerce0, i64 2
-  store i8 %conv7.i.i, ptr %arrayidx8.i.i, align 1
-  %shr9.i.i = lshr i32 %conv.i, 8
-  %conv13.i.i = trunc i32 %shr9.i.i to i8
-  %arrayidx14.i.i = getelementptr inbounds nuw i8, ptr %header.coerce0, i64 1
-  store i8 %conv13.i.i, ptr %arrayidx14.i.i, align 1
-  %conv18.i.i = trunc i32 %conv.i to i8
-  store i8 %conv18.i.i, ptr %header.coerce0, align 1
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %header.coerce0, i64 4
-  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr %header.coerce0, i64 7
-  store i8 0, ptr %arrayidx.i3.i, align 1
-  %arrayidx8.i4.i = getelementptr inbounds nuw i8, ptr %header.coerce0, i64 6
-  store i8 0, ptr %arrayidx8.i4.i, align 1
-  %arrayidx14.i5.i = getelementptr inbounds nuw i8, ptr %header.coerce0, i64 5
-  store i8 0, ptr %arrayidx14.i5.i, align 1
-  store i8 6, ptr %add.ptr.i, align 1
-  store i64 0, ptr %bytes_written, align 8
-  %crypter = getelementptr inbounds nuw i8, ptr %rp, i64 8
-  %5 = load ptr, ptr %crypter, align 8
-  %6 = load ptr, ptr %rp, align 8
-  %call15 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %6)
-  %7 = load ptr, ptr %rp, align 8
-  %call17 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %7)
-  %call19 = call noundef i32 @_Z31gsec_aead_crypter_encrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef %5, ptr noundef %call15, i64 noundef %call17, ptr noundef %unprotected_vec, i64 noundef %unprotected_vec_length, ptr noundef null, i64 noundef 0, ptr noundef nonnull byval(%struct.iovec) align 8 %tag, ptr noundef nonnull %bytes_written, ptr noundef %error_details)
-  %cmp20.not = icmp eq i32 %call19, 0
-  br i1 %cmp20.not, label %if.end22, label %return
-
-if.end22:                                         ; preds = %if.end14
-  %8 = load i64, ptr %bytes_written, align 8
-  %9 = load i64, ptr %tag_length.i, align 8
-  %cmp24.not = icmp eq i64 %8, %9
-  br i1 %cmp24.not, label %if.end26, label %if.then25
-
-if.then25:                                        ; preds = %if.end22
-  call fastcc void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef nonnull @.str.3, ptr noundef %error_details)
-  br label %return
-
-if.end26:                                         ; preds = %if.end22
-  %10 = load ptr, ptr %rp, align 8
-  %call28 = call fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %10, ptr noundef %error_details)
-  br label %return
-
-return:                                           ; preds = %if.then.i22.i, %if.then13.i, %if.then.i14.i, %if.then9.i, %if.then.i6.i, %if.then5.i, %if.then.i.i, %if.then2.i, %if.then.i33, %if.then4, %if.then.i25, %if.then1, %if.then.i, %if.then, %if.end14, %if.end26, %if.then25
-  %retval.0 = phi i32 [ 13, %if.then25 ], [ %call28, %if.end26 ], [ %call19, %if.end14 ], [ 3, %if.then ], [ 3, %if.then.i ], [ 9, %if.then1 ], [ 9, %if.then.i25 ], [ 9, %if.then4 ], [ 9, %if.then.i33 ], [ 3, %if.then2.i ], [ 3, %if.then.i.i ], [ 3, %if.then5.i ], [ 3, %if.then.i6.i ], [ 3, %if.then9.i ], [ 3, %if.then.i14.i ], [ 3, %if.then13.i ], [ 3, %if.then.i22.i ]
-  ret i32 %retval.0
-}
-
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef readonly %src, ptr noundef writeonly %dst) unnamed_addr #2 {
-entry:
-  %cmp = icmp ne ptr %dst, null
-  %cmp1 = icmp ne ptr %src, null
-  %or.cond = and i1 %cmp1, %cmp
-  br i1 %or.cond, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %src) #10
-  %add = add i64 %call, 1
-  %call2 = tail call ptr @gpr_malloc(i64 noundef %add)
-  store ptr %call2, ptr %dst, align 8
-  %call3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %src) #10
-  %add4 = add i64 %call3, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2, ptr nonnull align 1 %src, i64 %add4, i1 false)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
+11:                                               ; preds = %5, %2
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare noundef i32 @_Z31gsec_aead_crypter_encrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef byval(%struct.iovec) align 8, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare noundef i32 @_Z31gsec_aead_crypter_encrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef byval(%struct.iovec) align 8, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef) local_unnamed_addr #4
+declare noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef) local_unnamed_addr #5
 
-declare noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef) local_unnamed_addr #4
+declare noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %counter, ptr noundef %error_details) unnamed_addr #2 {
-entry:
-  %is_overflow = alloca i8, align 1
-  %cmp = icmp eq ptr %counter, null
-  br i1 %cmp, label %return, label %if.end
+define internal fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+  %3 = alloca i8, align 1
+  %4 = icmp eq ptr %0, null
+  br i1 %4, label %13, label %5
 
-if.end:                                           ; preds = %entry
-  store i8 0, ptr %is_overflow, align 1
-  %call = call noundef i32 @_Z22alts_counter_incrementP12alts_counterPbPPc(ptr noundef nonnull %counter, ptr noundef nonnull %is_overflow, ptr noundef %error_details)
-  %cmp1.not = icmp eq i32 %call, 0
-  br i1 %cmp1.not, label %if.end3, label %return
+5:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #11
+  store i8 0, ptr %3, align 1, !tbaa !27
+  %6 = call noundef i32 @_Z22alts_counter_incrementP12alts_counterPbPPc(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %1)
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %7, label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-if.end3:                                          ; preds = %if.end
-  %0 = load i8, ptr %is_overflow, align 1
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.then4, label %return
+7:                                                ; preds = %5
+  %8 = load i8, ptr %3, align 1, !tbaa !27, !range !15, !noundef !16
+  %9 = trunc nuw i8 %8 to i1
+  br i1 %9, label %10, label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-if.then4:                                         ; preds = %if.end3
-  %cmp.i.not = icmp eq ptr %error_details, null
-  br i1 %cmp.i.not, label %return, label %if.then.i
+10:                                               ; preds = %7
+  %.not8 = icmp eq ptr %1, null
+  br i1 %.not8, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %11
 
-if.then.i:                                        ; preds = %if.then4
-  %call2.i = call ptr @gpr_malloc(i64 noundef 31)
-  store ptr %call2.i, ptr %error_details, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %call2.i, ptr noundef nonnull align 1 dereferenceable(31) @.str.19, i64 31, i1 false)
-  br label %return
+11:                                               ; preds = %10
+  %12 = call ptr @gpr_malloc(i64 noundef 31)
+  store ptr %12, ptr %1, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %12, ptr noundef nonnull align 1 dereferenceable(31) @.str.19, i64 31, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-return:                                           ; preds = %if.then.i, %if.then4, %if.end3, %if.end, %entry
-  %retval.0 = phi i32 [ 9, %entry ], [ %call, %if.end ], [ 0, %if.end3 ], [ 13, %if.then4 ], [ 13, %if.then.i ]
-  ret i32 %retval.0
+_ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %11, %10, %7, %5
+  %.1 = phi i32 [ %6, %5 ], [ 0, %7 ], [ 13, %10 ], [ 13, %11 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
+  br label %13
+
+13:                                               ; preds = %2, %_ZL20maybe_copy_error_msgPKcPPc.exit
+  %.0 = phi i32 [ %.1, %_ZL20maybe_copy_error_msgPKcPPc.exit ], [ 9, %2 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z51alts_iovec_record_protocol_integrity_only_unprotectP26alts_iovec_record_protocolPK5iovecmS1_S1_PPc(ptr noundef readonly %rp, ptr noundef %protected_vec, i64 noundef %protected_vec_length, ptr readonly %header.coerce0, i64 %header.coerce1, ptr noundef byval(%struct.iovec) align 8 %tag, ptr noundef %error_details) local_unnamed_addr #2 {
-entry:
-  %bytes_written = alloca i64, align 8
-  %agg.tmp18 = alloca %struct.iovec, align 8
-  %cmp = icmp eq ptr %rp, null
-  br i1 %cmp, label %if.then, label %if.end
+define noundef i32 @_Z51alts_iovec_record_protocol_integrity_only_unprotectP26alts_iovec_record_protocolPK5iovecmS1_S1_PPc(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr readonly %3, i64 %4, ptr noundef byval(%struct.iovec) align 8 %5, ptr noundef %6) local_unnamed_addr #3 {
+  %8 = alloca i64, align 8
+  %9 = alloca %struct.iovec, align 8
+  %10 = icmp eq ptr %0, null
+  br i1 %10, label %11, label %14
 
-if.then:                                          ; preds = %entry
-  %cmp.i.not = icmp eq ptr %error_details, null
-  br i1 %cmp.i.not, label %return, label %if.then.i
+11:                                               ; preds = %7
+  %.not48 = icmp eq ptr %6, null
+  br i1 %.not48, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %12
 
-if.then.i:                                        ; preds = %if.then
-  %call2.i = tail call ptr @gpr_malloc(i64 noundef 40)
-  store ptr %call2.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %call2.i, ptr noundef nonnull align 1 dereferenceable(40) @.str, i64 40, i1 false)
-  br label %return
+12:                                               ; preds = %11
+  %13 = tail call ptr @gpr_malloc(i64 noundef 40)
+  store ptr %13, ptr %6, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %13, ptr noundef nonnull align 1 dereferenceable(40) @.str, i64 40, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-if.end:                                           ; preds = %entry
-  %is_integrity_only = getelementptr inbounds nuw i8, ptr %rp, i64 24
-  %0 = load i8, ptr %is_integrity_only, align 8
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.end2, label %if.then1
+14:                                               ; preds = %7
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %16 = load i8, ptr %15, align 8, !tbaa !14, !range !15, !noundef !16
+  %17 = trunc nuw i8 %16 to i1
+  br i1 %17, label %21, label %18
 
-if.then1:                                         ; preds = %if.end
-  %cmp.i22.not = icmp eq ptr %error_details, null
-  br i1 %cmp.i22.not, label %return, label %if.then.i23
+18:                                               ; preds = %14
+  %.not = icmp eq ptr %6, null
+  br i1 %.not, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %19
 
-if.then.i23:                                      ; preds = %if.then1
-  %call2.i26 = tail call ptr @gpr_malloc(i64 noundef 59)
-  store ptr %call2.i26, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(59) %call2.i26, ptr noundef nonnull align 1 dereferenceable(59) @.str.1, i64 59, i1 false)
-  br label %return
+19:                                               ; preds = %18
+  %20 = tail call ptr @gpr_malloc(i64 noundef 59)
+  store ptr %20, ptr %6, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(59) %20, ptr noundef nonnull align 1 dereferenceable(59) @.str.1, i64 59, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-if.end2:                                          ; preds = %if.end
-  %is_protect = getelementptr inbounds nuw i8, ptr %rp, i64 25
-  %1 = load i8, ptr %is_protect, align 1
-  %tobool3 = trunc i8 %1 to i1
-  br i1 %tobool3, label %if.then4, label %if.end5
+21:                                               ; preds = %14
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 25
+  %23 = load i8, ptr %22, align 1, !tbaa !17, !range !15, !noundef !16
+  %24 = trunc nuw i8 %23 to i1
+  br i1 %24, label %25, label %28
 
-if.then4:                                         ; preds = %if.end2
-  %cmp.i30.not = icmp eq ptr %error_details, null
-  br i1 %cmp.i30.not, label %return, label %if.then.i31
+25:                                               ; preds = %21
+  %.not47 = icmp eq ptr %6, null
+  br i1 %.not47, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %26
 
-if.then.i31:                                      ; preds = %if.then4
-  %call2.i34 = tail call ptr @gpr_malloc(i64 noundef 54)
-  store ptr %call2.i34, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(54) %call2.i34, ptr noundef nonnull align 1 dereferenceable(54) @.str.4, i64 54, i1 false)
-  br label %return
+26:                                               ; preds = %25
+  %27 = tail call ptr @gpr_malloc(i64 noundef 54)
+  store ptr %27, ptr %6, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(54) %27, ptr noundef nonnull align 1 dereferenceable(54) @.str.4, i64 54, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-if.end5:                                          ; preds = %if.end2
-  %agg.tmp6.sroa.0.0.copyload = load ptr, ptr %tag, align 8
-  %agg.tmp6.sroa.2.0.tag.sroa_idx = getelementptr inbounds nuw i8, ptr %tag, i64 8
-  %agg.tmp6.sroa.2.0.copyload = load i64, ptr %agg.tmp6.sroa.2.0.tag.sroa_idx, align 8
-  %cmp1.i = icmp eq ptr %header.coerce0, null
-  br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
+28:                                               ; preds = %21
+  %.sroa.0.0.copyload = load ptr, ptr %5, align 8, !tbaa !18
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !19
+  %29 = icmp eq ptr %3, null
+  br i1 %29, label %30, label %33
 
-if.then2.i:                                       ; preds = %if.end5
-  %cmp.i.not.i = icmp eq ptr %error_details, null
-  br i1 %cmp.i.not.i, label %return, label %if.then.i.i
+30:                                               ; preds = %28
+  %.not16.i = icmp eq ptr %6, null
+  br i1 %.not16.i, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %31
 
-if.then.i.i:                                      ; preds = %if.then2.i
-  %call2.i.i = tail call ptr @gpr_malloc(i64 noundef 19)
-  store ptr %call2.i.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %call2.i.i, ptr noundef nonnull align 1 dereferenceable(19) @.str.11, i64 19, i1 false)
-  br label %return
+31:                                               ; preds = %30
+  %32 = tail call ptr @gpr_malloc(i64 noundef 19)
+  store ptr %32, ptr %6, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %32, ptr noundef nonnull align 1 dereferenceable(19) @.str.11, i64 19, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-if.end3.i:                                        ; preds = %if.end5
-  %cmp4.not.i = icmp eq i64 %header.coerce1, 8
-  br i1 %cmp4.not.i, label %if.end6.i, label %if.then5.i
+33:                                               ; preds = %28
+  %.not.i = icmp eq i64 %4, 8
+  br i1 %.not.i, label %37, label %34
 
-if.then5.i:                                       ; preds = %if.end3.i
-  %cmp.i5.not.i = icmp eq ptr %error_details, null
-  br i1 %cmp.i5.not.i, label %return, label %if.then.i6.i
+34:                                               ; preds = %33
+  %.not13.i = icmp eq ptr %6, null
+  br i1 %.not13.i, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %35
 
-if.then.i6.i:                                     ; preds = %if.then5.i
-  %call2.i9.i = tail call ptr @gpr_malloc(i64 noundef 28)
-  store ptr %call2.i9.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %call2.i9.i, ptr noundef nonnull align 1 dereferenceable(28) @.str.12, i64 28, i1 false)
-  br label %return
+35:                                               ; preds = %34
+  %36 = tail call ptr @gpr_malloc(i64 noundef 28)
+  store ptr %36, ptr %6, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %36, ptr noundef nonnull align 1 dereferenceable(28) @.str.12, i64 28, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-if.end6.i:                                        ; preds = %if.end3.i
-  %cmp8.i = icmp eq ptr %agg.tmp6.sroa.0.0.copyload, null
-  br i1 %cmp8.i, label %if.then9.i, label %if.end10.i
+37:                                               ; preds = %33
+  %38 = icmp eq ptr %.sroa.0.0.copyload, null
+  br i1 %38, label %39, label %42
 
-if.then9.i:                                       ; preds = %if.end6.i
-  %cmp.i13.not.i = icmp eq ptr %error_details, null
-  br i1 %cmp.i13.not.i, label %return, label %if.then.i14.i
+39:                                               ; preds = %37
+  %.not15.i = icmp eq ptr %6, null
+  br i1 %.not15.i, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %40
 
-if.then.i14.i:                                    ; preds = %if.then9.i
-  %call2.i17.i = tail call ptr @gpr_malloc(i64 noundef 16)
-  store ptr %call2.i17.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call2.i17.i, ptr noundef nonnull align 1 dereferenceable(16) @.str.17, i64 16, i1 false)
-  br label %return
+40:                                               ; preds = %39
+  %41 = tail call ptr @gpr_malloc(i64 noundef 16)
+  store ptr %41, ptr %6, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %41, ptr noundef nonnull align 1 dereferenceable(16) @.str.17, i64 16, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-if.end10.i:                                       ; preds = %if.end6.i
-  %tag_length.i = getelementptr inbounds nuw i8, ptr %rp, i64 16
-  %2 = load i64, ptr %tag_length.i, align 8
-  %cmp12.not.i = icmp eq i64 %agg.tmp6.sroa.2.0.copyload, %2
-  br i1 %cmp12.not.i, label %if.end9, label %if.then13.i
+42:                                               ; preds = %37
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %44 = load i64, ptr %43, align 8, !tbaa !3
+  %.not9.i = icmp eq i64 %.sroa.2.0.copyload, %44
+  br i1 %.not9.i, label %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit, label %45
 
-if.then13.i:                                      ; preds = %if.end10.i
-  %cmp.i21.not.i = icmp eq ptr %error_details, null
-  br i1 %cmp.i21.not.i, label %return, label %if.then.i22.i
+45:                                               ; preds = %42
+  %.not14.i = icmp eq ptr %6, null
+  br i1 %.not14.i, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %46
 
-if.then.i22.i:                                    ; preds = %if.then13.i
-  %call2.i25.i = tail call ptr @gpr_malloc(i64 noundef 25)
-  store ptr %call2.i25.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %call2.i25.i, ptr noundef nonnull align 1 dereferenceable(25) @.str.18, i64 25, i1 false)
-  br label %return
+46:                                               ; preds = %45
+  %47 = tail call ptr @gpr_malloc(i64 noundef 25)
+  store ptr %47, ptr %6, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %47, ptr noundef nonnull align 1 dereferenceable(25) @.str.18, i64 25, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-if.end9:                                          ; preds = %if.end10.i
-  %cmp4.not.i38 = icmp eq i64 %protected_vec_length, 0
-  br i1 %cmp4.not.i38, label %if.end.i, label %for.body.i
+_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit: ; preds = %42
+  %.not.i37 = icmp eq i64 %2, 0
+  br i1 %.not.i37, label %.loopexit, label %.lr.ph.i
 
-for.body.i:                                       ; preds = %if.end9, %for.body.i
-  %i.06.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.end9 ]
-  %total_length.05.i = phi i64 [ %add.i39, %for.body.i ], [ 0, %if.end9 ]
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %protected_vec, i64 %i.06.i, i32 1
-  %3 = load i64, ptr %iov_len.i, align 8
-  %add.i39 = add i64 %3, %total_length.05.i
-  %inc.i = add nuw i64 %i.06.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %protected_vec_length
-  br i1 %exitcond.not.i, label %if.end.i.loopexit, label %for.body.i, !llvm.loop !4
+.lr.ph.i:                                         ; preds = %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit, %.lr.ph.i
+  %.08.i = phi i64 [ %51, %.lr.ph.i ], [ 0, %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit ]
+  %.067.i = phi i64 [ %50, %.lr.ph.i ], [ 0, %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit ]
+  %48 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %.08.i, i32 1
+  %49 = load i64, ptr %48, align 8, !tbaa !20
+  %50 = add i64 %49, %.067.i
+  %51 = add nuw i64 %.08.i, 1
+  %exitcond.not.i = icmp eq i64 %51, %2
+  br i1 %exitcond.not.i, label %.loopexit.loopexit, label %.lr.ph.i, !llvm.loop !22
 
-if.end.i.loopexit:                                ; preds = %for.body.i
-  %4 = add i64 %add.i39, 4
-  br label %if.end.i
+.loopexit.loopexit:                               ; preds = %.lr.ph.i
+  %52 = add i64 %50, 4
+  br label %.loopexit
 
-if.end.i:                                         ; preds = %if.end.i.loopexit, %if.end9
-  %total_length.0.lcssa.i = phi i64 [ 4, %if.end9 ], [ %4, %if.end.i.loopexit ]
-  %5 = load i32, ptr %header.coerce0, align 1
-  %conv.i = zext i32 %5 to i64
-  %add.i41 = add i64 %total_length.0.lcssa.i, %agg.tmp6.sroa.2.0.copyload
-  %cmp1.not.i = icmp eq i64 %add.i41, %conv.i
-  br i1 %cmp1.not.i, label %if.end3.i47, label %if.then2.i42
+.loopexit:                                        ; preds = %.loopexit.loopexit, %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit
+  %.06.lcssa.i = phi i64 [ 4, %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit ], [ %52, %.loopexit.loopexit ]
+  %53 = load i32, ptr %3, align 1
+  %54 = zext i32 %53 to i64
+  %55 = add i64 %.06.lcssa.i, %.sroa.2.0.copyload
+  %.not.i38 = icmp eq i64 %55, %54
+  br i1 %.not.i38, label %59, label %56
 
-if.then2.i42:                                     ; preds = %if.end.i
-  %cmp.i5.not.i43 = icmp eq ptr %error_details, null
-  br i1 %cmp.i5.not.i43, label %return, label %if.then.i6.i44
+56:                                               ; preds = %.loopexit
+  %.not13.i39 = icmp eq ptr %6, null
+  br i1 %.not13.i39, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %57
 
-if.then.i6.i44:                                   ; preds = %if.then2.i42
-  %call2.i9.i45 = tail call ptr @gpr_malloc(i64 noundef 18)
-  store ptr %call2.i9.i45, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %call2.i9.i45, ptr noundef nonnull align 1 dereferenceable(18) @.str.20, i64 18, i1 false)
-  br label %return
+57:                                               ; preds = %56
+  %58 = tail call ptr @gpr_malloc(i64 noundef 18)
+  store ptr %58, ptr %6, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %58, ptr noundef nonnull align 1 dereferenceable(18) @.str.20, i64 18, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-if.end3.i47:                                      ; preds = %if.end.i
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %header.coerce0, i64 4
-  %6 = load i32, ptr %add.ptr.i, align 1
-  %cmp6.not.i = icmp eq i32 %6, 6
-  br i1 %cmp6.not.i, label %if.end14, label %if.then7.i
+59:                                               ; preds = %.loopexit
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %61 = load i32, ptr %60, align 1
+  %.not10.i = icmp eq i32 %61, 6
+  br i1 %.not10.i, label %_ZL19verify_frame_headermPhPPc.exit, label %62
 
-if.then7.i:                                       ; preds = %if.end3.i47
-  %cmp.i13.not.i48 = icmp eq ptr %error_details, null
-  br i1 %cmp.i13.not.i48, label %return, label %if.then.i14.i49
+62:                                               ; preds = %59
+  %.not14.i41 = icmp eq ptr %6, null
+  br i1 %.not14.i41, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %63
 
-if.then.i14.i49:                                  ; preds = %if.then7.i
-  %call2.i17.i50 = tail call ptr @gpr_malloc(i64 noundef 26)
-  store ptr %call2.i17.i50, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %call2.i17.i50, ptr noundef nonnull align 1 dereferenceable(26) @.str.21, i64 26, i1 false)
-  br label %return
+63:                                               ; preds = %62
+  %64 = tail call ptr @gpr_malloc(i64 noundef 26)
+  store ptr %64, ptr %6, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %64, ptr noundef nonnull align 1 dereferenceable(26) @.str.21, i64 26, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-if.end14:                                         ; preds = %if.end3.i47
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp18, i8 0, i64 16, i1 false)
-  store i64 0, ptr %bytes_written, align 8
-  %crypter = getelementptr inbounds nuw i8, ptr %rp, i64 8
-  %7 = load ptr, ptr %crypter, align 8
-  %8 = load ptr, ptr %rp, align 8
-  %call15 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %8)
-  %9 = load ptr, ptr %rp, align 8
-  %call17 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %9)
-  %call19 = call noundef i32 @_Z31gsec_aead_crypter_decrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef %7, ptr noundef %call15, i64 noundef %call17, ptr noundef %protected_vec, i64 noundef %protected_vec_length, ptr noundef nonnull %tag, i64 noundef 1, ptr noundef nonnull byval(%struct.iovec) align 8 %agg.tmp18, ptr noundef nonnull %bytes_written, ptr noundef %error_details)
-  %cmp20 = icmp ne i32 %call19, 0
-  %10 = load i64, ptr %bytes_written, align 8
-  %cmp21 = icmp ne i64 %10, 0
-  %or.cond = select i1 %cmp20, i1 true, i1 %cmp21
-  br i1 %or.cond, label %if.then22, label %if.end23
+_ZL19verify_frame_headermPhPPc.exit:              ; preds = %59
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
+  store i64 0, ptr %8, align 8, !tbaa !19
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !25
+  %67 = load ptr, ptr %0, align 8, !tbaa !26
+  %68 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %67)
+  %69 = load ptr, ptr %0, align 8, !tbaa !26
+  %70 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %69)
+  %71 = call noundef i32 @_Z31gsec_aead_crypter_decrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef %66, ptr noundef %68, i64 noundef %70, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %5, i64 noundef 1, ptr noundef nonnull byval(%struct.iovec) align 8 %9, ptr noundef nonnull %8, ptr noundef %6)
+  %72 = icmp ne i32 %71, 0
+  %73 = load i64, ptr %8, align 8
+  %74 = icmp ne i64 %73, 0
+  %or.cond = select i1 %72, i1 true, i1 %74
+  br i1 %or.cond, label %75, label %76
 
-if.then22:                                        ; preds = %if.end14
-  call fastcc void @_ZL22maybe_append_error_msgPKcPPc(ptr noundef nonnull @.str.5, ptr noundef %error_details)
-  br label %return
+75:                                               ; preds = %_ZL19verify_frame_headermPhPPc.exit
+  call fastcc void @_ZL22maybe_append_error_msgPKcPPc(ptr noundef nonnull @.str.5, ptr noundef %6)
+  br label %79
 
-if.end23:                                         ; preds = %if.end14
-  %11 = load ptr, ptr %rp, align 8
-  %call25 = call fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %11, ptr noundef %error_details)
-  br label %return
+76:                                               ; preds = %_ZL19verify_frame_headermPhPPc.exit
+  %77 = load ptr, ptr %0, align 8, !tbaa !26
+  %78 = call fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %77, ptr noundef %6)
+  br label %79
 
-return:                                           ; preds = %if.then.i14.i49, %if.then7.i, %if.then.i6.i44, %if.then2.i42, %if.then.i22.i, %if.then13.i, %if.then.i14.i, %if.then9.i, %if.then.i6.i, %if.then5.i, %if.then.i.i, %if.then2.i, %if.then.i31, %if.then4, %if.then.i23, %if.then1, %if.then.i, %if.then, %if.end23, %if.then22
-  %retval.0 = phi i32 [ 13, %if.then22 ], [ %call25, %if.end23 ], [ 3, %if.then ], [ 3, %if.then.i ], [ 9, %if.then1 ], [ 9, %if.then.i23 ], [ 9, %if.then4 ], [ 9, %if.then.i31 ], [ 3, %if.then2.i ], [ 3, %if.then.i.i ], [ 3, %if.then5.i ], [ 3, %if.then.i6.i ], [ 3, %if.then9.i ], [ 3, %if.then.i14.i ], [ 3, %if.then13.i ], [ 3, %if.then.i22.i ], [ 13, %if.then2.i42 ], [ 13, %if.then.i6.i44 ], [ 13, %if.then7.i ], [ 13, %if.then.i14.i49 ]
-  ret i32 %retval.0
+79:                                               ; preds = %76, %75
+  %.3 = phi i32 [ 13, %75 ], [ %78, %76 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
+
+_ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %63, %62, %57, %56, %46, %45, %40, %39, %35, %34, %31, %30, %26, %25, %19, %18, %12, %11, %79
+  %.0 = phi i32 [ %.3, %79 ], [ 3, %11 ], [ 3, %12 ], [ 9, %18 ], [ 9, %19 ], [ 9, %25 ], [ 9, %26 ], [ 3, %30 ], [ 3, %31 ], [ 3, %34 ], [ 3, %35 ], [ 3, %39 ], [ 3, %40 ], [ 3, %45 ], [ 3, %46 ], [ 13, %56 ], [ 13, %57 ], [ 13, %62 ], [ 13, %63 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 14) i32 @_ZL19verify_frame_headermPhPPc(i64 noundef %data_length, ptr noundef readonly %header, ptr noundef writeonly %error_details) unnamed_addr #2 {
-entry:
-  %cmp = icmp eq ptr %header, null
-  br i1 %cmp, label %if.then, label %if.end
+define internal fastcc noundef range(i32 0, 14) i32 @_ZL19verify_frame_headermPhPPc(i64 noundef %0, ptr noundef readonly %1, ptr noundef writeonly %2) unnamed_addr #3 {
+  %4 = icmp eq ptr %1, null
+  br i1 %4, label %5, label %8
 
-if.then:                                          ; preds = %entry
-  %cmp.i.not = icmp eq ptr %error_details, null
-  br i1 %cmp.i.not, label %return, label %if.then.i
+5:                                                ; preds = %3
+  %.not15 = icmp eq ptr %2, null
+  br i1 %.not15, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %6
 
-if.then.i:                                        ; preds = %if.then
-  %call2.i = tail call ptr @gpr_malloc(i64 noundef 19)
-  store ptr %call2.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %call2.i, ptr noundef nonnull align 1 dereferenceable(19) @.str.11, i64 19, i1 false)
-  br label %return
+6:                                                ; preds = %5
+  %7 = tail call ptr @gpr_malloc(i64 noundef 19)
+  store ptr %7, ptr %2, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %7, ptr noundef nonnull align 1 dereferenceable(19) @.str.11, i64 19, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-if.end:                                           ; preds = %entry
-  %0 = load i32, ptr %header, align 1
-  %conv = zext i32 %0 to i64
-  %add = add i64 %data_length, 4
-  %cmp1.not = icmp eq i64 %add, %conv
-  br i1 %cmp1.not, label %if.end3, label %if.then2
+8:                                                ; preds = %3
+  %9 = load i32, ptr %1, align 1
+  %10 = zext i32 %9 to i64
+  %11 = add i64 %0, 4
+  %.not = icmp eq i64 %11, %10
+  br i1 %.not, label %15, label %12
 
-if.then2:                                         ; preds = %if.end
-  %cmp.i5.not = icmp eq ptr %error_details, null
-  br i1 %cmp.i5.not, label %return, label %if.then.i6
+12:                                               ; preds = %8
+  %.not13 = icmp eq ptr %2, null
+  br i1 %.not13, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %13
 
-if.then.i6:                                       ; preds = %if.then2
-  %call2.i9 = tail call ptr @gpr_malloc(i64 noundef 18)
-  store ptr %call2.i9, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %call2.i9, ptr noundef nonnull align 1 dereferenceable(18) @.str.20, i64 18, i1 false)
-  br label %return
+13:                                               ; preds = %12
+  %14 = tail call ptr @gpr_malloc(i64 noundef 18)
+  store ptr %14, ptr %2, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %14, ptr noundef nonnull align 1 dereferenceable(18) @.str.20, i64 18, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-if.end3:                                          ; preds = %if.end
-  %add.ptr = getelementptr inbounds nuw i8, ptr %header, i64 4
-  %1 = load i32, ptr %add.ptr, align 1
-  %cmp6.not = icmp eq i32 %1, 6
-  br i1 %cmp6.not, label %return, label %if.then7
+15:                                               ; preds = %8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %17 = load i32, ptr %16, align 1
+  %.not10 = icmp eq i32 %17, 6
+  br i1 %.not10, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %18
 
-if.then7:                                         ; preds = %if.end3
-  %cmp.i13.not = icmp eq ptr %error_details, null
-  br i1 %cmp.i13.not, label %return, label %if.then.i14
+18:                                               ; preds = %15
+  %.not14 = icmp eq ptr %2, null
+  br i1 %.not14, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %19
 
-if.then.i14:                                      ; preds = %if.then7
-  %call2.i17 = tail call ptr @gpr_malloc(i64 noundef 26)
-  store ptr %call2.i17, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %call2.i17, ptr noundef nonnull align 1 dereferenceable(26) @.str.21, i64 26, i1 false)
-  br label %return
+19:                                               ; preds = %18
+  %20 = tail call ptr @gpr_malloc(i64 noundef 26)
+  store ptr %20, ptr %2, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %20, ptr noundef nonnull align 1 dereferenceable(26) @.str.21, i64 26, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-return:                                           ; preds = %if.then.i14, %if.then7, %if.then.i6, %if.then2, %if.then.i, %if.then, %if.end3
-  %retval.0 = phi i32 [ 0, %if.end3 ], [ 9, %if.then ], [ 9, %if.then.i ], [ 13, %if.then2 ], [ 13, %if.then.i6 ], [ 13, %if.then7 ], [ 13, %if.then.i14 ]
-  ret i32 %retval.0
+_ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %19, %18, %13, %12, %6, %5, %15
+  %.0 = phi i32 [ 0, %15 ], [ 9, %5 ], [ 9, %6 ], [ 13, %12 ], [ 13, %13 ], [ 13, %18 ], [ 13, %19 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-declare noundef i32 @_Z31gsec_aead_crypter_decrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef byval(%struct.iovec) align 8, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare noundef i32 @_Z31gsec_aead_crypter_decrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef byval(%struct.iovec) align 8, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @_ZL22maybe_append_error_msgPKcPPc(ptr noundef readonly %appendix, ptr noundef %dst) unnamed_addr #6 {
-entry:
-  %cmp = icmp ne ptr %dst, null
-  %cmp1 = icmp ne ptr %appendix, null
-  %or.cond = and i1 %cmp1, %cmp
-  br i1 %or.cond, label %if.then, label %if.end
+define internal fastcc void @_ZL22maybe_append_error_msgPKcPPc(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #7 {
+  %3 = icmp ne ptr %1, null
+  %4 = icmp ne ptr %0, null
+  %or.cond = and i1 %4, %3
+  br i1 %or.cond, label %5, label %16
 
-if.then:                                          ; preds = %entry
-  %0 = load ptr, ptr %dst, align 8
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
-  %sext = shl i64 %call, 32
-  %conv2 = ashr exact i64 %sext, 32
-  %call3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %appendix) #10
-  %add = add i64 %call3, 1
-  %add4 = add i64 %add, %conv2
-  %call5 = tail call ptr @realloc(ptr noundef nonnull %0, i64 noundef %add4) #11
-  store ptr %call5, ptr %dst, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %call5, i64 %conv2
-  %call6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %appendix) #10
-  %add7 = add i64 %call6, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull align 1 %appendix, i64 %add7, i1 false)
-  br label %if.end
+5:                                                ; preds = %2
+  %6 = load ptr, ptr %1, align 8, !tbaa !12
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #12
+  %sext = shl i64 %7, 32
+  %8 = ashr exact i64 %sext, 32
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
+  %10 = add i64 %9, 1
+  %11 = add i64 %10, %8
+  %12 = tail call ptr @realloc(ptr noundef nonnull %6, i64 noundef %11) #13
+  store ptr %12, ptr %1, align 8, !tbaa !12
+  %13 = getelementptr inbounds i8, ptr %12, i64 %8
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
+  %15 = add i64 %14, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr nonnull align 1 %0, i64 %15, i1 false)
+  br label %16
 
-if.end:                                           ; preds = %if.then, %entry
+16:                                               ; preds = %5, %2
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z52alts_iovec_record_protocol_privacy_integrity_protectP26alts_iovec_record_protocolPK5iovecmS1_PPc(ptr noundef readonly %rp, ptr noundef %unprotected_vec, i64 noundef %unprotected_vec_length, ptr %protected_frame.coerce0, i64 %protected_frame.coerce1, ptr noundef %error_details) local_unnamed_addr #2 {
-entry:
-  %bytes_written = alloca i64, align 8
-  %agg.tmp = alloca %struct.iovec, align 8
-  %cmp = icmp eq ptr %rp, null
-  br i1 %cmp, label %if.then, label %if.end
+define noundef i32 @_Z52alts_iovec_record_protocol_privacy_integrity_protectP26alts_iovec_record_protocolPK5iovecmS1_PPc(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr %3, i64 %4, ptr noundef %5) local_unnamed_addr #3 {
+  %7 = alloca i64, align 8
+  %8 = alloca %struct.iovec, align 8
+  %9 = icmp eq ptr %0, null
+  br i1 %9, label %10, label %13
 
-if.then:                                          ; preds = %entry
-  %cmp.i.not = icmp eq ptr %error_details, null
-  br i1 %cmp.i.not, label %return, label %if.then.i
+10:                                               ; preds = %6
+  %.not53 = icmp eq ptr %5, null
+  br i1 %.not53, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %11
 
-if.then.i:                                        ; preds = %if.then
-  %call2.i = tail call ptr @gpr_malloc(i64 noundef 40)
-  store ptr %call2.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %call2.i, ptr noundef nonnull align 1 dereferenceable(40) @.str, i64 40, i1 false)
-  br label %return
+11:                                               ; preds = %10
+  %12 = tail call ptr @gpr_malloc(i64 noundef 40)
+  store ptr %12, ptr %5, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %12, ptr noundef nonnull align 1 dereferenceable(40) @.str, i64 40, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-if.end:                                           ; preds = %entry
-  %is_integrity_only = getelementptr inbounds nuw i8, ptr %rp, i64 24
-  %0 = load i8, ptr %is_integrity_only, align 8
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.then1, label %if.end2
+13:                                               ; preds = %6
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = load i8, ptr %14, align 8, !tbaa !14, !range !15, !noundef !16
+  %16 = trunc nuw i8 %15 to i1
+  br i1 %16, label %17, label %20
 
-if.then1:                                         ; preds = %if.end
-  %cmp.i29.not = icmp eq ptr %error_details, null
-  br i1 %cmp.i29.not, label %return, label %if.then.i30
+17:                                               ; preds = %13
+  %.not52 = icmp eq ptr %5, null
+  br i1 %.not52, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %18
 
-if.then.i30:                                      ; preds = %if.then1
-  %call2.i33 = tail call ptr @gpr_malloc(i64 noundef 62)
-  store ptr %call2.i33, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(62) %call2.i33, ptr noundef nonnull align 1 dereferenceable(62) @.str.6, i64 62, i1 false)
-  br label %return
+18:                                               ; preds = %17
+  %19 = tail call ptr @gpr_malloc(i64 noundef 62)
+  store ptr %19, ptr %5, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(62) %19, ptr noundef nonnull align 1 dereferenceable(62) @.str.6, i64 62, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-if.end2:                                          ; preds = %if.end
-  %is_protect = getelementptr inbounds nuw i8, ptr %rp, i64 25
-  %1 = load i8, ptr %is_protect, align 1
-  %tobool3 = trunc i8 %1 to i1
-  br i1 %tobool3, label %if.end5, label %if.then4
+20:                                               ; preds = %13
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 25
+  %22 = load i8, ptr %21, align 1, !tbaa !17, !range !15, !noundef !16
+  %23 = trunc nuw i8 %22 to i1
+  br i1 %23, label %27, label %24
 
-if.then4:                                         ; preds = %if.end2
-  %cmp.i37.not = icmp eq ptr %error_details, null
-  br i1 %cmp.i37.not, label %return, label %if.then.i38
+24:                                               ; preds = %20
+  %.not49 = icmp eq ptr %5, null
+  br i1 %.not49, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %25
 
-if.then.i38:                                      ; preds = %if.then4
-  %call2.i41 = tail call ptr @gpr_malloc(i64 noundef 52)
-  store ptr %call2.i41, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(52) %call2.i41, ptr noundef nonnull align 1 dereferenceable(52) @.str.2, i64 52, i1 false)
-  br label %return
+25:                                               ; preds = %24
+  %26 = tail call ptr @gpr_malloc(i64 noundef 52)
+  store ptr %26, ptr %5, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(52) %26, ptr noundef nonnull align 1 dereferenceable(52) @.str.2, i64 52, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-if.end5:                                          ; preds = %if.end2
-  %cmp4.not.i = icmp eq i64 %unprotected_vec_length, 0
-  br i1 %cmp4.not.i, label %_ZL16get_total_lengthPK5iovecm.exit, label %for.body.i
+27:                                               ; preds = %20
+  %.not.i = icmp eq i64 %2, 0
+  br i1 %.not.i, label %_ZL16get_total_lengthPK5iovecm.exit, label %.lr.ph.i
 
-for.body.i:                                       ; preds = %if.end5, %for.body.i
-  %i.06.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.end5 ]
-  %total_length.05.i = phi i64 [ %add.i45, %for.body.i ], [ 0, %if.end5 ]
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %unprotected_vec, i64 %i.06.i, i32 1
-  %2 = load i64, ptr %iov_len.i, align 8
-  %add.i45 = add i64 %2, %total_length.05.i
-  %inc.i = add nuw i64 %i.06.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %unprotected_vec_length
-  br i1 %exitcond.not.i, label %_ZL16get_total_lengthPK5iovecm.exit, label %for.body.i, !llvm.loop !4
+.lr.ph.i:                                         ; preds = %27, %.lr.ph.i
+  %.08.i = phi i64 [ %31, %.lr.ph.i ], [ 0, %27 ]
+  %.067.i = phi i64 [ %30, %.lr.ph.i ], [ 0, %27 ]
+  %28 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %.08.i, i32 1
+  %29 = load i64, ptr %28, align 8, !tbaa !20
+  %30 = add i64 %29, %.067.i
+  %31 = add nuw i64 %.08.i, 1
+  %exitcond.not.i = icmp eq i64 %31, %2
+  br i1 %exitcond.not.i, label %_ZL16get_total_lengthPK5iovecm.exit, label %.lr.ph.i, !llvm.loop !22
 
-_ZL16get_total_lengthPK5iovecm.exit:              ; preds = %for.body.i, %if.end5
-  %total_length.0.lcssa.i = phi i64 [ 0, %if.end5 ], [ %add.i45, %for.body.i ]
-  %cmp6 = icmp eq ptr %protected_frame.coerce0, null
-  br i1 %cmp6, label %if.then7, label %if.end8
+_ZL16get_total_lengthPK5iovecm.exit:              ; preds = %.lr.ph.i, %27
+  %.06.lcssa.i = phi i64 [ 0, %27 ], [ %30, %.lr.ph.i ]
+  %32 = icmp eq ptr %3, null
+  br i1 %32, label %33, label %36
 
-if.then7:                                         ; preds = %_ZL16get_total_lengthPK5iovecm.exit
-  %cmp.i46.not = icmp eq ptr %error_details, null
-  br i1 %cmp.i46.not, label %return, label %if.then.i47
+33:                                               ; preds = %_ZL16get_total_lengthPK5iovecm.exit
+  %.not51 = icmp eq ptr %5, null
+  br i1 %.not51, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %34
 
-if.then.i47:                                      ; preds = %if.then7
-  %call2.i50 = tail call ptr @gpr_malloc(i64 noundef 28)
-  store ptr %call2.i50, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %call2.i50, ptr noundef nonnull align 1 dereferenceable(28) @.str.7, i64 28, i1 false)
-  br label %return
+34:                                               ; preds = %33
+  %35 = tail call ptr @gpr_malloc(i64 noundef 28)
+  store ptr %35, ptr %5, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %35, ptr noundef nonnull align 1 dereferenceable(28) @.str.7, i64 28, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-if.end8:                                          ; preds = %_ZL16get_total_lengthPK5iovecm.exit
-  %add = add i64 %total_length.0.lcssa.i, 8
-  %tag_length = getelementptr inbounds nuw i8, ptr %rp, i64 16
-  %3 = load i64, ptr %tag_length, align 8
-  %add10 = add i64 %add, %3
-  %cmp11.not = icmp eq i64 %protected_frame.coerce1, %add10
-  br i1 %cmp11.not, label %if.end20, label %if.then12
+36:                                               ; preds = %_ZL16get_total_lengthPK5iovecm.exit
+  %37 = add i64 %.06.lcssa.i, 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %39 = load i64, ptr %38, align 8, !tbaa !3
+  %40 = add i64 %37, %39
+  %.not = icmp eq i64 %4, %40
+  br i1 %.not, label %44, label %41
 
-if.then12:                                        ; preds = %if.end8
-  %cmp.i54.not = icmp eq ptr %error_details, null
-  br i1 %cmp.i54.not, label %return, label %if.then.i55
+41:                                               ; preds = %36
+  %.not50 = icmp eq ptr %5, null
+  br i1 %.not50, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %42
 
-if.then.i55:                                      ; preds = %if.then12
-  %call2.i58 = tail call ptr @gpr_malloc(i64 noundef 35)
-  store ptr %call2.i58, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(35) %call2.i58, ptr noundef nonnull align 1 dereferenceable(35) @.str.8, i64 35, i1 false)
-  br label %return
+42:                                               ; preds = %41
+  %43 = tail call ptr @gpr_malloc(i64 noundef 35)
+  store ptr %43, ptr %5, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(35) %43, ptr noundef nonnull align 1 dereferenceable(35) @.str.8, i64 35, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-if.end20:                                         ; preds = %if.end8
-  %add15 = add i64 %3, %total_length.0.lcssa.i
-  %4 = trunc i64 %add15 to i32
-  %conv.i = add i32 %4, 4
-  %shr.i.i = lshr i32 %conv.i, 24
-  %conv2.i.i = trunc nuw i32 %shr.i.i to i8
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %protected_frame.coerce0, i64 3
-  store i8 %conv2.i.i, ptr %arrayidx.i.i, align 1
-  %shr3.i.i = lshr i32 %conv.i, 16
-  %conv7.i.i = trunc i32 %shr3.i.i to i8
-  %arrayidx8.i.i = getelementptr inbounds nuw i8, ptr %protected_frame.coerce0, i64 2
-  store i8 %conv7.i.i, ptr %arrayidx8.i.i, align 1
-  %shr9.i.i = lshr i32 %conv.i, 8
-  %conv13.i.i = trunc i32 %shr9.i.i to i8
-  %arrayidx14.i.i = getelementptr inbounds nuw i8, ptr %protected_frame.coerce0, i64 1
-  store i8 %conv13.i.i, ptr %arrayidx14.i.i, align 1
-  %conv18.i.i = trunc i32 %conv.i to i8
-  store i8 %conv18.i.i, ptr %protected_frame.coerce0, align 1
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %protected_frame.coerce0, i64 4
-  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr %protected_frame.coerce0, i64 7
-  store i8 0, ptr %arrayidx.i3.i, align 1
-  %arrayidx8.i4.i = getelementptr inbounds nuw i8, ptr %protected_frame.coerce0, i64 6
-  store i8 0, ptr %arrayidx8.i4.i, align 1
-  %arrayidx14.i5.i = getelementptr inbounds nuw i8, ptr %protected_frame.coerce0, i64 5
-  store i8 0, ptr %arrayidx14.i5.i, align 1
-  store i8 6, ptr %add.ptr.i, align 1
-  %add.ptr = getelementptr inbounds nuw i8, ptr %protected_frame.coerce0, i64 8
-  %5 = load i64, ptr %tag_length, align 8
-  %add26 = add i64 %5, %total_length.0.lcssa.i
-  store i64 0, ptr %bytes_written, align 8
-  %crypter = getelementptr inbounds nuw i8, ptr %rp, i64 8
-  %6 = load ptr, ptr %crypter, align 8
-  %7 = load ptr, ptr %rp, align 8
-  %call27 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %7)
-  %8 = load ptr, ptr %rp, align 8
-  %call29 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %8)
-  store ptr %add.ptr, ptr %agg.tmp, align 8
-  %ciphertext.sroa.2.0.agg.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
-  store i64 %add26, ptr %ciphertext.sroa.2.0.agg.tmp.sroa_idx, align 8
-  %call30 = call noundef i32 @_Z31gsec_aead_crypter_encrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef %6, ptr noundef %call27, i64 noundef %call29, ptr noundef null, i64 noundef 0, ptr noundef %unprotected_vec, i64 noundef %unprotected_vec_length, ptr noundef nonnull byval(%struct.iovec) align 8 %agg.tmp, ptr noundef nonnull %bytes_written, ptr noundef %error_details)
-  %cmp31.not = icmp eq i32 %call30, 0
-  br i1 %cmp31.not, label %if.end33, label %return
+44:                                               ; preds = %36
+  %45 = add i64 %39, %.06.lcssa.i
+  %46 = trunc i64 %45 to i32
+  %47 = add i32 %46, 4
+  %48 = lshr i32 %47, 24
+  %49 = trunc nuw i32 %48 to i8
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 3
+  store i8 %49, ptr %50, align 1, !tbaa !24
+  %51 = lshr i32 %47, 16
+  %52 = trunc i32 %51 to i8
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i8 %52, ptr %53, align 1, !tbaa !24
+  %54 = lshr i32 %47, 8
+  %55 = trunc i32 %54 to i8
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  store i8 %55, ptr %56, align 1, !tbaa !24
+  %57 = trunc i32 %47 to i8
+  store i8 %57, ptr %3, align 1, !tbaa !24
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 7
+  store i8 0, ptr %59, align 1, !tbaa !24
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  store i8 0, ptr %60, align 1, !tbaa !24
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 5
+  store i8 0, ptr %61, align 1, !tbaa !24
+  store i8 6, ptr %58, align 1, !tbaa !24
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %63 = load i64, ptr %38, align 8, !tbaa !3
+  %64 = add i64 %63, %.06.lcssa.i
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
+  store i64 0, ptr %7, align 8, !tbaa !19
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !25
+  %67 = load ptr, ptr %0, align 8, !tbaa !26
+  %68 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %67)
+  %69 = load ptr, ptr %0, align 8, !tbaa !26
+  %70 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %69)
+  store ptr %62, ptr %8, align 8, !tbaa !18
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 %64, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !19
+  %71 = call noundef i32 @_Z31gsec_aead_crypter_encrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef %66, ptr noundef %68, i64 noundef %70, ptr noundef null, i64 noundef 0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull byval(%struct.iovec) align 8 %8, ptr noundef nonnull %7, ptr noundef %5)
+  %.not42 = icmp eq i32 %71, 0
+  br i1 %.not42, label %72, label %80
 
-if.end33:                                         ; preds = %if.end20
-  %9 = load i64, ptr %bytes_written, align 8
-  %10 = load i64, ptr %tag_length, align 8
-  %add35 = add i64 %10, %total_length.0.lcssa.i
-  %cmp36.not = icmp eq i64 %9, %add35
-  br i1 %cmp36.not, label %if.end38, label %if.then37
+72:                                               ; preds = %44
+  %73 = load i64, ptr %7, align 8, !tbaa !19
+  %74 = load i64, ptr %38, align 8, !tbaa !3
+  %75 = add i64 %74, %.06.lcssa.i
+  %.not43 = icmp eq i64 %73, %75
+  br i1 %.not43, label %77, label %76
 
-if.then37:                                        ; preds = %if.end33
-  call fastcc void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef nonnull @.str.9, ptr noundef %error_details)
-  br label %return
+76:                                               ; preds = %72
+  call fastcc void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef nonnull @.str.9, ptr noundef %5)
+  br label %80
 
-if.end38:                                         ; preds = %if.end33
-  %11 = load ptr, ptr %rp, align 8
-  %call40 = call fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %11, ptr noundef %error_details)
-  br label %return
+77:                                               ; preds = %72
+  %78 = load ptr, ptr %0, align 8, !tbaa !26
+  %79 = call fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %78, ptr noundef %5)
+  br label %80
 
-return:                                           ; preds = %if.then.i55, %if.then12, %if.then.i47, %if.then7, %if.then.i38, %if.then4, %if.then.i30, %if.then1, %if.then.i, %if.then, %if.end20, %if.end38, %if.then37
-  %retval.0 = phi i32 [ 13, %if.then37 ], [ %call40, %if.end38 ], [ %call30, %if.end20 ], [ 3, %if.then ], [ 3, %if.then.i ], [ 9, %if.then1 ], [ 9, %if.then.i30 ], [ 9, %if.then4 ], [ 9, %if.then.i38 ], [ 3, %if.then7 ], [ 3, %if.then.i47 ], [ 3, %if.then12 ], [ 3, %if.then.i55 ]
-  ret i32 %retval.0
+80:                                               ; preds = %44, %77, %76
+  %.3 = phi i32 [ 13, %76 ], [ %79, %77 ], [ %71, %44 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
+
+_ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %42, %41, %34, %33, %25, %24, %18, %17, %11, %10, %80
+  %.0 = phi i32 [ %.3, %80 ], [ 3, %10 ], [ 3, %11 ], [ 9, %17 ], [ 9, %18 ], [ 9, %24 ], [ 9, %25 ], [ 3, %33 ], [ 3, %34 ], [ 3, %41 ], [ 3, %42 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z54alts_iovec_record_protocol_privacy_integrity_unprotectP26alts_iovec_record_protocol5iovecPKS1_mS1_PPc(ptr noundef readonly %rp, ptr %header.coerce0, i64 %header.coerce1, ptr noundef %protected_vec, i64 noundef %protected_vec_length, ptr noundef readonly byval(%struct.iovec) align 8 captures(none) %unprotected_data, ptr noundef %error_details) local_unnamed_addr #2 {
-entry:
-  %bytes_written = alloca i64, align 8
-  %cmp = icmp eq ptr %rp, null
-  br i1 %cmp, label %if.then, label %if.end
+define noundef i32 @_Z54alts_iovec_record_protocol_privacy_integrity_unprotectP26alts_iovec_record_protocol5iovecPKS1_mS1_PPc(ptr noundef readonly %0, ptr %1, i64 %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly byval(%struct.iovec) align 8 captures(none) %5, ptr noundef %6) local_unnamed_addr #3 {
+  %8 = alloca i64, align 8
+  %9 = icmp eq ptr %0, null
+  br i1 %9, label %10, label %13
 
-if.then:                                          ; preds = %entry
-  %cmp.i.not = icmp eq ptr %error_details, null
-  br i1 %cmp.i.not, label %return, label %if.then.i
+10:                                               ; preds = %7
+  %.not52 = icmp eq ptr %6, null
+  br i1 %.not52, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %11
 
-if.then.i:                                        ; preds = %if.then
-  %call2.i = tail call ptr @gpr_malloc(i64 noundef 40)
-  store ptr %call2.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %call2.i, ptr noundef nonnull align 1 dereferenceable(40) @.str, i64 40, i1 false)
-  br label %return
+11:                                               ; preds = %10
+  %12 = tail call ptr @gpr_malloc(i64 noundef 40)
+  store ptr %12, ptr %6, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %12, ptr noundef nonnull align 1 dereferenceable(40) @.str, i64 40, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-if.end:                                           ; preds = %entry
-  %is_integrity_only = getelementptr inbounds nuw i8, ptr %rp, i64 24
-  %0 = load i8, ptr %is_integrity_only, align 8
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.then1, label %if.end2
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = load i8, ptr %14, align 8, !tbaa !14, !range !15, !noundef !16
+  %16 = trunc nuw i8 %15 to i1
+  br i1 %16, label %17, label %20
 
-if.then1:                                         ; preds = %if.end
-  %cmp.i29.not = icmp eq ptr %error_details, null
-  br i1 %cmp.i29.not, label %return, label %if.then.i30
+17:                                               ; preds = %13
+  %.not51 = icmp eq ptr %6, null
+  br i1 %.not51, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %18
 
-if.then.i30:                                      ; preds = %if.then1
-  %call2.i33 = tail call ptr @gpr_malloc(i64 noundef 62)
-  store ptr %call2.i33, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(62) %call2.i33, ptr noundef nonnull align 1 dereferenceable(62) @.str.6, i64 62, i1 false)
-  br label %return
+18:                                               ; preds = %17
+  %19 = tail call ptr @gpr_malloc(i64 noundef 62)
+  store ptr %19, ptr %6, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(62) %19, ptr noundef nonnull align 1 dereferenceable(62) @.str.6, i64 62, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-if.end2:                                          ; preds = %if.end
-  %is_protect = getelementptr inbounds nuw i8, ptr %rp, i64 25
-  %1 = load i8, ptr %is_protect, align 1
-  %tobool3 = trunc i8 %1 to i1
-  br i1 %tobool3, label %if.then4, label %if.end5
+20:                                               ; preds = %13
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 25
+  %22 = load i8, ptr %21, align 1, !tbaa !17, !range !15, !noundef !16
+  %23 = trunc nuw i8 %22 to i1
+  br i1 %23, label %24, label %27
 
-if.then4:                                         ; preds = %if.end2
-  %cmp.i37.not = icmp eq ptr %error_details, null
-  br i1 %cmp.i37.not, label %return, label %if.then.i38
+24:                                               ; preds = %20
+  %.not50 = icmp eq ptr %6, null
+  br i1 %.not50, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %25
 
-if.then.i38:                                      ; preds = %if.then4
-  %call2.i41 = tail call ptr @gpr_malloc(i64 noundef 54)
-  store ptr %call2.i41, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(54) %call2.i41, ptr noundef nonnull align 1 dereferenceable(54) @.str.4, i64 54, i1 false)
-  br label %return
+25:                                               ; preds = %24
+  %26 = tail call ptr @gpr_malloc(i64 noundef 54)
+  store ptr %26, ptr %6, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(54) %26, ptr noundef nonnull align 1 dereferenceable(54) @.str.4, i64 54, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-if.end5:                                          ; preds = %if.end2
-  %cmp4.not.i = icmp eq i64 %protected_vec_length, 0
-  br i1 %cmp4.not.i, label %_ZL16get_total_lengthPK5iovecm.exit, label %for.body.i
+27:                                               ; preds = %20
+  %.not.i = icmp eq i64 %4, 0
+  br i1 %.not.i, label %_ZL16get_total_lengthPK5iovecm.exit, label %.lr.ph.i
 
-for.body.i:                                       ; preds = %if.end5, %for.body.i
-  %i.06.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.end5 ]
-  %total_length.05.i = phi i64 [ %add.i45, %for.body.i ], [ 0, %if.end5 ]
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %protected_vec, i64 %i.06.i, i32 1
-  %2 = load i64, ptr %iov_len.i, align 8
-  %add.i45 = add i64 %2, %total_length.05.i
-  %inc.i = add nuw i64 %i.06.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %protected_vec_length
-  br i1 %exitcond.not.i, label %_ZL16get_total_lengthPK5iovecm.exit, label %for.body.i, !llvm.loop !4
+.lr.ph.i:                                         ; preds = %27, %.lr.ph.i
+  %.08.i = phi i64 [ %31, %.lr.ph.i ], [ 0, %27 ]
+  %.067.i = phi i64 [ %30, %.lr.ph.i ], [ 0, %27 ]
+  %28 = getelementptr inbounds nuw %struct.iovec, ptr %3, i64 %.08.i, i32 1
+  %29 = load i64, ptr %28, align 8, !tbaa !20
+  %30 = add i64 %29, %.067.i
+  %31 = add nuw i64 %.08.i, 1
+  %exitcond.not.i = icmp eq i64 %31, %4
+  br i1 %exitcond.not.i, label %_ZL16get_total_lengthPK5iovecm.exit, label %.lr.ph.i, !llvm.loop !22
 
-_ZL16get_total_lengthPK5iovecm.exit:              ; preds = %for.body.i, %if.end5
-  %total_length.0.lcssa.i = phi i64 [ 0, %if.end5 ], [ %add.i45, %for.body.i ]
-  %tag_length = getelementptr inbounds nuw i8, ptr %rp, i64 16
-  %3 = load i64, ptr %tag_length, align 8
-  %cmp6 = icmp ult i64 %total_length.0.lcssa.i, %3
-  br i1 %cmp6, label %if.then7, label %if.end8
+_ZL16get_total_lengthPK5iovecm.exit:              ; preds = %.lr.ph.i, %27
+  %.06.lcssa.i = phi i64 [ 0, %27 ], [ %30, %.lr.ph.i ]
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %33 = load i64, ptr %32, align 8, !tbaa !3
+  %34 = icmp ult i64 %.06.lcssa.i, %33
+  br i1 %34, label %35, label %38
 
-if.then7:                                         ; preds = %_ZL16get_total_lengthPK5iovecm.exit
-  %cmp.i46.not = icmp eq ptr %error_details, null
-  br i1 %cmp.i46.not, label %return, label %if.then.i47
+35:                                               ; preds = %_ZL16get_total_lengthPK5iovecm.exit
+  %.not49 = icmp eq ptr %6, null
+  br i1 %.not49, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %36
 
-if.then.i47:                                      ; preds = %if.then7
-  %call2.i50 = tail call ptr @gpr_malloc(i64 noundef 58)
-  store ptr %call2.i50, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(58) %call2.i50, ptr noundef nonnull align 1 dereferenceable(58) @.str.10, i64 58, i1 false)
-  br label %return
+36:                                               ; preds = %35
+  %37 = tail call ptr @gpr_malloc(i64 noundef 58)
+  store ptr %37, ptr %6, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(58) %37, ptr noundef nonnull align 1 dereferenceable(58) @.str.10, i64 58, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-if.end8:                                          ; preds = %_ZL16get_total_lengthPK5iovecm.exit
-  %cmp9 = icmp eq ptr %header.coerce0, null
-  br i1 %cmp9, label %if.then10, label %if.end11
+38:                                               ; preds = %_ZL16get_total_lengthPK5iovecm.exit
+  %39 = icmp eq ptr %1, null
+  br i1 %39, label %40, label %43
 
-if.then10:                                        ; preds = %if.end8
-  %cmp.i54.not = icmp eq ptr %error_details, null
-  br i1 %cmp.i54.not, label %return, label %if.then.i55
+40:                                               ; preds = %38
+  %.not48 = icmp eq ptr %6, null
+  br i1 %.not48, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %41
 
-if.then.i55:                                      ; preds = %if.then10
-  %call2.i58 = tail call ptr @gpr_malloc(i64 noundef 19)
-  store ptr %call2.i58, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %call2.i58, ptr noundef nonnull align 1 dereferenceable(19) @.str.11, i64 19, i1 false)
-  br label %return
+41:                                               ; preds = %40
+  %42 = tail call ptr @gpr_malloc(i64 noundef 19)
+  store ptr %42, ptr %6, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %42, ptr noundef nonnull align 1 dereferenceable(19) @.str.11, i64 19, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-if.end11:                                         ; preds = %if.end8
-  %cmp13.not = icmp eq i64 %header.coerce1, 8
-  br i1 %cmp13.not, label %if.end15, label %if.then14
+43:                                               ; preds = %38
+  %.not = icmp eq i64 %2, 8
+  br i1 %.not, label %47, label %44
 
-if.then14:                                        ; preds = %if.end11
-  %cmp.i62.not = icmp eq ptr %error_details, null
-  br i1 %cmp.i62.not, label %return, label %if.then.i63
+44:                                               ; preds = %43
+  %.not47 = icmp eq ptr %6, null
+  br i1 %.not47, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %45
 
-if.then.i63:                                      ; preds = %if.then14
-  %call2.i66 = tail call ptr @gpr_malloc(i64 noundef 28)
-  store ptr %call2.i66, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %call2.i66, ptr noundef nonnull align 1 dereferenceable(28) @.str.12, i64 28, i1 false)
-  br label %return
+45:                                               ; preds = %44
+  %46 = tail call ptr @gpr_malloc(i64 noundef 28)
+  store ptr %46, ptr %6, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %46, ptr noundef nonnull align 1 dereferenceable(28) @.str.12, i64 28, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-if.end15:                                         ; preds = %if.end11
-  %iov_len16 = getelementptr inbounds nuw i8, ptr %unprotected_data, i64 8
-  %4 = load i64, ptr %iov_len16, align 8
-  %sub = sub i64 %total_length.0.lcssa.i, %3
-  %cmp18.not = icmp eq i64 %4, %sub
-  br i1 %cmp18.not, label %if.end20, label %if.then19
+47:                                               ; preds = %43
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %49 = load i64, ptr %48, align 8, !tbaa !20
+  %50 = sub i64 %.06.lcssa.i, %33
+  %.not38 = icmp eq i64 %49, %50
+  br i1 %.not38, label %52, label %51
 
-if.then19:                                        ; preds = %if.end15
-  tail call fastcc void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef nonnull @.str.13, ptr noundef %error_details)
-  br label %return
+51:                                               ; preds = %47
+  tail call fastcc void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef nonnull @.str.13, ptr noundef %6)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-if.end20:                                         ; preds = %if.end15
-  %call22 = tail call fastcc noundef i32 @_ZL19verify_frame_headermPhPPc(i64 noundef %total_length.0.lcssa.i, ptr noundef nonnull %header.coerce0, ptr noundef %error_details)
-  %cmp23.not = icmp eq i32 %call22, 0
-  br i1 %cmp23.not, label %if.end25, label %return
+52:                                               ; preds = %47
+  %53 = tail call fastcc noundef i32 @_ZL19verify_frame_headermPhPPc(i64 noundef %.06.lcssa.i, ptr noundef nonnull %1, ptr noundef %6)
+  %.not39 = icmp eq i32 %53, 0
+  br i1 %.not39, label %54, label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-if.end25:                                         ; preds = %if.end20
-  store i64 0, ptr %bytes_written, align 8
-  %crypter = getelementptr inbounds nuw i8, ptr %rp, i64 8
-  %5 = load ptr, ptr %crypter, align 8
-  %6 = load ptr, ptr %rp, align 8
-  %call26 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %6)
-  %7 = load ptr, ptr %rp, align 8
-  %call28 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %7)
-  %call29 = call noundef i32 @_Z31gsec_aead_crypter_decrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef %5, ptr noundef %call26, i64 noundef %call28, ptr noundef null, i64 noundef 0, ptr noundef %protected_vec, i64 noundef %protected_vec_length, ptr noundef nonnull byval(%struct.iovec) align 8 %unprotected_data, ptr noundef nonnull %bytes_written, ptr noundef %error_details)
-  %cmp30.not = icmp eq i32 %call29, 0
-  br i1 %cmp30.not, label %if.end32, label %if.then31
+54:                                               ; preds = %52
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
+  store i64 0, ptr %8, align 8, !tbaa !19
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %56 = load ptr, ptr %55, align 8, !tbaa !25
+  %57 = load ptr, ptr %0, align 8, !tbaa !26
+  %58 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %57)
+  %59 = load ptr, ptr %0, align 8, !tbaa !26
+  %60 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %59)
+  %61 = call noundef i32 @_Z31gsec_aead_crypter_decrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef %56, ptr noundef %58, i64 noundef %60, ptr noundef null, i64 noundef 0, ptr noundef %3, i64 noundef %4, ptr noundef nonnull byval(%struct.iovec) align 8 %5, ptr noundef nonnull %8, ptr noundef %6)
+  %.not40 = icmp eq i32 %61, 0
+  br i1 %.not40, label %63, label %62
 
-if.then31:                                        ; preds = %if.end25
-  call fastcc void @_ZL22maybe_append_error_msgPKcPPc(ptr noundef nonnull @.str.14, ptr noundef %error_details)
-  br label %return
+62:                                               ; preds = %54
+  call fastcc void @_ZL22maybe_append_error_msgPKcPPc(ptr noundef nonnull @.str.14, ptr noundef %6)
+  br label %71
 
-if.end32:                                         ; preds = %if.end25
-  %8 = load i64, ptr %bytes_written, align 8
-  %9 = load i64, ptr %tag_length, align 8
-  %sub34 = sub i64 %total_length.0.lcssa.i, %9
-  %cmp35.not = icmp eq i64 %8, %sub34
-  br i1 %cmp35.not, label %if.end37, label %if.then36
+63:                                               ; preds = %54
+  %64 = load i64, ptr %8, align 8, !tbaa !19
+  %65 = load i64, ptr %32, align 8, !tbaa !3
+  %66 = sub i64 %.06.lcssa.i, %65
+  %.not41 = icmp eq i64 %64, %66
+  br i1 %.not41, label %68, label %67
 
-if.then36:                                        ; preds = %if.end32
-  call fastcc void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef nonnull @.str.15, ptr noundef %error_details)
-  br label %return
+67:                                               ; preds = %63
+  call fastcc void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef nonnull @.str.15, ptr noundef %6)
+  br label %71
 
-if.end37:                                         ; preds = %if.end32
-  %10 = load ptr, ptr %rp, align 8
-  %call39 = call fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %10, ptr noundef %error_details)
-  br label %return
+68:                                               ; preds = %63
+  %69 = load ptr, ptr %0, align 8, !tbaa !26
+  %70 = call fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %69, ptr noundef %6)
+  br label %71
 
-return:                                           ; preds = %if.then.i63, %if.then14, %if.then.i55, %if.then10, %if.then.i47, %if.then7, %if.then.i38, %if.then4, %if.then.i30, %if.then1, %if.then.i, %if.then, %if.end20, %if.end37, %if.then36, %if.then31, %if.then19
-  %retval.0 = phi i32 [ 3, %if.then19 ], [ 13, %if.then31 ], [ 13, %if.then36 ], [ %call39, %if.end37 ], [ %call22, %if.end20 ], [ 3, %if.then ], [ 3, %if.then.i ], [ 9, %if.then1 ], [ 9, %if.then.i30 ], [ 9, %if.then4 ], [ 9, %if.then.i38 ], [ 3, %if.then7 ], [ 3, %if.then.i47 ], [ 3, %if.then10 ], [ 3, %if.then.i55 ], [ 3, %if.then14 ], [ 3, %if.then.i63 ]
-  ret i32 %retval.0
+71:                                               ; preds = %68, %67, %62
+  %.3 = phi i32 [ 13, %62 ], [ 13, %67 ], [ %70, %68 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
+
+_ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %45, %44, %41, %40, %36, %35, %25, %24, %18, %17, %11, %10, %51, %52, %71
+  %.0 = phi i32 [ 3, %51 ], [ %.3, %71 ], [ %53, %52 ], [ 3, %10 ], [ 3, %11 ], [ 9, %17 ], [ 9, %18 ], [ 9, %24 ], [ 9, %25 ], [ 3, %35 ], [ 3, %36 ], [ 3, %40 ], [ 3, %41 ], [ 3, %44 ], [ 3, %45 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 10) i32 @_Z33alts_iovec_record_protocol_createP17gsec_aead_cryptermbbbPP26alts_iovec_record_protocolPPc(ptr noundef %crypter, i64 noundef %overflow_size, i1 noundef zeroext %is_client, i1 noundef zeroext %is_integrity_only, i1 noundef zeroext %is_protect, ptr noundef writeonly %rp, ptr noundef %error_details) local_unnamed_addr #2 {
-entry:
-  %counter_length = alloca i64, align 8
-  %frombool1 = zext i1 %is_integrity_only to i8
-  %frombool2 = zext i1 %is_protect to i8
-  %cmp = icmp eq ptr %crypter, null
-  %cmp3 = icmp eq ptr %rp, null
-  %or.cond = or i1 %cmp, %cmp3
-  br i1 %or.cond, label %if.then, label %if.end
+define noundef range(i32 0, 10) i32 @_Z33alts_iovec_record_protocol_createP17gsec_aead_cryptermbbbPP26alts_iovec_record_protocolPPc(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef writeonly %5, ptr noundef %6) local_unnamed_addr #3 {
+  %8 = alloca i64, align 8
+  %9 = zext i1 %3 to i8
+  %10 = zext i1 %4 to i8
+  %11 = icmp eq ptr %0, null
+  %12 = icmp eq ptr %5, null
+  %or.cond = or i1 %11, %12
+  br i1 %or.cond, label %13, label %16
 
-if.then:                                          ; preds = %entry
-  %cmp.i.not = icmp eq ptr %error_details, null
-  br i1 %cmp.i.not, label %return, label %if.then.i
+13:                                               ; preds = %7
+  %.not32 = icmp eq ptr %6, null
+  br i1 %.not32, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %14
 
-if.then.i:                                        ; preds = %if.then
-  %call2.i = tail call ptr @gpr_malloc(i64 noundef 64)
-  store ptr %call2.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %call2.i, ptr noundef nonnull align 1 dereferenceable(64) @.str.16, i64 64, i1 false)
-  br label %return
+14:                                               ; preds = %13
+  %15 = tail call ptr @gpr_malloc(i64 noundef 64)
+  store ptr %15, ptr %6, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %15, ptr noundef nonnull align 1 dereferenceable(64) @.str.16, i64 64, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-if.end:                                           ; preds = %entry
-  %call = tail call ptr @gpr_zalloc(i64 noundef 32)
-  store i64 0, ptr %counter_length, align 8
-  %call4 = call noundef i32 @_Z30gsec_aead_crypter_nonce_lengthPK17gsec_aead_crypterPmPPc(ptr noundef nonnull %crypter, ptr noundef nonnull %counter_length, ptr noundef %error_details)
-  %cmp5.not = icmp eq i32 %call4, 0
-  br i1 %cmp5.not, label %if.end7, label %cleanup
+16:                                               ; preds = %7
+  %17 = tail call ptr @gpr_zalloc(i64 noundef 32)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
+  store i64 0, ptr %8, align 8, !tbaa !19
+  %18 = call noundef i32 @_Z30gsec_aead_crypter_nonce_lengthPK17gsec_aead_crypterPmPPc(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %6)
+  %.not = icmp eq i32 %18, 0
+  br i1 %.not, label %19, label %29
 
-if.end7:                                          ; preds = %if.end
-  %spec.select = xor i1 %is_client, %is_protect
-  %0 = load i64, ptr %counter_length, align 8
-  %call10 = call noundef i32 @_Z19alts_counter_createbmmPP12alts_counterPPc(i1 noundef zeroext %spec.select, i64 noundef %0, i64 noundef %overflow_size, ptr noundef %call, ptr noundef %error_details)
-  %cmp11.not = icmp eq i32 %call10, 0
-  br i1 %cmp11.not, label %if.end13, label %cleanup
+19:                                               ; preds = %16
+  %spec.select = xor i1 %2, %4
+  %20 = load i64, ptr %8, align 8, !tbaa !19
+  %21 = call noundef i32 @_Z19alts_counter_createbmmPP12alts_counterPPc(i1 noundef zeroext %spec.select, i64 noundef %20, i64 noundef %1, ptr noundef %17, ptr noundef %6)
+  %.not30 = icmp eq i32 %21, 0
+  br i1 %.not30, label %22, label %29
 
-if.end13:                                         ; preds = %if.end7
-  %tag_length = getelementptr inbounds nuw i8, ptr %call, i64 16
-  %call14 = call noundef i32 @_Z28gsec_aead_crypter_tag_lengthPK17gsec_aead_crypterPmPPc(ptr noundef nonnull %crypter, ptr noundef nonnull %tag_length, ptr noundef %error_details)
-  %cmp15.not = icmp eq i32 %call14, 0
-  br i1 %cmp15.not, label %if.end17, label %cleanup
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %24 = call noundef i32 @_Z28gsec_aead_crypter_tag_lengthPK17gsec_aead_crypterPmPPc(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef %6)
+  %.not31 = icmp eq i32 %24, 0
+  br i1 %.not31, label %25, label %29
 
-if.end17:                                         ; preds = %if.end13
-  %crypter18 = getelementptr inbounds nuw i8, ptr %call, i64 8
-  store ptr %crypter, ptr %crypter18, align 8
-  %is_integrity_only20 = getelementptr inbounds nuw i8, ptr %call, i64 24
-  store i8 %frombool1, ptr %is_integrity_only20, align 8
-  %is_protect23 = getelementptr inbounds nuw i8, ptr %call, i64 25
-  store i8 %frombool2, ptr %is_protect23, align 1
-  store ptr %call, ptr %rp, align 8
-  br label %return
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store ptr %0, ptr %26, align 8, !tbaa !25
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  store i8 %9, ptr %27, align 8, !tbaa !14
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 25
+  store i8 %10, ptr %28, align 1, !tbaa !17
+  store ptr %17, ptr %5, align 8, !tbaa !28
+  br label %31
 
-cleanup:                                          ; preds = %if.end13, %if.end7, %if.end
-  %1 = load ptr, ptr %call, align 8
-  call void @_Z20alts_counter_destroyP12alts_counter(ptr noundef %1)
-  call void @gpr_free(ptr noundef nonnull %call)
-  br label %return
+29:                                               ; preds = %22, %19, %16
+  %30 = load ptr, ptr %17, align 8, !tbaa !26
+  call void @_Z20alts_counter_destroyP12alts_counter(ptr noundef %30)
+  call void @gpr_free(ptr noundef nonnull %17)
+  br label %31
 
-return:                                           ; preds = %if.then.i, %if.then, %cleanup, %if.end17
-  %retval.0 = phi i32 [ 9, %cleanup ], [ 0, %if.end17 ], [ 3, %if.then ], [ 3, %if.then.i ]
-  ret i32 %retval.0
+31:                                               ; preds = %29, %25
+  %.1 = phi i32 [ 9, %29 ], [ 0, %25 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
+
+_ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %14, %13, %31
+  %.0 = phi i32 [ %.1, %31 ], [ 3, %13 ], [ 3, %14 ]
+  ret i32 %.0
 }
 
-declare ptr @gpr_zalloc(i64 noundef) local_unnamed_addr #4
+declare ptr @gpr_zalloc(i64 noundef) local_unnamed_addr #5
 
-declare noundef i32 @_Z30gsec_aead_crypter_nonce_lengthPK17gsec_aead_crypterPmPPc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare noundef i32 @_Z30gsec_aead_crypter_nonce_lengthPK17gsec_aead_crypterPmPPc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare noundef i32 @_Z19alts_counter_createbmmPP12alts_counterPPc(i1 noundef zeroext, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare noundef i32 @_Z19alts_counter_createbmmPP12alts_counterPPc(i1 noundef zeroext, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare noundef i32 @_Z28gsec_aead_crypter_tag_lengthPK17gsec_aead_crypterPmPPc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare noundef i32 @_Z28gsec_aead_crypter_tag_lengthPK17gsec_aead_crypterPmPPc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare void @_Z20alts_counter_destroyP12alts_counter(ptr noundef) local_unnamed_addr #4
+declare void @_Z20alts_counter_destroyP12alts_counter(ptr noundef) local_unnamed_addr #5
 
-declare void @gpr_free(ptr noundef) local_unnamed_addr #4
+declare void @gpr_free(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z34alts_iovec_record_protocol_destroyP26alts_iovec_record_protocol(ptr noundef %rp) local_unnamed_addr #2 {
-entry:
-  %cmp.not = icmp eq ptr %rp, null
-  br i1 %cmp.not, label %if.end, label %if.then
+define void @_Z34alts_iovec_record_protocol_destroyP26alts_iovec_record_protocol(ptr noundef %0) local_unnamed_addr #3 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %6, label %2
 
-if.then:                                          ; preds = %entry
-  %0 = load ptr, ptr %rp, align 8
-  tail call void @_Z20alts_counter_destroyP12alts_counter(ptr noundef %0)
-  %crypter = getelementptr inbounds nuw i8, ptr %rp, i64 8
-  %1 = load ptr, ptr %crypter, align 8
-  tail call void @_Z25gsec_aead_crypter_destroyP17gsec_aead_crypter(ptr noundef %1)
-  tail call void @gpr_free(ptr noundef nonnull %rp)
-  br label %if.end
+2:                                                ; preds = %1
+  %3 = load ptr, ptr %0, align 8, !tbaa !26
+  tail call void @_Z20alts_counter_destroyP12alts_counter(ptr noundef %3)
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !25
+  tail call void @_Z25gsec_aead_crypter_destroyP17gsec_aead_crypter(ptr noundef %5)
+  tail call void @gpr_free(ptr noundef nonnull %0)
+  br label %6
 
-if.end:                                           ; preds = %if.then, %entry
+6:                                                ; preds = %2, %1
   ret void
 }
 
-declare void @_Z25gsec_aead_crypter_destroyP17gsec_aead_crypter(ptr noundef) local_unnamed_addr #4
+declare void @_Z25gsec_aead_crypter_destroyP17gsec_aead_crypter(ptr noundef) local_unnamed_addr #5
 
-declare ptr @gpr_malloc(i64 noundef) local_unnamed_addr #4
+declare ptr @gpr_malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
-declare noundef i32 @_Z22alts_counter_incrementP12alts_counterPbPPc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare noundef i32 @_Z22alts_counter_incrementP12alts_counterPbPPc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #9
+declare i64 @llvm.usub.sat.i64(i64, i64) #10
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind willreturn memory(read) }
-attributes #11 = { nounwind allocsize(1) }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
+attributes #13 = { nounwind allocsize(1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !10, i64 16}
+!4 = !{!"_ZTS26alts_iovec_record_protocol", !5, i64 0, !9, i64 8, !10, i64 16, !11, i64 24, !11, i64 25}
+!5 = !{!"p1 _ZTS12alts_counter", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!"p1 _ZTS17gsec_aead_crypter", !6, i64 0}
+!10 = !{!"long", !7, i64 0}
+!11 = !{!"bool", !7, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 omnipotent char", !6, i64 0}
+!14 = !{!4, !11, i64 24}
+!15 = !{i8 0, i8 2}
+!16 = !{}
+!17 = !{!4, !11, i64 25}
+!18 = !{!6, !6, i64 0}
+!19 = !{!10, !10, i64 0}
+!20 = !{!21, !10, i64 8}
+!21 = !{!"_ZTS5iovec", !6, i64 0, !10, i64 8}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.mustprogress"}
+!24 = !{!7, !7, i64 0}
+!25 = !{!4, !9, i64 8}
+!26 = !{!4, !5, i64 0}
+!27 = !{!11, !11, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTS26alts_iovec_record_protocol", !6, i64 0}

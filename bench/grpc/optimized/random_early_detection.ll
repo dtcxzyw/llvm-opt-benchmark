@@ -1,21 +1,21 @@
 ; ModuleID = 'bench/grpc/original/random_early_detection.ll'
 source_filename = "bench/grpc/original/random_early_detection.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.absl::lts_20230802::BitGenRef" = type { i64, ptr, ptr }
+%"class.absl::lts_20240722::BitGenRef" = type { i64, ptr, ptr }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base" }
 %"struct.std::_Head_base" = type { double }
 
-$_ZN4absl12lts_202308029BitGenRef8NotAMockEmPKvPvS4_ = comdat any
+$_ZN4absl12lts_202407229BitGenRef8NotAMockEmPKvPvS4_ = comdat any
 
-$_ZN4absl12lts_2023080213base_internal11FastTypeTagIFbNS0_22bernoulli_distributionESt5tupleIJdEEEE9dummy_varE = comdat any
+$_ZN4absl12lts_2024072213base_internal11FastTypeTagIFbNS0_22bernoulli_distributionESt5tupleIJdEEEE9dummy_varE = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZN4absl12lts_2023080213base_internal11FastTypeTagIFbNS0_22bernoulli_distributionESt5tupleIJdEEEE9dummy_varE = linkonce_odr constant i8 0, comdat, align 1
+@_ZN4absl12lts_2024072213base_internal11FastTypeTagIFbNS0_22bernoulli_distributionESt5tupleIJdEEEE9dummy_varE = linkonce_odr constant i8 0, comdat, align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_random_early_detection.cc, ptr null }]
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
@@ -27,122 +27,137 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK9grpc_core20RandomEarlyDetection6RejectEmN4absl12lts_202308029BitGenRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %size, ptr noundef readonly byval(%"class.absl::lts_20230802::BitGenRef") align 8 captures(none) %bitsrc) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %arg_tuple.i.i.i = alloca %"class.std::tuple", align 8
-  %result.i.i.i = alloca i8, align 1
-  %0 = load i64, ptr %this, align 8
-  %cmp.not = icmp ugt i64 %size, %0
-  br i1 %cmp.not, label %if.end, label %return
+define noundef zeroext i1 @_ZNK9grpc_core20RandomEarlyDetection6RejectEmN4absl12lts_202407229BitGenRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, ptr noundef readonly byval(%"class.absl::lts_20240722::BitGenRef") align 8 captures(none) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.std::tuple", align 8
+  %5 = alloca i8, align 1
+  %6 = load i64, ptr %0, align 8, !tbaa !3
+  %.not = icmp ugt i64 %1, %6
+  br i1 %.not, label %7, label %38
 
-if.end:                                           ; preds = %entry
-  %hard_limit_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load i64, ptr %hard_limit_, align 8
-  %cmp2 = icmp ult i64 %size, %1
-  br i1 %cmp2, label %if.then3, label %return
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = load i64, ptr %8, align 8, !tbaa !8
+  %10 = icmp ult i64 %1, %9
+  br i1 %10, label %11, label %38
 
-if.then3:                                         ; preds = %if.end
-  %sub = sub i64 %size, %0
-  %conv = uitofp i64 %sub to double
-  %sub7 = sub i64 %1, %0
-  %conv8 = uitofp i64 %sub7 to double
-  %div = fdiv double %conv, %conv8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %arg_tuple.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %result.i.i.i)
-  store double %div, ptr %arg_tuple.i.i.i, align 8
-  %mock_call_.i.i.i.i = getelementptr inbounds nuw i8, ptr %bitsrc, i64 8
-  %2 = load ptr, ptr %mock_call_.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %2, @_ZN4absl12lts_202308029BitGenRef8NotAMockEmPKvPvS4_
-  %.pre = load i64, ptr %bitsrc, align 8
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %_ZN4absl12lts_202308029BitGenRef10InvokeMockEPKvPvS4_.exit.i.i.i
+11:                                               ; preds = %7
+  %12 = sub i64 %1, %6
+  %13 = uitofp i64 %12 to double
+  %14 = sub i64 %9, %6
+  %15 = uitofp i64 %14 to double
+  %16 = fdiv double %13, %15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  store double %16, ptr %4, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #7
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !12
+  %19 = icmp eq ptr %18, @_ZN4absl12lts_202407229BitGenRef8NotAMockEmPKvPvS4_
+  %.pre = load i64, ptr %2, align 8, !tbaa !15
+  br i1 %19, label %_ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit.thread.i.i.i, label %_ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit.i.i.i
 
-_ZN4absl12lts_202308029BitGenRef10InvokeMockEPKvPvS4_.exit.i.i.i: ; preds = %if.then3
-  %call.i.i.i.i = call noundef zeroext i1 %2(i64 noundef %.pre, ptr noundef nonnull @_ZN4absl12lts_2023080213base_internal11FastTypeTagIFbNS0_22bernoulli_distributionESt5tupleIJdEEEE9dummy_varE, ptr noundef nonnull %arg_tuple.i.i.i, ptr noundef nonnull %result.i.i.i)
-  br i1 %call.i.i.i.i, label %_ZN4absl12lts_202308029BitGenRef10InvokeMockEPKvPvS4_.exit.if.end_crit_edge.i.i.i, label %_ZN4absl12lts_202308029BitGenRef10InvokeMockEPKvPvS4_.exit.if.then_crit_edge.i.i.i
+_ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit.i.i.i: ; preds = %11
+  %20 = call noundef zeroext i1 %18(i64 noundef %.pre, ptr noundef nonnull @_ZN4absl12lts_2024072213base_internal11FastTypeTagIFbNS0_22bernoulli_distributionESt5tupleIJdEEEE9dummy_varE, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  br i1 %20, label %_ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit._crit_edge.i.i.i, label %_ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit._ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit.thread_crit_edge.i.i.i
 
-_ZN4absl12lts_202308029BitGenRef10InvokeMockEPKvPvS4_.exit.if.end_crit_edge.i.i.i: ; preds = %_ZN4absl12lts_202308029BitGenRef10InvokeMockEPKvPvS4_.exit.i.i.i
-  %.pre7.i.i.i = load i8, ptr %result.i.i.i, align 1
-  %3 = trunc i8 %.pre7.i.i.i to i1
-  br label %_ZN4absl12lts_202308029BernoulliIRNS0_9BitGenRefEEEbOT_d.exit
+_ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit._crit_edge.i.i.i: ; preds = %_ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit.i.i.i
+  %.pre10.i.i.i = load i8, ptr %5, align 1, !tbaa !16, !range !18
+  %21 = trunc nuw i8 %.pre10.i.i.i to i1
+  br label %_ZN4absl12lts_202407229BernoulliIRNS0_9BitGenRefEEEbOT_d.exit
 
-_ZN4absl12lts_202308029BitGenRef10InvokeMockEPKvPvS4_.exit.if.then_crit_edge.i.i.i: ; preds = %_ZN4absl12lts_202308029BitGenRef10InvokeMockEPKvPvS4_.exit.i.i.i
-  %.pre.i.i.i = load double, ptr %arg_tuple.i.i.i, align 8
-  br label %if.then.i.i.i
+_ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit._ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit.thread_crit_edge.i.i.i: ; preds = %_ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit.i.i.i
+  %.pre.i.i.i = load double, ptr %4, align 8, !tbaa !19
+  br label %_ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit.thread.i.i.i
 
-if.then.i.i.i:                                    ; preds = %_ZN4absl12lts_202308029BitGenRef10InvokeMockEPKvPvS4_.exit.if.then_crit_edge.i.i.i, %if.then3
-  %4 = phi double [ %.pre.i.i.i, %_ZN4absl12lts_202308029BitGenRef10InvokeMockEPKvPvS4_.exit.if.then_crit_edge.i.i.i ], [ %div, %if.then3 ]
-  %generate_impl_fn_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %bitsrc, i64 16
-  %5 = load ptr, ptr %generate_impl_fn_.i.i.i.i.i.i.i.i, align 8
-  br label %while.body.i.i.i.i.i
+_ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit.thread.i.i.i: ; preds = %_ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit._ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit.thread_crit_edge.i.i.i, %11
+  %22 = phi double [ %.pre.i.i.i, %_ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit._ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit.thread_crit_edge.i.i.i ], [ %16, %11 ]
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %24 = load ptr, ptr %23, align 8, !tbaa !20
+  br label %25
 
-while.body.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i
-  %p.addr.0.i.i.i.i.i = phi double [ %4, %if.then.i.i.i ], [ %mul6.i.i.i.i.i, %if.end.i.i.i.i.i ]
-  %mul.i.i.i.i.i = fmul double %p.addr.0.i.i.i.i.i, 0x41F0000000000000
-  %conv.i.i.i.i.i = fptosi double %mul.i.i.i.i.i to i64
-  %call.i.i.i.i.i.i.i.i = call noundef i64 %5(i64 noundef %.pre)
-  %conv1.i.i.i.i.i = and i64 %call.i.i.i.i.i.i.i.i, 4294967295
-  %cmp.not.i.i.i.i.i = icmp eq i64 %conv1.i.i.i.i.i, %conv.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i.i, label %if.end.i.i.i.i.i, label %if.then.i.i.i.i.i
+25:                                               ; preds = %31, %_ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit.thread.i.i.i
+  %.013.i.i.i.i.i = phi double [ %22, %_ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit.thread.i.i.i ], [ %35, %31 ]
+  %26 = fmul double %.013.i.i.i.i.i, 0x41F0000000000000
+  %27 = fptosi double %26 to i64
+  %28 = call noundef i64 %24(i64 noundef %.pre)
+  %29 = and i64 %28, 4294967295
+  %.not.i.i.i.i.i = icmp eq i64 %29, %27
+  br i1 %.not.i.i.i.i.i, label %31, label %.thread.i.i.i.i.i, !prof !21
 
-if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.i
-  %cmp4.i.i.i.i.i = icmp ult i64 %conv1.i.i.i.i.i, %conv.i.i.i.i.i
-  br label %_ZN4absl12lts_202308029BernoulliIRNS0_9BitGenRefEEEbOT_d.exit
+.thread.i.i.i.i.i:                                ; preds = %25
+  %30 = icmp ult i64 %29, %27
+  br label %_ZN4absl12lts_202407229BernoulliIRNS0_9BitGenRefEEEbOT_d.exit
 
-if.end.i.i.i.i.i:                                 ; preds = %while.body.i.i.i.i.i
-  %conv5.i.i.i.i.i = uitofp nneg i64 %conv.i.i.i.i.i to double
-  %div.i.i.i.i.i = fmul double %conv5.i.i.i.i.i, 0x3DF0000000000000
-  %sub.i.i.i.i.i = fsub double %p.addr.0.i.i.i.i.i, %div.i.i.i.i.i
-  %mul6.i.i.i.i.i = fmul double %sub.i.i.i.i.i, 0x41F0000000000000
-  %cmp7.i.i.i.i.i = fcmp oeq double %mul6.i.i.i.i.i, 0.000000e+00
-  br i1 %cmp7.i.i.i.i.i, label %_ZN4absl12lts_202308029BernoulliIRNS0_9BitGenRefEEEbOT_d.exit, label %while.body.i.i.i.i.i, !llvm.loop !4
+31:                                               ; preds = %25
+  %32 = uitofp nneg i64 %27 to double
+  %33 = fmul double %32, 0x3DF0000000000000
+  %34 = fsub double %.013.i.i.i.i.i, %33
+  %35 = fmul double %34, 0x41F0000000000000
+  %36 = fcmp une double %35, 0.000000e+00
+  br i1 %36, label %25, label %_ZN4absl12lts_202407229BernoulliIRNS0_9BitGenRefEEEbOT_d.exit, !llvm.loop !22
 
-_ZN4absl12lts_202308029BernoulliIRNS0_9BitGenRefEEEbOT_d.exit: ; preds = %if.end.i.i.i.i.i, %_ZN4absl12lts_202308029BitGenRef10InvokeMockEPKvPvS4_.exit.if.end_crit_edge.i.i.i, %if.then.i.i.i.i.i
-  %tobool.i.i.i = phi i1 [ %3, %_ZN4absl12lts_202308029BitGenRef10InvokeMockEPKvPvS4_.exit.if.end_crit_edge.i.i.i ], [ %cmp4.i.i.i.i.i, %if.then.i.i.i.i.i ], [ false, %if.end.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg_tuple.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %result.i.i.i)
-  br label %return
+_ZN4absl12lts_202407229BernoulliIRNS0_9BitGenRefEEEbOT_d.exit: ; preds = %31, %_ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit._crit_edge.i.i.i, %.thread.i.i.i.i.i
+  %37 = phi i1 [ %21, %_ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit._crit_edge.i.i.i ], [ %30, %.thread.i.i.i.i.i ], [ false, %31 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  br label %38
 
-return:                                           ; preds = %if.end, %entry, %_ZN4absl12lts_202308029BernoulliIRNS0_9BitGenRefEEEbOT_d.exit
-  %retval.0 = phi i1 [ %tobool.i.i.i, %_ZN4absl12lts_202308029BernoulliIRNS0_9BitGenRefEEEbOT_d.exit ], [ false, %entry ], [ true, %if.end ]
-  ret i1 %retval.0
+38:                                               ; preds = %7, %3, %_ZN4absl12lts_202407229BernoulliIRNS0_9BitGenRefEEEbOT_d.exit
+  %.0 = phi i1 [ %37, %_ZN4absl12lts_202407229BernoulliIRNS0_9BitGenRefEEEbOT_d.exit ], [ false, %3 ], [ true, %7 ]
+  ret i1 %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN4absl12lts_202308029BitGenRef8NotAMockEmPKvPvS4_(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #4 comdat align 2 {
-entry:
+define linkonce_odr noundef zeroext i1 @_ZN4absl12lts_202407229BitGenRef8NotAMockEmPKvPvS4_(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 comdat align 2 {
   ret i1 false
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_random_early_detection.cc() #5 section ".text.startup" {
-entry:
+define internal void @_GLOBAL__sub_I_random_early_detection.cc() #6 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #7
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #7
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
-
-attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"_ZTSN9grpc_core20RandomEarlyDetectionE", !5, i64 0, !5, i64 8}
+!5 = !{!"long", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!4, !5, i64 8}
+!9 = !{!10, !11, i64 0}
+!10 = !{!"_ZTSSt10_Head_baseILm0EdLb0EE", !11, i64 0}
+!11 = !{!"double", !6, i64 0}
+!12 = !{!13, !14, i64 8}
+!13 = !{!"_ZTSN4absl12lts_202407229BitGenRefE", !5, i64 0, !14, i64 8, !14, i64 16}
+!14 = !{!"any pointer", !6, i64 0}
+!15 = !{!13, !5, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"bool", !6, i64 0}
+!18 = !{i8 0, i8 2}
+!19 = !{!11, !11, i64 0}
+!20 = !{!13, !14, i64 16}
+!21 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.mustprogress"}

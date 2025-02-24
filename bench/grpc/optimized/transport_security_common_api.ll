@@ -1,11 +1,18 @@
 ; ModuleID = 'bench/grpc/original/transport_security_common_api.ll'
 source_filename = "bench/grpc/original/transport_security_common_api.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.upb_alloc = type { ptr }
-%struct.upb_MiniTable = type { ptr, ptr, i16, i16, i8, i8, i8, i8, [0 x %struct._upb_FastTable_Entry] }
-%struct._upb_FastTable_Entry = type { i64, ptr }
+%struct.upb_MiniTable = type { ptr, ptr, i16, i16, i8, i8, i8, i8 }
+%"class.absl::lts_20240722::log_internal::LogMessage" = type { %"class.absl::lts_20240722::base_internal::ErrnoSaver", %"class.std::unique_ptr" }
+%"class.absl::lts_20240722::base_internal::ErrnoSaver" = type { i32 }
+%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
+%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
+%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
+%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
+%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
+%"struct.std::_Head_base.1" = type { ptr }
 %struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
 %"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
 %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
@@ -22,744 +29,929 @@ $__clang_call_terminate = comdat any
 @.str.7 = private unnamed_addr constant [61 x i8] c"Invalid arguments to grpc_gcp_rpc_protocol_versions_check().\00", align 1
 @upb_alloc_global = external global %struct.upb_alloc, align 8
 @grpc__gcp__RpcProtocolVersions_msg_init = external global %struct.upb_MiniTable, align 8
-@grpc__gcp__RpcProtocolVersions__Version_msg_init = external local_unnamed_addr global %struct.upb_MiniTable, align 8
+@grpc__gcp__RpcProtocolVersions__Version_msg_init = external global %struct.upb_MiniTable, align 8
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z38grpc_gcp_rpc_protocol_versions_set_maxP29_grpc_gcp_RpcProtocolVersionsjj(ptr noundef writeonly %versions, i32 noundef %max_major, i32 noundef %max_minor) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp ne ptr %versions, null
-  br i1 %cmp, label %if.end, label %if.then
+define noundef zeroext i1 @_Z38grpc_gcp_rpc_protocol_versions_set_maxP29_grpc_gcp_RpcProtocolVersionsjj(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
+  %5 = icmp ne ptr %0, null
+  br i1 %5, label %9, label %6
 
-if.then:                                          ; preds = %entry
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 29, i32 noundef 2, ptr noundef nonnull @.str.1)
-  br label %return
+6:                                                ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str, i32 noundef 30) #12
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 64, ptr nonnull @.str.1)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi65EEERS2_RAT__Kc.exit unwind label %7
 
-if.end:                                           ; preds = %entry
-  store i32 %max_major, ptr %versions, align 4
-  %minor = getelementptr inbounds nuw i8, ptr %versions, i64 4
-  store i32 %max_minor, ptr %minor, align 4
-  br label %return
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi65EEERS2_RAT__Kc.exit: ; preds = %6
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  br label %11
 
-return:                                           ; preds = %if.end, %if.then
-  ret i1 %cmp
-}
-
-declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
-
-; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z38grpc_gcp_rpc_protocol_versions_set_minP29_grpc_gcp_RpcProtocolVersionsjj(ptr noundef writeonly %versions, i32 noundef %min_major, i32 noundef %min_minor) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp ne ptr %versions, null
-  br i1 %cmp, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 43, i32 noundef 2, ptr noundef nonnull @.str.2)
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %min_rpc_version = getelementptr inbounds nuw i8, ptr %versions, i64 8
-  store i32 %min_major, ptr %min_rpc_version, align 4
-  %minor = getelementptr inbounds nuw i8, ptr %versions, i64 12
-  store i32 %min_minor, ptr %minor, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  ret i1 %cmp
-}
-
-; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z37grpc_gcp_rpc_protocol_versions_encodePK29_grpc_gcp_RpcProtocolVersionsP10grpc_slice(ptr noundef readonly %versions, ptr noundef writeonly %slice) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %ptr.i.i = alloca ptr, align 8
-  %buf_length.i = alloca i64, align 8
-  %ref.tmp.i = alloca %struct.grpc_slice, align 8
-  %cmp = icmp eq ptr %versions, null
-  %cmp1 = icmp eq ptr %slice, null
-  %or.cond = or i1 %cmp, %cmp1
-  br i1 %or.cond, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 56, i32 noundef 2, ptr noundef nonnull @.str.3)
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call.i.i = tail call ptr @upb_Arena_Init(ptr noundef null, i64 noundef 0, ptr noundef nonnull @upb_alloc_global)
-  %0 = load i16, ptr getelementptr inbounds nuw (i8, ptr @grpc__gcp__RpcProtocolVersions_msg_init, i64 16), align 8
-  %conv.i.i.i = zext i16 %0 to i64
-  %add.i.i.i = add nuw nsw i64 %conv.i.i.i, 8
-  %sub.i.i.i = add nuw nsw i64 %conv.i.i.i, 23
-  %div7.i.i.i = and i64 %sub.i.i.i, 131064
-  %end.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
-  %1 = load ptr, ptr %end.i.i.i.i, align 8
-  %2 = load ptr, ptr %call.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
-  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %cmp.i.i.i = icmp ult i64 %sub.ptr.sub.i.i.i.i, %div7.i.i.i
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
-
-if.then.i.i.i:                                    ; preds = %if.end
-  %call2.i.i.i4 = invoke ptr @_upb_Arena_SlowMalloc(ptr noundef nonnull %call.i.i, i64 noundef %div7.i.i.i)
-          to label %upb_Arena_Malloc.exit.i.i unwind label %if.then.i.i13
-
-if.end.i.i.i:                                     ; preds = %if.end
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %div7.i.i.i
-  store ptr %add.ptr.i.i.i, ptr %call.i.i, align 8
-  br label %upb_Arena_Malloc.exit.i.i
-
-upb_Arena_Malloc.exit.i.i:                        ; preds = %if.then.i.i.i, %if.end.i.i.i
-  %retval.0.i.i.i = phi ptr [ %2, %if.end.i.i.i ], [ %call2.i.i.i4, %if.then.i.i.i ]
-  %tobool.not.i.i = icmp eq ptr %retval.0.i.i.i, null
-  br i1 %tobool.not.i.i, label %invoke.cont2, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %upb_Arena_Malloc.exit.i.i
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
-  br label %invoke.cont2
-
-invoke.cont2:                                     ; preds = %if.end.i.i, %upb_Arena_Malloc.exit.i.i
-  %retval.0.i.i = phi ptr [ %add.ptr.i.i, %if.end.i.i ], [ null, %upb_Arena_Malloc.exit.i.i ]
-  invoke void @_Z47grpc_gcp_RpcProtocolVersions_assign_from_structP28grpc_gcp_RpcProtocolVersionsP9upb_ArenaPK29_grpc_gcp_RpcProtocolVersions(ptr noundef %retval.0.i.i, ptr noundef nonnull %call.i.i, ptr noundef nonnull %versions)
-          to label %invoke.cont6 unwind label %if.then.i.i13
-
-invoke.cont6:                                     ; preds = %invoke.cont2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf_length.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %cmp.i = icmp eq ptr %retval.0.i.i, null
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %invoke.cont6
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 74, i32 noundef 2, ptr noundef nonnull @.str.3)
-          to label %if.then.i.i unwind label %if.then.i.i13
-
-if.end.i:                                         ; preds = %invoke.cont6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.i.i)
-  %call.i.i78 = invoke i32 @upb_Encode(ptr noundef nonnull %retval.0.i.i, ptr noundef nonnull @grpc__gcp__RpcProtocolVersions_msg_init, i32 noundef 0, ptr noundef nonnull %call.i.i, ptr noundef nonnull %ptr.i.i, ptr noundef nonnull %buf_length.i)
-          to label %call.i.i7.noexc unwind label %if.then.i.i13
-
-call.i.i7.noexc:                                  ; preds = %if.end.i
-  %3 = load ptr, ptr %ptr.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i.i)
-  %cmp4.i = icmp eq ptr %3, null
-  br i1 %cmp4.i, label %if.then.i.i, label %if.end6.i
-
-if.end6.i:                                        ; preds = %call.i.i7.noexc
-  %4 = load i64, ptr %buf_length.i, align 8
-  invoke void @grpc_slice_from_copied_buffer(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i, ptr noundef nonnull %3, i64 noundef %4)
-          to label %.noexc9 unwind label %if.then.i.i13
-
-.noexc9:                                          ; preds = %if.end6.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %slice, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 32, i1 false)
-  br label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %if.then.i, %call.i.i7.noexc, %.noexc9
-  %retval.0.i = phi i1 [ true, %.noexc9 ], [ false, %call.i.i7.noexc ], [ false, %if.then.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf_length.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke void @upb_Arena_Free(ptr noundef nonnull %call.i.i)
-          to label %return unwind label %terminate.lpad.i.i
-
-terminate.lpad.i.i:                               ; preds = %if.then.i.i
-  %5 = landingpad { ptr, i32 }
-          catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #10
-  unreachable
-
-if.then.i.i13:                                    ; preds = %invoke.cont2, %if.then.i.i.i, %if.then.i, %if.end.i, %if.end6.i
-  %7 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @upb_Arena_Free(ptr noundef nonnull %call.i.i)
-          to label %_ZN3upb5ArenaD2Ev.exit15 unwind label %terminate.lpad.i.i14
-
-terminate.lpad.i.i14:                             ; preds = %if.then.i.i13
+7:                                                ; preds = %6
   %8 = landingpad { ptr, i32 }
-          catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #10
-  unreachable
+          cleanup
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  resume { ptr, i32 } %8
 
-_ZN3upb5ArenaD2Ev.exit15:                         ; preds = %if.then.i.i13
-  resume { ptr, i32 } %7
+9:                                                ; preds = %3
+  store i32 %1, ptr %0, align 4, !tbaa !3
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %2, ptr %10, align 4, !tbaa !9
+  br label %11
 
-return:                                           ; preds = %if.then.i.i, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ %retval.0.i, %if.then.i.i ]
-  ret i1 %retval.0
+11:                                               ; preds = %9, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi65EEERS2_RAT__Kc.exit
+  ret i1 %5
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: cold
+declare void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef) unnamed_addr #2
 
 declare i32 @__gxx_personality_v0(...)
 
+; Function Attrs: cold nounwind
+declare void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress uwtable
-define void @_Z47grpc_gcp_RpcProtocolVersions_assign_from_structP28grpc_gcp_RpcProtocolVersionsP9upb_ArenaPK29_grpc_gcp_RpcProtocolVersions(ptr noundef captures(none) %versions, ptr noundef %arena, ptr noundef readonly captures(none) %value) local_unnamed_addr #0 {
-entry:
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %versions, i64 8
-  %0 = load i64, ptr %add.ptr.i.i.i, align 1
-  %1 = inttoptr i64 %0 to ptr
-  %cmp.i = icmp eq i64 %0, 0
-  br i1 %cmp.i, label %if.then.i, label %grpc_gcp_RpcProtocolVersions_mutable_max_rpc_version.exit
+define noundef zeroext i1 @_Z38grpc_gcp_rpc_protocol_versions_set_minP29_grpc_gcp_RpcProtocolVersionsjj(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
+  %5 = icmp ne ptr %0, null
+  br i1 %5, label %9, label %6
 
-if.then.i:                                        ; preds = %entry
-  %2 = load i16, ptr getelementptr inbounds nuw (i8, ptr @grpc__gcp__RpcProtocolVersions__Version_msg_init, i64 16), align 8
-  %conv.i.i.i = zext i16 %2 to i64
-  %add.i.i.i = add nuw nsw i64 %conv.i.i.i, 8
-  %sub.i.i.i = add nuw nsw i64 %conv.i.i.i, 23
-  %div7.i.i.i = and i64 %sub.i.i.i, 131064
-  %end.i.i.i.i = getelementptr inbounds nuw i8, ptr %arena, i64 8
-  %3 = load ptr, ptr %end.i.i.i.i, align 8
-  %4 = load ptr, ptr %arena, align 8
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %3 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %4 to i64
-  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %cmp.i.i.i = icmp ult i64 %sub.ptr.sub.i.i.i.i, %div7.i.i.i
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
+6:                                                ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str, i32 noundef 43) #12
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 64, ptr nonnull @.str.2)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi65EEERS2_RAT__Kc.exit unwind label %7
 
-if.then.i.i.i:                                    ; preds = %if.then.i
-  %call2.i.i.i = tail call ptr @_upb_Arena_SlowMalloc(ptr noundef nonnull %arena, i64 noundef %div7.i.i.i)
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi65EEERS2_RAT__Kc.exit: ; preds = %6
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  br label %12
+
+7:                                                ; preds = %6
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  resume { ptr, i32 } %8
+
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %1, ptr %10, align 4, !tbaa !10
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %2, ptr %11, align 4, !tbaa !11
+  br label %12
+
+12:                                               ; preds = %9, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi65EEERS2_RAT__Kc.exit
+  ret i1 %5
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef zeroext i1 @_Z37grpc_gcp_rpc_protocol_versions_encodePK29_grpc_gcp_RpcProtocolVersionsP10grpc_slice(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
+  %4 = icmp eq ptr %0, null
+  %5 = icmp eq ptr %1, null
+  %or.cond = or i1 %4, %5
+  br i1 %or.cond, label %6, label %9
+
+6:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str, i32 noundef 55) #12
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 69, ptr nonnull @.str.3)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi70EEERS2_RAT__Kc.exit unwind label %7
+
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi70EEERS2_RAT__Kc.exit: ; preds = %6
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  br label %_ZN3upb5ArenaD2Ev.exit
+
+7:                                                ; preds = %6
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  br label %_ZN3upb5ArenaD2Ev.exit16
+
+9:                                                ; preds = %2
+  %10 = tail call ptr @upb_Arena_Init(ptr noundef null, i64 noundef 0, ptr noundef nonnull @upb_alloc_global)
+  %11 = load i16, ptr getelementptr inbounds nuw (i8, ptr @grpc__gcp__RpcProtocolVersions_msg_init, i64 16), align 8, !tbaa !12
+  %12 = zext i16 %11 to i64
+  %13 = add nuw nsw i64 %12, 7
+  %14 = and i64 %13, 131064
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !17
+  %17 = load ptr, ptr %10, align 8, !tbaa !20
+  %18 = ptrtoint ptr %16 to i64
+  %19 = ptrtoint ptr %17 to i64
+  %20 = sub i64 %18, %19
+  %21 = icmp ult i64 %20, %14
+  br i1 %21, label %22, label %24, !prof !21
+
+22:                                               ; preds = %9
+  %23 = invoke ptr @_upb_Arena_SlowMalloc_dont_copy_me__upb_internal_use_only(ptr noundef nonnull %10, i64 noundef %14)
+          to label %upb_Arena_Malloc.exit.i.i unwind label %33
+
+24:                                               ; preds = %9
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 %14
+  store ptr %25, ptr %10, align 8, !tbaa !20
   br label %upb_Arena_Malloc.exit.i.i
 
-if.end.i.i.i:                                     ; preds = %if.then.i
-  %add.ptr.i.i5.i = getelementptr inbounds nuw i8, ptr %4, i64 %div7.i.i.i
-  store ptr %add.ptr.i.i5.i, ptr %arena, align 8
+upb_Arena_Malloc.exit.i.i:                        ; preds = %22, %24
+  %.0.i.i.i = phi ptr [ %17, %24 ], [ %23, %22 ]
+  %.not.i.i = icmp eq ptr %.0.i.i.i, null
+  br i1 %.not.i.i, label %grpc_gcp_RpcProtocolVersions_new.exit, label %26, !prof !21
+
+26:                                               ; preds = %upb_Arena_Malloc.exit.i.i
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i.i.i, i8 0, i64 %12, i1 false)
+  br label %grpc_gcp_RpcProtocolVersions_new.exit
+
+grpc_gcp_RpcProtocolVersions_new.exit:            ; preds = %26, %upb_Arena_Malloc.exit.i.i
+  invoke void @_Z47grpc_gcp_RpcProtocolVersions_assign_from_structP28grpc_gcp_RpcProtocolVersionsP9upb_ArenaPK29_grpc_gcp_RpcProtocolVersions(ptr noundef %.0.i.i.i, ptr noundef nonnull %10, ptr noundef nonnull %0)
+          to label %27 unwind label %33
+
+27:                                               ; preds = %grpc_gcp_RpcProtocolVersions_new.exit
+  %28 = invoke noundef zeroext i1 @_Z37grpc_gcp_rpc_protocol_versions_encodePK28grpc_gcp_RpcProtocolVersionsP9upb_ArenaP10grpc_slice(ptr noundef %.0.i.i.i, ptr noundef nonnull %10, ptr noundef nonnull %1)
+          to label %29 unwind label %33
+
+29:                                               ; preds = %27
+  invoke void @upb_Arena_Free(ptr noundef nonnull %10)
+          to label %_ZN3upb5ArenaD2Ev.exit unwind label %30
+
+30:                                               ; preds = %29
+  %31 = landingpad { ptr, i32 }
+          catch ptr null
+  %32 = extractvalue { ptr, i32 } %31, 0
+  tail call void @__clang_call_terminate(ptr %32) #14
+  unreachable
+
+33:                                               ; preds = %grpc_gcp_RpcProtocolVersions_new.exit, %27, %22
+  %34 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @upb_Arena_Free(ptr noundef nonnull %10)
+          to label %_ZN3upb5ArenaD2Ev.exit16 unwind label %35
+
+35:                                               ; preds = %33
+  %36 = landingpad { ptr, i32 }
+          catch ptr null
+  %37 = extractvalue { ptr, i32 } %36, 0
+  tail call void @__clang_call_terminate(ptr %37) #14
+  unreachable
+
+_ZN3upb5ArenaD2Ev.exit:                           ; preds = %29, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi70EEERS2_RAT__Kc.exit
+  %.0 = phi i1 [ false, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi70EEERS2_RAT__Kc.exit ], [ %28, %29 ]
+  ret i1 %.0
+
+_ZN3upb5ArenaD2Ev.exit16:                         ; preds = %33, %7
+  %.pn = phi { ptr, i32 } [ %8, %7 ], [ %34, %33 ]
+  resume { ptr, i32 } %.pn
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_Z47grpc_gcp_RpcProtocolVersions_assign_from_structP28grpc_gcp_RpcProtocolVersionsP9upb_ArenaPK29_grpc_gcp_RpcProtocolVersions(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @grpc__gcp__RpcProtocolVersions__Version_msg_init) #11, !srcloc !22
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = load i64, ptr %4, align 1
+  %6 = inttoptr i64 %5 to ptr
+  %7 = icmp eq i64 %5, 0
+  br i1 %7, label %8, label %grpc_gcp_RpcProtocolVersions_mutable_max_rpc_version.exit
+
+8:                                                ; preds = %3
+  %9 = load i16, ptr getelementptr inbounds nuw (i8, ptr @grpc__gcp__RpcProtocolVersions__Version_msg_init, i64 16), align 8, !tbaa !12
+  %10 = zext i16 %9 to i64
+  %11 = add nuw nsw i64 %10, 7
+  %12 = and i64 %11, 131064
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !17
+  %15 = load ptr, ptr %1, align 8, !tbaa !20
+  %16 = ptrtoint ptr %14 to i64
+  %17 = ptrtoint ptr %15 to i64
+  %18 = sub i64 %16, %17
+  %19 = icmp ult i64 %18, %12
+  br i1 %19, label %20, label %22, !prof !21
+
+20:                                               ; preds = %8
+  %21 = tail call ptr @_upb_Arena_SlowMalloc_dont_copy_me__upb_internal_use_only(ptr noundef nonnull %1, i64 noundef %12)
+  %.pre = ptrtoint ptr %21 to i64
   br label %upb_Arena_Malloc.exit.i.i
 
-upb_Arena_Malloc.exit.i.i:                        ; preds = %if.end.i.i.i, %if.then.i.i.i
-  %retval.0.i.i.i = phi ptr [ %call2.i.i.i, %if.then.i.i.i ], [ %4, %if.end.i.i.i ]
-  %tobool.not.i.i = icmp ne ptr %retval.0.i.i.i, null
-  tail call void @llvm.assume(i1 %tobool.not.i.i)
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
-  %5 = load i8, ptr %versions, align 1
-  %or2.i.i.i.i.i.i = or i8 %5, 2
-  store i8 %or2.i.i.i.i.i.i, ptr %versions, align 1
-  %6 = ptrtoint ptr %add.ptr.i.i to i64
-  store i64 %6, ptr %add.ptr.i.i.i, align 1
+22:                                               ; preds = %8
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 %12
+  store ptr %23, ptr %1, align 8, !tbaa !20
+  br label %upb_Arena_Malloc.exit.i.i
+
+upb_Arena_Malloc.exit.i.i:                        ; preds = %22, %20
+  %.pre-phi = phi i64 [ %17, %22 ], [ %.pre, %20 ]
+  %.0.i.i.i = phi ptr [ %15, %22 ], [ %21, %20 ]
+  %.not.i.i = icmp ne ptr %.0.i.i.i, null
+  tail call void @llvm.assume(i1 %.not.i.i)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i.i.i, i8 0, i64 %10, i1 false)
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @grpc__gcp__RpcProtocolVersions__Version_msg_init) #11, !srcloc !22
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %25 = load i8, ptr %24, align 1, !tbaa !23
+  %26 = or i8 %25, 1
+  store i8 %26, ptr %24, align 1, !tbaa !23
+  store i64 %.pre-phi, ptr %4, align 1
   br label %grpc_gcp_RpcProtocolVersions_mutable_max_rpc_version.exit
 
-grpc_gcp_RpcProtocolVersions_mutable_max_rpc_version.exit: ; preds = %entry, %upb_Arena_Malloc.exit.i.i
-  %sub.0.i = phi ptr [ %add.ptr.i.i, %upb_Arena_Malloc.exit.i.i ], [ %1, %entry ]
-  %7 = load i32, ptr %value, align 4
-  store i32 %7, ptr %sub.0.i, align 1
-  %minor = getelementptr inbounds nuw i8, ptr %value, i64 4
-  %8 = load i32, ptr %minor, align 4
-  %add.ptr.i.i.i8 = getelementptr inbounds nuw i8, ptr %sub.0.i, i64 4
-  store i32 %8, ptr %add.ptr.i.i.i8, align 1
-  %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %versions, i64 16
-  %9 = load i64, ptr %add.ptr.i.i.i9, align 1
-  %10 = inttoptr i64 %9 to ptr
-  %cmp.i10 = icmp eq i64 %9, 0
-  br i1 %cmp.i10, label %if.then.i12, label %grpc_gcp_RpcProtocolVersions_mutable_min_rpc_version.exit
+grpc_gcp_RpcProtocolVersions_mutable_max_rpc_version.exit: ; preds = %3, %upb_Arena_Malloc.exit.i.i
+  %.0.i = phi ptr [ %.0.i.i.i, %upb_Arena_Malloc.exit.i.i ], [ %6, %3 ]
+  %27 = load i32, ptr %2, align 4, !tbaa !3
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  store i32 %27, ptr %28, align 1
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %30 = load i32, ptr %29, align 4, !tbaa !9
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
+  store i32 %30, ptr %31, align 1
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @grpc__gcp__RpcProtocolVersions__Version_msg_init) #11, !srcloc !22
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %33 = load i64, ptr %32, align 1
+  %34 = inttoptr i64 %33 to ptr
+  %35 = icmp eq i64 %33, 0
+  br i1 %35, label %36, label %grpc_gcp_RpcProtocolVersions_mutable_min_rpc_version.exit
 
-if.then.i12:                                      ; preds = %grpc_gcp_RpcProtocolVersions_mutable_max_rpc_version.exit
-  %11 = load i16, ptr getelementptr inbounds nuw (i8, ptr @grpc__gcp__RpcProtocolVersions__Version_msg_init, i64 16), align 8
-  %conv.i.i.i13 = zext i16 %11 to i64
-  %add.i.i.i14 = add nuw nsw i64 %conv.i.i.i13, 8
-  %sub.i.i.i15 = add nuw nsw i64 %conv.i.i.i13, 23
-  %div7.i.i.i16 = and i64 %sub.i.i.i15, 131064
-  %end.i.i.i.i17 = getelementptr inbounds nuw i8, ptr %arena, i64 8
-  %12 = load ptr, ptr %end.i.i.i.i17, align 8
-  %13 = load ptr, ptr %arena, align 8
-  %sub.ptr.lhs.cast.i.i.i.i18 = ptrtoint ptr %12 to i64
-  %sub.ptr.rhs.cast.i.i.i.i19 = ptrtoint ptr %13 to i64
-  %sub.ptr.sub.i.i.i.i20 = sub i64 %sub.ptr.lhs.cast.i.i.i.i18, %sub.ptr.rhs.cast.i.i.i.i19
-  %cmp.i.i.i21 = icmp ult i64 %sub.ptr.sub.i.i.i.i20, %div7.i.i.i16
-  br i1 %cmp.i.i.i21, label %if.then.i.i.i30, label %if.end.i.i.i22
+36:                                               ; preds = %grpc_gcp_RpcProtocolVersions_mutable_max_rpc_version.exit
+  %37 = load i16, ptr getelementptr inbounds nuw (i8, ptr @grpc__gcp__RpcProtocolVersions__Version_msg_init, i64 16), align 8, !tbaa !12
+  %38 = zext i16 %37 to i64
+  %39 = add nuw nsw i64 %38, 7
+  %40 = and i64 %39, 131064
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !17
+  %43 = load ptr, ptr %1, align 8, !tbaa !20
+  %44 = ptrtoint ptr %42 to i64
+  %45 = ptrtoint ptr %43 to i64
+  %46 = sub i64 %44, %45
+  %47 = icmp ult i64 %46, %40
+  br i1 %47, label %48, label %50, !prof !21
 
-if.then.i.i.i30:                                  ; preds = %if.then.i12
-  %call2.i.i.i31 = tail call ptr @_upb_Arena_SlowMalloc(ptr noundef nonnull %arena, i64 noundef %div7.i.i.i16)
-  br label %upb_Arena_Malloc.exit.i.i24
+48:                                               ; preds = %36
+  %49 = tail call ptr @_upb_Arena_SlowMalloc_dont_copy_me__upb_internal_use_only(ptr noundef nonnull %1, i64 noundef %40)
+  %.pre16 = ptrtoint ptr %49 to i64
+  br label %upb_Arena_Malloc.exit.i.i13
 
-if.end.i.i.i22:                                   ; preds = %if.then.i12
-  %add.ptr.i.i5.i23 = getelementptr inbounds nuw i8, ptr %13, i64 %div7.i.i.i16
-  store ptr %add.ptr.i.i5.i23, ptr %arena, align 8
-  br label %upb_Arena_Malloc.exit.i.i24
+50:                                               ; preds = %36
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 %40
+  store ptr %51, ptr %1, align 8, !tbaa !20
+  br label %upb_Arena_Malloc.exit.i.i13
 
-upb_Arena_Malloc.exit.i.i24:                      ; preds = %if.end.i.i.i22, %if.then.i.i.i30
-  %retval.0.i.i.i25 = phi ptr [ %call2.i.i.i31, %if.then.i.i.i30 ], [ %13, %if.end.i.i.i22 ]
-  %tobool.not.i.i26 = icmp ne ptr %retval.0.i.i.i25, null
-  tail call void @llvm.assume(i1 %tobool.not.i.i26)
-  %add.ptr.i.i28 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i25, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i25, i8 0, i64 %add.i.i.i14, i1 false)
-  %14 = load i8, ptr %versions, align 1
-  %or2.i.i.i.i.i.i29 = or i8 %14, 4
-  store i8 %or2.i.i.i.i.i.i29, ptr %versions, align 1
-  %15 = ptrtoint ptr %add.ptr.i.i28 to i64
-  store i64 %15, ptr %add.ptr.i.i.i9, align 1
+upb_Arena_Malloc.exit.i.i13:                      ; preds = %50, %48
+  %.pre-phi17 = phi i64 [ %45, %50 ], [ %.pre16, %48 ]
+  %.0.i.i.i14 = phi ptr [ %43, %50 ], [ %49, %48 ]
+  %.not.i.i15 = icmp ne ptr %.0.i.i.i14, null
+  tail call void @llvm.assume(i1 %.not.i.i15)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i.i.i14, i8 0, i64 %38, i1 false)
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @grpc__gcp__RpcProtocolVersions__Version_msg_init) #11, !srcloc !22
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %53 = load i8, ptr %52, align 1, !tbaa !23
+  %54 = or i8 %53, 2
+  store i8 %54, ptr %52, align 1, !tbaa !23
+  store i64 %.pre-phi17, ptr %32, align 1
   br label %grpc_gcp_RpcProtocolVersions_mutable_min_rpc_version.exit
 
-grpc_gcp_RpcProtocolVersions_mutable_min_rpc_version.exit: ; preds = %grpc_gcp_RpcProtocolVersions_mutable_max_rpc_version.exit, %upb_Arena_Malloc.exit.i.i24
-  %sub.0.i11 = phi ptr [ %add.ptr.i.i28, %upb_Arena_Malloc.exit.i.i24 ], [ %10, %grpc_gcp_RpcProtocolVersions_mutable_max_rpc_version.exit ]
-  %min_rpc_version = getelementptr inbounds nuw i8, ptr %value, i64 8
-  %16 = load i32, ptr %min_rpc_version, align 4
-  store i32 %16, ptr %sub.0.i11, align 1
-  %minor5 = getelementptr inbounds nuw i8, ptr %value, i64 12
-  %17 = load i32, ptr %minor5, align 4
-  %add.ptr.i.i.i32 = getelementptr inbounds nuw i8, ptr %sub.0.i11, i64 4
-  store i32 %17, ptr %add.ptr.i.i.i32, align 1
+grpc_gcp_RpcProtocolVersions_mutable_min_rpc_version.exit: ; preds = %grpc_gcp_RpcProtocolVersions_mutable_max_rpc_version.exit, %upb_Arena_Malloc.exit.i.i13
+  %.0.i12 = phi ptr [ %.0.i.i.i14, %upb_Arena_Malloc.exit.i.i13 ], [ %34, %grpc_gcp_RpcProtocolVersions_mutable_max_rpc_version.exit ]
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %56 = load i32, ptr %55, align 4, !tbaa !10
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i12, i64 8
+  store i32 %56, ptr %57, align 1
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %59 = load i32, ptr %58, align 4, !tbaa !11
+  %60 = getelementptr inbounds nuw i8, ptr %.0.i12, i64 12
+  store i32 %59, ptr %60, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z37grpc_gcp_rpc_protocol_versions_encodePK28grpc_gcp_RpcProtocolVersionsP9upb_ArenaP10grpc_slice(ptr noundef %versions, ptr noundef %arena, ptr noundef writeonly %slice) local_unnamed_addr #0 {
-entry:
-  %ptr.i = alloca ptr, align 8
-  %buf_length = alloca i64, align 8
-  %ref.tmp = alloca %struct.grpc_slice, align 8
-  %cmp = icmp eq ptr %versions, null
-  %cmp1 = icmp eq ptr %arena, null
-  %or.cond = or i1 %cmp, %cmp1
-  %cmp3 = icmp eq ptr %slice, null
-  %or.cond1 = or i1 %or.cond, %cmp3
-  br i1 %or.cond1, label %if.then, label %if.end
+define noundef zeroext i1 @_Z37grpc_gcp_rpc_protocol_versions_encodePK28grpc_gcp_RpcProtocolVersionsP9upb_ArenaP10grpc_slice(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
+  %6 = alloca i64, align 8
+  %7 = alloca %struct.grpc_slice, align 8
+  %8 = icmp eq ptr %0, null
+  %9 = icmp eq ptr %1, null
+  %or.cond = or i1 %8, %9
+  %10 = icmp eq ptr %2, null
+  %or.cond3 = or i1 %or.cond, %10
+  br i1 %or.cond3, label %11, label %14
 
-if.then:                                          ; preds = %entry
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 74, i32 noundef 2, ptr noundef nonnull @.str.3)
-  br label %return
+11:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str, i32 noundef 72) #12
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 69, ptr nonnull @.str.3)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi70EEERS2_RAT__Kc.exit unwind label %12
 
-if.end:                                           ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.i)
-  %call.i = call i32 @upb_Encode(ptr noundef nonnull %versions, ptr noundef nonnull @grpc__gcp__RpcProtocolVersions_msg_init, i32 noundef 0, ptr noundef nonnull %arena, ptr noundef nonnull %ptr.i, ptr noundef nonnull %buf_length)
-  %0 = load ptr, ptr %ptr.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i)
-  %cmp4 = icmp eq ptr %0, null
-  br i1 %cmp4, label %return, label %if.end6
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi70EEERS2_RAT__Kc.exit: ; preds = %11
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  br label %21
 
-if.end6:                                          ; preds = %if.end
-  %1 = load i64, ptr %buf_length, align 8
-  call void @grpc_slice_from_copied_buffer(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp, ptr noundef nonnull %0, i64 noundef %1)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %slice, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 32, i1 false)
-  br label %return
+12:                                               ; preds = %11
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  resume { ptr, i32 } %13
 
-return:                                           ; preds = %if.end, %if.end6, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ true, %if.end6 ], [ false, %if.end ]
-  ret i1 %retval.0
+14:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  %15 = call i32 @upb_Encode(ptr noundef nonnull %0, ptr noundef nonnull @grpc__gcp__RpcProtocolVersions_msg_init, i32 noundef 0, ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull %6)
+  %16 = load ptr, ptr %4, align 8, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %20
+
+18:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #11
+  %19 = load i64, ptr %6, align 8, !tbaa !25
+  call void @grpc_slice_from_copied_buffer(ptr dead_on_unwind nonnull writable sret(%struct.grpc_slice) align 8 %7, ptr noundef nonnull %16, i64 noundef %19)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !27
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11
+  br label %20
+
+20:                                               ; preds = %14, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  br label %21
+
+21:                                               ; preds = %20, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi70EEERS2_RAT__Kc.exit
+  %.0 = phi i1 [ false, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi70EEERS2_RAT__Kc.exit ], [ %17, %20 ]
+  ret i1 %.0
 }
 
-declare void @grpc_slice_from_copied_buffer(ptr sret(%struct.grpc_slice) align 8, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare void @grpc_slice_from_copied_buffer(ptr dead_on_unwind writable sret(%struct.grpc_slice) align 8, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z37grpc_gcp_rpc_protocol_versions_decodeRK10grpc_sliceP29_grpc_gcp_RpcProtocolVersions(ptr noundef nonnull align 8 dereferenceable(32) %slice, ptr noundef writeonly %versions) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %cmp = icmp eq ptr %versions, null
-  br i1 %cmp, label %if.then, label %if.end
+define noundef zeroext i1 @_Z37grpc_gcp_rpc_protocol_versions_decodeRK10grpc_sliceP29_grpc_gcp_RpcProtocolVersions(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef writeonly %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
+  %4 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
+  %5 = icmp eq ptr %1, null
+  br i1 %5, label %6, label %9
 
-if.then:                                          ; preds = %entry
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 92, i32 noundef 2, ptr noundef nonnull @.str.4)
-  br label %return
+6:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str, i32 noundef 89) #12
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 62, ptr nonnull @.str.4)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi63EEERS2_RAT__Kc.exit unwind label %7
 
-if.end:                                           ; preds = %entry
-  %call.i.i = tail call ptr @upb_Arena_Init(ptr noundef null, i64 noundef 0, ptr noundef nonnull @upb_alloc_global)
-  %0 = load ptr, ptr %slice, align 8
-  %tobool.not = icmp eq ptr %0, null
-  %bytes = getelementptr inbounds nuw i8, ptr %slice, i64 16
-  %1 = load ptr, ptr %bytes, align 8
-  %bytes2 = getelementptr inbounds nuw i8, ptr %slice, i64 9
-  %cond = select i1 %tobool.not, ptr %bytes2, ptr %1
-  %data6 = getelementptr inbounds nuw i8, ptr %slice, i64 8
-  %2 = load i64, ptr %data6, align 8
-  %conv = and i64 %2, 255
-  %cond11 = select i1 %tobool.not, i64 %conv, i64 %2
-  %3 = load i16, ptr getelementptr inbounds nuw (i8, ptr @grpc__gcp__RpcProtocolVersions_msg_init, i64 16), align 8
-  %conv.i.i.i.i = zext i16 %3 to i64
-  %add.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 8
-  %sub.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 23
-  %div7.i.i.i.i = and i64 %sub.i.i.i.i, 131064
-  %end.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
-  %4 = load ptr, ptr %end.i.i.i.i.i, align 8
-  %5 = load ptr, ptr %call.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %cmp.i.i.i.i = icmp ult i64 %sub.ptr.sub.i.i.i.i.i, %div7.i.i.i.i
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi63EEERS2_RAT__Kc.exit: ; preds = %6
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  br label %_ZN3upb5ArenaD2Ev.exit
 
-if.then.i.i.i.i:                                  ; preds = %if.end
-  %call2.i.i.i.i8 = invoke ptr @_upb_Arena_SlowMalloc(ptr noundef nonnull %call.i.i, i64 noundef %div7.i.i.i.i)
-          to label %upb_Arena_Malloc.exit.i.i.i unwind label %if.then.i.i
+7:                                                ; preds = %6
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  br label %_ZN3upb5ArenaD2Ev.exit27
 
-if.end.i.i.i.i:                                   ; preds = %if.end
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %div7.i.i.i.i
-  store ptr %add.ptr.i.i.i.i, ptr %call.i.i, align 8
+9:                                                ; preds = %2
+  %10 = tail call ptr @upb_Arena_Init(ptr noundef null, i64 noundef 0, ptr noundef nonnull @upb_alloc_global)
+  %11 = load ptr, ptr %0, align 8, !tbaa !30
+  %.not = icmp eq ptr %11, null
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %15 = select i1 %.not, ptr %14, ptr %13
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = load i64, ptr %16, align 8
+  %18 = and i64 %17, 255
+  %19 = select i1 %.not, i64 %18, i64 %17
+  %20 = load i16, ptr getelementptr inbounds nuw (i8, ptr @grpc__gcp__RpcProtocolVersions_msg_init, i64 16), align 8, !tbaa !12
+  %21 = zext i16 %20 to i64
+  %22 = add nuw nsw i64 %21, 7
+  %23 = and i64 %22, 131064
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !17
+  %26 = load ptr, ptr %10, align 8, !tbaa !20
+  %27 = ptrtoint ptr %25 to i64
+  %28 = ptrtoint ptr %26 to i64
+  %29 = sub i64 %27, %28
+  %30 = icmp ult i64 %29, %23
+  br i1 %30, label %31, label %33, !prof !21
+
+31:                                               ; preds = %9
+  %32 = invoke ptr @_upb_Arena_SlowMalloc_dont_copy_me__upb_internal_use_only(ptr noundef nonnull %10, i64 noundef %23)
+          to label %upb_Arena_Malloc.exit.i.i.i unwind label %39
+
+33:                                               ; preds = %9
+  %34 = getelementptr inbounds nuw i8, ptr %26, i64 %23
+  store ptr %34, ptr %10, align 8, !tbaa !20
   br label %upb_Arena_Malloc.exit.i.i.i
 
-upb_Arena_Malloc.exit.i.i.i:                      ; preds = %if.then.i.i.i.i, %if.end.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %5, %if.end.i.i.i.i ], [ %call2.i.i.i.i8, %if.then.i.i.i.i ]
-  %tobool.not.i.i.i = icmp eq ptr %retval.0.i.i.i.i, null
-  br i1 %tobool.not.i.i.i, label %if.then15, label %if.end.i
+upb_Arena_Malloc.exit.i.i.i:                      ; preds = %31, %33
+  %.0.i.i.i.i = phi ptr [ %26, %33 ], [ %32, %31 ]
+  %.not.i.i.i = icmp eq ptr %.0.i.i.i.i, null
+  br i1 %.not.i.i.i, label %37, label %35, !prof !21
 
-if.end.i:                                         ; preds = %upb_Arena_Malloc.exit.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i.i, i1 false)
-  %call1.i9 = invoke i32 @upb_Decode(ptr noundef %cond, i64 noundef %cond11, ptr noundef nonnull %add.ptr.i.i.i, ptr noundef nonnull @grpc__gcp__RpcProtocolVersions_msg_init, ptr noundef null, i32 noundef 0, ptr noundef nonnull %call.i.i)
-          to label %call1.i.noexc unwind label %if.then.i.i
+35:                                               ; preds = %upb_Arena_Malloc.exit.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i.i.i.i, i8 0, i64 %21, i1 false)
+  %36 = invoke i32 @upb_Decode(ptr noundef %15, i64 noundef %19, ptr noundef nonnull %.0.i.i.i.i, ptr noundef nonnull @grpc__gcp__RpcProtocolVersions_msg_init, ptr noundef null, i32 noundef 0, ptr noundef nonnull %10)
+          to label %.noexc24 unwind label %39
 
-call1.i.noexc:                                    ; preds = %if.end.i
-  %cmp.not.i = icmp eq i32 %call1.i9, 0
-  br i1 %cmp.not.i, label %if.end17, label %if.then15
+.noexc24:                                         ; preds = %35
+  %.not8.i = icmp eq i32 %36, 0
+  br i1 %.not8.i, label %grpc_gcp_RpcProtocolVersions_parse.exit, label %37
 
-if.then15:                                        ; preds = %call1.i.noexc, %upb_Arena_Malloc.exit.i.i.i
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 103, i32 noundef 2, ptr noundef nonnull @.str.5)
-          to label %if.then.i.i16 unwind label %if.then.i.i
+37:                                               ; preds = %.noexc24, %upb_Arena_Malloc.exit.i.i.i
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str, i32 noundef 99) #12
+          to label %38 unwind label %41
 
-if.then.i.i:                                      ; preds = %if.then15, %if.then.i.i.i.i, %if.end.i
-  %6 = landingpad { ptr, i32 }
+38:                                               ; preds = %37
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 46, ptr nonnull @.str.5)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi47EEERS2_RAT__Kc.exit unwind label %43
+
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi47EEERS2_RAT__Kc.exit: ; preds = %38
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  br label %69
+
+39:                                               ; preds = %35, %31
+  %40 = landingpad { ptr, i32 }
           cleanup
-  invoke void @upb_Arena_Free(ptr noundef nonnull %call.i.i)
-          to label %_ZN3upb5ArenaD2Ev.exit unwind label %terminate.lpad.i.i
+  br label %74
 
-terminate.lpad.i.i:                               ; preds = %if.then.i.i
-  %7 = landingpad { ptr, i32 }
-          catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #10
-  unreachable
+41:                                               ; preds = %37
+  %42 = landingpad { ptr, i32 }
+          cleanup
+  br label %45
 
-_ZN3upb5ArenaD2Ev.exit:                           ; preds = %if.then.i.i
-  resume { ptr, i32 } %6
+43:                                               ; preds = %38
+  %44 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
+  br label %45
 
-if.end17:                                         ; preds = %call1.i.noexc
-  %add.ptr.i.i.i11 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i, i64 16
-  %9 = load i64, ptr %add.ptr.i.i.i11, align 1
-  %cmp.not.i12 = icmp eq i64 %9, 0
-  br i1 %cmp.not.i12, label %if.else.i, label %if.then.i
+45:                                               ; preds = %43, %41
+  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  br label %74
 
-if.then.i:                                        ; preds = %if.end17
-  %10 = inttoptr i64 %9 to ptr
-  %11 = load i32, ptr %10, align 1
-  store i32 %11, ptr %versions, align 4
-  %add.ptr.i.i13.i = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %12 = load i32, ptr %add.ptr.i.i13.i, align 1
-  br label %if.end.i13
+grpc_gcp_RpcProtocolVersions_parse.exit:          ; preds = %.noexc24
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @grpc__gcp__RpcProtocolVersions__Version_msg_init) #11, !srcloc !22
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  %47 = load i64, ptr %46, align 1
+  %.not.i = icmp eq i64 %47, 0
+  br i1 %.not.i, label %54, label %48
 
-if.else.i:                                        ; preds = %if.end17
-  store i32 0, ptr %versions, align 4
-  br label %if.end.i13
+48:                                               ; preds = %grpc_gcp_RpcProtocolVersions_parse.exit
+  %49 = inttoptr i64 %47 to ptr
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %51 = load i32, ptr %50, align 1
+  store i32 %51, ptr %1, align 4, !tbaa !3
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 12
+  %53 = load i32, ptr %52, align 1
+  br label %55
 
-if.end.i13:                                       ; preds = %if.else.i, %if.then.i
-  %.sink.i = phi i32 [ 0, %if.else.i ], [ %12, %if.then.i ]
-  %13 = getelementptr inbounds nuw i8, ptr %versions, i64 4
-  store i32 %.sink.i, ptr %13, align 4
-  %add.ptr.i.i14.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i, i64 24
-  %14 = load i64, ptr %add.ptr.i.i14.i, align 1
-  %cmp9.not.i = icmp eq i64 %14, 0
-  br i1 %cmp9.not.i, label %if.else16.i, label %if.then10.i
+54:                                               ; preds = %grpc_gcp_RpcProtocolVersions_parse.exit
+  store i32 0, ptr %1, align 4, !tbaa !3
+  br label %55
 
-if.then10.i:                                      ; preds = %if.end.i13
-  %15 = inttoptr i64 %14 to ptr
-  %16 = load i32, ptr %15, align 1
-  %min_rpc_version.i = getelementptr inbounds nuw i8, ptr %versions, i64 8
-  store i32 %16, ptr %min_rpc_version.i, align 4
-  %add.ptr.i.i15.i = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %17 = load i32, ptr %add.ptr.i.i15.i, align 1
+55:                                               ; preds = %54, %48
+  %.sink.i = phi i32 [ 0, %54 ], [ %53, %48 ]
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %.sink.i, ptr %56, align 4, !tbaa !9
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @grpc__gcp__RpcProtocolVersions__Version_msg_init) #11, !srcloc !22
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %58 = load i64, ptr %57, align 1
+  %.not17.i = icmp eq i64 %58, 0
+  br i1 %.not17.i, label %66, label %59
+
+59:                                               ; preds = %55
+  %60 = inttoptr i64 %58 to ptr
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %62 = load i32, ptr %61, align 1
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %62, ptr %63, align 4, !tbaa !10
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 12
+  %65 = load i32, ptr %64, align 1
   br label %_Z46grpc_gcp_rpc_protocol_versions_assign_from_upbP29_grpc_gcp_RpcProtocolVersionsPK28grpc_gcp_RpcProtocolVersions.exit
 
-if.else16.i:                                      ; preds = %if.end.i13
-  %min_rpc_version17.i = getelementptr inbounds nuw i8, ptr %versions, i64 8
-  store i32 0, ptr %min_rpc_version17.i, align 4
+66:                                               ; preds = %55
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 0, ptr %67, align 4, !tbaa !10
   br label %_Z46grpc_gcp_rpc_protocol_versions_assign_from_upbP29_grpc_gcp_RpcProtocolVersionsPK28grpc_gcp_RpcProtocolVersions.exit
 
-_Z46grpc_gcp_rpc_protocol_versions_assign_from_upbP29_grpc_gcp_RpcProtocolVersionsPK28grpc_gcp_RpcProtocolVersions.exit: ; preds = %if.then10.i, %if.else16.i
-  %.sink16.i = phi i32 [ 0, %if.else16.i ], [ %17, %if.then10.i ]
-  %18 = getelementptr inbounds nuw i8, ptr %versions, i64 12
-  store i32 %.sink16.i, ptr %18, align 4
-  br label %if.then.i.i16
+_Z46grpc_gcp_rpc_protocol_versions_assign_from_upbP29_grpc_gcp_RpcProtocolVersionsPK28grpc_gcp_RpcProtocolVersions.exit: ; preds = %59, %66
+  %.sink18.i = phi i32 [ 0, %66 ], [ %65, %59 ]
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 %.sink18.i, ptr %68, align 4, !tbaa !11
+  br label %69
 
-if.then.i.i16:                                    ; preds = %if.then15, %_Z46grpc_gcp_rpc_protocol_versions_assign_from_upbP29_grpc_gcp_RpcProtocolVersionsPK28grpc_gcp_RpcProtocolVersions.exit
-  %cmp1424 = phi i1 [ true, %_Z46grpc_gcp_rpc_protocol_versions_assign_from_upbP29_grpc_gcp_RpcProtocolVersionsPK28grpc_gcp_RpcProtocolVersions.exit ], [ false, %if.then15 ]
-  invoke void @upb_Arena_Free(ptr noundef nonnull %call.i.i)
-          to label %return unwind label %terminate.lpad.i.i17
+69:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi47EEERS2_RAT__Kc.exit, %_Z46grpc_gcp_rpc_protocol_versions_assign_from_upbP29_grpc_gcp_RpcProtocolVersionsPK28grpc_gcp_RpcProtocolVersions.exit
+  %70 = phi i1 [ true, %_Z46grpc_gcp_rpc_protocol_versions_assign_from_upbP29_grpc_gcp_RpcProtocolVersionsPK28grpc_gcp_RpcProtocolVersions.exit ], [ false, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi47EEERS2_RAT__Kc.exit ]
+  invoke void @upb_Arena_Free(ptr noundef nonnull %10)
+          to label %_ZN3upb5ArenaD2Ev.exit unwind label %71
 
-terminate.lpad.i.i17:                             ; preds = %if.then.i.i16
-  %19 = landingpad { ptr, i32 }
+71:                                               ; preds = %69
+  %72 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #10
+  %73 = extractvalue { ptr, i32 } %72, 0
+  call void @__clang_call_terminate(ptr %73) #14
   unreachable
 
-return:                                           ; preds = %if.then.i.i16, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ %cmp1424, %if.then.i.i16 ]
-  ret i1 %retval.0
+74:                                               ; preds = %39, %45
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %45 ], [ %40, %39 ]
+  invoke void @upb_Arena_Free(ptr noundef nonnull %10)
+          to label %_ZN3upb5ArenaD2Ev.exit27 unwind label %75
+
+75:                                               ; preds = %74
+  %76 = landingpad { ptr, i32 }
+          catch ptr null
+  %77 = extractvalue { ptr, i32 } %76, 0
+  call void @__clang_call_terminate(ptr %77) #14
+  unreachable
+
+_ZN3upb5ArenaD2Ev.exit:                           ; preds = %69, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi63EEERS2_RAT__Kc.exit
+  %.0 = phi i1 [ false, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi63EEERS2_RAT__Kc.exit ], [ %70, %69 ]
+  ret i1 %.0
+
+_ZN3upb5ArenaD2Ev.exit27:                         ; preds = %74, %7
+  %.pn22 = phi { ptr, i32 } [ %8, %7 ], [ %.pn.pn, %74 ]
+  resume { ptr, i32 } %.pn22
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_Z46grpc_gcp_rpc_protocol_versions_assign_from_upbP29_grpc_gcp_RpcProtocolVersionsPK28grpc_gcp_RpcProtocolVersions(ptr noundef writeonly captures(none) initializes((0, 16)) %versions, ptr noundef readonly captures(none) %value) local_unnamed_addr #3 {
-entry:
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %value, i64 8
-  %0 = load i64, ptr %add.ptr.i.i, align 1
-  %cmp.not = icmp eq i64 %0, 0
-  br i1 %cmp.not, label %if.else, label %if.then
+; Function Attrs: mustprogress uwtable
+define void @_Z46grpc_gcp_rpc_protocol_versions_assign_from_upbP29_grpc_gcp_RpcProtocolVersionsPK28grpc_gcp_RpcProtocolVersions(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @grpc__gcp__RpcProtocolVersions__Version_msg_init) #11, !srcloc !22
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %4 = load i64, ptr %3, align 1
+  %.not = icmp eq i64 %4, 0
+  br i1 %.not, label %11, label %5
 
-if.then:                                          ; preds = %entry
-  %1 = inttoptr i64 %0 to ptr
-  %2 = load i32, ptr %1, align 1
-  store i32 %2, ptr %versions, align 4
-  %add.ptr.i.i13 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %3 = load i32, ptr %add.ptr.i.i13, align 1
-  br label %if.end
+5:                                                ; preds = %2
+  %6 = inttoptr i64 %4 to ptr
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = load i32, ptr %7, align 1
+  store i32 %8, ptr %0, align 4, !tbaa !3
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %10 = load i32, ptr %9, align 1
+  br label %12
 
-if.else:                                          ; preds = %entry
-  store i32 0, ptr %versions, align 4
-  br label %if.end
+11:                                               ; preds = %2
+  store i32 0, ptr %0, align 4, !tbaa !3
+  br label %12
 
-if.end:                                           ; preds = %if.else, %if.then
-  %.sink = phi i32 [ 0, %if.else ], [ %3, %if.then ]
-  %4 = getelementptr inbounds nuw i8, ptr %versions, i64 4
-  store i32 %.sink, ptr %4, align 4
-  %add.ptr.i.i14 = getelementptr inbounds nuw i8, ptr %value, i64 16
-  %5 = load i64, ptr %add.ptr.i.i14, align 1
-  %cmp9.not = icmp eq i64 %5, 0
-  br i1 %cmp9.not, label %if.else16, label %if.then10
+12:                                               ; preds = %11, %5
+  %.sink = phi i32 [ 0, %11 ], [ %10, %5 ]
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.sink, ptr %13, align 4, !tbaa !9
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @grpc__gcp__RpcProtocolVersions__Version_msg_init) #11, !srcloc !22
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %15 = load i64, ptr %14, align 1
+  %.not17 = icmp eq i64 %15, 0
+  br i1 %.not17, label %23, label %16
 
-if.then10:                                        ; preds = %if.end
-  %6 = inttoptr i64 %5 to ptr
-  %7 = load i32, ptr %6, align 1
-  %min_rpc_version = getelementptr inbounds nuw i8, ptr %versions, i64 8
-  store i32 %7, ptr %min_rpc_version, align 4
-  %add.ptr.i.i15 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %8 = load i32, ptr %add.ptr.i.i15, align 1
-  br label %if.end21
+16:                                               ; preds = %12
+  %17 = inttoptr i64 %15 to ptr
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i32, ptr %18, align 1
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %19, ptr %20, align 4, !tbaa !10
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %22 = load i32, ptr %21, align 1
+  br label %25
 
-if.else16:                                        ; preds = %if.end
-  %min_rpc_version17 = getelementptr inbounds nuw i8, ptr %versions, i64 8
-  store i32 0, ptr %min_rpc_version17, align 4
-  br label %if.end21
+23:                                               ; preds = %12
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 0, ptr %24, align 4, !tbaa !10
+  br label %25
 
-if.end21:                                         ; preds = %if.else16, %if.then10
-  %.sink16 = phi i32 [ 0, %if.else16 ], [ %8, %if.then10 ]
-  %9 = getelementptr inbounds nuw i8, ptr %versions, i64 12
-  store i32 %.sink16, ptr %9, align 4
+25:                                               ; preds = %23, %16
+  %.sink18 = phi i32 [ 0, %23 ], [ %22, %16 ]
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %.sink18, ptr %26, align 4, !tbaa !11
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z35grpc_gcp_rpc_protocol_versions_copyPK29_grpc_gcp_RpcProtocolVersionsPS_(ptr noundef readonly %src, ptr noundef writeonly %dst) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq ptr %src, null
-  %cmp1 = icmp ne ptr %dst, null
-  %or.cond = and i1 %cmp, %cmp1
-  br i1 %or.cond, label %if.then, label %lor.lhs.false
+define noundef zeroext i1 @_Z35grpc_gcp_rpc_protocol_versions_copyPK29_grpc_gcp_RpcProtocolVersionsPS_(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
+  %4 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
+  %5 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
+  %6 = icmp eq ptr %0, null
+  %7 = icmp ne ptr %1, null
+  %or.cond = and i1 %6, %7
+  br i1 %or.cond, label %11, label %8
 
-lor.lhs.false:                                    ; preds = %entry
-  %cmp2 = icmp ne ptr %src, null
-  %cmp4 = icmp eq ptr %dst, null
-  %or.cond1 = and i1 %cmp2, %cmp4
-  br i1 %or.cond1, label %if.then, label %if.end
+8:                                                ; preds = %2
+  %9 = icmp ne ptr %0, null
+  %10 = icmp eq ptr %1, null
+  %or.cond3 = and i1 %9, %10
+  br i1 %or.cond3, label %11, label %14
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 159, i32 noundef 2, ptr noundef nonnull @.str.6)
-  br label %return
+11:                                               ; preds = %8, %2
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str, i32 noundef 155) #12
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 59, ptr nonnull @.str.6)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi60EEERS2_RAT__Kc.exit unwind label %12
 
-if.end:                                           ; preds = %lor.lhs.false
-  br i1 %cmp, label %return, label %if.end7
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi60EEERS2_RAT__Kc.exit: ; preds = %11
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  br label %_Z38grpc_gcp_rpc_protocol_versions_set_minP29_grpc_gcp_RpcProtocolVersionsjj.exit
 
-if.end7:                                          ; preds = %if.end
-  br i1 %cmp1, label %if.end.i13, label %if.then.i12
+common.resume:                                    ; preds = %20, %17, %12
+  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %18, %17 ], [ %21, %20 ]
+  resume { ptr, i32 } %common.resume.op
 
-if.then.i12:                                      ; preds = %if.end7
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 29, i32 noundef 2, ptr noundef nonnull @.str.1)
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 43, i32 noundef 2, ptr noundef nonnull @.str.2)
-  br label %return
+12:                                               ; preds = %11
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  br label %common.resume
 
-if.end.i13:                                       ; preds = %if.end7
-  %minor = getelementptr inbounds nuw i8, ptr %src, i64 4
-  %0 = load i32, ptr %minor, align 4
-  %1 = load i32, ptr %src, align 4
-  store i32 %1, ptr %dst, align 4
-  %minor.i = getelementptr inbounds nuw i8, ptr %dst, i64 4
-  store i32 %0, ptr %minor.i, align 4
-  %min_rpc_version15 = getelementptr inbounds nuw i8, ptr %src, i64 8
-  %2 = load i32, ptr %min_rpc_version15, align 4
-  %minor1116 = getelementptr inbounds nuw i8, ptr %src, i64 12
-  %3 = load i32, ptr %minor1116, align 4
-  %min_rpc_version.i = getelementptr inbounds nuw i8, ptr %dst, i64 8
-  store i32 %2, ptr %min_rpc_version.i, align 4
-  %minor.i14 = getelementptr inbounds nuw i8, ptr %dst, i64 12
-  store i32 %3, ptr %minor.i14, align 4
-  br label %return
+14:                                               ; preds = %8
+  br i1 %6, label %_Z38grpc_gcp_rpc_protocol_versions_set_minP29_grpc_gcp_RpcProtocolVersionsjj.exit, label %15
 
-return:                                           ; preds = %if.end.i13, %if.then.i12, %if.end, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ true, %if.end ], [ true, %if.then.i12 ], [ true, %if.end.i13 ]
-  ret i1 %retval.0
+15:                                               ; preds = %14
+  br i1 %7, label %22, label %16
+
+16:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str, i32 noundef 30) #12
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 64, ptr nonnull @.str.1)
+          to label %19 unwind label %17
+
+17:                                               ; preds = %16
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  br label %common.resume
+
+19:                                               ; preds = %16
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str, i32 noundef 43) #12
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 64, ptr nonnull @.str.2)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi65EEERS2_RAT__Kc.exit.i17 unwind label %20
+
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi65EEERS2_RAT__Kc.exit.i17: ; preds = %19
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  br label %_Z38grpc_gcp_rpc_protocol_versions_set_minP29_grpc_gcp_RpcProtocolVersionsjj.exit
+
+20:                                               ; preds = %19
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  br label %common.resume
+
+22:                                               ; preds = %15
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %24 = load i32, ptr %23, align 4, !tbaa !9
+  %25 = load i32, ptr %0, align 4, !tbaa !3
+  store i32 %25, ptr %1, align 4, !tbaa !3
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %24, ptr %26, align 4, !tbaa !9
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %28 = load i32, ptr %27, align 4, !tbaa !10
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %30 = load i32, ptr %29, align 4, !tbaa !11
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %28, ptr %31, align 4, !tbaa !10
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 %30, ptr %32, align 4, !tbaa !11
+  br label %_Z38grpc_gcp_rpc_protocol_versions_set_minP29_grpc_gcp_RpcProtocolVersionsjj.exit
+
+_Z38grpc_gcp_rpc_protocol_versions_set_minP29_grpc_gcp_RpcProtocolVersionsjj.exit: ; preds = %22, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi65EEERS2_RAT__Kc.exit.i17, %14, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi60EEERS2_RAT__Kc.exit
+  %.0 = phi i1 [ false, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi60EEERS2_RAT__Kc.exit ], [ true, %14 ], [ true, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi65EEERS2_RAT__Kc.exit.i17 ], [ true, %22 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 -1, 2) i32 @_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_(ptr noundef readonly captures(none) %v1, ptr noundef readonly captures(none) %v2) local_unnamed_addr #4 {
-entry:
-  %0 = load i32, ptr %v1, align 4
-  %1 = load i32, ptr %v2, align 4
-  %cmp = icmp ugt i32 %0, %1
-  br i1 %cmp, label %return, label %lor.lhs.false
+define noundef range(i32 -1, 2) i32 @_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
+  %3 = load i32, ptr %0, align 4, !tbaa !32
+  %4 = load i32, ptr %1, align 4, !tbaa !32
+  %5 = icmp ugt i32 %3, %4
+  br i1 %5, label %17, label %6
 
-lor.lhs.false:                                    ; preds = %entry
-  %cmp4 = icmp eq i32 %0, %1
-  br i1 %cmp4, label %land.lhs.true, label %if.end.thread
+6:                                                ; preds = %2
+  %7 = icmp eq i32 %3, %4
+  br i1 %7, label %8, label %.thread
 
-land.lhs.true:                                    ; preds = %lor.lhs.false
-  %minor = getelementptr inbounds nuw i8, ptr %v1, i64 4
-  %2 = load i32, ptr %minor, align 4
-  %minor5 = getelementptr inbounds nuw i8, ptr %v2, i64 4
-  %3 = load i32, ptr %minor5, align 4
-  %cmp6 = icmp ugt i32 %2, %3
-  br i1 %cmp6, label %return, label %land.lhs.true14
+8:                                                ; preds = %6
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %10 = load i32, ptr %9, align 4, !tbaa !33
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %12 = load i32, ptr %11, align 4, !tbaa !33
+  %13 = icmp ugt i32 %10, %12
+  br i1 %13, label %17, label %15
 
-if.end.thread:                                    ; preds = %lor.lhs.false
-  %cmp914 = icmp ult i32 %0, %1
-  br i1 %cmp914, label %return, label %if.end19
+.thread:                                          ; preds = %6
+  %14 = icmp ult i32 %3, %4
+  br i1 %14, label %17, label %.thread16
 
-land.lhs.true14:                                  ; preds = %land.lhs.true
-  %cmp17 = icmp ult i32 %2, %3
-  br i1 %cmp17, label %return, label %if.end19
+15:                                               ; preds = %8
+  %16 = icmp ult i32 %10, %12
+  br i1 %16, label %17, label %.thread16
 
-if.end19:                                         ; preds = %if.end.thread, %land.lhs.true14
-  br label %return
+.thread16:                                        ; preds = %.thread, %15
+  br label %17
 
-return:                                           ; preds = %if.end.thread, %land.lhs.true14, %entry, %land.lhs.true, %if.end19
-  %retval.0 = phi i32 [ 0, %if.end19 ], [ 1, %land.lhs.true ], [ 1, %entry ], [ -1, %land.lhs.true14 ], [ -1, %if.end.thread ]
-  ret i32 %retval.0
+17:                                               ; preds = %.thread, %15, %2, %8, %.thread16
+  %.0 = phi i32 [ 0, %.thread16 ], [ 1, %8 ], [ 1, %2 ], [ -1, %15 ], [ -1, %.thread ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z36grpc_gcp_rpc_protocol_versions_checkPK29_grpc_gcp_RpcProtocolVersionsS1_P37_grpc_gcp_RpcProtocolVersions_Version(ptr noundef readonly %local_versions, ptr noundef readonly %peer_versions, ptr noundef writeonly %highest_common_version) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq ptr %local_versions, null
-  %cmp1 = icmp eq ptr %peer_versions, null
-  %or.cond = or i1 %cmp, %cmp1
-  br i1 %or.cond, label %if.then, label %if.end
+define noundef zeroext i1 @_Z36grpc_gcp_rpc_protocol_versions_checkPK29_grpc_gcp_RpcProtocolVersionsS1_P37_grpc_gcp_RpcProtocolVersions_Version(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
+  %5 = icmp eq ptr %0, null
+  %6 = icmp eq ptr %1, null
+  %or.cond = or i1 %5, %6
+  br i1 %or.cond, label %7, label %10
 
-if.then:                                          ; preds = %entry
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 199, i32 noundef 2, ptr noundef nonnull @.str.7)
-  br label %return
+7:                                                ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str, i32 noundef 193) #12
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 60, ptr nonnull @.str.7)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi61EEERS2_RAT__Kc.exit unwind label %8
 
-if.end:                                           ; preds = %entry
-  %0 = load i32, ptr %local_versions, align 4
-  %1 = load i32, ptr %peer_versions, align 4
-  %cmp.i = icmp ugt i32 %0, %1
-  br i1 %cmp.i, label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit, label %lor.lhs.false.i
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi61EEERS2_RAT__Kc.exit: ; preds = %7
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  br label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit32.thread
 
-lor.lhs.false.i:                                  ; preds = %if.end
-  %cmp4.i = icmp eq i32 %0, %1
-  br i1 %cmp4.i, label %land.lhs.true.i, label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit
+8:                                                ; preds = %7
+  %9 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  resume { ptr, i32 } %9
 
-land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
-  %minor.i = getelementptr inbounds nuw i8, ptr %local_versions, i64 4
-  %2 = load i32, ptr %minor.i, align 4
-  %minor5.i = getelementptr inbounds nuw i8, ptr %peer_versions, i64 4
-  %3 = load i32, ptr %minor5.i, align 4
-  %cmp6.i = icmp ugt i32 %2, %3
-  %spec.select = select i1 %cmp6.i, ptr %peer_versions, ptr %local_versions
+10:                                               ; preds = %3
+  %11 = load i32, ptr %0, align 4, !tbaa !32
+  %12 = load i32, ptr %1, align 4, !tbaa !32
+  %13 = icmp ugt i32 %11, %12
+  br i1 %13, label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit, label %14
+
+14:                                               ; preds = %10
+  %15 = icmp eq i32 %11, %12
+  br i1 %15, label %16, label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit
+
+16:                                               ; preds = %14
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %18 = load i32, ptr %17, align 4, !tbaa !33
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %20 = load i32, ptr %19, align 4, !tbaa !33
+  %21 = icmp ugt i32 %18, %20
+  %spec.select = select i1 %21, ptr %1, ptr %0
   br label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit
 
-_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit: ; preds = %land.lhs.true.i, %lor.lhs.false.i, %if.end
-  %4 = phi ptr [ %peer_versions, %if.end ], [ %local_versions, %lor.lhs.false.i ], [ %spec.select, %land.lhs.true.i ]
-  %min_rpc_version = getelementptr inbounds nuw i8, ptr %local_versions, i64 8
-  %min_rpc_version6 = getelementptr inbounds nuw i8, ptr %peer_versions, i64 8
-  %5 = load i32, ptr %min_rpc_version, align 4
-  %6 = load i32, ptr %min_rpc_version6, align 4
-  %cmp.i13 = icmp ugt i32 %5, %6
-  br i1 %cmp.i13, label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit26, label %lor.lhs.false.i14
+_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit: ; preds = %16, %14, %10
+  %22 = phi ptr [ %1, %10 ], [ %0, %14 ], [ %spec.select, %16 ]
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %25 = load i32, ptr %23, align 4, !tbaa !32
+  %26 = load i32, ptr %24, align 4, !tbaa !32
+  %27 = icmp ugt i32 %25, %26
+  br i1 %27, label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit28, label %28
 
-lor.lhs.false.i14:                                ; preds = %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit
-  %cmp4.i15 = icmp eq i32 %5, %6
-  br i1 %cmp4.i15, label %land.lhs.true.i20, label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit26
+28:                                               ; preds = %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit
+  %29 = icmp eq i32 %25, %26
+  br i1 %29, label %30, label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit28
 
-land.lhs.true.i20:                                ; preds = %lor.lhs.false.i14
-  %minor.i21 = getelementptr inbounds nuw i8, ptr %local_versions, i64 12
-  %7 = load i32, ptr %minor.i21, align 4
-  %minor5.i22 = getelementptr inbounds nuw i8, ptr %peer_versions, i64 12
-  %8 = load i32, ptr %minor5.i22, align 4
-  %cmp6.i23 = icmp ugt i32 %7, %8
-  %spec.select49 = select i1 %cmp6.i23, ptr %min_rpc_version, ptr %min_rpc_version6
-  br label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit26
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %32 = load i32, ptr %31, align 4, !tbaa !33
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %34 = load i32, ptr %33, align 4, !tbaa !33
+  %35 = icmp ugt i32 %32, %34
+  %spec.select37 = select i1 %35, ptr %23, ptr %24
+  br label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit28
 
-_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit26: ; preds = %lor.lhs.false.i14, %land.lhs.true.i20, %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit
-  %9 = phi i32 [ %5, %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit ], [ %5, %land.lhs.true.i20 ], [ %6, %lor.lhs.false.i14 ]
-  %10 = phi ptr [ %min_rpc_version, %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit ], [ %spec.select49, %land.lhs.true.i20 ], [ %min_rpc_version6, %lor.lhs.false.i14 ]
-  %11 = load i32, ptr %4, align 4
-  %cmp.i27 = icmp ugt i32 %11, %9
-  br i1 %cmp.i27, label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit40, label %lor.lhs.false.i28
+_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit28: ; preds = %28, %30, %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit
+  %36 = phi i32 [ %25, %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit ], [ %25, %30 ], [ %26, %28 ]
+  %37 = phi ptr [ %23, %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit ], [ %spec.select37, %30 ], [ %24, %28 ]
+  %38 = load i32, ptr %22, align 4, !tbaa !32
+  %39 = icmp ugt i32 %38, %36
+  br i1 %39, label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit32, label %40
 
-lor.lhs.false.i28:                                ; preds = %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit26
-  %cmp4.i29 = icmp eq i32 %11, %9
-  br i1 %cmp4.i29, label %land.lhs.true.i34, label %if.end.thread.i30
+40:                                               ; preds = %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit28
+  %41 = icmp eq i32 %38, %36
+  br i1 %41, label %42, label %.thread.i29
 
-land.lhs.true.i34:                                ; preds = %lor.lhs.false.i28
-  %minor.i35 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %12 = load i32, ptr %minor.i35, align 4
-  %minor5.i36 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %13 = load i32, ptr %minor5.i36, align 4
-  %cmp17.i39 = icmp ult i32 %12, %13
-  br i1 %cmp17.i39, label %return, label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit40
+42:                                               ; preds = %40
+  %43 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %44 = load i32, ptr %43, align 4, !tbaa !33
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 4
+  %46 = load i32, ptr %45, align 4, !tbaa !33
+  %47 = icmp ult i32 %44, %46
+  br i1 %47, label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit32.thread, label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit32
 
-if.end.thread.i30:                                ; preds = %lor.lhs.false.i28
-  %cmp914.i31 = icmp ult i32 %11, %9
-  br i1 %cmp914.i31, label %return, label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit40
+.thread.i29:                                      ; preds = %40
+  %48 = icmp ult i32 %38, %36
+  br i1 %48, label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit32.thread, label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit32
 
-_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit40: ; preds = %if.end.thread.i30, %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit26, %land.lhs.true.i34
-  %cmp17.not = icmp eq ptr %highest_common_version, null
-  br i1 %cmp17.not, label %return, label %if.then18
+_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit32: ; preds = %.thread.i29, %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit28, %42
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit32.thread, label %49
 
-if.then18:                                        ; preds = %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit40
-  %14 = load i64, ptr %4, align 4
-  store i64 %14, ptr %highest_common_version, align 4
-  br label %return
+49:                                               ; preds = %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit32
+  %50 = load i64, ptr %22, align 4
+  store i64 %50, ptr %2, align 4
+  br label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit32.thread
 
-return:                                           ; preds = %land.lhs.true.i34, %if.end.thread.i30, %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit40, %if.then18, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ true, %if.then18 ], [ true, %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit40 ], [ false, %if.end.thread.i30 ], [ false, %land.lhs.true.i34 ]
-  ret i1 %retval.0
+_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit32.thread: ; preds = %42, %.thread.i29, %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit32, %49, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi61EEERS2_RAT__Kc.exit
+  %.0 = phi i1 [ false, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi61EEERS2_RAT__Kc.exit ], [ true, %49 ], [ true, %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit32 ], [ false, %.thread.i29 ], [ false, %42 ]
+  ret i1 %.0
 }
 
-declare void @upb_Arena_Free(ptr noundef) local_unnamed_addr #1
+declare void @upb_Arena_Free(ptr noundef) local_unnamed_addr #4
 
-declare ptr @upb_Arena_Init(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @upb_Arena_Init(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
-  tail call void @_ZSt9terminatev() #10
+  tail call void @_ZSt9terminatev() #14
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #6
+declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
-declare ptr @_upb_Arena_SlowMalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare ptr @_upb_Arena_SlowMalloc_dont_copy_me__upb_internal_use_only(ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @upb_Encode(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @upb_Encode(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @upb_Decode(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @upb_Decode(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+
+declare void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16), i64, ptr) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
+declare void @llvm.assume(i1 noundef) #10
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
-
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold nofree noreturn }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { noreturn nounwind }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold nofree noreturn }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #11 = { nounwind }
+attributes #12 = { cold }
+attributes #13 = { cold nounwind }
+attributes #14 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !6, i64 0}
+!4 = !{!"_ZTS29_grpc_gcp_RpcProtocolVersions", !5, i64 0, !5, i64 8}
+!5 = !{!"_ZTS37_grpc_gcp_RpcProtocolVersions_Version", !6, i64 0, !6, i64 4}
+!6 = !{!"int", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!4, !6, i64 4}
+!10 = !{!4, !6, i64 8}
+!11 = !{!4, !6, i64 12}
+!12 = !{!13, !16, i64 16}
+!13 = !{!"_ZTS13upb_MiniTable", !14, i64 0, !15, i64 8, !16, i64 16, !16, i64 18, !7, i64 20, !7, i64 21, !7, i64 22, !7, i64 23}
+!14 = !{!"any pointer", !7, i64 0}
+!15 = !{!"p1 _ZTS18upb_MiniTableField", !14, i64 0}
+!16 = !{!"short", !7, i64 0}
+!17 = !{!18, !19, i64 8}
+!18 = !{!"_ZTS9upb_Arena", !19, i64 0, !19, i64 8}
+!19 = !{!"p1 omnipotent char", !14, i64 0}
+!20 = !{!18, !19, i64 0}
+!21 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!22 = !{i64 5355405}
+!23 = !{!7, !7, i64 0}
+!24 = !{!19, !19, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"long", !7, i64 0}
+!27 = !{i64 0, i64 8, !28, i64 8, i64 24, !23}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTS19grpc_slice_refcount", !14, i64 0}
+!30 = !{!31, !29, i64 0}
+!31 = !{!"_ZTS10grpc_slice", !29, i64 0, !7, i64 8}
+!32 = !{!5, !6, i64 0}
+!33 = !{!5, !6, i64 4}

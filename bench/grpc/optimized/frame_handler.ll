@@ -1,434 +1,571 @@
 ; ModuleID = 'bench/grpc/original/frame_handler.ll'
 source_filename = "bench/grpc/original/frame_handler.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
+
+%"class.absl::lts_20240722::log_internal::LogMessage" = type { %"class.absl::lts_20240722::base_internal::ErrnoSaver", %"class.std::unique_ptr" }
+%"class.absl::lts_20240722::base_internal::ErrnoSaver" = type { i32 }
+%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
+%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
+%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
+%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
+%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
+%"struct.std::_Head_base.1" = type { ptr }
 
 @.str = private unnamed_addr constant [138 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/tsi/alts/frame_protector/frame_handler.cc\00", align 1
-@.str.1 = private unnamed_addr constant [27 x i8] c"length must be at most %zu\00", align 1
-@.str.2 = private unnamed_addr constant [59 x i8] c"Bad frame length (should be at least %zu, and at most %zu)\00", align 1
-@.str.3 = private unnamed_addr constant [45 x i8] c"Unsupported message type %zu (should be %zu)\00", align 1
+@.str.1 = private unnamed_addr constant [24 x i8] c"length must be at most \00", align 1
+@.str.2 = private unnamed_addr constant [38 x i8] c"Bad frame length (should be at least \00", align 1
+@.str.3 = private unnamed_addr constant [15 x i8] c", and at most \00", align 1
+@.str.4 = private unnamed_addr constant [2 x i8] c")\00", align 1
+@.str.5 = private unnamed_addr constant [26 x i8] c"Unsupported message type \00", align 1
+@.str.6 = private unnamed_addr constant [13 x i8] c" (should be \00", align 1
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_Z24alts_create_frame_writerv() local_unnamed_addr #0 {
-entry:
-  %call.i = tail call noundef ptr @gpr_zalloc(i64 noundef 40)
-  ret ptr %call.i
+  %1 = tail call noundef ptr @gpr_zalloc(i64 noundef 40)
+  ret ptr %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z23alts_reset_frame_writerP17alts_frame_writerPKhm(ptr noundef writeonly captures(none) %writer, ptr noundef %buffer, i64 noundef %length) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq ptr %buffer, null
-  br i1 %cmp, label %return, label %if.end
+define noundef zeroext i1 @_Z23alts_reset_frame_writerP17alts_frame_writerPKhm(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %4 = alloca i64, align 8
+  %5 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
+  %6 = icmp eq ptr %1, null
+  br i1 %6, label %34, label %7
 
-if.end:                                           ; preds = %entry
-  %cmp1 = icmp ugt i64 %length, -5
-  br i1 %cmp1, label %if.then2, label %if.end3
+7:                                                ; preds = %3
+  %8 = icmp ult i64 %2, -4
+  br i1 %8, label %14, label %9
 
-if.then2:                                         ; preds = %if.end
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 61, i32 noundef 2, ptr noundef nonnull @.str.1, i64 noundef -5)
-  br label %return
+9:                                                ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str, i32 noundef 59) #12
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 23, ptr nonnull @.str.1)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi24EEERS2_RAT__Kc.exit unwind label %12
 
-if.end3:                                          ; preds = %if.end
-  store ptr %buffer, ptr %writer, align 8
-  %input_size = getelementptr inbounds nuw i8, ptr %writer, i64 32
-  store i64 %length, ptr %input_size, align 8
-  %input_bytes_written = getelementptr inbounds nuw i8, ptr %writer, i64 16
-  %0 = trunc i64 %length to i32
-  %conv = add i32 %0, 4
-  %header_buffer = getelementptr inbounds nuw i8, ptr %writer, i64 8
-  %shr.i = lshr i32 %conv, 24
-  %conv2.i = trunc nuw i32 %shr.i to i8
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %writer, i64 11
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %input_bytes_written, i8 0, i64 16, i1 false)
-  store i8 %conv2.i, ptr %arrayidx.i, align 1
-  %shr3.i = lshr i32 %conv, 16
-  %conv7.i = trunc i32 %shr3.i to i8
-  %arrayidx8.i = getelementptr inbounds nuw i8, ptr %writer, i64 10
-  store i8 %conv7.i, ptr %arrayidx8.i, align 1
-  %shr9.i = lshr i32 %conv, 8
-  %conv13.i = trunc i32 %shr9.i to i8
-  %arrayidx14.i = getelementptr inbounds nuw i8, ptr %writer, i64 9
-  store i8 %conv13.i, ptr %arrayidx14.i, align 1
-  %conv18.i = trunc i32 %conv to i8
-  store i8 %conv18.i, ptr %header_buffer, align 1
-  %add.ptr = getelementptr inbounds nuw i8, ptr %writer, i64 12
-  %arrayidx.i10 = getelementptr inbounds nuw i8, ptr %writer, i64 15
-  store i8 0, ptr %arrayidx.i10, align 1
-  %arrayidx8.i11 = getelementptr inbounds nuw i8, ptr %writer, i64 14
-  store i8 0, ptr %arrayidx8.i11, align 1
-  %arrayidx14.i12 = getelementptr inbounds nuw i8, ptr %writer, i64 13
-  store i8 0, ptr %arrayidx14.i12, align 1
-  store i8 6, ptr %add.ptr, align 1
-  br label %return
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi24EEERS2_RAT__Kc.exit: ; preds = %9
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  store i64 -5, ptr %4, align 8, !tbaa !3
+  %10 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsImTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %11 unwind label %12
 
-return:                                           ; preds = %entry, %if.end3, %if.then2
-  %retval.0 = phi i1 [ false, %if.then2 ], [ true, %if.end3 ], [ false, %entry ]
-  ret i1 %retval.0
+11:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi24EEERS2_RAT__Kc.exit
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  br label %34
+
+12:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi24EEERS2_RAT__Kc.exit, %9
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  resume { ptr, i32 } %13
+
+14:                                               ; preds = %7
+  store ptr %1, ptr %0, align 8, !tbaa !7
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %2, ptr %15, align 8, !tbaa !11
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = trunc i64 %2 to i32
+  %18 = add i32 %17, 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %20 = lshr i32 %18, 24
+  %21 = trunc nuw i32 %20 to i8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
+  store i8 %21, ptr %22, align 1, !tbaa !12
+  %23 = lshr i32 %18, 16
+  %24 = trunc i32 %23 to i8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  store i8 %24, ptr %25, align 1, !tbaa !12
+  %26 = lshr i32 %18, 8
+  %27 = trunc i32 %26 to i8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  store i8 %27, ptr %28, align 1, !tbaa !12
+  %29 = trunc i32 %18 to i8
+  store i8 %29, ptr %19, align 1, !tbaa !12
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  store i8 0, ptr %31, align 1, !tbaa !12
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  store i8 0, ptr %32, align 1, !tbaa !12
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  store i8 0, ptr %33, align 1, !tbaa !12
+  store i8 6, ptr %30, align 1, !tbaa !12
+  br label %34
+
+34:                                               ; preds = %11, %14, %3
+  %.0 = phi i1 [ false, %3 ], [ true, %14 ], [ false, %11 ]
+  ret i1 %.0
 }
 
-declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: cold
+declare void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef) unnamed_addr #2
+
+declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: cold nounwind
+declare void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_Z22alts_write_frame_bytesP17alts_frame_writerPhPm(ptr noundef captures(none) %writer, ptr noundef writeonly %output, ptr noundef %bytes_size) local_unnamed_addr #2 {
-entry:
-  %cmp = icmp ne ptr %bytes_size, null
-  %cmp1 = icmp ne ptr %output, null
-  %or.cond.not = and i1 %cmp1, %cmp
-  br i1 %or.cond.not, label %if.end, label %return
+define noundef zeroext i1 @_Z22alts_write_frame_bytesP17alts_frame_writerPhPm(ptr noundef captures(none) %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #4 {
+  %4 = icmp ne ptr %2, null
+  %5 = icmp ne ptr %1, null
+  %or.cond.not = and i1 %5, %4
+  br i1 %or.cond.not, label %6, label %37
 
-if.end:                                           ; preds = %entry
-  %0 = load ptr, ptr %writer, align 8
-  %cmp.i = icmp eq ptr %0, null
-  br i1 %cmp.i, label %return.sink.split, label %_Z25alts_is_frame_writer_doneP17alts_frame_writer.exit
+6:                                                ; preds = %3
+  %7 = load ptr, ptr %0, align 8, !tbaa !7
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %.sink.split, label %_Z25alts_is_frame_writer_doneP17alts_frame_writer.exit
 
-_Z25alts_is_frame_writer_doneP17alts_frame_writer.exit: ; preds = %if.end
-  %input_size.i = getelementptr inbounds nuw i8, ptr %writer, i64 32
-  %1 = load i64, ptr %input_size.i, align 8
-  %input_bytes_written.i = getelementptr inbounds nuw i8, ptr %writer, i64 16
-  %2 = load i64, ptr %input_bytes_written.i, align 8
-  %cmp1.i = icmp eq i64 %1, %2
-  br i1 %cmp1.i, label %return.sink.split, label %if.end3
+_Z25alts_is_frame_writer_doneP17alts_frame_writer.exit: ; preds = %6
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %10 = load i64, ptr %9, align 8, !tbaa !11
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = load i64, ptr %11, align 8, !tbaa !13
+  %13 = icmp eq i64 %10, %12
+  br i1 %13, label %.sink.split, label %14
 
-if.end3:                                          ; preds = %_Z25alts_is_frame_writer_doneP17alts_frame_writer.exit
-  %header_bytes_written = getelementptr inbounds nuw i8, ptr %writer, i64 24
-  %3 = load i64, ptr %header_bytes_written, align 8
-  %cmp4.not = icmp eq i64 %3, 8
-  br i1 %cmp4.not, label %if.end17, label %if.then5
+14:                                               ; preds = %_Z25alts_is_frame_writer_doneP17alts_frame_writer.exit
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %16 = load i64, ptr %15, align 8, !tbaa !14
+  %.not = icmp eq i64 %16, 8
+  br i1 %.not, label %.critedge, label %17
 
-if.then5:                                         ; preds = %if.end3
-  %sub = sub i64 8, %3
-  %4 = load i64, ptr %bytes_size, align 8
-  %.sroa.speculated36 = tail call i64 @llvm.umin.i64(i64 %sub, i64 %4)
-  %header_buffer = getelementptr inbounds nuw i8, ptr %writer, i64 8
-  %add.ptr = getelementptr inbounds i8, ptr %header_buffer, i64 %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %output, ptr nonnull align 1 %add.ptr, i64 %.sroa.speculated36, i1 false)
-  %5 = load i64, ptr %bytes_size, align 8
-  %sub9 = sub i64 %5, %.sroa.speculated36
-  store i64 %sub9, ptr %bytes_size, align 8
-  %6 = load i64, ptr %header_bytes_written, align 8
-  %add11 = add i64 %6, %.sroa.speculated36
-  store i64 %add11, ptr %header_bytes_written, align 8
-  %cmp14.not = icmp eq i64 %add11, 8
-  br i1 %cmp14.not, label %if.then5.if.end17_crit_edge, label %return.sink.split
+17:                                               ; preds = %14
+  %18 = sub i64 8, %16
+  %19 = load i64, ptr %2, align 8, !tbaa !3
+  %.sroa.speculated49 = tail call i64 @llvm.umin.i64(i64 %18, i64 %19)
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull align 1 %21, i64 %.sroa.speculated49, i1 false)
+  %22 = load i64, ptr %2, align 8, !tbaa !3
+  %23 = sub i64 %22, %.sroa.speculated49
+  store i64 %23, ptr %2, align 8, !tbaa !3
+  %24 = load i64, ptr %15, align 8, !tbaa !14
+  %25 = add i64 %24, %.sroa.speculated49
+  store i64 %25, ptr %15, align 8, !tbaa !14
+  %.not43 = icmp eq i64 %25, 8
+  br i1 %.not43, label %..critedge_crit_edge, label %.sink.split
 
-if.then5.if.end17_crit_edge:                      ; preds = %if.then5
-  %add.ptr12 = getelementptr inbounds i8, ptr %output, i64 %.sroa.speculated36
-  %.pre = load i64, ptr %input_size.i, align 8
-  %.pre38 = load i64, ptr %input_bytes_written.i, align 8
-  %.pre39 = load ptr, ptr %writer, align 8
-  br label %if.end17
+..critedge_crit_edge:                             ; preds = %17
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.speculated49
+  %.pre = load i64, ptr %9, align 8, !tbaa !11
+  %.pre52 = load i64, ptr %11, align 8, !tbaa !13
+  %.pre53 = load ptr, ptr %0, align 8, !tbaa !7
+  br label %.critedge
 
-if.end17:                                         ; preds = %if.then5.if.end17_crit_edge, %if.end3
-  %7 = phi ptr [ %.pre39, %if.then5.if.end17_crit_edge ], [ %0, %if.end3 ]
-  %8 = phi i64 [ %.pre38, %if.then5.if.end17_crit_edge ], [ %2, %if.end3 ]
-  %9 = phi i64 [ %.pre, %if.then5.if.end17_crit_edge ], [ %1, %if.end3 ]
-  %bytes_written.0 = phi i64 [ %.sroa.speculated36, %if.then5.if.end17_crit_edge ], [ 0, %if.end3 ]
-  %output.addr.0 = phi ptr [ %add.ptr12, %if.then5.if.end17_crit_edge ], [ %output, %if.end3 ]
-  %sub20 = sub i64 %9, %8
-  %10 = load i64, ptr %bytes_size, align 8
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %10, i64 %sub20)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %output.addr.0, ptr align 1 %7, i64 %.sroa.speculated, i1 false)
-  %11 = load ptr, ptr %writer, align 8
-  %add.ptr23 = getelementptr inbounds i8, ptr %11, i64 %.sroa.speculated
-  store ptr %add.ptr23, ptr %writer, align 8
-  %add24 = add i64 %.sroa.speculated, %bytes_written.0
-  %12 = load i64, ptr %input_bytes_written.i, align 8
-  %add26 = add i64 %12, %.sroa.speculated
-  store i64 %add26, ptr %input_bytes_written.i, align 8
-  br label %return.sink.split
+.critedge:                                        ; preds = %..critedge_crit_edge, %14
+  %27 = phi ptr [ %7, %14 ], [ %.pre53, %..critedge_crit_edge ]
+  %28 = phi i64 [ %12, %14 ], [ %.pre52, %..critedge_crit_edge ]
+  %29 = phi i64 [ %10, %14 ], [ %.pre, %..critedge_crit_edge ]
+  %.040 = phi i64 [ 0, %14 ], [ %.sroa.speculated49, %..critedge_crit_edge ]
+  %.039 = phi ptr [ %1, %14 ], [ %26, %..critedge_crit_edge ]
+  %30 = sub i64 %29, %28
+  %31 = load i64, ptr %2, align 8, !tbaa !3
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %31, i64 %30)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.039, ptr align 1 %27, i64 %.sroa.speculated, i1 false)
+  %32 = load ptr, ptr %0, align 8, !tbaa !7
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %.sroa.speculated
+  store ptr %33, ptr %0, align 8, !tbaa !7
+  %34 = add i64 %.sroa.speculated, %.040
+  %35 = load i64, ptr %11, align 8, !tbaa !13
+  %36 = add i64 %35, %.sroa.speculated
+  store i64 %36, ptr %11, align 8, !tbaa !13
+  br label %.sink.split
 
-return.sink.split:                                ; preds = %if.then5, %_Z25alts_is_frame_writer_doneP17alts_frame_writer.exit, %if.end, %if.end17
-  %add24.sink = phi i64 [ %add24, %if.end17 ], [ 0, %if.end ], [ 0, %_Z25alts_is_frame_writer_doneP17alts_frame_writer.exit ], [ %.sroa.speculated36, %if.then5 ]
-  store i64 %add24.sink, ptr %bytes_size, align 8
-  br label %return
+.sink.split:                                      ; preds = %17, %_Z25alts_is_frame_writer_doneP17alts_frame_writer.exit, %6, %.critedge
+  %.sroa.speculated49.sink = phi i64 [ %34, %.critedge ], [ 0, %6 ], [ 0, %_Z25alts_is_frame_writer_doneP17alts_frame_writer.exit ], [ %.sroa.speculated49, %17 ]
+  store i64 %.sroa.speculated49.sink, ptr %2, align 8, !tbaa !3
+  br label %37
 
-return:                                           ; preds = %return.sink.split, %entry
+37:                                               ; preds = %.sink.split, %3
   ret i1 %or.cond.not
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z25alts_is_frame_writer_doneP17alts_frame_writer(ptr noundef readonly captures(none) %writer) local_unnamed_addr #3 {
-entry:
-  %0 = load ptr, ptr %writer, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %lor.end, label %lor.rhs
+define noundef zeroext i1 @_Z25alts_is_frame_writer_doneP17alts_frame_writer(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !7
+  %3 = icmp eq ptr %2, null
+  br i1 %3, label %10, label %4
 
-lor.rhs:                                          ; preds = %entry
-  %input_size = getelementptr inbounds nuw i8, ptr %writer, i64 32
-  %1 = load i64, ptr %input_size, align 8
-  %input_bytes_written = getelementptr inbounds nuw i8, ptr %writer, i64 16
-  %2 = load i64, ptr %input_bytes_written, align 8
-  %cmp1 = icmp eq i64 %1, %2
-  br label %lor.end
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %6 = load i64, ptr %5, align 8, !tbaa !11
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = load i64, ptr %7, align 8, !tbaa !13
+  %9 = icmp eq i64 %6, %8
+  br label %10
 
-lor.end:                                          ; preds = %lor.rhs, %entry
-  %3 = phi i1 [ true, %entry ], [ %cmp1, %lor.rhs ]
-  ret i1 %3
+10:                                               ; preds = %4, %1
+  %11 = phi i1 [ true, %1 ], [ %9, %4 ]
+  ret i1 %11
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_Z35alts_get_num_writer_bytes_remainingP17alts_frame_writer(ptr noundef readonly captures(none) %writer) local_unnamed_addr #3 {
-entry:
-  %header_bytes_written = getelementptr inbounds nuw i8, ptr %writer, i64 24
-  %0 = load i64, ptr %header_bytes_written, align 8
-  %input_size = getelementptr inbounds nuw i8, ptr %writer, i64 32
-  %1 = load i64, ptr %input_size, align 8
-  %input_bytes_written = getelementptr inbounds nuw i8, ptr %writer, i64 16
-  %2 = load i64, ptr %input_bytes_written, align 8
-  %3 = add i64 %1, 8
-  %4 = add i64 %0, %2
-  %add = sub i64 %3, %4
-  ret i64 %add
+define noundef i64 @_Z35alts_get_num_writer_bytes_remainingP17alts_frame_writer(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = load i64, ptr %2, align 8, !tbaa !14
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = load i64, ptr %4, align 8, !tbaa !11
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = load i64, ptr %6, align 8, !tbaa !13
+  %8 = add i64 %5, 8
+  %9 = add i64 %3, %7
+  %10 = sub i64 %8, %9
+  ret i64 %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z25alts_destroy_frame_writerP17alts_frame_writer(ptr noundef %writer) local_unnamed_addr #0 {
-entry:
-  tail call void @gpr_free(ptr noundef %writer)
+define void @_Z25alts_destroy_frame_writerP17alts_frame_writer(ptr noundef %0) local_unnamed_addr #0 {
+  tail call void @gpr_free(ptr noundef %0)
   ret void
 }
 
-declare void @gpr_free(ptr noundef) local_unnamed_addr #1
+declare void @gpr_free(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_Z24alts_create_frame_readerv() local_unnamed_addr #0 {
-entry:
-  %call.i = tail call noundef ptr @gpr_zalloc(i64 noundef 40)
-  ret ptr %call.i
+  %1 = tail call noundef ptr @gpr_zalloc(i64 noundef 40)
+  ret ptr %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z25alts_is_frame_reader_doneP17alts_frame_reader(ptr noundef readonly captures(none) %reader) local_unnamed_addr #3 {
-entry:
-  %0 = load ptr, ptr %reader, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %lor.end, label %lor.rhs
+define noundef zeroext i1 @_Z25alts_is_frame_reader_doneP17alts_frame_reader(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !15
+  %3 = icmp eq ptr %2, null
+  br i1 %3, label %12, label %4
 
-lor.rhs:                                          ; preds = %entry
-  %header_bytes_read = getelementptr inbounds nuw i8, ptr %reader, i64 16
-  %1 = load i64, ptr %header_bytes_read, align 8
-  %cmp1 = icmp eq i64 %1, 8
-  br i1 %cmp1, label %land.rhs, label %lor.end
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load i64, ptr %5, align 8, !tbaa !17
+  %7 = icmp eq i64 %6, 8
+  br i1 %7, label %8, label %12
 
-land.rhs:                                         ; preds = %lor.rhs
-  %bytes_remaining = getelementptr inbounds nuw i8, ptr %reader, i64 32
-  %2 = load i64, ptr %bytes_remaining, align 8
-  %cmp2 = icmp eq i64 %2, 0
-  br label %lor.end
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %10 = load i64, ptr %9, align 8, !tbaa !18
+  %11 = icmp eq i64 %10, 0
+  br label %12
 
-lor.end:                                          ; preds = %lor.rhs, %land.rhs, %entry
-  %3 = phi i1 [ true, %entry ], [ false, %lor.rhs ], [ %cmp2, %land.rhs ]
+12:                                               ; preds = %4, %8, %1
+  %13 = phi i1 [ true, %1 ], [ false, %4 ], [ %11, %8 ]
+  ret i1 %13
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define noundef zeroext i1 @_Z26alts_has_read_frame_lengthP17alts_frame_reader(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = load i64, ptr %2, align 8, !tbaa !17
+  %4 = icmp eq i64 %3, 8
+  ret i1 %4
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define noundef i64 @_Z31alts_get_reader_bytes_remainingP17alts_frame_reader(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = load i64, ptr %2, align 8, !tbaa !17
+  %4 = icmp eq i64 %3, 8
+  br i1 %4, label %5, label %8
+
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = load i64, ptr %6, align 8, !tbaa !18
+  br label %8
+
+8:                                                ; preds = %1, %5
+  %9 = phi i64 [ %7, %5 ], [ 0, %1 ]
+  ret i64 %9
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define void @_Z31alts_reset_reader_output_bufferP17alts_frame_readerPh(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #8 {
+  store ptr %1, ptr %0, align 8, !tbaa !15
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define noundef zeroext i1 @_Z23alts_reset_frame_readerP17alts_frame_readerPh(ptr noundef writeonly captures(none) %0, ptr noundef %1) local_unnamed_addr #8 {
+  %3 = icmp ne ptr %1, null
+  br i1 %3, label %4, label %6
+
+4:                                                ; preds = %2
+  store ptr %1, ptr %0, align 8, !tbaa !15
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  br label %6
+
+6:                                                ; preds = %2, %4
   ret i1 %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z26alts_has_read_frame_lengthP17alts_frame_reader(ptr noundef readonly captures(none) %reader) local_unnamed_addr #3 {
-entry:
-  %header_bytes_read = getelementptr inbounds nuw i8, ptr %reader, i64 16
-  %0 = load i64, ptr %header_bytes_read, align 8
-  %cmp = icmp eq i64 %0, 8
-  ret i1 %cmp
+; Function Attrs: mustprogress uwtable
+define noundef zeroext i1 @_Z21alts_read_frame_bytesP17alts_frame_readerPKhPm(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
+  %9 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
+  %10 = icmp eq ptr %2, null
+  br i1 %10, label %.critedge, label %11
+
+11:                                               ; preds = %3
+  %12 = icmp eq ptr %1, null
+  br i1 %12, label %.critedge.sink.split, label %13
+
+13:                                               ; preds = %11
+  %14 = load ptr, ptr %0, align 8, !tbaa !15
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %.critedge.sink.split, label %16
+
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = load i64, ptr %17, align 8, !tbaa !17
+  %19 = icmp eq i64 %18, 8
+  br i1 %19, label %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit, label %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73
+
+_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit: ; preds = %16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %21 = load i64, ptr %20, align 8, !tbaa !18
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %.critedge.sink.split, label %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73._crit_edge
+
+_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73._crit_edge: ; preds = %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !3
+  br label %59
+
+_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73: ; preds = %16
+  %23 = sub i64 8, %18
+  %24 = load i64, ptr %2, align 8, !tbaa !3
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %23, i64 %24)
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr nonnull align 1 %1, i64 %.sroa.speculated, i1 false)
+  %27 = load i64, ptr %17, align 8, !tbaa !17
+  %28 = add i64 %27, %.sroa.speculated
+  store i64 %28, ptr %17, align 8, !tbaa !17
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.speculated
+  %30 = load i64, ptr %2, align 8, !tbaa !3
+  %31 = sub i64 %30, %.sroa.speculated
+  store i64 %31, ptr %2, align 8, !tbaa !3
+  %32 = load i64, ptr %17, align 8, !tbaa !17
+  %.not63.not = icmp eq i64 %32, 8
+  br i1 %.not63.not, label %33, label %.critedge.sink.split
+
+33:                                               ; preds = %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73
+  %34 = load i32, ptr %25, align 1
+  %35 = zext i32 %34 to i64
+  %36 = add i32 %34, -1048577
+  %or.cond = icmp ult i32 %36, -1048573
+  br i1 %or.cond, label %37, label %44
+
+37:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #11
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @.str, i32 noundef 183) #12
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 37, ptr nonnull @.str.2)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi38EEERS2_RAT__Kc.exit unwind label %42
+
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi38EEERS2_RAT__Kc.exit: ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  store i64 4, ptr %7, align 8, !tbaa !3
+  %38 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsImTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %39 unwind label %42
+
+39:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi38EEERS2_RAT__Kc.exit
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %38, i64 14, ptr nonnull @.str.3)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi15EEERS2_RAT__Kc.exit unwind label %42
+
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi15EEERS2_RAT__Kc.exit: ; preds = %39
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  store i64 1048576, ptr %6, align 8, !tbaa !3
+  %40 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsImTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %41 unwind label %42
+
+41:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi15EEERS2_RAT__Kc.exit
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %40, i64 1, ptr nonnull @.str.4)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit unwind label %42
+
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit: ; preds = %41
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #11
+  br label %.critedge.sink.split
+
+42:                                               ; preds = %41, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi15EEERS2_RAT__Kc.exit, %39, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi38EEERS2_RAT__Kc.exit, %37
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #11
+  br label %58
+
+44:                                               ; preds = %33
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %46 = load i32, ptr %45, align 1
+  %47 = zext i32 %46 to i64
+  %.not64 = icmp eq i32 %46, 6
+  br i1 %.not64, label %.thread, label %48
+
+48:                                               ; preds = %44
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #11
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str, i32 noundef 192) #12
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 25, ptr nonnull @.str.5)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi26EEERS2_RAT__Kc.exit unwind label %53
+
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi26EEERS2_RAT__Kc.exit: ; preds = %48
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  store i64 %47, ptr %5, align 8, !tbaa !3
+  %49 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsImTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %50 unwind label %53
+
+50:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi26EEERS2_RAT__Kc.exit
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %49, i64 12, ptr nonnull @.str.6)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit unwind label %53
+
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit: ; preds = %50
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  store i64 6, ptr %4, align 8, !tbaa !3
+  %51 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsImTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %52 unwind label %53
+
+52:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %51, i64 1, ptr nonnull @.str.4)
+          to label %57 unwind label %53
+
+53:                                               ; preds = %52, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit, %50, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi26EEERS2_RAT__Kc.exit, %48
+  %54 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #11
+  br label %58
+
+.thread:                                          ; preds = %44
+  %55 = add nsw i64 %35, -4
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %55, ptr %56, align 8, !tbaa !18
+  br label %59
+
+57:                                               ; preds = %52
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #11
+  br label %.critedge.sink.split
+
+58:                                               ; preds = %53, %42
+  %.pn = phi { ptr, i32 } [ %43, %42 ], [ %54, %53 ]
+  resume { ptr, i32 } %.pn
+
+59:                                               ; preds = %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73._crit_edge, %.thread
+  %60 = phi i64 [ %.pre, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73._crit_edge ], [ %55, %.thread ]
+  %.055 = phi i64 [ 0, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73._crit_edge ], [ %.sroa.speculated, %.thread ]
+  %.052 = phi ptr [ %1, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73._crit_edge ], [ %29, %.thread ]
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %62 = load i64, ptr %2, align 8, !tbaa !3
+  %63 = tail call i64 @llvm.umin.i64(i64 %60, i64 %62)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr align 1 %.052, i64 %63, i1 false)
+  %64 = load ptr, ptr %0, align 8, !tbaa !15
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 %63
+  store ptr %65, ptr %0, align 8, !tbaa !15
+  %66 = add i64 %63, %.055
+  %67 = load i64, ptr %61, align 8, !tbaa !18
+  %68 = sub i64 %67, %63
+  store i64 %68, ptr %61, align 8, !tbaa !18
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %70 = load i64, ptr %69, align 8, !tbaa !19
+  %71 = add i64 %70, %63
+  store i64 %71, ptr %69, align 8, !tbaa !19
+  br label %.critedge.sink.split
+
+.critedge.sink.split:                             ; preds = %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit, %13, %11, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit, %59, %57
+  %.sink = phi i64 [ 0, %57 ], [ %66, %59 ], [ 0, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit ], [ 0, %11 ], [ 0, %13 ], [ 0, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit ], [ %.sroa.speculated, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73 ]
+  %.0.ph = phi i1 [ false, %57 ], [ true, %59 ], [ false, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit ], [ false, %11 ], [ true, %13 ], [ true, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit ], [ true, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73 ]
+  store i64 %.sink, ptr %2, align 8, !tbaa !3
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.sink.split, %3
+  %.0 = phi i1 [ false, %3 ], [ %.0.ph, %.critedge.sink.split ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_Z31alts_get_reader_bytes_remainingP17alts_frame_reader(ptr noundef readonly captures(none) %reader) local_unnamed_addr #3 {
-entry:
-  %header_bytes_read.i = getelementptr inbounds nuw i8, ptr %reader, i64 16
-  %0 = load i64, ptr %header_bytes_read.i, align 8
-  %cmp.i = icmp eq i64 %0, 8
-  br i1 %cmp.i, label %cond.true, label %cond.end
-
-cond.true:                                        ; preds = %entry
-  %bytes_remaining = getelementptr inbounds nuw i8, ptr %reader, i64 32
-  %1 = load i64, ptr %bytes_remaining, align 8
-  br label %cond.end
-
-cond.end:                                         ; preds = %entry, %cond.true
-  %cond = phi i64 [ %1, %cond.true ], [ 0, %entry ]
-  ret i64 %cond
+define noundef i64 @_Z26alts_get_output_bytes_readP17alts_frame_reader(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = load i64, ptr %2, align 8, !tbaa !19
+  ret i64 %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z31alts_reset_reader_output_bufferP17alts_frame_readerPh(ptr noundef writeonly captures(none) initializes((0, 8)) %reader, ptr noundef %buffer) local_unnamed_addr #5 {
-entry:
-  store ptr %buffer, ptr %reader, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_Z23alts_reset_frame_readerP17alts_frame_readerPh(ptr noundef writeonly captures(none) %reader, ptr noundef %buffer) local_unnamed_addr #5 {
-entry:
-  %cmp = icmp ne ptr %buffer, null
-  br i1 %cmp, label %if.end, label %return
-
-if.end:                                           ; preds = %entry
-  store ptr %buffer, ptr %reader, align 8
-  %header_bytes_read = getelementptr inbounds nuw i8, ptr %reader, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %header_bytes_read, i8 0, i64 24, i1 false)
-  br label %return
-
-return:                                           ; preds = %entry, %if.end
-  ret i1 %cmp
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define noundef ptr @_Z22alts_get_output_bufferP17alts_frame_reader(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !15
+  ret ptr %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z21alts_read_frame_bytesP17alts_frame_readerPKhPm(ptr noundef captures(none) %reader, ptr noundef readonly %bytes, ptr noundef %bytes_size) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq ptr %bytes_size, null
-  br i1 %cmp, label %return, label %if.end
-
-if.end:                                           ; preds = %entry
-  %cmp1 = icmp eq ptr %bytes, null
-  br i1 %cmp1, label %return.sink.split, label %if.end3
-
-if.end3:                                          ; preds = %if.end
-  %0 = load ptr, ptr %reader, align 8
-  %cmp.i = icmp eq ptr %0, null
-  br i1 %cmp.i, label %return.sink.split, label %lor.rhs.i
-
-lor.rhs.i:                                        ; preds = %if.end3
-  %header_bytes_read.i = getelementptr inbounds nuw i8, ptr %reader, i64 16
-  %1 = load i64, ptr %header_bytes_read.i, align 8
-  %cmp1.i = icmp eq i64 %1, 8
-  br i1 %cmp1.i, label %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit, label %if.then7
-
-_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit: ; preds = %lor.rhs.i
-  %bytes_remaining.i = getelementptr inbounds nuw i8, ptr %reader, i64 32
-  %2 = load i64, ptr %bytes_remaining.i, align 8
-  %cmp2.i = icmp eq i64 %2, 0
-  br i1 %cmp2.i, label %return.sink.split, label %if.end5.if.end35_crit_edge
-
-if.end5.if.end35_crit_edge:                       ; preds = %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit
-  %bytes_remaining37.phi.trans.insert = getelementptr inbounds nuw i8, ptr %reader, i64 32
-  %.pre = load i64, ptr %bytes_remaining37.phi.trans.insert, align 8
-  br label %if.end35
-
-if.then7:                                         ; preds = %lor.rhs.i
-  %sub = sub i64 8, %1
-  %3 = load i64, ptr %bytes_size, align 8
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %sub, i64 %3)
-  %header_buffer = getelementptr inbounds nuw i8, ptr %reader, i64 8
-  %add.ptr = getelementptr inbounds i8, ptr %header_buffer, i64 %1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull align 1 %bytes, i64 %.sroa.speculated, i1 false)
-  %4 = load i64, ptr %header_bytes_read.i, align 8
-  %add = add i64 %4, %.sroa.speculated
-  store i64 %add, ptr %header_bytes_read.i, align 8
-  %add.ptr13 = getelementptr inbounds i8, ptr %bytes, i64 %.sroa.speculated
-  %5 = load i64, ptr %bytes_size, align 8
-  %sub14 = sub i64 %5, %.sroa.speculated
-  store i64 %sub14, ptr %bytes_size, align 8
-  %6 = load i64, ptr %header_bytes_read.i, align 8
-  %cmp16.not = icmp eq i64 %6, 8
-  br i1 %cmp16.not, label %if.end18, label %return.sink.split
-
-if.end18:                                         ; preds = %if.then7
-  %7 = load i32, ptr %header_buffer, align 1
-  %conv = zext i32 %7 to i64
-  %8 = add i32 %7, -1048577
-  %or.cond = icmp ult i32 %8, -1048573
-  br i1 %or.cond, label %if.then24, label %if.end25
-
-if.then24:                                        ; preds = %if.end18
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 185, i32 noundef 2, ptr noundef nonnull @.str.2, i64 noundef 4, i64 noundef 1048576)
-  br label %return.sink.split
-
-if.end25:                                         ; preds = %if.end18
-  %add.ptr28 = getelementptr inbounds nuw i8, ptr %reader, i64 12
-  %9 = load i32, ptr %add.ptr28, align 1
-  %cmp31.not = icmp eq i32 %9, 6
-  br i1 %cmp31.not, label %if.end33, label %if.then32
-
-if.then32:                                        ; preds = %if.end25
-  %conv30 = zext i32 %9 to i64
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 194, i32 noundef 2, ptr noundef nonnull @.str.3, i64 noundef %conv30, i64 noundef 6)
-  br label %return.sink.split
-
-if.end33:                                         ; preds = %if.end25
-  %sub34 = add nsw i64 %conv, -4
-  %bytes_remaining = getelementptr inbounds nuw i8, ptr %reader, i64 32
-  store i64 %sub34, ptr %bytes_remaining, align 8
-  %.pre46 = load ptr, ptr %reader, align 8
-  br label %if.end35
-
-if.end35:                                         ; preds = %if.end5.if.end35_crit_edge, %if.end33
-  %10 = phi ptr [ %.pre46, %if.end33 ], [ %0, %if.end5.if.end35_crit_edge ]
-  %11 = phi i64 [ %sub34, %if.end33 ], [ %.pre, %if.end5.if.end35_crit_edge ]
-  %bytes_processed.0 = phi i64 [ %.sroa.speculated, %if.end33 ], [ 0, %if.end5.if.end35_crit_edge ]
-  %bytes.addr.0 = phi ptr [ %add.ptr13, %if.end33 ], [ %bytes, %if.end5.if.end35_crit_edge ]
-  %bytes_remaining37 = getelementptr inbounds nuw i8, ptr %reader, i64 32
-  %12 = load i64, ptr %bytes_size, align 8
-  %13 = tail call i64 @llvm.umin.i64(i64 %11, i64 %12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 1 %bytes.addr.0, i64 %13, i1 false)
-  %14 = load ptr, ptr %reader, align 8
-  %add.ptr40 = getelementptr inbounds i8, ptr %14, i64 %13
-  store ptr %add.ptr40, ptr %reader, align 8
-  %add41 = add i64 %13, %bytes_processed.0
-  %15 = load i64, ptr %bytes_remaining37, align 8
-  %sub43 = sub i64 %15, %13
-  store i64 %sub43, ptr %bytes_remaining37, align 8
-  %output_bytes_read = getelementptr inbounds nuw i8, ptr %reader, i64 24
-  %16 = load i64, ptr %output_bytes_read, align 8
-  %add44 = add i64 %16, %13
-  store i64 %add44, ptr %output_bytes_read, align 8
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then7, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit, %if.end3, %if.end, %if.then24, %if.then32, %if.end35
-  %add41.sink = phi i64 [ %add41, %if.end35 ], [ 0, %if.then32 ], [ 0, %if.then24 ], [ 0, %if.end ], [ 0, %if.end3 ], [ 0, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit ], [ %.sroa.speculated, %if.then7 ]
-  %retval.0.ph = phi i1 [ true, %if.end35 ], [ false, %if.then32 ], [ false, %if.then24 ], [ false, %if.end ], [ true, %if.end3 ], [ true, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit ], [ true, %if.then7 ]
-  store i64 %add41.sink, ptr %bytes_size, align 8
-  br label %return
-
-return:                                           ; preds = %return.sink.split, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ %retval.0.ph, %return.sink.split ]
-  ret i1 %retval.0
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_Z26alts_get_output_bytes_readP17alts_frame_reader(ptr noundef readonly captures(none) %reader) local_unnamed_addr #3 {
-entry:
-  %output_bytes_read = getelementptr inbounds nuw i8, ptr %reader, i64 24
-  %0 = load i64, ptr %output_bytes_read, align 8
-  ret i64 %0
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_Z22alts_get_output_bufferP17alts_frame_reader(ptr noundef readonly captures(none) %reader) local_unnamed_addr #3 {
-entry:
-  %0 = load ptr, ptr %reader, align 8
-  ret ptr %0
-}
-
-; Function Attrs: mustprogress uwtable
-define void @_Z25alts_destroy_frame_readerP17alts_frame_reader(ptr noundef %reader) local_unnamed_addr #0 {
-entry:
-  tail call void @gpr_free(ptr noundef %reader)
+define void @_Z25alts_destroy_frame_readerP17alts_frame_reader(ptr noundef %0) local_unnamed_addr #0 {
+  tail call void @gpr_free(ptr noundef %0)
   ret void
 }
 
-declare ptr @gpr_zalloc(i64 noundef) local_unnamed_addr #1
+declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsImTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #7
+
+declare ptr @gpr_zalloc(i64 noundef) local_unnamed_addr #7
+
+declare void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16), i64, ptr) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #7
+declare i64 @llvm.umin.i64(i64, i64) #10
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { cold }
+attributes #13 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"long", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = !{!8, !9, i64 0}
+!8 = !{!"_ZTS17alts_frame_writer", !9, i64 0, !5, i64 8, !4, i64 16, !4, i64 24, !4, i64 32}
+!9 = !{!"p1 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !5, i64 0}
+!11 = !{!8, !4, i64 32}
+!12 = !{!5, !5, i64 0}
+!13 = !{!8, !4, i64 16}
+!14 = !{!8, !4, i64 24}
+!15 = !{!16, !9, i64 0}
+!16 = !{!"_ZTS17alts_frame_reader", !9, i64 0, !5, i64 8, !4, i64 16, !4, i64 24, !4, i64 32}
+!17 = !{!16, !4, i64 16}
+!18 = !{!16, !4, i64 32}
+!19 = !{!16, !4, i64 24}

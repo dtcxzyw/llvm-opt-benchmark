@@ -1,12 +1,24 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
+%"class.std::ios_base::Init" = type { i8 }
 %"class.grpc_core::Slice" = type { %"class.grpc_core::slice_detail::BaseSlice" }
 %"class.grpc_core::slice_detail::BaseSlice" = type { %struct.grpc_slice }
 %struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
 %"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
 %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
 %"class.grpc_core::MutableSlice" = type { %"class.grpc_core::slice_detail::BaseSlice" }
+%"class.absl::lts_20240722::log_internal::Voidify" = type { i8 }
+%"class.absl::lts_20240722::log_internal::LogMessageFatal" = type { %"class.absl::lts_20240722::log_internal::LogMessage" }
+%"class.absl::lts_20240722::log_internal::LogMessage" = type { %"class.absl::lts_20240722::base_internal::ErrnoSaver", %"class.std::unique_ptr" }
+%"class.absl::lts_20240722::base_internal::ErrnoSaver" = type { i32 }
+%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
+%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
+%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
+%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
+%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.2" }
+%"struct.std::_Head_base.2" = type { ptr }
+%"class.std::basic_string_view" = type { i64, ptr }
 %"struct.grpc_slice::grpc_slice_data::grpc_slice_inlined" = type { i8, [23 x i8] }
 %"class.grpc_core::BitSet" = type { [4 x i64] }
 %"class.grpc_core::DebugLocation" = type { i8 }
@@ -27,6 +39,12 @@ $_ZN9grpc_core12MutableSlice19CreateUninitializedEm = comdat any
 $_ZN9grpc_core12MutableSlice5beginEv = comdat any
 
 $_ZN9grpc_core12MutableSlice3endEv = comdat any
+
+$_ZNKO4absl12lts_2024072212log_internal7VoidifyaaINS1_10LogMessageEEEvRKT_ = comdat any
+
+$_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc = comdat any
+
+$_ZN4absl12lts_2024072212log_internal10LogMessage14InternalStreamEv = comdat any
 
 $_ZN9grpc_core5SliceC2EONS_12slice_detail9BaseSliceE = comdat any
 
@@ -54,18 +72,26 @@ $_ZN9grpc_core12slice_detail9BaseSlice12mutable_dataEv = comdat any
 
 $_ZNK9grpc_core12slice_detail9BaseSlice4sizeEv = comdat any
 
+$_ZNSt11char_traitsIcE6lengthEPKc = comdat any
+
 $_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE = comdat any
 
 $_ZN9grpc_core13DebugLocationC2Ev = comdat any
 
 $_ZN19grpc_slice_refcount5UnrefEN9grpc_core13DebugLocationE = comdat any
 
+$_ZNSt13__atomic_baseImE9fetch_subEmSt12memory_order = comdat any
+
 $_ZN19grpc_slice_refcount12NoopRefcountEv = comdat any
 
 $_ZNK19grpc_slice_refcount8IsUniqueEv = comdat any
 
+$_ZNKSt13__atomic_baseImE4loadESt12memory_order = comdat any
+
 $_ZStanSt12memory_orderSt23__memory_order_modifier = comdat any
 
+@_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
+@__dso_handle = external hidden global i8
 @_ZZN9grpc_core18PercentEncodeSliceENS_5SliceENS_19PercentEncodingTypeEE3hex = internal constant [17 x i8] c"0123456789ABCDEF\00", align 16
 @.str = private unnamed_addr constant [126 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/slice/percent_encoding.cc\00", align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"q == out.end()\00", align 1
@@ -73,1013 +99,1322 @@ $_ZStanSt12memory_orderSt23__memory_order_modifier = comdat any
 @_ZN9grpc_core12_GLOBAL__N_111g_url_tableE = internal constant { [4 x i64] } { [4 x i64] [i64 288054454291267584, i64 5188146764422578174, i64 0, i64 0] }, align 8
 @_ZN9grpc_core12_GLOBAL__N_118g_compatible_tableE = internal constant { [4 x i64] } { [4 x i64] [i64 -141733920768, i64 9223372036854775807, i64 0, i64 0] }, align 8
 @.str.5 = private unnamed_addr constant [11 x i8] c"return 255\00", align 1
+@llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_percent_encoding.cc, ptr null }]
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core18PercentEncodeSliceENS_5SliceENS_19PercentEncodingTypeE(ptr noalias sret(%"class.grpc_core::Slice") align 8 %agg.result, ptr noundef %slice, i32 noundef %type) #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %slice.indirect_addr = alloca ptr, align 8
-  %type.addr = alloca i32, align 4
-  %lut = alloca ptr, align 8
-  %output_length = alloca i64, align 8
-  %any_reserved_bytes = alloca i8, align 1
-  %__range1 = alloca ptr, align 8
-  %__begin1 = alloca ptr, align 8
-  %__end1 = alloca ptr, align 8
-  %c = alloca i8, align 1
-  %unres = alloca i8, align 1
-  %out = alloca %"class.grpc_core::MutableSlice", align 8
-  %q = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %__range113 = alloca ptr, align 8
-  %__begin114 = alloca ptr, align 8
-  %__end117 = alloca ptr, align 8
-  %c23 = alloca i8, align 1
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %slice, ptr %slice.indirect_addr, align 8
-  store i32 %type, ptr %type.addr, align 4
-  %0 = load i32, ptr %type.addr, align 4
-  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN9grpc_core12_GLOBAL__N_133LookupTableForPercentEncodingTypeENS_19PercentEncodingTypeE(i32 noundef %0)
-  store ptr %call, ptr %lut, align 8
-  store i64 0, ptr %output_length, align 8
-  store i8 0, ptr %any_reserved_bytes, align 1
-  store ptr %slice, ptr %__range1, align 8
-  %1 = load ptr, ptr %__range1, align 8
-  %call1 = call noundef ptr @_ZNK9grpc_core12slice_detail9BaseSlice5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr %call1, ptr %__begin1, align 8
-  %2 = load ptr, ptr %__range1, align 8
-  %call2 = call noundef ptr @_ZNK9grpc_core12slice_detail9BaseSlice3endEv(ptr noundef nonnull align 8 dereferenceable(32) %2)
-  store ptr %call2, ptr %__end1, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %3 = load ptr, ptr %__begin1, align 8
-  %4 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %3, %4
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %5 = load ptr, ptr %__begin1, align 8
-  %6 = load i8, ptr %5, align 1
-  store i8 %6, ptr %c, align 1
-  %7 = load ptr, ptr %lut, align 8
-  %8 = load i8, ptr %c, align 1
-  %conv = zext i8 %8 to i32
-  %call3 = call noundef zeroext i1 @_ZNK9grpc_core6BitSetILm256ELm64EE6is_setEi(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef %conv)
-  %frombool = zext i1 %call3 to i8
-  store i8 %frombool, ptr %unres, align 1
-  %9 = load i8, ptr %unres, align 1
-  %tobool = trunc i8 %9 to i1
-  %cond = select i1 %tobool, i32 1, i32 3
-  %conv4 = sext i32 %cond to i64
-  %10 = load i64, ptr %output_length, align 8
-  %add = add i64 %10, %conv4
-  store i64 %add, ptr %output_length, align 8
-  %11 = load i8, ptr %unres, align 1
-  %tobool5 = trunc i8 %11 to i1
-  %lnot = xor i1 %tobool5, true
-  %conv6 = zext i1 %lnot to i32
-  %12 = load i8, ptr %any_reserved_bytes, align 1
-  %tobool7 = trunc i8 %12 to i1
-  %conv8 = zext i1 %tobool7 to i32
-  %or = or i32 %conv8, %conv6
-  %tobool9 = icmp ne i32 %or, 0
-  %frombool10 = zext i1 %tobool9 to i8
-  store i8 %frombool10, ptr %any_reserved_bytes, align 1
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %13 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %13, i32 1
-  store ptr %incdec.ptr, ptr %__begin1, align 8
-  br label %for.cond
-
-for.end:                                          ; preds = %for.cond
-  %14 = load i8, ptr %any_reserved_bytes, align 1
-  %tobool11 = trunc i8 %14 to i1
-  br i1 %tobool11, label %if.end, label %if.then
-
-if.then:                                          ; preds = %for.end
-  call void @_ZN9grpc_core5SliceC2EOS0_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %slice) #8
-  br label %return
-
-if.end:                                           ; preds = %for.end
-  %15 = load i64, ptr %output_length, align 8
-  call void @_ZN9grpc_core12MutableSlice19CreateUninitializedEm(ptr sret(%"class.grpc_core::MutableSlice") align 8 %out, i64 noundef %15)
-  %call12 = invoke noundef ptr @_ZN9grpc_core12MutableSlice5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %out)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %if.end
-  store ptr %call12, ptr %q, align 8
-  store ptr %slice, ptr %__range113, align 8
-  %16 = load ptr, ptr %__range113, align 8
-  %call16 = invoke noundef ptr @_ZNK9grpc_core12slice_detail9BaseSlice5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %invoke.cont15 unwind label %lpad
-
-invoke.cont15:                                    ; preds = %invoke.cont
-  store ptr %call16, ptr %__begin114, align 8
-  %17 = load ptr, ptr %__range113, align 8
-  %call19 = invoke noundef ptr @_ZNK9grpc_core12slice_detail9BaseSlice3endEv(ptr noundef nonnull align 8 dereferenceable(32) %17)
-          to label %invoke.cont18 unwind label %lpad
-
-invoke.cont18:                                    ; preds = %invoke.cont15
-  store ptr %call19, ptr %__end117, align 8
-  br label %for.cond20
-
-for.cond20:                                       ; preds = %for.inc37, %invoke.cont18
-  %18 = load ptr, ptr %__begin114, align 8
-  %19 = load ptr, ptr %__end117, align 8
-  %cmp21 = icmp ne ptr %18, %19
-  br i1 %cmp21, label %for.body22, label %for.end39
-
-for.body22:                                       ; preds = %for.cond20
-  %20 = load ptr, ptr %__begin114, align 8
-  %21 = load i8, ptr %20, align 1
-  store i8 %21, ptr %c23, align 1
-  %22 = load ptr, ptr %lut, align 8
-  %23 = load i8, ptr %c23, align 1
-  %conv24 = zext i8 %23 to i32
-  %call26 = invoke noundef zeroext i1 @_ZNK9grpc_core6BitSetILm256ELm64EE6is_setEi(ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef %conv24)
-          to label %invoke.cont25 unwind label %lpad
-
-invoke.cont25:                                    ; preds = %for.body22
-  br i1 %call26, label %if.then27, label %if.else
-
-if.then27:                                        ; preds = %invoke.cont25
-  %24 = load i8, ptr %c23, align 1
-  %25 = load ptr, ptr %q, align 8
-  %incdec.ptr28 = getelementptr inbounds i8, ptr %25, i32 1
-  store ptr %incdec.ptr28, ptr %q, align 8
-  store i8 %24, ptr %25, align 1
-  br label %if.end36
-
-lpad:                                             ; preds = %do.end, %if.then45, %do.body, %for.body22, %invoke.cont15, %invoke.cont, %if.end
-  %26 = landingpad { ptr, i32 }
-          cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %exn.slot, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %ehselector.slot, align 4
-  call void @_ZN9grpc_core12MutableSliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %out) #8
-  br label %eh.resume
-
-if.else:                                          ; preds = %invoke.cont25
-  %29 = load ptr, ptr %q, align 8
-  %incdec.ptr29 = getelementptr inbounds i8, ptr %29, i32 1
-  store ptr %incdec.ptr29, ptr %q, align 8
-  store i8 37, ptr %29, align 1
-  %30 = load i8, ptr %c23, align 1
-  %conv30 = zext i8 %30 to i32
-  %shr = ashr i32 %conv30, 4
-  %idxprom = sext i32 %shr to i64
-  %arrayidx = getelementptr inbounds [17 x i8], ptr @_ZZN9grpc_core18PercentEncodeSliceENS_5SliceENS_19PercentEncodingTypeEE3hex, i64 0, i64 %idxprom
-  %31 = load i8, ptr %arrayidx, align 1
-  %32 = load ptr, ptr %q, align 8
-  %incdec.ptr31 = getelementptr inbounds i8, ptr %32, i32 1
-  store ptr %incdec.ptr31, ptr %q, align 8
-  store i8 %31, ptr %32, align 1
-  %33 = load i8, ptr %c23, align 1
-  %conv32 = zext i8 %33 to i32
-  %and = and i32 %conv32, 15
-  %idxprom33 = sext i32 %and to i64
-  %arrayidx34 = getelementptr inbounds [17 x i8], ptr @_ZZN9grpc_core18PercentEncodeSliceENS_5SliceENS_19PercentEncodingTypeEE3hex, i64 0, i64 %idxprom33
-  %34 = load i8, ptr %arrayidx34, align 1
-  %35 = load ptr, ptr %q, align 8
-  %incdec.ptr35 = getelementptr inbounds i8, ptr %35, i32 1
-  store ptr %incdec.ptr35, ptr %q, align 8
-  store i8 %34, ptr %35, align 1
-  br label %if.end36
-
-if.end36:                                         ; preds = %if.else, %if.then27
-  br label %for.inc37
-
-for.inc37:                                        ; preds = %if.end36
-  %36 = load ptr, ptr %__begin114, align 8
-  %incdec.ptr38 = getelementptr inbounds i8, ptr %36, i32 1
-  store ptr %incdec.ptr38, ptr %__begin114, align 8
-  br label %for.cond20
-
-for.end39:                                        ; preds = %for.cond20
-  br label %do.body
-
-do.body:                                          ; preds = %for.end39
-  %37 = load ptr, ptr %q, align 8
-  %call41 = invoke noundef ptr @_ZN9grpc_core12MutableSlice3endEv(ptr noundef nonnull align 8 dereferenceable(32) %out)
-          to label %invoke.cont40 unwind label %lpad
-
-invoke.cont40:                                    ; preds = %do.body
-  %cmp42 = icmp eq ptr %37, %call41
-  %lnot43 = xor i1 %cmp42, true
-  br i1 %lnot43, label %if.then45, label %if.end47
-
-if.then45:                                        ; preds = %invoke.cont40
-  invoke void @gpr_assertion_failed(ptr noundef @.str, i32 noundef 104, ptr noundef @.str.1) #9
-          to label %invoke.cont46 unwind label %lpad
-
-invoke.cont46:                                    ; preds = %if.then45
-  unreachable
-
-if.end47:                                         ; preds = %invoke.cont40
-  br label %do.cond
-
-do.cond:                                          ; preds = %if.end47
-  br label %do.end
-
-do.end:                                           ; preds = %do.cond
-  invoke void @_ZN9grpc_core5SliceC2EONS_12slice_detail9BaseSliceE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %out)
-          to label %invoke.cont48 unwind label %lpad
-
-invoke.cont48:                                    ; preds = %do.end
-  call void @_ZN9grpc_core12MutableSliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %out) #8
-  br label %return
-
-return:                                           ; preds = %invoke.cont48, %if.then
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init() #0 section ".text.startup" {
+  call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
+  %1 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #3
   ret void
-
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val49 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val49
 }
 
+declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
+
+; Function Attrs: nounwind
+declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
+
+; Function Attrs: nounwind
+declare i32 @__cxa_atexit(ptr, ptr, ptr) #3
+
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull align 8 dereferenceable(32) ptr @_ZN9grpc_core12_GLOBAL__N_133LookupTableForPercentEncodingTypeENS_19PercentEncodingTypeE(i32 noundef %type) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %type.addr = alloca i32, align 4
-  store i32 %type, ptr %type.addr, align 4
-  %0 = load i32, ptr %type.addr, align 4
-  switch i32 %0, label %sw.epilog [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb1
+define void @_ZN9grpc_core18PercentEncodeSliceENS_5SliceENS_19PercentEncodingTypeE(ptr dead_on_unwind noalias writable sret(%"class.grpc_core::Slice") align 8 %0, ptr noundef %1, i32 noundef %2) #4 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i8, align 1
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i8, align 1
+  %14 = alloca i8, align 1
+  %15 = alloca i32, align 4
+  %16 = alloca %"class.grpc_core::MutableSlice", align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca i32, align 4
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca i8, align 1
+  %24 = alloca %"class.absl::lts_20240722::log_internal::Voidify", align 1
+  %25 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
+  %26 = alloca i1, align 1
+  %27 = alloca %"class.std::basic_string_view", align 8
+  %28 = alloca i1, align 1
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store i32 %2, ptr %6, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  %29 = load i32, ptr %6, align 4, !tbaa !8
+  %30 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN9grpc_core12_GLOBAL__N_133LookupTableForPercentEncodingTypeENS_19PercentEncodingTypeE(i32 noundef %29)
+  store ptr %30, ptr %7, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  store i64 0, ptr %8, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #3
+  store i8 0, ptr %9, align 1, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  store ptr %1, ptr %10, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  %31 = load ptr, ptr %10, align 8, !tbaa !3
+  %32 = call noundef ptr @_ZNK9grpc_core12slice_detail9BaseSlice5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %31)
+  store ptr %32, ptr %11, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  %33 = load ptr, ptr %10, align 8, !tbaa !3
+  %34 = call noundef ptr @_ZNK9grpc_core12slice_detail9BaseSlice3endEv(ptr noundef nonnull align 8 dereferenceable(32) %33)
+  store ptr %34, ptr %12, align 8, !tbaa !16
+  br label %35
+
+35:                                               ; preds = %64, %3
+  %36 = load ptr, ptr %11, align 8, !tbaa !16
+  %37 = load ptr, ptr %12, align 8, !tbaa !16
+  %38 = icmp ne ptr %36, %37
+  br i1 %38, label %40, label %39
+
+39:                                               ; preds = %35
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  br label %67
+
+40:                                               ; preds = %35
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #3
+  %41 = load ptr, ptr %11, align 8, !tbaa !16
+  %42 = load i8, ptr %41, align 1, !tbaa !18
+  store i8 %42, ptr %13, align 1, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #3
+  %43 = load ptr, ptr %7, align 8, !tbaa !10
+  %44 = load i8, ptr %13, align 1, !tbaa !18
+  %45 = zext i8 %44 to i32
+  %46 = call noundef zeroext i1 @_ZNK9grpc_core6BitSetILm256ELm64EE6is_setEi(ptr noundef nonnull align 8 dereferenceable(32) %43, i32 noundef %45)
+  %47 = zext i1 %46 to i8
+  store i8 %47, ptr %14, align 1, !tbaa !14
+  %48 = load i8, ptr %14, align 1, !tbaa !14, !range !19, !noundef !20
+  %49 = trunc i8 %48 to i1
+  %50 = select i1 %49, i32 1, i32 3
+  %51 = sext i32 %50 to i64
+  %52 = load i64, ptr %8, align 8, !tbaa !12
+  %53 = add i64 %52, %51
+  store i64 %53, ptr %8, align 8, !tbaa !12
+  %54 = load i8, ptr %14, align 1, !tbaa !14, !range !19, !noundef !20
+  %55 = trunc i8 %54 to i1
+  %56 = xor i1 %55, true
+  %57 = zext i1 %56 to i32
+  %58 = load i8, ptr %9, align 1, !tbaa !14, !range !19, !noundef !20
+  %59 = trunc i8 %58 to i1
+  %60 = zext i1 %59 to i32
+  %61 = or i32 %60, %57
+  %62 = icmp ne i32 %61, 0
+  %63 = zext i1 %62 to i8
+  store i8 %63, ptr %9, align 1, !tbaa !14
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #3
+  br label %64
+
+64:                                               ; preds = %40
+  %65 = load ptr, ptr %11, align 8, !tbaa !16
+  %66 = getelementptr inbounds nuw i8, ptr %65, i32 1
+  store ptr %66, ptr %11, align 8, !tbaa !16
+  br label %35
+
+67:                                               ; preds = %39
+  %68 = load i8, ptr %9, align 1, !tbaa !14, !range !19, !noundef !20
+  %69 = trunc i8 %68 to i1
+  br i1 %69, label %71, label %70
+
+70:                                               ; preds = %67
+  call void @_ZN9grpc_core5SliceC2EOS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  store i32 1, ptr %15, align 4
+  br label %184
+
+71:                                               ; preds = %67
+  call void @llvm.lifetime.start.p0(i64 32, ptr %16) #3
+  %72 = load i64, ptr %8, align 8, !tbaa !12
+  call void @_ZN9grpc_core12MutableSlice19CreateUninitializedEm(ptr dead_on_unwind writable sret(%"class.grpc_core::MutableSlice") align 8 %16, i64 noundef %72)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #3
+  %73 = invoke noundef ptr @_ZN9grpc_core12MutableSlice5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %16)
+          to label %74 unwind label %86
+
+74:                                               ; preds = %71
+  store ptr %73, ptr %17, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #3
+  store ptr %1, ptr %20, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #3
+  %75 = load ptr, ptr %20, align 8, !tbaa !3
+  %76 = invoke noundef ptr @_ZNK9grpc_core12slice_detail9BaseSlice5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %75)
+          to label %77 unwind label %90
+
+77:                                               ; preds = %74
+  store ptr %76, ptr %21, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #3
+  %78 = load ptr, ptr %20, align 8, !tbaa !3
+  %79 = invoke noundef ptr @_ZNK9grpc_core12slice_detail9BaseSlice3endEv(ptr noundef nonnull align 8 dereferenceable(32) %78)
+          to label %80 unwind label %94
+
+80:                                               ; preds = %77
+  store ptr %79, ptr %22, align 8, !tbaa !16
+  br label %81
+
+81:                                               ; preds = %134, %80
+  %82 = load ptr, ptr %21, align 8, !tbaa !16
+  %83 = load ptr, ptr %22, align 8, !tbaa !16
+  %84 = icmp ne ptr %82, %83
+  br i1 %84, label %98, label %85
+
+85:                                               ; preds = %81
+  store i32 4, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #3
+  br label %139
+
+86:                                               ; preds = %174, %139, %71
+  %87 = landingpad { ptr, i32 }
+          cleanup
+  %88 = extractvalue { ptr, i32 } %87, 0
+  store ptr %88, ptr %18, align 8
+  %89 = extractvalue { ptr, i32 } %87, 1
+  store i32 %89, ptr %19, align 4
+  br label %183
+
+90:                                               ; preds = %74
+  %91 = landingpad { ptr, i32 }
+          cleanup
+  %92 = extractvalue { ptr, i32 } %91, 0
+  store ptr %92, ptr %18, align 8
+  %93 = extractvalue { ptr, i32 } %91, 1
+  store i32 %93, ptr %19, align 4
+  br label %138
+
+94:                                               ; preds = %77
+  %95 = landingpad { ptr, i32 }
+          cleanup
+  %96 = extractvalue { ptr, i32 } %95, 0
+  store ptr %96, ptr %18, align 8
+  %97 = extractvalue { ptr, i32 } %95, 1
+  store i32 %97, ptr %19, align 4
+  br label %137
+
+98:                                               ; preds = %81
+  call void @llvm.lifetime.start.p0(i64 1, ptr %23) #3
+  %99 = load ptr, ptr %21, align 8, !tbaa !16
+  %100 = load i8, ptr %99, align 1, !tbaa !18
+  store i8 %100, ptr %23, align 1, !tbaa !18
+  %101 = load ptr, ptr %7, align 8, !tbaa !10
+  %102 = load i8, ptr %23, align 1, !tbaa !18
+  %103 = zext i8 %102 to i32
+  %104 = invoke noundef zeroext i1 @_ZNK9grpc_core6BitSetILm256ELm64EE6is_setEi(ptr noundef nonnull align 8 dereferenceable(32) %101, i32 noundef %103)
+          to label %105 unwind label %110
+
+105:                                              ; preds = %98
+  br i1 %104, label %106, label %114
+
+106:                                              ; preds = %105
+  %107 = load i8, ptr %23, align 1, !tbaa !18
+  %108 = load ptr, ptr %17, align 8, !tbaa !16
+  %109 = getelementptr inbounds nuw i8, ptr %108, i32 1
+  store ptr %109, ptr %17, align 8, !tbaa !16
+  store i8 %107, ptr %108, align 1, !tbaa !18
+  br label %133
+
+110:                                              ; preds = %98
+  %111 = landingpad { ptr, i32 }
+          cleanup
+  %112 = extractvalue { ptr, i32 } %111, 0
+  store ptr %112, ptr %18, align 8
+  %113 = extractvalue { ptr, i32 } %111, 1
+  store i32 %113, ptr %19, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %23) #3
+  br label %137
+
+114:                                              ; preds = %105
+  %115 = load ptr, ptr %17, align 8, !tbaa !16
+  %116 = getelementptr inbounds nuw i8, ptr %115, i32 1
+  store ptr %116, ptr %17, align 8, !tbaa !16
+  store i8 37, ptr %115, align 1, !tbaa !18
+  %117 = load i8, ptr %23, align 1, !tbaa !18
+  %118 = zext i8 %117 to i32
+  %119 = ashr i32 %118, 4
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr inbounds [17 x i8], ptr @_ZZN9grpc_core18PercentEncodeSliceENS_5SliceENS_19PercentEncodingTypeEE3hex, i64 0, i64 %120
+  %122 = load i8, ptr %121, align 1, !tbaa !18
+  %123 = load ptr, ptr %17, align 8, !tbaa !16
+  %124 = getelementptr inbounds nuw i8, ptr %123, i32 1
+  store ptr %124, ptr %17, align 8, !tbaa !16
+  store i8 %122, ptr %123, align 1, !tbaa !18
+  %125 = load i8, ptr %23, align 1, !tbaa !18
+  %126 = zext i8 %125 to i32
+  %127 = and i32 %126, 15
+  %128 = sext i32 %127 to i64
+  %129 = getelementptr inbounds [17 x i8], ptr @_ZZN9grpc_core18PercentEncodeSliceENS_5SliceENS_19PercentEncodingTypeEE3hex, i64 0, i64 %128
+  %130 = load i8, ptr %129, align 1, !tbaa !18
+  %131 = load ptr, ptr %17, align 8, !tbaa !16
+  %132 = getelementptr inbounds nuw i8, ptr %131, i32 1
+  store ptr %132, ptr %17, align 8, !tbaa !16
+  store i8 %130, ptr %131, align 1, !tbaa !18
+  br label %133
+
+133:                                              ; preds = %114, %106
+  call void @llvm.lifetime.end.p0(i64 1, ptr %23) #3
+  br label %134
+
+134:                                              ; preds = %133
+  %135 = load ptr, ptr %21, align 8, !tbaa !16
+  %136 = getelementptr inbounds nuw i8, ptr %135, i32 1
+  store ptr %136, ptr %21, align 8, !tbaa !16
+  br label %81
+
+137:                                              ; preds = %110, %94
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #3
+  br label %138
+
+138:                                              ; preds = %137, %90
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #3
+  br label %183
+
+139:                                              ; preds = %85
+  %140 = load ptr, ptr %17, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 1, ptr %24) #3
+  store i1 false, ptr %26, align 1
+  store i1 false, ptr %28, align 1
+  %141 = invoke noundef ptr @_ZN9grpc_core12MutableSlice3endEv(ptr noundef nonnull align 8 dereferenceable(32) %16)
+          to label %142 unwind label %86
+
+142:                                              ; preds = %139
+  %143 = icmp eq ptr %140, %141
+  %144 = xor i1 %143, true
+  %145 = zext i1 %144 to i64
+  %146 = call i64 @llvm.expect.i64(i64 %145, i64 0)
+  %147 = icmp ne i64 %146, 0
+  br i1 %147, label %149, label %148
+
+148:                                              ; preds = %142
+  br label %158
+
+149:                                              ; preds = %142
+  call void @llvm.lifetime.start.p0(i64 16, ptr %25) #3
+  store i1 true, ptr %26, align 1
+  call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef @.str.1) #3
+  %150 = getelementptr inbounds nuw { i64, ptr }, ptr %27, i32 0, i32 0
+  %151 = load i64, ptr %150, align 8
+  %152 = getelementptr inbounds nuw { i64, ptr }, ptr %27, i32 0, i32 1
+  %153 = load ptr, ptr %152, align 8
+  invoke void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef @.str, i32 noundef 102, i64 %151, ptr %153) #16
+          to label %154 unwind label %161
+
+154:                                              ; preds = %149
+  store i1 true, ptr %28, align 1
+  %155 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessage14InternalStreamEv(ptr noundef nonnull align 8 dereferenceable(16) %25)
+          to label %156 unwind label %165
+
+156:                                              ; preds = %154
+  invoke void @_ZNKO4absl12lts_2024072212log_internal7VoidifyaaINS1_10LogMessageEEEvRKT_(ptr noundef nonnull align 1 dereferenceable(1) %24, ptr noundef nonnull align 8 dereferenceable(16) %155)
+          to label %157 unwind label %165
+
+157:                                              ; preds = %156
+  br label %158
+
+158:                                              ; preds = %157, %148
+  %159 = load i1, ptr %28, align 1
+  br i1 %159, label %160, label %171
+
+160:                                              ; preds = %158
+  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #17
+  unreachable
+
+161:                                              ; preds = %149
+  %162 = landingpad { ptr, i32 }
+          cleanup
+  %163 = extractvalue { ptr, i32 } %162, 0
+  store ptr %163, ptr %18, align 8
+  %164 = extractvalue { ptr, i32 } %162, 1
+  store i32 %164, ptr %19, align 4
+  br label %179
+
+165:                                              ; preds = %156, %154
+  %166 = landingpad { ptr, i32 }
+          cleanup
+  %167 = extractvalue { ptr, i32 } %166, 0
+  store ptr %167, ptr %18, align 8
+  %168 = extractvalue { ptr, i32 } %166, 1
+  store i32 %168, ptr %19, align 4
+  %169 = load i1, ptr %28, align 1
+  br i1 %169, label %176, label %178
+
+170:                                              ; No predecessors!
+  br label %171
+
+171:                                              ; preds = %170, %158
+  %172 = load i1, ptr %26, align 1
+  br i1 %172, label %173, label %174
+
+173:                                              ; preds = %171
+  call void @llvm.lifetime.end.p0(i64 16, ptr %25) #3
+  br label %174
+
+174:                                              ; preds = %173, %171
+  call void @llvm.lifetime.end.p0(i64 1, ptr %24) #3
+  invoke void @_ZN9grpc_core5SliceC2EONS_12slice_detail9BaseSliceE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %16)
+          to label %175 unwind label %86
+
+175:                                              ; preds = %174
+  store i32 1, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #3
+  call void @_ZN9grpc_core12MutableSliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %16) #3
+  br label %184
+
+176:                                              ; preds = %165
+  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #17
+  unreachable
+
+177:                                              ; No predecessors!
+  br label %178
+
+178:                                              ; preds = %177, %165
+  br label %179
+
+179:                                              ; preds = %178, %161
+  %180 = load i1, ptr %26, align 1
+  br i1 %180, label %181, label %182
+
+181:                                              ; preds = %179
+  call void @llvm.lifetime.end.p0(i64 16, ptr %25) #3
+  br label %182
+
+182:                                              ; preds = %181, %179
+  call void @llvm.lifetime.end.p0(i64 1, ptr %24) #3
+  br label %183
+
+183:                                              ; preds = %182, %138, %86
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #3
+  call void @_ZN9grpc_core12MutableSliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  br label %185
+
+184:                                              ; preds = %175, %70
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  ret void
+
+185:                                              ; preds = %183
+  %186 = load ptr, ptr %18, align 8
+  %187 = load i32, ptr %19, align 4
+  %188 = insertvalue { ptr, i32 } poison, ptr %186, 0
+  %189 = insertvalue { ptr, i32 } %188, i32 %187, 1
+  resume { ptr, i32 } %189
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+
+; Function Attrs: mustprogress uwtable
+define internal noundef nonnull align 8 dereferenceable(32) ptr @_ZN9grpc_core12_GLOBAL__N_133LookupTableForPercentEncodingTypeENS_19PercentEncodingTypeE(i32 noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !8
+  %4 = load i32, ptr %3, align 4, !tbaa !8
+  switch i32 %4, label %7 [
+    i32 0, label %5
+    i32 1, label %6
   ]
 
-sw.bb:                                            ; preds = %entry
-  store ptr @_ZN9grpc_core12_GLOBAL__N_111g_url_tableE, ptr %retval, align 8
-  br label %return
+5:                                                ; preds = %1
+  store ptr @_ZN9grpc_core12_GLOBAL__N_111g_url_tableE, ptr %2, align 8
+  br label %10
 
-sw.bb1:                                           ; preds = %entry
-  store ptr @_ZN9grpc_core12_GLOBAL__N_118g_compatible_tableE, ptr %retval, align 8
-  br label %return
+6:                                                ; preds = %1
+  store ptr @_ZN9grpc_core12_GLOBAL__N_118g_compatible_tableE, ptr %2, align 8
+  br label %10
 
-sw.epilog:                                        ; preds = %entry
-  br label %do.body
+7:                                                ; preds = %1
+  br label %8
 
-do.body:                                          ; preds = %sw.epilog
-  call void @gpr_unreachable_code(ptr noundef @.str.2, ptr noundef @.str, i32 noundef 71) #9
+8:                                                ; preds = %7
+  call void @gpr_unreachable_code(ptr noundef @.str.2, ptr noundef @.str, i32 noundef 69) #18
   unreachable
 
-do.end:                                           ; No predecessors!
-  call void @llvm.trap()
+9:                                                ; No predecessors!
   unreachable
 
-return:                                           ; preds = %sw.bb1, %sw.bb
-  %1 = load ptr, ptr %retval, align 8
-  ret ptr %1
+10:                                               ; preds = %6, %5
+  %11 = load ptr, ptr %2, align 8
+  ret ptr %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNK9grpc_core12slice_detail9BaseSlice5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  %refcount = getelementptr inbounds %struct.grpc_slice, ptr %call, i32 0, i32 0
-  %0 = load ptr, ptr %refcount, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %cond.true, label %cond.false
+define linkonce_odr noundef ptr @_ZNK9grpc_core12slice_detail9BaseSlice5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %5 = getelementptr inbounds nuw %struct.grpc_slice, ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !23
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %13
 
-cond.true:                                        ; preds = %entry
-  %call2 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  %data = getelementptr inbounds %struct.grpc_slice, ptr %call2, i32 0, i32 1
-  %bytes = getelementptr inbounds %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", ptr %data, i32 0, i32 1
-  %1 = load ptr, ptr %bytes, align 8
-  br label %cond.end
+8:                                                ; preds = %1
+  %9 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %10 = getelementptr inbounds nuw %struct.grpc_slice, ptr %9, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", ptr %10, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8, !tbaa !18
+  br label %18
 
-cond.false:                                       ; preds = %entry
-  %call3 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  %data4 = getelementptr inbounds %struct.grpc_slice, ptr %call3, i32 0, i32 1
-  %bytes5 = getelementptr inbounds %"struct.grpc_slice::grpc_slice_data::grpc_slice_inlined", ptr %data4, i32 0, i32 1
-  %arraydecay = getelementptr inbounds [23 x i8], ptr %bytes5, i64 0, i64 0
-  br label %cond.end
+13:                                               ; preds = %1
+  %14 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %15 = getelementptr inbounds nuw %struct.grpc_slice, ptr %14, i32 0, i32 1
+  %16 = getelementptr inbounds nuw %"struct.grpc_slice::grpc_slice_data::grpc_slice_inlined", ptr %15, i32 0, i32 1
+  %17 = getelementptr inbounds [23 x i8], ptr %16, i64 0, i64 0
+  br label %18
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %1, %cond.true ], [ %arraydecay, %cond.false ]
-  ret ptr %cond
+18:                                               ; preds = %13, %8
+  %19 = phi ptr [ %12, %8 ], [ %17, %13 ]
+  ret ptr %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNK9grpc_core12slice_detail9BaseSlice3endEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  %refcount = getelementptr inbounds %struct.grpc_slice, ptr %call, i32 0, i32 0
-  %0 = load ptr, ptr %refcount, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %cond.true, label %cond.false
+define linkonce_odr noundef ptr @_ZNK9grpc_core12slice_detail9BaseSlice3endEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %5 = getelementptr inbounds nuw %struct.grpc_slice, ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !23
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %13
 
-cond.true:                                        ; preds = %entry
-  %call2 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  %data = getelementptr inbounds %struct.grpc_slice, ptr %call2, i32 0, i32 1
-  %bytes = getelementptr inbounds %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", ptr %data, i32 0, i32 1
-  %1 = load ptr, ptr %bytes, align 8
-  br label %cond.end
+8:                                                ; preds = %1
+  %9 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %10 = getelementptr inbounds nuw %struct.grpc_slice, ptr %9, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", ptr %10, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8, !tbaa !18
+  br label %18
 
-cond.false:                                       ; preds = %entry
-  %call3 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  %data4 = getelementptr inbounds %struct.grpc_slice, ptr %call3, i32 0, i32 1
-  %bytes5 = getelementptr inbounds %"struct.grpc_slice::grpc_slice_data::grpc_slice_inlined", ptr %data4, i32 0, i32 1
-  %arraydecay = getelementptr inbounds [23 x i8], ptr %bytes5, i64 0, i64 0
-  br label %cond.end
+13:                                               ; preds = %1
+  %14 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %15 = getelementptr inbounds nuw %struct.grpc_slice, ptr %14, i32 0, i32 1
+  %16 = getelementptr inbounds nuw %"struct.grpc_slice::grpc_slice_data::grpc_slice_inlined", ptr %15, i32 0, i32 1
+  %17 = getelementptr inbounds [23 x i8], ptr %16, i64 0, i64 0
+  br label %18
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %1, %cond.true ], [ %arraydecay, %cond.false ]
-  %call6 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  %refcount7 = getelementptr inbounds %struct.grpc_slice, ptr %call6, i32 0, i32 0
-  %2 = load ptr, ptr %refcount7, align 8
-  %tobool8 = icmp ne ptr %2, null
-  br i1 %tobool8, label %cond.true9, label %cond.false12
+18:                                               ; preds = %13, %8
+  %19 = phi ptr [ %12, %8 ], [ %17, %13 ]
+  %20 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %21 = getelementptr inbounds nuw %struct.grpc_slice, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8, !tbaa !23
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %29
 
-cond.true9:                                       ; preds = %cond.end
-  %call10 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  %data11 = getelementptr inbounds %struct.grpc_slice, ptr %call10, i32 0, i32 1
-  %length = getelementptr inbounds %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", ptr %data11, i32 0, i32 0
-  %3 = load i64, ptr %length, align 8
-  br label %cond.end16
+24:                                               ; preds = %18
+  %25 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %26 = getelementptr inbounds nuw %struct.grpc_slice, ptr %25, i32 0, i32 1
+  %27 = getelementptr inbounds nuw %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", ptr %26, i32 0, i32 0
+  %28 = load i64, ptr %27, align 8, !tbaa !18
+  br label %35
 
-cond.false12:                                     ; preds = %cond.end
-  %call13 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  %data14 = getelementptr inbounds %struct.grpc_slice, ptr %call13, i32 0, i32 1
-  %length15 = getelementptr inbounds %"struct.grpc_slice::grpc_slice_data::grpc_slice_inlined", ptr %data14, i32 0, i32 0
-  %4 = load i8, ptr %length15, align 8
-  %conv = zext i8 %4 to i64
-  br label %cond.end16
+29:                                               ; preds = %18
+  %30 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %31 = getelementptr inbounds nuw %struct.grpc_slice, ptr %30, i32 0, i32 1
+  %32 = getelementptr inbounds nuw %"struct.grpc_slice::grpc_slice_data::grpc_slice_inlined", ptr %31, i32 0, i32 0
+  %33 = load i8, ptr %32, align 8, !tbaa !18
+  %34 = zext i8 %33 to i64
+  br label %35
 
-cond.end16:                                       ; preds = %cond.false12, %cond.true9
-  %cond17 = phi i64 [ %3, %cond.true9 ], [ %conv, %cond.false12 ]
-  %add.ptr = getelementptr inbounds i8, ptr %cond, i64 %cond17
-  ret ptr %add.ptr
+35:                                               ; preds = %29, %24
+  %36 = phi i64 [ %28, %24 ], [ %34, %29 ]
+  %37 = getelementptr inbounds nuw i8, ptr %19, i64 %36
+  ret ptr %37
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef zeroext i1 @_ZNK9grpc_core6BitSetILm256ELm64EE6is_setEi(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %i) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %i.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %i, ptr %i.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %units_ = getelementptr inbounds %"class.grpc_core::BitSet", ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %i.addr, align 4
-  %conv = sext i32 %0 to i64
-  %call = call noundef i64 @_ZN9grpc_core6BitSetILm256ELm64EE8unit_forEm(i64 noundef %conv)
-  %arrayidx = getelementptr inbounds [4 x i64], ptr %units_, i64 0, i64 %call
-  %1 = load i64, ptr %arrayidx, align 8
-  %2 = load i32, ptr %i.addr, align 4
-  %conv2 = sext i32 %2 to i64
-  %call3 = call noundef i64 @_ZN9grpc_core6BitSetILm256ELm64EE8mask_forEm(i64 noundef %conv2)
-  %and = and i64 %1, %call3
-  %cmp = icmp ne i64 %and, 0
-  ret i1 %cmp
+define linkonce_odr noundef zeroext i1 @_ZNK9grpc_core6BitSetILm256ELm64EE6is_setEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  store i32 %1, ptr %4, align 4, !tbaa !26
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.grpc_core::BitSet", ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %4, align 4, !tbaa !26
+  %8 = sext i32 %7 to i64
+  %9 = call noundef i64 @_ZN9grpc_core6BitSetILm256ELm64EE8unit_forEm(i64 noundef %8)
+  %10 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %9
+  %11 = load i64, ptr %10, align 8, !tbaa !12
+  %12 = load i32, ptr %4, align 4, !tbaa !26
+  %13 = sext i32 %12 to i64
+  %14 = call noundef i64 @_ZN9grpc_core6BitSetILm256ELm64EE8mask_forEm(i64 noundef %13)
+  %15 = and i64 %11, %14
+  %16 = icmp ne i64 %15, 0
+  ret i1 %16
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9grpc_core5SliceC2EOS0_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %other.addr = alloca ptr, align 8
-  %ref.tmp = alloca %struct.grpc_slice, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %other, ptr %other.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %other.addr, align 8
-  invoke void @_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv(ptr sret(%struct.grpc_slice) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %0)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr void @_ZN9grpc_core5SliceC2EOS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %struct.grpc_slice, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %5) #3
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  invoke void @_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv(ptr dead_on_unwind writable sret(%struct.grpc_slice) align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %7)
+          to label %8 unwind label %10
 
-invoke.cont:                                      ; preds = %entry
-  invoke void @_ZN9grpc_core12slice_detail9BaseSliceC2ERK10grpc_slice(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
-          to label %invoke.cont2 unwind label %terminate.lpad
+8:                                                ; preds = %2
+  invoke void @_ZN9grpc_core12slice_detail9BaseSliceC2ERK10grpc_slice(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %9 unwind label %10
 
-invoke.cont2:                                     ; preds = %invoke.cont
+9:                                                ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 32, ptr %5) #3
   ret void
 
-terminate.lpad:                                   ; preds = %invoke.cont, %entry
-  %1 = landingpad { ptr, i32 }
+10:                                               ; preds = %8, %2
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #10
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #17
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN9grpc_core12MutableSlice19CreateUninitializedEm(ptr noalias sret(%"class.grpc_core::MutableSlice") align 8 %agg.result, i64 noundef %length) #0 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %length.addr = alloca i64, align 8
-  %ref.tmp = alloca %struct.grpc_slice, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store i64 %length, ptr %length.addr, align 8
-  %0 = load i64, ptr %length.addr, align 8
-  call void @grpc_slice_malloc(ptr sret(%struct.grpc_slice) align 8 %ref.tmp, i64 noundef %0)
-  call void @_ZN9grpc_core12MutableSliceC2ERK10grpc_slice(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+define linkonce_odr void @_ZN9grpc_core12MutableSlice19CreateUninitializedEm(ptr dead_on_unwind noalias writable sret(%"class.grpc_core::MutableSlice") align 8 %0, i64 noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca %struct.grpc_slice, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 32, ptr %5) #3
+  %6 = load i64, ptr %4, align 8, !tbaa !12
+  call void @grpc_slice_malloc(ptr dead_on_unwind writable sret(%struct.grpc_slice) align 8 %5, i64 noundef %6)
+  call void @_ZN9grpc_core12MutableSliceC2ERK10grpc_slice(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %5) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN9grpc_core12MutableSlice5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZN9grpc_core12slice_detail9BaseSlice12mutable_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  ret ptr %call
+define linkonce_odr noundef ptr @_ZN9grpc_core12MutableSlice5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZN9grpc_core12slice_detail9BaseSlice12mutable_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  ret ptr %4
 }
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN9grpc_core12MutableSlice3endEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZN9grpc_core12slice_detail9BaseSlice12mutable_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  %call2 = call noundef i64 @_ZNK9grpc_core12slice_detail9BaseSlice4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  %add.ptr = getelementptr inbounds i8, ptr %call, i64 %call2
-  ret ptr %add.ptr
+define linkonce_odr noundef ptr @_ZN9grpc_core12MutableSlice3endEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZN9grpc_core12slice_detail9BaseSlice12mutable_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %5 = call noundef i64 @_ZNK9grpc_core12slice_detail9BaseSlice4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 %5
+  ret ptr %6
 }
 
-; Function Attrs: noreturn
-declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #7
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN9grpc_core5SliceC2EONS_12slice_detail9BaseSliceE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %other.addr = alloca ptr, align 8
-  %ref.tmp = alloca %struct.grpc_slice, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %other, ptr %other.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %other.addr, align 8
-  call void @_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv(ptr sret(%struct.grpc_slice) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  call void @_ZN9grpc_core12slice_detail9BaseSliceC2ERK10grpc_slice(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNKO4absl12lts_2024072212log_internal7VoidifyaaINS1_10LogMessageEEEvRKT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !30
+  store ptr %1, ptr %4, align 8, !tbaa !32
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9grpc_core12MutableSliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %agg.tmp = alloca %"class.grpc_core::DebugLocation", align 1
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  invoke void @_ZN9grpc_core13DebugLocationC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !34
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !16
+  %8 = invoke noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %7)
+          to label %9 unwind label %12
 
-invoke.cont:                                      ; preds = %entry
-  invoke void @_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE(ptr noundef nonnull align 8 dereferenceable(32) %call)
-          to label %invoke.cont2 unwind label %terminate.lpad
-
-invoke.cont2:                                     ; preds = %invoke.cont
+9:                                                ; preds = %2
+  store i64 %8, ptr %6, align 8, !tbaa !36
+  %10 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %5, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8, !tbaa !16
+  store ptr %11, ptr %10, align 8, !tbaa !38
   ret void
 
-terminate.lpad:                                   ; preds = %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #10
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #17
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core28PermissivePercentDecodeSliceENS_5SliceE(ptr noalias sret(%"class.grpc_core::Slice") align 8 %agg.result, ptr noundef %slice_in) #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %slice_in.indirect_addr = alloca ptr, align 8
-  %any_percent_encoded_stuff = alloca i8, align 1
-  %__range1 = alloca ptr, align 8
-  %__begin1 = alloca ptr, align 8
-  %__end1 = alloca ptr, align 8
-  %c = alloca i8, align 1
-  %out = alloca %"class.grpc_core::MutableSlice", align 8
-  %q = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %p = alloca ptr, align 8
-  %end = alloca ptr, align 8
-  %ref.tmp = alloca %"class.grpc_core::MutableSlice", align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %slice_in, ptr %slice_in.indirect_addr, align 8
-  store i8 0, ptr %any_percent_encoded_stuff, align 1
-  store ptr %slice_in, ptr %__range1, align 8
-  %0 = load ptr, ptr %__range1, align 8
-  %call = call noundef ptr @_ZNK9grpc_core12slice_detail9BaseSlice5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr %call, ptr %__begin1, align 8
-  %1 = load ptr, ptr %__range1, align 8
-  %call1 = call noundef ptr @_ZNK9grpc_core12slice_detail9BaseSlice3endEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr %call1, ptr %__end1, align 8
-  br label %for.cond
+; Function Attrs: cold
+declare void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef, i64, ptr) unnamed_addr #8
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load ptr, ptr %__begin1, align 8
-  %3 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %2, %3
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %__begin1, align 8
-  %5 = load i8, ptr %4, align 1
-  store i8 %5, ptr %c, align 1
-  %6 = load i8, ptr %c, align 1
-  %conv = zext i8 %6 to i32
-  %cmp2 = icmp eq i32 %conv, 37
-  br i1 %cmp2, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.body
-  store i8 1, ptr %any_percent_encoded_stuff, align 1
-  br label %for.end
-
-if.end:                                           ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end
-  %7 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %7, i32 1
-  store ptr %incdec.ptr, ptr %__begin1, align 8
-  br label %for.cond
-
-for.end:                                          ; preds = %if.then, %for.cond
-  %8 = load i8, ptr %any_percent_encoded_stuff, align 1
-  %tobool = trunc i8 %8 to i1
-  br i1 %tobool, label %if.end4, label %if.then3
-
-if.then3:                                         ; preds = %for.end
-  call void @_ZN9grpc_core5SliceC2EOS0_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %slice_in) #8
-  br label %return
-
-if.end4:                                          ; preds = %for.end
-  call void @_ZN9grpc_core5Slice11TakeMutableEv(ptr sret(%"class.grpc_core::MutableSlice") align 8 %out, ptr noundef nonnull align 8 dereferenceable(32) %slice_in)
-  %call5 = invoke noundef ptr @_ZN9grpc_core12MutableSlice5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %out)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %if.end4
-  store ptr %call5, ptr %q, align 8
-  %call7 = invoke noundef ptr @_ZN9grpc_core12MutableSlice5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %out)
-          to label %invoke.cont6 unwind label %lpad
-
-invoke.cont6:                                     ; preds = %invoke.cont
-  store ptr %call7, ptr %p, align 8
-  %call9 = invoke noundef ptr @_ZN9grpc_core12MutableSlice3endEv(ptr noundef nonnull align 8 dereferenceable(32) %out)
-          to label %invoke.cont8 unwind label %lpad
-
-invoke.cont8:                                     ; preds = %invoke.cont6
-  store ptr %call9, ptr %end, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %if.end38, %invoke.cont8
-  %9 = load ptr, ptr %p, align 8
-  %10 = load ptr, ptr %end, align 8
-  %cmp10 = icmp ne ptr %9, %10
-  br i1 %cmp10, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %11 = load ptr, ptr %p, align 8
-  %12 = load i8, ptr %11, align 1
-  %conv11 = zext i8 %12 to i32
-  %cmp12 = icmp eq i32 %conv11, 37
-  br i1 %cmp12, label %if.then13, label %if.else35
-
-if.then13:                                        ; preds = %while.body
-  %13 = load ptr, ptr %p, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %13, i64 1
-  %14 = load ptr, ptr %end, align 8
-  %call15 = invoke noundef zeroext i1 @_ZN9grpc_coreL8ValidHexEPKhS1_(ptr noundef %add.ptr, ptr noundef %14)
-          to label %invoke.cont14 unwind label %lpad
-
-invoke.cont14:                                    ; preds = %if.then13
-  br i1 %call15, label %lor.lhs.false, label %if.then19
-
-lor.lhs.false:                                    ; preds = %invoke.cont14
-  %15 = load ptr, ptr %p, align 8
-  %add.ptr16 = getelementptr inbounds i8, ptr %15, i64 2
-  %16 = load ptr, ptr %end, align 8
-  %call18 = invoke noundef zeroext i1 @_ZN9grpc_coreL8ValidHexEPKhS1_(ptr noundef %add.ptr16, ptr noundef %16)
-          to label %invoke.cont17 unwind label %lpad
-
-invoke.cont17:                                    ; preds = %lor.lhs.false
-  br i1 %call18, label %if.else, label %if.then19
-
-if.then19:                                        ; preds = %invoke.cont17, %invoke.cont14
-  %17 = load ptr, ptr %p, align 8
-  %incdec.ptr20 = getelementptr inbounds i8, ptr %17, i32 1
-  store ptr %incdec.ptr20, ptr %p, align 8
-  %18 = load i8, ptr %17, align 1
-  %19 = load ptr, ptr %q, align 8
-  %incdec.ptr21 = getelementptr inbounds i8, ptr %19, i32 1
-  store ptr %incdec.ptr21, ptr %q, align 8
-  store i8 %18, ptr %19, align 1
-  br label %if.end34
-
-lpad:                                             ; preds = %invoke.cont39, %while.end, %invoke.cont22, %if.else, %lor.lhs.false, %if.then13, %invoke.cont6, %invoke.cont, %if.end4
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
-  br label %ehcleanup
-
-if.else:                                          ; preds = %invoke.cont17
-  %23 = load ptr, ptr %p, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %23, i64 1
-  %24 = load i8, ptr %arrayidx, align 1
-  %call23 = invoke noundef zeroext i8 @_ZN9grpc_coreL5DeHexEh(i8 noundef zeroext %24)
-          to label %invoke.cont22 unwind label %lpad
-
-invoke.cont22:                                    ; preds = %if.else
-  %conv24 = zext i8 %call23 to i32
-  %shl = shl i32 %conv24, 4
-  %conv25 = trunc i32 %shl to i8
-  %conv26 = zext i8 %conv25 to i32
-  %25 = load ptr, ptr %p, align 8
-  %arrayidx27 = getelementptr inbounds i8, ptr %25, i64 2
-  %26 = load i8, ptr %arrayidx27, align 1
-  %call29 = invoke noundef zeroext i8 @_ZN9grpc_coreL5DeHexEh(i8 noundef zeroext %26)
-          to label %invoke.cont28 unwind label %lpad
-
-invoke.cont28:                                    ; preds = %invoke.cont22
-  %conv30 = zext i8 %call29 to i32
-  %or = or i32 %conv26, %conv30
-  %conv31 = trunc i32 %or to i8
-  %27 = load ptr, ptr %q, align 8
-  %incdec.ptr32 = getelementptr inbounds i8, ptr %27, i32 1
-  store ptr %incdec.ptr32, ptr %q, align 8
-  store i8 %conv31, ptr %27, align 1
-  %28 = load ptr, ptr %p, align 8
-  %add.ptr33 = getelementptr inbounds i8, ptr %28, i64 3
-  store ptr %add.ptr33, ptr %p, align 8
-  br label %if.end34
-
-if.end34:                                         ; preds = %invoke.cont28, %if.then19
-  br label %if.end38
-
-if.else35:                                        ; preds = %while.body
-  %29 = load ptr, ptr %p, align 8
-  %incdec.ptr36 = getelementptr inbounds i8, ptr %29, i32 1
-  store ptr %incdec.ptr36, ptr %p, align 8
-  %30 = load i8, ptr %29, align 1
-  %31 = load ptr, ptr %q, align 8
-  %incdec.ptr37 = getelementptr inbounds i8, ptr %31, i32 1
-  store ptr %incdec.ptr37, ptr %q, align 8
-  store i8 %30, ptr %31, align 1
-  br label %if.end38
-
-if.end38:                                         ; preds = %if.else35, %if.end34
-  br label %while.cond, !llvm.loop !4
-
-while.end:                                        ; preds = %while.cond
-  %32 = load ptr, ptr %q, align 8
-  %call40 = invoke noundef ptr @_ZN9grpc_core12MutableSlice5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %out)
-          to label %invoke.cont39 unwind label %lpad
-
-invoke.cont39:                                    ; preds = %while.end
-  %sub.ptr.lhs.cast = ptrtoint ptr %32 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %call40 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  invoke void @_ZN9grpc_core12MutableSlice12TakeSubSliceEmm(ptr sret(%"class.grpc_core::MutableSlice") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %out, i64 noundef 0, i64 noundef %sub.ptr.sub)
-          to label %invoke.cont41 unwind label %lpad
-
-invoke.cont41:                                    ; preds = %invoke.cont39
-  invoke void @_ZN9grpc_core5SliceC2EONS_12slice_detail9BaseSliceE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
-          to label %invoke.cont43 unwind label %lpad42
-
-invoke.cont43:                                    ; preds = %invoke.cont41
-  call void @_ZN9grpc_core12MutableSliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #8
-  call void @_ZN9grpc_core12MutableSliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %out) #8
-  br label %return
-
-lpad42:                                           ; preds = %invoke.cont41
-  %33 = landingpad { ptr, i32 }
-          cleanup
-  %34 = extractvalue { ptr, i32 } %33, 0
-  store ptr %34, ptr %exn.slot, align 8
-  %35 = extractvalue { ptr, i32 } %33, 1
-  store i32 %35, ptr %ehselector.slot, align 4
-  call void @_ZN9grpc_core12MutableSliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #8
-  br label %ehcleanup
-
-ehcleanup:                                        ; preds = %lpad42, %lpad
-  call void @_ZN9grpc_core12MutableSliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %out) #8
-  br label %eh.resume
-
-return:                                           ; preds = %invoke.cont43, %if.then3
-  ret void
-
-eh.resume:                                        ; preds = %ehcleanup
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val44 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val44
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessage14InternalStreamEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !32
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
 }
 
+; Function Attrs: noreturn nounwind
+declare void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #9
+
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN9grpc_core5Slice11TakeMutableEv(ptr noalias sret(%"class.grpc_core::MutableSlice") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) #0 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca %struct.grpc_slice, align 8
-  %ref.tmp12 = alloca %struct.grpc_slice, align 8
-  %agg.tmp = alloca %struct.grpc_slice, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  %refcount = getelementptr inbounds %struct.grpc_slice, ptr %call, i32 0, i32 0
-  %0 = load ptr, ptr %refcount, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %call2 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  call void @_ZN9grpc_core12MutableSliceC2ERK10grpc_slice(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %call2)
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call3 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  %refcount4 = getelementptr inbounds %struct.grpc_slice, ptr %call3, i32 0, i32 0
-  %1 = load ptr, ptr %refcount4, align 8
-  %call5 = call noundef ptr @_ZN19grpc_slice_refcount12NoopRefcountEv()
-  %cmp6 = icmp ne ptr %1, %call5
-  br i1 %cmp6, label %land.lhs.true, label %if.end11
-
-land.lhs.true:                                    ; preds = %if.end
-  %call7 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  %refcount8 = getelementptr inbounds %struct.grpc_slice, ptr %call7, i32 0, i32 0
-  %2 = load ptr, ptr %refcount8, align 8
-  %call9 = call noundef zeroext i1 @_ZNK19grpc_slice_refcount8IsUniqueEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
-  br i1 %call9, label %if.then10, label %if.end11
-
-if.then10:                                        ; preds = %land.lhs.true
-  call void @_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv(ptr sret(%struct.grpc_slice) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  call void @_ZN9grpc_core12MutableSliceC2ERK10grpc_slice(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
-  br label %return
-
-if.end11:                                         ; preds = %land.lhs.true, %if.end
-  %call13 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %call13, i64 32, i1 false)
-  call void @grpc_slice_copy(ptr sret(%struct.grpc_slice) align 8 %ref.tmp12, ptr noundef byval(%struct.grpc_slice) align 8 %agg.tmp)
-  call void @_ZN9grpc_core12MutableSliceC2ERK10grpc_slice(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12)
-  br label %return
-
-return:                                           ; preds = %if.end11, %if.then10, %if.then
+define linkonce_odr void @_ZN9grpc_core5SliceC2EONS_12slice_detail9BaseSliceE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %struct.grpc_slice, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !21
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %5) #3
+  %7 = load ptr, ptr %4, align 8, !tbaa !21
+  call void @_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv(ptr dead_on_unwind writable sret(%struct.grpc_slice) align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  call void @_ZN9grpc_core12slice_detail9BaseSliceC2ERK10grpc_slice(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %5) #3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN9grpc_coreL8ValidHexEPKhS1_(ptr noundef %p, ptr noundef %end) #1 {
-entry:
-  %retval = alloca i1, align 1
-  %p.addr = alloca ptr, align 8
-  %end.addr = alloca ptr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  store ptr %end, ptr %end.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  %1 = load ptr, ptr %end.addr, align 8
-  %cmp = icmp uge ptr %0, %1
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr void @_ZN9grpc_core12MutableSliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.grpc_core::DebugLocation", align 1
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %4 = load ptr, ptr %2, align 8
+  %5 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  invoke void @_ZN9grpc_core13DebugLocationC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %6 unwind label %8
 
-if.then:                                          ; preds = %entry
-  store i1 false, ptr %retval, align 1
-  br label %return
+6:                                                ; preds = %1
+  invoke void @_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE(ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %7 unwind label %8
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %p.addr, align 8
-  %3 = load i8, ptr %2, align 1
-  %conv = zext i8 %3 to i32
-  %cmp1 = icmp sge i32 %conv, 48
-  br i1 %cmp1, label %land.lhs.true, label %lor.lhs.false
+7:                                                ; preds = %6
+  ret void
 
-land.lhs.true:                                    ; preds = %if.end
-  %4 = load ptr, ptr %p.addr, align 8
-  %5 = load i8, ptr %4, align 1
-  %conv2 = zext i8 %5 to i32
-  %cmp3 = icmp sle i32 %conv2, 57
-  br i1 %cmp3, label %lor.end, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %land.lhs.true, %if.end
-  %6 = load ptr, ptr %p.addr, align 8
-  %7 = load i8, ptr %6, align 1
-  %conv4 = zext i8 %7 to i32
-  %cmp5 = icmp sge i32 %conv4, 97
-  br i1 %cmp5, label %land.lhs.true6, label %lor.rhs
-
-land.lhs.true6:                                   ; preds = %lor.lhs.false
-  %8 = load ptr, ptr %p.addr, align 8
-  %9 = load i8, ptr %8, align 1
-  %conv7 = zext i8 %9 to i32
-  %cmp8 = icmp sle i32 %conv7, 102
-  br i1 %cmp8, label %lor.end, label %lor.rhs
-
-lor.rhs:                                          ; preds = %land.lhs.true6, %lor.lhs.false
-  %10 = load ptr, ptr %p.addr, align 8
-  %11 = load i8, ptr %10, align 1
-  %conv9 = zext i8 %11 to i32
-  %cmp10 = icmp sge i32 %conv9, 65
-  br i1 %cmp10, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %lor.rhs
-  %12 = load ptr, ptr %p.addr, align 8
-  %13 = load i8, ptr %12, align 1
-  %conv11 = zext i8 %13 to i32
-  %cmp12 = icmp sle i32 %conv11, 70
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %lor.rhs
-  %14 = phi i1 [ false, %lor.rhs ], [ %cmp12, %land.rhs ]
-  br label %lor.end
-
-lor.end:                                          ; preds = %land.end, %land.lhs.true6, %land.lhs.true
-  %15 = phi i1 [ true, %land.lhs.true6 ], [ true, %land.lhs.true ], [ %14, %land.end ]
-  store i1 %15, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %lor.end, %if.then
-  %16 = load i1, ptr %retval, align 1
-  ret i1 %16
+8:                                                ; preds = %6, %1
+  %9 = landingpad { ptr, i32 }
+          catch ptr null
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #17
+  unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i8 @_ZN9grpc_coreL5DeHexEh(i8 noundef zeroext %c) #0 {
-entry:
-  %retval = alloca i8, align 1
-  %c.addr = alloca i8, align 1
-  store i8 %c, ptr %c.addr, align 1
-  %0 = load i8, ptr %c.addr, align 1
-  %conv = zext i8 %0 to i32
-  %cmp = icmp sge i32 %conv, 48
-  br i1 %cmp, label %land.lhs.true, label %if.end
+define void @_ZN9grpc_core28PermissivePercentDecodeSliceENS_5SliceE(ptr dead_on_unwind noalias writable sret(%"class.grpc_core::Slice") align 8 %0, ptr noundef %1) #4 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i8, align 1
+  %11 = alloca %"class.grpc_core::MutableSlice", align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca %"class.grpc_core::MutableSlice", align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #3
+  store i8 0, ptr %5, align 1, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  %18 = load ptr, ptr %6, align 8, !tbaa !3
+  %19 = call noundef ptr @_ZNK9grpc_core12slice_detail9BaseSlice5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %18)
+  store ptr %19, ptr %7, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  %20 = load ptr, ptr %6, align 8, !tbaa !3
+  %21 = call noundef ptr @_ZNK9grpc_core12slice_detail9BaseSlice3endEv(ptr noundef nonnull align 8 dereferenceable(32) %20)
+  store ptr %21, ptr %8, align 8, !tbaa !16
+  br label %22
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i8, ptr %c.addr, align 1
-  %conv1 = zext i8 %1 to i32
-  %cmp2 = icmp sle i32 %conv1, 57
-  br i1 %cmp2, label %if.then, label %if.end
+22:                                               ; preds = %38, %2
+  %23 = load ptr, ptr %7, align 8, !tbaa !16
+  %24 = load ptr, ptr %8, align 8, !tbaa !16
+  %25 = icmp ne ptr %23, %24
+  br i1 %25, label %27, label %26
 
-if.then:                                          ; preds = %land.lhs.true
-  %2 = load i8, ptr %c.addr, align 1
-  %conv3 = zext i8 %2 to i32
-  %sub = sub nsw i32 %conv3, 48
-  %conv4 = trunc i32 %sub to i8
-  store i8 %conv4, ptr %retval, align 1
-  br label %return
+26:                                               ; preds = %22
+  store i32 2, ptr %9, align 4
+  br label %41
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %3 = load i8, ptr %c.addr, align 1
-  %conv5 = zext i8 %3 to i32
-  %cmp6 = icmp sge i32 %conv5, 65
-  br i1 %cmp6, label %land.lhs.true7, label %if.end14
+27:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  %28 = load ptr, ptr %7, align 8, !tbaa !16
+  %29 = load i8, ptr %28, align 1, !tbaa !18
+  store i8 %29, ptr %10, align 1, !tbaa !18
+  %30 = load i8, ptr %10, align 1, !tbaa !18
+  %31 = zext i8 %30 to i32
+  %32 = icmp eq i32 %31, 37
+  br i1 %32, label %33, label %34
 
-land.lhs.true7:                                   ; preds = %if.end
-  %4 = load i8, ptr %c.addr, align 1
-  %conv8 = zext i8 %4 to i32
-  %cmp9 = icmp sle i32 %conv8, 70
-  br i1 %cmp9, label %if.then10, label %if.end14
+33:                                               ; preds = %27
+  store i8 1, ptr %5, align 1, !tbaa !14
+  store i32 2, ptr %9, align 4
+  br label %35
 
-if.then10:                                        ; preds = %land.lhs.true7
-  %5 = load i8, ptr %c.addr, align 1
-  %conv11 = zext i8 %5 to i32
-  %sub12 = sub nsw i32 %conv11, 65
-  %add = add nsw i32 %sub12, 10
-  %conv13 = trunc i32 %add to i8
-  store i8 %conv13, ptr %retval, align 1
-  br label %return
+34:                                               ; preds = %27
+  store i32 0, ptr %9, align 4
+  br label %35
 
-if.end14:                                         ; preds = %land.lhs.true7, %if.end
-  %6 = load i8, ptr %c.addr, align 1
-  %conv15 = zext i8 %6 to i32
-  %cmp16 = icmp sge i32 %conv15, 97
-  br i1 %cmp16, label %land.lhs.true17, label %if.end25
+35:                                               ; preds = %34, %33
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  %36 = load i32, ptr %9, align 4
+  switch i32 %36, label %41 [
+    i32 0, label %37
+  ]
 
-land.lhs.true17:                                  ; preds = %if.end14
-  %7 = load i8, ptr %c.addr, align 1
-  %conv18 = zext i8 %7 to i32
-  %cmp19 = icmp sle i32 %conv18, 102
-  br i1 %cmp19, label %if.then20, label %if.end25
+37:                                               ; preds = %35
+  br label %38
 
-if.then20:                                        ; preds = %land.lhs.true17
-  %8 = load i8, ptr %c.addr, align 1
-  %conv21 = zext i8 %8 to i32
-  %sub22 = sub nsw i32 %conv21, 97
-  %add23 = add nsw i32 %sub22, 10
-  %conv24 = trunc i32 %add23 to i8
-  store i8 %conv24, ptr %retval, align 1
-  br label %return
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %7, align 8, !tbaa !16
+  %40 = getelementptr inbounds nuw i8, ptr %39, i32 1
+  store ptr %40, ptr %7, align 8, !tbaa !16
+  br label %22
 
-if.end25:                                         ; preds = %land.lhs.true17, %if.end14
-  br label %do.body
+41:                                               ; preds = %35, %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  br label %42
 
-do.body:                                          ; preds = %if.end25
-  call void @gpr_unreachable_code(ptr noundef @.str.5, ptr noundef @.str, i32 noundef 118) #9
-  unreachable
+42:                                               ; preds = %41
+  %43 = load i8, ptr %5, align 1, !tbaa !14, !range !19, !noundef !20
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %46, label %45
 
-do.end:                                           ; No predecessors!
-  call void @llvm.trap()
-  unreachable
+45:                                               ; preds = %42
+  call void @_ZN9grpc_core5SliceC2EOS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  store i32 1, ptr %9, align 4
+  br label %143
 
-return:                                           ; preds = %if.then20, %if.then10, %if.then
-  %9 = load i8, ptr %retval, align 1
-  ret i8 %9
+46:                                               ; preds = %42
+  call void @llvm.lifetime.start.p0(i64 32, ptr %11) #3
+  call void @_ZN9grpc_core5Slice11TakeMutableEv(ptr dead_on_unwind writable sret(%"class.grpc_core::MutableSlice") align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  %47 = invoke noundef ptr @_ZN9grpc_core12MutableSlice5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+          to label %48 unwind label %80
+
+48:                                               ; preds = %46
+  store ptr %47, ptr %12, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  %49 = invoke noundef ptr @_ZN9grpc_core12MutableSlice5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+          to label %50 unwind label %84
+
+50:                                               ; preds = %48
+  store ptr %49, ptr %15, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
+  %51 = invoke noundef ptr @_ZN9grpc_core12MutableSlice3endEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+          to label %52 unwind label %88
+
+52:                                               ; preds = %50
+  store ptr %51, ptr %16, align 8, !tbaa !16
+  br label %53
+
+53:                                               ; preds = %121, %52
+  %54 = load ptr, ptr %15, align 8, !tbaa !16
+  %55 = load ptr, ptr %16, align 8, !tbaa !16
+  %56 = icmp ne ptr %54, %55
+  br i1 %56, label %57, label %122
+
+57:                                               ; preds = %53
+  %58 = load ptr, ptr %15, align 8, !tbaa !16
+  %59 = load i8, ptr %58, align 1, !tbaa !18
+  %60 = zext i8 %59 to i32
+  %61 = icmp eq i32 %60, 37
+  br i1 %61, label %62, label %115
+
+62:                                               ; preds = %57
+  %63 = load ptr, ptr %15, align 8, !tbaa !16
+  %64 = getelementptr inbounds i8, ptr %63, i64 1
+  %65 = load ptr, ptr %16, align 8, !tbaa !16
+  %66 = invoke noundef zeroext i1 @_ZN9grpc_coreL8ValidHexEPKhS1_(ptr noundef %64, ptr noundef %65)
+          to label %67 unwind label %88
+
+67:                                               ; preds = %62
+  br i1 %66, label %68, label %74
+
+68:                                               ; preds = %67
+  %69 = load ptr, ptr %15, align 8, !tbaa !16
+  %70 = getelementptr inbounds i8, ptr %69, i64 2
+  %71 = load ptr, ptr %16, align 8, !tbaa !16
+  %72 = invoke noundef zeroext i1 @_ZN9grpc_coreL8ValidHexEPKhS1_(ptr noundef %70, ptr noundef %71)
+          to label %73 unwind label %88
+
+73:                                               ; preds = %68
+  br i1 %72, label %92, label %74
+
+74:                                               ; preds = %73, %67
+  %75 = load ptr, ptr %15, align 8, !tbaa !16
+  %76 = getelementptr inbounds nuw i8, ptr %75, i32 1
+  store ptr %76, ptr %15, align 8, !tbaa !16
+  %77 = load i8, ptr %75, align 1, !tbaa !18
+  %78 = load ptr, ptr %12, align 8, !tbaa !16
+  %79 = getelementptr inbounds nuw i8, ptr %78, i32 1
+  store ptr %79, ptr %12, align 8, !tbaa !16
+  store i8 %77, ptr %78, align 1, !tbaa !18
+  br label %114
+
+80:                                               ; preds = %46
+  %81 = landingpad { ptr, i32 }
+          cleanup
+  %82 = extractvalue { ptr, i32 } %81, 0
+  store ptr %82, ptr %13, align 8
+  %83 = extractvalue { ptr, i32 } %81, 1
+  store i32 %83, ptr %14, align 4
+  br label %142
+
+84:                                               ; preds = %48
+  %85 = landingpad { ptr, i32 }
+          cleanup
+  %86 = extractvalue { ptr, i32 } %85, 0
+  store ptr %86, ptr %13, align 8
+  %87 = extractvalue { ptr, i32 } %85, 1
+  store i32 %87, ptr %14, align 4
+  br label %141
+
+88:                                               ; preds = %97, %92, %68, %62, %50
+  %89 = landingpad { ptr, i32 }
+          cleanup
+  %90 = extractvalue { ptr, i32 } %89, 0
+  store ptr %90, ptr %13, align 8
+  %91 = extractvalue { ptr, i32 } %89, 1
+  store i32 %91, ptr %14, align 4
+  br label %140
+
+92:                                               ; preds = %73
+  %93 = load ptr, ptr %15, align 8, !tbaa !16
+  %94 = getelementptr inbounds i8, ptr %93, i64 1
+  %95 = load i8, ptr %94, align 1, !tbaa !18
+  %96 = invoke noundef zeroext i8 @_ZN9grpc_coreL5DeHexEh(i8 noundef zeroext %95)
+          to label %97 unwind label %88
+
+97:                                               ; preds = %92
+  %98 = zext i8 %96 to i32
+  %99 = shl i32 %98, 4
+  %100 = trunc i32 %99 to i8
+  %101 = zext i8 %100 to i32
+  %102 = load ptr, ptr %15, align 8, !tbaa !16
+  %103 = getelementptr inbounds i8, ptr %102, i64 2
+  %104 = load i8, ptr %103, align 1, !tbaa !18
+  %105 = invoke noundef zeroext i8 @_ZN9grpc_coreL5DeHexEh(i8 noundef zeroext %104)
+          to label %106 unwind label %88
+
+106:                                              ; preds = %97
+  %107 = zext i8 %105 to i32
+  %108 = or i32 %101, %107
+  %109 = trunc i32 %108 to i8
+  %110 = load ptr, ptr %12, align 8, !tbaa !16
+  %111 = getelementptr inbounds nuw i8, ptr %110, i32 1
+  store ptr %111, ptr %12, align 8, !tbaa !16
+  store i8 %109, ptr %110, align 1, !tbaa !18
+  %112 = load ptr, ptr %15, align 8, !tbaa !16
+  %113 = getelementptr inbounds i8, ptr %112, i64 3
+  store ptr %113, ptr %15, align 8, !tbaa !16
+  br label %114
+
+114:                                              ; preds = %106, %74
+  br label %121
+
+115:                                              ; preds = %57
+  %116 = load ptr, ptr %15, align 8, !tbaa !16
+  %117 = getelementptr inbounds nuw i8, ptr %116, i32 1
+  store ptr %117, ptr %15, align 8, !tbaa !16
+  %118 = load i8, ptr %116, align 1, !tbaa !18
+  %119 = load ptr, ptr %12, align 8, !tbaa !16
+  %120 = getelementptr inbounds nuw i8, ptr %119, i32 1
+  store ptr %120, ptr %12, align 8, !tbaa !16
+  store i8 %118, ptr %119, align 1, !tbaa !18
+  br label %121
+
+121:                                              ; preds = %115, %114
+  br label %53, !llvm.loop !39
+
+122:                                              ; preds = %53
+  call void @llvm.lifetime.start.p0(i64 32, ptr %17) #3
+  %123 = load ptr, ptr %12, align 8, !tbaa !16
+  %124 = invoke noundef ptr @_ZN9grpc_core12MutableSlice5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+          to label %125 unwind label %131
+
+125:                                              ; preds = %122
+  %126 = ptrtoint ptr %123 to i64
+  %127 = ptrtoint ptr %124 to i64
+  %128 = sub i64 %126, %127
+  invoke void @_ZN9grpc_core12MutableSlice12TakeSubSliceEmm(ptr dead_on_unwind writable sret(%"class.grpc_core::MutableSlice") align 8 %17, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef 0, i64 noundef %128)
+          to label %129 unwind label %131
+
+129:                                              ; preds = %125
+  invoke void @_ZN9grpc_core5SliceC2EONS_12slice_detail9BaseSliceE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %130 unwind label %135
+
+130:                                              ; preds = %129
+  call void @_ZN9grpc_core12MutableSliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %17) #3
+  store i32 1, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @_ZN9grpc_core12MutableSliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %11) #3
+  br label %143
+
+131:                                              ; preds = %125, %122
+  %132 = landingpad { ptr, i32 }
+          cleanup
+  %133 = extractvalue { ptr, i32 } %132, 0
+  store ptr %133, ptr %13, align 8
+  %134 = extractvalue { ptr, i32 } %132, 1
+  store i32 %134, ptr %14, align 4
+  br label %139
+
+135:                                              ; preds = %129
+  %136 = landingpad { ptr, i32 }
+          cleanup
+  %137 = extractvalue { ptr, i32 } %136, 0
+  store ptr %137, ptr %13, align 8
+  %138 = extractvalue { ptr, i32 } %136, 1
+  store i32 %138, ptr %14, align 4
+  call void @_ZN9grpc_core12MutableSliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #3
+  br label %139
+
+139:                                              ; preds = %135, %131
+  call void @llvm.lifetime.end.p0(i64 32, ptr %17) #3
+  br label %140
+
+140:                                              ; preds = %139, %88
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  br label %141
+
+141:                                              ; preds = %140, %84
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  br label %142
+
+142:                                              ; preds = %141, %80
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @_ZN9grpc_core12MutableSliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #3
+  br label %144
+
+143:                                              ; preds = %130, %45
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #3
+  ret void
+
+144:                                              ; preds = %142
+  %145 = load ptr, ptr %13, align 8
+  %146 = load i32, ptr %14, align 4
+  %147 = insertvalue { ptr, i32 } poison, ptr %145, 0
+  %148 = insertvalue { ptr, i32 } %147, i32 %146, 1
+  resume { ptr, i32 } %148
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN9grpc_core12MutableSlice12TakeSubSliceEmm(ptr noalias sret(%"class.grpc_core::MutableSlice") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %pos, i64 noundef %n) #0 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %pos.addr = alloca i64, align 8
-  %n.addr = alloca i64, align 8
-  %ref.tmp = alloca %struct.grpc_slice, align 8
-  %agg.tmp = alloca %struct.grpc_slice, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %pos, ptr %pos.addr, align 8
-  store i64 %n, ptr %n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv(ptr sret(%struct.grpc_slice) align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  %0 = load i64, ptr %pos.addr, align 8
-  %1 = load i64, ptr %pos.addr, align 8
-  %2 = load i64, ptr %n.addr, align 8
-  %add = add i64 %1, %2
-  call void @grpc_slice_sub_no_ref(ptr sret(%struct.grpc_slice) align 8 %ref.tmp, ptr noundef byval(%struct.grpc_slice) align 8 %agg.tmp, i64 noundef %0, i64 noundef %add)
-  call void @_ZN9grpc_core12MutableSliceC2ERK10grpc_slice(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+define linkonce_odr void @_ZN9grpc_core5Slice11TakeMutableEv(ptr dead_on_unwind noalias writable sret(%"class.grpc_core::MutableSlice") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %struct.grpc_slice, align 8
+  %6 = alloca %struct.grpc_slice, align 8
+  %7 = alloca %struct.grpc_slice, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %8)
+  %10 = getelementptr inbounds nuw %struct.grpc_slice, ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !23
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %15
+
+13:                                               ; preds = %2
+  %14 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %8)
+  call void @_ZN9grpc_core12MutableSliceC2ERK10grpc_slice(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %14)
+  br label %29
+
+15:                                               ; preds = %2
+  %16 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %8)
+  %17 = getelementptr inbounds nuw %struct.grpc_slice, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !23
+  %19 = call noundef ptr @_ZN19grpc_slice_refcount12NoopRefcountEv()
+  %20 = icmp ne ptr %18, %19
+  br i1 %20, label %21, label %27
+
+21:                                               ; preds = %15
+  %22 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %8)
+  %23 = getelementptr inbounds nuw %struct.grpc_slice, ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8, !tbaa !23
+  %25 = call noundef zeroext i1 @_ZNK19grpc_slice_refcount8IsUniqueEv(ptr noundef nonnull align 8 dereferenceable(16) %24)
+  br i1 %25, label %26, label %27
+
+26:                                               ; preds = %21
+  call void @llvm.lifetime.start.p0(i64 32, ptr %5) #3
+  call void @_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv(ptr dead_on_unwind writable sret(%struct.grpc_slice) align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  call void @_ZN9grpc_core12MutableSliceC2ERK10grpc_slice(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %5) #3
+  br label %29
+
+27:                                               ; preds = %21, %15
+  call void @llvm.lifetime.start.p0(i64 32, ptr %6) #3
+  %28 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %8)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %28, i64 32, i1 false), !tbaa.struct !41
+  call void @grpc_slice_copy(ptr dead_on_unwind writable sret(%struct.grpc_slice) align 8 %6, ptr noundef byval(%struct.grpc_slice) align 8 %7)
+  call void @_ZN9grpc_core12MutableSliceC2ERK10grpc_slice(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %6) #3
+  br label %29
+
+29:                                               ; preds = %27, %26, %13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @_ZN9grpc_coreL8ValidHexEPKhS1_(ptr noundef %0, ptr noundef %1) #6 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !16
+  store ptr %1, ptr %5, align 8, !tbaa !16
+  %6 = load ptr, ptr %4, align 8, !tbaa !16
+  %7 = load ptr, ptr %5, align 8, !tbaa !16
+  %8 = icmp uge ptr %6, %7
+  br i1 %8, label %9, label %10
+
+9:                                                ; preds = %2
+  store i1 false, ptr %3, align 1
+  br label %44
+
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %4, align 8, !tbaa !16
+  %12 = load i8, ptr %11, align 1, !tbaa !18
+  %13 = zext i8 %12 to i32
+  %14 = icmp sge i32 %13, 48
+  br i1 %14, label %15, label %20
+
+15:                                               ; preds = %10
+  %16 = load ptr, ptr %4, align 8, !tbaa !16
+  %17 = load i8, ptr %16, align 1, !tbaa !18
+  %18 = zext i8 %17 to i32
+  %19 = icmp sle i32 %18, 57
+  br i1 %19, label %42, label %20
+
+20:                                               ; preds = %15, %10
+  %21 = load ptr, ptr %4, align 8, !tbaa !16
+  %22 = load i8, ptr %21, align 1, !tbaa !18
+  %23 = zext i8 %22 to i32
+  %24 = icmp sge i32 %23, 97
+  br i1 %24, label %25, label %30
+
+25:                                               ; preds = %20
+  %26 = load ptr, ptr %4, align 8, !tbaa !16
+  %27 = load i8, ptr %26, align 1, !tbaa !18
+  %28 = zext i8 %27 to i32
+  %29 = icmp sle i32 %28, 102
+  br i1 %29, label %42, label %30
+
+30:                                               ; preds = %25, %20
+  %31 = load ptr, ptr %4, align 8, !tbaa !16
+  %32 = load i8, ptr %31, align 1, !tbaa !18
+  %33 = zext i8 %32 to i32
+  %34 = icmp sge i32 %33, 65
+  br i1 %34, label %35, label %40
+
+35:                                               ; preds = %30
+  %36 = load ptr, ptr %4, align 8, !tbaa !16
+  %37 = load i8, ptr %36, align 1, !tbaa !18
+  %38 = zext i8 %37 to i32
+  %39 = icmp sle i32 %38, 70
+  br label %40
+
+40:                                               ; preds = %35, %30
+  %41 = phi i1 [ false, %30 ], [ %39, %35 ]
+  br label %42
+
+42:                                               ; preds = %40, %25, %15
+  %43 = phi i1 [ true, %25 ], [ true, %15 ], [ %41, %40 ]
+  store i1 %43, ptr %3, align 1
+  br label %44
+
+44:                                               ; preds = %42, %9
+  %45 = load i1, ptr %3, align 1
+  ret i1 %45
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef zeroext i8 @_ZN9grpc_coreL5DeHexEh(i8 noundef zeroext %0) #4 {
+  %2 = alloca i8, align 1
+  %3 = alloca i8, align 1
+  store i8 %0, ptr %3, align 1, !tbaa !18
+  %4 = load i8, ptr %3, align 1, !tbaa !18
+  %5 = zext i8 %4 to i32
+  %6 = icmp sge i32 %5, 48
+  br i1 %6, label %7, label %16
+
+7:                                                ; preds = %1
+  %8 = load i8, ptr %3, align 1, !tbaa !18
+  %9 = zext i8 %8 to i32
+  %10 = icmp sle i32 %9, 57
+  br i1 %10, label %11, label %16
+
+11:                                               ; preds = %7
+  %12 = load i8, ptr %3, align 1, !tbaa !18
+  %13 = zext i8 %12 to i32
+  %14 = sub nsw i32 %13, 48
+  %15 = trunc i32 %14 to i8
+  store i8 %15, ptr %2, align 1
+  br label %47
+
+16:                                               ; preds = %7, %1
+  %17 = load i8, ptr %3, align 1, !tbaa !18
+  %18 = zext i8 %17 to i32
+  %19 = icmp sge i32 %18, 65
+  br i1 %19, label %20, label %30
+
+20:                                               ; preds = %16
+  %21 = load i8, ptr %3, align 1, !tbaa !18
+  %22 = zext i8 %21 to i32
+  %23 = icmp sle i32 %22, 70
+  br i1 %23, label %24, label %30
+
+24:                                               ; preds = %20
+  %25 = load i8, ptr %3, align 1, !tbaa !18
+  %26 = zext i8 %25 to i32
+  %27 = sub nsw i32 %26, 65
+  %28 = add nsw i32 %27, 10
+  %29 = trunc i32 %28 to i8
+  store i8 %29, ptr %2, align 1
+  br label %47
+
+30:                                               ; preds = %20, %16
+  %31 = load i8, ptr %3, align 1, !tbaa !18
+  %32 = zext i8 %31 to i32
+  %33 = icmp sge i32 %32, 97
+  br i1 %33, label %34, label %44
+
+34:                                               ; preds = %30
+  %35 = load i8, ptr %3, align 1, !tbaa !18
+  %36 = zext i8 %35 to i32
+  %37 = icmp sle i32 %36, 102
+  br i1 %37, label %38, label %44
+
+38:                                               ; preds = %34
+  %39 = load i8, ptr %3, align 1, !tbaa !18
+  %40 = zext i8 %39 to i32
+  %41 = sub nsw i32 %40, 97
+  %42 = add nsw i32 %41, 10
+  %43 = trunc i32 %42 to i8
+  store i8 %43, ptr %2, align 1
+  br label %47
+
+44:                                               ; preds = %34, %30
+  br label %45
+
+45:                                               ; preds = %44
+  call void @gpr_unreachable_code(ptr noundef @.str.5, ptr noundef @.str, i32 noundef 116) #18
+  unreachable
+
+46:                                               ; No predecessors!
+  unreachable
+
+47:                                               ; preds = %38, %24, %11
+  %48 = load i8, ptr %2, align 1
+  ret i8 %48
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN9grpc_core12MutableSlice12TakeSubSliceEmm(ptr dead_on_unwind noalias writable sret(%"class.grpc_core::MutableSlice") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2, i64 noundef %3) #4 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca %struct.grpc_slice, align 8
+  %10 = alloca %struct.grpc_slice, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8, !tbaa !28
+  store i64 %2, ptr %7, align 8, !tbaa !12
+  store i64 %3, ptr %8, align 8, !tbaa !12
+  %11 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %9) #3
+  call void @_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv(ptr dead_on_unwind writable sret(%struct.grpc_slice) align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %12 = load i64, ptr %7, align 8, !tbaa !12
+  %13 = load i64, ptr %7, align 8, !tbaa !12
+  %14 = load i64, ptr %8, align 8, !tbaa !12
+  %15 = add i64 %13, %14
+  call void @grpc_slice_sub_no_ref(ptr dead_on_unwind writable sret(%struct.grpc_slice) align 8 %9, ptr noundef byval(%struct.grpc_slice) align 8 %10, i64 noundef %12, i64 noundef %15)
+  call void @_ZN9grpc_core12MutableSliceC2ERK10grpc_slice(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %9) #3
   ret void
 }
 
 ; Function Attrs: noreturn
-declare void @gpr_unreachable_code(ptr noundef, ptr noundef, i32 noundef) #2
-
-; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #3
+declare void @gpr_unreachable_code(ptr noundef, ptr noundef, i32 noundef) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %slice_ = getelementptr inbounds %"class.grpc_core::slice_detail::BaseSlice", ptr %this1, i32 0, i32 0
-  ret ptr %slice_
+define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.grpc_core::slice_detail::BaseSlice", ptr %3, i32 0, i32 0
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZN9grpc_core6BitSetILm256ELm64EE8unit_forEm(i64 noundef %bit) #1 comdat align 2 {
-entry:
-  %bit.addr = alloca i64, align 8
-  store i64 %bit, ptr %bit.addr, align 8
-  %0 = load i64, ptr %bit.addr, align 8
-  %div = udiv i64 %0, 64
-  ret i64 %div
+define linkonce_odr noundef i64 @_ZN9grpc_core6BitSetILm256ELm64EE8unit_forEm(i64 noundef %0) #6 comdat align 2 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !12
+  %3 = load i64, ptr %2, align 8, !tbaa !12
+  %4 = udiv i64 %3, 64
+  ret i64 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZN9grpc_core6BitSetILm256ELm64EE8mask_forEm(i64 noundef %bit) #1 comdat align 2 {
-entry:
-  %bit.addr = alloca i64, align 8
-  store i64 %bit, ptr %bit.addr, align 8
-  %0 = load i64, ptr %bit.addr, align 8
-  %rem = urem i64 %0, 64
-  %shl = shl i64 1, %rem
-  ret i64 %shl
+define linkonce_odr noundef i64 @_ZN9grpc_core6BitSetILm256ELm64EE8mask_forEm(i64 noundef %0) #6 comdat align 2 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !12
+  %3 = load i64, ptr %2, align 8, !tbaa !12
+  %4 = urem i64 %3, 64
+  %5 = shl i64 1, %4
+  ret i64 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv(ptr noalias sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca %struct.grpc_slice, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %slice_ = getelementptr inbounds %"class.grpc_core::slice_detail::BaseSlice", ptr %this1, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.result, ptr align 8 %slice_, i64 32, i1 false)
-  call void @_ZN9grpc_core12slice_detailL10EmptySliceEv(ptr sret(%struct.grpc_slice) align 8 %ref.tmp)
-  %slice_2 = getelementptr inbounds %"class.grpc_core::slice_detail::BaseSlice", ptr %this1, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %slice_2, ptr align 8 %ref.tmp, i64 32, i1 false)
+define linkonce_odr void @_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv(ptr dead_on_unwind noalias writable sret(%struct.grpc_slice) align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca %struct.grpc_slice, align 8
+  store ptr %1, ptr %3, align 8, !tbaa !21
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.grpc_core::slice_detail::BaseSlice", ptr %5, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %6, i64 32, i1 false), !tbaa.struct !41
+  call void @llvm.lifetime.start.p0(i64 32, ptr %4) #3
+  call void @_ZN9grpc_core12slice_detailL10EmptySliceEv(ptr dead_on_unwind writable sret(%struct.grpc_slice) align 8 %4)
+  %7 = getelementptr inbounds nuw %"class.grpc_core::slice_detail::BaseSlice", ptr %5, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 32, i1 false), !tbaa.struct !41
+  call void @llvm.lifetime.end.p0(i64 32, ptr %4) #3
   ret void
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #4 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #8
-  call void @_ZSt9terminatev() #10
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #11 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #3
+  call void @_ZSt9terminatev() #17
   unreachable
 }
 
@@ -1088,312 +1423,415 @@ declare ptr @__cxa_begin_catch(ptr)
 declare void @_ZSt9terminatev()
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9grpc_core12slice_detail9BaseSliceC2ERK10grpc_slice(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %slice) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %slice.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %slice, ptr %slice.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %slice_ = getelementptr inbounds %"class.grpc_core::slice_detail::BaseSlice", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %slice.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %slice_, ptr align 8 %0, i64 32, i1 false)
+define linkonce_odr void @_ZN9grpc_core12slice_detail9BaseSliceC2ERK10grpc_slice(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !21
+  store ptr %1, ptr %4, align 8, !tbaa !43
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.grpc_core::slice_detail::BaseSlice", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !43
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 32, i1 false), !tbaa.struct !41
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12slice_detailL10EmptySliceEv(ptr noalias sret(%struct.grpc_slice) align 8 %agg.result) #1 {
-entry:
-  call void @llvm.memset.p0.i64(ptr align 8 %agg.result, i8 0, i64 32, i1 false)
+define internal void @_ZN9grpc_core12slice_detailL10EmptySliceEv(ptr dead_on_unwind noalias writable sret(%struct.grpc_slice) align 8 %0) #6 {
+  call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
-declare void @grpc_slice_malloc(ptr sret(%struct.grpc_slice) align 8, i64 noundef) #7
+declare void @grpc_slice_malloc(ptr dead_on_unwind writable sret(%struct.grpc_slice) align 8, i64 noundef) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9grpc_core12MutableSliceC2ERK10grpc_slice(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %slice) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %slice.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %slice, ptr %slice.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %slice.addr, align 8
-  call void @_ZN9grpc_core12slice_detail9BaseSliceC2ERK10grpc_slice(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
+define linkonce_odr void @_ZN9grpc_core12MutableSliceC2ERK10grpc_slice(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !43
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !43
+  call void @_ZN9grpc_core12slice_detail9BaseSliceC2ERK10grpc_slice(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN9grpc_core12slice_detail9BaseSlice12mutable_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %slice_ = getelementptr inbounds %"class.grpc_core::slice_detail::BaseSlice", ptr %this1, i32 0, i32 0
-  %refcount = getelementptr inbounds %struct.grpc_slice, ptr %slice_, i32 0, i32 0
-  %0 = load ptr, ptr %refcount, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %cond.true, label %cond.false
+define linkonce_odr noundef ptr @_ZN9grpc_core12slice_detail9BaseSlice12mutable_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.grpc_core::slice_detail::BaseSlice", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.grpc_slice, ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !45
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %13
 
-cond.true:                                        ; preds = %entry
-  %slice_2 = getelementptr inbounds %"class.grpc_core::slice_detail::BaseSlice", ptr %this1, i32 0, i32 0
-  %data = getelementptr inbounds %struct.grpc_slice, ptr %slice_2, i32 0, i32 1
-  %bytes = getelementptr inbounds %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", ptr %data, i32 0, i32 1
-  %1 = load ptr, ptr %bytes, align 8
-  br label %cond.end
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw %"class.grpc_core::slice_detail::BaseSlice", ptr %3, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.grpc_slice, ptr %9, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", ptr %10, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8, !tbaa !18
+  br label %18
 
-cond.false:                                       ; preds = %entry
-  %slice_3 = getelementptr inbounds %"class.grpc_core::slice_detail::BaseSlice", ptr %this1, i32 0, i32 0
-  %data4 = getelementptr inbounds %struct.grpc_slice, ptr %slice_3, i32 0, i32 1
-  %bytes5 = getelementptr inbounds %"struct.grpc_slice::grpc_slice_data::grpc_slice_inlined", ptr %data4, i32 0, i32 1
-  %arraydecay = getelementptr inbounds [23 x i8], ptr %bytes5, i64 0, i64 0
-  br label %cond.end
+13:                                               ; preds = %1
+  %14 = getelementptr inbounds nuw %"class.grpc_core::slice_detail::BaseSlice", ptr %3, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.grpc_slice, ptr %14, i32 0, i32 1
+  %16 = getelementptr inbounds nuw %"struct.grpc_slice::grpc_slice_data::grpc_slice_inlined", ptr %15, i32 0, i32 1
+  %17 = getelementptr inbounds [23 x i8], ptr %16, i64 0, i64 0
+  br label %18
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %1, %cond.true ], [ %arraydecay, %cond.false ]
-  ret ptr %cond
+18:                                               ; preds = %13, %8
+  %19 = phi ptr [ %12, %8 ], [ %17, %13 ]
+  ret ptr %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNK9grpc_core12slice_detail9BaseSlice4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  %refcount = getelementptr inbounds %struct.grpc_slice, ptr %call, i32 0, i32 0
-  %0 = load ptr, ptr %refcount, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %cond.true, label %cond.false
+define linkonce_odr noundef i64 @_ZNK9grpc_core12slice_detail9BaseSlice4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %5 = getelementptr inbounds nuw %struct.grpc_slice, ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !23
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %13
 
-cond.true:                                        ; preds = %entry
-  %call2 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  %data = getelementptr inbounds %struct.grpc_slice, ptr %call2, i32 0, i32 1
-  %length = getelementptr inbounds %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", ptr %data, i32 0, i32 0
-  %1 = load i64, ptr %length, align 8
-  br label %cond.end
+8:                                                ; preds = %1
+  %9 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %10 = getelementptr inbounds nuw %struct.grpc_slice, ptr %9, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", ptr %10, i32 0, i32 0
+  %12 = load i64, ptr %11, align 8, !tbaa !18
+  br label %19
 
-cond.false:                                       ; preds = %entry
-  %call3 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  %data4 = getelementptr inbounds %struct.grpc_slice, ptr %call3, i32 0, i32 1
-  %length5 = getelementptr inbounds %"struct.grpc_slice::grpc_slice_data::grpc_slice_inlined", ptr %data4, i32 0, i32 0
-  %2 = load i8, ptr %length5, align 8
-  %conv = zext i8 %2 to i64
-  br label %cond.end
+13:                                               ; preds = %1
+  %14 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12slice_detail9BaseSlice7c_sliceEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %15 = getelementptr inbounds nuw %struct.grpc_slice, ptr %14, i32 0, i32 1
+  %16 = getelementptr inbounds nuw %"struct.grpc_slice::grpc_slice_data::grpc_slice_inlined", ptr %15, i32 0, i32 0
+  %17 = load i8, ptr %16, align 8, !tbaa !18
+  %18 = zext i8 %17 to i64
+  br label %19
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %1, %cond.true ], [ %conv, %cond.false ]
-  ret i64 %cond
+19:                                               ; preds = %13, %8
+  %20 = phi i64 [ %12, %8 ], [ %18, %13 ]
+  ret i64 %20
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
+  %4 = call i64 @strlen(ptr noundef %3) #3
+  ret i64 %4
+}
+
+; Function Attrs: nounwind
+declare i64 @strlen(ptr noundef) #2
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE(ptr noundef nonnull align 8 dereferenceable(32) %0) #14 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !43
+  %3 = load ptr, ptr %2, align 8, !tbaa !43
+  %4 = getelementptr inbounds nuw %struct.grpc_slice, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !23
+  %6 = ptrtoint ptr %5 to i64
+  %7 = icmp ugt i64 %6, 1
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %2, align 8, !tbaa !43
+  %10 = getelementptr inbounds nuw %struct.grpc_slice, ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !23
+  call void @_ZN19grpc_slice_refcount5UnrefEN9grpc_core13DebugLocationE(ptr noundef nonnull align 8 dereferenceable(16) %11)
+  br label %12
+
+12:                                               ; preds = %8, %1
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN9grpc_core13DebugLocationC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !47
+  ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE(ptr noundef nonnull align 8 dereferenceable(32) %slice) #0 comdat {
-entry:
-  %slice.addr = alloca ptr, align 8
-  store ptr %slice, ptr %slice.addr, align 8
-  %0 = load ptr, ptr %slice.addr, align 8
-  %refcount = getelementptr inbounds %struct.grpc_slice, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %refcount, align 8
-  %2 = ptrtoint ptr %1 to i64
-  %cmp = icmp ugt i64 %2, 1
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr void @_ZN19grpc_slice_refcount5UnrefEN9grpc_core13DebugLocationE(ptr noundef nonnull align 8 dereferenceable(16) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #3
+  %5 = getelementptr inbounds nuw %struct.grpc_slice_refcount, ptr %4, i32 0, i32 0
+  %6 = call noundef i64 @_ZNSt13__atomic_baseImE9fetch_subEmSt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 1, i32 noundef 4) #3
+  store i64 %6, ptr %3, align 8, !tbaa !12
+  %7 = load i64, ptr %3, align 8, !tbaa !12
+  %8 = icmp eq i64 %7, 1
+  br i1 %8, label %9, label %12
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %slice.addr, align 8
-  %refcount1 = getelementptr inbounds %struct.grpc_slice, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %refcount1, align 8
-  call void @_ZN19grpc_slice_refcount5UnrefEN9grpc_core13DebugLocationE(ptr noundef nonnull align 8 dereferenceable(16) %4)
-  br label %if.end
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds nuw %struct.grpc_slice_refcount, ptr %4, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8, !tbaa !49
+  call void %11(ptr noundef %4)
+  br label %12
 
-if.end:                                           ; preds = %if.then, %entry
+12:                                               ; preds = %9, %1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #3
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9grpc_core13DebugLocationC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN19grpc_slice_refcount5UnrefEN9grpc_core13DebugLocationE(ptr noundef nonnull align 8 dereferenceable(16) %this) #0 comdat align 2 {
-entry:
-  %this.addr.i = alloca ptr, align 8
-  %__i.addr.i = alloca i64, align 8
-  %__m.addr.i = alloca i32, align 4
-  %.atomictmp.i = alloca i64, align 8
-  %atomic-temp.i = alloca i64, align 8
-  %this.addr = alloca ptr, align 8
-  %prev_refs = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %ref_ = getelementptr inbounds %struct.grpc_slice_refcount, ptr %this1, i32 0, i32 0
-  store ptr %ref_, ptr %this.addr.i, align 8
-  store i64 1, ptr %__i.addr.i, align 8
-  store i32 4, ptr %__m.addr.i, align 4
-  %this1.i = load ptr, ptr %this.addr.i, align 8
-  %0 = load i32, ptr %__m.addr.i, align 4
-  %1 = load i64, ptr %__i.addr.i, align 8
-  store i64 %1, ptr %.atomictmp.i, align 8
-  switch i32 %0, label %monotonic.i [
-    i32 1, label %acquire.i
-    i32 2, label %acquire.i
-    i32 3, label %release.i
-    i32 4, label %acqrel.i
-    i32 5, label %seqcst.i
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNSt13__atomic_baseImE9fetch_subEmSt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1, i32 noundef %2) #15 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !53
+  store i64 %1, ptr %5, align 8, !tbaa !12
+  store i32 %2, ptr %6, align 4, !tbaa !55
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %9, i32 0, i32 0
+  %11 = load i32, ptr %6, align 4, !tbaa !55
+  %12 = load i64, ptr %5, align 8, !tbaa !12
+  store i64 %12, ptr %7, align 8, !tbaa !12
+  switch i32 %11, label %13 [
+    i32 1, label %16
+    i32 2, label %16
+    i32 3, label %19
+    i32 4, label %22
+    i32 5, label %25
   ]
 
-monotonic.i:                                      ; preds = %entry
-  %2 = load i64, ptr %.atomictmp.i, align 8
-  %3 = atomicrmw sub ptr %this1.i, i64 %2 monotonic, align 8
-  store i64 %3, ptr %atomic-temp.i, align 8
-  br label %_ZNSt13__atomic_baseImE9fetch_subEmSt12memory_order.exit
+13:                                               ; preds = %3
+  %14 = load i64, ptr %7, align 8
+  %15 = atomicrmw sub ptr %10, i64 %14 monotonic, align 8
+  store i64 %15, ptr %8, align 8
+  br label %28
 
-acquire.i:                                        ; preds = %entry, %entry
-  %4 = load i64, ptr %.atomictmp.i, align 8
-  %5 = atomicrmw sub ptr %this1.i, i64 %4 acquire, align 8
-  store i64 %5, ptr %atomic-temp.i, align 8
-  br label %_ZNSt13__atomic_baseImE9fetch_subEmSt12memory_order.exit
+16:                                               ; preds = %3, %3
+  %17 = load i64, ptr %7, align 8
+  %18 = atomicrmw sub ptr %10, i64 %17 acquire, align 8
+  store i64 %18, ptr %8, align 8
+  br label %28
 
-release.i:                                        ; preds = %entry
-  %6 = load i64, ptr %.atomictmp.i, align 8
-  %7 = atomicrmw sub ptr %this1.i, i64 %6 release, align 8
-  store i64 %7, ptr %atomic-temp.i, align 8
-  br label %_ZNSt13__atomic_baseImE9fetch_subEmSt12memory_order.exit
+19:                                               ; preds = %3
+  %20 = load i64, ptr %7, align 8
+  %21 = atomicrmw sub ptr %10, i64 %20 release, align 8
+  store i64 %21, ptr %8, align 8
+  br label %28
 
-acqrel.i:                                         ; preds = %entry
-  %8 = load i64, ptr %.atomictmp.i, align 8
-  %9 = atomicrmw sub ptr %this1.i, i64 %8 acq_rel, align 8
-  store i64 %9, ptr %atomic-temp.i, align 8
-  br label %_ZNSt13__atomic_baseImE9fetch_subEmSt12memory_order.exit
+22:                                               ; preds = %3
+  %23 = load i64, ptr %7, align 8
+  %24 = atomicrmw sub ptr %10, i64 %23 acq_rel, align 8
+  store i64 %24, ptr %8, align 8
+  br label %28
 
-seqcst.i:                                         ; preds = %entry
-  %10 = load i64, ptr %.atomictmp.i, align 8
-  %11 = atomicrmw sub ptr %this1.i, i64 %10 seq_cst, align 8
-  store i64 %11, ptr %atomic-temp.i, align 8
-  br label %_ZNSt13__atomic_baseImE9fetch_subEmSt12memory_order.exit
+25:                                               ; preds = %3
+  %26 = load i64, ptr %7, align 8
+  %27 = atomicrmw sub ptr %10, i64 %26 seq_cst, align 8
+  store i64 %27, ptr %8, align 8
+  br label %28
 
-_ZNSt13__atomic_baseImE9fetch_subEmSt12memory_order.exit: ; preds = %seqcst.i, %acqrel.i, %release.i, %acquire.i, %monotonic.i
-  %12 = load i64, ptr %atomic-temp.i, align 8
-  store i64 %12, ptr %prev_refs, align 8
-  %13 = load i64, ptr %prev_refs, align 8
-  %cmp = icmp eq i64 %13, 1
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %_ZNSt13__atomic_baseImE9fetch_subEmSt12memory_order.exit
-  %destroyer_fn_ = getelementptr inbounds %struct.grpc_slice_refcount, ptr %this1, i32 0, i32 1
-  %14 = load ptr, ptr %destroyer_fn_, align 8
-  call void %14(ptr noundef %this1)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %_ZNSt13__atomic_baseImE9fetch_subEmSt12memory_order.exit
-  ret void
+28:                                               ; preds = %25, %22, %19, %16, %13
+  %29 = load i64, ptr %8, align 8, !tbaa !12
+  ret i64 %29
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN19grpc_slice_refcount12NoopRefcountEv() #1 comdat align 2 {
-entry:
-  %0 = inttoptr i64 1 to ptr
-  ret ptr %0
+define linkonce_odr noundef ptr @_ZN19grpc_slice_refcount12NoopRefcountEv() #6 comdat align 2 {
+  ret ptr inttoptr (i64 1 to ptr)
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZNK19grpc_slice_refcount8IsUniqueEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr.i = alloca ptr, align 8
-  %__m.addr.i = alloca i32, align 4
-  %__b.i = alloca i32, align 4
-  %atomic-temp.i = alloca i64, align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %ref_ = getelementptr inbounds %struct.grpc_slice_refcount, ptr %this1, i32 0, i32 0
-  store ptr %ref_, ptr %this.addr.i, align 8
-  store i32 0, ptr %__m.addr.i, align 4
-  %this1.i = load ptr, ptr %this.addr.i, align 8
-  %0 = load i32, ptr %__m.addr.i, align 4
-  %call.i = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %0, i32 noundef 65535)
-          to label %invoke.cont.i unwind label %terminate.lpad.i
+define linkonce_odr noundef zeroext i1 @_ZNK19grpc_slice_refcount8IsUniqueEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.grpc_slice_refcount, ptr %3, i32 0, i32 0
+  %5 = call noundef i64 @_ZNKSt13__atomic_baseImE4loadESt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #3
+  %6 = icmp eq i64 %5, 1
+  ret i1 %6
+}
 
-invoke.cont.i:                                    ; preds = %entry
-  store i32 %call.i, ptr %__b.i, align 4
-  %1 = load i32, ptr %__m.addr.i, align 4
-  switch i32 %1, label %monotonic.i [
-    i32 1, label %acquire.i
-    i32 2, label %acquire.i
-    i32 5, label %seqcst.i
+declare void @grpc_slice_copy(ptr dead_on_unwind writable sret(%struct.grpc_slice) align 8, ptr noundef byval(%struct.grpc_slice) align 8) #1
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt13__atomic_baseImE4loadESt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1) #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !53
+  store i32 %1, ptr %4, align 4, !tbaa !55
+  %7 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
+  %8 = load i32, ptr %4, align 4, !tbaa !55
+  %9 = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %8, i32 noundef 65535)
+          to label %10 unwind label %27
+
+10:                                               ; preds = %2
+  store i32 %9, ptr %5, align 4, !tbaa !55
+  br label %11
+
+11:                                               ; preds = %10
+  br label %12
+
+12:                                               ; preds = %11
+  br label %13
+
+13:                                               ; preds = %12
+  br label %14
+
+14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %14
+  br label %16
+
+16:                                               ; preds = %15
+  %17 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %7, i32 0, i32 0
+  %18 = load i32, ptr %4, align 4, !tbaa !55
+  switch i32 %18, label %19 [
+    i32 1, label %21
+    i32 2, label %21
+    i32 5, label %23
   ]
 
-monotonic.i:                                      ; preds = %invoke.cont.i
-  %2 = load atomic i64, ptr %this1.i monotonic, align 8
-  store i64 %2, ptr %atomic-temp.i, align 8
-  br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit
+19:                                               ; preds = %16
+  %20 = load atomic i64, ptr %17 monotonic, align 8
+  store i64 %20, ptr %6, align 8
+  br label %25
 
-acquire.i:                                        ; preds = %invoke.cont.i, %invoke.cont.i
-  %3 = load atomic i64, ptr %this1.i acquire, align 8
-  store i64 %3, ptr %atomic-temp.i, align 8
-  br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit
+21:                                               ; preds = %16, %16
+  %22 = load atomic i64, ptr %17 acquire, align 8
+  store i64 %22, ptr %6, align 8
+  br label %25
 
-seqcst.i:                                         ; preds = %invoke.cont.i
-  %4 = load atomic i64, ptr %this1.i seq_cst, align 8
-  store i64 %4, ptr %atomic-temp.i, align 8
-  br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit
+23:                                               ; preds = %16
+  %24 = load atomic i64, ptr %17 seq_cst, align 8
+  store i64 %24, ptr %6, align 8
+  br label %25
 
-terminate.lpad.i:                                 ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+25:                                               ; preds = %23, %21, %19
+  %26 = load i64, ptr %6, align 8, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
+  ret i64 %26
+
+27:                                               ; preds = %2
+  %28 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #10
+  %29 = extractvalue { ptr, i32 } %28, 0
+  call void @__clang_call_terminate(ptr %29) #17
   unreachable
-
-_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit: ; preds = %seqcst.i, %acquire.i, %monotonic.i
-  %7 = load i64, ptr %atomic-temp.i, align 8
-  %cmp = icmp eq i64 %7, 1
-  ret i1 %cmp
 }
-
-declare void @grpc_slice_copy(ptr sret(%struct.grpc_slice) align 8, ptr noundef byval(%struct.grpc_slice) align 8) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %__m, i32 noundef %__mod) #1 comdat {
-entry:
-  %__m.addr = alloca i32, align 4
-  %__mod.addr = alloca i32, align 4
-  store i32 %__m, ptr %__m.addr, align 4
-  store i32 %__mod, ptr %__mod.addr, align 4
-  %0 = load i32, ptr %__m.addr, align 4
-  %1 = load i32, ptr %__mod.addr, align 4
-  %and = and i32 %0, %1
-  ret i32 %and
+define linkonce_odr noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %0, i32 noundef %1) #6 comdat {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !55
+  store i32 %1, ptr %4, align 4, !tbaa !57
+  %5 = load i32, ptr %3, align 4, !tbaa !55
+  %6 = load i32, ptr %4, align 4, !tbaa !57
+  %7 = and i32 %5, %6
+  ret i32 %7
 }
 
-declare void @grpc_slice_sub_no_ref(ptr sret(%struct.grpc_slice) align 8, ptr noundef byval(%struct.grpc_slice) align 8, i64 noundef, i64 noundef) #7
+declare void @grpc_slice_sub_no_ref(ptr dead_on_unwind writable sret(%struct.grpc_slice) align 8, ptr noundef byval(%struct.grpc_slice) align 8, i64 noundef, i64 noundef) #1
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn }
-attributes #10 = { noreturn nounwind }
+; Function Attrs: uwtable
+define internal void @_GLOBAL__sub_I_percent_encoding.cc() #0 section ".text.startup" {
+  call void @__cxx_global_var_init()
+  ret void
+}
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #8 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { cold }
+attributes #17 = { noreturn nounwind }
+attributes #18 = { noreturn }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN9grpc_core5SliceE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"_ZTSN9grpc_core19PercentEncodingTypeE", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTSN9grpc_core6BitSetILm256ELm64EEE", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"long", !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"bool", !6, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 omnipotent char", !5, i64 0}
+!18 = !{!6, !6, i64 0}
+!19 = !{i8 0, i8 2}
+!20 = !{}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTSN9grpc_core12slice_detail9BaseSliceE", !5, i64 0}
+!23 = !{!24, !25, i64 0}
+!24 = !{!"_ZTS10grpc_slice", !25, i64 0, !6, i64 8}
+!25 = !{!"p1 _ZTS19grpc_slice_refcount", !5, i64 0}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"int", !6, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTSN9grpc_core12MutableSliceE", !5, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTSN4absl12lts_2024072212log_internal7VoidifyE", !5, i64 0}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 _ZTSN4absl12lts_2024072212log_internal10LogMessageE", !5, i64 0}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTSSt17basic_string_viewIcSt11char_traitsIcEE", !5, i64 0}
+!36 = !{!37, !13, i64 0}
+!37 = !{!"_ZTSSt17basic_string_viewIcSt11char_traitsIcEE", !13, i64 0, !17, i64 8}
+!38 = !{!37, !17, i64 8}
+!39 = distinct !{!39, !40}
+!40 = !{!"llvm.loop.mustprogress"}
+!41 = !{i64 0, i64 8, !42, i64 8, i64 24, !18}
+!42 = !{!25, !25, i64 0}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p1 _ZTS10grpc_slice", !5, i64 0}
+!45 = !{!46, !25, i64 0}
+!46 = !{!"_ZTSN9grpc_core12slice_detail9BaseSliceE", !24, i64 0}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTSN9grpc_core13DebugLocationE", !5, i64 0}
+!49 = !{!50, !5, i64 8}
+!50 = !{!"_ZTS19grpc_slice_refcount", !51, i64 0, !5, i64 8}
+!51 = !{!"_ZTSSt6atomicImE", !52, i64 0}
+!52 = !{!"_ZTSSt13__atomic_baseImE", !13, i64 0}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p1 _ZTSSt13__atomic_baseImE", !5, i64 0}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"_ZTSSt12memory_order", !6, i64 0}
+!57 = !{!58, !58, i64 0}
+!58 = !{!"_ZTSSt23__memory_order_modifier", !6, i64 0}

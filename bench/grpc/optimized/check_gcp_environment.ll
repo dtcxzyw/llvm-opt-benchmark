@@ -1,129 +1,214 @@
 ; ModuleID = 'bench/grpc/original/check_gcp_environment.ll'
 source_filename = "bench/grpc/original/check_gcp_environment.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
+
+%"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
+%"struct.std::__atomic_base.1" = type { ptr }
+%"class.absl::lts_20240722::log_internal::LogMessage" = type { %"class.absl::lts_20240722::base_internal::ErrnoSaver", %"class.std::unique_ptr" }
+%"class.absl::lts_20240722::base_internal::ErrnoSaver" = type { i32 }
+%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
+%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
+%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
+%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
+%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.3" }
+%"struct.std::_Head_base.3" = type { ptr }
 
 @.str = private unnamed_addr constant [2 x i8] c"r\00", align 1
 @.str.1 = private unnamed_addr constant [151 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/security/credentials/alts/check_gcp_environment.cc\00", align 1
 @.str.2 = private unnamed_addr constant [51 x i8] c"BIOS data file does not exist or cannot be opened.\00", align 1
+@"_ZZZN9grpc_core8internal14read_bios_fileEPKcENK3$_0clEvE4site" = internal global { ptr, { i32 }, %"struct.std::atomic.0" } { ptr @.str.1, { i32 } { i32 2147483647 }, %"struct.std::atomic.0" zeroinitializer }, align 8
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN9grpc_core8internal14read_bios_fileEPKc(ptr noundef readonly captures(none) %bios_file) local_unnamed_addr #0 {
-entry:
-  %buf = alloca [257 x i8], align 16
-  %call = tail call noalias ptr @fopen(ptr noundef %bios_file, ptr noundef nonnull @.str)
-  %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %if.then, label %if.end
+define noundef ptr @_ZN9grpc_core8internal14read_bios_fileEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %2 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
+  %3 = alloca [257 x i8], align 16
+  %4 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str)
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %5, label %14
 
-if.then:                                          ; preds = %entry
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 60, i32 noundef 1, ptr noundef nonnull @.str.2)
-  br label %return
+5:                                                ; preds = %1
+  %6 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZZZN9grpc_core8internal14read_bios_fileEPKcENK3$_0clEvE4site", i64 8) monotonic, align 8
+  %7 = icmp slt i32 %6, 2
+  br i1 %7, label %.critedge15, label %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit, !prof !3
 
-if.end:                                           ; preds = %entry
-  %call1 = call i64 @fread(ptr noundef nonnull %buf, i64 noundef 1, i64 noundef 256, ptr noundef nonnull %call)
-  %arrayidx = getelementptr inbounds [257 x i8], ptr %buf, i64 0, i64 %call1
-  store i8 0, ptr %arrayidx, align 1
-  %0 = load i8, ptr %buf, align 16
-  %cmp1.i = icmp eq i8 %0, 0
-  br i1 %cmp1.i, label %_ZL4trimPKc.exit, label %if.end.i
+_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit: ; preds = %5
+  %8 = tail call noundef zeroext i1 @_ZN4absl12lts_2024072212log_internal8VLogSite14SlowIsEnabled2Ei(ptr noundef nonnull align 8 dereferenceable(24) @"_ZZZN9grpc_core8internal14read_bios_fileEPKcENK3$_0clEvE4site", i32 noundef %6)
+  br i1 %8, label %9, label %.critedge15
 
-if.end.i:                                         ; preds = %if.end
-  %call.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %buf) #6
-  br label %while.cond.i
+9:                                                ; preds = %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #9
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_7InfoTagE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.1, i32 noundef 59) #10
+  %10 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessage13WithVerbosityEi(ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 2)
+          to label %11 unwind label %12
 
-while.cond.i:                                     ; preds = %land.rhs.i, %if.end.i
-  %end.0.in.i = phi i64 [ %call.i, %if.end.i ], [ %end.0.i, %land.rhs.i ]
-  %end.0.i = add i64 %end.0.in.i, -1
-  %cmp2.not.i = icmp eq i64 %end.0.i, 0
-  br i1 %cmp2.not.i, label %while.end.i, label %land.rhs.i
+11:                                               ; preds = %9
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %10, i64 50, ptr nonnull @.str.2)
+          to label %.critedge unwind label %12
 
-land.rhs.i:                                       ; preds = %while.cond.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %buf, i64 %end.0.i
-  %1 = load i8, ptr %arrayidx.i, align 1
-  %conv3.i = sext i8 %1 to i32
-  %call4.i = tail call i32 @isspace(i32 noundef %conv3.i) #6
-  %tobool.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool.not.i, label %while.end.i, label %while.cond.i, !llvm.loop !4
+.critedge:                                        ; preds = %11
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #9
+  br label %.critedge15
 
-while.end.i:                                      ; preds = %land.rhs.i, %while.cond.i
-  %cmp719.not.i = icmp eq i64 %call.i, 0
-  br i1 %cmp719.not.i, label %if.then17.i, label %land.rhs8.i
+12:                                               ; preds = %11, %9
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #9
+  resume { ptr, i32 } %13
 
-land.rhs8.i:                                      ; preds = %while.end.i, %while.body14.i
-  %start.020.i = phi i64 [ %inc.i, %while.body14.i ], [ 0, %while.end.i ]
-  %arrayidx9.i = getelementptr inbounds i8, ptr %buf, i64 %start.020.i
-  %2 = load i8, ptr %arrayidx9.i, align 1
-  %conv10.i = sext i8 %2 to i32
-  %call11.i = tail call i32 @isspace(i32 noundef %conv10.i) #6
-  %tobool12.not.i = icmp eq i32 %call11.i, 0
-  br i1 %tobool12.not.i, label %while.end15.i, label %while.body14.i
+14:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 257, ptr nonnull %3) #9
+  %15 = call i64 @fread(ptr noundef nonnull %3, i64 noundef 1, i64 noundef 256, ptr noundef nonnull %4)
+  %16 = getelementptr inbounds nuw [257 x i8], ptr %3, i64 0, i64 %15
+  store i8 0, ptr %16, align 1, !tbaa !4
+  %17 = load i8, ptr %3, align 16, !tbaa !4
+  %18 = icmp eq i8 %17, 0
+  br i1 %18, label %_ZL4trimPKc.exit, label %19
 
-while.body14.i:                                   ; preds = %land.rhs8.i
-  %inc.i = add nuw i64 %start.020.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %call.i
-  br i1 %exitcond.not.i, label %while.end15.i, label %land.rhs8.i, !llvm.loop !6
+19:                                               ; preds = %14
+  %20 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #12
+  br label %21
 
-while.end15.i:                                    ; preds = %while.body14.i, %land.rhs8.i
-  %start.0.lcssa.i = phi i64 [ %start.020.i, %land.rhs8.i ], [ %call.i, %while.body14.i ]
-  %cmp16.not.i = icmp ugt i64 %start.0.lcssa.i, %end.0.i
-  br i1 %cmp16.not.i, label %_ZL4trimPKc.exit, label %if.then17.i
+21:                                               ; preds = %22, %19
+  %.0.in.i = phi i64 [ %20, %19 ], [ %.0.i17, %22 ]
+  %.0.i17 = add i64 %.0.in.i, -1
+  %.not.i = icmp eq i64 %.0.i17, 0
+  br i1 %.not.i, label %.critedge.i, label %22
 
-if.then17.i:                                      ; preds = %while.end15.i, %while.end.i
-  %start.0.lcssa24.i = phi i64 [ %start.0.lcssa.i, %while.end15.i ], [ 0, %while.end.i ]
-  %sub18.i = sub nuw i64 %end.0.i, %start.0.lcssa24.i
-  %add.i = add i64 %sub18.i, 2
-  %call19.i = tail call ptr @gpr_zalloc(i64 noundef %add.i)
-  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %start.0.lcssa24.i
-  %add21.i = add i64 %sub18.i, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call19.i, ptr nonnull readonly align 1 %add.ptr.i, i64 %add21.i, i1 false)
+22:                                               ; preds = %21
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i17
+  %24 = load i8, ptr %23, align 1, !tbaa !4
+  %25 = tail call ptr @__ctype_b_loc() #13
+  %26 = load ptr, ptr %25, align 8, !tbaa !7
+  %27 = sext i8 %24 to i64
+  %28 = getelementptr inbounds i16, ptr %26, i64 %27
+  %29 = load i16, ptr %28, align 2, !tbaa !10
+  %30 = and i16 %29, 8192
+  %.not28.i = icmp eq i16 %30, 0
+  br i1 %.not28.i, label %.critedge.i, label %21, !llvm.loop !12
+
+.critedge.i:                                      ; preds = %22, %21
+  %.not34.i = icmp eq i64 %20, 0
+  br i1 %.not34.i, label %.critedge2.thread.i, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.critedge.i
+  %31 = tail call ptr @__ctype_b_loc() #13
+  %32 = load ptr, ptr %31, align 8, !tbaa !7
+  br label %33
+
+33:                                               ; preds = %40, %.lr.ph.i
+  %.02431.i = phi i64 [ 0, %.lr.ph.i ], [ %41, %40 ]
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 %.02431.i
+  %35 = load i8, ptr %34, align 1, !tbaa !4
+  %36 = sext i8 %35 to i64
+  %37 = getelementptr inbounds i16, ptr %32, i64 %36
+  %38 = load i16, ptr %37, align 2, !tbaa !10
+  %39 = and i16 %38, 8192
+  %.not29.i = icmp eq i16 %39, 0
+  br i1 %.not29.i, label %.critedge2.i, label %40
+
+40:                                               ; preds = %33
+  %41 = add nuw i64 %.02431.i, 1
+  %exitcond.not.i = icmp eq i64 %41, %20
+  br i1 %exitcond.not.i, label %.critedge2.i, label %33, !llvm.loop !14
+
+.critedge2.i:                                     ; preds = %40, %33
+  %.024.lcssa.i = phi i64 [ %.02431.i, %33 ], [ %20, %40 ]
+  %.not30.i = icmp ugt i64 %.024.lcssa.i, %.0.i17
+  br i1 %.not30.i, label %_ZL4trimPKc.exit, label %.critedge2.thread.i
+
+.critedge2.thread.i:                              ; preds = %.critedge2.i, %.critedge.i
+  %.024.lcssa37.i = phi i64 [ %.024.lcssa.i, %.critedge2.i ], [ 0, %.critedge.i ]
+  %42 = sub nuw i64 %.0.i17, %.024.lcssa37.i
+  %43 = add i64 %42, 2
+  %44 = tail call ptr @gpr_zalloc(i64 noundef %43)
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 %.024.lcssa37.i
+  %46 = add i64 %42, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr nonnull readonly align 1 %45, i64 %46, i1 false)
   br label %_ZL4trimPKc.exit
 
-_ZL4trimPKc.exit:                                 ; preds = %if.end, %while.end15.i, %if.then17.i
-  %retval.0.i = phi ptr [ null, %if.end ], [ %call19.i, %if.then17.i ], [ null, %while.end15.i ]
-  %call4 = tail call i32 @fclose(ptr noundef nonnull %call)
-  br label %return
+_ZL4trimPKc.exit:                                 ; preds = %14, %.critedge2.i, %.critedge2.thread.i
+  %.026.i = phi ptr [ null, %14 ], [ %44, %.critedge2.thread.i ], [ null, %.critedge2.i ]
+  %47 = tail call i32 @fclose(ptr noundef nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 257, ptr nonnull %3) #9
+  br label %.critedge15
 
-return:                                           ; preds = %_ZL4trimPKc.exit, %if.then
-  %retval.0 = phi ptr [ %retval.0.i, %_ZL4trimPKc.exit ], [ null, %if.then ]
-  ret ptr %retval.0
+.critedge15:                                      ; preds = %5, %.critedge, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit, %_ZL4trimPKc.exit
+  %.0 = phi ptr [ %.026.i, %_ZL4trimPKc.exit ], [ null, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit ], [ null, %.critedge ], [ null, %5 ]
+  ret ptr %.0
 }
 
-; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
-
-declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
+
+; Function Attrs: cold
+declare void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_7InfoTagE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef) unnamed_addr #3
+
+declare i32 @__gxx_personality_v0(...)
+
+declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessage13WithVerbosityEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #4
+
+; Function Attrs: cold nounwind
+declare void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN4absl12lts_2024072212log_internal8VLogSite14SlowIsEnabled2Ei(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @isspace(i32 noundef) local_unnamed_addr #4
-
-declare ptr @gpr_zalloc(i64 noundef) local_unnamed_addr #2
+declare ptr @gpr_zalloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nounwind willreturn memory(read) }
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare ptr @__ctype_b_loc() local_unnamed_addr #8
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+declare void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16), i64, ptr) local_unnamed_addr #4
+
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind }
+attributes #10 = { cold }
+attributes #11 = { cold nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
+attributes #13 = { nounwind willreturn memory(none) }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 short", !9, i64 0}
+!9 = !{!"any pointer", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"short", !5, i64 0}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.mustprogress"}
+!14 = distinct !{!14, !13}

@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.alts_counter = type { i64, i64, ptr }
 
@@ -10,351 +10,395 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const._Z22alts_counter_incrementP12alts_counterPbPPc.error_msg.3 = private unnamed_addr constant [24 x i8] c"is_overflow is nullptr.\00", align 16
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z19alts_counter_createbmmPP12alts_counterPPc(i1 noundef zeroext %is_client, i64 noundef %counter_size, i64 noundef %overflow_size, ptr noundef %crypter_counter, ptr noundef %error_details) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %is_client.addr = alloca i8, align 1
-  %counter_size.addr = alloca i64, align 8
-  %overflow_size.addr = alloca i64, align 8
-  %crypter_counter.addr = alloca ptr, align 8
-  %error_details.addr = alloca ptr, align 8
-  %error_msg = alloca [25 x i8], align 16
-  %error_msg4 = alloca [26 x i8], align 16
-  %error_msg9 = alloca [28 x i8], align 16
-  %frombool = zext i1 %is_client to i8
-  store i8 %frombool, ptr %is_client.addr, align 1
-  store i64 %counter_size, ptr %counter_size.addr, align 8
-  store i64 %overflow_size, ptr %overflow_size.addr, align 8
-  store ptr %crypter_counter, ptr %crypter_counter.addr, align 8
-  store ptr %error_details, ptr %error_details.addr, align 8
-  %0 = load i64, ptr %counter_size.addr, align 8
-  %cmp = icmp eq i64 %0, 0
-  br i1 %cmp, label %if.then, label %if.end
+define noundef i32 @_Z19alts_counter_createbmmPP12alts_counterPPc(i1 noundef zeroext %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca i8, align 1
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca [25 x i8], align 16
+  %13 = alloca [26 x i8], align 16
+  %14 = alloca [28 x i8], align 16
+  %15 = zext i1 %0 to i8
+  store i8 %15, ptr %7, align 1, !tbaa !3
+  store i64 %1, ptr %8, align 8, !tbaa !7
+  store i64 %2, ptr %9, align 8, !tbaa !7
+  store ptr %3, ptr %10, align 8, !tbaa !9
+  store ptr %4, ptr %11, align 8, !tbaa !13
+  %16 = load i64, ptr %8, align 8, !tbaa !7
+  %17 = icmp eq i64 %16, 0
+  br i1 %17, label %18, label %21
 
-if.then:                                          ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %error_msg, ptr align 16 @__const._Z19alts_counter_createbmmPP12alts_counterPPc.error_msg, i64 25, i1 false)
-  %arraydecay = getelementptr inbounds [25 x i8], ptr %error_msg, i64 0, i64 0
-  %1 = load ptr, ptr %error_details.addr, align 8
-  call void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef %arraydecay, ptr noundef %1)
-  store i32 3, ptr %retval, align 4
-  br label %return
+18:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 25, ptr %12) #6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %12, ptr align 16 @__const._Z19alts_counter_createbmmPP12alts_counterPPc.error_msg, i64 25, i1 false)
+  %19 = getelementptr inbounds [25 x i8], ptr %12, i64 0, i64 0
+  %20 = load ptr, ptr %11, align 8, !tbaa !13
+  call void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef %19, ptr noundef %20)
+  store i32 3, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 25, ptr %12) #6
+  br label %64
 
-if.end:                                           ; preds = %entry
-  %2 = load i64, ptr %overflow_size.addr, align 8
-  %cmp1 = icmp eq i64 %2, 0
-  br i1 %cmp1, label %if.then3, label %lor.lhs.false
+21:                                               ; preds = %5
+  %22 = load i64, ptr %9, align 8, !tbaa !7
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %28, label %24
 
-lor.lhs.false:                                    ; preds = %if.end
-  %3 = load i64, ptr %overflow_size.addr, align 8
-  %4 = load i64, ptr %counter_size.addr, align 8
-  %cmp2 = icmp uge i64 %3, %4
-  br i1 %cmp2, label %if.then3, label %if.end6
+24:                                               ; preds = %21
+  %25 = load i64, ptr %9, align 8, !tbaa !7
+  %26 = load i64, ptr %8, align 8, !tbaa !7
+  %27 = icmp uge i64 %25, %26
+  br i1 %27, label %28, label %31
 
-if.then3:                                         ; preds = %lor.lhs.false, %if.end
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %error_msg4, ptr align 16 @__const._Z19alts_counter_createbmmPP12alts_counterPPc.error_msg.1, i64 26, i1 false)
-  %arraydecay5 = getelementptr inbounds [26 x i8], ptr %error_msg4, i64 0, i64 0
-  %5 = load ptr, ptr %error_details.addr, align 8
-  call void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef %arraydecay5, ptr noundef %5)
-  store i32 3, ptr %retval, align 4
-  br label %return
+28:                                               ; preds = %24, %21
+  call void @llvm.lifetime.start.p0(i64 26, ptr %13) #6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %13, ptr align 16 @__const._Z19alts_counter_createbmmPP12alts_counterPPc.error_msg.1, i64 26, i1 false)
+  %29 = getelementptr inbounds [26 x i8], ptr %13, i64 0, i64 0
+  %30 = load ptr, ptr %11, align 8, !tbaa !13
+  call void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef %29, ptr noundef %30)
+  store i32 3, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 26, ptr %13) #6
+  br label %64
 
-if.end6:                                          ; preds = %lor.lhs.false
-  %6 = load ptr, ptr %crypter_counter.addr, align 8
-  %cmp7 = icmp eq ptr %6, null
-  br i1 %cmp7, label %if.then8, label %if.end11
+31:                                               ; preds = %24
+  %32 = load ptr, ptr %10, align 8, !tbaa !9
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %34, label %37
 
-if.then8:                                         ; preds = %if.end6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %error_msg9, ptr align 16 @__const._Z19alts_counter_createbmmPP12alts_counterPPc.error_msg.2, i64 28, i1 false)
-  %arraydecay10 = getelementptr inbounds [28 x i8], ptr %error_msg9, i64 0, i64 0
-  %7 = load ptr, ptr %error_details.addr, align 8
-  call void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef %arraydecay10, ptr noundef %7)
-  store i32 3, ptr %retval, align 4
-  br label %return
+34:                                               ; preds = %31
+  call void @llvm.lifetime.start.p0(i64 28, ptr %14) #6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %14, ptr align 16 @__const._Z19alts_counter_createbmmPP12alts_counterPPc.error_msg.2, i64 28, i1 false)
+  %35 = getelementptr inbounds [28 x i8], ptr %14, i64 0, i64 0
+  %36 = load ptr, ptr %11, align 8, !tbaa !13
+  call void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef %35, ptr noundef %36)
+  store i32 3, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 28, ptr %14) #6
+  br label %64
 
-if.end11:                                         ; preds = %if.end6
-  %call = call ptr @gpr_malloc(i64 noundef 24)
-  %8 = load ptr, ptr %crypter_counter.addr, align 8
-  store ptr %call, ptr %8, align 8
-  %9 = load i64, ptr %counter_size.addr, align 8
-  %10 = load ptr, ptr %crypter_counter.addr, align 8
-  %11 = load ptr, ptr %10, align 8
-  %size = getelementptr inbounds %struct.alts_counter, ptr %11, i32 0, i32 0
-  store i64 %9, ptr %size, align 8
-  %12 = load i64, ptr %overflow_size.addr, align 8
-  %13 = load ptr, ptr %crypter_counter.addr, align 8
-  %14 = load ptr, ptr %13, align 8
-  %overflow_size12 = getelementptr inbounds %struct.alts_counter, ptr %14, i32 0, i32 1
-  store i64 %12, ptr %overflow_size12, align 8
-  %15 = load i64, ptr %counter_size.addr, align 8
-  %call13 = call ptr @gpr_zalloc(i64 noundef %15)
-  %16 = load ptr, ptr %crypter_counter.addr, align 8
-  %17 = load ptr, ptr %16, align 8
-  %counter = getelementptr inbounds %struct.alts_counter, ptr %17, i32 0, i32 2
-  store ptr %call13, ptr %counter, align 8
-  %18 = load i8, ptr %is_client.addr, align 1
-  %tobool = trunc i8 %18 to i1
-  br i1 %tobool, label %if.then14, label %if.end16
+37:                                               ; preds = %31
+  %38 = call ptr @gpr_malloc(i64 noundef 24)
+  %39 = load ptr, ptr %10, align 8, !tbaa !9
+  store ptr %38, ptr %39, align 8, !tbaa !15
+  %40 = load i64, ptr %8, align 8, !tbaa !7
+  %41 = load ptr, ptr %10, align 8, !tbaa !9
+  %42 = load ptr, ptr %41, align 8, !tbaa !15
+  %43 = getelementptr inbounds nuw %struct.alts_counter, ptr %42, i32 0, i32 0
+  store i64 %40, ptr %43, align 8, !tbaa !17
+  %44 = load i64, ptr %9, align 8, !tbaa !7
+  %45 = load ptr, ptr %10, align 8, !tbaa !9
+  %46 = load ptr, ptr %45, align 8, !tbaa !15
+  %47 = getelementptr inbounds nuw %struct.alts_counter, ptr %46, i32 0, i32 1
+  store i64 %44, ptr %47, align 8, !tbaa !20
+  %48 = load i64, ptr %8, align 8, !tbaa !7
+  %49 = call ptr @gpr_zalloc(i64 noundef %48)
+  %50 = load ptr, ptr %10, align 8, !tbaa !9
+  %51 = load ptr, ptr %50, align 8, !tbaa !15
+  %52 = getelementptr inbounds nuw %struct.alts_counter, ptr %51, i32 0, i32 2
+  store ptr %49, ptr %52, align 8, !tbaa !21
+  %53 = load i8, ptr %7, align 1, !tbaa !3, !range !22, !noundef !23
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %55, label %63
 
-if.then14:                                        ; preds = %if.end11
-  %19 = load ptr, ptr %crypter_counter.addr, align 8
-  %20 = load ptr, ptr %19, align 8
-  %counter15 = getelementptr inbounds %struct.alts_counter, ptr %20, i32 0, i32 2
-  %21 = load ptr, ptr %counter15, align 8
-  %22 = load i64, ptr %counter_size.addr, align 8
-  %sub = sub i64 %22, 1
-  %arrayidx = getelementptr inbounds i8, ptr %21, i64 %sub
-  store i8 -128, ptr %arrayidx, align 1
-  br label %if.end16
+55:                                               ; preds = %37
+  %56 = load ptr, ptr %10, align 8, !tbaa !9
+  %57 = load ptr, ptr %56, align 8, !tbaa !15
+  %58 = getelementptr inbounds nuw %struct.alts_counter, ptr %57, i32 0, i32 2
+  %59 = load ptr, ptr %58, align 8, !tbaa !21
+  %60 = load i64, ptr %8, align 8, !tbaa !7
+  %61 = sub i64 %60, 1
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 %61
+  store i8 -128, ptr %62, align 1, !tbaa !24
+  br label %63
 
-if.end16:                                         ; preds = %if.then14, %if.end11
-  store i32 0, ptr %retval, align 4
-  br label %return
+63:                                               ; preds = %55, %37
+  store i32 0, ptr %6, align 4
+  br label %64
 
-return:                                           ; preds = %if.end16, %if.then8, %if.then3, %if.then
-  %23 = load i32, ptr %retval, align 4
-  ret i32 %23
+64:                                               ; preds = %63, %34, %28, %18
+  %65 = load i32, ptr %6, align 4
+  ret i32 %65
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef %src, ptr noundef %dst) #0 {
-entry:
-  %src.addr = alloca ptr, align 8
-  %dst.addr = alloca ptr, align 8
-  store ptr %src, ptr %src.addr, align 8
-  store ptr %dst, ptr %dst.addr, align 8
-  %0 = load ptr, ptr %dst.addr, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %land.lhs.true, label %if.end
+define internal void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !25
+  store ptr %1, ptr %4, align 8, !tbaa !13
+  %5 = load ptr, ptr %4, align 8, !tbaa !13
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %22
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load ptr, ptr %src.addr, align 8
-  %cmp1 = icmp ne ptr %1, null
-  br i1 %cmp1, label %if.then, label %if.end
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %3, align 8, !tbaa !25
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %22
 
-if.then:                                          ; preds = %land.lhs.true
-  %2 = load ptr, ptr %src.addr, align 8
-  %call = call i64 @strlen(ptr noundef %2) #5
-  %add = add i64 %call, 1
-  %call2 = call ptr @gpr_malloc(i64 noundef %add)
-  %3 = load ptr, ptr %dst.addr, align 8
-  store ptr %call2, ptr %3, align 8
-  %4 = load ptr, ptr %dst.addr, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr %src.addr, align 8
-  %7 = load ptr, ptr %src.addr, align 8
-  %call3 = call i64 @strlen(ptr noundef %7) #5
-  %add4 = add i64 %call3, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %6, i64 %add4, i1 false)
-  br label %if.end
+10:                                               ; preds = %7
+  %11 = load ptr, ptr %3, align 8, !tbaa !25
+  %12 = call i64 @strlen(ptr noundef %11) #7
+  %13 = add i64 %12, 1
+  %14 = call ptr @gpr_malloc(i64 noundef %13)
+  %15 = load ptr, ptr %4, align 8, !tbaa !13
+  store ptr %14, ptr %15, align 8, !tbaa !25
+  %16 = load ptr, ptr %4, align 8, !tbaa !13
+  %17 = load ptr, ptr %16, align 8, !tbaa !25
+  %18 = load ptr, ptr %3, align 8, !tbaa !25
+  %19 = load ptr, ptr %3, align 8, !tbaa !25
+  %20 = call i64 @strlen(ptr noundef %19) #7
+  %21 = add i64 %20, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 %18, i64 %21, i1 false)
+  br label %22
 
-if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
+22:                                               ; preds = %10, %7, %2
   ret void
 }
 
-declare ptr @gpr_malloc(i64 noundef) #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @gpr_zalloc(i64 noundef) #2
+declare ptr @gpr_malloc(i64 noundef) #3
+
+declare ptr @gpr_zalloc(i64 noundef) #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z22alts_counter_incrementP12alts_counterPbPPc(ptr noundef %crypter_counter, ptr noundef %is_overflow, ptr noundef %error_details) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %crypter_counter.addr = alloca ptr, align 8
-  %is_overflow.addr = alloca ptr, align 8
-  %error_details.addr = alloca ptr, align 8
-  %error_msg = alloca [28 x i8], align 16
-  %error_msg3 = alloca [24 x i8], align 16
-  %i = alloca i64, align 8
-  store ptr %crypter_counter, ptr %crypter_counter.addr, align 8
-  store ptr %is_overflow, ptr %is_overflow.addr, align 8
-  store ptr %error_details, ptr %error_details.addr, align 8
-  %0 = load ptr, ptr %crypter_counter.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define noundef i32 @_Z22alts_counter_incrementP12alts_counterPbPPc(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca [28 x i8], align 16
+  %9 = alloca [24 x i8], align 16
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !15
+  store ptr %1, ptr %6, align 8, !tbaa !26
+  store ptr %2, ptr %7, align 8, !tbaa !13
+  %12 = load ptr, ptr %5, align 8, !tbaa !15
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %17
 
-if.then:                                          ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %error_msg, ptr align 16 @__const._Z22alts_counter_incrementP12alts_counterPbPPc.error_msg, i64 28, i1 false)
-  %arraydecay = getelementptr inbounds [28 x i8], ptr %error_msg, i64 0, i64 0
-  %1 = load ptr, ptr %error_details.addr, align 8
-  call void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef %arraydecay, ptr noundef %1)
-  store i32 3, ptr %retval, align 4
-  br label %return
+14:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 28, ptr %8) #6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %8, ptr align 16 @__const._Z22alts_counter_incrementP12alts_counterPbPPc.error_msg, i64 28, i1 false)
+  %15 = getelementptr inbounds [28 x i8], ptr %8, i64 0, i64 0
+  %16 = load ptr, ptr %7, align 8, !tbaa !13
+  call void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef %15, ptr noundef %16)
+  store i32 3, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 28, ptr %8) #6
+  br label %62
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %is_overflow.addr, align 8
-  %cmp1 = icmp eq ptr %2, null
-  br i1 %cmp1, label %if.then2, label %if.end5
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %6, align 8, !tbaa !26
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %23
 
-if.then2:                                         ; preds = %if.end
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %error_msg3, ptr align 16 @__const._Z22alts_counter_incrementP12alts_counterPbPPc.error_msg.3, i64 24, i1 false)
-  %arraydecay4 = getelementptr inbounds [24 x i8], ptr %error_msg3, i64 0, i64 0
-  %3 = load ptr, ptr %error_details.addr, align 8
-  call void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef %arraydecay4, ptr noundef %3)
-  store i32 3, ptr %retval, align 4
-  br label %return
+20:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 24, ptr %9) #6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %9, ptr align 16 @__const._Z22alts_counter_incrementP12alts_counterPbPPc.error_msg.3, i64 24, i1 false)
+  %21 = getelementptr inbounds [24 x i8], ptr %9, i64 0, i64 0
+  %22 = load ptr, ptr %7, align 8, !tbaa !13
+  call void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef %21, ptr noundef %22)
+  store i32 3, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #6
+  br label %62
 
-if.end5:                                          ; preds = %if.end
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+23:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  store i64 0, ptr %10, align 8, !tbaa !7
+  br label %24
 
-for.cond:                                         ; preds = %for.inc, %if.end5
-  %4 = load i64, ptr %i, align 8
-  %5 = load ptr, ptr %crypter_counter.addr, align 8
-  %overflow_size = getelementptr inbounds %struct.alts_counter, ptr %5, i32 0, i32 1
-  %6 = load i64, ptr %overflow_size, align 8
-  %cmp6 = icmp ult i64 %4, %6
-  br i1 %cmp6, label %for.body, label %for.end
+24:                                               ; preds = %48, %23
+  %25 = load i64, ptr %10, align 8, !tbaa !7
+  %26 = load ptr, ptr %5, align 8, !tbaa !15
+  %27 = getelementptr inbounds nuw %struct.alts_counter, ptr %26, i32 0, i32 1
+  %28 = load i64, ptr %27, align 8, !tbaa !20
+  %29 = icmp ult i64 %25, %28
+  br i1 %29, label %30, label %51
 
-for.body:                                         ; preds = %for.cond
-  %7 = load ptr, ptr %crypter_counter.addr, align 8
-  %counter = getelementptr inbounds %struct.alts_counter, ptr %7, i32 0, i32 2
-  %8 = load ptr, ptr %counter, align 8
-  %9 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %8, i64 %9
-  %10 = load i8, ptr %arrayidx, align 1
-  %inc = add i8 %10, 1
-  store i8 %inc, ptr %arrayidx, align 1
-  %11 = load ptr, ptr %crypter_counter.addr, align 8
-  %counter7 = getelementptr inbounds %struct.alts_counter, ptr %11, i32 0, i32 2
-  %12 = load ptr, ptr %counter7, align 8
-  %13 = load i64, ptr %i, align 8
-  %arrayidx8 = getelementptr inbounds i8, ptr %12, i64 %13
-  %14 = load i8, ptr %arrayidx8, align 1
-  %conv = zext i8 %14 to i32
-  %cmp9 = icmp ne i32 %conv, 0
-  br i1 %cmp9, label %if.then10, label %if.end11
+30:                                               ; preds = %24
+  %31 = load ptr, ptr %5, align 8, !tbaa !15
+  %32 = getelementptr inbounds nuw %struct.alts_counter, ptr %31, i32 0, i32 2
+  %33 = load ptr, ptr %32, align 8, !tbaa !21
+  %34 = load i64, ptr %10, align 8, !tbaa !7
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
+  %36 = load i8, ptr %35, align 1, !tbaa !24
+  %37 = add i8 %36, 1
+  store i8 %37, ptr %35, align 1, !tbaa !24
+  %38 = load ptr, ptr %5, align 8, !tbaa !15
+  %39 = getelementptr inbounds nuw %struct.alts_counter, ptr %38, i32 0, i32 2
+  %40 = load ptr, ptr %39, align 8, !tbaa !21
+  %41 = load i64, ptr %10, align 8, !tbaa !7
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 %41
+  %43 = load i8, ptr %42, align 1, !tbaa !24
+  %44 = zext i8 %43 to i32
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %46, label %47
 
-if.then10:                                        ; preds = %for.body
-  br label %for.end
+46:                                               ; preds = %30
+  br label %51
 
-if.end11:                                         ; preds = %for.body
-  br label %for.inc
+47:                                               ; preds = %30
+  br label %48
 
-for.inc:                                          ; preds = %if.end11
-  %15 = load i64, ptr %i, align 8
-  %inc12 = add i64 %15, 1
-  store i64 %inc12, ptr %i, align 8
-  br label %for.cond, !llvm.loop !4
+48:                                               ; preds = %47
+  %49 = load i64, ptr %10, align 8, !tbaa !7
+  %50 = add i64 %49, 1
+  store i64 %50, ptr %10, align 8, !tbaa !7
+  br label %24, !llvm.loop !28
 
-for.end:                                          ; preds = %if.then10, %for.cond
-  %16 = load i64, ptr %i, align 8
-  %17 = load ptr, ptr %crypter_counter.addr, align 8
-  %overflow_size13 = getelementptr inbounds %struct.alts_counter, ptr %17, i32 0, i32 1
-  %18 = load i64, ptr %overflow_size13, align 8
-  %cmp14 = icmp eq i64 %16, %18
-  br i1 %cmp14, label %if.then15, label %if.end16
+51:                                               ; preds = %46, %24
+  %52 = load i64, ptr %10, align 8, !tbaa !7
+  %53 = load ptr, ptr %5, align 8, !tbaa !15
+  %54 = getelementptr inbounds nuw %struct.alts_counter, ptr %53, i32 0, i32 1
+  %55 = load i64, ptr %54, align 8, !tbaa !20
+  %56 = icmp eq i64 %52, %55
+  br i1 %56, label %57, label %59
 
-if.then15:                                        ; preds = %for.end
-  %19 = load ptr, ptr %is_overflow.addr, align 8
-  store i8 1, ptr %19, align 1
-  store i32 9, ptr %retval, align 4
-  br label %return
+57:                                               ; preds = %51
+  %58 = load ptr, ptr %6, align 8, !tbaa !26
+  store i8 1, ptr %58, align 1, !tbaa !3
+  store i32 9, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %61
 
-if.end16:                                         ; preds = %for.end
-  %20 = load ptr, ptr %is_overflow.addr, align 8
-  store i8 0, ptr %20, align 1
-  store i32 0, ptr %retval, align 4
-  br label %return
+59:                                               ; preds = %51
+  %60 = load ptr, ptr %6, align 8, !tbaa !26
+  store i8 0, ptr %60, align 1, !tbaa !3
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %61
 
-return:                                           ; preds = %if.end16, %if.then15, %if.then2, %if.then
-  %21 = load i32, ptr %retval, align 4
-  ret i32 %21
+61:                                               ; preds = %59, %57
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  br label %62
+
+62:                                               ; preds = %61, %20, %14
+  %63 = load i32, ptr %4, align 4
+  ret i32 %63
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %crypter_counter) #3 {
-entry:
-  %retval = alloca i64, align 8
-  %crypter_counter.addr = alloca ptr, align 8
-  store ptr %crypter_counter, ptr %crypter_counter.addr, align 8
-  %0 = load ptr, ptr %crypter_counter.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %0) #4 {
+  %2 = alloca i64, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !15
+  %4 = load ptr, ptr %3, align 8, !tbaa !15
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %6, label %7
 
-if.then:                                          ; preds = %entry
-  store i64 0, ptr %retval, align 8
-  br label %return
+6:                                                ; preds = %1
+  store i64 0, ptr %2, align 8
+  br label %11
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %crypter_counter.addr, align 8
-  %size = getelementptr inbounds %struct.alts_counter, ptr %1, i32 0, i32 0
-  %2 = load i64, ptr %size, align 8
-  store i64 %2, ptr %retval, align 8
-  br label %return
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %3, align 8, !tbaa !15
+  %9 = getelementptr inbounds nuw %struct.alts_counter, ptr %8, i32 0, i32 0
+  %10 = load i64, ptr %9, align 8, !tbaa !17
+  store i64 %10, ptr %2, align 8
+  br label %11
 
-return:                                           ; preds = %if.end, %if.then
-  %3 = load i64, ptr %retval, align 8
-  ret i64 %3
+11:                                               ; preds = %7, %6
+  %12 = load i64, ptr %2, align 8
+  ret i64 %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %crypter_counter) #3 {
-entry:
-  %retval = alloca ptr, align 8
-  %crypter_counter.addr = alloca ptr, align 8
-  store ptr %crypter_counter, ptr %crypter_counter.addr, align 8
-  %0 = load ptr, ptr %crypter_counter.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !15
+  %4 = load ptr, ptr %3, align 8, !tbaa !15
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %6, label %7
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+6:                                                ; preds = %1
+  store ptr null, ptr %2, align 8
+  br label %11
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %crypter_counter.addr, align 8
-  %counter = getelementptr inbounds %struct.alts_counter, ptr %1, i32 0, i32 2
-  %2 = load ptr, ptr %counter, align 8
-  store ptr %2, ptr %retval, align 8
-  br label %return
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %3, align 8, !tbaa !15
+  %9 = getelementptr inbounds nuw %struct.alts_counter, ptr %8, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8, !tbaa !21
+  store ptr %10, ptr %2, align 8
+  br label %11
 
-return:                                           ; preds = %if.end, %if.then
-  %3 = load ptr, ptr %retval, align 8
-  ret ptr %3
+11:                                               ; preds = %7, %6
+  %12 = load ptr, ptr %2, align 8
+  ret ptr %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z20alts_counter_destroyP12alts_counter(ptr noundef %crypter_counter) #0 {
-entry:
-  %crypter_counter.addr = alloca ptr, align 8
-  store ptr %crypter_counter, ptr %crypter_counter.addr, align 8
-  %0 = load ptr, ptr %crypter_counter.addr, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define void @_Z20alts_counter_destroyP12alts_counter(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !15
+  %3 = load ptr, ptr %2, align 8, !tbaa !15
+  %4 = icmp ne ptr %3, null
+  br i1 %4, label %5, label %10
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %crypter_counter.addr, align 8
-  %counter = getelementptr inbounds %struct.alts_counter, ptr %1, i32 0, i32 2
-  %2 = load ptr, ptr %counter, align 8
-  call void @gpr_free(ptr noundef %2)
-  %3 = load ptr, ptr %crypter_counter.addr, align 8
-  call void @gpr_free(ptr noundef %3)
-  br label %if.end
+5:                                                ; preds = %1
+  %6 = load ptr, ptr %2, align 8, !tbaa !15
+  %7 = getelementptr inbounds nuw %struct.alts_counter, ptr %6, i32 0, i32 2
+  %8 = load ptr, ptr %7, align 8, !tbaa !21
+  call void @gpr_free(ptr noundef %8)
+  %9 = load ptr, ptr %2, align 8, !tbaa !15
+  call void @gpr_free(ptr noundef %9)
+  br label %10
 
-if.end:                                           ; preds = %if.then, %entry
+10:                                               ; preds = %5, %1
   ret void
 }
 
-declare void @gpr_free(ptr noundef) #2
+declare void @gpr_free(ptr noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #4
+declare i64 @strlen(ptr noundef) #5
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(read) }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"bool", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"long", !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p2 _ZTS12alts_counter", !11, i64 0}
+!11 = !{!"any p2 pointer", !12, i64 0}
+!12 = !{!"any pointer", !5, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p2 omnipotent char", !11, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS12alts_counter", !12, i64 0}
+!17 = !{!18, !8, i64 0}
+!18 = !{!"_ZTS12alts_counter", !8, i64 0, !8, i64 8, !19, i64 16}
+!19 = !{!"p1 omnipotent char", !12, i64 0}
+!20 = !{!18, !8, i64 8}
+!21 = !{!18, !19, i64 16}
+!22 = !{i8 0, i8 2}
+!23 = !{}
+!24 = !{!5, !5, i64 0}
+!25 = !{!19, !19, i64 0}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 bool", !12, i64 0}
+!28 = distinct !{!28, !29}
+!29 = !{!"llvm.loop.mustprogress"}

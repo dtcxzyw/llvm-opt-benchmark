@@ -1,9 +1,9 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.absl::lts_20230802::FunctionRef" = type { %"union.absl::lts_20230802::functional_internal::VoidPtr", ptr }
-%"union.absl::lts_20230802::functional_internal::VoidPtr" = type { ptr }
+%"class.absl::lts_20240722::FunctionRef" = type { %"union.absl::lts_20240722::functional_internal::VoidPtr", ptr }
+%"union.absl::lts_20240722::functional_internal::VoidPtr" = type { ptr }
 %"class.grpc_core::Timestamp" = type { i64 }
 %"class.grpc_core::Duration" = type { i64 }
 %"class.grpc_core::PeriodicUpdate" = type { %"struct.std::atomic", %"class.grpc_core::Duration", %"class.grpc_core::Timestamp", i64 }
@@ -16,6 +16,8 @@ $_ZN9grpc_core9Timestamp12ProcessEpochEv = comdat any
 
 $_ZN9grpc_core9Timestamp3NowEv = comdat any
 
+$_ZNSt13__atomic_baseIlE5storeElSt12memory_order = comdat any
+
 $_ZN9grpc_coremiENS_9TimestampES0_ = comdat any
 
 $_ZNK9grpc_core8DurationltES0_ = comdat any
@@ -26,11 +28,21 @@ $_ZN9grpc_core5ClampIdEET_S1_S1_S1_ = comdat any
 
 $_ZNK9grpc_core8Duration7secondsEv = comdat any
 
-$_ZNK4absl12lts_2023080211FunctionRefIFvN9grpc_core8DurationEEEclES3_ = comdat any
+$_ZNK4absl12lts_2024072211FunctionRefIFvN9grpc_core8DurationEEEclES3_ = comdat any
 
 $_ZN9grpc_core9TimestampC2El = comdat any
 
 $_ZTWN9grpc_core9Timestamp25thread_local_time_source_E = comdat any
+
+$_ZN9grpc_core9Timestamp7InfPastEv = comdat any
+
+$_ZNK9grpc_core9TimestampneES0_ = comdat any
+
+$_ZN9grpc_core8Duration8InfinityEv = comdat any
+
+$_ZN9grpc_core9Timestamp9InfFutureEv = comdat any
+
+$_ZN9grpc_core8Duration16NegativeInfinityEv = comdat any
 
 $_ZN9grpc_core8Duration12MillisecondsEl = comdat any
 
@@ -38,13 +50,13 @@ $_ZN9grpc_core11time_detail9MillisAddEll = comdat any
 
 $_ZNK9grpc_core9Timestamp32milliseconds_after_process_epochEv = comdat any
 
-$_ZN9grpc_core8DurationC2El = comdat any
+$_ZNSt14numeric_limitsIlE3minEv = comdat any
 
 $_ZNSt14numeric_limitsIlE3maxEv = comdat any
 
-$_ZNSt14numeric_limitsIlE3minEv = comdat any
+$_ZN9grpc_core8DurationC2El = comdat any
 
-$_ZN9grpc_core13SaturatingAddEll = comdat any
+$_ZN9grpc_core13SaturatingAddIlEET_S1_S1_ = comdat any
 
 $_ZStanSt12memory_orderSt23__memory_order_modifier = comdat any
 
@@ -57,9 +69,8 @@ $__clang_call_terminate = comdat any
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init() #0 section ".text.startup" {
-entry:
   call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #3
+  %1 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #3
   ret void
 }
 
@@ -72,487 +83,505 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN9grpc_core14PeriodicUpdate14MaybeEndPeriodEN4absl12lts_2023080211FunctionRefIFvNS_8DurationEEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %f.coerce0, ptr %f.coerce1) #4 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr.i70 = alloca ptr, align 8
-  %__i.addr.i71 = alloca i64, align 8
-  %__m.addr.i72 = alloca i32, align 4
-  %__b.i73 = alloca i32, align 4
-  %.atomictmp.i74 = alloca i64, align 8
-  %this.addr.i57 = alloca ptr, align 8
-  %__i.addr.i58 = alloca i64, align 8
-  %__m.addr.i59 = alloca i32, align 4
-  %__b.i60 = alloca i32, align 4
-  %.atomictmp.i61 = alloca i64, align 8
-  %this.addr.i = alloca ptr, align 8
-  %__i.addr.i = alloca i64, align 8
-  %__m.addr.i = alloca i32, align 4
-  %__b.i = alloca i32, align 4
-  %.atomictmp.i = alloca i64, align 8
-  %retval = alloca i1, align 1
-  %f = alloca %"class.absl::lts_20230802::FunctionRef", align 8
-  %this.addr = alloca ptr, align 8
-  %agg.tmp = alloca %"class.grpc_core::Timestamp", align 8
-  %ref.tmp = alloca %"class.grpc_core::Timestamp", align 8
-  %now = alloca %"class.grpc_core::Timestamp", align 8
-  %time_so_far = alloca %"class.grpc_core::Duration", align 8
-  %agg.tmp9 = alloca %"class.grpc_core::Timestamp", align 8
-  %agg.tmp10 = alloca %"class.grpc_core::Timestamp", align 8
-  %agg.tmp16 = alloca %"class.grpc_core::Duration", align 8
-  %better_guess = alloca i64, align 8
-  %scale = alloca double, align 8
-  %agg.tmp53 = alloca %"class.grpc_core::Duration", align 8
-  %0 = getelementptr inbounds { ptr, ptr }, ptr %f, i32 0, i32 0
-  store ptr %f.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { ptr, ptr }, ptr %f, i32 0, i32 1
-  store ptr %f.coerce1, ptr %1, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %period_start_ = getelementptr inbounds %"class.grpc_core::PeriodicUpdate", ptr %this1, i32 0, i32 2
-  %call = call i64 @_ZN9grpc_core9Timestamp12ProcessEpochEv()
-  %coerce.dive = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %agg.tmp, i32 0, i32 0
-  store i64 %call, ptr %coerce.dive, align 8
-  %coerce.dive2 = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %agg.tmp, i32 0, i32 0
-  %2 = load i64, ptr %coerce.dive2, align 8
-  %call3 = call noundef zeroext i1 @_ZNK9grpc_core9TimestampeqES0_(ptr noundef nonnull align 8 dereferenceable(8) %period_start_, i64 %2)
-  br i1 %call3, label %if.then, label %if.end
+define noundef zeroext i1 @_ZN9grpc_core14PeriodicUpdate14MaybeEndPeriodEN4absl12lts_2024072211FunctionRefIFvNS_8DurationEEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, ptr %2) #4 align 2 {
+  %4 = alloca i1, align 1
+  %5 = alloca %"class.absl::lts_20240722::FunctionRef", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.grpc_core::Timestamp", align 8
+  %8 = alloca %"class.grpc_core::Timestamp", align 8
+  %9 = alloca %"class.grpc_core::Timestamp", align 8
+  %10 = alloca %"class.grpc_core::Duration", align 8
+  %11 = alloca %"class.grpc_core::Timestamp", align 8
+  %12 = alloca %"class.grpc_core::Timestamp", align 8
+  %13 = alloca %"class.grpc_core::Duration", align 8
+  %14 = alloca i64, align 8
+  %15 = alloca double, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca %"class.grpc_core::Duration", align 8
+  %18 = alloca %"class.grpc_core::Timestamp", align 8
+  %19 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i32 0, i32 0
+  store ptr %1, ptr %19, align 8
+  %20 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i32 0, i32 1
+  store ptr %2, ptr %20, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  %21 = load ptr, ptr %6, align 8
+  %22 = getelementptr inbounds nuw %"class.grpc_core::PeriodicUpdate", ptr %21, i32 0, i32 2
+  %23 = call i64 @_ZN9grpc_core9Timestamp12ProcessEpochEv()
+  %24 = getelementptr inbounds nuw %"class.grpc_core::Timestamp", ptr %7, i32 0, i32 0
+  store i64 %23, ptr %24, align 8
+  %25 = getelementptr inbounds nuw %"class.grpc_core::Timestamp", ptr %7, i32 0, i32 0
+  %26 = load i64, ptr %25, align 8
+  %27 = call noundef zeroext i1 @_ZNK9grpc_core9TimestampeqES0_(ptr noundef nonnull align 8 dereferenceable(8) %22, i64 %26)
+  br i1 %27, label %28, label %33
 
-if.then:                                          ; preds = %entry
-  %call4 = call i64 @_ZN9grpc_core9Timestamp3NowEv()
-  %coerce.dive5 = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %ref.tmp, i32 0, i32 0
-  store i64 %call4, ptr %coerce.dive5, align 8
-  %period_start_6 = getelementptr inbounds %"class.grpc_core::PeriodicUpdate", ptr %this1, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %period_start_6, ptr align 8 %ref.tmp, i64 8, i1 false)
-  %updates_remaining_ = getelementptr inbounds %"class.grpc_core::PeriodicUpdate", ptr %this1, i32 0, i32 0
-  store ptr %updates_remaining_, ptr %this.addr.i70, align 8
-  store i64 1, ptr %__i.addr.i71, align 8
-  store i32 3, ptr %__m.addr.i72, align 4
-  %this1.i75 = load ptr, ptr %this.addr.i70, align 8
-  %3 = load i32, ptr %__m.addr.i72, align 4
-  %call.i76 = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %3, i32 noundef 65535)
-          to label %invoke.cont.i78 unwind label %terminate.lpad.i77
+28:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  %29 = call i64 @_ZN9grpc_core9Timestamp3NowEv()
+  %30 = getelementptr inbounds nuw %"class.grpc_core::Timestamp", ptr %8, i32 0, i32 0
+  store i64 %29, ptr %30, align 8
+  %31 = getelementptr inbounds nuw %"class.grpc_core::PeriodicUpdate", ptr %21, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %31, ptr align 8 %8, i64 8, i1 false), !tbaa.struct !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  %32 = getelementptr inbounds nuw %"class.grpc_core::PeriodicUpdate", ptr %21, i32 0, i32 0
+  call void @_ZNSt13__atomic_baseIlE5storeElSt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %32, i64 noundef 1, i32 noundef 3) #3
+  store i1 false, ptr %4, align 1
+  br label %107
 
-invoke.cont.i78:                                  ; preds = %if.then
-  store i32 %call.i76, ptr %__b.i73, align 4
-  %4 = load i32, ptr %__m.addr.i72, align 4
-  %5 = load i64, ptr %__i.addr.i71, align 8
-  store i64 %5, ptr %.atomictmp.i74, align 8
-  switch i32 %4, label %monotonic.i81 [
-    i32 3, label %release.i80
-    i32 5, label %seqcst.i79
-  ]
+33:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  %34 = call i64 @_ZN9grpc_core9Timestamp3NowEv()
+  %35 = getelementptr inbounds nuw %"class.grpc_core::Timestamp", ptr %9, i32 0, i32 0
+  store i64 %34, ptr %35, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %9, i64 8, i1 false), !tbaa.struct !8
+  %36 = getelementptr inbounds nuw %"class.grpc_core::PeriodicUpdate", ptr %21, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %36, i64 8, i1 false), !tbaa.struct !8
+  %37 = getelementptr inbounds nuw %"class.grpc_core::Timestamp", ptr %11, i32 0, i32 0
+  %38 = load i64, ptr %37, align 8
+  %39 = getelementptr inbounds nuw %"class.grpc_core::Timestamp", ptr %12, i32 0, i32 0
+  %40 = load i64, ptr %39, align 8
+  %41 = call i64 @_ZN9grpc_coremiENS_9TimestampES0_(i64 %38, i64 %40)
+  %42 = getelementptr inbounds nuw %"class.grpc_core::Duration", ptr %10, i32 0, i32 0
+  store i64 %41, ptr %42, align 8
+  %43 = getelementptr inbounds nuw %"class.grpc_core::PeriodicUpdate", ptr %21, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %43, i64 8, i1 false), !tbaa.struct !8
+  %44 = getelementptr inbounds nuw %"class.grpc_core::Duration", ptr %13, i32 0, i32 0
+  %45 = load i64, ptr %44, align 8
+  %46 = call noundef zeroext i1 @_ZNK9grpc_core8DurationltES0_(ptr noundef nonnull align 8 dereferenceable(8) %10, i64 %45)
+  br i1 %46, label %47, label %81
 
-monotonic.i81:                                    ; preds = %invoke.cont.i78
-  %6 = load i64, ptr %.atomictmp.i74, align 8
-  store atomic i64 %6, ptr %this1.i75 monotonic, align 8
-  br label %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit82
+47:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
+  %48 = call noundef i64 @_ZNK9grpc_core8Duration6millisEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %49 = icmp eq i64 %48, 0
+  br i1 %49, label %50, label %54
 
-release.i80:                                      ; preds = %invoke.cont.i78
-  %7 = load i64, ptr %.atomictmp.i74, align 8
-  store atomic i64 %7, ptr %this1.i75 release, align 8
-  br label %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit82
+50:                                               ; preds = %47
+  %51 = getelementptr inbounds nuw %"class.grpc_core::PeriodicUpdate", ptr %21, i32 0, i32 3
+  %52 = load i64, ptr %51, align 8, !tbaa !11
+  %53 = mul nsw i64 %52, 2
+  store i64 %53, ptr %14, align 8, !tbaa !9
+  br label %75
 
-seqcst.i79:                                       ; preds = %invoke.cont.i78
-  %8 = load i64, ptr %.atomictmp.i74, align 8
-  store atomic i64 %8, ptr %this1.i75 seq_cst, align 8
-  br label %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit82
+54:                                               ; preds = %47
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  %55 = getelementptr inbounds nuw %"class.grpc_core::PeriodicUpdate", ptr %21, i32 0, i32 1
+  %56 = call noundef double @_ZNK9grpc_core8Duration7secondsEv(ptr noundef nonnull align 8 dereferenceable(8) %55)
+  %57 = call noundef double @_ZNK9grpc_core8Duration7secondsEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %58 = fdiv double %56, %57
+  %59 = call noundef double @_ZN9grpc_core5ClampIdEET_S1_S1_S1_(double noundef %58, double noundef 1.010000e+00, double noundef 2.000000e+00)
+  store double %59, ptr %15, align 8, !tbaa !17
+  %60 = getelementptr inbounds nuw %"class.grpc_core::PeriodicUpdate", ptr %21, i32 0, i32 3
+  %61 = load i64, ptr %60, align 8, !tbaa !11
+  %62 = sitofp i64 %61 to double
+  %63 = load double, ptr %15, align 8, !tbaa !17
+  %64 = fmul double %62, %63
+  %65 = fptosi double %64 to i64
+  store i64 %65, ptr %14, align 8, !tbaa !9
+  %66 = load i64, ptr %14, align 8, !tbaa !9
+  %67 = getelementptr inbounds nuw %"class.grpc_core::PeriodicUpdate", ptr %21, i32 0, i32 3
+  %68 = load i64, ptr %67, align 8, !tbaa !11
+  %69 = icmp sle i64 %66, %68
+  br i1 %69, label %70, label %74
 
-terminate.lpad.i77:                               ; preds = %if.then
-  %9 = landingpad { ptr, i32 }
-          catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #10
-  unreachable
+70:                                               ; preds = %54
+  %71 = getelementptr inbounds nuw %"class.grpc_core::PeriodicUpdate", ptr %21, i32 0, i32 3
+  %72 = load i64, ptr %71, align 8, !tbaa !11
+  %73 = add nsw i64 %72, 1
+  store i64 %73, ptr %14, align 8, !tbaa !9
+  br label %74
 
-_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit82: ; preds = %seqcst.i79, %release.i80, %monotonic.i81
-  store i1 false, ptr %retval, align 1
-  br label %return
+74:                                               ; preds = %70, %54
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  br label %75
 
-if.end:                                           ; preds = %entry
-  %call7 = call i64 @_ZN9grpc_core9Timestamp3NowEv()
-  %coerce.dive8 = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %now, i32 0, i32 0
-  store i64 %call7, ptr %coerce.dive8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp9, ptr align 8 %now, i64 8, i1 false)
-  %period_start_11 = getelementptr inbounds %"class.grpc_core::PeriodicUpdate", ptr %this1, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp10, ptr align 8 %period_start_11, i64 8, i1 false)
-  %coerce.dive12 = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %agg.tmp9, i32 0, i32 0
-  %11 = load i64, ptr %coerce.dive12, align 8
-  %coerce.dive13 = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %agg.tmp10, i32 0, i32 0
-  %12 = load i64, ptr %coerce.dive13, align 8
-  %call14 = call i64 @_ZN9grpc_coremiENS_9TimestampES0_(i64 %11, i64 %12)
-  %coerce.dive15 = getelementptr inbounds %"class.grpc_core::Duration", ptr %time_so_far, i32 0, i32 0
-  store i64 %call14, ptr %coerce.dive15, align 8
-  %period_ = getelementptr inbounds %"class.grpc_core::PeriodicUpdate", ptr %this1, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp16, ptr align 8 %period_, i64 8, i1 false)
-  %coerce.dive17 = getelementptr inbounds %"class.grpc_core::Duration", ptr %agg.tmp16, i32 0, i32 0
-  %13 = load i64, ptr %coerce.dive17, align 8
-  %call18 = call noundef zeroext i1 @_ZNK9grpc_core8DurationltES0_(ptr noundef nonnull align 8 dereferenceable(8) %time_so_far, i64 %13)
-  br i1 %call18, label %if.then19, label %if.end37
+75:                                               ; preds = %74, %50
+  %76 = getelementptr inbounds nuw %"class.grpc_core::PeriodicUpdate", ptr %21, i32 0, i32 0
+  %77 = load i64, ptr %14, align 8, !tbaa !9
+  %78 = getelementptr inbounds nuw %"class.grpc_core::PeriodicUpdate", ptr %21, i32 0, i32 3
+  %79 = load i64, ptr %78, align 8, !tbaa !11
+  %80 = sub nsw i64 %77, %79
+  call void @_ZNSt13__atomic_baseIlE5storeElSt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %76, i64 noundef %80, i32 noundef 3) #3
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  br label %106
 
-if.then19:                                        ; preds = %if.end
-  %call20 = call noundef i64 @_ZNK9grpc_core8Duration6millisEv(ptr noundef nonnull align 8 dereferenceable(8) %time_so_far)
-  %cmp = icmp eq i64 %call20, 0
-  br i1 %cmp, label %if.then21, label %if.else
+81:                                               ; preds = %33
+  %82 = getelementptr inbounds nuw %"class.grpc_core::PeriodicUpdate", ptr %21, i32 0, i32 1
+  %83 = call noundef double @_ZNK9grpc_core8Duration7secondsEv(ptr noundef nonnull align 8 dereferenceable(8) %82)
+  %84 = getelementptr inbounds nuw %"class.grpc_core::PeriodicUpdate", ptr %21, i32 0, i32 3
+  %85 = load i64, ptr %84, align 8, !tbaa !11
+  %86 = sitofp i64 %85 to double
+  %87 = fmul double %83, %86
+  %88 = call noundef double @_ZNK9grpc_core8Duration7secondsEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %89 = fdiv double %87, %88
+  %90 = fptosi double %89 to i64
+  %91 = getelementptr inbounds nuw %"class.grpc_core::PeriodicUpdate", ptr %21, i32 0, i32 3
+  store i64 %90, ptr %91, align 8, !tbaa !11
+  %92 = getelementptr inbounds nuw %"class.grpc_core::PeriodicUpdate", ptr %21, i32 0, i32 3
+  %93 = load i64, ptr %92, align 8, !tbaa !11
+  %94 = icmp slt i64 %93, 1
+  br i1 %94, label %95, label %97
 
-if.then21:                                        ; preds = %if.then19
-  %expected_updates_per_period_ = getelementptr inbounds %"class.grpc_core::PeriodicUpdate", ptr %this1, i32 0, i32 3
-  %14 = load i64, ptr %expected_updates_per_period_, align 8
-  %mul = mul nsw i64 %14, 2
-  store i64 %mul, ptr %better_guess, align 8
-  br label %if.end34
+95:                                               ; preds = %81
+  %96 = getelementptr inbounds nuw %"class.grpc_core::PeriodicUpdate", ptr %21, i32 0, i32 3
+  store i64 1, ptr %96, align 8, !tbaa !11
+  br label %97
 
-if.else:                                          ; preds = %if.then19
-  %period_22 = getelementptr inbounds %"class.grpc_core::PeriodicUpdate", ptr %this1, i32 0, i32 1
-  %call23 = call noundef double @_ZNK9grpc_core8Duration7secondsEv(ptr noundef nonnull align 8 dereferenceable(8) %period_22)
-  %call24 = call noundef double @_ZNK9grpc_core8Duration7secondsEv(ptr noundef nonnull align 8 dereferenceable(8) %time_so_far)
-  %div = fdiv double %call23, %call24
-  %call25 = call noundef double @_ZN9grpc_core5ClampIdEET_S1_S1_S1_(double noundef %div, double noundef 1.010000e+00, double noundef 2.000000e+00)
-  store double %call25, ptr %scale, align 8
-  %expected_updates_per_period_26 = getelementptr inbounds %"class.grpc_core::PeriodicUpdate", ptr %this1, i32 0, i32 3
-  %15 = load i64, ptr %expected_updates_per_period_26, align 8
-  %conv = sitofp i64 %15 to double
-  %16 = load double, ptr %scale, align 8
-  %mul27 = fmul double %conv, %16
-  %conv28 = fptosi double %mul27 to i64
-  store i64 %conv28, ptr %better_guess, align 8
-  %17 = load i64, ptr %better_guess, align 8
-  %expected_updates_per_period_29 = getelementptr inbounds %"class.grpc_core::PeriodicUpdate", ptr %this1, i32 0, i32 3
-  %18 = load i64, ptr %expected_updates_per_period_29, align 8
-  %cmp30 = icmp sle i64 %17, %18
-  br i1 %cmp30, label %if.then31, label %if.end33
+97:                                               ; preds = %95, %81
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %10, i64 8, i1 false), !tbaa.struct !8
+  %98 = getelementptr inbounds nuw %"class.grpc_core::Duration", ptr %17, i32 0, i32 0
+  %99 = load i64, ptr %98, align 8
+  call void @_ZNK4absl12lts_2024072211FunctionRefIFvN9grpc_core8DurationEEEclES3_(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 %99)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #3
+  %100 = call i64 @_ZN9grpc_core9Timestamp3NowEv()
+  %101 = getelementptr inbounds nuw %"class.grpc_core::Timestamp", ptr %18, i32 0, i32 0
+  store i64 %100, ptr %101, align 8
+  %102 = getelementptr inbounds nuw %"class.grpc_core::PeriodicUpdate", ptr %21, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %102, ptr align 8 %18, i64 8, i1 false), !tbaa.struct !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #3
+  %103 = getelementptr inbounds nuw %"class.grpc_core::PeriodicUpdate", ptr %21, i32 0, i32 0
+  %104 = getelementptr inbounds nuw %"class.grpc_core::PeriodicUpdate", ptr %21, i32 0, i32 3
+  %105 = load i64, ptr %104, align 8, !tbaa !11
+  call void @_ZNSt13__atomic_baseIlE5storeElSt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %103, i64 noundef %105, i32 noundef 3) #3
+  store i1 true, ptr %4, align 1
+  store i32 1, ptr %16, align 4
+  br label %106
 
-if.then31:                                        ; preds = %if.else
-  %expected_updates_per_period_32 = getelementptr inbounds %"class.grpc_core::PeriodicUpdate", ptr %this1, i32 0, i32 3
-  %19 = load i64, ptr %expected_updates_per_period_32, align 8
-  %add = add nsw i64 %19, 1
-  store i64 %add, ptr %better_guess, align 8
-  br label %if.end33
+106:                                              ; preds = %97, %75
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  br label %107
 
-if.end33:                                         ; preds = %if.then31, %if.else
-  br label %if.end34
-
-if.end34:                                         ; preds = %if.end33, %if.then21
-  %updates_remaining_35 = getelementptr inbounds %"class.grpc_core::PeriodicUpdate", ptr %this1, i32 0, i32 0
-  %20 = load i64, ptr %better_guess, align 8
-  %expected_updates_per_period_36 = getelementptr inbounds %"class.grpc_core::PeriodicUpdate", ptr %this1, i32 0, i32 3
-  %21 = load i64, ptr %expected_updates_per_period_36, align 8
-  %sub = sub nsw i64 %20, %21
-  store ptr %updates_remaining_35, ptr %this.addr.i57, align 8
-  store i64 %sub, ptr %__i.addr.i58, align 8
-  store i32 3, ptr %__m.addr.i59, align 4
-  %this1.i62 = load ptr, ptr %this.addr.i57, align 8
-  %22 = load i32, ptr %__m.addr.i59, align 4
-  %call.i63 = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %22, i32 noundef 65535)
-          to label %invoke.cont.i65 unwind label %terminate.lpad.i64
-
-invoke.cont.i65:                                  ; preds = %if.end34
-  store i32 %call.i63, ptr %__b.i60, align 4
-  %23 = load i32, ptr %__m.addr.i59, align 4
-  %24 = load i64, ptr %__i.addr.i58, align 8
-  store i64 %24, ptr %.atomictmp.i61, align 8
-  switch i32 %23, label %monotonic.i68 [
-    i32 3, label %release.i67
-    i32 5, label %seqcst.i66
-  ]
-
-monotonic.i68:                                    ; preds = %invoke.cont.i65
-  %25 = load i64, ptr %.atomictmp.i61, align 8
-  store atomic i64 %25, ptr %this1.i62 monotonic, align 8
-  br label %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit69
-
-release.i67:                                      ; preds = %invoke.cont.i65
-  %26 = load i64, ptr %.atomictmp.i61, align 8
-  store atomic i64 %26, ptr %this1.i62 release, align 8
-  br label %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit69
-
-seqcst.i66:                                       ; preds = %invoke.cont.i65
-  %27 = load i64, ptr %.atomictmp.i61, align 8
-  store atomic i64 %27, ptr %this1.i62 seq_cst, align 8
-  br label %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit69
-
-terminate.lpad.i64:                               ; preds = %if.end34
-  %28 = landingpad { ptr, i32 }
-          catch ptr null
-  %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #10
-  unreachable
-
-_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit69: ; preds = %seqcst.i66, %release.i67, %monotonic.i68
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end37:                                         ; preds = %if.end
-  %period_38 = getelementptr inbounds %"class.grpc_core::PeriodicUpdate", ptr %this1, i32 0, i32 1
-  %call39 = call noundef double @_ZNK9grpc_core8Duration7secondsEv(ptr noundef nonnull align 8 dereferenceable(8) %period_38)
-  %expected_updates_per_period_40 = getelementptr inbounds %"class.grpc_core::PeriodicUpdate", ptr %this1, i32 0, i32 3
-  %30 = load i64, ptr %expected_updates_per_period_40, align 8
-  %conv41 = sitofp i64 %30 to double
-  %mul42 = fmul double %call39, %conv41
-  %call43 = call noundef double @_ZNK9grpc_core8Duration7secondsEv(ptr noundef nonnull align 8 dereferenceable(8) %time_so_far)
-  %div44 = fdiv double %mul42, %call43
-  %conv45 = fptosi double %div44 to i64
-  %expected_updates_per_period_46 = getelementptr inbounds %"class.grpc_core::PeriodicUpdate", ptr %this1, i32 0, i32 3
-  store i64 %conv45, ptr %expected_updates_per_period_46, align 8
-  %expected_updates_per_period_47 = getelementptr inbounds %"class.grpc_core::PeriodicUpdate", ptr %this1, i32 0, i32 3
-  %31 = load i64, ptr %expected_updates_per_period_47, align 8
-  %cmp48 = icmp slt i64 %31, 1
-  br i1 %cmp48, label %if.then49, label %if.end51
-
-if.then49:                                        ; preds = %if.end37
-  %expected_updates_per_period_50 = getelementptr inbounds %"class.grpc_core::PeriodicUpdate", ptr %this1, i32 0, i32 3
-  store i64 1, ptr %expected_updates_per_period_50, align 8
-  br label %if.end51
-
-if.end51:                                         ; preds = %if.then49, %if.end37
-  %period_start_52 = getelementptr inbounds %"class.grpc_core::PeriodicUpdate", ptr %this1, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %period_start_52, ptr align 8 %now, i64 8, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp53, ptr align 8 %time_so_far, i64 8, i1 false)
-  %coerce.dive54 = getelementptr inbounds %"class.grpc_core::Duration", ptr %agg.tmp53, i32 0, i32 0
-  %32 = load i64, ptr %coerce.dive54, align 8
-  call void @_ZNK4absl12lts_2023080211FunctionRefIFvN9grpc_core8DurationEEEclES3_(ptr noundef nonnull align 8 dereferenceable(16) %f, i64 %32)
-  %updates_remaining_55 = getelementptr inbounds %"class.grpc_core::PeriodicUpdate", ptr %this1, i32 0, i32 0
-  %expected_updates_per_period_56 = getelementptr inbounds %"class.grpc_core::PeriodicUpdate", ptr %this1, i32 0, i32 3
-  %33 = load i64, ptr %expected_updates_per_period_56, align 8
-  store ptr %updates_remaining_55, ptr %this.addr.i, align 8
-  store i64 %33, ptr %__i.addr.i, align 8
-  store i32 3, ptr %__m.addr.i, align 4
-  %this1.i = load ptr, ptr %this.addr.i, align 8
-  %34 = load i32, ptr %__m.addr.i, align 4
-  %call.i = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %34, i32 noundef 65535)
-          to label %invoke.cont.i unwind label %terminate.lpad.i
-
-invoke.cont.i:                                    ; preds = %if.end51
-  store i32 %call.i, ptr %__b.i, align 4
-  %35 = load i32, ptr %__m.addr.i, align 4
-  %36 = load i64, ptr %__i.addr.i, align 8
-  store i64 %36, ptr %.atomictmp.i, align 8
-  switch i32 %35, label %monotonic.i [
-    i32 3, label %release.i
-    i32 5, label %seqcst.i
-  ]
-
-monotonic.i:                                      ; preds = %invoke.cont.i
-  %37 = load i64, ptr %.atomictmp.i, align 8
-  store atomic i64 %37, ptr %this1.i monotonic, align 8
-  br label %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit
-
-release.i:                                        ; preds = %invoke.cont.i
-  %38 = load i64, ptr %.atomictmp.i, align 8
-  store atomic i64 %38, ptr %this1.i release, align 8
-  br label %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit
-
-seqcst.i:                                         ; preds = %invoke.cont.i
-  %39 = load i64, ptr %.atomictmp.i, align 8
-  store atomic i64 %39, ptr %this1.i seq_cst, align 8
-  br label %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit
-
-terminate.lpad.i:                                 ; preds = %if.end51
-  %40 = landingpad { ptr, i32 }
-          catch ptr null
-  %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #10
-  unreachable
-
-_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit: ; preds = %seqcst.i, %release.i, %monotonic.i
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit, %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit69, %_ZNSt13__atomic_baseIlE5storeElSt12memory_order.exit82
-  %42 = load i1, ptr %retval, align 1
-  ret i1 %42
+107:                                              ; preds = %106, %28
+  %108 = load i1, ptr %4, align 1
+  ret i1 %108
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZNK9grpc_core9TimestampeqES0_(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 %other.coerce) #5 comdat align 2 {
-entry:
-  %other = alloca %"class.grpc_core::Timestamp", align 8
-  %this.addr = alloca ptr, align 8
-  %coerce.dive = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %other, i32 0, i32 0
-  store i64 %other.coerce, ptr %coerce.dive, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %millis_ = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %this1, i32 0, i32 0
-  %0 = load i64, ptr %millis_, align 8
-  %millis_2 = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %other, i32 0, i32 0
-  %1 = load i64, ptr %millis_2, align 8
-  %cmp = icmp eq i64 %0, %1
-  ret i1 %cmp
+define linkonce_odr noundef zeroext i1 @_ZNK9grpc_core9TimestampeqES0_(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 %1) #5 comdat align 2 {
+  %3 = alloca %"class.grpc_core::Timestamp", align 8
+  %4 = alloca ptr, align 8
+  %5 = getelementptr inbounds nuw %"class.grpc_core::Timestamp", ptr %3, i32 0, i32 0
+  store i64 %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !19
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"class.grpc_core::Timestamp", ptr %6, i32 0, i32 0
+  %8 = load i64, ptr %7, align 8, !tbaa !21
+  %9 = getelementptr inbounds nuw %"class.grpc_core::Timestamp", ptr %3, i32 0, i32 0
+  %10 = load i64, ptr %9, align 8, !tbaa !21
+  %11 = icmp eq i64 %8, %10
+  ret i1 %11
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr i64 @_ZN9grpc_core9Timestamp12ProcessEpochEv() #4 comdat align 2 {
-entry:
-  %retval = alloca %"class.grpc_core::Timestamp", align 8
-  call void @_ZN9grpc_core9TimestampC2El(ptr noundef nonnull align 8 dereferenceable(8) %retval, i64 noundef 0)
-  %coerce.dive = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %retval, i32 0, i32 0
-  %0 = load i64, ptr %coerce.dive, align 8
-  ret i64 %0
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr i64 @_ZN9grpc_core9Timestamp3NowEv() #4 comdat align 2 {
-entry:
-  %retval = alloca %"class.grpc_core::Timestamp", align 8
-  %0 = call ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E()
-  %1 = load ptr, ptr %0, align 8
-  %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 0
-  %2 = load ptr, ptr %vfn, align 8
-  %call = call i64 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  %coerce.dive = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %retval, i32 0, i32 0
-  store i64 %call, ptr %coerce.dive, align 8
-  %coerce.dive1 = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %retval, i32 0, i32 0
-  %3 = load i64, ptr %coerce.dive1, align 8
+  %1 = alloca %"class.grpc_core::Timestamp", align 8
+  call void @_ZN9grpc_core9TimestampC2El(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef 0)
+  %2 = getelementptr inbounds nuw %"class.grpc_core::Timestamp", ptr %1, i32 0, i32 0
+  %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr i64 @_ZN9grpc_coremiENS_9TimestampES0_(i64 %lhs.coerce, i64 %rhs.coerce) #4 comdat {
-entry:
-  %retval = alloca %"class.grpc_core::Duration", align 8
-  %lhs = alloca %"class.grpc_core::Timestamp", align 8
-  %rhs = alloca %"class.grpc_core::Timestamp", align 8
-  %coerce.dive = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %lhs, i32 0, i32 0
-  store i64 %lhs.coerce, ptr %coerce.dive, align 8
-  %coerce.dive1 = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %rhs, i32 0, i32 0
-  store i64 %rhs.coerce, ptr %coerce.dive1, align 8
-  %call = call noundef i64 @_ZNK9grpc_core9Timestamp32milliseconds_after_process_epochEv(ptr noundef nonnull align 8 dereferenceable(8) %lhs)
-  %call2 = call noundef i64 @_ZNK9grpc_core9Timestamp32milliseconds_after_process_epochEv(ptr noundef nonnull align 8 dereferenceable(8) %rhs)
-  %sub = sub i64 0, %call2
-  %call3 = call noundef i64 @_ZN9grpc_core11time_detail9MillisAddEll(i64 noundef %call, i64 noundef %sub)
-  %call4 = call i64 @_ZN9grpc_core8Duration12MillisecondsEl(i64 noundef %call3)
-  %coerce.dive5 = getelementptr inbounds %"class.grpc_core::Duration", ptr %retval, i32 0, i32 0
-  store i64 %call4, ptr %coerce.dive5, align 8
-  %coerce.dive6 = getelementptr inbounds %"class.grpc_core::Duration", ptr %retval, i32 0, i32 0
-  %0 = load i64, ptr %coerce.dive6, align 8
-  ret i64 %0
+define linkonce_odr i64 @_ZN9grpc_core9Timestamp3NowEv() #4 comdat align 2 {
+  %1 = alloca %"class.grpc_core::Timestamp", align 8
+  %2 = call ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E()
+  %3 = load ptr, ptr %2, align 8, !tbaa !22
+  %4 = load ptr, ptr %3, align 8, !tbaa !24
+  %5 = getelementptr inbounds ptr, ptr %4, i64 0
+  %6 = load ptr, ptr %5, align 8
+  %7 = call i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %8 = getelementptr inbounds nuw %"class.grpc_core::Timestamp", ptr %1, i32 0, i32 0
+  store i64 %7, ptr %8, align 8
+  %9 = getelementptr inbounds nuw %"class.grpc_core::Timestamp", ptr %1, i32 0, i32 0
+  %10 = load i64, ptr %9, align 8
+  ret i64 %10
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt13__atomic_baseIlE5storeElSt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1, i32 noundef %2) #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !26
+  store i64 %1, ptr %5, align 8, !tbaa !9
+  store i32 %2, ptr %6, align 4, !tbaa !28
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %10 = load i32, ptr %6, align 4, !tbaa !28
+  %11 = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %10, i32 noundef 65535)
+          to label %12 unwind label %32
+
+12:                                               ; preds = %3
+  store i32 %11, ptr %7, align 4, !tbaa !28
+  br label %13
+
+13:                                               ; preds = %12
+  br label %14
+
+14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %14
+  br label %16
+
+16:                                               ; preds = %15
+  br label %17
+
+17:                                               ; preds = %16
+  br label %18
+
+18:                                               ; preds = %17
+  br label %19
+
+19:                                               ; preds = %18
+  br label %20
+
+20:                                               ; preds = %19
+  br label %21
+
+21:                                               ; preds = %20
+  %22 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %9, i32 0, i32 0
+  %23 = load i32, ptr %6, align 4, !tbaa !28
+  %24 = load i64, ptr %5, align 8, !tbaa !9
+  store i64 %24, ptr %8, align 8, !tbaa !9
+  switch i32 %23, label %25 [
+    i32 3, label %27
+    i32 5, label %29
+  ]
+
+25:                                               ; preds = %21
+  %26 = load i64, ptr %8, align 8
+  store atomic i64 %26, ptr %22 monotonic, align 8
+  br label %31
+
+27:                                               ; preds = %21
+  %28 = load i64, ptr %8, align 8
+  store atomic i64 %28, ptr %22 release, align 8
+  br label %31
+
+29:                                               ; preds = %21
+  %30 = load i64, ptr %8, align 8
+  store atomic i64 %30, ptr %22 seq_cst, align 8
+  br label %31
+
+31:                                               ; preds = %29, %27, %25
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  ret void
+
+32:                                               ; preds = %3
+  %33 = landingpad { ptr, i32 }
+          catch ptr null
+  %34 = extractvalue { ptr, i32 } %33, 0
+  call void @__clang_call_terminate(ptr %34) #14
+  unreachable
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr i64 @_ZN9grpc_coremiENS_9TimestampES0_(i64 %0, i64 %1) #9 comdat {
+  %3 = alloca %"class.grpc_core::Duration", align 8
+  %4 = alloca %"class.grpc_core::Timestamp", align 8
+  %5 = alloca %"class.grpc_core::Timestamp", align 8
+  %6 = alloca %"class.grpc_core::Timestamp", align 8
+  %7 = alloca %"class.grpc_core::Timestamp", align 8
+  %8 = alloca %"class.grpc_core::Timestamp", align 8
+  %9 = alloca %"class.grpc_core::Timestamp", align 8
+  %10 = getelementptr inbounds nuw %"class.grpc_core::Timestamp", ptr %4, i32 0, i32 0
+  store i64 %0, ptr %10, align 8
+  %11 = getelementptr inbounds nuw %"class.grpc_core::Timestamp", ptr %5, i32 0, i32 0
+  store i64 %1, ptr %11, align 8
+  %12 = call i64 @_ZN9grpc_core9Timestamp7InfPastEv()
+  %13 = getelementptr inbounds nuw %"class.grpc_core::Timestamp", ptr %6, i32 0, i32 0
+  store i64 %12, ptr %13, align 8
+  %14 = getelementptr inbounds nuw %"class.grpc_core::Timestamp", ptr %6, i32 0, i32 0
+  %15 = load i64, ptr %14, align 8
+  %16 = call noundef zeroext i1 @_ZNK9grpc_core9TimestampeqES0_(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 %15)
+  br i1 %16, label %17, label %26
+
+17:                                               ; preds = %2
+  %18 = call i64 @_ZN9grpc_core9Timestamp7InfPastEv()
+  %19 = getelementptr inbounds nuw %"class.grpc_core::Timestamp", ptr %7, i32 0, i32 0
+  store i64 %18, ptr %19, align 8
+  %20 = getelementptr inbounds nuw %"class.grpc_core::Timestamp", ptr %7, i32 0, i32 0
+  %21 = load i64, ptr %20, align 8
+  %22 = call noundef zeroext i1 @_ZNK9grpc_core9TimestampneES0_(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 %21)
+  br i1 %22, label %23, label %26
+
+23:                                               ; preds = %17
+  %24 = call i64 @_ZN9grpc_core8Duration8InfinityEv()
+  %25 = getelementptr inbounds nuw %"class.grpc_core::Duration", ptr %3, i32 0, i32 0
+  store i64 %24, ptr %25, align 8
+  br label %48
+
+26:                                               ; preds = %17, %2
+  %27 = call i64 @_ZN9grpc_core9Timestamp9InfFutureEv()
+  %28 = getelementptr inbounds nuw %"class.grpc_core::Timestamp", ptr %8, i32 0, i32 0
+  store i64 %27, ptr %28, align 8
+  %29 = getelementptr inbounds nuw %"class.grpc_core::Timestamp", ptr %8, i32 0, i32 0
+  %30 = load i64, ptr %29, align 8
+  %31 = call noundef zeroext i1 @_ZNK9grpc_core9TimestampeqES0_(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 %30)
+  br i1 %31, label %32, label %41
+
+32:                                               ; preds = %26
+  %33 = call i64 @_ZN9grpc_core9Timestamp9InfFutureEv()
+  %34 = getelementptr inbounds nuw %"class.grpc_core::Timestamp", ptr %9, i32 0, i32 0
+  store i64 %33, ptr %34, align 8
+  %35 = getelementptr inbounds nuw %"class.grpc_core::Timestamp", ptr %9, i32 0, i32 0
+  %36 = load i64, ptr %35, align 8
+  %37 = call noundef zeroext i1 @_ZNK9grpc_core9TimestampneES0_(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 %36)
+  br i1 %37, label %38, label %41
+
+38:                                               ; preds = %32
+  %39 = call i64 @_ZN9grpc_core8Duration16NegativeInfinityEv()
+  %40 = getelementptr inbounds nuw %"class.grpc_core::Duration", ptr %3, i32 0, i32 0
+  store i64 %39, ptr %40, align 8
+  br label %48
+
+41:                                               ; preds = %32, %26
+  %42 = call noundef i64 @_ZNK9grpc_core9Timestamp32milliseconds_after_process_epochEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %43 = call noundef i64 @_ZNK9grpc_core9Timestamp32milliseconds_after_process_epochEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %44 = sub i64 0, %43
+  %45 = call noundef i64 @_ZN9grpc_core11time_detail9MillisAddEll(i64 noundef %42, i64 noundef %44)
+  %46 = call i64 @_ZN9grpc_core8Duration12MillisecondsEl(i64 noundef %45)
+  %47 = getelementptr inbounds nuw %"class.grpc_core::Duration", ptr %3, i32 0, i32 0
+  store i64 %46, ptr %47, align 8
+  br label %48
+
+48:                                               ; preds = %41, %38, %23
+  %49 = getelementptr inbounds nuw %"class.grpc_core::Duration", ptr %3, i32 0, i32 0
+  %50 = load i64, ptr %49, align 8
+  ret i64 %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZNK9grpc_core8DurationltES0_(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 %other.coerce) #5 comdat align 2 {
-entry:
-  %other = alloca %"class.grpc_core::Duration", align 8
-  %this.addr = alloca ptr, align 8
-  %coerce.dive = getelementptr inbounds %"class.grpc_core::Duration", ptr %other, i32 0, i32 0
-  store i64 %other.coerce, ptr %coerce.dive, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %millis_ = getelementptr inbounds %"class.grpc_core::Duration", ptr %this1, i32 0, i32 0
-  %0 = load i64, ptr %millis_, align 8
-  %millis_2 = getelementptr inbounds %"class.grpc_core::Duration", ptr %other, i32 0, i32 0
-  %1 = load i64, ptr %millis_2, align 8
-  %cmp = icmp slt i64 %0, %1
-  ret i1 %cmp
+define linkonce_odr noundef zeroext i1 @_ZNK9grpc_core8DurationltES0_(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 %1) #5 comdat align 2 {
+  %3 = alloca %"class.grpc_core::Duration", align 8
+  %4 = alloca ptr, align 8
+  %5 = getelementptr inbounds nuw %"class.grpc_core::Duration", ptr %3, i32 0, i32 0
+  store i64 %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !30
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"class.grpc_core::Duration", ptr %6, i32 0, i32 0
+  %8 = load i64, ptr %7, align 8, !tbaa !32
+  %9 = getelementptr inbounds nuw %"class.grpc_core::Duration", ptr %3, i32 0, i32 0
+  %10 = load i64, ptr %9, align 8, !tbaa !32
+  %11 = icmp slt i64 %8, %10
+  ret i1 %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNK9grpc_core8Duration6millisEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %millis_ = getelementptr inbounds %"class.grpc_core::Duration", ptr %this1, i32 0, i32 0
-  %0 = load i64, ptr %millis_, align 8
-  ret i64 %0
+define linkonce_odr noundef i64 @_ZNK9grpc_core8Duration6millisEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !30
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.grpc_core::Duration", ptr %3, i32 0, i32 0
+  %5 = load i64, ptr %4, align 8, !tbaa !32
+  ret i64 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef double @_ZN9grpc_core5ClampIdEET_S1_S1_S1_(double noundef %val, double noundef %min, double noundef %max) #5 comdat {
-entry:
-  %retval = alloca double, align 8
-  %val.addr = alloca double, align 8
-  %min.addr = alloca double, align 8
-  %max.addr = alloca double, align 8
-  store double %val, ptr %val.addr, align 8
-  store double %min, ptr %min.addr, align 8
-  store double %max, ptr %max.addr, align 8
-  %0 = load double, ptr %val.addr, align 8
-  %1 = load double, ptr %min.addr, align 8
-  %cmp = fcmp olt double %0, %1
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr noundef double @_ZN9grpc_core5ClampIdEET_S1_S1_S1_(double noundef %0, double noundef %1, double noundef %2) #5 comdat {
+  %4 = alloca double, align 8
+  %5 = alloca double, align 8
+  %6 = alloca double, align 8
+  %7 = alloca double, align 8
+  store double %0, ptr %5, align 8, !tbaa !17
+  store double %1, ptr %6, align 8, !tbaa !17
+  store double %2, ptr %7, align 8, !tbaa !17
+  %8 = load double, ptr %5, align 8, !tbaa !17
+  %9 = load double, ptr %6, align 8, !tbaa !17
+  %10 = fcmp olt double %8, %9
+  br i1 %10, label %11, label %13
 
-if.then:                                          ; preds = %entry
-  %2 = load double, ptr %min.addr, align 8
-  store double %2, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %3
+  %12 = load double, ptr %6, align 8, !tbaa !17
+  store double %12, ptr %4, align 8
+  br label %21
 
-if.end:                                           ; preds = %entry
-  %3 = load double, ptr %max.addr, align 8
-  %4 = load double, ptr %val.addr, align 8
-  %cmp1 = fcmp olt double %3, %4
-  br i1 %cmp1, label %if.then2, label %if.end3
+13:                                               ; preds = %3
+  %14 = load double, ptr %7, align 8, !tbaa !17
+  %15 = load double, ptr %5, align 8, !tbaa !17
+  %16 = fcmp olt double %14, %15
+  br i1 %16, label %17, label %19
 
-if.then2:                                         ; preds = %if.end
-  %5 = load double, ptr %max.addr, align 8
-  store double %5, ptr %retval, align 8
-  br label %return
+17:                                               ; preds = %13
+  %18 = load double, ptr %7, align 8, !tbaa !17
+  store double %18, ptr %4, align 8
+  br label %21
 
-if.end3:                                          ; preds = %if.end
-  %6 = load double, ptr %val.addr, align 8
-  store double %6, ptr %retval, align 8
-  br label %return
+19:                                               ; preds = %13
+  %20 = load double, ptr %5, align 8, !tbaa !17
+  store double %20, ptr %4, align 8
+  br label %21
 
-return:                                           ; preds = %if.end3, %if.then2, %if.then
-  %7 = load double, ptr %retval, align 8
+21:                                               ; preds = %19, %17, %11
+  %22 = load double, ptr %4, align 8
+  ret double %22
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef double @_ZNK9grpc_core8Duration7secondsEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !30
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.grpc_core::Duration", ptr %3, i32 0, i32 0
+  %5 = load i64, ptr %4, align 8, !tbaa !32
+  %6 = sitofp i64 %5 to double
+  %7 = fdiv double %6, 1.000000e+03
   ret double %7
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef double @_ZNK9grpc_core8Duration7secondsEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %millis_ = getelementptr inbounds %"class.grpc_core::Duration", ptr %this1, i32 0, i32 0
-  %0 = load i64, ptr %millis_, align 8
-  %conv = sitofp i64 %0 to double
-  %div = fdiv double %conv, 1.000000e+03
-  ret double %div
-}
-
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNK4absl12lts_2023080211FunctionRefIFvN9grpc_core8DurationEEEclES3_(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 %args.coerce) #4 comdat align 2 {
-entry:
-  %args = alloca %"class.grpc_core::Duration", align 8
-  %this.addr = alloca ptr, align 8
-  %agg.tmp = alloca %"union.absl::lts_20230802::functional_internal::VoidPtr", align 8
-  %agg.tmp2 = alloca %"class.grpc_core::Duration", align 8
-  %coerce.dive = getelementptr inbounds %"class.grpc_core::Duration", ptr %args, i32 0, i32 0
-  store i64 %args.coerce, ptr %coerce.dive, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %invoker_ = getelementptr inbounds %"class.absl::lts_20230802::FunctionRef", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %invoker_, align 8
-  %ptr_ = getelementptr inbounds %"class.absl::lts_20230802::FunctionRef", ptr %this1, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %ptr_, i64 8, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp2, ptr align 8 %args, i64 8, i1 false)
-  %coerce.dive3 = getelementptr inbounds %"union.absl::lts_20230802::functional_internal::VoidPtr", ptr %agg.tmp, i32 0, i32 0
-  %1 = load ptr, ptr %coerce.dive3, align 8
-  %coerce.dive4 = getelementptr inbounds %"class.grpc_core::Duration", ptr %agg.tmp2, i32 0, i32 0
-  %2 = load i64, ptr %coerce.dive4, align 8
-  call void %0(ptr %1, i64 %2)
+define linkonce_odr void @_ZNK4absl12lts_2024072211FunctionRefIFvN9grpc_core8DurationEEEclES3_(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 %1) #4 comdat align 2 {
+  %3 = alloca %"class.grpc_core::Duration", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"union.absl::lts_20240722::functional_internal::VoidPtr", align 8
+  %6 = alloca %"class.grpc_core::Duration", align 8
+  %7 = getelementptr inbounds nuw %"class.grpc_core::Duration", ptr %3, i32 0, i32 0
+  store i64 %1, ptr %7, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !33
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"class.absl::lts_20240722::FunctionRef", ptr %8, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8, !tbaa !35
+  %11 = getelementptr inbounds nuw %"class.absl::lts_20240722::FunctionRef", ptr %8, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %11, i64 8, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %3, i64 8, i1 false), !tbaa.struct !8
+  %12 = getelementptr inbounds nuw %"union.absl::lts_20240722::functional_internal::VoidPtr", ptr %5, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds nuw %"class.grpc_core::Duration", ptr %6, i32 0, i32 0
+  %15 = load i64, ptr %14, align 8
+  call void %10(ptr %13, i64 %15)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9grpc_core9TimestampC2El(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %millis) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %millis.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %millis, ptr %millis.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %millis_ = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %this1, i32 0, i32 0
-  %0 = load i64, ptr %millis.addr, align 8
-  store i64 %0, ptr %millis_, align 8
+define linkonce_odr void @_ZN9grpc_core9TimestampC2El(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !19
+  store i64 %1, ptr %4, align 8, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.grpc_core::Timestamp", ptr %5, i32 0, i32 0
+  %7 = load i64, ptr %4, align 8, !tbaa !9
+  store i64 %7, ptr %6, align 8, !tbaa !21
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr hidden noundef ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E() #7 comdat {
+define linkonce_odr hidden noundef ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E() #10 comdat {
   %1 = icmp ne ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
   br i1 %1, label %2, label %3
 
@@ -566,179 +595,231 @@ define linkonce_odr hidden noundef ptr @_ZTWN9grpc_core9Timestamp25thread_local_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr i64 @_ZN9grpc_core8Duration12MillisecondsEl(i64 noundef %millis) #4 comdat align 2 {
-entry:
-  %retval = alloca %"class.grpc_core::Duration", align 8
-  %millis.addr = alloca i64, align 8
-  store i64 %millis, ptr %millis.addr, align 8
-  %0 = load i64, ptr %millis.addr, align 8
-  call void @_ZN9grpc_core8DurationC2El(ptr noundef nonnull align 8 dereferenceable(8) %retval, i64 noundef %0)
-  %coerce.dive = getelementptr inbounds %"class.grpc_core::Duration", ptr %retval, i32 0, i32 0
-  %1 = load i64, ptr %coerce.dive, align 8
-  ret i64 %1
+define linkonce_odr i64 @_ZN9grpc_core9Timestamp7InfPastEv() #4 comdat align 2 {
+  %1 = alloca %"class.grpc_core::Timestamp", align 8
+  %2 = call noundef i64 @_ZNSt14numeric_limitsIlE3minEv() #3
+  call void @_ZN9grpc_core9TimestampC2El(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2)
+  %3 = getelementptr inbounds nuw %"class.grpc_core::Timestamp", ptr %1, i32 0, i32 0
+  %4 = load i64, ptr %3, align 8
+  ret i64 %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNK9grpc_core9TimestampneES0_(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 %1) #5 comdat align 2 {
+  %3 = alloca %"class.grpc_core::Timestamp", align 8
+  %4 = alloca ptr, align 8
+  %5 = getelementptr inbounds nuw %"class.grpc_core::Timestamp", ptr %3, i32 0, i32 0
+  store i64 %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !19
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"class.grpc_core::Timestamp", ptr %6, i32 0, i32 0
+  %8 = load i64, ptr %7, align 8, !tbaa !21
+  %9 = getelementptr inbounds nuw %"class.grpc_core::Timestamp", ptr %3, i32 0, i32 0
+  %10 = load i64, ptr %9, align 8, !tbaa !21
+  %11 = icmp ne i64 %8, %10
+  ret i1 %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i64 @_ZN9grpc_core11time_detail9MillisAddEll(i64 noundef %a, i64 noundef %b) #4 comdat {
-entry:
-  %retval = alloca i64, align 8
-  %a.addr = alloca i64, align 8
-  %b.addr = alloca i64, align 8
-  store i64 %a, ptr %a.addr, align 8
-  store i64 %b, ptr %b.addr, align 8
-  %0 = load i64, ptr %a.addr, align 8
-  %call = call noundef i64 @_ZNSt14numeric_limitsIlE3maxEv() #3
-  %cmp = icmp eq i64 %0, %call
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define linkonce_odr i64 @_ZN9grpc_core8Duration8InfinityEv() #4 comdat align 2 {
+  %1 = alloca %"class.grpc_core::Duration", align 8
+  %2 = call noundef i64 @_ZNSt14numeric_limitsIlE3maxEv() #3
+  call void @_ZN9grpc_core8DurationC2El(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2)
+  %3 = getelementptr inbounds nuw %"class.grpc_core::Duration", ptr %1, i32 0, i32 0
+  %4 = load i64, ptr %3, align 8
+  ret i64 %4
+}
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load i64, ptr %b.addr, align 8
-  %call1 = call noundef i64 @_ZNSt14numeric_limitsIlE3maxEv() #3
-  %cmp2 = icmp eq i64 %1, %call1
-  br i1 %cmp2, label %if.then, label %if.end
+; Function Attrs: mustprogress uwtable
+define linkonce_odr i64 @_ZN9grpc_core9Timestamp9InfFutureEv() #4 comdat align 2 {
+  %1 = alloca %"class.grpc_core::Timestamp", align 8
+  %2 = call noundef i64 @_ZNSt14numeric_limitsIlE3maxEv() #3
+  call void @_ZN9grpc_core9TimestampC2El(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2)
+  %3 = getelementptr inbounds nuw %"class.grpc_core::Timestamp", ptr %1, i32 0, i32 0
+  %4 = load i64, ptr %3, align 8
+  ret i64 %4
+}
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  %call3 = call noundef i64 @_ZNSt14numeric_limitsIlE3maxEv() #3
-  store i64 %call3, ptr %retval, align 8
-  br label %return
+; Function Attrs: mustprogress uwtable
+define linkonce_odr i64 @_ZN9grpc_core8Duration16NegativeInfinityEv() #4 comdat align 2 {
+  %1 = alloca %"class.grpc_core::Duration", align 8
+  %2 = call noundef i64 @_ZNSt14numeric_limitsIlE3minEv() #3
+  call void @_ZN9grpc_core8DurationC2El(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2)
+  %3 = getelementptr inbounds nuw %"class.grpc_core::Duration", ptr %1, i32 0, i32 0
+  %4 = load i64, ptr %3, align 8
+  ret i64 %4
+}
 
-if.end:                                           ; preds = %lor.lhs.false
-  %2 = load i64, ptr %a.addr, align 8
-  %call4 = call noundef i64 @_ZNSt14numeric_limitsIlE3minEv() #3
-  %cmp5 = icmp eq i64 %2, %call4
-  br i1 %cmp5, label %if.then9, label %lor.lhs.false6
-
-lor.lhs.false6:                                   ; preds = %if.end
-  %3 = load i64, ptr %b.addr, align 8
-  %call7 = call noundef i64 @_ZNSt14numeric_limitsIlE3minEv() #3
-  %cmp8 = icmp eq i64 %3, %call7
-  br i1 %cmp8, label %if.then9, label %if.end11
-
-if.then9:                                         ; preds = %lor.lhs.false6, %if.end
-  %call10 = call noundef i64 @_ZNSt14numeric_limitsIlE3minEv() #3
-  store i64 %call10, ptr %retval, align 8
-  br label %return
-
-if.end11:                                         ; preds = %lor.lhs.false6
-  %4 = load i64, ptr %a.addr, align 8
-  %5 = load i64, ptr %b.addr, align 8
-  %call12 = call noundef i64 @_ZN9grpc_core13SaturatingAddEll(i64 noundef %4, i64 noundef %5)
-  store i64 %call12, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end11, %if.then9, %if.then
-  %6 = load i64, ptr %retval, align 8
+; Function Attrs: mustprogress uwtable
+define linkonce_odr i64 @_ZN9grpc_core8Duration12MillisecondsEl(i64 noundef %0) #4 comdat align 2 {
+  %2 = alloca %"class.grpc_core::Duration", align 8
+  %3 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !9
+  %4 = load i64, ptr %3, align 8, !tbaa !9
+  call void @_ZN9grpc_core8DurationC2El(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %4)
+  %5 = getelementptr inbounds nuw %"class.grpc_core::Duration", ptr %2, i32 0, i32 0
+  %6 = load i64, ptr %5, align 8
   ret i64 %6
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNK9grpc_core9Timestamp32milliseconds_after_process_epochEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %millis_ = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %this1, i32 0, i32 0
-  %0 = load i64, ptr %millis_, align 8
-  ret i64 %0
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef i64 @_ZN9grpc_core11time_detail9MillisAddEll(i64 noundef %0, i64 noundef %1) #9 comdat {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  store i64 %0, ptr %4, align 8, !tbaa !9
+  store i64 %1, ptr %5, align 8, !tbaa !9
+  %6 = load i64, ptr %4, align 8, !tbaa !9
+  %7 = call noundef i64 @_ZNSt14numeric_limitsIlE3maxEv() #3
+  %8 = icmp eq i64 %6, %7
+  br i1 %8, label %13, label %9
+
+9:                                                ; preds = %2
+  %10 = load i64, ptr %5, align 8, !tbaa !9
+  %11 = call noundef i64 @_ZNSt14numeric_limitsIlE3maxEv() #3
+  %12 = icmp eq i64 %10, %11
+  br i1 %12, label %13, label %15
+
+13:                                               ; preds = %9, %2
+  %14 = call noundef i64 @_ZNSt14numeric_limitsIlE3maxEv() #3
+  store i64 %14, ptr %3, align 8
+  br label %29
+
+15:                                               ; preds = %9
+  %16 = load i64, ptr %4, align 8, !tbaa !9
+  %17 = call noundef i64 @_ZNSt14numeric_limitsIlE3minEv() #3
+  %18 = icmp eq i64 %16, %17
+  br i1 %18, label %23, label %19
+
+19:                                               ; preds = %15
+  %20 = load i64, ptr %5, align 8, !tbaa !9
+  %21 = call noundef i64 @_ZNSt14numeric_limitsIlE3minEv() #3
+  %22 = icmp eq i64 %20, %21
+  br i1 %22, label %23, label %25
+
+23:                                               ; preds = %19, %15
+  %24 = call noundef i64 @_ZNSt14numeric_limitsIlE3minEv() #3
+  store i64 %24, ptr %3, align 8
+  br label %29
+
+25:                                               ; preds = %19
+  %26 = load i64, ptr %4, align 8, !tbaa !9
+  %27 = load i64, ptr %5, align 8, !tbaa !9
+  %28 = call noundef i64 @_ZN9grpc_core13SaturatingAddIlEET_S1_S1_(i64 noundef %26, i64 noundef %27)
+  store i64 %28, ptr %3, align 8
+  br label %29
+
+29:                                               ; preds = %25, %23, %13
+  %30 = load i64, ptr %3, align 8
+  ret i64 %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9grpc_core8DurationC2El(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %millis) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %millis.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %millis, ptr %millis.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %millis_ = getelementptr inbounds %"class.grpc_core::Duration", ptr %this1, i32 0, i32 0
-  %0 = load i64, ptr %millis.addr, align 8
-  store i64 %0, ptr %millis_, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNSt14numeric_limitsIlE3maxEv() #5 comdat align 2 {
-entry:
-  ret i64 9223372036854775807
+define linkonce_odr noundef i64 @_ZNK9grpc_core9Timestamp32milliseconds_after_process_epochEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.grpc_core::Timestamp", ptr %3, i32 0, i32 0
+  %5 = load i64, ptr %4, align 8, !tbaa !21
+  ret i64 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNSt14numeric_limitsIlE3minEv() #5 comdat align 2 {
-entry:
   ret i64 -9223372036854775808
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZN9grpc_core13SaturatingAddEll(i64 noundef %a, i64 noundef %b) #5 comdat {
-entry:
-  %retval = alloca i64, align 8
-  %a.addr = alloca i64, align 8
-  %b.addr = alloca i64, align 8
-  store i64 %a, ptr %a.addr, align 8
-  store i64 %b, ptr %b.addr, align 8
-  %0 = load i64, ptr %a.addr, align 8
-  %cmp = icmp sgt i64 %0, 0
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %1 = load i64, ptr %b.addr, align 8
-  %2 = load i64, ptr %a.addr, align 8
-  %sub = sub nsw i64 9223372036854775807, %2
-  %cmp1 = icmp sgt i64 %1, %sub
-  br i1 %cmp1, label %if.then2, label %if.end
-
-if.then2:                                         ; preds = %if.then
-  store i64 9223372036854775807, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %if.then
-  br label %if.end7
-
-if.else:                                          ; preds = %entry
-  %3 = load i64, ptr %b.addr, align 8
-  %4 = load i64, ptr %a.addr, align 8
-  %sub3 = sub nsw i64 -9223372036854775808, %4
-  %cmp4 = icmp slt i64 %3, %sub3
-  br i1 %cmp4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %if.else
-  store i64 -9223372036854775808, ptr %retval, align 8
-  br label %return
-
-if.end6:                                          ; preds = %if.else
-  br label %if.end7
-
-if.end7:                                          ; preds = %if.end6, %if.end
-  %5 = load i64, ptr %a.addr, align 8
-  %6 = load i64, ptr %b.addr, align 8
-  %add = add nsw i64 %5, %6
-  store i64 %add, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end7, %if.then5, %if.then2
-  %7 = load i64, ptr %retval, align 8
-  ret i64 %7
+define linkonce_odr noundef i64 @_ZNSt14numeric_limitsIlE3maxEv() #5 comdat align 2 {
+  ret i64 9223372036854775807
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %__m, i32 noundef %__mod) #5 comdat {
-entry:
-  %__m.addr = alloca i32, align 4
-  %__mod.addr = alloca i32, align 4
-  store i32 %__m, ptr %__m.addr, align 4
-  store i32 %__mod, ptr %__mod.addr, align 4
-  %0 = load i32, ptr %__m.addr, align 4
-  %1 = load i32, ptr %__mod.addr, align 4
-  %and = and i32 %0, %1
-  ret i32 %and
+define linkonce_odr void @_ZN9grpc_core8DurationC2El(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !30
+  store i64 %1, ptr %4, align 8, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.grpc_core::Duration", ptr %5, i32 0, i32 0
+  %7 = load i64, ptr %4, align 8, !tbaa !9
+  store i64 %7, ptr %6, align 8, !tbaa !32
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN9grpc_core13SaturatingAddIlEET_S1_S1_(i64 noundef %0, i64 noundef %1) #11 comdat {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  store i64 %0, ptr %4, align 8, !tbaa !9
+  store i64 %1, ptr %5, align 8, !tbaa !9
+  %6 = load i64, ptr %4, align 8, !tbaa !9
+  %7 = icmp sgt i64 %6, 0
+  br i1 %7, label %8, label %17
+
+8:                                                ; preds = %2
+  %9 = load i64, ptr %5, align 8, !tbaa !9
+  %10 = call noundef i64 @_ZNSt14numeric_limitsIlE3maxEv() #3
+  %11 = load i64, ptr %4, align 8, !tbaa !9
+  %12 = sub nsw i64 %10, %11
+  %13 = icmp sgt i64 %9, %12
+  br i1 %13, label %14, label %16
+
+14:                                               ; preds = %8
+  %15 = call noundef i64 @_ZNSt14numeric_limitsIlE3maxEv() #3
+  store i64 %15, ptr %3, align 8
+  br label %30
+
+16:                                               ; preds = %8
+  br label %26
+
+17:                                               ; preds = %2
+  %18 = load i64, ptr %5, align 8, !tbaa !9
+  %19 = call noundef i64 @_ZNSt14numeric_limitsIlE3minEv() #3
+  %20 = load i64, ptr %4, align 8, !tbaa !9
+  %21 = sub nsw i64 %19, %20
+  %22 = icmp slt i64 %18, %21
+  br i1 %22, label %23, label %25
+
+23:                                               ; preds = %17
+  %24 = call noundef i64 @_ZNSt14numeric_limitsIlE3minEv() #3
+  store i64 %24, ptr %3, align 8
+  br label %30
+
+25:                                               ; preds = %17
+  br label %26
+
+26:                                               ; preds = %25, %16
+  %27 = load i64, ptr %4, align 8, !tbaa !9
+  %28 = load i64, ptr %5, align 8, !tbaa !9
+  %29 = add nsw i64 %27, %28
+  store i64 %29, ptr %3, align 8
+  br label %30
+
+30:                                               ; preds = %26, %23, %14
+  %31 = load i64, ptr %3, align 8
+  ret i64 %31
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %0, i32 noundef %1) #5 comdat {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !28
+  store i32 %1, ptr %4, align 4, !tbaa !39
+  %5 = load i32, ptr %3, align 4, !tbaa !28
+  %6 = load i32, ptr %4, align 4, !tbaa !39
+  %7 = and i32 %5, %6
+  ret i32 %7
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #8 comdat {
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #12 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
-  call void @_ZSt9terminatev() #10
+  call void @_ZSt9terminatev() #14
   unreachable
 }
 
@@ -748,7 +829,6 @@ declare void @_ZSt9terminatev()
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_periodic_update.cc() #0 section ".text.startup" {
-entry:
   call void @__cxx_global_var_init()
   ret void
 }
@@ -756,23 +836,64 @@ entry:
 declare extern_weak void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E() #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #9
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #13
 
-attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
-attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { noreturn nounwind }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN9grpc_core14PeriodicUpdateE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{i64 0, i64 8, !9}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"long", !6, i64 0}
+!11 = !{!12, !10, i64 24}
+!12 = !{!"_ZTSN9grpc_core14PeriodicUpdateE", !13, i64 0, !15, i64 8, !16, i64 16, !10, i64 24}
+!13 = !{!"_ZTSSt6atomicIlE", !14, i64 0}
+!14 = !{!"_ZTSSt13__atomic_baseIlE", !10, i64 0}
+!15 = !{!"_ZTSN9grpc_core8DurationE", !10, i64 0}
+!16 = !{!"_ZTSN9grpc_core9TimestampE", !10, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"double", !6, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTSN9grpc_core9TimestampE", !5, i64 0}
+!21 = !{!16, !10, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTSN9grpc_core9Timestamp6SourceE", !5, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"vtable pointer", !7, i64 0}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 _ZTSSt13__atomic_baseIlE", !5, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"_ZTSSt12memory_order", !6, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTSN9grpc_core8DurationE", !5, i64 0}
+!32 = !{!15, !10, i64 0}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 _ZTSN4absl12lts_2024072211FunctionRefIFvN9grpc_core8DurationEEEE", !5, i64 0}
+!35 = !{!36, !5, i64 8}
+!36 = !{!"_ZTSN4absl12lts_2024072211FunctionRefIFvN9grpc_core8DurationEEEE", !6, i64 0, !5, i64 8}
+!37 = !{i64 0, i64 8, !38}
+!38 = !{!6, !6, i64 0}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"_ZTSSt23__memory_order_modifier", !6, i64 0}

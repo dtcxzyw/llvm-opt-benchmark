@@ -1,1838 +1,1984 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%"class.std::ios_base::Init" = type { i8 }
-%"class.grpc_core::NoDestruct" = type { [8 x i8] }
-%"class.grpc_core::Arena" = type { %"struct.std::atomic", %"struct.std::atomic", i64, %"struct.std::atomic.0", %"struct.std::atomic.2", ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
-%"struct.std::__atomic_base.1" = type { ptr }
-%"struct.std::atomic.2" = type { %"struct.std::__atomic_base.3" }
-%"struct.std::__atomic_base.3" = type { ptr }
-%"struct.grpc_core::Arena::Zone" = type { ptr }
-%"struct.std::pair" = type { ptr, ptr }
-%"struct.grpc_core::Arena::ManagedNewObject" = type { ptr, ptr }
-%"class.grpc_event_engine::experimental::MemoryAllocator" = type { %"class.std::shared_ptr" }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.grpc_event_engine::experimental::MemoryRequest" = type { i64, i64 }
+%struct.upb_ArenaRoot = type { ptr, i64 }
+%struct.upb_ArenaInternal = type { i64, i64, ptr, ptr, ptr }
+%struct.upb_MemBlock = type { ptr, i32 }
+%struct.upb_ArenaState = type { %struct.upb_Arena, %struct.upb_ArenaInternal }
+%struct.upb_Arena = type { ptr, ptr }
+%struct.upb_alloc = type { ptr }
 
-$_ZNKSt6atomicIPN9grpc_core5Arena4ZoneEEcvS3_Ev = comdat any
+@max_block_size = internal global i64 32768, align 8
 
-$_ZN9grpc_core8DestructINS_5Arena4ZoneEEEvPT_ = comdat any
-
-$__clang_call_terminate = comdat any
-
-$_ZN9grpc_core5ArenaC2EmmPN17grpc_event_engine12experimental15MemoryAllocatorE = comdat any
-
-$_ZSt9make_pairIRPN9grpc_core5ArenaERPvESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS7_INS8_IT0_E4typeEE6__typeEEOS9_OSE_ = comdat any
-
-$_ZNSt6atomicIPN9grpc_core5Arena16ManagedNewObjectEE8exchangeES3_St12memory_order = comdat any
-
-$_ZN9grpc_core8DestructINS_5Arena16ManagedNewObjectEEEvPT_ = comdat any
-
-$_ZSt8exchangeIPN9grpc_core5Arena16ManagedNewObjectERS3_ET_RS5_OT0_ = comdat any
-
-$_ZN17grpc_event_engine12experimental15MemoryAllocator7ReleaseEm = comdat any
-
-$_ZN17grpc_event_engine12experimental15MemoryAllocator7ReserveENS0_13MemoryRequestE = comdat any
-
-$_ZN17grpc_event_engine12experimental13MemoryRequestC2Em = comdat any
-
-$_ZNKSt6atomicIPN9grpc_core5Arena4ZoneEE4loadESt12memory_order = comdat any
-
-$_ZNSt6atomicIPN9grpc_core5Arena4ZoneEE21compare_exchange_weakERS3_S3_St12memory_orderS6_ = comdat any
-
-$_ZNKSt6atomicIPN9grpc_core5Arena16ManagedNewObjectEE4loadESt12memory_order = comdat any
-
-$_ZNSt6atomicIPN9grpc_core5Arena16ManagedNewObjectEE21compare_exchange_weakERS3_S3_St12memory_orderS6_ = comdat any
-
-$_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E = comdat any
-
-$_ZN9grpc_core10NoDestructINS_14promise_detail10UnwakeableEEC2IJEEEDpOT_ = comdat any
-
-$_ZNSt6atomicImEC2Em = comdat any
-
-$_ZNSt6atomicIPN9grpc_core5Arena4ZoneEEC2ES3_ = comdat any
-
-$_ZNSt6atomicIPN9grpc_core5Arena16ManagedNewObjectEEC2ES3_ = comdat any
-
-$_ZNSt13__atomic_baseImEC2Em = comdat any
-
-$_ZNSt13__atomic_baseIPN9grpc_core5Arena4ZoneEEC2ES3_ = comdat any
-
-$_ZNSt13__atomic_baseIPN9grpc_core5Arena16ManagedNewObjectEEC2ES3_ = comdat any
-
-$_ZNSt4pairIPN9grpc_core5ArenaEPvEC2IRS2_RS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_ = comdat any
-
-$_ZNKSt19__shared_ptr_accessIN17grpc_event_engine12experimental8internal19MemoryAllocatorImplELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv = comdat any
-
-$_ZNKSt19__shared_ptr_accessIN17grpc_event_engine12experimental8internal19MemoryAllocatorImplELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EE6_M_getEv = comdat any
-
-$_ZNKSt12__shared_ptrIN17grpc_event_engine12experimental8internal19MemoryAllocatorImplELN9__gnu_cxx12_Lock_policyE2EE3getEv = comdat any
-
-$_ZN9grpc_core9ConstructINS_14promise_detail10UnwakeableEJEEEvPT_DpOT0_ = comdat any
-
-$_ZN9grpc_core14promise_detail10UnwakeableC2Ev = comdat any
-
-$_ZN9grpc_core8WakeableC2Ev = comdat any
-
-$_ZStanSt12memory_orderSt23__memory_order_modifier = comdat any
-
-$_ZNKSt13__atomic_baseIPN9grpc_core5Arena4ZoneEEcvS3_Ev = comdat any
-
-$_ZSt10__exchangeIPN9grpc_core5Arena16ManagedNewObjectERS3_ET_RS5_OT0_ = comdat any
-
-$_ZTVN9grpc_core8WakeableE = comdat any
-
-$_ZTSN9grpc_core8WakeableE = comdat any
-
-$_ZTIN9grpc_core8WakeableE = comdat any
-
-@_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
-@__dso_handle = external hidden global i8
-@_ZZN9grpc_core5Arena15CreateWithAllocEmmPN17grpc_event_engine12experimental15MemoryAllocatorEE9base_size = internal constant i64 48, align 8
-@_ZZN9grpc_core5Arena9AllocZoneEmE14zone_base_size = internal constant i64 16, align 8
-@_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E = linkonce_odr global %"class.grpc_core::NoDestruct" zeroinitializer, comdat, align 8
-@_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E = linkonce_odr global i64 0, comdat($_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E), align 8
-@_ZZN12_GLOBAL__N_112ArenaStorageEmE9base_size = internal constant i64 48, align 8
-@_ZZN12_GLOBAL__N_112ArenaStorageEmE9alignment = internal constant i64 64, align 8
-@_ZTVN9grpc_core14promise_detail10UnwakeableE = external unnamed_addr constant { [6 x ptr] }, align 8
-@_ZTVN9grpc_core8WakeableE = linkonce_odr unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN9grpc_core8WakeableE, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, comdat, align 8
-@_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
-@_ZTSN9grpc_core8WakeableE = linkonce_odr constant [22 x i8] c"N9grpc_core8WakeableE\00", comdat, align 1
-@_ZTIN9grpc_core8WakeableE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN9grpc_core8WakeableE }, comdat, align 8
-@llvm.global_ctors = appending global [2 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.1, ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E }, { i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_arena.cc, ptr null }]
-@llvm.used = appending global [1 x ptr] [ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E], section "llvm.metadata"
-
-@_ZN9grpc_core5ArenaD1Ev = unnamed_addr alias void (ptr), ptr @_ZN9grpc_core5ArenaD2Ev
-
-; Function Attrs: uwtable
-define internal void @__cxx_global_var_init() #0 section ".text.startup" {
-entry:
-  call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #3
+; Function Attrs: nounwind uwtable
+define hidden void @upb_Arena_SetMaxBlockSize(i64 noundef %0) #0 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !3
+  %3 = load i64, ptr %2, align 8, !tbaa !3
+  store atomic i64 %3, ptr @max_block_size seq_cst, align 8, !tbaa !7
   ret void
 }
 
-declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
+; Function Attrs: nounwind uwtable
+define hidden i64 @upb_Arena_SpaceAllocated(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %struct.upb_ArenaRoot, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  %13 = load ptr, ptr %3, align 8, !tbaa !8
+  %14 = call { ptr, i64 } @_upb_Arena_FindRoot(ptr noundef %13)
+  %15 = getelementptr inbounds nuw { ptr, i64 }, ptr %6, i32 0, i32 0
+  %16 = extractvalue { ptr, i64 } %14, 0
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds nuw { ptr, i64 }, ptr %6, i32 0, i32 1
+  %18 = extractvalue { ptr, i64 } %14, 1
+  store i64 %18, ptr %17, align 8
+  %19 = getelementptr inbounds nuw %struct.upb_ArenaRoot, ptr %6, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !13
+  store ptr %20, ptr %5, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  store i64 0, ptr %7, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  store i64 0, ptr %8, align 8, !tbaa !3
+  br label %21
 
-; Function Attrs: nounwind
-declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
+21:                                               ; preds = %44, %2
+  %22 = load ptr, ptr %5, align 8, !tbaa !16
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %51
 
-; Function Attrs: nounwind
-declare i32 @__cxa_atexit(ptr, ptr, ptr) #3
+24:                                               ; preds = %21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %25 = load ptr, ptr %5, align 8, !tbaa !16
+  %26 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %25, i32 0, i32 4
+  %27 = load atomic i64, ptr %26 monotonic, align 8
+  store i64 %27, ptr %10, align 8
+  %28 = load ptr, ptr %10, align 8, !tbaa !17
+  store ptr %28, ptr %9, align 8, !tbaa !17
+  br label %29
 
-; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core5ArenaD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %z = alloca ptr, align 8
-  %prev_z = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %last_zone_ = getelementptr inbounds %"class.grpc_core::Arena", ptr %this1, i32 0, i32 3
-  %call = call noundef ptr @_ZNKSt6atomicIPN9grpc_core5Arena4ZoneEEcvS3_Ev(ptr noundef nonnull align 8 dereferenceable(8) %last_zone_) #3
-  store ptr %call, ptr %z, align 8
-  br label %while.cond
+29:                                               ; preds = %32, %24
+  %30 = load ptr, ptr %9, align 8, !tbaa !17
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %32, label %44
 
-while.cond:                                       ; preds = %invoke.cont2, %entry
-  %0 = load ptr, ptr %z, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %while.body, label %while.end
+32:                                               ; preds = %29
+  %33 = load ptr, ptr %9, align 8, !tbaa !17
+  %34 = getelementptr inbounds nuw %struct.upb_MemBlock, ptr %33, i32 0, i32 1
+  %35 = load i32, ptr %34, align 8, !tbaa !19
+  %36 = zext i32 %35 to i64
+  %37 = add i64 16, %36
+  %38 = load i64, ptr %7, align 8, !tbaa !3
+  %39 = add i64 %38, %37
+  store i64 %39, ptr %7, align 8, !tbaa !3
+  %40 = load ptr, ptr %9, align 8, !tbaa !17
+  %41 = getelementptr inbounds nuw %struct.upb_MemBlock, ptr %40, i32 0, i32 0
+  %42 = load atomic i64, ptr %41 monotonic, align 8
+  store i64 %42, ptr %11, align 8
+  %43 = load ptr, ptr %11, align 8, !tbaa !17
+  store ptr %43, ptr %9, align 8, !tbaa !17
+  br label %29, !llvm.loop !22
 
-while.body:                                       ; preds = %while.cond
-  %1 = load ptr, ptr %z, align 8
-  %prev = getelementptr inbounds %"struct.grpc_core::Arena::Zone", ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %prev, align 8
-  store ptr %2, ptr %prev_z, align 8
-  %3 = load ptr, ptr %z, align 8
-  invoke void @_ZN9grpc_core8DestructINS_5Arena4ZoneEEEvPT_(ptr noundef %3)
-          to label %invoke.cont unwind label %terminate.lpad
+44:                                               ; preds = %29
+  %45 = load ptr, ptr %5, align 8, !tbaa !16
+  %46 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %45, i32 0, i32 2
+  %47 = load atomic i64, ptr %46 monotonic, align 8
+  store i64 %47, ptr %12, align 8
+  %48 = load ptr, ptr %12, align 8, !tbaa !16
+  store ptr %48, ptr %5, align 8, !tbaa !16
+  %49 = load i64, ptr %8, align 8, !tbaa !3
+  %50 = add i64 %49, 1
+  store i64 %50, ptr %8, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  br label %21, !llvm.loop !24
 
-invoke.cont:                                      ; preds = %while.body
-  %4 = load ptr, ptr %z, align 8
-  invoke void @gpr_free_aligned(ptr noundef %4)
-          to label %invoke.cont2 unwind label %terminate.lpad
+51:                                               ; preds = %21
+  %52 = load ptr, ptr %4, align 8, !tbaa !11
+  %53 = icmp ne ptr %52, null
+  br i1 %53, label %54, label %57
 
-invoke.cont2:                                     ; preds = %invoke.cont
-  %5 = load ptr, ptr %prev_z, align 8
-  store ptr %5, ptr %z, align 8
-  br label %while.cond, !llvm.loop !4
+54:                                               ; preds = %51
+  %55 = load i64, ptr %8, align 8, !tbaa !3
+  %56 = load ptr, ptr %4, align 8, !tbaa !11
+  store i64 %55, ptr %56, align 8, !tbaa !3
+  br label %57
 
-while.end:                                        ; preds = %while.cond
-  ret void
-
-terminate.lpad:                                   ; preds = %invoke.cont, %while.body
-  %6 = landingpad { ptr, i32 }
-          catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #9
-  unreachable
+57:                                               ; preds = %54, %51
+  %58 = load i64, ptr %7, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  ret i64 %58
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNKSt6atomicIPN9grpc_core5Arena4ZoneEEcvS3_Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_b = getelementptr inbounds %"struct.std::atomic.0", ptr %this1, i32 0, i32 0
-  %call = call noundef ptr @_ZNKSt13__atomic_baseIPN9grpc_core5Arena4ZoneEEcvS3_Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_b) #3
-  ret ptr %call
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind uwtable
+define internal { ptr, i64 } @_upb_Arena_FindRoot(ptr noundef %0) #0 {
+  %2 = alloca %struct.upb_ArenaRoot, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
+  %11 = load ptr, ptr %3, align 8, !tbaa !8
+  %12 = call ptr @upb_Arena_Internal(ptr noundef %11)
+  store ptr %12, ptr %4, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  %13 = load ptr, ptr %4, align 8, !tbaa !16
+  %14 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %13, i32 0, i32 1
+  %15 = load atomic i64, ptr %14 acquire, align 8
+  store i64 %15, ptr %6, align 8
+  %16 = load i64, ptr %6, align 8, !tbaa !3
+  store i64 %16, ptr %5, align 8, !tbaa !3
+  br label %17
+
+17:                                               ; preds = %40, %1
+  %18 = load i64, ptr %5, align 8, !tbaa !3
+  %19 = call zeroext i1 @_upb_Arena_IsTaggedPointer(i64 noundef %18)
+  br i1 %19, label %20, label %43
+
+20:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %21 = load i64, ptr %5, align 8, !tbaa !3
+  %22 = call ptr @_upb_Arena_PointerFromTagged(i64 noundef %21)
+  store ptr %22, ptr %7, align 8, !tbaa !16
+  br label %23
+
+23:                                               ; preds = %20
+  br label %24
+
+24:                                               ; preds = %23
+  br label %25
+
+25:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %26 = load ptr, ptr %7, align 8, !tbaa !16
+  %27 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %26, i32 0, i32 1
+  %28 = load atomic i64, ptr %27 acquire, align 8
+  store i64 %28, ptr %9, align 8
+  %29 = load i64, ptr %9, align 8, !tbaa !3
+  store i64 %29, ptr %8, align 8, !tbaa !3
+  %30 = load i64, ptr %8, align 8, !tbaa !3
+  %31 = call zeroext i1 @_upb_Arena_IsTaggedPointer(i64 noundef %30)
+  br i1 %31, label %32, label %40
+
+32:                                               ; preds = %25
+  br label %33
+
+33:                                               ; preds = %32
+  br label %34
+
+34:                                               ; preds = %33
+  br label %35
+
+35:                                               ; preds = %34
+  %36 = load ptr, ptr %4, align 8, !tbaa !16
+  %37 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %36, i32 0, i32 1
+  %38 = load i64, ptr %8, align 8, !tbaa !3
+  store i64 %38, ptr %10, align 8, !tbaa !3
+  %39 = load i64, ptr %10, align 8
+  store atomic i64 %39, ptr %37 monotonic, align 8
+  br label %40
+
+40:                                               ; preds = %35, %25
+  %41 = load ptr, ptr %7, align 8, !tbaa !16
+  store ptr %41, ptr %4, align 8, !tbaa !16
+  %42 = load i64, ptr %8, align 8, !tbaa !3
+  store i64 %42, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  br label %17, !llvm.loop !25
+
+43:                                               ; preds = %17
+  %44 = getelementptr inbounds nuw %struct.upb_ArenaRoot, ptr %2, i32 0, i32 0
+  %45 = load ptr, ptr %4, align 8, !tbaa !16
+  store ptr %45, ptr %44, align 8, !tbaa !13
+  %46 = getelementptr inbounds nuw %struct.upb_ArenaRoot, ptr %2, i32 0, i32 1
+  %47 = load i64, ptr %5, align 8, !tbaa !3
+  store i64 %47, ptr %46, align 8, !tbaa !26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  %48 = load { ptr, i64 }, ptr %2, align 8
+  ret { ptr, i64 } %48
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9grpc_core8DestructINS_5Arena4ZoneEEEvPT_(ptr noundef %p) #4 comdat {
-entry:
-  %p.addr = alloca ptr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  ret void
-}
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @__gxx_personality_v0(...)
+; Function Attrs: nounwind uwtable
+define hidden zeroext i1 @_upb_Arena_Contains_dont_copy_me__upb_internal_use_only(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %13 = load ptr, ptr %4, align 8, !tbaa !8
+  %14 = call ptr @upb_Arena_Internal(ptr noundef %13)
+  store ptr %14, ptr %6, align 8, !tbaa !16
+  br label %15
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #5 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #3
-  call void @_ZSt9terminatev() #9
-  unreachable
-}
+15:                                               ; preds = %2
+  br label %16
 
-declare ptr @__cxa_begin_catch(ptr)
+16:                                               ; preds = %15
+  br label %17
 
-declare void @_ZSt9terminatev()
+17:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %18 = load ptr, ptr %6, align 8, !tbaa !16
+  %19 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %18, i32 0, i32 4
+  %20 = load atomic i64, ptr %19 monotonic, align 8
+  store i64 %20, ptr %8, align 8
+  %21 = load ptr, ptr %8, align 8, !tbaa !17
+  store ptr %21, ptr %7, align 8, !tbaa !17
+  br label %22
 
-declare void @gpr_free_aligned(ptr noundef) #1
+22:                                               ; preds = %51, %17
+  %23 = load ptr, ptr %7, align 8, !tbaa !17
+  %24 = icmp ne ptr %23, null
+  br i1 %24, label %25, label %52
 
-; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN9grpc_core5Arena6CreateEmPN17grpc_event_engine12experimental15MemoryAllocatorE(i64 noundef %initial_size, ptr noundef %memory_allocator) #6 align 2 {
-entry:
-  %initial_size.addr = alloca i64, align 8
-  %memory_allocator.addr = alloca ptr, align 8
-  store i64 %initial_size, ptr %initial_size.addr, align 8
-  store ptr %memory_allocator, ptr %memory_allocator.addr, align 8
-  %0 = load i64, ptr %initial_size.addr, align 8
-  %call = call noundef ptr @_ZN12_GLOBAL__N_112ArenaStorageEm(i64 noundef %0)
-  %1 = load i64, ptr %initial_size.addr, align 8
-  %2 = load ptr, ptr %memory_allocator.addr, align 8
-  call void @_ZN9grpc_core5ArenaC2EmmPN17grpc_event_engine12experimental15MemoryAllocatorE(ptr noundef nonnull align 8 dereferenceable(48) %call, i64 noundef %1, i64 noundef 0, ptr noundef %2)
-  ret ptr %call
-}
+25:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %26 = load ptr, ptr %7, align 8, !tbaa !17
+  %27 = ptrtoint ptr %26 to i64
+  store i64 %27, ptr %9, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %28 = load i64, ptr %9, align 8, !tbaa !3
+  %29 = load ptr, ptr %7, align 8, !tbaa !17
+  %30 = getelementptr inbounds nuw %struct.upb_MemBlock, ptr %29, i32 0, i32 1
+  %31 = load i32, ptr %30, align 8, !tbaa !19
+  %32 = zext i32 %31 to i64
+  %33 = add i64 %28, %32
+  store i64 %33, ptr %10, align 8, !tbaa !3
+  %34 = load ptr, ptr %5, align 8, !tbaa !27
+  %35 = ptrtoint ptr %34 to i64
+  %36 = load i64, ptr %9, align 8, !tbaa !3
+  %37 = icmp uge i64 %35, %36
+  br i1 %37, label %38, label %44
 
-; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_112ArenaStorageEm(i64 noundef %initial_size) #6 {
-entry:
-  %initial_size.addr = alloca i64, align 8
-  %alloc_size = alloca i64, align 8
-  store i64 %initial_size, ptr %initial_size.addr, align 8
-  %0 = load i64, ptr %initial_size.addr, align 8
-  %add = add i64 %0, 16
-  %sub = sub i64 %add, 1
-  %and = and i64 %sub, 4294967280
-  store i64 %and, ptr %initial_size.addr, align 8
-  %1 = load i64, ptr %initial_size.addr, align 8
-  %add1 = add i64 48, %1
-  store i64 %add1, ptr %alloc_size, align 8
-  %2 = load i64, ptr %alloc_size, align 8
-  %call = call ptr @gpr_malloc_aligned(i64 noundef %2, i64 noundef 64)
-  ret ptr %call
-}
+38:                                               ; preds = %25
+  %39 = load ptr, ptr %5, align 8, !tbaa !27
+  %40 = ptrtoint ptr %39 to i64
+  %41 = load i64, ptr %10, align 8, !tbaa !3
+  %42 = icmp ult i64 %40, %41
+  br i1 %42, label %43, label %44
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9grpc_core5ArenaC2EmmPN17grpc_event_engine12experimental15MemoryAllocatorE(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %initial_size, i64 noundef %initial_alloc, ptr noundef %memory_allocator) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %initial_size.addr = alloca i64, align 8
-  %initial_alloc.addr = alloca i64, align 8
-  %memory_allocator.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %initial_size, ptr %initial_size.addr, align 8
-  store i64 %initial_alloc, ptr %initial_alloc.addr, align 8
-  store ptr %memory_allocator, ptr %memory_allocator.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %total_used_ = getelementptr inbounds %"class.grpc_core::Arena", ptr %this1, i32 0, i32 0
-  %0 = load i64, ptr %initial_alloc.addr, align 8
-  %add = add i64 %0, 16
-  %sub = sub i64 %add, 1
-  %and = and i64 %sub, 4294967280
-  call void @_ZNSt6atomicImEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %total_used_, i64 noundef %and) #3
-  %total_allocated_ = getelementptr inbounds %"class.grpc_core::Arena", ptr %this1, i32 0, i32 1
-  call void @_ZNSt6atomicImEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %total_allocated_, i64 noundef 0) #3
-  %initial_zone_size_ = getelementptr inbounds %"class.grpc_core::Arena", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %initial_size.addr, align 8
-  store i64 %1, ptr %initial_zone_size_, align 8
-  %last_zone_ = getelementptr inbounds %"class.grpc_core::Arena", ptr %this1, i32 0, i32 3
-  call void @_ZNSt6atomicIPN9grpc_core5Arena4ZoneEEC2ES3_(ptr noundef nonnull align 8 dereferenceable(8) %last_zone_, ptr noundef null) #3
-  %managed_new_head_ = getelementptr inbounds %"class.grpc_core::Arena", ptr %this1, i32 0, i32 4
-  call void @_ZNSt6atomicIPN9grpc_core5Arena16ManagedNewObjectEEC2ES3_(ptr noundef nonnull align 8 dereferenceable(8) %managed_new_head_, ptr noundef null) #3
-  %memory_allocator_ = getelementptr inbounds %"class.grpc_core::Arena", ptr %this1, i32 0, i32 5
-  %2 = load ptr, ptr %memory_allocator.addr, align 8
-  store ptr %2, ptr %memory_allocator_, align 8
-  ret void
-}
+43:                                               ; preds = %38
+  store i1 true, ptr %3, align 1
+  store i32 1, ptr %11, align 4
+  br label %49
 
-; Function Attrs: mustprogress uwtable
-define { ptr, ptr } @_ZN9grpc_core5Arena15CreateWithAllocEmmPN17grpc_event_engine12experimental15MemoryAllocatorE(i64 noundef %initial_size, i64 noundef %alloc_size, ptr noundef %memory_allocator) #6 align 2 {
-entry:
-  %retval = alloca %"struct.std::pair", align 8
-  %initial_size.addr = alloca i64, align 8
-  %alloc_size.addr = alloca i64, align 8
-  %memory_allocator.addr = alloca ptr, align 8
-  %new_arena = alloca ptr, align 8
-  %first_alloc = alloca ptr, align 8
-  store i64 %initial_size, ptr %initial_size.addr, align 8
-  store i64 %alloc_size, ptr %alloc_size.addr, align 8
-  store ptr %memory_allocator, ptr %memory_allocator.addr, align 8
-  %0 = load i64, ptr %initial_size.addr, align 8
-  %call = call noundef ptr @_ZN12_GLOBAL__N_112ArenaStorageEm(i64 noundef %0)
-  %1 = load i64, ptr %initial_size.addr, align 8
-  %2 = load i64, ptr %alloc_size.addr, align 8
-  %3 = load ptr, ptr %memory_allocator.addr, align 8
-  call void @_ZN9grpc_core5ArenaC2EmmPN17grpc_event_engine12experimental15MemoryAllocatorE(ptr noundef nonnull align 8 dereferenceable(48) %call, i64 noundef %1, i64 noundef %2, ptr noundef %3)
-  store ptr %call, ptr %new_arena, align 8
-  %4 = load ptr, ptr %new_arena, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 48
-  store ptr %add.ptr, ptr %first_alloc, align 8
-  %call1 = call { ptr, ptr } @_ZSt9make_pairIRPN9grpc_core5ArenaERPvESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS7_INS8_IT0_E4typeEE6__typeEEOS9_OSE_(ptr noundef nonnull align 8 dereferenceable(8) %new_arena, ptr noundef nonnull align 8 dereferenceable(8) %first_alloc)
-  %5 = getelementptr inbounds { ptr, ptr }, ptr %retval, i32 0, i32 0
-  %6 = extractvalue { ptr, ptr } %call1, 0
-  store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %retval, i32 0, i32 1
-  %8 = extractvalue { ptr, ptr } %call1, 1
-  store ptr %8, ptr %7, align 8
-  %9 = load { ptr, ptr }, ptr %retval, align 8
-  ret { ptr, ptr } %9
-}
+44:                                               ; preds = %38, %25
+  %45 = load ptr, ptr %7, align 8, !tbaa !17
+  %46 = getelementptr inbounds nuw %struct.upb_MemBlock, ptr %45, i32 0, i32 0
+  %47 = load atomic i64, ptr %46 monotonic, align 8
+  store i64 %47, ptr %12, align 8
+  %48 = load ptr, ptr %12, align 8, !tbaa !17
+  store ptr %48, ptr %7, align 8, !tbaa !17
+  store i32 0, ptr %11, align 4
+  br label %49
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr { ptr, ptr } @_ZSt9make_pairIRPN9grpc_core5ArenaERPvESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS7_INS8_IT0_E4typeEE6__typeEEOS9_OSE_(ptr noundef nonnull align 8 dereferenceable(8) %__x, ptr noundef nonnull align 8 dereferenceable(8) %__y) #6 comdat {
-entry:
-  %retval = alloca %"struct.std::pair", align 8
-  %__x.addr = alloca ptr, align 8
-  %__y.addr = alloca ptr, align 8
-  store ptr %__x, ptr %__x.addr, align 8
-  store ptr %__y, ptr %__y.addr, align 8
-  %0 = load ptr, ptr %__x.addr, align 8
-  %1 = load ptr, ptr %__y.addr, align 8
-  call void @_ZNSt4pairIPN9grpc_core5ArenaEPvEC2IRS2_RS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  %2 = load { ptr, ptr }, ptr %retval, align 8
-  ret { ptr, ptr } %2
-}
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core5Arena24DestroyManagedNewObjectsEv(ptr noundef nonnull align 8 dereferenceable(48) %this) #6 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.end, %entry
-  %managed_new_head_ = getelementptr inbounds %"class.grpc_core::Arena", ptr %this1, i32 0, i32 4
-  %call = call noundef ptr @_ZNSt6atomicIPN9grpc_core5Arena16ManagedNewObjectEE8exchangeES3_St12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %managed_new_head_, ptr noundef null, i32 noundef 0) #3
-  store ptr %call, ptr %p, align 8
-  %cmp = icmp ne ptr %call, null
-  br i1 %cmp, label %while.body, label %while.end6
-
-while.body:                                       ; preds = %while.cond
-  br label %while.cond2
-
-while.cond2:                                      ; preds = %while.body4, %while.body
-  %0 = load ptr, ptr %p, align 8
-  %cmp3 = icmp ne ptr %0, null
-  br i1 %cmp3, label %while.body4, label %while.end
-
-while.body4:                                      ; preds = %while.cond2
-  %1 = load ptr, ptr %p, align 8
-  %next = getelementptr inbounds %"struct.grpc_core::Arena::ManagedNewObject", ptr %1, i32 0, i32 1
-  %call5 = call noundef ptr @_ZSt8exchangeIPN9grpc_core5Arena16ManagedNewObjectERS3_ET_RS5_OT0_(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull align 8 dereferenceable(8) %next) #3
-  call void @_ZN9grpc_core8DestructINS_5Arena16ManagedNewObjectEEEvPT_(ptr noundef %call5)
-  br label %while.cond2, !llvm.loop !6
-
-while.end:                                        ; preds = %while.cond2
-  br label %while.cond, !llvm.loop !7
-
-while.end6:                                       ; preds = %while.cond
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNSt6atomicIPN9grpc_core5Arena16ManagedNewObjectEE8exchangeES3_St12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p, i32 noundef %__m) #4 comdat align 2 {
-entry:
-  %this.addr.i = alloca ptr, align 8
-  %__p.addr.i = alloca ptr, align 8
-  %__m.addr.i = alloca i32, align 4
-  %.atomictmp.i = alloca ptr, align 8
-  %atomic-temp.i = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__m.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store i32 %__m, ptr %__m.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_b = getelementptr inbounds %"struct.std::atomic.2", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__p.addr, align 8
-  %1 = load i32, ptr %__m.addr, align 4
-  store ptr %_M_b, ptr %this.addr.i, align 8
-  store ptr %0, ptr %__p.addr.i, align 8
-  store i32 %1, ptr %__m.addr.i, align 4
-  %this1.i = load ptr, ptr %this.addr.i, align 8
-  %2 = load i32, ptr %__m.addr.i, align 4
-  %3 = load ptr, ptr %__p.addr.i, align 8
-  store ptr %3, ptr %.atomictmp.i, align 8
-  switch i32 %2, label %monotonic.i [
-    i32 1, label %acquire.i
-    i32 2, label %acquire.i
-    i32 3, label %release.i
-    i32 4, label %acqrel.i
-    i32 5, label %seqcst.i
+49:                                               ; preds = %44, %43
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  %50 = load i32, ptr %11, align 4
+  switch i32 %50, label %53 [
+    i32 0, label %51
   ]
 
-monotonic.i:                                      ; preds = %entry
-  %4 = load i64, ptr %.atomictmp.i, align 8
-  %5 = atomicrmw xchg ptr %this1.i, i64 %4 monotonic, align 8
-  store i64 %5, ptr %atomic-temp.i, align 8
-  br label %_ZNSt13__atomic_baseIPN9grpc_core5Arena16ManagedNewObjectEE8exchangeES3_St12memory_order.exit
+51:                                               ; preds = %49
+  br label %22, !llvm.loop !28
 
-acquire.i:                                        ; preds = %entry, %entry
-  %6 = load i64, ptr %.atomictmp.i, align 8
-  %7 = atomicrmw xchg ptr %this1.i, i64 %6 acquire, align 8
-  store i64 %7, ptr %atomic-temp.i, align 8
-  br label %_ZNSt13__atomic_baseIPN9grpc_core5Arena16ManagedNewObjectEE8exchangeES3_St12memory_order.exit
+52:                                               ; preds = %22
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %11, align 4
+  br label %53
 
-release.i:                                        ; preds = %entry
-  %8 = load i64, ptr %.atomictmp.i, align 8
-  %9 = atomicrmw xchg ptr %this1.i, i64 %8 release, align 8
-  store i64 %9, ptr %atomic-temp.i, align 8
-  br label %_ZNSt13__atomic_baseIPN9grpc_core5Arena16ManagedNewObjectEE8exchangeES3_St12memory_order.exit
-
-acqrel.i:                                         ; preds = %entry
-  %10 = load i64, ptr %.atomictmp.i, align 8
-  %11 = atomicrmw xchg ptr %this1.i, i64 %10 acq_rel, align 8
-  store i64 %11, ptr %atomic-temp.i, align 8
-  br label %_ZNSt13__atomic_baseIPN9grpc_core5Arena16ManagedNewObjectEE8exchangeES3_St12memory_order.exit
-
-seqcst.i:                                         ; preds = %entry
-  %12 = load i64, ptr %.atomictmp.i, align 8
-  %13 = atomicrmw xchg ptr %this1.i, i64 %12 seq_cst, align 8
-  store i64 %13, ptr %atomic-temp.i, align 8
-  br label %_ZNSt13__atomic_baseIPN9grpc_core5Arena16ManagedNewObjectEE8exchangeES3_St12memory_order.exit
-
-_ZNSt13__atomic_baseIPN9grpc_core5Arena16ManagedNewObjectEE8exchangeES3_St12memory_order.exit: ; preds = %seqcst.i, %acqrel.i, %release.i, %acquire.i, %monotonic.i
-  %14 = load ptr, ptr %atomic-temp.i, align 8
-  ret ptr %14
+53:                                               ; preds = %52, %49
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %54 = load i1, ptr %3, align 1
+  ret i1 %54
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9grpc_core8DestructINS_5Arena16ManagedNewObjectEEEvPT_(ptr noundef %p) #4 comdat {
-entry:
-  %p.addr = alloca ptr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 0
-  %1 = load ptr, ptr %vfn, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(16) %0) #3
-  ret void
+; Function Attrs: nounwind uwtable
+define internal ptr @upb_Arena_Internal(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = getelementptr inbounds nuw %struct.upb_ArenaState, ptr %3, i32 0, i32 1
+  ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt8exchangeIPN9grpc_core5Arena16ManagedNewObjectERS3_ET_RS5_OT0_(ptr noundef nonnull align 8 dereferenceable(8) %__obj, ptr noundef nonnull align 8 dereferenceable(8) %__new_val) #4 comdat personality ptr @__gxx_personality_v0 {
-entry:
-  %__obj.addr = alloca ptr, align 8
-  %__new_val.addr = alloca ptr, align 8
-  store ptr %__obj, ptr %__obj.addr, align 8
-  store ptr %__new_val, ptr %__new_val.addr, align 8
-  %0 = load ptr, ptr %__obj.addr, align 8
-  %1 = load ptr, ptr %__new_val.addr, align 8
-  %call = invoke noundef ptr @_ZSt10__exchangeIPN9grpc_core5Arena16ManagedNewObjectERS3_ET_RS5_OT0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %invoke.cont unwind label %terminate.lpad
+; Function Attrs: nounwind uwtable
+define hidden i32 @upb_Arena_DebugRefCount(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  %7 = load ptr, ptr %2, align 8, !tbaa !8
+  %8 = call ptr @upb_Arena_Internal(ptr noundef %7)
+  store ptr %8, ptr %3, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
+  %9 = load ptr, ptr %3, align 8, !tbaa !16
+  %10 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %9, i32 0, i32 1
+  %11 = load atomic i64, ptr %10 acquire, align 8
+  store i64 %11, ptr %5, align 8
+  %12 = load i64, ptr %5, align 8, !tbaa !3
+  store i64 %12, ptr %4, align 8, !tbaa !3
+  br label %13
 
-invoke.cont:                                      ; preds = %entry
-  ret ptr %call
+13:                                               ; preds = %16, %1
+  %14 = load i64, ptr %4, align 8, !tbaa !3
+  %15 = call zeroext i1 @_upb_Arena_IsTaggedPointer(i64 noundef %14)
+  br i1 %15, label %16, label %23
 
-terminate.lpad:                                   ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #9
-  unreachable
+16:                                               ; preds = %13
+  %17 = load i64, ptr %4, align 8, !tbaa !3
+  %18 = call ptr @_upb_Arena_PointerFromTagged(i64 noundef %17)
+  store ptr %18, ptr %3, align 8, !tbaa !16
+  %19 = load ptr, ptr %3, align 8, !tbaa !16
+  %20 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %19, i32 0, i32 1
+  %21 = load atomic i64, ptr %20 acquire, align 8
+  store i64 %21, ptr %6, align 8
+  %22 = load i64, ptr %6, align 8, !tbaa !3
+  store i64 %22, ptr %4, align 8, !tbaa !3
+  br label %13, !llvm.loop !29
+
+23:                                               ; preds = %13
+  %24 = load i64, ptr %4, align 8, !tbaa !3
+  %25 = call i64 @_upb_Arena_RefCountFromTagged(i64 noundef %24)
+  %26 = trunc i64 %25 to i32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
+  ret i32 %26
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core5Arena7DestroyEv(ptr noundef nonnull align 8 dereferenceable(48) %this) #6 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr.i = alloca ptr, align 8
-  %__m.addr.i = alloca i32, align 4
-  %__b.i = alloca i32, align 4
-  %atomic-temp.i = alloca i64, align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN9grpc_core5Arena24DestroyManagedNewObjectsEv(ptr noundef nonnull align 8 dereferenceable(48) %this1)
-  %memory_allocator_ = getelementptr inbounds %"class.grpc_core::Arena", ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %memory_allocator_, align 8
-  %total_allocated_ = getelementptr inbounds %"class.grpc_core::Arena", ptr %this1, i32 0, i32 1
-  store ptr %total_allocated_, ptr %this.addr.i, align 8
-  store i32 0, ptr %__m.addr.i, align 4
-  %this1.i = load ptr, ptr %this.addr.i, align 8
-  %1 = load i32, ptr %__m.addr.i, align 4
-  %call.i = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %1, i32 noundef 65535)
-          to label %invoke.cont.i unwind label %terminate.lpad.i
-
-invoke.cont.i:                                    ; preds = %entry
-  store i32 %call.i, ptr %__b.i, align 4
-  %2 = load i32, ptr %__m.addr.i, align 4
-  switch i32 %2, label %monotonic.i [
-    i32 1, label %acquire.i
-    i32 2, label %acquire.i
-    i32 5, label %seqcst.i
-  ]
-
-monotonic.i:                                      ; preds = %invoke.cont.i
-  %3 = load atomic i64, ptr %this1.i monotonic, align 8
-  store i64 %3, ptr %atomic-temp.i, align 8
-  br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit
-
-acquire.i:                                        ; preds = %invoke.cont.i, %invoke.cont.i
-  %4 = load atomic i64, ptr %this1.i acquire, align 8
-  store i64 %4, ptr %atomic-temp.i, align 8
-  br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit
-
-seqcst.i:                                         ; preds = %invoke.cont.i
-  %5 = load atomic i64, ptr %this1.i seq_cst, align 8
-  store i64 %5, ptr %atomic-temp.i, align 8
-  br label %_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit
-
-terminate.lpad.i:                                 ; preds = %entry
-  %6 = landingpad { ptr, i32 }
-          catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #9
-  unreachable
-
-_ZNKSt13__atomic_baseImE4loadESt12memory_order.exit: ; preds = %seqcst.i, %acquire.i, %monotonic.i
-  %8 = load i64, ptr %atomic-temp.i, align 8
-  call void @_ZN17grpc_event_engine12experimental15MemoryAllocator7ReleaseEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %8)
-  call void @_ZN9grpc_core5ArenaD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #3
-  call void @gpr_free_aligned(ptr noundef %this1)
-  ret void
+; Function Attrs: nounwind uwtable
+define internal zeroext i1 @_upb_Arena_IsTaggedPointer(i64 noundef %0) #0 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !3
+  %3 = load i64, ptr %2, align 8, !tbaa !3
+  %4 = and i64 %3, 1
+  %5 = icmp eq i64 %4, 0
+  ret i1 %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN17grpc_event_engine12experimental15MemoryAllocator7ReleaseEm(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %n) #6 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %n, ptr %n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %allocator_ = getelementptr inbounds %"class.grpc_event_engine::experimental::MemoryAllocator", ptr %this1, i32 0, i32 0
-  %call = call noundef ptr @_ZNKSt19__shared_ptr_accessIN17grpc_event_engine12experimental8internal19MemoryAllocatorImplELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %allocator_) #3
-  %0 = load i64, ptr %n.addr, align 8
-  %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
-  %1 = load ptr, ptr %vfn, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(24) %call, i64 noundef %0)
-  ret void
-}
+; Function Attrs: nounwind uwtable
+define internal ptr @_upb_Arena_PointerFromTagged(i64 noundef %0) #0 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !3
+  br label %3
 
-; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %size) #6 align 2 {
-entry:
-  %this.addr.i = alloca ptr, align 8
-  %__i.addr.i = alloca i64, align 8
-  %__m.addr.i = alloca i32, align 4
-  %.atomictmp.i = alloca i64, align 8
-  %atomic-temp.i = alloca i64, align 8
-  %this.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %alloc_size = alloca i64, align 8
-  %agg.tmp = alloca %"class.grpc_event_engine::experimental::MemoryRequest", align 8
-  %z = alloca ptr, align 8
-  %prev = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i64, ptr %size.addr, align 8
-  %add = add i64 16, %0
-  store i64 %add, ptr %alloc_size, align 8
-  %memory_allocator_ = getelementptr inbounds %"class.grpc_core::Arena", ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %memory_allocator_, align 8
-  %2 = load i64, ptr %alloc_size, align 8
-  call void @_ZN17grpc_event_engine12experimental13MemoryRequestC2Em(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i64 noundef %2)
-  %3 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %6 = load i64, ptr %5, align 8
-  %call = call noundef i64 @_ZN17grpc_event_engine12experimental15MemoryAllocator7ReserveENS0_13MemoryRequestE(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 %4, i64 %6)
-  %total_allocated_ = getelementptr inbounds %"class.grpc_core::Arena", ptr %this1, i32 0, i32 1
-  %7 = load i64, ptr %alloc_size, align 8
-  store ptr %total_allocated_, ptr %this.addr.i, align 8
-  store i64 %7, ptr %__i.addr.i, align 8
-  store i32 0, ptr %__m.addr.i, align 4
-  %this1.i = load ptr, ptr %this.addr.i, align 8
-  %8 = load i32, ptr %__m.addr.i, align 4
-  %9 = load i64, ptr %__i.addr.i, align 8
-  store i64 %9, ptr %.atomictmp.i, align 8
-  switch i32 %8, label %monotonic.i [
-    i32 1, label %acquire.i
-    i32 2, label %acquire.i
-    i32 3, label %release.i
-    i32 4, label %acqrel.i
-    i32 5, label %seqcst.i
-  ]
+3:                                                ; preds = %1
+  br label %4
 
-monotonic.i:                                      ; preds = %entry
-  %10 = load i64, ptr %.atomictmp.i, align 8
-  %11 = atomicrmw add ptr %this1.i, i64 %10 monotonic, align 8
-  store i64 %11, ptr %atomic-temp.i, align 8
-  br label %_ZNSt13__atomic_baseImE9fetch_addEmSt12memory_order.exit
-
-acquire.i:                                        ; preds = %entry, %entry
-  %12 = load i64, ptr %.atomictmp.i, align 8
-  %13 = atomicrmw add ptr %this1.i, i64 %12 acquire, align 8
-  store i64 %13, ptr %atomic-temp.i, align 8
-  br label %_ZNSt13__atomic_baseImE9fetch_addEmSt12memory_order.exit
-
-release.i:                                        ; preds = %entry
-  %14 = load i64, ptr %.atomictmp.i, align 8
-  %15 = atomicrmw add ptr %this1.i, i64 %14 release, align 8
-  store i64 %15, ptr %atomic-temp.i, align 8
-  br label %_ZNSt13__atomic_baseImE9fetch_addEmSt12memory_order.exit
-
-acqrel.i:                                         ; preds = %entry
-  %16 = load i64, ptr %.atomictmp.i, align 8
-  %17 = atomicrmw add ptr %this1.i, i64 %16 acq_rel, align 8
-  store i64 %17, ptr %atomic-temp.i, align 8
-  br label %_ZNSt13__atomic_baseImE9fetch_addEmSt12memory_order.exit
-
-seqcst.i:                                         ; preds = %entry
-  %18 = load i64, ptr %.atomictmp.i, align 8
-  %19 = atomicrmw add ptr %this1.i, i64 %18 seq_cst, align 8
-  store i64 %19, ptr %atomic-temp.i, align 8
-  br label %_ZNSt13__atomic_baseImE9fetch_addEmSt12memory_order.exit
-
-_ZNSt13__atomic_baseImE9fetch_addEmSt12memory_order.exit: ; preds = %seqcst.i, %acqrel.i, %release.i, %acquire.i, %monotonic.i
-  %20 = load i64, ptr %alloc_size, align 8
-  %call3 = call ptr @gpr_malloc_aligned(i64 noundef %20, i64 noundef 16)
-  call void @llvm.memset.p0.i64(ptr align 8 %call3, i8 0, i64 8, i1 false)
-  store ptr %call3, ptr %z, align 8
-  %last_zone_ = getelementptr inbounds %"class.grpc_core::Arena", ptr %this1, i32 0, i32 3
-  %call4 = call noundef ptr @_ZNKSt6atomicIPN9grpc_core5Arena4ZoneEE4loadESt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %last_zone_, i32 noundef 0) #3
-  store ptr %call4, ptr %prev, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %do.cond, %_ZNSt13__atomic_baseImE9fetch_addEmSt12memory_order.exit
-  %21 = load ptr, ptr %prev, align 8
-  %22 = load ptr, ptr %z, align 8
-  %prev5 = getelementptr inbounds %"struct.grpc_core::Arena::Zone", ptr %22, i32 0, i32 0
-  store ptr %21, ptr %prev5, align 8
-  br label %do.cond
-
-do.cond:                                          ; preds = %do.body
-  %last_zone_6 = getelementptr inbounds %"class.grpc_core::Arena", ptr %this1, i32 0, i32 3
-  %23 = load ptr, ptr %z, align 8
-  %call7 = call noundef zeroext i1 @_ZNSt6atomicIPN9grpc_core5Arena4ZoneEE21compare_exchange_weakERS3_S3_St12memory_orderS6_(ptr noundef nonnull align 8 dereferenceable(8) %last_zone_6, ptr noundef nonnull align 8 dereferenceable(8) %prev, ptr noundef %23, i32 noundef 0, i32 noundef 0) #3
-  %lnot = xor i1 %call7, true
-  br i1 %lnot, label %do.body, label %do.end, !llvm.loop !8
-
-do.end:                                           ; preds = %do.cond
-  %24 = load ptr, ptr %z, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %24, i64 16
-  ret ptr %add.ptr
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i64 @_ZN17grpc_event_engine12experimental15MemoryAllocator7ReserveENS0_13MemoryRequestE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 %request.coerce0, i64 %request.coerce1) #6 comdat align 2 {
-entry:
-  %request = alloca %"class.grpc_event_engine::experimental::MemoryRequest", align 8
-  %this.addr = alloca ptr, align 8
-  %agg.tmp = alloca %"class.grpc_event_engine::experimental::MemoryRequest", align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %request, i32 0, i32 0
-  store i64 %request.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %request, i32 0, i32 1
-  store i64 %request.coerce1, ptr %1, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %allocator_ = getelementptr inbounds %"class.grpc_event_engine::experimental::MemoryAllocator", ptr %this1, i32 0, i32 0
-  %call = call noundef ptr @_ZNKSt19__shared_ptr_accessIN17grpc_event_engine12experimental8internal19MemoryAllocatorImplELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %allocator_) #3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %request, i64 16, i1 false)
-  %2 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %5 = load i64, ptr %4, align 8
-  %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %6 = load ptr, ptr %vfn, align 8
-  %call2 = call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(24) %call, i64 %3, i64 %5)
-  ret i64 %call2
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN17grpc_event_engine12experimental13MemoryRequestC2Em(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %n) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %n, ptr %n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %min_ = getelementptr inbounds %"class.grpc_event_engine::experimental::MemoryRequest", ptr %this1, i32 0, i32 0
-  %0 = load i64, ptr %n.addr, align 8
-  store i64 %0, ptr %min_, align 8
-  %max_ = getelementptr inbounds %"class.grpc_event_engine::experimental::MemoryRequest", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %n.addr, align 8
-  store i64 %1, ptr %max_, align 8
-  ret void
-}
-
-declare ptr @gpr_malloc_aligned(i64 noundef, i64 noundef) #1
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNKSt6atomicIPN9grpc_core5Arena4ZoneEE4loadESt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %__m) #4 comdat align 2 {
-entry:
-  %this.addr.i = alloca ptr, align 8
-  %__m.addr.i = alloca i32, align 4
-  %__b.i = alloca i32, align 4
-  %atomic-temp.i = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %__m.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %__m, ptr %__m.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_b = getelementptr inbounds %"struct.std::atomic.0", ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %__m.addr, align 4
-  store ptr %_M_b, ptr %this.addr.i, align 8
-  store i32 %0, ptr %__m.addr.i, align 4
-  %this1.i = load ptr, ptr %this.addr.i, align 8
-  %1 = load i32, ptr %__m.addr.i, align 4
-  %call.i = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %1, i32 noundef 65535)
-  store i32 %call.i, ptr %__b.i, align 4
-  %2 = load i32, ptr %__m.addr.i, align 4
-  switch i32 %2, label %monotonic.i [
-    i32 1, label %acquire.i
-    i32 2, label %acquire.i
-    i32 5, label %seqcst.i
-  ]
-
-monotonic.i:                                      ; preds = %entry
-  %3 = load atomic i64, ptr %this1.i monotonic, align 8
-  store i64 %3, ptr %atomic-temp.i, align 8
-  br label %_ZNKSt13__atomic_baseIPN9grpc_core5Arena4ZoneEE4loadESt12memory_order.exit
-
-acquire.i:                                        ; preds = %entry, %entry
-  %4 = load atomic i64, ptr %this1.i acquire, align 8
-  store i64 %4, ptr %atomic-temp.i, align 8
-  br label %_ZNKSt13__atomic_baseIPN9grpc_core5Arena4ZoneEE4loadESt12memory_order.exit
-
-seqcst.i:                                         ; preds = %entry
-  %5 = load atomic i64, ptr %this1.i seq_cst, align 8
-  store i64 %5, ptr %atomic-temp.i, align 8
-  br label %_ZNKSt13__atomic_baseIPN9grpc_core5Arena4ZoneEE4loadESt12memory_order.exit
-
-_ZNKSt13__atomic_baseIPN9grpc_core5Arena4ZoneEE4loadESt12memory_order.exit: ; preds = %seqcst.i, %acquire.i, %monotonic.i
-  %6 = load ptr, ptr %atomic-temp.i, align 8
+4:                                                ; preds = %3
+  %5 = load i64, ptr %2, align 8, !tbaa !3
+  %6 = inttoptr i64 %5 to ptr
   ret ptr %6
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZNSt6atomicIPN9grpc_core5Arena4ZoneEE21compare_exchange_weakERS3_S3_St12memory_orderS6_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__p1, ptr noundef %__p2, i32 noundef %__m1, i32 noundef %__m2) #4 comdat align 2 {
-entry:
-  %this.addr.i = alloca ptr, align 8
-  %__p1.addr.i = alloca ptr, align 8
-  %__p2.addr.i = alloca ptr, align 8
-  %__m1.addr.i = alloca i32, align 4
-  %__m2.addr.i = alloca i32, align 4
-  %.atomictmp.i = alloca ptr, align 8
-  %cmpxchg.bool.i = alloca i8, align 1
-  %this.addr = alloca ptr, align 8
-  %__p1.addr = alloca ptr, align 8
-  %__p2.addr = alloca ptr, align 8
-  %__m1.addr = alloca i32, align 4
-  %__m2.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p1, ptr %__p1.addr, align 8
-  store ptr %__p2, ptr %__p2.addr, align 8
-  store i32 %__m1, ptr %__m1.addr, align 4
-  store i32 %__m2, ptr %__m2.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_b = getelementptr inbounds %"struct.std::atomic.0", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__p1.addr, align 8
-  %1 = load ptr, ptr %__p2.addr, align 8
-  %2 = load i32, ptr %__m1.addr, align 4
-  %3 = load i32, ptr %__m2.addr, align 4
-  store ptr %_M_b, ptr %this.addr.i, align 8
-  store ptr %0, ptr %__p1.addr.i, align 8
-  store ptr %1, ptr %__p2.addr.i, align 8
-  store i32 %2, ptr %__m1.addr.i, align 4
-  store i32 %3, ptr %__m2.addr.i, align 4
-  %this1.i = load ptr, ptr %this.addr.i, align 8
-  %4 = load i32, ptr %__m1.addr.i, align 4
-  %5 = load ptr, ptr %__p1.addr.i, align 8
-  %6 = load ptr, ptr %__p2.addr.i, align 8
-  store ptr %6, ptr %.atomictmp.i, align 8
-  %7 = load i32, ptr %__m2.addr.i, align 4
-  switch i32 %4, label %monotonic.i [
-    i32 1, label %acquire.i
-    i32 2, label %acquire.i
-    i32 3, label %release.i
-    i32 4, label %acqrel.i
-    i32 5, label %seqcst.i
+; Function Attrs: nounwind uwtable
+define internal i64 @_upb_Arena_RefCountFromTagged(i64 noundef %0) #0 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !3
+  br label %3
+
+3:                                                ; preds = %1
+  br label %4
+
+4:                                                ; preds = %3
+  %5 = load i64, ptr %2, align 8, !tbaa !3
+  %6 = lshr i64 %5, 1
+  ret i64 %6
+}
+
+; Function Attrs: nounwind uwtable
+define hidden ptr @_upb_Arena_SlowMalloc_dont_copy_me__upb_internal_use_only(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i64 %1, ptr %5, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !8
+  %7 = load i64, ptr %5, align 8, !tbaa !3
+  %8 = call zeroext i1 @_upb_Arena_AllocBlock(ptr noundef %6, i64 noundef %7)
+  br i1 %8, label %10, label %9
+
+9:                                                ; preds = %2
+  store ptr null, ptr %3, align 8
+  br label %15
+
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %4, align 8, !tbaa !8
+  %12 = load i64, ptr %5, align 8, !tbaa !3
+  %13 = sub i64 %12, 0
+  %14 = call ptr @upb_Arena_Malloc(ptr noundef %11, i64 noundef %13)
+  store ptr %14, ptr %3, align 8
+  br label %15
+
+15:                                               ; preds = %10, %9
+  %16 = load ptr, ptr %3, align 8
+  ret ptr %16
+}
+
+; Function Attrs: nounwind uwtable
+define internal zeroext i1 @_upb_Arena_AllocBlock(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i64 %1, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
+  %15 = call ptr @upb_Arena_Internal(ptr noundef %14)
+  store ptr %15, ptr %6, align 8, !tbaa !16
+  %16 = load ptr, ptr %6, align 8, !tbaa !16
+  %17 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %16, i32 0, i32 0
+  %18 = load i64, ptr %17, align 8, !tbaa !30
+  %19 = icmp ne i64 %18, 0
+  br i1 %19, label %21, label %20
+
+20:                                               ; preds = %2
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %72
+
+21:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %22 = load ptr, ptr %6, align 8, !tbaa !16
+  %23 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %22, i32 0, i32 4
+  %24 = load atomic i64, ptr %23 acquire, align 8
+  store i64 %24, ptr %9, align 8
+  %25 = load ptr, ptr %9, align 8, !tbaa !17
+  store ptr %25, ptr %8, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %26 = load ptr, ptr %8, align 8, !tbaa !17
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %28, label %32
+
+28:                                               ; preds = %21
+  %29 = load ptr, ptr %8, align 8, !tbaa !17
+  %30 = getelementptr inbounds nuw %struct.upb_MemBlock, ptr %29, i32 0, i32 1
+  %31 = load i32, ptr %30, align 8, !tbaa !19
+  br label %33
+
+32:                                               ; preds = %21
+  br label %33
+
+33:                                               ; preds = %32, %28
+  %34 = phi i32 [ %31, %28 ], [ 128, %32 ]
+  %35 = zext i32 %34 to i64
+  store i64 %35, ptr %10, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  %36 = load i64, ptr %10, align 8, !tbaa !3
+  %37 = mul i64 %36, 2
+  %38 = load atomic i64, ptr @max_block_size seq_cst, align 8, !tbaa !7
+  %39 = icmp ult i64 %37, %38
+  br i1 %39, label %40, label %43
+
+40:                                               ; preds = %33
+  %41 = load i64, ptr %10, align 8, !tbaa !3
+  %42 = mul i64 %41, 2
+  br label %45
+
+43:                                               ; preds = %33
+  %44 = load atomic i64, ptr @max_block_size seq_cst, align 8, !tbaa !7
+  br label %45
+
+45:                                               ; preds = %43, %40
+  %46 = phi i64 [ %42, %40 ], [ %44, %43 ]
+  store i64 %46, ptr %11, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  %47 = load i64, ptr %5, align 8, !tbaa !3
+  %48 = load i64, ptr %11, align 8, !tbaa !3
+  %49 = icmp ugt i64 %47, %48
+  br i1 %49, label %50, label %52
+
+50:                                               ; preds = %45
+  %51 = load i64, ptr %5, align 8, !tbaa !3
+  br label %54
+
+52:                                               ; preds = %45
+  %53 = load i64, ptr %11, align 8, !tbaa !3
+  br label %54
+
+54:                                               ; preds = %52, %50
+  %55 = phi i64 [ %51, %50 ], [ %53, %52 ]
+  %56 = add i64 %55, 16
+  store i64 %56, ptr %12, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  %57 = load ptr, ptr %6, align 8, !tbaa !16
+  %58 = call ptr @_upb_ArenaInternal_BlockAlloc(ptr noundef %57)
+  %59 = load i64, ptr %12, align 8, !tbaa !3
+  %60 = call ptr @upb_malloc(ptr noundef %58, i64 noundef %59)
+  store ptr %60, ptr %13, align 8, !tbaa !17
+  %61 = load ptr, ptr %13, align 8, !tbaa !17
+  %62 = icmp ne ptr %61, null
+  br i1 %62, label %64, label %63
+
+63:                                               ; preds = %54
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %71
+
+64:                                               ; preds = %54
+  %65 = load ptr, ptr %4, align 8, !tbaa !8
+  %66 = load ptr, ptr %13, align 8, !tbaa !17
+  %67 = load i64, ptr %12, align 8, !tbaa !3
+  call void @_upb_Arena_AddBlock(ptr noundef %65, ptr noundef %66, i64 noundef %67)
+  br label %68
+
+68:                                               ; preds = %64
+  br label %69
+
+69:                                               ; preds = %68
+  br label %70
+
+70:                                               ; preds = %69
+  store i1 true, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %71
+
+71:                                               ; preds = %70, %63
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  br label %72
+
+72:                                               ; preds = %71, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %73 = load i1, ptr %3, align 1
+  ret i1 %73
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @upb_Arena_Malloc(ptr noundef %0, i64 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i64 %1, ptr %5, align 8, !tbaa !3
+  %9 = load i64, ptr %5, align 8, !tbaa !3
+  %10 = add i64 %9, 8
+  %11 = sub i64 %10, 1
+  %12 = udiv i64 %11, 8
+  %13 = mul i64 %12, 8
+  store i64 %13, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %14 = load i64, ptr %5, align 8, !tbaa !3
+  %15 = add i64 %14, 0
+  store i64 %15, ptr %6, align 8, !tbaa !3
+  %16 = load ptr, ptr %4, align 8, !tbaa !8
+  %17 = call i64 @_upb_ArenaHas_dont_copy_me__upb_internal_use_only(ptr noundef %16)
+  %18 = load i64, ptr %6, align 8, !tbaa !3
+  %19 = icmp ult i64 %17, %18
+  %20 = zext i1 %19 to i64
+  %21 = call i64 @llvm.expect.i64(i64 %20, i64 0)
+  %22 = icmp ne i64 %21, 0
+  br i1 %22, label %23, label %27
+
+23:                                               ; preds = %2
+  %24 = load ptr, ptr %4, align 8, !tbaa !8
+  %25 = load i64, ptr %6, align 8, !tbaa !3
+  %26 = call ptr @_upb_Arena_SlowMalloc_dont_copy_me__upb_internal_use_only(ptr noundef %24, i64 noundef %25)
+  store ptr %26, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %43
+
+27:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %28 = load ptr, ptr %4, align 8, !tbaa !8
+  %29 = getelementptr inbounds nuw %struct.upb_Arena, ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8, !tbaa !32
+  store ptr %30, ptr %8, align 8, !tbaa !27
+  br label %31
+
+31:                                               ; preds = %27
+  br label %32
+
+32:                                               ; preds = %31
+  br label %33
+
+33:                                               ; preds = %32
+  br label %34
+
+34:                                               ; preds = %33
+  br label %35
+
+35:                                               ; preds = %34
+  br label %36
+
+36:                                               ; preds = %35
+  %37 = load i64, ptr %6, align 8, !tbaa !3
+  %38 = load ptr, ptr %4, align 8, !tbaa !8
+  %39 = getelementptr inbounds nuw %struct.upb_Arena, ptr %38, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8, !tbaa !32
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 %37
+  store ptr %41, ptr %39, align 8, !tbaa !32
+  %42 = load ptr, ptr %8, align 8, !tbaa !27
+  store ptr %42, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  br label %43
+
+43:                                               ; preds = %36, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %44 = load ptr, ptr %3, align 8
+  ret ptr %44
+}
+
+; Function Attrs: nounwind uwtable
+define hidden ptr @upb_Arena_Init(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !27
+  store i64 %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !35
+  br label %12
+
+12:                                               ; preds = %3
+  br label %13
+
+13:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %14 = load i64, ptr %6, align 8, !tbaa !3
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %40
+
+16:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %17 = load ptr, ptr %5, align 8, !tbaa !27
+  %18 = ptrtoint ptr %17 to i64
+  %19 = add i64 %18, 8
+  %20 = sub i64 %19, 1
+  %21 = udiv i64 %20, 8
+  %22 = mul i64 %21, 8
+  %23 = inttoptr i64 %22 to ptr
+  store ptr %23, ptr %9, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %24 = load ptr, ptr %9, align 8, !tbaa !27
+  %25 = ptrtoint ptr %24 to i64
+  %26 = load ptr, ptr %5, align 8, !tbaa !27
+  %27 = ptrtoint ptr %26 to i64
+  %28 = sub i64 %25, %27
+  store i64 %28, ptr %10, align 8, !tbaa !3
+  %29 = load i64, ptr %10, align 8, !tbaa !3
+  %30 = load i64, ptr %6, align 8, !tbaa !3
+  %31 = icmp ule i64 %29, %30
+  br i1 %31, label %32, label %36
+
+32:                                               ; preds = %16
+  %33 = load i64, ptr %6, align 8, !tbaa !3
+  %34 = load i64, ptr %10, align 8, !tbaa !3
+  %35 = sub i64 %33, %34
+  br label %37
+
+36:                                               ; preds = %16
+  br label %37
+
+37:                                               ; preds = %36, %32
+  %38 = phi i64 [ %35, %32 ], [ 0, %36 ]
+  store i64 %38, ptr %6, align 8, !tbaa !3
+  %39 = load ptr, ptr %9, align 8, !tbaa !27
+  store ptr %39, ptr %5, align 8, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  br label %40
+
+40:                                               ; preds = %37, %13
+  %41 = load i64, ptr %6, align 8, !tbaa !3
+  %42 = udiv i64 %41, 8
+  %43 = mul i64 %42, 8
+  store i64 %43, ptr %6, align 8, !tbaa !3
+  %44 = load i64, ptr %6, align 8, !tbaa !3
+  %45 = icmp ult i64 %44, 56
+  %46 = zext i1 %45 to i64
+  %47 = call i64 @llvm.expect.i64(i64 %46, i64 0)
+  %48 = icmp ne i64 %47, 0
+  br i1 %48, label %49, label %52
+
+49:                                               ; preds = %40
+  %50 = load ptr, ptr %7, align 8, !tbaa !35
+  %51 = call ptr @_upb_Arena_InitSlow(ptr noundef %50)
+  store ptr %51, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %90
+
+52:                                               ; preds = %40
+  %53 = load ptr, ptr %5, align 8, !tbaa !27
+  %54 = load i64, ptr %6, align 8, !tbaa !3
+  %55 = sub i64 %54, 56
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 %55
+  store ptr %56, ptr %8, align 8, !tbaa !27
+  %57 = load ptr, ptr %8, align 8, !tbaa !27
+  %58 = getelementptr inbounds nuw %struct.upb_ArenaState, ptr %57, i32 0, i32 1
+  %59 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %58, i32 0, i32 1
+  %60 = call i64 @_upb_Arena_TaggedFromRefcount(i64 noundef 1)
+  store i64 %60, ptr %59, align 8, !tbaa !7
+  %61 = load ptr, ptr %8, align 8, !tbaa !27
+  %62 = getelementptr inbounds nuw %struct.upb_ArenaState, ptr %61, i32 0, i32 1
+  %63 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %62, i32 0, i32 2
+  store ptr null, ptr %63, align 8, !tbaa !7
+  %64 = load ptr, ptr %8, align 8, !tbaa !27
+  %65 = getelementptr inbounds nuw %struct.upb_ArenaState, ptr %64, i32 0, i32 1
+  %66 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %65, i32 0, i32 3
+  %67 = load ptr, ptr %8, align 8, !tbaa !27
+  %68 = getelementptr inbounds nuw %struct.upb_ArenaState, ptr %67, i32 0, i32 1
+  store ptr %68, ptr %66, align 8, !tbaa !7
+  %69 = load ptr, ptr %8, align 8, !tbaa !27
+  %70 = getelementptr inbounds nuw %struct.upb_ArenaState, ptr %69, i32 0, i32 1
+  %71 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %70, i32 0, i32 4
+  store ptr null, ptr %71, align 8, !tbaa !7
+  %72 = load ptr, ptr %7, align 8, !tbaa !35
+  %73 = call i64 @_upb_Arena_MakeBlockAlloc(ptr noundef %72, i1 noundef zeroext true)
+  %74 = load ptr, ptr %8, align 8, !tbaa !27
+  %75 = getelementptr inbounds nuw %struct.upb_ArenaState, ptr %74, i32 0, i32 1
+  %76 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %75, i32 0, i32 0
+  store i64 %73, ptr %76, align 8, !tbaa !37
+  %77 = load ptr, ptr %5, align 8, !tbaa !27
+  %78 = load ptr, ptr %8, align 8, !tbaa !27
+  %79 = getelementptr inbounds nuw %struct.upb_ArenaState, ptr %78, i32 0, i32 0
+  %80 = getelementptr inbounds nuw %struct.upb_Arena, ptr %79, i32 0, i32 0
+  store ptr %77, ptr %80, align 8, !tbaa !39
+  %81 = load ptr, ptr %5, align 8, !tbaa !27
+  %82 = load i64, ptr %6, align 8, !tbaa !3
+  %83 = sub i64 %82, 56
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 %83
+  %85 = load ptr, ptr %8, align 8, !tbaa !27
+  %86 = getelementptr inbounds nuw %struct.upb_ArenaState, ptr %85, i32 0, i32 0
+  %87 = getelementptr inbounds nuw %struct.upb_Arena, ptr %86, i32 0, i32 1
+  store ptr %84, ptr %87, align 8, !tbaa !40
+  %88 = load ptr, ptr %8, align 8, !tbaa !27
+  %89 = getelementptr inbounds nuw %struct.upb_ArenaState, ptr %88, i32 0, i32 0
+  store ptr %89, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %90
+
+90:                                               ; preds = %52, %49
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  %91 = load ptr, ptr %4, align 8
+  ret ptr %91
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #3
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_upb_Arena_InitSlow(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !35
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
+  store i64 72, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  store i64 328, ptr %7, align 8, !tbaa !3
+  %9 = load ptr, ptr %3, align 8, !tbaa !35
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %16
+
+11:                                               ; preds = %1
+  %12 = load ptr, ptr %3, align 8, !tbaa !35
+  %13 = load i64, ptr %7, align 8, !tbaa !3
+  %14 = call ptr @upb_malloc(ptr noundef %12, i64 noundef %13)
+  store ptr %14, ptr %6, align 8, !tbaa !41
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %17, label %16
+
+16:                                               ; preds = %11, %1
+  store ptr null, ptr %2, align 8
+  store i32 1, ptr %8, align 4
+  br label %50
+
+17:                                               ; preds = %11
+  %18 = load ptr, ptr %6, align 8, !tbaa !41
+  %19 = load i64, ptr %7, align 8, !tbaa !3
+  %20 = sub i64 %19, 56
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %20
+  store ptr %21, ptr %5, align 8, !tbaa !27
+  %22 = load i64, ptr %7, align 8, !tbaa !3
+  %23 = sub i64 %22, 56
+  store i64 %23, ptr %7, align 8, !tbaa !3
+  %24 = load ptr, ptr %3, align 8, !tbaa !35
+  %25 = call i64 @_upb_Arena_MakeBlockAlloc(ptr noundef %24, i1 noundef zeroext false)
+  %26 = load ptr, ptr %5, align 8, !tbaa !27
+  %27 = getelementptr inbounds nuw %struct.upb_ArenaState, ptr %26, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %27, i32 0, i32 0
+  store i64 %25, ptr %28, align 8, !tbaa !37
+  %29 = load ptr, ptr %5, align 8, !tbaa !27
+  %30 = getelementptr inbounds nuw %struct.upb_ArenaState, ptr %29, i32 0, i32 1
+  %31 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %30, i32 0, i32 1
+  %32 = call i64 @_upb_Arena_TaggedFromRefcount(i64 noundef 1)
+  store i64 %32, ptr %31, align 8, !tbaa !7
+  %33 = load ptr, ptr %5, align 8, !tbaa !27
+  %34 = getelementptr inbounds nuw %struct.upb_ArenaState, ptr %33, i32 0, i32 1
+  %35 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %34, i32 0, i32 2
+  store ptr null, ptr %35, align 8, !tbaa !7
+  %36 = load ptr, ptr %5, align 8, !tbaa !27
+  %37 = getelementptr inbounds nuw %struct.upb_ArenaState, ptr %36, i32 0, i32 1
+  %38 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %37, i32 0, i32 3
+  %39 = load ptr, ptr %5, align 8, !tbaa !27
+  %40 = getelementptr inbounds nuw %struct.upb_ArenaState, ptr %39, i32 0, i32 1
+  store ptr %40, ptr %38, align 8, !tbaa !7
+  %41 = load ptr, ptr %5, align 8, !tbaa !27
+  %42 = getelementptr inbounds nuw %struct.upb_ArenaState, ptr %41, i32 0, i32 1
+  %43 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %42, i32 0, i32 4
+  store ptr null, ptr %43, align 8, !tbaa !7
+  %44 = load ptr, ptr %5, align 8, !tbaa !27
+  %45 = getelementptr inbounds nuw %struct.upb_ArenaState, ptr %44, i32 0, i32 0
+  %46 = load ptr, ptr %6, align 8, !tbaa !41
+  %47 = load i64, ptr %7, align 8, !tbaa !3
+  call void @_upb_Arena_AddBlock(ptr noundef %45, ptr noundef %46, i64 noundef %47)
+  %48 = load ptr, ptr %5, align 8, !tbaa !27
+  %49 = getelementptr inbounds nuw %struct.upb_ArenaState, ptr %48, i32 0, i32 0
+  store ptr %49, ptr %2, align 8
+  store i32 1, ptr %8, align 4
+  br label %50
+
+50:                                               ; preds = %17, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  %51 = load ptr, ptr %2, align 8
+  ret ptr %51
+}
+
+; Function Attrs: nounwind uwtable
+define internal i64 @_upb_Arena_TaggedFromRefcount(i64 noundef %0) #0 {
+  %2 = alloca i64, align 8
+  %3 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  %4 = load i64, ptr %2, align 8, !tbaa !3
+  %5 = shl i64 %4, 1
+  %6 = or i64 %5, 1
+  store i64 %6, ptr %3, align 8, !tbaa !3
+  br label %7
+
+7:                                                ; preds = %1
+  br label %8
+
+8:                                                ; preds = %7
+  br label %9
+
+9:                                                ; preds = %8
+  %10 = load i64, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
+  ret i64 %10
+}
+
+; Function Attrs: nounwind uwtable
+define internal i64 @_upb_Arena_MakeBlockAlloc(ptr noundef %0, i1 noundef zeroext %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !35
+  %6 = zext i1 %1 to i8
+  store i8 %6, ptr %4, align 1, !tbaa !42
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  %7 = load ptr, ptr %3, align 8, !tbaa !35
+  %8 = ptrtoint ptr %7 to i64
+  store i64 %8, ptr %5, align 8, !tbaa !3
+  br label %9
+
+9:                                                ; preds = %2
+  br label %10
+
+10:                                               ; preds = %9
+  br label %11
+
+11:                                               ; preds = %10
+  %12 = load i64, ptr %5, align 8, !tbaa !3
+  %13 = load i8, ptr %4, align 1, !tbaa !42, !range !44, !noundef !45
+  %14 = trunc i8 %13 to i1
+  %15 = select i1 %14, i32 1, i32 0
+  %16 = sext i32 %15 to i64
+  %17 = or i64 %12, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  ret i64 %17
+}
+
+; Function Attrs: nounwind uwtable
+define hidden void @upb_Arena_Free(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i64, align 8
+  %9 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  %10 = load ptr, ptr %2, align 8, !tbaa !8
+  %11 = call ptr @upb_Arena_Internal(ptr noundef %10)
+  store ptr %11, ptr %3, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
+  %12 = load ptr, ptr %3, align 8, !tbaa !16
+  %13 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %12, i32 0, i32 1
+  %14 = load atomic i64, ptr %13 acquire, align 8
+  store i64 %14, ptr %5, align 8
+  %15 = load i64, ptr %5, align 8, !tbaa !3
+  store i64 %15, ptr %4, align 8, !tbaa !3
+  br label %16
+
+16:                                               ; preds = %51, %1
+  br label %17
+
+17:                                               ; preds = %20, %16
+  %18 = load i64, ptr %4, align 8, !tbaa !3
+  %19 = call zeroext i1 @_upb_Arena_IsTaggedPointer(i64 noundef %18)
+  br i1 %19, label %20, label %27
+
+20:                                               ; preds = %17
+  %21 = load i64, ptr %4, align 8, !tbaa !3
+  %22 = call ptr @_upb_Arena_PointerFromTagged(i64 noundef %21)
+  store ptr %22, ptr %3, align 8, !tbaa !16
+  %23 = load ptr, ptr %3, align 8, !tbaa !16
+  %24 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %23, i32 0, i32 1
+  %25 = load atomic i64, ptr %24 acquire, align 8
+  store i64 %25, ptr %6, align 8
+  %26 = load i64, ptr %6, align 8, !tbaa !3
+  store i64 %26, ptr %4, align 8, !tbaa !3
+  br label %17, !llvm.loop !46
+
+27:                                               ; preds = %17
+  %28 = load i64, ptr %4, align 8, !tbaa !3
+  %29 = call i64 @_upb_Arena_TaggedFromRefcount(i64 noundef 1)
+  %30 = icmp eq i64 %28, %29
+  br i1 %30, label %31, label %33
+
+31:                                               ; preds = %27
+  %32 = load ptr, ptr %3, align 8, !tbaa !16
+  call void @_upb_Arena_DoFree(ptr noundef %32)
+  store i32 1, ptr %7, align 4
+  br label %52
+
+33:                                               ; preds = %27
+  %34 = load ptr, ptr %3, align 8, !tbaa !16
+  %35 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %34, i32 0, i32 1
+  %36 = load i64, ptr %4, align 8, !tbaa !3
+  %37 = call i64 @_upb_Arena_RefCountFromTagged(i64 noundef %36)
+  %38 = sub i64 %37, 1
+  %39 = call i64 @_upb_Arena_TaggedFromRefcount(i64 noundef %38)
+  store i64 %39, ptr %8, align 8, !tbaa !3
+  %40 = load i64, ptr %4, align 8
+  %41 = load i64, ptr %8, align 8
+  %42 = cmpxchg weak ptr %35, i64 %40, i64 %41 release acquire, align 8
+  %43 = extractvalue { i64, i1 } %42, 0
+  %44 = extractvalue { i64, i1 } %42, 1
+  br i1 %44, label %46, label %45
+
+45:                                               ; preds = %33
+  store i64 %43, ptr %4, align 8
+  br label %46
+
+46:                                               ; preds = %45, %33
+  %47 = zext i1 %44 to i8
+  store i8 %47, ptr %9, align 1, !tbaa !42
+  %48 = load i8, ptr %9, align 1, !tbaa !42, !range !44, !noundef !45
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %50, label %51
+
+50:                                               ; preds = %46
+  store i32 1, ptr %7, align 4
+  br label %52
+
+51:                                               ; preds = %46
+  br label %16
+
+52:                                               ; preds = %50, %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @_upb_Arena_DoFree(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  br label %10
+
+10:                                               ; preds = %1
+  br label %11
+
+11:                                               ; preds = %10
+  br label %12
+
+12:                                               ; preds = %37, %11
+  %13 = load ptr, ptr %2, align 8, !tbaa !16
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %15, label %39
+
+15:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  %16 = load ptr, ptr %2, align 8, !tbaa !16
+  %17 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %16, i32 0, i32 2
+  %18 = load atomic i64, ptr %17 acquire, align 8
+  store i64 %18, ptr %4, align 8
+  %19 = load ptr, ptr %4, align 8, !tbaa !16
+  store ptr %19, ptr %3, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  %20 = load ptr, ptr %2, align 8, !tbaa !16
+  %21 = call ptr @_upb_ArenaInternal_BlockAlloc(ptr noundef %20)
+  store ptr %21, ptr %5, align 8, !tbaa !35
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %22 = load ptr, ptr %2, align 8, !tbaa !16
+  %23 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %22, i32 0, i32 4
+  %24 = load atomic i64, ptr %23 acquire, align 8
+  store i64 %24, ptr %7, align 8
+  %25 = load ptr, ptr %7, align 8, !tbaa !17
+  store ptr %25, ptr %6, align 8, !tbaa !17
+  br label %26
+
+26:                                               ; preds = %29, %15
+  %27 = load ptr, ptr %6, align 8, !tbaa !17
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %37
+
+29:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %30 = load ptr, ptr %6, align 8, !tbaa !17
+  %31 = getelementptr inbounds nuw %struct.upb_MemBlock, ptr %30, i32 0, i32 0
+  %32 = load atomic i64, ptr %31 acquire, align 8
+  store i64 %32, ptr %9, align 8
+  %33 = load ptr, ptr %9, align 8, !tbaa !17
+  store ptr %33, ptr %8, align 8, !tbaa !17
+  %34 = load ptr, ptr %5, align 8, !tbaa !35
+  %35 = load ptr, ptr %6, align 8, !tbaa !17
+  call void @upb_free(ptr noundef %34, ptr noundef %35)
+  %36 = load ptr, ptr %8, align 8, !tbaa !17
+  store ptr %36, ptr %6, align 8, !tbaa !17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  br label %26, !llvm.loop !47
+
+37:                                               ; preds = %26
+  %38 = load ptr, ptr %3, align 8, !tbaa !16
+  store ptr %38, ptr %2, align 8, !tbaa !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
+  br label %12, !llvm.loop !48
+
+39:                                               ; preds = %12
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define hidden zeroext i1 @upb_Arena_Fuse(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  %11 = load ptr, ptr %4, align 8, !tbaa !8
+  %12 = load ptr, ptr %5, align 8, !tbaa !8
+  %13 = icmp eq ptr %11, %12
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %2
+  store i1 true, ptr %3, align 1
+  br label %45
+
+15:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %16 = load ptr, ptr %4, align 8, !tbaa !8
+  %17 = call ptr @upb_Arena_Internal(ptr noundef %16)
+  store ptr %17, ptr %6, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %18 = load ptr, ptr %5, align 8, !tbaa !8
+  %19 = call ptr @upb_Arena_Internal(ptr noundef %18)
+  store ptr %19, ptr %7, align 8, !tbaa !16
+  %20 = load ptr, ptr %6, align 8, !tbaa !16
+  %21 = call zeroext i1 @_upb_ArenaInternal_HasInitialBlock(ptr noundef %20)
+  br i1 %21, label %25, label %22
+
+22:                                               ; preds = %15
+  %23 = load ptr, ptr %7, align 8, !tbaa !16
+  %24 = call zeroext i1 @_upb_ArenaInternal_HasInitialBlock(ptr noundef %23)
+  br i1 %24, label %25, label %26
+
+25:                                               ; preds = %22, %15
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %44
+
+26:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  store i64 0, ptr %9, align 8, !tbaa !3
+  br label %27
+
+27:                                               ; preds = %42, %26
+  br label %28
+
+28:                                               ; preds = %27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %29 = load ptr, ptr %4, align 8, !tbaa !8
+  %30 = load ptr, ptr %5, align 8, !tbaa !8
+  %31 = call ptr @_upb_Arena_DoFuse(ptr noundef %29, ptr noundef %30, ptr noundef %9)
+  store ptr %31, ptr %10, align 8, !tbaa !16
+  %32 = load ptr, ptr %10, align 8, !tbaa !16
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %34, label %39
+
+34:                                               ; preds = %28
+  %35 = load ptr, ptr %10, align 8, !tbaa !16
+  %36 = load i64, ptr %9, align 8, !tbaa !3
+  %37 = call zeroext i1 @_upb_Arena_FixupRefs(ptr noundef %35, i64 noundef %36)
+  br i1 %37, label %38, label %39
+
+38:                                               ; preds = %34
+  store i1 true, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %40
+
+39:                                               ; preds = %34, %28
+  store i32 0, ptr %8, align 4
+  br label %40
+
+40:                                               ; preds = %39, %38
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  %41 = load i32, ptr %8, align 4
+  switch i32 %41, label %43 [
+    i32 0, label %42
   ]
 
-monotonic.i:                                      ; preds = %entry
-  switch i32 %7, label %monotonic_fail.i [
-    i32 1, label %acquire_fail.i
-    i32 2, label %acquire_fail.i
-    i32 5, label %seqcst_fail.i
-  ]
+42:                                               ; preds = %40
+  br label %27
 
-acquire.i:                                        ; preds = %entry, %entry
-  switch i32 %7, label %monotonic_fail9.i [
-    i32 1, label %acquire_fail10.i
-    i32 2, label %acquire_fail10.i
-    i32 5, label %seqcst_fail11.i
-  ]
+43:                                               ; preds = %40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  br label %44
 
-release.i:                                        ; preds = %entry
-  switch i32 %7, label %monotonic_fail22.i [
-    i32 1, label %acquire_fail23.i
-    i32 2, label %acquire_fail23.i
-    i32 5, label %seqcst_fail24.i
-  ]
+44:                                               ; preds = %43, %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  br label %45
 
-acqrel.i:                                         ; preds = %entry
-  switch i32 %7, label %monotonic_fail35.i [
-    i32 1, label %acquire_fail36.i
-    i32 2, label %acquire_fail36.i
-    i32 5, label %seqcst_fail37.i
-  ]
+45:                                               ; preds = %44, %14
+  %46 = load i1, ptr %3, align 1
+  ret i1 %46
+}
 
-seqcst.i:                                         ; preds = %entry
-  switch i32 %7, label %monotonic_fail48.i [
-    i32 1, label %acquire_fail49.i
-    i32 2, label %acquire_fail49.i
-    i32 5, label %seqcst_fail50.i
-  ]
+; Function Attrs: nounwind uwtable
+define internal zeroext i1 @_upb_ArenaInternal_HasInitialBlock(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
+  %4 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %3, i32 0, i32 0
+  %5 = load i64, ptr %4, align 8, !tbaa !30
+  %6 = and i64 %5, 1
+  %7 = icmp ne i64 %6, 0
+  ret i1 %7
+}
 
-monotonic_fail.i:                                 ; preds = %monotonic.i
-  %8 = load i64, ptr %5, align 8
-  %9 = load i64, ptr %.atomictmp.i, align 8
-  %10 = cmpxchg weak ptr %this1.i, i64 %8, i64 %9 monotonic monotonic, align 8
-  %11 = extractvalue { i64, i1 } %10, 0
-  %12 = extractvalue { i64, i1 } %10, 1
-  br i1 %12, label %cmpxchg.continue.i, label %cmpxchg.store_expected.i
+; Function Attrs: nounwind uwtable
+define internal ptr @_upb_Arena_DoFuse(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca %struct.upb_ArenaRoot, align 8
+  %9 = alloca %struct.upb_ArenaRoot, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca %struct.upb_ArenaRoot, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i8, align 1
+  %16 = alloca i64, align 8
+  %17 = alloca i8, align 1
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #5
+  %18 = load ptr, ptr %5, align 8, !tbaa !8
+  %19 = call { ptr, i64 } @_upb_Arena_FindRoot(ptr noundef %18)
+  %20 = getelementptr inbounds nuw { ptr, i64 }, ptr %8, i32 0, i32 0
+  %21 = extractvalue { ptr, i64 } %19, 0
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds nuw { ptr, i64 }, ptr %8, i32 0, i32 1
+  %23 = extractvalue { ptr, i64 } %19, 1
+  store i64 %23, ptr %22, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #5
+  %24 = load ptr, ptr %6, align 8, !tbaa !8
+  %25 = call { ptr, i64 } @_upb_Arena_FindRoot(ptr noundef %24)
+  %26 = getelementptr inbounds nuw { ptr, i64 }, ptr %9, i32 0, i32 0
+  %27 = extractvalue { ptr, i64 } %25, 0
+  store ptr %27, ptr %26, align 8
+  %28 = getelementptr inbounds nuw { ptr, i64 }, ptr %9, i32 0, i32 1
+  %29 = extractvalue { ptr, i64 } %25, 1
+  store i64 %29, ptr %28, align 8
+  %30 = getelementptr inbounds nuw %struct.upb_ArenaRoot, ptr %8, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8, !tbaa !13
+  %32 = getelementptr inbounds nuw %struct.upb_ArenaRoot, ptr %9, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !13
+  %34 = icmp eq ptr %31, %33
+  br i1 %34, label %35, label %38
 
-acquire_fail.i:                                   ; preds = %monotonic.i, %monotonic.i
-  %13 = load i64, ptr %5, align 8
-  %14 = load i64, ptr %.atomictmp.i, align 8
-  %15 = cmpxchg weak ptr %this1.i, i64 %13, i64 %14 monotonic acquire, align 8
-  %16 = extractvalue { i64, i1 } %15, 0
-  %17 = extractvalue { i64, i1 } %15, 1
-  br i1 %17, label %cmpxchg.continue4.i, label %cmpxchg.store_expected3.i
+35:                                               ; preds = %3
+  %36 = getelementptr inbounds nuw %struct.upb_ArenaRoot, ptr %8, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8, !tbaa !13
+  store ptr %37, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %102
 
-seqcst_fail.i:                                    ; preds = %monotonic.i
-  %18 = load i64, ptr %5, align 8
-  %19 = load i64, ptr %.atomictmp.i, align 8
-  %20 = cmpxchg weak ptr %this1.i, i64 %18, i64 %19 monotonic seq_cst, align 8
-  %21 = extractvalue { i64, i1 } %20, 0
-  %22 = extractvalue { i64, i1 } %20, 1
-  br i1 %22, label %cmpxchg.continue7.i, label %cmpxchg.store_expected6.i
+38:                                               ; preds = %3
+  %39 = getelementptr inbounds nuw %struct.upb_ArenaRoot, ptr %8, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8, !tbaa !13
+  %41 = ptrtoint ptr %40 to i64
+  %42 = getelementptr inbounds nuw %struct.upb_ArenaRoot, ptr %9, i32 0, i32 0
+  %43 = load ptr, ptr %42, align 8, !tbaa !13
+  %44 = ptrtoint ptr %43 to i64
+  %45 = icmp ugt i64 %41, %44
+  br i1 %45, label %46, label %47
 
-atomic.continue2.i:                               ; preds = %cmpxchg.continue7.i, %cmpxchg.continue4.i, %cmpxchg.continue.i
-  br label %_ZNSt13__atomic_baseIPN9grpc_core5Arena4ZoneEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit
+46:                                               ; preds = %38
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %8, i64 16, i1 false), !tbaa.struct !49
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %9, i64 16, i1 false), !tbaa.struct !49
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %11, i64 16, i1 false), !tbaa.struct !49
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #5
+  br label %47
 
-cmpxchg.store_expected.i:                         ; preds = %monotonic_fail.i
-  store i64 %11, ptr %5, align 8
-  br label %cmpxchg.continue.i
+47:                                               ; preds = %46, %38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  %48 = getelementptr inbounds nuw %struct.upb_ArenaRoot, ptr %9, i32 0, i32 1
+  %49 = load i64, ptr %48, align 8, !tbaa !26
+  %50 = and i64 %49, -2
+  store i64 %50, ptr %12, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  %51 = getelementptr inbounds nuw %struct.upb_ArenaRoot, ptr %8, i32 0, i32 1
+  %52 = load i64, ptr %51, align 8, !tbaa !26
+  %53 = load i64, ptr %12, align 8, !tbaa !3
+  %54 = add i64 %52, %53
+  store i64 %54, ptr %13, align 8, !tbaa !3
+  %55 = getelementptr inbounds nuw %struct.upb_ArenaRoot, ptr %8, i32 0, i32 0
+  %56 = load ptr, ptr %55, align 8, !tbaa !13
+  %57 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %56, i32 0, i32 1
+  %58 = getelementptr inbounds nuw %struct.upb_ArenaRoot, ptr %8, i32 0, i32 1
+  %59 = load i64, ptr %13, align 8, !tbaa !3
+  store i64 %59, ptr %14, align 8, !tbaa !3
+  %60 = load i64, ptr %58, align 8
+  %61 = load i64, ptr %14, align 8
+  %62 = cmpxchg ptr %57, i64 %60, i64 %61 release acquire, align 8
+  %63 = extractvalue { i64, i1 } %62, 0
+  %64 = extractvalue { i64, i1 } %62, 1
+  br i1 %64, label %66, label %65
 
-cmpxchg.continue.i:                               ; preds = %cmpxchg.store_expected.i, %monotonic_fail.i
-  %frombool.i = zext i1 %12 to i8
-  store i8 %frombool.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue2.i
+65:                                               ; preds = %47
+  store i64 %63, ptr %58, align 8
+  br label %66
 
-cmpxchg.store_expected3.i:                        ; preds = %acquire_fail.i
-  store i64 %16, ptr %5, align 8
-  br label %cmpxchg.continue4.i
+66:                                               ; preds = %65, %47
+  %67 = zext i1 %64 to i8
+  store i8 %67, ptr %15, align 1, !tbaa !42
+  %68 = load i8, ptr %15, align 1, !tbaa !42, !range !44, !noundef !45
+  %69 = trunc i8 %68 to i1
+  br i1 %69, label %71, label %70
 
-cmpxchg.continue4.i:                              ; preds = %cmpxchg.store_expected3.i, %acquire_fail.i
-  %frombool5.i = zext i1 %17 to i8
-  store i8 %frombool5.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue2.i
+70:                                               ; preds = %66
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %101
 
-cmpxchg.store_expected6.i:                        ; preds = %seqcst_fail.i
-  store i64 %21, ptr %5, align 8
-  br label %cmpxchg.continue7.i
+71:                                               ; preds = %66
+  %72 = getelementptr inbounds nuw %struct.upb_ArenaRoot, ptr %9, i32 0, i32 0
+  %73 = load ptr, ptr %72, align 8, !tbaa !13
+  %74 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %73, i32 0, i32 1
+  %75 = getelementptr inbounds nuw %struct.upb_ArenaRoot, ptr %9, i32 0, i32 1
+  %76 = getelementptr inbounds nuw %struct.upb_ArenaRoot, ptr %8, i32 0, i32 0
+  %77 = load ptr, ptr %76, align 8, !tbaa !13
+  %78 = call i64 @_upb_Arena_TaggedFromPointer(ptr noundef %77)
+  store i64 %78, ptr %16, align 8, !tbaa !3
+  %79 = load i64, ptr %75, align 8
+  %80 = load i64, ptr %16, align 8
+  %81 = cmpxchg ptr %74, i64 %79, i64 %80 release acquire, align 8
+  %82 = extractvalue { i64, i1 } %81, 0
+  %83 = extractvalue { i64, i1 } %81, 1
+  br i1 %83, label %85, label %84
 
-cmpxchg.continue7.i:                              ; preds = %cmpxchg.store_expected6.i, %seqcst_fail.i
-  %frombool8.i = zext i1 %22 to i8
-  store i8 %frombool8.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue2.i
+84:                                               ; preds = %71
+  store i64 %82, ptr %75, align 8
+  br label %85
 
-monotonic_fail9.i:                                ; preds = %acquire.i
-  %23 = load i64, ptr %5, align 8
-  %24 = load i64, ptr %.atomictmp.i, align 8
-  %25 = cmpxchg weak ptr %this1.i, i64 %23, i64 %24 acquire monotonic, align 8
-  %26 = extractvalue { i64, i1 } %25, 0
-  %27 = extractvalue { i64, i1 } %25, 1
-  br i1 %27, label %cmpxchg.continue14.i, label %cmpxchg.store_expected13.i
+85:                                               ; preds = %84, %71
+  %86 = zext i1 %83 to i8
+  store i8 %86, ptr %17, align 1, !tbaa !42
+  %87 = load i8, ptr %17, align 1, !tbaa !42, !range !44, !noundef !45
+  %88 = trunc i8 %87 to i1
+  br i1 %88, label %94, label %89
 
-acquire_fail10.i:                                 ; preds = %acquire.i, %acquire.i
-  %28 = load i64, ptr %5, align 8
-  %29 = load i64, ptr %.atomictmp.i, align 8
-  %30 = cmpxchg weak ptr %this1.i, i64 %28, i64 %29 acquire acquire, align 8
-  %31 = extractvalue { i64, i1 } %30, 0
-  %32 = extractvalue { i64, i1 } %30, 1
-  br i1 %32, label %cmpxchg.continue17.i, label %cmpxchg.store_expected16.i
+89:                                               ; preds = %85
+  %90 = load i64, ptr %12, align 8, !tbaa !3
+  %91 = load ptr, ptr %7, align 8, !tbaa !11
+  %92 = load i64, ptr %91, align 8, !tbaa !3
+  %93 = add i64 %92, %90
+  store i64 %93, ptr %91, align 8, !tbaa !3
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %101
 
-seqcst_fail11.i:                                  ; preds = %acquire.i
-  %33 = load i64, ptr %5, align 8
-  %34 = load i64, ptr %.atomictmp.i, align 8
-  %35 = cmpxchg weak ptr %this1.i, i64 %33, i64 %34 acquire seq_cst, align 8
+94:                                               ; preds = %85
+  %95 = getelementptr inbounds nuw %struct.upb_ArenaRoot, ptr %8, i32 0, i32 0
+  %96 = load ptr, ptr %95, align 8, !tbaa !13
+  %97 = getelementptr inbounds nuw %struct.upb_ArenaRoot, ptr %9, i32 0, i32 0
+  %98 = load ptr, ptr %97, align 8, !tbaa !13
+  call void @_upb_Arena_DoFuseArenaLists(ptr noundef %96, ptr noundef %98)
+  %99 = getelementptr inbounds nuw %struct.upb_ArenaRoot, ptr %8, i32 0, i32 0
+  %100 = load ptr, ptr %99, align 8, !tbaa !13
+  store ptr %100, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %101
+
+101:                                              ; preds = %94, %89, %70
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  br label %102
+
+102:                                              ; preds = %101, %35
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #5
+  %103 = load ptr, ptr %4, align 8
+  ret ptr %103
+}
+
+; Function Attrs: nounwind uwtable
+define internal zeroext i1 @_upb_Arena_FixupRefs(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !16
+  store i64 %1, ptr %5, align 8, !tbaa !3
+  %12 = load i64, ptr %5, align 8, !tbaa !3
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %2
+  store i1 true, ptr %3, align 1
+  br label %44
+
+15:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %16 = load ptr, ptr %4, align 8, !tbaa !16
+  %17 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %16, i32 0, i32 1
+  %18 = load atomic i64, ptr %17 monotonic, align 8
+  store i64 %18, ptr %7, align 8
+  %19 = load i64, ptr %7, align 8, !tbaa !3
+  store i64 %19, ptr %6, align 8, !tbaa !3
+  %20 = load i64, ptr %6, align 8, !tbaa !3
+  %21 = call zeroext i1 @_upb_Arena_IsTaggedPointer(i64 noundef %20)
+  br i1 %21, label %22, label %23
+
+22:                                               ; preds = %15
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %43
+
+23:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %24 = load i64, ptr %6, align 8, !tbaa !3
+  %25 = load i64, ptr %5, align 8, !tbaa !3
+  %26 = sub i64 %24, %25
+  store i64 %26, ptr %9, align 8, !tbaa !3
+  br label %27
+
+27:                                               ; preds = %23
+  br label %28
+
+28:                                               ; preds = %27
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %4, align 8, !tbaa !16
+  %31 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %30, i32 0, i32 1
+  %32 = load i64, ptr %9, align 8, !tbaa !3
+  store i64 %32, ptr %10, align 8, !tbaa !3
+  %33 = load i64, ptr %6, align 8
+  %34 = load i64, ptr %10, align 8
+  %35 = cmpxchg ptr %31, i64 %33, i64 %34 monotonic monotonic, align 8
   %36 = extractvalue { i64, i1 } %35, 0
   %37 = extractvalue { i64, i1 } %35, 1
-  br i1 %37, label %cmpxchg.continue20.i, label %cmpxchg.store_expected19.i
+  br i1 %37, label %39, label %38
 
-atomic.continue12.i:                              ; preds = %cmpxchg.continue20.i, %cmpxchg.continue17.i, %cmpxchg.continue14.i
-  br label %_ZNSt13__atomic_baseIPN9grpc_core5Arena4ZoneEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit
+38:                                               ; preds = %29
+  store i64 %36, ptr %6, align 8
+  br label %39
 
-cmpxchg.store_expected13.i:                       ; preds = %monotonic_fail9.i
-  store i64 %26, ptr %5, align 8
-  br label %cmpxchg.continue14.i
+39:                                               ; preds = %38, %29
+  %40 = zext i1 %37 to i8
+  store i8 %40, ptr %11, align 1, !tbaa !42
+  %41 = load i8, ptr %11, align 1, !tbaa !42, !range !44, !noundef !45
+  %42 = trunc i8 %41 to i1
+  store i1 %42, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  br label %43
 
-cmpxchg.continue14.i:                             ; preds = %cmpxchg.store_expected13.i, %monotonic_fail9.i
-  %frombool15.i = zext i1 %27 to i8
-  store i8 %frombool15.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue12.i
+43:                                               ; preds = %39, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  br label %44
 
-cmpxchg.store_expected16.i:                       ; preds = %acquire_fail10.i
-  store i64 %31, ptr %5, align 8
-  br label %cmpxchg.continue17.i
-
-cmpxchg.continue17.i:                             ; preds = %cmpxchg.store_expected16.i, %acquire_fail10.i
-  %frombool18.i = zext i1 %32 to i8
-  store i8 %frombool18.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue12.i
-
-cmpxchg.store_expected19.i:                       ; preds = %seqcst_fail11.i
-  store i64 %36, ptr %5, align 8
-  br label %cmpxchg.continue20.i
-
-cmpxchg.continue20.i:                             ; preds = %cmpxchg.store_expected19.i, %seqcst_fail11.i
-  %frombool21.i = zext i1 %37 to i8
-  store i8 %frombool21.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue12.i
-
-monotonic_fail22.i:                               ; preds = %release.i
-  %38 = load i64, ptr %5, align 8
-  %39 = load i64, ptr %.atomictmp.i, align 8
-  %40 = cmpxchg weak ptr %this1.i, i64 %38, i64 %39 release monotonic, align 8
-  %41 = extractvalue { i64, i1 } %40, 0
-  %42 = extractvalue { i64, i1 } %40, 1
-  br i1 %42, label %cmpxchg.continue27.i, label %cmpxchg.store_expected26.i
-
-acquire_fail23.i:                                 ; preds = %release.i, %release.i
-  %43 = load i64, ptr %5, align 8
-  %44 = load i64, ptr %.atomictmp.i, align 8
-  %45 = cmpxchg weak ptr %this1.i, i64 %43, i64 %44 release acquire, align 8
-  %46 = extractvalue { i64, i1 } %45, 0
-  %47 = extractvalue { i64, i1 } %45, 1
-  br i1 %47, label %cmpxchg.continue30.i, label %cmpxchg.store_expected29.i
-
-seqcst_fail24.i:                                  ; preds = %release.i
-  %48 = load i64, ptr %5, align 8
-  %49 = load i64, ptr %.atomictmp.i, align 8
-  %50 = cmpxchg weak ptr %this1.i, i64 %48, i64 %49 release seq_cst, align 8
-  %51 = extractvalue { i64, i1 } %50, 0
-  %52 = extractvalue { i64, i1 } %50, 1
-  br i1 %52, label %cmpxchg.continue33.i, label %cmpxchg.store_expected32.i
-
-atomic.continue25.i:                              ; preds = %cmpxchg.continue33.i, %cmpxchg.continue30.i, %cmpxchg.continue27.i
-  br label %_ZNSt13__atomic_baseIPN9grpc_core5Arena4ZoneEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit
-
-cmpxchg.store_expected26.i:                       ; preds = %monotonic_fail22.i
-  store i64 %41, ptr %5, align 8
-  br label %cmpxchg.continue27.i
-
-cmpxchg.continue27.i:                             ; preds = %cmpxchg.store_expected26.i, %monotonic_fail22.i
-  %frombool28.i = zext i1 %42 to i8
-  store i8 %frombool28.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue25.i
-
-cmpxchg.store_expected29.i:                       ; preds = %acquire_fail23.i
-  store i64 %46, ptr %5, align 8
-  br label %cmpxchg.continue30.i
-
-cmpxchg.continue30.i:                             ; preds = %cmpxchg.store_expected29.i, %acquire_fail23.i
-  %frombool31.i = zext i1 %47 to i8
-  store i8 %frombool31.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue25.i
-
-cmpxchg.store_expected32.i:                       ; preds = %seqcst_fail24.i
-  store i64 %51, ptr %5, align 8
-  br label %cmpxchg.continue33.i
-
-cmpxchg.continue33.i:                             ; preds = %cmpxchg.store_expected32.i, %seqcst_fail24.i
-  %frombool34.i = zext i1 %52 to i8
-  store i8 %frombool34.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue25.i
-
-monotonic_fail35.i:                               ; preds = %acqrel.i
-  %53 = load i64, ptr %5, align 8
-  %54 = load i64, ptr %.atomictmp.i, align 8
-  %55 = cmpxchg weak ptr %this1.i, i64 %53, i64 %54 acq_rel monotonic, align 8
-  %56 = extractvalue { i64, i1 } %55, 0
-  %57 = extractvalue { i64, i1 } %55, 1
-  br i1 %57, label %cmpxchg.continue40.i, label %cmpxchg.store_expected39.i
-
-acquire_fail36.i:                                 ; preds = %acqrel.i, %acqrel.i
-  %58 = load i64, ptr %5, align 8
-  %59 = load i64, ptr %.atomictmp.i, align 8
-  %60 = cmpxchg weak ptr %this1.i, i64 %58, i64 %59 acq_rel acquire, align 8
-  %61 = extractvalue { i64, i1 } %60, 0
-  %62 = extractvalue { i64, i1 } %60, 1
-  br i1 %62, label %cmpxchg.continue43.i, label %cmpxchg.store_expected42.i
-
-seqcst_fail37.i:                                  ; preds = %acqrel.i
-  %63 = load i64, ptr %5, align 8
-  %64 = load i64, ptr %.atomictmp.i, align 8
-  %65 = cmpxchg weak ptr %this1.i, i64 %63, i64 %64 acq_rel seq_cst, align 8
-  %66 = extractvalue { i64, i1 } %65, 0
-  %67 = extractvalue { i64, i1 } %65, 1
-  br i1 %67, label %cmpxchg.continue46.i, label %cmpxchg.store_expected45.i
-
-atomic.continue38.i:                              ; preds = %cmpxchg.continue46.i, %cmpxchg.continue43.i, %cmpxchg.continue40.i
-  br label %_ZNSt13__atomic_baseIPN9grpc_core5Arena4ZoneEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit
-
-cmpxchg.store_expected39.i:                       ; preds = %monotonic_fail35.i
-  store i64 %56, ptr %5, align 8
-  br label %cmpxchg.continue40.i
-
-cmpxchg.continue40.i:                             ; preds = %cmpxchg.store_expected39.i, %monotonic_fail35.i
-  %frombool41.i = zext i1 %57 to i8
-  store i8 %frombool41.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue38.i
-
-cmpxchg.store_expected42.i:                       ; preds = %acquire_fail36.i
-  store i64 %61, ptr %5, align 8
-  br label %cmpxchg.continue43.i
-
-cmpxchg.continue43.i:                             ; preds = %cmpxchg.store_expected42.i, %acquire_fail36.i
-  %frombool44.i = zext i1 %62 to i8
-  store i8 %frombool44.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue38.i
-
-cmpxchg.store_expected45.i:                       ; preds = %seqcst_fail37.i
-  store i64 %66, ptr %5, align 8
-  br label %cmpxchg.continue46.i
-
-cmpxchg.continue46.i:                             ; preds = %cmpxchg.store_expected45.i, %seqcst_fail37.i
-  %frombool47.i = zext i1 %67 to i8
-  store i8 %frombool47.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue38.i
-
-monotonic_fail48.i:                               ; preds = %seqcst.i
-  %68 = load i64, ptr %5, align 8
-  %69 = load i64, ptr %.atomictmp.i, align 8
-  %70 = cmpxchg weak ptr %this1.i, i64 %68, i64 %69 seq_cst monotonic, align 8
-  %71 = extractvalue { i64, i1 } %70, 0
-  %72 = extractvalue { i64, i1 } %70, 1
-  br i1 %72, label %cmpxchg.continue53.i, label %cmpxchg.store_expected52.i
-
-acquire_fail49.i:                                 ; preds = %seqcst.i, %seqcst.i
-  %73 = load i64, ptr %5, align 8
-  %74 = load i64, ptr %.atomictmp.i, align 8
-  %75 = cmpxchg weak ptr %this1.i, i64 %73, i64 %74 seq_cst acquire, align 8
-  %76 = extractvalue { i64, i1 } %75, 0
-  %77 = extractvalue { i64, i1 } %75, 1
-  br i1 %77, label %cmpxchg.continue56.i, label %cmpxchg.store_expected55.i
-
-seqcst_fail50.i:                                  ; preds = %seqcst.i
-  %78 = load i64, ptr %5, align 8
-  %79 = load i64, ptr %.atomictmp.i, align 8
-  %80 = cmpxchg weak ptr %this1.i, i64 %78, i64 %79 seq_cst seq_cst, align 8
-  %81 = extractvalue { i64, i1 } %80, 0
-  %82 = extractvalue { i64, i1 } %80, 1
-  br i1 %82, label %cmpxchg.continue59.i, label %cmpxchg.store_expected58.i
-
-atomic.continue51.i:                              ; preds = %cmpxchg.continue59.i, %cmpxchg.continue56.i, %cmpxchg.continue53.i
-  br label %_ZNSt13__atomic_baseIPN9grpc_core5Arena4ZoneEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit
-
-cmpxchg.store_expected52.i:                       ; preds = %monotonic_fail48.i
-  store i64 %71, ptr %5, align 8
-  br label %cmpxchg.continue53.i
-
-cmpxchg.continue53.i:                             ; preds = %cmpxchg.store_expected52.i, %monotonic_fail48.i
-  %frombool54.i = zext i1 %72 to i8
-  store i8 %frombool54.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue51.i
-
-cmpxchg.store_expected55.i:                       ; preds = %acquire_fail49.i
-  store i64 %76, ptr %5, align 8
-  br label %cmpxchg.continue56.i
-
-cmpxchg.continue56.i:                             ; preds = %cmpxchg.store_expected55.i, %acquire_fail49.i
-  %frombool57.i = zext i1 %77 to i8
-  store i8 %frombool57.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue51.i
-
-cmpxchg.store_expected58.i:                       ; preds = %seqcst_fail50.i
-  store i64 %81, ptr %5, align 8
-  br label %cmpxchg.continue59.i
-
-cmpxchg.continue59.i:                             ; preds = %cmpxchg.store_expected58.i, %seqcst_fail50.i
-  %frombool60.i = zext i1 %82 to i8
-  store i8 %frombool60.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue51.i
-
-_ZNSt13__atomic_baseIPN9grpc_core5Arena4ZoneEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit: ; preds = %atomic.continue51.i, %atomic.continue38.i, %atomic.continue25.i, %atomic.continue12.i, %atomic.continue2.i
-  %83 = load i8, ptr %cmpxchg.bool.i, align 1
-  %tobool.i = trunc i8 %83 to i1
-  ret i1 %tobool.i
+44:                                               ; preds = %43, %14
+  %45 = load i1, ptr %3, align 1
+  ret i1 %45
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core5Arena16ManagedNewObject4LinkEPSt6atomicIPS1_E(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %head) #4 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %head.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %head, ptr %head.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %head.addr, align 8
-  %call = call noundef ptr @_ZNKSt6atomicIPN9grpc_core5Arena16ManagedNewObjectEE4loadESt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0) #3
-  %next = getelementptr inbounds %"struct.grpc_core::Arena::ManagedNewObject", ptr %this1, i32 0, i32 1
-  store ptr %call, ptr %next, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %entry
-  %1 = load ptr, ptr %head.addr, align 8
-  %next2 = getelementptr inbounds %"struct.grpc_core::Arena::ManagedNewObject", ptr %this1, i32 0, i32 1
-  %call3 = call noundef zeroext i1 @_ZNSt6atomicIPN9grpc_core5Arena16ManagedNewObjectEE21compare_exchange_weakERS3_S3_St12memory_orderS6_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %next2, ptr noundef %this1, i32 noundef 4, i32 noundef 0) #3
-  %lnot = xor i1 %call3, true
-  br i1 %lnot, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  br label %while.cond, !llvm.loop !9
-
-while.end:                                        ; preds = %while.cond
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNKSt6atomicIPN9grpc_core5Arena16ManagedNewObjectEE4loadESt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %__m) #4 comdat align 2 {
-entry:
-  %this.addr.i = alloca ptr, align 8
-  %__m.addr.i = alloca i32, align 4
-  %__b.i = alloca i32, align 4
-  %atomic-temp.i = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %__m.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %__m, ptr %__m.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_b = getelementptr inbounds %"struct.std::atomic.2", ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %__m.addr, align 4
-  store ptr %_M_b, ptr %this.addr.i, align 8
-  store i32 %0, ptr %__m.addr.i, align 4
-  %this1.i = load ptr, ptr %this.addr.i, align 8
-  %1 = load i32, ptr %__m.addr.i, align 4
-  %call.i = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %1, i32 noundef 65535)
-  store i32 %call.i, ptr %__b.i, align 4
-  %2 = load i32, ptr %__m.addr.i, align 4
-  switch i32 %2, label %monotonic.i [
-    i32 1, label %acquire.i
-    i32 2, label %acquire.i
-    i32 5, label %seqcst.i
-  ]
-
-monotonic.i:                                      ; preds = %entry
-  %3 = load atomic i64, ptr %this1.i monotonic, align 8
-  store i64 %3, ptr %atomic-temp.i, align 8
-  br label %_ZNKSt13__atomic_baseIPN9grpc_core5Arena16ManagedNewObjectEE4loadESt12memory_order.exit
-
-acquire.i:                                        ; preds = %entry, %entry
-  %4 = load atomic i64, ptr %this1.i acquire, align 8
-  store i64 %4, ptr %atomic-temp.i, align 8
-  br label %_ZNKSt13__atomic_baseIPN9grpc_core5Arena16ManagedNewObjectEE4loadESt12memory_order.exit
-
-seqcst.i:                                         ; preds = %entry
-  %5 = load atomic i64, ptr %this1.i seq_cst, align 8
-  store i64 %5, ptr %atomic-temp.i, align 8
-  br label %_ZNKSt13__atomic_baseIPN9grpc_core5Arena16ManagedNewObjectEE4loadESt12memory_order.exit
-
-_ZNKSt13__atomic_baseIPN9grpc_core5Arena16ManagedNewObjectEE4loadESt12memory_order.exit: ; preds = %seqcst.i, %acquire.i, %monotonic.i
-  %6 = load ptr, ptr %atomic-temp.i, align 8
-  ret ptr %6
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZNSt6atomicIPN9grpc_core5Arena16ManagedNewObjectEE21compare_exchange_weakERS3_S3_St12memory_orderS6_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__p1, ptr noundef %__p2, i32 noundef %__m1, i32 noundef %__m2) #4 comdat align 2 {
-entry:
-  %this.addr.i = alloca ptr, align 8
-  %__p1.addr.i = alloca ptr, align 8
-  %__p2.addr.i = alloca ptr, align 8
-  %__m1.addr.i = alloca i32, align 4
-  %__m2.addr.i = alloca i32, align 4
-  %.atomictmp.i = alloca ptr, align 8
-  %cmpxchg.bool.i = alloca i8, align 1
-  %this.addr = alloca ptr, align 8
-  %__p1.addr = alloca ptr, align 8
-  %__p2.addr = alloca ptr, align 8
-  %__m1.addr = alloca i32, align 4
-  %__m2.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p1, ptr %__p1.addr, align 8
-  store ptr %__p2, ptr %__p2.addr, align 8
-  store i32 %__m1, ptr %__m1.addr, align 4
-  store i32 %__m2, ptr %__m2.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_b = getelementptr inbounds %"struct.std::atomic.2", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__p1.addr, align 8
-  %1 = load ptr, ptr %__p2.addr, align 8
-  %2 = load i32, ptr %__m1.addr, align 4
-  %3 = load i32, ptr %__m2.addr, align 4
-  store ptr %_M_b, ptr %this.addr.i, align 8
-  store ptr %0, ptr %__p1.addr.i, align 8
-  store ptr %1, ptr %__p2.addr.i, align 8
-  store i32 %2, ptr %__m1.addr.i, align 4
-  store i32 %3, ptr %__m2.addr.i, align 4
-  %this1.i = load ptr, ptr %this.addr.i, align 8
-  %4 = load i32, ptr %__m1.addr.i, align 4
-  %5 = load ptr, ptr %__p1.addr.i, align 8
-  %6 = load ptr, ptr %__p2.addr.i, align 8
-  store ptr %6, ptr %.atomictmp.i, align 8
-  %7 = load i32, ptr %__m2.addr.i, align 4
-  switch i32 %4, label %monotonic.i [
-    i32 1, label %acquire.i
-    i32 2, label %acquire.i
-    i32 3, label %release.i
-    i32 4, label %acqrel.i
-    i32 5, label %seqcst.i
-  ]
-
-monotonic.i:                                      ; preds = %entry
-  switch i32 %7, label %monotonic_fail.i [
-    i32 1, label %acquire_fail.i
-    i32 2, label %acquire_fail.i
-    i32 5, label %seqcst_fail.i
-  ]
-
-acquire.i:                                        ; preds = %entry, %entry
-  switch i32 %7, label %monotonic_fail9.i [
-    i32 1, label %acquire_fail10.i
-    i32 2, label %acquire_fail10.i
-    i32 5, label %seqcst_fail11.i
-  ]
-
-release.i:                                        ; preds = %entry
-  switch i32 %7, label %monotonic_fail22.i [
-    i32 1, label %acquire_fail23.i
-    i32 2, label %acquire_fail23.i
-    i32 5, label %seqcst_fail24.i
-  ]
-
-acqrel.i:                                         ; preds = %entry
-  switch i32 %7, label %monotonic_fail35.i [
-    i32 1, label %acquire_fail36.i
-    i32 2, label %acquire_fail36.i
-    i32 5, label %seqcst_fail37.i
-  ]
-
-seqcst.i:                                         ; preds = %entry
-  switch i32 %7, label %monotonic_fail48.i [
-    i32 1, label %acquire_fail49.i
-    i32 2, label %acquire_fail49.i
-    i32 5, label %seqcst_fail50.i
-  ]
-
-monotonic_fail.i:                                 ; preds = %monotonic.i
-  %8 = load i64, ptr %5, align 8
-  %9 = load i64, ptr %.atomictmp.i, align 8
-  %10 = cmpxchg weak ptr %this1.i, i64 %8, i64 %9 monotonic monotonic, align 8
-  %11 = extractvalue { i64, i1 } %10, 0
-  %12 = extractvalue { i64, i1 } %10, 1
-  br i1 %12, label %cmpxchg.continue.i, label %cmpxchg.store_expected.i
-
-acquire_fail.i:                                   ; preds = %monotonic.i, %monotonic.i
-  %13 = load i64, ptr %5, align 8
-  %14 = load i64, ptr %.atomictmp.i, align 8
-  %15 = cmpxchg weak ptr %this1.i, i64 %13, i64 %14 monotonic acquire, align 8
-  %16 = extractvalue { i64, i1 } %15, 0
-  %17 = extractvalue { i64, i1 } %15, 1
-  br i1 %17, label %cmpxchg.continue4.i, label %cmpxchg.store_expected3.i
-
-seqcst_fail.i:                                    ; preds = %monotonic.i
-  %18 = load i64, ptr %5, align 8
-  %19 = load i64, ptr %.atomictmp.i, align 8
-  %20 = cmpxchg weak ptr %this1.i, i64 %18, i64 %19 monotonic seq_cst, align 8
-  %21 = extractvalue { i64, i1 } %20, 0
-  %22 = extractvalue { i64, i1 } %20, 1
-  br i1 %22, label %cmpxchg.continue7.i, label %cmpxchg.store_expected6.i
-
-atomic.continue2.i:                               ; preds = %cmpxchg.continue7.i, %cmpxchg.continue4.i, %cmpxchg.continue.i
-  br label %_ZNSt13__atomic_baseIPN9grpc_core5Arena16ManagedNewObjectEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit
-
-cmpxchg.store_expected.i:                         ; preds = %monotonic_fail.i
-  store i64 %11, ptr %5, align 8
-  br label %cmpxchg.continue.i
-
-cmpxchg.continue.i:                               ; preds = %cmpxchg.store_expected.i, %monotonic_fail.i
-  %frombool.i = zext i1 %12 to i8
-  store i8 %frombool.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue2.i
-
-cmpxchg.store_expected3.i:                        ; preds = %acquire_fail.i
-  store i64 %16, ptr %5, align 8
-  br label %cmpxchg.continue4.i
-
-cmpxchg.continue4.i:                              ; preds = %cmpxchg.store_expected3.i, %acquire_fail.i
-  %frombool5.i = zext i1 %17 to i8
-  store i8 %frombool5.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue2.i
-
-cmpxchg.store_expected6.i:                        ; preds = %seqcst_fail.i
-  store i64 %21, ptr %5, align 8
-  br label %cmpxchg.continue7.i
-
-cmpxchg.continue7.i:                              ; preds = %cmpxchg.store_expected6.i, %seqcst_fail.i
-  %frombool8.i = zext i1 %22 to i8
-  store i8 %frombool8.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue2.i
-
-monotonic_fail9.i:                                ; preds = %acquire.i
-  %23 = load i64, ptr %5, align 8
-  %24 = load i64, ptr %.atomictmp.i, align 8
-  %25 = cmpxchg weak ptr %this1.i, i64 %23, i64 %24 acquire monotonic, align 8
-  %26 = extractvalue { i64, i1 } %25, 0
-  %27 = extractvalue { i64, i1 } %25, 1
-  br i1 %27, label %cmpxchg.continue14.i, label %cmpxchg.store_expected13.i
-
-acquire_fail10.i:                                 ; preds = %acquire.i, %acquire.i
-  %28 = load i64, ptr %5, align 8
-  %29 = load i64, ptr %.atomictmp.i, align 8
-  %30 = cmpxchg weak ptr %this1.i, i64 %28, i64 %29 acquire acquire, align 8
-  %31 = extractvalue { i64, i1 } %30, 0
-  %32 = extractvalue { i64, i1 } %30, 1
-  br i1 %32, label %cmpxchg.continue17.i, label %cmpxchg.store_expected16.i
-
-seqcst_fail11.i:                                  ; preds = %acquire.i
-  %33 = load i64, ptr %5, align 8
-  %34 = load i64, ptr %.atomictmp.i, align 8
-  %35 = cmpxchg weak ptr %this1.i, i64 %33, i64 %34 acquire seq_cst, align 8
-  %36 = extractvalue { i64, i1 } %35, 0
-  %37 = extractvalue { i64, i1 } %35, 1
-  br i1 %37, label %cmpxchg.continue20.i, label %cmpxchg.store_expected19.i
-
-atomic.continue12.i:                              ; preds = %cmpxchg.continue20.i, %cmpxchg.continue17.i, %cmpxchg.continue14.i
-  br label %_ZNSt13__atomic_baseIPN9grpc_core5Arena16ManagedNewObjectEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit
-
-cmpxchg.store_expected13.i:                       ; preds = %monotonic_fail9.i
-  store i64 %26, ptr %5, align 8
-  br label %cmpxchg.continue14.i
-
-cmpxchg.continue14.i:                             ; preds = %cmpxchg.store_expected13.i, %monotonic_fail9.i
-  %frombool15.i = zext i1 %27 to i8
-  store i8 %frombool15.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue12.i
-
-cmpxchg.store_expected16.i:                       ; preds = %acquire_fail10.i
-  store i64 %31, ptr %5, align 8
-  br label %cmpxchg.continue17.i
-
-cmpxchg.continue17.i:                             ; preds = %cmpxchg.store_expected16.i, %acquire_fail10.i
-  %frombool18.i = zext i1 %32 to i8
-  store i8 %frombool18.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue12.i
-
-cmpxchg.store_expected19.i:                       ; preds = %seqcst_fail11.i
-  store i64 %36, ptr %5, align 8
-  br label %cmpxchg.continue20.i
-
-cmpxchg.continue20.i:                             ; preds = %cmpxchg.store_expected19.i, %seqcst_fail11.i
-  %frombool21.i = zext i1 %37 to i8
-  store i8 %frombool21.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue12.i
-
-monotonic_fail22.i:                               ; preds = %release.i
-  %38 = load i64, ptr %5, align 8
-  %39 = load i64, ptr %.atomictmp.i, align 8
-  %40 = cmpxchg weak ptr %this1.i, i64 %38, i64 %39 release monotonic, align 8
-  %41 = extractvalue { i64, i1 } %40, 0
-  %42 = extractvalue { i64, i1 } %40, 1
-  br i1 %42, label %cmpxchg.continue27.i, label %cmpxchg.store_expected26.i
-
-acquire_fail23.i:                                 ; preds = %release.i, %release.i
-  %43 = load i64, ptr %5, align 8
-  %44 = load i64, ptr %.atomictmp.i, align 8
-  %45 = cmpxchg weak ptr %this1.i, i64 %43, i64 %44 release acquire, align 8
-  %46 = extractvalue { i64, i1 } %45, 0
-  %47 = extractvalue { i64, i1 } %45, 1
-  br i1 %47, label %cmpxchg.continue30.i, label %cmpxchg.store_expected29.i
-
-seqcst_fail24.i:                                  ; preds = %release.i
-  %48 = load i64, ptr %5, align 8
-  %49 = load i64, ptr %.atomictmp.i, align 8
-  %50 = cmpxchg weak ptr %this1.i, i64 %48, i64 %49 release seq_cst, align 8
-  %51 = extractvalue { i64, i1 } %50, 0
-  %52 = extractvalue { i64, i1 } %50, 1
-  br i1 %52, label %cmpxchg.continue33.i, label %cmpxchg.store_expected32.i
-
-atomic.continue25.i:                              ; preds = %cmpxchg.continue33.i, %cmpxchg.continue30.i, %cmpxchg.continue27.i
-  br label %_ZNSt13__atomic_baseIPN9grpc_core5Arena16ManagedNewObjectEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit
-
-cmpxchg.store_expected26.i:                       ; preds = %monotonic_fail22.i
-  store i64 %41, ptr %5, align 8
-  br label %cmpxchg.continue27.i
-
-cmpxchg.continue27.i:                             ; preds = %cmpxchg.store_expected26.i, %monotonic_fail22.i
-  %frombool28.i = zext i1 %42 to i8
-  store i8 %frombool28.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue25.i
-
-cmpxchg.store_expected29.i:                       ; preds = %acquire_fail23.i
-  store i64 %46, ptr %5, align 8
-  br label %cmpxchg.continue30.i
-
-cmpxchg.continue30.i:                             ; preds = %cmpxchg.store_expected29.i, %acquire_fail23.i
-  %frombool31.i = zext i1 %47 to i8
-  store i8 %frombool31.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue25.i
-
-cmpxchg.store_expected32.i:                       ; preds = %seqcst_fail24.i
-  store i64 %51, ptr %5, align 8
-  br label %cmpxchg.continue33.i
-
-cmpxchg.continue33.i:                             ; preds = %cmpxchg.store_expected32.i, %seqcst_fail24.i
-  %frombool34.i = zext i1 %52 to i8
-  store i8 %frombool34.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue25.i
-
-monotonic_fail35.i:                               ; preds = %acqrel.i
-  %53 = load i64, ptr %5, align 8
-  %54 = load i64, ptr %.atomictmp.i, align 8
-  %55 = cmpxchg weak ptr %this1.i, i64 %53, i64 %54 acq_rel monotonic, align 8
-  %56 = extractvalue { i64, i1 } %55, 0
-  %57 = extractvalue { i64, i1 } %55, 1
-  br i1 %57, label %cmpxchg.continue40.i, label %cmpxchg.store_expected39.i
-
-acquire_fail36.i:                                 ; preds = %acqrel.i, %acqrel.i
-  %58 = load i64, ptr %5, align 8
-  %59 = load i64, ptr %.atomictmp.i, align 8
-  %60 = cmpxchg weak ptr %this1.i, i64 %58, i64 %59 acq_rel acquire, align 8
-  %61 = extractvalue { i64, i1 } %60, 0
-  %62 = extractvalue { i64, i1 } %60, 1
-  br i1 %62, label %cmpxchg.continue43.i, label %cmpxchg.store_expected42.i
-
-seqcst_fail37.i:                                  ; preds = %acqrel.i
-  %63 = load i64, ptr %5, align 8
-  %64 = load i64, ptr %.atomictmp.i, align 8
-  %65 = cmpxchg weak ptr %this1.i, i64 %63, i64 %64 acq_rel seq_cst, align 8
-  %66 = extractvalue { i64, i1 } %65, 0
-  %67 = extractvalue { i64, i1 } %65, 1
-  br i1 %67, label %cmpxchg.continue46.i, label %cmpxchg.store_expected45.i
-
-atomic.continue38.i:                              ; preds = %cmpxchg.continue46.i, %cmpxchg.continue43.i, %cmpxchg.continue40.i
-  br label %_ZNSt13__atomic_baseIPN9grpc_core5Arena16ManagedNewObjectEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit
-
-cmpxchg.store_expected39.i:                       ; preds = %monotonic_fail35.i
-  store i64 %56, ptr %5, align 8
-  br label %cmpxchg.continue40.i
-
-cmpxchg.continue40.i:                             ; preds = %cmpxchg.store_expected39.i, %monotonic_fail35.i
-  %frombool41.i = zext i1 %57 to i8
-  store i8 %frombool41.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue38.i
-
-cmpxchg.store_expected42.i:                       ; preds = %acquire_fail36.i
-  store i64 %61, ptr %5, align 8
-  br label %cmpxchg.continue43.i
-
-cmpxchg.continue43.i:                             ; preds = %cmpxchg.store_expected42.i, %acquire_fail36.i
-  %frombool44.i = zext i1 %62 to i8
-  store i8 %frombool44.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue38.i
-
-cmpxchg.store_expected45.i:                       ; preds = %seqcst_fail37.i
-  store i64 %66, ptr %5, align 8
-  br label %cmpxchg.continue46.i
-
-cmpxchg.continue46.i:                             ; preds = %cmpxchg.store_expected45.i, %seqcst_fail37.i
-  %frombool47.i = zext i1 %67 to i8
-  store i8 %frombool47.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue38.i
-
-monotonic_fail48.i:                               ; preds = %seqcst.i
-  %68 = load i64, ptr %5, align 8
-  %69 = load i64, ptr %.atomictmp.i, align 8
-  %70 = cmpxchg weak ptr %this1.i, i64 %68, i64 %69 seq_cst monotonic, align 8
-  %71 = extractvalue { i64, i1 } %70, 0
-  %72 = extractvalue { i64, i1 } %70, 1
-  br i1 %72, label %cmpxchg.continue53.i, label %cmpxchg.store_expected52.i
-
-acquire_fail49.i:                                 ; preds = %seqcst.i, %seqcst.i
-  %73 = load i64, ptr %5, align 8
-  %74 = load i64, ptr %.atomictmp.i, align 8
-  %75 = cmpxchg weak ptr %this1.i, i64 %73, i64 %74 seq_cst acquire, align 8
-  %76 = extractvalue { i64, i1 } %75, 0
-  %77 = extractvalue { i64, i1 } %75, 1
-  br i1 %77, label %cmpxchg.continue56.i, label %cmpxchg.store_expected55.i
-
-seqcst_fail50.i:                                  ; preds = %seqcst.i
-  %78 = load i64, ptr %5, align 8
-  %79 = load i64, ptr %.atomictmp.i, align 8
-  %80 = cmpxchg weak ptr %this1.i, i64 %78, i64 %79 seq_cst seq_cst, align 8
-  %81 = extractvalue { i64, i1 } %80, 0
-  %82 = extractvalue { i64, i1 } %80, 1
-  br i1 %82, label %cmpxchg.continue59.i, label %cmpxchg.store_expected58.i
-
-atomic.continue51.i:                              ; preds = %cmpxchg.continue59.i, %cmpxchg.continue56.i, %cmpxchg.continue53.i
-  br label %_ZNSt13__atomic_baseIPN9grpc_core5Arena16ManagedNewObjectEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit
-
-cmpxchg.store_expected52.i:                       ; preds = %monotonic_fail48.i
-  store i64 %71, ptr %5, align 8
-  br label %cmpxchg.continue53.i
-
-cmpxchg.continue53.i:                             ; preds = %cmpxchg.store_expected52.i, %monotonic_fail48.i
-  %frombool54.i = zext i1 %72 to i8
-  store i8 %frombool54.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue51.i
-
-cmpxchg.store_expected55.i:                       ; preds = %acquire_fail49.i
-  store i64 %76, ptr %5, align 8
-  br label %cmpxchg.continue56.i
-
-cmpxchg.continue56.i:                             ; preds = %cmpxchg.store_expected55.i, %acquire_fail49.i
-  %frombool57.i = zext i1 %77 to i8
-  store i8 %frombool57.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue51.i
-
-cmpxchg.store_expected58.i:                       ; preds = %seqcst_fail50.i
-  store i64 %81, ptr %5, align 8
-  br label %cmpxchg.continue59.i
-
-cmpxchg.continue59.i:                             ; preds = %cmpxchg.store_expected58.i, %seqcst_fail50.i
-  %frombool60.i = zext i1 %82 to i8
-  store i8 %frombool60.i, ptr %cmpxchg.bool.i, align 1
-  br label %atomic.continue51.i
-
-_ZNSt13__atomic_baseIPN9grpc_core5Arena16ManagedNewObjectEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit: ; preds = %atomic.continue51.i, %atomic.continue38.i, %atomic.continue25.i, %atomic.continue12.i, %atomic.continue2.i
-  %83 = load i8, ptr %cmpxchg.bool.i, align 1
-  %tobool.i = trunc i8 %83 to i1
-  ret i1 %tobool.i
-}
-
-; Function Attrs: uwtable
-define internal void @__cxx_global_var_init.1() #0 section ".text.startup" comdat($_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E) {
-entry:
-  %0 = load i8, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  %guard.uninitialized = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized, label %init.check, label %init.end
-
-init.check:                                       ; preds = %entry
-  store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  call void @_ZN9grpc_core10NoDestructINS_14promise_detail10UnwakeableEEC2IJEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E)
-  br label %init.end
-
-init.end:                                         ; preds = %init.check, %entry
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN9grpc_core10NoDestructINS_14promise_detail10UnwakeableEEC2IJEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #6 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %space_ = getelementptr inbounds %"class.grpc_core::NoDestruct", ptr %this1, i32 0, i32 0
-  call void @_ZN9grpc_core9ConstructINS_14promise_detail10UnwakeableEJEEEvPT_DpOT0_(ptr noundef %space_)
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt6atomicImEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %__i) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__i.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__i, ptr %__i.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i64, ptr %__i.addr, align 8
-  call void @_ZNSt13__atomic_baseImEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %this1, i64 noundef %0) #3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt6atomicIPN9grpc_core5Arena4ZoneEEC2ES3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_b = getelementptr inbounds %"struct.std::atomic.0", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZNSt13__atomic_baseIPN9grpc_core5Arena4ZoneEEC2ES3_(ptr noundef nonnull align 8 dereferenceable(8) %_M_b, ptr noundef %0) #3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt6atomicIPN9grpc_core5Arena16ManagedNewObjectEEC2ES3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_b = getelementptr inbounds %"struct.std::atomic.2", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZNSt13__atomic_baseIPN9grpc_core5Arena16ManagedNewObjectEEC2ES3_(ptr noundef nonnull align 8 dereferenceable(8) %_M_b, ptr noundef %0) #3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt13__atomic_baseImEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %__i) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__i.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__i, ptr %__i.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_i = getelementptr inbounds %"struct.std::__atomic_base", ptr %this1, i32 0, i32 0
-  %0 = load i64, ptr %__i.addr, align 8
-  store i64 %0, ptr %_M_i, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt13__atomic_baseIPN9grpc_core5Arena4ZoneEEC2ES3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_p = getelementptr inbounds %"struct.std::__atomic_base.1", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_p, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt13__atomic_baseIPN9grpc_core5Arena16ManagedNewObjectEEC2ES3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_p = getelementptr inbounds %"struct.std::__atomic_base.3", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_p, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt4pairIPN9grpc_core5ArenaEPvEC2IRS2_RS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %__x, ptr noundef nonnull align 8 dereferenceable(8) %__y) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__x.addr = alloca ptr, align 8
-  %__y.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__x, ptr %__x.addr, align 8
-  store ptr %__y, ptr %__y.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %first = getelementptr inbounds %"struct.std::pair", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__x.addr, align 8
-  %1 = load ptr, ptr %0, align 8
-  store ptr %1, ptr %first, align 8
-  %second = getelementptr inbounds %"struct.std::pair", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %__y.addr, align 8
-  %3 = load ptr, ptr %2, align 8
-  store ptr %3, ptr %second, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNKSt19__shared_ptr_accessIN17grpc_event_engine12experimental8internal19MemoryAllocatorImplELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZNKSt19__shared_ptr_accessIN17grpc_event_engine12experimental8internal19MemoryAllocatorImplELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EE6_M_getEv(ptr noundef nonnull align 1 dereferenceable(1) %this1) #3
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNKSt19__shared_ptr_accessIN17grpc_event_engine12experimental8internal19MemoryAllocatorImplELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EE6_M_getEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZNKSt12__shared_ptrIN17grpc_event_engine12experimental8internal19MemoryAllocatorImplELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNKSt12__shared_ptrIN17grpc_event_engine12experimental8internal19MemoryAllocatorImplELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_ptr = getelementptr inbounds %"class.std::__shared_ptr", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %_M_ptr, align 8
-  ret ptr %0
+; Function Attrs: nounwind uwtable
+define hidden zeroext i1 @upb_Arena_IncRefFor(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca %struct.upb_ArenaRoot, align 8
+  %9 = alloca %struct.upb_ArenaRoot, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %12 = load ptr, ptr %4, align 8, !tbaa !8
+  %13 = call ptr @upb_Arena_Internal(ptr noundef %12)
+  store ptr %13, ptr %6, align 8, !tbaa !16
+  %14 = load ptr, ptr %6, align 8, !tbaa !16
+  %15 = call zeroext i1 @_upb_ArenaInternal_HasInitialBlock(ptr noundef %14)
+  br i1 %15, label %16, label %17
+
+16:                                               ; preds = %2
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %46
+
+17:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #5
+  br label %18
+
+18:                                               ; preds = %45, %17
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #5
+  %19 = load ptr, ptr %4, align 8, !tbaa !8
+  %20 = call { ptr, i64 } @_upb_Arena_FindRoot(ptr noundef %19)
+  %21 = getelementptr inbounds nuw { ptr, i64 }, ptr %9, i32 0, i32 0
+  %22 = extractvalue { ptr, i64 } %20, 0
+  store ptr %22, ptr %21, align 8
+  %23 = getelementptr inbounds nuw { ptr, i64 }, ptr %9, i32 0, i32 1
+  %24 = extractvalue { ptr, i64 } %20, 1
+  store i64 %24, ptr %23, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %9, i64 16, i1 false), !tbaa.struct !49
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #5
+  %25 = getelementptr inbounds nuw %struct.upb_ArenaRoot, ptr %8, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8, !tbaa !13
+  %27 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %26, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct.upb_ArenaRoot, ptr %8, i32 0, i32 1
+  %29 = getelementptr inbounds nuw %struct.upb_ArenaRoot, ptr %8, i32 0, i32 1
+  %30 = load i64, ptr %29, align 8, !tbaa !26
+  %31 = call i64 @_upb_Arena_RefCountFromTagged(i64 noundef %30)
+  %32 = add i64 %31, 1
+  %33 = call i64 @_upb_Arena_TaggedFromRefcount(i64 noundef %32)
+  store i64 %33, ptr %10, align 8, !tbaa !3
+  %34 = load i64, ptr %28, align 8
+  %35 = load i64, ptr %10, align 8
+  %36 = cmpxchg weak ptr %27, i64 %34, i64 %35 release acquire, align 8
+  %37 = extractvalue { i64, i1 } %36, 0
+  %38 = extractvalue { i64, i1 } %36, 1
+  br i1 %38, label %40, label %39
+
+39:                                               ; preds = %18
+  store i64 %37, ptr %28, align 8
+  br label %40
+
+40:                                               ; preds = %39, %18
+  %41 = zext i1 %38 to i8
+  store i8 %41, ptr %11, align 1, !tbaa !42
+  %42 = load i8, ptr %11, align 1, !tbaa !42, !range !44, !noundef !45
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %44, label %45
+
+44:                                               ; preds = %40
+  store i1 true, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #5
+  br label %46
+
+45:                                               ; preds = %40
+  br label %18
+
+46:                                               ; preds = %44, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %47 = load i1, ptr %3, align 1
+  ret i1 %47
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9grpc_core9ConstructINS_14promise_detail10UnwakeableEJEEEvPT_DpOT0_(ptr noundef %p) #4 comdat {
-entry:
-  %p.addr = alloca ptr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
-  call void @_ZN9grpc_core14promise_detail10UnwakeableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
+; Function Attrs: nounwind uwtable
+define hidden void @upb_Arena_DecRefFor(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !27
+  %5 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @upb_Arena_Free(ptr noundef %5)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9grpc_core14promise_detail10UnwakeableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN9grpc_core8WakeableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
+; Function Attrs: nounwind uwtable
+define hidden void @_upb_Arena_SwapIn_dont_copy_me__upb_internal_use_only(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  %9 = load ptr, ptr %3, align 8, !tbaa !8
+  %10 = call ptr @upb_Arena_Internal(ptr noundef %9)
+  store ptr %10, ptr %5, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %11 = load ptr, ptr %4, align 8, !tbaa !8
+  %12 = call ptr @upb_Arena_Internal(ptr noundef %11)
+  store ptr %12, ptr %6, align 8, !tbaa !16
+  %13 = load ptr, ptr %3, align 8, !tbaa !8
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %14, i64 16, i1 false), !tbaa.struct !50
+  %15 = load ptr, ptr %6, align 8, !tbaa !16
+  %16 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %15, i32 0, i32 0
+  %17 = load i64, ptr %16, align 8, !tbaa !30
+  %18 = load ptr, ptr %5, align 8, !tbaa !16
+  %19 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %18, i32 0, i32 0
+  store i64 %17, ptr %19, align 8, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %20 = load ptr, ptr %6, align 8, !tbaa !16
+  %21 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %20, i32 0, i32 4
+  %22 = load atomic i64, ptr %21 monotonic, align 8
+  store i64 %22, ptr %8, align 8
+  %23 = load ptr, ptr %8, align 8, !tbaa !17
+  store ptr %23, ptr %7, align 8, !tbaa !17
+  %24 = load ptr, ptr %5, align 8, !tbaa !16
+  %25 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %24, i32 0, i32 4
+  %26 = load ptr, ptr %7, align 8, !tbaa !17
+  store ptr %26, ptr %25, align 8, !tbaa !7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9grpc_core8WakeableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
+; Function Attrs: nounwind uwtable
+define hidden void @_upb_Arena_SwapOut_dont_copy_me__upb_internal_use_only(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  %10 = load ptr, ptr %3, align 8, !tbaa !8
+  %11 = call ptr @upb_Arena_Internal(ptr noundef %10)
+  store ptr %11, ptr %5, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %12 = load ptr, ptr %4, align 8, !tbaa !8
+  %13 = call ptr @upb_Arena_Internal(ptr noundef %12)
+  store ptr %13, ptr %6, align 8, !tbaa !16
+  %14 = load ptr, ptr %3, align 8, !tbaa !8
+  %15 = load ptr, ptr %4, align 8, !tbaa !8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %15, i64 16, i1 false), !tbaa.struct !50
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %16 = load ptr, ptr %6, align 8, !tbaa !16
+  %17 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %16, i32 0, i32 4
+  %18 = load atomic i64, ptr %17 monotonic, align 8
+  store i64 %18, ptr %8, align 8
+  %19 = load ptr, ptr %8, align 8, !tbaa !17
+  store ptr %19, ptr %7, align 8, !tbaa !17
+  %20 = load ptr, ptr %5, align 8, !tbaa !16
+  %21 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %20, i32 0, i32 4
+  %22 = load ptr, ptr %7, align 8, !tbaa !17
+  store ptr %22, ptr %9, align 8, !tbaa !17
+  %23 = load i64, ptr %9, align 8
+  store atomic i64 %23, ptr %21 monotonic, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
   ret void
 }
 
-declare void @__cxa_pure_virtual() unnamed_addr
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @upb_malloc(ptr noundef %0, i64 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !35
+  store i64 %1, ptr %4, align 8, !tbaa !3
+  br label %5
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %__m, i32 noundef %__mod) #4 comdat {
-entry:
-  %__m.addr = alloca i32, align 4
-  %__mod.addr = alloca i32, align 4
-  store i32 %__m, ptr %__m.addr, align 4
-  store i32 %__mod, ptr %__mod.addr, align 4
-  %0 = load i32, ptr %__m.addr, align 4
-  %1 = load i32, ptr %__mod.addr, align 4
-  %and = and i32 %0, %1
-  ret i32 %and
+5:                                                ; preds = %2
+  br label %6
+
+6:                                                ; preds = %5
+  %7 = load ptr, ptr %3, align 8, !tbaa !35
+  %8 = getelementptr inbounds nuw %struct.upb_alloc, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !51
+  %10 = load ptr, ptr %3, align 8, !tbaa !35
+  %11 = load i64, ptr %4, align 8, !tbaa !3
+  %12 = call ptr %9(ptr noundef %10, ptr noundef null, i64 noundef 0, i64 noundef %11)
+  ret ptr %12
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNKSt13__atomic_baseIPN9grpc_core5Arena4ZoneEEcvS3_Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %this.addr.i = alloca ptr, align 8
-  %__m.addr.i = alloca i32, align 4
-  %__b.i = alloca i32, align 4
-  %atomic-temp.i = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store ptr %this1, ptr %this.addr.i, align 8
-  store i32 5, ptr %__m.addr.i, align 4
-  %this1.i = load ptr, ptr %this.addr.i, align 8
-  %0 = load i32, ptr %__m.addr.i, align 4
-  %call.i = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %0, i32 noundef 65535)
-  store i32 %call.i, ptr %__b.i, align 4
-  %1 = load i32, ptr %__m.addr.i, align 4
-  switch i32 %1, label %monotonic.i [
-    i32 1, label %acquire.i
-    i32 2, label %acquire.i
-    i32 5, label %seqcst.i
-  ]
-
-monotonic.i:                                      ; preds = %entry
-  %2 = load atomic i64, ptr %this1.i monotonic, align 8
-  store i64 %2, ptr %atomic-temp.i, align 8
-  br label %_ZNKSt13__atomic_baseIPN9grpc_core5Arena4ZoneEE4loadESt12memory_order.exit
-
-acquire.i:                                        ; preds = %entry, %entry
-  %3 = load atomic i64, ptr %this1.i acquire, align 8
-  store i64 %3, ptr %atomic-temp.i, align 8
-  br label %_ZNKSt13__atomic_baseIPN9grpc_core5Arena4ZoneEE4loadESt12memory_order.exit
-
-seqcst.i:                                         ; preds = %entry
-  %4 = load atomic i64, ptr %this1.i seq_cst, align 8
-  store i64 %4, ptr %atomic-temp.i, align 8
-  br label %_ZNKSt13__atomic_baseIPN9grpc_core5Arena4ZoneEE4loadESt12memory_order.exit
-
-_ZNKSt13__atomic_baseIPN9grpc_core5Arena4ZoneEE4loadESt12memory_order.exit: ; preds = %seqcst.i, %acquire.i, %monotonic.i
-  %5 = load ptr, ptr %atomic-temp.i, align 8
-  ret ptr %5
+; Function Attrs: nounwind uwtable
+define internal ptr @_upb_ArenaInternal_BlockAlloc(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
+  %4 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %3, i32 0, i32 0
+  %5 = load i64, ptr %4, align 8, !tbaa !30
+  %6 = and i64 %5, -2
+  %7 = inttoptr i64 %6 to ptr
+  ret ptr %7
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt10__exchangeIPN9grpc_core5Arena16ManagedNewObjectERS3_ET_RS5_OT0_(ptr noundef nonnull align 8 dereferenceable(8) %__obj, ptr noundef nonnull align 8 dereferenceable(8) %__new_val) #4 comdat {
-entry:
-  %__obj.addr = alloca ptr, align 8
-  %__new_val.addr = alloca ptr, align 8
-  %__old_val = alloca ptr, align 8
-  store ptr %__obj, ptr %__obj.addr, align 8
-  store ptr %__new_val, ptr %__new_val.addr, align 8
-  %0 = load ptr, ptr %__obj.addr, align 8
-  %1 = load ptr, ptr %0, align 8
-  store ptr %1, ptr %__old_val, align 8
-  %2 = load ptr, ptr %__new_val.addr, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr %__obj.addr, align 8
-  store ptr %3, ptr %4, align 8
-  %5 = load ptr, ptr %__old_val, align 8
-  ret ptr %5
-}
-
-; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_arena.cc() #0 section ".text.startup" {
-entry:
-  call void @__cxx_global_var_init()
+; Function Attrs: nounwind uwtable
+define internal void @_upb_Arena_AddBlock(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !27
+  store i64 %2, ptr %6, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %10 = load ptr, ptr %4, align 8, !tbaa !8
+  %11 = call ptr @upb_Arena_Internal(ptr noundef %10)
+  store ptr %11, ptr %7, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %12 = load ptr, ptr %5, align 8, !tbaa !27
+  store ptr %12, ptr %8, align 8, !tbaa !17
+  %13 = load i64, ptr %6, align 8, !tbaa !3
+  %14 = trunc i64 %13 to i32
+  %15 = load ptr, ptr %8, align 8, !tbaa !17
+  %16 = getelementptr inbounds nuw %struct.upb_MemBlock, ptr %15, i32 0, i32 1
+  store i32 %14, ptr %16, align 8, !tbaa !19
+  %17 = load ptr, ptr %8, align 8, !tbaa !17
+  %18 = getelementptr inbounds nuw %struct.upb_MemBlock, ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %7, align 8, !tbaa !16
+  %20 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %19, i32 0, i32 4
+  %21 = load atomic ptr, ptr %20 seq_cst, align 8, !tbaa !53
+  store ptr %21, ptr %18, align 8, !tbaa !7
+  %22 = load ptr, ptr %7, align 8, !tbaa !16
+  %23 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %22, i32 0, i32 4
+  %24 = load ptr, ptr %8, align 8, !tbaa !17
+  store ptr %24, ptr %9, align 8, !tbaa !17
+  %25 = load i64, ptr %9, align 8
+  store atomic i64 %25, ptr %23 release, align 8
+  %26 = load ptr, ptr %8, align 8, !tbaa !17
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %28 = load ptr, ptr %4, align 8, !tbaa !8
+  %29 = getelementptr inbounds nuw %struct.upb_Arena, ptr %28, i32 0, i32 0
+  store ptr %27, ptr %29, align 8, !tbaa !32
+  %30 = load ptr, ptr %8, align 8, !tbaa !17
+  %31 = load i64, ptr %6, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31
+  %33 = load ptr, ptr %4, align 8, !tbaa !8
+  %34 = getelementptr inbounds nuw %struct.upb_Arena, ptr %33, i32 0, i32 1
+  store ptr %32, ptr %34, align 8, !tbaa !54
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
   ret void
 }
 
-attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
-attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { noreturn nounwind }
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @_upb_ArenaHas_dont_copy_me__upb_internal_use_only(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = getelementptr inbounds nuw %struct.upb_Arena, ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !54
+  %6 = load ptr, ptr %2, align 8, !tbaa !8
+  %7 = getelementptr inbounds nuw %struct.upb_Arena, ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !32
+  %9 = ptrtoint ptr %5 to i64
+  %10 = ptrtoint ptr %8 to i64
+  %11 = sub i64 %9, %10
+  ret i64 %11
+}
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @upb_free(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !35
+  store ptr %1, ptr %4, align 8, !tbaa !27
+  br label %5
+
+5:                                                ; preds = %2
+  br label %6
+
+6:                                                ; preds = %5
+  %7 = load ptr, ptr %3, align 8, !tbaa !35
+  %8 = getelementptr inbounds nuw %struct.upb_alloc, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !51
+  %10 = load ptr, ptr %3, align 8, !tbaa !35
+  %11 = load ptr, ptr %4, align 8, !tbaa !27
+  %12 = call ptr %9(ptr noundef %10, ptr noundef %11, i64 noundef 0, i64 noundef 0)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal i64 @_upb_Arena_TaggedFromPointer(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8, !tbaa !16
+  %5 = ptrtoint ptr %4 to i64
+  store i64 %5, ptr %3, align 8, !tbaa !3
+  br label %6
+
+6:                                                ; preds = %1
+  br label %7
+
+7:                                                ; preds = %6
+  br label %8
+
+8:                                                ; preds = %7
+  %9 = load i64, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
+  ret i64 %9
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @_upb_Arena_DoFuseArenaLists(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  %15 = load ptr, ptr %3, align 8, !tbaa !16
+  %16 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %15, i32 0, i32 3
+  %17 = load atomic i64, ptr %16 monotonic, align 8
+  store i64 %17, ptr %6, align 8
+  %18 = load ptr, ptr %6, align 8, !tbaa !16
+  store ptr %18, ptr %5, align 8, !tbaa !16
+  br label %19
+
+19:                                               ; preds = %45, %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %20 = load ptr, ptr %5, align 8, !tbaa !16
+  %21 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %20, i32 0, i32 2
+  %22 = load atomic i64, ptr %21 monotonic, align 8
+  store i64 %22, ptr %8, align 8
+  %23 = load ptr, ptr %8, align 8, !tbaa !16
+  store ptr %23, ptr %7, align 8, !tbaa !16
+  br label %24
+
+24:                                               ; preds = %27, %19
+  %25 = load ptr, ptr %7, align 8, !tbaa !16
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %33
+
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %7, align 8, !tbaa !16
+  store ptr %28, ptr %5, align 8, !tbaa !16
+  %29 = load ptr, ptr %5, align 8, !tbaa !16
+  %30 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %29, i32 0, i32 2
+  %31 = load atomic i64, ptr %30 monotonic, align 8
+  store i64 %31, ptr %9, align 8
+  %32 = load ptr, ptr %9, align 8, !tbaa !16
+  store ptr %32, ptr %7, align 8, !tbaa !16
+  br label %24, !llvm.loop !55
+
+33:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %34 = load ptr, ptr %5, align 8, !tbaa !16
+  %35 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %34, i32 0, i32 2
+  %36 = load ptr, ptr %4, align 8, !tbaa !16
+  store ptr %36, ptr %11, align 8, !tbaa !16
+  %37 = load i64, ptr %11, align 8
+  %38 = atomicrmw xchg ptr %35, i64 %37 monotonic, align 8
+  store i64 %38, ptr %12, align 8
+  %39 = load ptr, ptr %12, align 8, !tbaa !16
+  store ptr %39, ptr %10, align 8, !tbaa !16
+  %40 = load ptr, ptr %4, align 8, !tbaa !16
+  %41 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %40, i32 0, i32 3
+  %42 = load atomic i64, ptr %41 monotonic, align 8
+  store i64 %42, ptr %13, align 8
+  %43 = load ptr, ptr %13, align 8, !tbaa !16
+  store ptr %43, ptr %5, align 8, !tbaa !16
+  %44 = load ptr, ptr %10, align 8, !tbaa !16
+  store ptr %44, ptr %4, align 8, !tbaa !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  br label %45
+
+45:                                               ; preds = %33
+  %46 = load ptr, ptr %4, align 8, !tbaa !16
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %19, label %48, !llvm.loop !56
+
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %3, align 8, !tbaa !16
+  %50 = getelementptr inbounds nuw %struct.upb_ArenaInternal, ptr %49, i32 0, i32 3
+  %51 = load ptr, ptr %5, align 8, !tbaa !16
+  store ptr %51, ptr %14, align 8, !tbaa !16
+  %52 = load i64, ptr %14, align 8
+  store atomic i64 %52, ptr %50 monotonic, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  ret void
+}
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"long", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!5, !5, i64 0}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS9upb_Arena", !10, i64 0}
+!10 = !{!"any pointer", !5, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 long", !10, i64 0}
+!13 = !{!14, !15, i64 0}
+!14 = !{!"", !15, i64 0, !4, i64 8}
+!15 = !{!"p1 _ZTS17upb_ArenaInternal", !10, i64 0}
+!16 = !{!15, !15, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS12upb_MemBlock", !10, i64 0}
+!19 = !{!20, !21, i64 8}
+!20 = !{!"upb_MemBlock", !5, i64 0, !21, i64 8}
+!21 = !{!"int", !5, i64 0}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.mustprogress"}
+!24 = distinct !{!24, !23}
+!25 = distinct !{!25, !23}
+!26 = !{!14, !4, i64 8}
+!27 = !{!10, !10, i64 0}
+!28 = distinct !{!28, !23}
+!29 = distinct !{!29, !23}
+!30 = !{!31, !4, i64 0}
+!31 = !{!"upb_ArenaInternal", !4, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32}
+!32 = !{!33, !34, i64 0}
+!33 = !{!"upb_Arena", !34, i64 0, !34, i64 8}
+!34 = !{!"p1 omnipotent char", !10, i64 0}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"p1 _ZTS9upb_alloc", !10, i64 0}
+!37 = !{!38, !4, i64 16}
+!38 = !{!"", !33, i64 0, !31, i64 16}
+!39 = !{!38, !34, i64 0}
+!40 = !{!38, !34, i64 8}
+!41 = !{!34, !34, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"_Bool", !5, i64 0}
+!44 = !{i8 0, i8 2}
+!45 = !{}
+!46 = distinct !{!46, !23}
+!47 = distinct !{!47, !23}
+!48 = distinct !{!48, !23}
+!49 = !{i64 0, i64 8, !16, i64 8, i64 8, !3}
+!50 = !{i64 0, i64 8, !41, i64 8, i64 8, !41}
+!51 = !{!52, !10, i64 0}
+!52 = !{!"upb_alloc", !10, i64 0}
+!53 = !{!31, !5, i64 32}
+!54 = !{!33, !34, i64 8}
+!55 = distinct !{!55, !23}
+!56 = distinct !{!56, !23}

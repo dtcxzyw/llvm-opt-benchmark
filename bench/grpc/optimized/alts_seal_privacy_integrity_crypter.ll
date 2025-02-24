@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/grpc/original/alts_seal_privacy_integrity_crypter.ll'
 source_filename = "bench/grpc/original/alts_seal_privacy_integrity_crypter.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.alts_crypter_vtable = type { ptr, ptr, ptr }
 
@@ -11,35 +11,34 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const._ZL10seal_checkP12alts_crypterPKhmmPmPPc.error_msg.1 = private unnamed_addr constant [77 x i8] c"data_allocated_size is smaller than sum of data_size and num_overhead_bytes.\00", align 16
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 10) i32 @_Z24alts_seal_crypter_createP17gsec_aead_crypterbmPP12alts_crypterPPc(ptr noundef %gc, i1 noundef zeroext %is_client, i64 noundef %overflow_size, ptr noundef writeonly %crypter, ptr noundef %error_details) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq ptr %crypter, null
-  br i1 %cmp, label %if.then, label %if.end
+define noundef range(i32 0, 10) i32 @_Z24alts_seal_crypter_createP17gsec_aead_crypterbmPP12alts_crypterPPc(ptr noundef %0, i1 noundef zeroext %1, i64 noundef %2, ptr noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 {
+  %6 = icmp eq ptr %3, null
+  br i1 %6, label %7, label %10
 
-if.then:                                          ; preds = %entry
-  %cmp.not.i = icmp eq ptr %error_details, null
-  br i1 %cmp.not.i, label %return, label %if.then.i
+7:                                                ; preds = %5
+  %.not.i = icmp eq ptr %4, null
+  br i1 %.not.i, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %8
 
-if.then.i:                                        ; preds = %if.then
-  %call2.i = tail call ptr @gpr_malloc(i64 noundef 20)
-  store ptr %call2.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %call2.i, ptr noundef nonnull readonly align 16 dereferenceable(20) @__const._Z24alts_seal_crypter_createP17gsec_aead_crypterbmPP12alts_crypterPPc.error_msg, i64 20, i1 false)
-  br label %return
+8:                                                ; preds = %7
+  %9 = tail call ptr @gpr_malloc(i64 noundef 20)
+  store ptr %9, ptr %4, align 8, !tbaa !3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %9, ptr noundef nonnull readonly align 16 dereferenceable(20) @__const._Z24alts_seal_crypter_createP17gsec_aead_crypterbmPP12alts_crypterPPc.error_msg, i64 20, i1 false)
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-if.end:                                           ; preds = %entry
-  %lnot = xor i1 %is_client, true
-  %call = tail call noundef ptr @_Z26alts_crypter_create_commonP17gsec_aead_crypterbmPPc(ptr noundef %gc, i1 noundef zeroext %lnot, i64 noundef %overflow_size, ptr noundef %error_details)
-  %cmp1 = icmp eq ptr %call, null
-  br i1 %cmp1, label %return, label %if.end3
+10:                                               ; preds = %5
+  %11 = xor i1 %1, true
+  %12 = tail call noundef ptr @_Z26alts_crypter_create_commonP17gsec_aead_crypterbmPPc(ptr noundef %0, i1 noundef zeroext %11, i64 noundef %2, ptr noundef %4)
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %14
 
-if.end3:                                          ; preds = %if.end
-  store ptr @_ZL6vtable, ptr %call, align 8
-  store ptr %call, ptr %crypter, align 8
-  br label %return
+14:                                               ; preds = %10
+  store ptr @_ZL6vtable, ptr %12, align 8, !tbaa !8
+  store ptr %12, ptr %3, align 8, !tbaa !14
+  br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-return:                                           ; preds = %if.then.i, %if.then, %if.end, %if.end3
-  %retval.0 = phi i32 [ 0, %if.end3 ], [ 9, %if.end ], [ 9, %if.then ], [ 9, %if.then.i ]
-  ret i32 %retval.0
+_ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %8, %7, %14, %10
+  %.0 = phi i32 [ 0, %14 ], [ 9, %10 ], [ 9, %7 ], [ 9, %8 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -52,61 +51,60 @@ declare ptr @gpr_malloc(i64 noundef) local_unnamed_addr #2
 declare noundef i64 @_Z47alts_record_protocol_crypter_num_overhead_bytesPK12alts_crypter(ptr noundef) #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL34alts_seal_crypter_process_in_placeP12alts_crypterPhmmPmPPc(ptr noundef %c, ptr noundef %data, i64 noundef %data_allocated_size, i64 noundef %data_size, ptr noundef %output_size, ptr noundef %error_details) #0 {
-entry:
-  %call.i = tail call noundef i32 @_Z18input_sanity_checkPK28alts_record_protocol_crypterPKhPmPPc(ptr noundef %c, ptr noundef %data, ptr noundef %output_size, ptr noundef %error_details)
-  %cmp.not.i = icmp eq i32 %call.i, 0
-  br i1 %cmp.not.i, label %if.end.i, label %return
+define internal noundef i32 @_ZL34alts_seal_crypter_process_in_placeP12alts_crypterPhmmPmPPc(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = tail call noundef i32 @_Z18input_sanity_checkPK28alts_record_protocol_crypterPKhPmPPc(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %5)
+  %.not.i = icmp eq i32 %7, 0
+  br i1 %.not.i, label %8, label %_ZL10seal_checkP12alts_crypterPKhmmPmPPc.exit.thread
 
-if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef i64 @_Z31alts_crypter_num_overhead_bytesPK12alts_crypter(ptr noundef %c)
-  %cmp2.i = icmp eq i64 %data_size, 0
-  br i1 %cmp2.i, label %if.then3.i, label %if.end4.i
+8:                                                ; preds = %6
+  %9 = tail call noundef i64 @_Z31alts_crypter_num_overhead_bytesPK12alts_crypter(ptr noundef %0)
+  %10 = icmp eq i64 %3, 0
+  br i1 %10, label %11, label %14
 
-if.then3.i:                                       ; preds = %if.end.i
-  %cmp.not.i.i = icmp eq ptr %error_details, null
-  br i1 %cmp.not.i.i, label %return, label %if.then.i.i
+11:                                               ; preds = %8
+  %.not.i.i = icmp eq ptr %5, null
+  br i1 %.not.i.i, label %_ZL10seal_checkP12alts_crypterPKhmmPmPPc.exit.thread, label %12
 
-if.then.i.i:                                      ; preds = %if.then3.i
-  %call2.i.i = tail call ptr @gpr_malloc(i64 noundef 19)
-  store ptr %call2.i.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %call2.i.i, ptr noundef nonnull readonly align 16 dereferenceable(19) @__const._ZL10seal_checkP12alts_crypterPKhmmPmPPc.error_msg, i64 19, i1 false)
-  br label %return
+12:                                               ; preds = %11
+  %13 = tail call ptr @gpr_malloc(i64 noundef 19)
+  store ptr %13, ptr %5, align 8, !tbaa !3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %13, ptr noundef nonnull readonly align 16 dereferenceable(19) @__const._ZL10seal_checkP12alts_crypterPKhmmPmPPc.error_msg, i64 19, i1 false)
+  br label %_ZL10seal_checkP12alts_crypterPKhmmPmPPc.exit.thread
 
-if.end4.i:                                        ; preds = %if.end.i
-  %add.i = add i64 %call1.i, %data_size
-  %cmp5.i = icmp ugt i64 %add.i, %data_allocated_size
-  br i1 %cmp5.i, label %if.then6.i, label %if.end
+14:                                               ; preds = %8
+  %15 = add i64 %9, %3
+  %16 = icmp ugt i64 %15, %2
+  br i1 %16, label %17, label %_ZL10seal_checkP12alts_crypterPKhmmPmPPc.exit
 
-if.then6.i:                                       ; preds = %if.end4.i
-  %cmp.not.i6.i = icmp eq ptr %error_details, null
-  br i1 %cmp.not.i6.i, label %return, label %if.then.i7.i
+17:                                               ; preds = %14
+  %.not.i15.i = icmp eq ptr %5, null
+  br i1 %.not.i15.i, label %_ZL10seal_checkP12alts_crypterPKhmmPmPPc.exit.thread, label %18
 
-if.then.i7.i:                                     ; preds = %if.then6.i
-  %call2.i10.i = tail call ptr @gpr_malloc(i64 noundef 77)
-  store ptr %call2.i10.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(77) %call2.i10.i, ptr noundef nonnull readonly align 16 dereferenceable(77) @__const._ZL10seal_checkP12alts_crypterPKhmmPmPPc.error_msg.1, i64 77, i1 false)
-  br label %return
+18:                                               ; preds = %17
+  %19 = tail call ptr @gpr_malloc(i64 noundef 77)
+  store ptr %19, ptr %5, align 8, !tbaa !3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(77) %19, ptr noundef nonnull readonly align 16 dereferenceable(77) @__const._ZL10seal_checkP12alts_crypterPKhmmPmPPc.error_msg.1, i64 77, i1 false)
+  br label %_ZL10seal_checkP12alts_crypterPKhmmPmPPc.exit.thread
 
-if.end:                                           ; preds = %if.end4.i
-  %crypter = getelementptr inbounds nuw i8, ptr %c, i64 8
-  %0 = load ptr, ptr %crypter, align 8
-  %ctr = getelementptr inbounds nuw i8, ptr %c, i64 16
-  %1 = load ptr, ptr %ctr, align 8
-  %call1 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %1)
-  %2 = load ptr, ptr %ctr, align 8
-  %call3 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %2)
-  %call4 = tail call noundef i32 @_Z25gsec_aead_crypter_encryptP17gsec_aead_crypterPKhmS2_mS2_mPhmPmPPc(ptr noundef %0, ptr noundef %call1, i64 noundef %call3, ptr noundef null, i64 noundef 0, ptr noundef %data, i64 noundef %data_size, ptr noundef %data, i64 noundef %data_allocated_size, ptr noundef %output_size, ptr noundef %error_details)
-  %cmp5.not = icmp eq i32 %call4, 0
-  br i1 %cmp5.not, label %if.end7, label %return
+_ZL10seal_checkP12alts_crypterPKhmmPmPPc.exit:    ; preds = %14
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %23 = load ptr, ptr %22, align 8, !tbaa !17
+  %24 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %23)
+  %25 = load ptr, ptr %22, align 8, !tbaa !17
+  %26 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %25)
+  %27 = tail call noundef i32 @_Z25gsec_aead_crypter_encryptP17gsec_aead_crypterPKhmS2_mS2_mPhmPmPPc(ptr noundef %21, ptr noundef %24, i64 noundef %26, ptr noundef null, i64 noundef 0, ptr noundef %1, i64 noundef %3, ptr noundef %1, i64 noundef %2, ptr noundef %4, ptr noundef %5)
+  %.not24 = icmp eq i32 %27, 0
+  br i1 %.not24, label %28, label %_ZL10seal_checkP12alts_crypterPKhmmPmPPc.exit.thread
 
-if.end7:                                          ; preds = %if.end
-  %call8 = tail call noundef i32 @_Z17increment_counterP28alts_record_protocol_crypterPPc(ptr noundef nonnull %c, ptr noundef %error_details)
-  br label %return
+28:                                               ; preds = %_ZL10seal_checkP12alts_crypterPKhmmPmPPc.exit
+  %29 = tail call noundef i32 @_Z17increment_counterP28alts_record_protocol_crypterPPc(ptr noundef nonnull %0, ptr noundef %5)
+  br label %_ZL10seal_checkP12alts_crypterPKhmmPmPPc.exit.thread
 
-return:                                           ; preds = %if.then.i7.i, %if.then6.i, %if.then.i.i, %if.then3.i, %entry, %if.end, %if.end7
-  %retval.0 = phi i32 [ %call8, %if.end7 ], [ %call4, %if.end ], [ 3, %if.then.i7.i ], [ 3, %if.then6.i ], [ 3, %if.then.i.i ], [ 3, %if.then3.i ], [ %call.i, %entry ]
-  ret i32 %retval.0
+_ZL10seal_checkP12alts_crypterPKhmmPmPPc.exit.thread: ; preds = %18, %17, %12, %11, %6, %28, %_ZL10seal_checkP12alts_crypterPKhmmPmPPc.exit
+  %.0 = phi i32 [ %29, %28 ], [ %27, %_ZL10seal_checkP12alts_crypterPKhmmPmPPc.exit ], [ 3, %18 ], [ 3, %17 ], [ 3, %12 ], [ 3, %11 ], [ %7, %6 ]
+  ret i32 %.0
 }
 
 declare void @_Z37alts_record_protocol_crypter_destructP12alts_crypter(ptr noundef) #2
@@ -123,13 +121,27 @@ declare noundef i32 @_Z18input_sanity_checkPK28alts_record_protocol_crypterPKhPm
 
 declare noundef i64 @_Z31alts_crypter_num_overhead_bytesPK12alts_crypter(ptr noundef) local_unnamed_addr #2
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 omnipotent char", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !11, i64 0}
+!9 = !{!"_ZTS28alts_record_protocol_crypter", !10, i64 0, !12, i64 8, !13, i64 16}
+!10 = !{!"_ZTS12alts_crypter", !11, i64 0}
+!11 = !{!"p1 _ZTS19alts_crypter_vtable", !5, i64 0}
+!12 = !{!"p1 _ZTS17gsec_aead_crypter", !5, i64 0}
+!13 = !{!"p1 _ZTS12alts_counter", !5, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS12alts_crypter", !5, i64 0}
+!16 = !{!9, !12, i64 8}
+!17 = !{!9, !13, i64 16}

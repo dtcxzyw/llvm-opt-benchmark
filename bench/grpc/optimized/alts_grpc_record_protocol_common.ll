@@ -1,21 +1,59 @@
 ; ModuleID = 'bench/grpc/original/alts_grpc_record_protocol_common.ll'
 source_filename = "bench/grpc/original/alts_grpc_record_protocol_common.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
+%"struct.std::array" = type { [7 x i8] }
+%"struct.std::array.2" = type { [7 x i8] }
+%"class.absl::lts_20240722::log_internal::LogMessageFatal" = type { %"class.absl::lts_20240722::log_internal::LogMessage" }
+%"class.absl::lts_20240722::log_internal::LogMessage" = type { %"class.absl::lts_20240722::base_internal::ErrnoSaver", %"class.std::unique_ptr" }
+%"class.absl::lts_20240722::base_internal::ErrnoSaver" = type { i32 }
+%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
+%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
+%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
+%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
+%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
+%"struct.std::_Head_base.1" = type { ptr }
 %struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
 %"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
 %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
 %struct.iovec = type { ptr, i64 }
+%"class.absl::lts_20240722::log_internal::LogMessage::OstreamView" = type { %"class.std::basic_streambuf", ptr, %"class.absl::lts_20240722::Span", %"class.absl::lts_20240722::Span", %"class.absl::lts_20240722::Span" }
+%"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
+%"class.std::locale" = type { ptr }
+%"class.absl::lts_20240722::Span" = type { ptr, i64 }
+%"class.absl::lts_20240722::log_internal::CheckOpMessageBuilder" = type { %"class.std::__cxx11::basic_ostringstream" }
+%"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
+%"class.std::basic_ostream.base" = type { ptr }
+%"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
+%"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
+%"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
+%"struct.std::ios_base::_Words" = type { ptr, i64 }
+
+$_ZN4absl12lts_2024072212log_internal10LogMessagelsIPcTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS6_ = comdat any
+
+$_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringIPKhPKvEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc = comdat any
+
+$_ZN4absl12lts_2024072212log_internal21CheckOpMessageBuilderD2Ev = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
 @.str = private unnamed_addr constant [167 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/tsi/alts/zero_copy_frame_protector/alts_grpc_record_protocol_common.cc\00", align 1
-@.str.1 = private unnamed_addr constant [31 x i8] c"rp != nullptr && sb != nullptr\00", align 1
-@.str.2 = private unnamed_addr constant [33 x i8] c"src != nullptr && dst != nullptr\00", align 1
-@.str.3 = private unnamed_addr constant [61 x i8] c"Invalid nullptr arguments to alts_grpc_record_protocol init.\00", align 1
-@.str.4 = private unnamed_addr constant [49 x i8] c"Failed to create alts_iovec_record_protocol, %s.\00", align 1
+@.str.1 = private unnamed_addr constant [14 x i8] c"rp != nullptr\00", align 1
+@.str.2 = private unnamed_addr constant [14 x i8] c"sb != nullptr\00", align 1
+@.str.3 = private unnamed_addr constant [15 x i8] c"src != nullptr\00", align 1
+@.str.4 = private unnamed_addr constant [15 x i8] c"dst != nullptr\00", align 1
+@.str.5 = private unnamed_addr constant [61 x i8] c"Invalid nullptr arguments to alts_grpc_record_protocol init.\00", align 1
+@.str.6 = private unnamed_addr constant [46 x i8] c"Failed to create alts_iovec_record_protocol, \00", align 1
+@_ZN4absl12lts_2024072212log_internal17kUnsignedCharNullE = external global %"struct.std::array", align 1
+@_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE = external unnamed_addr constant [4 x ptr], align 8
+@_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE = external unnamed_addr constant { [16 x ptr] }, align 8
+@_ZTVSt15basic_streambufIcSt11char_traitsIcEE = external unnamed_addr constant { [16 x ptr] }, align 8
+@_ZN4absl12lts_2024072212log_internal9kCharNullE = external global %"struct.std::array.2", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_alts_grpc_record_protocol_common.cc, ptr null }]
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
@@ -27,310 +65,424 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z55alts_grpc_record_protocol_convert_slice_buffer_to_iovecP25alts_grpc_record_protocolPK17grpc_slice_buffer(ptr noundef %rp, ptr noundef readonly %sb) local_unnamed_addr #3 {
-entry:
-  %cmp = icmp eq ptr %rp, null
-  %cmp1 = icmp eq ptr %sb, null
-  %.not = or i1 %cmp, %cmp1
-  br i1 %.not, label %if.then, label %do.end.i
+define void @_Z55alts_grpc_record_protocol_convert_slice_buffer_to_iovecP25alts_grpc_record_protocolPK17grpc_slice_buffer(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
+  %4 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %5, label %.critedge, !prof !3
 
-if.then:                                          ; preds = %entry
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 53, ptr noundef nonnull @.str.1) #8
+5:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
+  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str, i32 noundef 53, i64 13, ptr nonnull @.str.1) #17
+  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   unreachable
 
-do.end.i:                                         ; preds = %entry
-  %count.i = getelementptr inbounds nuw i8, ptr %sb, i64 16
-  %0 = load i64, ptr %count.i, align 8
-  %iovec_buf_length.i = getelementptr inbounds nuw i8, ptr %rp, i64 312
-  %1 = load i64, ptr %iovec_buf_length.i, align 8
-  %cmp2.not.i = icmp ugt i64 %0, %1
-  br i1 %cmp2.not.i, label %if.end4.i, label %_ZL21ensure_iovec_buf_sizeP25alts_grpc_record_protocolPK17grpc_slice_buffer.exit
+.critedge:                                        ; preds = %2
+  %.not.i = icmp eq ptr %1, null
+  br i1 %.not.i, label %20, label %.critedge.i, !prof !3
 
-if.end4.i:                                        ; preds = %do.end.i
-  %mul.i = shl i64 %1, 1
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %0, i64 %mul.i)
-  store i64 %.sroa.speculated.i, ptr %iovec_buf_length.i, align 8
-  %iovec_buf.i = getelementptr inbounds nuw i8, ptr %rp, i64 304
-  %2 = load ptr, ptr %iovec_buf.i, align 8
-  %mul9.i = shl i64 %.sroa.speculated.i, 4
-  %call10.i = tail call ptr @gpr_realloc(ptr noundef %2, i64 noundef %mul9.i)
-  store ptr %call10.i, ptr %iovec_buf.i, align 8
-  %.pre = load i64, ptr %count.i, align 8
+.critedge.i:                                      ; preds = %.critedge
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %7 = load i64, ptr %6, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %9 = load i64, ptr %8, align 8, !tbaa !11
+  %.not14.i = icmp ugt i64 %7, %9
+  br i1 %.not14.i, label %10, label %_ZL21ensure_iovec_buf_sizeP25alts_grpc_record_protocolPK17grpc_slice_buffer.exit
+
+10:                                               ; preds = %.critedge.i
+  %11 = shl i64 %9, 1
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %7, i64 %11)
+  store i64 %.sroa.speculated.i, ptr %8, align 8, !tbaa !11
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %13 = load ptr, ptr %12, align 8, !tbaa !17
+  %14 = shl i64 %.sroa.speculated.i, 4
+  %15 = tail call ptr @gpr_realloc(ptr noundef %13, i64 noundef %14)
+  store ptr %15, ptr %12, align 8, !tbaa !17
+  %.pre = load i64, ptr %6, align 8, !tbaa !4
   br label %_ZL21ensure_iovec_buf_sizeP25alts_grpc_record_protocolPK17grpc_slice_buffer.exit
 
-_ZL21ensure_iovec_buf_sizeP25alts_grpc_record_protocolPK17grpc_slice_buffer.exit: ; preds = %do.end.i, %if.end4.i
-  %3 = phi i64 [ %0, %do.end.i ], [ %.pre, %if.end4.i ]
-  %cmp221.not = icmp eq i64 %3, 0
-  br i1 %cmp221.not, label %for.end, label %for.body.lr.ph
+_ZL21ensure_iovec_buf_sizeP25alts_grpc_record_protocolPK17grpc_slice_buffer.exit: ; preds = %.critedge.i, %10
+  %16 = phi i64 [ %7, %.critedge.i ], [ %.pre, %10 ]
+  %.not31 = icmp eq i64 %16, 0
+  br i1 %.not31, label %._crit_edge, label %.lr.ph
 
-for.body.lr.ph:                                   ; preds = %_ZL21ensure_iovec_buf_sizeP25alts_grpc_record_protocolPK17grpc_slice_buffer.exit
-  %slices = getelementptr inbounds nuw i8, ptr %sb, i64 8
-  %iovec_buf = getelementptr inbounds nuw i8, ptr %rp, i64 304
-  br label %for.body
+.lr.ph:                                           ; preds = %_ZL21ensure_iovec_buf_sizeP25alts_grpc_record_protocolPK17grpc_slice_buffer.exit
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !18
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  br label %25
 
-for.body:                                         ; preds = %for.body.lr.ph, %cond.end23
-  %i.022 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end23 ]
-  %4 = load ptr, ptr %slices, align 8
-  %arrayidx = getelementptr inbounds %struct.grpc_slice, ptr %4, i64 %i.022
-  %5 = load ptr, ptr %arrayidx, align 8
-  %tobool.not = icmp eq ptr %5, null
-  br i1 %tobool.not, label %cond.false, label %cond.true
-
-cond.true:                                        ; preds = %for.body
-  %bytes = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
-  %6 = load ptr, ptr %bytes, align 8
-  br label %cond.end
-
-cond.false:                                       ; preds = %for.body
-  %bytes8 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 9
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %6, %cond.true ], [ %bytes8, %cond.false ]
-  %7 = load ptr, ptr %iovec_buf, align 8
-  %arrayidx9 = getelementptr inbounds %struct.iovec, ptr %7, i64 %i.022
-  store ptr %cond, ptr %arrayidx9, align 8
-  %8 = load ptr, ptr %slices, align 8
-  %arrayidx11 = getelementptr inbounds %struct.grpc_slice, ptr %8, i64 %i.022
-  %9 = load ptr, ptr %arrayidx11, align 8
-  %tobool13.not = icmp eq ptr %9, null
-  %data21 = getelementptr inbounds nuw i8, ptr %arrayidx11, i64 8
-  br i1 %tobool13.not, label %cond.false18, label %cond.true14
-
-cond.true14:                                      ; preds = %cond.end
-  %10 = load i64, ptr %data21, align 8
-  br label %cond.end23
-
-cond.false18:                                     ; preds = %cond.end
-  %11 = load i8, ptr %data21, align 8
-  %conv = zext i8 %11 to i64
-  br label %cond.end23
-
-cond.end23:                                       ; preds = %cond.false18, %cond.true14
-  %cond24 = phi i64 [ %10, %cond.true14 ], [ %conv, %cond.false18 ]
-  %12 = load ptr, ptr %iovec_buf, align 8
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %12, i64 %i.022, i32 1
-  store i64 %cond24, ptr %iov_len, align 8
-  %inc = add nuw i64 %i.022, 1
-  %13 = load i64, ptr %count.i, align 8
-  %cmp2 = icmp ult i64 %inc, %13
-  br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !4
-
-for.end:                                          ; preds = %cond.end23, %_ZL21ensure_iovec_buf_sizeP25alts_grpc_record_protocolPK17grpc_slice_buffer.exit
-  ret void
-}
-
-; Function Attrs: noreturn
-declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress uwtable
-define void @_Z43alts_grpc_record_protocol_copy_slice_bufferPK17grpc_slice_bufferPh(ptr noundef readonly %src, ptr noundef writeonly %dst) local_unnamed_addr #3 {
-entry:
-  %cmp = icmp eq ptr %src, null
-  %cmp1 = icmp eq ptr %dst, null
-  %.not = or i1 %cmp, %cmp1
-  br i1 %.not, label %if.then, label %for.cond.preheader
-
-for.cond.preheader:                               ; preds = %entry
-  %count = getelementptr inbounds nuw i8, ptr %src, i64 16
-  %0 = load i64, ptr %count, align 8
-  %cmp221.not = icmp eq i64 %0, 0
-  br i1 %cmp221.not, label %for.end, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %slices = getelementptr inbounds nuw i8, ptr %src, i64 8
-  br label %for.body
-
-if.then:                                          ; preds = %entry
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 63, ptr noundef nonnull @.str.2) #8
+20:                                               ; preds = %.critedge
+  %21 = tail call noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringIPKvS4_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.2)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
+  %22 = load ptr, ptr %21, align 8, !tbaa !19
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %24 = load i64, ptr %23, align 8, !tbaa !22
+  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str, i32 noundef 54, i64 %24, ptr %22) #17
+  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #18
   unreachable
 
-for.body:                                         ; preds = %for.body.lr.ph, %cond.end22
-  %dst.addr.023 = phi ptr [ %dst, %for.body.lr.ph ], [ %add.ptr, %cond.end22 ]
-  %i.022 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end22 ]
-  %1 = load ptr, ptr %slices, align 8
-  %arrayidx = getelementptr inbounds %struct.grpc_slice, ptr %1, i64 %i.022
-  %2 = load ptr, ptr %arrayidx, align 8
-  %tobool.not = icmp eq ptr %2, null
-  %data7 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
-  br i1 %tobool.not, label %cond.false17, label %cond.true13
-
-cond.true13:                                      ; preds = %for.body
-  %3 = load i64, ptr %data7, align 8
-  %bytes = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
-  %4 = load ptr, ptr %bytes, align 8
-  br label %cond.end22
-
-cond.false17:                                     ; preds = %for.body
-  %5 = load i8, ptr %data7, align 8
-  %conv = zext i8 %5 to i64
-  %bytes21 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 9
-  br label %cond.end22
-
-cond.end22:                                       ; preds = %cond.false17, %cond.true13
-  %cond19 = phi i64 [ %3, %cond.true13 ], [ %conv, %cond.false17 ]
-  %cond23 = phi ptr [ %4, %cond.true13 ], [ %bytes21, %cond.false17 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst.addr.023, ptr align 1 %cond23, i64 %cond19, i1 false)
-  %add.ptr = getelementptr inbounds i8, ptr %dst.addr.023, i64 %cond19
-  %inc = add nuw i64 %i.022, 1
-  %6 = load i64, ptr %count, align 8
-  %cmp2 = icmp ult i64 %inc, %6
-  br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !6
-
-for.end:                                          ; preds = %cond.end22, %for.cond.preheader
+._crit_edge:                                      ; preds = %42, %_ZL21ensure_iovec_buf_sizeP25alts_grpc_record_protocolPK17grpc_slice_buffer.exit
   ret void
+
+25:                                               ; preds = %.lr.ph, %42
+  %.030 = phi i64 [ 0, %.lr.ph ], [ %46, %42 ]
+  %26 = getelementptr inbounds nuw %struct.grpc_slice, ptr %18, i64 %.030
+  %27 = load ptr, ptr %26, align 8, !tbaa !23
+  %.not21 = icmp eq ptr %27, null
+  br i1 %.not21, label %35, label %28
+
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %30 = load ptr, ptr %29, align 8, !tbaa !26
+  %31 = load ptr, ptr %19, align 8, !tbaa !17
+  %32 = getelementptr inbounds nuw %struct.iovec, ptr %31, i64 %.030
+  store ptr %30, ptr %32, align 8, !tbaa !27
+  %33 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %34 = load i64, ptr %33, align 8, !tbaa !26
+  br label %42
+
+35:                                               ; preds = %25
+  %36 = getelementptr inbounds nuw i8, ptr %26, i64 9
+  %37 = load ptr, ptr %19, align 8, !tbaa !17
+  %38 = getelementptr inbounds nuw %struct.iovec, ptr %37, i64 %.030
+  store ptr %36, ptr %38, align 8, !tbaa !27
+  %39 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %40 = load i8, ptr %39, align 8, !tbaa !26
+  %41 = zext i8 %40 to i64
+  br label %42
+
+42:                                               ; preds = %35, %28
+  %43 = phi ptr [ %31, %28 ], [ %37, %35 ]
+  %44 = phi i64 [ %34, %28 ], [ %41, %35 ]
+  %45 = getelementptr inbounds nuw %struct.iovec, ptr %43, i64 %.030, i32 1
+  store i64 %44, ptr %45, align 8, !tbaa !29
+  %46 = add nuw i64 %.030, 1
+  %exitcond.not = icmp eq i64 %46, %16
+  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !30
+}
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+
+; Function Attrs: cold
+declare void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef, i64, ptr) unnamed_addr #5
+
+declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: noreturn nounwind
+declare void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+
+; Function Attrs: mustprogress uwtable
+define void @_Z43alts_grpc_record_protocol_copy_slice_bufferPK17grpc_slice_bufferPh(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
+  %4 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %5, label %.critedge, !prof !3
+
+5:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
+  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str, i32 noundef 64, i64 14, ptr nonnull @.str.3) #17
+  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
+  unreachable
+
+.critedge:                                        ; preds = %2
+  %.not.i = icmp eq ptr %1, null
+  br i1 %.not.i, label %9, label %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.preheader, !prof !3
+
+_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.preheader: ; preds = %.critedge
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = load i64, ptr %6, align 8, !tbaa !4
+  %.not34 = icmp eq i64 %7, 0
+  br i1 %.not34, label %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.preheader
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %14
+
+9:                                                ; preds = %.critedge
+  %10 = tail call noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringIPKhPKvEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.4)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
+  %11 = load ptr, ptr %10, align 8, !tbaa !19
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %13 = load i64, ptr %12, align 8, !tbaa !22
+  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str, i32 noundef 65, i64 %13, ptr %11) #17
+  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #18
+  unreachable
+
+_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit._crit_edge: ; preds = %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.preheader
+  ret void
+
+14:                                               ; preds = %.lr.ph, %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
+  %.02133 = phi i64 [ 0, %.lr.ph ], [ %30, %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit ]
+  %.032 = phi ptr [ %1, %.lr.ph ], [ %29, %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit ]
+  %15 = load ptr, ptr %8, align 8, !tbaa !18
+  %16 = getelementptr inbounds nuw %struct.grpc_slice, ptr %15, i64 %.02133
+  %17 = load ptr, ptr %16, align 8, !tbaa !23
+  %.not25 = icmp eq ptr %17, null
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  br i1 %.not25, label %23, label %19
+
+19:                                               ; preds = %14
+  %20 = load i64, ptr %18, align 8, !tbaa !26
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %22 = load ptr, ptr %21, align 8, !tbaa !26
+  br label %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
+
+23:                                               ; preds = %14
+  %24 = load i8, ptr %18, align 8, !tbaa !26
+  %25 = zext i8 %24 to i64
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 9
+  br label %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
+
+_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %23, %19
+  %27 = phi i64 [ %20, %19 ], [ %25, %23 ]
+  %28 = phi ptr [ %22, %19 ], [ %26, %23 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.032, ptr align 1 %28, i64 %27, i1 false)
+  %29 = getelementptr inbounds nuw i8, ptr %.032, i64 %27
+  %30 = add nuw i64 %.02133, 1
+  %31 = load i64, ptr %6, align 8, !tbaa !4
+  %32 = icmp ult i64 %30, %31
+  br i1 %32, label %14, label %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit._crit_edge, !llvm.loop !32
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define { ptr, i64 } @_Z42alts_grpc_record_protocol_get_header_iovecP25alts_grpc_record_protocol(ptr noundef readonly %rp) local_unnamed_addr #3 {
-entry:
-  %cmp = icmp eq ptr %rp, null
-  br i1 %cmp, label %return, label %if.end
+define { ptr, i64 } @_Z42alts_grpc_record_protocol_get_header_iovecP25alts_grpc_record_protocol(ptr noundef readonly %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+  %2 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
+  %3 = icmp eq ptr %0, null
+  br i1 %3, label %_Z43alts_grpc_record_protocol_copy_slice_bufferPK17grpc_slice_bufferPh.exit, label %4
 
-if.end:                                           ; preds = %entry
-  %header_length = getelementptr inbounds nuw i8, ptr %rp, i64 288
-  %0 = load i64, ptr %header_length, align 8
-  %count = getelementptr inbounds nuw i8, ptr %rp, i64 32
-  %1 = load i64, ptr %count, align 8
-  %cmp1 = icmp eq i64 %1, 1
-  br i1 %cmp1, label %if.then2, label %if.else
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %6 = load i64, ptr %5, align 8, !tbaa !33
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = load i64, ptr %7, align 8, !tbaa !34
+  %9 = icmp eq i64 %8, 1
+  br i1 %9, label %10, label %19
 
-if.then2:                                         ; preds = %if.end
-  %slices = getelementptr inbounds nuw i8, ptr %rp, i64 24
-  %2 = load ptr, ptr %slices, align 8
-  %3 = load ptr, ptr %2, align 8
-  %tobool.not = icmp eq ptr %3, null
-  br i1 %tobool.not, label %cond.false, label %cond.true
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %12 = load ptr, ptr %11, align 8, !tbaa !35
+  %13 = load ptr, ptr %12, align 8, !tbaa !23
+  %.not = icmp eq ptr %13, null
+  br i1 %.not, label %17, label %14
 
-cond.true:                                        ; preds = %if.then2
-  %bytes = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %4 = load ptr, ptr %bytes, align 8
-  br label %return
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %16 = load ptr, ptr %15, align 8, !tbaa !26
+  br label %_Z43alts_grpc_record_protocol_copy_slice_bufferPK17grpc_slice_bufferPh.exit
 
-cond.false:                                       ; preds = %if.then2
-  %bytes11 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  br label %return
+17:                                               ; preds = %10
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 9
+  br label %_Z43alts_grpc_record_protocol_copy_slice_bufferPK17grpc_slice_bufferPh.exit
 
-if.else:                                          ; preds = %if.end
-  %header_buf = getelementptr inbounds nuw i8, ptr %rp, i64 280
-  %5 = load ptr, ptr %header_buf, align 8
-  %cmp1.i = icmp eq ptr %5, null
-  br i1 %cmp1.i, label %if.then.i, label %for.cond.preheader.i
+19:                                               ; preds = %4
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %21 = load ptr, ptr %20, align 8, !tbaa !36
+  %.not.i.i = icmp eq ptr %21, null
+  br i1 %.not.i.i, label %23, label %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.preheader.i, !prof !3
 
-for.cond.preheader.i:                             ; preds = %if.else
-  %cmp221.not.i = icmp eq i64 %1, 0
-  br i1 %cmp221.not.i, label %return, label %for.body.lr.ph.i
+_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.preheader.i: ; preds = %19
+  %.not34.i = icmp eq i64 %8, 0
+  br i1 %.not34.i, label %_Z43alts_grpc_record_protocol_copy_slice_bufferPK17grpc_slice_bufferPh.exit, label %.lr.ph.i
 
-for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %slices.i = getelementptr inbounds nuw i8, ptr %rp, i64 24
-  br label %for.body.i
+.lr.ph.i:                                         ; preds = %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.preheader.i
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br label %28
 
-if.then.i:                                        ; preds = %if.else
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 63, ptr noundef nonnull @.str.2) #8
+23:                                               ; preds = %19
+  %24 = tail call noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringIPKhPKvEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.4)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
+  %25 = load ptr, ptr %24, align 8, !tbaa !19
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %27 = load i64, ptr %26, align 8, !tbaa !22
+  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str, i32 noundef 65, i64 %27, ptr %25) #17
+  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #18
   unreachable
 
-for.body.i:                                       ; preds = %cond.end22.i, %for.body.lr.ph.i
-  %dst.addr.023.i = phi ptr [ %5, %for.body.lr.ph.i ], [ %add.ptr.i, %cond.end22.i ]
-  %i.022.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %cond.end22.i ]
-  %6 = load ptr, ptr %slices.i, align 8
-  %arrayidx.i = getelementptr inbounds %struct.grpc_slice, ptr %6, i64 %i.022.i
-  %7 = load ptr, ptr %arrayidx.i, align 8
-  %tobool.not.i = icmp eq ptr %7, null
-  %data7.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  br i1 %tobool.not.i, label %cond.false17.i, label %cond.true13.i
+28:                                               ; preds = %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.i, %.lr.ph.i
+  %.02133.i = phi i64 [ 0, %.lr.ph.i ], [ %44, %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.i ]
+  %.032.i = phi ptr [ %21, %.lr.ph.i ], [ %43, %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.i ]
+  %29 = load ptr, ptr %22, align 8, !tbaa !18
+  %30 = getelementptr inbounds nuw %struct.grpc_slice, ptr %29, i64 %.02133.i
+  %31 = load ptr, ptr %30, align 8, !tbaa !23
+  %.not25.i = icmp eq ptr %31, null
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  br i1 %.not25.i, label %37, label %33
 
-cond.true13.i:                                    ; preds = %for.body.i
-  %8 = load i64, ptr %data7.i, align 8
-  %bytes.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
-  %9 = load ptr, ptr %bytes.i, align 8
-  br label %cond.end22.i
+33:                                               ; preds = %28
+  %34 = load i64, ptr %32, align 8, !tbaa !26
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %36 = load ptr, ptr %35, align 8, !tbaa !26
+  br label %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.i
 
-cond.false17.i:                                   ; preds = %for.body.i
-  %10 = load i8, ptr %data7.i, align 8
-  %conv.i = zext i8 %10 to i64
-  %bytes21.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 9
-  br label %cond.end22.i
+37:                                               ; preds = %28
+  %38 = load i8, ptr %32, align 8, !tbaa !26
+  %39 = zext i8 %38 to i64
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 9
+  br label %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.i
 
-cond.end22.i:                                     ; preds = %cond.false17.i, %cond.true13.i
-  %cond19.i = phi i64 [ %8, %cond.true13.i ], [ %conv.i, %cond.false17.i ]
-  %cond23.i = phi ptr [ %9, %cond.true13.i ], [ %bytes21.i, %cond.false17.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst.addr.023.i, ptr align 1 %cond23.i, i64 %cond19.i, i1 false)
-  %add.ptr.i = getelementptr inbounds i8, ptr %dst.addr.023.i, i64 %cond19.i
-  %inc.i = add nuw i64 %i.022.i, 1
-  %11 = load i64, ptr %count, align 8
-  %cmp2.i = icmp ult i64 %inc.i, %11
-  br i1 %cmp2.i, label %for.body.i, label %_Z43alts_grpc_record_protocol_copy_slice_bufferPK17grpc_slice_bufferPh.exit.loopexit, !llvm.loop !6
+_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.i: ; preds = %37, %33
+  %41 = phi i64 [ %34, %33 ], [ %39, %37 ]
+  %42 = phi ptr [ %36, %33 ], [ %40, %37 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.032.i, ptr align 1 %42, i64 %41, i1 false)
+  %43 = getelementptr inbounds nuw i8, ptr %.032.i, i64 %41
+  %44 = add nuw i64 %.02133.i, 1
+  %45 = load i64, ptr %7, align 8, !tbaa !4
+  %46 = icmp ult i64 %44, %45
+  br i1 %46, label %28, label %_Z43alts_grpc_record_protocol_copy_slice_bufferPK17grpc_slice_bufferPh.exit.loopexit, !llvm.loop !32
 
-_Z43alts_grpc_record_protocol_copy_slice_bufferPK17grpc_slice_bufferPh.exit.loopexit: ; preds = %cond.end22.i
-  %.pre = load ptr, ptr %header_buf, align 8
-  br label %return
+_Z43alts_grpc_record_protocol_copy_slice_bufferPK17grpc_slice_bufferPh.exit.loopexit: ; preds = %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.i
+  %.pre = load ptr, ptr %20, align 8, !tbaa !36
+  br label %_Z43alts_grpc_record_protocol_copy_slice_bufferPK17grpc_slice_bufferPh.exit
 
-return:                                           ; preds = %for.cond.preheader.i, %_Z43alts_grpc_record_protocol_copy_slice_bufferPK17grpc_slice_bufferPh.exit.loopexit, %cond.true, %cond.false, %entry
-  %retval.sroa.4.0 = phi i64 [ 0, %entry ], [ %0, %cond.false ], [ %0, %cond.true ], [ %0, %_Z43alts_grpc_record_protocol_copy_slice_bufferPK17grpc_slice_bufferPh.exit.loopexit ], [ %0, %for.cond.preheader.i ]
-  %retval.sroa.0.0 = phi ptr [ null, %entry ], [ %bytes11, %cond.false ], [ %4, %cond.true ], [ %.pre, %_Z43alts_grpc_record_protocol_copy_slice_bufferPK17grpc_slice_bufferPh.exit.loopexit ], [ %5, %for.cond.preheader.i ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
+_Z43alts_grpc_record_protocol_copy_slice_bufferPK17grpc_slice_bufferPh.exit: ; preds = %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.preheader.i, %_Z43alts_grpc_record_protocol_copy_slice_bufferPK17grpc_slice_bufferPh.exit.loopexit, %14, %17, %1
+  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %6, %17 ], [ %6, %14 ], [ %6, %_Z43alts_grpc_record_protocol_copy_slice_bufferPK17grpc_slice_bufferPh.exit.loopexit ], [ %6, %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.preheader.i ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %18, %17 ], [ %16, %14 ], [ %.pre, %_Z43alts_grpc_record_protocol_copy_slice_bufferPK17grpc_slice_bufferPh.exit.loopexit ], [ %21, %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.preheader.i ]
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 8) i32 @_Z30alts_grpc_record_protocol_initP25alts_grpc_record_protocolP17gsec_aead_cryptermbbb(ptr noundef %rp, ptr noundef %crypter, i64 noundef %overflow_size, i1 noundef zeroext %is_client, i1 noundef zeroext %is_integrity_only, i1 noundef zeroext %is_protect) local_unnamed_addr #3 {
-entry:
-  %error_details = alloca ptr, align 8
-  %cmp = icmp eq ptr %rp, null
-  %cmp3 = icmp eq ptr %crypter, null
-  %or.cond = or i1 %cmp, %cmp3
-  br i1 %or.cond, label %if.then, label %if.end
+define noundef range(i32 0, 8) i32 @_Z30alts_grpc_record_protocol_initP25alts_grpc_record_protocolP17gsec_aead_cryptermbbb(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+  %7 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
+  %10 = icmp eq ptr %0, null
+  %11 = icmp eq ptr %1, null
+  %or.cond = or i1 %10, %11
+  br i1 %or.cond, label %12, label %15
 
-if.then:                                          ; preds = %entry
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 95, i32 noundef 2, ptr noundef nonnull @.str.3)
-  br label %return
+12:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #16
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str, i32 noundef 97) #17
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 60, ptr nonnull @.str.5)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi61EEERS2_RAT__Kc.exit unwind label %13
 
-if.end:                                           ; preds = %entry
-  store ptr null, ptr %error_details, align 8
-  %iovec_rp = getelementptr inbounds nuw i8, ptr %rp, i64 8
-  %call = call noundef i32 @_Z33alts_iovec_record_protocol_createP17gsec_aead_cryptermbbbPP26alts_iovec_record_protocolPPc(ptr noundef nonnull %crypter, i64 noundef %overflow_size, i1 noundef zeroext %is_client, i1 noundef zeroext %is_integrity_only, i1 noundef zeroext %is_protect, ptr noundef nonnull %iovec_rp, ptr noundef nonnull %error_details)
-  %cmp6.not = icmp eq i32 %call, 0
-  br i1 %cmp6.not, label %if.end8, label %if.then7
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi61EEERS2_RAT__Kc.exit: ; preds = %12
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
+  br label %37
 
-if.then7:                                         ; preds = %if.end
-  %0 = load ptr, ptr %error_details, align 8
-  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 105, i32 noundef 2, ptr noundef nonnull @.str.4, ptr noundef %0)
-  %1 = load ptr, ptr %error_details, align 8
-  call void @gpr_free(ptr noundef %1)
-  br label %return
+13:                                               ; preds = %12
+  %14 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
+  br label %38
 
-if.end8:                                          ; preds = %if.end
-  %header_sb = getelementptr inbounds nuw i8, ptr %rp, i64 16
-  call void @grpc_slice_buffer_init(ptr noundef nonnull %header_sb)
-  %call9 = call noundef i64 @_Z44alts_iovec_record_protocol_get_header_lengthv()
-  %header_length = getelementptr inbounds nuw i8, ptr %rp, i64 288
-  store i64 %call9, ptr %header_length, align 8
-  %call11 = call ptr @gpr_malloc(i64 noundef %call9)
-  %header_buf = getelementptr inbounds nuw i8, ptr %rp, i64 280
-  store ptr %call11, ptr %header_buf, align 8
-  %2 = load ptr, ptr %iovec_rp, align 8
-  %call13 = call noundef i64 @_Z41alts_iovec_record_protocol_get_tag_lengthPK26alts_iovec_record_protocol(ptr noundef %2)
-  %tag_length = getelementptr inbounds nuw i8, ptr %rp, i64 296
-  store i64 %call13, ptr %tag_length, align 8
-  %iovec_buf_length = getelementptr inbounds nuw i8, ptr %rp, i64 312
-  store i64 8, ptr %iovec_buf_length, align 8
-  %call15 = call ptr @gpr_malloc(i64 noundef 128)
-  %iovec_buf = getelementptr inbounds nuw i8, ptr %rp, i64 304
-  store ptr %call15, ptr %iovec_buf, align 8
-  br label %return
+15:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
+  store ptr null, ptr %8, align 8, !tbaa !37
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = call noundef i32 @_Z33alts_iovec_record_protocol_createP17gsec_aead_cryptermbbbPP26alts_iovec_record_protocolPPc(ptr noundef nonnull %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef nonnull %16, ptr noundef nonnull %8)
+  %.not = icmp eq i32 %17, 0
+  br i1 %.not, label %24, label %18
 
-return:                                           ; preds = %if.end8, %if.then7, %if.then
-  %retval.0 = phi i32 [ 2, %if.then ], [ 7, %if.then7 ], [ 0, %if.end8 ]
-  ret i32 %retval.0
+18:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #16
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str, i32 noundef 107) #17
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 45, ptr nonnull @.str.6)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi46EEERS2_RAT__Kc.exit unwind label %22
+
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi46EEERS2_RAT__Kc.exit: ; preds = %18
+  %19 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPcTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS6_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %20 unwind label %22
+
+20:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi46EEERS2_RAT__Kc.exit
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #19
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #16
+  %21 = load ptr, ptr %8, align 8, !tbaa !37
+  call void @gpr_free(ptr noundef %21)
+  br label %36
+
+22:                                               ; preds = %18, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi46EEERS2_RAT__Kc.exit
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #19
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
+  br label %38
+
+24:                                               ; preds = %15
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @grpc_slice_buffer_init(ptr noundef nonnull %25)
+  %26 = call noundef i64 @_Z44alts_iovec_record_protocol_get_header_lengthv()
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  store i64 %26, ptr %27, align 8, !tbaa !33
+  %28 = call ptr @gpr_malloc(i64 noundef %26)
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  store ptr %28, ptr %29, align 8, !tbaa !36
+  %30 = load ptr, ptr %16, align 8, !tbaa !38
+  %31 = call noundef i64 @_Z41alts_iovec_record_protocol_get_tag_lengthPK26alts_iovec_record_protocol(ptr noundef %30)
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store i64 %31, ptr %32, align 8, !tbaa !39
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  store i64 8, ptr %33, align 8, !tbaa !11
+  %34 = call ptr @gpr_malloc(i64 noundef 128)
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  store ptr %34, ptr %35, align 8, !tbaa !17
+  br label %36
+
+36:                                               ; preds = %24, %20
+  %.1 = phi i32 [ 7, %20 ], [ 0, %24 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
+  br label %37
+
+37:                                               ; preds = %36, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi61EEERS2_RAT__Kc.exit
+  %.0 = phi i32 [ 2, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi61EEERS2_RAT__Kc.exit ], [ %.1, %36 ]
+  ret i32 %.0
+
+38:                                               ; preds = %22, %13
+  %.pn = phi { ptr, i32 } [ %14, %13 ], [ %23, %22 ]
+  resume { ptr, i32 } %.pn
 }
 
-declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
+; Function Attrs: cold
+declare void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef) unnamed_addr #5
+
+; Function Attrs: cold nounwind
+declare void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #8
 
 declare noundef i32 @_Z33alts_iovec_record_protocol_createP17gsec_aead_cryptermbbbPP26alts_iovec_record_protocolPPc(ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #0
+
+; Function Attrs: mustprogress noinline uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPcTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS6_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessage::OstreamView", align 8
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !40
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessage11OstreamViewC1ERNS2_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull align 1 %5)
+  %6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12lts_2024072212log_internal10LogMessage11OstreamView6streamEv(ptr noundef nonnull align 8 dereferenceable(120) %3)
+          to label %7 unwind label %11
+
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %1, align 8, !tbaa !37
+  %.not.i = icmp eq ptr %8, null
+  %spec.select.i = select i1 %.not.i, ptr @_ZN4absl12lts_2024072212log_internal9kCharNullE, ptr %8
+  %9 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i) #16
+  %10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %spec.select.i, i64 noundef %9)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %11
+
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %7
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessage11OstreamViewD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %3) #16
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3) #16
+  ret ptr %0
+
+11:                                               ; preds = %7, %2
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessage11OstreamViewD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %3) #16
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3) #16
+  resume { ptr, i32 } %12
+}
 
 declare void @gpr_free(ptr noundef) local_unnamed_addr #0
 
@@ -343,97 +495,94 @@ declare ptr @gpr_malloc(i64 noundef) local_unnamed_addr #0
 declare noundef i64 @_Z41alts_iovec_record_protocol_get_tag_lengthPK26alts_iovec_record_protocol(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z33alts_grpc_record_protocol_protectP25alts_grpc_record_protocolP17grpc_slice_bufferS2_(ptr noundef %self, ptr noundef %unprotected_slices, ptr noundef %protected_slices) local_unnamed_addr #3 {
-entry:
-  %cmp = icmp eq ptr %self, null
-  br i1 %cmp, label %return, label %lor.lhs.false
+define noundef i32 @_Z33alts_grpc_record_protocol_protectP25alts_grpc_record_protocolP17grpc_slice_bufferS2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+  %4 = icmp eq ptr %0, null
+  br i1 %4, label %15, label %5
 
-lor.lhs.false:                                    ; preds = %entry
-  %0 = load ptr, ptr %self, align 8
-  %cmp1 = icmp eq ptr %0, null
-  %cmp3 = icmp eq ptr %unprotected_slices, null
-  %or.cond = or i1 %cmp3, %cmp1
-  %cmp5 = icmp eq ptr %protected_slices, null
-  %or.cond1 = or i1 %cmp5, %or.cond
-  br i1 %or.cond1, label %return, label %if.end
+5:                                                ; preds = %3
+  %6 = load ptr, ptr %0, align 8, !tbaa !42
+  %7 = icmp eq ptr %6, null
+  %8 = icmp eq ptr %1, null
+  %or.cond = or i1 %8, %7
+  %9 = icmp eq ptr %2, null
+  %or.cond3 = or i1 %9, %or.cond
+  br i1 %or.cond3, label %15, label %10
 
-if.end:                                           ; preds = %lor.lhs.false
-  %1 = load ptr, ptr %0, align 8
-  %cmp7 = icmp eq ptr %1, null
-  br i1 %cmp7, label %return, label %if.end9
+10:                                               ; preds = %5
+  %11 = load ptr, ptr %6, align 8, !tbaa !43
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %15, label %13
 
-if.end9:                                          ; preds = %if.end
-  %call = tail call noundef i32 %1(ptr noundef nonnull %self, ptr noundef nonnull %unprotected_slices, ptr noundef nonnull %protected_slices)
-  br label %return
+13:                                               ; preds = %10
+  %14 = tail call noundef i32 %11(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2)
+  br label %15
 
-return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %if.end9
-  %retval.0 = phi i32 [ %call, %if.end9 ], [ 2, %lor.lhs.false ], [ 2, %entry ], [ 6, %if.end ]
-  ret i32 %retval.0
+15:                                               ; preds = %10, %3, %5, %13
+  %.0 = phi i32 [ %14, %13 ], [ 2, %5 ], [ 2, %3 ], [ 6, %10 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z35alts_grpc_record_protocol_unprotectP25alts_grpc_record_protocolP17grpc_slice_bufferS2_(ptr noundef %self, ptr noundef %protected_slices, ptr noundef %unprotected_slices) local_unnamed_addr #3 {
-entry:
-  %cmp = icmp eq ptr %self, null
-  br i1 %cmp, label %return, label %lor.lhs.false
+define noundef i32 @_Z35alts_grpc_record_protocol_unprotectP25alts_grpc_record_protocolP17grpc_slice_bufferS2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+  %4 = icmp eq ptr %0, null
+  br i1 %4, label %16, label %5
 
-lor.lhs.false:                                    ; preds = %entry
-  %0 = load ptr, ptr %self, align 8
-  %cmp1 = icmp eq ptr %0, null
-  %cmp3 = icmp eq ptr %protected_slices, null
-  %or.cond = or i1 %cmp3, %cmp1
-  %cmp5 = icmp eq ptr %unprotected_slices, null
-  %or.cond1 = or i1 %cmp5, %or.cond
-  br i1 %or.cond1, label %return, label %if.end
+5:                                                ; preds = %3
+  %6 = load ptr, ptr %0, align 8, !tbaa !42
+  %7 = icmp eq ptr %6, null
+  %8 = icmp eq ptr %1, null
+  %or.cond = or i1 %8, %7
+  %9 = icmp eq ptr %2, null
+  %or.cond3 = or i1 %9, %or.cond
+  br i1 %or.cond3, label %16, label %10
 
-if.end:                                           ; preds = %lor.lhs.false
-  %unprotect = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1 = load ptr, ptr %unprotect, align 8
-  %cmp7 = icmp eq ptr %1, null
-  br i1 %cmp7, label %return, label %if.end9
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !45
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %16, label %14
 
-if.end9:                                          ; preds = %if.end
-  %call = tail call noundef i32 %1(ptr noundef nonnull %self, ptr noundef nonnull %protected_slices, ptr noundef nonnull %unprotected_slices)
-  br label %return
+14:                                               ; preds = %10
+  %15 = tail call noundef i32 %12(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2)
+  br label %16
 
-return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %if.end9
-  %retval.0 = phi i32 [ %call, %if.end9 ], [ 2, %lor.lhs.false ], [ 2, %entry ], [ 6, %if.end ]
-  ret i32 %retval.0
+16:                                               ; preds = %10, %3, %5, %14
+  %.0 = phi i32 [ %15, %14 ], [ 2, %5 ], [ 2, %3 ], [ 6, %10 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z33alts_grpc_record_protocol_destroyP25alts_grpc_record_protocol(ptr noundef %self) local_unnamed_addr #3 {
-entry:
-  %cmp = icmp eq ptr %self, null
-  br i1 %cmp, label %return, label %if.end
+define void @_Z33alts_grpc_record_protocol_destroyP25alts_grpc_record_protocol(ptr noundef %0) local_unnamed_addr #3 {
+  %2 = icmp eq ptr %0, null
+  br i1 %2, label %16, label %3
 
-if.end:                                           ; preds = %entry
-  %0 = load ptr, ptr %self, align 8
-  %destruct = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1 = load ptr, ptr %destruct, align 8
-  %cmp1.not = icmp eq ptr %1, null
-  br i1 %cmp1.not, label %if.end5, label %if.then2
+3:                                                ; preds = %1
+  %4 = load ptr, ptr %0, align 8, !tbaa !42
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %6 = load ptr, ptr %5, align 8, !tbaa !46
+  %.not = icmp eq ptr %6, null
+  br i1 %.not, label %8, label %7
 
-if.then2:                                         ; preds = %if.end
-  tail call void %1(ptr noundef nonnull %self)
-  br label %if.end5
+7:                                                ; preds = %3
+  tail call void %6(ptr noundef nonnull %0)
+  br label %8
 
-if.end5:                                          ; preds = %if.then2, %if.end
-  %iovec_rp = getelementptr inbounds nuw i8, ptr %self, i64 8
-  %2 = load ptr, ptr %iovec_rp, align 8
-  tail call void @_Z34alts_iovec_record_protocol_destroyP26alts_iovec_record_protocol(ptr noundef %2)
-  %header_sb = getelementptr inbounds nuw i8, ptr %self, i64 16
-  tail call void @grpc_slice_buffer_destroy(ptr noundef nonnull %header_sb)
-  %header_buf = getelementptr inbounds nuw i8, ptr %self, i64 280
-  %3 = load ptr, ptr %header_buf, align 8
-  tail call void @gpr_free(ptr noundef %3)
-  %iovec_buf = getelementptr inbounds nuw i8, ptr %self, i64 304
-  %4 = load ptr, ptr %iovec_buf, align 8
-  tail call void @gpr_free(ptr noundef %4)
-  tail call void @gpr_free(ptr noundef nonnull %self)
-  br label %return
+8:                                                ; preds = %7, %3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !38
+  tail call void @_Z34alts_iovec_record_protocol_destroyP26alts_iovec_record_protocol(ptr noundef %10)
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @grpc_slice_buffer_destroy(ptr noundef nonnull %11)
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %13 = load ptr, ptr %12, align 8, !tbaa !36
+  tail call void @gpr_free(ptr noundef %13)
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %15 = load ptr, ptr %14, align 8, !tbaa !17
+  tail call void @gpr_free(ptr noundef %15)
+  tail call void @gpr_free(ptr noundef nonnull %0)
+  br label %16
 
-return:                                           ; preds = %entry, %if.end5
+16:                                               ; preds = %1, %8
   ret void
 }
 
@@ -442,54 +591,249 @@ declare void @_Z34alts_iovec_record_protocol_destroyP26alts_iovec_record_protoco
 declare void @grpc_slice_buffer_destroy(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z51alts_grpc_record_protocol_max_unprotected_data_sizePK25alts_grpc_record_protocolm(ptr noundef readonly %self, i64 noundef %max_protected_frame_size) local_unnamed_addr #3 {
-entry:
-  %cmp = icmp eq ptr %self, null
-  br i1 %cmp, label %return, label %if.end
+define noundef i64 @_Z51alts_grpc_record_protocol_max_unprotected_data_sizePK25alts_grpc_record_protocolm(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #3 {
+  %3 = icmp eq ptr %0, null
+  br i1 %3, label %8, label %4
 
-if.end:                                           ; preds = %entry
-  %iovec_rp = getelementptr inbounds nuw i8, ptr %self, i64 8
-  %0 = load ptr, ptr %iovec_rp, align 8
-  %call = tail call noundef i64 @_Z52alts_iovec_record_protocol_max_unprotected_data_sizePK26alts_iovec_record_protocolm(ptr noundef %0, i64 noundef %max_protected_frame_size)
-  br label %return
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !38
+  %7 = tail call noundef i64 @_Z52alts_iovec_record_protocol_max_unprotected_data_sizePK26alts_iovec_record_protocolm(ptr noundef %6, i64 noundef %1)
+  br label %8
 
-return:                                           ; preds = %entry, %if.end
-  %retval.0 = phi i64 [ %call, %if.end ], [ 0, %entry ]
-  ret i64 %retval.0
+8:                                                ; preds = %2, %4
+  %.0 = phi i64 [ %7, %4 ], [ 0, %2 ]
+  ret i64 %.0
 }
 
 declare noundef i64 @_Z52alts_iovec_record_protocol_max_unprotected_data_sizePK26alts_iovec_record_protocolm(ptr noundef, i64 noundef) local_unnamed_addr #0
 
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
+
+declare noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringIPKvS4_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
+
 declare ptr @gpr_realloc(ptr noundef, i64 noundef) local_unnamed_addr #0
 
-; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_alts_grpc_record_protocol_common.cc() #6 section ".text.startup" {
-entry:
-  tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #9
+; Function Attrs: mustprogress noinline uwtable
+define linkonce_odr noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringIPKhPKvEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #9 comdat personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.absl::lts_20240722::log_internal::CheckOpMessageBuilder", align 8
+  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %4) #16
+  call void @_ZN4absl12lts_2024072212log_internal21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(376) %4, ptr noundef %2)
+  %.not.i.i = icmp eq ptr %0, null
+  %spec.select.i.i = select i1 %.not.i.i, ptr @_ZN4absl12lts_2024072212log_internal17kUnsignedCharNullE, ptr %0
+  %5 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i.i) #16
+  %6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %spec.select.i.i, i64 noundef %5)
+          to label %_ZN4absl12lts_2024072212log_internal22MakeCheckOpValueStringIPKhEEvRSoRKT_.exit unwind label %29
+
+_ZN4absl12lts_2024072212log_internal22MakeCheckOpValueStringIPKhEEvRSoRKT_.exit: ; preds = %3
+  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12lts_2024072212log_internal21CheckOpMessageBuilder7ForVar2Ev(ptr noundef nonnull align 8 dereferenceable(376) %4)
+          to label %8 unwind label %29
+
+8:                                                ; preds = %_ZN4absl12lts_2024072212log_internal22MakeCheckOpValueStringIPKhEEvRSoRKT_.exit
+  invoke void @_ZN4absl12lts_2024072212log_internal22MakeCheckOpValueStringERSoPKv(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1)
+          to label %9 unwind label %29
+
+9:                                                ; preds = %8
+  %10 = invoke noundef ptr @_ZN4absl12lts_2024072212log_internal21CheckOpMessageBuilder9NewStringB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(376) %4)
+          to label %11 unwind label %29
+
+11:                                               ; preds = %9
+  %12 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
+  store ptr %12, ptr %4, align 8, !tbaa !47
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %14 = getelementptr i8, ptr %12, i64 -24
+  %15 = load i64, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %4, i64 %15
+  store ptr %13, ptr %16, align 8, !tbaa !47
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %17, align 8, !tbaa !47
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %19 = load ptr, ptr %18, align 8, !tbaa !19
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  %21 = icmp eq ptr %19, %20
+  br i1 %21, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i: ; preds = %11
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %23 = load i64, ptr %22, align 8, !tbaa !22
+  %24 = icmp ult i64 %23, 16
+  call void @llvm.assume(i1 %24)
+  br label %_ZN4absl12lts_2024072212log_internal21CheckOpMessageBuilderD2Ev.exit
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i: ; preds = %11
+  %25 = load i64, ptr %20, align 8, !tbaa !26
+  %26 = add i64 %25, 1
+  call void @_ZdlPvm(ptr noundef %19, i64 noundef %26) #20
+  br label %_ZN4absl12lts_2024072212log_internal21CheckOpMessageBuilderD2Ev.exit
+
+_ZN4absl12lts_2024072212log_internal21CheckOpMessageBuilderD2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %17, align 8, !tbaa !47
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #16
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 112
+  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %28) #16
+  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #16
+  ret ptr %10
+
+29:                                               ; preds = %3, %9, %8, %_ZN4absl12lts_2024072212log_internal22MakeCheckOpValueStringIPKhEEvRSoRKT_.exit
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN4absl12lts_2024072212log_internal21CheckOpMessageBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %4) #16
+  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #16
+  resume { ptr, i32 } %30
+}
+
+declare void @_ZN4absl12lts_2024072212log_internal21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(376), ptr noundef) unnamed_addr #0
+
+declare void @_ZN4absl12lts_2024072212log_internal22MakeCheckOpValueStringERSoPKv(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12lts_2024072212log_internal21CheckOpMessageBuilder7ForVar2Ev(ptr noundef nonnull align 8 dereferenceable(376)) local_unnamed_addr #0
+
+declare noundef ptr @_ZN4absl12lts_2024072212log_internal21CheckOpMessageBuilder9NewStringB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(376)) local_unnamed_addr #0
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN4absl12lts_2024072212log_internal21CheckOpMessageBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
+  store ptr %2, ptr %0, align 8, !tbaa !47
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %4 = getelementptr i8, ptr %2, i64 -24
+  %5 = load i64, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 %5
+  store ptr %3, ptr %6, align 8, !tbaa !47
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %7, align 8, !tbaa !47
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = load ptr, ptr %8, align 8, !tbaa !19
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %11 = icmp eq ptr %9, %10
+  br i1 %11, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %13 = load i64, ptr %12, align 8, !tbaa !22
+  %14 = icmp ult i64 %13, 16
+  tail call void @llvm.assume(i1 %14)
+  br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %1
+  %15 = load i64, ptr %10, align 8, !tbaa !26
+  %16 = add i64 %15, 1
+  tail call void @_ZdlPvm(ptr noundef %9, i64 noundef %16) #20
+  br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
+
+_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %7, align 8, !tbaa !47
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %18) #16
   ret void
 }
 
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
+
+; Function Attrs: nounwind
+declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #1
+
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
+
+; Function Attrs: nounwind
+declare void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
+
+declare void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16), i64, ptr) local_unnamed_addr #0
+
+declare void @_ZN4absl12lts_2024072212log_internal10LogMessage11OstreamViewC1ERNS2_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef nonnull align 1) unnamed_addr #0
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12lts_2024072212log_internal10LogMessage11OstreamView6streamEv(ptr noundef nonnull align 8 dereferenceable(120)) local_unnamed_addr #0
+
+; Function Attrs: nounwind
+declare void @_ZN4absl12lts_2024072212log_internal10LogMessage11OstreamViewD1Ev(ptr noundef nonnull align 8 dereferenceable(120)) unnamed_addr #1
+
+; Function Attrs: uwtable
+define internal void @_GLOBAL__sub_I_alts_grpc_record_protocol_common.cc() #13 section ".text.startup" {
+  tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #16
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #14
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #7
+declare i64 @llvm.umax.i64(i64, i64) #15
 
-attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { noreturn }
-attributes #9 = { nounwind }
+attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { cold nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nounwind }
+attributes #17 = { cold }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { cold nounwind }
+attributes #20 = { builtin nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!4 = !{!5, !10, i64 16}
+!5 = !{!"_ZTS17grpc_slice_buffer", !6, i64 0, !6, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !8, i64 40}
+!6 = !{!"p1 _ZTS10grpc_slice", !7, i64 0}
+!7 = !{!"any pointer", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C++ TBAA"}
+!10 = !{!"long", !8, i64 0}
+!11 = !{!12, !10, i64 280}
+!12 = !{!"_ZTS25alts_grpc_record_protocol", !13, i64 0, !14, i64 8, !5, i64 16, !15, i64 248, !10, i64 256, !10, i64 264, !16, i64 272, !10, i64 280}
+!13 = !{!"p1 _ZTS32alts_grpc_record_protocol_vtable", !7, i64 0}
+!14 = !{!"p1 _ZTS26alts_iovec_record_protocol", !7, i64 0}
+!15 = !{!"p1 omnipotent char", !7, i64 0}
+!16 = !{!"p1 _ZTS5iovec", !7, i64 0}
+!17 = !{!12, !16, i64 272}
+!18 = !{!5, !6, i64 8}
+!19 = !{!20, !15, i64 0}
+!20 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !21, i64 0, !10, i64 8, !8, i64 16}
+!21 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !15, i64 0}
+!22 = !{!20, !10, i64 8}
+!23 = !{!24, !25, i64 0}
+!24 = !{!"_ZTS10grpc_slice", !25, i64 0, !8, i64 8}
+!25 = !{!"p1 _ZTS19grpc_slice_refcount", !7, i64 0}
+!26 = !{!8, !8, i64 0}
+!27 = !{!28, !7, i64 0}
+!28 = !{!"_ZTS5iovec", !7, i64 0, !10, i64 8}
+!29 = !{!28, !10, i64 8}
+!30 = distinct !{!30, !31}
+!31 = !{!"llvm.loop.mustprogress"}
+!32 = distinct !{!32, !31}
+!33 = !{!12, !10, i64 256}
+!34 = !{!12, !10, i64 32}
+!35 = !{!12, !6, i64 24}
+!36 = !{!12, !15, i64 248}
+!37 = !{!15, !15, i64 0}
+!38 = !{!12, !14, i64 8}
+!39 = !{!12, !10, i64 264}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTSN4absl12lts_2024072212log_internal10LogMessage14LogMessageDataE", !7, i64 0}
+!42 = !{!12, !13, i64 0}
+!43 = !{!44, !7, i64 0}
+!44 = !{!"_ZTS32alts_grpc_record_protocol_vtable", !7, i64 0, !7, i64 8, !7, i64 16}
+!45 = !{!44, !7, i64 8}
+!46 = !{!44, !7, i64 16}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"vtable pointer", !9, i64 0}
