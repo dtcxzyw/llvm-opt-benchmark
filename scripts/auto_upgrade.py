@@ -106,6 +106,7 @@ supported_project = [
     "llama.cpp",
     "lodepng",
     "luau",
+    "meshoptimizer",
 ]
 
 modify_only = [

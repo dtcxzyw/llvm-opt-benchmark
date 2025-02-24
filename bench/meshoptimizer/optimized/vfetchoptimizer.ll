@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/meshoptimizer/original/vfetchoptimizer.ll'
 source_filename = "bench/meshoptimizer/original/vfetchoptimizer.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %class.meshopt_Allocator = type { [24 x ptr], i64 }
 
@@ -17,230 +17,252 @@ $_ZN17meshopt_Allocator8StorageTIvE8allocateE = comdat any
 @_ZN17meshopt_Allocator8StorageTIvE8allocateE = linkonce_odr dso_local local_unnamed_addr global ptr @_Znwm, comdat, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i64 0, 4294967296) i64 @meshopt_optimizeVertexFetchRemap(ptr noundef captures(none) %destination, ptr noundef readonly captures(none) %indices, i64 noundef %index_count, i64 noundef %vertex_count) local_unnamed_addr #0 {
-entry:
-  %mul = shl i64 %vertex_count, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %destination, i8 -1, i64 %mul, i1 false)
-  %cmp7.not = icmp eq i64 %index_count, 0
-  br i1 %cmp7.not, label %for.end, label %for.body
+define dso_local range(i64 0, 4294967296) i64 @meshopt_optimizeVertexFetchRemap(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+  %5 = shl i64 %3, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 -1, i64 %5, i1 false)
+  %.not = icmp eq i64 %2, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-for.body:                                         ; preds = %entry, %for.inc
-  %next_vertex.09 = phi i32 [ %next_vertex.1, %for.inc ], [ 0, %entry ]
-  %i.08 = phi i64 [ %inc5, %for.inc ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds i32, ptr %indices, i64 %i.08
-  %0 = load i32, ptr %arrayidx, align 4
-  %idxprom = zext i32 %0 to i64
-  %arrayidx1 = getelementptr inbounds nuw i32, ptr %destination, i64 %idxprom
-  %1 = load i32, ptr %arrayidx1, align 4
-  %cmp2 = icmp eq i32 %1, -1
-  br i1 %cmp2, label %if.then, label %for.inc
+._crit_edge.loopexit:                             ; preds = %15
+  %6 = zext i32 %.1 to i64
+  br label %._crit_edge
 
-if.then:                                          ; preds = %for.body
-  %inc = add i32 %next_vertex.09, 1
-  store i32 %next_vertex.09, ptr %arrayidx1, align 4
-  br label %for.inc
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
+  %.0.lcssa = phi i64 [ 0, %4 ], [ %6, %._crit_edge.loopexit ]
+  ret i64 %.0.lcssa
 
-for.inc:                                          ; preds = %for.body, %if.then
-  %next_vertex.1 = phi i32 [ %inc, %if.then ], [ %next_vertex.09, %for.body ]
-  %inc5 = add nuw i64 %i.08, 1
-  %exitcond.not = icmp eq i64 %inc5, %index_count
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !5
+.lr.ph:                                           ; preds = %4, %15
+  %.014 = phi i32 [ %.1, %15 ], [ 0, %4 ]
+  %.01213 = phi i64 [ %16, %15 ], [ 0, %4 ]
+  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %.01213
+  %8 = load i32, ptr %7, align 4, !tbaa !4
+  %9 = zext i32 %8 to i64
+  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %9
+  %11 = load i32, ptr %10, align 4, !tbaa !4
+  %12 = icmp eq i32 %11, -1
+  br i1 %12, label %13, label %15
 
-for.end.loopexit:                                 ; preds = %for.inc
-  %2 = zext i32 %next_vertex.1 to i64
-  br label %for.end
+13:                                               ; preds = %.lr.ph
+  %14 = add i32 %.014, 1
+  store i32 %.014, ptr %10, align 4, !tbaa !4
+  br label %15
 
-for.end:                                          ; preds = %for.end.loopexit, %entry
-  %next_vertex.0.lcssa = phi i64 [ 0, %entry ], [ %2, %for.end.loopexit ]
-  ret i64 %next_vertex.0.lcssa
+15:                                               ; preds = %13, %.lr.ph
+  %.1 = phi i32 [ %14, %13 ], [ %.014, %.lr.ph ]
+  %16 = add nuw i64 %.01213, 1
+  %exitcond.not = icmp eq i64 %16, %2
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i64 0, 4294967296) i64 @meshopt_optimizeVertexFetch(ptr noundef writeonly %destination, ptr noundef captures(none) %indices, i64 noundef %index_count, ptr noundef readonly %vertices, i64 noundef %vertex_count, i64 noundef %vertex_size) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
-entry:
-  %allocator = alloca %class.meshopt_Allocator, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %allocator, i8 0, i64 200, i1 false)
-  %cmp = icmp eq ptr %destination, %vertices
-  %.sroa.gep = getelementptr inbounds nuw i8, ptr %allocator, i64 8
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local range(i64 0, 4294967296) i64 @meshopt_optimizeVertexFetch(ptr noundef writeonly %0, ptr noundef captures(none) %1, i64 noundef %2, ptr noundef readonly %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+  %7 = alloca %class.meshopt_Allocator, align 8
+  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %7) #10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %7, i8 0, i64 200, i1 false)
+  %8 = icmp eq ptr %0, %3
+  %.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 8
+  br i1 %8, label %9, label %17
 
-if.then:                                          ; preds = %entry
-  %mul = mul i64 %vertex_size, %vertex_count
-  %0 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
-  %call.i22 = invoke noundef ptr %0(i64 noundef %mul)
-          to label %invoke.cont unwind label %lpad
+9:                                                ; preds = %6
+  %10 = mul i64 %5, %4
+  %11 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8, !tbaa !10
+  %12 = invoke noundef ptr %11(i64 noundef %10)
+          to label %13 unwind label %15
 
-invoke.cont:                                      ; preds = %if.then
-  %count.i = getelementptr inbounds nuw i8, ptr %allocator, i64 192
-  store i64 1, ptr %count.i, align 8
-  store ptr %call.i22, ptr %allocator, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i22, ptr align 1 %vertices, i64 %mul, i1 false)
-  br label %if.end
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 192
+  store i64 1, ptr %14, align 8, !tbaa !12
+  store ptr %12, ptr %7, align 8, !tbaa !10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %3, i64 %10, i1 false)
+  br label %17
 
-lpad:                                             ; preds = %if.end, %if.then
-  %1 = landingpad { ptr, i32 }
+15:                                               ; preds = %9
+  %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %allocator) #9
-  resume { ptr, i32 } %1
+  br label %53
 
-if.end:                                           ; preds = %invoke.cont, %entry
-  %.sroa.phi = phi ptr [ %.sroa.gep, %invoke.cont ], [ %allocator, %entry ]
-  %inc.i24 = phi i64 [ 2, %invoke.cont ], [ 1, %entry ]
-  %vertices.addr.0 = phi ptr [ %call.i22, %invoke.cont ], [ %vertices, %entry ]
-  %2 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
-  %cmp.i = icmp ugt i64 %vertex_count, 4611686018427387903
-  %mul.i = shl i64 %vertex_count, 2
-  %cond.i = select i1 %cmp.i, i64 -1, i64 %mul.i
-  %call.i26 = invoke noundef ptr %2(i64 noundef %cond.i)
-          to label %invoke.cont2 unwind label %lpad
+17:                                               ; preds = %13, %6
+  %.sroa.phi = phi ptr [ %.sroa.gep, %13 ], [ %7, %6 ]
+  %18 = phi i64 [ 2, %13 ], [ 1, %6 ]
+  %.0 = phi ptr [ %12, %13 ], [ %3, %6 ]
+  %19 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8, !tbaa !10
+  %20 = icmp ugt i64 %4, 4611686018427387903
+  %21 = shl i64 %4, 2
+  %22 = select i1 %20, i64 -1, i64 %21
+  %23 = invoke noundef ptr %19(i64 noundef %22)
+          to label %24 unwind label %35
 
-invoke.cont2:                                     ; preds = %if.end
-  %count.i23 = getelementptr inbounds nuw i8, ptr %allocator, i64 192
-  store i64 %inc.i24, ptr %count.i23, align 8
-  store ptr %call.i26, ptr %.sroa.phi, align 8
-  tail call void @llvm.memset.p0.i64(ptr align 4 %call.i26, i8 -1, i64 %mul.i, i1 false)
-  %cmp529.not = icmp eq i64 %index_count, 0
-  br i1 %cmp529.not, label %for.end, label %for.body
+24:                                               ; preds = %17
+  store ptr %23, ptr %.sroa.phi, align 8, !tbaa !10
+  tail call void @llvm.memset.p0.i64(ptr align 4 %23, i8 -1, i64 %21, i1 false)
+  %.not = icmp eq i64 %2, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-for.body:                                         ; preds = %invoke.cont2, %if.end13
-  %next_vertex.031 = phi i32 [ %next_vertex.1, %if.end13 ], [ 0, %invoke.cont2 ]
-  %i.030 = phi i64 [ %inc15, %if.end13 ], [ 0, %invoke.cont2 ]
-  %arrayidx = getelementptr inbounds i32, ptr %indices, i64 %i.030
-  %3 = load i32, ptr %arrayidx, align 4
-  %idxprom = zext i32 %3 to i64
-  %arrayidx6 = getelementptr inbounds nuw i32, ptr %call.i26, i64 %idxprom
-  %4 = load i32, ptr %arrayidx6, align 4
-  %cmp7 = icmp eq i32 %4, -1
-  br i1 %cmp7, label %if.then8, label %if.end13
+._crit_edge.loopexit:                             ; preds = %50
+  %25 = zext i32 %.1 to i64
+  br label %._crit_edge
 
-if.then8:                                         ; preds = %for.body
-  %conv = zext i32 %next_vertex.031 to i64
-  %mul9 = mul i64 %vertex_size, %conv
-  %add.ptr = getelementptr inbounds i8, ptr %destination, i64 %mul9
-  %mul11 = mul i64 %vertex_size, %idxprom
-  %add.ptr12 = getelementptr inbounds i8, ptr %vertices.addr.0, i64 %mul11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %add.ptr12, i64 %vertex_size, i1 false)
-  %inc = add i32 %next_vertex.031, 1
-  store i32 %next_vertex.031, ptr %arrayidx6, align 4
-  br label %if.end13
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %24
+  %.036.lcssa = phi i64 [ 0, %24 ], [ %25, %._crit_edge.loopexit ]
+  br label %26
 
-if.end13:                                         ; preds = %if.then8, %for.body
-  %5 = phi i32 [ %next_vertex.031, %if.then8 ], [ %4, %for.body ]
-  %next_vertex.1 = phi i32 [ %inc, %if.then8 ], [ %next_vertex.031, %for.body ]
-  store i32 %5, ptr %arrayidx, align 4
-  %inc15 = add nuw i64 %i.030, 1
-  %exitcond.not = icmp eq i64 %inc15, %index_count
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !7
+26:                                               ; preds = %27, %._crit_edge
+  %.0.i = phi i64 [ %18, %._crit_edge ], [ %29, %27 ]
+  %.not.i = icmp eq i64 %.0.i, 0
+  br i1 %.not.i, label %_ZN17meshopt_AllocatorD2Ev.exit, label %27
 
-for.end.loopexit:                                 ; preds = %if.end13
-  %6 = zext i32 %next_vertex.1 to i64
-  br label %for.end
+27:                                               ; preds = %26
+  %28 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !10
+  %29 = add i64 %.0.i, -1
+  %30 = getelementptr inbounds nuw [24 x ptr], ptr %7, i64 0, i64 %29
+  %31 = load ptr, ptr %30, align 8, !tbaa !10
+  invoke void %28(ptr noundef %31)
+          to label %26 unwind label %32, !llvm.loop !15
 
-for.end:                                          ; preds = %for.end.loopexit, %invoke.cont2
-  %next_vertex.0.lcssa = phi i64 [ 0, %invoke.cont2 ], [ %6, %for.end.loopexit ]
-  br label %for.cond.i
-
-for.cond.i:                                       ; preds = %for.body.i, %for.end
-  %i.0.i = phi i64 [ %inc.i24, %for.end ], [ %sub.i, %for.body.i ]
-  %cmp.not.i = icmp eq i64 %i.0.i, 0
-  br i1 %cmp.not.i, label %_ZN17meshopt_AllocatorD2Ev.exit, label %for.body.i
-
-for.body.i:                                       ; preds = %for.cond.i
-  %7 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8
-  %sub.i = add i64 %i.0.i, -1
-  %arrayidx.i28 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 %sub.i
-  %8 = load ptr, ptr %arrayidx.i28, align 8
-  invoke void %7(ptr noundef %8)
-          to label %for.cond.i unwind label %terminate.lpad.i, !llvm.loop !8
-
-terminate.lpad.i:                                 ; preds = %for.body.i
-  %9 = landingpad { ptr, i32 }
+32:                                               ; preds = %27
+  %33 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #10
+  %34 = extractvalue { ptr, i32 } %33, 0
+  tail call void @__clang_call_terminate(ptr %34) #11
   unreachable
 
-_ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %for.cond.i
-  ret i64 %next_vertex.0.lcssa
+_ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %26
+  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #10
+  ret i64 %.036.lcssa
+
+35:                                               ; preds = %17
+  %36 = landingpad { ptr, i32 }
+          cleanup
+  br label %53
+
+.lr.ph:                                           ; preds = %24, %50
+  %.03542 = phi i64 [ %52, %50 ], [ 0, %24 ]
+  %.03641 = phi i32 [ %.1, %50 ], [ 0, %24 ]
+  %37 = getelementptr inbounds nuw i32, ptr %1, i64 %.03542
+  %38 = load i32, ptr %37, align 4, !tbaa !4
+  %39 = zext i32 %38 to i64
+  %40 = getelementptr inbounds nuw i32, ptr %23, i64 %39
+  %41 = load i32, ptr %40, align 4, !tbaa !4
+  %42 = icmp eq i32 %41, -1
+  br i1 %42, label %43, label %50
+
+43:                                               ; preds = %.lr.ph
+  %44 = zext i32 %.03641 to i64
+  %45 = mul i64 %5, %44
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 %45
+  %47 = mul i64 %5, %39
+  %48 = getelementptr inbounds nuw i8, ptr %.0, i64 %47
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %46, ptr align 1 %48, i64 %5, i1 false)
+  %49 = add i32 %.03641, 1
+  store i32 %.03641, ptr %40, align 4, !tbaa !4
+  br label %50
+
+50:                                               ; preds = %43, %.lr.ph
+  %51 = phi i32 [ %.03641, %43 ], [ %41, %.lr.ph ]
+  %.1 = phi i32 [ %49, %43 ], [ %.03641, %.lr.ph ]
+  store i32 %51, ptr %37, align 4, !tbaa !4
+  %52 = add nuw i64 %.03542, 1
+  %exitcond.not = icmp eq i64 %52, %2
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
+
+53:                                               ; preds = %35, %15
+  %.pn = phi { ptr, i32 } [ %36, %35 ], [ %16, %15 ]
+  call void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %7) #10
+  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #10
+  resume { ptr, i32 } %.pn
 }
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %count = getelementptr inbounds nuw i8, ptr %this, i64 192
-  %0 = load i64, ptr %count, align 8
-  br label %for.cond
+define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %3 = load i64, ptr %2, align 8, !tbaa !12
+  br label %4
 
-for.cond:                                         ; preds = %for.body, %entry
-  %i.0 = phi i64 [ %0, %entry ], [ %sub, %for.body ]
-  %cmp.not = icmp eq i64 %i.0, 0
-  br i1 %cmp.not, label %for.end, label %for.body
+4:                                                ; preds = %6, %1
+  %.0 = phi i64 [ %3, %1 ], [ %8, %6 ]
+  %.not = icmp eq i64 %.0, 0
+  br i1 %.not, label %5, label %6
 
-for.body:                                         ; preds = %for.cond
-  %1 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8
-  %sub = add i64 %i.0, -1
-  %arrayidx = getelementptr inbounds [24 x ptr], ptr %this, i64 0, i64 %sub
-  %2 = load ptr, ptr %arrayidx, align 8
-  invoke void %1(ptr noundef %2)
-          to label %for.cond unwind label %terminate.lpad, !llvm.loop !8
-
-for.end:                                          ; preds = %for.cond
+5:                                                ; preds = %4
   ret void
 
-terminate.lpad:                                   ; preds = %for.body
-  %3 = landingpad { ptr, i32 }
+6:                                                ; preds = %4
+  %7 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !10
+  %8 = add i64 %.0, -1
+  %9 = getelementptr inbounds nuw [24 x ptr], ptr %0, i64 0, i64 %8
+  %10 = load ptr, ptr %9, align 8, !tbaa !10
+  invoke void %7(ptr noundef %10)
+          to label %4 unwind label %11, !llvm.loop !15
+
+11:                                               ; preds = %6
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #10
+  %13 = extractvalue { ptr, i32 } %12, 0
+  tail call void @__clang_call_terminate(ptr %13) #11
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #9
-  tail call void @_ZSt9terminatev() #10
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
+  tail call void @_ZSt9terminatev() #11
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #6
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #7
+declare void @_ZdlPv(ptr noundef) #8
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #8
+declare noundef nonnull ptr @_Znwm(i64 noundef) #9
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold nofree noreturn }
-attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind }
-attributes #10 = { noreturn nounwind }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"any pointer", !6, i64 0}
+!12 = !{!13, !14, i64 192}
+!13 = !{!"_ZTS17meshopt_Allocator", !6, i64 0, !14, i64 192}
+!14 = !{!"long", !6, i64 0}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}

@@ -1,211 +1,254 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %union.FloatBits = type { float }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i16 @_Z20meshopt_quantizeHalff(float noundef %v) #0 {
-entry:
-  %v.addr = alloca float, align 4
-  %u = alloca %union.FloatBits, align 4
-  %ui = alloca i32, align 4
-  %s = alloca i32, align 4
-  %em = alloca i32, align 4
-  %h = alloca i32, align 4
-  store float %v, ptr %v.addr, align 4
-  %0 = load float, ptr %v.addr, align 4
-  store float %0, ptr %u, align 4
-  %1 = load i32, ptr %u, align 4
-  store i32 %1, ptr %ui, align 4
-  %2 = load i32, ptr %ui, align 4
-  %shr = lshr i32 %2, 16
-  %and = and i32 %shr, 32768
-  store i32 %and, ptr %s, align 4
-  %3 = load i32, ptr %ui, align 4
-  %and1 = and i32 %3, 2147483647
-  store i32 %and1, ptr %em, align 4
-  %4 = load i32, ptr %em, align 4
-  %sub = sub nsw i32 %4, 939524096
-  %add = add nsw i32 %sub, 4096
-  %shr2 = ashr i32 %add, 13
-  store i32 %shr2, ptr %h, align 4
-  %5 = load i32, ptr %em, align 4
-  %cmp = icmp slt i32 %5, 947912704
-  br i1 %cmp, label %cond.true, label %cond.false
+define dso_local zeroext i16 @meshopt_quantizeHalf(float noundef %0) #0 {
+  %2 = alloca float, align 4
+  %3 = alloca %union.FloatBits, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store float %0, ptr %2, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #2
+  %8 = load float, ptr %2, align 4, !tbaa !4
+  store float %8, ptr %3, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #2
+  %9 = load i32, ptr %3, align 4, !tbaa !8
+  store i32 %9, ptr %4, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #2
+  %10 = load i32, ptr %4, align 4, !tbaa !9
+  %11 = lshr i32 %10, 16
+  %12 = and i32 %11, 32768
+  store i32 %12, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #2
+  %13 = load i32, ptr %4, align 4, !tbaa !9
+  %14 = and i32 %13, 2147483647
+  store i32 %14, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #2
+  %15 = load i32, ptr %6, align 4, !tbaa !9
+  %16 = sub nsw i32 %15, 939524096
+  %17 = add nsw i32 %16, 4096
+  %18 = ashr i32 %17, 13
+  store i32 %18, ptr %7, align 4, !tbaa !9
+  %19 = load i32, ptr %6, align 4, !tbaa !9
+  %20 = icmp slt i32 %19, 947912704
+  br i1 %20, label %21, label %22
 
-cond.true:                                        ; preds = %entry
-  br label %cond.end
+21:                                               ; preds = %1
+  br label %24
 
-cond.false:                                       ; preds = %entry
-  %6 = load i32, ptr %h, align 4
-  br label %cond.end
+22:                                               ; preds = %1
+  %23 = load i32, ptr %7, align 4, !tbaa !9
+  br label %24
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ 0, %cond.true ], [ %6, %cond.false ]
-  store i32 %cond, ptr %h, align 4
-  %7 = load i32, ptr %em, align 4
-  %cmp3 = icmp sge i32 %7, 1199570944
-  br i1 %cmp3, label %cond.true4, label %cond.false5
+24:                                               ; preds = %22, %21
+  %25 = phi i32 [ 0, %21 ], [ %23, %22 ]
+  store i32 %25, ptr %7, align 4, !tbaa !9
+  %26 = load i32, ptr %6, align 4, !tbaa !9
+  %27 = icmp sge i32 %26, 1199570944
+  br i1 %27, label %28, label %29
 
-cond.true4:                                       ; preds = %cond.end
-  br label %cond.end6
+28:                                               ; preds = %24
+  br label %31
 
-cond.false5:                                      ; preds = %cond.end
-  %8 = load i32, ptr %h, align 4
-  br label %cond.end6
+29:                                               ; preds = %24
+  %30 = load i32, ptr %7, align 4, !tbaa !9
+  br label %31
 
-cond.end6:                                        ; preds = %cond.false5, %cond.true4
-  %cond7 = phi i32 [ 31744, %cond.true4 ], [ %8, %cond.false5 ]
-  store i32 %cond7, ptr %h, align 4
-  %9 = load i32, ptr %em, align 4
-  %cmp8 = icmp sgt i32 %9, 2139095040
-  br i1 %cmp8, label %cond.true9, label %cond.false10
+31:                                               ; preds = %29, %28
+  %32 = phi i32 [ 31744, %28 ], [ %30, %29 ]
+  store i32 %32, ptr %7, align 4, !tbaa !9
+  %33 = load i32, ptr %6, align 4, !tbaa !9
+  %34 = icmp sgt i32 %33, 2139095040
+  br i1 %34, label %35, label %36
 
-cond.true9:                                       ; preds = %cond.end6
-  br label %cond.end11
+35:                                               ; preds = %31
+  br label %38
 
-cond.false10:                                     ; preds = %cond.end6
-  %10 = load i32, ptr %h, align 4
-  br label %cond.end11
+36:                                               ; preds = %31
+  %37 = load i32, ptr %7, align 4, !tbaa !9
+  br label %38
 
-cond.end11:                                       ; preds = %cond.false10, %cond.true9
-  %cond12 = phi i32 [ 32256, %cond.true9 ], [ %10, %cond.false10 ]
-  store i32 %cond12, ptr %h, align 4
-  %11 = load i32, ptr %s, align 4
-  %12 = load i32, ptr %h, align 4
-  %or = or i32 %11, %12
-  %conv = trunc i32 %or to i16
-  ret i16 %conv
+38:                                               ; preds = %36, %35
+  %39 = phi i32 [ 32256, %35 ], [ %37, %36 ]
+  store i32 %39, ptr %7, align 4, !tbaa !9
+  %40 = load i32, ptr %5, align 4, !tbaa !9
+  %41 = load i32, ptr %7, align 4, !tbaa !9
+  %42 = or i32 %40, %41
+  %43 = trunc i32 %42 to i16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #2
+  ret i16 %43
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local float @meshopt_quantizeFloat(float noundef %0, i32 noundef %1) #0 {
+  %3 = alloca float, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca %union.FloatBits, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store float %0, ptr %3, align 4, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #2
+  %11 = load float, ptr %3, align 4, !tbaa !4
+  store float %11, ptr %5, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #2
+  %12 = load i32, ptr %5, align 4, !tbaa !8
+  store i32 %12, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #2
+  %13 = load i32, ptr %4, align 4, !tbaa !9
+  %14 = sub nsw i32 23, %13
+  %15 = shl i32 1, %14
+  %16 = sub nsw i32 %15, 1
+  store i32 %16, ptr %7, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #2
+  %17 = load i32, ptr %4, align 4, !tbaa !9
+  %18 = sub nsw i32 23, %17
+  %19 = shl i32 1, %18
+  %20 = ashr i32 %19, 1
+  store i32 %20, ptr %8, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #2
+  %21 = load i32, ptr %6, align 4, !tbaa !9
+  %22 = and i32 %21, 2139095040
+  store i32 %22, ptr %9, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #2
+  %23 = load i32, ptr %6, align 4, !tbaa !9
+  %24 = load i32, ptr %8, align 4, !tbaa !9
+  %25 = add i32 %23, %24
+  %26 = load i32, ptr %7, align 4, !tbaa !9
+  %27 = xor i32 %26, -1
+  %28 = and i32 %25, %27
+  store i32 %28, ptr %10, align 4, !tbaa !9
+  %29 = load i32, ptr %9, align 4, !tbaa !9
+  %30 = icmp eq i32 %29, 2139095040
+  br i1 %30, label %31, label %33
+
+31:                                               ; preds = %2
+  %32 = load i32, ptr %6, align 4, !tbaa !9
+  br label %35
+
+33:                                               ; preds = %2
+  %34 = load i32, ptr %10, align 4, !tbaa !9
+  br label %35
+
+35:                                               ; preds = %33, %31
+  %36 = phi i32 [ %32, %31 ], [ %34, %33 ]
+  store i32 %36, ptr %6, align 4, !tbaa !9
+  %37 = load i32, ptr %9, align 4, !tbaa !9
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %40
+
+39:                                               ; preds = %35
+  br label %42
+
+40:                                               ; preds = %35
+  %41 = load i32, ptr %6, align 4, !tbaa !9
+  br label %42
+
+42:                                               ; preds = %40, %39
+  %43 = phi i32 [ 0, %39 ], [ %41, %40 ]
+  store i32 %43, ptr %6, align 4, !tbaa !9
+  %44 = load i32, ptr %6, align 4, !tbaa !9
+  store i32 %44, ptr %5, align 4, !tbaa !8
+  %45 = load float, ptr %5, align 4, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #2
+  ret float %45
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef float @_Z21meshopt_quantizeFloatfi(float noundef %v, i32 noundef %N) #0 {
-entry:
-  %v.addr = alloca float, align 4
-  %N.addr = alloca i32, align 4
-  %u = alloca %union.FloatBits, align 4
-  %ui = alloca i32, align 4
-  %mask = alloca i32, align 4
-  %round = alloca i32, align 4
-  %e = alloca i32, align 4
-  %rui = alloca i32, align 4
-  store float %v, ptr %v.addr, align 4
-  store i32 %N, ptr %N.addr, align 4
-  %0 = load float, ptr %v.addr, align 4
-  store float %0, ptr %u, align 4
-  %1 = load i32, ptr %u, align 4
-  store i32 %1, ptr %ui, align 4
-  %2 = load i32, ptr %N.addr, align 4
-  %sub = sub nsw i32 23, %2
-  %shl = shl i32 1, %sub
-  %sub1 = sub nsw i32 %shl, 1
-  store i32 %sub1, ptr %mask, align 4
-  %3 = load i32, ptr %N.addr, align 4
-  %sub2 = sub nsw i32 23, %3
-  %shl3 = shl i32 1, %sub2
-  %shr = ashr i32 %shl3, 1
-  store i32 %shr, ptr %round, align 4
-  %4 = load i32, ptr %ui, align 4
-  %and = and i32 %4, 2139095040
-  store i32 %and, ptr %e, align 4
-  %5 = load i32, ptr %ui, align 4
-  %6 = load i32, ptr %round, align 4
-  %add = add i32 %5, %6
-  %7 = load i32, ptr %mask, align 4
-  %not = xor i32 %7, -1
-  %and4 = and i32 %add, %not
-  store i32 %and4, ptr %rui, align 4
-  %8 = load i32, ptr %e, align 4
-  %cmp = icmp eq i32 %8, 2139095040
-  br i1 %cmp, label %cond.true, label %cond.false
+define dso_local float @meshopt_dequantizeHalf(i16 noundef zeroext %0) #0 {
+  %2 = alloca i16, align 2
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca %union.FloatBits, align 4
+  store i16 %0, ptr %2, align 2, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #2
+  %7 = load i16, ptr %2, align 2, !tbaa !11
+  %8 = zext i16 %7 to i32
+  %9 = and i32 %8, 32768
+  %10 = shl i32 %9, 16
+  store i32 %10, ptr %3, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #2
+  %11 = load i16, ptr %2, align 2, !tbaa !11
+  %12 = zext i16 %11 to i32
+  %13 = and i32 %12, 32767
+  store i32 %13, ptr %4, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #2
+  %14 = load i32, ptr %4, align 4, !tbaa !9
+  %15 = add nsw i32 %14, 114688
+  %16 = shl i32 %15, 13
+  store i32 %16, ptr %5, align 4, !tbaa !9
+  %17 = load i32, ptr %4, align 4, !tbaa !9
+  %18 = icmp slt i32 %17, 1024
+  br i1 %18, label %19, label %20
 
-cond.true:                                        ; preds = %entry
-  %9 = load i32, ptr %ui, align 4
-  br label %cond.end
+19:                                               ; preds = %1
+  br label %22
 
-cond.false:                                       ; preds = %entry
-  %10 = load i32, ptr %rui, align 4
-  br label %cond.end
+20:                                               ; preds = %1
+  %21 = load i32, ptr %5, align 4, !tbaa !9
+  br label %22
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %9, %cond.true ], [ %10, %cond.false ]
-  store i32 %cond, ptr %ui, align 4
-  %11 = load i32, ptr %e, align 4
-  %cmp5 = icmp eq i32 %11, 0
-  br i1 %cmp5, label %cond.true6, label %cond.false7
-
-cond.true6:                                       ; preds = %cond.end
-  br label %cond.end8
-
-cond.false7:                                      ; preds = %cond.end
-  %12 = load i32, ptr %ui, align 4
-  br label %cond.end8
-
-cond.end8:                                        ; preds = %cond.false7, %cond.true6
-  %cond9 = phi i32 [ 0, %cond.true6 ], [ %12, %cond.false7 ]
-  store i32 %cond9, ptr %ui, align 4
-  %13 = load i32, ptr %ui, align 4
-  store i32 %13, ptr %u, align 4
-  %14 = load float, ptr %u, align 4
-  ret float %14
+22:                                               ; preds = %20, %19
+  %23 = phi i32 [ 0, %19 ], [ %21, %20 ]
+  store i32 %23, ptr %5, align 4, !tbaa !9
+  %24 = load i32, ptr %4, align 4, !tbaa !9
+  %25 = icmp sge i32 %24, 31744
+  %26 = select i1 %25, i32 939524096, i32 0
+  %27 = load i32, ptr %5, align 4, !tbaa !9
+  %28 = add nsw i32 %27, %26
+  store i32 %28, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #2
+  %29 = load i32, ptr %3, align 4, !tbaa !9
+  %30 = load i32, ptr %5, align 4, !tbaa !9
+  %31 = or i32 %29, %30
+  store i32 %31, ptr %6, align 4, !tbaa !8
+  %32 = load float, ptr %6, align 4, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #2
+  ret float %32
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef float @_Z22meshopt_dequantizeHalft(i16 noundef zeroext %h) #0 {
-entry:
-  %h.addr = alloca i16, align 2
-  %s = alloca i32, align 4
-  %em = alloca i32, align 4
-  %r = alloca i32, align 4
-  %u = alloca %union.FloatBits, align 4
-  store i16 %h, ptr %h.addr, align 2
-  %0 = load i16, ptr %h.addr, align 2
-  %conv = zext i16 %0 to i32
-  %and = and i32 %conv, 32768
-  %shl = shl i32 %and, 16
-  store i32 %shl, ptr %s, align 4
-  %1 = load i16, ptr %h.addr, align 2
-  %conv1 = zext i16 %1 to i32
-  %and2 = and i32 %conv1, 32767
-  store i32 %and2, ptr %em, align 4
-  %2 = load i32, ptr %em, align 4
-  %add = add nsw i32 %2, 114688
-  %shl3 = shl i32 %add, 13
-  store i32 %shl3, ptr %r, align 4
-  %3 = load i32, ptr %em, align 4
-  %cmp = icmp slt i32 %3, 1024
-  br i1 %cmp, label %cond.true, label %cond.false
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind }
 
-cond.true:                                        ; preds = %entry
-  br label %cond.end
-
-cond.false:                                       ; preds = %entry
-  %4 = load i32, ptr %r, align 4
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ 0, %cond.true ], [ %4, %cond.false ]
-  store i32 %cond, ptr %r, align 4
-  %5 = load i32, ptr %em, align 4
-  %cmp4 = icmp sge i32 %5, 31744
-  %cond5 = select i1 %cmp4, i32 939524096, i32 0
-  %6 = load i32, ptr %r, align 4
-  %add6 = add nsw i32 %6, %cond5
-  store i32 %add6, ptr %r, align 4
-  %7 = load i32, ptr %s, align 4
-  %8 = load i32, ptr %r, align 4
-  %or = or i32 %7, %8
-  store i32 %or, ptr %u, align 4
-  %9 = load float, ptr %u, align 4
-  ret float %9
-}
-
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"float", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!6, !6, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"short", !6, i64 0}
