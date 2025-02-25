@@ -42679,7 +42679,7 @@ define linkonce_odr void @_ZN5arrow8internal16DictionaryTraitsINS_10BinaryTypeEv
   br i1 %68, label %.lr.ph.i, label %.loopexit95, !llvm.loop !1764
 
 .loopexit95:                                      ; preds = %.noexc48, %.noexc
-  %.0.lcssa.i = phi ptr [ %41, %.noexc ], [ %66, %.noexc48 ]
+  %.0.lcssa.i = phi ptr [ %40, %.noexc ], [ %66, %.noexc48 ]
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 336
   %70 = load i64, ptr %69, align 8, !tbaa !1205
   %71 = trunc i64 %70 to i32
@@ -47922,7 +47922,7 @@ define linkonce_odr void @_ZN5arrow8internal16DictionaryTraitsINS_15LargeBinaryT
   br i1 %68, label %.lr.ph.i, label %.loopexit103, !llvm.loop !2145
 
 .loopexit103:                                     ; preds = %.noexc48, %.noexc
-  %.0.lcssa.i = phi ptr [ %41, %.noexc ], [ %66, %.noexc48 ]
+  %.0.lcssa.i = phi ptr [ %40, %.noexc ], [ %66, %.noexc48 ]
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 336
   %70 = load i64, ptr %69, align 8, !tbaa !1205
   %71 = sub nsw i64 %70, %53

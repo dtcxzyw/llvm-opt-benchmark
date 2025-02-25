@@ -674,83 +674,69 @@ define internal fastcc void @_ZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl29I
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !100
   %11 = tail call noundef zeroext i1 @_ZN4llvm32isGuaranteedNotToBeUndefOrPoisonEPKNS_5ValueEPNS_15AssumptionCacheEPKNS_11InstructionEPKNS_13DominatorTreeEj(ptr noundef %8, ptr noundef null, ptr noundef %7, ptr noundef %10, i32 noundef 0) #14
-  br i1 %11, label %47, label %12
+  br i1 %11, label %39, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit
 
-12:                                               ; preds = %2
-  %13 = tail call noundef ptr @_ZN4llvm4UsernwEmNS0_28IntrusiveOperandsAllocMarkerE(i64 noundef 72, i32 1) #14
+_ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %2
+  %12 = tail call noundef ptr @_ZN4llvm4UsernwEmNS0_28IntrusiveOperandsAllocMarkerE(i64 noundef 72, i32 1) #14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #14
-  %14 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
-  %15 = extractvalue { ptr, i64 } %14, 0
-  %16 = extractvalue { ptr, i64 } %14, 1
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i8 5, ptr %17, align 8, !tbaa !126, !alias.scope !129
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 33
-  store i8 3, ptr %18, align 1, !tbaa !132, !alias.scope !129
-  store ptr %15, ptr %3, align 8, !tbaa !133, !alias.scope !129
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %16, ptr %19, align 8, !tbaa !133, !alias.scope !129
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr @.str, ptr %20, align 8, !tbaa !133, !alias.scope !129
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %22 = load ptr, ptr %21, align 8, !tbaa !134
-  %23 = icmp eq ptr %21, %22
-  br i1 %23, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit, label %24
+  %13 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
+  %14 = extractvalue { ptr, i64 } %13, 0
+  %15 = extractvalue { ptr, i64 } %13, 1
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i8 5, ptr %16, align 8, !tbaa !126, !alias.scope !129
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 33
+  store i8 3, ptr %17, align 1, !tbaa !132, !alias.scope !129
+  store ptr %14, ptr %3, align 8, !tbaa !133, !alias.scope !129
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %15, ptr %18, align 8, !tbaa !133, !alias.scope !129
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr @.str, ptr %19, align 8, !tbaa !133, !alias.scope !129
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %21 = load ptr, ptr %20, align 8, !tbaa !134
+  call void @_ZN4llvm10FreezeInstC1EPNS_5ValueERKNS_5TwineENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(34) %3, ptr nonnull %21, i64 0) #14
+  %22 = load ptr, ptr %1, align 8, !tbaa !77
+  %.not.i = icmp eq ptr %22, null
+  br i1 %.not.i, label %30, label %23
 
-24:                                               ; preds = %12
-  %25 = getelementptr inbounds i8, ptr %22, i64 -24
-  %26 = load i8, ptr %25, align 8, !tbaa !72
-  %27 = add i8 %26, -30
-  %28 = icmp ult i8 %27, 11
-  %spec.select.i.i = select i1 %28, ptr %25, ptr null
-  br label %_ZN4llvm10BasicBlock13getTerminatorEv.exit
+23:                                               ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !90
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %27 = load ptr, ptr %26, align 8, !tbaa !135
+  store ptr %25, ptr %27, align 8, !tbaa !101
+  %.not.i.i = icmp eq ptr %25, null
+  br i1 %.not.i.i, label %30, label %28
 
-_ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %12, %24
-  %.0.i.i = phi ptr [ null, %12 ], [ %spec.select.i.i, %24 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  call void @_ZN4llvm10FreezeInstC1EPNS_5ValueERKNS_5TwineENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(34) %3, ptr nonnull %29, i64 0) #14
-  %30 = load ptr, ptr %1, align 8, !tbaa !77
-  %.not.i = icmp eq ptr %30, null
-  br i1 %.not.i, label %38, label %31
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  store ptr %27, ptr %29, align 8, !tbaa !135
+  br label %30
 
-31:                                               ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !90
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !135
-  store ptr %33, ptr %35, align 8, !tbaa !101
-  %.not.i.i = icmp eq ptr %33, null
-  br i1 %.not.i.i, label %38, label %36
+30:                                               ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit, %23, %28
+  store ptr %12, ptr %1, align 8, !tbaa !77
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %32 = load ptr, ptr %31, align 8, !tbaa !101
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr %32, ptr %33, align 8, !tbaa !90
+  %.not.i.i.i = icmp eq ptr %32, null
+  br i1 %.not.i.i.i, label %_ZN4llvm3Use3setEPNS_5ValueE.exit, label %34
 
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store ptr %35, ptr %37, align 8, !tbaa !135
-  br label %38
-
-38:                                               ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit, %31, %36
-  store ptr %13, ptr %1, align 8, !tbaa !77
-  %39 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %40 = load ptr, ptr %39, align 8, !tbaa !101
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %40, ptr %41, align 8, !tbaa !90
-  %.not.i.i.i = icmp eq ptr %40, null
-  br i1 %.not.i.i.i, label %_ZN4llvm3Use3setEPNS_5ValueE.exit, label %42
-
-42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  store ptr %41, ptr %43, align 8, !tbaa !135
+34:                                               ; preds = %30
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  store ptr %33, ptr %35, align 8, !tbaa !135
   br label %_ZN4llvm3Use3setEPNS_5ValueE.exit
 
-_ZN4llvm3Use3setEPNS_5ValueE.exit:                ; preds = %38, %42
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %39, ptr %44, align 8, !tbaa !135
-  store ptr %1, ptr %39, align 8, !tbaa !101
+_ZN4llvm3Use3setEPNS_5ValueE.exit:                ; preds = %30, %34
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %31, ptr %36, align 8, !tbaa !135
+  store ptr %1, ptr %31, align 8, !tbaa !101
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #14
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !48
-  call void @_ZN4llvm15ScalarEvolution11forgetValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1344) %46, ptr noundef %7) #14
-  br label %47
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %38 = load ptr, ptr %37, align 8, !tbaa !48
+  call void @_ZN4llvm15ScalarEvolution11forgetValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1344) %38, ptr noundef %7) #14
+  br label %39
 
-47:                                               ; preds = %2, %_ZN4llvm3Use3setEPNS_5ValueE.exit
+39:                                               ; preds = %2, %_ZN4llvm3Use3setEPNS_5ValueE.exit
   ret void
 }
 

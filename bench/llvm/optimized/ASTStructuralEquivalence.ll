@@ -16847,71 +16847,65 @@ _ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.i38: ; preds = %40
   %.04.i.i.v.v.i.i.i39 = select i1 %42, i64 64, i64 80
   %.04.i.i.v.i.i.i40 = getelementptr inbounds nuw i8, ptr %1, i64 %.04.i.i.v.v.i.i.i39
   %.04.i.i.i.i.i41 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %.04.i.i.v.i.i.i40, i64 %45
-  %46 = load i32, ptr %.04.i.i.i.i.i41, align 8, !tbaa !318
-  %.not.i42 = icmp eq i32 %46, 0
-  %47 = getelementptr inbounds nuw i8, ptr %.04.i.i.i.i.i41, i64 16
-  %spec.select = select i1 %.not.i42, ptr null, ptr %47
+  %46 = getelementptr inbounds nuw i8, ptr %.04.i.i.i.i.i41, i64 16
   br label %_ZNK5clang12OverloadExpr15getTemplateArgsEv.exit
 
 _ZNK5clang12OverloadExpr15getTemplateArgsEv.exit: ; preds = %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.i38, %40
-  %.0.i43 = phi ptr [ null, %40 ], [ %spec.select, %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.i38 ]
+  %.0.i43 = phi ptr [ null, %40 ], [ %46, %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.i38 ]
   br i1 %.not.i.i.i28, label %_ZNK5clang12OverloadExpr15getTemplateArgsEv.exit52, label %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.i45
 
 _ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.i45: ; preds = %_ZNK5clang12OverloadExpr15getTemplateArgsEv.exit
-  %48 = and i32 %30, 511
-  %49 = icmp eq i32 %48, 26
-  %50 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %51 = load i32, ptr %50, align 4, !tbaa !82
-  %52 = zext i32 %51 to i64
-  %.04.i.i.v.v.i.i.i46 = select i1 %49, i64 64, i64 80
+  %47 = and i32 %30, 511
+  %48 = icmp eq i32 %47, 26
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %50 = load i32, ptr %49, align 4, !tbaa !82
+  %51 = zext i32 %50 to i64
+  %.04.i.i.v.v.i.i.i46 = select i1 %48, i64 64, i64 80
   %.04.i.i.v.i.i.i47 = getelementptr inbounds nuw i8, ptr %2, i64 %.04.i.i.v.v.i.i.i46
-  %.04.i.i.i.i.i48 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %.04.i.i.v.i.i.i47, i64 %52
-  %53 = load i32, ptr %.04.i.i.i.i.i48, align 8, !tbaa !318
-  %.not.i49 = icmp eq i32 %53, 0
-  %54 = getelementptr inbounds nuw i8, ptr %.04.i.i.i.i.i48, i64 16
-  %spec.select62 = select i1 %.not.i49, ptr null, ptr %54
+  %.04.i.i.i.i.i48 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %.04.i.i.v.i.i.i47, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr %.04.i.i.i.i.i48, i64 16
   br label %_ZNK5clang12OverloadExpr15getTemplateArgsEv.exit52
 
 _ZNK5clang12OverloadExpr15getTemplateArgsEv.exit52: ; preds = %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.i45, %_ZNK5clang12OverloadExpr15getTemplateArgsEv.exit
-  %.0.i51 = phi ptr [ null, %_ZNK5clang12OverloadExpr15getTemplateArgsEv.exit ], [ %spec.select62, %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.i45 ]
+  %.0.i51 = phi ptr [ null, %_ZNK5clang12OverloadExpr15getTemplateArgsEv.exit ], [ %52, %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.i45 ]
   br i1 %.not.i.i.i, label %.critedge, label %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.i54
 
 _ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.i54: ; preds = %_ZNK5clang12OverloadExpr15getTemplateArgsEv.exit52
-  %55 = and i32 %20, 511
-  %56 = icmp eq i32 %55, 26
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %58 = load i32, ptr %57, align 4, !tbaa !82
-  %59 = zext i32 %58 to i64
-  %.04.i.i.v.v.i.i.i55 = select i1 %56, i64 64, i64 80
+  %53 = and i32 %20, 511
+  %54 = icmp eq i32 %53, 26
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %56 = load i32, ptr %55, align 4, !tbaa !82
+  %57 = zext i32 %56 to i64
+  %.04.i.i.v.v.i.i.i55 = select i1 %54, i64 64, i64 80
   %.04.i.i.v.i.i.i56 = getelementptr inbounds nuw i8, ptr %1, i64 %.04.i.i.v.v.i.i.i55
-  %.04.i.i.i.i.i57 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %.04.i.i.v.i.i.i56, i64 %59
-  %60 = load i32, ptr %.04.i.i.i.i.i57, align 8, !tbaa !318
-  %.not.i58 = icmp eq i32 %60, 0
+  %.04.i.i.i.i.i57 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %.04.i.i.v.i.i.i56, i64 %57
+  %58 = load i32, ptr %.04.i.i.i.i.i57, align 8, !tbaa !318
+  %.not.i58 = icmp eq i32 %58, 0
   br i1 %.not.i58, label %.critedge, label %_ZNK5clang12OverloadExpr18getNumTemplateArgsEv.exit61
 
 _ZNK5clang12OverloadExpr18getNumTemplateArgsEv.exit61: ; preds = %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.i54
-  %61 = getelementptr inbounds nuw i8, ptr %.04.i.i.i.i.i57, i64 12
-  %62 = load i32, ptr %61, align 4, !tbaa !658
-  %.not26.not63.not = icmp eq i32 %62, 0
+  %59 = getelementptr inbounds nuw i8, ptr %.04.i.i.i.i.i57, i64 12
+  %60 = load i32, ptr %59, align 4, !tbaa !658
+  %.not26.not63.not = icmp eq i32 %60, 0
   br i1 %.not26.not63.not, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNK5clang12OverloadExpr18getNumTemplateArgsEv.exit61
-  %wide.trip.count = zext i32 %62 to i64
+  %wide.trip.count = zext i32 %60 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %63 = load ptr, ptr %0, align 8, !tbaa !613
-  %64 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %.0.i43, i64 %indvars.iv
-  %65 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %.0.i51, i64 %indvars.iv
-  %66 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextERKNS_16TemplateArgumentES4_(ptr noundef nonnull align 8 dereferenceable(137) %63, ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(24) %65)
+  %61 = load ptr, ptr %0, align 8, !tbaa !613
+  %62 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %.0.i43, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %.0.i51, i64 %indvars.iv
+  %64 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextERKNS_16TemplateArgumentES4_(ptr noundef nonnull align 8 dereferenceable(137) %61, ptr noundef nonnull align 8 dereferenceable(24) %62, ptr noundef nonnull align 8 dereferenceable(24) %63)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
-  %or.cond.not = select i1 %66, i1 %exitcond.not, i1 false
+  %or.cond.not = select i1 %64, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.critedge, !llvm.loop !660
 
 .critedge:                                        ; preds = %.lr.ph, %_ZNK5clang12OverloadExpr15getTemplateArgsEv.exit52, %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.i54, %_ZNK5clang12OverloadExpr18getNumTemplateArgsEv.exit61, %_ZNK5clang12OverloadExpr18getNumTemplateArgsEv.exit36, %16, %8, %3
-  %.022 = phi i1 [ false, %3 ], [ false, %8 ], [ false, %16 ], [ false, %_ZNK5clang12OverloadExpr18getNumTemplateArgsEv.exit36 ], [ true, %_ZNK5clang12OverloadExpr18getNumTemplateArgsEv.exit61 ], [ true, %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.i54 ], [ true, %_ZNK5clang12OverloadExpr15getTemplateArgsEv.exit52 ], [ %66, %.lr.ph ]
+  %.022 = phi i1 [ false, %3 ], [ false, %8 ], [ false, %16 ], [ false, %_ZNK5clang12OverloadExpr18getNumTemplateArgsEv.exit36 ], [ true, %_ZNK5clang12OverloadExpr18getNumTemplateArgsEv.exit61 ], [ true, %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.i54 ], [ true, %_ZNK5clang12OverloadExpr15getTemplateArgsEv.exit52 ], [ %64, %.lr.ph ]
   ret i1 %.022
 }
 

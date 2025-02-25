@@ -6417,12 +6417,10 @@ _ZNK15CountedLoopNode8loopexitEv.exit:            ; preds = %3, %11, %19
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 232
   %55 = load ptr, ptr %54, align 8
   %56 = tail call noundef zeroext i8 %55(ptr noundef nonnull align 8 dereferenceable(92) %5) #16
-  %.not.i.i.i86 = icmp eq i8 %52, %56
-  %..i.i.i87 = select i1 %.not.i.i.i86, ptr %43, ptr null
   br label %_ZNK15CountedLoopNode8loopexitEv.exit88
 
 _ZNK15CountedLoopNode8loopexitEv.exit88:          ; preds = %_ZNK15CountedLoopNode8loopexitEv.exit, %40, %48
-  %.0.i.i.i85 = phi ptr [ null, %_ZNK15CountedLoopNode8loopexitEv.exit ], [ null, %40 ], [ %..i.i.i87, %48 ]
+  %.0.i.i.i85 = phi ptr [ null, %_ZNK15CountedLoopNode8loopexitEv.exit ], [ null, %40 ], [ %43, %48 ]
   %57 = load ptr, ptr %0, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 224
   %59 = load ptr, ptr %58, align 8

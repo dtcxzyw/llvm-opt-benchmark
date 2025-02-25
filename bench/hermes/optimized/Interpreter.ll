@@ -2782,18 +2782,18 @@ if.end202:                                        ; preds = %if.then187, %if.the
   br label %indirectgoto.backedge
 
 coerceThisSlowPath:                               ; preds = %if.else178, %if.else137
-  %.sink5423 = phi i64 [ %41, %if.else137 ], [ %44, %if.else178 ]
-  %.sink5422 = phi i64 [ 3, %if.else137 ], [ 2, %if.else178 ]
-  store i64 %.sink5423, ptr %inlineStorage_.i, align 8
+  %.sink5424 = phi i64 [ %41, %if.else137 ], [ %44, %if.else178 ]
+  %.sink5423 = phi i64 [ 3, %if.else137 ], [ 2, %if.else178 ]
+  store i64 %.sink5424, ptr %inlineStorage_.i, align 8
   store ptr %.sink.sink.in, ptr %currentIP_.i.i, align 8
   %call211 = call { i32, i64 } @_ZN6hermes2vm8toObjectERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %inlineStorage_.i) #9
   %47 = extractvalue { i32, i64 } %call211, 0
   %48 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i2417 = icmp eq i32 %47, 0
-  br i1 %cmp.i2417, label %exceptionthread-pre-split.loopexit5510, label %if.end217
+  br i1 %cmp.i2417, label %exceptionthread-pre-split.loopexit5512, label %if.end217
 
 if.end217:                                        ; preds = %coerceThisSlowPath
-  %add.ptr200 = getelementptr inbounds nuw i8, ptr %.sink.sink.in, i64 %.sink5422
+  %add.ptr200 = getelementptr inbounds nuw i8, ptr %.sink.sink.in, i64 %.sink5423
   %49 = extractvalue { i32, i64 } %call211, 1
   %op1219 = getelementptr inbounds nuw i8, ptr %48, i64 1
   %50 = load i8, ptr %op1219, align 1
@@ -3031,7 +3031,7 @@ _ZN6hermes2vm11Interpreter18handleCallSlowPathERNS0_7RuntimeEPNS0_17PinnedHermes
   %91 = extractvalue { i32, i64 } %.fca.1.insert.merged.i, 0
   %92 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i2484 = icmp eq i32 %91, 0
-  br i1 %cmp.i2484, label %exceptionthread-pre-split.loopexit5510, label %if.end370
+  br i1 %cmp.i2484, label %exceptionthread-pre-split.loopexit5512, label %if.end370
 
 if.end370:                                        ; preds = %_ZN6hermes2vm11Interpreter18handleCallSlowPathERNS0_7RuntimeEPNS0_17PinnedHermesValueE.exit
   %93 = extractvalue { i32, i64 } %.fca.1.insert.merged.i, 1
@@ -3134,7 +3134,7 @@ case_CallBuiltin:                                 ; preds = %indirectgoto
   %call442 = call noundef i32 @_ZN6hermes2vm11Interpreter15implCallBuiltinERNS0_7RuntimeEPNS0_17PinnedHermesValueEPNS0_9CodeBlockEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %frameRegs.1, ptr noundef %curCodeBlock.2, i32 noundef %conv441) #9
   %115 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp444 = icmp eq i32 %call442, 0
-  br i1 %cmp444, label %exceptionthread-pre-split.loopexit5510, label %if.end447
+  br i1 %cmp444, label %exceptionthread-pre-split.loopexit5512, label %if.end447
 
 if.end447:                                        ; preds = %case_CallBuiltin
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -3150,7 +3150,7 @@ case_CallBuiltinLong:                             ; preds = %indirectgoto
   %call454 = call noundef i32 @_ZN6hermes2vm11Interpreter15implCallBuiltinERNS0_7RuntimeEPNS0_17PinnedHermesValueEPNS0_9CodeBlockEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %frameRegs.1, ptr noundef %curCodeBlock.2, i32 noundef %116) #9
   %117 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp456 = icmp eq i32 %call454, 0
-  br i1 %cmp456, label %exceptionthread-pre-split.loopexit5510, label %if.end459
+  br i1 %cmp456, label %exceptionthread-pre-split.loopexit5512, label %if.end459
 
 if.end459:                                        ; preds = %case_CallBuiltinLong
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -3490,7 +3490,7 @@ if.then651:                                       ; preds = %_ZN6hermes2vm7Runti
   %call652 = call noundef i32 @_ZN6hermes2vm7Runtime13notifyTimeoutEv(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #9
   %167 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp654 = icmp eq i32 %call652, 0
-  br i1 %cmp654, label %exceptionthread-pre-split.loopexit5510, label %if.end658
+  br i1 %cmp654, label %exceptionthread-pre-split.loopexit5512, label %if.end658
 
 if.end658:                                        ; preds = %if.then649, %_ZN6hermes2vm7Runtime36testAndClearTimeoutAsyncBreakRequestEv.exit, %if.then651, %case_AsyncBreakCheck
   %ip.4 = phi ptr [ %167, %if.then651 ], [ %.sink.sink.in, %_ZN6hermes2vm7Runtime36testAndClearTimeoutAsyncBreakRequestEv.exit ], [ %.sink.sink.in, %case_AsyncBreakCheck ], [ %.sink.sink.in, %if.then649 ]
@@ -3520,9 +3520,9 @@ case_CreateClosureLongIndex:                      ; preds = %indirectgoto
   br label %createClosure
 
 createClosure:                                    ; preds = %case_CreateClosureLongIndex, %case_CreateClosure
-  %.sink5424 = phi i64 [ 7, %case_CreateClosureLongIndex ], [ 5, %case_CreateClosure ]
+  %.sink5425 = phi i64 [ 7, %case_CreateClosureLongIndex ], [ 5, %case_CreateClosure ]
   %idVal.0 = phi i32 [ %169, %case_CreateClosureLongIndex ], [ %conv668, %case_CreateClosure ]
-  %add.ptr671 = getelementptr inbounds nuw i8, ptr %.sink.sink.in, i64 %.sink5424
+  %add.ptr671 = getelementptr inbounds nuw i8, ptr %.sink.sink.in, i64 %.sink5425
   %170 = load ptr, ptr %curCodeBlock.2, align 8
   store ptr %.sink.sink.in, ptr %currentIP_.i.i, align 8
   %domain_.i.i = getelementptr inbounds nuw i8, ptr %170, i64 48
@@ -3607,9 +3607,9 @@ case_CreateAsyncClosureLongIndex:                 ; preds = %indirectgoto
   br label %createAsyncClosure
 
 createAsyncClosure:                               ; preds = %case_CreateAsyncClosureLongIndex, %case_CreateAsyncClosure
-  %.sink5425 = phi i64 [ 7, %case_CreateAsyncClosureLongIndex ], [ 5, %case_CreateAsyncClosure ]
+  %.sink5426 = phi i64 [ 7, %case_CreateAsyncClosureLongIndex ], [ 5, %case_CreateAsyncClosure ]
   %idVal.1 = phi i32 [ %185, %case_CreateAsyncClosureLongIndex ], [ %conv710, %case_CreateAsyncClosure ]
-  %add.ptr713 = getelementptr inbounds nuw i8, ptr %.sink.sink.in, i64 %.sink5425
+  %add.ptr713 = getelementptr inbounds nuw i8, ptr %.sink.sink.in, i64 %.sink5426
   %186 = load ptr, ptr %curCodeBlock.2, align 8
   store ptr %.sink.sink.in, ptr %currentIP_.i.i, align 8
   %domain_.i.i2635 = getelementptr inbounds nuw i8, ptr %186, i64 48
@@ -3694,9 +3694,9 @@ case_CreateGeneratorClosureLongIndex:             ; preds = %indirectgoto
   br label %createGeneratorClosure
 
 createGeneratorClosure:                           ; preds = %case_CreateGeneratorClosureLongIndex, %case_CreateGeneratorClosure
-  %.sink5426 = phi i64 [ 7, %case_CreateGeneratorClosureLongIndex ], [ 5, %case_CreateGeneratorClosure ]
+  %.sink5427 = phi i64 [ 7, %case_CreateGeneratorClosureLongIndex ], [ 5, %case_CreateGeneratorClosure ]
   %idVal.2 = phi i32 [ %201, %case_CreateGeneratorClosureLongIndex ], [ %conv753, %case_CreateGeneratorClosure ]
-  %add.ptr756 = getelementptr inbounds nuw i8, ptr %.sink.sink.in, i64 %.sink5426
+  %add.ptr756 = getelementptr inbounds nuw i8, ptr %.sink.sink.in, i64 %.sink5427
   %202 = load ptr, ptr %curCodeBlock.2, align 8
   store ptr %.sink.sink.in, ptr %currentIP_.i.i, align 8
   %domain_.i.i2672 = getelementptr inbounds nuw i8, ptr %202, i64 48
@@ -3791,7 +3791,7 @@ case_CreateGenerator:                             ; preds = %indirectgoto
   %call811 = call ptr @_ZN6hermes2vm11Interpreter19createGenerator_RJSERNS0_7RuntimeEPNS0_13RuntimeModuleEjNS0_6HandleINS0_11EnvironmentEEENS0_10NativeArgsE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %216, i32 noundef %conv798, ptr %arrayidx802, ptr noundef nonnull %agg.tmp806)
   %220 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i.i2712.not = icmp eq ptr %call811, inttoptr (i64 -1 to ptr)
-  br i1 %cmp.i.i2712.not, label %exceptionthread-pre-split.loopexit5510, label %if.end818
+  br i1 %cmp.i.i2712.not, label %exceptionthread-pre-split.loopexit5512, label %if.end818
 
 if.end818:                                        ; preds = %case_CreateGenerator
   %221 = ptrtoint ptr %call811 to i64
@@ -3828,7 +3828,7 @@ case_CreateGeneratorLongIndex:                    ; preds = %indirectgoto
   %call847 = call ptr @_ZN6hermes2vm11Interpreter19createGenerator_RJSERNS0_7RuntimeEPNS0_13RuntimeModuleEjNS0_6HandleINS0_11EnvironmentEEENS0_10NativeArgsE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %223, i32 noundef %224, ptr %arrayidx838, ptr noundef nonnull %agg.tmp842)
   %227 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i.i2730.not = icmp eq ptr %call847, inttoptr (i64 -1 to ptr)
-  br i1 %cmp.i.i2730.not, label %exceptionthread-pre-split.loopexit5510, label %if.end854
+  br i1 %cmp.i.i2730.not, label %exceptionthread-pre-split.loopexit5512, label %if.end854
 
 if.end854:                                        ; preds = %case_CreateGeneratorLongIndex
   %228 = ptrtoint ptr %call847 to i64
@@ -3866,21 +3866,24 @@ for.body.preheader:                               ; preds = %case_GetEnvironment
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %curEnv.05246 = phi ptr [ %cond.i.i.i.i.i2752, %for.body ], [ %cond.i.i.i.i.i, %for.body.preheader ]
+  %curEnv.05246 = phi ptr [ %233, %for.body ], [ %231, %for.body.preheader ]
   %level.05245 = phi i32 [ %dec, %for.body ], [ %conv873, %for.body.preheader ]
   %parentEnvironment_.i = getelementptr inbounds nuw i8, ptr %curEnv.05246, i64 4
   %agg.tmp.sroa.0.0.copyload.i.i.i2748 = load i32, ptr %parentEnvironment_.i, align 4
-  %cmp.i.not.i.i.i.i.i2749 = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i2748, 0
   %conv.i.i.i.i.i.i2750 = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i2748 to i64
   %add.i.i.i.i.i.i2751 = add i64 %conv.i.i.i.i.i.i2750, %6
   %233 = inttoptr i64 %add.i.i.i.i.i.i2751 to ptr
-  %cond.i.i.i.i.i2752 = select i1 %cmp.i.not.i.i.i.i.i2749, ptr null, ptr %233
   %dec = add nsw i32 %level.05245, -1
   %tobool875.not = icmp eq i32 %dec, 0
-  br i1 %tobool875.not, label %for.end, label %for.body, !llvm.loop !54
+  br i1 %tobool875.not, label %for.end.loopexit, label %for.body, !llvm.loop !54
 
-for.end:                                          ; preds = %for.body, %case_GetEnvironment
-  %curEnv.0.lcssa = phi ptr [ %cond.i.i.i.i.i, %case_GetEnvironment ], [ %cond.i.i.i.i.i2752, %for.body ]
+for.end.loopexit:                                 ; preds = %for.body
+  %cmp.i.not.i.i.i.i.i2749 = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i2748, 0
+  %cond.i.i.i.i.i2752 = select i1 %cmp.i.not.i.i.i.i.i2749, ptr null, ptr %233
+  br label %for.end
+
+for.end:                                          ; preds = %for.end.loopexit, %case_GetEnvironment
+  %curEnv.0.lcssa = phi ptr [ %cond.i.i.i.i.i, %case_GetEnvironment ], [ %cond.i.i.i.i.i2752, %for.end.loopexit ]
   %234 = ptrtoint ptr %curEnv.0.lcssa to i64
   %or.i.i.i2753 = or i64 %234, -281474976710656
   %op1880 = getelementptr inbounds nuw i8, ptr %.sink.sink.in, i64 1
@@ -4306,7 +4309,7 @@ case_DeclareGlobalVar:                            ; preds = %indirectgoto
   %call1074 = call noundef i32 @_ZN6hermes2vm11Interpreter20declareGlobalVarImplERNS0_7RuntimeEPNS0_9CodeBlockEPKNS_4inst4InstE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %curCodeBlock.2, ptr noundef nonnull %.sink.sink.in) #9
   %303 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp1076 = icmp eq i32 %call1074, 0
-  br i1 %cmp1076, label %exceptionthread-pre-split.loopexit5510, label %if.end1079
+  br i1 %cmp1076, label %exceptionthread-pre-split.loopexit5512, label %if.end1079
 
 if.end1079:                                       ; preds = %case_DeclareGlobalVar
   %add.ptr1080 = getelementptr inbounds nuw i8, ptr %303, i64 5
@@ -4317,7 +4320,7 @@ case_ThrowIfHasRestrictedGlobalProperty:          ; preds = %indirectgoto
   %call1085 = call noundef i32 @_ZN6hermes2vm11Interpreter38throwIfHasRestrictedGlobalPropertyImplERNS0_7RuntimeEPNS0_9CodeBlockEPKNS_4inst4InstE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %curCodeBlock.2, ptr noundef nonnull %.sink.sink.in) #9
   %304 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp1087 = icmp eq i32 %call1085, 0
-  br i1 %cmp1087, label %exceptionthread-pre-split.loopexit5510, label %if.end1090
+  br i1 %cmp1087, label %exceptionthread-pre-split.loopexit5512, label %if.end1090
 
 if.end1090:                                       ; preds = %case_ThrowIfHasRestrictedGlobalProperty
   %add.ptr1091 = getelementptr inbounds nuw i8, ptr %304, i64 5
@@ -4352,10 +4355,10 @@ case_GetById:                                     ; preds = %indirectgoto
   br label %getById
 
 getById:                                          ; preds = %case_GetById, %case_TryGetById, %case_GetByIdShort, %case_GetByIdLong, %case_TryGetByIdLong
-  %.sink5427 = phi i64 [ 6, %case_GetById ], [ 6, %case_TryGetById ], [ 5, %case_GetByIdShort ], [ 8, %case_GetByIdLong ], [ 8, %case_TryGetByIdLong ]
+  %.sink5428 = phi i64 [ 6, %case_GetById ], [ 6, %case_TryGetById ], [ 5, %case_GetByIdShort ], [ 8, %case_GetByIdLong ], [ 8, %case_TryGetByIdLong ]
   %tryProp.0 = phi i1 [ false, %case_GetById ], [ true, %case_TryGetById ], [ false, %case_GetByIdShort ], [ false, %case_GetByIdLong ], [ true, %case_TryGetByIdLong ]
   %idVal.3 = phi i32 [ %conv1106, %case_GetById ], [ %conv1103, %case_TryGetById ], [ %conv1100, %case_GetByIdShort ], [ %306, %case_GetByIdLong ], [ %305, %case_TryGetByIdLong ]
-  %add.ptr1107 = getelementptr inbounds nuw i8, ptr %.sink.sink.in, i64 %.sink5427
+  %add.ptr1107 = getelementptr inbounds nuw i8, ptr %.sink.sink.in, i64 %.sink5428
   %op21109 = getelementptr inbounds nuw i8, ptr %.sink.sink.in, i64 2
   %310 = load i8, ptr %op21109, align 1
   %idxprom1110 = zext i8 %310 to i64
@@ -4772,7 +4775,7 @@ if.end1230:                                       ; preds = %land.lhs.true, %_ZN
   %364 = extractvalue { i32, i64 } %call.i, 0
   %365 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i3063 = icmp eq i32 %364, 0
-  br i1 %cmp.i3063, label %exceptionthread-pre-split.loopexit5510, label %if.end1284
+  br i1 %cmp.i3063, label %exceptionthread-pre-split.loopexit5512, label %if.end1284
 
 if.else1264:                                      ; preds = %getById
   store ptr %.sink.sink.in, ptr %currentIP_.i.i, align 8
@@ -4823,7 +4826,7 @@ _ZN6hermes2vm11Interpreter20getByIdTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_1
   %376 = extractvalue { i32, i64 } %.fca.1.insert.merged.i3071, 0
   %377 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i3076 = icmp eq i32 %376, 0
-  br i1 %cmp.i3076, label %exceptionthread-pre-split.loopexit5510, label %if.end1284
+  br i1 %cmp.i3076, label %exceptionthread-pre-split.loopexit5512, label %if.end1284
 
 if.end1284:                                       ; preds = %_ZN6hermes2vm11Interpreter20getByIdTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEENS0_8SymbolIDE.exit, %if.end1230
   %call.i.pn = phi { i32, i64 } [ %call.i, %if.end1230 ], [ %.fca.1.insert.merged.i3071, %_ZN6hermes2vm11Interpreter20getByIdTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEENS0_8SymbolIDE.exit ]
@@ -4862,10 +4865,10 @@ case_PutById:                                     ; preds = %indirectgoto
   br label %putById
 
 putById:                                          ; preds = %case_PutById, %case_TryPutById, %case_PutByIdLong, %case_TryPutByIdLong
-  %.sink5428 = phi i64 [ 6, %case_PutById ], [ 6, %case_TryPutById ], [ 8, %case_PutByIdLong ], [ 8, %case_TryPutByIdLong ]
+  %.sink5429 = phi i64 [ 6, %case_PutById ], [ 6, %case_TryPutById ], [ 8, %case_PutByIdLong ], [ 8, %case_TryPutByIdLong ]
   %tryProp.1 = phi i1 [ false, %case_PutById ], [ true, %case_TryPutById ], [ false, %case_PutByIdLong ], [ true, %case_TryPutByIdLong ]
   %idVal.4 = phi i32 [ %conv1304, %case_PutById ], [ %conv1301, %case_TryPutById ], [ %380, %case_PutByIdLong ], [ %379, %case_TryPutByIdLong ]
-  %add.ptr1305 = getelementptr inbounds nuw i8, ptr %.sink.sink.in, i64 %.sink5428
+  %add.ptr1305 = getelementptr inbounds nuw i8, ptr %.sink.sink.in, i64 %.sink5429
   %op11307 = getelementptr inbounds nuw i8, ptr %.sink.sink.in, i64 1
   %383 = load i8, ptr %op11307, align 1
   %idxprom1308 = zext i8 %383 to i64
@@ -5197,7 +5200,7 @@ if.end1405:                                       ; preds = %if.end1346, %land.r
   %432 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i32295140.mask = and i32 %call.i3226, 255
   %cmp.i3230 = icmp eq i32 %bf.cast.i.i32295140.mask, 0
-  br i1 %cmp.i3230, label %exceptionthread-pre-split.loopexit5510, label %if.end1462
+  br i1 %cmp.i3230, label %exceptionthread-pre-split.loopexit5512, label %if.end1462
 
 if.else1437:                                      ; preds = %putById
   %433 = load i8, ptr %op11307, align 1
@@ -5217,7 +5220,7 @@ if.else1437:                                      ; preds = %putById
   %call1457 = call noundef i32 @_ZN6hermes2vm11Interpreter20putByIdTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEENS0_8SymbolIDES6_b(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %arrayidx1442, i32 %retval.sroa.0.0.copyload.i3235, ptr %arrayidx1450, i1 noundef zeroext %tobool1451)
   %437 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp1459 = icmp eq i32 %call1457, 0
-  br i1 %cmp1459, label %exceptionthread-pre-split.loopexit5510, label %if.end1462
+  br i1 %cmp1459, label %exceptionthread-pre-split.loopexit5512, label %if.end1462
 
 if.end1462:                                       ; preds = %if.else1437, %if.end1405
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -5248,7 +5251,7 @@ if.then1471:                                      ; preds = %case_GetByVal
   %443 = extractvalue { i32, i64 } %call.i3245, 1
   %444 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i3247 = icmp eq i32 %442, 0
-  br i1 %cmp.i3247, label %exceptionthread-pre-split.loopexit5510, label %if.end1514
+  br i1 %cmp.i3247, label %exceptionthread-pre-split.loopexit5512, label %if.end1514
 
 if.else1494:                                      ; preds = %case_GetByVal
   %call.i3249 = call i64 @_ZN6hermes2vm11Interpreter21getByValTransientFastERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %arrayidx1476, ptr %arrayidx1483)
@@ -5298,7 +5301,7 @@ _ZN6hermes2vm11Interpreter21getByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_
   %453 = extractvalue { i32, i64 } %call35.i, 1
   %454 = icmp eq i32 %452, 0
   %455 = load ptr, ptr %currentIP_.i.i, align 8
-  br i1 %454, label %exceptionthread-pre-split.loopexit5510, label %if.end1514
+  br i1 %454, label %exceptionthread-pre-split.loopexit5512, label %if.end1514
 
 if.end1514:                                       ; preds = %_ZN6hermes2vm11Interpreter21getByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_.exit.thread, %_ZN6hermes2vm11Interpreter21getByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_.exit, %if.then1471
   %resPH.sroa.21.1 = phi i64 [ %443, %if.then1471 ], [ %453, %_ZN6hermes2vm11Interpreter21getByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_.exit ], [ %call.i3249, %_ZN6hermes2vm11Interpreter21getByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_.exit.thread ]
@@ -5341,7 +5344,7 @@ if.then1532:                                      ; preds = %case_PutByVal
   %462 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i32815134.mask = and i32 %call.i3276, 255
   %cmp.i3282 = icmp eq i32 %bf.cast.i.i32815134.mask, 0
-  br i1 %cmp.i3282, label %exceptionthread-pre-split.loopexit5510, label %if.end1590
+  br i1 %cmp.i3282, label %exceptionthread-pre-split.loopexit5512, label %if.end1590
 
 if.else1563:                                      ; preds = %case_PutByVal
   %op21570 = getelementptr inbounds nuw i8, ptr %.sink.sink.in, i64 2
@@ -5369,7 +5372,7 @@ _ZN6hermes2vm11Interpreter21putByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_
   %call23.i = call noundef i32 @_ZN6hermes2vm11Interpreter20putByIdTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEENS0_8SymbolIDES6_b(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %arrayidx1568, i32 %conv.i.i.i.i.i3286, ptr %arrayidx1576, i1 noundef zeroext %tobool1577)
   %466 = icmp eq i32 %call23.i, 0
   %467 = load ptr, ptr %currentIP_.i.i, align 8
-  br i1 %466, label %exceptionthread-pre-split.loopexit5510, label %if.end1590
+  br i1 %466, label %exceptionthread-pre-split.loopexit5512, label %if.end1590
 
 if.end1590:                                       ; preds = %_ZN6hermes2vm11Interpreter21putByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_S6_b.exit, %if.then1532
   %ip.8 = phi ptr [ %462, %if.then1532 ], [ %467, %_ZN6hermes2vm11Interpreter21putByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_S6_b.exit ]
@@ -5418,7 +5421,7 @@ case_GetPNameList:                                ; preds = %indirectgoto
   %call1635 = call noundef i32 @_ZN6hermes2vm11Interpreter16caseGetPNameListERNS0_7RuntimeEPNS0_17PinnedHermesValueEPKNS_4inst4InstE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %frameRegs.1, ptr noundef nonnull %.sink.sink.in) #9
   %472 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp1637 = icmp eq i32 %call1635, 0
-  br i1 %cmp1637, label %exceptionthread-pre-split.loopexit5510, label %if.end1640
+  br i1 %cmp1637, label %exceptionthread-pre-split.loopexit5512, label %if.end1640
 
 if.end1640:                                       ; preds = %case_GetPNameList
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -5580,12 +5583,12 @@ if.end1716:                                       ; preds = %if.then1701, %if.th
 
 if.end1740:                                       ; preds = %if.end1696, %_ZN6hermes2vm13MutableHandleINS0_8SymbolIDEEC2ERNS0_15HandleRootOwnerES2_.exit, %if.end1716
   %ip.9.lcssa.sink = phi ptr [ %ip.11, %if.end1716 ], [ %.sink.sink.in, %_ZN6hermes2vm13MutableHandleINS0_8SymbolIDEEC2ERNS0_15HandleRootOwnerES2_.exit ], [ %489, %if.end1696 ]
-  %.sink5429 = phi i64 [ %retval.sroa.0.0.copyload.i.i, %if.end1716 ], [ -1688849860263936, %_ZN6hermes2vm13MutableHandleINS0_8SymbolIDEEC2ERNS0_15HandleRootOwnerES2_.exit ], [ -1688849860263936, %if.end1696 ]
+  %.sink5430 = phi i64 [ %retval.sroa.0.0.copyload.i.i, %if.end1716 ], [ -1688849860263936, %_ZN6hermes2vm13MutableHandleINS0_8SymbolIDEEC2ERNS0_15HandleRootOwnerES2_.exit ], [ -1688849860263936, %if.end1696 ]
   %op11736 = getelementptr inbounds nuw i8, ptr %ip.9.lcssa.sink, i64 1
   %498 = load i8, ptr %op11736, align 1
   %idxprom1737 = zext i8 %498 to i64
   %arrayidx1738 = getelementptr inbounds nuw %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs.1, i64 %idxprom1737
-  store i64 %.sink5429, ptr %arrayidx1738, align 8
+  store i64 %.sink5430, ptr %arrayidx1738, align 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
   store ptr %chunks_.i, ptr %curChunkEnd_.i, align 8
   store i32 0, ptr %curChunkIndex_.i, align 8
@@ -5611,7 +5614,7 @@ if.else1759:                                      ; preds = %case_ToNumber
   %502 = extractvalue { i32, i64 } %call1767, 0
   %503 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i3369 = icmp eq i32 %502, 0
-  br i1 %cmp.i3369, label %exceptionthread-pre-split.loopexit5510, label %if.end1772
+  br i1 %cmp.i3369, label %exceptionthread-pre-split.loopexit5512, label %if.end1772
 
 if.end1772:                                       ; preds = %if.else1759
   %504 = extractvalue { i32, i64 } %call1767, 1
@@ -5621,14 +5624,14 @@ if.end1772:                                       ; preds = %if.else1759
   br label %if.end1779
 
 if.end1779:                                       ; preds = %case_ToNumber, %if.end1772
-  %.sink5433 = phi ptr [ %503, %if.end1772 ], [ %.sink.sink.in, %case_ToNumber ]
-  %.sink5431 = phi i64 [ %504, %if.end1772 ], [ %500, %case_ToNumber ]
-  %op11774 = getelementptr inbounds nuw i8, ptr %.sink5433, i64 1
+  %.sink5434 = phi ptr [ %503, %if.end1772 ], [ %.sink.sink.in, %case_ToNumber ]
+  %.sink5432 = phi i64 [ %504, %if.end1772 ], [ %500, %case_ToNumber ]
+  %op11774 = getelementptr inbounds nuw i8, ptr %.sink5434, i64 1
   %505 = load i8, ptr %op11774, align 1
   %idxprom1775 = zext i8 %505 to i64
   %arrayidx1776 = getelementptr inbounds nuw %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs.1, i64 %idxprom1775
-  store i64 %.sink5431, ptr %arrayidx1776, align 8
-  %ip.13 = getelementptr inbounds nuw i8, ptr %.sink5433, i64 3
+  store i64 %.sink5432, ptr %arrayidx1776, align 8
+  %ip.13 = getelementptr inbounds nuw i8, ptr %.sink5434, i64 3
   br label %indirectgoto.backedge
 
 case_ToNumeric:                                   ; preds = %indirectgoto
@@ -5649,7 +5652,7 @@ if.else1797:                                      ; preds = %case_ToNumeric
   %509 = extractvalue { i32, i64 } %call1805, 0
   %510 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i3384 = icmp eq i32 %509, 0
-  br i1 %cmp.i3384, label %exceptionthread-pre-split.loopexit5510, label %if.end1810
+  br i1 %cmp.i3384, label %exceptionthread-pre-split.loopexit5512, label %if.end1810
 
 if.end1810:                                       ; preds = %if.else1797
   %511 = extractvalue { i32, i64 } %call1805, 1
@@ -5659,14 +5662,14 @@ if.end1810:                                       ; preds = %if.else1797
   br label %if.end1817
 
 if.end1817:                                       ; preds = %case_ToNumeric, %if.end1810
-  %.sink5436 = phi ptr [ %510, %if.end1810 ], [ %.sink.sink.in, %case_ToNumeric ]
-  %.sink5434 = phi i64 [ %511, %if.end1810 ], [ %507, %case_ToNumeric ]
-  %op11812 = getelementptr inbounds nuw i8, ptr %.sink5436, i64 1
+  %.sink5437 = phi ptr [ %510, %if.end1810 ], [ %.sink.sink.in, %case_ToNumeric ]
+  %.sink5435 = phi i64 [ %511, %if.end1810 ], [ %507, %case_ToNumeric ]
+  %op11812 = getelementptr inbounds nuw i8, ptr %.sink5437, i64 1
   %512 = load i8, ptr %op11812, align 1
   %idxprom1813 = zext i8 %512 to i64
   %arrayidx1814 = getelementptr inbounds nuw %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs.1, i64 %idxprom1813
-  store i64 %.sink5434, ptr %arrayidx1814, align 8
-  %ip.14 = getelementptr inbounds nuw i8, ptr %.sink5436, i64 3
+  store i64 %.sink5435, ptr %arrayidx1814, align 8
+  %ip.14 = getelementptr inbounds nuw i8, ptr %.sink5437, i64 3
   br label %indirectgoto.backedge
 
 case_ToInt32:                                     ; preds = %indirectgoto
@@ -5679,7 +5682,7 @@ case_ToInt32:                                     ; preds = %indirectgoto
   %514 = extractvalue { i32, i64 } %call1828, 0
   %515 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i3397 = icmp eq i32 %514, 0
-  br i1 %cmp.i3397, label %exceptionthread-pre-split.loopexit5510, label %if.end1834
+  br i1 %cmp.i3397, label %exceptionthread-pre-split.loopexit5512, label %if.end1834
 
 if.end1834:                                       ; preds = %case_ToInt32
   %516 = extractvalue { i32, i64 } %call1828, 1
@@ -5713,7 +5716,7 @@ if.else1858:                                      ; preds = %case_AddEmptyString
   %521 = extractvalue { i32, i64 } %call1866, 0
   %522 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i3413 = icmp eq i32 %521, 0
-  br i1 %cmp.i3413, label %exceptionthread-pre-split.loopexit5510, label %if.end1872
+  br i1 %cmp.i3413, label %exceptionthread-pre-split.loopexit5512, label %if.end1872
 
 if.end1872:                                       ; preds = %if.else1858
   %523 = extractvalue { i32, i64 } %call1866, 1
@@ -5721,7 +5724,7 @@ if.end1872:                                       ; preds = %if.else1858
   %call1880 = call ptr @_ZN6hermes2vm12toString_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %inlineStorage_.i) #9
   %524 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i.i3417.not = icmp eq ptr %call1880, inttoptr (i64 -1 to ptr)
-  br i1 %cmp.i.i3417.not, label %exceptionthread-pre-split.loopexit5510, label %if.end1887
+  br i1 %cmp.i.i3417.not, label %exceptionthread-pre-split.loopexit5512, label %if.end1887
 
 if.end1887:                                       ; preds = %if.end1872
   store i64 -1688849860263936, ptr %inlineStorage_.i, align 8
@@ -5733,14 +5736,14 @@ if.end1887:                                       ; preds = %if.end1872
   br label %if.end1897
 
 if.end1897:                                       ; preds = %case_AddEmptyString, %if.end1887
-  %.sink5438 = phi ptr [ %524, %if.end1887 ], [ %.sink.sink.in, %case_AddEmptyString ]
+  %.sink5439 = phi ptr [ %524, %if.end1887 ], [ %.sink.sink.in, %case_AddEmptyString ]
   %or.i.i.i.i3426.sink = phi i64 [ %or.i.i.i.i3426, %if.end1887 ], [ %519, %case_AddEmptyString ]
-  %op11892 = getelementptr inbounds nuw i8, ptr %.sink5438, i64 1
+  %op11892 = getelementptr inbounds nuw i8, ptr %.sink5439, i64 1
   %526 = load i8, ptr %op11892, align 1
   %idxprom1893 = zext i8 %526 to i64
   %arrayidx1894 = getelementptr inbounds nuw %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs.1, i64 %idxprom1893
   store i64 %or.i.i.i.i3426.sink, ptr %arrayidx1894, align 8
-  %ip.15 = getelementptr inbounds nuw i8, ptr %.sink5438, i64 3
+  %ip.15 = getelementptr inbounds nuw i8, ptr %.sink5439, i64 3
   br label %indirectgoto.backedge
 
 case_Jmp:                                         ; preds = %indirectgoto
@@ -5773,8 +5776,8 @@ if.then1920:                                      ; preds = %case_JmpTrue
   br label %if.end1927
 
 if.end1927:                                       ; preds = %case_JmpTrue, %if.then1920
-  %.sink5439 = phi i64 [ %idx.ext1923, %if.then1920 ], [ 3, %case_JmpTrue ]
-  %add.ptr1926 = getelementptr inbounds i8, ptr %.sink.sink.in, i64 %.sink5439
+  %.sink5440 = phi i64 [ %idx.ext1923, %if.then1920 ], [ 3, %case_JmpTrue ]
+  %add.ptr1926 = getelementptr inbounds i8, ptr %.sink.sink.in, i64 %.sink5440
   br label %indirectgoto.backedge
 
 case_JmpTrueLong:                                 ; preds = %indirectgoto
@@ -5793,8 +5796,8 @@ if.then1937:                                      ; preds = %case_JmpTrueLong
   br label %if.end1943
 
 if.end1943:                                       ; preds = %case_JmpTrueLong, %if.then1937
-  %.sink5440 = phi i64 [ %idx.ext1939, %if.then1937 ], [ 6, %case_JmpTrueLong ]
-  %add.ptr1942 = getelementptr inbounds i8, ptr %.sink.sink.in, i64 %.sink5440
+  %.sink5441 = phi i64 [ %idx.ext1939, %if.then1937 ], [ 6, %case_JmpTrueLong ]
+  %add.ptr1942 = getelementptr inbounds i8, ptr %.sink.sink.in, i64 %.sink5441
   br label %indirectgoto.backedge
 
 case_JmpFalse:                                    ; preds = %indirectgoto
@@ -5813,8 +5816,8 @@ if.then1953:                                      ; preds = %case_JmpFalse
   br label %if.end1960
 
 if.end1960:                                       ; preds = %case_JmpFalse, %if.then1953
-  %.sink5441 = phi i64 [ %idx.ext1956, %if.then1953 ], [ 3, %case_JmpFalse ]
-  %add.ptr1959 = getelementptr inbounds i8, ptr %.sink.sink.in, i64 %.sink5441
+  %.sink5442 = phi i64 [ %idx.ext1956, %if.then1953 ], [ 3, %case_JmpFalse ]
+  %add.ptr1959 = getelementptr inbounds i8, ptr %.sink.sink.in, i64 %.sink5442
   br label %indirectgoto.backedge
 
 case_JmpFalseLong:                                ; preds = %indirectgoto
@@ -5833,8 +5836,8 @@ if.then1970:                                      ; preds = %case_JmpFalseLong
   br label %if.end1976
 
 if.end1976:                                       ; preds = %case_JmpFalseLong, %if.then1970
-  %.sink5442 = phi i64 [ %idx.ext1972, %if.then1970 ], [ 6, %case_JmpFalseLong ]
-  %add.ptr1975 = getelementptr inbounds i8, ptr %.sink.sink.in, i64 %.sink5442
+  %.sink5443 = phi i64 [ %idx.ext1972, %if.then1970 ], [ 6, %case_JmpFalseLong ]
+  %add.ptr1975 = getelementptr inbounds i8, ptr %.sink.sink.in, i64 %.sink5443
   br label %indirectgoto.backedge
 
 case_JmpUndefined:                                ; preds = %indirectgoto
@@ -5854,8 +5857,8 @@ if.then1984:                                      ; preds = %case_JmpUndefined
   br label %if.end1991
 
 if.end1991:                                       ; preds = %case_JmpUndefined, %if.then1984
-  %.sink5443 = phi i64 [ %idx.ext1987, %if.then1984 ], [ 3, %case_JmpUndefined ]
-  %add.ptr1990 = getelementptr inbounds i8, ptr %.sink.sink.in, i64 %.sink5443
+  %.sink5444 = phi i64 [ %idx.ext1987, %if.then1984 ], [ 3, %case_JmpUndefined ]
+  %add.ptr1990 = getelementptr inbounds i8, ptr %.sink.sink.in, i64 %.sink5444
   br label %indirectgoto.backedge
 
 case_JmpUndefinedLong:                            ; preds = %indirectgoto
@@ -5875,8 +5878,8 @@ if.then1999:                                      ; preds = %case_JmpUndefinedLo
   br label %if.end2005
 
 if.end2005:                                       ; preds = %case_JmpUndefinedLong, %if.then1999
-  %.sink5444 = phi i64 [ %idx.ext2001, %if.then1999 ], [ 6, %case_JmpUndefinedLong ]
-  %add.ptr2004 = getelementptr inbounds i8, ptr %.sink.sink.in, i64 %.sink5444
+  %.sink5445 = phi i64 [ %idx.ext2001, %if.then1999 ], [ 6, %case_JmpUndefinedLong ]
+  %add.ptr2004 = getelementptr inbounds i8, ptr %.sink.sink.in, i64 %.sink5445
   br label %indirectgoto.backedge
 
 case_Inc:                                         ; preds = %indirectgoto
@@ -5908,7 +5911,7 @@ if.end2031:                                       ; preds = %case_Inc
   %548 = extractvalue { i32, i64 } %call2039, 0
   %549 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i3439 = icmp eq i32 %548, 0
-  br i1 %cmp.i3439, label %exceptionthread-pre-split.loopexit5510, label %if.end2045
+  br i1 %cmp.i3439, label %exceptionthread-pre-split.loopexit5512, label %if.end2045
 
 if.end2045:                                       ; preds = %if.end2031
   %550 = extractvalue { i32, i64 } %call2039, 1
@@ -5952,7 +5955,7 @@ if.end2077:                                       ; preds = %case_Dec
   %557 = extractvalue { i32, i64 } %call2085, 0
   %558 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i3455 = icmp eq i32 %557, 0
-  br i1 %cmp.i3455, label %exceptionthread-pre-split.loopexit5510, label %if.end2091
+  br i1 %cmp.i3455, label %exceptionthread-pre-split.loopexit5512, label %if.end2091
 
 if.end2091:                                       ; preds = %if.end2077
   %559 = extractvalue { i32, i64 } %call2085, 1
@@ -6018,7 +6021,7 @@ if.end2133:                                       ; preds = %case_Add, %land.rhs
   %572 = extractvalue { i32, i64 } %call2147, 0
   %573 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i3471 = icmp eq i32 %572, 0
-  br i1 %cmp.i3471, label %exceptionthread-pre-split.loopexit5510, label %if.end2152
+  br i1 %cmp.i3471, label %exceptionthread-pre-split.loopexit5512, label %if.end2152
 
 if.end2152:                                       ; preds = %if.end2133
   %574 = extractvalue { i32, i64 } %call2147, 1
@@ -6080,7 +6083,7 @@ if.end2184:                                       ; preds = %case_BitNot
   %581 = extractvalue { i32, i64 } %call2192, 0
   %582 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i3493 = icmp eq i32 %581, 0
-  br i1 %cmp.i3493, label %exceptionthread-pre-split.loopexit5510, label %if.end2197
+  br i1 %cmp.i3493, label %exceptionthread-pre-split.loopexit5512, label %if.end2197
 
 if.end2197:                                       ; preds = %if.end2184
   %583 = extractvalue { i32, i64 } %call2192, 1
@@ -6127,7 +6130,7 @@ if.end2226:                                       ; preds = %case_GetArgumentsLe
   %590 = extractvalue { i32, i64 } %call.i3509, 0
   %591 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i3511 = icmp eq i32 %590, 0
-  br i1 %cmp.i3511, label %exceptionthread-pre-split.loopexit5510, label %if.end2247
+  br i1 %cmp.i3511, label %exceptionthread-pre-split.loopexit5512, label %if.end2247
 
 if.end2247:                                       ; preds = %if.end2226
   %592 = extractvalue { i32, i64 } %call.i3509, 1
@@ -6207,7 +6210,7 @@ if.end2293:                                       ; preds = %if.then2264, %_ZN6h
   %602 = extractvalue { i32, i64 } %call2310, 0
   %603 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i3541 = icmp eq i32 %602, 0
-  br i1 %cmp.i3541, label %exceptionthread-pre-split.loopexit5510, label %if.end2314
+  br i1 %cmp.i3541, label %exceptionthread-pre-split.loopexit5512, label %if.end2314
 
 if.end2314:                                       ; preds = %if.end2293
   %604 = extractvalue { i32, i64 } %call2310, 1
@@ -6243,7 +6246,7 @@ if.end2336:                                       ; preds = %case_ReifyArguments
   %call2347 = call ptr @_ZN6hermes2vm11Interpreter22reifyArgumentsSlowPathERNS0_7RuntimeENS0_6HandleINS0_8CallableEEEb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %arrayidx.i.i3554, i1 noundef zeroext %tobool2344)
   %608 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i.i3556.not = icmp eq ptr %call2347, inttoptr (i64 -1 to ptr)
-  br i1 %cmp.i.i3556.not, label %exceptionthread-pre-split.loopexit5510, label %if.end2355
+  br i1 %cmp.i.i3556.not, label %exceptionthread-pre-split.loopexit5512, label %if.end2355
 
 if.end2355:                                       ; preds = %if.end2336
   %retval.sroa.0.0.copyload.i3559 = load i64, ptr %call2347, align 8
@@ -6311,7 +6314,7 @@ case_NewObjectWithBuffer:                         ; preds = %indirectgoto
   %621 = extractvalue { i32, i64 } %call2434, 0
   %622 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i3580 = icmp eq i32 %621, 0
-  br i1 %cmp.i3580, label %exceptionthread-pre-split.loopexit5510, label %if.end2439
+  br i1 %cmp.i3580, label %exceptionthread-pre-split.loopexit5512, label %if.end2439
 
 if.end2439:                                       ; preds = %case_NewObjectWithBuffer
   %623 = extractvalue { i32, i64 } %call2434, 1
@@ -6339,7 +6342,7 @@ case_NewObjectWithBufferLong:                     ; preds = %indirectgoto
   %628 = extractvalue { i32, i64 } %call2457, 0
   %629 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i3592 = icmp eq i32 %628, 0
-  br i1 %cmp.i3592, label %exceptionthread-pre-split.loopexit5510, label %if.end2462
+  br i1 %cmp.i3592, label %exceptionthread-pre-split.loopexit5512, label %if.end2462
 
 if.end2462:                                       ; preds = %case_NewObjectWithBufferLong
   %630 = extractvalue { i32, i64 } %call2457, 1
@@ -6362,7 +6365,7 @@ case_NewArray:                                    ; preds = %indirectgoto
   %call2479 = call ptr @_ZN6hermes2vm7JSArray6createERNS0_7RuntimeEjj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %conv2476, i32 noundef %conv2476) #9
   %633 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i.i3604.not = icmp eq ptr %call2479, inttoptr (i64 -1 to ptr)
-  br i1 %cmp.i.i3604.not, label %exceptionthread-pre-split.loopexit5510, label %if.end2486
+  br i1 %cmp.i.i3604.not, label %exceptionthread-pre-split.loopexit5512, label %if.end2486
 
 if.end2486:                                       ; preds = %case_NewArray
   %retval.sroa.0.0.copyload.i3607 = load i64, ptr %call2479, align 8
@@ -6392,7 +6395,7 @@ case_NewArrayWithBuffer:                          ; preds = %indirectgoto
   %638 = extractvalue { i32, i64 } %call2506, 0
   %639 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i3617 = icmp eq i32 %638, 0
-  br i1 %cmp.i3617, label %exceptionthread-pre-split.loopexit5510, label %if.end2511
+  br i1 %cmp.i3617, label %exceptionthread-pre-split.loopexit5512, label %if.end2511
 
 if.end2511:                                       ; preds = %case_NewArrayWithBuffer
   %640 = extractvalue { i32, i64 } %call2506, 1
@@ -6422,7 +6425,7 @@ case_NewArrayWithBufferLong:                      ; preds = %indirectgoto
   %645 = extractvalue { i32, i64 } %call2530, 0
   %646 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i3629 = icmp eq i32 %645, 0
-  br i1 %cmp.i3629, label %exceptionthread-pre-split.loopexit5510, label %if.end2535
+  br i1 %cmp.i3629, label %exceptionthread-pre-split.loopexit5512, label %if.end2535
 
 if.end2535:                                       ; preds = %case_NewArrayWithBufferLong
   %647 = extractvalue { i32, i64 } %call2530, 1
@@ -6491,7 +6494,7 @@ if.end2560:                                       ; preds = %_ZN6hermes2vm5vmisa
   %call10.i = call ptr %659(ptr nonnull %arrayidx2565, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %spec.select5104) #9
   %660 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i.i3660.not = icmp eq ptr %call10.i, inttoptr (i64 -1 to ptr)
-  br i1 %cmp.i.i3660.not, label %exceptionthread-pre-split.loopexit5510, label %if.end2596
+  br i1 %cmp.i.i3660.not, label %exceptionthread-pre-split.loopexit5512, label %if.end2596
 
 if.end2596:                                       ; preds = %if.end2560
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -6542,7 +6545,7 @@ case_Neq:                                         ; preds = %indirectgoto
   %668 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i36785155.mask = and i32 %call2642, 255
   %cmp.i3679 = icmp eq i32 %bf.cast.i.i36785155.mask, 0
-  br i1 %cmp.i3679, label %exceptionthread-pre-split.loopexit5510, label %if.end2646
+  br i1 %cmp.i3679, label %exceptionthread-pre-split.loopexit5512, label %if.end2646
 
 if.end2646:                                       ; preds = %case_Neq
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -6658,7 +6661,7 @@ if.end2750:                                       ; preds = %case_Negate
   %687 = extractvalue { i32, i64 } %call2758, 0
   %688 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i3709 = icmp eq i32 %687, 0
-  br i1 %cmp.i3709, label %exceptionthread-pre-split.loopexit5510, label %if.end2763
+  br i1 %cmp.i3709, label %exceptionthread-pre-split.loopexit5512, label %if.end2763
 
 if.end2763:                                       ; preds = %if.end2750
   %689 = extractvalue { i32, i64 } %call2758, 1
@@ -6735,7 +6738,7 @@ if.end2823:                                       ; preds = %case_Mod, %land.rhs
   %705 = extractvalue { i32, i64 } %call2837, 0
   %706 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i3730 = icmp eq i32 %705, 0
-  br i1 %cmp.i3730, label %exceptionthread-pre-split.loopexit5510, label %if.end2843
+  br i1 %cmp.i3730, label %exceptionthread-pre-split.loopexit5512, label %if.end2843
 
 if.end2843:                                       ; preds = %if.end2823
   %707 = extractvalue { i32, i64 } %call2837, 1
@@ -6764,7 +6767,7 @@ case_InstanceOf:                                  ; preds = %indirectgoto
   %711 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i37445145.mask = and i32 %call2865, 255
   %cmp.i3745 = icmp eq i32 %bf.cast.i.i37445145.mask, 0
-  br i1 %cmp.i3745, label %exceptionthread-pre-split.loopexit5510, label %if.end2870
+  br i1 %cmp.i3745, label %exceptionthread-pre-split.loopexit5512, label %if.end2870
 
 if.end2870:                                       ; preds = %case_InstanceOf
   %712 = lshr i32 %call2865, 8
@@ -6814,7 +6817,7 @@ if.end2893:                                       ; preds = %case_IsIn
   %719 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i37745143.mask = and i32 %call2909, 255
   %cmp.i3775 = icmp eq i32 %bf.cast.i.i37745143.mask, 0
-  br i1 %cmp.i3775, label %exceptionthread-pre-split.loopexit5510, label %if.end2913
+  br i1 %cmp.i3775, label %exceptionthread-pre-split.loopexit5512, label %if.end2913
 
 if.end2913:                                       ; preds = %if.end2893
   %720 = lshr i32 %call2909, 8
@@ -6876,7 +6879,7 @@ putOwnById:                                       ; preds = %case_PutNewOwnById,
   %call2971 = call noundef i32 @_ZN6hermes2vm8JSObject20defineNewOwnPropertyENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_13PropertyFlagsENS2_INS0_11HermesValueEEE(ptr %arrayidx2938, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %retval.sroa.0.0.copyload.i3791, i16 %spec.select5105, ptr %arrayidx2962) #9
   %730 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp2973 = icmp eq i32 %call2971, 0
-  br i1 %cmp2973, label %exceptionthread-pre-split.loopexit5510, label %if.end2976
+  br i1 %cmp2973, label %exceptionthread-pre-split.loopexit5512, label %if.end2976
 
 if.end2976:                                       ; preds = %putOwnById
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -6896,9 +6899,9 @@ case_DelById:                                     ; preds = %indirectgoto
   br label %DelById
 
 DelById:                                          ; preds = %case_DelById, %case_DelByIdLong
-  %.sink5445 = phi i64 [ 5, %case_DelById ], [ 7, %case_DelByIdLong ]
+  %.sink5446 = phi i64 [ 5, %case_DelById ], [ 7, %case_DelByIdLong ]
   %idVal.7 = phi i32 [ %conv2983, %case_DelById ], [ %731, %case_DelByIdLong ]
-  %add.ptr2984 = getelementptr inbounds nuw i8, ptr %.sink.sink.in, i64 %.sink5445
+  %add.ptr2984 = getelementptr inbounds nuw i8, ptr %.sink.sink.in, i64 %.sink5446
   %op22985 = getelementptr inbounds nuw i8, ptr %.sink.sink.in, i64 2
   %733 = load i8, ptr %op22985, align 1
   %idxprom2986 = zext i8 %733 to i64
@@ -6923,7 +6926,7 @@ if.then2990:                                      ; preds = %DelById
   %738 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i38095137.mask = and i32 %call3008, 255
   %cmp.i3810 = icmp eq i32 %bf.cast.i.i38095137.mask, 0
-  br i1 %cmp.i3810, label %exceptionthread-pre-split.loopexit5510, label %if.end3013
+  br i1 %cmp.i3810, label %exceptionthread-pre-split.loopexit5512, label %if.end3013
 
 if.end3013:                                       ; preds = %if.then2990
   %739 = lshr i32 %call3008, 8
@@ -6973,7 +6976,7 @@ if.end3050:                                       ; preds = %if.else3022
   %750 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i38375135.mask = and i32 %call3069, 255
   %cmp.i3838 = icmp eq i32 %bf.cast.i.i38375135.mask, 0
-  br i1 %cmp.i3838, label %exceptionthread-pre-split.loopexit5510, label %if.end3074
+  br i1 %cmp.i3838, label %exceptionthread-pre-split.loopexit5512, label %if.end3074
 
 if.end3074:                                       ; preds = %if.end3050
   %751 = lshr i32 %call3069, 8
@@ -7017,14 +7020,14 @@ if.then3092:                                      ; preds = %case_DelByVal
   %757 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i38565132.mask = and i32 %call3111, 255
   %cmp.i3857 = icmp eq i32 %bf.cast.i.i38565132.mask, 0
-  br i1 %cmp.i3857, label %exceptionthread-pre-split.loopexit5510, label %if.end3173
+  br i1 %cmp.i3857, label %exceptionthread-pre-split.loopexit5512, label %if.end3173
 
 if.else3125:                                      ; preds = %case_DelByVal
   %call3133 = call { i32, i64 } @_ZN6hermes2vm8toObjectERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %arrayidx3097) #9
   %758 = extractvalue { i32, i64 } %call3133, 0
   %759 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i3867 = icmp eq i32 %758, 0
-  br i1 %cmp.i3867, label %exceptionthread-pre-split.loopexit5510, label %if.end3139
+  br i1 %cmp.i3867, label %exceptionthread-pre-split.loopexit5512, label %if.end3139
 
 if.end3139:                                       ; preds = %if.else3125
   %760 = extractvalue { i32, i64 } %call3133, 1
@@ -7038,16 +7041,16 @@ if.end3139:                                       ; preds = %if.else3125
   %762 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i38745130.mask = and i32 %call3159, 255
   %cmp.i3875 = icmp eq i32 %bf.cast.i.i38745130.mask, 0
-  br i1 %cmp.i3875, label %exceptionthread-pre-split.loopexit5510, label %if.end3173
+  br i1 %cmp.i3875, label %exceptionthread-pre-split.loopexit5512, label %if.end3173
 
 if.end3173:                                       ; preds = %if.end3139, %if.then3092
   %call3159.sink = phi i32 [ %call3111, %if.then3092 ], [ %call3159, %if.end3139 ]
-  %.sink5447 = phi ptr [ %757, %if.then3092 ], [ %762, %if.end3139 ]
+  %.sink5448 = phi ptr [ %757, %if.then3092 ], [ %762, %if.end3139 ]
   %763 = lshr i32 %call3159.sink, 8
   %.lobit5131 = and i32 %763, 1
   %conv.i3878 = zext nneg i32 %.lobit5131 to i64
   %or.i.i3879 = or disjoint i64 %conv.i3878, -1407374883553280
-  %op13169 = getelementptr inbounds nuw i8, ptr %.sink5447, i64 1
+  %op13169 = getelementptr inbounds nuw i8, ptr %.sink5448, i64 1
   %764 = load i8, ptr %op13169, align 1
   %idxprom3170 = zext i8 %764 to i64
   %arrayidx3171 = getelementptr inbounds nuw %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs.1, i64 %idxprom3170
@@ -7056,7 +7059,7 @@ if.end3173:                                       ; preds = %if.end3139, %if.the
   store ptr %chunks_.i, ptr %curChunkEnd_.i, align 8
   store i32 0, ptr %curChunkIndex_.i, align 8
   store i64 -1688849860263936, ptr %inlineStorage_.i, align 8
-  %add.ptr3174 = getelementptr inbounds nuw i8, ptr %.sink5447, i64 4
+  %add.ptr3174 = getelementptr inbounds nuw i8, ptr %.sink5448, i64 4
   br label %indirectgoto.backedge
 
 case_CreateRegExp:                                ; preds = %indirectgoto
@@ -7335,7 +7338,7 @@ case_LoadConstBigIntLongIndex:                    ; preds = %indirectgoto
   br label %doLoadConstBigInt
 
 doLoadConstBigInt:                                ; preds = %case_LoadConstBigIntLongIndex, %case_LoadConstBigInt
-  %.sink5449 = phi i64 [ 6, %case_LoadConstBigIntLongIndex ], [ 4, %case_LoadConstBigInt ]
+  %.sink5450 = phi i64 [ 6, %case_LoadConstBigIntLongIndex ], [ 4, %case_LoadConstBigInt ]
   %idVal.8 = phi i32 [ %823, %case_LoadConstBigIntLongIndex ], [ %conv3407, %case_LoadConstBigInt ]
   store ptr %.sink.sink.in, ptr %currentIP_.i.i, align 8
   %824 = load ptr, ptr %curCodeBlock.2, align 8
@@ -7346,10 +7349,10 @@ doLoadConstBigInt:                                ; preds = %case_LoadConstBigIn
   %827 = extractvalue { i32, i64 } %call3415, 0
   %828 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i3951 = icmp eq i32 %827, 0
-  br i1 %cmp.i3951, label %exceptionthread-pre-split.loopexit5510, label %if.end3420
+  br i1 %cmp.i3951, label %exceptionthread-pre-split.loopexit5512, label %if.end3420
 
 if.end3420:                                       ; preds = %doLoadConstBigInt
-  %add.ptr3410 = getelementptr inbounds nuw i8, ptr %.sink.sink.in, i64 %.sink5449
+  %add.ptr3410 = getelementptr inbounds nuw i8, ptr %.sink.sink.in, i64 %.sink5450
   %829 = extractvalue { i32, i64 } %call3415, 1
   %op13422 = getelementptr inbounds nuw i8, ptr %828, i64 1
   %830 = load i8, ptr %op13422, align 1
@@ -7409,7 +7412,7 @@ if.end3461:                                       ; preds = %case_Sub, %land.rhs
   %842 = extractvalue { i32, i64 } %call3475, 0
   %843 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i3962 = icmp eq i32 %842, 0
-  br i1 %cmp.i3962, label %exceptionthread-pre-split.loopexit5510, label %if.end3480
+  br i1 %cmp.i3962, label %exceptionthread-pre-split.loopexit5512, label %if.end3480
 
 if.end3480:                                       ; preds = %if.end3461
   %844 = extractvalue { i32, i64 } %call3475, 1
@@ -7475,7 +7478,7 @@ if.end3522:                                       ; preds = %case_Mul, %land.rhs
   %857 = extractvalue { i32, i64 } %call3536, 0
   %858 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i3979 = icmp eq i32 %857, 0
-  br i1 %cmp.i3979, label %exceptionthread-pre-split.loopexit5510, label %if.end3541
+  br i1 %cmp.i3979, label %exceptionthread-pre-split.loopexit5512, label %if.end3541
 
 if.end3541:                                       ; preds = %if.end3522
   %859 = extractvalue { i32, i64 } %call3536, 1
@@ -7541,7 +7544,7 @@ if.end3583:                                       ; preds = %case_Div, %land.rhs
   %872 = extractvalue { i32, i64 } %call3597, 0
   %873 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i3995 = icmp eq i32 %872, 0
-  br i1 %cmp.i3995, label %exceptionthread-pre-split.loopexit5510, label %if.end3602
+  br i1 %cmp.i3995, label %exceptionthread-pre-split.loopexit5512, label %if.end3602
 
 if.end3602:                                       ; preds = %if.end3583
   %874 = extractvalue { i32, i64 } %call3597, 1
@@ -7639,7 +7642,7 @@ if.end3646:                                       ; preds = %case_BitAnd, %land.
   %886 = extractvalue { i32, i64 } %call3660, 0
   %887 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i4047 = icmp eq i32 %886, 0
-  br i1 %cmp.i4047, label %exceptionthread-pre-split.loopexit5510, label %if.end3666
+  br i1 %cmp.i4047, label %exceptionthread-pre-split.loopexit5512, label %if.end3666
 
 if.end3666:                                       ; preds = %if.end3646
   %888 = extractvalue { i32, i64 } %call3660, 1
@@ -7737,7 +7740,7 @@ if.end3710:                                       ; preds = %case_BitOr, %land.r
   %900 = extractvalue { i32, i64 } %call3724, 0
   %901 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i4098 = icmp eq i32 %900, 0
-  br i1 %cmp.i4098, label %exceptionthread-pre-split.loopexit5510, label %if.end3730
+  br i1 %cmp.i4098, label %exceptionthread-pre-split.loopexit5512, label %if.end3730
 
 if.end3730:                                       ; preds = %if.end3710
   %902 = extractvalue { i32, i64 } %call3724, 1
@@ -7835,7 +7838,7 @@ if.end3774:                                       ; preds = %case_BitXor, %land.
   %914 = extractvalue { i32, i64 } %call3788, 0
   %915 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i4149 = icmp eq i32 %914, 0
-  br i1 %cmp.i4149, label %exceptionthread-pre-split.loopexit5510, label %if.end3794
+  br i1 %cmp.i4149, label %exceptionthread-pre-split.loopexit5512, label %if.end3794
 
 if.end3794:                                       ; preds = %if.end3774
   %916 = extractvalue { i32, i64 } %call3788, 1
@@ -7934,7 +7937,7 @@ if.end3838:                                       ; preds = %case_LShift, %land.
   %928 = extractvalue { i32, i64 } %call3852, 0
   %929 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i4201 = icmp eq i32 %928, 0
-  br i1 %cmp.i4201, label %exceptionthread-pre-split.loopexit5510, label %if.end3858
+  br i1 %cmp.i4201, label %exceptionthread-pre-split.loopexit5512, label %if.end3858
 
 if.end3858:                                       ; preds = %if.end3838
   %930 = extractvalue { i32, i64 } %call3852, 1
@@ -8033,7 +8036,7 @@ if.end3905:                                       ; preds = %case_RShift, %land.
   %942 = extractvalue { i32, i64 } %call3919, 0
   %943 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i4253 = icmp eq i32 %942, 0
-  br i1 %cmp.i4253, label %exceptionthread-pre-split.loopexit5510, label %if.end3925
+  br i1 %cmp.i4253, label %exceptionthread-pre-split.loopexit5512, label %if.end3925
 
 if.end3925:                                       ; preds = %if.end3905
   %944 = extractvalue { i32, i64 } %call3919, 1
@@ -8132,7 +8135,7 @@ if.end3972:                                       ; preds = %case_URshift, %land
   %956 = extractvalue { i32, i64 } %call3986, 0
   %957 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i4305 = icmp eq i32 %956, 0
-  br i1 %cmp.i4305, label %exceptionthread-pre-split.loopexit5510, label %if.end3992
+  br i1 %cmp.i4305, label %exceptionthread-pre-split.loopexit5512, label %if.end3992
 
 if.end3992:                                       ; preds = %if.end3972
   %958 = extractvalue { i32, i64 } %call3986, 1
@@ -8192,7 +8195,7 @@ if.end4034:                                       ; preds = %case_Less, %land.rh
   %969 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i43245153.mask = and i32 %call4048, 255
   %cmp.i4325 = icmp eq i32 %bf.cast.i.i43245153.mask, 0
-  br i1 %cmp.i4325, label %exceptionthread-pre-split.loopexit5510, label %if.end4052
+  br i1 %cmp.i4325, label %exceptionthread-pre-split.loopexit5512, label %if.end4052
 
 if.end4052:                                       ; preds = %if.end4034
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -8255,7 +8258,7 @@ if.end4097:                                       ; preds = %case_LessEq, %land.
   %981 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i43475151.mask = and i32 %call4111, 255
   %cmp.i4348 = icmp eq i32 %bf.cast.i.i43475151.mask, 0
-  br i1 %cmp.i4348, label %exceptionthread-pre-split.loopexit5510, label %if.end4115
+  br i1 %cmp.i4348, label %exceptionthread-pre-split.loopexit5512, label %if.end4115
 
 if.end4115:                                       ; preds = %if.end4097
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -8318,7 +8321,7 @@ if.end4160:                                       ; preds = %case_Greater, %land
   %993 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i43705149.mask = and i32 %call4174, 255
   %cmp.i4371 = icmp eq i32 %bf.cast.i.i43705149.mask, 0
-  br i1 %cmp.i4371, label %exceptionthread-pre-split.loopexit5510, label %if.end4178
+  br i1 %cmp.i4371, label %exceptionthread-pre-split.loopexit5512, label %if.end4178
 
 if.end4178:                                       ; preds = %if.end4160
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -8381,7 +8384,7 @@ if.end4223:                                       ; preds = %case_GreaterEq, %la
   %1005 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i43935147.mask = and i32 %call4237, 255
   %cmp.i4394 = icmp eq i32 %bf.cast.i.i43935147.mask, 0
-  br i1 %cmp.i4394, label %exceptionthread-pre-split.loopexit5510, label %if.end4241
+  br i1 %cmp.i4394, label %exceptionthread-pre-split.loopexit5512, label %if.end4241
 
 if.end4241:                                       ; preds = %if.end4223
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -8455,7 +8458,7 @@ if.end4288:                                       ; preds = %case_JLess, %land.r
   %1019 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i44135127.mask = and i32 %call4302, 255
   %cmp.i4414 = icmp eq i32 %bf.cast.i.i44135127.mask, 0
-  br i1 %cmp.i4414, label %exceptionthread-pre-split.loopexit5510, label %if.end4306
+  br i1 %cmp.i4414, label %exceptionthread-pre-split.loopexit5512, label %if.end4306
 
 if.end4306:                                       ; preds = %if.end4288
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -8532,7 +8535,7 @@ if.end4354:                                       ; preds = %case_JLessLong, %la
   %1033 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i44305126.mask = and i32 %call4368, 255
   %cmp.i4431 = icmp eq i32 %bf.cast.i.i44305126.mask, 0
-  br i1 %cmp.i4431, label %exceptionthread-pre-split.loopexit5510, label %if.end4372
+  br i1 %cmp.i4431, label %exceptionthread-pre-split.loopexit5512, label %if.end4372
 
 if.end4372:                                       ; preds = %if.end4354
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -8609,7 +8612,7 @@ if.end4420:                                       ; preds = %case_JNotLess, %lan
   %1047 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i44475125.mask = and i32 %call4434, 255
   %cmp.i4448 = icmp eq i32 %bf.cast.i.i44475125.mask, 0
-  br i1 %cmp.i4448, label %exceptionthread-pre-split.loopexit5510, label %if.end4438
+  br i1 %cmp.i4448, label %exceptionthread-pre-split.loopexit5512, label %if.end4438
 
 if.end4438:                                       ; preds = %if.end4420
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -8686,7 +8689,7 @@ if.end4486:                                       ; preds = %case_JNotLessLong, 
   %1061 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i44645124.mask = and i32 %call4500, 255
   %cmp.i4465 = icmp eq i32 %bf.cast.i.i44645124.mask, 0
-  br i1 %cmp.i4465, label %exceptionthread-pre-split.loopexit5510, label %if.end4504
+  br i1 %cmp.i4465, label %exceptionthread-pre-split.loopexit5512, label %if.end4504
 
 if.end4504:                                       ; preds = %if.end4486
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -8763,7 +8766,7 @@ if.end4552:                                       ; preds = %case_JLessEqual, %l
   %1075 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i44815123.mask = and i32 %call4566, 255
   %cmp.i4482 = icmp eq i32 %bf.cast.i.i44815123.mask, 0
-  br i1 %cmp.i4482, label %exceptionthread-pre-split.loopexit5510, label %if.end4570
+  br i1 %cmp.i4482, label %exceptionthread-pre-split.loopexit5512, label %if.end4570
 
 if.end4570:                                       ; preds = %if.end4552
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -8840,7 +8843,7 @@ if.end4618:                                       ; preds = %case_JLessEqualLong
   %1089 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i44985122.mask = and i32 %call4632, 255
   %cmp.i4499 = icmp eq i32 %bf.cast.i.i44985122.mask, 0
-  br i1 %cmp.i4499, label %exceptionthread-pre-split.loopexit5510, label %if.end4636
+  br i1 %cmp.i4499, label %exceptionthread-pre-split.loopexit5512, label %if.end4636
 
 if.end4636:                                       ; preds = %if.end4618
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -8917,7 +8920,7 @@ if.end4684:                                       ; preds = %case_JNotLessEqual,
   %1103 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i45155121.mask = and i32 %call4698, 255
   %cmp.i4516 = icmp eq i32 %bf.cast.i.i45155121.mask, 0
-  br i1 %cmp.i4516, label %exceptionthread-pre-split.loopexit5510, label %if.end4702
+  br i1 %cmp.i4516, label %exceptionthread-pre-split.loopexit5512, label %if.end4702
 
 if.end4702:                                       ; preds = %if.end4684
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -8994,7 +8997,7 @@ if.end4750:                                       ; preds = %case_JNotLessEqualL
   %1117 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i45325120.mask = and i32 %call4764, 255
   %cmp.i4533 = icmp eq i32 %bf.cast.i.i45325120.mask, 0
-  br i1 %cmp.i4533, label %exceptionthread-pre-split.loopexit5510, label %if.end4768
+  br i1 %cmp.i4533, label %exceptionthread-pre-split.loopexit5512, label %if.end4768
 
 if.end4768:                                       ; preds = %if.end4750
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -9071,7 +9074,7 @@ if.end4816:                                       ; preds = %case_JGreater, %lan
   %1131 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i45495119.mask = and i32 %call4830, 255
   %cmp.i4550 = icmp eq i32 %bf.cast.i.i45495119.mask, 0
-  br i1 %cmp.i4550, label %exceptionthread-pre-split.loopexit5510, label %if.end4834
+  br i1 %cmp.i4550, label %exceptionthread-pre-split.loopexit5512, label %if.end4834
 
 if.end4834:                                       ; preds = %if.end4816
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -9148,7 +9151,7 @@ if.end4882:                                       ; preds = %case_JGreaterLong, 
   %1145 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i45665118.mask = and i32 %call4896, 255
   %cmp.i4567 = icmp eq i32 %bf.cast.i.i45665118.mask, 0
-  br i1 %cmp.i4567, label %exceptionthread-pre-split.loopexit5510, label %if.end4900
+  br i1 %cmp.i4567, label %exceptionthread-pre-split.loopexit5512, label %if.end4900
 
 if.end4900:                                       ; preds = %if.end4882
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -9225,7 +9228,7 @@ if.end4948:                                       ; preds = %case_JNotGreater, %
   %1159 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i45835117.mask = and i32 %call4962, 255
   %cmp.i4584 = icmp eq i32 %bf.cast.i.i45835117.mask, 0
-  br i1 %cmp.i4584, label %exceptionthread-pre-split.loopexit5510, label %if.end4966
+  br i1 %cmp.i4584, label %exceptionthread-pre-split.loopexit5512, label %if.end4966
 
 if.end4966:                                       ; preds = %if.end4948
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -9302,7 +9305,7 @@ if.end5014:                                       ; preds = %case_JNotGreaterLon
   %1173 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i46005116.mask = and i32 %call5028, 255
   %cmp.i4601 = icmp eq i32 %bf.cast.i.i46005116.mask, 0
-  br i1 %cmp.i4601, label %exceptionthread-pre-split.loopexit5510, label %if.end5032
+  br i1 %cmp.i4601, label %exceptionthread-pre-split.loopexit5512, label %if.end5032
 
 if.end5032:                                       ; preds = %if.end5014
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -9379,7 +9382,7 @@ if.end5080:                                       ; preds = %case_JGreaterEqual,
   %1187 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i46175115.mask = and i32 %call5094, 255
   %cmp.i4618 = icmp eq i32 %bf.cast.i.i46175115.mask, 0
-  br i1 %cmp.i4618, label %exceptionthread-pre-split.loopexit5510, label %if.end5098
+  br i1 %cmp.i4618, label %exceptionthread-pre-split.loopexit5512, label %if.end5098
 
 if.end5098:                                       ; preds = %if.end5080
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -9456,7 +9459,7 @@ if.end5146:                                       ; preds = %case_JGreaterEqualL
   %1201 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i46345114.mask = and i32 %call5160, 255
   %cmp.i4635 = icmp eq i32 %bf.cast.i.i46345114.mask, 0
-  br i1 %cmp.i4635, label %exceptionthread-pre-split.loopexit5510, label %if.end5164
+  br i1 %cmp.i4635, label %exceptionthread-pre-split.loopexit5512, label %if.end5164
 
 if.end5164:                                       ; preds = %if.end5146
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -9533,7 +9536,7 @@ if.end5212:                                       ; preds = %case_JNotGreaterEqu
   %1215 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i46515113.mask = and i32 %call5226, 255
   %cmp.i4652 = icmp eq i32 %bf.cast.i.i46515113.mask, 0
-  br i1 %cmp.i4652, label %exceptionthread-pre-split.loopexit5510, label %if.end5230
+  br i1 %cmp.i4652, label %exceptionthread-pre-split.loopexit5512, label %if.end5230
 
 if.end5230:                                       ; preds = %if.end5212
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -9610,7 +9613,7 @@ if.end5278:                                       ; preds = %case_JNotGreaterEqu
   %1229 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i46685112.mask = and i32 %call5292, 255
   %cmp.i4669 = icmp eq i32 %bf.cast.i.i46685112.mask, 0
-  br i1 %cmp.i4669, label %exceptionthread-pre-split.loopexit5510, label %if.end5296
+  br i1 %cmp.i4669, label %exceptionthread-pre-split.loopexit5512, label %if.end5296
 
 if.end5296:                                       ; preds = %if.end5278
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -9745,7 +9748,7 @@ case_JEqual:                                      ; preds = %indirectgoto
   %1246 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i46835111.mask = and i32 %call5417, 255
   %cmp.i4684 = icmp eq i32 %bf.cast.i.i46835111.mask, 0
-  br i1 %cmp.i4684, label %exceptionthread-pre-split.loopexit5510, label %if.end5421
+  br i1 %cmp.i4684, label %exceptionthread-pre-split.loopexit5512, label %if.end5421
 
 if.end5421:                                       ; preds = %case_JEqual
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -9780,7 +9783,7 @@ case_JEqualLong:                                  ; preds = %indirectgoto
   %1251 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i46985110.mask = and i32 %call5449, 255
   %cmp.i4699 = icmp eq i32 %bf.cast.i.i46985110.mask, 0
-  br i1 %cmp.i4699, label %exceptionthread-pre-split.loopexit5510, label %if.end5453
+  br i1 %cmp.i4699, label %exceptionthread-pre-split.loopexit5512, label %if.end5453
 
 if.end5453:                                       ; preds = %case_JEqualLong
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -9815,7 +9818,7 @@ case_JNotEqual:                                   ; preds = %indirectgoto
   %1256 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i47135109.mask = and i32 %call5480, 255
   %cmp.i4714 = icmp eq i32 %bf.cast.i.i47135109.mask, 0
-  br i1 %cmp.i4714, label %exceptionthread-pre-split.loopexit5510, label %if.end5484
+  br i1 %cmp.i4714, label %exceptionthread-pre-split.loopexit5512, label %if.end5484
 
 if.end5484:                                       ; preds = %case_JNotEqual
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -9850,7 +9853,7 @@ case_JNotEqualLong:                               ; preds = %indirectgoto
   %1261 = load ptr, ptr %currentIP_.i.i, align 8
   %bf.cast.i.i47285108.mask = and i32 %call5512, 255
   %cmp.i4729 = icmp eq i32 %bf.cast.i.i47285108.mask, 0
-  br i1 %cmp.i4729, label %exceptionthread-pre-split.loopexit5510, label %if.end5516
+  br i1 %cmp.i4729, label %exceptionthread-pre-split.loopexit5512, label %if.end5516
 
 if.end5516:                                       ; preds = %case_JNotEqualLong
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -9876,7 +9879,7 @@ case_PutOwnByVal:                                 ; preds = %indirectgoto
   %call5531 = call noundef i32 @_ZN6hermes2vm11Interpreter15casePutOwnByValERNS0_7RuntimeEPNS0_17PinnedHermesValueEPKNS_4inst4InstE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %frameRegs.1, ptr noundef nonnull %.sink.sink.in) #9
   %1264 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp5533 = icmp eq i32 %call5531, 0
-  br i1 %cmp5533, label %exceptionthread-pre-split.loopexit5510, label %if.end5536
+  br i1 %cmp5533, label %exceptionthread-pre-split.loopexit5512, label %if.end5536
 
 if.end5536:                                       ; preds = %case_PutOwnByVal
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -9890,7 +9893,7 @@ case_PutOwnGetterSetterByVal:                     ; preds = %indirectgoto
   %call5542 = call noundef i32 @_ZN6hermes2vm11Interpreter27casePutOwnGetterSetterByValERNS0_7RuntimeEPNS0_17PinnedHermesValueEPKNS_4inst4InstE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %frameRegs.1, ptr noundef nonnull %.sink.sink.in) #9
   %1265 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp5544 = icmp eq i32 %call5542, 0
-  br i1 %cmp5544, label %exceptionthread-pre-split.loopexit5510, label %if.end5547
+  br i1 %cmp5544, label %exceptionthread-pre-split.loopexit5512, label %if.end5547
 
 if.end5547:                                       ; preds = %case_PutOwnGetterSetterByVal
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -9904,7 +9907,7 @@ case_DirectEval:                                  ; preds = %indirectgoto
   %call5553 = call noundef i32 @_ZN6hermes2vm11Interpreter14caseDirectEvalERNS0_7RuntimeEPNS0_17PinnedHermesValueEPKNS_4inst4InstE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %frameRegs.1, ptr noundef nonnull %.sink.sink.in) #9
   %1266 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp5555 = icmp eq i32 %call5553, 0
-  br i1 %cmp5555, label %exceptionthread-pre-split.loopexit5510, label %if.end5558
+  br i1 %cmp5555, label %exceptionthread-pre-split.loopexit5512, label %if.end5558
 
 if.end5558:                                       ; preds = %case_DirectEval
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -9918,7 +9921,7 @@ case_IteratorBegin:                               ; preds = %indirectgoto
   %call5564 = call noundef i32 @_ZN6hermes2vm11Interpreter17caseIteratorBeginERNS0_7RuntimeEPNS0_17PinnedHermesValueEPKNS_4inst4InstE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %frameRegs.1, ptr noundef nonnull %.sink.sink.in) #9
   %1267 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp5566 = icmp eq i32 %call5564, 0
-  br i1 %cmp5566, label %exceptionthread-pre-split.loopexit5510, label %if.end5569
+  br i1 %cmp5566, label %exceptionthread-pre-split.loopexit5512, label %if.end5569
 
 if.end5569:                                       ; preds = %case_IteratorBegin
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -9932,7 +9935,7 @@ case_IteratorNext:                                ; preds = %indirectgoto
   %call5575 = call noundef i32 @_ZN6hermes2vm11Interpreter16caseIteratorNextERNS0_7RuntimeEPNS0_17PinnedHermesValueEPKNS_4inst4InstE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %frameRegs.1, ptr noundef nonnull %.sink.sink.in) #9
   %1268 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp5577 = icmp eq i32 %call5575, 0
-  br i1 %cmp5577, label %exceptionthread-pre-split.loopexit5510, label %if.end5580
+  br i1 %cmp5577, label %exceptionthread-pre-split.loopexit5512, label %if.end5580
 
 if.end5580:                                       ; preds = %case_IteratorNext
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i, align 8
@@ -9964,12 +9967,12 @@ if.then5611:                                      ; preds = %if.then5590
   %op25612 = getelementptr inbounds nuw i8, ptr %1272, i64 2
   %1273 = load i8, ptr %op25612, align 1
   %tobool5613.not = icmp eq i8 %1273, 0
-  br i1 %tobool5613.not, label %exceptionthread-pre-split.loopexit5510, label %land.lhs.true5614
+  br i1 %tobool5613.not, label %exceptionthread-pre-split.loopexit5512, label %land.lhs.true5614
 
 land.lhs.true5614:                                ; preds = %if.then5611
   %agg.tmp5615.sroa.0.0.copyload = load i64, ptr %thrownValue_5647, align 8
   %call5618 = call noundef zeroext i1 @_ZN6hermes2vm18isUncatchableErrorENS0_11HermesValueE(i64 %agg.tmp5615.sroa.0.0.copyload) #9
-  br i1 %call5618, label %exceptionthread-pre-split.loopexit5510, label %if.then5619
+  br i1 %call5618, label %exceptionthread-pre-split.loopexit5512, label %if.then5619
 
 if.then5619:                                      ; preds = %land.lhs.true5614
   store i64 -1970324836974592, ptr %thrownValue_5647, align 8
@@ -10010,14 +10013,14 @@ handleExceptionInParent:                          ; preds = %if.then24, %if.else
   %tobool5643.not = icmp eq i64 %1274, 0
   br i1 %tobool5643.not, label %cleanup, label %exceptionthread-pre-split
 
-exceptionthread-pre-split.loopexit5510:           ; preds = %land.lhs.true5614, %if.then5611, %coerceThisSlowPath, %_ZN6hermes2vm11Interpreter18handleCallSlowPathERNS0_7RuntimeEPNS0_17PinnedHermesValueE.exit, %case_CallBuiltin, %case_CallBuiltinLong, %if.then651, %case_CreateGenerator, %case_CreateGeneratorLongIndex, %case_DeclareGlobalVar, %case_ThrowIfHasRestrictedGlobalProperty, %if.end1230, %_ZN6hermes2vm11Interpreter20getByIdTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEENS0_8SymbolIDE.exit, %if.end1405, %if.else1437, %if.then1471, %_ZN6hermes2vm11Interpreter21getByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_.exit, %if.then1532, %_ZN6hermes2vm11Interpreter21putByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_S6_b.exit, %case_GetPNameList, %if.else1759, %if.else1797, %case_ToInt32, %if.else1858, %if.end1872, %if.end2031, %if.end2077, %if.end2133, %if.end2184, %if.end2226, %if.end2293, %if.end2336, %case_NewObjectWithBuffer, %case_NewObjectWithBufferLong, %case_NewArray, %case_NewArrayWithBuffer, %case_NewArrayWithBufferLong, %if.end2560, %case_Neq, %if.end2750, %if.end2823, %case_InstanceOf, %if.end2893, %putOwnById, %if.then2990, %if.end3050, %if.then3092, %if.else3125, %if.end3139, %doLoadConstBigInt, %if.end3461, %if.end3522, %if.end3583, %if.end3646, %if.end3710, %if.end3774, %if.end3838, %if.end3905, %if.end3972, %if.end4034, %if.end4097, %if.end4160, %if.end4223, %if.end4288, %if.end4354, %if.end4420, %if.end4486, %if.end4552, %if.end4618, %if.end4684, %if.end4750, %if.end4816, %if.end4882, %if.end4948, %if.end5014, %if.end5080, %if.end5146, %if.end5212, %if.end5278, %case_JEqual, %case_JEqualLong, %case_JNotEqual, %case_JNotEqualLong, %case_PutOwnByVal, %case_PutOwnGetterSetterByVal, %case_DirectEval, %case_IteratorBegin, %case_IteratorNext
+exceptionthread-pre-split.loopexit5512:           ; preds = %land.lhs.true5614, %if.then5611, %coerceThisSlowPath, %_ZN6hermes2vm11Interpreter18handleCallSlowPathERNS0_7RuntimeEPNS0_17PinnedHermesValueE.exit, %case_CallBuiltin, %case_CallBuiltinLong, %if.then651, %case_CreateGenerator, %case_CreateGeneratorLongIndex, %case_DeclareGlobalVar, %case_ThrowIfHasRestrictedGlobalProperty, %if.end1230, %_ZN6hermes2vm11Interpreter20getByIdTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEENS0_8SymbolIDE.exit, %if.end1405, %if.else1437, %if.then1471, %_ZN6hermes2vm11Interpreter21getByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_.exit, %if.then1532, %_ZN6hermes2vm11Interpreter21putByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_S6_b.exit, %case_GetPNameList, %if.else1759, %if.else1797, %case_ToInt32, %if.else1858, %if.end1872, %if.end2031, %if.end2077, %if.end2133, %if.end2184, %if.end2226, %if.end2293, %if.end2336, %case_NewObjectWithBuffer, %case_NewObjectWithBufferLong, %case_NewArray, %case_NewArrayWithBuffer, %case_NewArrayWithBufferLong, %if.end2560, %case_Neq, %if.end2750, %if.end2823, %case_InstanceOf, %if.end2893, %putOwnById, %if.then2990, %if.end3050, %if.then3092, %if.else3125, %if.end3139, %doLoadConstBigInt, %if.end3461, %if.end3522, %if.end3583, %if.end3646, %if.end3710, %if.end3774, %if.end3838, %if.end3905, %if.end3972, %if.end4034, %if.end4097, %if.end4160, %if.end4223, %if.end4288, %if.end4354, %if.end4420, %if.end4486, %if.end4552, %if.end4618, %if.end4684, %if.end4750, %if.end4816, %if.end4882, %if.end4948, %if.end5014, %if.end5080, %if.end5146, %if.end5212, %if.end5278, %case_JEqual, %case_JEqualLong, %case_JNotEqual, %case_JNotEqualLong, %case_PutOwnByVal, %case_PutOwnGetterSetterByVal, %case_DirectEval, %case_IteratorBegin, %case_IteratorNext
   %ip.3.ph5349.ph = phi ptr [ %1268, %case_IteratorNext ], [ %1267, %case_IteratorBegin ], [ %1266, %case_DirectEval ], [ %1265, %case_PutOwnGetterSetterByVal ], [ %1264, %case_PutOwnByVal ], [ %1261, %case_JNotEqualLong ], [ %1256, %case_JNotEqual ], [ %1251, %case_JEqualLong ], [ %1246, %case_JEqual ], [ %1229, %if.end5278 ], [ %1215, %if.end5212 ], [ %1201, %if.end5146 ], [ %1187, %if.end5080 ], [ %1173, %if.end5014 ], [ %1159, %if.end4948 ], [ %1145, %if.end4882 ], [ %1131, %if.end4816 ], [ %1117, %if.end4750 ], [ %1103, %if.end4684 ], [ %1089, %if.end4618 ], [ %1075, %if.end4552 ], [ %1061, %if.end4486 ], [ %1047, %if.end4420 ], [ %1033, %if.end4354 ], [ %1019, %if.end4288 ], [ %1005, %if.end4223 ], [ %993, %if.end4160 ], [ %981, %if.end4097 ], [ %969, %if.end4034 ], [ %957, %if.end3972 ], [ %943, %if.end3905 ], [ %929, %if.end3838 ], [ %915, %if.end3774 ], [ %901, %if.end3710 ], [ %887, %if.end3646 ], [ %873, %if.end3583 ], [ %858, %if.end3522 ], [ %843, %if.end3461 ], [ %828, %doLoadConstBigInt ], [ %762, %if.end3139 ], [ %759, %if.else3125 ], [ %757, %if.then3092 ], [ %750, %if.end3050 ], [ %738, %if.then2990 ], [ %730, %putOwnById ], [ %719, %if.end2893 ], [ %711, %case_InstanceOf ], [ %706, %if.end2823 ], [ %688, %if.end2750 ], [ %668, %case_Neq ], [ %660, %if.end2560 ], [ %646, %case_NewArrayWithBufferLong ], [ %639, %case_NewArrayWithBuffer ], [ %633, %case_NewArray ], [ %629, %case_NewObjectWithBufferLong ], [ %622, %case_NewObjectWithBuffer ], [ %608, %if.end2336 ], [ %603, %if.end2293 ], [ %591, %if.end2226 ], [ %582, %if.end2184 ], [ %573, %if.end2133 ], [ %558, %if.end2077 ], [ %549, %if.end2031 ], [ %524, %if.end1872 ], [ %522, %if.else1858 ], [ %515, %case_ToInt32 ], [ %510, %if.else1797 ], [ %503, %if.else1759 ], [ %472, %case_GetPNameList ], [ %467, %_ZN6hermes2vm11Interpreter21putByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_S6_b.exit ], [ %462, %if.then1532 ], [ %455, %_ZN6hermes2vm11Interpreter21getByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_.exit ], [ %444, %if.then1471 ], [ %437, %if.else1437 ], [ %432, %if.end1405 ], [ %377, %_ZN6hermes2vm11Interpreter20getByIdTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEENS0_8SymbolIDE.exit ], [ %365, %if.end1230 ], [ %304, %case_ThrowIfHasRestrictedGlobalProperty ], [ %303, %case_DeclareGlobalVar ], [ %227, %case_CreateGeneratorLongIndex ], [ %220, %case_CreateGenerator ], [ %167, %if.then651 ], [ %117, %case_CallBuiltinLong ], [ %115, %case_CallBuiltin ], [ %92, %_ZN6hermes2vm11Interpreter18handleCallSlowPathERNS0_7RuntimeEPNS0_17PinnedHermesValueE.exit ], [ %48, %coerceThisSlowPath ], [ %1272, %if.then5611 ], [ %1272, %land.lhs.true5614 ]
   br label %exceptionthread-pre-split
 
-exceptionthread-pre-split:                        ; preds = %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit, %exceptionthread-pre-split.loopexit5510, %_ZN6hermes2vm11Interpreter21getByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_.exit.thread5345, %_ZN6hermes2vm11Interpreter21putByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_S6_b.exit.thread, %do.end624, %if.then2556, %if.then2889, %if.then3035, %handleExceptionInParent
-  %frameRegs.2.ph = phi ptr [ %frameRegs.1, %if.then2889 ], [ %frameRegs.1, %if.then3035 ], [ %frameRegs.1, %do.end624 ], [ %frameRegs.1, %if.then2556 ], [ %arrayidx.i5855, %handleExceptionInParent ], [ %frameRegs.1, %_ZN6hermes2vm11Interpreter21putByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_S6_b.exit.thread ], [ %frameRegs.1, %_ZN6hermes2vm11Interpreter21getByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_.exit.thread5345 ], [ %frameRegs.1, %exceptionthread-pre-split.loopexit5510 ], [ %frameRegs.1, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit ]
-  %ip.3.ph5349 = phi ptr [ %716, %if.then2889 ], [ %746, %if.then3035 ], [ %162, %do.end624 ], [ %653, %if.then2556 ], [ %1277, %handleExceptionInParent ], [ %465, %_ZN6hermes2vm11Interpreter21putByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_S6_b.exit.thread ], [ %447, %_ZN6hermes2vm11Interpreter21getByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_.exit.thread5345 ], [ %ip.3.ph5349.ph, %exceptionthread-pre-split.loopexit5510 ], [ %489, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit ]
-  %curCodeBlock.3.ph = phi ptr [ %curCodeBlock.2, %if.then2889 ], [ %curCodeBlock.2, %if.then3035 ], [ %curCodeBlock.2, %do.end624 ], [ %curCodeBlock.2, %if.then2556 ], [ %1275, %handleExceptionInParent ], [ %curCodeBlock.2, %_ZN6hermes2vm11Interpreter21putByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_S6_b.exit.thread ], [ %curCodeBlock.2, %_ZN6hermes2vm11Interpreter21getByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_.exit.thread5345 ], [ %curCodeBlock.2, %exceptionthread-pre-split.loopexit5510 ], [ %curCodeBlock.2, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit ]
+exceptionthread-pre-split:                        ; preds = %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit, %exceptionthread-pre-split.loopexit5512, %_ZN6hermes2vm11Interpreter21getByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_.exit.thread5345, %_ZN6hermes2vm11Interpreter21putByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_S6_b.exit.thread, %do.end624, %if.then2556, %if.then2889, %if.then3035, %handleExceptionInParent
+  %frameRegs.2.ph = phi ptr [ %frameRegs.1, %if.then2889 ], [ %frameRegs.1, %if.then3035 ], [ %frameRegs.1, %do.end624 ], [ %frameRegs.1, %if.then2556 ], [ %arrayidx.i5855, %handleExceptionInParent ], [ %frameRegs.1, %_ZN6hermes2vm11Interpreter21putByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_S6_b.exit.thread ], [ %frameRegs.1, %_ZN6hermes2vm11Interpreter21getByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_.exit.thread5345 ], [ %frameRegs.1, %exceptionthread-pre-split.loopexit5512 ], [ %frameRegs.1, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit ]
+  %ip.3.ph5349 = phi ptr [ %716, %if.then2889 ], [ %746, %if.then3035 ], [ %162, %do.end624 ], [ %653, %if.then2556 ], [ %1277, %handleExceptionInParent ], [ %465, %_ZN6hermes2vm11Interpreter21putByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_S6_b.exit.thread ], [ %447, %_ZN6hermes2vm11Interpreter21getByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_.exit.thread5345 ], [ %ip.3.ph5349.ph, %exceptionthread-pre-split.loopexit5512 ], [ %489, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit ]
+  %curCodeBlock.3.ph = phi ptr [ %curCodeBlock.2, %if.then2889 ], [ %curCodeBlock.2, %if.then3035 ], [ %curCodeBlock.2, %do.end624 ], [ %curCodeBlock.2, %if.then2556 ], [ %1275, %handleExceptionInParent ], [ %curCodeBlock.2, %_ZN6hermes2vm11Interpreter21putByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_S6_b.exit.thread ], [ %curCodeBlock.2, %_ZN6hermes2vm11Interpreter21getByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_.exit.thread5345 ], [ %curCodeBlock.2, %exceptionthread-pre-split.loopexit5512 ], [ %curCodeBlock.2, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit ]
   %agg.tmp5646.sroa.0.0.copyload.pr = load i64, ptr %thrownValue_5647, align 8
   br label %exception
 

@@ -2856,14 +2856,13 @@ entry:
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond, %entry
-  %self.0 = phi ptr [ %0, %entry ], [ %cond.i.i.i.i.i, %while.cond ]
+  %self.0 = phi ptr [ %0, %entry ], [ %2, %while.cond ]
   %target_.i = getelementptr inbounds nuw i8, ptr %self.0, i64 24
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i32, ptr %target_.i, align 4
   %cmp.i.not.i.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i, 0
   %conv.i.i.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i to i64
   %add.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i, %1
   %2 = inttoptr i64 %add.i.i.i.i.i.i to ptr
-  %cond.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i, ptr null, ptr %2
   %bf.load.i.i.i.i.i.i.i.i.i.i = load i32, ptr %2, align 4
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i.i.i.i, -16777216
   %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i, 1140850688
@@ -2871,8 +2870,8 @@ while.cond:                                       ; preds = %while.cond, %entry
   br i1 %tobool.not, label %while.end, label %while.cond, !llvm.loop !17
 
 while.end:                                        ; preds = %while.cond
-  %3 = ptrtoint ptr %cond.i.i.i.i.i to i64
-  %or.i.i.i.i.i = or i64 %3, -281474976710656
+  %3 = or i64 %add.i.i.i.i.i.i, -281474976710656
+  %or.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i, i64 -281474976710656, i64 %3
   %topGCScope_.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 8
   %4 = load ptr, ptr %topGCScope_.i.i.i.i, align 8
   %next_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 192

@@ -5575,27 +5575,27 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i: ; preds = %11
 
 _ZN4absl7debian223inlined_vector_internal21AllocationTransactionISaIiEE8AllocateEm.exit: ; preds = %3
   %.sink1.i = lshr i64 %4, 1
-  %18 = icmp ugt i64 %2, %.sink1.i
-  %19 = getelementptr inbounds nuw i32, ptr %.sink2.i, i64 %.sink1.i
+  %18 = getelementptr inbounds nuw i32, ptr %.sink2.i, i64 %.sink1.i
   %.sroa.438.0 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 %.sink1.i)
   %.sroa.440.0 = tail call i64 @llvm.umin.i64(i64 %2, i64 %.sink1.i)
   %.not.i17 = icmp eq i64 %.sroa.440.0, 0
   br i1 %.not.i17, label %_ZN4absl7debian223inlined_vector_internal14AssignElementsIPiNS1_20IteratorValueAdapterISaIiEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIiS5_EEEEEmEEvT_PT0_T1_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4absl7debian223inlined_vector_internal21AllocationTransactionISaIiEE8AllocateEm.exit, %.lr.ph.i
-  %.sroa.057.0 = phi ptr [ %22, %.lr.ph.i ], [ %1, %_ZN4absl7debian223inlined_vector_internal21AllocationTransactionISaIiEE8AllocateEm.exit ]
-  %.05.i = phi i64 [ %23, %.lr.ph.i ], [ 0, %_ZN4absl7debian223inlined_vector_internal21AllocationTransactionISaIiEE8AllocateEm.exit ]
-  %20 = getelementptr inbounds nuw i32, ptr %.sink2.i, i64 %.05.i
-  %21 = load i32, ptr %.sroa.057.0, align 4
-  store i32 %21, ptr %20, align 4
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.057.0, i64 4
-  %23 = add nuw nsw i64 %.05.i, 1
-  %exitcond.not.i = icmp eq i64 %23, %.sroa.440.0
+  %.sroa.057.0 = phi ptr [ %21, %.lr.ph.i ], [ %1, %_ZN4absl7debian223inlined_vector_internal21AllocationTransactionISaIiEE8AllocateEm.exit ]
+  %.05.i = phi i64 [ %22, %.lr.ph.i ], [ 0, %_ZN4absl7debian223inlined_vector_internal21AllocationTransactionISaIiEE8AllocateEm.exit ]
+  %19 = getelementptr inbounds nuw i32, ptr %.sink2.i, i64 %.05.i
+  %20 = load i32, ptr %.sroa.057.0, align 4
+  store i32 %20, ptr %19, align 4
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.057.0, i64 4
+  %22 = add nuw nsw i64 %.05.i, 1
+  %exitcond.not.i = icmp eq i64 %22, %.sroa.440.0
   br i1 %exitcond.not.i, label %_ZN4absl7debian223inlined_vector_internal14AssignElementsIPiNS1_20IteratorValueAdapterISaIiEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIiS5_EEEEEmEEvT_PT0_T1_.exit, label %.lr.ph.i, !llvm.loop !49
 
 _ZN4absl7debian223inlined_vector_internal14AssignElementsIPiNS1_20IteratorValueAdapterISaIiEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIiS5_EEEEEmEEvT_PT0_T1_.exit: ; preds = %.lr.ph.i, %_ZN4absl7debian223inlined_vector_internal21AllocationTransactionISaIiEE8AllocateEm.exit
-  %.sroa.057.1 = phi ptr [ %1, %_ZN4absl7debian223inlined_vector_internal21AllocationTransactionISaIiEE8AllocateEm.exit ], [ %22, %.lr.ph.i ]
-  br i1 %18, label %.lr.ph.preheader.i19, label %_ZN4absl7debian223inlined_vector_internal14AssignElementsIPiNS1_20IteratorValueAdapterISaIiEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIiS5_EEEEEmEEvT_PT0_T1_.exit._ZN4absl7debian223inlined_vector_internal21AllocationTransactionISaIiEED2Ev.exit25_crit_edge
+  %.sroa.057.1 = phi ptr [ %1, %_ZN4absl7debian223inlined_vector_internal21AllocationTransactionISaIiEE8AllocateEm.exit ], [ %21, %.lr.ph.i ]
+  %.not.i18.not = icmp ugt i64 %2, %.sink1.i
+  br i1 %.not.i18.not, label %.lr.ph.preheader.i19, label %_ZN4absl7debian223inlined_vector_internal14AssignElementsIPiNS1_20IteratorValueAdapterISaIiEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIiS5_EEEEEmEEvT_PT0_T1_.exit._ZN4absl7debian223inlined_vector_internal21AllocationTransactionISaIiEED2Ev.exit25_crit_edge
 
 _ZN4absl7debian223inlined_vector_internal14AssignElementsIPiNS1_20IteratorValueAdapterISaIiEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIiS5_EEEEEmEEvT_PT0_T1_.exit._ZN4absl7debian223inlined_vector_internal21AllocationTransactionISaIiEED2Ev.exit25_crit_edge: ; preds = %_ZN4absl7debian223inlined_vector_internal14AssignElementsIPiNS1_20IteratorValueAdapterISaIiEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIiS5_EEEEEmEEvT_PT0_T1_.exit
   %.pre85 = load i64, ptr %0, align 8
@@ -5604,53 +5604,53 @@ _ZN4absl7debian223inlined_vector_internal14AssignElementsIPiNS1_20IteratorValueA
 .lr.ph.preheader.i19:                             ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i, %_ZN4absl7debian223inlined_vector_internal14AssignElementsIPiNS1_20IteratorValueAdapterISaIiEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIiS5_EEEEEmEEvT_PT0_T1_.exit
   %.sroa.057.182 = phi ptr [ %.sroa.057.1, %_ZN4absl7debian223inlined_vector_internal14AssignElementsIPiNS1_20IteratorValueAdapterISaIiEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIiS5_EEEEEmEEvT_PT0_T1_.exit ], [ %1, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i ]
   %.sroa.438.06681 = phi i64 [ %.sroa.438.0, %_ZN4absl7debian223inlined_vector_internal14AssignElementsIPiNS1_20IteratorValueAdapterISaIiEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIiS5_EEEEEmEEvT_PT0_T1_.exit ], [ %2, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i ]
-  %.sroa.037.06780 = phi ptr [ %19, %_ZN4absl7debian223inlined_vector_internal14AssignElementsIPiNS1_20IteratorValueAdapterISaIiEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIiS5_EEEEEmEEvT_PT0_T1_.exit ], [ %17, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i ]
+  %.sroa.037.06780 = phi ptr [ %18, %_ZN4absl7debian223inlined_vector_internal14AssignElementsIPiNS1_20IteratorValueAdapterISaIiEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIiS5_EEEEEmEEvT_PT0_T1_.exit ], [ %17, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i ]
   %.sroa.7.06878 = phi i64 [ 0, %_ZN4absl7debian223inlined_vector_internal14AssignElementsIPiNS1_20IteratorValueAdapterISaIiEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIiS5_EEEEEmEEvT_PT0_T1_.exit ], [ %.sroa.speculated.i, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i ]
   %.sroa.041.06976 = phi ptr [ null, %_ZN4absl7debian223inlined_vector_internal14AssignElementsIPiNS1_20IteratorValueAdapterISaIiEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIiS5_EEEEEmEEvT_PT0_T1_.exit ], [ %17, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i ]
   br label %.lr.ph.i21
 
 .lr.ph.i21:                                       ; preds = %.lr.ph.i21, %.lr.ph.preheader.i19
-  %.sroa.057.2 = phi ptr [ %.sroa.057.182, %.lr.ph.preheader.i19 ], [ %26, %.lr.ph.i21 ]
-  %.06.i = phi i64 [ 0, %.lr.ph.preheader.i19 ], [ %27, %.lr.ph.i21 ]
-  %24 = getelementptr inbounds i32, ptr %.sroa.037.06780, i64 %.06.i
-  %25 = load i32, ptr %.sroa.057.2, align 4
-  store i32 %25, ptr %24, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.057.2, i64 4
-  %27 = add nuw i64 %.06.i, 1
-  %exitcond.not.i22 = icmp eq i64 %27, %.sroa.438.06681
-  br i1 %exitcond.not.i22, label %28, label %.lr.ph.i21, !llvm.loop !50
+  %.sroa.057.2 = phi ptr [ %.sroa.057.182, %.lr.ph.preheader.i19 ], [ %25, %.lr.ph.i21 ]
+  %.06.i = phi i64 [ 0, %.lr.ph.preheader.i19 ], [ %26, %.lr.ph.i21 ]
+  %23 = getelementptr inbounds i32, ptr %.sroa.037.06780, i64 %.06.i
+  %24 = load i32, ptr %.sroa.057.2, align 4
+  store i32 %24, ptr %23, align 4
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.057.2, i64 4
+  %26 = add nuw i64 %.06.i, 1
+  %exitcond.not.i22 = icmp eq i64 %26, %.sroa.438.06681
+  br i1 %exitcond.not.i22, label %27, label %.lr.ph.i21, !llvm.loop !50
 
-28:                                               ; preds = %.lr.ph.i21
+27:                                               ; preds = %.lr.ph.i21
   %.not = icmp eq ptr %.sroa.041.06976, null
   %.pre86 = load i64, ptr %0, align 8
-  br i1 %.not, label %_ZN4absl7debian223inlined_vector_internal21AllocationTransactionISaIiEED2Ev.exit25, label %29
+  br i1 %.not, label %_ZN4absl7debian223inlined_vector_internal21AllocationTransactionISaIiEED2Ev.exit25, label %28
 
-29:                                               ; preds = %28
-  %30 = and i64 %.pre86, 1
-  %.not.i23 = icmp eq i64 %30, 0
-  br i1 %.not.i23, label %35, label %31
+28:                                               ; preds = %27
+  %29 = and i64 %.pre86, 1
+  %.not.i23 = icmp eq i64 %29, 0
+  br i1 %.not.i23, label %34, label %30
 
-31:                                               ; preds = %29
-  %32 = load ptr, ptr %6, align 8
-  %33 = load i64, ptr %8, align 8
-  %34 = shl i64 %33, 2
-  tail call void @_ZdlPvm(ptr noundef %32, i64 noundef %34) #25
+30:                                               ; preds = %28
+  %31 = load ptr, ptr %6, align 8
+  %32 = load i64, ptr %8, align 8
+  %33 = shl i64 %32, 2
+  tail call void @_ZdlPvm(ptr noundef %31, i64 noundef %33) #25
   %.pre = load i64, ptr %0, align 8
-  br label %35
+  br label %34
 
-35:                                               ; preds = %29, %31
-  %36 = phi i64 [ %.pre86, %29 ], [ %.pre, %31 ]
+34:                                               ; preds = %28, %30
+  %35 = phi i64 [ %.pre86, %28 ], [ %.pre, %30 ]
   store ptr %.sroa.041.06976, ptr %6, align 8
   store i64 %.sroa.7.06878, ptr %8, align 8
-  %37 = or i64 %36, 1
+  %36 = or i64 %35, 1
   br label %_ZN4absl7debian223inlined_vector_internal21AllocationTransactionISaIiEED2Ev.exit25
 
-_ZN4absl7debian223inlined_vector_internal21AllocationTransactionISaIiEED2Ev.exit25: ; preds = %_ZN4absl7debian223inlined_vector_internal14AssignElementsIPiNS1_20IteratorValueAdapterISaIiEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIiS5_EEEEEmEEvT_PT0_T1_.exit._ZN4absl7debian223inlined_vector_internal21AllocationTransactionISaIiEED2Ev.exit25_crit_edge, %35, %28
-  %38 = phi i64 [ %.pre85, %_ZN4absl7debian223inlined_vector_internal14AssignElementsIPiNS1_20IteratorValueAdapterISaIiEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIiS5_EEEEEmEEvT_PT0_T1_.exit._ZN4absl7debian223inlined_vector_internal21AllocationTransactionISaIiEED2Ev.exit25_crit_edge ], [ %37, %35 ], [ %.pre86, %28 ]
-  %39 = shl i64 %2, 1
-  %40 = and i64 %38, 1
-  %41 = or disjoint i64 %40, %39
-  store i64 %41, ptr %0, align 8
+_ZN4absl7debian223inlined_vector_internal21AllocationTransactionISaIiEED2Ev.exit25: ; preds = %_ZN4absl7debian223inlined_vector_internal14AssignElementsIPiNS1_20IteratorValueAdapterISaIiEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIiS5_EEEEEmEEvT_PT0_T1_.exit._ZN4absl7debian223inlined_vector_internal21AllocationTransactionISaIiEED2Ev.exit25_crit_edge, %34, %27
+  %37 = phi i64 [ %.pre85, %_ZN4absl7debian223inlined_vector_internal14AssignElementsIPiNS1_20IteratorValueAdapterISaIiEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIiS5_EEEEEmEEvT_PT0_T1_.exit._ZN4absl7debian223inlined_vector_internal21AllocationTransactionISaIiEED2Ev.exit25_crit_edge ], [ %36, %34 ], [ %.pre86, %27 ]
+  %38 = shl i64 %2, 1
+  %39 = and i64 %37, 1
+  %40 = or disjoint i64 %39, %38
+  store i64 %40, ptr %0, align 8
   ret void
 }
 
