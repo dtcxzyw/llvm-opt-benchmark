@@ -13417,7 +13417,7 @@ _ZNK5arrow9ArrayData9GetValuesINS_14BinaryViewType6c_typeEEEPKT_i.exit3: ; preds
   %50 = load ptr, ptr %49, align 8
   %51 = icmp ne ptr %50, null
   %or.cond.not.i = select i1 %48, i1 %51, i1 false
-  br i1 %or.cond.not.i, label %91, label %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i, !prof !667
+  br i1 %or.cond.not.i, label %83, label %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i, !prof !667
 
 _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i: ; preds = %45, %_ZNK5arrow9ArrayData9GetValuesINS_14BinaryViewType6c_typeEEEPKT_i.exit3
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -13425,8 +13425,8 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i: ; preds = %45, %_ZNK5arr
   %54 = icmp slt i64 %53, 1
   br i1 %54, label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i, %88
-  %.01114.i.i = phi i64 [ %89, %88 ], [ 0, %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i ]
+.lr.ph.i.i:                                       ; preds = %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i, %80
+  %.01114.i.i = phi i64 [ %81, %80 ], [ 0, %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i ]
   %55 = getelementptr inbounds nuw %"union.arrow::BinaryViewType::c_type", ptr %22, i64 %.01114.i.i
   %.sroa.01.0.copyload.i.i = load i64, ptr %55, align 8
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %55, i64 8
@@ -13445,145 +13445,129 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i: ; preds = %45, %_ZNK5arr
 
 59:                                               ; preds = %57
   %60 = icmp eq i64 %.sroa.22.0.copyload.i.i, %.sroa.2.0.copyload.i.i
-  br i1 %60, label %88, label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit.i
+  br i1 %60, label %80, label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit.i
 
 _ZN5arrow4util15EqualBinaryViewISt10shared_ptrINS_6BufferEEEEbNS_14BinaryViewType6c_typeES6_PKT_S9_.exit.i.i: ; preds = %57
   %sext.i.i.i = shl i64 %.sroa.22.0.copyload.i.i, 32
   %61 = ashr exact i64 %sext.i.i.i, 28
   %62 = getelementptr inbounds i8, ptr %42, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !169
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 9
-  %65 = load i8, ptr %64, align 1, !tbaa !296, !range !81, !noundef !82
-  %66 = trunc nuw i8 %65 to i1
-  %67 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %68 = load ptr, ptr %67, align 8
-  %69 = select i1 %66, ptr %68, ptr null, !prof !96
-  %70 = ashr i64 %.sroa.22.0.copyload.i.i, 32
-  %71 = getelementptr inbounds i8, ptr %69, i64 %70
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  %65 = load ptr, ptr %64, align 8
+  %66 = ashr i64 %.sroa.22.0.copyload.i.i, 32
+  %67 = getelementptr inbounds i8, ptr %65, i64 %66
   %sext15.i.i.i = shl i64 %.sroa.2.0.copyload.i.i, 32
-  %72 = ashr exact i64 %sext15.i.i.i, 28
-  %73 = getelementptr inbounds i8, ptr %43, i64 %72
-  %74 = load ptr, ptr %73, align 8, !tbaa !169
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 9
-  %76 = load i8, ptr %75, align 1, !tbaa !296, !range !81, !noundef !82
-  %77 = trunc nuw i8 %76 to i1
-  %78 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %79 = load ptr, ptr %78, align 8
-  %80 = select i1 %77, ptr %79, ptr null, !prof !96
-  %81 = ashr i64 %.sroa.2.0.copyload.i.i, 32
-  %82 = getelementptr inbounds i8, ptr %80, i64 %81
-  %83 = getelementptr inbounds nuw i8, ptr %71, i64 4
-  %84 = getelementptr inbounds nuw i8, ptr %82, i64 4
-  %85 = add i64 %.sroa.01.0.copyload.i.i, 4294967292
-  %86 = and i64 %85, 4294967295
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %83, ptr nonnull %84, i64 %86)
-  %87 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %87, label %88, label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit.i
+  %68 = ashr exact i64 %sext15.i.i.i, 28
+  %69 = getelementptr inbounds i8, ptr %43, i64 %68
+  %70 = load ptr, ptr %69, align 8, !tbaa !169
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  %72 = load ptr, ptr %71, align 8
+  %73 = ashr i64 %.sroa.2.0.copyload.i.i, 32
+  %74 = getelementptr inbounds i8, ptr %72, i64 %73
+  %75 = getelementptr inbounds nuw i8, ptr %67, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 4
+  %77 = add i64 %.sroa.01.0.copyload.i.i, 4294967292
+  %78 = and i64 %77, 4294967295
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %75, ptr nonnull %76, i64 %78)
+  %79 = icmp eq i32 %bcmp.i.i.i, 0
+  br i1 %79, label %80, label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit.i
 
-88:                                               ; preds = %_ZN5arrow4util15EqualBinaryViewISt10shared_ptrINS_6BufferEEEEbNS_14BinaryViewType6c_typeES6_PKT_S9_.exit.i.i, %59
-  %89 = add nuw nsw i64 %.01114.i.i, 1
-  %exitcond.not.i = icmp eq i64 %89, %53
+80:                                               ; preds = %_ZN5arrow4util15EqualBinaryViewISt10shared_ptrINS_6BufferEEEEbNS_14BinaryViewType6c_typeES6_PKT_S9_.exit.i.i, %59
+  %81 = add nuw nsw i64 %.01114.i.i, 1
+  %exitcond.not.i = icmp eq i64 %81, %53
   br i1 %exitcond.not.i, label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit.i, label %.lr.ph.i.i, !llvm.loop !782
 
-_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit.i: ; preds = %88, %_ZN5arrow4util15EqualBinaryViewISt10shared_ptrINS_6BufferEEEEbNS_14BinaryViewType6c_typeES6_PKT_S9_.exit.i.i, %59, %.lr.ph.i.i, %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i
-  %.lcssa.i.i = phi i8 [ 1, %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i ], [ 0, %.lr.ph.i.i ], [ 0, %59 ], [ 0, %_ZN5arrow4util15EqualBinaryViewISt10shared_ptrINS_6BufferEEEEbNS_14BinaryViewType6c_typeES6_PKT_S9_.exit.i.i ], [ 1, %88 ]
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i8 %.lcssa.i.i, ptr %90, align 8, !tbaa !91
+_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit.i: ; preds = %80, %_ZN5arrow4util15EqualBinaryViewISt10shared_ptrINS_6BufferEEEEbNS_14BinaryViewType6c_typeES6_PKT_S9_.exit.i.i, %59, %.lr.ph.i.i, %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i
+  %.lcssa.i.i = phi i8 [ 1, %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i ], [ 0, %.lr.ph.i.i ], [ 0, %59 ], [ 0, %_ZN5arrow4util15EqualBinaryViewISt10shared_ptrINS_6BufferEEEEbNS_14BinaryViewType6c_typeES6_PKT_S9_.exit.i.i ], [ 1, %80 ]
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  store i8 %.lcssa.i.i, ptr %82, align 8, !tbaa !91
   br label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl14VisitValidRunsIZNS1_5VisitERKNS_14BinaryViewTypeEEUlllE_EEvOT_.exit
 
-91:                                               ; preds = %45
+83:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #25
-  %92 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %93 = load i64, ptr %92, align 8, !tbaa !649
-  %94 = add nsw i64 %93, %21
-  %95 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %96 = load i64, ptr %95, align 8, !tbaa !90
-  call void @_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull %50, i64 noundef %94, i64 noundef %96)
-  %97 = call { i64, i64 } @_ZN5arrow8internal19BaseSetBitRunReaderILb0EE7NextRunEv(ptr noundef nonnull align 8 dereferenceable(36) %3)
-  %98 = extractvalue { i64, i64 } %97, 1
-  %99 = icmp eq i64 %98, 0
-  br i1 %99, label %.critedge.i, label %.lr.ph.i
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %85 = load i64, ptr %84, align 8, !tbaa !649
+  %86 = add nsw i64 %85, %21
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %88 = load i64, ptr %87, align 8, !tbaa !90
+  call void @_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull %50, i64 noundef %86, i64 noundef %88)
+  %89 = call { i64, i64 } @_ZN5arrow8internal19BaseSetBitRunReaderILb0EE7NextRunEv(ptr noundef nonnull align 8 dereferenceable(36) %3)
+  %90 = extractvalue { i64, i64 } %89, 1
+  %91 = icmp eq i64 %90, 0
+  br i1 %91, label %.critedge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %91, %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit25.i
-  %100 = phi i64 [ %141, %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit25.i ], [ %98, %91 ]
-  %101 = phi { i64, i64 } [ %140, %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit25.i ], [ %97, %91 ]
-  %102 = extractvalue { i64, i64 } %101, 0
-  %103 = add nsw i64 %102, %100
-  %104 = icmp slt i64 %100, 1
-  br i1 %104, label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit25.i, label %.lr.ph.i9.i
+.lr.ph.i:                                         ; preds = %83, %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit25.i
+  %92 = phi i64 [ %125, %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit25.i ], [ %90, %83 ]
+  %93 = phi { i64, i64 } [ %124, %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit25.i ], [ %89, %83 ]
+  %94 = extractvalue { i64, i64 } %93, 0
+  %95 = add nsw i64 %94, %92
+  %96 = icmp slt i64 %92, 1
+  br i1 %96, label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit25.i, label %.lr.ph.i9.i
 
-.lr.ph.i9.i:                                      ; preds = %.lr.ph.i, %138
-  %.01114.i10.i = phi i64 [ %139, %138 ], [ %102, %.lr.ph.i ]
-  %105 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %22, i64 %.01114.i10.i
-  %.sroa.01.0.copyload.i11.i = load i64, ptr %105, align 8
-  %.sroa.22.0..sroa_idx.i12.i = getelementptr inbounds nuw i8, ptr %105, i64 8
+.lr.ph.i9.i:                                      ; preds = %.lr.ph.i, %122
+  %.01114.i10.i = phi i64 [ %123, %122 ], [ %94, %.lr.ph.i ]
+  %97 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %22, i64 %.01114.i10.i
+  %.sroa.01.0.copyload.i11.i = load i64, ptr %97, align 8
+  %.sroa.22.0..sroa_idx.i12.i = getelementptr inbounds nuw i8, ptr %97, i64 8
   %.sroa.22.0.copyload.i13.i = load i64, ptr %.sroa.22.0..sroa_idx.i12.i, align 8, !tbaa !275
-  %106 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %41, i64 %.01114.i10.i
-  %.sroa.0.0.copyload.i14.i = load i64, ptr %106, align 8
-  %.sroa.2.0..sroa_idx.i15.i = getelementptr inbounds nuw i8, ptr %106, i64 8
+  %98 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %41, i64 %.01114.i10.i
+  %.sroa.0.0.copyload.i14.i = load i64, ptr %98, align 8
+  %.sroa.2.0..sroa_idx.i15.i = getelementptr inbounds nuw i8, ptr %98, i64 8
   %.sroa.2.0.copyload.i16.i = load i64, ptr %.sroa.2.0..sroa_idx.i15.i, align 8, !tbaa !275
   %.not.i.i17.i = icmp eq i64 %.sroa.01.0.copyload.i11.i, %.sroa.0.0.copyload.i14.i
-  br i1 %.not.i.i17.i, label %107, label %143
+  br i1 %.not.i.i17.i, label %99, label %127
 
-107:                                              ; preds = %.lr.ph.i9.i
+99:                                               ; preds = %.lr.ph.i9.i
   %.sroa.011.0.extract.trunc.i.i19.i = trunc i64 %.sroa.01.0.copyload.i11.i to i32
-  %108 = icmp slt i32 %.sroa.011.0.extract.trunc.i.i19.i, 13
-  br i1 %108, label %109, label %_ZN5arrow4util15EqualBinaryViewISt10shared_ptrINS_6BufferEEEEbNS_14BinaryViewType6c_typeES6_PKT_S9_.exit.i20.i
+  %100 = icmp slt i32 %.sroa.011.0.extract.trunc.i.i19.i, 13
+  br i1 %100, label %101, label %_ZN5arrow4util15EqualBinaryViewISt10shared_ptrINS_6BufferEEEEbNS_14BinaryViewType6c_typeES6_PKT_S9_.exit.i20.i
 
-109:                                              ; preds = %107
-  %110 = icmp eq i64 %.sroa.22.0.copyload.i13.i, %.sroa.2.0.copyload.i16.i
-  br i1 %110, label %138, label %143
+101:                                              ; preds = %99
+  %102 = icmp eq i64 %.sroa.22.0.copyload.i13.i, %.sroa.2.0.copyload.i16.i
+  br i1 %102, label %122, label %127
 
-_ZN5arrow4util15EqualBinaryViewISt10shared_ptrINS_6BufferEEEEbNS_14BinaryViewType6c_typeES6_PKT_S9_.exit.i20.i: ; preds = %107
+_ZN5arrow4util15EqualBinaryViewISt10shared_ptrINS_6BufferEEEEbNS_14BinaryViewType6c_typeES6_PKT_S9_.exit.i20.i: ; preds = %99
   %sext.i.i21.i = shl i64 %.sroa.22.0.copyload.i13.i, 32
-  %111 = ashr exact i64 %sext.i.i21.i, 28
-  %112 = getelementptr inbounds i8, ptr %42, i64 %111
-  %113 = load ptr, ptr %112, align 8, !tbaa !169
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 9
-  %115 = load i8, ptr %114, align 1, !tbaa !296, !range !81, !noundef !82
-  %116 = trunc nuw i8 %115 to i1
-  %117 = getelementptr inbounds nuw i8, ptr %113, i64 16
-  %118 = load ptr, ptr %117, align 8
-  %119 = select i1 %116, ptr %118, ptr null, !prof !96
-  %120 = ashr i64 %.sroa.22.0.copyload.i13.i, 32
-  %121 = getelementptr inbounds i8, ptr %119, i64 %120
+  %103 = ashr exact i64 %sext.i.i21.i, 28
+  %104 = getelementptr inbounds i8, ptr %42, i64 %103
+  %105 = load ptr, ptr %104, align 8, !tbaa !169
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
+  %107 = load ptr, ptr %106, align 8
+  %108 = ashr i64 %.sroa.22.0.copyload.i13.i, 32
+  %109 = getelementptr inbounds i8, ptr %107, i64 %108
   %sext15.i.i22.i = shl i64 %.sroa.2.0.copyload.i16.i, 32
-  %122 = ashr exact i64 %sext15.i.i22.i, 28
-  %123 = getelementptr inbounds i8, ptr %43, i64 %122
-  %124 = load ptr, ptr %123, align 8, !tbaa !169
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 9
-  %126 = load i8, ptr %125, align 1, !tbaa !296, !range !81, !noundef !82
-  %127 = trunc nuw i8 %126 to i1
-  %128 = getelementptr inbounds nuw i8, ptr %124, i64 16
-  %129 = load ptr, ptr %128, align 8
-  %130 = select i1 %127, ptr %129, ptr null, !prof !96
-  %131 = ashr i64 %.sroa.2.0.copyload.i16.i, 32
-  %132 = getelementptr inbounds i8, ptr %130, i64 %131
-  %133 = getelementptr inbounds nuw i8, ptr %121, i64 4
-  %134 = getelementptr inbounds nuw i8, ptr %132, i64 4
-  %135 = add i64 %.sroa.01.0.copyload.i11.i, 4294967292
-  %136 = and i64 %135, 4294967295
-  %bcmp.i.i23.i = call i32 @bcmp(ptr nonnull %133, ptr nonnull %134, i64 %136)
-  %137 = icmp eq i32 %bcmp.i.i23.i, 0
-  br i1 %137, label %138, label %143
+  %110 = ashr exact i64 %sext15.i.i22.i, 28
+  %111 = getelementptr inbounds i8, ptr %43, i64 %110
+  %112 = load ptr, ptr %111, align 8, !tbaa !169
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
+  %114 = load ptr, ptr %113, align 8
+  %115 = ashr i64 %.sroa.2.0.copyload.i16.i, 32
+  %116 = getelementptr inbounds i8, ptr %114, i64 %115
+  %117 = getelementptr inbounds nuw i8, ptr %109, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %116, i64 4
+  %119 = add i64 %.sroa.01.0.copyload.i11.i, 4294967292
+  %120 = and i64 %119, 4294967295
+  %bcmp.i.i23.i = call i32 @bcmp(ptr nonnull %117, ptr nonnull %118, i64 %120)
+  %121 = icmp eq i32 %bcmp.i.i23.i, 0
+  br i1 %121, label %122, label %127
 
-138:                                              ; preds = %_ZN5arrow4util15EqualBinaryViewISt10shared_ptrINS_6BufferEEEEbNS_14BinaryViewType6c_typeES6_PKT_S9_.exit.i20.i, %109
-  %139 = add nsw i64 %.01114.i10.i, 1
-  %.not.i24.i = icmp slt i64 %139, %103
+122:                                              ; preds = %_ZN5arrow4util15EqualBinaryViewISt10shared_ptrINS_6BufferEEEEbNS_14BinaryViewType6c_typeES6_PKT_S9_.exit.i20.i, %101
+  %123 = add nsw i64 %.01114.i10.i, 1
+  %.not.i24.i = icmp slt i64 %123, %95
   br i1 %.not.i24.i, label %.lr.ph.i9.i, label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit25.i, !llvm.loop !782
 
-_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit25.i: ; preds = %138, %.lr.ph.i
-  %140 = call { i64, i64 } @_ZN5arrow8internal19BaseSetBitRunReaderILb0EE7NextRunEv(ptr noundef nonnull align 8 dereferenceable(36) %3)
-  %141 = extractvalue { i64, i64 } %140, 1
-  %142 = icmp eq i64 %141, 0
-  br i1 %142, label %.critedge.i, label %.lr.ph.i, !llvm.loop !783
+_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit25.i: ; preds = %122, %.lr.ph.i
+  %124 = call { i64, i64 } @_ZN5arrow8internal19BaseSetBitRunReaderILb0EE7NextRunEv(ptr noundef nonnull align 8 dereferenceable(36) %3)
+  %125 = extractvalue { i64, i64 } %124, 1
+  %126 = icmp eq i64 %125, 0
+  br i1 %126, label %.critedge.i, label %.lr.ph.i, !llvm.loop !783
 
-143:                                              ; preds = %_ZN5arrow4util15EqualBinaryViewISt10shared_ptrINS_6BufferEEEEbNS_14BinaryViewType6c_typeES6_PKT_S9_.exit.i20.i, %109, %.lr.ph.i9.i
-  %144 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i8 0, ptr %144, align 8, !tbaa !91
+127:                                              ; preds = %_ZN5arrow4util15EqualBinaryViewISt10shared_ptrINS_6BufferEEEEbNS_14BinaryViewType6c_typeES6_PKT_S9_.exit.i20.i, %101, %.lr.ph.i9.i
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  store i8 0, ptr %128, align 8, !tbaa !91
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit25.i, %143, %91
+.critedge.i:                                      ; preds = %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit25.i, %127, %83
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #25
   br label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl14VisitValidRunsIZNS1_5VisitERKNS_14BinaryViewTypeEEUlllE_EEvOT_.exit
 
@@ -21095,168 +21079,160 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_131StridedFloat
 
 .lr.ph:                                           ; preds = %.preheader
   %28 = add nsw i32 %0, 1
-  br label %110
+  br label %102
 
 29:                                               ; preds = %5
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !169
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 9
-  %33 = load i8, ptr %32, align 1, !tbaa !296, !range !81, !noundef !82
-  %34 = trunc nuw i8 %33 to i1
-  %35 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %36 = load ptr, ptr %35, align 8
-  %37 = select i1 %34, ptr %36, ptr null, !prof !96
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %39 = load ptr, ptr %38, align 8, !tbaa !169
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 9
-  %41 = load i8, ptr %40, align 1, !tbaa !296, !range !81, !noundef !82
-  %42 = trunc nuw i8 %41 to i1
-  %43 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %44 = load ptr, ptr %43, align 8
-  %45 = select i1 %42, ptr %44, ptr null, !prof !96
-  %46 = trunc nuw i8 %.8.val to i1
-  %47 = trunc nuw i8 %.9.val to i1
-  %48 = icmp sgt i64 %10, 0
-  br i1 %46, label %49, label %83
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %35 = load ptr, ptr %34, align 8, !tbaa !169
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc nuw i8 %.8.val to i1
+  %39 = trunc nuw i8 %.9.val to i1
+  %40 = icmp sgt i64 %10, 0
+  br i1 %38, label %41, label %75
 
-49:                                               ; preds = %29
-  br i1 %47, label %50, label %64
+41:                                               ; preds = %29
+  br i1 %39, label %42, label %56
 
-50:                                               ; preds = %49
-  br i1 %48, label %.lr.ph.i.i.i9.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIfZNS0_31StridedFloatTensorContentEqualsINS_9FloatTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit
+42:                                               ; preds = %41
+  br i1 %40, label %.lr.ph.i.i.i9.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIfZNS0_31StridedFloatTensorContentEqualsINS_9FloatTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit
 
-.lr.ph.i.i.i9.i.i:                                ; preds = %50
-  %51 = getelementptr inbounds i8, ptr %37, i64 %1
-  %52 = getelementptr inbounds i8, ptr %45, i64 %2
-  br label %53
+.lr.ph.i.i.i9.i.i:                                ; preds = %42
+  %43 = getelementptr inbounds i8, ptr %33, i64 %1
+  %44 = getelementptr inbounds i8, ptr %37, i64 %2
+  br label %45
 
-53:                                               ; preds = %.critedge.i.i.i12.i.i, %.lr.ph.i.i.i9.i.i
-  %.02.i.i.i10.i.i = phi i64 [ 0, %.lr.ph.i.i.i9.i.i ], [ %63, %.critedge.i.i.i12.i.i ]
-  %54 = mul nsw i64 %.02.i.i.i10.i.i, %14
-  %55 = getelementptr inbounds i8, ptr %51, i64 %54
-  %56 = load float, ptr %55, align 4, !tbaa !337
-  %57 = mul nsw i64 %.02.i.i.i10.i.i, %18
-  %58 = getelementptr inbounds i8, ptr %52, i64 %57
-  %59 = load float, ptr %58, align 4, !tbaa !337
-  %60 = fcmp oeq float %56, %59
-  br i1 %60, label %.critedge.i.i.i12.i.i, label %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEclEff.exit.i.i.i.i.i
+45:                                               ; preds = %.critedge.i.i.i12.i.i, %.lr.ph.i.i.i9.i.i
+  %.02.i.i.i10.i.i = phi i64 [ 0, %.lr.ph.i.i.i9.i.i ], [ %55, %.critedge.i.i.i12.i.i ]
+  %46 = mul nsw i64 %.02.i.i.i10.i.i, %14
+  %47 = getelementptr inbounds i8, ptr %43, i64 %46
+  %48 = load float, ptr %47, align 4, !tbaa !337
+  %49 = mul nsw i64 %.02.i.i.i10.i.i, %18
+  %50 = getelementptr inbounds i8, ptr %44, i64 %49
+  %51 = load float, ptr %50, align 4, !tbaa !337
+  %52 = fcmp oeq float %48, %51
+  br i1 %52, label %.critedge.i.i.i12.i.i, label %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEclEff.exit.i.i.i.i.i
 
-_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEclEff.exit.i.i.i.i.i: ; preds = %53
-  %61 = fcmp uno float %56, 0.000000e+00
-  %62 = fcmp uno float %59, 0.000000e+00
-  %or.cond.i.i.i.i11.i.i = and i1 %61, %62
+_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEclEff.exit.i.i.i.i.i: ; preds = %45
+  %53 = fcmp uno float %48, 0.000000e+00
+  %54 = fcmp uno float %51, 0.000000e+00
+  %or.cond.i.i.i.i11.i.i = and i1 %53, %54
   br i1 %or.cond.i.i.i.i11.i.i, label %.critedge.i.i.i12.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIfZNS0_31StridedFloatTensorContentEqualsINS_9FloatTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit
 
-.critedge.i.i.i12.i.i:                            ; preds = %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEclEff.exit.i.i.i.i.i, %53
-  %63 = add nuw nsw i64 %.02.i.i.i10.i.i, 1
-  %exitcond.not.i.i.i13.i.i = icmp eq i64 %63, %10
-  br i1 %exitcond.not.i.i.i13.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIfZNS0_31StridedFloatTensorContentEqualsINS_9FloatTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit, label %53, !llvm.loop !1077
+.critedge.i.i.i12.i.i:                            ; preds = %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEclEff.exit.i.i.i.i.i, %45
+  %55 = add nuw nsw i64 %.02.i.i.i10.i.i, 1
+  %exitcond.not.i.i.i13.i.i = icmp eq i64 %55, %10
+  br i1 %exitcond.not.i.i.i13.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIfZNS0_31StridedFloatTensorContentEqualsINS_9FloatTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit, label %45, !llvm.loop !1077
 
-64:                                               ; preds = %49
-  br i1 %48, label %.lr.ph.i2.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIfZNS0_31StridedFloatTensorContentEqualsINS_9FloatTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit
+56:                                               ; preds = %41
+  br i1 %40, label %.lr.ph.i2.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIfZNS0_31StridedFloatTensorContentEqualsINS_9FloatTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit
 
-.lr.ph.i2.i.i.i.i:                                ; preds = %64
-  %65 = getelementptr inbounds i8, ptr %37, i64 %1
-  %66 = getelementptr inbounds i8, ptr %45, i64 %2
-  br label %67
+.lr.ph.i2.i.i.i.i:                                ; preds = %56
+  %57 = getelementptr inbounds i8, ptr %33, i64 %1
+  %58 = getelementptr inbounds i8, ptr %37, i64 %2
+  br label %59
 
-67:                                               ; preds = %.critedge.i4.i.i.i.i, %.lr.ph.i2.i.i.i.i
-  %.01.i.i.i8.i.i = phi i64 [ 0, %.lr.ph.i2.i.i.i.i ], [ %82, %.critedge.i4.i.i.i.i ]
-  %68 = mul nsw i64 %.01.i.i.i8.i.i, %14
-  %69 = getelementptr inbounds i8, ptr %65, i64 %68
-  %70 = load float, ptr %69, align 4, !tbaa !337
-  %71 = mul nsw i64 %.01.i.i.i8.i.i, %18
-  %72 = getelementptr inbounds i8, ptr %66, i64 %71
-  %73 = load float, ptr %72, align 4, !tbaa !337
-  %74 = fcmp oeq float %70, %73
-  br i1 %74, label %75, label %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEclEff.exit.i.i.i.i.i
+59:                                               ; preds = %.critedge.i4.i.i.i.i, %.lr.ph.i2.i.i.i.i
+  %.01.i.i.i8.i.i = phi i64 [ 0, %.lr.ph.i2.i.i.i.i ], [ %74, %.critedge.i4.i.i.i.i ]
+  %60 = mul nsw i64 %.01.i.i.i8.i.i, %14
+  %61 = getelementptr inbounds i8, ptr %57, i64 %60
+  %62 = load float, ptr %61, align 4, !tbaa !337
+  %63 = mul nsw i64 %.01.i.i.i8.i.i, %18
+  %64 = getelementptr inbounds i8, ptr %58, i64 %63
+  %65 = load float, ptr %64, align 4, !tbaa !337
+  %66 = fcmp oeq float %62, %65
+  br i1 %66, label %67, label %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEclEff.exit.i.i.i.i.i
 
-75:                                               ; preds = %67
-  %76 = bitcast float %70 to i32
-  %77 = bitcast float %73 to i32
-  %78 = xor i32 %77, %76
-  %79 = icmp sgt i32 %78, -1
-  br i1 %79, label %.critedge.i4.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIfZNS0_31StridedFloatTensorContentEqualsINS_9FloatTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit
+67:                                               ; preds = %59
+  %68 = bitcast float %62 to i32
+  %69 = bitcast float %65 to i32
+  %70 = xor i32 %69, %68
+  %71 = icmp sgt i32 %70, -1
+  br i1 %71, label %.critedge.i4.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIfZNS0_31StridedFloatTensorContentEqualsINS_9FloatTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit
 
-_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEclEff.exit.i.i.i.i.i: ; preds = %67
-  %80 = fcmp uno float %70, 0.000000e+00
-  %81 = fcmp uno float %73, 0.000000e+00
-  %or.cond.i.i3.i.i.i.i = and i1 %80, %81
+_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEclEff.exit.i.i.i.i.i: ; preds = %59
+  %72 = fcmp uno float %62, 0.000000e+00
+  %73 = fcmp uno float %65, 0.000000e+00
+  %or.cond.i.i3.i.i.i.i = and i1 %72, %73
   br i1 %or.cond.i.i3.i.i.i.i, label %.critedge.i4.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIfZNS0_31StridedFloatTensorContentEqualsINS_9FloatTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit
 
-.critedge.i4.i.i.i.i:                             ; preds = %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEclEff.exit.i.i.i.i.i, %75
-  %82 = add nuw nsw i64 %.01.i.i.i8.i.i, 1
-  %exitcond.not.i5.i.i.i.i = icmp eq i64 %82, %10
-  br i1 %exitcond.not.i5.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIfZNS0_31StridedFloatTensorContentEqualsINS_9FloatTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit, label %67, !llvm.loop !1078
+.critedge.i4.i.i.i.i:                             ; preds = %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEclEff.exit.i.i.i.i.i, %67
+  %74 = add nuw nsw i64 %.01.i.i.i8.i.i, 1
+  %exitcond.not.i5.i.i.i.i = icmp eq i64 %74, %10
+  br i1 %exitcond.not.i5.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIfZNS0_31StridedFloatTensorContentEqualsINS_9FloatTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit, label %59, !llvm.loop !1078
 
-83:                                               ; preds = %29
-  br i1 %47, label %84, label %95
+75:                                               ; preds = %29
+  br i1 %39, label %76, label %87
 
-84:                                               ; preds = %83
-  br i1 %48, label %.critedge.lr.ph.i.i.i6.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIfZNS0_31StridedFloatTensorContentEqualsINS_9FloatTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit
+76:                                               ; preds = %75
+  br i1 %40, label %.critedge.lr.ph.i.i.i6.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIfZNS0_31StridedFloatTensorContentEqualsINS_9FloatTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit
 
-.critedge.lr.ph.i.i.i6.i.i:                       ; preds = %84
-  %85 = getelementptr inbounds i8, ptr %37, i64 %1
-  %86 = getelementptr inbounds i8, ptr %45, i64 %2
+.critedge.lr.ph.i.i.i6.i.i:                       ; preds = %76
+  %77 = getelementptr inbounds i8, ptr %33, i64 %1
+  %78 = getelementptr inbounds i8, ptr %37, i64 %2
   br label %.critedge.i.i5.i.i.i
 
 .critedge.i.i5.i.i.i:                             ; preds = %.critedge.i.i5.i.i.i, %.critedge.lr.ph.i.i.i6.i.i
-  %.01.i.i6.i.i.i = phi i64 [ 0, %.critedge.lr.ph.i.i.i6.i.i ], [ %94, %.critedge.i.i5.i.i.i ]
-  %87 = mul nsw i64 %.01.i.i6.i.i.i, %14
-  %88 = getelementptr inbounds i8, ptr %85, i64 %87
-  %89 = load float, ptr %88, align 4, !tbaa !337
-  %90 = mul nsw i64 %.01.i.i6.i.i.i, %18
-  %91 = getelementptr inbounds i8, ptr %86, i64 %90
-  %92 = load float, ptr %91, align 4, !tbaa !337
-  %93 = fcmp oeq float %89, %92
-  %94 = add nuw nsw i64 %.01.i.i6.i.i.i, 1
-  %exitcond.not.i.i7.i7.i.i = icmp ne i64 %94, %10
-  %or.cond.not = select i1 %93, i1 %exitcond.not.i.i7.i7.i.i, i1 false
+  %.01.i.i6.i.i.i = phi i64 [ 0, %.critedge.lr.ph.i.i.i6.i.i ], [ %86, %.critedge.i.i5.i.i.i ]
+  %79 = mul nsw i64 %.01.i.i6.i.i.i, %14
+  %80 = getelementptr inbounds i8, ptr %77, i64 %79
+  %81 = load float, ptr %80, align 4, !tbaa !337
+  %82 = mul nsw i64 %.01.i.i6.i.i.i, %18
+  %83 = getelementptr inbounds i8, ptr %78, i64 %82
+  %84 = load float, ptr %83, align 4, !tbaa !337
+  %85 = fcmp oeq float %81, %84
+  %86 = add nuw nsw i64 %.01.i.i6.i.i.i, 1
+  %exitcond.not.i.i7.i7.i.i = icmp ne i64 %86, %10
+  %or.cond.not = select i1 %85, i1 %exitcond.not.i.i7.i7.i.i, i1 false
   br i1 %or.cond.not, label %.critedge.i.i5.i.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIfZNS0_31StridedFloatTensorContentEqualsINS_9FloatTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit, !llvm.loop !1079
 
-95:                                               ; preds = %83
-  br i1 %48, label %.critedge.lr.ph.i2.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIfZNS0_31StridedFloatTensorContentEqualsINS_9FloatTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit
+87:                                               ; preds = %75
+  br i1 %40, label %.critedge.lr.ph.i2.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIfZNS0_31StridedFloatTensorContentEqualsINS_9FloatTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit
 
-.critedge.lr.ph.i2.i.i.i.i:                       ; preds = %95
-  %96 = getelementptr inbounds i8, ptr %37, i64 %1
-  %97 = getelementptr inbounds i8, ptr %45, i64 %2
+.critedge.lr.ph.i2.i.i.i.i:                       ; preds = %87
+  %88 = getelementptr inbounds i8, ptr %33, i64 %1
+  %89 = getelementptr inbounds i8, ptr %37, i64 %2
   br label %.critedge.i3.i.i.i.i
 
 .critedge.i3.i.i.i.i:                             ; preds = %.critedge.i3.i.i.i.i, %.critedge.lr.ph.i2.i.i.i.i
-  %.01.i4.i.i4.i.i = phi i64 [ 0, %.critedge.lr.ph.i2.i.i.i.i ], [ %109, %.critedge.i3.i.i.i.i ]
-  %98 = mul nsw i64 %.01.i4.i.i4.i.i, %14
-  %99 = getelementptr inbounds i8, ptr %96, i64 %98
-  %100 = load float, ptr %99, align 4, !tbaa !337
-  %101 = mul nsw i64 %.01.i4.i.i4.i.i, %18
-  %102 = getelementptr inbounds i8, ptr %97, i64 %101
-  %103 = load float, ptr %102, align 4, !tbaa !337
-  %104 = fcmp oeq float %100, %103
-  %105 = bitcast float %100 to i32
-  %106 = bitcast float %103 to i32
-  %107 = xor i32 %106, %105
-  %108 = icmp sgt i32 %107, -1
-  %.0.i.i.i.i5.i.i = and i1 %104, %108
-  %109 = add nuw nsw i64 %.01.i4.i.i4.i.i, 1
-  %exitcond.not.i5.i4.i.i.i = icmp ne i64 %109, %10
+  %.01.i4.i.i4.i.i = phi i64 [ 0, %.critedge.lr.ph.i2.i.i.i.i ], [ %101, %.critedge.i3.i.i.i.i ]
+  %90 = mul nsw i64 %.01.i4.i.i4.i.i, %14
+  %91 = getelementptr inbounds i8, ptr %88, i64 %90
+  %92 = load float, ptr %91, align 4, !tbaa !337
+  %93 = mul nsw i64 %.01.i4.i.i4.i.i, %18
+  %94 = getelementptr inbounds i8, ptr %89, i64 %93
+  %95 = load float, ptr %94, align 4, !tbaa !337
+  %96 = fcmp oeq float %92, %95
+  %97 = bitcast float %92 to i32
+  %98 = bitcast float %95 to i32
+  %99 = xor i32 %98, %97
+  %100 = icmp sgt i32 %99, -1
+  %.0.i.i.i.i5.i.i = and i1 %96, %100
+  %101 = add nuw nsw i64 %.01.i4.i.i4.i.i, 1
+  %exitcond.not.i5.i4.i.i.i = icmp ne i64 %101, %10
   %or.cond91.not = select i1 %.0.i.i.i.i5.i.i, i1 %exitcond.not.i5.i4.i.i.i, i1 false
   br i1 %or.cond91.not, label %.critedge.i3.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIfZNS0_31StridedFloatTensorContentEqualsINS_9FloatTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit, !llvm.loop !1080
 
-110:                                              ; preds = %.lr.ph, %112
-  %.064 = phi i64 [ 0, %.lr.ph ], [ %115, %112 ]
-  %.05163 = phi i64 [ %1, %.lr.ph ], [ %113, %112 ]
-  %.05262 = phi i64 [ %2, %.lr.ph ], [ %114, %112 ]
-  %111 = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_131StridedFloatTensorContentEqualsINS_9FloatTypeEEEbillRKNS_6TensorES5_RKNS_12EqualOptionsE(i32 noundef %28, i64 noundef %.05163, i64 noundef %.05262, ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(112) %4, i8 %.8.val, i8 %.9.val)
-  br i1 %111, label %112, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIfZNS0_31StridedFloatTensorContentEqualsINS_9FloatTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit
+102:                                              ; preds = %.lr.ph, %104
+  %.064 = phi i64 [ 0, %.lr.ph ], [ %107, %104 ]
+  %.05163 = phi i64 [ %1, %.lr.ph ], [ %105, %104 ]
+  %.05262 = phi i64 [ %2, %.lr.ph ], [ %106, %104 ]
+  %103 = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_131StridedFloatTensorContentEqualsINS_9FloatTypeEEEbillRKNS_6TensorES5_RKNS_12EqualOptionsE(i32 noundef %28, i64 noundef %.05163, i64 noundef %.05262, ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(112) %4, i8 %.8.val, i8 %.9.val)
+  br i1 %103, label %104, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIfZNS0_31StridedFloatTensorContentEqualsINS_9FloatTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit
 
-112:                                              ; preds = %110
-  %113 = add nsw i64 %.05163, %14
-  %114 = add nsw i64 %.05262, %18
-  %115 = add nuw nsw i64 %.064, 1
-  %exitcond.not = icmp eq i64 %115, %10
-  br i1 %exitcond.not, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIfZNS0_31StridedFloatTensorContentEqualsINS_9FloatTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit, label %110, !llvm.loop !1081
+104:                                              ; preds = %102
+  %105 = add nsw i64 %.05163, %14
+  %106 = add nsw i64 %.05262, %18
+  %107 = add nuw nsw i64 %.064, 1
+  %exitcond.not = icmp eq i64 %107, %10
+  br i1 %exitcond.not, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIfZNS0_31StridedFloatTensorContentEqualsINS_9FloatTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit, label %102, !llvm.loop !1081
 
-_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIfZNS0_31StridedFloatTensorContentEqualsINS_9FloatTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit: ; preds = %110, %112, %.critedge.i3.i.i.i.i, %.critedge.i.i5.i.i.i, %.critedge.i4.i.i.i.i, %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEclEff.exit.i.i.i.i.i, %75, %.critedge.i.i.i12.i.i, %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEclEff.exit.i.i.i.i.i, %.preheader, %95, %84, %64, %50
-  %.019 = phi i1 [ true, %50 ], [ true, %64 ], [ true, %84 ], [ true, %95 ], [ true, %.preheader ], [ false, %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEclEff.exit.i.i.i.i.i ], [ true, %.critedge.i.i.i12.i.i ], [ false, %75 ], [ false, %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEclEff.exit.i.i.i.i.i ], [ true, %.critedge.i4.i.i.i.i ], [ %93, %.critedge.i.i5.i.i.i ], [ %.0.i.i.i.i5.i.i, %.critedge.i3.i.i.i.i ], [ %111, %112 ], [ %111, %110 ]
+_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIfZNS0_31StridedFloatTensorContentEqualsINS_9FloatTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit: ; preds = %102, %104, %.critedge.i3.i.i.i.i, %.critedge.i.i5.i.i.i, %.critedge.i4.i.i.i.i, %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEclEff.exit.i.i.i.i.i, %67, %.critedge.i.i.i12.i.i, %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEclEff.exit.i.i.i.i.i, %.preheader, %87, %76, %56, %42
+  %.019 = phi i1 [ true, %42 ], [ true, %56 ], [ true, %76 ], [ true, %87 ], [ true, %.preheader ], [ false, %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEclEff.exit.i.i.i.i.i ], [ true, %.critedge.i.i.i12.i.i ], [ false, %67 ], [ false, %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEclEff.exit.i.i.i.i.i ], [ true, %.critedge.i4.i.i.i.i ], [ %85, %.critedge.i.i5.i.i.i ], [ %.0.i.i.i.i5.i.i, %.critedge.i3.i.i.i.i ], [ %103, %104 ], [ %103, %102 ]
   ret i1 %.019
 }
 
@@ -21292,168 +21268,160 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_131StridedFloat
 
 .lr.ph:                                           ; preds = %.preheader
   %28 = add nsw i32 %0, 1
-  br label %110
+  br label %102
 
 29:                                               ; preds = %5
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !169
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 9
-  %33 = load i8, ptr %32, align 1, !tbaa !296, !range !81, !noundef !82
-  %34 = trunc nuw i8 %33 to i1
-  %35 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %36 = load ptr, ptr %35, align 8
-  %37 = select i1 %34, ptr %36, ptr null, !prof !96
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %39 = load ptr, ptr %38, align 8, !tbaa !169
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 9
-  %41 = load i8, ptr %40, align 1, !tbaa !296, !range !81, !noundef !82
-  %42 = trunc nuw i8 %41 to i1
-  %43 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %44 = load ptr, ptr %43, align 8
-  %45 = select i1 %42, ptr %44, ptr null, !prof !96
-  %46 = trunc nuw i8 %.8.val to i1
-  %47 = trunc nuw i8 %.9.val to i1
-  %48 = icmp sgt i64 %10, 0
-  br i1 %46, label %49, label %83
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %35 = load ptr, ptr %34, align 8, !tbaa !169
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc nuw i8 %.8.val to i1
+  %39 = trunc nuw i8 %.9.val to i1
+  %40 = icmp sgt i64 %10, 0
+  br i1 %38, label %41, label %75
 
-49:                                               ; preds = %29
-  br i1 %47, label %50, label %64
+41:                                               ; preds = %29
+  br i1 %39, label %42, label %56
 
-50:                                               ; preds = %49
-  br i1 %48, label %.lr.ph.i.i.i9.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIdZNS0_31StridedFloatTensorContentEqualsINS_10DoubleTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit
+42:                                               ; preds = %41
+  br i1 %40, label %.lr.ph.i.i.i9.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIdZNS0_31StridedFloatTensorContentEqualsINS_10DoubleTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit
 
-.lr.ph.i.i.i9.i.i:                                ; preds = %50
-  %51 = getelementptr inbounds i8, ptr %37, i64 %1
-  %52 = getelementptr inbounds i8, ptr %45, i64 %2
-  br label %53
+.lr.ph.i.i.i9.i.i:                                ; preds = %42
+  %43 = getelementptr inbounds i8, ptr %33, i64 %1
+  %44 = getelementptr inbounds i8, ptr %37, i64 %2
+  br label %45
 
-53:                                               ; preds = %.critedge.i.i.i12.i.i, %.lr.ph.i.i.i9.i.i
-  %.02.i.i.i10.i.i = phi i64 [ 0, %.lr.ph.i.i.i9.i.i ], [ %63, %.critedge.i.i.i12.i.i ]
-  %54 = mul nsw i64 %.02.i.i.i10.i.i, %14
-  %55 = getelementptr inbounds i8, ptr %51, i64 %54
-  %56 = load double, ptr %55, align 8, !tbaa !114
-  %57 = mul nsw i64 %.02.i.i.i10.i.i, %18
-  %58 = getelementptr inbounds i8, ptr %52, i64 %57
-  %59 = load double, ptr %58, align 8, !tbaa !114
-  %60 = fcmp oeq double %56, %59
-  br i1 %60, label %.critedge.i.i.i12.i.i, label %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEclEdd.exit.i.i.i.i.i
+45:                                               ; preds = %.critedge.i.i.i12.i.i, %.lr.ph.i.i.i9.i.i
+  %.02.i.i.i10.i.i = phi i64 [ 0, %.lr.ph.i.i.i9.i.i ], [ %55, %.critedge.i.i.i12.i.i ]
+  %46 = mul nsw i64 %.02.i.i.i10.i.i, %14
+  %47 = getelementptr inbounds i8, ptr %43, i64 %46
+  %48 = load double, ptr %47, align 8, !tbaa !114
+  %49 = mul nsw i64 %.02.i.i.i10.i.i, %18
+  %50 = getelementptr inbounds i8, ptr %44, i64 %49
+  %51 = load double, ptr %50, align 8, !tbaa !114
+  %52 = fcmp oeq double %48, %51
+  br i1 %52, label %.critedge.i.i.i12.i.i, label %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEclEdd.exit.i.i.i.i.i
 
-_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEclEdd.exit.i.i.i.i.i: ; preds = %53
-  %61 = fcmp uno double %56, 0.000000e+00
-  %62 = fcmp uno double %59, 0.000000e+00
-  %or.cond.i.i.i.i11.i.i = and i1 %61, %62
+_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEclEdd.exit.i.i.i.i.i: ; preds = %45
+  %53 = fcmp uno double %48, 0.000000e+00
+  %54 = fcmp uno double %51, 0.000000e+00
+  %or.cond.i.i.i.i11.i.i = and i1 %53, %54
   br i1 %or.cond.i.i.i.i11.i.i, label %.critedge.i.i.i12.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIdZNS0_31StridedFloatTensorContentEqualsINS_10DoubleTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit
 
-.critedge.i.i.i12.i.i:                            ; preds = %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEclEdd.exit.i.i.i.i.i, %53
-  %63 = add nuw nsw i64 %.02.i.i.i10.i.i, 1
-  %exitcond.not.i.i.i13.i.i = icmp eq i64 %63, %10
-  br i1 %exitcond.not.i.i.i13.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIdZNS0_31StridedFloatTensorContentEqualsINS_10DoubleTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit, label %53, !llvm.loop !1082
+.critedge.i.i.i12.i.i:                            ; preds = %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEclEdd.exit.i.i.i.i.i, %45
+  %55 = add nuw nsw i64 %.02.i.i.i10.i.i, 1
+  %exitcond.not.i.i.i13.i.i = icmp eq i64 %55, %10
+  br i1 %exitcond.not.i.i.i13.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIdZNS0_31StridedFloatTensorContentEqualsINS_10DoubleTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit, label %45, !llvm.loop !1082
 
-64:                                               ; preds = %49
-  br i1 %48, label %.lr.ph.i2.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIdZNS0_31StridedFloatTensorContentEqualsINS_10DoubleTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit
+56:                                               ; preds = %41
+  br i1 %40, label %.lr.ph.i2.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIdZNS0_31StridedFloatTensorContentEqualsINS_10DoubleTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit
 
-.lr.ph.i2.i.i.i.i:                                ; preds = %64
-  %65 = getelementptr inbounds i8, ptr %37, i64 %1
-  %66 = getelementptr inbounds i8, ptr %45, i64 %2
-  br label %67
+.lr.ph.i2.i.i.i.i:                                ; preds = %56
+  %57 = getelementptr inbounds i8, ptr %33, i64 %1
+  %58 = getelementptr inbounds i8, ptr %37, i64 %2
+  br label %59
 
-67:                                               ; preds = %.critedge.i4.i.i.i.i, %.lr.ph.i2.i.i.i.i
-  %.01.i.i.i8.i.i = phi i64 [ 0, %.lr.ph.i2.i.i.i.i ], [ %82, %.critedge.i4.i.i.i.i ]
-  %68 = mul nsw i64 %.01.i.i.i8.i.i, %14
-  %69 = getelementptr inbounds i8, ptr %65, i64 %68
-  %70 = load double, ptr %69, align 8, !tbaa !114
-  %71 = mul nsw i64 %.01.i.i.i8.i.i, %18
-  %72 = getelementptr inbounds i8, ptr %66, i64 %71
-  %73 = load double, ptr %72, align 8, !tbaa !114
-  %74 = fcmp oeq double %70, %73
-  br i1 %74, label %75, label %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEclEdd.exit.i.i.i.i.i
+59:                                               ; preds = %.critedge.i4.i.i.i.i, %.lr.ph.i2.i.i.i.i
+  %.01.i.i.i8.i.i = phi i64 [ 0, %.lr.ph.i2.i.i.i.i ], [ %74, %.critedge.i4.i.i.i.i ]
+  %60 = mul nsw i64 %.01.i.i.i8.i.i, %14
+  %61 = getelementptr inbounds i8, ptr %57, i64 %60
+  %62 = load double, ptr %61, align 8, !tbaa !114
+  %63 = mul nsw i64 %.01.i.i.i8.i.i, %18
+  %64 = getelementptr inbounds i8, ptr %58, i64 %63
+  %65 = load double, ptr %64, align 8, !tbaa !114
+  %66 = fcmp oeq double %62, %65
+  br i1 %66, label %67, label %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEclEdd.exit.i.i.i.i.i
 
-75:                                               ; preds = %67
-  %76 = bitcast double %70 to i64
-  %77 = bitcast double %73 to i64
-  %78 = xor i64 %77, %76
-  %79 = icmp sgt i64 %78, -1
-  br i1 %79, label %.critedge.i4.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIdZNS0_31StridedFloatTensorContentEqualsINS_10DoubleTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit
+67:                                               ; preds = %59
+  %68 = bitcast double %62 to i64
+  %69 = bitcast double %65 to i64
+  %70 = xor i64 %69, %68
+  %71 = icmp sgt i64 %70, -1
+  br i1 %71, label %.critedge.i4.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIdZNS0_31StridedFloatTensorContentEqualsINS_10DoubleTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit
 
-_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEclEdd.exit.i.i.i.i.i: ; preds = %67
-  %80 = fcmp uno double %70, 0.000000e+00
-  %81 = fcmp uno double %73, 0.000000e+00
-  %or.cond.i.i3.i.i.i.i = and i1 %80, %81
+_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEclEdd.exit.i.i.i.i.i: ; preds = %59
+  %72 = fcmp uno double %62, 0.000000e+00
+  %73 = fcmp uno double %65, 0.000000e+00
+  %or.cond.i.i3.i.i.i.i = and i1 %72, %73
   br i1 %or.cond.i.i3.i.i.i.i, label %.critedge.i4.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIdZNS0_31StridedFloatTensorContentEqualsINS_10DoubleTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit
 
-.critedge.i4.i.i.i.i:                             ; preds = %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEclEdd.exit.i.i.i.i.i, %75
-  %82 = add nuw nsw i64 %.01.i.i.i8.i.i, 1
-  %exitcond.not.i5.i.i.i.i = icmp eq i64 %82, %10
-  br i1 %exitcond.not.i5.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIdZNS0_31StridedFloatTensorContentEqualsINS_10DoubleTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit, label %67, !llvm.loop !1083
+.critedge.i4.i.i.i.i:                             ; preds = %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEclEdd.exit.i.i.i.i.i, %67
+  %74 = add nuw nsw i64 %.01.i.i.i8.i.i, 1
+  %exitcond.not.i5.i.i.i.i = icmp eq i64 %74, %10
+  br i1 %exitcond.not.i5.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIdZNS0_31StridedFloatTensorContentEqualsINS_10DoubleTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit, label %59, !llvm.loop !1083
 
-83:                                               ; preds = %29
-  br i1 %47, label %84, label %95
+75:                                               ; preds = %29
+  br i1 %39, label %76, label %87
 
-84:                                               ; preds = %83
-  br i1 %48, label %.critedge.lr.ph.i.i.i6.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIdZNS0_31StridedFloatTensorContentEqualsINS_10DoubleTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit
+76:                                               ; preds = %75
+  br i1 %40, label %.critedge.lr.ph.i.i.i6.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIdZNS0_31StridedFloatTensorContentEqualsINS_10DoubleTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit
 
-.critedge.lr.ph.i.i.i6.i.i:                       ; preds = %84
-  %85 = getelementptr inbounds i8, ptr %37, i64 %1
-  %86 = getelementptr inbounds i8, ptr %45, i64 %2
+.critedge.lr.ph.i.i.i6.i.i:                       ; preds = %76
+  %77 = getelementptr inbounds i8, ptr %33, i64 %1
+  %78 = getelementptr inbounds i8, ptr %37, i64 %2
   br label %.critedge.i.i5.i.i.i
 
 .critedge.i.i5.i.i.i:                             ; preds = %.critedge.i.i5.i.i.i, %.critedge.lr.ph.i.i.i6.i.i
-  %.01.i.i6.i.i.i = phi i64 [ 0, %.critedge.lr.ph.i.i.i6.i.i ], [ %94, %.critedge.i.i5.i.i.i ]
-  %87 = mul nsw i64 %.01.i.i6.i.i.i, %14
-  %88 = getelementptr inbounds i8, ptr %85, i64 %87
-  %89 = load double, ptr %88, align 8, !tbaa !114
-  %90 = mul nsw i64 %.01.i.i6.i.i.i, %18
-  %91 = getelementptr inbounds i8, ptr %86, i64 %90
-  %92 = load double, ptr %91, align 8, !tbaa !114
-  %93 = fcmp oeq double %89, %92
-  %94 = add nuw nsw i64 %.01.i.i6.i.i.i, 1
-  %exitcond.not.i.i7.i7.i.i = icmp ne i64 %94, %10
-  %or.cond.not = select i1 %93, i1 %exitcond.not.i.i7.i7.i.i, i1 false
+  %.01.i.i6.i.i.i = phi i64 [ 0, %.critedge.lr.ph.i.i.i6.i.i ], [ %86, %.critedge.i.i5.i.i.i ]
+  %79 = mul nsw i64 %.01.i.i6.i.i.i, %14
+  %80 = getelementptr inbounds i8, ptr %77, i64 %79
+  %81 = load double, ptr %80, align 8, !tbaa !114
+  %82 = mul nsw i64 %.01.i.i6.i.i.i, %18
+  %83 = getelementptr inbounds i8, ptr %78, i64 %82
+  %84 = load double, ptr %83, align 8, !tbaa !114
+  %85 = fcmp oeq double %81, %84
+  %86 = add nuw nsw i64 %.01.i.i6.i.i.i, 1
+  %exitcond.not.i.i7.i7.i.i = icmp ne i64 %86, %10
+  %or.cond.not = select i1 %85, i1 %exitcond.not.i.i7.i7.i.i, i1 false
   br i1 %or.cond.not, label %.critedge.i.i5.i.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIdZNS0_31StridedFloatTensorContentEqualsINS_10DoubleTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit, !llvm.loop !1084
 
-95:                                               ; preds = %83
-  br i1 %48, label %.critedge.lr.ph.i2.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIdZNS0_31StridedFloatTensorContentEqualsINS_10DoubleTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit
+87:                                               ; preds = %75
+  br i1 %40, label %.critedge.lr.ph.i2.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIdZNS0_31StridedFloatTensorContentEqualsINS_10DoubleTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit
 
-.critedge.lr.ph.i2.i.i.i.i:                       ; preds = %95
-  %96 = getelementptr inbounds i8, ptr %37, i64 %1
-  %97 = getelementptr inbounds i8, ptr %45, i64 %2
+.critedge.lr.ph.i2.i.i.i.i:                       ; preds = %87
+  %88 = getelementptr inbounds i8, ptr %33, i64 %1
+  %89 = getelementptr inbounds i8, ptr %37, i64 %2
   br label %.critedge.i3.i.i.i.i
 
 .critedge.i3.i.i.i.i:                             ; preds = %.critedge.i3.i.i.i.i, %.critedge.lr.ph.i2.i.i.i.i
-  %.01.i4.i.i4.i.i = phi i64 [ 0, %.critedge.lr.ph.i2.i.i.i.i ], [ %109, %.critedge.i3.i.i.i.i ]
-  %98 = mul nsw i64 %.01.i4.i.i4.i.i, %14
-  %99 = getelementptr inbounds i8, ptr %96, i64 %98
-  %100 = load double, ptr %99, align 8, !tbaa !114
-  %101 = mul nsw i64 %.01.i4.i.i4.i.i, %18
-  %102 = getelementptr inbounds i8, ptr %97, i64 %101
-  %103 = load double, ptr %102, align 8, !tbaa !114
-  %104 = fcmp oeq double %100, %103
-  %105 = bitcast double %100 to i64
-  %106 = bitcast double %103 to i64
-  %107 = xor i64 %106, %105
-  %108 = icmp sgt i64 %107, -1
-  %.0.i.i.i.i5.i.i = and i1 %104, %108
-  %109 = add nuw nsw i64 %.01.i4.i.i4.i.i, 1
-  %exitcond.not.i5.i4.i.i.i = icmp ne i64 %109, %10
+  %.01.i4.i.i4.i.i = phi i64 [ 0, %.critedge.lr.ph.i2.i.i.i.i ], [ %101, %.critedge.i3.i.i.i.i ]
+  %90 = mul nsw i64 %.01.i4.i.i4.i.i, %14
+  %91 = getelementptr inbounds i8, ptr %88, i64 %90
+  %92 = load double, ptr %91, align 8, !tbaa !114
+  %93 = mul nsw i64 %.01.i4.i.i4.i.i, %18
+  %94 = getelementptr inbounds i8, ptr %89, i64 %93
+  %95 = load double, ptr %94, align 8, !tbaa !114
+  %96 = fcmp oeq double %92, %95
+  %97 = bitcast double %92 to i64
+  %98 = bitcast double %95 to i64
+  %99 = xor i64 %98, %97
+  %100 = icmp sgt i64 %99, -1
+  %.0.i.i.i.i5.i.i = and i1 %96, %100
+  %101 = add nuw nsw i64 %.01.i4.i.i4.i.i, 1
+  %exitcond.not.i5.i4.i.i.i = icmp ne i64 %101, %10
   %or.cond91.not = select i1 %.0.i.i.i.i5.i.i, i1 %exitcond.not.i5.i4.i.i.i, i1 false
   br i1 %or.cond91.not, label %.critedge.i3.i.i.i.i, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIdZNS0_31StridedFloatTensorContentEqualsINS_10DoubleTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit, !llvm.loop !1085
 
-110:                                              ; preds = %.lr.ph, %112
-  %.064 = phi i64 [ 0, %.lr.ph ], [ %115, %112 ]
-  %.05163 = phi i64 [ %1, %.lr.ph ], [ %113, %112 ]
-  %.05262 = phi i64 [ %2, %.lr.ph ], [ %114, %112 ]
-  %111 = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_131StridedFloatTensorContentEqualsINS_10DoubleTypeEEEbillRKNS_6TensorES5_RKNS_12EqualOptionsE(i32 noundef %28, i64 noundef %.05163, i64 noundef %.05262, ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(112) %4, i8 %.8.val, i8 %.9.val)
-  br i1 %111, label %112, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIdZNS0_31StridedFloatTensorContentEqualsINS_10DoubleTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit
+102:                                              ; preds = %.lr.ph, %104
+  %.064 = phi i64 [ 0, %.lr.ph ], [ %107, %104 ]
+  %.05163 = phi i64 [ %1, %.lr.ph ], [ %105, %104 ]
+  %.05262 = phi i64 [ %2, %.lr.ph ], [ %106, %104 ]
+  %103 = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_131StridedFloatTensorContentEqualsINS_10DoubleTypeEEEbillRKNS_6TensorES5_RKNS_12EqualOptionsE(i32 noundef %28, i64 noundef %.05163, i64 noundef %.05262, ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(112) %4, i8 %.8.val, i8 %.9.val)
+  br i1 %103, label %104, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIdZNS0_31StridedFloatTensorContentEqualsINS_10DoubleTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit
 
-112:                                              ; preds = %110
-  %113 = add nsw i64 %.05163, %14
-  %114 = add nsw i64 %.05262, %18
-  %115 = add nuw nsw i64 %.064, 1
-  %exitcond.not = icmp eq i64 %115, %10
-  br i1 %exitcond.not, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIdZNS0_31StridedFloatTensorContentEqualsINS_10DoubleTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit, label %110, !llvm.loop !1086
+104:                                              ; preds = %102
+  %105 = add nsw i64 %.05163, %14
+  %106 = add nsw i64 %.05262, %18
+  %107 = add nuw nsw i64 %.064, 1
+  %exitcond.not = icmp eq i64 %107, %10
+  br i1 %exitcond.not, label %_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIdZNS0_31StridedFloatTensorContentEqualsINS_10DoubleTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit, label %102, !llvm.loop !1086
 
-_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIdZNS0_31StridedFloatTensorContentEqualsINS_10DoubleTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit: ; preds = %110, %112, %.critedge.i3.i.i.i.i, %.critedge.i.i5.i.i.i, %.critedge.i4.i.i.i.i, %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEclEdd.exit.i.i.i.i.i, %75, %.critedge.i.i.i12.i.i, %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEclEdd.exit.i.i.i.i.i, %.preheader, %95, %84, %64, %50
-  %.019 = phi i1 [ true, %50 ], [ true, %64 ], [ true, %84 ], [ true, %95 ], [ true, %.preheader ], [ false, %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEclEdd.exit.i.i.i.i.i ], [ true, %.critedge.i.i.i12.i.i ], [ false, %75 ], [ false, %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEclEdd.exit.i.i.i.i.i ], [ true, %.critedge.i4.i.i.i.i ], [ %93, %.critedge.i.i5.i.i.i ], [ %.0.i.i.i.i5.i.i, %.critedge.i3.i.i.i.i ], [ %111, %112 ], [ %111, %110 ]
+_ZN5arrow12_GLOBAL__N_121VisitFloatingEqualityIdZNS0_31StridedFloatTensorContentEqualsINS_10DoubleTypeEEEbillRKNS_6TensorES6_RKNS_12EqualOptionsEEUlOT_E_EEvS9_bOT0_.exit: ; preds = %102, %104, %.critedge.i3.i.i.i.i, %.critedge.i.i5.i.i.i, %.critedge.i4.i.i.i.i, %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEclEdd.exit.i.i.i.i.i, %67, %.critedge.i.i.i12.i.i, %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEclEdd.exit.i.i.i.i.i, %.preheader, %87, %76, %56, %42
+  %.019 = phi i1 [ true, %42 ], [ true, %56 ], [ true, %76 ], [ true, %87 ], [ true, %.preheader ], [ false, %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEclEdd.exit.i.i.i.i.i ], [ true, %.critedge.i.i.i12.i.i ], [ false, %67 ], [ false, %_ZNK5arrow12_GLOBAL__N_116FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEclEdd.exit.i.i.i.i.i ], [ true, %.critedge.i4.i.i.i.i ], [ %85, %.critedge.i.i5.i.i.i ], [ %.0.i.i.i.i5.i.i, %.critedge.i3.i.i.i.i ], [ %103, %104 ], [ %103, %102 ]
   ret i1 %.019
 }
 

@@ -22383,7 +22383,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_15LogicalOp_matchINS0_11class_matchIS
   %.01434 = phi i1 [ %.0.ph, %.critedge4.thread ], [ true, %.critedge4 ]
   %.03191431 = phi i32 [ %.0319.ph, %.critedge4.thread ], [ 0, %.critedge4 ]
   %248 = sub nuw nsw i32 1, %.03191431
-  %249 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 -32
+  %249 = getelementptr inbounds i8, ptr %1, i64 -32
   %250 = zext nneg i32 %248 to i64
   %251 = sub nsw i64 0, %250
   %252 = getelementptr inbounds %"class.llvm::Use", ptr %249, i64 %251

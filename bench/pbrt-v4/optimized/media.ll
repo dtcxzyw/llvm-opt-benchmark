@@ -8100,7 +8100,7 @@ while.end.i.i64:                                  ; preds = %while.body.i.i58, %
   %cmp9.i.i67 = icmp eq i32 %39, 1
   %cond.i.i68 = select i1 %cmp9.i.i67, ptr %grid.0.lcssa.i.i65, ptr null
   store ptr %cond.i.i68, ptr %temperatureFloatGrid, align 8
-  %add.ptr.i.i70 = getelementptr inbounds nuw i8, ptr %cond.i.i68, i64 672
+  %add.ptr.i.i70 = getelementptr inbounds nuw i8, ptr %grid.0.lcssa.i.i65, i64 672
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %grid.0.lcssa.i.i65, i64 696
   %40 = load i64, ptr %arrayidx.i.i.i, align 8
   %add.ptr.i.i.i.i71 = getelementptr inbounds i8, ptr %add.ptr.i.i70, i64 %40
@@ -8144,7 +8144,7 @@ _ZN4pbrt3LogIJRfEEEvNS_8LogLevelEPKciS4_DpOT_.exit: ; preds = %_ZN4pbrt12StringP
   br label %invoke.cont121
 
 invoke.cont121:                                   ; preds = %_ZN4pbrt3LogIJRfEEEvNS_8LogLevelEPKciS4_DpOT_.exit, %while.end.i.i64
-  %45 = phi ptr [ %.pre, %_ZN4pbrt3LogIJRfEEEvNS_8LogLevelEPKciS4_DpOT_.exit ], [ %grid.0.lcssa.i.i65, %while.end.i.i64 ]
+  %45 = phi ptr [ %.pre, %_ZN4pbrt3LogIJRfEEEvNS_8LogLevelEPKciS4_DpOT_.exit ], [ %cond.i.i68, %while.end.i.i64 ]
   %mWorldBBox.i72 = getelementptr inbounds nuw i8, ptr %45, i64 560
   %bbox79.sroa.0.0.copyload = load double, ptr %mWorldBBox.i72, align 8
   %bbox79.sroa.2.0.mWorldBBox.i72.sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 568

@@ -985,7 +985,6 @@ define dso_local noundef ptr @_ZN4llvm29ConstantFoldSelectInstructionEPNS_8Const
 8:                                                ; preds = %6
   %9 = load i8, ptr %0, align 8, !tbaa !3
   %.not = icmp eq i8 %9, 11
-  %spec.select.i.i = select i1 %.not, ptr %0, ptr null
   br i1 %.not, label %10, label %.thread
 
 10:                                               ; preds = %8
@@ -1020,7 +1019,7 @@ define dso_local noundef ptr @_ZN4llvm29ConstantFoldSelectInstructionEPNS_8Const
   %28 = and i32 %27, 134217727
   %29 = zext nneg i32 %28 to i64
   %30 = sub nsw i64 0, %29
-  %31 = getelementptr inbounds %"class.llvm::Use", ptr %spec.select.i.i, i64 %30
+  %31 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %30
   %32 = getelementptr inbounds nuw %"class.llvm::Use", ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !12
   %34 = load i8, ptr %33, align 8, !tbaa !3

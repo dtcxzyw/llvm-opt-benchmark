@@ -2339,7 +2339,7 @@ ceil_fast.exit:                                   ; preds = %24, %27
 
 72:                                               ; preds = %71
   %73 = sext i32 %.0144218 to i64
-  %74 = getelementptr i32, ptr %59, i64 %73
+  %74 = getelementptr inbounds i32, ptr %59, i64 %73
   store i32 %indvars268, ptr %74, align 4, !tbaa !81
   %75 = getelementptr i8, ptr %74, i64 4
   store i32 %.0149215, ptr %75, align 4, !tbaa !81
@@ -2438,7 +2438,7 @@ _clip.exit:                                       ; preds = %_clip.exit.preheade
 
 115:                                              ; preds = %114
   %116 = sext i32 %.0132200 to i64
-  %117 = getelementptr i32, ptr %59, i64 %116
+  %117 = getelementptr inbounds i32, ptr %59, i64 %116
   store i32 %indvars243, ptr %117, align 4, !tbaa !81
   %118 = getelementptr i8, ptr %117, i64 4
   store i32 %.0136197, ptr %118, align 4, !tbaa !81

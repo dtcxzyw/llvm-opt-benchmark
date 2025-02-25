@@ -5082,7 +5082,7 @@ parse_cuesheet.exit.thread:                       ; preds = %65, %70, %80, %87, 
 
 543:                                              ; preds = %536
   %544 = call ptr @FLAC__metadata_object_new(i32 noundef 1) #20
-  %545 = getelementptr inbounds nuw i8, ptr %spec.select517, i64 32
+  %545 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %546 = load i64, ptr %193, align 8, !tbaa !111
   %547 = getelementptr inbounds nuw [1024 x ptr], ptr %545, i64 0, i64 %546
   store ptr %544, ptr %547, align 8, !tbaa !91

@@ -18675,7 +18675,7 @@ _ZL29shouldCanonicalizeGEPToPtrAddRN4llvm17GetElementPtrInstE.exit.thread477: ; 
   %642 = and i32 %641, 134217727
   %643 = zext nneg i32 %642 to i64
   %644 = sub nsw i64 0, %643
-  %645 = getelementptr inbounds %"class.llvm::Use", ptr %spec.select.i.i.i, i64 %644
+  %645 = getelementptr inbounds %"class.llvm::Use", ptr %613, i64 %644
   %646 = getelementptr inbounds nuw %"class.llvm::Use", ptr %645, i64 %indvars.iv
   %647 = load ptr, ptr %646, align 8, !tbaa !75
   %648 = getelementptr inbounds nuw i8, ptr %647, i64 8
@@ -18824,7 +18824,7 @@ _ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit.i: ; preds = %70
   %704 = and i32 %703, 134217727
   %705 = zext nneg i32 %704 to i64
   %706 = sub nsw i64 0, %705
-  %707 = getelementptr inbounds %"class.llvm::Use", ptr %spec.select.i.i.i, i64 %706
+  %707 = getelementptr inbounds %"class.llvm::Use", ptr %613, i64 %706
   %708 = zext i32 %.085.lcssa159.i to i64
   %709 = getelementptr inbounds nuw %"class.llvm::Use", ptr %707, i64 %708
   %710 = load ptr, ptr %709, align 8, !tbaa !75

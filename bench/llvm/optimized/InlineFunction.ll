@@ -24355,7 +24355,6 @@ define internal fastcc noundef ptr @_ZL38HandleCallsInBlockInlinedThroughInvokeP
   %9 = getelementptr inbounds i8, ptr %.sroa.040.076, i64 -24
   %10 = load i8, ptr %9, align 8, !tbaa !87
   %.not = icmp eq i8 %10, 85
-  %spec.select.i.i = select i1 %.not, ptr %9, ptr null
   br i1 %.not, label %11, label %_ZNK4llvm8CallBase12doesNotThrowEv.exit.thread
 
 11:                                               ; preds = %.lr.ph
@@ -24456,7 +24455,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i: ; preds = %34, %_ZNK4llvm8Cal
   %59 = and i32 %58, 134217727
   %60 = zext nneg i32 %59 to i64
   %61 = sub nsw i64 0, %60
-  %62 = getelementptr inbounds %"class.llvm::Use", ptr %spec.select.i.i, i64 %61
+  %62 = getelementptr inbounds %"class.llvm::Use", ptr %9, i64 %61
   %.idx6.i.i.i = shl nuw nsw i64 %57, 5
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx6.i.i.i
   %64 = load ptr, ptr %63, align 8, !tbaa !91

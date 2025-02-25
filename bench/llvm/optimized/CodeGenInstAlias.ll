@@ -1062,7 +1062,7 @@ _ZN4llvm16CodeGenInstAlias13ResultOperandD2Ev.exit188: ; preds = %_ZNKSt7__cxx11
   br i1 %.not7.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %386
-  %389 = getelementptr inbounds nuw i8, ptr %spec.select.i.i189, i64 40
+  %389 = getelementptr inbounds nuw i8, ptr %44, i64 40
   br label %393
 
 390:                                              ; preds = %393

@@ -25164,7 +25164,6 @@ define dso_local { i64, i32 } @_ZN4llvm10X86TTIImpl15getGSVectorCostEjNS_19Targe
 24:                                               ; preds = %7
   %25 = load i8, ptr %4, align 8, !tbaa !191
   %26 = icmp eq i8 %25, 63
-  %spec.select.i.i.i = select i1 %26, ptr %4, ptr null
   %27 = icmp ugt i32 %23, 63
   %or.cond.i = and i1 %27, %26
   br i1 %or.cond.i, label %28, label %"_ZZN4llvm10X86TTIImpl15getGSVectorCostEjNS_19TargetTransformInfo14TargetCostKindEPNS_4TypeEPKNS_5ValueENS_5AlignEjENK3$_0clES7_RKNS_10DataLayoutE.exit"
@@ -25212,7 +25211,7 @@ define dso_local { i64, i32 } @_ZN4llvm10X86TTIImpl15getGSVectorCostEjNS_19Targe
   %47 = and i32 %46, 134217727
   %48 = zext nneg i32 %47 to i64
   %49 = sub nsw i64 0, %48
-  %50 = getelementptr inbounds %"class.llvm::Use", ptr %spec.select.i.i.i, i64 %49
+  %50 = getelementptr inbounds %"class.llvm::Use", ptr %4, i64 %49
   %51 = getelementptr inbounds nuw %"class.llvm::Use", ptr %50, i64 %indvars.iv.i
   %52 = load ptr, ptr %51, align 8, !tbaa !222
   %53 = load i8, ptr %52, align 8, !tbaa !191
@@ -25253,7 +25252,7 @@ define dso_local { i64, i32 } @_ZN4llvm10X86TTIImpl15getGSVectorCostEjNS_19Targe
   %71 = and i32 %70, 134217727
   %72 = zext nneg i32 %71 to i64
   %73 = sub nsw i64 0, %72
-  %74 = getelementptr inbounds %"class.llvm::Use", ptr %spec.select.i.i.i, i64 %73
+  %74 = getelementptr inbounds %"class.llvm::Use", ptr %4, i64 %73
   %75 = getelementptr inbounds nuw %"class.llvm::Use", ptr %74, i64 %indvars.iv.i
   %76 = load ptr, ptr %75, align 8, !tbaa !222
   %77 = load i8, ptr %76, align 8, !tbaa !191

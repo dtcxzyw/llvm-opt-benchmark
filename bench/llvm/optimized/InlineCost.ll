@@ -3988,7 +3988,6 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %.loopexit
   %256 = getelementptr inbounds i8, ptr %254, i64 -24
   %257 = load i8, ptr %256, align 8, !tbaa !99
   %.not224 = icmp eq i8 %257, 31
-  %spec.select.i.i110 = select i1 %.not224, ptr %256, ptr null
   br i1 %.not224, label %258, label %314
 
 258:                                              ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit
@@ -4069,7 +4068,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit: ; preds 
 
 305:                                              ; preds = %302, %299
   %.0.i.i113 = phi i1 [ %301, %299 ], [ %304, %302 ]
-  %306 = getelementptr inbounds i8, ptr %spec.select.i.i110, i64 -32
+  %306 = getelementptr inbounds i8, ptr %254, i64 -56
   %.neg = sext i1 %.0.i.i113 to i64
   %307 = getelementptr inbounds %"class.llvm::Use", ptr %306, i64 %.neg
   %308 = load ptr, ptr %307, align 8, !tbaa !90

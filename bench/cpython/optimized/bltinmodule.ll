@@ -5226,7 +5226,7 @@ _Py_NewRef.exit.i:                                ; preds = %_Py_NewRef.exit.sin
   br i1 %101, label %.lr.ph.i, label %.thread7.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %102 = getelementptr inbounds nuw i8, ptr %spec.store.select.i, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %.072, i64 24
   br label %105
 
 103:                                              ; preds = %105

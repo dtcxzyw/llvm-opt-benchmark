@@ -20720,7 +20720,7 @@ _ZN4llvm11raw_ostreamlsEc.exit133:                ; preds = %_ZN4llvm11raw_ostre
 
 .lr.ph:                                           ; preds = %.preheader
   %862 = icmp ne ptr %2, null
-  %863 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 48
+  %863 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %864 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %865 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %866 = getelementptr inbounds nuw i8, ptr %9, i64 4

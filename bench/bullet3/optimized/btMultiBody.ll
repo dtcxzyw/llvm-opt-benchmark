@@ -6413,7 +6413,7 @@ _ZNK11btMultiBody30isLinkAndAllAncestorsKinematicEi.exit633.thread: ; preds = %9
   store float %1249, ptr %435, align 4, !tbaa !4, !alias.scope !136
   store float %1253, ptr %436, align 4, !tbaa !4, !alias.scope !136
   %1254 = shl nuw nsw i64 %1197, 2
-  %1255 = getelementptr i8, ptr %159, i64 %1254
+  %1255 = getelementptr i8, ptr %158, i64 %1254
   br label %.preheader1411
 
 .preheader1411:                                   ; preds = %1207, %.preheader1411
@@ -7381,7 +7381,7 @@ _ZNK11btMultiBody15isLinkKinematicEi.exit.i705:   ; preds = %1857
 .preheader.us.us.preheader.i:                     ; preds = %1917
   %1879 = mul nsw i32 %1877, %1877
   %1880 = zext nneg i32 %1879 to i64
-  %1881 = getelementptr inbounds nuw float, ptr %159, i64 %1880
+  %1881 = getelementptr inbounds nuw float, ptr %158, i64 %1880
   %1882 = getelementptr inbounds float, ptr %177, i64 %1878
   %1883 = zext nneg i32 %1874 to i64
   br label %.preheader.us.us.i

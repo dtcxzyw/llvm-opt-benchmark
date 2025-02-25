@@ -136306,8 +136306,8 @@ _ZN4llvm11SmallVectorIN5clang17FunctionEffectSet8ConflictELj1EED2Ev.exit: ; pred
 
 .lr.ph344:                                        ; preds = %208
   %218 = lshr i64 %216, 38
-  %219 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 48
-  %220 = getelementptr inbounds nuw i8, ptr %spec.select.i.i174, i64 48
+  %219 = getelementptr inbounds nuw i8, ptr %.1.i, i64 48
+  %220 = getelementptr inbounds nuw i8, ptr %.1.i172, i64 48
   %wide.trip.count362 = and i64 %218, 65535
   br i1 %4, label %.lr.ph344.split.us, label %.lr.ph344.split
 

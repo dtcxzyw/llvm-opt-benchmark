@@ -49735,7 +49735,6 @@ _ZN9zune_jpeg9bitstream9BitStream6refill17hd4ab66b86a67dab1E.exit.thread.i.us: ;
   %1621 = getelementptr inbounds nuw i8, ptr %1620, i64 2448
   %1622 = load i16, ptr %1621, align 4, !range !7463, !noundef !15
   %1623 = icmp eq i16 %1622, 2
-  %.sroa.040.0.us = select i1 %1623, ptr null, ptr %1620
   br i1 %1623, label %.split2224.us, label %1624
 
 1624:                                             ; preds = %"_ZN4core3ptr52drop_in_place$LT$zune_jpeg..errors..DecodeErrors$GT$17h3ebfd42d8c8c2e5aE.exit.us"
@@ -50299,7 +50298,7 @@ _ZN9zune_jpeg9bitstream9BitStream6refill17hd4ab66b86a67dab1E.exit.i.thread.us: ;
 1850:                                             ; preds = %_ZN9zune_jpeg9bitstream9BitStream6refill17hd4ab66b86a67dab1E.exit.i.thread.us, %1630
   %1851 = load i64, ptr %250, align 8, !alias.scope !8893, !noalias !8904, !noundef !15
   %1852 = lshr i64 %1851, 55
-  %1853 = getelementptr inbounds nuw i8, ptr %.sroa.040.0.us, i64 144
+  %1853 = getelementptr inbounds nuw i8, ptr %1620, i64 144
   %1854 = getelementptr inbounds nuw [512 x i32], ptr %1853, i64 0, i64 %1852
   %1855 = load i32, ptr %1854, align 4, !alias.scope !8898, !noalias !9032, !noundef !15
   %1856 = ashr i32 %1855, 9
@@ -50341,13 +50340,13 @@ _ZN9zune_jpeg9bitstream9BitStream6refill17hd4ab66b86a67dab1E.exit.i.thread.us: ;
   %1874 = sub nsw i32 16, %1873
   %1875 = and i32 %1874, 31
   %1876 = lshr i32 %1861, %1875
-  %1877 = getelementptr inbounds nuw i8, ptr %.sroa.040.0.us, i64 72
+  %1877 = getelementptr inbounds nuw i8, ptr %1620, i64 72
   %1878 = getelementptr inbounds nuw [18 x i32], ptr %1877, i64 0, i64 %1870
   %1879 = load i32, ptr %1878, align 4, !alias.scope !8898, !noalias !9032, !noundef !15
   %1880 = add i32 %1879, %1876
   %1881 = and i32 %1880, 255
   %1882 = zext nneg i32 %1881 to i64
-  %1883 = getelementptr inbounds nuw i8, ptr %.sroa.040.0.us, i64 2192
+  %1883 = getelementptr inbounds nuw i8, ptr %1620, i64 2192
   %1884 = getelementptr inbounds nuw [256 x i8], ptr %1883, i64 0, i64 %1882
   %1885 = load i8, ptr %1884, align 1, !alias.scope !8898, !noalias !9032, !noundef !15
   %1886 = zext i8 %1885 to i32

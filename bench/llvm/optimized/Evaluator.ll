@@ -1906,7 +1906,6 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_8CallBaseEEEDcPT0_.exit: ; preds = %_ZN4
   %342 = add i32 %341, -243
   %switch.and.i.i.i.i.i.i.i.i = and i32 %342, -3
   %switch.selectcmp.i.i.i.i.i.i.i.i.not = icmp eq i32 %switch.and.i.i.i.i.i.i.i.i, 0
-  %spec.select.i.i298 = select i1 %switch.selectcmp.i.i.i.i.i.i.i.i.not, ptr %50, ptr null
   br i1 %switch.selectcmp.i.i.i.i.i.i.i.i.not, label %343, label %557
 
 343:                                              ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_8CallBaseEEEDcPT0_.exit
@@ -2103,7 +2102,7 @@ _ZN4llvm5APIntC2Ejmbb.exit318:                    ; preds = %451, %452
   %458 = and i32 %457, 134217727
   %459 = zext nneg i32 %458 to i64
   %460 = sub nsw i64 0, %459
-  %461 = getelementptr inbounds %"class.llvm::Use", ptr %spec.select.i.i298, i64 %460
+  %461 = getelementptr inbounds %"class.llvm::Use", ptr %50, i64 %460
   %462 = getelementptr inbounds nuw i8, ptr %461, i64 32
   %463 = load ptr, ptr %462, align 8, !tbaa !83
   %464 = load i8, ptr %463, align 8, !tbaa !75

@@ -10706,7 +10706,7 @@ _ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_17GetElementPtrInstEEE
   %1078 = and i32 %1077, 134217727
   %1079 = zext nneg i32 %1078 to i64
   %1080 = sub nsw i64 0, %1079
-  %1081 = getelementptr inbounds %"class.llvm::Use", ptr %spec.select.i.i.i31.i, i64 %1080
+  %1081 = getelementptr inbounds %"class.llvm::Use", ptr %258, i64 %1080
   %1082 = getelementptr inbounds nuw i8, ptr %1081, i64 32
   %1083 = call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_3UseEEEZL8hoistGEPRNS_11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeEE3$_0EEbOT_T0_"(ptr nonnull %1082, ptr %spec.select.i.i.i31.i, ptr nonnull align 8 dereferenceable(144) %6)
   br i1 %1083, label %1084, label %thread-pre-split.i

@@ -3124,26 +3124,26 @@ define internal fastcc void @_ZN12_GLOBAL__N_111JSONEmitter13translateInitERKN4l
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %53 = load i32, ptr %52, align 8, !tbaa !142
-  %.not25 = icmp eq i32 %53, 0
-  br i1 %.not25, label %66, label %.lr.ph22
+  %.not = icmp eq i32 %53, 0
+  br i1 %.not, label %66, label %.lr.ph
 
-.lr.ph22:                                         ; preds = %51
+.lr.ph:                                           ; preds = %51
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %wide.trip.count30 = zext i32 %53 to i64
+  %wide.trip.count = zext i32 %53 to i64
   br label %57
 
-._crit_edge23.loopexit:                           ; preds = %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit
-  %.pre40 = load ptr, ptr %3, align 8, !tbaa !74
-  %.pre42 = load ptr, ptr %55, align 8, !tbaa !77
-  %.pre44 = load ptr, ptr %56, align 8, !tbaa !80
+._crit_edge.loopexit:                             ; preds = %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit
+  %.pre = load ptr, ptr %3, align 8, !tbaa !74
+  %.pre32 = load ptr, ptr %55, align 8, !tbaa !77
+  %.pre34 = load ptr, ptr %56, align 8, !tbaa !80
   br label %66
 
-57:                                               ; preds = %.lr.ph22, %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit
-  %indvars.iv27 = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next28, %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit ]
+57:                                               ; preds = %.lr.ph, %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #16
-  %58 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv27
+  %58 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 8, !tbaa !92
   call fastcc void @_ZN12_GLOBAL__N_111JSONEmitter13translateInitERKN4llvm4InitE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(10) %59)
   %60 = load ptr, ptr %55, align 8, !tbaa !77
@@ -3165,14 +3165,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_111JSONEmitter13translateInitERKN4l
 _ZN4llvm4json5Array9push_backEONS0_5ValueE.exit:  ; preds = %62, %65
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %4) #16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #16
-  %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %exitcond31.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count30
-  br i1 %exitcond31.not, label %._crit_edge23.loopexit, label %57, !llvm.loop !145
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %57, !llvm.loop !145
 
-66:                                               ; preds = %._crit_edge23.loopexit, %51
-  %67 = phi ptr [ %.pre44, %._crit_edge23.loopexit ], [ null, %51 ]
-  %68 = phi ptr [ %.pre42, %._crit_edge23.loopexit ], [ null, %51 ]
-  %69 = phi ptr [ %.pre40, %._crit_edge23.loopexit ], [ null, %51 ]
+66:                                               ; preds = %._crit_edge.loopexit, %51
+  %67 = phi ptr [ %.pre34, %._crit_edge.loopexit ], [ null, %51 ]
+  %68 = phi ptr [ %.pre32, %._crit_edge.loopexit ], [ null, %51 ]
+  %69 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ null, %51 ]
   store i16 8, ptr %0, align 8, !tbaa !3
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %69, ptr %70, align 8, !tbaa !74
@@ -3207,19 +3207,19 @@ _ZN4llvm4json5Array9push_backEONS0_5ValueE.exit:  ; preds = %62, %65
   %82 = zext i32 %81 to i64
   %.idx = shl nuw nsw i64 %82, 3
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr24 = getelementptr inbounds nuw i8, ptr %83, i64 40
-  %.not9615 = icmp eq i32 %81, 0
-  br i1 %.not9615, label %._crit_edge19, label %.lr.ph18
+  %.ptr25 = getelementptr inbounds nuw i8, ptr %83, i64 40
+  %.not9619 = icmp eq i32 %81, 0
+  br i1 %.not9619, label %._crit_edge23, label %.lr.ph22
 
-.lr.ph18:                                         ; preds = %79
+.lr.ph22:                                         ; preds = %79
   %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 40
   %84 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %86
 
-86:                                               ; preds = %.lr.ph18, %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit125
-  %.07916 = phi ptr [ %.ptr, %.lr.ph18 ], [ %94, %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit125 ]
-  %87 = load ptr, ptr %.07916, align 8, !tbaa !92
+86:                                               ; preds = %.lr.ph22, %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit125
+  %.07920 = phi ptr [ %.ptr, %.lr.ph22 ], [ %94, %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit125 ]
+  %87 = load ptr, ptr %.07920, align 8, !tbaa !92
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #16
   call fastcc void @_ZN12_GLOBAL__N_111JSONEmitter13translateInitERKN4llvm4InitE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(10) %87)
   %88 = load ptr, ptr %84, align 8, !tbaa !77
@@ -3241,20 +3241,20 @@ _ZN4llvm4json5Array9push_backEONS0_5ValueE.exit:  ; preds = %62, %65
 _ZN4llvm4json5Array9push_backEONS0_5ValueE.exit125: ; preds = %90, %93
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %6) #16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #16
-  %94 = getelementptr inbounds nuw i8, ptr %.07916, i64 8
-  %.not96 = icmp eq ptr %94, %.ptr24
-  br i1 %.not96, label %._crit_edge19.loopexit, label %86
+  %94 = getelementptr inbounds nuw i8, ptr %.07920, i64 8
+  %.not96 = icmp eq ptr %94, %.ptr25
+  br i1 %.not96, label %._crit_edge23.loopexit, label %86
 
-._crit_edge19.loopexit:                           ; preds = %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit125
-  %.pre35 = load ptr, ptr %5, align 8, !tbaa !74
-  %.pre37 = load ptr, ptr %84, align 8, !tbaa !77
-  %.pre39 = load ptr, ptr %85, align 8, !tbaa !80
-  br label %._crit_edge19
+._crit_edge23.loopexit:                           ; preds = %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit125
+  %.pre40 = load ptr, ptr %5, align 8, !tbaa !74
+  %.pre42 = load ptr, ptr %84, align 8, !tbaa !77
+  %.pre44 = load ptr, ptr %85, align 8, !tbaa !80
+  br label %._crit_edge23
 
-._crit_edge19:                                    ; preds = %._crit_edge19.loopexit, %79
-  %95 = phi ptr [ %.pre39, %._crit_edge19.loopexit ], [ null, %79 ]
-  %96 = phi ptr [ %.pre37, %._crit_edge19.loopexit ], [ null, %79 ]
-  %97 = phi ptr [ %.pre35, %._crit_edge19.loopexit ], [ null, %79 ]
+._crit_edge23:                                    ; preds = %._crit_edge23.loopexit, %79
+  %95 = phi ptr [ %.pre44, %._crit_edge23.loopexit ], [ null, %79 ]
+  %96 = phi ptr [ %.pre42, %._crit_edge23.loopexit ], [ null, %79 ]
+  %97 = phi ptr [ %.pre40, %._crit_edge23.loopexit ], [ null, %79 ]
   store i16 8, ptr %0, align 8, !tbaa !3
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %97, ptr %98, align 8, !tbaa !74
@@ -3555,10 +3555,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133: ; preds = %_Z
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
   %195 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %196 = load i32, ptr %195, align 8, !tbaa !160
-  %.not = icmp eq i32 %196, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  %.not24 = icmp eq i32 %196, 0
+  br i1 %.not24, label %._crit_edge18, label %.lr.ph17
 
-.lr.ph:                                           ; preds = %194
+.lr.ph17:                                         ; preds = %194
   %197 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %198 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %199 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -3569,19 +3569,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133: ; preds = %_Z
   %204 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %205 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %206 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %wide.trip.count = zext i32 %196 to i64
+  %wide.trip.count30 = zext i32 %196 to i64
   br label %225
 
-._crit_edge.loopexit:                             ; preds = %_ZN4llvm4json5ArrayD2Ev.exit149
-  %.pre = load ptr, ptr %32, align 8, !tbaa !74
-  %.pre32 = load ptr, ptr %205, align 8, !tbaa !77
-  %.pre34 = load ptr, ptr %206, align 8, !tbaa !80
-  br label %._crit_edge
+._crit_edge18.loopexit:                           ; preds = %_ZN4llvm4json5ArrayD2Ev.exit149
+  %.pre35 = load ptr, ptr %32, align 8, !tbaa !74
+  %.pre37 = load ptr, ptr %205, align 8, !tbaa !77
+  %.pre39 = load ptr, ptr %206, align 8, !tbaa !80
+  br label %._crit_edge18
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %194
-  %207 = phi ptr [ %.pre34, %._crit_edge.loopexit ], [ null, %194 ]
-  %208 = phi ptr [ %.pre32, %._crit_edge.loopexit ], [ null, %194 ]
-  %209 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ null, %194 ]
+._crit_edge18:                                    ; preds = %._crit_edge18.loopexit, %194
+  %207 = phi ptr [ %.pre39, %._crit_edge18.loopexit ], [ null, %194 ]
+  %208 = phi ptr [ %.pre37, %._crit_edge18.loopexit ], [ null, %194 ]
+  %209 = phi ptr [ %.pre35, %._crit_edge18.loopexit ], [ null, %194 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %39) #16
   store i16 8, ptr %39, align 8, !tbaa !3
   %210 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -3624,12 +3624,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32) #16
   br label %278
 
-225:                                              ; preds = %.lr.ph, %_ZN4llvm4json5ArrayD2Ev.exit149
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4llvm4json5ArrayD2Ev.exit149 ]
+225:                                              ; preds = %.lr.ph17, %_ZN4llvm4json5ArrayD2Ev.exit149
+  %indvars.iv27 = phi i64 [ 0, %.lr.ph17 ], [ %indvars.iv.next28, %_ZN4llvm4json5ArrayD2Ev.exit149 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %33) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %34) #16
-  %226 = getelementptr inbounds nuw ptr, ptr %197, i64 %indvars.iv
+  %226 = getelementptr inbounds nuw ptr, ptr %197, i64 %indvars.iv27
   %227 = load ptr, ptr %226, align 8, !tbaa !92
   call fastcc void @_ZN12_GLOBAL__N_111JSONEmitter13translateInitERKN4llvm4InitE(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(10) %227)
   %228 = load ptr, ptr %198, align 8, !tbaa !77
@@ -3654,7 +3654,7 @@ _ZN4llvm4json5Array9push_backEONS0_5ValueE.exit135: ; preds = %230, %233
   %234 = load i32, ptr %195, align 8, !tbaa !160
   %235 = zext i32 %234 to i64
   %236 = getelementptr inbounds nuw ptr, ptr %197, i64 %235
-  %237 = getelementptr inbounds nuw ptr, ptr %236, i64 %indvars.iv
+  %237 = getelementptr inbounds nuw ptr, ptr %236, i64 %indvars.iv27
   %238 = load ptr, ptr %237, align 8, !tbaa !161
   %.not103 = icmp eq ptr %238, null
   br i1 %.not103, label %246, label %239
@@ -3753,9 +3753,9 @@ _ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i147: ; preds = %_ZSt
 
 _ZN4llvm4json5ArrayD2Ev.exit149:                  ; preds = %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i147, %261
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33) #16
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %225, !llvm.loop !162
+  %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
+  %exitcond31.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count30
+  br i1 %exitcond31.not, label %._crit_edge18.loopexit, label %225, !llvm.loop !162
 
 .critedge119:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %149
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %41) #16
@@ -3791,12 +3791,12 @@ _ZN4llvm4json5ArrayD2Ev.exit149:                  ; preds = %_ZSt8_DestroyIPN4ll
   store i32 0, ptr %276, align 8, !tbaa !112
   br label %278
 
-278:                                              ; preds = %._crit_edge, %155, %132, %114, %.critedge119
+278:                                              ; preds = %._crit_edge18, %155, %132, %114, %.critedge119
   call void @_ZN4llvm4json6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #16
   br label %279
 
-279:                                              ; preds = %66, %._crit_edge19, %77, %73, %46, %278, %45
+279:                                              ; preds = %66, %._crit_edge23, %77, %73, %46, %278, %45
   ret void
 }
 

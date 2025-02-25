@@ -7947,7 +7947,7 @@ _ZN18AnnotationIteratorC2EPK13InstanceKlassP5ArrayIhE.exit.i: ; preds = %_ZNK13I
   %12 = add nsw i32 %9, -2
   %.sroa.317.1.i = select i1 %10, i32 %12, i32 %9
   %.sroa.8.0.i = select i1 %10, ptr %11, ptr null
-  %invariant.gep.i = getelementptr i8, ptr %.sroa.8.0.i, i64 -2
+  %invariant.gep.i = getelementptr i8, ptr %7, i64 4
   %13 = icmp sgt i32 %.sroa.317.1.i, 0
   br i1 %13, label %.lr.ph.i, label %.loopexit
 

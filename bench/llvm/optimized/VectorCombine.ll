@@ -8498,7 +8498,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_5ValueEEEDcPT0_.exit144.i: ; preds = %_Z
   %3402 = and i32 %3401, 134217727
   %3403 = zext nneg i32 %3402 to i64
   %3404 = sub nsw i64 0, %3403
-  %3405 = getelementptr inbounds %"class.llvm::Use", ptr %spec.select.i.i143.i, i64 %3404
+  %3405 = getelementptr inbounds %"class.llvm::Use", ptr %3301, i64 %3404
   %3406 = getelementptr inbounds nuw %"class.llvm::Use", ptr %3405, i64 %indvars.iv.i
   %3407 = load ptr, ptr %3406, align 8, !tbaa !188
   %.not132.i = icmp eq ptr %3400, %3407
@@ -8823,7 +8823,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit.i: ; preds
   %3577 = and i32 %3576, 134217727
   %3578 = zext nneg i32 %3577 to i64
   %3579 = sub nsw i64 0, %3578
-  %3580 = getelementptr inbounds %"class.llvm::Use", ptr %spec.select.i.i143.i, i64 %3579
+  %3580 = getelementptr inbounds %"class.llvm::Use", ptr %3301, i64 %3579
   %3581 = getelementptr inbounds nuw %"class.llvm::Use", ptr %3580, i64 %indvars.iv229.i
   %3582 = load ptr, ptr %3581, align 8, !tbaa !188
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %132) #26

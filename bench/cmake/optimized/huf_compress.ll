@@ -40,7 +40,7 @@ define dso_local range(i64 -119, 128) i64 @HUF_writeCTable_wksp(ptr noundef %0, 
   br i1 %.not, label %._crit_edge, label %.lr.ph75
 
 .lr.ph75:                                         ; preds = %.preheader
-  %22 = getelementptr inbounds nuw i8, ptr %.0.i, i64 493
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 493
   %wide.trip.count84 = zext nneg i32 %3 to i64
   br label %27
 
@@ -3127,7 +3127,7 @@ HUF_validateCTable.exit.thread.thread:            ; preds = %HUF_validateCTable.
   br i1 %exitcond.not.i193, label %.lr.ph.preheader.i197, label %.lr.ph.i190, !llvm.loop !51
 
 .lr.ph.preheader.i197:                            ; preds = %.lr.ph.i190
-  %117 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1032
+  %117 = getelementptr inbounds nuw i8, ptr %19, i64 1032
   br label %.lr.ph.i199
 
 .lr.ph.i199:                                      ; preds = %.lr.ph.i199, %.lr.ph.preheader.i197

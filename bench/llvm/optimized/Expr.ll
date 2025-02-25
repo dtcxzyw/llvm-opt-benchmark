@@ -13304,8 +13304,8 @@ _ZN4llvm5APIntD2Ev.exit236:                       ; preds = %294, %299, %302
   %. = select i1 %306, i32 2, i32 1
   br label %.critedge
 
-.critedge:                                        ; preds = %142, %128, %_ZNK5clang4Type13isNullPtrTypeEv.exit, %.critedge15.thread, %16, %14, %121, %279, %287, %290, %.critedge174.thread, %.critedge174, %236, %_ZNK5clang4Type13isIntegerTypeEv.exit231, %249, %244, %17, %19, %303, %_ZN4llvm5APIntD2Ev.exit236, %292, %259
-  %.0118 = phi i32 [ 0, %259 ], [ 0, %292 ], [ 0, %_ZN4llvm5APIntD2Ev.exit236 ], [ %., %303 ], [ %spec.select, %19 ], [ 1, %17 ], [ 0, %244 ], [ 0, %249 ], [ 0, %_ZNK5clang4Type13isIntegerTypeEv.exit231 ], [ 0, %236 ], [ 0, %290 ], [ 0, %.critedge174.thread ], [ 2, %.critedge174 ], [ 2, %287 ], [ 2, %279 ], [ 0, %128 ], [ 0, %142 ], [ 3, %_ZNK5clang4Type13isNullPtrTypeEv.exit ], [ 0, %.critedge15.thread ], [ 0, %16 ], [ 0, %14 ], [ 4, %121 ]
+.critedge:                                        ; preds = %121, %142, %128, %_ZNK5clang4Type13isNullPtrTypeEv.exit, %.critedge15.thread, %16, %14, %279, %287, %290, %.critedge174.thread, %.critedge174, %236, %_ZNK5clang4Type13isIntegerTypeEv.exit231, %249, %244, %17, %19, %303, %_ZN4llvm5APIntD2Ev.exit236, %292, %259
+  %.0118 = phi i32 [ 0, %259 ], [ 0, %292 ], [ 0, %_ZN4llvm5APIntD2Ev.exit236 ], [ %., %303 ], [ %spec.select, %19 ], [ 1, %17 ], [ 0, %244 ], [ 0, %249 ], [ 0, %_ZNK5clang4Type13isIntegerTypeEv.exit231 ], [ 0, %236 ], [ 0, %290 ], [ 0, %.critedge174.thread ], [ 2, %.critedge174 ], [ 2, %287 ], [ 2, %279 ], [ 4, %121 ], [ 0, %128 ], [ 0, %142 ], [ 3, %_ZNK5clang4Type13isNullPtrTypeEv.exit ], [ 0, %.critedge15.thread ], [ 0, %16 ], [ 0, %14 ]
   ret i32 %.0118
 }
 

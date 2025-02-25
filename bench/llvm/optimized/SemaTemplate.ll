@@ -45515,7 +45515,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema21CheckTemplateArgumentEPNS_9
   br i1 %59, label %60, label %64
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds nuw i8, ptr %spec.select.i.i142, i64 88
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %62 = zext i32 %6 to i64
   %63 = getelementptr inbounds nuw %"struct.std::pair.1993", ptr %61, i64 %62
   %.sroa.0.0.copyload.i143 = load i64, ptr %63, align 8, !tbaa !794

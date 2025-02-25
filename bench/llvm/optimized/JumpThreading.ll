@@ -11438,7 +11438,6 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:
   %7 = getelementptr inbounds i8, ptr %5, i64 -24
   %8 = load i8, ptr %7, align 8, !tbaa !190
   %.not = icmp eq i8 %8, 31
-  %spec.select.i.i73 = select i1 %.not, ptr %7, ptr null
   br i1 %.not, label %9, label %155
 
 9:                                                ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit
@@ -11664,7 +11663,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.thread: ;
 
 113:                                              ; preds = %._crit_edge
   %114 = icmp eq ptr %.149145.mux, %.149
-  %115 = getelementptr inbounds i8, ptr %spec.select.i.i73, i64 -32
+  %115 = getelementptr inbounds i8, ptr %5, i64 -56
   %.neg = sext i1 %114 to i64
   %116 = getelementptr inbounds %"class.llvm::Use", ptr %115, i64 %.neg
   %117 = load ptr, ptr %116, align 8, !tbaa !195

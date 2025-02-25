@@ -1792,7 +1792,7 @@ _ZL30scalarizeMaskedVectorHistogramRKN4llvm10DataLayoutEPNS_8CallInstEPNS_14DomT
   %888 = and i32 %887, 134217727
   %889 = zext nneg i32 %888 to i64
   %890 = sub nsw i64 0, %889
-  %891 = getelementptr inbounds %"class.llvm::Use", ptr %spec.select.i.i.i, i64 %890
+  %891 = getelementptr inbounds %"class.llvm::Use", ptr %550, i64 %890
   %892 = getelementptr inbounds nuw i8, ptr %891, i64 32
   %893 = load ptr, ptr %892, align 8, !tbaa !94
   %894 = getelementptr inbounds nuw i8, ptr %893, i64 24
@@ -3678,7 +3678,7 @@ _ZL20scalarizeMaskedStoreRKN4llvm10DataLayoutEbPNS_8CallInstEPNS_14DomTreeUpdate
   %1700 = and i32 %1699, 134217727
   %1701 = zext nneg i32 %1700 to i64
   %1702 = sub nsw i64 0, %1701
-  %1703 = getelementptr inbounds %"class.llvm::Use", ptr %spec.select.i.i.i, i64 %1702
+  %1703 = getelementptr inbounds %"class.llvm::Use", ptr %550, i64 %1702
   %1704 = getelementptr inbounds nuw i8, ptr %1703, i64 32
   %1705 = load ptr, ptr %1704, align 8, !tbaa !94
   %1706 = getelementptr inbounds nuw i8, ptr %1705, i64 24

@@ -9943,7 +9943,7 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit:
   %2206 = and i32 %2205, 134217727
   %2207 = zext nneg i32 %2206 to i64
   %2208 = sub nsw i64 0, %2207
-  %2209 = getelementptr inbounds %"class.llvm::Use", ptr %spec.select.i.i117.i.i, i64 %2208
+  %2209 = getelementptr inbounds %"class.llvm::Use", ptr %1865, i64 %2208
   %2210 = zext i32 %.pre141.i.i to i64
   %2211 = getelementptr inbounds nuw %"class.llvm::Use", ptr %2209, i64 %2210
   %2212 = load ptr, ptr %2211, align 8, !tbaa !486

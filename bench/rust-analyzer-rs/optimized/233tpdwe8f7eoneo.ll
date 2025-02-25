@@ -27879,7 +27879,7 @@ _ZN4core3ops8function6FnOnce9call_once17h0d323c5c262ece66E.exit.thread: ; preds 
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !8150
   %41 = load i64, ptr %40, align 8, !range !129, !alias.scope !8151, !noalias !8152, !noundef !13
   %trunc.i4.i.i.i = trunc nuw i64 %41 to i1
-  %42 = getelementptr inbounds nuw i8, ptr %.08, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 112
   br i1 %trunc.i4.i.i.i, label %43, label %_ZN4core3ops8function6FnOnce9call_once17h0d323c5c262ece66E.exit.thread10
 
 43:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h372ed011382a55e9E.exit.thread.i.i.i"
@@ -28192,7 +28192,7 @@ _ZN4core3ops8function6FnOnce9call_once17h67af6822940b3f52E.exit.thread: ; preds 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !8251
   %41 = load i64, ptr %40, align 8, !range !129, !alias.scope !8252, !noalias !8253, !noundef !13
   %trunc.i4.i.i.i = trunc nuw i64 %41 to i1
-  %42 = getelementptr inbounds nuw i8, ptr %.08, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 80
   br i1 %trunc.i4.i.i.i, label %43, label %_ZN4core3ops8function6FnOnce9call_once17h67af6822940b3f52E.exit.thread10
 
 43:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h65acdd557a1e1f23E.exit.thread.i.i.i"

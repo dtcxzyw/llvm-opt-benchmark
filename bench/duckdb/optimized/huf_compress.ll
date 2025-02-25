@@ -49,7 +49,7 @@ define noundef range(i64 -119, 128) i64 @_ZN11duckdb_zstd20HUF_writeCTable_wkspE
   br i1 %.not, label %._crit_edge, label %.lr.ph75
 
 .lr.ph75:                                         ; preds = %.preheader
-  %22 = getelementptr inbounds nuw i8, ptr %.0.i, i64 493
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 493
   %wide.trip.count84 = zext nneg i32 %3 to i64
   br label %27
 
@@ -3147,7 +3147,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL21HUF_compress_internalEPvm
   br i1 %exitcond.not.i, label %.lr.ph.preheader.i185, label %.lr.ph.i, !llvm.loop !50
 
 .lr.ph.preheader.i185:                            ; preds = %.lr.ph.i
-  %102 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1032
+  %102 = getelementptr inbounds nuw i8, ptr %19, i64 1032
   br label %.lr.ph.i187
 
 .lr.ph.i187:                                      ; preds = %.lr.ph.i187, %.lr.ph.preheader.i185

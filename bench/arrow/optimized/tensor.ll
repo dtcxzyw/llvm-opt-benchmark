@@ -56600,7 +56600,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %21 = load ptr, ptr %20, align 8, !tbaa !11
   %22 = getelementptr inbounds nuw i64, ptr %21, i64 %15
   %23 = load i64, ptr %22, align 8, !tbaa !12
-  br label %43
+  br label %39
 
 .preheader:                                       ; preds = %3
   br i1 %18, label %.lr.ph40, label %.loopexit
@@ -56608,45 +56608,41 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
 .lr.ph40:                                         ; preds = %.preheader
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !100
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 9
-  %27 = load i8, ptr %26, align 1, !tbaa !182, !range !51, !noundef !52
-  %28 = trunc nuw i8 %27 to i1
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %30 = load ptr, ptr %29, align 8
-  %31 = select i1 %28, ptr %30, ptr null, !prof !40
-  %32 = getelementptr inbounds i8, ptr %31, i64 %1
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %34 = load ptr, ptr %33, align 8, !tbaa !11
-  %35 = getelementptr inbounds nuw i64, ptr %34, i64 %15
-  %36 = load i64, ptr %35, align 8, !tbaa !12
-  br label %37
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 %1
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %30 = load ptr, ptr %29, align 8, !tbaa !11
+  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %15
+  %32 = load i64, ptr %31, align 8, !tbaa !12
+  br label %33
 
-37:                                               ; preds = %.lr.ph40, %37
-  %.02939 = phi i64 [ 0, %.lr.ph40 ], [ %42, %37 ]
-  %.03038 = phi i64 [ 0, %.lr.ph40 ], [ %spec.select, %37 ]
-  %38 = mul nsw i64 %36, %.02939
-  %39 = getelementptr inbounds i8, ptr %32, i64 %38
-  %40 = load i8, ptr %39, align 1, !tbaa !92
-  %.not = icmp ne i8 %40, 0
-  %41 = zext i1 %.not to i64
-  %spec.select = add nuw nsw i64 %.03038, %41
-  %42 = add nuw nsw i64 %.02939, 1
-  %exitcond43.not = icmp eq i64 %42, %17
-  br i1 %exitcond43.not, label %.loopexit, label %37, !llvm.loop !1457
+33:                                               ; preds = %.lr.ph40, %33
+  %.02939 = phi i64 [ 0, %.lr.ph40 ], [ %38, %33 ]
+  %.03038 = phi i64 [ 0, %.lr.ph40 ], [ %spec.select, %33 ]
+  %34 = mul nsw i64 %32, %.02939
+  %35 = getelementptr inbounds i8, ptr %28, i64 %34
+  %36 = load i8, ptr %35, align 1, !tbaa !92
+  %.not = icmp ne i8 %36, 0
+  %37 = zext i1 %.not to i64
+  %spec.select = add nuw nsw i64 %.03038, %37
+  %38 = add nuw nsw i64 %.02939, 1
+  %exitcond43.not = icmp eq i64 %38, %17
+  br i1 %exitcond43.not, label %.loopexit, label %33, !llvm.loop !1457
 
-43:                                               ; preds = %.lr.ph, %43
-  %.037 = phi i64 [ 0, %.lr.ph ], [ %47, %43 ]
-  %.02836 = phi i64 [ %1, %.lr.ph ], [ %46, %43 ]
-  %.235 = phi i64 [ 0, %.lr.ph ], [ %45, %43 ]
-  %44 = tail call fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountNonZeroINS_8Int8TypeEEElilRKNS_6TensorE(i32 noundef %19, i64 noundef %.02836, ptr noundef nonnull align 8 dereferenceable(112) %2)
-  %45 = add nsw i64 %44, %.235
-  %46 = add nsw i64 %23, %.02836
-  %47 = add nuw nsw i64 %.037, 1
-  %exitcond.not = icmp eq i64 %47, %17
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !1458
+39:                                               ; preds = %.lr.ph, %39
+  %.037 = phi i64 [ 0, %.lr.ph ], [ %43, %39 ]
+  %.02836 = phi i64 [ %1, %.lr.ph ], [ %42, %39 ]
+  %.235 = phi i64 [ 0, %.lr.ph ], [ %41, %39 ]
+  %40 = tail call fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountNonZeroINS_8Int8TypeEEElilRKNS_6TensorE(i32 noundef %19, i64 noundef %.02836, ptr noundef nonnull align 8 dereferenceable(112) %2)
+  %41 = add nsw i64 %40, %.235
+  %42 = add nsw i64 %23, %.02836
+  %43 = add nuw nsw i64 %.037, 1
+  %exitcond.not = icmp eq i64 %43, %17
+  br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !1458
 
-.loopexit:                                        ; preds = %43, %37, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %37 ], [ %45, %43 ]
+.loopexit:                                        ; preds = %39, %33, %.preheader33, %.preheader
+  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %33 ], [ %41, %39 ]
   ret i64 %.027
 }
 
@@ -56678,7 +56674,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %21 = load ptr, ptr %20, align 8, !tbaa !11
   %22 = getelementptr inbounds nuw i64, ptr %21, i64 %15
   %23 = load i64, ptr %22, align 8, !tbaa !12
-  br label %43
+  br label %39
 
 .preheader:                                       ; preds = %3
   br i1 %18, label %.lr.ph40, label %.loopexit
@@ -56686,45 +56682,41 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
 .lr.ph40:                                         ; preds = %.preheader
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !100
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 9
-  %27 = load i8, ptr %26, align 1, !tbaa !182, !range !51, !noundef !52
-  %28 = trunc nuw i8 %27 to i1
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %30 = load ptr, ptr %29, align 8
-  %31 = select i1 %28, ptr %30, ptr null, !prof !40
-  %32 = getelementptr inbounds i8, ptr %31, i64 %1
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %34 = load ptr, ptr %33, align 8, !tbaa !11
-  %35 = getelementptr inbounds nuw i64, ptr %34, i64 %15
-  %36 = load i64, ptr %35, align 8, !tbaa !12
-  br label %37
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 %1
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %30 = load ptr, ptr %29, align 8, !tbaa !11
+  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %15
+  %32 = load i64, ptr %31, align 8, !tbaa !12
+  br label %33
 
-37:                                               ; preds = %.lr.ph40, %37
-  %.02939 = phi i64 [ 0, %.lr.ph40 ], [ %42, %37 ]
-  %.03038 = phi i64 [ 0, %.lr.ph40 ], [ %spec.select, %37 ]
-  %38 = mul nsw i64 %36, %.02939
-  %39 = getelementptr inbounds i8, ptr %32, i64 %38
-  %40 = load i8, ptr %39, align 1, !tbaa !92
-  %.not = icmp ne i8 %40, 0
-  %41 = zext i1 %.not to i64
-  %spec.select = add nuw nsw i64 %.03038, %41
-  %42 = add nuw nsw i64 %.02939, 1
-  %exitcond43.not = icmp eq i64 %42, %17
-  br i1 %exitcond43.not, label %.loopexit, label %37, !llvm.loop !1459
+33:                                               ; preds = %.lr.ph40, %33
+  %.02939 = phi i64 [ 0, %.lr.ph40 ], [ %38, %33 ]
+  %.03038 = phi i64 [ 0, %.lr.ph40 ], [ %spec.select, %33 ]
+  %34 = mul nsw i64 %32, %.02939
+  %35 = getelementptr inbounds i8, ptr %28, i64 %34
+  %36 = load i8, ptr %35, align 1, !tbaa !92
+  %.not = icmp ne i8 %36, 0
+  %37 = zext i1 %.not to i64
+  %spec.select = add nuw nsw i64 %.03038, %37
+  %38 = add nuw nsw i64 %.02939, 1
+  %exitcond43.not = icmp eq i64 %38, %17
+  br i1 %exitcond43.not, label %.loopexit, label %33, !llvm.loop !1459
 
-43:                                               ; preds = %.lr.ph, %43
-  %.037 = phi i64 [ 0, %.lr.ph ], [ %47, %43 ]
-  %.02836 = phi i64 [ %1, %.lr.ph ], [ %46, %43 ]
-  %.235 = phi i64 [ 0, %.lr.ph ], [ %45, %43 ]
-  %44 = tail call fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountNonZeroINS_9UInt8TypeEEElilRKNS_6TensorE(i32 noundef %19, i64 noundef %.02836, ptr noundef nonnull align 8 dereferenceable(112) %2)
-  %45 = add nsw i64 %44, %.235
-  %46 = add nsw i64 %23, %.02836
-  %47 = add nuw nsw i64 %.037, 1
-  %exitcond.not = icmp eq i64 %47, %17
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !1460
+39:                                               ; preds = %.lr.ph, %39
+  %.037 = phi i64 [ 0, %.lr.ph ], [ %43, %39 ]
+  %.02836 = phi i64 [ %1, %.lr.ph ], [ %42, %39 ]
+  %.235 = phi i64 [ 0, %.lr.ph ], [ %41, %39 ]
+  %40 = tail call fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountNonZeroINS_9UInt8TypeEEElilRKNS_6TensorE(i32 noundef %19, i64 noundef %.02836, ptr noundef nonnull align 8 dereferenceable(112) %2)
+  %41 = add nsw i64 %40, %.235
+  %42 = add nsw i64 %23, %.02836
+  %43 = add nuw nsw i64 %.037, 1
+  %exitcond.not = icmp eq i64 %43, %17
+  br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !1460
 
-.loopexit:                                        ; preds = %43, %37, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %37 ], [ %45, %43 ]
+.loopexit:                                        ; preds = %39, %33, %.preheader33, %.preheader
+  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %33 ], [ %41, %39 ]
   ret i64 %.027
 }
 
@@ -56756,7 +56748,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %21 = load ptr, ptr %20, align 8, !tbaa !11
   %22 = getelementptr inbounds nuw i64, ptr %21, i64 %15
   %23 = load i64, ptr %22, align 8, !tbaa !12
-  br label %43
+  br label %39
 
 .preheader:                                       ; preds = %3
   br i1 %18, label %.lr.ph40, label %.loopexit
@@ -56764,45 +56756,41 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
 .lr.ph40:                                         ; preds = %.preheader
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !100
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 9
-  %27 = load i8, ptr %26, align 1, !tbaa !182, !range !51, !noundef !52
-  %28 = trunc nuw i8 %27 to i1
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %30 = load ptr, ptr %29, align 8
-  %31 = select i1 %28, ptr %30, ptr null, !prof !40
-  %32 = getelementptr inbounds i8, ptr %31, i64 %1
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %34 = load ptr, ptr %33, align 8, !tbaa !11
-  %35 = getelementptr inbounds nuw i64, ptr %34, i64 %15
-  %36 = load i64, ptr %35, align 8, !tbaa !12
-  br label %37
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 %1
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %30 = load ptr, ptr %29, align 8, !tbaa !11
+  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %15
+  %32 = load i64, ptr %31, align 8, !tbaa !12
+  br label %33
 
-37:                                               ; preds = %.lr.ph40, %37
-  %.02939 = phi i64 [ 0, %.lr.ph40 ], [ %42, %37 ]
-  %.03038 = phi i64 [ 0, %.lr.ph40 ], [ %spec.select, %37 ]
-  %38 = mul nsw i64 %36, %.02939
-  %39 = getelementptr inbounds i8, ptr %32, i64 %38
-  %40 = load i16, ptr %39, align 2, !tbaa !291
-  %.not = icmp ne i16 %40, 0
-  %41 = zext i1 %.not to i64
-  %spec.select = add nuw nsw i64 %.03038, %41
-  %42 = add nuw nsw i64 %.02939, 1
-  %exitcond43.not = icmp eq i64 %42, %17
-  br i1 %exitcond43.not, label %.loopexit, label %37, !llvm.loop !1461
+33:                                               ; preds = %.lr.ph40, %33
+  %.02939 = phi i64 [ 0, %.lr.ph40 ], [ %38, %33 ]
+  %.03038 = phi i64 [ 0, %.lr.ph40 ], [ %spec.select, %33 ]
+  %34 = mul nsw i64 %32, %.02939
+  %35 = getelementptr inbounds i8, ptr %28, i64 %34
+  %36 = load i16, ptr %35, align 2, !tbaa !291
+  %.not = icmp ne i16 %36, 0
+  %37 = zext i1 %.not to i64
+  %spec.select = add nuw nsw i64 %.03038, %37
+  %38 = add nuw nsw i64 %.02939, 1
+  %exitcond43.not = icmp eq i64 %38, %17
+  br i1 %exitcond43.not, label %.loopexit, label %33, !llvm.loop !1461
 
-43:                                               ; preds = %.lr.ph, %43
-  %.037 = phi i64 [ 0, %.lr.ph ], [ %47, %43 ]
-  %.02836 = phi i64 [ %1, %.lr.ph ], [ %46, %43 ]
-  %.235 = phi i64 [ 0, %.lr.ph ], [ %45, %43 ]
-  %44 = tail call fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountNonZeroINS_9Int16TypeEEElilRKNS_6TensorE(i32 noundef %19, i64 noundef %.02836, ptr noundef nonnull align 8 dereferenceable(112) %2)
-  %45 = add nsw i64 %44, %.235
-  %46 = add nsw i64 %23, %.02836
-  %47 = add nuw nsw i64 %.037, 1
-  %exitcond.not = icmp eq i64 %47, %17
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !1462
+39:                                               ; preds = %.lr.ph, %39
+  %.037 = phi i64 [ 0, %.lr.ph ], [ %43, %39 ]
+  %.02836 = phi i64 [ %1, %.lr.ph ], [ %42, %39 ]
+  %.235 = phi i64 [ 0, %.lr.ph ], [ %41, %39 ]
+  %40 = tail call fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountNonZeroINS_9Int16TypeEEElilRKNS_6TensorE(i32 noundef %19, i64 noundef %.02836, ptr noundef nonnull align 8 dereferenceable(112) %2)
+  %41 = add nsw i64 %40, %.235
+  %42 = add nsw i64 %23, %.02836
+  %43 = add nuw nsw i64 %.037, 1
+  %exitcond.not = icmp eq i64 %43, %17
+  br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !1462
 
-.loopexit:                                        ; preds = %43, %37, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %37 ], [ %45, %43 ]
+.loopexit:                                        ; preds = %39, %33, %.preheader33, %.preheader
+  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %33 ], [ %41, %39 ]
   ret i64 %.027
 }
 
@@ -56834,7 +56822,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %21 = load ptr, ptr %20, align 8, !tbaa !11
   %22 = getelementptr inbounds nuw i64, ptr %21, i64 %15
   %23 = load i64, ptr %22, align 8, !tbaa !12
-  br label %43
+  br label %39
 
 .preheader:                                       ; preds = %3
   br i1 %18, label %.lr.ph40, label %.loopexit
@@ -56842,45 +56830,41 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
 .lr.ph40:                                         ; preds = %.preheader
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !100
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 9
-  %27 = load i8, ptr %26, align 1, !tbaa !182, !range !51, !noundef !52
-  %28 = trunc nuw i8 %27 to i1
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %30 = load ptr, ptr %29, align 8
-  %31 = select i1 %28, ptr %30, ptr null, !prof !40
-  %32 = getelementptr inbounds i8, ptr %31, i64 %1
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %34 = load ptr, ptr %33, align 8, !tbaa !11
-  %35 = getelementptr inbounds nuw i64, ptr %34, i64 %15
-  %36 = load i64, ptr %35, align 8, !tbaa !12
-  br label %37
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 %1
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %30 = load ptr, ptr %29, align 8, !tbaa !11
+  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %15
+  %32 = load i64, ptr %31, align 8, !tbaa !12
+  br label %33
 
-37:                                               ; preds = %.lr.ph40, %37
-  %.02939 = phi i64 [ 0, %.lr.ph40 ], [ %42, %37 ]
-  %.03038 = phi i64 [ 0, %.lr.ph40 ], [ %spec.select, %37 ]
-  %38 = mul nsw i64 %36, %.02939
-  %39 = getelementptr inbounds i8, ptr %32, i64 %38
-  %40 = load i16, ptr %39, align 2, !tbaa !291
-  %.not = icmp ne i16 %40, 0
-  %41 = zext i1 %.not to i64
-  %spec.select = add nuw nsw i64 %.03038, %41
-  %42 = add nuw nsw i64 %.02939, 1
-  %exitcond43.not = icmp eq i64 %42, %17
-  br i1 %exitcond43.not, label %.loopexit, label %37, !llvm.loop !1463
+33:                                               ; preds = %.lr.ph40, %33
+  %.02939 = phi i64 [ 0, %.lr.ph40 ], [ %38, %33 ]
+  %.03038 = phi i64 [ 0, %.lr.ph40 ], [ %spec.select, %33 ]
+  %34 = mul nsw i64 %32, %.02939
+  %35 = getelementptr inbounds i8, ptr %28, i64 %34
+  %36 = load i16, ptr %35, align 2, !tbaa !291
+  %.not = icmp ne i16 %36, 0
+  %37 = zext i1 %.not to i64
+  %spec.select = add nuw nsw i64 %.03038, %37
+  %38 = add nuw nsw i64 %.02939, 1
+  %exitcond43.not = icmp eq i64 %38, %17
+  br i1 %exitcond43.not, label %.loopexit, label %33, !llvm.loop !1463
 
-43:                                               ; preds = %.lr.ph, %43
-  %.037 = phi i64 [ 0, %.lr.ph ], [ %47, %43 ]
-  %.02836 = phi i64 [ %1, %.lr.ph ], [ %46, %43 ]
-  %.235 = phi i64 [ 0, %.lr.ph ], [ %45, %43 ]
-  %44 = tail call fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountNonZeroINS_10UInt16TypeEEElilRKNS_6TensorE(i32 noundef %19, i64 noundef %.02836, ptr noundef nonnull align 8 dereferenceable(112) %2)
-  %45 = add nsw i64 %44, %.235
-  %46 = add nsw i64 %23, %.02836
-  %47 = add nuw nsw i64 %.037, 1
-  %exitcond.not = icmp eq i64 %47, %17
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !1464
+39:                                               ; preds = %.lr.ph, %39
+  %.037 = phi i64 [ 0, %.lr.ph ], [ %43, %39 ]
+  %.02836 = phi i64 [ %1, %.lr.ph ], [ %42, %39 ]
+  %.235 = phi i64 [ 0, %.lr.ph ], [ %41, %39 ]
+  %40 = tail call fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountNonZeroINS_10UInt16TypeEEElilRKNS_6TensorE(i32 noundef %19, i64 noundef %.02836, ptr noundef nonnull align 8 dereferenceable(112) %2)
+  %41 = add nsw i64 %40, %.235
+  %42 = add nsw i64 %23, %.02836
+  %43 = add nuw nsw i64 %.037, 1
+  %exitcond.not = icmp eq i64 %43, %17
+  br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !1464
 
-.loopexit:                                        ; preds = %43, %37, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %37 ], [ %45, %43 ]
+.loopexit:                                        ; preds = %39, %33, %.preheader33, %.preheader
+  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %33 ], [ %41, %39 ]
   ret i64 %.027
 }
 
@@ -56912,7 +56896,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %21 = load ptr, ptr %20, align 8, !tbaa !11
   %22 = getelementptr inbounds nuw i64, ptr %21, i64 %15
   %23 = load i64, ptr %22, align 8, !tbaa !12
-  br label %43
+  br label %39
 
 .preheader:                                       ; preds = %3
   br i1 %18, label %.lr.ph40, label %.loopexit
@@ -56920,45 +56904,41 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
 .lr.ph40:                                         ; preds = %.preheader
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !100
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 9
-  %27 = load i8, ptr %26, align 1, !tbaa !182, !range !51, !noundef !52
-  %28 = trunc nuw i8 %27 to i1
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %30 = load ptr, ptr %29, align 8
-  %31 = select i1 %28, ptr %30, ptr null, !prof !40
-  %32 = getelementptr inbounds i8, ptr %31, i64 %1
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %34 = load ptr, ptr %33, align 8, !tbaa !11
-  %35 = getelementptr inbounds nuw i64, ptr %34, i64 %15
-  %36 = load i64, ptr %35, align 8, !tbaa !12
-  br label %37
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 %1
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %30 = load ptr, ptr %29, align 8, !tbaa !11
+  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %15
+  %32 = load i64, ptr %31, align 8, !tbaa !12
+  br label %33
 
-37:                                               ; preds = %.lr.ph40, %37
-  %.02939 = phi i64 [ 0, %.lr.ph40 ], [ %42, %37 ]
-  %.03038 = phi i64 [ 0, %.lr.ph40 ], [ %spec.select, %37 ]
-  %38 = mul nsw i64 %36, %.02939
-  %39 = getelementptr inbounds i8, ptr %32, i64 %38
-  %40 = load i32, ptr %39, align 4, !tbaa !133
-  %.not = icmp ne i32 %40, 0
-  %41 = zext i1 %.not to i64
-  %spec.select = add nuw nsw i64 %.03038, %41
-  %42 = add nuw nsw i64 %.02939, 1
-  %exitcond43.not = icmp eq i64 %42, %17
-  br i1 %exitcond43.not, label %.loopexit, label %37, !llvm.loop !1465
+33:                                               ; preds = %.lr.ph40, %33
+  %.02939 = phi i64 [ 0, %.lr.ph40 ], [ %38, %33 ]
+  %.03038 = phi i64 [ 0, %.lr.ph40 ], [ %spec.select, %33 ]
+  %34 = mul nsw i64 %32, %.02939
+  %35 = getelementptr inbounds i8, ptr %28, i64 %34
+  %36 = load i32, ptr %35, align 4, !tbaa !133
+  %.not = icmp ne i32 %36, 0
+  %37 = zext i1 %.not to i64
+  %spec.select = add nuw nsw i64 %.03038, %37
+  %38 = add nuw nsw i64 %.02939, 1
+  %exitcond43.not = icmp eq i64 %38, %17
+  br i1 %exitcond43.not, label %.loopexit, label %33, !llvm.loop !1465
 
-43:                                               ; preds = %.lr.ph, %43
-  %.037 = phi i64 [ 0, %.lr.ph ], [ %47, %43 ]
-  %.02836 = phi i64 [ %1, %.lr.ph ], [ %46, %43 ]
-  %.235 = phi i64 [ 0, %.lr.ph ], [ %45, %43 ]
-  %44 = tail call fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountNonZeroINS_9Int32TypeEEElilRKNS_6TensorE(i32 noundef %19, i64 noundef %.02836, ptr noundef nonnull align 8 dereferenceable(112) %2)
-  %45 = add nsw i64 %44, %.235
-  %46 = add nsw i64 %23, %.02836
-  %47 = add nuw nsw i64 %.037, 1
-  %exitcond.not = icmp eq i64 %47, %17
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !1466
+39:                                               ; preds = %.lr.ph, %39
+  %.037 = phi i64 [ 0, %.lr.ph ], [ %43, %39 ]
+  %.02836 = phi i64 [ %1, %.lr.ph ], [ %42, %39 ]
+  %.235 = phi i64 [ 0, %.lr.ph ], [ %41, %39 ]
+  %40 = tail call fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountNonZeroINS_9Int32TypeEEElilRKNS_6TensorE(i32 noundef %19, i64 noundef %.02836, ptr noundef nonnull align 8 dereferenceable(112) %2)
+  %41 = add nsw i64 %40, %.235
+  %42 = add nsw i64 %23, %.02836
+  %43 = add nuw nsw i64 %.037, 1
+  %exitcond.not = icmp eq i64 %43, %17
+  br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !1466
 
-.loopexit:                                        ; preds = %43, %37, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %37 ], [ %45, %43 ]
+.loopexit:                                        ; preds = %39, %33, %.preheader33, %.preheader
+  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %33 ], [ %41, %39 ]
   ret i64 %.027
 }
 
@@ -56990,7 +56970,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %21 = load ptr, ptr %20, align 8, !tbaa !11
   %22 = getelementptr inbounds nuw i64, ptr %21, i64 %15
   %23 = load i64, ptr %22, align 8, !tbaa !12
-  br label %43
+  br label %39
 
 .preheader:                                       ; preds = %3
   br i1 %18, label %.lr.ph40, label %.loopexit
@@ -56998,45 +56978,41 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
 .lr.ph40:                                         ; preds = %.preheader
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !100
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 9
-  %27 = load i8, ptr %26, align 1, !tbaa !182, !range !51, !noundef !52
-  %28 = trunc nuw i8 %27 to i1
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %30 = load ptr, ptr %29, align 8
-  %31 = select i1 %28, ptr %30, ptr null, !prof !40
-  %32 = getelementptr inbounds i8, ptr %31, i64 %1
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %34 = load ptr, ptr %33, align 8, !tbaa !11
-  %35 = getelementptr inbounds nuw i64, ptr %34, i64 %15
-  %36 = load i64, ptr %35, align 8, !tbaa !12
-  br label %37
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 %1
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %30 = load ptr, ptr %29, align 8, !tbaa !11
+  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %15
+  %32 = load i64, ptr %31, align 8, !tbaa !12
+  br label %33
 
-37:                                               ; preds = %.lr.ph40, %37
-  %.02939 = phi i64 [ 0, %.lr.ph40 ], [ %42, %37 ]
-  %.03038 = phi i64 [ 0, %.lr.ph40 ], [ %spec.select, %37 ]
-  %38 = mul nsw i64 %36, %.02939
-  %39 = getelementptr inbounds i8, ptr %32, i64 %38
-  %40 = load i32, ptr %39, align 4, !tbaa !133
-  %.not = icmp ne i32 %40, 0
-  %41 = zext i1 %.not to i64
-  %spec.select = add nuw nsw i64 %.03038, %41
-  %42 = add nuw nsw i64 %.02939, 1
-  %exitcond43.not = icmp eq i64 %42, %17
-  br i1 %exitcond43.not, label %.loopexit, label %37, !llvm.loop !1467
+33:                                               ; preds = %.lr.ph40, %33
+  %.02939 = phi i64 [ 0, %.lr.ph40 ], [ %38, %33 ]
+  %.03038 = phi i64 [ 0, %.lr.ph40 ], [ %spec.select, %33 ]
+  %34 = mul nsw i64 %32, %.02939
+  %35 = getelementptr inbounds i8, ptr %28, i64 %34
+  %36 = load i32, ptr %35, align 4, !tbaa !133
+  %.not = icmp ne i32 %36, 0
+  %37 = zext i1 %.not to i64
+  %spec.select = add nuw nsw i64 %.03038, %37
+  %38 = add nuw nsw i64 %.02939, 1
+  %exitcond43.not = icmp eq i64 %38, %17
+  br i1 %exitcond43.not, label %.loopexit, label %33, !llvm.loop !1467
 
-43:                                               ; preds = %.lr.ph, %43
-  %.037 = phi i64 [ 0, %.lr.ph ], [ %47, %43 ]
-  %.02836 = phi i64 [ %1, %.lr.ph ], [ %46, %43 ]
-  %.235 = phi i64 [ 0, %.lr.ph ], [ %45, %43 ]
-  %44 = tail call fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountNonZeroINS_10UInt32TypeEEElilRKNS_6TensorE(i32 noundef %19, i64 noundef %.02836, ptr noundef nonnull align 8 dereferenceable(112) %2)
-  %45 = add nsw i64 %44, %.235
-  %46 = add nsw i64 %23, %.02836
-  %47 = add nuw nsw i64 %.037, 1
-  %exitcond.not = icmp eq i64 %47, %17
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !1468
+39:                                               ; preds = %.lr.ph, %39
+  %.037 = phi i64 [ 0, %.lr.ph ], [ %43, %39 ]
+  %.02836 = phi i64 [ %1, %.lr.ph ], [ %42, %39 ]
+  %.235 = phi i64 [ 0, %.lr.ph ], [ %41, %39 ]
+  %40 = tail call fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountNonZeroINS_10UInt32TypeEEElilRKNS_6TensorE(i32 noundef %19, i64 noundef %.02836, ptr noundef nonnull align 8 dereferenceable(112) %2)
+  %41 = add nsw i64 %40, %.235
+  %42 = add nsw i64 %23, %.02836
+  %43 = add nuw nsw i64 %.037, 1
+  %exitcond.not = icmp eq i64 %43, %17
+  br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !1468
 
-.loopexit:                                        ; preds = %43, %37, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %37 ], [ %45, %43 ]
+.loopexit:                                        ; preds = %39, %33, %.preheader33, %.preheader
+  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %33 ], [ %41, %39 ]
   ret i64 %.027
 }
 
@@ -57068,7 +57044,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %21 = load ptr, ptr %20, align 8, !tbaa !11
   %22 = getelementptr inbounds nuw i64, ptr %21, i64 %15
   %23 = load i64, ptr %22, align 8, !tbaa !12
-  br label %43
+  br label %39
 
 .preheader:                                       ; preds = %3
   br i1 %18, label %.lr.ph40, label %.loopexit
@@ -57076,45 +57052,41 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
 .lr.ph40:                                         ; preds = %.preheader
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !100
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 9
-  %27 = load i8, ptr %26, align 1, !tbaa !182, !range !51, !noundef !52
-  %28 = trunc nuw i8 %27 to i1
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %30 = load ptr, ptr %29, align 8
-  %31 = select i1 %28, ptr %30, ptr null, !prof !40
-  %32 = getelementptr inbounds i8, ptr %31, i64 %1
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %34 = load ptr, ptr %33, align 8, !tbaa !11
-  %35 = getelementptr inbounds nuw i64, ptr %34, i64 %15
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 %1
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %30 = load ptr, ptr %29, align 8, !tbaa !11
+  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %15
+  %32 = load i64, ptr %31, align 8, !tbaa !12
+  br label %33
+
+33:                                               ; preds = %.lr.ph40, %33
+  %.02939 = phi i64 [ 0, %.lr.ph40 ], [ %38, %33 ]
+  %.03038 = phi i64 [ 0, %.lr.ph40 ], [ %spec.select, %33 ]
+  %34 = mul nsw i64 %32, %.02939
+  %35 = getelementptr inbounds i8, ptr %28, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !12
-  br label %37
+  %.not = icmp ne i64 %36, 0
+  %37 = zext i1 %.not to i64
+  %spec.select = add nuw nsw i64 %.03038, %37
+  %38 = add nuw nsw i64 %.02939, 1
+  %exitcond43.not = icmp eq i64 %38, %17
+  br i1 %exitcond43.not, label %.loopexit, label %33, !llvm.loop !1469
 
-37:                                               ; preds = %.lr.ph40, %37
-  %.02939 = phi i64 [ 0, %.lr.ph40 ], [ %42, %37 ]
-  %.03038 = phi i64 [ 0, %.lr.ph40 ], [ %spec.select, %37 ]
-  %38 = mul nsw i64 %36, %.02939
-  %39 = getelementptr inbounds i8, ptr %32, i64 %38
-  %40 = load i64, ptr %39, align 8, !tbaa !12
-  %.not = icmp ne i64 %40, 0
-  %41 = zext i1 %.not to i64
-  %spec.select = add nuw nsw i64 %.03038, %41
-  %42 = add nuw nsw i64 %.02939, 1
-  %exitcond43.not = icmp eq i64 %42, %17
-  br i1 %exitcond43.not, label %.loopexit, label %37, !llvm.loop !1469
+39:                                               ; preds = %.lr.ph, %39
+  %.037 = phi i64 [ 0, %.lr.ph ], [ %43, %39 ]
+  %.02836 = phi i64 [ %1, %.lr.ph ], [ %42, %39 ]
+  %.235 = phi i64 [ 0, %.lr.ph ], [ %41, %39 ]
+  %40 = tail call fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountNonZeroINS_9Int64TypeEEElilRKNS_6TensorE(i32 noundef %19, i64 noundef %.02836, ptr noundef nonnull align 8 dereferenceable(112) %2)
+  %41 = add nsw i64 %40, %.235
+  %42 = add nsw i64 %23, %.02836
+  %43 = add nuw nsw i64 %.037, 1
+  %exitcond.not = icmp eq i64 %43, %17
+  br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !1470
 
-43:                                               ; preds = %.lr.ph, %43
-  %.037 = phi i64 [ 0, %.lr.ph ], [ %47, %43 ]
-  %.02836 = phi i64 [ %1, %.lr.ph ], [ %46, %43 ]
-  %.235 = phi i64 [ 0, %.lr.ph ], [ %45, %43 ]
-  %44 = tail call fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountNonZeroINS_9Int64TypeEEElilRKNS_6TensorE(i32 noundef %19, i64 noundef %.02836, ptr noundef nonnull align 8 dereferenceable(112) %2)
-  %45 = add nsw i64 %44, %.235
-  %46 = add nsw i64 %23, %.02836
-  %47 = add nuw nsw i64 %.037, 1
-  %exitcond.not = icmp eq i64 %47, %17
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !1470
-
-.loopexit:                                        ; preds = %43, %37, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %37 ], [ %45, %43 ]
+.loopexit:                                        ; preds = %39, %33, %.preheader33, %.preheader
+  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %33 ], [ %41, %39 ]
   ret i64 %.027
 }
 
@@ -57146,7 +57118,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %21 = load ptr, ptr %20, align 8, !tbaa !11
   %22 = getelementptr inbounds nuw i64, ptr %21, i64 %15
   %23 = load i64, ptr %22, align 8, !tbaa !12
-  br label %43
+  br label %39
 
 .preheader:                                       ; preds = %3
   br i1 %18, label %.lr.ph40, label %.loopexit
@@ -57154,45 +57126,41 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
 .lr.ph40:                                         ; preds = %.preheader
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !100
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 9
-  %27 = load i8, ptr %26, align 1, !tbaa !182, !range !51, !noundef !52
-  %28 = trunc nuw i8 %27 to i1
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %30 = load ptr, ptr %29, align 8
-  %31 = select i1 %28, ptr %30, ptr null, !prof !40
-  %32 = getelementptr inbounds i8, ptr %31, i64 %1
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %34 = load ptr, ptr %33, align 8, !tbaa !11
-  %35 = getelementptr inbounds nuw i64, ptr %34, i64 %15
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 %1
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %30 = load ptr, ptr %29, align 8, !tbaa !11
+  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %15
+  %32 = load i64, ptr %31, align 8, !tbaa !12
+  br label %33
+
+33:                                               ; preds = %.lr.ph40, %33
+  %.02939 = phi i64 [ 0, %.lr.ph40 ], [ %38, %33 ]
+  %.03038 = phi i64 [ 0, %.lr.ph40 ], [ %spec.select, %33 ]
+  %34 = mul nsw i64 %32, %.02939
+  %35 = getelementptr inbounds i8, ptr %28, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !12
-  br label %37
+  %.not = icmp ne i64 %36, 0
+  %37 = zext i1 %.not to i64
+  %spec.select = add nuw nsw i64 %.03038, %37
+  %38 = add nuw nsw i64 %.02939, 1
+  %exitcond43.not = icmp eq i64 %38, %17
+  br i1 %exitcond43.not, label %.loopexit, label %33, !llvm.loop !1471
 
-37:                                               ; preds = %.lr.ph40, %37
-  %.02939 = phi i64 [ 0, %.lr.ph40 ], [ %42, %37 ]
-  %.03038 = phi i64 [ 0, %.lr.ph40 ], [ %spec.select, %37 ]
-  %38 = mul nsw i64 %36, %.02939
-  %39 = getelementptr inbounds i8, ptr %32, i64 %38
-  %40 = load i64, ptr %39, align 8, !tbaa !12
-  %.not = icmp ne i64 %40, 0
-  %41 = zext i1 %.not to i64
-  %spec.select = add nuw nsw i64 %.03038, %41
-  %42 = add nuw nsw i64 %.02939, 1
-  %exitcond43.not = icmp eq i64 %42, %17
-  br i1 %exitcond43.not, label %.loopexit, label %37, !llvm.loop !1471
+39:                                               ; preds = %.lr.ph, %39
+  %.037 = phi i64 [ 0, %.lr.ph ], [ %43, %39 ]
+  %.02836 = phi i64 [ %1, %.lr.ph ], [ %42, %39 ]
+  %.235 = phi i64 [ 0, %.lr.ph ], [ %41, %39 ]
+  %40 = tail call fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountNonZeroINS_10UInt64TypeEEElilRKNS_6TensorE(i32 noundef %19, i64 noundef %.02836, ptr noundef nonnull align 8 dereferenceable(112) %2)
+  %41 = add nsw i64 %40, %.235
+  %42 = add nsw i64 %23, %.02836
+  %43 = add nuw nsw i64 %.037, 1
+  %exitcond.not = icmp eq i64 %43, %17
+  br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !1472
 
-43:                                               ; preds = %.lr.ph, %43
-  %.037 = phi i64 [ 0, %.lr.ph ], [ %47, %43 ]
-  %.02836 = phi i64 [ %1, %.lr.ph ], [ %46, %43 ]
-  %.235 = phi i64 [ 0, %.lr.ph ], [ %45, %43 ]
-  %44 = tail call fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountNonZeroINS_10UInt64TypeEEElilRKNS_6TensorE(i32 noundef %19, i64 noundef %.02836, ptr noundef nonnull align 8 dereferenceable(112) %2)
-  %45 = add nsw i64 %44, %.235
-  %46 = add nsw i64 %23, %.02836
-  %47 = add nuw nsw i64 %.037, 1
-  %exitcond.not = icmp eq i64 %47, %17
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !1472
-
-.loopexit:                                        ; preds = %43, %37, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %37 ], [ %45, %43 ]
+.loopexit:                                        ; preds = %39, %33, %.preheader33, %.preheader
+  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %33 ], [ %41, %39 ]
   ret i64 %.027
 }
 
@@ -57224,7 +57192,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %21 = load ptr, ptr %20, align 8, !tbaa !11
   %22 = getelementptr inbounds nuw i64, ptr %21, i64 %15
   %23 = load i64, ptr %22, align 8, !tbaa !12
-  br label %43
+  br label %39
 
 .preheader:                                       ; preds = %3
   br i1 %18, label %.lr.ph40, label %.loopexit
@@ -57232,45 +57200,41 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
 .lr.ph40:                                         ; preds = %.preheader
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !100
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 9
-  %27 = load i8, ptr %26, align 1, !tbaa !182, !range !51, !noundef !52
-  %28 = trunc nuw i8 %27 to i1
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %30 = load ptr, ptr %29, align 8
-  %31 = select i1 %28, ptr %30, ptr null, !prof !40
-  %32 = getelementptr inbounds i8, ptr %31, i64 %1
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %34 = load ptr, ptr %33, align 8, !tbaa !11
-  %35 = getelementptr inbounds nuw i64, ptr %34, i64 %15
-  %36 = load i64, ptr %35, align 8, !tbaa !12
-  br label %37
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 %1
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %30 = load ptr, ptr %29, align 8, !tbaa !11
+  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %15
+  %32 = load i64, ptr %31, align 8, !tbaa !12
+  br label %33
 
-37:                                               ; preds = %.lr.ph40, %37
-  %.02939 = phi i64 [ 0, %.lr.ph40 ], [ %42, %37 ]
-  %.03038 = phi i64 [ 0, %.lr.ph40 ], [ %spec.select, %37 ]
-  %38 = mul nsw i64 %36, %.02939
-  %39 = getelementptr inbounds i8, ptr %32, i64 %38
-  %40 = load i16, ptr %39, align 2, !tbaa !291
-  %.not = icmp ne i16 %40, 0
-  %41 = zext i1 %.not to i64
-  %spec.select = add nuw nsw i64 %.03038, %41
-  %42 = add nuw nsw i64 %.02939, 1
-  %exitcond43.not = icmp eq i64 %42, %17
-  br i1 %exitcond43.not, label %.loopexit, label %37, !llvm.loop !1473
+33:                                               ; preds = %.lr.ph40, %33
+  %.02939 = phi i64 [ 0, %.lr.ph40 ], [ %38, %33 ]
+  %.03038 = phi i64 [ 0, %.lr.ph40 ], [ %spec.select, %33 ]
+  %34 = mul nsw i64 %32, %.02939
+  %35 = getelementptr inbounds i8, ptr %28, i64 %34
+  %36 = load i16, ptr %35, align 2, !tbaa !291
+  %.not = icmp ne i16 %36, 0
+  %37 = zext i1 %.not to i64
+  %spec.select = add nuw nsw i64 %.03038, %37
+  %38 = add nuw nsw i64 %.02939, 1
+  %exitcond43.not = icmp eq i64 %38, %17
+  br i1 %exitcond43.not, label %.loopexit, label %33, !llvm.loop !1473
 
-43:                                               ; preds = %.lr.ph, %43
-  %.037 = phi i64 [ 0, %.lr.ph ], [ %47, %43 ]
-  %.02836 = phi i64 [ %1, %.lr.ph ], [ %46, %43 ]
-  %.235 = phi i64 [ 0, %.lr.ph ], [ %45, %43 ]
-  %44 = tail call fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountNonZeroINS_13HalfFloatTypeEEElilRKNS_6TensorE(i32 noundef %19, i64 noundef %.02836, ptr noundef nonnull align 8 dereferenceable(112) %2)
-  %45 = add nsw i64 %44, %.235
-  %46 = add nsw i64 %23, %.02836
-  %47 = add nuw nsw i64 %.037, 1
-  %exitcond.not = icmp eq i64 %47, %17
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !1474
+39:                                               ; preds = %.lr.ph, %39
+  %.037 = phi i64 [ 0, %.lr.ph ], [ %43, %39 ]
+  %.02836 = phi i64 [ %1, %.lr.ph ], [ %42, %39 ]
+  %.235 = phi i64 [ 0, %.lr.ph ], [ %41, %39 ]
+  %40 = tail call fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountNonZeroINS_13HalfFloatTypeEEElilRKNS_6TensorE(i32 noundef %19, i64 noundef %.02836, ptr noundef nonnull align 8 dereferenceable(112) %2)
+  %41 = add nsw i64 %40, %.235
+  %42 = add nsw i64 %23, %.02836
+  %43 = add nuw nsw i64 %.037, 1
+  %exitcond.not = icmp eq i64 %43, %17
+  br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !1474
 
-.loopexit:                                        ; preds = %43, %37, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %37 ], [ %45, %43 ]
+.loopexit:                                        ; preds = %39, %33, %.preheader33, %.preheader
+  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %33 ], [ %41, %39 ]
   ret i64 %.027
 }
 
@@ -57302,7 +57266,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %21 = load ptr, ptr %20, align 8, !tbaa !11
   %22 = getelementptr inbounds nuw i64, ptr %21, i64 %15
   %23 = load i64, ptr %22, align 8, !tbaa !12
-  br label %44
+  br label %40
 
 .preheader:                                       ; preds = %3
   br i1 %18, label %.lr.ph40, label %.loopexit
@@ -57310,45 +57274,41 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
 .lr.ph40:                                         ; preds = %.preheader
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !100
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 9
-  %27 = load i8, ptr %26, align 1, !tbaa !182, !range !51, !noundef !52
-  %28 = trunc nuw i8 %27 to i1
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %30 = load ptr, ptr %29, align 8
-  %31 = select i1 %28, ptr %30, ptr null, !prof !40
-  %32 = getelementptr inbounds i8, ptr %31, i64 %1
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %34 = load ptr, ptr %33, align 8, !tbaa !11
-  %35 = getelementptr inbounds nuw i64, ptr %34, i64 %15
-  %36 = load i64, ptr %35, align 8, !tbaa !12
-  br label %37
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 %1
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %30 = load ptr, ptr %29, align 8, !tbaa !11
+  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %15
+  %32 = load i64, ptr %31, align 8, !tbaa !12
+  br label %33
 
-37:                                               ; preds = %.lr.ph40, %37
-  %.02939 = phi i64 [ 0, %.lr.ph40 ], [ %43, %37 ]
-  %.03038 = phi i64 [ 0, %.lr.ph40 ], [ %.1, %37 ]
-  %38 = mul nsw i64 %36, %.02939
-  %39 = getelementptr inbounds i8, ptr %32, i64 %38
-  %40 = load float, ptr %39, align 4, !tbaa !321
-  %41 = fcmp une float %40, 0.000000e+00
-  %42 = zext i1 %41 to i64
-  %.1 = add nuw nsw i64 %.03038, %42
-  %43 = add nuw nsw i64 %.02939, 1
-  %exitcond43.not = icmp eq i64 %43, %17
-  br i1 %exitcond43.not, label %.loopexit, label %37, !llvm.loop !1475
+33:                                               ; preds = %.lr.ph40, %33
+  %.02939 = phi i64 [ 0, %.lr.ph40 ], [ %39, %33 ]
+  %.03038 = phi i64 [ 0, %.lr.ph40 ], [ %.1, %33 ]
+  %34 = mul nsw i64 %32, %.02939
+  %35 = getelementptr inbounds i8, ptr %28, i64 %34
+  %36 = load float, ptr %35, align 4, !tbaa !321
+  %37 = fcmp une float %36, 0.000000e+00
+  %38 = zext i1 %37 to i64
+  %.1 = add nuw nsw i64 %.03038, %38
+  %39 = add nuw nsw i64 %.02939, 1
+  %exitcond43.not = icmp eq i64 %39, %17
+  br i1 %exitcond43.not, label %.loopexit, label %33, !llvm.loop !1475
 
-44:                                               ; preds = %.lr.ph, %44
-  %.037 = phi i64 [ 0, %.lr.ph ], [ %48, %44 ]
-  %.02836 = phi i64 [ %1, %.lr.ph ], [ %47, %44 ]
-  %.235 = phi i64 [ 0, %.lr.ph ], [ %46, %44 ]
-  %45 = tail call fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountNonZeroINS_9FloatTypeEEElilRKNS_6TensorE(i32 noundef %19, i64 noundef %.02836, ptr noundef nonnull align 8 dereferenceable(112) %2)
-  %46 = add nsw i64 %45, %.235
-  %47 = add nsw i64 %23, %.02836
-  %48 = add nuw nsw i64 %.037, 1
-  %exitcond.not = icmp eq i64 %48, %17
-  br i1 %exitcond.not, label %.loopexit, label %44, !llvm.loop !1476
+40:                                               ; preds = %.lr.ph, %40
+  %.037 = phi i64 [ 0, %.lr.ph ], [ %44, %40 ]
+  %.02836 = phi i64 [ %1, %.lr.ph ], [ %43, %40 ]
+  %.235 = phi i64 [ 0, %.lr.ph ], [ %42, %40 ]
+  %41 = tail call fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountNonZeroINS_9FloatTypeEEElilRKNS_6TensorE(i32 noundef %19, i64 noundef %.02836, ptr noundef nonnull align 8 dereferenceable(112) %2)
+  %42 = add nsw i64 %41, %.235
+  %43 = add nsw i64 %23, %.02836
+  %44 = add nuw nsw i64 %.037, 1
+  %exitcond.not = icmp eq i64 %44, %17
+  br i1 %exitcond.not, label %.loopexit, label %40, !llvm.loop !1476
 
-.loopexit:                                        ; preds = %44, %37, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %.1, %37 ], [ %46, %44 ]
+.loopexit:                                        ; preds = %40, %33, %.preheader33, %.preheader
+  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %.1, %33 ], [ %42, %40 ]
   ret i64 %.027
 }
 
@@ -57380,7 +57340,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   %21 = load ptr, ptr %20, align 8, !tbaa !11
   %22 = getelementptr inbounds nuw i64, ptr %21, i64 %15
   %23 = load i64, ptr %22, align 8, !tbaa !12
-  br label %44
+  br label %40
 
 .preheader:                                       ; preds = %3
   br i1 %18, label %.lr.ph40, label %.loopexit
@@ -57388,45 +57348,41 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
 .lr.ph40:                                         ; preds = %.preheader
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !100
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 9
-  %27 = load i8, ptr %26, align 1, !tbaa !182, !range !51, !noundef !52
-  %28 = trunc nuw i8 %27 to i1
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %30 = load ptr, ptr %29, align 8
-  %31 = select i1 %28, ptr %30, ptr null, !prof !40
-  %32 = getelementptr inbounds i8, ptr %31, i64 %1
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %34 = load ptr, ptr %33, align 8, !tbaa !11
-  %35 = getelementptr inbounds nuw i64, ptr %34, i64 %15
-  %36 = load i64, ptr %35, align 8, !tbaa !12
-  br label %37
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 %1
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %30 = load ptr, ptr %29, align 8, !tbaa !11
+  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %15
+  %32 = load i64, ptr %31, align 8, !tbaa !12
+  br label %33
 
-37:                                               ; preds = %.lr.ph40, %37
-  %.02939 = phi i64 [ 0, %.lr.ph40 ], [ %43, %37 ]
-  %.03038 = phi i64 [ 0, %.lr.ph40 ], [ %.1, %37 ]
-  %38 = mul nsw i64 %36, %.02939
-  %39 = getelementptr inbounds i8, ptr %32, i64 %38
-  %40 = load double, ptr %39, align 8, !tbaa !327
-  %41 = fcmp une double %40, 0.000000e+00
-  %42 = zext i1 %41 to i64
-  %.1 = add nuw nsw i64 %.03038, %42
-  %43 = add nuw nsw i64 %.02939, 1
-  %exitcond43.not = icmp eq i64 %43, %17
-  br i1 %exitcond43.not, label %.loopexit, label %37, !llvm.loop !1477
+33:                                               ; preds = %.lr.ph40, %33
+  %.02939 = phi i64 [ 0, %.lr.ph40 ], [ %39, %33 ]
+  %.03038 = phi i64 [ 0, %.lr.ph40 ], [ %.1, %33 ]
+  %34 = mul nsw i64 %32, %.02939
+  %35 = getelementptr inbounds i8, ptr %28, i64 %34
+  %36 = load double, ptr %35, align 8, !tbaa !327
+  %37 = fcmp une double %36, 0.000000e+00
+  %38 = zext i1 %37 to i64
+  %.1 = add nuw nsw i64 %.03038, %38
+  %39 = add nuw nsw i64 %.02939, 1
+  %exitcond43.not = icmp eq i64 %39, %17
+  br i1 %exitcond43.not, label %.loopexit, label %33, !llvm.loop !1477
 
-44:                                               ; preds = %.lr.ph, %44
-  %.037 = phi i64 [ 0, %.lr.ph ], [ %48, %44 ]
-  %.02836 = phi i64 [ %1, %.lr.ph ], [ %47, %44 ]
-  %.235 = phi i64 [ 0, %.lr.ph ], [ %46, %44 ]
-  %45 = tail call fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountNonZeroINS_10DoubleTypeEEElilRKNS_6TensorE(i32 noundef %19, i64 noundef %.02836, ptr noundef nonnull align 8 dereferenceable(112) %2)
-  %46 = add nsw i64 %45, %.235
-  %47 = add nsw i64 %23, %.02836
-  %48 = add nuw nsw i64 %.037, 1
-  %exitcond.not = icmp eq i64 %48, %17
-  br i1 %exitcond.not, label %.loopexit, label %44, !llvm.loop !1478
+40:                                               ; preds = %.lr.ph, %40
+  %.037 = phi i64 [ 0, %.lr.ph ], [ %44, %40 ]
+  %.02836 = phi i64 [ %1, %.lr.ph ], [ %43, %40 ]
+  %.235 = phi i64 [ 0, %.lr.ph ], [ %42, %40 ]
+  %41 = tail call fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountNonZeroINS_10DoubleTypeEEElilRKNS_6TensorE(i32 noundef %19, i64 noundef %.02836, ptr noundef nonnull align 8 dereferenceable(112) %2)
+  %42 = add nsw i64 %41, %.235
+  %43 = add nsw i64 %23, %.02836
+  %44 = add nuw nsw i64 %.037, 1
+  %exitcond.not = icmp eq i64 %44, %17
+  br i1 %exitcond.not, label %.loopexit, label %40, !llvm.loop !1478
 
-.loopexit:                                        ; preds = %44, %37, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %.1, %37 ], [ %46, %44 ]
+.loopexit:                                        ; preds = %40, %33, %.preheader33, %.preheader
+  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %.1, %33 ], [ %42, %40 ]
   ret i64 %.027
 }
 
