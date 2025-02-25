@@ -3,7 +3,6 @@
 // This file is licensed under the MIT License.
 // See the LICENSE file for more information.
 
-#include <llvm-21/llvm/Support/raw_ostream.h>
 #include <llvm/IR/Analysis.h>
 #include <llvm/IR/DebugInfo.h>
 #include <llvm/IR/Module.h>
@@ -15,6 +14,7 @@
 #include <llvm/Support/FileSystem.h>
 #include <llvm/Support/MemoryBuffer.h>
 #include <llvm/Support/ToolOutputFile.h>
+#include <llvm/Support/raw_ostream.h>
 #include <llvm/Transforms/IPO/GlobalDCE.h>
 #include <llvm/Transforms/Scalar/DCE.h>
 #include <filesystem>
