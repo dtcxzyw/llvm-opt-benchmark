@@ -866,7 +866,7 @@ define dso_local void @_ZN4llvm10RegionPass17assignPassManagerERNS_7PMStackENS_1
   %32 = getelementptr inbounds i8, ptr %30, i64 -32
   br label %64
 
-33:                                               ; preds = %.critedge
+33:; preds = %.critedge
   %34 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #20
   tail call void @_ZN4llvm13RGPassManagerC1Ev(ptr noundef nonnull align 8 dereferenceable(512) %34) #21
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
@@ -876,59 +876,59 @@ define dso_local void @_ZN4llvm10RegionPass17assignPassManagerERNS_7PMStackENS_1
   br i1 %.not6.i, label %_ZN4llvm13PMDataManager25populateInheritedAnalysisERNS_7PMStackE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %33
-  %38 = getelementptr inbounds nuw i8, ptr %34, i64 192
-  br label %39
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 192
+  br label %41
 
-39:                                               ; preds = %39, %.lr.ph.i
-  %.08.i = phi i32 [ 0, %.lr.ph.i ], [ %43, %39 ]
-  %.sroa.05.07.i = phi ptr [ %36, %.lr.ph.i ], [ %40, %39 ]
-  %40 = getelementptr inbounds i8, ptr %.sroa.05.07.i, i64 -8
-  %41 = load ptr, ptr %40, align 8, !tbaa !81
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 208
-  %43 = add i32 %.08.i, 1
-  %44 = zext i32 %.08.i to i64
-  %45 = getelementptr inbounds nuw [6 x ptr], ptr %38, i64 0, i64 %44
-  store ptr %42, ptr %45, align 8, !tbaa !28
-  %.not.i = icmp eq ptr %40, %37
-  br i1 %.not.i, label %_ZN4llvm13PMDataManager25populateInheritedAnalysisERNS_7PMStackE.exit, label %39
+41:                                               ; preds = %41, %.lr.ph.i
+  %.08.i = phi i32 [ 0, %.lr.ph.i ], [ %45, %41 ]
+  %.sroa.05.07.i = phi ptr [ %36, %.lr.ph.i ], [ %42, %41 ]
+  %42 = getelementptr inbounds i8, ptr %.sroa.05.07.i, i64 -8
+  %43 = load ptr, ptr %42, align 8, !tbaa !81
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 208
+  %45 = add i32 %.08.i, 1
+  %46 = zext i32 %.08.i to i64
+  %47 = getelementptr inbounds nuw [6 x ptr], ptr %40, i64 0, i64 %46
+  store ptr %44, ptr %47, align 8, !tbaa !28
+  %.not.i = icmp eq ptr %42, %37
+  br i1 %.not.i, label %_ZN4llvm13PMDataManager25populateInheritedAnalysisERNS_7PMStackE.exit, label %41
 
-_ZN4llvm13PMDataManager25populateInheritedAnalysisERNS_7PMStackE.exit: ; preds = %39, %33
-  %46 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !12
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 112
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 120
-  %50 = load i32, ptr %49, align 8, !tbaa !25
-  %51 = getelementptr inbounds nuw i8, ptr %47, i64 124
-  %52 = load i32, ptr %51, align 4, !tbaa !26
-  %.not.i.i.not.i.i = icmp ult i32 %50, %52
-  br i1 %.not.i.i.not.i.i, label %_ZN4llvm17PMTopLevelManager22addIndirectPassManagerEPNS_13PMDataManagerE.exit, label %53, !prof !145
+_ZN4llvm13PMDataManager25populateInheritedAnalysisERNS_7PMStackE.exit: ; preds = %41, %33
+  %48 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %49 = load ptr, ptr %48, align 8, !tbaa !12
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 112
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 120
+  %52 = load i32, ptr %51, align 8, !tbaa !25
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 124
+  %54 = load i32, ptr %53, align 4, !tbaa !26
+  %.not.i.i.not.i.i = icmp ult i32 %52, %54
+  br i1 %.not.i.i.not.i.i, label %_ZN4llvm17PMTopLevelManager22addIndirectPassManagerEPNS_13PMDataManagerE.exit, label %55, !prof !145
 
-53:                                               ; preds = %_ZN4llvm13PMDataManager25populateInheritedAnalysisERNS_7PMStackE.exit
-  %54 = zext i32 %50 to i64
-  %55 = add nuw nsw i64 %54, 1
-  %56 = getelementptr inbounds nuw i8, ptr %47, i64 128
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull %56, i64 noundef %55, i64 noundef 8) #21
-  %.pre.i.i = load i32, ptr %49, align 8, !tbaa !25
+55:                                               ; preds = %_ZN4llvm13PMDataManager25populateInheritedAnalysisERNS_7PMStackE.exit
+  %56 = zext i32 %52 to i64
+  %57 = add nuw nsw i64 %56, 1
+  %58 = getelementptr inbounds nuw i8, ptr %49, i64 128
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull %58, i64 noundef %57, i64 noundef 8) #21
+  %.pre.i.i = load i32, ptr %51, align 8, !tbaa !25
   br label %_ZN4llvm17PMTopLevelManager22addIndirectPassManagerEPNS_13PMDataManagerE.exit
 
-_ZN4llvm17PMTopLevelManager22addIndirectPassManagerEPNS_13PMDataManagerE.exit: ; preds = %_ZN4llvm13PMDataManager25populateInheritedAnalysisERNS_7PMStackE.exit, %53
-  %57 = phi i32 [ %50, %_ZN4llvm13PMDataManager25populateInheritedAnalysisERNS_7PMStackE.exit ], [ %.pre.i.i, %53 ]
-  %58 = load ptr, ptr %48, align 8, !tbaa !24
-  %59 = zext i32 %57 to i64
-  %60 = getelementptr inbounds nuw ptr, ptr %58, i64 %59
-  %61 = ptrtoint ptr %35 to i64
-  store i64 %61, ptr %60, align 1
-  %62 = load i32, ptr %49, align 8, !tbaa !25
-  %63 = add i32 %62, 1
-  store i32 %63, ptr %49, align 8, !tbaa !25
-  tail call void @_ZN4llvm17PMTopLevelManager12schedulePassEPNS_4PassE(ptr noundef nonnull align 8 dereferenceable(680) %47, ptr noundef nonnull %34) #21
+_ZN4llvm17PMTopLevelManager22addIndirectPassManagerEPNS_13PMDataManagerE.exit: ; preds = %_ZN4llvm13PMDataManager25populateInheritedAnalysisERNS_7PMStackE.exit, %55
+  %59 = phi i32 [ %52, %_ZN4llvm13PMDataManager25populateInheritedAnalysisERNS_7PMStackE.exit ], [ %.pre.i.i, %55 ]
+  %60 = load ptr, ptr %50, align 8, !tbaa !24
+  %61 = zext i32 %59 to i64
+  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %63 = ptrtoint ptr %35 to i64
+  store i64 %63, ptr %62, align 1
+  %64 = load i32, ptr %51, align 8, !tbaa !25
+  %65 = add i32 %64, 1
+  store i32 %65, ptr %51, align 8, !tbaa !25
+  tail call void @_ZN4llvm17PMTopLevelManager12schedulePassEPNS_4PassE(ptr noundef nonnull align 8 dereferenceable(680) %49, ptr noundef nonnull %34) #21
   tail call void @_ZN4llvm7PMStack4pushEPNS_13PMDataManagerE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %35) #21
-  br label %64
+  br label %66
 
-64:                                               ; preds = %_ZN4llvm17PMTopLevelManager22addIndirectPassManagerEPNS_13PMDataManagerE.exit, %31
+66:                                               ; preds = %_ZN4llvm17PMTopLevelManager22addIndirectPassManagerEPNS_13PMDataManagerE.exit, %31
   %.0 = phi ptr [ %32, %31 ], [ %34, %_ZN4llvm17PMTopLevelManager22addIndirectPassManagerEPNS_13PMDataManagerE.exit ]
-  %65 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  tail call void @_ZN4llvm13PMDataManager3addEPNS_4PassEb(ptr noundef nonnull align 8 dereferenceable(380) %65, ptr noundef nonnull %0, i1 noundef zeroext true) #21
+  %67 = getelementptr inbounds nuw i8, ptr %.0, i64 32
+  tail call void @_ZN4llvm13PMDataManager3addEPNS_4PassEb(ptr noundef nonnull align 8 dereferenceable(380) %67, ptr noundef nonnull %0, i1 noundef zeroext true) #21
   ret void
 }
 

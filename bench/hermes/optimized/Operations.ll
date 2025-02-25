@@ -7346,9 +7346,9 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %bf.load.i.i.i.i.i.i.i.i.i.i.i1 = load i32, ptr %4, align 4
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i.i.i.i.i1, -16777216
   %cmp.i.i.i.i.i.i.i.i.not.i = icmp eq i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i, 1140850688
-  br i1 %cmp.i.i.i.i.i.i.i.i.not.i, label %while.body.i, label %while.end.loopexit.i, !llvm.loop !58
+  br i1 %cmp.i.i.i.i.i.i.i.i.not.i, label %while.body.i, label %while.end.i, !llvm.loop !58
 
-while.end.loopexit.i:                             ; preds = %while.body.i
+while.end.i:                                      ; preds = %while.body.i
   %cmp.i.not.i.i.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i, 0
   %cond.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i, ptr null, ptr %4
   br label %while.end.i
@@ -7431,9 +7431,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %bf.load.i.i.i.i.i.i.i.i.i.i = load i32, ptr %1, align 4
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i.i.i.i, -16777216
   %cmp.i.i.i.i.i.i.i.i.not = icmp eq i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i, 1140850688
-  br i1 %cmp.i.i.i.i.i.i.i.i.not, label %while.body, label %while.end.loopexit, !llvm.loop !58
+  br i1 %cmp.i.i.i.i.i.i.i.i.not, label %while.body, label %while.end, !llvm.loop !58
 
-while.end.loopexit:                               ; preds = %while.body
+while.end:                                        ; preds = %while.body
   %cmp.i.not.i.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i, 0
   %cond.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i, ptr null, ptr %1
   br label %while.end

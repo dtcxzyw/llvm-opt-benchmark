@@ -3850,19 +3850,19 @@ entry:
   br i1 %cmp.i3, label %_ZNK6hermes2vm10NativeArgs6getArgEj.exit8, label %_ZN6hermes2vm10dyn_vmcastINS0_8JSObjectEEEPT_NS0_11HermesValueE.exit
 
 _ZNK6hermes2vm10NativeArgs6getArgEj.exit8:        ; preds = %entry
-  %2 = load ptr, ptr %args, align 8, !noalias !66
-  %incdec.ptr.i.i.i6 = getelementptr inbounds i8, ptr %2, i64 -16
+  %3 = load ptr, ptr %args, align 8, !noalias !66
+  %incdec.ptr.i.i.i6 = getelementptr inbounds i8, ptr %3, i64 -16
   %retval.sroa.0.0.copyload.i7 = load i64, ptr %incdec.ptr.i.i.i6, align 8
   %cmp.i.i9 = icmp ugt i64 %retval.sroa.0.0.copyload.i7, -844424930131969
   br i1 %cmp.i.i9, label %cond.true.i11, label %_ZN6hermes2vm10dyn_vmcastINS0_8JSObjectEEEPT_NS0_11HermesValueE.exit
 
 cond.true.i11:                                    ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit8
   %and.i.i12 = and i64 %retval.sroa.0.0.copyload.i7, 281474976710655
-  %3 = inttoptr i64 %and.i.i12 to ptr
-  %bf.load.i.i.i.i.i.i.i.i.i.i.i13 = load i32, ptr %3, align 4
-  %4 = add i32 %bf.load.i.i.i.i.i.i.i.i.i.i.i13, -436207616
-  %5 = icmp ult i32 %4, 855638016
-  %spec.select.i.i.i14 = select i1 %5, ptr %3, ptr null
+  %4 = inttoptr i64 %and.i.i12 to ptr
+  %bf.load.i.i.i.i.i.i.i.i.i.i.i13 = load i32, ptr %4, align 4
+  %5 = add i32 %bf.load.i.i.i.i.i.i.i.i.i.i.i13, -436207616
+  %6 = icmp ult i32 %5, 855638016
+  %spec.select.i.i.i14 = select i1 %6, ptr %4, ptr null
   br label %_ZN6hermes2vm10dyn_vmcastINS0_8JSObjectEEEPT_NS0_11HermesValueE.exit
 
 _ZN6hermes2vm10dyn_vmcastINS0_8JSObjectEEEPT_NS0_11HermesValueE.exit: ; preds = %entry, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit8, %cond.true.i11

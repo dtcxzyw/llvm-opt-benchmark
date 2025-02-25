@@ -8206,21 +8206,21 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_125TwoAddressInstruct
   br label %.thread.i
 
 .thread.i:                                        ; preds = %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl11isCopyToRegERN4llvm12MachineInstrERNS1_8RegisterES5_RbS6_.exit.i, %.thread.lr.ph.i
-  %.0952.i = phi ptr [ %39, %.thread.lr.ph.i ], [ %75, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl11isCopyToRegERN4llvm12MachineInstrERNS1_8RegisterES5_RbS6_.exit.i ]
-  %.sroa.023.051.i = phi i32 [ %47, %.thread.lr.ph.i ], [ %storemerge.i.i, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl11isCopyToRegERN4llvm12MachineInstrERNS1_8RegisterES5_RbS6_.exit.i ]
-  %51 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledEPKN4llvm12MachineInstrENS1_8RegisterE(ptr noundef nonnull readonly align 8 dereferenceable(240) %0, ptr noundef nonnull %.0952.i, i32 %.sroa.023.051.i)
+  %.0950.i = phi ptr [ %39, %.thread.lr.ph.i ], [ %75, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl11isCopyToRegERN4llvm12MachineInstrERNS1_8RegisterES5_RbS6_.exit.i ]
+  %.sroa.023.049.i = phi i32 [ %47, %.thread.lr.ph.i ], [ %storemerge.i.i, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl11isCopyToRegERN4llvm12MachineInstrERNS1_8RegisterES5_RbS6_.exit.i ]
+  %51 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledEPKN4llvm12MachineInstrENS1_8RegisterE(ptr noundef nonnull readonly align 8 dereferenceable(240) %0, ptr noundef nonnull %.0950.i, i32 %.sroa.023.049.i)
   br i1 %51, label %.thread28.i, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl8isKilledERN4llvm12MachineInstrENS1_8RegisterEb.exit
 
 .thread28.i:                                      ; preds = %.thread.i
   %52 = load ptr, ptr %50, align 8, !tbaa !203
-  %53 = icmp slt i32 %.sroa.023.051.i, 0
+  %53 = icmp slt i32 %.sroa.023.049.i, 0
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 48
-  %55 = and i32 %.sroa.023.051.i, 2147483647
+  %55 = and i32 %.sroa.023.049.i, 2147483647
   %56 = zext nneg i32 %55 to i64
   %57 = load ptr, ptr %54, align 8
   %58 = getelementptr inbounds nuw %"struct.std::pair.176", ptr %57, i64 %56, i32 1
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 296
-  %60 = zext nneg i32 %.sroa.023.051.i to i64
+  %60 = zext nneg i32 %.sroa.023.049.i to i64
   %61 = load ptr, ptr %59, align 8
   %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %60
   %.0.in.i.i.i = select i1 %53, ptr %58, ptr %62
@@ -8432,21 +8432,21 @@ _ZN12_GLOBAL__N_125TwoAddressInstructionImpl21tryInstructionCommuteEPN4llvm12Mac
   br i1 %.not1.i.i.i.i.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit.sink.split.i, label %.lr.ph.i.i.i.preheader.i.i.i, !llvm.loop !610
 
 .thread.i279:                                     ; preds = %136, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl11isCopyToRegERN4llvm12MachineInstrERNS1_8RegisterES5_RbS6_.exit.i295
-  %.0952.i280 = phi ptr [ %180, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl11isCopyToRegERN4llvm12MachineInstrERNS1_8RegisterES5_RbS6_.exit.i295 ], [ %39, %136 ]
-  %.sroa.023.051.i281 = phi i32 [ %storemerge.i.i297, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl11isCopyToRegERN4llvm12MachineInstrERNS1_8RegisterES5_RbS6_.exit.i295 ], [ %141, %136 ]
-  %156 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledEPKN4llvm12MachineInstrENS1_8RegisterE(ptr noundef nonnull readonly align 8 dereferenceable(240) %0, ptr noundef nonnull %.0952.i280, i32 %.sroa.023.051.i281)
+  %.0950.i280 = phi ptr [ %180, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl11isCopyToRegERN4llvm12MachineInstrERNS1_8RegisterES5_RbS6_.exit.i295 ], [ %39, %136 ]
+  %.sroa.023.049.i281 = phi i32 [ %storemerge.i.i297, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl11isCopyToRegERN4llvm12MachineInstrERNS1_8RegisterES5_RbS6_.exit.i295 ], [ %141, %136 ]
+  %156 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledEPKN4llvm12MachineInstrENS1_8RegisterE(ptr noundef nonnull readonly align 8 dereferenceable(240) %0, ptr noundef nonnull %.0950.i280, i32 %.sroa.023.049.i281)
   br i1 %156, label %.thread28.i283, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl8isKilledERN4llvm12MachineInstrENS1_8RegisterEb.exit307.thread
 
 .thread28.i283:                                   ; preds = %.thread.i279
   %157 = load ptr, ptr %111, align 8, !tbaa !203
-  %158 = icmp slt i32 %.sroa.023.051.i281, 0
+  %158 = icmp slt i32 %.sroa.023.049.i281, 0
   %159 = getelementptr inbounds nuw i8, ptr %157, i64 48
-  %160 = and i32 %.sroa.023.051.i281, 2147483647
+  %160 = and i32 %.sroa.023.049.i281, 2147483647
   %161 = zext nneg i32 %160 to i64
   %162 = load ptr, ptr %159, align 8
   %163 = getelementptr inbounds nuw %"struct.std::pair.176", ptr %162, i64 %161, i32 1
   %164 = getelementptr inbounds nuw i8, ptr %157, i64 296
-  %165 = zext nneg i32 %.sroa.023.051.i281 to i64
+  %165 = zext nneg i32 %.sroa.023.049.i281 to i64
   %166 = load ptr, ptr %164, align 8
   %167 = getelementptr inbounds nuw ptr, ptr %166, i64 %165
   %.0.in.i.i.i284 = select i1 %158, ptr %163, ptr %167
@@ -10116,21 +10116,21 @@ _ZN12_GLOBAL__N_125TwoAddressInstructionImpl21rescheduleMIBelowKillERN4llvm26Mac
   br i1 %900, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl8isKilledERN4llvm12MachineInstrENS1_8RegisterEb.exit190, label %.thread.i166
 
 .thread.i166:                                     ; preds = %.critedge140, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl11isCopyToRegERN4llvm12MachineInstrERNS1_8RegisterES5_RbS6_.exit.i182
-  %.0952.i167 = phi ptr [ %925, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl11isCopyToRegERN4llvm12MachineInstrERNS1_8RegisterES5_RbS6_.exit.i182 ], [ %39, %.critedge140 ]
-  %.sroa.023.051.i168 = phi i32 [ %storemerge.i.i184, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl11isCopyToRegERN4llvm12MachineInstrERNS1_8RegisterES5_RbS6_.exit.i182 ], [ %898, %.critedge140 ]
-  %901 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledEPKN4llvm12MachineInstrENS1_8RegisterE(ptr noundef nonnull readonly align 8 dereferenceable(240) %0, ptr noundef nonnull %.0952.i167, i32 %.sroa.023.051.i168)
+  %.0950.i167 = phi ptr [ %925, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl11isCopyToRegERN4llvm12MachineInstrERNS1_8RegisterES5_RbS6_.exit.i182 ], [ %39, %.critedge140 ]
+  %.sroa.023.049.i168 = phi i32 [ %storemerge.i.i184, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl11isCopyToRegERN4llvm12MachineInstrERNS1_8RegisterES5_RbS6_.exit.i182 ], [ %898, %.critedge140 ]
+  %901 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl15isPlainlyKilledEPKN4llvm12MachineInstrENS1_8RegisterE(ptr noundef nonnull readonly align 8 dereferenceable(240) %0, ptr noundef nonnull %.0950.i167, i32 %.sroa.023.049.i168)
   br i1 %901, label %.thread28.i170, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl8isKilledERN4llvm12MachineInstrENS1_8RegisterEb.exit190.thread
 
 .thread28.i170:                                   ; preds = %.thread.i166
   %902 = load ptr, ptr %111, align 8, !tbaa !203
-  %903 = icmp slt i32 %.sroa.023.051.i168, 0
+  %903 = icmp slt i32 %.sroa.023.049.i168, 0
   %904 = getelementptr inbounds nuw i8, ptr %902, i64 48
-  %905 = and i32 %.sroa.023.051.i168, 2147483647
+  %905 = and i32 %.sroa.023.049.i168, 2147483647
   %906 = zext nneg i32 %905 to i64
   %907 = load ptr, ptr %904, align 8
   %908 = getelementptr inbounds nuw %"struct.std::pair.176", ptr %907, i64 %906, i32 1
   %909 = getelementptr inbounds nuw i8, ptr %902, i64 296
-  %910 = zext nneg i32 %.sroa.023.051.i168 to i64
+  %910 = zext nneg i32 %.sroa.023.049.i168 to i64
   %911 = load ptr, ptr %909, align 8
   %912 = getelementptr inbounds nuw ptr, ptr %911, i64 %910
   %.0.in.i.i.i171 = select i1 %903, ptr %908, ptr %912

@@ -7870,17 +7870,17 @@ _ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPoi
   %.0.i9 = phi i64 [ %88, %86 ], [ 0, %_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit ], [ 0, %64 ], [ 0, %83 ], [ 0, %81 ]
   %89 = or i64 %.0.i9, %.0.i
   %or.cond.not = icmp eq i64 %89, 0
-  br i1 %or.cond.not, label %_ZNK4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE8containsERKS3_.exit, label %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit
+  br i1 %or.cond.not, label %_ZNK4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE8containsERKS3_.exit, label %90
 
-_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit: ; preds = %_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit10
-  %90 = tail call noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %1)
+90:                                               ; preds = %_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit10
+  %91 = tail call noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %1)
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 225
   %92 = load i8, ptr %91, align 1, !tbaa !71, !range !20, !noundef !21
   %93 = trunc nuw i8 %92 to i1
   br i1 %93, label %_ZNK4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE8containsERKS3_.exit, label %94
 
-94:                                               ; preds = %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit
-  %95 = getelementptr inbounds nuw i8, ptr %90, i64 80
+94:; preds = %90
+  %95 = getelementptr inbounds nuw i8, ptr %91, i64 80
   store i32 0, ptr %95, align 8, !tbaa !173
   br label %_ZNK4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE8containsERKS3_.exit
 
