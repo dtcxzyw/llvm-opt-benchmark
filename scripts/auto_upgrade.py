@@ -117,6 +117,7 @@ supported_project = [
     "opencc",
     "ocio",
     "opencv",
+    "openexr",
 ]
 
 modify_only = [

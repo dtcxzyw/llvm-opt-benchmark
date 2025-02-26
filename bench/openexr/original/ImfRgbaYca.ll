@@ -1,10 +1,10 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.Imath_3_2::Vec3" = type { float, float, float }
 %"class.Imath_3_2::Matrix44" = type { [4 x [4 x float]] }
-%"struct.Imf_3_2::Rgba" = type { %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half" }
+%"struct.Imf_3_4::Rgba" = type { %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half" }
 %"class.Imath_3_2::half" = type { i16 }
 %union.imath_half_uif = type { i32 }
 
@@ -49,9 +49,8 @@ $_ZN9Imath_3_24halfmLEf = comdat any
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init() #0 section ".text.startup" {
-entry:
   call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #3
+  %1 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #3
   ret void
 }
 
@@ -64,2520 +63,2672 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_27RgbaYca9computeYwERKNS_14ChromaticitiesE(ptr noalias sret(%"class.Imath_3_2::Vec3") align 4 %agg.result, ptr noundef nonnull align 4 dereferenceable(32) %cr) #4 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %cr.addr = alloca ptr, align 8
-  %m = alloca %"class.Imath_3_2::Matrix44", align 4
-  %ref.tmp = alloca %"class.Imath_3_2::Vec3", align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %cr, ptr %cr.addr, align 8
-  %0 = load ptr, ptr %cr.addr, align 8
-  call void @_ZN7Imf_3_28RGBtoXYZERKNS_14ChromaticitiesEf(ptr sret(%"class.Imath_3_2::Matrix44") align 4 %m, ptr noundef nonnull align 4 dereferenceable(32) %0, float noundef 1.000000e+00)
-  %call = call noundef ptr @_ZN9Imath_3_28Matrix44IfEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0) #3
-  %arrayidx = getelementptr inbounds float, ptr %call, i64 1
-  %1 = load float, ptr %arrayidx, align 4
-  %call1 = call noundef ptr @_ZN9Imath_3_28Matrix44IfEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1) #3
-  %arrayidx2 = getelementptr inbounds float, ptr %call1, i64 1
-  %2 = load float, ptr %arrayidx2, align 4
-  %call3 = call noundef ptr @_ZN9Imath_3_28Matrix44IfEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2) #3
-  %arrayidx4 = getelementptr inbounds float, ptr %call3, i64 1
-  %3 = load float, ptr %arrayidx4, align 4
-  call void @_ZN9Imath_3_24Vec3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp, float noundef %1, float noundef %2, float noundef %3) #3
-  %call5 = call noundef ptr @_ZN9Imath_3_28Matrix44IfEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0) #3
-  %arrayidx6 = getelementptr inbounds float, ptr %call5, i64 1
-  %4 = load float, ptr %arrayidx6, align 4
-  %call7 = call noundef ptr @_ZN9Imath_3_28Matrix44IfEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1) #3
-  %arrayidx8 = getelementptr inbounds float, ptr %call7, i64 1
-  %5 = load float, ptr %arrayidx8, align 4
-  %add = fadd float %4, %5
-  %call9 = call noundef ptr @_ZN9Imath_3_28Matrix44IfEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2) #3
-  %arrayidx10 = getelementptr inbounds float, ptr %call9, i64 1
-  %6 = load float, ptr %arrayidx10, align 4
-  %add11 = fadd float %add, %6
-  call void @_ZNK9Imath_3_24Vec3IfEdvEf(ptr sret(%"class.Imath_3_2::Vec3") align 4 %agg.result, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp, float noundef %add11) #3
+define void @_ZN7Imf_3_47RgbaYca9computeYwERKNS_14ChromaticitiesE(ptr dead_on_unwind noalias writable sret(%"class.Imath_3_2::Vec3") align 4 %0, ptr noundef nonnull align 4 dereferenceable(32) %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.Imath_3_2::Matrix44", align 4
+  %6 = alloca %"class.Imath_3_2::Vec3", align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 64, ptr %5) #3
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @_ZN7Imf_3_48RGBtoXYZERKNS_14ChromaticitiesEf(ptr dead_on_unwind writable sret(%"class.Imath_3_2::Matrix44") align 4 %5, ptr noundef nonnull align 4 dereferenceable(32) %7, float noundef 1.000000e+00)
+  call void @llvm.lifetime.start.p0(i64 12, ptr %6) #3
+  %8 = call noundef ptr @_ZN9Imath_3_28Matrix44IfEixEi(ptr noundef nonnull align 4 dereferenceable(64) %5, i32 noundef 0) #3
+  %9 = getelementptr inbounds float, ptr %8, i64 1
+  %10 = load float, ptr %9, align 4, !tbaa !8
+  %11 = call noundef ptr @_ZN9Imath_3_28Matrix44IfEixEi(ptr noundef nonnull align 4 dereferenceable(64) %5, i32 noundef 1) #3
+  %12 = getelementptr inbounds float, ptr %11, i64 1
+  %13 = load float, ptr %12, align 4, !tbaa !8
+  %14 = call noundef ptr @_ZN9Imath_3_28Matrix44IfEixEi(ptr noundef nonnull align 4 dereferenceable(64) %5, i32 noundef 2) #3
+  %15 = getelementptr inbounds float, ptr %14, i64 1
+  %16 = load float, ptr %15, align 4, !tbaa !8
+  call void @_ZN9Imath_3_24Vec3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %6, float noundef %10, float noundef %13, float noundef %16) #3
+  %17 = call noundef ptr @_ZN9Imath_3_28Matrix44IfEixEi(ptr noundef nonnull align 4 dereferenceable(64) %5, i32 noundef 0) #3
+  %18 = getelementptr inbounds float, ptr %17, i64 1
+  %19 = load float, ptr %18, align 4, !tbaa !8
+  %20 = call noundef ptr @_ZN9Imath_3_28Matrix44IfEixEi(ptr noundef nonnull align 4 dereferenceable(64) %5, i32 noundef 1) #3
+  %21 = getelementptr inbounds float, ptr %20, i64 1
+  %22 = load float, ptr %21, align 4, !tbaa !8
+  %23 = fadd float %19, %22
+  %24 = call noundef ptr @_ZN9Imath_3_28Matrix44IfEixEi(ptr noundef nonnull align 4 dereferenceable(64) %5, i32 noundef 2) #3
+  %25 = getelementptr inbounds float, ptr %24, i64 1
+  %26 = load float, ptr %25, align 4, !tbaa !8
+  %27 = fadd float %23, %26
+  call void @_ZNK9Imath_3_24Vec3IfEdvEf(ptr dead_on_unwind writable sret(%"class.Imath_3_2::Vec3") align 4 %0, ptr noundef nonnull align 4 dereferenceable(12) %6, float noundef %27) #3
+  call void @llvm.lifetime.end.p0(i64 12, ptr %6) #3
+  call void @llvm.lifetime.end.p0(i64 64, ptr %5) #3
   ret void
 }
 
-declare void @_ZN7Imf_3_28RGBtoXYZERKNS_14ChromaticitiesEf(ptr sret(%"class.Imath_3_2::Matrix44") align 4, ptr noundef nonnull align 4 dereferenceable(32), float noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZN9Imath_3_28Matrix44IfEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef %i) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %i.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %i, ptr %i.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %x = getelementptr inbounds %"class.Imath_3_2::Matrix44", ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %i.addr, align 4
-  %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds [4 x [4 x float]], ptr %x, i64 0, i64 %idxprom
-  %arraydecay = getelementptr inbounds [4 x float], ptr %arrayidx, i64 0, i64 0
-  ret ptr %arraydecay
+declare void @_ZN7Imf_3_48RGBtoXYZERKNS_14ChromaticitiesEf(ptr dead_on_unwind writable sret(%"class.Imath_3_2::Matrix44") align 4, ptr noundef nonnull align 4 dereferenceable(32), float noundef) #1
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN9Imath_3_28Matrix44IfEixEi(ptr noundef nonnull align 4 dereferenceable(64) %0, i32 noundef %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  store i32 %1, ptr %4, align 4, !tbaa !12
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.Imath_3_2::Matrix44", ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %4, align 4, !tbaa !12
+  %8 = sext i32 %7 to i64
+  %9 = getelementptr inbounds [4 x [4 x float]], ptr %6, i64 0, i64 %8
+  %10 = getelementptr inbounds [4 x float], ptr %9, i64 0, i64 0
+  ret ptr %10
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN9Imath_3_24Vec3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %this, float noundef %a, float noundef %b, float noundef %c) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %a.addr = alloca float, align 4
-  %b.addr = alloca float, align 4
-  %c.addr = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store float %a, ptr %a.addr, align 4
-  store float %b, ptr %b.addr, align 4
-  store float %c, ptr %c.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %x = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %this1, i32 0, i32 0
-  %0 = load float, ptr %a.addr, align 4
-  store float %0, ptr %x, align 4
-  %y = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %this1, i32 0, i32 1
-  %1 = load float, ptr %b.addr, align 4
-  store float %1, ptr %y, align 4
-  %z = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %this1, i32 0, i32 2
-  %2 = load float, ptr %c.addr, align 4
-  store float %2, ptr %z, align 4
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN9Imath_3_24Vec3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %0, float noundef %1, float noundef %2, float noundef %3) unnamed_addr #6 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca float, align 4
+  %7 = alloca float, align 4
+  %8 = alloca float, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !14
+  store float %1, ptr %6, align 4, !tbaa !8
+  store float %2, ptr %7, align 4, !tbaa !8
+  store float %3, ptr %8, align 4, !tbaa !8
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %"class.Imath_3_2::Vec3", ptr %9, i32 0, i32 0
+  %11 = load float, ptr %6, align 4, !tbaa !8
+  store float %11, ptr %10, align 4, !tbaa !16
+  %12 = getelementptr inbounds nuw %"class.Imath_3_2::Vec3", ptr %9, i32 0, i32 1
+  %13 = load float, ptr %7, align 4, !tbaa !8
+  store float %13, ptr %12, align 4, !tbaa !18
+  %14 = getelementptr inbounds nuw %"class.Imath_3_2::Vec3", ptr %9, i32 0, i32 2
+  %15 = load float, ptr %8, align 4, !tbaa !8
+  store float %15, ptr %14, align 4, !tbaa !19
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNK9Imath_3_24Vec3IfEdvEf(ptr noalias sret(%"class.Imath_3_2::Vec3") align 4 %agg.result, ptr noundef nonnull align 4 dereferenceable(12) %this, float noundef %a) #5 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %a.addr = alloca float, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store float %a, ptr %a.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %x = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %this1, i32 0, i32 0
-  %0 = load float, ptr %x, align 4
-  %1 = load float, ptr %a.addr, align 4
-  %div = fdiv float %0, %1
-  %y = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %this1, i32 0, i32 1
-  %2 = load float, ptr %y, align 4
-  %3 = load float, ptr %a.addr, align 4
-  %div2 = fdiv float %2, %3
-  %z = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %this1, i32 0, i32 2
-  %4 = load float, ptr %z, align 4
-  %5 = load float, ptr %a.addr, align 4
-  %div3 = fdiv float %4, %5
-  call void @_ZN9Imath_3_24Vec3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %agg.result, float noundef %div, float noundef %div2, float noundef %div3) #3
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNK9Imath_3_24Vec3IfEdvEf(ptr dead_on_unwind noalias writable sret(%"class.Imath_3_2::Vec3") align 4 %0, ptr noundef nonnull align 4 dereferenceable(12) %1, float noundef %2) #6 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca float, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !14
+  store float %2, ptr %6, align 4, !tbaa !8
+  %7 = load ptr, ptr %5, align 8
+  %8 = getelementptr inbounds nuw %"class.Imath_3_2::Vec3", ptr %7, i32 0, i32 0
+  %9 = load float, ptr %8, align 4, !tbaa !16
+  %10 = load float, ptr %6, align 4, !tbaa !8
+  %11 = fdiv float %9, %10
+  %12 = getelementptr inbounds nuw %"class.Imath_3_2::Vec3", ptr %7, i32 0, i32 1
+  %13 = load float, ptr %12, align 4, !tbaa !18
+  %14 = load float, ptr %6, align 4, !tbaa !8
+  %15 = fdiv float %13, %14
+  %16 = getelementptr inbounds nuw %"class.Imath_3_2::Vec3", ptr %7, i32 0, i32 2
+  %17 = load float, ptr %16, align 4, !tbaa !19
+  %18 = load float, ptr %6, align 4, !tbaa !8
+  %19 = fdiv float %17, %18
+  call void @_ZN9Imath_3_24Vec3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %0, float noundef %11, float noundef %15, float noundef %19) #3
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_27RgbaYca9RGBAtoYCAERKN9Imath_3_24Vec3IfEEibPKNS_4RgbaEPS6_(ptr noundef nonnull align 4 dereferenceable(12) %yw, i32 noundef %n, i1 noundef zeroext %aIsValid, ptr noundef %rgbaIn, ptr noundef %ycaOut) #4 {
-entry:
-  %yw.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  %aIsValid.addr = alloca i8, align 1
-  %rgbaIn.addr = alloca ptr, align 8
-  %ycaOut.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %in = alloca %"struct.Imf_3_2::Rgba", align 2
-  %out = alloca ptr, align 8
-  %Y = alloca float, align 4
-  store ptr %yw, ptr %yw.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %frombool = zext i1 %aIsValid to i8
-  store i8 %frombool, ptr %aIsValid.addr, align 1
-  store ptr %rgbaIn, ptr %rgbaIn.addr, align 8
-  store ptr %ycaOut, ptr %ycaOut.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define void @_ZN7Imf_3_47RgbaYca9RGBAtoYCAERKN9Imath_3_24Vec3IfEEibPKNS_4RgbaEPS6_(ptr noundef nonnull align 4 dereferenceable(12) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4) #4 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i8, align 1
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca %"struct.Imf_3_4::Rgba", align 2
+  %13 = alloca ptr, align 8
+  %14 = alloca float, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !14
+  store i32 %1, ptr %7, align 4, !tbaa !12
+  %15 = zext i1 %2 to i8
+  store i8 %15, ptr %8, align 1, !tbaa !20
+  store ptr %3, ptr %9, align 8, !tbaa !22
+  store ptr %4, ptr %10, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  store i32 0, ptr %11, align 4, !tbaa !12
+  br label %16
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %1 = load i32, ptr %n.addr, align 4
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %for.body, label %for.end
+16:                                               ; preds = %168, %5
+  %17 = load i32, ptr %11, align 4, !tbaa !12
+  %18 = load i32, ptr %7, align 4, !tbaa !12
+  %19 = icmp slt i32 %17, %18
+  br i1 %19, label %21, label %20
 
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %rgbaIn.addr, align 8
-  %3 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %2, i64 %idxprom
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %in, ptr align 2 %arrayidx, i64 8, i1 false)
-  %4 = load ptr, ptr %ycaOut.addr, align 8
-  %5 = load i32, ptr %i, align 4
-  %idxprom1 = sext i32 %5 to i64
-  %arrayidx2 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %4, i64 %idxprom1
-  store ptr %arrayidx2, ptr %out, align 8
-  %r = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %in, i32 0, i32 0
-  %call = call noundef zeroext i1 @_ZNK9Imath_3_24half8isFiniteEv(ptr noundef nonnull align 2 dereferenceable(2) %r) #3
-  br i1 %call, label %lor.lhs.false, label %if.then
+20:                                               ; preds = %16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  br label %171
 
-lor.lhs.false:                                    ; preds = %for.body
-  %r3 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %in, i32 0, i32 0
-  %call4 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r3) #3
-  %cmp5 = fcmp olt float %call4, 0.000000e+00
-  br i1 %cmp5, label %if.then, label %if.end
+21:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  %22 = load ptr, ptr %9, align 8, !tbaa !22
+  %23 = load i32, ptr %11, align 4, !tbaa !12
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %22, i64 %24
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %12, ptr align 2 %25, i64 8, i1 false), !tbaa.struct !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  %26 = load ptr, ptr %10, align 8, !tbaa !22
+  %27 = load i32, ptr %11, align 4, !tbaa !12
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %26, i64 %28
+  store ptr %29, ptr %13, align 8, !tbaa !22
+  %30 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %12, i32 0, i32 0
+  %31 = call noundef zeroext i1 @_ZNK9Imath_3_24half8isFiniteEv(ptr noundef nonnull align 2 dereferenceable(2) %30) #3
+  br i1 %31, label %32, label %36
 
-if.then:                                          ; preds = %lor.lhs.false, %for.body
-  %r6 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %in, i32 0, i32 0
-  %call7 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %r6, float noundef 0.000000e+00) #3
-  br label %if.end
+32:                                               ; preds = %21
+  %33 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %12, i32 0, i32 0
+  %34 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %33) #3
+  %35 = fcmp olt float %34, 0.000000e+00
+  br i1 %35, label %36, label %39
 
-if.end:                                           ; preds = %if.then, %lor.lhs.false
-  %g = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %in, i32 0, i32 1
-  %call8 = call noundef zeroext i1 @_ZNK9Imath_3_24half8isFiniteEv(ptr noundef nonnull align 2 dereferenceable(2) %g) #3
-  br i1 %call8, label %lor.lhs.false9, label %if.then13
+36:                                               ; preds = %32, %21
+  %37 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %12, i32 0, i32 0
+  %38 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %37, float noundef 0.000000e+00) #3
+  br label %39
 
-lor.lhs.false9:                                   ; preds = %if.end
-  %g10 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %in, i32 0, i32 1
-  %call11 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %g10) #3
-  %cmp12 = fcmp olt float %call11, 0.000000e+00
-  br i1 %cmp12, label %if.then13, label %if.end16
+39:                                               ; preds = %36, %32
+  %40 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %12, i32 0, i32 1
+  %41 = call noundef zeroext i1 @_ZNK9Imath_3_24half8isFiniteEv(ptr noundef nonnull align 2 dereferenceable(2) %40) #3
+  br i1 %41, label %42, label %46
 
-if.then13:                                        ; preds = %lor.lhs.false9, %if.end
-  %g14 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %in, i32 0, i32 1
-  %call15 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %g14, float noundef 0.000000e+00) #3
-  br label %if.end16
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %12, i32 0, i32 1
+  %44 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %43) #3
+  %45 = fcmp olt float %44, 0.000000e+00
+  br i1 %45, label %46, label %49
 
-if.end16:                                         ; preds = %if.then13, %lor.lhs.false9
-  %b = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %in, i32 0, i32 2
-  %call17 = call noundef zeroext i1 @_ZNK9Imath_3_24half8isFiniteEv(ptr noundef nonnull align 2 dereferenceable(2) %b) #3
-  br i1 %call17, label %lor.lhs.false18, label %if.then22
+46:                                               ; preds = %42, %39
+  %47 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %12, i32 0, i32 1
+  %48 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %47, float noundef 0.000000e+00) #3
+  br label %49
 
-lor.lhs.false18:                                  ; preds = %if.end16
-  %b19 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %in, i32 0, i32 2
-  %call20 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b19) #3
-  %cmp21 = fcmp olt float %call20, 0.000000e+00
-  br i1 %cmp21, label %if.then22, label %if.end25
+49:                                               ; preds = %46, %42
+  %50 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %12, i32 0, i32 2
+  %51 = call noundef zeroext i1 @_ZNK9Imath_3_24half8isFiniteEv(ptr noundef nonnull align 2 dereferenceable(2) %50) #3
+  br i1 %51, label %52, label %56
 
-if.then22:                                        ; preds = %lor.lhs.false18, %if.end16
-  %b23 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %in, i32 0, i32 2
-  %call24 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %b23, float noundef 0.000000e+00) #3
-  br label %if.end25
+52:                                               ; preds = %49
+  %53 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %12, i32 0, i32 2
+  %54 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %53) #3
+  %55 = fcmp olt float %54, 0.000000e+00
+  br i1 %55, label %56, label %59
 
-if.end25:                                         ; preds = %if.then22, %lor.lhs.false18
-  %r26 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %in, i32 0, i32 0
-  %call27 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r26) #3
-  %g28 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %in, i32 0, i32 1
-  %call29 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %g28) #3
-  %cmp30 = fcmp oeq float %call27, %call29
-  br i1 %cmp30, label %land.lhs.true, label %if.else
+56:                                               ; preds = %52, %49
+  %57 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %12, i32 0, i32 2
+  %58 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %57, float noundef 0.000000e+00) #3
+  br label %59
 
-land.lhs.true:                                    ; preds = %if.end25
-  %g31 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %in, i32 0, i32 1
-  %call32 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %g31) #3
-  %b33 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %in, i32 0, i32 2
-  %call34 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b33) #3
-  %cmp35 = fcmp oeq float %call32, %call34
-  br i1 %cmp35, label %if.then36, label %if.else
+59:                                               ; preds = %56, %52
+  %60 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %12, i32 0, i32 0
+  %61 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %60) #3
+  %62 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %12, i32 0, i32 1
+  %63 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %62) #3
+  %64 = fcmp oeq float %61, %63
+  br i1 %64, label %65, label %81
 
-if.then36:                                        ; preds = %land.lhs.true
-  %6 = load ptr, ptr %out, align 8
-  %r37 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %6, i32 0, i32 0
-  %call38 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %r37, float noundef 0.000000e+00) #3
-  %g39 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %in, i32 0, i32 1
-  %7 = load ptr, ptr %out, align 8
-  %g40 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %7, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %g40, ptr align 2 %g39, i64 2, i1 false)
-  %8 = load ptr, ptr %out, align 8
-  %b41 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %8, i32 0, i32 2
-  %call42 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %b41, float noundef 0.000000e+00) #3
-  br label %if.end88
+65:                                               ; preds = %59
+  %66 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %12, i32 0, i32 1
+  %67 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %66) #3
+  %68 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %12, i32 0, i32 2
+  %69 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %68) #3
+  %70 = fcmp oeq float %67, %69
+  br i1 %70, label %71, label %81
 
-if.else:                                          ; preds = %land.lhs.true, %if.end25
-  %r43 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %in, i32 0, i32 0
-  %call44 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r43) #3
-  %9 = load ptr, ptr %yw.addr, align 8
-  %x = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %9, i32 0, i32 0
-  %10 = load float, ptr %x, align 4
-  %g45 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %in, i32 0, i32 1
-  %call46 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %g45) #3
-  %11 = load ptr, ptr %yw.addr, align 8
-  %y = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %11, i32 0, i32 1
-  %12 = load float, ptr %y, align 4
-  %mul47 = fmul float %call46, %12
-  %13 = call float @llvm.fmuladd.f32(float %call44, float %10, float %mul47)
-  %b48 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %in, i32 0, i32 2
-  %call49 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b48) #3
-  %14 = load ptr, ptr %yw.addr, align 8
-  %z = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %14, i32 0, i32 2
-  %15 = load float, ptr %z, align 4
-  %16 = call float @llvm.fmuladd.f32(float %call49, float %15, float %13)
-  %17 = load ptr, ptr %out, align 8
-  %g50 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %17, i32 0, i32 1
-  %call51 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %g50, float noundef %16) #3
-  %18 = load ptr, ptr %out, align 8
-  %g52 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %18, i32 0, i32 1
-  %call53 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %g52) #3
-  store float %call53, ptr %Y, align 4
-  %r54 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %in, i32 0, i32 0
-  %call55 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r54) #3
-  %19 = load float, ptr %Y, align 4
-  %sub = fsub float %call55, %19
-  %call56 = call noundef float @_ZSt3absf(float noundef %sub)
-  %conv = fpext float %call56 to double
-  %20 = load float, ptr %Y, align 4
-  %conv57 = fpext float %20 to double
-  %mul = fmul double 6.550400e+04, %conv57
-  %cmp58 = fcmp olt double %conv, %mul
-  br i1 %cmp58, label %if.then59, label %if.else65
+71:                                               ; preds = %65
+  %72 = load ptr, ptr %13, align 8, !tbaa !22
+  %73 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %72, i32 0, i32 0
+  %74 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %73, float noundef 0.000000e+00) #3
+  %75 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %12, i32 0, i32 1
+  %76 = load ptr, ptr %13, align 8, !tbaa !22
+  %77 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %76, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %77, ptr align 2 %75, i64 2, i1 false), !tbaa.struct !27
+  %78 = load ptr, ptr %13, align 8, !tbaa !22
+  %79 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %78, i32 0, i32 2
+  %80 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %79, float noundef 0.000000e+00) #3
+  br label %156
 
-if.then59:                                        ; preds = %if.else
-  %r60 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %in, i32 0, i32 0
-  %call61 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r60) #3
-  %21 = load float, ptr %Y, align 4
-  %sub62 = fsub float %call61, %21
-  %22 = load float, ptr %Y, align 4
-  %div = fdiv float %sub62, %22
-  %23 = load ptr, ptr %out, align 8
-  %r63 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %23, i32 0, i32 0
-  %call64 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %r63, float noundef %div) #3
-  br label %if.end68
+81:                                               ; preds = %65, %59
+  %82 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %12, i32 0, i32 0
+  %83 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %82) #3
+  %84 = load ptr, ptr %6, align 8, !tbaa !14
+  %85 = getelementptr inbounds nuw %"class.Imath_3_2::Vec3", ptr %84, i32 0, i32 0
+  %86 = load float, ptr %85, align 4, !tbaa !16
+  %87 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %12, i32 0, i32 1
+  %88 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %87) #3
+  %89 = load ptr, ptr %6, align 8, !tbaa !14
+  %90 = getelementptr inbounds nuw %"class.Imath_3_2::Vec3", ptr %89, i32 0, i32 1
+  %91 = load float, ptr %90, align 4, !tbaa !18
+  %92 = fmul float %88, %91
+  %93 = call float @llvm.fmuladd.f32(float %83, float %86, float %92)
+  %94 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %12, i32 0, i32 2
+  %95 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %94) #3
+  %96 = load ptr, ptr %6, align 8, !tbaa !14
+  %97 = getelementptr inbounds nuw %"class.Imath_3_2::Vec3", ptr %96, i32 0, i32 2
+  %98 = load float, ptr %97, align 4, !tbaa !19
+  %99 = call float @llvm.fmuladd.f32(float %95, float %98, float %93)
+  %100 = load ptr, ptr %13, align 8, !tbaa !22
+  %101 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %100, i32 0, i32 1
+  %102 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %101, float noundef %99) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  %103 = load ptr, ptr %13, align 8, !tbaa !22
+  %104 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %103, i32 0, i32 1
+  %105 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %104) #3
+  store float %105, ptr %14, align 4, !tbaa !8
+  %106 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %12, i32 0, i32 0
+  %107 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %106) #3
+  %108 = load float, ptr %14, align 4, !tbaa !8
+  %109 = fsub float %107, %108
+  %110 = call noundef float @_ZSt3absf(float noundef %109)
+  %111 = fpext float %110 to double
+  %112 = load float, ptr %14, align 4, !tbaa !8
+  %113 = fpext float %112 to double
+  %114 = fmul double 6.550400e+04, %113
+  %115 = fcmp olt double %111, %114
+  br i1 %115, label %116, label %126
 
-if.else65:                                        ; preds = %if.else
-  %24 = load ptr, ptr %out, align 8
-  %r66 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %24, i32 0, i32 0
-  %call67 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %r66, float noundef 0.000000e+00) #3
-  br label %if.end68
+116:                                              ; preds = %81
+  %117 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %12, i32 0, i32 0
+  %118 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %117) #3
+  %119 = load float, ptr %14, align 4, !tbaa !8
+  %120 = fsub float %118, %119
+  %121 = load float, ptr %14, align 4, !tbaa !8
+  %122 = fdiv float %120, %121
+  %123 = load ptr, ptr %13, align 8, !tbaa !22
+  %124 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %123, i32 0, i32 0
+  %125 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %124, float noundef %122) #3
+  br label %130
 
-if.end68:                                         ; preds = %if.else65, %if.then59
-  %b69 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %in, i32 0, i32 2
-  %call70 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b69) #3
-  %25 = load float, ptr %Y, align 4
-  %sub71 = fsub float %call70, %25
-  %call72 = call noundef float @_ZSt3absf(float noundef %sub71)
-  %conv73 = fpext float %call72 to double
-  %26 = load float, ptr %Y, align 4
-  %conv74 = fpext float %26 to double
-  %mul75 = fmul double 6.550400e+04, %conv74
-  %cmp76 = fcmp olt double %conv73, %mul75
-  br i1 %cmp76, label %if.then77, label %if.else84
+126:                                              ; preds = %81
+  %127 = load ptr, ptr %13, align 8, !tbaa !22
+  %128 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %127, i32 0, i32 0
+  %129 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %128, float noundef 0.000000e+00) #3
+  br label %130
 
-if.then77:                                        ; preds = %if.end68
-  %b78 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %in, i32 0, i32 2
-  %call79 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b78) #3
-  %27 = load float, ptr %Y, align 4
-  %sub80 = fsub float %call79, %27
-  %28 = load float, ptr %Y, align 4
-  %div81 = fdiv float %sub80, %28
-  %29 = load ptr, ptr %out, align 8
-  %b82 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %29, i32 0, i32 2
-  %call83 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %b82, float noundef %div81) #3
-  br label %if.end87
+130:                                              ; preds = %126, %116
+  %131 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %12, i32 0, i32 2
+  %132 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %131) #3
+  %133 = load float, ptr %14, align 4, !tbaa !8
+  %134 = fsub float %132, %133
+  %135 = call noundef float @_ZSt3absf(float noundef %134)
+  %136 = fpext float %135 to double
+  %137 = load float, ptr %14, align 4, !tbaa !8
+  %138 = fpext float %137 to double
+  %139 = fmul double 6.550400e+04, %138
+  %140 = fcmp olt double %136, %139
+  br i1 %140, label %141, label %151
 
-if.else84:                                        ; preds = %if.end68
-  %30 = load ptr, ptr %out, align 8
-  %b85 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %30, i32 0, i32 2
-  %call86 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %b85, float noundef 0.000000e+00) #3
-  br label %if.end87
+141:                                              ; preds = %130
+  %142 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %12, i32 0, i32 2
+  %143 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %142) #3
+  %144 = load float, ptr %14, align 4, !tbaa !8
+  %145 = fsub float %143, %144
+  %146 = load float, ptr %14, align 4, !tbaa !8
+  %147 = fdiv float %145, %146
+  %148 = load ptr, ptr %13, align 8, !tbaa !22
+  %149 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %148, i32 0, i32 2
+  %150 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %149, float noundef %147) #3
+  br label %155
 
-if.end87:                                         ; preds = %if.else84, %if.then77
-  br label %if.end88
+151:                                              ; preds = %130
+  %152 = load ptr, ptr %13, align 8, !tbaa !22
+  %153 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %152, i32 0, i32 2
+  %154 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %153, float noundef 0.000000e+00) #3
+  br label %155
 
-if.end88:                                         ; preds = %if.end87, %if.then36
-  %31 = load i8, ptr %aIsValid.addr, align 1
-  %tobool = trunc i8 %31 to i1
-  br i1 %tobool, label %if.then89, label %if.else91
+155:                                              ; preds = %151, %141
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  br label %156
 
-if.then89:                                        ; preds = %if.end88
-  %a = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %in, i32 0, i32 3
-  %32 = load ptr, ptr %out, align 8
-  %a90 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %32, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %a90, ptr align 2 %a, i64 2, i1 false)
-  br label %if.end94
+156:                                              ; preds = %155, %71
+  %157 = load i8, ptr %8, align 1, !tbaa !20, !range !28, !noundef !29
+  %158 = trunc i8 %157 to i1
+  br i1 %158, label %159, label %163
 
-if.else91:                                        ; preds = %if.end88
-  %33 = load ptr, ptr %out, align 8
-  %a92 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %33, i32 0, i32 3
-  %call93 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %a92, float noundef 1.000000e+00) #3
-  br label %if.end94
+159:                                              ; preds = %156
+  %160 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %12, i32 0, i32 3
+  %161 = load ptr, ptr %13, align 8, !tbaa !22
+  %162 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %161, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %162, ptr align 2 %160, i64 2, i1 false), !tbaa.struct !27
+  br label %167
 
-if.end94:                                         ; preds = %if.else91, %if.then89
-  br label %for.inc
+163:                                              ; preds = %156
+  %164 = load ptr, ptr %13, align 8, !tbaa !22
+  %165 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %164, i32 0, i32 3
+  %166 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %165, float noundef 1.000000e+00) #3
+  br label %167
 
-for.inc:                                          ; preds = %if.end94
-  %34 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %34, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !4
+167:                                              ; preds = %163, %159
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  br label %168
 
-for.end:                                          ; preds = %for.cond
+168:                                              ; preds = %167
+  %169 = load i32, ptr %11, align 4, !tbaa !12
+  %170 = add nsw i32 %169, 1
+  store i32 %170, ptr %11, align 4, !tbaa !12
+  br label %16, !llvm.loop !30
+
+171:                                              ; preds = %20
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK9Imath_3_24half8isFiniteEv(ptr noundef nonnull align 2 dereferenceable(2) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef zeroext i16 @_ZNK9Imath_3_24half8exponentEv(ptr noundef nonnull align 2 dereferenceable(2) %this1) #3
-  %conv = zext i16 %call to i32
-  %cmp = icmp slt i32 %conv, 31
-  ret i1 %cmp
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK9Imath_3_24half8isFiniteEv(ptr noundef nonnull align 2 dereferenceable(2) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !32
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i16 @_ZNK9Imath_3_24half8exponentEv(ptr noundef nonnull align 2 dereferenceable(2) %3) #3
+  %5 = zext i16 %4 to i32
+  %6 = icmp slt i32 %5, 31
+  ret i1 %6
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %this) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_h = getelementptr inbounds %"class.Imath_3_2::half", ptr %this1, i32 0, i32 0
-  %0 = load i16, ptr %_h, align 2
-  %call = invoke noundef float @_ZL19imath_half_to_floatt(i16 noundef zeroext %0)
-          to label %invoke.cont unwind label %terminate.lpad
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %0) #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !32
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %3, i32 0, i32 0
+  %5 = load i16, ptr %4, align 2, !tbaa !34
+  %6 = invoke noundef float @_ZL19imath_half_to_floatt(i16 noundef zeroext %5)
+          to label %7 unwind label %8
 
-invoke.cont:                                      ; preds = %entry
-  ret float %call
+7:                                                ; preds = %1
+  ret float %6
 
-terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+8:                                                ; preds = %1
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #9
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #13
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %this, float noundef %f) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %f.addr = alloca float, align 4
-  %ref.tmp = alloca %"class.Imath_3_2::half", align 2
-  store ptr %this, ptr %this.addr, align 8
-  store float %f, ptr %f.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load float, ptr %f.addr, align 4
-  call void @_ZN9Imath_3_24halfC2Ef(ptr noundef nonnull align 2 dereferenceable(2) %ref.tmp, float noundef %0) #3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %this1, ptr align 2 %ref.tmp, i64 2, i1 false)
-  ret ptr %this1
-}
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #7
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef float @_ZSt3absf(float noundef %__x) #5 comdat {
-entry:
-  %__x.addr = alloca float, align 4
-  store float %__x, ptr %__x.addr, align 4
-  %0 = load float, ptr %__x.addr, align 4
-  %1 = call float @llvm.fabs.f32(float %0)
-  ret float %1
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Imf_3_27RgbaYca19decimateChromaHorizEiPKNS_4RgbaEPS1_(i32 noundef %n, ptr noundef %ycaIn, ptr noundef %ycaOut) #5 {
-entry:
-  %n.addr = alloca i32, align 4
-  %ycaIn.addr = alloca ptr, align 8
-  %ycaOut.addr = alloca ptr, align 8
-  %begin = alloca i32, align 4
-  %end = alloca i32, align 4
-  %i = alloca i32, align 4
-  %j = alloca i32, align 4
-  store i32 %n, ptr %n.addr, align 4
-  store ptr %ycaIn, ptr %ycaIn.addr, align 8
-  store ptr %ycaOut, ptr %ycaOut.addr, align 8
-  store i32 13, ptr %begin, align 4
-  %0 = load i32, ptr %begin, align 4
-  %1 = load i32, ptr %n.addr, align 4
-  %add = add nsw i32 %0, %1
-  store i32 %add, ptr %end, align 4
-  %2 = load i32, ptr %begin, align 4
-  store i32 %2, ptr %i, align 4
-  store i32 0, ptr %j, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %3 = load i32, ptr %i, align 4
-  %4 = load i32, ptr %end, align 4
-  %cmp = icmp slt i32 %3, %4
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %5 = load i32, ptr %j, align 4
-  %and = and i32 %5, 1
-  %cmp1 = icmp eq i32 %and, 0
-  br i1 %cmp1, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.body
-  %6 = load ptr, ptr %ycaIn.addr, align 8
-  %7 = load i32, ptr %i, align 4
-  %sub = sub nsw i32 %7, 13
-  %idxprom = sext i32 %sub to i64
-  %arrayidx = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %6, i64 %idxprom
-  %r = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx, i32 0, i32 0
-  %call = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r) #3
-  %8 = load ptr, ptr %ycaIn.addr, align 8
-  %9 = load i32, ptr %i, align 4
-  %sub2 = sub nsw i32 %9, 11
-  %idxprom3 = sext i32 %sub2 to i64
-  %arrayidx4 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %8, i64 %idxprom3
-  %r5 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx4, i32 0, i32 0
-  %call6 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r5) #3
-  %mul7 = fmul float %call6, 0xBF6EE45C40000000
-  %10 = call float @llvm.fmuladd.f32(float %call, float 0x3F516EBD40000000, float %mul7)
-  %11 = load ptr, ptr %ycaIn.addr, align 8
-  %12 = load i32, ptr %i, align 4
-  %sub8 = sub nsw i32 %12, 9
-  %idxprom9 = sext i32 %sub8 to i64
-  %arrayidx10 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %11, i64 %idxprom9
-  %r11 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx10, i32 0, i32 0
-  %call12 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r11) #3
-  %13 = call float @llvm.fmuladd.f32(float %call12, float 0x3F84128C00000000, float %10)
-  %14 = load ptr, ptr %ycaIn.addr, align 8
-  %15 = load i32, ptr %i, align 4
-  %sub13 = sub nsw i32 %15, 7
-  %idxprom14 = sext i32 %sub13 to i64
-  %arrayidx15 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %14, i64 %idxprom14
-  %r16 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx15, i32 0, i32 0
-  %call17 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r16) #3
-  %16 = call float @llvm.fmuladd.f32(float %call17, float 0xBF961AA400000000, float %13)
-  %17 = load ptr, ptr %ycaIn.addr, align 8
-  %18 = load i32, ptr %i, align 4
-  %sub18 = sub nsw i32 %18, 5
-  %idxprom19 = sext i32 %sub18 to i64
-  %arrayidx20 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %17, i64 %idxprom19
-  %r21 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx20, i32 0, i32 0
-  %call22 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r21) #3
-  %19 = call float @llvm.fmuladd.f32(float %call22, float 0x3FA68448C0000000, float %16)
-  %20 = load ptr, ptr %ycaIn.addr, align 8
-  %21 = load i32, ptr %i, align 4
-  %sub23 = sub nsw i32 %21, 3
-  %idxprom24 = sext i32 %sub23 to i64
-  %arrayidx25 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %20, i64 %idxprom24
-  %r26 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx25, i32 0, i32 0
-  %call27 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r26) #3
-  %22 = call float @llvm.fmuladd.f32(float %call27, float 0xBFB7D33D20000000, float %19)
-  %23 = load ptr, ptr %ycaIn.addr, align 8
-  %24 = load i32, ptr %i, align 4
-  %sub28 = sub nsw i32 %24, 1
-  %idxprom29 = sext i32 %sub28 to i64
-  %arrayidx30 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %23, i64 %idxprom29
-  %r31 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx30, i32 0, i32 0
-  %call32 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r31) #3
-  %25 = call float @llvm.fmuladd.f32(float %call32, float 0x3FD412FD40000000, float %22)
-  %26 = load ptr, ptr %ycaIn.addr, align 8
-  %27 = load i32, ptr %i, align 4
-  %idxprom33 = sext i32 %27 to i64
-  %arrayidx34 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %26, i64 %idxprom33
-  %r35 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx34, i32 0, i32 0
-  %call36 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r35) #3
-  %28 = call float @llvm.fmuladd.f32(float %call36, float 0x3FDFFD7A20000000, float %25)
-  %29 = load ptr, ptr %ycaIn.addr, align 8
-  %30 = load i32, ptr %i, align 4
-  %add37 = add nsw i32 %30, 1
-  %idxprom38 = sext i32 %add37 to i64
-  %arrayidx39 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %29, i64 %idxprom38
-  %r40 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx39, i32 0, i32 0
-  %call41 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r40) #3
-  %31 = call float @llvm.fmuladd.f32(float %call41, float 0x3FD412FD40000000, float %28)
-  %32 = load ptr, ptr %ycaIn.addr, align 8
-  %33 = load i32, ptr %i, align 4
-  %add42 = add nsw i32 %33, 3
-  %idxprom43 = sext i32 %add42 to i64
-  %arrayidx44 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %32, i64 %idxprom43
-  %r45 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx44, i32 0, i32 0
-  %call46 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r45) #3
-  %34 = call float @llvm.fmuladd.f32(float %call46, float 0xBFB7D33D20000000, float %31)
-  %35 = load ptr, ptr %ycaIn.addr, align 8
-  %36 = load i32, ptr %i, align 4
-  %add47 = add nsw i32 %36, 5
-  %idxprom48 = sext i32 %add47 to i64
-  %arrayidx49 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %35, i64 %idxprom48
-  %r50 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx49, i32 0, i32 0
-  %call51 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r50) #3
-  %37 = call float @llvm.fmuladd.f32(float %call51, float 0x3FA68448C0000000, float %34)
-  %38 = load ptr, ptr %ycaIn.addr, align 8
-  %39 = load i32, ptr %i, align 4
-  %add52 = add nsw i32 %39, 7
-  %idxprom53 = sext i32 %add52 to i64
-  %arrayidx54 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %38, i64 %idxprom53
-  %r55 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx54, i32 0, i32 0
-  %call56 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r55) #3
-  %40 = call float @llvm.fmuladd.f32(float %call56, float 0xBF961AA400000000, float %37)
-  %41 = load ptr, ptr %ycaIn.addr, align 8
-  %42 = load i32, ptr %i, align 4
-  %add57 = add nsw i32 %42, 9
-  %idxprom58 = sext i32 %add57 to i64
-  %arrayidx59 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %41, i64 %idxprom58
-  %r60 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx59, i32 0, i32 0
-  %call61 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r60) #3
-  %43 = call float @llvm.fmuladd.f32(float %call61, float 0x3F84128C00000000, float %40)
-  %44 = load ptr, ptr %ycaIn.addr, align 8
-  %45 = load i32, ptr %i, align 4
-  %add62 = add nsw i32 %45, 11
-  %idxprom63 = sext i32 %add62 to i64
-  %arrayidx64 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %44, i64 %idxprom63
-  %r65 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx64, i32 0, i32 0
-  %call66 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r65) #3
-  %46 = call float @llvm.fmuladd.f32(float %call66, float 0xBF6EE45C40000000, float %43)
-  %47 = load ptr, ptr %ycaIn.addr, align 8
-  %48 = load i32, ptr %i, align 4
-  %add67 = add nsw i32 %48, 13
-  %idxprom68 = sext i32 %add67 to i64
-  %arrayidx69 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %47, i64 %idxprom68
-  %r70 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx69, i32 0, i32 0
-  %call71 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r70) #3
-  %49 = call float @llvm.fmuladd.f32(float %call71, float 0x3F516EBD40000000, float %46)
-  %50 = load ptr, ptr %ycaOut.addr, align 8
-  %51 = load i32, ptr %j, align 4
-  %idxprom72 = sext i32 %51 to i64
-  %arrayidx73 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %50, i64 %idxprom72
-  %r74 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx73, i32 0, i32 0
-  %call75 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %r74, float noundef %49) #3
-  %52 = load ptr, ptr %ycaIn.addr, align 8
-  %53 = load i32, ptr %i, align 4
-  %sub76 = sub nsw i32 %53, 13
-  %idxprom77 = sext i32 %sub76 to i64
-  %arrayidx78 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %52, i64 %idxprom77
-  %b = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx78, i32 0, i32 2
-  %call79 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b) #3
-  %54 = load ptr, ptr %ycaIn.addr, align 8
-  %55 = load i32, ptr %i, align 4
-  %sub80 = sub nsw i32 %55, 11
-  %idxprom81 = sext i32 %sub80 to i64
-  %arrayidx82 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %54, i64 %idxprom81
-  %b83 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx82, i32 0, i32 2
-  %call84 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b83) #3
-  %mul85 = fmul float %call84, 0xBF6EE45C40000000
-  %56 = call float @llvm.fmuladd.f32(float %call79, float 0x3F516EBD40000000, float %mul85)
-  %57 = load ptr, ptr %ycaIn.addr, align 8
-  %58 = load i32, ptr %i, align 4
-  %sub86 = sub nsw i32 %58, 9
-  %idxprom87 = sext i32 %sub86 to i64
-  %arrayidx88 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %57, i64 %idxprom87
-  %b89 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx88, i32 0, i32 2
-  %call90 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b89) #3
-  %59 = call float @llvm.fmuladd.f32(float %call90, float 0x3F84128C00000000, float %56)
-  %60 = load ptr, ptr %ycaIn.addr, align 8
-  %61 = load i32, ptr %i, align 4
-  %sub91 = sub nsw i32 %61, 7
-  %idxprom92 = sext i32 %sub91 to i64
-  %arrayidx93 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %60, i64 %idxprom92
-  %b94 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx93, i32 0, i32 2
-  %call95 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b94) #3
-  %62 = call float @llvm.fmuladd.f32(float %call95, float 0xBF961AA400000000, float %59)
-  %63 = load ptr, ptr %ycaIn.addr, align 8
-  %64 = load i32, ptr %i, align 4
-  %sub96 = sub nsw i32 %64, 5
-  %idxprom97 = sext i32 %sub96 to i64
-  %arrayidx98 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %63, i64 %idxprom97
-  %b99 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx98, i32 0, i32 2
-  %call100 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b99) #3
-  %65 = call float @llvm.fmuladd.f32(float %call100, float 0x3FA68448C0000000, float %62)
-  %66 = load ptr, ptr %ycaIn.addr, align 8
-  %67 = load i32, ptr %i, align 4
-  %sub101 = sub nsw i32 %67, 3
-  %idxprom102 = sext i32 %sub101 to i64
-  %arrayidx103 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %66, i64 %idxprom102
-  %b104 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx103, i32 0, i32 2
-  %call105 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b104) #3
-  %68 = call float @llvm.fmuladd.f32(float %call105, float 0xBFB7D33D20000000, float %65)
-  %69 = load ptr, ptr %ycaIn.addr, align 8
-  %70 = load i32, ptr %i, align 4
-  %sub106 = sub nsw i32 %70, 1
-  %idxprom107 = sext i32 %sub106 to i64
-  %arrayidx108 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %69, i64 %idxprom107
-  %b109 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx108, i32 0, i32 2
-  %call110 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b109) #3
-  %71 = call float @llvm.fmuladd.f32(float %call110, float 0x3FD412FD40000000, float %68)
-  %72 = load ptr, ptr %ycaIn.addr, align 8
-  %73 = load i32, ptr %i, align 4
-  %idxprom111 = sext i32 %73 to i64
-  %arrayidx112 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %72, i64 %idxprom111
-  %b113 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx112, i32 0, i32 2
-  %call114 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b113) #3
-  %74 = call float @llvm.fmuladd.f32(float %call114, float 0x3FDFFD7A20000000, float %71)
-  %75 = load ptr, ptr %ycaIn.addr, align 8
-  %76 = load i32, ptr %i, align 4
-  %add115 = add nsw i32 %76, 1
-  %idxprom116 = sext i32 %add115 to i64
-  %arrayidx117 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %75, i64 %idxprom116
-  %b118 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx117, i32 0, i32 2
-  %call119 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b118) #3
-  %77 = call float @llvm.fmuladd.f32(float %call119, float 0x3FD412FD40000000, float %74)
-  %78 = load ptr, ptr %ycaIn.addr, align 8
-  %79 = load i32, ptr %i, align 4
-  %add120 = add nsw i32 %79, 3
-  %idxprom121 = sext i32 %add120 to i64
-  %arrayidx122 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %78, i64 %idxprom121
-  %b123 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx122, i32 0, i32 2
-  %call124 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b123) #3
-  %80 = call float @llvm.fmuladd.f32(float %call124, float 0xBFB7D33D20000000, float %77)
-  %81 = load ptr, ptr %ycaIn.addr, align 8
-  %82 = load i32, ptr %i, align 4
-  %add125 = add nsw i32 %82, 5
-  %idxprom126 = sext i32 %add125 to i64
-  %arrayidx127 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %81, i64 %idxprom126
-  %b128 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx127, i32 0, i32 2
-  %call129 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b128) #3
-  %83 = call float @llvm.fmuladd.f32(float %call129, float 0x3FA68448C0000000, float %80)
-  %84 = load ptr, ptr %ycaIn.addr, align 8
-  %85 = load i32, ptr %i, align 4
-  %add130 = add nsw i32 %85, 7
-  %idxprom131 = sext i32 %add130 to i64
-  %arrayidx132 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %84, i64 %idxprom131
-  %b133 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx132, i32 0, i32 2
-  %call134 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b133) #3
-  %86 = call float @llvm.fmuladd.f32(float %call134, float 0xBF961AA400000000, float %83)
-  %87 = load ptr, ptr %ycaIn.addr, align 8
-  %88 = load i32, ptr %i, align 4
-  %add135 = add nsw i32 %88, 9
-  %idxprom136 = sext i32 %add135 to i64
-  %arrayidx137 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %87, i64 %idxprom136
-  %b138 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx137, i32 0, i32 2
-  %call139 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b138) #3
-  %89 = call float @llvm.fmuladd.f32(float %call139, float 0x3F84128C00000000, float %86)
-  %90 = load ptr, ptr %ycaIn.addr, align 8
-  %91 = load i32, ptr %i, align 4
-  %add140 = add nsw i32 %91, 11
-  %idxprom141 = sext i32 %add140 to i64
-  %arrayidx142 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %90, i64 %idxprom141
-  %b143 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx142, i32 0, i32 2
-  %call144 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b143) #3
-  %92 = call float @llvm.fmuladd.f32(float %call144, float 0xBF6EE45C40000000, float %89)
-  %93 = load ptr, ptr %ycaIn.addr, align 8
-  %94 = load i32, ptr %i, align 4
-  %add145 = add nsw i32 %94, 13
-  %idxprom146 = sext i32 %add145 to i64
-  %arrayidx147 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %93, i64 %idxprom146
-  %b148 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx147, i32 0, i32 2
-  %call149 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b148) #3
-  %95 = call float @llvm.fmuladd.f32(float %call149, float 0x3F516EBD40000000, float %92)
-  %96 = load ptr, ptr %ycaOut.addr, align 8
-  %97 = load i32, ptr %j, align 4
-  %idxprom150 = sext i32 %97 to i64
-  %arrayidx151 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %96, i64 %idxprom150
-  %b152 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx151, i32 0, i32 2
-  %call153 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %b152, float noundef %95) #3
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %for.body
-  %98 = load ptr, ptr %ycaIn.addr, align 8
-  %99 = load i32, ptr %i, align 4
-  %idxprom154 = sext i32 %99 to i64
-  %arrayidx155 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %98, i64 %idxprom154
-  %g = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx155, i32 0, i32 1
-  %100 = load ptr, ptr %ycaOut.addr, align 8
-  %101 = load i32, ptr %j, align 4
-  %idxprom156 = sext i32 %101 to i64
-  %arrayidx157 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %100, i64 %idxprom156
-  %g158 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx157, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %g158, ptr align 2 %g, i64 2, i1 false)
-  %102 = load ptr, ptr %ycaIn.addr, align 8
-  %103 = load i32, ptr %i, align 4
-  %idxprom159 = sext i32 %103 to i64
-  %arrayidx160 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %102, i64 %idxprom159
-  %a = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx160, i32 0, i32 3
-  %104 = load ptr, ptr %ycaOut.addr, align 8
-  %105 = load i32, ptr %j, align 4
-  %idxprom161 = sext i32 %105 to i64
-  %arrayidx162 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %104, i64 %idxprom161
-  %a163 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx162, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %a163, ptr align 2 %a, i64 2, i1 false)
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end
-  %106 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %106, 1
-  store i32 %inc, ptr %i, align 4
-  %107 = load i32, ptr %j, align 4
-  %inc164 = add nsw i32 %107, 1
-  store i32 %inc164, ptr %j, align 4
-  br label %for.cond, !llvm.loop !6
-
-for.end:                                          ; preds = %for.cond
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Imf_3_27RgbaYca18decimateChromaVertEiPKPKNS_4RgbaEPS1_(i32 noundef %n, ptr noundef %ycaIn, ptr noundef %ycaOut) #5 {
-entry:
-  %n.addr = alloca i32, align 4
-  %ycaIn.addr = alloca ptr, align 8
-  %ycaOut.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store i32 %n, ptr %n.addr, align 4
-  store ptr %ycaIn, ptr %ycaIn.addr, align 8
-  store ptr %ycaOut, ptr %ycaOut.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %1 = load i32, ptr %n.addr, align 4
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %2 = load i32, ptr %i, align 4
-  %and = and i32 %2, 1
-  %cmp1 = icmp eq i32 %and, 0
-  br i1 %cmp1, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.body
-  %3 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 0
-  %4 = load ptr, ptr %arrayidx, align 8
-  %5 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %5 to i64
-  %arrayidx2 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %4, i64 %idxprom
-  %r = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx2, i32 0, i32 0
-  %call = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r) #3
-  %6 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx3 = getelementptr inbounds ptr, ptr %6, i64 2
-  %7 = load ptr, ptr %arrayidx3, align 8
-  %8 = load i32, ptr %i, align 4
-  %idxprom4 = sext i32 %8 to i64
-  %arrayidx5 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %7, i64 %idxprom4
-  %r6 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx5, i32 0, i32 0
-  %call7 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r6) #3
-  %mul8 = fmul float %call7, 0xBF6EE45C40000000
-  %9 = call float @llvm.fmuladd.f32(float %call, float 0x3F516EBD40000000, float %mul8)
-  %10 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx9 = getelementptr inbounds ptr, ptr %10, i64 4
-  %11 = load ptr, ptr %arrayidx9, align 8
-  %12 = load i32, ptr %i, align 4
-  %idxprom10 = sext i32 %12 to i64
-  %arrayidx11 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %11, i64 %idxprom10
-  %r12 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx11, i32 0, i32 0
-  %call13 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r12) #3
-  %13 = call float @llvm.fmuladd.f32(float %call13, float 0x3F84128C00000000, float %9)
-  %14 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx14 = getelementptr inbounds ptr, ptr %14, i64 6
-  %15 = load ptr, ptr %arrayidx14, align 8
-  %16 = load i32, ptr %i, align 4
-  %idxprom15 = sext i32 %16 to i64
-  %arrayidx16 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %15, i64 %idxprom15
-  %r17 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx16, i32 0, i32 0
-  %call18 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r17) #3
-  %17 = call float @llvm.fmuladd.f32(float %call18, float 0xBF961AA400000000, float %13)
-  %18 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx19 = getelementptr inbounds ptr, ptr %18, i64 8
-  %19 = load ptr, ptr %arrayidx19, align 8
-  %20 = load i32, ptr %i, align 4
-  %idxprom20 = sext i32 %20 to i64
-  %arrayidx21 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %19, i64 %idxprom20
-  %r22 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx21, i32 0, i32 0
-  %call23 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r22) #3
-  %21 = call float @llvm.fmuladd.f32(float %call23, float 0x3FA68448C0000000, float %17)
-  %22 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx24 = getelementptr inbounds ptr, ptr %22, i64 10
-  %23 = load ptr, ptr %arrayidx24, align 8
-  %24 = load i32, ptr %i, align 4
-  %idxprom25 = sext i32 %24 to i64
-  %arrayidx26 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %23, i64 %idxprom25
-  %r27 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx26, i32 0, i32 0
-  %call28 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r27) #3
-  %25 = call float @llvm.fmuladd.f32(float %call28, float 0xBFB7D33D20000000, float %21)
-  %26 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx29 = getelementptr inbounds ptr, ptr %26, i64 12
-  %27 = load ptr, ptr %arrayidx29, align 8
-  %28 = load i32, ptr %i, align 4
-  %idxprom30 = sext i32 %28 to i64
-  %arrayidx31 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %27, i64 %idxprom30
-  %r32 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx31, i32 0, i32 0
-  %call33 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r32) #3
-  %29 = call float @llvm.fmuladd.f32(float %call33, float 0x3FD412FD40000000, float %25)
-  %30 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx34 = getelementptr inbounds ptr, ptr %30, i64 13
-  %31 = load ptr, ptr %arrayidx34, align 8
-  %32 = load i32, ptr %i, align 4
-  %idxprom35 = sext i32 %32 to i64
-  %arrayidx36 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %31, i64 %idxprom35
-  %r37 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx36, i32 0, i32 0
-  %call38 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r37) #3
-  %33 = call float @llvm.fmuladd.f32(float %call38, float 0x3FDFFD7A20000000, float %29)
-  %34 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx39 = getelementptr inbounds ptr, ptr %34, i64 14
-  %35 = load ptr, ptr %arrayidx39, align 8
-  %36 = load i32, ptr %i, align 4
-  %idxprom40 = sext i32 %36 to i64
-  %arrayidx41 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %35, i64 %idxprom40
-  %r42 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx41, i32 0, i32 0
-  %call43 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r42) #3
-  %37 = call float @llvm.fmuladd.f32(float %call43, float 0x3FD412FD40000000, float %33)
-  %38 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx44 = getelementptr inbounds ptr, ptr %38, i64 16
-  %39 = load ptr, ptr %arrayidx44, align 8
-  %40 = load i32, ptr %i, align 4
-  %idxprom45 = sext i32 %40 to i64
-  %arrayidx46 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %39, i64 %idxprom45
-  %r47 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx46, i32 0, i32 0
-  %call48 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r47) #3
-  %41 = call float @llvm.fmuladd.f32(float %call48, float 0xBFB7D33D20000000, float %37)
-  %42 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx49 = getelementptr inbounds ptr, ptr %42, i64 18
-  %43 = load ptr, ptr %arrayidx49, align 8
-  %44 = load i32, ptr %i, align 4
-  %idxprom50 = sext i32 %44 to i64
-  %arrayidx51 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %43, i64 %idxprom50
-  %r52 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx51, i32 0, i32 0
-  %call53 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r52) #3
-  %45 = call float @llvm.fmuladd.f32(float %call53, float 0x3FA68448C0000000, float %41)
-  %46 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx54 = getelementptr inbounds ptr, ptr %46, i64 20
-  %47 = load ptr, ptr %arrayidx54, align 8
-  %48 = load i32, ptr %i, align 4
-  %idxprom55 = sext i32 %48 to i64
-  %arrayidx56 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %47, i64 %idxprom55
-  %r57 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx56, i32 0, i32 0
-  %call58 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r57) #3
-  %49 = call float @llvm.fmuladd.f32(float %call58, float 0xBF961AA400000000, float %45)
-  %50 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx59 = getelementptr inbounds ptr, ptr %50, i64 22
-  %51 = load ptr, ptr %arrayidx59, align 8
-  %52 = load i32, ptr %i, align 4
-  %idxprom60 = sext i32 %52 to i64
-  %arrayidx61 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %51, i64 %idxprom60
-  %r62 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx61, i32 0, i32 0
-  %call63 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r62) #3
-  %53 = call float @llvm.fmuladd.f32(float %call63, float 0x3F84128C00000000, float %49)
-  %54 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx64 = getelementptr inbounds ptr, ptr %54, i64 24
-  %55 = load ptr, ptr %arrayidx64, align 8
-  %56 = load i32, ptr %i, align 4
-  %idxprom65 = sext i32 %56 to i64
-  %arrayidx66 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %55, i64 %idxprom65
-  %r67 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx66, i32 0, i32 0
-  %call68 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r67) #3
-  %57 = call float @llvm.fmuladd.f32(float %call68, float 0xBF6EE45C40000000, float %53)
-  %58 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx69 = getelementptr inbounds ptr, ptr %58, i64 26
-  %59 = load ptr, ptr %arrayidx69, align 8
-  %60 = load i32, ptr %i, align 4
-  %idxprom70 = sext i32 %60 to i64
-  %arrayidx71 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %59, i64 %idxprom70
-  %r72 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx71, i32 0, i32 0
-  %call73 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r72) #3
-  %61 = call float @llvm.fmuladd.f32(float %call73, float 0x3F516EBD40000000, float %57)
-  %62 = load ptr, ptr %ycaOut.addr, align 8
-  %63 = load i32, ptr %i, align 4
-  %idxprom74 = sext i32 %63 to i64
-  %arrayidx75 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %62, i64 %idxprom74
-  %r76 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx75, i32 0, i32 0
-  %call77 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %r76, float noundef %61) #3
-  %64 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx78 = getelementptr inbounds ptr, ptr %64, i64 0
-  %65 = load ptr, ptr %arrayidx78, align 8
-  %66 = load i32, ptr %i, align 4
-  %idxprom79 = sext i32 %66 to i64
-  %arrayidx80 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %65, i64 %idxprom79
-  %b = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx80, i32 0, i32 2
-  %call81 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b) #3
-  %67 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx82 = getelementptr inbounds ptr, ptr %67, i64 2
-  %68 = load ptr, ptr %arrayidx82, align 8
-  %69 = load i32, ptr %i, align 4
-  %idxprom83 = sext i32 %69 to i64
-  %arrayidx84 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %68, i64 %idxprom83
-  %b85 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx84, i32 0, i32 2
-  %call86 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b85) #3
-  %mul87 = fmul float %call86, 0xBF6EE45C40000000
-  %70 = call float @llvm.fmuladd.f32(float %call81, float 0x3F516EBD40000000, float %mul87)
-  %71 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx88 = getelementptr inbounds ptr, ptr %71, i64 4
-  %72 = load ptr, ptr %arrayidx88, align 8
-  %73 = load i32, ptr %i, align 4
-  %idxprom89 = sext i32 %73 to i64
-  %arrayidx90 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %72, i64 %idxprom89
-  %b91 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx90, i32 0, i32 2
-  %call92 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b91) #3
-  %74 = call float @llvm.fmuladd.f32(float %call92, float 0x3F84128C00000000, float %70)
-  %75 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx93 = getelementptr inbounds ptr, ptr %75, i64 6
-  %76 = load ptr, ptr %arrayidx93, align 8
-  %77 = load i32, ptr %i, align 4
-  %idxprom94 = sext i32 %77 to i64
-  %arrayidx95 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %76, i64 %idxprom94
-  %b96 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx95, i32 0, i32 2
-  %call97 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b96) #3
-  %78 = call float @llvm.fmuladd.f32(float %call97, float 0xBF961AA400000000, float %74)
-  %79 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx98 = getelementptr inbounds ptr, ptr %79, i64 8
-  %80 = load ptr, ptr %arrayidx98, align 8
-  %81 = load i32, ptr %i, align 4
-  %idxprom99 = sext i32 %81 to i64
-  %arrayidx100 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %80, i64 %idxprom99
-  %b101 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx100, i32 0, i32 2
-  %call102 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b101) #3
-  %82 = call float @llvm.fmuladd.f32(float %call102, float 0x3FA68448C0000000, float %78)
-  %83 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx103 = getelementptr inbounds ptr, ptr %83, i64 10
-  %84 = load ptr, ptr %arrayidx103, align 8
-  %85 = load i32, ptr %i, align 4
-  %idxprom104 = sext i32 %85 to i64
-  %arrayidx105 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %84, i64 %idxprom104
-  %b106 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx105, i32 0, i32 2
-  %call107 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b106) #3
-  %86 = call float @llvm.fmuladd.f32(float %call107, float 0xBFB7D33D20000000, float %82)
-  %87 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx108 = getelementptr inbounds ptr, ptr %87, i64 12
-  %88 = load ptr, ptr %arrayidx108, align 8
-  %89 = load i32, ptr %i, align 4
-  %idxprom109 = sext i32 %89 to i64
-  %arrayidx110 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %88, i64 %idxprom109
-  %b111 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx110, i32 0, i32 2
-  %call112 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b111) #3
-  %90 = call float @llvm.fmuladd.f32(float %call112, float 0x3FD412FD40000000, float %86)
-  %91 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx113 = getelementptr inbounds ptr, ptr %91, i64 13
-  %92 = load ptr, ptr %arrayidx113, align 8
-  %93 = load i32, ptr %i, align 4
-  %idxprom114 = sext i32 %93 to i64
-  %arrayidx115 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %92, i64 %idxprom114
-  %b116 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx115, i32 0, i32 2
-  %call117 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b116) #3
-  %94 = call float @llvm.fmuladd.f32(float %call117, float 0x3FDFFD7A20000000, float %90)
-  %95 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx118 = getelementptr inbounds ptr, ptr %95, i64 14
-  %96 = load ptr, ptr %arrayidx118, align 8
-  %97 = load i32, ptr %i, align 4
-  %idxprom119 = sext i32 %97 to i64
-  %arrayidx120 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %96, i64 %idxprom119
-  %b121 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx120, i32 0, i32 2
-  %call122 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b121) #3
-  %98 = call float @llvm.fmuladd.f32(float %call122, float 0x3FD412FD40000000, float %94)
-  %99 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx123 = getelementptr inbounds ptr, ptr %99, i64 16
-  %100 = load ptr, ptr %arrayidx123, align 8
-  %101 = load i32, ptr %i, align 4
-  %idxprom124 = sext i32 %101 to i64
-  %arrayidx125 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %100, i64 %idxprom124
-  %b126 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx125, i32 0, i32 2
-  %call127 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b126) #3
-  %102 = call float @llvm.fmuladd.f32(float %call127, float 0xBFB7D33D20000000, float %98)
-  %103 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx128 = getelementptr inbounds ptr, ptr %103, i64 18
-  %104 = load ptr, ptr %arrayidx128, align 8
-  %105 = load i32, ptr %i, align 4
-  %idxprom129 = sext i32 %105 to i64
-  %arrayidx130 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %104, i64 %idxprom129
-  %b131 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx130, i32 0, i32 2
-  %call132 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b131) #3
-  %106 = call float @llvm.fmuladd.f32(float %call132, float 0x3FA68448C0000000, float %102)
-  %107 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx133 = getelementptr inbounds ptr, ptr %107, i64 20
-  %108 = load ptr, ptr %arrayidx133, align 8
-  %109 = load i32, ptr %i, align 4
-  %idxprom134 = sext i32 %109 to i64
-  %arrayidx135 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %108, i64 %idxprom134
-  %b136 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx135, i32 0, i32 2
-  %call137 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b136) #3
-  %110 = call float @llvm.fmuladd.f32(float %call137, float 0xBF961AA400000000, float %106)
-  %111 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx138 = getelementptr inbounds ptr, ptr %111, i64 22
-  %112 = load ptr, ptr %arrayidx138, align 8
-  %113 = load i32, ptr %i, align 4
-  %idxprom139 = sext i32 %113 to i64
-  %arrayidx140 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %112, i64 %idxprom139
-  %b141 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx140, i32 0, i32 2
-  %call142 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b141) #3
-  %114 = call float @llvm.fmuladd.f32(float %call142, float 0x3F84128C00000000, float %110)
-  %115 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx143 = getelementptr inbounds ptr, ptr %115, i64 24
-  %116 = load ptr, ptr %arrayidx143, align 8
-  %117 = load i32, ptr %i, align 4
-  %idxprom144 = sext i32 %117 to i64
-  %arrayidx145 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %116, i64 %idxprom144
-  %b146 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx145, i32 0, i32 2
-  %call147 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b146) #3
-  %118 = call float @llvm.fmuladd.f32(float %call147, float 0xBF6EE45C40000000, float %114)
-  %119 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx148 = getelementptr inbounds ptr, ptr %119, i64 26
-  %120 = load ptr, ptr %arrayidx148, align 8
-  %121 = load i32, ptr %i, align 4
-  %idxprom149 = sext i32 %121 to i64
-  %arrayidx150 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %120, i64 %idxprom149
-  %b151 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx150, i32 0, i32 2
-  %call152 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b151) #3
-  %122 = call float @llvm.fmuladd.f32(float %call152, float 0x3F516EBD40000000, float %118)
-  %123 = load ptr, ptr %ycaOut.addr, align 8
-  %124 = load i32, ptr %i, align 4
-  %idxprom153 = sext i32 %124 to i64
-  %arrayidx154 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %123, i64 %idxprom153
-  %b155 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx154, i32 0, i32 2
-  %call156 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %b155, float noundef %122) #3
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %for.body
-  %125 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx157 = getelementptr inbounds ptr, ptr %125, i64 13
-  %126 = load ptr, ptr %arrayidx157, align 8
-  %127 = load i32, ptr %i, align 4
-  %idxprom158 = sext i32 %127 to i64
-  %arrayidx159 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %126, i64 %idxprom158
-  %g = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx159, i32 0, i32 1
-  %128 = load ptr, ptr %ycaOut.addr, align 8
-  %129 = load i32, ptr %i, align 4
-  %idxprom160 = sext i32 %129 to i64
-  %arrayidx161 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %128, i64 %idxprom160
-  %g162 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx161, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %g162, ptr align 2 %g, i64 2, i1 false)
-  %130 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx163 = getelementptr inbounds ptr, ptr %130, i64 13
-  %131 = load ptr, ptr %arrayidx163, align 8
-  %132 = load i32, ptr %i, align 4
-  %idxprom164 = sext i32 %132 to i64
-  %arrayidx165 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %131, i64 %idxprom164
-  %a = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx165, i32 0, i32 3
-  %133 = load ptr, ptr %ycaOut.addr, align 8
-  %134 = load i32, ptr %i, align 4
-  %idxprom166 = sext i32 %134 to i64
-  %arrayidx167 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %133, i64 %idxprom166
-  %a168 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx167, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %a168, ptr align 2 %a, i64 2, i1 false)
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end
-  %135 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %135, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !7
-
-for.end:                                          ; preds = %for.cond
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Imf_3_27RgbaYca8roundYCAEijjPKNS_4RgbaEPS1_(i32 noundef %n, i32 noundef %roundY, i32 noundef %roundC, ptr noundef %ycaIn, ptr noundef %ycaOut) #5 {
-entry:
-  %n.addr = alloca i32, align 4
-  %roundY.addr = alloca i32, align 4
-  %roundC.addr = alloca i32, align 4
-  %ycaIn.addr = alloca ptr, align 8
-  %ycaOut.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %ref.tmp = alloca %"class.Imath_3_2::half", align 2
-  %ref.tmp10 = alloca %"class.Imath_3_2::half", align 2
-  %ref.tmp18 = alloca %"class.Imath_3_2::half", align 2
-  store i32 %n, ptr %n.addr, align 4
-  store i32 %roundY, ptr %roundY.addr, align 4
-  store i32 %roundC, ptr %roundC.addr, align 4
-  store ptr %ycaIn, ptr %ycaIn.addr, align 8
-  store ptr %ycaOut, ptr %ycaOut.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %1 = load i32, ptr %n.addr, align 4
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %ycaIn.addr, align 8
-  %3 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %2, i64 %idxprom
-  %g = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx, i32 0, i32 1
-  %4 = load i32, ptr %roundY.addr, align 4
-  %call = call i16 @_ZNK9Imath_3_24half5roundEj(ptr noundef nonnull align 2 dereferenceable(2) %g, i32 noundef %4) #3
-  %coerce.dive = getelementptr inbounds %"class.Imath_3_2::half", ptr %ref.tmp, i32 0, i32 0
-  store i16 %call, ptr %coerce.dive, align 2
-  %5 = load ptr, ptr %ycaOut.addr, align 8
-  %6 = load i32, ptr %i, align 4
-  %idxprom1 = sext i32 %6 to i64
-  %arrayidx2 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %5, i64 %idxprom1
-  %g3 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx2, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %g3, ptr align 2 %ref.tmp, i64 2, i1 false)
-  %7 = load ptr, ptr %ycaIn.addr, align 8
-  %8 = load i32, ptr %i, align 4
-  %idxprom4 = sext i32 %8 to i64
-  %arrayidx5 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %7, i64 %idxprom4
-  %a = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx5, i32 0, i32 3
-  %9 = load ptr, ptr %ycaOut.addr, align 8
-  %10 = load i32, ptr %i, align 4
-  %idxprom6 = sext i32 %10 to i64
-  %arrayidx7 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %9, i64 %idxprom6
-  %a8 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx7, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %a8, ptr align 2 %a, i64 2, i1 false)
-  %11 = load i32, ptr %i, align 4
-  %and = and i32 %11, 1
-  %cmp9 = icmp eq i32 %and, 0
-  br i1 %cmp9, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.body
-  %12 = load ptr, ptr %ycaIn.addr, align 8
-  %13 = load i32, ptr %i, align 4
-  %idxprom11 = sext i32 %13 to i64
-  %arrayidx12 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %12, i64 %idxprom11
-  %r = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx12, i32 0, i32 0
-  %14 = load i32, ptr %roundC.addr, align 4
-  %call13 = call i16 @_ZNK9Imath_3_24half5roundEj(ptr noundef nonnull align 2 dereferenceable(2) %r, i32 noundef %14) #3
-  %coerce.dive14 = getelementptr inbounds %"class.Imath_3_2::half", ptr %ref.tmp10, i32 0, i32 0
-  store i16 %call13, ptr %coerce.dive14, align 2
-  %15 = load ptr, ptr %ycaOut.addr, align 8
-  %16 = load i32, ptr %i, align 4
-  %idxprom15 = sext i32 %16 to i64
-  %arrayidx16 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %15, i64 %idxprom15
-  %r17 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx16, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %r17, ptr align 2 %ref.tmp10, i64 2, i1 false)
-  %17 = load ptr, ptr %ycaIn.addr, align 8
-  %18 = load i32, ptr %i, align 4
-  %idxprom19 = sext i32 %18 to i64
-  %arrayidx20 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %17, i64 %idxprom19
-  %b = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx20, i32 0, i32 2
-  %19 = load i32, ptr %roundC.addr, align 4
-  %call21 = call i16 @_ZNK9Imath_3_24half5roundEj(ptr noundef nonnull align 2 dereferenceable(2) %b, i32 noundef %19) #3
-  %coerce.dive22 = getelementptr inbounds %"class.Imath_3_2::half", ptr %ref.tmp18, i32 0, i32 0
-  store i16 %call21, ptr %coerce.dive22, align 2
-  %20 = load ptr, ptr %ycaOut.addr, align 8
-  %21 = load i32, ptr %i, align 4
-  %idxprom23 = sext i32 %21 to i64
-  %arrayidx24 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %20, i64 %idxprom23
-  %b25 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx24, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %b25, ptr align 2 %ref.tmp18, i64 2, i1 false)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end
-  %22 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %22, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !8
-
-for.end:                                          ; preds = %for.cond
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i16 @_ZNK9Imath_3_24half5roundEj(ptr noundef nonnull align 2 dereferenceable(2) %this, i32 noundef %n) #5 comdat align 2 {
-entry:
-  %retval = alloca %"class.Imath_3_2::half", align 2
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  %s = alloca i16, align 2
-  %e = alloca i16, align 2
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %n.addr, align 4
-  %cmp = icmp uge i32 %0, 10
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %retval, ptr align 2 %this1, i64 2, i1 false)
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %_h = getelementptr inbounds %"class.Imath_3_2::half", ptr %this1, i32 0, i32 0
-  %1 = load i16, ptr %_h, align 2
-  %conv = zext i16 %1 to i32
-  %and = and i32 %conv, 32768
-  %conv2 = trunc i32 %and to i16
-  store i16 %conv2, ptr %s, align 2
-  %_h3 = getelementptr inbounds %"class.Imath_3_2::half", ptr %this1, i32 0, i32 0
-  %2 = load i16, ptr %_h3, align 2
-  %conv4 = zext i16 %2 to i32
-  %and5 = and i32 %conv4, 32767
-  %conv6 = trunc i32 %and5 to i16
-  store i16 %conv6, ptr %e, align 2
-  %3 = load i32, ptr %n.addr, align 4
-  %sub = sub i32 9, %3
-  %4 = load i16, ptr %e, align 2
-  %conv7 = zext i16 %4 to i32
-  %shr = ashr i32 %conv7, %sub
-  %conv8 = trunc i32 %shr to i16
-  store i16 %conv8, ptr %e, align 2
-  %5 = load i16, ptr %e, align 2
-  %conv9 = zext i16 %5 to i32
-  %and10 = and i32 %conv9, 1
-  %6 = load i16, ptr %e, align 2
-  %conv11 = zext i16 %6 to i32
-  %add = add nsw i32 %conv11, %and10
-  %conv12 = trunc i32 %add to i16
-  store i16 %conv12, ptr %e, align 2
-  %7 = load i32, ptr %n.addr, align 4
-  %sub13 = sub i32 9, %7
-  %8 = load i16, ptr %e, align 2
-  %conv14 = zext i16 %8 to i32
-  %shl = shl i32 %conv14, %sub13
-  %conv15 = trunc i32 %shl to i16
-  store i16 %conv15, ptr %e, align 2
-  %9 = load i16, ptr %e, align 2
-  %conv16 = zext i16 %9 to i32
-  %cmp17 = icmp sge i32 %conv16, 31744
-  br i1 %cmp17, label %if.then18, label %if.end28
-
-if.then18:                                        ; preds = %if.end
-  %_h19 = getelementptr inbounds %"class.Imath_3_2::half", ptr %this1, i32 0, i32 0
-  %10 = load i16, ptr %_h19, align 2
-  store i16 %10, ptr %e, align 2
-  %11 = load i32, ptr %n.addr, align 4
-  %sub20 = sub i32 10, %11
-  %12 = load i16, ptr %e, align 2
-  %conv21 = zext i16 %12 to i32
-  %shr22 = ashr i32 %conv21, %sub20
-  %conv23 = trunc i32 %shr22 to i16
-  store i16 %conv23, ptr %e, align 2
-  %13 = load i32, ptr %n.addr, align 4
-  %sub24 = sub i32 10, %13
-  %14 = load i16, ptr %e, align 2
-  %conv25 = zext i16 %14 to i32
-  %shl26 = shl i32 %conv25, %sub24
-  %conv27 = trunc i32 %shl26 to i16
-  store i16 %conv27, ptr %e, align 2
-  br label %if.end28
-
-if.end28:                                         ; preds = %if.then18, %if.end
-  %15 = load i16, ptr %s, align 2
-  %conv29 = zext i16 %15 to i32
-  %16 = load i16, ptr %e, align 2
-  %conv30 = zext i16 %16 to i32
-  %or = or i32 %conv29, %conv30
-  %conv31 = trunc i32 %or to i16
-  call void @_ZN9Imath_3_24halfC2ENS0_11FromBitsTagEt(ptr noundef nonnull align 2 dereferenceable(2) %retval, i32 noundef 0, i16 noundef zeroext %conv31) #3
-  br label %return
-
-return:                                           ; preds = %if.end28, %if.then
-  %coerce.dive = getelementptr inbounds %"class.Imath_3_2::half", ptr %retval, i32 0, i32 0
-  %17 = load i16, ptr %coerce.dive, align 2
-  ret i16 %17
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Imf_3_27RgbaYca22reconstructChromaHorizEiPKNS_4RgbaEPS1_(i32 noundef %n, ptr noundef %ycaIn, ptr noundef %ycaOut) #5 {
-entry:
-  %n.addr = alloca i32, align 4
-  %ycaIn.addr = alloca ptr, align 8
-  %ycaOut.addr = alloca ptr, align 8
-  %begin = alloca i32, align 4
-  %end = alloca i32, align 4
-  %i = alloca i32, align 4
-  %j = alloca i32, align 4
-  store i32 %n, ptr %n.addr, align 4
-  store ptr %ycaIn, ptr %ycaIn.addr, align 8
-  store ptr %ycaOut, ptr %ycaOut.addr, align 8
-  store i32 13, ptr %begin, align 4
-  %0 = load i32, ptr %begin, align 4
-  %1 = load i32, ptr %n.addr, align 4
-  %add = add nsw i32 %0, %1
-  store i32 %add, ptr %end, align 4
-  %2 = load i32, ptr %begin, align 4
-  store i32 %2, ptr %i, align 4
-  store i32 0, ptr %j, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %3 = load i32, ptr %i, align 4
-  %4 = load i32, ptr %end, align 4
-  %cmp = icmp slt i32 %3, %4
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %5 = load i32, ptr %j, align 4
-  %and = and i32 %5, 1
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %for.body
-  %6 = load ptr, ptr %ycaIn.addr, align 8
-  %7 = load i32, ptr %i, align 4
-  %sub = sub nsw i32 %7, 13
-  %idxprom = sext i32 %sub to i64
-  %arrayidx = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %6, i64 %idxprom
-  %r = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx, i32 0, i32 0
-  %call = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r) #3
-  %8 = load ptr, ptr %ycaIn.addr, align 8
-  %9 = load i32, ptr %i, align 4
-  %sub1 = sub nsw i32 %9, 11
-  %idxprom2 = sext i32 %sub1 to i64
-  %arrayidx3 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %8, i64 %idxprom2
-  %r4 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx3, i32 0, i32 0
-  %call5 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r4) #3
-  %mul6 = fmul float %call5, 0xBF7EE24360000000
-  %10 = call float @llvm.fmuladd.f32(float %call, float 0x3F616EBD40000000, float %mul6)
-  %11 = load ptr, ptr %ycaIn.addr, align 8
-  %12 = load i32, ptr %i, align 4
-  %sub7 = sub nsw i32 %12, 9
-  %idxprom8 = sext i32 %sub7 to i64
-  %arrayidx9 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %11, i64 %idxprom8
-  %r10 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx9, i32 0, i32 0
-  %call11 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r10) #3
-  %13 = call float @llvm.fmuladd.f32(float %call11, float 0x3F94113C60000000, float %10)
-  %14 = load ptr, ptr %ycaIn.addr, align 8
-  %15 = load i32, ptr %i, align 4
-  %sub12 = sub nsw i32 %15, 7
-  %idxprom13 = sext i32 %sub12 to i64
-  %arrayidx14 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %14, i64 %idxprom13
-  %r15 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx14, i32 0, i32 0
-  %call16 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r15) #3
-  %16 = call float @llvm.fmuladd.f32(float %call16, float 0xBFA618EFC0000000, float %13)
-  %17 = load ptr, ptr %ycaIn.addr, align 8
-  %18 = load i32, ptr %i, align 4
-  %sub17 = sub nsw i32 %18, 5
-  %idxprom18 = sext i32 %sub17 to i64
-  %arrayidx19 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %17, i64 %idxprom18
-  %r20 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx19, i32 0, i32 0
-  %call21 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r20) #3
-  %19 = call float @llvm.fmuladd.f32(float %call21, float 0x3FB68283E0000000, float %16)
-  %20 = load ptr, ptr %ycaIn.addr, align 8
-  %21 = load i32, ptr %i, align 4
-  %sub22 = sub nsw i32 %21, 3
-  %idxprom23 = sext i32 %sub22 to i64
-  %arrayidx24 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %20, i64 %idxprom23
-  %r25 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx24, i32 0, i32 0
-  %call26 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r25) #3
-  %22 = call float @llvm.fmuladd.f32(float %call26, float 0xBFC7D15F00000000, float %19)
-  %23 = load ptr, ptr %ycaIn.addr, align 8
-  %24 = load i32, ptr %i, align 4
-  %sub27 = sub nsw i32 %24, 1
-  %idxprom28 = sext i32 %sub27 to i64
-  %arrayidx29 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %23, i64 %idxprom28
-  %r30 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx29, i32 0, i32 0
-  %call31 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r30) #3
-  %25 = call float @llvm.fmuladd.f32(float %call31, float 0x3FE4116440000000, float %22)
-  %26 = load ptr, ptr %ycaIn.addr, align 8
-  %27 = load i32, ptr %i, align 4
-  %add32 = add nsw i32 %27, 1
-  %idxprom33 = sext i32 %add32 to i64
-  %arrayidx34 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %26, i64 %idxprom33
-  %r35 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx34, i32 0, i32 0
-  %call36 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r35) #3
-  %28 = call float @llvm.fmuladd.f32(float %call36, float 0x3FE4116440000000, float %25)
-  %29 = load ptr, ptr %ycaIn.addr, align 8
-  %30 = load i32, ptr %i, align 4
-  %add37 = add nsw i32 %30, 3
-  %idxprom38 = sext i32 %add37 to i64
-  %arrayidx39 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %29, i64 %idxprom38
-  %r40 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx39, i32 0, i32 0
-  %call41 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r40) #3
-  %31 = call float @llvm.fmuladd.f32(float %call41, float 0xBFC7D15F00000000, float %28)
-  %32 = load ptr, ptr %ycaIn.addr, align 8
-  %33 = load i32, ptr %i, align 4
-  %add42 = add nsw i32 %33, 5
-  %idxprom43 = sext i32 %add42 to i64
-  %arrayidx44 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %32, i64 %idxprom43
-  %r45 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx44, i32 0, i32 0
-  %call46 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r45) #3
-  %34 = call float @llvm.fmuladd.f32(float %call46, float 0x3FB68283E0000000, float %31)
-  %35 = load ptr, ptr %ycaIn.addr, align 8
-  %36 = load i32, ptr %i, align 4
-  %add47 = add nsw i32 %36, 7
-  %idxprom48 = sext i32 %add47 to i64
-  %arrayidx49 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %35, i64 %idxprom48
-  %r50 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx49, i32 0, i32 0
-  %call51 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r50) #3
-  %37 = call float @llvm.fmuladd.f32(float %call51, float 0xBFA618EFC0000000, float %34)
-  %38 = load ptr, ptr %ycaIn.addr, align 8
-  %39 = load i32, ptr %i, align 4
-  %add52 = add nsw i32 %39, 9
-  %idxprom53 = sext i32 %add52 to i64
-  %arrayidx54 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %38, i64 %idxprom53
-  %r55 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx54, i32 0, i32 0
-  %call56 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r55) #3
-  %40 = call float @llvm.fmuladd.f32(float %call56, float 0x3F94113C60000000, float %37)
-  %41 = load ptr, ptr %ycaIn.addr, align 8
-  %42 = load i32, ptr %i, align 4
-  %add57 = add nsw i32 %42, 11
-  %idxprom58 = sext i32 %add57 to i64
-  %arrayidx59 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %41, i64 %idxprom58
-  %r60 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx59, i32 0, i32 0
-  %call61 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r60) #3
-  %43 = call float @llvm.fmuladd.f32(float %call61, float 0xBF7EE24360000000, float %40)
-  %44 = load ptr, ptr %ycaIn.addr, align 8
-  %45 = load i32, ptr %i, align 4
-  %add62 = add nsw i32 %45, 13
-  %idxprom63 = sext i32 %add62 to i64
-  %arrayidx64 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %44, i64 %idxprom63
-  %r65 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx64, i32 0, i32 0
-  %call66 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r65) #3
-  %46 = call float @llvm.fmuladd.f32(float %call66, float 0x3F616EBD40000000, float %43)
-  %47 = load ptr, ptr %ycaOut.addr, align 8
-  %48 = load i32, ptr %j, align 4
-  %idxprom67 = sext i32 %48 to i64
-  %arrayidx68 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %47, i64 %idxprom67
-  %r69 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx68, i32 0, i32 0
-  %call70 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %r69, float noundef %46) #3
-  %49 = load ptr, ptr %ycaIn.addr, align 8
-  %50 = load i32, ptr %i, align 4
-  %sub71 = sub nsw i32 %50, 13
-  %idxprom72 = sext i32 %sub71 to i64
-  %arrayidx73 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %49, i64 %idxprom72
-  %b = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx73, i32 0, i32 2
-  %call74 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b) #3
-  %51 = load ptr, ptr %ycaIn.addr, align 8
-  %52 = load i32, ptr %i, align 4
-  %sub75 = sub nsw i32 %52, 11
-  %idxprom76 = sext i32 %sub75 to i64
-  %arrayidx77 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %51, i64 %idxprom76
-  %b78 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx77, i32 0, i32 2
-  %call79 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b78) #3
-  %mul80 = fmul float %call79, 0xBF7EE24360000000
-  %53 = call float @llvm.fmuladd.f32(float %call74, float 0x3F616EBD40000000, float %mul80)
-  %54 = load ptr, ptr %ycaIn.addr, align 8
-  %55 = load i32, ptr %i, align 4
-  %sub81 = sub nsw i32 %55, 9
-  %idxprom82 = sext i32 %sub81 to i64
-  %arrayidx83 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %54, i64 %idxprom82
-  %b84 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx83, i32 0, i32 2
-  %call85 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b84) #3
-  %56 = call float @llvm.fmuladd.f32(float %call85, float 0x3F94113C60000000, float %53)
-  %57 = load ptr, ptr %ycaIn.addr, align 8
-  %58 = load i32, ptr %i, align 4
-  %sub86 = sub nsw i32 %58, 7
-  %idxprom87 = sext i32 %sub86 to i64
-  %arrayidx88 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %57, i64 %idxprom87
-  %b89 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx88, i32 0, i32 2
-  %call90 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b89) #3
-  %59 = call float @llvm.fmuladd.f32(float %call90, float 0xBFA618EFC0000000, float %56)
-  %60 = load ptr, ptr %ycaIn.addr, align 8
-  %61 = load i32, ptr %i, align 4
-  %sub91 = sub nsw i32 %61, 5
-  %idxprom92 = sext i32 %sub91 to i64
-  %arrayidx93 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %60, i64 %idxprom92
-  %b94 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx93, i32 0, i32 2
-  %call95 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b94) #3
-  %62 = call float @llvm.fmuladd.f32(float %call95, float 0x3FB68283E0000000, float %59)
-  %63 = load ptr, ptr %ycaIn.addr, align 8
-  %64 = load i32, ptr %i, align 4
-  %sub96 = sub nsw i32 %64, 3
-  %idxprom97 = sext i32 %sub96 to i64
-  %arrayidx98 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %63, i64 %idxprom97
-  %b99 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx98, i32 0, i32 2
-  %call100 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b99) #3
-  %65 = call float @llvm.fmuladd.f32(float %call100, float 0xBFC7D15F00000000, float %62)
-  %66 = load ptr, ptr %ycaIn.addr, align 8
-  %67 = load i32, ptr %i, align 4
-  %sub101 = sub nsw i32 %67, 1
-  %idxprom102 = sext i32 %sub101 to i64
-  %arrayidx103 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %66, i64 %idxprom102
-  %b104 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx103, i32 0, i32 2
-  %call105 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b104) #3
-  %68 = call float @llvm.fmuladd.f32(float %call105, float 0x3FE4116440000000, float %65)
-  %69 = load ptr, ptr %ycaIn.addr, align 8
-  %70 = load i32, ptr %i, align 4
-  %add106 = add nsw i32 %70, 1
-  %idxprom107 = sext i32 %add106 to i64
-  %arrayidx108 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %69, i64 %idxprom107
-  %b109 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx108, i32 0, i32 2
-  %call110 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b109) #3
-  %71 = call float @llvm.fmuladd.f32(float %call110, float 0x3FE4116440000000, float %68)
-  %72 = load ptr, ptr %ycaIn.addr, align 8
-  %73 = load i32, ptr %i, align 4
-  %add111 = add nsw i32 %73, 3
-  %idxprom112 = sext i32 %add111 to i64
-  %arrayidx113 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %72, i64 %idxprom112
-  %b114 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx113, i32 0, i32 2
-  %call115 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b114) #3
-  %74 = call float @llvm.fmuladd.f32(float %call115, float 0xBFC7D15F00000000, float %71)
-  %75 = load ptr, ptr %ycaIn.addr, align 8
-  %76 = load i32, ptr %i, align 4
-  %add116 = add nsw i32 %76, 5
-  %idxprom117 = sext i32 %add116 to i64
-  %arrayidx118 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %75, i64 %idxprom117
-  %b119 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx118, i32 0, i32 2
-  %call120 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b119) #3
-  %77 = call float @llvm.fmuladd.f32(float %call120, float 0x3FB68283E0000000, float %74)
-  %78 = load ptr, ptr %ycaIn.addr, align 8
-  %79 = load i32, ptr %i, align 4
-  %add121 = add nsw i32 %79, 7
-  %idxprom122 = sext i32 %add121 to i64
-  %arrayidx123 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %78, i64 %idxprom122
-  %b124 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx123, i32 0, i32 2
-  %call125 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b124) #3
-  %80 = call float @llvm.fmuladd.f32(float %call125, float 0xBFA618EFC0000000, float %77)
-  %81 = load ptr, ptr %ycaIn.addr, align 8
-  %82 = load i32, ptr %i, align 4
-  %add126 = add nsw i32 %82, 9
-  %idxprom127 = sext i32 %add126 to i64
-  %arrayidx128 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %81, i64 %idxprom127
-  %b129 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx128, i32 0, i32 2
-  %call130 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b129) #3
-  %83 = call float @llvm.fmuladd.f32(float %call130, float 0x3F94113C60000000, float %80)
-  %84 = load ptr, ptr %ycaIn.addr, align 8
-  %85 = load i32, ptr %i, align 4
-  %add131 = add nsw i32 %85, 11
-  %idxprom132 = sext i32 %add131 to i64
-  %arrayidx133 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %84, i64 %idxprom132
-  %b134 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx133, i32 0, i32 2
-  %call135 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b134) #3
-  %86 = call float @llvm.fmuladd.f32(float %call135, float 0xBF7EE24360000000, float %83)
-  %87 = load ptr, ptr %ycaIn.addr, align 8
-  %88 = load i32, ptr %i, align 4
-  %add136 = add nsw i32 %88, 13
-  %idxprom137 = sext i32 %add136 to i64
-  %arrayidx138 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %87, i64 %idxprom137
-  %b139 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx138, i32 0, i32 2
-  %call140 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b139) #3
-  %89 = call float @llvm.fmuladd.f32(float %call140, float 0x3F616EBD40000000, float %86)
-  %90 = load ptr, ptr %ycaOut.addr, align 8
-  %91 = load i32, ptr %j, align 4
-  %idxprom141 = sext i32 %91 to i64
-  %arrayidx142 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %90, i64 %idxprom141
-  %b143 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx142, i32 0, i32 2
-  %call144 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %b143, float noundef %89) #3
-  br label %if.end
-
-if.else:                                          ; preds = %for.body
-  %92 = load ptr, ptr %ycaIn.addr, align 8
-  %93 = load i32, ptr %i, align 4
-  %idxprom145 = sext i32 %93 to i64
-  %arrayidx146 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %92, i64 %idxprom145
-  %r147 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx146, i32 0, i32 0
-  %94 = load ptr, ptr %ycaOut.addr, align 8
-  %95 = load i32, ptr %j, align 4
-  %idxprom148 = sext i32 %95 to i64
-  %arrayidx149 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %94, i64 %idxprom148
-  %r150 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx149, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %r150, ptr align 2 %r147, i64 2, i1 false)
-  %96 = load ptr, ptr %ycaIn.addr, align 8
-  %97 = load i32, ptr %i, align 4
-  %idxprom151 = sext i32 %97 to i64
-  %arrayidx152 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %96, i64 %idxprom151
-  %b153 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx152, i32 0, i32 2
-  %98 = load ptr, ptr %ycaOut.addr, align 8
-  %99 = load i32, ptr %j, align 4
-  %idxprom154 = sext i32 %99 to i64
-  %arrayidx155 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %98, i64 %idxprom154
-  %b156 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx155, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %b156, ptr align 2 %b153, i64 2, i1 false)
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  %100 = load ptr, ptr %ycaIn.addr, align 8
-  %101 = load i32, ptr %i, align 4
-  %idxprom157 = sext i32 %101 to i64
-  %arrayidx158 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %100, i64 %idxprom157
-  %g = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx158, i32 0, i32 1
-  %102 = load ptr, ptr %ycaOut.addr, align 8
-  %103 = load i32, ptr %j, align 4
-  %idxprom159 = sext i32 %103 to i64
-  %arrayidx160 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %102, i64 %idxprom159
-  %g161 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx160, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %g161, ptr align 2 %g, i64 2, i1 false)
-  %104 = load ptr, ptr %ycaIn.addr, align 8
-  %105 = load i32, ptr %i, align 4
-  %idxprom162 = sext i32 %105 to i64
-  %arrayidx163 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %104, i64 %idxprom162
-  %a = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx163, i32 0, i32 3
-  %106 = load ptr, ptr %ycaOut.addr, align 8
-  %107 = load i32, ptr %j, align 4
-  %idxprom164 = sext i32 %107 to i64
-  %arrayidx165 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %106, i64 %idxprom164
-  %a166 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx165, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %a166, ptr align 2 %a, i64 2, i1 false)
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end
-  %108 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %108, 1
-  store i32 %inc, ptr %i, align 4
-  %109 = load i32, ptr %j, align 4
-  %inc167 = add nsw i32 %109, 1
-  store i32 %inc167, ptr %j, align 4
-  br label %for.cond, !llvm.loop !9
-
-for.end:                                          ; preds = %for.cond
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Imf_3_27RgbaYca21reconstructChromaVertEiPKPKNS_4RgbaEPS1_(i32 noundef %n, ptr noundef %ycaIn, ptr noundef %ycaOut) #5 {
-entry:
-  %n.addr = alloca i32, align 4
-  %ycaIn.addr = alloca ptr, align 8
-  %ycaOut.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store i32 %n, ptr %n.addr, align 4
-  store ptr %ycaIn, ptr %ycaIn.addr, align 8
-  store ptr %ycaOut, ptr %ycaOut.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %1 = load i32, ptr %n.addr, align 4
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 0
-  %3 = load ptr, ptr %arrayidx, align 8
-  %4 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %4 to i64
-  %arrayidx1 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %3, i64 %idxprom
-  %r = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx1, i32 0, i32 0
-  %call = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r) #3
-  %5 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx2 = getelementptr inbounds ptr, ptr %5, i64 2
-  %6 = load ptr, ptr %arrayidx2, align 8
-  %7 = load i32, ptr %i, align 4
-  %idxprom3 = sext i32 %7 to i64
-  %arrayidx4 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %6, i64 %idxprom3
-  %r5 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx4, i32 0, i32 0
-  %call6 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r5) #3
-  %mul7 = fmul float %call6, 0xBF7EE24360000000
-  %8 = call float @llvm.fmuladd.f32(float %call, float 0x3F616EBD40000000, float %mul7)
-  %9 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx8 = getelementptr inbounds ptr, ptr %9, i64 4
-  %10 = load ptr, ptr %arrayidx8, align 8
-  %11 = load i32, ptr %i, align 4
-  %idxprom9 = sext i32 %11 to i64
-  %arrayidx10 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %10, i64 %idxprom9
-  %r11 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx10, i32 0, i32 0
-  %call12 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r11) #3
-  %12 = call float @llvm.fmuladd.f32(float %call12, float 0x3F94113C60000000, float %8)
-  %13 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx13 = getelementptr inbounds ptr, ptr %13, i64 6
-  %14 = load ptr, ptr %arrayidx13, align 8
-  %15 = load i32, ptr %i, align 4
-  %idxprom14 = sext i32 %15 to i64
-  %arrayidx15 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %14, i64 %idxprom14
-  %r16 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx15, i32 0, i32 0
-  %call17 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r16) #3
-  %16 = call float @llvm.fmuladd.f32(float %call17, float 0xBFA618EFC0000000, float %12)
-  %17 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx18 = getelementptr inbounds ptr, ptr %17, i64 8
-  %18 = load ptr, ptr %arrayidx18, align 8
-  %19 = load i32, ptr %i, align 4
-  %idxprom19 = sext i32 %19 to i64
-  %arrayidx20 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %18, i64 %idxprom19
-  %r21 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx20, i32 0, i32 0
-  %call22 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r21) #3
-  %20 = call float @llvm.fmuladd.f32(float %call22, float 0x3FB68283E0000000, float %16)
-  %21 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx23 = getelementptr inbounds ptr, ptr %21, i64 10
-  %22 = load ptr, ptr %arrayidx23, align 8
-  %23 = load i32, ptr %i, align 4
-  %idxprom24 = sext i32 %23 to i64
-  %arrayidx25 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %22, i64 %idxprom24
-  %r26 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx25, i32 0, i32 0
-  %call27 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r26) #3
-  %24 = call float @llvm.fmuladd.f32(float %call27, float 0xBFC7D15F00000000, float %20)
-  %25 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx28 = getelementptr inbounds ptr, ptr %25, i64 12
-  %26 = load ptr, ptr %arrayidx28, align 8
-  %27 = load i32, ptr %i, align 4
-  %idxprom29 = sext i32 %27 to i64
-  %arrayidx30 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %26, i64 %idxprom29
-  %r31 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx30, i32 0, i32 0
-  %call32 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r31) #3
-  %28 = call float @llvm.fmuladd.f32(float %call32, float 0x3FE4116440000000, float %24)
-  %29 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx33 = getelementptr inbounds ptr, ptr %29, i64 14
-  %30 = load ptr, ptr %arrayidx33, align 8
-  %31 = load i32, ptr %i, align 4
-  %idxprom34 = sext i32 %31 to i64
-  %arrayidx35 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %30, i64 %idxprom34
-  %r36 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx35, i32 0, i32 0
-  %call37 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r36) #3
-  %32 = call float @llvm.fmuladd.f32(float %call37, float 0x3FE4116440000000, float %28)
-  %33 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx38 = getelementptr inbounds ptr, ptr %33, i64 16
-  %34 = load ptr, ptr %arrayidx38, align 8
-  %35 = load i32, ptr %i, align 4
-  %idxprom39 = sext i32 %35 to i64
-  %arrayidx40 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %34, i64 %idxprom39
-  %r41 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx40, i32 0, i32 0
-  %call42 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r41) #3
-  %36 = call float @llvm.fmuladd.f32(float %call42, float 0xBFC7D15F00000000, float %32)
-  %37 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx43 = getelementptr inbounds ptr, ptr %37, i64 18
-  %38 = load ptr, ptr %arrayidx43, align 8
-  %39 = load i32, ptr %i, align 4
-  %idxprom44 = sext i32 %39 to i64
-  %arrayidx45 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %38, i64 %idxprom44
-  %r46 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx45, i32 0, i32 0
-  %call47 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r46) #3
-  %40 = call float @llvm.fmuladd.f32(float %call47, float 0x3FB68283E0000000, float %36)
-  %41 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx48 = getelementptr inbounds ptr, ptr %41, i64 20
-  %42 = load ptr, ptr %arrayidx48, align 8
-  %43 = load i32, ptr %i, align 4
-  %idxprom49 = sext i32 %43 to i64
-  %arrayidx50 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %42, i64 %idxprom49
-  %r51 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx50, i32 0, i32 0
-  %call52 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r51) #3
-  %44 = call float @llvm.fmuladd.f32(float %call52, float 0xBFA618EFC0000000, float %40)
-  %45 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx53 = getelementptr inbounds ptr, ptr %45, i64 22
-  %46 = load ptr, ptr %arrayidx53, align 8
-  %47 = load i32, ptr %i, align 4
-  %idxprom54 = sext i32 %47 to i64
-  %arrayidx55 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %46, i64 %idxprom54
-  %r56 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx55, i32 0, i32 0
-  %call57 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r56) #3
-  %48 = call float @llvm.fmuladd.f32(float %call57, float 0x3F94113C60000000, float %44)
-  %49 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx58 = getelementptr inbounds ptr, ptr %49, i64 24
-  %50 = load ptr, ptr %arrayidx58, align 8
-  %51 = load i32, ptr %i, align 4
-  %idxprom59 = sext i32 %51 to i64
-  %arrayidx60 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %50, i64 %idxprom59
-  %r61 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx60, i32 0, i32 0
-  %call62 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r61) #3
-  %52 = call float @llvm.fmuladd.f32(float %call62, float 0xBF7EE24360000000, float %48)
-  %53 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx63 = getelementptr inbounds ptr, ptr %53, i64 26
-  %54 = load ptr, ptr %arrayidx63, align 8
-  %55 = load i32, ptr %i, align 4
-  %idxprom64 = sext i32 %55 to i64
-  %arrayidx65 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %54, i64 %idxprom64
-  %r66 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx65, i32 0, i32 0
-  %call67 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r66) #3
-  %56 = call float @llvm.fmuladd.f32(float %call67, float 0x3F616EBD40000000, float %52)
-  %57 = load ptr, ptr %ycaOut.addr, align 8
-  %58 = load i32, ptr %i, align 4
-  %idxprom68 = sext i32 %58 to i64
-  %arrayidx69 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %57, i64 %idxprom68
-  %r70 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx69, i32 0, i32 0
-  %call71 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %r70, float noundef %56) #3
-  %59 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx72 = getelementptr inbounds ptr, ptr %59, i64 0
-  %60 = load ptr, ptr %arrayidx72, align 8
-  %61 = load i32, ptr %i, align 4
-  %idxprom73 = sext i32 %61 to i64
-  %arrayidx74 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %60, i64 %idxprom73
-  %b = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx74, i32 0, i32 2
-  %call75 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b) #3
-  %62 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx76 = getelementptr inbounds ptr, ptr %62, i64 2
-  %63 = load ptr, ptr %arrayidx76, align 8
-  %64 = load i32, ptr %i, align 4
-  %idxprom77 = sext i32 %64 to i64
-  %arrayidx78 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %63, i64 %idxprom77
-  %b79 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx78, i32 0, i32 2
-  %call80 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b79) #3
-  %mul81 = fmul float %call80, 0xBF7EE24360000000
-  %65 = call float @llvm.fmuladd.f32(float %call75, float 0x3F616EBD40000000, float %mul81)
-  %66 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx82 = getelementptr inbounds ptr, ptr %66, i64 4
-  %67 = load ptr, ptr %arrayidx82, align 8
-  %68 = load i32, ptr %i, align 4
-  %idxprom83 = sext i32 %68 to i64
-  %arrayidx84 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %67, i64 %idxprom83
-  %b85 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx84, i32 0, i32 2
-  %call86 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b85) #3
-  %69 = call float @llvm.fmuladd.f32(float %call86, float 0x3F94113C60000000, float %65)
-  %70 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx87 = getelementptr inbounds ptr, ptr %70, i64 6
-  %71 = load ptr, ptr %arrayidx87, align 8
-  %72 = load i32, ptr %i, align 4
-  %idxprom88 = sext i32 %72 to i64
-  %arrayidx89 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %71, i64 %idxprom88
-  %b90 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx89, i32 0, i32 2
-  %call91 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b90) #3
-  %73 = call float @llvm.fmuladd.f32(float %call91, float 0xBFA618EFC0000000, float %69)
-  %74 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx92 = getelementptr inbounds ptr, ptr %74, i64 8
-  %75 = load ptr, ptr %arrayidx92, align 8
-  %76 = load i32, ptr %i, align 4
-  %idxprom93 = sext i32 %76 to i64
-  %arrayidx94 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %75, i64 %idxprom93
-  %b95 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx94, i32 0, i32 2
-  %call96 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b95) #3
-  %77 = call float @llvm.fmuladd.f32(float %call96, float 0x3FB68283E0000000, float %73)
-  %78 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx97 = getelementptr inbounds ptr, ptr %78, i64 10
-  %79 = load ptr, ptr %arrayidx97, align 8
-  %80 = load i32, ptr %i, align 4
-  %idxprom98 = sext i32 %80 to i64
-  %arrayidx99 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %79, i64 %idxprom98
-  %b100 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx99, i32 0, i32 2
-  %call101 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b100) #3
-  %81 = call float @llvm.fmuladd.f32(float %call101, float 0xBFC7D15F00000000, float %77)
-  %82 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx102 = getelementptr inbounds ptr, ptr %82, i64 12
-  %83 = load ptr, ptr %arrayidx102, align 8
-  %84 = load i32, ptr %i, align 4
-  %idxprom103 = sext i32 %84 to i64
-  %arrayidx104 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %83, i64 %idxprom103
-  %b105 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx104, i32 0, i32 2
-  %call106 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b105) #3
-  %85 = call float @llvm.fmuladd.f32(float %call106, float 0x3FE4116440000000, float %81)
-  %86 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx107 = getelementptr inbounds ptr, ptr %86, i64 14
-  %87 = load ptr, ptr %arrayidx107, align 8
-  %88 = load i32, ptr %i, align 4
-  %idxprom108 = sext i32 %88 to i64
-  %arrayidx109 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %87, i64 %idxprom108
-  %b110 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx109, i32 0, i32 2
-  %call111 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b110) #3
-  %89 = call float @llvm.fmuladd.f32(float %call111, float 0x3FE4116440000000, float %85)
-  %90 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx112 = getelementptr inbounds ptr, ptr %90, i64 16
-  %91 = load ptr, ptr %arrayidx112, align 8
-  %92 = load i32, ptr %i, align 4
-  %idxprom113 = sext i32 %92 to i64
-  %arrayidx114 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %91, i64 %idxprom113
-  %b115 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx114, i32 0, i32 2
-  %call116 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b115) #3
-  %93 = call float @llvm.fmuladd.f32(float %call116, float 0xBFC7D15F00000000, float %89)
-  %94 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx117 = getelementptr inbounds ptr, ptr %94, i64 18
-  %95 = load ptr, ptr %arrayidx117, align 8
-  %96 = load i32, ptr %i, align 4
-  %idxprom118 = sext i32 %96 to i64
-  %arrayidx119 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %95, i64 %idxprom118
-  %b120 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx119, i32 0, i32 2
-  %call121 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b120) #3
-  %97 = call float @llvm.fmuladd.f32(float %call121, float 0x3FB68283E0000000, float %93)
-  %98 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx122 = getelementptr inbounds ptr, ptr %98, i64 20
-  %99 = load ptr, ptr %arrayidx122, align 8
-  %100 = load i32, ptr %i, align 4
-  %idxprom123 = sext i32 %100 to i64
-  %arrayidx124 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %99, i64 %idxprom123
-  %b125 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx124, i32 0, i32 2
-  %call126 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b125) #3
-  %101 = call float @llvm.fmuladd.f32(float %call126, float 0xBFA618EFC0000000, float %97)
-  %102 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx127 = getelementptr inbounds ptr, ptr %102, i64 22
-  %103 = load ptr, ptr %arrayidx127, align 8
-  %104 = load i32, ptr %i, align 4
-  %idxprom128 = sext i32 %104 to i64
-  %arrayidx129 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %103, i64 %idxprom128
-  %b130 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx129, i32 0, i32 2
-  %call131 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b130) #3
-  %105 = call float @llvm.fmuladd.f32(float %call131, float 0x3F94113C60000000, float %101)
-  %106 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx132 = getelementptr inbounds ptr, ptr %106, i64 24
-  %107 = load ptr, ptr %arrayidx132, align 8
-  %108 = load i32, ptr %i, align 4
-  %idxprom133 = sext i32 %108 to i64
-  %arrayidx134 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %107, i64 %idxprom133
-  %b135 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx134, i32 0, i32 2
-  %call136 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b135) #3
-  %109 = call float @llvm.fmuladd.f32(float %call136, float 0xBF7EE24360000000, float %105)
-  %110 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx137 = getelementptr inbounds ptr, ptr %110, i64 26
-  %111 = load ptr, ptr %arrayidx137, align 8
-  %112 = load i32, ptr %i, align 4
-  %idxprom138 = sext i32 %112 to i64
-  %arrayidx139 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %111, i64 %idxprom138
-  %b140 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx139, i32 0, i32 2
-  %call141 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b140) #3
-  %113 = call float @llvm.fmuladd.f32(float %call141, float 0x3F616EBD40000000, float %109)
-  %114 = load ptr, ptr %ycaOut.addr, align 8
-  %115 = load i32, ptr %i, align 4
-  %idxprom142 = sext i32 %115 to i64
-  %arrayidx143 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %114, i64 %idxprom142
-  %b144 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx143, i32 0, i32 2
-  %call145 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %b144, float noundef %113) #3
-  %116 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx146 = getelementptr inbounds ptr, ptr %116, i64 13
-  %117 = load ptr, ptr %arrayidx146, align 8
-  %118 = load i32, ptr %i, align 4
-  %idxprom147 = sext i32 %118 to i64
-  %arrayidx148 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %117, i64 %idxprom147
-  %g = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx148, i32 0, i32 1
-  %119 = load ptr, ptr %ycaOut.addr, align 8
-  %120 = load i32, ptr %i, align 4
-  %idxprom149 = sext i32 %120 to i64
-  %arrayidx150 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %119, i64 %idxprom149
-  %g151 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx150, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %g151, ptr align 2 %g, i64 2, i1 false)
-  %121 = load ptr, ptr %ycaIn.addr, align 8
-  %arrayidx152 = getelementptr inbounds ptr, ptr %121, i64 13
-  %122 = load ptr, ptr %arrayidx152, align 8
-  %123 = load i32, ptr %i, align 4
-  %idxprom153 = sext i32 %123 to i64
-  %arrayidx154 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %122, i64 %idxprom153
-  %a = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx154, i32 0, i32 3
-  %124 = load ptr, ptr %ycaOut.addr, align 8
-  %125 = load i32, ptr %i, align 4
-  %idxprom155 = sext i32 %125 to i64
-  %arrayidx156 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %124, i64 %idxprom155
-  %a157 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %arrayidx156, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %a157, ptr align 2 %a, i64 2, i1 false)
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %126 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %126, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !10
-
-for.end:                                          ; preds = %for.cond
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Imf_3_27RgbaYca9YCAtoRGBAERKN9Imath_3_24Vec3IfEEiPKNS_4RgbaEPS6_(ptr noundef nonnull align 4 dereferenceable(12) %yw, i32 noundef %n, ptr noundef %ycaIn, ptr noundef %rgbaOut) #5 {
-entry:
-  %yw.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  %ycaIn.addr = alloca ptr, align 8
-  %rgbaOut.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %in = alloca ptr, align 8
-  %out = alloca ptr, align 8
-  %Y = alloca float, align 4
-  %r14 = alloca float, align 4
-  %b17 = alloca float, align 4
-  %g22 = alloca float, align 4
-  store ptr %yw, ptr %yw.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  store ptr %ycaIn, ptr %ycaIn.addr, align 8
-  store ptr %rgbaOut, ptr %rgbaOut.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %1 = load i32, ptr %n.addr, align 4
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %ycaIn.addr, align 8
-  %3 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %2, i64 %idxprom
-  store ptr %arrayidx, ptr %in, align 8
-  %4 = load ptr, ptr %rgbaOut.addr, align 8
-  %5 = load i32, ptr %i, align 4
-  %idxprom1 = sext i32 %5 to i64
-  %arrayidx2 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %4, i64 %idxprom1
-  store ptr %arrayidx2, ptr %out, align 8
-  %6 = load ptr, ptr %in, align 8
-  %r = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %6, i32 0, i32 0
-  %call = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r) #3
-  %cmp3 = fcmp oeq float %call, 0.000000e+00
-  br i1 %cmp3, label %land.lhs.true, label %if.else
-
-land.lhs.true:                                    ; preds = %for.body
-  %7 = load ptr, ptr %in, align 8
-  %b = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %7, i32 0, i32 2
-  %call4 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b) #3
-  %cmp5 = fcmp oeq float %call4, 0.000000e+00
-  br i1 %cmp5, label %if.then, label %if.else
-
-if.then:                                          ; preds = %land.lhs.true
-  %8 = load ptr, ptr %in, align 8
-  %g = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %8, i32 0, i32 1
-  %9 = load ptr, ptr %out, align 8
-  %r6 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %9, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %r6, ptr align 2 %g, i64 2, i1 false)
-  %10 = load ptr, ptr %in, align 8
-  %g7 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %10, i32 0, i32 1
-  %11 = load ptr, ptr %out, align 8
-  %g8 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %11, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %g8, ptr align 2 %g7, i64 2, i1 false)
-  %12 = load ptr, ptr %in, align 8
-  %g9 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %12, i32 0, i32 1
-  %13 = load ptr, ptr %out, align 8
-  %b10 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %13, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %b10, ptr align 2 %g9, i64 2, i1 false)
-  %14 = load ptr, ptr %in, align 8
-  %a = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %14, i32 0, i32 3
-  %15 = load ptr, ptr %out, align 8
-  %a11 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %15, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %a11, ptr align 2 %a, i64 2, i1 false)
-  br label %if.end
-
-if.else:                                          ; preds = %land.lhs.true, %for.body
-  %16 = load ptr, ptr %in, align 8
-  %g12 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %16, i32 0, i32 1
-  %call13 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %g12) #3
-  store float %call13, ptr %Y, align 4
-  %17 = load ptr, ptr %in, align 8
-  %r15 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %17, i32 0, i32 0
-  %call16 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r15) #3
-  %add = fadd float %call16, 1.000000e+00
-  %18 = load float, ptr %Y, align 4
-  %mul = fmul float %add, %18
-  store float %mul, ptr %r14, align 4
-  %19 = load ptr, ptr %in, align 8
-  %b18 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %19, i32 0, i32 2
-  %call19 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b18) #3
-  %add20 = fadd float %call19, 1.000000e+00
-  %20 = load float, ptr %Y, align 4
-  %mul21 = fmul float %add20, %20
-  store float %mul21, ptr %b17, align 4
-  %21 = load float, ptr %Y, align 4
-  %22 = load float, ptr %r14, align 4
-  %23 = load ptr, ptr %yw.addr, align 8
-  %x = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %23, i32 0, i32 0
-  %24 = load float, ptr %x, align 4
-  %neg = fneg float %22
-  %25 = call float @llvm.fmuladd.f32(float %neg, float %24, float %21)
-  %26 = load float, ptr %b17, align 4
-  %27 = load ptr, ptr %yw.addr, align 8
-  %z = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %27, i32 0, i32 2
-  %28 = load float, ptr %z, align 4
-  %neg25 = fneg float %26
-  %29 = call float @llvm.fmuladd.f32(float %neg25, float %28, float %25)
-  %30 = load ptr, ptr %yw.addr, align 8
-  %y = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %30, i32 0, i32 1
-  %31 = load float, ptr %y, align 4
-  %div = fdiv float %29, %31
-  store float %div, ptr %g22, align 4
-  %32 = load float, ptr %r14, align 4
-  %33 = load ptr, ptr %out, align 8
-  %r26 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %33, i32 0, i32 0
-  %call27 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %r26, float noundef %32) #3
-  %34 = load float, ptr %g22, align 4
-  %35 = load ptr, ptr %out, align 8
-  %g28 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %35, i32 0, i32 1
-  %call29 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %g28, float noundef %34) #3
-  %36 = load float, ptr %b17, align 4
-  %37 = load ptr, ptr %out, align 8
-  %b30 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %37, i32 0, i32 2
-  %call31 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %b30, float noundef %36) #3
-  %38 = load ptr, ptr %in, align 8
-  %a32 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %38, i32 0, i32 3
-  %39 = load ptr, ptr %out, align 8
-  %a33 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %39, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %a33, ptr align 2 %a32, i64 2, i1 false)
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end
-  %40 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %40, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !11
-
-for.end:                                          ; preds = %for.cond
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_27RgbaYca13fixSaturationERKN9Imath_3_24Vec3IfEEiPKPKNS_4RgbaEPS6_(ptr noundef nonnull align 4 dereferenceable(12) %yw, i32 noundef %n, ptr noundef %rgbaIn, ptr noundef %rgbaOut) #4 {
-entry:
-  %yw.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  %rgbaIn.addr = alloca ptr, align 8
-  %rgbaOut.addr = alloca ptr, align 8
-  %neighborA2 = alloca float, align 4
-  %neighborA1 = alloca float, align 4
-  %neighborB2 = alloca float, align 4
-  %neighborB1 = alloca float, align 4
-  %i = alloca i32, align 4
-  %neighborA0 = alloca float, align 4
-  %neighborB0 = alloca float, align 4
-  %sMean = alloca float, align 4
-  %ref.tmp = alloca float, align 4
-  %ref.tmp14 = alloca float, align 4
-  %in = alloca ptr, align 8
-  %out = alloca ptr, align 8
-  %s = alloca float, align 4
-  %sMax = alloca float, align 4
-  %ref.tmp27 = alloca float, align 4
-  %ref.tmp28 = alloca float, align 4
-  store ptr %yw, ptr %yw.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  store ptr %rgbaIn, ptr %rgbaIn.addr, align 8
-  store ptr %rgbaOut, ptr %rgbaOut.addr, align 8
-  %0 = load ptr, ptr %rgbaIn.addr, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 0
-  %1 = load ptr, ptr %arrayidx, align 8
-  %arrayidx1 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %1, i64 0
-  %call = call noundef float @_ZN7Imf_3_27RgbaYca12_GLOBAL__N_110saturationERKNS_4RgbaE(ptr noundef nonnull align 2 dereferenceable(8) %arrayidx1)
-  store float %call, ptr %neighborA2, align 4
-  %2 = load float, ptr %neighborA2, align 4
-  store float %2, ptr %neighborA1, align 4
-  %3 = load ptr, ptr %rgbaIn.addr, align 8
-  %arrayidx2 = getelementptr inbounds ptr, ptr %3, i64 2
-  %4 = load ptr, ptr %arrayidx2, align 8
-  %arrayidx3 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %4, i64 0
-  %call4 = call noundef float @_ZN7Imf_3_27RgbaYca12_GLOBAL__N_110saturationERKNS_4RgbaE(ptr noundef nonnull align 2 dereferenceable(8) %arrayidx3)
-  store float %call4, ptr %neighborB2, align 4
-  %5 = load float, ptr %neighborB2, align 4
-  store float %5, ptr %neighborB1, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %6 = load i32, ptr %i, align 4
-  %7 = load i32, ptr %n.addr, align 4
-  %cmp = icmp slt i32 %6, %7
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %8 = load float, ptr %neighborA1, align 4
-  store float %8, ptr %neighborA0, align 4
-  %9 = load float, ptr %neighborA2, align 4
-  store float %9, ptr %neighborA1, align 4
-  %10 = load float, ptr %neighborB1, align 4
-  store float %10, ptr %neighborB0, align 4
-  %11 = load float, ptr %neighborB2, align 4
-  store float %11, ptr %neighborB1, align 4
-  %12 = load i32, ptr %i, align 4
-  %13 = load i32, ptr %n.addr, align 4
-  %sub = sub nsw i32 %13, 1
-  %cmp5 = icmp slt i32 %12, %sub
-  br i1 %cmp5, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.body
-  %14 = load ptr, ptr %rgbaIn.addr, align 8
-  %arrayidx6 = getelementptr inbounds ptr, ptr %14, i64 0
-  %15 = load ptr, ptr %arrayidx6, align 8
-  %16 = load i32, ptr %i, align 4
-  %add = add nsw i32 %16, 1
-  %idxprom = sext i32 %add to i64
-  %arrayidx7 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %15, i64 %idxprom
-  %call8 = call noundef float @_ZN7Imf_3_27RgbaYca12_GLOBAL__N_110saturationERKNS_4RgbaE(ptr noundef nonnull align 2 dereferenceable(8) %arrayidx7)
-  store float %call8, ptr %neighborA2, align 4
-  %17 = load ptr, ptr %rgbaIn.addr, align 8
-  %arrayidx9 = getelementptr inbounds ptr, ptr %17, i64 2
-  %18 = load ptr, ptr %arrayidx9, align 8
-  %19 = load i32, ptr %i, align 4
-  %add10 = add nsw i32 %19, 1
-  %idxprom11 = sext i32 %add10 to i64
-  %arrayidx12 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %18, i64 %idxprom11
-  %call13 = call noundef float @_ZN7Imf_3_27RgbaYca12_GLOBAL__N_110saturationERKNS_4RgbaE(ptr noundef nonnull align 2 dereferenceable(8) %arrayidx12)
-  store float %call13, ptr %neighborB2, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %for.body
-  store float 1.000000e+00, ptr %ref.tmp, align 4
-  %20 = load float, ptr %neighborA0, align 4
-  %21 = load float, ptr %neighborA2, align 4
-  %add15 = fadd float %20, %21
-  %22 = load float, ptr %neighborB0, align 4
-  %add16 = fadd float %add15, %22
-  %23 = load float, ptr %neighborB2, align 4
-  %add17 = fadd float %add16, %23
-  %mul = fmul float 2.500000e-01, %add17
-  store float %mul, ptr %ref.tmp14, align 4
-  %call18 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp14)
-  %24 = load float, ptr %call18, align 4
-  store float %24, ptr %sMean, align 4
-  %25 = load ptr, ptr %rgbaIn.addr, align 8
-  %arrayidx19 = getelementptr inbounds ptr, ptr %25, i64 1
-  %26 = load ptr, ptr %arrayidx19, align 8
-  %27 = load i32, ptr %i, align 4
-  %idxprom20 = sext i32 %27 to i64
-  %arrayidx21 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %26, i64 %idxprom20
-  store ptr %arrayidx21, ptr %in, align 8
-  %28 = load ptr, ptr %rgbaOut.addr, align 8
-  %29 = load i32, ptr %i, align 4
-  %idxprom22 = sext i32 %29 to i64
-  %arrayidx23 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %28, i64 %idxprom22
-  store ptr %arrayidx23, ptr %out, align 8
-  %30 = load ptr, ptr %in, align 8
-  %call24 = call noundef float @_ZN7Imf_3_27RgbaYca12_GLOBAL__N_110saturationERKNS_4RgbaE(ptr noundef nonnull align 2 dereferenceable(8) %30)
-  store float %call24, ptr %s, align 4
-  %31 = load float, ptr %s, align 4
-  %32 = load float, ptr %sMean, align 4
-  %cmp25 = fcmp ogt float %31, %32
-  br i1 %cmp25, label %if.then26, label %if.end35
-
-if.then26:                                        ; preds = %if.end
-  store float 1.000000e+00, ptr %ref.tmp27, align 4
-  %33 = load float, ptr %sMean, align 4
-  %sub29 = fsub float 1.000000e+00, %33
-  %neg = fneg float %sub29
-  %34 = call float @llvm.fmuladd.f32(float %neg, float 2.500000e-01, float 1.000000e+00)
-  store float %34, ptr %ref.tmp28, align 4
-  %call31 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp27, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp28)
-  %35 = load float, ptr %call31, align 4
-  store float %35, ptr %sMax, align 4
-  %36 = load float, ptr %s, align 4
-  %37 = load float, ptr %sMax, align 4
-  %cmp32 = fcmp ogt float %36, %37
-  br i1 %cmp32, label %if.then33, label %if.end34
-
-if.then33:                                        ; preds = %if.then26
-  %38 = load ptr, ptr %in, align 8
-  %39 = load float, ptr %sMax, align 4
-  %40 = load float, ptr %s, align 4
-  %div = fdiv float %39, %40
-  %41 = load ptr, ptr %yw.addr, align 8
-  %42 = load ptr, ptr %out, align 8
-  call void @_ZN7Imf_3_27RgbaYca12_GLOBAL__N_110desaturateERKNS_4RgbaEfRKN9Imath_3_24Vec3IfEERS2_(ptr noundef nonnull align 2 dereferenceable(8) %38, float noundef %div, ptr noundef nonnull align 4 dereferenceable(12) %41, ptr noundef nonnull align 2 dereferenceable(8) %42)
-  br label %for.inc
-
-if.end34:                                         ; preds = %if.then26
-  br label %if.end35
-
-if.end35:                                         ; preds = %if.end34, %if.end
-  %43 = load ptr, ptr %in, align 8
-  %44 = load ptr, ptr %out, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %44, ptr align 2 %43, i64 8, i1 false)
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end35, %if.then33
-  %45 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %45, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !12
-
-for.end:                                          ; preds = %for.cond
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN7Imf_3_27RgbaYca12_GLOBAL__N_110saturationERKNS_4RgbaE(ptr noundef nonnull align 2 dereferenceable(8) %in) #4 {
-entry:
-  %retval = alloca float, align 4
-  %in.addr = alloca ptr, align 8
-  %rgbMax = alloca float, align 4
-  %rgbMin = alloca float, align 4
-  store ptr %in, ptr %in.addr, align 8
-  %0 = load ptr, ptr %in.addr, align 8
-  %r = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %in.addr, align 8
-  %g = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %in.addr, align 8
-  %b = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %2, i32 0, i32 2
-  %call = call noundef nonnull align 2 dereferenceable(2) ptr @_ZSt3maxIN9Imath_3_24halfEERKT_S4_S4_(ptr noundef nonnull align 2 dereferenceable(2) %g, ptr noundef nonnull align 2 dereferenceable(2) %b)
-  %call1 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZSt3maxIN9Imath_3_24halfEERKT_S4_S4_(ptr noundef nonnull align 2 dereferenceable(2) %r, ptr noundef nonnull align 2 dereferenceable(2) %call)
-  %call2 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %call1) #3
-  store float %call2, ptr %rgbMax, align 4
-  %3 = load ptr, ptr %in.addr, align 8
-  %r3 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %in.addr, align 8
-  %g4 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %in.addr, align 8
-  %b5 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %5, i32 0, i32 2
-  %call6 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZSt3minIN9Imath_3_24halfEERKT_S4_S4_(ptr noundef nonnull align 2 dereferenceable(2) %g4, ptr noundef nonnull align 2 dereferenceable(2) %b5)
-  %call7 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZSt3minIN9Imath_3_24halfEERKT_S4_S4_(ptr noundef nonnull align 2 dereferenceable(2) %r3, ptr noundef nonnull align 2 dereferenceable(2) %call6)
-  %call8 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %call7) #3
-  store float %call8, ptr %rgbMin, align 4
-  %6 = load float, ptr %rgbMax, align 4
-  %cmp = fcmp ogt float %6, 0.000000e+00
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %7 = load float, ptr %rgbMin, align 4
-  %8 = load float, ptr %rgbMax, align 4
-  %div = fdiv float %7, %8
-  %sub = fsub float 1.000000e+00, %div
-  store float %sub, ptr %retval, align 4
-  br label %return
-
-if.else:                                          ; preds = %entry
-  store float 0.000000e+00, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.else, %if.then
-  %9 = load float, ptr %retval, align 4
-  ret float %9
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %__a, ptr noundef nonnull align 4 dereferenceable(4) %__b) #5 comdat {
-entry:
-  %retval = alloca ptr, align 8
-  %__a.addr = alloca ptr, align 8
-  %__b.addr = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__b.addr, align 8
-  %1 = load float, ptr %0, align 4
-  %2 = load ptr, ptr %__a.addr, align 8
-  %3 = load float, ptr %2, align 4
-  %cmp = fcmp olt float %1, %3
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %__b.addr, align 8
-  store ptr %4, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %__a.addr, align 8
-  store ptr %5, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %6 = load ptr, ptr %retval, align 8
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %0, float noundef %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca float, align 4
+  %5 = alloca %"class.Imath_3_2::half", align 2
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store float %1, ptr %4, align 4, !tbaa !8
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %5) #3
+  %7 = load float, ptr %4, align 4, !tbaa !8
+  call void @_ZN9Imath_3_24halfC2Ef(ptr noundef nonnull align 2 dereferenceable(2) %5, float noundef %7) #3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %6, ptr align 2 %5, i64 2, i1 false), !tbaa.struct !27
+  call void @llvm.lifetime.end.p0(i64 2, ptr %5) #3
   ret ptr %6
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN7Imf_3_27RgbaYca12_GLOBAL__N_110desaturateERKNS_4RgbaEfRKN9Imath_3_24Vec3IfEERS2_(ptr noundef nonnull align 2 dereferenceable(8) %in, float noundef %f, ptr noundef nonnull align 4 dereferenceable(12) %yw, ptr noundef nonnull align 2 dereferenceable(8) %out) #4 {
-entry:
-  %in.addr = alloca ptr, align 8
-  %f.addr = alloca float, align 4
-  %yw.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  %rgbMax = alloca float, align 4
-  %ref.tmp = alloca float, align 4
-  %ref.tmp5 = alloca float, align 4
-  %ref.tmp9 = alloca float, align 4
-  %ref.tmp14 = alloca float, align 4
-  %ref.tmp18 = alloca float, align 4
-  %ref.tmp23 = alloca float, align 4
-  %Yin = alloca float, align 4
-  %Yout = alloca float, align 4
-  store ptr %in, ptr %in.addr, align 8
-  store float %f, ptr %f.addr, align 4
-  store ptr %yw, ptr %yw.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  %0 = load ptr, ptr %in.addr, align 8
-  %r = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %in.addr, align 8
-  %g = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %in.addr, align 8
-  %b = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %2, i32 0, i32 2
-  %call = call noundef nonnull align 2 dereferenceable(2) ptr @_ZSt3maxIN9Imath_3_24halfEERKT_S4_S4_(ptr noundef nonnull align 2 dereferenceable(2) %g, ptr noundef nonnull align 2 dereferenceable(2) %b)
-  %call1 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZSt3maxIN9Imath_3_24halfEERKT_S4_S4_(ptr noundef nonnull align 2 dereferenceable(2) %r, ptr noundef nonnull align 2 dereferenceable(2) %call)
-  %call2 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %call1) #3
-  store float %call2, ptr %rgbMax, align 4
-  %3 = load float, ptr %rgbMax, align 4
-  %4 = load float, ptr %rgbMax, align 4
-  %5 = load ptr, ptr %in.addr, align 8
-  %r3 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %5, i32 0, i32 0
-  %call4 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r3) #3
-  %sub = fsub float %4, %call4
-  %6 = load float, ptr %f.addr, align 4
-  %neg = fneg float %sub
-  %7 = call float @llvm.fmuladd.f32(float %neg, float %6, float %3)
-  store float %7, ptr %ref.tmp, align 4
-  store float 0.000000e+00, ptr %ref.tmp5, align 4
-  %call6 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp5)
-  %8 = load float, ptr %call6, align 4
-  %9 = load ptr, ptr %out.addr, align 8
-  %r7 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %9, i32 0, i32 0
-  %call8 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %r7, float noundef %8) #3
-  %10 = load float, ptr %rgbMax, align 4
-  %11 = load float, ptr %rgbMax, align 4
-  %12 = load ptr, ptr %in.addr, align 8
-  %g10 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %12, i32 0, i32 1
-  %call11 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %g10) #3
-  %sub12 = fsub float %11, %call11
-  %13 = load float, ptr %f.addr, align 4
-  %neg13 = fneg float %sub12
-  %14 = call float @llvm.fmuladd.f32(float %neg13, float %13, float %10)
-  store float %14, ptr %ref.tmp9, align 4
-  store float 0.000000e+00, ptr %ref.tmp14, align 4
-  %call15 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp9, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp14)
-  %15 = load float, ptr %call15, align 4
-  %16 = load ptr, ptr %out.addr, align 8
-  %g16 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %16, i32 0, i32 1
-  %call17 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %g16, float noundef %15) #3
-  %17 = load float, ptr %rgbMax, align 4
-  %18 = load float, ptr %rgbMax, align 4
-  %19 = load ptr, ptr %in.addr, align 8
-  %b19 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %19, i32 0, i32 2
-  %call20 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b19) #3
-  %sub21 = fsub float %18, %call20
-  %20 = load float, ptr %f.addr, align 4
-  %neg22 = fneg float %sub21
-  %21 = call float @llvm.fmuladd.f32(float %neg22, float %20, float %17)
-  store float %21, ptr %ref.tmp18, align 4
-  store float 0.000000e+00, ptr %ref.tmp23, align 4
-  %call24 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp18, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp23)
-  %22 = load float, ptr %call24, align 4
-  %23 = load ptr, ptr %out.addr, align 8
-  %b25 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %23, i32 0, i32 2
-  %call26 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %b25, float noundef %22) #3
-  %24 = load ptr, ptr %in.addr, align 8
-  %a = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %24, i32 0, i32 3
-  %25 = load ptr, ptr %out.addr, align 8
-  %a27 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %25, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %a27, ptr align 2 %a, i64 2, i1 false)
-  %26 = load ptr, ptr %in.addr, align 8
-  %r28 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %26, i32 0, i32 0
-  %call29 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r28) #3
-  %27 = load ptr, ptr %yw.addr, align 8
-  %x = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %27, i32 0, i32 0
-  %28 = load float, ptr %x, align 4
-  %29 = load ptr, ptr %in.addr, align 8
-  %g30 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %29, i32 0, i32 1
-  %call31 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %g30) #3
-  %30 = load ptr, ptr %yw.addr, align 8
-  %y = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %30, i32 0, i32 1
-  %31 = load float, ptr %y, align 4
-  %mul32 = fmul float %call31, %31
-  %32 = call float @llvm.fmuladd.f32(float %call29, float %28, float %mul32)
-  %33 = load ptr, ptr %in.addr, align 8
-  %b33 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %33, i32 0, i32 2
-  %call34 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b33) #3
-  %34 = load ptr, ptr %yw.addr, align 8
-  %z = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %34, i32 0, i32 2
-  %35 = load float, ptr %z, align 4
-  %36 = call float @llvm.fmuladd.f32(float %call34, float %35, float %32)
-  store float %36, ptr %Yin, align 4
-  %37 = load ptr, ptr %out.addr, align 8
-  %r35 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %37, i32 0, i32 0
-  %call36 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %r35) #3
-  %38 = load ptr, ptr %yw.addr, align 8
-  %x37 = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %38, i32 0, i32 0
-  %39 = load float, ptr %x37, align 4
-  %40 = load ptr, ptr %out.addr, align 8
-  %g38 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %40, i32 0, i32 1
-  %call39 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %g38) #3
-  %41 = load ptr, ptr %yw.addr, align 8
-  %y40 = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %41, i32 0, i32 1
-  %42 = load float, ptr %y40, align 4
-  %mul41 = fmul float %call39, %42
-  %43 = call float @llvm.fmuladd.f32(float %call36, float %39, float %mul41)
-  %44 = load ptr, ptr %out.addr, align 8
-  %b42 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %44, i32 0, i32 2
-  %call43 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %b42) #3
-  %45 = load ptr, ptr %yw.addr, align 8
-  %z44 = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %45, i32 0, i32 2
-  %46 = load float, ptr %z44, align 4
-  %47 = call float @llvm.fmuladd.f32(float %call43, float %46, float %43)
-  store float %47, ptr %Yout, align 4
-  %48 = load float, ptr %Yout, align 4
-  %cmp = fcmp ogt float %48, 0.000000e+00
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fmuladd.f32(float, float, float) #8
 
-if.then:                                          ; preds = %entry
-  %49 = load float, ptr %Yin, align 4
-  %50 = load float, ptr %Yout, align 4
-  %div = fdiv float %49, %50
-  %51 = load ptr, ptr %out.addr, align 8
-  %r45 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %51, i32 0, i32 0
-  %call46 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfmLEf(ptr noundef nonnull align 2 dereferenceable(2) %r45, float noundef %div) #3
-  %52 = load float, ptr %Yin, align 4
-  %53 = load float, ptr %Yout, align 4
-  %div47 = fdiv float %52, %53
-  %54 = load ptr, ptr %out.addr, align 8
-  %g48 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %54, i32 0, i32 1
-  %call49 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfmLEf(ptr noundef nonnull align 2 dereferenceable(2) %g48, float noundef %div47) #3
-  %55 = load float, ptr %Yin, align 4
-  %56 = load float, ptr %Yout, align 4
-  %div50 = fdiv float %55, %56
-  %57 = load ptr, ptr %out.addr, align 8
-  %b51 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %57, i32 0, i32 2
-  %call52 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfmLEf(ptr noundef nonnull align 2 dereferenceable(2) %b51, float noundef %div50) #3
-  br label %if.end
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef float @_ZSt3absf(float noundef %0) #6 comdat {
+  %2 = alloca float, align 4
+  store float %0, ptr %2, align 4, !tbaa !8
+  %3 = load float, ptr %2, align 4, !tbaa !8
+  %4 = call float @llvm.fabs.f32(float %3)
+  ret float %4
+}
 
-if.end:                                           ; preds = %if.then, %entry
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN7Imf_3_47RgbaYca19decimateChromaHorizEiPKNS_4RgbaEPS1_(i32 noundef %0, ptr noundef %1, ptr noundef %2) #9 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !12
+  store ptr %1, ptr %5, align 8, !tbaa !22
+  store ptr %2, ptr %6, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  store i32 13, ptr %7, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  %11 = load i32, ptr %7, align 4, !tbaa !12
+  %12 = load i32, ptr %4, align 4, !tbaa !12
+  %13 = add nsw i32 %11, %12
+  store i32 %13, ptr %8, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  %14 = load i32, ptr %7, align 4, !tbaa !12
+  store i32 %14, ptr %9, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  store i32 0, ptr %10, align 4, !tbaa !12
+  br label %15
+
+15:                                               ; preds = %296, %3
+  %16 = load i32, ptr %9, align 4, !tbaa !12
+  %17 = load i32, ptr %8, align 4, !tbaa !12
+  %18 = icmp slt i32 %16, %17
+  br i1 %18, label %20, label %19
+
+19:                                               ; preds = %15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  br label %301
+
+20:                                               ; preds = %15
+  %21 = load i32, ptr %10, align 4, !tbaa !12
+  %22 = and i32 %21, 1
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %275
+
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %5, align 8, !tbaa !22
+  %26 = load i32, ptr %9, align 4, !tbaa !12
+  %27 = sub nsw i32 %26, 13
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %25, i64 %28
+  %30 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %29, i32 0, i32 0
+  %31 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %30) #3
+  %32 = load ptr, ptr %5, align 8, !tbaa !22
+  %33 = load i32, ptr %9, align 4, !tbaa !12
+  %34 = sub nsw i32 %33, 11
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %32, i64 %35
+  %37 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %36, i32 0, i32 0
+  %38 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %37) #3
+  %39 = fmul float %38, 0xBF6EE45C40000000
+  %40 = call float @llvm.fmuladd.f32(float %31, float 0x3F516EBD40000000, float %39)
+  %41 = load ptr, ptr %5, align 8, !tbaa !22
+  %42 = load i32, ptr %9, align 4, !tbaa !12
+  %43 = sub nsw i32 %42, 9
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %41, i64 %44
+  %46 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %45, i32 0, i32 0
+  %47 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %46) #3
+  %48 = call float @llvm.fmuladd.f32(float %47, float 0x3F84128C00000000, float %40)
+  %49 = load ptr, ptr %5, align 8, !tbaa !22
+  %50 = load i32, ptr %9, align 4, !tbaa !12
+  %51 = sub nsw i32 %50, 7
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %49, i64 %52
+  %54 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %53, i32 0, i32 0
+  %55 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %54) #3
+  %56 = call float @llvm.fmuladd.f32(float %55, float 0xBF961AA400000000, float %48)
+  %57 = load ptr, ptr %5, align 8, !tbaa !22
+  %58 = load i32, ptr %9, align 4, !tbaa !12
+  %59 = sub nsw i32 %58, 5
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %57, i64 %60
+  %62 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %61, i32 0, i32 0
+  %63 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %62) #3
+  %64 = call float @llvm.fmuladd.f32(float %63, float 0x3FA68448C0000000, float %56)
+  %65 = load ptr, ptr %5, align 8, !tbaa !22
+  %66 = load i32, ptr %9, align 4, !tbaa !12
+  %67 = sub nsw i32 %66, 3
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %65, i64 %68
+  %70 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %69, i32 0, i32 0
+  %71 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %70) #3
+  %72 = call float @llvm.fmuladd.f32(float %71, float 0xBFB7D33D20000000, float %64)
+  %73 = load ptr, ptr %5, align 8, !tbaa !22
+  %74 = load i32, ptr %9, align 4, !tbaa !12
+  %75 = sub nsw i32 %74, 1
+  %76 = sext i32 %75 to i64
+  %77 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %73, i64 %76
+  %78 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %77, i32 0, i32 0
+  %79 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %78) #3
+  %80 = call float @llvm.fmuladd.f32(float %79, float 0x3FD412FD40000000, float %72)
+  %81 = load ptr, ptr %5, align 8, !tbaa !22
+  %82 = load i32, ptr %9, align 4, !tbaa !12
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %81, i64 %83
+  %85 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %84, i32 0, i32 0
+  %86 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %85) #3
+  %87 = call float @llvm.fmuladd.f32(float %86, float 0x3FDFFD7A20000000, float %80)
+  %88 = load ptr, ptr %5, align 8, !tbaa !22
+  %89 = load i32, ptr %9, align 4, !tbaa !12
+  %90 = add nsw i32 %89, 1
+  %91 = sext i32 %90 to i64
+  %92 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %88, i64 %91
+  %93 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %92, i32 0, i32 0
+  %94 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %93) #3
+  %95 = call float @llvm.fmuladd.f32(float %94, float 0x3FD412FD40000000, float %87)
+  %96 = load ptr, ptr %5, align 8, !tbaa !22
+  %97 = load i32, ptr %9, align 4, !tbaa !12
+  %98 = add nsw i32 %97, 3
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %96, i64 %99
+  %101 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %100, i32 0, i32 0
+  %102 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %101) #3
+  %103 = call float @llvm.fmuladd.f32(float %102, float 0xBFB7D33D20000000, float %95)
+  %104 = load ptr, ptr %5, align 8, !tbaa !22
+  %105 = load i32, ptr %9, align 4, !tbaa !12
+  %106 = add nsw i32 %105, 5
+  %107 = sext i32 %106 to i64
+  %108 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %104, i64 %107
+  %109 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %108, i32 0, i32 0
+  %110 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %109) #3
+  %111 = call float @llvm.fmuladd.f32(float %110, float 0x3FA68448C0000000, float %103)
+  %112 = load ptr, ptr %5, align 8, !tbaa !22
+  %113 = load i32, ptr %9, align 4, !tbaa !12
+  %114 = add nsw i32 %113, 7
+  %115 = sext i32 %114 to i64
+  %116 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %112, i64 %115
+  %117 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %116, i32 0, i32 0
+  %118 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %117) #3
+  %119 = call float @llvm.fmuladd.f32(float %118, float 0xBF961AA400000000, float %111)
+  %120 = load ptr, ptr %5, align 8, !tbaa !22
+  %121 = load i32, ptr %9, align 4, !tbaa !12
+  %122 = add nsw i32 %121, 9
+  %123 = sext i32 %122 to i64
+  %124 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %120, i64 %123
+  %125 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %124, i32 0, i32 0
+  %126 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %125) #3
+  %127 = call float @llvm.fmuladd.f32(float %126, float 0x3F84128C00000000, float %119)
+  %128 = load ptr, ptr %5, align 8, !tbaa !22
+  %129 = load i32, ptr %9, align 4, !tbaa !12
+  %130 = add nsw i32 %129, 11
+  %131 = sext i32 %130 to i64
+  %132 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %128, i64 %131
+  %133 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %132, i32 0, i32 0
+  %134 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %133) #3
+  %135 = call float @llvm.fmuladd.f32(float %134, float 0xBF6EE45C40000000, float %127)
+  %136 = load ptr, ptr %5, align 8, !tbaa !22
+  %137 = load i32, ptr %9, align 4, !tbaa !12
+  %138 = add nsw i32 %137, 13
+  %139 = sext i32 %138 to i64
+  %140 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %136, i64 %139
+  %141 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %140, i32 0, i32 0
+  %142 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %141) #3
+  %143 = call float @llvm.fmuladd.f32(float %142, float 0x3F516EBD40000000, float %135)
+  %144 = load ptr, ptr %6, align 8, !tbaa !22
+  %145 = load i32, ptr %10, align 4, !tbaa !12
+  %146 = sext i32 %145 to i64
+  %147 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %144, i64 %146
+  %148 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %147, i32 0, i32 0
+  %149 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %148, float noundef %143) #3
+  %150 = load ptr, ptr %5, align 8, !tbaa !22
+  %151 = load i32, ptr %9, align 4, !tbaa !12
+  %152 = sub nsw i32 %151, 13
+  %153 = sext i32 %152 to i64
+  %154 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %150, i64 %153
+  %155 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %154, i32 0, i32 2
+  %156 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %155) #3
+  %157 = load ptr, ptr %5, align 8, !tbaa !22
+  %158 = load i32, ptr %9, align 4, !tbaa !12
+  %159 = sub nsw i32 %158, 11
+  %160 = sext i32 %159 to i64
+  %161 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %157, i64 %160
+  %162 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %161, i32 0, i32 2
+  %163 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %162) #3
+  %164 = fmul float %163, 0xBF6EE45C40000000
+  %165 = call float @llvm.fmuladd.f32(float %156, float 0x3F516EBD40000000, float %164)
+  %166 = load ptr, ptr %5, align 8, !tbaa !22
+  %167 = load i32, ptr %9, align 4, !tbaa !12
+  %168 = sub nsw i32 %167, 9
+  %169 = sext i32 %168 to i64
+  %170 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %166, i64 %169
+  %171 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %170, i32 0, i32 2
+  %172 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %171) #3
+  %173 = call float @llvm.fmuladd.f32(float %172, float 0x3F84128C00000000, float %165)
+  %174 = load ptr, ptr %5, align 8, !tbaa !22
+  %175 = load i32, ptr %9, align 4, !tbaa !12
+  %176 = sub nsw i32 %175, 7
+  %177 = sext i32 %176 to i64
+  %178 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %174, i64 %177
+  %179 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %178, i32 0, i32 2
+  %180 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %179) #3
+  %181 = call float @llvm.fmuladd.f32(float %180, float 0xBF961AA400000000, float %173)
+  %182 = load ptr, ptr %5, align 8, !tbaa !22
+  %183 = load i32, ptr %9, align 4, !tbaa !12
+  %184 = sub nsw i32 %183, 5
+  %185 = sext i32 %184 to i64
+  %186 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %182, i64 %185
+  %187 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %186, i32 0, i32 2
+  %188 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %187) #3
+  %189 = call float @llvm.fmuladd.f32(float %188, float 0x3FA68448C0000000, float %181)
+  %190 = load ptr, ptr %5, align 8, !tbaa !22
+  %191 = load i32, ptr %9, align 4, !tbaa !12
+  %192 = sub nsw i32 %191, 3
+  %193 = sext i32 %192 to i64
+  %194 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %190, i64 %193
+  %195 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %194, i32 0, i32 2
+  %196 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %195) #3
+  %197 = call float @llvm.fmuladd.f32(float %196, float 0xBFB7D33D20000000, float %189)
+  %198 = load ptr, ptr %5, align 8, !tbaa !22
+  %199 = load i32, ptr %9, align 4, !tbaa !12
+  %200 = sub nsw i32 %199, 1
+  %201 = sext i32 %200 to i64
+  %202 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %198, i64 %201
+  %203 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %202, i32 0, i32 2
+  %204 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %203) #3
+  %205 = call float @llvm.fmuladd.f32(float %204, float 0x3FD412FD40000000, float %197)
+  %206 = load ptr, ptr %5, align 8, !tbaa !22
+  %207 = load i32, ptr %9, align 4, !tbaa !12
+  %208 = sext i32 %207 to i64
+  %209 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %206, i64 %208
+  %210 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %209, i32 0, i32 2
+  %211 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %210) #3
+  %212 = call float @llvm.fmuladd.f32(float %211, float 0x3FDFFD7A20000000, float %205)
+  %213 = load ptr, ptr %5, align 8, !tbaa !22
+  %214 = load i32, ptr %9, align 4, !tbaa !12
+  %215 = add nsw i32 %214, 1
+  %216 = sext i32 %215 to i64
+  %217 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %213, i64 %216
+  %218 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %217, i32 0, i32 2
+  %219 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %218) #3
+  %220 = call float @llvm.fmuladd.f32(float %219, float 0x3FD412FD40000000, float %212)
+  %221 = load ptr, ptr %5, align 8, !tbaa !22
+  %222 = load i32, ptr %9, align 4, !tbaa !12
+  %223 = add nsw i32 %222, 3
+  %224 = sext i32 %223 to i64
+  %225 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %221, i64 %224
+  %226 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %225, i32 0, i32 2
+  %227 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %226) #3
+  %228 = call float @llvm.fmuladd.f32(float %227, float 0xBFB7D33D20000000, float %220)
+  %229 = load ptr, ptr %5, align 8, !tbaa !22
+  %230 = load i32, ptr %9, align 4, !tbaa !12
+  %231 = add nsw i32 %230, 5
+  %232 = sext i32 %231 to i64
+  %233 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %229, i64 %232
+  %234 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %233, i32 0, i32 2
+  %235 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %234) #3
+  %236 = call float @llvm.fmuladd.f32(float %235, float 0x3FA68448C0000000, float %228)
+  %237 = load ptr, ptr %5, align 8, !tbaa !22
+  %238 = load i32, ptr %9, align 4, !tbaa !12
+  %239 = add nsw i32 %238, 7
+  %240 = sext i32 %239 to i64
+  %241 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %237, i64 %240
+  %242 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %241, i32 0, i32 2
+  %243 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %242) #3
+  %244 = call float @llvm.fmuladd.f32(float %243, float 0xBF961AA400000000, float %236)
+  %245 = load ptr, ptr %5, align 8, !tbaa !22
+  %246 = load i32, ptr %9, align 4, !tbaa !12
+  %247 = add nsw i32 %246, 9
+  %248 = sext i32 %247 to i64
+  %249 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %245, i64 %248
+  %250 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %249, i32 0, i32 2
+  %251 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %250) #3
+  %252 = call float @llvm.fmuladd.f32(float %251, float 0x3F84128C00000000, float %244)
+  %253 = load ptr, ptr %5, align 8, !tbaa !22
+  %254 = load i32, ptr %9, align 4, !tbaa !12
+  %255 = add nsw i32 %254, 11
+  %256 = sext i32 %255 to i64
+  %257 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %253, i64 %256
+  %258 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %257, i32 0, i32 2
+  %259 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %258) #3
+  %260 = call float @llvm.fmuladd.f32(float %259, float 0xBF6EE45C40000000, float %252)
+  %261 = load ptr, ptr %5, align 8, !tbaa !22
+  %262 = load i32, ptr %9, align 4, !tbaa !12
+  %263 = add nsw i32 %262, 13
+  %264 = sext i32 %263 to i64
+  %265 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %261, i64 %264
+  %266 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %265, i32 0, i32 2
+  %267 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %266) #3
+  %268 = call float @llvm.fmuladd.f32(float %267, float 0x3F516EBD40000000, float %260)
+  %269 = load ptr, ptr %6, align 8, !tbaa !22
+  %270 = load i32, ptr %10, align 4, !tbaa !12
+  %271 = sext i32 %270 to i64
+  %272 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %269, i64 %271
+  %273 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %272, i32 0, i32 2
+  %274 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %273, float noundef %268) #3
+  br label %275
+
+275:                                              ; preds = %24, %20
+  %276 = load ptr, ptr %5, align 8, !tbaa !22
+  %277 = load i32, ptr %9, align 4, !tbaa !12
+  %278 = sext i32 %277 to i64
+  %279 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %276, i64 %278
+  %280 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %279, i32 0, i32 1
+  %281 = load ptr, ptr %6, align 8, !tbaa !22
+  %282 = load i32, ptr %10, align 4, !tbaa !12
+  %283 = sext i32 %282 to i64
+  %284 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %281, i64 %283
+  %285 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %284, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %285, ptr align 2 %280, i64 2, i1 false), !tbaa.struct !27
+  %286 = load ptr, ptr %5, align 8, !tbaa !22
+  %287 = load i32, ptr %9, align 4, !tbaa !12
+  %288 = sext i32 %287 to i64
+  %289 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %286, i64 %288
+  %290 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %289, i32 0, i32 3
+  %291 = load ptr, ptr %6, align 8, !tbaa !22
+  %292 = load i32, ptr %10, align 4, !tbaa !12
+  %293 = sext i32 %292 to i64
+  %294 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %291, i64 %293
+  %295 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %294, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %295, ptr align 2 %290, i64 2, i1 false), !tbaa.struct !27
+  br label %296
+
+296:                                              ; preds = %275
+  %297 = load i32, ptr %9, align 4, !tbaa !12
+  %298 = add nsw i32 %297, 1
+  store i32 %298, ptr %9, align 4, !tbaa !12
+  %299 = load i32, ptr %10, align 4, !tbaa !12
+  %300 = add nsw i32 %299, 1
+  store i32 %300, ptr %10, align 4, !tbaa !12
+  br label %15, !llvm.loop !36
+
+301:                                              ; preds = %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i16 @_ZNK9Imath_3_24half8exponentEv(ptr noundef nonnull align 2 dereferenceable(2) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_h = getelementptr inbounds %"class.Imath_3_2::half", ptr %this1, i32 0, i32 0
-  %0 = load i16, ptr %_h, align 2
-  %conv = zext i16 %0 to i32
-  %shr = ashr i32 %conv, 10
-  %and = and i32 %shr, 31
-  %conv2 = trunc i32 %and to i16
-  ret i16 %conv2
+define void @_ZN7Imf_3_47RgbaYca18decimateChromaVertEiPKPKNS_4RgbaEPS1_(i32 noundef %0, ptr noundef %1, ptr noundef %2) #9 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !12
+  store ptr %1, ptr %5, align 8, !tbaa !37
+  store ptr %2, ptr %6, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  store i32 0, ptr %7, align 4, !tbaa !12
+  br label %8
+
+8:                                                ; preds = %325, %3
+  %9 = load i32, ptr %7, align 4, !tbaa !12
+  %10 = load i32, ptr %4, align 4, !tbaa !12
+  %11 = icmp slt i32 %9, %10
+  br i1 %11, label %13, label %12
+
+12:                                               ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  br label %328
+
+13:                                               ; preds = %8
+  %14 = load i32, ptr %7, align 4, !tbaa !12
+  %15 = and i32 %14, 1
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %300
+
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %5, align 8, !tbaa !37
+  %19 = getelementptr inbounds ptr, ptr %18, i64 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !22
+  %21 = load i32, ptr %7, align 4, !tbaa !12
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %20, i64 %22
+  %24 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %23, i32 0, i32 0
+  %25 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %24) #3
+  %26 = load ptr, ptr %5, align 8, !tbaa !37
+  %27 = getelementptr inbounds ptr, ptr %26, i64 2
+  %28 = load ptr, ptr %27, align 8, !tbaa !22
+  %29 = load i32, ptr %7, align 4, !tbaa !12
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %28, i64 %30
+  %32 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %31, i32 0, i32 0
+  %33 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %32) #3
+  %34 = fmul float %33, 0xBF6EE45C40000000
+  %35 = call float @llvm.fmuladd.f32(float %25, float 0x3F516EBD40000000, float %34)
+  %36 = load ptr, ptr %5, align 8, !tbaa !37
+  %37 = getelementptr inbounds ptr, ptr %36, i64 4
+  %38 = load ptr, ptr %37, align 8, !tbaa !22
+  %39 = load i32, ptr %7, align 4, !tbaa !12
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %38, i64 %40
+  %42 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %41, i32 0, i32 0
+  %43 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %42) #3
+  %44 = call float @llvm.fmuladd.f32(float %43, float 0x3F84128C00000000, float %35)
+  %45 = load ptr, ptr %5, align 8, !tbaa !37
+  %46 = getelementptr inbounds ptr, ptr %45, i64 6
+  %47 = load ptr, ptr %46, align 8, !tbaa !22
+  %48 = load i32, ptr %7, align 4, !tbaa !12
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %47, i64 %49
+  %51 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %50, i32 0, i32 0
+  %52 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %51) #3
+  %53 = call float @llvm.fmuladd.f32(float %52, float 0xBF961AA400000000, float %44)
+  %54 = load ptr, ptr %5, align 8, !tbaa !37
+  %55 = getelementptr inbounds ptr, ptr %54, i64 8
+  %56 = load ptr, ptr %55, align 8, !tbaa !22
+  %57 = load i32, ptr %7, align 4, !tbaa !12
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %56, i64 %58
+  %60 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %59, i32 0, i32 0
+  %61 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %60) #3
+  %62 = call float @llvm.fmuladd.f32(float %61, float 0x3FA68448C0000000, float %53)
+  %63 = load ptr, ptr %5, align 8, !tbaa !37
+  %64 = getelementptr inbounds ptr, ptr %63, i64 10
+  %65 = load ptr, ptr %64, align 8, !tbaa !22
+  %66 = load i32, ptr %7, align 4, !tbaa !12
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %65, i64 %67
+  %69 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %68, i32 0, i32 0
+  %70 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %69) #3
+  %71 = call float @llvm.fmuladd.f32(float %70, float 0xBFB7D33D20000000, float %62)
+  %72 = load ptr, ptr %5, align 8, !tbaa !37
+  %73 = getelementptr inbounds ptr, ptr %72, i64 12
+  %74 = load ptr, ptr %73, align 8, !tbaa !22
+  %75 = load i32, ptr %7, align 4, !tbaa !12
+  %76 = sext i32 %75 to i64
+  %77 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %74, i64 %76
+  %78 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %77, i32 0, i32 0
+  %79 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %78) #3
+  %80 = call float @llvm.fmuladd.f32(float %79, float 0x3FD412FD40000000, float %71)
+  %81 = load ptr, ptr %5, align 8, !tbaa !37
+  %82 = getelementptr inbounds ptr, ptr %81, i64 13
+  %83 = load ptr, ptr %82, align 8, !tbaa !22
+  %84 = load i32, ptr %7, align 4, !tbaa !12
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %83, i64 %85
+  %87 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %86, i32 0, i32 0
+  %88 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %87) #3
+  %89 = call float @llvm.fmuladd.f32(float %88, float 0x3FDFFD7A20000000, float %80)
+  %90 = load ptr, ptr %5, align 8, !tbaa !37
+  %91 = getelementptr inbounds ptr, ptr %90, i64 14
+  %92 = load ptr, ptr %91, align 8, !tbaa !22
+  %93 = load i32, ptr %7, align 4, !tbaa !12
+  %94 = sext i32 %93 to i64
+  %95 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %92, i64 %94
+  %96 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %95, i32 0, i32 0
+  %97 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %96) #3
+  %98 = call float @llvm.fmuladd.f32(float %97, float 0x3FD412FD40000000, float %89)
+  %99 = load ptr, ptr %5, align 8, !tbaa !37
+  %100 = getelementptr inbounds ptr, ptr %99, i64 16
+  %101 = load ptr, ptr %100, align 8, !tbaa !22
+  %102 = load i32, ptr %7, align 4, !tbaa !12
+  %103 = sext i32 %102 to i64
+  %104 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %101, i64 %103
+  %105 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %104, i32 0, i32 0
+  %106 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %105) #3
+  %107 = call float @llvm.fmuladd.f32(float %106, float 0xBFB7D33D20000000, float %98)
+  %108 = load ptr, ptr %5, align 8, !tbaa !37
+  %109 = getelementptr inbounds ptr, ptr %108, i64 18
+  %110 = load ptr, ptr %109, align 8, !tbaa !22
+  %111 = load i32, ptr %7, align 4, !tbaa !12
+  %112 = sext i32 %111 to i64
+  %113 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %110, i64 %112
+  %114 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %113, i32 0, i32 0
+  %115 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %114) #3
+  %116 = call float @llvm.fmuladd.f32(float %115, float 0x3FA68448C0000000, float %107)
+  %117 = load ptr, ptr %5, align 8, !tbaa !37
+  %118 = getelementptr inbounds ptr, ptr %117, i64 20
+  %119 = load ptr, ptr %118, align 8, !tbaa !22
+  %120 = load i32, ptr %7, align 4, !tbaa !12
+  %121 = sext i32 %120 to i64
+  %122 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %119, i64 %121
+  %123 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %122, i32 0, i32 0
+  %124 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %123) #3
+  %125 = call float @llvm.fmuladd.f32(float %124, float 0xBF961AA400000000, float %116)
+  %126 = load ptr, ptr %5, align 8, !tbaa !37
+  %127 = getelementptr inbounds ptr, ptr %126, i64 22
+  %128 = load ptr, ptr %127, align 8, !tbaa !22
+  %129 = load i32, ptr %7, align 4, !tbaa !12
+  %130 = sext i32 %129 to i64
+  %131 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %128, i64 %130
+  %132 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %131, i32 0, i32 0
+  %133 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %132) #3
+  %134 = call float @llvm.fmuladd.f32(float %133, float 0x3F84128C00000000, float %125)
+  %135 = load ptr, ptr %5, align 8, !tbaa !37
+  %136 = getelementptr inbounds ptr, ptr %135, i64 24
+  %137 = load ptr, ptr %136, align 8, !tbaa !22
+  %138 = load i32, ptr %7, align 4, !tbaa !12
+  %139 = sext i32 %138 to i64
+  %140 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %137, i64 %139
+  %141 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %140, i32 0, i32 0
+  %142 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %141) #3
+  %143 = call float @llvm.fmuladd.f32(float %142, float 0xBF6EE45C40000000, float %134)
+  %144 = load ptr, ptr %5, align 8, !tbaa !37
+  %145 = getelementptr inbounds ptr, ptr %144, i64 26
+  %146 = load ptr, ptr %145, align 8, !tbaa !22
+  %147 = load i32, ptr %7, align 4, !tbaa !12
+  %148 = sext i32 %147 to i64
+  %149 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %146, i64 %148
+  %150 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %149, i32 0, i32 0
+  %151 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %150) #3
+  %152 = call float @llvm.fmuladd.f32(float %151, float 0x3F516EBD40000000, float %143)
+  %153 = load ptr, ptr %6, align 8, !tbaa !22
+  %154 = load i32, ptr %7, align 4, !tbaa !12
+  %155 = sext i32 %154 to i64
+  %156 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %153, i64 %155
+  %157 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %156, i32 0, i32 0
+  %158 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %157, float noundef %152) #3
+  %159 = load ptr, ptr %5, align 8, !tbaa !37
+  %160 = getelementptr inbounds ptr, ptr %159, i64 0
+  %161 = load ptr, ptr %160, align 8, !tbaa !22
+  %162 = load i32, ptr %7, align 4, !tbaa !12
+  %163 = sext i32 %162 to i64
+  %164 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %161, i64 %163
+  %165 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %164, i32 0, i32 2
+  %166 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %165) #3
+  %167 = load ptr, ptr %5, align 8, !tbaa !37
+  %168 = getelementptr inbounds ptr, ptr %167, i64 2
+  %169 = load ptr, ptr %168, align 8, !tbaa !22
+  %170 = load i32, ptr %7, align 4, !tbaa !12
+  %171 = sext i32 %170 to i64
+  %172 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %169, i64 %171
+  %173 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %172, i32 0, i32 2
+  %174 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %173) #3
+  %175 = fmul float %174, 0xBF6EE45C40000000
+  %176 = call float @llvm.fmuladd.f32(float %166, float 0x3F516EBD40000000, float %175)
+  %177 = load ptr, ptr %5, align 8, !tbaa !37
+  %178 = getelementptr inbounds ptr, ptr %177, i64 4
+  %179 = load ptr, ptr %178, align 8, !tbaa !22
+  %180 = load i32, ptr %7, align 4, !tbaa !12
+  %181 = sext i32 %180 to i64
+  %182 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %179, i64 %181
+  %183 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %182, i32 0, i32 2
+  %184 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %183) #3
+  %185 = call float @llvm.fmuladd.f32(float %184, float 0x3F84128C00000000, float %176)
+  %186 = load ptr, ptr %5, align 8, !tbaa !37
+  %187 = getelementptr inbounds ptr, ptr %186, i64 6
+  %188 = load ptr, ptr %187, align 8, !tbaa !22
+  %189 = load i32, ptr %7, align 4, !tbaa !12
+  %190 = sext i32 %189 to i64
+  %191 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %188, i64 %190
+  %192 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %191, i32 0, i32 2
+  %193 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %192) #3
+  %194 = call float @llvm.fmuladd.f32(float %193, float 0xBF961AA400000000, float %185)
+  %195 = load ptr, ptr %5, align 8, !tbaa !37
+  %196 = getelementptr inbounds ptr, ptr %195, i64 8
+  %197 = load ptr, ptr %196, align 8, !tbaa !22
+  %198 = load i32, ptr %7, align 4, !tbaa !12
+  %199 = sext i32 %198 to i64
+  %200 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %197, i64 %199
+  %201 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %200, i32 0, i32 2
+  %202 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %201) #3
+  %203 = call float @llvm.fmuladd.f32(float %202, float 0x3FA68448C0000000, float %194)
+  %204 = load ptr, ptr %5, align 8, !tbaa !37
+  %205 = getelementptr inbounds ptr, ptr %204, i64 10
+  %206 = load ptr, ptr %205, align 8, !tbaa !22
+  %207 = load i32, ptr %7, align 4, !tbaa !12
+  %208 = sext i32 %207 to i64
+  %209 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %206, i64 %208
+  %210 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %209, i32 0, i32 2
+  %211 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %210) #3
+  %212 = call float @llvm.fmuladd.f32(float %211, float 0xBFB7D33D20000000, float %203)
+  %213 = load ptr, ptr %5, align 8, !tbaa !37
+  %214 = getelementptr inbounds ptr, ptr %213, i64 12
+  %215 = load ptr, ptr %214, align 8, !tbaa !22
+  %216 = load i32, ptr %7, align 4, !tbaa !12
+  %217 = sext i32 %216 to i64
+  %218 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %215, i64 %217
+  %219 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %218, i32 0, i32 2
+  %220 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %219) #3
+  %221 = call float @llvm.fmuladd.f32(float %220, float 0x3FD412FD40000000, float %212)
+  %222 = load ptr, ptr %5, align 8, !tbaa !37
+  %223 = getelementptr inbounds ptr, ptr %222, i64 13
+  %224 = load ptr, ptr %223, align 8, !tbaa !22
+  %225 = load i32, ptr %7, align 4, !tbaa !12
+  %226 = sext i32 %225 to i64
+  %227 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %224, i64 %226
+  %228 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %227, i32 0, i32 2
+  %229 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %228) #3
+  %230 = call float @llvm.fmuladd.f32(float %229, float 0x3FDFFD7A20000000, float %221)
+  %231 = load ptr, ptr %5, align 8, !tbaa !37
+  %232 = getelementptr inbounds ptr, ptr %231, i64 14
+  %233 = load ptr, ptr %232, align 8, !tbaa !22
+  %234 = load i32, ptr %7, align 4, !tbaa !12
+  %235 = sext i32 %234 to i64
+  %236 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %233, i64 %235
+  %237 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %236, i32 0, i32 2
+  %238 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %237) #3
+  %239 = call float @llvm.fmuladd.f32(float %238, float 0x3FD412FD40000000, float %230)
+  %240 = load ptr, ptr %5, align 8, !tbaa !37
+  %241 = getelementptr inbounds ptr, ptr %240, i64 16
+  %242 = load ptr, ptr %241, align 8, !tbaa !22
+  %243 = load i32, ptr %7, align 4, !tbaa !12
+  %244 = sext i32 %243 to i64
+  %245 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %242, i64 %244
+  %246 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %245, i32 0, i32 2
+  %247 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %246) #3
+  %248 = call float @llvm.fmuladd.f32(float %247, float 0xBFB7D33D20000000, float %239)
+  %249 = load ptr, ptr %5, align 8, !tbaa !37
+  %250 = getelementptr inbounds ptr, ptr %249, i64 18
+  %251 = load ptr, ptr %250, align 8, !tbaa !22
+  %252 = load i32, ptr %7, align 4, !tbaa !12
+  %253 = sext i32 %252 to i64
+  %254 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %251, i64 %253
+  %255 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %254, i32 0, i32 2
+  %256 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %255) #3
+  %257 = call float @llvm.fmuladd.f32(float %256, float 0x3FA68448C0000000, float %248)
+  %258 = load ptr, ptr %5, align 8, !tbaa !37
+  %259 = getelementptr inbounds ptr, ptr %258, i64 20
+  %260 = load ptr, ptr %259, align 8, !tbaa !22
+  %261 = load i32, ptr %7, align 4, !tbaa !12
+  %262 = sext i32 %261 to i64
+  %263 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %260, i64 %262
+  %264 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %263, i32 0, i32 2
+  %265 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %264) #3
+  %266 = call float @llvm.fmuladd.f32(float %265, float 0xBF961AA400000000, float %257)
+  %267 = load ptr, ptr %5, align 8, !tbaa !37
+  %268 = getelementptr inbounds ptr, ptr %267, i64 22
+  %269 = load ptr, ptr %268, align 8, !tbaa !22
+  %270 = load i32, ptr %7, align 4, !tbaa !12
+  %271 = sext i32 %270 to i64
+  %272 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %269, i64 %271
+  %273 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %272, i32 0, i32 2
+  %274 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %273) #3
+  %275 = call float @llvm.fmuladd.f32(float %274, float 0x3F84128C00000000, float %266)
+  %276 = load ptr, ptr %5, align 8, !tbaa !37
+  %277 = getelementptr inbounds ptr, ptr %276, i64 24
+  %278 = load ptr, ptr %277, align 8, !tbaa !22
+  %279 = load i32, ptr %7, align 4, !tbaa !12
+  %280 = sext i32 %279 to i64
+  %281 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %278, i64 %280
+  %282 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %281, i32 0, i32 2
+  %283 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %282) #3
+  %284 = call float @llvm.fmuladd.f32(float %283, float 0xBF6EE45C40000000, float %275)
+  %285 = load ptr, ptr %5, align 8, !tbaa !37
+  %286 = getelementptr inbounds ptr, ptr %285, i64 26
+  %287 = load ptr, ptr %286, align 8, !tbaa !22
+  %288 = load i32, ptr %7, align 4, !tbaa !12
+  %289 = sext i32 %288 to i64
+  %290 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %287, i64 %289
+  %291 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %290, i32 0, i32 2
+  %292 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %291) #3
+  %293 = call float @llvm.fmuladd.f32(float %292, float 0x3F516EBD40000000, float %284)
+  %294 = load ptr, ptr %6, align 8, !tbaa !22
+  %295 = load i32, ptr %7, align 4, !tbaa !12
+  %296 = sext i32 %295 to i64
+  %297 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %294, i64 %296
+  %298 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %297, i32 0, i32 2
+  %299 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %298, float noundef %293) #3
+  br label %300
+
+300:                                              ; preds = %17, %13
+  %301 = load ptr, ptr %5, align 8, !tbaa !37
+  %302 = getelementptr inbounds ptr, ptr %301, i64 13
+  %303 = load ptr, ptr %302, align 8, !tbaa !22
+  %304 = load i32, ptr %7, align 4, !tbaa !12
+  %305 = sext i32 %304 to i64
+  %306 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %303, i64 %305
+  %307 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %306, i32 0, i32 1
+  %308 = load ptr, ptr %6, align 8, !tbaa !22
+  %309 = load i32, ptr %7, align 4, !tbaa !12
+  %310 = sext i32 %309 to i64
+  %311 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %308, i64 %310
+  %312 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %311, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %312, ptr align 2 %307, i64 2, i1 false), !tbaa.struct !27
+  %313 = load ptr, ptr %5, align 8, !tbaa !37
+  %314 = getelementptr inbounds ptr, ptr %313, i64 13
+  %315 = load ptr, ptr %314, align 8, !tbaa !22
+  %316 = load i32, ptr %7, align 4, !tbaa !12
+  %317 = sext i32 %316 to i64
+  %318 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %315, i64 %317
+  %319 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %318, i32 0, i32 3
+  %320 = load ptr, ptr %6, align 8, !tbaa !22
+  %321 = load i32, ptr %7, align 4, !tbaa !12
+  %322 = sext i32 %321 to i64
+  %323 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %320, i64 %322
+  %324 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %323, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %324, ptr align 2 %319, i64 2, i1 false), !tbaa.struct !27
+  br label %325
+
+325:                                              ; preds = %300
+  %326 = load i32, ptr %7, align 4, !tbaa !12
+  %327 = add nsw i32 %326, 1
+  store i32 %327, ptr %7, align 4, !tbaa !12
+  br label %8, !llvm.loop !40
+
+328:                                              ; preds = %12
+  ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef float @_ZL19imath_half_to_floatt(i16 noundef zeroext %h) #5 {
-entry:
-  %h.addr = alloca i16, align 2
-  store i16 %h, ptr %h.addr, align 2
-  %0 = load ptr, ptr @imath_half_to_float_table, align 8
-  %1 = load i16, ptr %h.addr, align 2
-  %idxprom = zext i16 %1 to i64
-  %arrayidx = getelementptr inbounds %union.imath_half_uif, ptr %0, i64 %idxprom
-  %2 = load float, ptr %arrayidx, align 4
-  ret float %2
+define void @_ZN7Imf_3_47RgbaYca8roundYCAEijjPKNS_4RgbaEPS1_(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #9 {
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca %"class.Imath_3_2::half", align 2
+  %13 = alloca %"class.Imath_3_2::half", align 2
+  %14 = alloca %"class.Imath_3_2::half", align 2
+  store i32 %0, ptr %6, align 4, !tbaa !12
+  store i32 %1, ptr %7, align 4, !tbaa !12
+  store i32 %2, ptr %8, align 4, !tbaa !12
+  store ptr %3, ptr %9, align 8, !tbaa !22
+  store ptr %4, ptr %10, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  store i32 0, ptr %11, align 4, !tbaa !12
+  br label %15
+
+15:                                               ; preds = %75, %5
+  %16 = load i32, ptr %11, align 4, !tbaa !12
+  %17 = load i32, ptr %6, align 4, !tbaa !12
+  %18 = icmp slt i32 %16, %17
+  br i1 %18, label %20, label %19
+
+19:                                               ; preds = %15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  br label %78
+
+20:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #3
+  %21 = load ptr, ptr %9, align 8, !tbaa !22
+  %22 = load i32, ptr %11, align 4, !tbaa !12
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %21, i64 %23
+  %25 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %24, i32 0, i32 1
+  %26 = load i32, ptr %7, align 4, !tbaa !12
+  %27 = call i16 @_ZNK9Imath_3_24half5roundEj(ptr noundef nonnull align 2 dereferenceable(2) %25, i32 noundef %26) #3
+  %28 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %12, i32 0, i32 0
+  store i16 %27, ptr %28, align 2
+  %29 = load ptr, ptr %10, align 8, !tbaa !22
+  %30 = load i32, ptr %11, align 4, !tbaa !12
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %29, i64 %31
+  %33 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %32, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %33, ptr align 2 %12, i64 2, i1 false), !tbaa.struct !27
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #3
+  %34 = load ptr, ptr %9, align 8, !tbaa !22
+  %35 = load i32, ptr %11, align 4, !tbaa !12
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %34, i64 %36
+  %38 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %37, i32 0, i32 3
+  %39 = load ptr, ptr %10, align 8, !tbaa !22
+  %40 = load i32, ptr %11, align 4, !tbaa !12
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %39, i64 %41
+  %43 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %42, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %43, ptr align 2 %38, i64 2, i1 false), !tbaa.struct !27
+  %44 = load i32, ptr %11, align 4, !tbaa !12
+  %45 = and i32 %44, 1
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %47, label %74
+
+47:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #3
+  %48 = load ptr, ptr %9, align 8, !tbaa !22
+  %49 = load i32, ptr %11, align 4, !tbaa !12
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %48, i64 %50
+  %52 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %51, i32 0, i32 0
+  %53 = load i32, ptr %8, align 4, !tbaa !12
+  %54 = call i16 @_ZNK9Imath_3_24half5roundEj(ptr noundef nonnull align 2 dereferenceable(2) %52, i32 noundef %53) #3
+  %55 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %13, i32 0, i32 0
+  store i16 %54, ptr %55, align 2
+  %56 = load ptr, ptr %10, align 8, !tbaa !22
+  %57 = load i32, ptr %11, align 4, !tbaa !12
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %56, i64 %58
+  %60 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %59, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %60, ptr align 2 %13, i64 2, i1 false), !tbaa.struct !27
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #3
+  %61 = load ptr, ptr %9, align 8, !tbaa !22
+  %62 = load i32, ptr %11, align 4, !tbaa !12
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %61, i64 %63
+  %65 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %64, i32 0, i32 2
+  %66 = load i32, ptr %8, align 4, !tbaa !12
+  %67 = call i16 @_ZNK9Imath_3_24half5roundEj(ptr noundef nonnull align 2 dereferenceable(2) %65, i32 noundef %66) #3
+  %68 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %14, i32 0, i32 0
+  store i16 %67, ptr %68, align 2
+  %69 = load ptr, ptr %10, align 8, !tbaa !22
+  %70 = load i32, ptr %11, align 4, !tbaa !12
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %69, i64 %71
+  %73 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %72, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %73, ptr align 2 %14, i64 2, i1 false), !tbaa.struct !27
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #3
+  br label %74
+
+74:                                               ; preds = %47, %20
+  br label %75
+
+75:                                               ; preds = %74
+  %76 = load i32, ptr %11, align 4, !tbaa !12
+  %77 = add nsw i32 %76, 1
+  store i32 %77, ptr %11, align 4, !tbaa !12
+  br label %15, !llvm.loop !41
+
+78:                                               ; preds = %19
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden i16 @_ZNK9Imath_3_24half5roundEj(ptr noundef nonnull align 2 dereferenceable(2) %0, i32 noundef %1) #6 comdat align 2 {
+  %3 = alloca %"class.Imath_3_2::half", align 2
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i16, align 2
+  %7 = alloca i16, align 2
+  store ptr %0, ptr %4, align 8, !tbaa !32
+  store i32 %1, ptr %5, align 4, !tbaa !12
+  %8 = load ptr, ptr %4, align 8
+  %9 = load i32, ptr %5, align 4, !tbaa !12
+  %10 = icmp uge i32 %9, 10
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %3, ptr align 2 %8, i64 2, i1 false), !tbaa.struct !27
+  br label %67
+
+12:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %6) #3
+  %13 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i32 0, i32 0
+  %14 = load i16, ptr %13, align 2, !tbaa !34
+  %15 = zext i16 %14 to i32
+  %16 = and i32 %15, 32768
+  %17 = trunc i32 %16 to i16
+  store i16 %17, ptr %6, align 2, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 2, ptr %7) #3
+  %18 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i32 0, i32 0
+  %19 = load i16, ptr %18, align 2, !tbaa !34
+  %20 = zext i16 %19 to i32
+  %21 = and i32 %20, 32767
+  %22 = trunc i32 %21 to i16
+  store i16 %22, ptr %7, align 2, !tbaa !25
+  %23 = load i32, ptr %5, align 4, !tbaa !12
+  %24 = sub i32 9, %23
+  %25 = load i16, ptr %7, align 2, !tbaa !25
+  %26 = zext i16 %25 to i32
+  %27 = ashr i32 %26, %24
+  %28 = trunc i32 %27 to i16
+  store i16 %28, ptr %7, align 2, !tbaa !25
+  %29 = load i16, ptr %7, align 2, !tbaa !25
+  %30 = zext i16 %29 to i32
+  %31 = and i32 %30, 1
+  %32 = load i16, ptr %7, align 2, !tbaa !25
+  %33 = zext i16 %32 to i32
+  %34 = add nsw i32 %33, %31
+  %35 = trunc i32 %34 to i16
+  store i16 %35, ptr %7, align 2, !tbaa !25
+  %36 = load i32, ptr %5, align 4, !tbaa !12
+  %37 = sub i32 9, %36
+  %38 = load i16, ptr %7, align 2, !tbaa !25
+  %39 = zext i16 %38 to i32
+  %40 = shl i32 %39, %37
+  %41 = trunc i32 %40 to i16
+  store i16 %41, ptr %7, align 2, !tbaa !25
+  %42 = load i16, ptr %7, align 2, !tbaa !25
+  %43 = zext i16 %42 to i32
+  %44 = icmp sge i32 %43, 31744
+  br i1 %44, label %45, label %60
+
+45:                                               ; preds = %12
+  %46 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i32 0, i32 0
+  %47 = load i16, ptr %46, align 2, !tbaa !34
+  store i16 %47, ptr %7, align 2, !tbaa !25
+  %48 = load i32, ptr %5, align 4, !tbaa !12
+  %49 = sub i32 10, %48
+  %50 = load i16, ptr %7, align 2, !tbaa !25
+  %51 = zext i16 %50 to i32
+  %52 = ashr i32 %51, %49
+  %53 = trunc i32 %52 to i16
+  store i16 %53, ptr %7, align 2, !tbaa !25
+  %54 = load i32, ptr %5, align 4, !tbaa !12
+  %55 = sub i32 10, %54
+  %56 = load i16, ptr %7, align 2, !tbaa !25
+  %57 = zext i16 %56 to i32
+  %58 = shl i32 %57, %55
+  %59 = trunc i32 %58 to i16
+  store i16 %59, ptr %7, align 2, !tbaa !25
+  br label %60
+
+60:                                               ; preds = %45, %12
+  %61 = load i16, ptr %6, align 2, !tbaa !25
+  %62 = zext i16 %61 to i32
+  %63 = load i16, ptr %7, align 2, !tbaa !25
+  %64 = zext i16 %63 to i32
+  %65 = or i32 %62, %64
+  %66 = trunc i32 %65 to i16
+  call void @_ZN9Imath_3_24halfC2ENS0_11FromBitsTagEt(ptr noundef nonnull align 2 dereferenceable(2) %3, i32 noundef 0, i16 noundef zeroext %66) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %6) #3
+  br label %67
+
+67:                                               ; preds = %60, %11
+  %68 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %3, i32 0, i32 0
+  %69 = load i16, ptr %68, align 2
+  ret i16 %69
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN7Imf_3_47RgbaYca22reconstructChromaHorizEiPKNS_4RgbaEPS1_(i32 noundef %0, ptr noundef %1, ptr noundef %2) #9 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !12
+  store ptr %1, ptr %5, align 8, !tbaa !22
+  store ptr %2, ptr %6, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  store i32 13, ptr %7, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  %11 = load i32, ptr %7, align 4, !tbaa !12
+  %12 = load i32, ptr %4, align 4, !tbaa !12
+  %13 = add nsw i32 %11, %12
+  store i32 %13, ptr %8, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  %14 = load i32, ptr %7, align 4, !tbaa !12
+  store i32 %14, ptr %9, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  store i32 0, ptr %10, align 4, !tbaa !12
+  br label %15
+
+15:                                               ; preds = %303, %3
+  %16 = load i32, ptr %9, align 4, !tbaa !12
+  %17 = load i32, ptr %8, align 4, !tbaa !12
+  %18 = icmp slt i32 %16, %17
+  br i1 %18, label %20, label %19
+
+19:                                               ; preds = %15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  br label %308
+
+20:                                               ; preds = %15
+  %21 = load i32, ptr %10, align 4, !tbaa !12
+  %22 = and i32 %21, 1
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %261
+
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %5, align 8, !tbaa !22
+  %26 = load i32, ptr %9, align 4, !tbaa !12
+  %27 = sub nsw i32 %26, 13
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %25, i64 %28
+  %30 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %29, i32 0, i32 0
+  %31 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %30) #3
+  %32 = load ptr, ptr %5, align 8, !tbaa !22
+  %33 = load i32, ptr %9, align 4, !tbaa !12
+  %34 = sub nsw i32 %33, 11
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %32, i64 %35
+  %37 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %36, i32 0, i32 0
+  %38 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %37) #3
+  %39 = fmul float %38, 0xBF7EE24360000000
+  %40 = call float @llvm.fmuladd.f32(float %31, float 0x3F616EBD40000000, float %39)
+  %41 = load ptr, ptr %5, align 8, !tbaa !22
+  %42 = load i32, ptr %9, align 4, !tbaa !12
+  %43 = sub nsw i32 %42, 9
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %41, i64 %44
+  %46 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %45, i32 0, i32 0
+  %47 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %46) #3
+  %48 = call float @llvm.fmuladd.f32(float %47, float 0x3F94113C60000000, float %40)
+  %49 = load ptr, ptr %5, align 8, !tbaa !22
+  %50 = load i32, ptr %9, align 4, !tbaa !12
+  %51 = sub nsw i32 %50, 7
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %49, i64 %52
+  %54 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %53, i32 0, i32 0
+  %55 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %54) #3
+  %56 = call float @llvm.fmuladd.f32(float %55, float 0xBFA618EFC0000000, float %48)
+  %57 = load ptr, ptr %5, align 8, !tbaa !22
+  %58 = load i32, ptr %9, align 4, !tbaa !12
+  %59 = sub nsw i32 %58, 5
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %57, i64 %60
+  %62 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %61, i32 0, i32 0
+  %63 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %62) #3
+  %64 = call float @llvm.fmuladd.f32(float %63, float 0x3FB68283E0000000, float %56)
+  %65 = load ptr, ptr %5, align 8, !tbaa !22
+  %66 = load i32, ptr %9, align 4, !tbaa !12
+  %67 = sub nsw i32 %66, 3
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %65, i64 %68
+  %70 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %69, i32 0, i32 0
+  %71 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %70) #3
+  %72 = call float @llvm.fmuladd.f32(float %71, float 0xBFC7D15F00000000, float %64)
+  %73 = load ptr, ptr %5, align 8, !tbaa !22
+  %74 = load i32, ptr %9, align 4, !tbaa !12
+  %75 = sub nsw i32 %74, 1
+  %76 = sext i32 %75 to i64
+  %77 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %73, i64 %76
+  %78 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %77, i32 0, i32 0
+  %79 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %78) #3
+  %80 = call float @llvm.fmuladd.f32(float %79, float 0x3FE4116440000000, float %72)
+  %81 = load ptr, ptr %5, align 8, !tbaa !22
+  %82 = load i32, ptr %9, align 4, !tbaa !12
+  %83 = add nsw i32 %82, 1
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %81, i64 %84
+  %86 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %85, i32 0, i32 0
+  %87 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %86) #3
+  %88 = call float @llvm.fmuladd.f32(float %87, float 0x3FE4116440000000, float %80)
+  %89 = load ptr, ptr %5, align 8, !tbaa !22
+  %90 = load i32, ptr %9, align 4, !tbaa !12
+  %91 = add nsw i32 %90, 3
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %89, i64 %92
+  %94 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %93, i32 0, i32 0
+  %95 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %94) #3
+  %96 = call float @llvm.fmuladd.f32(float %95, float 0xBFC7D15F00000000, float %88)
+  %97 = load ptr, ptr %5, align 8, !tbaa !22
+  %98 = load i32, ptr %9, align 4, !tbaa !12
+  %99 = add nsw i32 %98, 5
+  %100 = sext i32 %99 to i64
+  %101 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %97, i64 %100
+  %102 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %101, i32 0, i32 0
+  %103 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %102) #3
+  %104 = call float @llvm.fmuladd.f32(float %103, float 0x3FB68283E0000000, float %96)
+  %105 = load ptr, ptr %5, align 8, !tbaa !22
+  %106 = load i32, ptr %9, align 4, !tbaa !12
+  %107 = add nsw i32 %106, 7
+  %108 = sext i32 %107 to i64
+  %109 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %105, i64 %108
+  %110 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %109, i32 0, i32 0
+  %111 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %110) #3
+  %112 = call float @llvm.fmuladd.f32(float %111, float 0xBFA618EFC0000000, float %104)
+  %113 = load ptr, ptr %5, align 8, !tbaa !22
+  %114 = load i32, ptr %9, align 4, !tbaa !12
+  %115 = add nsw i32 %114, 9
+  %116 = sext i32 %115 to i64
+  %117 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %113, i64 %116
+  %118 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %117, i32 0, i32 0
+  %119 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %118) #3
+  %120 = call float @llvm.fmuladd.f32(float %119, float 0x3F94113C60000000, float %112)
+  %121 = load ptr, ptr %5, align 8, !tbaa !22
+  %122 = load i32, ptr %9, align 4, !tbaa !12
+  %123 = add nsw i32 %122, 11
+  %124 = sext i32 %123 to i64
+  %125 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %121, i64 %124
+  %126 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %125, i32 0, i32 0
+  %127 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %126) #3
+  %128 = call float @llvm.fmuladd.f32(float %127, float 0xBF7EE24360000000, float %120)
+  %129 = load ptr, ptr %5, align 8, !tbaa !22
+  %130 = load i32, ptr %9, align 4, !tbaa !12
+  %131 = add nsw i32 %130, 13
+  %132 = sext i32 %131 to i64
+  %133 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %129, i64 %132
+  %134 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %133, i32 0, i32 0
+  %135 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %134) #3
+  %136 = call float @llvm.fmuladd.f32(float %135, float 0x3F616EBD40000000, float %128)
+  %137 = load ptr, ptr %6, align 8, !tbaa !22
+  %138 = load i32, ptr %10, align 4, !tbaa !12
+  %139 = sext i32 %138 to i64
+  %140 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %137, i64 %139
+  %141 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %140, i32 0, i32 0
+  %142 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %141, float noundef %136) #3
+  %143 = load ptr, ptr %5, align 8, !tbaa !22
+  %144 = load i32, ptr %9, align 4, !tbaa !12
+  %145 = sub nsw i32 %144, 13
+  %146 = sext i32 %145 to i64
+  %147 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %143, i64 %146
+  %148 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %147, i32 0, i32 2
+  %149 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %148) #3
+  %150 = load ptr, ptr %5, align 8, !tbaa !22
+  %151 = load i32, ptr %9, align 4, !tbaa !12
+  %152 = sub nsw i32 %151, 11
+  %153 = sext i32 %152 to i64
+  %154 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %150, i64 %153
+  %155 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %154, i32 0, i32 2
+  %156 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %155) #3
+  %157 = fmul float %156, 0xBF7EE24360000000
+  %158 = call float @llvm.fmuladd.f32(float %149, float 0x3F616EBD40000000, float %157)
+  %159 = load ptr, ptr %5, align 8, !tbaa !22
+  %160 = load i32, ptr %9, align 4, !tbaa !12
+  %161 = sub nsw i32 %160, 9
+  %162 = sext i32 %161 to i64
+  %163 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %159, i64 %162
+  %164 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %163, i32 0, i32 2
+  %165 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %164) #3
+  %166 = call float @llvm.fmuladd.f32(float %165, float 0x3F94113C60000000, float %158)
+  %167 = load ptr, ptr %5, align 8, !tbaa !22
+  %168 = load i32, ptr %9, align 4, !tbaa !12
+  %169 = sub nsw i32 %168, 7
+  %170 = sext i32 %169 to i64
+  %171 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %167, i64 %170
+  %172 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %171, i32 0, i32 2
+  %173 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %172) #3
+  %174 = call float @llvm.fmuladd.f32(float %173, float 0xBFA618EFC0000000, float %166)
+  %175 = load ptr, ptr %5, align 8, !tbaa !22
+  %176 = load i32, ptr %9, align 4, !tbaa !12
+  %177 = sub nsw i32 %176, 5
+  %178 = sext i32 %177 to i64
+  %179 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %175, i64 %178
+  %180 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %179, i32 0, i32 2
+  %181 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %180) #3
+  %182 = call float @llvm.fmuladd.f32(float %181, float 0x3FB68283E0000000, float %174)
+  %183 = load ptr, ptr %5, align 8, !tbaa !22
+  %184 = load i32, ptr %9, align 4, !tbaa !12
+  %185 = sub nsw i32 %184, 3
+  %186 = sext i32 %185 to i64
+  %187 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %183, i64 %186
+  %188 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %187, i32 0, i32 2
+  %189 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %188) #3
+  %190 = call float @llvm.fmuladd.f32(float %189, float 0xBFC7D15F00000000, float %182)
+  %191 = load ptr, ptr %5, align 8, !tbaa !22
+  %192 = load i32, ptr %9, align 4, !tbaa !12
+  %193 = sub nsw i32 %192, 1
+  %194 = sext i32 %193 to i64
+  %195 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %191, i64 %194
+  %196 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %195, i32 0, i32 2
+  %197 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %196) #3
+  %198 = call float @llvm.fmuladd.f32(float %197, float 0x3FE4116440000000, float %190)
+  %199 = load ptr, ptr %5, align 8, !tbaa !22
+  %200 = load i32, ptr %9, align 4, !tbaa !12
+  %201 = add nsw i32 %200, 1
+  %202 = sext i32 %201 to i64
+  %203 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %199, i64 %202
+  %204 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %203, i32 0, i32 2
+  %205 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %204) #3
+  %206 = call float @llvm.fmuladd.f32(float %205, float 0x3FE4116440000000, float %198)
+  %207 = load ptr, ptr %5, align 8, !tbaa !22
+  %208 = load i32, ptr %9, align 4, !tbaa !12
+  %209 = add nsw i32 %208, 3
+  %210 = sext i32 %209 to i64
+  %211 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %207, i64 %210
+  %212 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %211, i32 0, i32 2
+  %213 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %212) #3
+  %214 = call float @llvm.fmuladd.f32(float %213, float 0xBFC7D15F00000000, float %206)
+  %215 = load ptr, ptr %5, align 8, !tbaa !22
+  %216 = load i32, ptr %9, align 4, !tbaa !12
+  %217 = add nsw i32 %216, 5
+  %218 = sext i32 %217 to i64
+  %219 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %215, i64 %218
+  %220 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %219, i32 0, i32 2
+  %221 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %220) #3
+  %222 = call float @llvm.fmuladd.f32(float %221, float 0x3FB68283E0000000, float %214)
+  %223 = load ptr, ptr %5, align 8, !tbaa !22
+  %224 = load i32, ptr %9, align 4, !tbaa !12
+  %225 = add nsw i32 %224, 7
+  %226 = sext i32 %225 to i64
+  %227 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %223, i64 %226
+  %228 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %227, i32 0, i32 2
+  %229 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %228) #3
+  %230 = call float @llvm.fmuladd.f32(float %229, float 0xBFA618EFC0000000, float %222)
+  %231 = load ptr, ptr %5, align 8, !tbaa !22
+  %232 = load i32, ptr %9, align 4, !tbaa !12
+  %233 = add nsw i32 %232, 9
+  %234 = sext i32 %233 to i64
+  %235 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %231, i64 %234
+  %236 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %235, i32 0, i32 2
+  %237 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %236) #3
+  %238 = call float @llvm.fmuladd.f32(float %237, float 0x3F94113C60000000, float %230)
+  %239 = load ptr, ptr %5, align 8, !tbaa !22
+  %240 = load i32, ptr %9, align 4, !tbaa !12
+  %241 = add nsw i32 %240, 11
+  %242 = sext i32 %241 to i64
+  %243 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %239, i64 %242
+  %244 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %243, i32 0, i32 2
+  %245 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %244) #3
+  %246 = call float @llvm.fmuladd.f32(float %245, float 0xBF7EE24360000000, float %238)
+  %247 = load ptr, ptr %5, align 8, !tbaa !22
+  %248 = load i32, ptr %9, align 4, !tbaa !12
+  %249 = add nsw i32 %248, 13
+  %250 = sext i32 %249 to i64
+  %251 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %247, i64 %250
+  %252 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %251, i32 0, i32 2
+  %253 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %252) #3
+  %254 = call float @llvm.fmuladd.f32(float %253, float 0x3F616EBD40000000, float %246)
+  %255 = load ptr, ptr %6, align 8, !tbaa !22
+  %256 = load i32, ptr %10, align 4, !tbaa !12
+  %257 = sext i32 %256 to i64
+  %258 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %255, i64 %257
+  %259 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %258, i32 0, i32 2
+  %260 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %259, float noundef %254) #3
+  br label %282
+
+261:                                              ; preds = %20
+  %262 = load ptr, ptr %5, align 8, !tbaa !22
+  %263 = load i32, ptr %9, align 4, !tbaa !12
+  %264 = sext i32 %263 to i64
+  %265 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %262, i64 %264
+  %266 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %265, i32 0, i32 0
+  %267 = load ptr, ptr %6, align 8, !tbaa !22
+  %268 = load i32, ptr %10, align 4, !tbaa !12
+  %269 = sext i32 %268 to i64
+  %270 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %267, i64 %269
+  %271 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %270, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %271, ptr align 2 %266, i64 2, i1 false), !tbaa.struct !27
+  %272 = load ptr, ptr %5, align 8, !tbaa !22
+  %273 = load i32, ptr %9, align 4, !tbaa !12
+  %274 = sext i32 %273 to i64
+  %275 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %272, i64 %274
+  %276 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %275, i32 0, i32 2
+  %277 = load ptr, ptr %6, align 8, !tbaa !22
+  %278 = load i32, ptr %10, align 4, !tbaa !12
+  %279 = sext i32 %278 to i64
+  %280 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %277, i64 %279
+  %281 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %280, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %281, ptr align 2 %276, i64 2, i1 false), !tbaa.struct !27
+  br label %282
+
+282:                                              ; preds = %261, %24
+  %283 = load ptr, ptr %5, align 8, !tbaa !22
+  %284 = load i32, ptr %9, align 4, !tbaa !12
+  %285 = sext i32 %284 to i64
+  %286 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %283, i64 %285
+  %287 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %286, i32 0, i32 1
+  %288 = load ptr, ptr %6, align 8, !tbaa !22
+  %289 = load i32, ptr %10, align 4, !tbaa !12
+  %290 = sext i32 %289 to i64
+  %291 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %288, i64 %290
+  %292 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %291, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %292, ptr align 2 %287, i64 2, i1 false), !tbaa.struct !27
+  %293 = load ptr, ptr %5, align 8, !tbaa !22
+  %294 = load i32, ptr %9, align 4, !tbaa !12
+  %295 = sext i32 %294 to i64
+  %296 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %293, i64 %295
+  %297 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %296, i32 0, i32 3
+  %298 = load ptr, ptr %6, align 8, !tbaa !22
+  %299 = load i32, ptr %10, align 4, !tbaa !12
+  %300 = sext i32 %299 to i64
+  %301 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %298, i64 %300
+  %302 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %301, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %302, ptr align 2 %297, i64 2, i1 false), !tbaa.struct !27
+  br label %303
+
+303:                                              ; preds = %282
+  %304 = load i32, ptr %9, align 4, !tbaa !12
+  %305 = add nsw i32 %304, 1
+  store i32 %305, ptr %9, align 4, !tbaa !12
+  %306 = load i32, ptr %10, align 4, !tbaa !12
+  %307 = add nsw i32 %306, 1
+  store i32 %307, ptr %10, align 4, !tbaa !12
+  br label %15, !llvm.loop !42
+
+308:                                              ; preds = %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN7Imf_3_47RgbaYca21reconstructChromaVertEiPKPKNS_4RgbaEPS1_(i32 noundef %0, ptr noundef %1, ptr noundef %2) #9 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !12
+  store ptr %1, ptr %5, align 8, !tbaa !37
+  store ptr %2, ptr %6, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  store i32 0, ptr %7, align 4, !tbaa !12
+  br label %8
+
+8:                                                ; preds = %302, %3
+  %9 = load i32, ptr %7, align 4, !tbaa !12
+  %10 = load i32, ptr %4, align 4, !tbaa !12
+  %11 = icmp slt i32 %9, %10
+  br i1 %11, label %13, label %12
+
+12:                                               ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  br label %305
+
+13:                                               ; preds = %8
+  %14 = load ptr, ptr %5, align 8, !tbaa !37
+  %15 = getelementptr inbounds ptr, ptr %14, i64 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !22
+  %17 = load i32, ptr %7, align 4, !tbaa !12
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %16, i64 %18
+  %20 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %19, i32 0, i32 0
+  %21 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %20) #3
+  %22 = load ptr, ptr %5, align 8, !tbaa !37
+  %23 = getelementptr inbounds ptr, ptr %22, i64 2
+  %24 = load ptr, ptr %23, align 8, !tbaa !22
+  %25 = load i32, ptr %7, align 4, !tbaa !12
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %24, i64 %26
+  %28 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %27, i32 0, i32 0
+  %29 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %28) #3
+  %30 = fmul float %29, 0xBF7EE24360000000
+  %31 = call float @llvm.fmuladd.f32(float %21, float 0x3F616EBD40000000, float %30)
+  %32 = load ptr, ptr %5, align 8, !tbaa !37
+  %33 = getelementptr inbounds ptr, ptr %32, i64 4
+  %34 = load ptr, ptr %33, align 8, !tbaa !22
+  %35 = load i32, ptr %7, align 4, !tbaa !12
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %34, i64 %36
+  %38 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %37, i32 0, i32 0
+  %39 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %38) #3
+  %40 = call float @llvm.fmuladd.f32(float %39, float 0x3F94113C60000000, float %31)
+  %41 = load ptr, ptr %5, align 8, !tbaa !37
+  %42 = getelementptr inbounds ptr, ptr %41, i64 6
+  %43 = load ptr, ptr %42, align 8, !tbaa !22
+  %44 = load i32, ptr %7, align 4, !tbaa !12
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %43, i64 %45
+  %47 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %46, i32 0, i32 0
+  %48 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %47) #3
+  %49 = call float @llvm.fmuladd.f32(float %48, float 0xBFA618EFC0000000, float %40)
+  %50 = load ptr, ptr %5, align 8, !tbaa !37
+  %51 = getelementptr inbounds ptr, ptr %50, i64 8
+  %52 = load ptr, ptr %51, align 8, !tbaa !22
+  %53 = load i32, ptr %7, align 4, !tbaa !12
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %52, i64 %54
+  %56 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %55, i32 0, i32 0
+  %57 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %56) #3
+  %58 = call float @llvm.fmuladd.f32(float %57, float 0x3FB68283E0000000, float %49)
+  %59 = load ptr, ptr %5, align 8, !tbaa !37
+  %60 = getelementptr inbounds ptr, ptr %59, i64 10
+  %61 = load ptr, ptr %60, align 8, !tbaa !22
+  %62 = load i32, ptr %7, align 4, !tbaa !12
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %61, i64 %63
+  %65 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %64, i32 0, i32 0
+  %66 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %65) #3
+  %67 = call float @llvm.fmuladd.f32(float %66, float 0xBFC7D15F00000000, float %58)
+  %68 = load ptr, ptr %5, align 8, !tbaa !37
+  %69 = getelementptr inbounds ptr, ptr %68, i64 12
+  %70 = load ptr, ptr %69, align 8, !tbaa !22
+  %71 = load i32, ptr %7, align 4, !tbaa !12
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %70, i64 %72
+  %74 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %73, i32 0, i32 0
+  %75 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %74) #3
+  %76 = call float @llvm.fmuladd.f32(float %75, float 0x3FE4116440000000, float %67)
+  %77 = load ptr, ptr %5, align 8, !tbaa !37
+  %78 = getelementptr inbounds ptr, ptr %77, i64 14
+  %79 = load ptr, ptr %78, align 8, !tbaa !22
+  %80 = load i32, ptr %7, align 4, !tbaa !12
+  %81 = sext i32 %80 to i64
+  %82 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %79, i64 %81
+  %83 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %82, i32 0, i32 0
+  %84 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %83) #3
+  %85 = call float @llvm.fmuladd.f32(float %84, float 0x3FE4116440000000, float %76)
+  %86 = load ptr, ptr %5, align 8, !tbaa !37
+  %87 = getelementptr inbounds ptr, ptr %86, i64 16
+  %88 = load ptr, ptr %87, align 8, !tbaa !22
+  %89 = load i32, ptr %7, align 4, !tbaa !12
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %88, i64 %90
+  %92 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %91, i32 0, i32 0
+  %93 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %92) #3
+  %94 = call float @llvm.fmuladd.f32(float %93, float 0xBFC7D15F00000000, float %85)
+  %95 = load ptr, ptr %5, align 8, !tbaa !37
+  %96 = getelementptr inbounds ptr, ptr %95, i64 18
+  %97 = load ptr, ptr %96, align 8, !tbaa !22
+  %98 = load i32, ptr %7, align 4, !tbaa !12
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %97, i64 %99
+  %101 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %100, i32 0, i32 0
+  %102 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %101) #3
+  %103 = call float @llvm.fmuladd.f32(float %102, float 0x3FB68283E0000000, float %94)
+  %104 = load ptr, ptr %5, align 8, !tbaa !37
+  %105 = getelementptr inbounds ptr, ptr %104, i64 20
+  %106 = load ptr, ptr %105, align 8, !tbaa !22
+  %107 = load i32, ptr %7, align 4, !tbaa !12
+  %108 = sext i32 %107 to i64
+  %109 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %106, i64 %108
+  %110 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %109, i32 0, i32 0
+  %111 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %110) #3
+  %112 = call float @llvm.fmuladd.f32(float %111, float 0xBFA618EFC0000000, float %103)
+  %113 = load ptr, ptr %5, align 8, !tbaa !37
+  %114 = getelementptr inbounds ptr, ptr %113, i64 22
+  %115 = load ptr, ptr %114, align 8, !tbaa !22
+  %116 = load i32, ptr %7, align 4, !tbaa !12
+  %117 = sext i32 %116 to i64
+  %118 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %115, i64 %117
+  %119 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %118, i32 0, i32 0
+  %120 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %119) #3
+  %121 = call float @llvm.fmuladd.f32(float %120, float 0x3F94113C60000000, float %112)
+  %122 = load ptr, ptr %5, align 8, !tbaa !37
+  %123 = getelementptr inbounds ptr, ptr %122, i64 24
+  %124 = load ptr, ptr %123, align 8, !tbaa !22
+  %125 = load i32, ptr %7, align 4, !tbaa !12
+  %126 = sext i32 %125 to i64
+  %127 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %124, i64 %126
+  %128 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %127, i32 0, i32 0
+  %129 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %128) #3
+  %130 = call float @llvm.fmuladd.f32(float %129, float 0xBF7EE24360000000, float %121)
+  %131 = load ptr, ptr %5, align 8, !tbaa !37
+  %132 = getelementptr inbounds ptr, ptr %131, i64 26
+  %133 = load ptr, ptr %132, align 8, !tbaa !22
+  %134 = load i32, ptr %7, align 4, !tbaa !12
+  %135 = sext i32 %134 to i64
+  %136 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %133, i64 %135
+  %137 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %136, i32 0, i32 0
+  %138 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %137) #3
+  %139 = call float @llvm.fmuladd.f32(float %138, float 0x3F616EBD40000000, float %130)
+  %140 = load ptr, ptr %6, align 8, !tbaa !22
+  %141 = load i32, ptr %7, align 4, !tbaa !12
+  %142 = sext i32 %141 to i64
+  %143 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %140, i64 %142
+  %144 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %143, i32 0, i32 0
+  %145 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %144, float noundef %139) #3
+  %146 = load ptr, ptr %5, align 8, !tbaa !37
+  %147 = getelementptr inbounds ptr, ptr %146, i64 0
+  %148 = load ptr, ptr %147, align 8, !tbaa !22
+  %149 = load i32, ptr %7, align 4, !tbaa !12
+  %150 = sext i32 %149 to i64
+  %151 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %148, i64 %150
+  %152 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %151, i32 0, i32 2
+  %153 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %152) #3
+  %154 = load ptr, ptr %5, align 8, !tbaa !37
+  %155 = getelementptr inbounds ptr, ptr %154, i64 2
+  %156 = load ptr, ptr %155, align 8, !tbaa !22
+  %157 = load i32, ptr %7, align 4, !tbaa !12
+  %158 = sext i32 %157 to i64
+  %159 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %156, i64 %158
+  %160 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %159, i32 0, i32 2
+  %161 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %160) #3
+  %162 = fmul float %161, 0xBF7EE24360000000
+  %163 = call float @llvm.fmuladd.f32(float %153, float 0x3F616EBD40000000, float %162)
+  %164 = load ptr, ptr %5, align 8, !tbaa !37
+  %165 = getelementptr inbounds ptr, ptr %164, i64 4
+  %166 = load ptr, ptr %165, align 8, !tbaa !22
+  %167 = load i32, ptr %7, align 4, !tbaa !12
+  %168 = sext i32 %167 to i64
+  %169 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %166, i64 %168
+  %170 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %169, i32 0, i32 2
+  %171 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %170) #3
+  %172 = call float @llvm.fmuladd.f32(float %171, float 0x3F94113C60000000, float %163)
+  %173 = load ptr, ptr %5, align 8, !tbaa !37
+  %174 = getelementptr inbounds ptr, ptr %173, i64 6
+  %175 = load ptr, ptr %174, align 8, !tbaa !22
+  %176 = load i32, ptr %7, align 4, !tbaa !12
+  %177 = sext i32 %176 to i64
+  %178 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %175, i64 %177
+  %179 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %178, i32 0, i32 2
+  %180 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %179) #3
+  %181 = call float @llvm.fmuladd.f32(float %180, float 0xBFA618EFC0000000, float %172)
+  %182 = load ptr, ptr %5, align 8, !tbaa !37
+  %183 = getelementptr inbounds ptr, ptr %182, i64 8
+  %184 = load ptr, ptr %183, align 8, !tbaa !22
+  %185 = load i32, ptr %7, align 4, !tbaa !12
+  %186 = sext i32 %185 to i64
+  %187 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %184, i64 %186
+  %188 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %187, i32 0, i32 2
+  %189 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %188) #3
+  %190 = call float @llvm.fmuladd.f32(float %189, float 0x3FB68283E0000000, float %181)
+  %191 = load ptr, ptr %5, align 8, !tbaa !37
+  %192 = getelementptr inbounds ptr, ptr %191, i64 10
+  %193 = load ptr, ptr %192, align 8, !tbaa !22
+  %194 = load i32, ptr %7, align 4, !tbaa !12
+  %195 = sext i32 %194 to i64
+  %196 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %193, i64 %195
+  %197 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %196, i32 0, i32 2
+  %198 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %197) #3
+  %199 = call float @llvm.fmuladd.f32(float %198, float 0xBFC7D15F00000000, float %190)
+  %200 = load ptr, ptr %5, align 8, !tbaa !37
+  %201 = getelementptr inbounds ptr, ptr %200, i64 12
+  %202 = load ptr, ptr %201, align 8, !tbaa !22
+  %203 = load i32, ptr %7, align 4, !tbaa !12
+  %204 = sext i32 %203 to i64
+  %205 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %202, i64 %204
+  %206 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %205, i32 0, i32 2
+  %207 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %206) #3
+  %208 = call float @llvm.fmuladd.f32(float %207, float 0x3FE4116440000000, float %199)
+  %209 = load ptr, ptr %5, align 8, !tbaa !37
+  %210 = getelementptr inbounds ptr, ptr %209, i64 14
+  %211 = load ptr, ptr %210, align 8, !tbaa !22
+  %212 = load i32, ptr %7, align 4, !tbaa !12
+  %213 = sext i32 %212 to i64
+  %214 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %211, i64 %213
+  %215 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %214, i32 0, i32 2
+  %216 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %215) #3
+  %217 = call float @llvm.fmuladd.f32(float %216, float 0x3FE4116440000000, float %208)
+  %218 = load ptr, ptr %5, align 8, !tbaa !37
+  %219 = getelementptr inbounds ptr, ptr %218, i64 16
+  %220 = load ptr, ptr %219, align 8, !tbaa !22
+  %221 = load i32, ptr %7, align 4, !tbaa !12
+  %222 = sext i32 %221 to i64
+  %223 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %220, i64 %222
+  %224 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %223, i32 0, i32 2
+  %225 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %224) #3
+  %226 = call float @llvm.fmuladd.f32(float %225, float 0xBFC7D15F00000000, float %217)
+  %227 = load ptr, ptr %5, align 8, !tbaa !37
+  %228 = getelementptr inbounds ptr, ptr %227, i64 18
+  %229 = load ptr, ptr %228, align 8, !tbaa !22
+  %230 = load i32, ptr %7, align 4, !tbaa !12
+  %231 = sext i32 %230 to i64
+  %232 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %229, i64 %231
+  %233 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %232, i32 0, i32 2
+  %234 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %233) #3
+  %235 = call float @llvm.fmuladd.f32(float %234, float 0x3FB68283E0000000, float %226)
+  %236 = load ptr, ptr %5, align 8, !tbaa !37
+  %237 = getelementptr inbounds ptr, ptr %236, i64 20
+  %238 = load ptr, ptr %237, align 8, !tbaa !22
+  %239 = load i32, ptr %7, align 4, !tbaa !12
+  %240 = sext i32 %239 to i64
+  %241 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %238, i64 %240
+  %242 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %241, i32 0, i32 2
+  %243 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %242) #3
+  %244 = call float @llvm.fmuladd.f32(float %243, float 0xBFA618EFC0000000, float %235)
+  %245 = load ptr, ptr %5, align 8, !tbaa !37
+  %246 = getelementptr inbounds ptr, ptr %245, i64 22
+  %247 = load ptr, ptr %246, align 8, !tbaa !22
+  %248 = load i32, ptr %7, align 4, !tbaa !12
+  %249 = sext i32 %248 to i64
+  %250 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %247, i64 %249
+  %251 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %250, i32 0, i32 2
+  %252 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %251) #3
+  %253 = call float @llvm.fmuladd.f32(float %252, float 0x3F94113C60000000, float %244)
+  %254 = load ptr, ptr %5, align 8, !tbaa !37
+  %255 = getelementptr inbounds ptr, ptr %254, i64 24
+  %256 = load ptr, ptr %255, align 8, !tbaa !22
+  %257 = load i32, ptr %7, align 4, !tbaa !12
+  %258 = sext i32 %257 to i64
+  %259 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %256, i64 %258
+  %260 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %259, i32 0, i32 2
+  %261 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %260) #3
+  %262 = call float @llvm.fmuladd.f32(float %261, float 0xBF7EE24360000000, float %253)
+  %263 = load ptr, ptr %5, align 8, !tbaa !37
+  %264 = getelementptr inbounds ptr, ptr %263, i64 26
+  %265 = load ptr, ptr %264, align 8, !tbaa !22
+  %266 = load i32, ptr %7, align 4, !tbaa !12
+  %267 = sext i32 %266 to i64
+  %268 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %265, i64 %267
+  %269 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %268, i32 0, i32 2
+  %270 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %269) #3
+  %271 = call float @llvm.fmuladd.f32(float %270, float 0x3F616EBD40000000, float %262)
+  %272 = load ptr, ptr %6, align 8, !tbaa !22
+  %273 = load i32, ptr %7, align 4, !tbaa !12
+  %274 = sext i32 %273 to i64
+  %275 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %272, i64 %274
+  %276 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %275, i32 0, i32 2
+  %277 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %276, float noundef %271) #3
+  %278 = load ptr, ptr %5, align 8, !tbaa !37
+  %279 = getelementptr inbounds ptr, ptr %278, i64 13
+  %280 = load ptr, ptr %279, align 8, !tbaa !22
+  %281 = load i32, ptr %7, align 4, !tbaa !12
+  %282 = sext i32 %281 to i64
+  %283 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %280, i64 %282
+  %284 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %283, i32 0, i32 1
+  %285 = load ptr, ptr %6, align 8, !tbaa !22
+  %286 = load i32, ptr %7, align 4, !tbaa !12
+  %287 = sext i32 %286 to i64
+  %288 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %285, i64 %287
+  %289 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %288, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %289, ptr align 2 %284, i64 2, i1 false), !tbaa.struct !27
+  %290 = load ptr, ptr %5, align 8, !tbaa !37
+  %291 = getelementptr inbounds ptr, ptr %290, i64 13
+  %292 = load ptr, ptr %291, align 8, !tbaa !22
+  %293 = load i32, ptr %7, align 4, !tbaa !12
+  %294 = sext i32 %293 to i64
+  %295 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %292, i64 %294
+  %296 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %295, i32 0, i32 3
+  %297 = load ptr, ptr %6, align 8, !tbaa !22
+  %298 = load i32, ptr %7, align 4, !tbaa !12
+  %299 = sext i32 %298 to i64
+  %300 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %297, i64 %299
+  %301 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %300, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %301, ptr align 2 %296, i64 2, i1 false), !tbaa.struct !27
+  br label %302
+
+302:                                              ; preds = %13
+  %303 = load i32, ptr %7, align 4, !tbaa !12
+  %304 = add nsw i32 %303, 1
+  store i32 %304, ptr %7, align 4, !tbaa !12
+  br label %8, !llvm.loop !43
+
+305:                                              ; preds = %12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN7Imf_3_47RgbaYca9YCAtoRGBAERKN9Imath_3_24Vec3IfEEiPKNS_4RgbaEPS6_(ptr noundef nonnull align 4 dereferenceable(12) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #9 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca float, align 4
+  %13 = alloca float, align 4
+  %14 = alloca float, align 4
+  %15 = alloca float, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !14
+  store i32 %1, ptr %6, align 4, !tbaa !12
+  store ptr %2, ptr %7, align 8, !tbaa !22
+  store ptr %3, ptr %8, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  store i32 0, ptr %9, align 4, !tbaa !12
+  br label %16
+
+16:                                               ; preds = %106, %4
+  %17 = load i32, ptr %9, align 4, !tbaa !12
+  %18 = load i32, ptr %6, align 4, !tbaa !12
+  %19 = icmp slt i32 %17, %18
+  br i1 %19, label %21, label %20
+
+20:                                               ; preds = %16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  br label %109
+
+21:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  %22 = load ptr, ptr %7, align 8, !tbaa !22
+  %23 = load i32, ptr %9, align 4, !tbaa !12
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %22, i64 %24
+  store ptr %25, ptr %10, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  %26 = load ptr, ptr %8, align 8, !tbaa !22
+  %27 = load i32, ptr %9, align 4, !tbaa !12
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %26, i64 %28
+  store ptr %29, ptr %11, align 8, !tbaa !22
+  %30 = load ptr, ptr %10, align 8, !tbaa !22
+  %31 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %30, i32 0, i32 0
+  %32 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %31) #3
+  %33 = fcmp oeq float %32, 0.000000e+00
+  br i1 %33, label %34, label %56
+
+34:                                               ; preds = %21
+  %35 = load ptr, ptr %10, align 8, !tbaa !22
+  %36 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %35, i32 0, i32 2
+  %37 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %36) #3
+  %38 = fcmp oeq float %37, 0.000000e+00
+  br i1 %38, label %39, label %56
+
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %10, align 8, !tbaa !22
+  %41 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %40, i32 0, i32 1
+  %42 = load ptr, ptr %11, align 8, !tbaa !22
+  %43 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %42, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %43, ptr align 2 %41, i64 2, i1 false), !tbaa.struct !27
+  %44 = load ptr, ptr %10, align 8, !tbaa !22
+  %45 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %44, i32 0, i32 1
+  %46 = load ptr, ptr %11, align 8, !tbaa !22
+  %47 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %46, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %47, ptr align 2 %45, i64 2, i1 false), !tbaa.struct !27
+  %48 = load ptr, ptr %10, align 8, !tbaa !22
+  %49 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %48, i32 0, i32 1
+  %50 = load ptr, ptr %11, align 8, !tbaa !22
+  %51 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %50, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %51, ptr align 2 %49, i64 2, i1 false), !tbaa.struct !27
+  %52 = load ptr, ptr %10, align 8, !tbaa !22
+  %53 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %52, i32 0, i32 3
+  %54 = load ptr, ptr %11, align 8, !tbaa !22
+  %55 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %54, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %55, ptr align 2 %53, i64 2, i1 false), !tbaa.struct !27
+  br label %105
+
+56:                                               ; preds = %34, %21
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  %57 = load ptr, ptr %10, align 8, !tbaa !22
+  %58 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %57, i32 0, i32 1
+  %59 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %58) #3
+  store float %59, ptr %12, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  %60 = load ptr, ptr %10, align 8, !tbaa !22
+  %61 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %60, i32 0, i32 0
+  %62 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %61) #3
+  %63 = fadd float %62, 1.000000e+00
+  %64 = load float, ptr %12, align 4, !tbaa !8
+  %65 = fmul float %63, %64
+  store float %65, ptr %13, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  %66 = load ptr, ptr %10, align 8, !tbaa !22
+  %67 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %66, i32 0, i32 2
+  %68 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %67) #3
+  %69 = fadd float %68, 1.000000e+00
+  %70 = load float, ptr %12, align 4, !tbaa !8
+  %71 = fmul float %69, %70
+  store float %71, ptr %14, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #3
+  %72 = load float, ptr %12, align 4, !tbaa !8
+  %73 = load float, ptr %13, align 4, !tbaa !8
+  %74 = load ptr, ptr %5, align 8, !tbaa !14
+  %75 = getelementptr inbounds nuw %"class.Imath_3_2::Vec3", ptr %74, i32 0, i32 0
+  %76 = load float, ptr %75, align 4, !tbaa !16
+  %77 = fneg float %73
+  %78 = call float @llvm.fmuladd.f32(float %77, float %76, float %72)
+  %79 = load float, ptr %14, align 4, !tbaa !8
+  %80 = load ptr, ptr %5, align 8, !tbaa !14
+  %81 = getelementptr inbounds nuw %"class.Imath_3_2::Vec3", ptr %80, i32 0, i32 2
+  %82 = load float, ptr %81, align 4, !tbaa !19
+  %83 = fneg float %79
+  %84 = call float @llvm.fmuladd.f32(float %83, float %82, float %78)
+  %85 = load ptr, ptr %5, align 8, !tbaa !14
+  %86 = getelementptr inbounds nuw %"class.Imath_3_2::Vec3", ptr %85, i32 0, i32 1
+  %87 = load float, ptr %86, align 4, !tbaa !18
+  %88 = fdiv float %84, %87
+  store float %88, ptr %15, align 4, !tbaa !8
+  %89 = load float, ptr %13, align 4, !tbaa !8
+  %90 = load ptr, ptr %11, align 8, !tbaa !22
+  %91 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %90, i32 0, i32 0
+  %92 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %91, float noundef %89) #3
+  %93 = load float, ptr %15, align 4, !tbaa !8
+  %94 = load ptr, ptr %11, align 8, !tbaa !22
+  %95 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %94, i32 0, i32 1
+  %96 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %95, float noundef %93) #3
+  %97 = load float, ptr %14, align 4, !tbaa !8
+  %98 = load ptr, ptr %11, align 8, !tbaa !22
+  %99 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %98, i32 0, i32 2
+  %100 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %99, float noundef %97) #3
+  %101 = load ptr, ptr %10, align 8, !tbaa !22
+  %102 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %101, i32 0, i32 3
+  %103 = load ptr, ptr %11, align 8, !tbaa !22
+  %104 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %103, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %104, ptr align 2 %102, i64 2, i1 false), !tbaa.struct !27
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  br label %105
+
+105:                                              ; preds = %56, %39
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  br label %106
+
+106:                                              ; preds = %105
+  %107 = load i32, ptr %9, align 4, !tbaa !12
+  %108 = add nsw i32 %107, 1
+  store i32 %108, ptr %9, align 4, !tbaa !12
+  br label %16, !llvm.loop !44
+
+109:                                              ; preds = %20
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN7Imf_3_47RgbaYca13fixSaturationERKN9Imath_3_24Vec3IfEEiPKPKNS_4RgbaEPS6_(ptr noundef nonnull align 4 dereferenceable(12) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #4 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca float, align 4
+  %10 = alloca float, align 4
+  %11 = alloca float, align 4
+  %12 = alloca float, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca float, align 4
+  %16 = alloca float, align 4
+  %17 = alloca float, align 4
+  %18 = alloca float, align 4
+  %19 = alloca float, align 4
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca float, align 4
+  %23 = alloca float, align 4
+  %24 = alloca float, align 4
+  %25 = alloca float, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !14
+  store i32 %1, ptr %6, align 4, !tbaa !12
+  store ptr %2, ptr %7, align 8, !tbaa !37
+  store ptr %3, ptr %8, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  %26 = load ptr, ptr %7, align 8, !tbaa !37
+  %27 = getelementptr inbounds ptr, ptr %26, i64 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !22
+  %29 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %28, i64 0
+  %30 = call noundef float @_ZN7Imf_3_47RgbaYca12_GLOBAL__N_110saturationERKNS_4RgbaE(ptr noundef nonnull align 2 dereferenceable(8) %29)
+  store float %30, ptr %9, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  %31 = load float, ptr %9, align 4, !tbaa !8
+  store float %31, ptr %10, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  %32 = load ptr, ptr %7, align 8, !tbaa !37
+  %33 = getelementptr inbounds ptr, ptr %32, i64 2
+  %34 = load ptr, ptr %33, align 8, !tbaa !22
+  %35 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %34, i64 0
+  %36 = call noundef float @_ZN7Imf_3_47RgbaYca12_GLOBAL__N_110saturationERKNS_4RgbaE(ptr noundef nonnull align 2 dereferenceable(8) %35)
+  store float %36, ptr %11, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  %37 = load float, ptr %11, align 4, !tbaa !8
+  store float %37, ptr %12, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  store i32 0, ptr %13, align 4, !tbaa !12
+  br label %38
+
+38:                                               ; preds = %122, %4
+  %39 = load i32, ptr %13, align 4, !tbaa !12
+  %40 = load i32, ptr %6, align 4, !tbaa !12
+  %41 = icmp slt i32 %39, %40
+  br i1 %41, label %43, label %42
+
+42:                                               ; preds = %38
+  store i32 2, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  br label %125
+
+43:                                               ; preds = %38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #3
+  %44 = load float, ptr %10, align 4, !tbaa !8
+  store float %44, ptr %15, align 4, !tbaa !8
+  %45 = load float, ptr %9, align 4, !tbaa !8
+  store float %45, ptr %10, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
+  %46 = load float, ptr %12, align 4, !tbaa !8
+  store float %46, ptr %16, align 4, !tbaa !8
+  %47 = load float, ptr %11, align 4, !tbaa !8
+  store float %47, ptr %12, align 4, !tbaa !8
+  %48 = load i32, ptr %13, align 4, !tbaa !12
+  %49 = load i32, ptr %6, align 4, !tbaa !12
+  %50 = sub nsw i32 %49, 1
+  %51 = icmp slt i32 %48, %50
+  br i1 %51, label %52, label %69
+
+52:                                               ; preds = %43
+  %53 = load ptr, ptr %7, align 8, !tbaa !37
+  %54 = getelementptr inbounds ptr, ptr %53, i64 0
+  %55 = load ptr, ptr %54, align 8, !tbaa !22
+  %56 = load i32, ptr %13, align 4, !tbaa !12
+  %57 = add nsw i32 %56, 1
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %55, i64 %58
+  %60 = call noundef float @_ZN7Imf_3_47RgbaYca12_GLOBAL__N_110saturationERKNS_4RgbaE(ptr noundef nonnull align 2 dereferenceable(8) %59)
+  store float %60, ptr %9, align 4, !tbaa !8
+  %61 = load ptr, ptr %7, align 8, !tbaa !37
+  %62 = getelementptr inbounds ptr, ptr %61, i64 2
+  %63 = load ptr, ptr %62, align 8, !tbaa !22
+  %64 = load i32, ptr %13, align 4, !tbaa !12
+  %65 = add nsw i32 %64, 1
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %63, i64 %66
+  %68 = call noundef float @_ZN7Imf_3_47RgbaYca12_GLOBAL__N_110saturationERKNS_4RgbaE(ptr noundef nonnull align 2 dereferenceable(8) %67)
+  store float %68, ptr %11, align 4, !tbaa !8
+  br label %69
+
+69:                                               ; preds = %52, %43
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #3
+  store float 1.000000e+00, ptr %18, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #3
+  %70 = load float, ptr %15, align 4, !tbaa !8
+  %71 = load float, ptr %9, align 4, !tbaa !8
+  %72 = fadd float %70, %71
+  %73 = load float, ptr %16, align 4, !tbaa !8
+  %74 = fadd float %72, %73
+  %75 = load float, ptr %11, align 4, !tbaa !8
+  %76 = fadd float %74, %75
+  %77 = fmul float 2.500000e-01, %76
+  store float %77, ptr %19, align 4, !tbaa !8
+  %78 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 4 dereferenceable(4) %19)
+  %79 = load float, ptr %78, align 4, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #3
+  store float %79, ptr %17, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #3
+  %80 = load ptr, ptr %7, align 8, !tbaa !37
+  %81 = getelementptr inbounds ptr, ptr %80, i64 1
+  %82 = load ptr, ptr %81, align 8, !tbaa !22
+  %83 = load i32, ptr %13, align 4, !tbaa !12
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %82, i64 %84
+  store ptr %85, ptr %20, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #3
+  %86 = load ptr, ptr %8, align 8, !tbaa !22
+  %87 = load i32, ptr %13, align 4, !tbaa !12
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %86, i64 %88
+  store ptr %89, ptr %21, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #3
+  %90 = load ptr, ptr %20, align 8, !tbaa !22
+  %91 = call noundef float @_ZN7Imf_3_47RgbaYca12_GLOBAL__N_110saturationERKNS_4RgbaE(ptr noundef nonnull align 2 dereferenceable(8) %90)
+  store float %91, ptr %22, align 4, !tbaa !8
+  %92 = load float, ptr %22, align 4, !tbaa !8
+  %93 = load float, ptr %17, align 4, !tbaa !8
+  %94 = fcmp ogt float %92, %93
+  br i1 %94, label %95, label %116
+
+95:                                               ; preds = %69
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #3
+  store float 1.000000e+00, ptr %24, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #3
+  %96 = load float, ptr %17, align 4, !tbaa !8
+  %97 = fsub float 1.000000e+00, %96
+  %98 = fneg float %97
+  %99 = call float @llvm.fmuladd.f32(float %98, float 2.500000e-01, float 1.000000e+00)
+  store float %99, ptr %25, align 4, !tbaa !8
+  %100 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %24, ptr noundef nonnull align 4 dereferenceable(4) %25)
+  %101 = load float, ptr %100, align 4, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #3
+  store float %101, ptr %23, align 4, !tbaa !8
+  %102 = load float, ptr %22, align 4, !tbaa !8
+  %103 = load float, ptr %23, align 4, !tbaa !8
+  %104 = fcmp ogt float %102, %103
+  br i1 %104, label %105, label %112
+
+105:                                              ; preds = %95
+  %106 = load ptr, ptr %20, align 8, !tbaa !22
+  %107 = load float, ptr %23, align 4, !tbaa !8
+  %108 = load float, ptr %22, align 4, !tbaa !8
+  %109 = fdiv float %107, %108
+  %110 = load ptr, ptr %5, align 8, !tbaa !14
+  %111 = load ptr, ptr %21, align 8, !tbaa !22
+  call void @_ZN7Imf_3_47RgbaYca12_GLOBAL__N_110desaturateERKNS_4RgbaEfRKN9Imath_3_24Vec3IfEERS2_(ptr noundef nonnull align 2 dereferenceable(8) %106, float noundef %109, ptr noundef nonnull align 4 dereferenceable(12) %110, ptr noundef nonnull align 2 dereferenceable(8) %111)
+  store i32 4, ptr %14, align 4
+  br label %113
+
+112:                                              ; preds = %95
+  store i32 0, ptr %14, align 4
+  br label %113
+
+113:                                              ; preds = %112, %105
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #3
+  %114 = load i32, ptr %14, align 4
+  switch i32 %114, label %119 [
+    i32 0, label %115
+  ]
+
+115:                                              ; preds = %113
+  br label %116
+
+116:                                              ; preds = %115, %69
+  %117 = load ptr, ptr %20, align 8, !tbaa !22
+  %118 = load ptr, ptr %21, align 8, !tbaa !22
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %118, ptr align 2 %117, i64 8, i1 false), !tbaa.struct !24
+  store i32 0, ptr %14, align 4
+  br label %119
+
+119:                                              ; preds = %116, %113
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
+  %120 = load i32, ptr %14, align 4
+  switch i32 %120, label %126 [
+    i32 0, label %121
+    i32 4, label %122
+  ]
+
+121:                                              ; preds = %119
+  br label %122
+
+122:                                              ; preds = %121, %119
+  %123 = load i32, ptr %13, align 4, !tbaa !12
+  %124 = add nsw i32 %123, 1
+  store i32 %124, ptr %13, align 4, !tbaa !12
+  br label %38, !llvm.loop !45
+
+125:                                              ; preds = %42
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  ret void
+
+126:                                              ; preds = %119
+  unreachable
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define internal noundef float @_ZN7Imf_3_47RgbaYca12_GLOBAL__N_110saturationERKNS_4RgbaE(ptr noundef nonnull align 2 dereferenceable(8) %0) #10 {
+  %2 = alloca float, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca float, align 4
+  %5 = alloca float, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  %7 = load ptr, ptr %3, align 8, !tbaa !22
+  %8 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %3, align 8, !tbaa !22
+  %10 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %9, i32 0, i32 1
+  %11 = load ptr, ptr %3, align 8, !tbaa !22
+  %12 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %11, i32 0, i32 2
+  %13 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZSt3maxIN9Imath_3_24halfEERKT_S4_S4_(ptr noundef nonnull align 2 dereferenceable(2) %10, ptr noundef nonnull align 2 dereferenceable(2) %12)
+  %14 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZSt3maxIN9Imath_3_24halfEERKT_S4_S4_(ptr noundef nonnull align 2 dereferenceable(2) %8, ptr noundef nonnull align 2 dereferenceable(2) %13)
+  %15 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %14) #3
+  store float %15, ptr %4, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
+  %16 = load ptr, ptr %3, align 8, !tbaa !22
+  %17 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %3, align 8, !tbaa !22
+  %19 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %18, i32 0, i32 1
+  %20 = load ptr, ptr %3, align 8, !tbaa !22
+  %21 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %20, i32 0, i32 2
+  %22 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZSt3minIN9Imath_3_24halfEERKT_S4_S4_(ptr noundef nonnull align 2 dereferenceable(2) %19, ptr noundef nonnull align 2 dereferenceable(2) %21)
+  %23 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZSt3minIN9Imath_3_24halfEERKT_S4_S4_(ptr noundef nonnull align 2 dereferenceable(2) %17, ptr noundef nonnull align 2 dereferenceable(2) %22)
+  %24 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %23) #3
+  store float %24, ptr %5, align 4, !tbaa !8
+  %25 = load float, ptr %4, align 4, !tbaa !8
+  %26 = fcmp ogt float %25, 0.000000e+00
+  br i1 %26, label %27, label %32
+
+27:                                               ; preds = %1
+  %28 = load float, ptr %5, align 4, !tbaa !8
+  %29 = load float, ptr %4, align 4, !tbaa !8
+  %30 = fdiv float %28, %29
+  %31 = fsub float 1.000000e+00, %30
+  store float %31, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %33
+
+32:                                               ; preds = %1
+  store float 0.000000e+00, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %33
+
+33:                                               ; preds = %32, %27
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  %34 = load float, ptr %2, align 4
+  ret float %34
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #6 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !46
+  store ptr %1, ptr %5, align 8, !tbaa !46
+  %6 = load ptr, ptr %5, align 8, !tbaa !46
+  %7 = load float, ptr %6, align 4, !tbaa !8
+  %8 = load ptr, ptr %4, align 8, !tbaa !46
+  %9 = load float, ptr %8, align 4, !tbaa !8
+  %10 = fcmp olt float %7, %9
+  br i1 %10, label %11, label %13
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8, !tbaa !46
+  store ptr %12, ptr %3, align 8
+  br label %15
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !46
+  store ptr %14, ptr %3, align 8
+  br label %15
+
+15:                                               ; preds = %13, %11
+  %16 = load ptr, ptr %3, align 8
+  ret ptr %16
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZN7Imf_3_47RgbaYca12_GLOBAL__N_110desaturateERKNS_4RgbaEfRKN9Imath_3_24Vec3IfEERS2_(ptr noundef nonnull align 2 dereferenceable(8) %0, float noundef %1, ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 2 dereferenceable(8) %3) #4 {
+  %5 = alloca ptr, align 8
+  %6 = alloca float, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca float, align 4
+  %10 = alloca float, align 4
+  %11 = alloca float, align 4
+  %12 = alloca float, align 4
+  %13 = alloca float, align 4
+  %14 = alloca float, align 4
+  %15 = alloca float, align 4
+  %16 = alloca float, align 4
+  %17 = alloca float, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !22
+  store float %1, ptr %6, align 4, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !14
+  store ptr %3, ptr %8, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  %18 = load ptr, ptr %5, align 8, !tbaa !22
+  %19 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %5, align 8, !tbaa !22
+  %21 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %5, align 8, !tbaa !22
+  %23 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %22, i32 0, i32 2
+  %24 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZSt3maxIN9Imath_3_24halfEERKT_S4_S4_(ptr noundef nonnull align 2 dereferenceable(2) %21, ptr noundef nonnull align 2 dereferenceable(2) %23)
+  %25 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZSt3maxIN9Imath_3_24halfEERKT_S4_S4_(ptr noundef nonnull align 2 dereferenceable(2) %19, ptr noundef nonnull align 2 dereferenceable(2) %24)
+  %26 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %25) #3
+  store float %26, ptr %9, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  %27 = load float, ptr %9, align 4, !tbaa !8
+  %28 = load float, ptr %9, align 4, !tbaa !8
+  %29 = load ptr, ptr %5, align 8, !tbaa !22
+  %30 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %29, i32 0, i32 0
+  %31 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %30) #3
+  %32 = fsub float %28, %31
+  %33 = load float, ptr %6, align 4, !tbaa !8
+  %34 = fneg float %32
+  %35 = call float @llvm.fmuladd.f32(float %34, float %33, float %27)
+  store float %35, ptr %10, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  store float 0.000000e+00, ptr %11, align 4, !tbaa !8
+  %36 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  %37 = load float, ptr %36, align 4, !tbaa !8
+  %38 = load ptr, ptr %8, align 8, !tbaa !22
+  %39 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %38, i32 0, i32 0
+  %40 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %39, float noundef %37) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  %41 = load float, ptr %9, align 4, !tbaa !8
+  %42 = load float, ptr %9, align 4, !tbaa !8
+  %43 = load ptr, ptr %5, align 8, !tbaa !22
+  %44 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %43, i32 0, i32 1
+  %45 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %44) #3
+  %46 = fsub float %42, %45
+  %47 = load float, ptr %6, align 4, !tbaa !8
+  %48 = fneg float %46
+  %49 = call float @llvm.fmuladd.f32(float %48, float %47, float %41)
+  store float %49, ptr %12, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  store float 0.000000e+00, ptr %13, align 4, !tbaa !8
+  %50 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %13)
+  %51 = load float, ptr %50, align 4, !tbaa !8
+  %52 = load ptr, ptr %8, align 8, !tbaa !22
+  %53 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %52, i32 0, i32 1
+  %54 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %53, float noundef %51) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  %55 = load float, ptr %9, align 4, !tbaa !8
+  %56 = load float, ptr %9, align 4, !tbaa !8
+  %57 = load ptr, ptr %5, align 8, !tbaa !22
+  %58 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %57, i32 0, i32 2
+  %59 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %58) #3
+  %60 = fsub float %56, %59
+  %61 = load float, ptr %6, align 4, !tbaa !8
+  %62 = fneg float %60
+  %63 = call float @llvm.fmuladd.f32(float %62, float %61, float %55)
+  store float %63, ptr %14, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #3
+  store float 0.000000e+00, ptr %15, align 4, !tbaa !8
+  %64 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 4 dereferenceable(4) %15)
+  %65 = load float, ptr %64, align 4, !tbaa !8
+  %66 = load ptr, ptr %8, align 8, !tbaa !22
+  %67 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %66, i32 0, i32 2
+  %68 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %67, float noundef %65) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  %69 = load ptr, ptr %5, align 8, !tbaa !22
+  %70 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %69, i32 0, i32 3
+  %71 = load ptr, ptr %8, align 8, !tbaa !22
+  %72 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %71, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %72, ptr align 2 %70, i64 2, i1 false), !tbaa.struct !27
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
+  %73 = load ptr, ptr %5, align 8, !tbaa !22
+  %74 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %73, i32 0, i32 0
+  %75 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %74) #3
+  %76 = load ptr, ptr %7, align 8, !tbaa !14
+  %77 = getelementptr inbounds nuw %"class.Imath_3_2::Vec3", ptr %76, i32 0, i32 0
+  %78 = load float, ptr %77, align 4, !tbaa !16
+  %79 = load ptr, ptr %5, align 8, !tbaa !22
+  %80 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %79, i32 0, i32 1
+  %81 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %80) #3
+  %82 = load ptr, ptr %7, align 8, !tbaa !14
+  %83 = getelementptr inbounds nuw %"class.Imath_3_2::Vec3", ptr %82, i32 0, i32 1
+  %84 = load float, ptr %83, align 4, !tbaa !18
+  %85 = fmul float %81, %84
+  %86 = call float @llvm.fmuladd.f32(float %75, float %78, float %85)
+  %87 = load ptr, ptr %5, align 8, !tbaa !22
+  %88 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %87, i32 0, i32 2
+  %89 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %88) #3
+  %90 = load ptr, ptr %7, align 8, !tbaa !14
+  %91 = getelementptr inbounds nuw %"class.Imath_3_2::Vec3", ptr %90, i32 0, i32 2
+  %92 = load float, ptr %91, align 4, !tbaa !19
+  %93 = call float @llvm.fmuladd.f32(float %89, float %92, float %86)
+  store float %93, ptr %16, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
+  %94 = load ptr, ptr %8, align 8, !tbaa !22
+  %95 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %94, i32 0, i32 0
+  %96 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %95) #3
+  %97 = load ptr, ptr %7, align 8, !tbaa !14
+  %98 = getelementptr inbounds nuw %"class.Imath_3_2::Vec3", ptr %97, i32 0, i32 0
+  %99 = load float, ptr %98, align 4, !tbaa !16
+  %100 = load ptr, ptr %8, align 8, !tbaa !22
+  %101 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %100, i32 0, i32 1
+  %102 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %101) #3
+  %103 = load ptr, ptr %7, align 8, !tbaa !14
+  %104 = getelementptr inbounds nuw %"class.Imath_3_2::Vec3", ptr %103, i32 0, i32 1
+  %105 = load float, ptr %104, align 4, !tbaa !18
+  %106 = fmul float %102, %105
+  %107 = call float @llvm.fmuladd.f32(float %96, float %99, float %106)
+  %108 = load ptr, ptr %8, align 8, !tbaa !22
+  %109 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %108, i32 0, i32 2
+  %110 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %109) #3
+  %111 = load ptr, ptr %7, align 8, !tbaa !14
+  %112 = getelementptr inbounds nuw %"class.Imath_3_2::Vec3", ptr %111, i32 0, i32 2
+  %113 = load float, ptr %112, align 4, !tbaa !19
+  %114 = call float @llvm.fmuladd.f32(float %110, float %113, float %107)
+  store float %114, ptr %17, align 4, !tbaa !8
+  %115 = load float, ptr %17, align 4, !tbaa !8
+  %116 = fcmp ogt float %115, 0.000000e+00
+  br i1 %116, label %117, label %136
+
+117:                                              ; preds = %4
+  %118 = load float, ptr %16, align 4, !tbaa !8
+  %119 = load float, ptr %17, align 4, !tbaa !8
+  %120 = fdiv float %118, %119
+  %121 = load ptr, ptr %8, align 8, !tbaa !22
+  %122 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %121, i32 0, i32 0
+  %123 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfmLEf(ptr noundef nonnull align 2 dereferenceable(2) %122, float noundef %120) #3
+  %124 = load float, ptr %16, align 4, !tbaa !8
+  %125 = load float, ptr %17, align 4, !tbaa !8
+  %126 = fdiv float %124, %125
+  %127 = load ptr, ptr %8, align 8, !tbaa !22
+  %128 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %127, i32 0, i32 1
+  %129 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfmLEf(ptr noundef nonnull align 2 dereferenceable(2) %128, float noundef %126) #3
+  %130 = load float, ptr %16, align 4, !tbaa !8
+  %131 = load float, ptr %17, align 4, !tbaa !8
+  %132 = fdiv float %130, %131
+  %133 = load ptr, ptr %8, align 8, !tbaa !22
+  %134 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %133, i32 0, i32 2
+  %135 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfmLEf(ptr noundef nonnull align 2 dereferenceable(2) %134, float noundef %132) #3
+  br label %136
+
+136:                                              ; preds = %117, %4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i16 @_ZNK9Imath_3_24half8exponentEv(ptr noundef nonnull align 2 dereferenceable(2) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !32
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %3, i32 0, i32 0
+  %5 = load i16, ptr %4, align 2, !tbaa !34
+  %6 = zext i16 %5 to i32
+  %7 = ashr i32 %6, 10
+  %8 = and i32 %7, 31
+  %9 = trunc i32 %8 to i16
+  ret i16 %9
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef float @_ZL19imath_half_to_floatt(i16 noundef zeroext %0) #6 {
+  %2 = alloca i16, align 2
+  store i16 %0, ptr %2, align 2, !tbaa !25
+  %3 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !48
+  %4 = load i16, ptr %2, align 2, !tbaa !25
+  %5 = zext i16 %4 to i64
+  %6 = getelementptr inbounds nuw %union.imath_half_uif, ptr %3, i64 %5
+  %7 = load float, ptr %6, align 4, !tbaa !50
+  ret float %7
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #8 comdat {
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #11 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
-  call void @_ZSt9terminatev() #9
+  call void @_ZSt9terminatev() #13
   unreachable
 }
 
@@ -2585,355 +2736,423 @@ declare ptr @__cxa_begin_catch(ptr)
 
 declare void @_ZSt9terminatev()
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN9Imath_3_24halfC2Ef(ptr noundef nonnull align 2 dereferenceable(2) %this, float noundef %f) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %f.addr = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store float %f, ptr %f.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_h = getelementptr inbounds %"class.Imath_3_2::half", ptr %this1, i32 0, i32 0
-  %0 = load float, ptr %f.addr, align 4
-  %call = invoke noundef zeroext i16 @_ZL19imath_float_to_halff(float noundef %0)
-          to label %invoke.cont unwind label %terminate.lpad
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN9Imath_3_24halfC2Ef(ptr noundef nonnull align 2 dereferenceable(2) %0, float noundef %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca float, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store float %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %5, i32 0, i32 0
+  %7 = load float, ptr %4, align 4, !tbaa !8
+  %8 = invoke noundef zeroext i16 @_ZL19imath_float_to_halff(float noundef %7)
+          to label %9 unwind label %10
 
-invoke.cont:                                      ; preds = %entry
-  store i16 %call, ptr %_h, align 2
+9:                                                ; preds = %2
+  store i16 %8, ptr %6, align 2, !tbaa !34
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+10:                                               ; preds = %2
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #9
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #13
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i16 @_ZL19imath_float_to_halff(float noundef %f) #5 {
-entry:
-  %retval = alloca i16, align 2
-  %f.addr = alloca float, align 4
-  %v = alloca %union.imath_half_uif, align 4
-  %ret = alloca i16, align 2
-  %e = alloca i32, align 4
-  %m = alloca i32, align 4
-  %ui = alloca i32, align 4
-  %r = alloca i32, align 4
-  %shift = alloca i32, align 4
-  store float %f, ptr %f.addr, align 4
-  %0 = load float, ptr %f.addr, align 4
-  store float %0, ptr %v, align 4
-  %1 = load i32, ptr %v, align 4
-  %and = and i32 %1, 2147483647
-  store i32 %and, ptr %ui, align 4
-  %2 = load i32, ptr %v, align 4
-  %shr = lshr i32 %2, 16
-  %and1 = and i32 %shr, 32768
-  %conv = trunc i32 %and1 to i16
-  store i16 %conv, ptr %ret, align 2
-  %3 = load i32, ptr %ui, align 4
-  %cmp = icmp uge i32 %3, 947912704
-  br i1 %cmp, label %if.then, label %if.end37
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef zeroext i16 @_ZL19imath_float_to_halff(float noundef %0) #6 {
+  %2 = alloca i16, align 2
+  %3 = alloca float, align 4
+  %4 = alloca %union.imath_half_uif, align 4
+  %5 = alloca i16, align 2
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  store float %0, ptr %3, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  call void @llvm.lifetime.start.p0(i64 2, ptr %5) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  %12 = load float, ptr %3, align 4, !tbaa !8
+  store float %12, ptr %4, align 4, !tbaa !50
+  %13 = load i32, ptr %4, align 4, !tbaa !50
+  %14 = and i32 %13, 2147483647
+  store i32 %14, ptr %8, align 4, !tbaa !12
+  %15 = load i32, ptr %4, align 4, !tbaa !50
+  %16 = lshr i32 %15, 16
+  %17 = and i32 %16, 32768
+  %18 = trunc i32 %17 to i16
+  store i16 %18, ptr %5, align 2, !tbaa !25
+  %19 = load i32, ptr %8, align 4, !tbaa !12
+  %20 = icmp uge i32 %19, 947912704
+  br i1 %20, label %21, label %80
 
-if.then:                                          ; preds = %entry
-  %4 = load i32, ptr %ui, align 4
-  %cmp2 = icmp uge i32 %4, 2139095040
-  br i1 %cmp2, label %if.then4, label %if.end20
+21:                                               ; preds = %1
+  %22 = load i32, ptr %8, align 4, !tbaa !12
+  %23 = icmp uge i32 %22, 2139095040
+  %24 = zext i1 %23 to i64
+  %25 = call i64 @llvm.expect.i64(i64 %24, i64 0)
+  %26 = icmp ne i64 %25, 0
+  br i1 %26, label %27, label %52
 
-if.then4:                                         ; preds = %if.then
-  %5 = load i16, ptr %ret, align 2
-  %conv5 = zext i16 %5 to i32
-  %or = or i32 %conv5, 31744
-  %conv6 = trunc i32 %or to i16
-  store i16 %conv6, ptr %ret, align 2
-  %6 = load i32, ptr %ui, align 4
-  %cmp7 = icmp eq i32 %6, 2139095040
-  br i1 %cmp7, label %if.then8, label %if.end
+27:                                               ; preds = %21
+  %28 = load i16, ptr %5, align 2, !tbaa !25
+  %29 = zext i16 %28 to i32
+  %30 = or i32 %29, 31744
+  %31 = trunc i32 %30 to i16
+  store i16 %31, ptr %5, align 2, !tbaa !25
+  %32 = load i32, ptr %8, align 4, !tbaa !12
+  %33 = icmp eq i32 %32, 2139095040
+  br i1 %33, label %34, label %36
 
-if.then8:                                         ; preds = %if.then4
-  %7 = load i16, ptr %ret, align 2
-  store i16 %7, ptr %retval, align 2
-  br label %return
+34:                                               ; preds = %27
+  %35 = load i16, ptr %5, align 2, !tbaa !25
+  store i16 %35, ptr %2, align 2
+  store i32 1, ptr %11, align 4
+  br label %119
 
-if.end:                                           ; preds = %if.then4
-  %8 = load i32, ptr %ui, align 4
-  %and9 = and i32 %8, 8388607
-  %shr10 = lshr i32 %and9, 13
-  store i32 %shr10, ptr %m, align 4
-  %9 = load i16, ptr %ret, align 2
-  %conv11 = zext i16 %9 to i32
-  %10 = load i32, ptr %m, align 4
-  %conv12 = trunc i32 %10 to i16
-  %conv13 = zext i16 %conv12 to i32
-  %or14 = or i32 %conv11, %conv13
-  %11 = load i32, ptr %m, align 4
-  %cmp15 = icmp eq i32 %11, 0
-  %conv16 = zext i1 %cmp15 to i16
-  %conv17 = zext i16 %conv16 to i32
-  %or18 = or i32 %or14, %conv17
-  %conv19 = trunc i32 %or18 to i16
-  store i16 %conv19, ptr %retval, align 2
-  br label %return
+36:                                               ; preds = %27
+  %37 = load i32, ptr %8, align 4, !tbaa !12
+  %38 = and i32 %37, 8388607
+  %39 = lshr i32 %38, 13
+  store i32 %39, ptr %7, align 4, !tbaa !12
+  %40 = load i16, ptr %5, align 2, !tbaa !25
+  %41 = zext i16 %40 to i32
+  %42 = load i32, ptr %7, align 4, !tbaa !12
+  %43 = trunc i32 %42 to i16
+  %44 = zext i16 %43 to i32
+  %45 = or i32 %41, %44
+  %46 = load i32, ptr %7, align 4, !tbaa !12
+  %47 = icmp eq i32 %46, 0
+  %48 = zext i1 %47 to i16
+  %49 = zext i16 %48 to i32
+  %50 = or i32 %45, %49
+  %51 = trunc i32 %50 to i16
+  store i16 %51, ptr %2, align 2
+  store i32 1, ptr %11, align 4
+  br label %119
 
-if.end20:                                         ; preds = %if.then
-  %12 = load i32, ptr %ui, align 4
-  %cmp21 = icmp ugt i32 %12, 1199566847
-  br i1 %cmp21, label %if.then23, label %if.end27
+52:                                               ; preds = %21
+  %53 = load i32, ptr %8, align 4, !tbaa !12
+  %54 = icmp ugt i32 %53, 1199566847
+  %55 = zext i1 %54 to i64
+  %56 = call i64 @llvm.expect.i64(i64 %55, i64 0)
+  %57 = icmp ne i64 %56, 0
+  br i1 %57, label %58, label %63
 
-if.then23:                                        ; preds = %if.end20
-  %13 = load i16, ptr %ret, align 2
-  %conv24 = zext i16 %13 to i32
-  %or25 = or i32 %conv24, 31744
-  %conv26 = trunc i32 %or25 to i16
-  store i16 %conv26, ptr %retval, align 2
-  br label %return
+58:                                               ; preds = %52
+  %59 = load i16, ptr %5, align 2, !tbaa !25
+  %60 = zext i16 %59 to i32
+  %61 = or i32 %60, 31744
+  %62 = trunc i32 %61 to i16
+  store i16 %62, ptr %2, align 2
+  store i32 1, ptr %11, align 4
+  br label %119
 
-if.end27:                                         ; preds = %if.end20
-  %14 = load i32, ptr %ui, align 4
-  %sub = sub i32 %14, 939524096
-  store i32 %sub, ptr %ui, align 4
-  %15 = load i32, ptr %ui, align 4
-  %add = add i32 %15, 4095
-  %16 = load i32, ptr %ui, align 4
-  %shr28 = lshr i32 %16, 13
-  %and29 = and i32 %shr28, 1
-  %add30 = add i32 %add, %and29
-  %shr31 = lshr i32 %add30, 13
-  store i32 %shr31, ptr %ui, align 4
-  %17 = load i16, ptr %ret, align 2
-  %conv32 = zext i16 %17 to i32
-  %18 = load i32, ptr %ui, align 4
-  %conv33 = trunc i32 %18 to i16
-  %conv34 = zext i16 %conv33 to i32
-  %or35 = or i32 %conv32, %conv34
-  %conv36 = trunc i32 %or35 to i16
-  store i16 %conv36, ptr %retval, align 2
-  br label %return
+63:                                               ; preds = %52
+  %64 = load i32, ptr %8, align 4, !tbaa !12
+  %65 = sub i32 %64, 939524096
+  store i32 %65, ptr %8, align 4, !tbaa !12
+  %66 = load i32, ptr %8, align 4, !tbaa !12
+  %67 = add i32 %66, 4095
+  %68 = load i32, ptr %8, align 4, !tbaa !12
+  %69 = lshr i32 %68, 13
+  %70 = and i32 %69, 1
+  %71 = add i32 %67, %70
+  %72 = lshr i32 %71, 13
+  store i32 %72, ptr %8, align 4, !tbaa !12
+  %73 = load i16, ptr %5, align 2, !tbaa !25
+  %74 = zext i16 %73 to i32
+  %75 = load i32, ptr %8, align 4, !tbaa !12
+  %76 = trunc i32 %75 to i16
+  %77 = zext i16 %76 to i32
+  %78 = or i32 %74, %77
+  %79 = trunc i32 %78 to i16
+  store i16 %79, ptr %2, align 2
+  store i32 1, ptr %11, align 4
+  br label %119
 
-if.end37:                                         ; preds = %entry
-  %19 = load i32, ptr %ui, align 4
-  %cmp38 = icmp ult i32 %19, 855638017
-  br i1 %cmp38, label %if.then39, label %if.end40
+80:                                               ; preds = %1
+  %81 = load i32, ptr %8, align 4, !tbaa !12
+  %82 = icmp ult i32 %81, 855638017
+  br i1 %82, label %83, label %85
 
-if.then39:                                        ; preds = %if.end37
-  %20 = load i16, ptr %ret, align 2
-  store i16 %20, ptr %retval, align 2
-  br label %return
+83:                                               ; preds = %80
+  %84 = load i16, ptr %5, align 2, !tbaa !25
+  store i16 %84, ptr %2, align 2
+  store i32 1, ptr %11, align 4
+  br label %119
 
-if.end40:                                         ; preds = %if.end37
-  %21 = load i32, ptr %ui, align 4
-  %shr41 = lshr i32 %21, 23
-  store i32 %shr41, ptr %e, align 4
-  %22 = load i32, ptr %e, align 4
-  %sub42 = sub i32 126, %22
-  store i32 %sub42, ptr %shift, align 4
-  %23 = load i32, ptr %ui, align 4
-  %and43 = and i32 %23, 8388607
-  %or44 = or i32 8388608, %and43
-  store i32 %or44, ptr %m, align 4
-  %24 = load i32, ptr %m, align 4
-  %25 = load i32, ptr %shift, align 4
-  %sub45 = sub i32 32, %25
-  %shl = shl i32 %24, %sub45
-  store i32 %shl, ptr %r, align 4
-  %26 = load i32, ptr %m, align 4
-  %27 = load i32, ptr %shift, align 4
-  %shr46 = lshr i32 %26, %27
-  %28 = load i16, ptr %ret, align 2
-  %conv47 = zext i16 %28 to i32
-  %or48 = or i32 %conv47, %shr46
-  %conv49 = trunc i32 %or48 to i16
-  store i16 %conv49, ptr %ret, align 2
-  %29 = load i32, ptr %r, align 4
-  %cmp50 = icmp ugt i32 %29, -2147483648
-  br i1 %cmp50, label %if.then55, label %lor.lhs.false
+85:                                               ; preds = %80
+  %86 = load i32, ptr %8, align 4, !tbaa !12
+  %87 = lshr i32 %86, 23
+  store i32 %87, ptr %6, align 4, !tbaa !12
+  %88 = load i32, ptr %6, align 4, !tbaa !12
+  %89 = sub i32 126, %88
+  store i32 %89, ptr %10, align 4, !tbaa !12
+  %90 = load i32, ptr %8, align 4, !tbaa !12
+  %91 = and i32 %90, 8388607
+  %92 = or i32 8388608, %91
+  store i32 %92, ptr %7, align 4, !tbaa !12
+  %93 = load i32, ptr %7, align 4, !tbaa !12
+  %94 = load i32, ptr %10, align 4, !tbaa !12
+  %95 = sub i32 32, %94
+  %96 = shl i32 %93, %95
+  store i32 %96, ptr %9, align 4, !tbaa !12
+  %97 = load i32, ptr %7, align 4, !tbaa !12
+  %98 = load i32, ptr %10, align 4, !tbaa !12
+  %99 = lshr i32 %97, %98
+  %100 = load i16, ptr %5, align 2, !tbaa !25
+  %101 = zext i16 %100 to i32
+  %102 = or i32 %101, %99
+  %103 = trunc i32 %102 to i16
+  store i16 %103, ptr %5, align 2, !tbaa !25
+  %104 = load i32, ptr %9, align 4, !tbaa !12
+  %105 = icmp ugt i32 %104, -2147483648
+  br i1 %105, label %114, label %106
 
-lor.lhs.false:                                    ; preds = %if.end40
-  %30 = load i32, ptr %r, align 4
-  %cmp51 = icmp eq i32 %30, -2147483648
-  br i1 %cmp51, label %land.lhs.true, label %if.end56
+106:                                              ; preds = %85
+  %107 = load i32, ptr %9, align 4, !tbaa !12
+  %108 = icmp eq i32 %107, -2147483648
+  br i1 %108, label %109, label %117
 
-land.lhs.true:                                    ; preds = %lor.lhs.false
-  %31 = load i16, ptr %ret, align 2
-  %conv52 = zext i16 %31 to i32
-  %and53 = and i32 %conv52, 1
-  %cmp54 = icmp ne i32 %and53, 0
-  br i1 %cmp54, label %if.then55, label %if.end56
+109:                                              ; preds = %106
+  %110 = load i16, ptr %5, align 2, !tbaa !25
+  %111 = zext i16 %110 to i32
+  %112 = and i32 %111, 1
+  %113 = icmp ne i32 %112, 0
+  br i1 %113, label %114, label %117
 
-if.then55:                                        ; preds = %land.lhs.true, %if.end40
-  %32 = load i16, ptr %ret, align 2
-  %inc = add i16 %32, 1
-  store i16 %inc, ptr %ret, align 2
-  br label %if.end56
+114:                                              ; preds = %109, %85
+  %115 = load i16, ptr %5, align 2, !tbaa !25
+  %116 = add i16 %115, 1
+  store i16 %116, ptr %5, align 2, !tbaa !25
+  br label %117
 
-if.end56:                                         ; preds = %if.then55, %land.lhs.true, %lor.lhs.false
-  %33 = load i16, ptr %ret, align 2
-  store i16 %33, ptr %retval, align 2
-  br label %return
+117:                                              ; preds = %114, %109, %106
+  %118 = load i16, ptr %5, align 2, !tbaa !25
+  store i16 %118, ptr %2, align 2
+  store i32 1, ptr %11, align 4
+  br label %119
 
-return:                                           ; preds = %if.end56, %if.then39, %if.end27, %if.then23, %if.end, %if.then8
-  %34 = load i16, ptr %retval, align 2
-  ret i16 %34
+119:                                              ; preds = %117, %83, %63, %58, %36, %34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %5) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  %120 = load i16, ptr %2, align 2
+  ret i16 %120
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #7
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #12
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN9Imath_3_24halfC2ENS0_11FromBitsTagEt(ptr noundef nonnull align 2 dereferenceable(2) %this, i32 noundef %0, i16 noundef zeroext %bits) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca i32, align 4
-  %bits.addr = alloca i16, align 2
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %0, ptr %.addr, align 4
-  store i16 %bits, ptr %bits.addr, align 2
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_h = getelementptr inbounds %"class.Imath_3_2::half", ptr %this1, i32 0, i32 0
-  %1 = load i16, ptr %bits.addr, align 2
-  store i16 %1, ptr %_h, align 2
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #8
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN9Imath_3_24halfC2ENS0_11FromBitsTagEt(ptr noundef nonnull align 2 dereferenceable(2) %0, i32 noundef %1, i16 noundef zeroext %2) unnamed_addr #6 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i16, align 2
+  store ptr %0, ptr %4, align 8, !tbaa !32
+  store i32 %1, ptr %5, align 4, !tbaa !51
+  store i16 %2, ptr %6, align 2, !tbaa !25
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %7, i32 0, i32 0
+  %9 = load i16, ptr %6, align 2, !tbaa !25
+  store i16 %9, ptr %8, align 2, !tbaa !34
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZSt3maxIN9Imath_3_24halfEERKT_S4_S4_(ptr noundef nonnull align 2 dereferenceable(2) %__a, ptr noundef nonnull align 2 dereferenceable(2) %__b) #5 comdat {
-entry:
-  %retval = alloca ptr, align 8
-  %__a.addr = alloca ptr, align 8
-  %__b.addr = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %call = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %0) #3
-  %1 = load ptr, ptr %__b.addr, align 8
-  %call1 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %1) #3
-  %cmp = fcmp olt float %call, %call1
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZSt3maxIN9Imath_3_24halfEERKT_S4_S4_(ptr noundef nonnull align 2 dereferenceable(2) %0, ptr noundef nonnull align 2 dereferenceable(2) %1) #6 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !32
+  store ptr %1, ptr %5, align 8, !tbaa !32
+  %6 = load ptr, ptr %4, align 8, !tbaa !32
+  %7 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %6) #3
+  %8 = load ptr, ptr %5, align 8, !tbaa !32
+  %9 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %8) #3
+  %10 = fcmp olt float %7, %9
+  br i1 %10, label %11, label %13
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %__b.addr, align 8
-  store ptr %2, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8, !tbaa !32
+  store ptr %12, ptr %3, align 8
+  br label %15
 
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %__a.addr, align 8
-  store ptr %3, ptr %retval, align 8
-  br label %return
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !32
+  store ptr %14, ptr %3, align 8
+  br label %15
 
-return:                                           ; preds = %if.end, %if.then
-  %4 = load ptr, ptr %retval, align 8
-  ret ptr %4
+15:                                               ; preds = %13, %11
+  %16 = load ptr, ptr %3, align 8
+  ret ptr %16
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZSt3minIN9Imath_3_24halfEERKT_S4_S4_(ptr noundef nonnull align 2 dereferenceable(2) %__a, ptr noundef nonnull align 2 dereferenceable(2) %__b) #5 comdat {
-entry:
-  %retval = alloca ptr, align 8
-  %__a.addr = alloca ptr, align 8
-  %__b.addr = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__b.addr, align 8
-  %call = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %0) #3
-  %1 = load ptr, ptr %__a.addr, align 8
-  %call1 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %1) #3
-  %cmp = fcmp olt float %call, %call1
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZSt3minIN9Imath_3_24halfEERKT_S4_S4_(ptr noundef nonnull align 2 dereferenceable(2) %0, ptr noundef nonnull align 2 dereferenceable(2) %1) #6 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !32
+  store ptr %1, ptr %5, align 8, !tbaa !32
+  %6 = load ptr, ptr %5, align 8, !tbaa !32
+  %7 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %6) #3
+  %8 = load ptr, ptr %4, align 8, !tbaa !32
+  %9 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %8) #3
+  %10 = fcmp olt float %7, %9
+  br i1 %10, label %11, label %13
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %__b.addr, align 8
-  store ptr %2, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8, !tbaa !32
+  store ptr %12, ptr %3, align 8
+  br label %15
 
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %__a.addr, align 8
-  store ptr %3, ptr %retval, align 8
-  br label %return
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !32
+  store ptr %14, ptr %3, align 8
+  br label %15
 
-return:                                           ; preds = %if.end, %if.then
-  %4 = load ptr, ptr %retval, align 8
-  ret ptr %4
+15:                                               ; preds = %13, %11
+  %16 = load ptr, ptr %3, align 8
+  ret ptr %16
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %__a, ptr noundef nonnull align 4 dereferenceable(4) %__b) #5 comdat {
-entry:
-  %retval = alloca ptr, align 8
-  %__a.addr = alloca ptr, align 8
-  %__b.addr = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load float, ptr %0, align 4
-  %2 = load ptr, ptr %__b.addr, align 8
-  %3 = load float, ptr %2, align 4
-  %cmp = fcmp olt float %1, %3
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #6 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !46
+  store ptr %1, ptr %5, align 8, !tbaa !46
+  %6 = load ptr, ptr %4, align 8, !tbaa !46
+  %7 = load float, ptr %6, align 4, !tbaa !8
+  %8 = load ptr, ptr %5, align 8, !tbaa !46
+  %9 = load float, ptr %8, align 4, !tbaa !8
+  %10 = fcmp olt float %7, %9
+  br i1 %10, label %11, label %13
 
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %__b.addr, align 8
-  store ptr %4, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8, !tbaa !46
+  store ptr %12, ptr %3, align 8
+  br label %15
 
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %__a.addr, align 8
-  store ptr %5, ptr %retval, align 8
-  br label %return
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !46
+  store ptr %14, ptr %3, align 8
+  br label %15
 
-return:                                           ; preds = %if.end, %if.then
-  %6 = load ptr, ptr %retval, align 8
+15:                                               ; preds = %13, %11
+  %16 = load ptr, ptr %3, align 8
+  ret ptr %16
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfmLEf(ptr noundef nonnull align 2 dereferenceable(2) %0, float noundef %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca float, align 4
+  %5 = alloca %"class.Imath_3_2::half", align 2
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store float %1, ptr %4, align 4, !tbaa !8
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %5) #3
+  %7 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %6) #3
+  %8 = load float, ptr %4, align 4, !tbaa !8
+  %9 = fmul float %7, %8
+  call void @_ZN9Imath_3_24halfC2Ef(ptr noundef nonnull align 2 dereferenceable(2) %5, float noundef %9) #3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %6, ptr align 2 %5, i64 2, i1 false), !tbaa.struct !27
+  call void @llvm.lifetime.end.p0(i64 2, ptr %5) #3
   ret ptr %6
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 2 dereferenceable(2) ptr @_ZN9Imath_3_24halfmLEf(ptr noundef nonnull align 2 dereferenceable(2) %this, float noundef %f) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %f.addr = alloca float, align 4
-  %ref.tmp = alloca %"class.Imath_3_2::half", align 2
-  store ptr %this, ptr %this.addr, align 8
-  store float %f, ptr %f.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %this1) #3
-  %0 = load float, ptr %f.addr, align 4
-  %mul = fmul float %call, %0
-  call void @_ZN9Imath_3_24halfC2Ef(ptr noundef nonnull align 2 dereferenceable(2) %ref.tmp, float noundef %mul) #3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %this1, ptr align 2 %ref.tmp, i64 2, i1 false)
-  ret ptr %this1
 }
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_ImfRgbaYca.cpp() #0 section ".text.startup" {
-entry:
   call void @__cxx_global_var_init()
   ret void
 }
 
-attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
-attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn nounwind }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #13 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN7Imf_3_414ChromaticitiesE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"float", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTSN9Imath_3_28Matrix44IfEE", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTSN9Imath_3_24Vec3IfEE", !5, i64 0}
+!16 = !{!17, !9, i64 0}
+!17 = !{!"_ZTSN9Imath_3_24Vec3IfEE", !9, i64 0, !9, i64 4, !9, i64 8}
+!18 = !{!17, !9, i64 4}
+!19 = !{!17, !9, i64 8}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"bool", !6, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTSN7Imf_3_44RgbaE", !5, i64 0}
+!24 = !{i64 0, i64 2, !25, i64 2, i64 2, !25, i64 4, i64 2, !25, i64 6, i64 2, !25}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"short", !6, i64 0}
+!27 = !{i64 0, i64 2, !25}
+!28 = !{i8 0, i8 2}
+!29 = !{}
+!30 = distinct !{!30, !31}
+!31 = !{!"llvm.loop.mustprogress"}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 _ZTSN9Imath_3_24halfE", !5, i64 0}
+!34 = !{!35, !26, i64 0}
+!35 = !{!"_ZTSN9Imath_3_24halfE", !26, i64 0}
+!36 = distinct !{!36, !31}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p2 _ZTSN7Imf_3_44RgbaE", !39, i64 0}
+!39 = !{!"any p2 pointer", !5, i64 0}
+!40 = distinct !{!40, !31}
+!41 = distinct !{!41, !31}
+!42 = distinct !{!42, !31}
+!43 = distinct !{!43, !31}
+!44 = distinct !{!44, !31}
+!45 = distinct !{!45, !31}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"p1 float", !5, i64 0}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 _ZTS14imath_half_uif", !5, i64 0}
+!50 = !{!6, !6, i64 0}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"_ZTSN9Imath_3_24half11FromBitsTagE", !6, i64 0}

@@ -1,146 +1,146 @@
 ; ModuleID = 'bench/openexr/original/ImfDeepImageChannel.ll'
 source_filename = "bench/openexr/original/ImfDeepImageChannel.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.Imf_3_2::DeepSlice" = type { %"struct.Imf_3_2::Slice.base", i32 }
-%"struct.Imf_3_2::Slice.base" = type <{ i32, [4 x i8], ptr, i64, i64, i32, i32, double, i8, i8 }>
+%"struct.Imf_3_4::DeepSlice" = type { %"struct.Imf_3_4::Slice.base", i32 }
+%"struct.Imf_3_4::Slice.base" = type <{ i32, [4 x i8], ptr, i64, i64, i32, i32, double, i8, i8 }>
 %"class.Imath_3_2::half" = type { i16 }
 
-$_ZNK7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE5sliceEv = comdat any
+$_ZNK7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE5sliceEv = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEclEii = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEEclEii = comdat any
 
-$_ZNK7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEclEii = comdat any
+$_ZNK7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEEclEii = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE2atEii = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE2atEii = comdat any
 
-$_ZNK7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE2atEii = comdat any
+$_ZNK7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE2atEii = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE3rowEi = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE3rowEi = comdat any
 
-$_ZNK7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE3rowEi = comdat any
+$_ZNK7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE3rowEi = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEC5ERNS_14DeepImageLevelEb = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEEC5ERNS_14DeepImageLevelEb = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEED5Ev = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEED5Ev = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE16setSamplesToZeroEmjj = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE16setSamplesToZeroEmjj = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE14moveSampleListEmjjm = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE14moveSampleListEmjjm = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE22moveSamplesToNewBufferEPKjS5_PKm = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE22moveSamplesToNewBufferEPKjS5_PKm = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE21initializeSampleListsEv = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE21initializeSampleListsEv = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE6resizeEv = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE6resizeEv = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE16resetBasePointerEv = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE16resetBasePointerEv = comdat any
 
-$_ZNK7Imf_3_221TypedDeepImageChannelIfE5sliceEv = comdat any
+$_ZNK7Imf_3_421TypedDeepImageChannelIfE5sliceEv = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIfEclEii = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIfEclEii = comdat any
 
-$_ZNK7Imf_3_221TypedDeepImageChannelIfEclEii = comdat any
+$_ZNK7Imf_3_421TypedDeepImageChannelIfEclEii = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIfE2atEii = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIfE2atEii = comdat any
 
-$_ZNK7Imf_3_221TypedDeepImageChannelIfE2atEii = comdat any
+$_ZNK7Imf_3_421TypedDeepImageChannelIfE2atEii = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIfE3rowEi = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIfE3rowEi = comdat any
 
-$_ZNK7Imf_3_221TypedDeepImageChannelIfE3rowEi = comdat any
+$_ZNK7Imf_3_421TypedDeepImageChannelIfE3rowEi = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIfEC5ERNS_14DeepImageLevelEb = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIfEC5ERNS_14DeepImageLevelEb = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIfED5Ev = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIfED5Ev = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIfE16setSamplesToZeroEmjj = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIfE16setSamplesToZeroEmjj = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIfE14moveSampleListEmjjm = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIfE14moveSampleListEmjjm = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIfE22moveSamplesToNewBufferEPKjS3_PKm = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIfE22moveSamplesToNewBufferEPKjS3_PKm = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIfE21initializeSampleListsEv = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIfE21initializeSampleListsEv = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIfE6resizeEv = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIfE6resizeEv = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIfE16resetBasePointerEv = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIfE16resetBasePointerEv = comdat any
 
-$_ZNK7Imf_3_221TypedDeepImageChannelIjE5sliceEv = comdat any
+$_ZNK7Imf_3_421TypedDeepImageChannelIjE5sliceEv = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIjEclEii = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIjEclEii = comdat any
 
-$_ZNK7Imf_3_221TypedDeepImageChannelIjEclEii = comdat any
+$_ZNK7Imf_3_421TypedDeepImageChannelIjEclEii = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIjE2atEii = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIjE2atEii = comdat any
 
-$_ZNK7Imf_3_221TypedDeepImageChannelIjE2atEii = comdat any
+$_ZNK7Imf_3_421TypedDeepImageChannelIjE2atEii = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIjE3rowEi = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIjE3rowEi = comdat any
 
-$_ZNK7Imf_3_221TypedDeepImageChannelIjE3rowEi = comdat any
+$_ZNK7Imf_3_421TypedDeepImageChannelIjE3rowEi = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIjEC5ERNS_14DeepImageLevelEb = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIjEC5ERNS_14DeepImageLevelEb = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIjED5Ev = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIjED5Ev = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIjE16setSamplesToZeroEmjj = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIjE16setSamplesToZeroEmjj = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIjE14moveSampleListEmjjm = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIjE14moveSampleListEmjjm = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIjE22moveSamplesToNewBufferEPKjS3_PKm = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIjE22moveSamplesToNewBufferEPKjS3_PKm = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIjE21initializeSampleListsEv = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIjE21initializeSampleListsEv = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIjE6resizeEv = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIjE6resizeEv = comdat any
 
-$_ZN7Imf_3_221TypedDeepImageChannelIjE16resetBasePointerEv = comdat any
+$_ZN7Imf_3_421TypedDeepImageChannelIjE16resetBasePointerEv = comdat any
 
-$_ZTVN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEE = comdat any
+$_ZTVN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEEE = comdat any
 
-$_ZTVN7Imf_3_221TypedDeepImageChannelIfEE = comdat any
+$_ZTVN7Imf_3_421TypedDeepImageChannelIfEE = comdat any
 
-$_ZTVN7Imf_3_221TypedDeepImageChannelIjEE = comdat any
+$_ZTVN7Imf_3_421TypedDeepImageChannelIjEE = comdat any
 
-$_ZTSN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEE = comdat any
+$_ZTIN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEEE = comdat any
 
-$_ZTIN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEE = comdat any
+$_ZTSN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEEE = comdat any
 
-$_ZTSN7Imf_3_221TypedDeepImageChannelIfEE = comdat any
+$_ZTIN7Imf_3_421TypedDeepImageChannelIfEE = comdat any
 
-$_ZTIN7Imf_3_221TypedDeepImageChannelIfEE = comdat any
+$_ZTSN7Imf_3_421TypedDeepImageChannelIfEE = comdat any
 
-$_ZTSN7Imf_3_221TypedDeepImageChannelIjEE = comdat any
+$_ZTIN7Imf_3_421TypedDeepImageChannelIjEE = comdat any
 
-$_ZTIN7Imf_3_221TypedDeepImageChannelIjEE = comdat any
+$_ZTSN7Imf_3_421TypedDeepImageChannelIjEE = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZTVN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEE = weak_odr unnamed_addr constant { [12 x ptr] } { [12 x ptr] [ptr null, ptr @_ZTIN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEE, ptr @_ZNK7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE9pixelTypeEv, ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEED1Ev, ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEED0Ev, ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE6resizeEv, ptr @_ZNK7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE5sliceEv, ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE16setSamplesToZeroEmjj, ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE14moveSampleListEmjjm, ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE22moveSamplesToNewBufferEPKjS5_PKm, ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE21initializeSampleListsEv, ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE16resetBasePointerEv] }, comdat, align 8
-@_ZTVN7Imf_3_221TypedDeepImageChannelIfEE = weak_odr unnamed_addr constant { [12 x ptr] } { [12 x ptr] [ptr null, ptr @_ZTIN7Imf_3_221TypedDeepImageChannelIfEE, ptr @_ZNK7Imf_3_221TypedDeepImageChannelIfE9pixelTypeEv, ptr @_ZN7Imf_3_221TypedDeepImageChannelIfED1Ev, ptr @_ZN7Imf_3_221TypedDeepImageChannelIfED0Ev, ptr @_ZN7Imf_3_221TypedDeepImageChannelIfE6resizeEv, ptr @_ZNK7Imf_3_221TypedDeepImageChannelIfE5sliceEv, ptr @_ZN7Imf_3_221TypedDeepImageChannelIfE16setSamplesToZeroEmjj, ptr @_ZN7Imf_3_221TypedDeepImageChannelIfE14moveSampleListEmjjm, ptr @_ZN7Imf_3_221TypedDeepImageChannelIfE22moveSamplesToNewBufferEPKjS3_PKm, ptr @_ZN7Imf_3_221TypedDeepImageChannelIfE21initializeSampleListsEv, ptr @_ZN7Imf_3_221TypedDeepImageChannelIfE16resetBasePointerEv] }, comdat, align 8
-@_ZTVN7Imf_3_221TypedDeepImageChannelIjEE = weak_odr unnamed_addr constant { [12 x ptr] } { [12 x ptr] [ptr null, ptr @_ZTIN7Imf_3_221TypedDeepImageChannelIjEE, ptr @_ZNK7Imf_3_221TypedDeepImageChannelIjE9pixelTypeEv, ptr @_ZN7Imf_3_221TypedDeepImageChannelIjED1Ev, ptr @_ZN7Imf_3_221TypedDeepImageChannelIjED0Ev, ptr @_ZN7Imf_3_221TypedDeepImageChannelIjE6resizeEv, ptr @_ZNK7Imf_3_221TypedDeepImageChannelIjE5sliceEv, ptr @_ZN7Imf_3_221TypedDeepImageChannelIjE16setSamplesToZeroEmjj, ptr @_ZN7Imf_3_221TypedDeepImageChannelIjE14moveSampleListEmjjm, ptr @_ZN7Imf_3_221TypedDeepImageChannelIjE22moveSamplesToNewBufferEPKjS3_PKm, ptr @_ZN7Imf_3_221TypedDeepImageChannelIjE21initializeSampleListsEv, ptr @_ZN7Imf_3_221TypedDeepImageChannelIjE16resetBasePointerEv] }, comdat, align 8
-@_ZTVN7Imf_3_216DeepImageChannelE = unnamed_addr constant { [12 x ptr] } { [12 x ptr] [ptr null, ptr @_ZTIN7Imf_3_216DeepImageChannelE, ptr @__cxa_pure_virtual, ptr @_ZN7Imf_3_216DeepImageChannelD1Ev, ptr @_ZN7Imf_3_216DeepImageChannelD0Ev, ptr @_ZN7Imf_3_216DeepImageChannel6resizeEv, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
+@_ZTVN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEEE = weak_odr unnamed_addr constant { [12 x ptr] } { [12 x ptr] [ptr null, ptr @_ZTIN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEEE, ptr @_ZNK7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE9pixelTypeEv, ptr @_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEED1Ev, ptr @_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEED0Ev, ptr @_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE6resizeEv, ptr @_ZNK7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE5sliceEv, ptr @_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE16setSamplesToZeroEmjj, ptr @_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE14moveSampleListEmjjm, ptr @_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE22moveSamplesToNewBufferEPKjS5_PKm, ptr @_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE21initializeSampleListsEv, ptr @_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE16resetBasePointerEv] }, comdat, align 8
+@_ZTVN7Imf_3_421TypedDeepImageChannelIfEE = weak_odr unnamed_addr constant { [12 x ptr] } { [12 x ptr] [ptr null, ptr @_ZTIN7Imf_3_421TypedDeepImageChannelIfEE, ptr @_ZNK7Imf_3_421TypedDeepImageChannelIfE9pixelTypeEv, ptr @_ZN7Imf_3_421TypedDeepImageChannelIfED1Ev, ptr @_ZN7Imf_3_421TypedDeepImageChannelIfED0Ev, ptr @_ZN7Imf_3_421TypedDeepImageChannelIfE6resizeEv, ptr @_ZNK7Imf_3_421TypedDeepImageChannelIfE5sliceEv, ptr @_ZN7Imf_3_421TypedDeepImageChannelIfE16setSamplesToZeroEmjj, ptr @_ZN7Imf_3_421TypedDeepImageChannelIfE14moveSampleListEmjjm, ptr @_ZN7Imf_3_421TypedDeepImageChannelIfE22moveSamplesToNewBufferEPKjS3_PKm, ptr @_ZN7Imf_3_421TypedDeepImageChannelIfE21initializeSampleListsEv, ptr @_ZN7Imf_3_421TypedDeepImageChannelIfE16resetBasePointerEv] }, comdat, align 8
+@_ZTVN7Imf_3_421TypedDeepImageChannelIjEE = weak_odr unnamed_addr constant { [12 x ptr] } { [12 x ptr] [ptr null, ptr @_ZTIN7Imf_3_421TypedDeepImageChannelIjEE, ptr @_ZNK7Imf_3_421TypedDeepImageChannelIjE9pixelTypeEv, ptr @_ZN7Imf_3_421TypedDeepImageChannelIjED1Ev, ptr @_ZN7Imf_3_421TypedDeepImageChannelIjED0Ev, ptr @_ZN7Imf_3_421TypedDeepImageChannelIjE6resizeEv, ptr @_ZNK7Imf_3_421TypedDeepImageChannelIjE5sliceEv, ptr @_ZN7Imf_3_421TypedDeepImageChannelIjE16setSamplesToZeroEmjj, ptr @_ZN7Imf_3_421TypedDeepImageChannelIjE14moveSampleListEmjjm, ptr @_ZN7Imf_3_421TypedDeepImageChannelIjE22moveSamplesToNewBufferEPKjS3_PKm, ptr @_ZN7Imf_3_421TypedDeepImageChannelIjE21initializeSampleListsEv, ptr @_ZN7Imf_3_421TypedDeepImageChannelIjE16resetBasePointerEv] }, comdat, align 8
+@_ZTVN7Imf_3_416DeepImageChannelE = unnamed_addr constant { [12 x ptr] } { [12 x ptr] [ptr null, ptr @_ZTIN7Imf_3_416DeepImageChannelE, ptr @__cxa_pure_virtual, ptr @_ZN7Imf_3_416DeepImageChannelD1Ev, ptr @_ZN7Imf_3_416DeepImageChannelD0Ev, ptr @_ZN7Imf_3_416DeepImageChannel6resizeEv, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
+@_ZTIN7Imf_3_416DeepImageChannelE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7Imf_3_416DeepImageChannelE, ptr @_ZTIN7Imf_3_412ImageChannelE }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
-@_ZTSN7Imf_3_216DeepImageChannelE = constant [29 x i8] c"N7Imf_3_216DeepImageChannelE\00", align 1
-@_ZTIN7Imf_3_212ImageChannelE = external constant ptr
-@_ZTIN7Imf_3_216DeepImageChannelE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7Imf_3_216DeepImageChannelE, ptr @_ZTIN7Imf_3_212ImageChannelE }, align 8
-@_ZTSN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEE = weak_odr constant [53 x i8] c"N7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEE\00", comdat, align 1
-@_ZTIN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEE = weak_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEE, ptr @_ZTIN7Imf_3_216DeepImageChannelE }, comdat, align 8
-@_ZTSN7Imf_3_221TypedDeepImageChannelIfEE = weak_odr constant [37 x i8] c"N7Imf_3_221TypedDeepImageChannelIfEE\00", comdat, align 1
-@_ZTIN7Imf_3_221TypedDeepImageChannelIfEE = weak_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7Imf_3_221TypedDeepImageChannelIfEE, ptr @_ZTIN7Imf_3_216DeepImageChannelE }, comdat, align 8
-@_ZTSN7Imf_3_221TypedDeepImageChannelIjEE = weak_odr constant [37 x i8] c"N7Imf_3_221TypedDeepImageChannelIjEE\00", comdat, align 1
-@_ZTIN7Imf_3_221TypedDeepImageChannelIjEE = weak_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7Imf_3_221TypedDeepImageChannelIjEE, ptr @_ZTIN7Imf_3_216DeepImageChannelE }, comdat, align 8
+@_ZTSN7Imf_3_416DeepImageChannelE = constant [29 x i8] c"N7Imf_3_416DeepImageChannelE\00", align 1
+@_ZTIN7Imf_3_412ImageChannelE = external constant ptr
+@_ZTIN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEEE = weak_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEEE, ptr @_ZTIN7Imf_3_416DeepImageChannelE }, comdat, align 8
+@_ZTSN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEEE = weak_odr constant [53 x i8] c"N7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEEE\00", comdat, align 1
+@_ZTIN7Imf_3_421TypedDeepImageChannelIfEE = weak_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7Imf_3_421TypedDeepImageChannelIfEE, ptr @_ZTIN7Imf_3_416DeepImageChannelE }, comdat, align 8
+@_ZTSN7Imf_3_421TypedDeepImageChannelIfEE = weak_odr constant [37 x i8] c"N7Imf_3_421TypedDeepImageChannelIfEE\00", comdat, align 1
+@_ZTIN7Imf_3_421TypedDeepImageChannelIjEE = weak_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7Imf_3_421TypedDeepImageChannelIjEE, ptr @_ZTIN7Imf_3_416DeepImageChannelE }, comdat, align 8
+@_ZTSN7Imf_3_421TypedDeepImageChannelIjEE = weak_odr constant [37 x i8] c"N7Imf_3_421TypedDeepImageChannelIjEE\00", comdat, align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_ImfDeepImageChannel.cpp, ptr null }]
 
-@_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEC1ERNS_14DeepImageLevelEb = weak_odr hidden unnamed_addr alias void (ptr, ptr, i1), ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEC2ERNS_14DeepImageLevelEb
-@_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEED1Ev = weak_odr hidden unnamed_addr alias void (ptr), ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEED2Ev
-@_ZN7Imf_3_221TypedDeepImageChannelIfEC1ERNS_14DeepImageLevelEb = weak_odr hidden unnamed_addr alias void (ptr, ptr, i1), ptr @_ZN7Imf_3_221TypedDeepImageChannelIfEC2ERNS_14DeepImageLevelEb
-@_ZN7Imf_3_221TypedDeepImageChannelIfED1Ev = weak_odr hidden unnamed_addr alias void (ptr), ptr @_ZN7Imf_3_221TypedDeepImageChannelIfED2Ev
-@_ZN7Imf_3_221TypedDeepImageChannelIjEC1ERNS_14DeepImageLevelEb = weak_odr hidden unnamed_addr alias void (ptr, ptr, i1), ptr @_ZN7Imf_3_221TypedDeepImageChannelIjEC2ERNS_14DeepImageLevelEb
-@_ZN7Imf_3_221TypedDeepImageChannelIjED1Ev = weak_odr hidden unnamed_addr alias void (ptr), ptr @_ZN7Imf_3_221TypedDeepImageChannelIjED2Ev
-@_ZN7Imf_3_216DeepImageChannelD1Ev = unnamed_addr alias void (ptr), ptr @_ZN7Imf_3_216DeepImageChannelD2Ev
+@_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEEC1ERNS_14DeepImageLevelEb = weak_odr hidden unnamed_addr alias void (ptr, ptr, i1), ptr @_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEEC2ERNS_14DeepImageLevelEb
+@_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEED1Ev = weak_odr hidden unnamed_addr alias void (ptr), ptr @_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEED2Ev
+@_ZN7Imf_3_421TypedDeepImageChannelIfEC1ERNS_14DeepImageLevelEb = weak_odr hidden unnamed_addr alias void (ptr, ptr, i1), ptr @_ZN7Imf_3_421TypedDeepImageChannelIfEC2ERNS_14DeepImageLevelEb
+@_ZN7Imf_3_421TypedDeepImageChannelIfED1Ev = weak_odr hidden unnamed_addr alias void (ptr), ptr @_ZN7Imf_3_421TypedDeepImageChannelIfED2Ev
+@_ZN7Imf_3_421TypedDeepImageChannelIjEC1ERNS_14DeepImageLevelEb = weak_odr hidden unnamed_addr alias void (ptr, ptr, i1), ptr @_ZN7Imf_3_421TypedDeepImageChannelIjEC2ERNS_14DeepImageLevelEb
+@_ZN7Imf_3_421TypedDeepImageChannelIjED1Ev = weak_odr hidden unnamed_addr alias void (ptr), ptr @_ZN7Imf_3_421TypedDeepImageChannelIjED2Ev
+@_ZN7Imf_3_416DeepImageChannelD1Ev = unnamed_addr alias void (ptr), ptr @_ZN7Imf_3_416DeepImageChannelD2Ev
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
@@ -151,1787 +151,1729 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZNK7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE5sliceEv(ptr noalias sret(%"struct.Imf_3_2::DeepSlice") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  %vtable = load ptr, ptr %this, align 8
-  %0 = load ptr, ptr %vtable, align 8
-  %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %1 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %2 = load i32, ptr %_pixelsPerRow.i, align 4
-  %conv = sext i32 %2 to i64
-  %mul = shl nsw i64 %conv, 3
-  %_xSampling.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %3 = load i32, ptr %_xSampling.i, align 8
-  %_ySampling.i = getelementptr inbounds nuw i8, ptr %this, i64 20
-  %4 = load i32, ptr %_ySampling.i, align 4
-  tail call void @_ZN7Imf_3_29DeepSliceC1ENS_9PixelTypeEPcmmmiidbb(ptr noundef nonnull align 8 dereferenceable(56) %agg.result, i32 noundef %call, ptr noundef %1, i64 noundef 8, i64 noundef %mul, i64 noundef 2, i32 noundef %3, i32 noundef %4, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
+define weak_odr void @_ZNK7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE5sliceEv(ptr dead_on_unwind noalias writable sret(%"struct.Imf_3_4::DeepSlice") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #3 comdat align 2 {
+  %3 = load ptr, ptr %1, align 8, !tbaa !3
+  %4 = load ptr, ptr %3, align 8
+  %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(72) %1)
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %7 = load ptr, ptr %6, align 8, !tbaa !6
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %9 = load i32, ptr %8, align 4, !tbaa !19
+  %10 = sext i32 %9 to i64
+  %11 = shl nsw i64 %10, 3
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %13 = load i32, ptr %12, align 8, !tbaa !20
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %15 = load i32, ptr %14, align 4, !tbaa !21
+  tail call void @_ZN7Imf_3_49DeepSliceC1ENS_9PixelTypeEPcmmmiidbb(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %5, ptr noundef %7, i64 noundef 8, i64 noundef %11, i64 noundef 2, i32 noundef %13, i32 noundef %15, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
   ret void
 }
 
-declare void @_ZN7Imf_3_29DeepSliceC1ENS_9PixelTypeEPcmmmiidbb(ptr noundef nonnull align 8 dereferenceable(56), i32 noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef, double noundef, i1 noundef zeroext, i1 noundef zeroext) unnamed_addr #0
+declare void @_ZN7Imf_3_49DeepSliceC1ENS_9PixelTypeEPcmmmiidbb(ptr noundef nonnull align 8 dereferenceable(56), i32 noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef, double noundef, i1 noundef zeroext, i1 noundef zeroext) unnamed_addr #0
 
-; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEclEii(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %x, i32 noundef %y) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %1 = load i32, ptr %_pixelsPerRow.i, align 4
-  %mul = mul nsw i32 %1, %y
-  %add = add nsw i32 %mul, %x
-  %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %idxprom
-  %2 = load ptr, ptr %arrayidx, align 8
-  ret ptr %2
+; Function Attrs: inlinehint mustprogress uwtable
+define weak_odr noundef ptr @_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEEclEii(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 comdat align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %5 = load ptr, ptr %4, align 8, !tbaa !6
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %7 = load i32, ptr %6, align 4, !tbaa !19
+  %8 = mul nsw i32 %7, %2
+  %9 = add nsw i32 %8, %1
+  %10 = sext i32 %9 to i64
+  %11 = getelementptr inbounds ptr, ptr %5, i64 %10
+  %12 = load ptr, ptr %11, align 8, !tbaa !22
+  ret ptr %12
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define weak_odr noundef ptr @_ZNK7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEEclEii(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 comdat align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %5 = load ptr, ptr %4, align 8, !tbaa !6
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %7 = load i32, ptr %6, align 4, !tbaa !19
+  %8 = mul nsw i32 %7, %2
+  %9 = add nsw i32 %8, %1
+  %10 = sext i32 %9 to i64
+  %11 = getelementptr inbounds ptr, ptr %5, i64 %10
+  %12 = load ptr, ptr %11, align 8, !tbaa !22
+  ret ptr %12
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define weak_odr noundef ptr @_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE2atEii(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 comdat align 2 {
+  tail call void @_ZNK7Imf_3_412ImageChannel11boundsCheckEii(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, i32 noundef %2)
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %5 = load ptr, ptr %4, align 8, !tbaa !6
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %7 = load i32, ptr %6, align 4, !tbaa !19
+  %8 = mul nsw i32 %7, %2
+  %9 = add nsw i32 %8, %1
+  %10 = sext i32 %9 to i64
+  %11 = getelementptr inbounds ptr, ptr %5, i64 %10
+  %12 = load ptr, ptr %11, align 8, !tbaa !22
+  ret ptr %12
+}
+
+declare void @_ZNK7Imf_3_412ImageChannel11boundsCheckEii(ptr noundef nonnull align 8 dereferenceable(48), i32 noundef, i32 noundef) local_unnamed_addr #0
+
+; Function Attrs: inlinehint mustprogress uwtable
+define weak_odr noundef ptr @_ZNK7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE2atEii(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 comdat align 2 {
+  tail call void @_ZNK7Imf_3_412ImageChannel11boundsCheckEii(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, i32 noundef %2)
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %5 = load ptr, ptr %4, align 8, !tbaa !6
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %7 = load i32, ptr %6, align 4, !tbaa !19
+  %8 = mul nsw i32 %7, %2
+  %9 = add nsw i32 %8, %1
+  %10 = sext i32 %9 to i64
+  %11 = getelementptr inbounds ptr, ptr %5, i64 %10
+  %12 = load ptr, ptr %11, align 8, !tbaa !22
+  ret ptr %12
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define weak_odr noundef ptr @_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE3rowEi(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #4 comdat align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %4 = load ptr, ptr %3, align 8, !tbaa !6
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %6 = load i32, ptr %5, align 4, !tbaa !19
+  %7 = mul nsw i32 %6, %1
+  %8 = sext i32 %7 to i64
+  %9 = getelementptr inbounds ptr, ptr %4, i64 %8
+  ret ptr %9
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define weak_odr noundef ptr @_ZNK7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE3rowEi(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #4 comdat align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %4 = load ptr, ptr %3, align 8, !tbaa !6
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %6 = load i32, ptr %5, align 4, !tbaa !19
+  %7 = mul nsw i32 %6, %1
+  %8 = sext i32 %7 to i64
+  %9 = getelementptr inbounds ptr, ptr %4, i64 %8
+  ret ptr %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZNK7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEclEii(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %x, i32 noundef %y) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %1 = load i32, ptr %_pixelsPerRow.i, align 4
-  %mul = mul nsw i32 %1, %y
-  %add = add nsw i32 %mul, %x
-  %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %idxprom
-  %2 = load ptr, ptr %arrayidx, align 8
-  ret ptr %2
-}
+define weak_odr hidden void @_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEEC2ERNS_14DeepImageLevelEb(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, i1 noundef zeroext %2) unnamed_addr #3 comdat($_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEEC5ERNS_14DeepImageLevelEb) align 2 personality ptr @__gxx_personality_v0 {
+  tail call void @_ZN7Imf_3_412ImageChannelC2ERNS_10ImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %2)
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEEE, i64 16), ptr %0, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  invoke void @_ZN7Imf_3_412ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
+          to label %.noexc unwind label %18
 
-; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE2atEii(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %x, i32 noundef %y) local_unnamed_addr #3 comdat align 2 {
-entry:
-  tail call void @_ZNK7Imf_3_212ImageChannel11boundsCheckEii(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %x, i32 noundef %y)
-  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %1 = load i32, ptr %_pixelsPerRow.i, align 4
-  %mul = mul nsw i32 %1, %y
-  %add = add nsw i32 %mul, %x
-  %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %idxprom
-  %2 = load ptr, ptr %arrayidx, align 8
-  ret ptr %2
-}
+.noexc:                                           ; preds = %3
+  %5 = load ptr, ptr %4, align 8, !tbaa !23
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %8, label %7
 
-declare void @_ZNK7Imf_3_212ImageChannel11boundsCheckEii(ptr noundef nonnull align 8 dereferenceable(48), i32 noundef, i32 noundef) local_unnamed_addr #0
+7:                                                ; preds = %.noexc
+  tail call void @_ZdaPv(ptr noundef nonnull %5) #14
+  br label %8
 
-; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZNK7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE2atEii(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %x, i32 noundef %y) local_unnamed_addr #3 comdat align 2 {
-entry:
-  tail call void @_ZNK7Imf_3_212ImageChannel11boundsCheckEii(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %x, i32 noundef %y)
-  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %1 = load i32, ptr %_pixelsPerRow.i, align 4
-  %mul = mul nsw i32 %1, %y
-  %add = add nsw i32 %mul, %x
-  %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %idxprom
-  %2 = load ptr, ptr %arrayidx, align 8
-  ret ptr %2
-}
+8:                                                ; preds = %7, %.noexc
+  store ptr null, ptr %4, align 8, !tbaa !23
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %10 = load i64, ptr %9, align 8, !tbaa !24
+  %11 = icmp ugt i64 %10, 2305843009213693951
+  %12 = shl i64 %10, 3
+  %13 = select i1 %11, i64 -1, i64 %12
+  %14 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %13) #15
+          to label %.noexc4 unwind label %18
 
-; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE3rowEi(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %r) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %1 = load i32, ptr %_pixelsPerRow.i, align 4
-  %mul = mul nsw i32 %1, %r
-  %idx.ext = sext i32 %mul to i64
-  %add.ptr = getelementptr inbounds ptr, ptr %0, i64 %idx.ext
-  ret ptr %add.ptr
-}
+.noexc4:                                          ; preds = %8
+  store ptr %14, ptr %4, align 8, !tbaa !23
+  %15 = load ptr, ptr %0, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  %17 = load ptr, ptr %16, align 8
+  invoke void %17(ptr noundef nonnull align 8 dereferenceable(72) %0)
+          to label %_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE6resizeEv.exit unwind label %18
 
-; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZNK7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE3rowEi(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %r) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %1 = load i32, ptr %_pixelsPerRow.i, align 4
-  %mul = mul nsw i32 %1, %r
-  %idx.ext = sext i32 %mul to i64
-  %add.ptr = getelementptr inbounds ptr, ptr %0, i64 %idx.ext
-  ret ptr %add.ptr
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEC2ERNS_14DeepImageLevelEb(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(192) %level, i1 noundef zeroext %pLinear) unnamed_addr #3 comdat($_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEC5ERNS_14DeepImageLevelEb) align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  tail call void @_ZN7Imf_3_212ImageChannelC2ERNS_10ImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(192) %level, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %pLinear)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEE, i64 16), ptr %this, align 8
-  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_sampleListPointers, i8 0, i64 24, i1 false)
-  invoke void @_ZN7Imf_3_212ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
-          to label %.noexc unwind label %lpad
-
-.noexc:                                           ; preds = %entry
-  %0 = load ptr, ptr %_sampleListPointers, align 8
-  %isnull.i = icmp eq ptr %0, null
-  br i1 %isnull.i, label %delete.end.i, label %delete.notnull.i
-
-delete.notnull.i:                                 ; preds = %.noexc
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #13
-  br label %delete.end.i
-
-delete.end.i:                                     ; preds = %delete.notnull.i, %.noexc
-  store ptr null, ptr %_sampleListPointers, align 8
-  %_numPixels.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %1 = load i64, ptr %_numPixels.i.i, align 8
-  %2 = icmp ugt i64 %1, 2305843009213693951
-  %3 = shl i64 %1, 3
-  %4 = select i1 %2, i64 -1, i64 %3
-  %call3.i1 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %4) #14
-          to label %call3.i.noexc unwind label %lpad
-
-call3.i.noexc:                                    ; preds = %delete.end.i
-  store ptr %call3.i1, ptr %_sampleListPointers, align 8
-  %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 64
-  %5 = load ptr, ptr %vfn.i, align 8
-  invoke void %5(ptr noundef nonnull align 8 dereferenceable(72) %this)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %call3.i.noexc
+_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE6resizeEv.exit: ; preds = %.noexc4
   ret void
 
-lpad:                                             ; preds = %call3.i.noexc, %delete.end.i, %entry
-  %6 = landingpad { ptr, i32 }
+18:                                               ; preds = %.noexc4, %8, %3
+  %19 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7Imf_3_212ImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #15
-  resume { ptr, i32 } %6
+  tail call void @_ZN7Imf_3_412ImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_216DeepImageChannelC2ERNS_14DeepImageLevelEb(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(192) %level, i1 noundef zeroext %pLinear) unnamed_addr #3 align 2 {
-entry:
-  tail call void @_ZN7Imf_3_212ImageChannelC2ERNS_10ImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(40) %level, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %pLinear)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_216DeepImageChannelE, i64 16), ptr %this, align 8
+define void @_ZN7Imf_3_416DeepImageChannelC2ERNS_14DeepImageLevelEb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+  tail call void @_ZN7Imf_3_412ImageChannelC2ERNS_10ImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %2)
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN7Imf_3_416DeepImageChannelE, i64 16), ptr %0, align 8, !tbaa !3
   ret void
 }
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Imf_3_216DeepImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 {
-entry:
-  tail call void @_ZN7Imf_3_212ImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #15
+define void @_ZN7Imf_3_416DeepImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 {
+  tail call void @_ZN7Imf_3_412ImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 comdat($_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEED5Ev) align 2 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEE, i64 16), ptr %this, align 8
-  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %0 = load ptr, ptr %_sampleListPointers, align 8
-  %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
+define weak_odr hidden void @_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 comdat($_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEED5Ev) align 2 {
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEEE, i64 16), ptr %0, align 8, !tbaa !3
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %3 = load ptr, ptr %2, align 8, !tbaa !23
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %6, label %5
 
-delete.notnull:                                   ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #13
-  br label %delete.end
+5:                                                ; preds = %1
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #14
+  br label %6
 
-delete.end:                                       ; preds = %delete.notnull, %entry
-  %_sampleBuffer = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %1 = load ptr, ptr %_sampleBuffer, align 8
-  %isnull2 = icmp eq ptr %1, null
-  br i1 %isnull2, label %delete.end4, label %delete.notnull3
+6:                                                ; preds = %5, %1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %8 = load ptr, ptr %7, align 8, !tbaa !25
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %11, label %10
 
-delete.notnull3:                                  ; preds = %delete.end
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #13
-  br label %delete.end4
+10:                                               ; preds = %6
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #14
+  br label %11
 
-delete.end4:                                      ; preds = %delete.notnull3, %delete.end
-  tail call void @_ZN7Imf_3_212ImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #15
-  ret void
-}
-
-; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nounwind uwtable
-define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 comdat($_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEED5Ev) align 2 {
-entry:
-  tail call void @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEED1Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #13
+11:                                               ; preds = %10, %6
+  tail call void @_ZN7Imf_3_412ImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE16setSamplesToZeroEmjj(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %i, i32 noundef %oldNumSamples, i32 noundef %newNumSamples) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %cmp3 = icmp ult i32 %oldNumSamples, %newNumSamples
-  br i1 %cmp3, label %for.body.lr.ph, label %for.end
+define weak_odr hidden void @_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 comdat($_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEED5Ev) align 2 {
+  tail call void @_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEED1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #14
+  ret void
+}
 
-for.body.lr.ph:                                   ; preds = %entry
-  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %0 = zext i32 %oldNumSamples to i64
-  %wide.trip.count = zext i32 %newNumSamples to i64
-  br label %for.body
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %indvars.iv = phi i64 [ %0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %1 = load ptr, ptr %_sampleListPointers, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %i
-  %2 = load ptr, ptr %arrayidx, align 8
-  %arrayidx2 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %2, i64 %indvars.iv
-  store i16 0, ptr %arrayidx2, align 2
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
+; Function Attrs: mustprogress nounwind uwtable
+define weak_odr hidden void @_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE16setSamplesToZeroEmjj(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = icmp ult i32 %2, %3
+  br i1 %5, label %.lr.ph, label %._crit_edge
 
-for.end:                                          ; preds = %for.body, %entry
+.lr.ph:                                           ; preds = %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = load ptr, ptr %6, align 8, !tbaa !23
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %1
+  %9 = load ptr, ptr %8, align 8, !tbaa !22
+  %10 = zext i32 %2 to i64
+  %11 = shl nuw nsw i64 %10, 1
+  %scevgep = getelementptr nuw i8, ptr %9, i64 %11
+  %12 = xor i32 %2, -1
+  %13 = add i32 %3, %12
+  %14 = zext i32 %13 to i64
+  %15 = shl nuw nsw i64 %14, 1
+  %16 = add nuw nsw i64 %15, 2
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %scevgep, i8 0, i64 %16, i1 false), !tbaa !26
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE14moveSampleListEmjjm(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %i, i32 noundef %oldNumSamples, i32 noundef %newNumSamples, i64 noundef %newSampleListPosition) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %0 = load ptr, ptr %_sampleListPointers, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %i
-  %1 = load ptr, ptr %arrayidx, align 8
-  %_sampleBuffer = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %2 = load ptr, ptr %_sampleBuffer, align 8
-  %add.ptr = getelementptr inbounds %"class.Imath_3_2::half", ptr %2, i64 %newSampleListPosition
-  %cmp = icmp ugt i32 %oldNumSamples, %newNumSamples
-  br i1 %cmp, label %for.cond.preheader, label %for.cond7.preheader
+define weak_odr hidden void @_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE14moveSampleListEmjjm(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = load ptr, ptr %6, align 8, !tbaa !23
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %1
+  %9 = load ptr, ptr %8, align 8, !tbaa !22
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = load ptr, ptr %10, align 8, !tbaa !25
+  %12 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %11, i64 %4
+  %13 = icmp ugt i32 %2, %3
+  br i1 %13, label %.preheader, label %.preheader32
 
-for.cond7.preheader:                              ; preds = %entry
-  %cmp819.not = icmp eq i32 %oldNumSamples, 0
-  br i1 %cmp819.not, label %for.cond18.preheader, label %for.body9.preheader
+.preheader32:                                     ; preds = %5
+  %.not = icmp eq i32 %2, 0
+  br i1 %.not, label %.preheader30, label %.lr.ph.preheader
 
-for.body9.preheader:                              ; preds = %for.cond7.preheader
-  %wide.trip.count = zext i32 %oldNumSamples to i64
-  br label %for.body9
+.lr.ph.preheader:                                 ; preds = %.preheader32
+  %wide.trip.count = zext i32 %2 to i64
+  br label %.lr.ph
 
-for.cond.preheader:                               ; preds = %entry
-  %cmp223.not = icmp eq i32 %newNumSamples, 0
-  br i1 %cmp223.not, label %if.end, label %for.body.preheader
+.preheader:                                       ; preds = %5
+  %.not38 = icmp eq i32 %3, 0
+  br i1 %.not38, label %.loopexit, label %.lr.ph37.preheader
 
-for.body.preheader:                               ; preds = %for.cond.preheader
-  %wide.trip.count33 = zext i32 %newNumSamples to i64
-  br label %for.body
+.lr.ph37.preheader:                               ; preds = %.preheader
+  %wide.trip.count47 = zext i32 %3 to i64
+  br label %.lr.ph37
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv30 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next31, %for.body ]
-  %arrayidx3 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %1, i64 %indvars.iv30
-  %arrayidx5 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %add.ptr, i64 %indvars.iv30
-  %3 = load i16, ptr %arrayidx3, align 2
-  store i16 %3, ptr %arrayidx5, align 2
-  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
-  %exitcond34.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count33
-  br i1 %exitcond34.not, label %if.end, label %for.body, !llvm.loop !6
+.lr.ph37:                                         ; preds = %.lr.ph37.preheader, %.lr.ph37
+  %indvars.iv44 = phi i64 [ 0, %.lr.ph37.preheader ], [ %indvars.iv.next45, %.lr.ph37 ]
+  %14 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %9, i64 %indvars.iv44
+  %15 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %12, i64 %indvars.iv44
+  %16 = load i16, ptr %14, align 2, !tbaa !26
+  store i16 %16, ptr %15, align 2, !tbaa !26
+  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
+  %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
+  br i1 %exitcond48.not, label %.loopexit, label %.lr.ph37, !llvm.loop !28
 
-for.cond18.preheader:                             ; preds = %for.body9, %for.cond7.preheader
-  %cmp1921 = icmp ult i32 %oldNumSamples, %newNumSamples
-  br i1 %cmp1921, label %for.body20.preheader, label %if.end
+.preheader30:                                     ; preds = %.lr.ph, %.preheader32
+  %17 = icmp ult i32 %2, %3
+  br i1 %17, label %.lr.ph35.preheader, label %.loopexit
 
-for.body20.preheader:                             ; preds = %for.cond18.preheader
-  %4 = zext i32 %oldNumSamples to i64
-  %5 = add i64 %newSampleListPosition, %4
-  %6 = shl i64 %5, 1
-  %scevgep = getelementptr i8, ptr %2, i64 %6
-  %7 = xor i32 %oldNumSamples, -1
-  %8 = add i32 %newNumSamples, %7
-  %9 = zext i32 %8 to i64
-  %10 = shl nuw nsw i64 %9, 1
-  %11 = add nuw nsw i64 %10, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %scevgep, i8 0, i64 %11, i1 false)
-  br label %if.end
+.lr.ph35.preheader:                               ; preds = %.preheader30
+  %18 = zext i32 %2 to i64
+  %19 = add i64 %4, %18
+  %20 = shl i64 %19, 1
+  %scevgep = getelementptr i8, ptr %11, i64 %20
+  %21 = xor i32 %2, -1
+  %22 = add i32 %3, %21
+  %23 = zext i32 %22 to i64
+  %24 = shl nuw nsw i64 %23, 1
+  %25 = add nuw nsw i64 %24, 2
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %scevgep, i8 0, i64 %25, i1 false), !tbaa !26
+  br label %.loopexit
 
-for.body9:                                        ; preds = %for.body9.preheader, %for.body9
-  %indvars.iv = phi i64 [ 0, %for.body9.preheader ], [ %indvars.iv.next, %for.body9 ]
-  %arrayidx11 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %1, i64 %indvars.iv
-  %arrayidx13 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %add.ptr, i64 %indvars.iv
-  %12 = load i16, ptr %arrayidx11, align 2
-  store i16 %12, ptr %arrayidx13, align 2
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %26 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %9, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %12, i64 %indvars.iv
+  %28 = load i16, ptr %26, align 2, !tbaa !26
+  store i16 %28, ptr %27, align 2, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond18.preheader, label %for.body9, !llvm.loop !7
+  br i1 %exitcond.not, label %.preheader30, label %.lr.ph, !llvm.loop !30
 
-if.end:                                           ; preds = %for.body, %for.body20.preheader, %for.cond18.preheader, %for.cond.preheader
-  %13 = load ptr, ptr %_sampleListPointers, align 8
-  %arrayidx27 = getelementptr inbounds ptr, ptr %13, i64 %i
-  store ptr %add.ptr, ptr %arrayidx27, align 8
+.loopexit:                                        ; preds = %.lr.ph37, %.lr.ph35.preheader, %.preheader30, %.preheader
+  store ptr %12, ptr %8, align 8, !tbaa !22
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE22moveSamplesToNewBufferEPKjS5_PKm(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %oldNumSamples, ptr noundef %newNumSamples, ptr noundef %newSampleListPositions) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_sampleBuffer = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %0 = load ptr, ptr %_sampleBuffer, align 8
-  %_level.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %_level.i.i.i, align 8
-  %_sampleBufferSize.i = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %2 = load i64, ptr %_sampleBufferSize.i, align 8
-  %3 = shl i64 %2, 1
-  %.inv = icmp sgt i64 %2, -1
-  %4 = select i1 %.inv, i64 %3, i64 -1
-  %call3 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #14
-  store ptr %call3, ptr %_sampleBuffer, align 8
-  %_numPixels.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %5 = load i64, ptr %_numPixels.i, align 8
-  %cmp35.not = icmp eq i64 %5, 0
-  br i1 %cmp35.not, label %for.end46, label %for.body.lr.ph
+define weak_odr hidden void @_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE22moveSamplesToNewBufferEPKjS5_PKm(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %6 = load ptr, ptr %5, align 8, !tbaa !25
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !31
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 184
+  %10 = load i64, ptr %9, align 8, !tbaa !32
+  %11 = shl i64 %10, 1
+  %.inv = icmp sgt i64 %10, -1
+  %12 = select i1 %.inv, i64 %11, i64 -1
+  %13 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %12) #15
+  store ptr %13, ptr %5, align 8, !tbaa !25
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %15 = load i64, ptr %14, align 8, !tbaa !24
+  %.not = icmp eq i64 %15, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph50
 
-for.body.lr.ph:                                   ; preds = %entry
-  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
-  br label %for.body
+.lr.ph50:                                         ; preds = %4
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %17 = load ptr, ptr %16, align 8, !tbaa !23
+  br label %19
 
-for.body:                                         ; preds = %for.body.lr.ph, %if.end
-  %i.036 = phi i64 [ 0, %for.body.lr.ph ], [ %inc45, %if.end ]
-  %6 = load ptr, ptr %_sampleListPointers, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %i.036
-  %7 = load ptr, ptr %arrayidx, align 8
-  %8 = load ptr, ptr %_sampleBuffer, align 8
-  %arrayidx7 = getelementptr inbounds i64, ptr %newSampleListPositions, i64 %i.036
-  %9 = load i64, ptr %arrayidx7, align 8
-  %add.ptr = getelementptr inbounds %"class.Imath_3_2::half", ptr %8, i64 %9
-  %arrayidx8 = getelementptr inbounds i32, ptr %oldNumSamples, i64 %i.036
-  %10 = load i32, ptr %arrayidx8, align 4
-  %arrayidx9 = getelementptr inbounds i32, ptr %newNumSamples, i64 %i.036
-  %11 = load i32, ptr %arrayidx9, align 4
-  %cmp10 = icmp ugt i32 %10, %11
-  br i1 %cmp10, label %for.cond11.preheader, label %for.cond19.preheader
+._crit_edge:                                      ; preds = %.loopexit, %4
+  %18 = icmp eq ptr %6, null
+  br i1 %18, label %48, label %47
 
-for.cond19.preheader:                             ; preds = %for.body
-  %cmp2129.not = icmp eq i32 %10, 0
-  br i1 %cmp2129.not, label %for.cond32.preheader, label %for.body22
+19:                                               ; preds = %.lr.ph50, %.loopexit
+  %.03849 = phi i64 [ 0, %.lr.ph50 ], [ %46, %.loopexit ]
+  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %.03849
+  %21 = load ptr, ptr %20, align 8, !tbaa !22
+  %22 = load ptr, ptr %5, align 8, !tbaa !25
+  %23 = getelementptr inbounds nuw i64, ptr %3, i64 %.03849
+  %24 = load i64, ptr %23, align 8, !tbaa !36
+  %25 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %22, i64 %24
+  %26 = getelementptr inbounds nuw i32, ptr %1, i64 %.03849
+  %27 = load i32, ptr %26, align 4, !tbaa !37
+  %28 = getelementptr inbounds nuw i32, ptr %2, i64 %.03849
+  %29 = load i32, ptr %28, align 4, !tbaa !37
+  %30 = icmp ugt i32 %27, %29
+  br i1 %30, label %.preheader, label %.preheader43
 
-for.cond11.preheader:                             ; preds = %for.body
-  %cmp1333.not = icmp eq i32 %11, 0
-  br i1 %cmp1333.not, label %if.end, label %for.body14
+.preheader43:                                     ; preds = %19
+  %.not51 = icmp eq i32 %27, 0
+  br i1 %.not51, label %.preheader41, label %.lr.ph.preheader
 
-for.body14:                                       ; preds = %for.cond11.preheader, %for.body14
-  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %for.body14 ], [ 0, %for.cond11.preheader ]
-  %arrayidx15 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %7, i64 %indvars.iv43
-  %arrayidx17 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %add.ptr, i64 %indvars.iv43
-  %12 = load i16, ptr %arrayidx15, align 2
-  store i16 %12, ptr %arrayidx17, align 2
-  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
-  %13 = load i32, ptr %arrayidx9, align 4
-  %14 = zext i32 %13 to i64
-  %cmp13 = icmp samesign ult i64 %indvars.iv.next44, %14
-  br i1 %cmp13, label %for.body14, label %if.end, !llvm.loop !8
+.lr.ph.preheader:                                 ; preds = %.preheader43
+  %wide.trip.count = zext i32 %27 to i64
+  br label %.lr.ph
 
-for.cond32.preheader.loopexit:                    ; preds = %for.body22
-  %.pre = load i32, ptr %arrayidx9, align 4
-  br label %for.cond32.preheader
+.preheader:                                       ; preds = %19
+  %.not52 = icmp eq i32 %29, 0
+  br i1 %.not52, label %.loopexit, label %.lr.ph48.preheader
 
-for.cond32.preheader:                             ; preds = %for.cond32.preheader.loopexit, %for.cond19.preheader
-  %15 = phi i32 [ %11, %for.cond19.preheader ], [ %.pre, %for.cond32.preheader.loopexit ]
-  %.lcssa = phi i32 [ 0, %for.cond19.preheader ], [ %18, %for.cond32.preheader.loopexit ]
-  %cmp3431 = icmp ult i32 %.lcssa, %15
-  br i1 %cmp3431, label %for.body35.preheader, label %if.end
+.lr.ph48.preheader:                               ; preds = %.preheader
+  %wide.trip.count61 = zext i32 %29 to i64
+  br label %.lr.ph48
 
-for.body35.preheader:                             ; preds = %for.cond32.preheader
-  %16 = zext i32 %.lcssa to i64
-  br label %for.body35
+.lr.ph48:                                         ; preds = %.lr.ph48.preheader, %.lr.ph48
+  %indvars.iv58 = phi i64 [ 0, %.lr.ph48.preheader ], [ %indvars.iv.next59, %.lr.ph48 ]
+  %31 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %21, i64 %indvars.iv58
+  %32 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %25, i64 %indvars.iv58
+  %33 = load i16, ptr %31, align 2, !tbaa !26
+  store i16 %33, ptr %32, align 2, !tbaa !26
+  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
+  %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
+  br i1 %exitcond62.not, label %.loopexit, label %.lr.ph48, !llvm.loop !38
 
-for.body22:                                       ; preds = %for.cond19.preheader, %for.body22
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body22 ], [ 0, %for.cond19.preheader ]
-  %arrayidx24 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %7, i64 %indvars.iv
-  %arrayidx26 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %add.ptr, i64 %indvars.iv
-  %17 = load i16, ptr %arrayidx24, align 2
-  store i16 %17, ptr %arrayidx26, align 2
+.preheader41:                                     ; preds = %.lr.ph, %.preheader43
+  %34 = icmp ult i32 %27, %29
+  br i1 %34, label %.lr.ph46.preheader, label %.loopexit
+
+.lr.ph46.preheader:                               ; preds = %.preheader41
+  %35 = zext i32 %27 to i64
+  %36 = add i64 %24, %35
+  %37 = shl i64 %36, 1
+  %scevgep = getelementptr i8, ptr %22, i64 %37
+  %38 = xor i32 %27, -1
+  %39 = add i32 %29, %38
+  %40 = zext i32 %39 to i64
+  %41 = shl nuw nsw i64 %40, 1
+  %42 = add nuw nsw i64 %41, 2
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %scevgep, i8 0, i64 %42, i1 false), !tbaa !26
+  br label %.loopexit
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %43 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %21, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %25, i64 %indvars.iv
+  %45 = load i16, ptr %43, align 2, !tbaa !26
+  store i16 %45, ptr %44, align 2, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = load i32, ptr %arrayidx8, align 4
-  %19 = zext i32 %18 to i64
-  %cmp21 = icmp samesign ult i64 %indvars.iv.next, %19
-  br i1 %cmp21, label %for.body22, label %for.cond32.preheader.loopexit, !llvm.loop !9
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.preheader41, label %.lr.ph, !llvm.loop !39
 
-for.body35:                                       ; preds = %for.body35.preheader, %for.body35
-  %indvars.iv40 = phi i64 [ %16, %for.body35.preheader ], [ %indvars.iv.next41, %for.body35 ]
-  %arrayidx37 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %add.ptr, i64 %indvars.iv40
-  store i16 0, ptr %arrayidx37, align 2
-  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
-  %20 = load i32, ptr %arrayidx9, align 4
-  %21 = zext i32 %20 to i64
-  %cmp34 = icmp samesign ult i64 %indvars.iv.next41, %21
-  br i1 %cmp34, label %for.body35, label %if.end, !llvm.loop !10
+.loopexit:                                        ; preds = %.lr.ph48, %.lr.ph46.preheader, %.preheader41, %.preheader
+  store ptr %25, ptr %20, align 8, !tbaa !22
+  %46 = add nuw i64 %.03849, 1
+  %exitcond63.not = icmp eq i64 %46, %15
+  br i1 %exitcond63.not, label %._crit_edge, label %19, !llvm.loop !40
 
-if.end:                                           ; preds = %for.body35, %for.body14, %for.cond32.preheader, %for.cond11.preheader
-  %22 = load ptr, ptr %_sampleListPointers, align 8
-  %arrayidx43 = getelementptr inbounds ptr, ptr %22, i64 %i.036
-  store ptr %add.ptr, ptr %arrayidx43, align 8
-  %inc45 = add nuw i64 %i.036, 1
-  %23 = load i64, ptr %_numPixels.i, align 8
-  %cmp = icmp ult i64 %inc45, %23
-  br i1 %cmp, label %for.body, label %for.end46, !llvm.loop !11
+47:                                               ; preds = %._crit_edge
+  tail call void @_ZdaPv(ptr noundef nonnull %6) #14
+  br label %48
 
-for.end46:                                        ; preds = %if.end, %entry
-  %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
-
-delete.notnull:                                   ; preds = %for.end46
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #13
-  br label %delete.end
-
-delete.end:                                       ; preds = %delete.notnull, %for.end46
+48:                                               ; preds = %47, %._crit_edge
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(104) ptr @_ZN7Imf_3_216DeepImageChannel12sampleCountsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #6 align 2 {
-entry:
-  %_level.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %_level.i.i, align 8
-  %_sampleCounts.i = getelementptr inbounds nuw i8, ptr %0, i64 88
-  ret ptr %_sampleCounts.i
+define noundef nonnull align 8 dereferenceable(104) ptr @_ZN7Imf_3_416DeepImageChannel12sampleCountsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #7 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !31
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  ret ptr %4
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #7
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE21initializeSampleListsEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_sampleBuffer = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %0 = load ptr, ptr %_sampleBuffer, align 8
-  %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
+define weak_odr hidden void @_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE21initializeSampleListsEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %3 = load ptr, ptr %2, align 8, !tbaa !25
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %6, label %5
 
-delete.notnull:                                   ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #13
-  br label %delete.end
+5:                                                ; preds = %1
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #14
+  br label %6
 
-delete.end:                                       ; preds = %delete.notnull, %entry
-  store ptr null, ptr %_sampleBuffer, align 8
-  %_level.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %_level.i.i.i, align 8
-  %_numSamples.i = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %2 = load ptr, ptr %_numSamples.i, align 8
-  %_sampleListPositions.i = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %3 = load ptr, ptr %_sampleListPositions.i, align 8
-  %_sampleBufferSize.i = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %4 = load i64, ptr %_sampleBufferSize.i, align 8
-  %5 = shl i64 %4, 1
-  %.inv = icmp sgt i64 %4, -1
-  %6 = select i1 %.inv, i64 %5, i64 -1
-  %call8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #14
-  store ptr %call8, ptr %_sampleBuffer, align 8
-  %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
-  %7 = load ptr, ptr %vfn, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %_numPixels.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %8 = load i64, ptr %_numPixels.i, align 8
-  %cmp14.not = icmp eq i64 %8, 0
-  br i1 %cmp14.not, label %for.end22, label %for.body.lr.ph
+6:                                                ; preds = %5, %1
+  store ptr null, ptr %2, align 8, !tbaa !25
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !31
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 136
+  %10 = load ptr, ptr %9, align 8, !tbaa !41
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 160
+  %12 = load ptr, ptr %11, align 8, !tbaa !42
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 184
+  %14 = load i64, ptr %13, align 8, !tbaa !32
+  %15 = shl i64 %14, 1
+  %.inv = icmp sgt i64 %14, -1
+  %16 = select i1 %.inv, i64 %15, i64 -1
+  %17 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %16) #15
+  store ptr %17, ptr %2, align 8, !tbaa !25
+  %18 = load ptr, ptr %0, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 72
+  %20 = load ptr, ptr %19, align 8
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(72) %0)
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %22 = load i64, ptr %21, align 8, !tbaa !24
+  %.not = icmp eq i64 %22, 0
+  br i1 %.not, label %._crit_edge17, label %.lr.ph16
 
-for.body.lr.ph:                                   ; preds = %delete.end
-  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
-  br label %for.body
+.lr.ph16:                                         ; preds = %6
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %24 = load ptr, ptr %23, align 8, !tbaa !23
+  br label %25
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.inc20
-  %i.015 = phi i64 [ 0, %for.body.lr.ph ], [ %inc21, %for.inc20 ]
-  %9 = load ptr, ptr %_sampleBuffer, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %3, i64 %i.015
-  %10 = load i64, ptr %arrayidx, align 8
-  %add.ptr = getelementptr inbounds %"class.Imath_3_2::half", ptr %9, i64 %10
-  %11 = load ptr, ptr %_sampleListPointers, align 8
-  %arrayidx12 = getelementptr inbounds ptr, ptr %11, i64 %i.015
-  store ptr %add.ptr, ptr %arrayidx12, align 8
-  %arrayidx14 = getelementptr inbounds i32, ptr %2, i64 %i.015
-  %12 = load i32, ptr %arrayidx14, align 4
-  %cmp1512.not = icmp eq i32 %12, 0
-  br i1 %cmp1512.not, label %for.inc20, label %for.body16
+._crit_edge17:                                    ; preds = %._crit_edge, %6
+  ret void
 
-for.body16:                                       ; preds = %for.body, %for.body16
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body16 ], [ 0, %for.body ]
-  %13 = load ptr, ptr %_sampleListPointers, align 8
-  %arrayidx18 = getelementptr inbounds ptr, ptr %13, i64 %i.015
-  %14 = load ptr, ptr %arrayidx18, align 8
-  %arrayidx19 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %14, i64 %indvars.iv
-  store i16 0, ptr %arrayidx19, align 2
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = load i32, ptr %arrayidx14, align 4
-  %16 = zext i32 %15 to i64
-  %cmp15 = icmp samesign ult i64 %indvars.iv.next, %16
-  br i1 %cmp15, label %for.body16, label %for.inc20, !llvm.loop !12
+25:                                               ; preds = %.lr.ph16, %._crit_edge
+  %.01114 = phi i64 [ 0, %.lr.ph16 ], [ %35, %._crit_edge ]
+  %26 = load ptr, ptr %2, align 8, !tbaa !25
+  %27 = getelementptr inbounds nuw i64, ptr %12, i64 %.01114
+  %28 = load i64, ptr %27, align 8, !tbaa !36
+  %29 = getelementptr %"class.Imath_3_2::half", ptr %26, i64 %28
+  %30 = getelementptr inbounds nuw ptr, ptr %24, i64 %.01114
+  store ptr %29, ptr %30, align 8, !tbaa !22
+  %31 = getelementptr inbounds nuw i32, ptr %10, i64 %.01114
+  %32 = load i32, ptr %31, align 4, !tbaa !37
+  %.not18 = icmp eq i32 %32, 0
+  br i1 %.not18, label %._crit_edge, label %.lr.ph.preheader
 
-for.inc20:                                        ; preds = %for.body16, %for.body
-  %inc21 = add nuw i64 %i.015, 1
-  %17 = load i64, ptr %_numPixels.i, align 8
-  %cmp = icmp ult i64 %inc21, %17
-  br i1 %cmp, label %for.body, label %for.end22, !llvm.loop !13
+.lr.ph.preheader:                                 ; preds = %25
+  %33 = zext i32 %32 to i64
+  %34 = shl nuw nsw i64 %33, 1
+  tail call void @llvm.memset.p0.i64(ptr align 2 %29, i8 0, i64 %34, i1 false), !tbaa !26
+  br label %._crit_edge
 
-for.end22:                                        ; preds = %for.inc20, %delete.end
+._crit_edge:                                      ; preds = %.lr.ph.preheader, %25
+  %35 = add nuw i64 %.01114, 1
+  %exitcond.not = icmp eq i64 %35, %22
+  br i1 %exitcond.not, label %._crit_edge17, label %25, !llvm.loop !43
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE6resizeEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 {
+  tail call void @_ZN7Imf_3_412ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %3 = load ptr, ptr %2, align 8, !tbaa !23
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %6, label %5
+
+5:                                                ; preds = %1
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #14
+  br label %6
+
+6:                                                ; preds = %5, %1
+  store ptr null, ptr %2, align 8, !tbaa !23
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %8 = load i64, ptr %7, align 8, !tbaa !24
+  %9 = icmp ugt i64 %8, 2305843009213693951
+  %10 = shl i64 %8, 3
+  %11 = select i1 %9, i64 -1, i64 %10
+  %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #15
+  store ptr %12, ptr %2, align 8, !tbaa !23
+  %13 = load ptr, ptr %0, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %15 = load ptr, ptr %14, align 8
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(72) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE6resizeEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  tail call void @_ZN7Imf_3_212ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
-  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %0 = load ptr, ptr %_sampleListPointers, align 8
-  %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
-
-delete.notnull:                                   ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #13
-  br label %delete.end
-
-delete.end:                                       ; preds = %delete.notnull, %entry
-  store ptr null, ptr %_sampleListPointers, align 8
-  %_numPixels.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %1 = load i64, ptr %_numPixels.i, align 8
-  %2 = icmp ugt i64 %1, 2305843009213693951
-  %3 = shl i64 %1, 3
-  %4 = select i1 %2, i64 -1, i64 %3
-  %call3 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #14
-  store ptr %call3, ptr %_sampleListPointers, align 8
-  %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
-  %5 = load ptr, ptr %vfn, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(72) %this)
+define void @_ZN7Imf_3_416DeepImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 align 2 {
+  tail call void @_ZN7Imf_3_412ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_216DeepImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
-entry:
-  tail call void @_ZN7Imf_3_212ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
+define weak_odr hidden void @_ZN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE16resetBasePointerEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %3 = load ptr, ptr %2, align 8, !tbaa !23
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !31
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  %8 = load i32, ptr %7, align 4, !tbaa !44
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %10 = load i32, ptr %9, align 4, !tbaa !19
+  %11 = mul nsw i32 %10, %8
+  %12 = sext i32 %11 to i64
+  %13 = sub nsw i64 0, %12
+  %14 = getelementptr inbounds ptr, ptr %3, i64 %13
+  %15 = load i32, ptr %6, align 4, !tbaa !47
+  %16 = sext i32 %15 to i64
+  %17 = sub nsw i64 0, %16
+  %18 = getelementptr inbounds ptr, ptr %14, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %18, ptr %19, align 8, !tbaa !6
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE16resetBasePointerEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %0 = load ptr, ptr %_sampleListPointers, align 8
-  %_level.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %_level.i, align 8
-  %_dataWindow.i = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %y = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %2 = load i32, ptr %y, align 4
-  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %3 = load i32, ptr %_pixelsPerRow.i, align 4
-  %mul = mul nsw i32 %3, %2
-  %idx.ext = sext i32 %mul to i64
-  %idx.neg = sub nsw i64 0, %idx.ext
-  %add.ptr = getelementptr inbounds ptr, ptr %0, i64 %idx.neg
-  %4 = load i32, ptr %_dataWindow.i, align 4
-  %idx.ext7 = sext i32 %4 to i64
-  %idx.neg8 = sub nsw i64 0, %idx.ext7
-  %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %idx.neg8
-  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr %add.ptr9, ptr %_base, align 8
+define weak_odr void @_ZNK7Imf_3_421TypedDeepImageChannelIfE5sliceEv(ptr dead_on_unwind noalias writable sret(%"struct.Imf_3_4::DeepSlice") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #3 comdat align 2 {
+  %3 = load ptr, ptr %1, align 8, !tbaa !3
+  %4 = load ptr, ptr %3, align 8
+  %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(72) %1)
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %7 = load ptr, ptr %6, align 8, !tbaa !48
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %9 = load i32, ptr %8, align 4, !tbaa !19
+  %10 = sext i32 %9 to i64
+  %11 = shl nsw i64 %10, 3
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %13 = load i32, ptr %12, align 8, !tbaa !20
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %15 = load i32, ptr %14, align 4, !tbaa !21
+  tail call void @_ZN7Imf_3_49DeepSliceC1ENS_9PixelTypeEPcmmmiidbb(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %5, ptr noundef %7, i64 noundef 8, i64 noundef %11, i64 noundef 4, i32 noundef %13, i32 noundef %15, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZNK7Imf_3_221TypedDeepImageChannelIfE5sliceEv(ptr noalias sret(%"struct.Imf_3_2::DeepSlice") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  %vtable = load ptr, ptr %this, align 8
-  %0 = load ptr, ptr %vtable, align 8
-  %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %1 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %2 = load i32, ptr %_pixelsPerRow.i, align 4
-  %conv = sext i32 %2 to i64
-  %mul = shl nsw i64 %conv, 3
-  %_xSampling.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %3 = load i32, ptr %_xSampling.i, align 8
-  %_ySampling.i = getelementptr inbounds nuw i8, ptr %this, i64 20
-  %4 = load i32, ptr %_ySampling.i, align 4
-  tail call void @_ZN7Imf_3_29DeepSliceC1ENS_9PixelTypeEPcmmmiidbb(ptr noundef nonnull align 8 dereferenceable(56) %agg.result, i32 noundef %call, ptr noundef %1, i64 noundef 8, i64 noundef %mul, i64 noundef 4, i32 noundef %3, i32 noundef %4, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
-  ret void
+; Function Attrs: inlinehint mustprogress uwtable
+define weak_odr noundef ptr @_ZN7Imf_3_421TypedDeepImageChannelIfEclEii(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 comdat align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %5 = load ptr, ptr %4, align 8, !tbaa !48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %7 = load i32, ptr %6, align 4, !tbaa !19
+  %8 = mul nsw i32 %7, %2
+  %9 = add nsw i32 %8, %1
+  %10 = sext i32 %9 to i64
+  %11 = getelementptr inbounds ptr, ptr %5, i64 %10
+  %12 = load ptr, ptr %11, align 8, !tbaa !52
+  ret ptr %12
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define weak_odr noundef ptr @_ZNK7Imf_3_421TypedDeepImageChannelIfEclEii(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 comdat align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %5 = load ptr, ptr %4, align 8, !tbaa !48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %7 = load i32, ptr %6, align 4, !tbaa !19
+  %8 = mul nsw i32 %7, %2
+  %9 = add nsw i32 %8, %1
+  %10 = sext i32 %9 to i64
+  %11 = getelementptr inbounds ptr, ptr %5, i64 %10
+  %12 = load ptr, ptr %11, align 8, !tbaa !52
+  ret ptr %12
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define weak_odr noundef ptr @_ZN7Imf_3_421TypedDeepImageChannelIfE2atEii(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 comdat align 2 {
+  tail call void @_ZNK7Imf_3_412ImageChannel11boundsCheckEii(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, i32 noundef %2)
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %5 = load ptr, ptr %4, align 8, !tbaa !48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %7 = load i32, ptr %6, align 4, !tbaa !19
+  %8 = mul nsw i32 %7, %2
+  %9 = add nsw i32 %8, %1
+  %10 = sext i32 %9 to i64
+  %11 = getelementptr inbounds ptr, ptr %5, i64 %10
+  %12 = load ptr, ptr %11, align 8, !tbaa !52
+  ret ptr %12
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define weak_odr noundef ptr @_ZNK7Imf_3_421TypedDeepImageChannelIfE2atEii(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 comdat align 2 {
+  tail call void @_ZNK7Imf_3_412ImageChannel11boundsCheckEii(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, i32 noundef %2)
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %5 = load ptr, ptr %4, align 8, !tbaa !48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %7 = load i32, ptr %6, align 4, !tbaa !19
+  %8 = mul nsw i32 %7, %2
+  %9 = add nsw i32 %8, %1
+  %10 = sext i32 %9 to i64
+  %11 = getelementptr inbounds ptr, ptr %5, i64 %10
+  %12 = load ptr, ptr %11, align 8, !tbaa !52
+  ret ptr %12
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define weak_odr noundef ptr @_ZN7Imf_3_421TypedDeepImageChannelIfE3rowEi(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #4 comdat align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %4 = load ptr, ptr %3, align 8, !tbaa !48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %6 = load i32, ptr %5, align 4, !tbaa !19
+  %7 = mul nsw i32 %6, %1
+  %8 = sext i32 %7 to i64
+  %9 = getelementptr inbounds ptr, ptr %4, i64 %8
+  ret ptr %9
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define weak_odr noundef ptr @_ZNK7Imf_3_421TypedDeepImageChannelIfE3rowEi(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #4 comdat align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %4 = load ptr, ptr %3, align 8, !tbaa !48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %6 = load i32, ptr %5, align 4, !tbaa !19
+  %7 = mul nsw i32 %6, %1
+  %8 = sext i32 %7 to i64
+  %9 = getelementptr inbounds ptr, ptr %4, i64 %8
+  ret ptr %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZN7Imf_3_221TypedDeepImageChannelIfEclEii(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %x, i32 noundef %y) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %1 = load i32, ptr %_pixelsPerRow.i, align 4
-  %mul = mul nsw i32 %1, %y
-  %add = add nsw i32 %mul, %x
-  %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %idxprom
-  %2 = load ptr, ptr %arrayidx, align 8
-  ret ptr %2
-}
+define weak_odr hidden void @_ZN7Imf_3_421TypedDeepImageChannelIfEC2ERNS_14DeepImageLevelEb(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, i1 noundef zeroext %2) unnamed_addr #3 comdat($_ZN7Imf_3_421TypedDeepImageChannelIfEC5ERNS_14DeepImageLevelEb) align 2 personality ptr @__gxx_personality_v0 {
+  tail call void @_ZN7Imf_3_412ImageChannelC2ERNS_10ImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %2)
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN7Imf_3_421TypedDeepImageChannelIfEE, i64 16), ptr %0, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  invoke void @_ZN7Imf_3_412ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
+          to label %.noexc unwind label %18
 
-; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZNK7Imf_3_221TypedDeepImageChannelIfEclEii(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %x, i32 noundef %y) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %1 = load i32, ptr %_pixelsPerRow.i, align 4
-  %mul = mul nsw i32 %1, %y
-  %add = add nsw i32 %mul, %x
-  %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %idxprom
-  %2 = load ptr, ptr %arrayidx, align 8
-  ret ptr %2
-}
+.noexc:                                           ; preds = %3
+  %5 = load ptr, ptr %4, align 8, !tbaa !53
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %8, label %7
 
-; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZN7Imf_3_221TypedDeepImageChannelIfE2atEii(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %x, i32 noundef %y) local_unnamed_addr #3 comdat align 2 {
-entry:
-  tail call void @_ZNK7Imf_3_212ImageChannel11boundsCheckEii(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %x, i32 noundef %y)
-  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %1 = load i32, ptr %_pixelsPerRow.i, align 4
-  %mul = mul nsw i32 %1, %y
-  %add = add nsw i32 %mul, %x
-  %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %idxprom
-  %2 = load ptr, ptr %arrayidx, align 8
-  ret ptr %2
-}
+7:                                                ; preds = %.noexc
+  tail call void @_ZdaPv(ptr noundef nonnull %5) #14
+  br label %8
 
-; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZNK7Imf_3_221TypedDeepImageChannelIfE2atEii(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %x, i32 noundef %y) local_unnamed_addr #3 comdat align 2 {
-entry:
-  tail call void @_ZNK7Imf_3_212ImageChannel11boundsCheckEii(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %x, i32 noundef %y)
-  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %1 = load i32, ptr %_pixelsPerRow.i, align 4
-  %mul = mul nsw i32 %1, %y
-  %add = add nsw i32 %mul, %x
-  %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %idxprom
-  %2 = load ptr, ptr %arrayidx, align 8
-  ret ptr %2
-}
+8:                                                ; preds = %7, %.noexc
+  store ptr null, ptr %4, align 8, !tbaa !53
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %10 = load i64, ptr %9, align 8, !tbaa !24
+  %11 = icmp ugt i64 %10, 2305843009213693951
+  %12 = shl i64 %10, 3
+  %13 = select i1 %11, i64 -1, i64 %12
+  %14 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %13) #15
+          to label %.noexc4 unwind label %18
 
-; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZN7Imf_3_221TypedDeepImageChannelIfE3rowEi(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %r) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %1 = load i32, ptr %_pixelsPerRow.i, align 4
-  %mul = mul nsw i32 %1, %r
-  %idx.ext = sext i32 %mul to i64
-  %add.ptr = getelementptr inbounds ptr, ptr %0, i64 %idx.ext
-  ret ptr %add.ptr
-}
+.noexc4:                                          ; preds = %8
+  store ptr %14, ptr %4, align 8, !tbaa !53
+  %15 = load ptr, ptr %0, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  %17 = load ptr, ptr %16, align 8
+  invoke void %17(ptr noundef nonnull align 8 dereferenceable(72) %0)
+          to label %_ZN7Imf_3_421TypedDeepImageChannelIfE6resizeEv.exit unwind label %18
 
-; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZNK7Imf_3_221TypedDeepImageChannelIfE3rowEi(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %r) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %1 = load i32, ptr %_pixelsPerRow.i, align 4
-  %mul = mul nsw i32 %1, %r
-  %idx.ext = sext i32 %mul to i64
-  %add.ptr = getelementptr inbounds ptr, ptr %0, i64 %idx.ext
-  ret ptr %add.ptr
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIfEC2ERNS_14DeepImageLevelEb(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(192) %level, i1 noundef zeroext %pLinear) unnamed_addr #3 comdat($_ZN7Imf_3_221TypedDeepImageChannelIfEC5ERNS_14DeepImageLevelEb) align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  tail call void @_ZN7Imf_3_212ImageChannelC2ERNS_10ImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(192) %level, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %pLinear)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_221TypedDeepImageChannelIfEE, i64 16), ptr %this, align 8
-  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_sampleListPointers, i8 0, i64 24, i1 false)
-  invoke void @_ZN7Imf_3_212ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
-          to label %.noexc unwind label %lpad
-
-.noexc:                                           ; preds = %entry
-  %0 = load ptr, ptr %_sampleListPointers, align 8
-  %isnull.i = icmp eq ptr %0, null
-  br i1 %isnull.i, label %delete.end.i, label %delete.notnull.i
-
-delete.notnull.i:                                 ; preds = %.noexc
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #13
-  br label %delete.end.i
-
-delete.end.i:                                     ; preds = %delete.notnull.i, %.noexc
-  store ptr null, ptr %_sampleListPointers, align 8
-  %_numPixels.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %1 = load i64, ptr %_numPixels.i.i, align 8
-  %2 = icmp ugt i64 %1, 2305843009213693951
-  %3 = shl i64 %1, 3
-  %4 = select i1 %2, i64 -1, i64 %3
-  %call3.i1 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %4) #14
-          to label %call3.i.noexc unwind label %lpad
-
-call3.i.noexc:                                    ; preds = %delete.end.i
-  store ptr %call3.i1, ptr %_sampleListPointers, align 8
-  %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 64
-  %5 = load ptr, ptr %vfn.i, align 8
-  invoke void %5(ptr noundef nonnull align 8 dereferenceable(72) %this)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %call3.i.noexc
+_ZN7Imf_3_421TypedDeepImageChannelIfE6resizeEv.exit: ; preds = %.noexc4
   ret void
 
-lpad:                                             ; preds = %call3.i.noexc, %delete.end.i, %entry
-  %6 = landingpad { ptr, i32 }
+18:                                               ; preds = %.noexc4, %8, %3
+  %19 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7Imf_3_212ImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #15
-  resume { ptr, i32 } %6
+  tail call void @_ZN7Imf_3_412ImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIfED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 comdat($_ZN7Imf_3_221TypedDeepImageChannelIfED5Ev) align 2 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_221TypedDeepImageChannelIfEE, i64 16), ptr %this, align 8
-  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %0 = load ptr, ptr %_sampleListPointers, align 8
-  %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
+define weak_odr hidden void @_ZN7Imf_3_421TypedDeepImageChannelIfED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 comdat($_ZN7Imf_3_421TypedDeepImageChannelIfED5Ev) align 2 {
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN7Imf_3_421TypedDeepImageChannelIfEE, i64 16), ptr %0, align 8, !tbaa !3
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %3 = load ptr, ptr %2, align 8, !tbaa !53
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %6, label %5
 
-delete.notnull:                                   ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #13
-  br label %delete.end
+5:                                                ; preds = %1
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #14
+  br label %6
 
-delete.end:                                       ; preds = %delete.notnull, %entry
-  %_sampleBuffer = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %1 = load ptr, ptr %_sampleBuffer, align 8
-  %isnull2 = icmp eq ptr %1, null
-  br i1 %isnull2, label %delete.end4, label %delete.notnull3
+6:                                                ; preds = %5, %1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %8 = load ptr, ptr %7, align 8, !tbaa !54
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %11, label %10
 
-delete.notnull3:                                  ; preds = %delete.end
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #13
-  br label %delete.end4
+10:                                               ; preds = %6
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #14
+  br label %11
 
-delete.end4:                                      ; preds = %delete.notnull3, %delete.end
-  tail call void @_ZN7Imf_3_212ImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #15
+11:                                               ; preds = %10, %6
+  tail call void @_ZN7Imf_3_412ImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIfED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 comdat($_ZN7Imf_3_221TypedDeepImageChannelIfED5Ev) align 2 {
-entry:
-  tail call void @_ZN7Imf_3_221TypedDeepImageChannelIfED1Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #13
+define weak_odr hidden void @_ZN7Imf_3_421TypedDeepImageChannelIfED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 comdat($_ZN7Imf_3_421TypedDeepImageChannelIfED5Ev) align 2 {
+  tail call void @_ZN7Imf_3_421TypedDeepImageChannelIfED1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIfE16setSamplesToZeroEmjj(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %i, i32 noundef %oldNumSamples, i32 noundef %newNumSamples) unnamed_addr #4 comdat align 2 {
-entry:
-  %cmp3 = icmp ult i32 %oldNumSamples, %newNumSamples
-  br i1 %cmp3, label %for.body.lr.ph, label %for.end
+define weak_odr hidden void @_ZN7Imf_3_421TypedDeepImageChannelIfE16setSamplesToZeroEmjj(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #5 comdat align 2 {
+  %5 = icmp ult i32 %2, %3
+  br i1 %5, label %.lr.ph, label %._crit_edge
 
-for.body.lr.ph:                                   ; preds = %entry
-  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %0 = zext i32 %oldNumSamples to i64
-  %wide.trip.count = zext i32 %newNumSamples to i64
-  br label %for.body
+.lr.ph:                                           ; preds = %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = load ptr, ptr %6, align 8, !tbaa !53
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %1
+  %9 = load ptr, ptr %8, align 8, !tbaa !52
+  %10 = zext i32 %2 to i64
+  %11 = shl nuw nsw i64 %10, 2
+  %scevgep = getelementptr nuw i8, ptr %9, i64 %11
+  %12 = xor i32 %2, -1
+  %13 = add i32 %3, %12
+  %14 = zext i32 %13 to i64
+  %15 = shl nuw nsw i64 %14, 2
+  %16 = add nuw nsw i64 %15, 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %16, i1 false), !tbaa !55
+  br label %._crit_edge
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %indvars.iv = phi i64 [ %0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %1 = load ptr, ptr %_sampleListPointers, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %i
-  %2 = load ptr, ptr %arrayidx, align 8
-  %arrayidx2 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
-  store float 0.000000e+00, ptr %arrayidx2, align 4
+._crit_edge:                                      ; preds = %.lr.ph, %4
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define weak_odr hidden void @_ZN7Imf_3_421TypedDeepImageChannelIfE14moveSampleListEmjjm(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) unnamed_addr #5 comdat align 2 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = load ptr, ptr %6, align 8, !tbaa !53
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %1
+  %9 = load ptr, ptr %8, align 8, !tbaa !52
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = load ptr, ptr %10, align 8, !tbaa !54
+  %12 = getelementptr inbounds nuw float, ptr %11, i64 %4
+  %13 = icmp ugt i32 %2, %3
+  br i1 %13, label %.preheader, label %.preheader32
+
+.preheader32:                                     ; preds = %5
+  %.not = icmp eq i32 %2, 0
+  br i1 %.not, label %.preheader30, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %.preheader32
+  %wide.trip.count = zext i32 %2 to i64
+  br label %.lr.ph
+
+.preheader:                                       ; preds = %5
+  %.not38 = icmp eq i32 %3, 0
+  br i1 %.not38, label %.loopexit, label %.lr.ph37.preheader
+
+.lr.ph37.preheader:                               ; preds = %.preheader
+  %wide.trip.count47 = zext i32 %3 to i64
+  br label %.lr.ph37
+
+.lr.ph37:                                         ; preds = %.lr.ph37.preheader, %.lr.ph37
+  %indvars.iv44 = phi i64 [ 0, %.lr.ph37.preheader ], [ %indvars.iv.next45, %.lr.ph37 ]
+  %14 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv44
+  %15 = load float, ptr %14, align 4, !tbaa !55
+  %16 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv44
+  store float %15, ptr %16, align 4, !tbaa !55
+  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
+  %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
+  br i1 %exitcond48.not, label %.loopexit, label %.lr.ph37, !llvm.loop !57
+
+.preheader30:                                     ; preds = %.lr.ph, %.preheader32
+  %17 = icmp ult i32 %2, %3
+  br i1 %17, label %.lr.ph35.preheader, label %.loopexit
+
+.lr.ph35.preheader:                               ; preds = %.preheader30
+  %18 = zext i32 %2 to i64
+  %19 = add i64 %4, %18
+  %20 = shl i64 %19, 2
+  %scevgep = getelementptr i8, ptr %11, i64 %20
+  %21 = xor i32 %2, -1
+  %22 = add i32 %3, %21
+  %23 = zext i32 %22 to i64
+  %24 = shl nuw nsw i64 %23, 2
+  %25 = add nuw nsw i64 %24, 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %25, i1 false), !tbaa !55
+  br label %.loopexit
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %26 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
+  %27 = load float, ptr %26, align 4, !tbaa !55
+  %28 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv
+  store float %27, ptr %28, align 4, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
+  br i1 %exitcond.not, label %.preheader30, label %.lr.ph, !llvm.loop !58
 
-for.end:                                          ; preds = %for.body, %entry
+.loopexit:                                        ; preds = %.lr.ph37, %.lr.ph35.preheader, %.preheader30, %.preheader
+  store ptr %12, ptr %8, align 8, !tbaa !52
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIfE14moveSampleListEmjjm(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %i, i32 noundef %oldNumSamples, i32 noundef %newNumSamples, i64 noundef %newSampleListPosition) unnamed_addr #4 comdat align 2 {
-entry:
-  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %0 = load ptr, ptr %_sampleListPointers, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %i
-  %1 = load ptr, ptr %arrayidx, align 8
-  %_sampleBuffer = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %2 = load ptr, ptr %_sampleBuffer, align 8
-  %add.ptr = getelementptr inbounds float, ptr %2, i64 %newSampleListPosition
-  %cmp = icmp ugt i32 %oldNumSamples, %newNumSamples
-  br i1 %cmp, label %for.cond.preheader, label %for.cond7.preheader
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZN7Imf_3_421TypedDeepImageChannelIfE22moveSamplesToNewBufferEPKjS3_PKm(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 comdat align 2 {
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %6 = load ptr, ptr %5, align 8, !tbaa !54
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !31
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 184
+  %10 = load i64, ptr %9, align 8, !tbaa !32
+  %11 = icmp ugt i64 %10, 4611686018427387903
+  %12 = shl i64 %10, 2
+  %13 = select i1 %11, i64 -1, i64 %12
+  %14 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %13) #15
+  store ptr %14, ptr %5, align 8, !tbaa !54
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %16 = load i64, ptr %15, align 8, !tbaa !24
+  %.not = icmp eq i64 %16, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph50
 
-for.cond7.preheader:                              ; preds = %entry
-  %cmp819.not = icmp eq i32 %oldNumSamples, 0
-  br i1 %cmp819.not, label %for.cond18.preheader, label %for.body9.preheader
+.lr.ph50:                                         ; preds = %4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %18 = load ptr, ptr %17, align 8, !tbaa !53
+  br label %20
 
-for.body9.preheader:                              ; preds = %for.cond7.preheader
-  %wide.trip.count = zext i32 %oldNumSamples to i64
-  br label %for.body9
+._crit_edge:                                      ; preds = %.loopexit, %4
+  %19 = icmp eq ptr %6, null
+  br i1 %19, label %49, label %48
 
-for.cond.preheader:                               ; preds = %entry
-  %cmp223.not = icmp eq i32 %newNumSamples, 0
-  br i1 %cmp223.not, label %if.end, label %for.body.preheader
+20:                                               ; preds = %.lr.ph50, %.loopexit
+  %.03849 = phi i64 [ 0, %.lr.ph50 ], [ %47, %.loopexit ]
+  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %.03849
+  %22 = load ptr, ptr %21, align 8, !tbaa !52
+  %23 = load ptr, ptr %5, align 8, !tbaa !54
+  %24 = getelementptr inbounds nuw i64, ptr %3, i64 %.03849
+  %25 = load i64, ptr %24, align 8, !tbaa !36
+  %26 = getelementptr inbounds nuw float, ptr %23, i64 %25
+  %27 = getelementptr inbounds nuw i32, ptr %1, i64 %.03849
+  %28 = load i32, ptr %27, align 4, !tbaa !37
+  %29 = getelementptr inbounds nuw i32, ptr %2, i64 %.03849
+  %30 = load i32, ptr %29, align 4, !tbaa !37
+  %31 = icmp ugt i32 %28, %30
+  br i1 %31, label %.preheader, label %.preheader43
 
-for.body.preheader:                               ; preds = %for.cond.preheader
-  %wide.trip.count33 = zext i32 %newNumSamples to i64
-  br label %for.body
+.preheader43:                                     ; preds = %20
+  %.not51 = icmp eq i32 %28, 0
+  br i1 %.not51, label %.preheader41, label %.lr.ph.preheader
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv30 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next31, %for.body ]
-  %arrayidx3 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv30
-  %3 = load float, ptr %arrayidx3, align 4
-  %arrayidx5 = getelementptr inbounds nuw float, ptr %add.ptr, i64 %indvars.iv30
-  store float %3, ptr %arrayidx5, align 4
-  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
-  %exitcond34.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count33
-  br i1 %exitcond34.not, label %if.end, label %for.body, !llvm.loop !15
+.lr.ph.preheader:                                 ; preds = %.preheader43
+  %wide.trip.count = zext i32 %28 to i64
+  br label %.lr.ph
 
-for.cond18.preheader:                             ; preds = %for.body9, %for.cond7.preheader
-  %cmp1921 = icmp ult i32 %oldNumSamples, %newNumSamples
-  br i1 %cmp1921, label %for.body20.preheader, label %if.end
+.preheader:                                       ; preds = %20
+  %.not52 = icmp eq i32 %30, 0
+  br i1 %.not52, label %.loopexit, label %.lr.ph48.preheader
 
-for.body20.preheader:                             ; preds = %for.cond18.preheader
-  %4 = zext i32 %oldNumSamples to i64
-  %5 = add i64 %newSampleListPosition, %4
-  %6 = shl i64 %5, 2
-  %scevgep = getelementptr i8, ptr %2, i64 %6
-  %7 = xor i32 %oldNumSamples, -1
-  %8 = add i32 %newNumSamples, %7
-  %9 = zext i32 %8 to i64
-  %10 = shl nuw nsw i64 %9, 2
-  %11 = add nuw nsw i64 %10, 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %11, i1 false)
-  br label %if.end
+.lr.ph48.preheader:                               ; preds = %.preheader
+  %wide.trip.count61 = zext i32 %30 to i64
+  br label %.lr.ph48
 
-for.body9:                                        ; preds = %for.body9.preheader, %for.body9
-  %indvars.iv = phi i64 [ 0, %for.body9.preheader ], [ %indvars.iv.next, %for.body9 ]
-  %arrayidx11 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
-  %12 = load float, ptr %arrayidx11, align 4
-  %arrayidx13 = getelementptr inbounds nuw float, ptr %add.ptr, i64 %indvars.iv
-  store float %12, ptr %arrayidx13, align 4
+.lr.ph48:                                         ; preds = %.lr.ph48.preheader, %.lr.ph48
+  %indvars.iv58 = phi i64 [ 0, %.lr.ph48.preheader ], [ %indvars.iv.next59, %.lr.ph48 ]
+  %32 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv58
+  %33 = load float, ptr %32, align 4, !tbaa !55
+  %34 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv58
+  store float %33, ptr %34, align 4, !tbaa !55
+  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
+  %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
+  br i1 %exitcond62.not, label %.loopexit, label %.lr.ph48, !llvm.loop !59
+
+.preheader41:                                     ; preds = %.lr.ph, %.preheader43
+  %35 = icmp ult i32 %28, %30
+  br i1 %35, label %.lr.ph46.preheader, label %.loopexit
+
+.lr.ph46.preheader:                               ; preds = %.preheader41
+  %36 = zext i32 %28 to i64
+  %37 = add i64 %25, %36
+  %38 = shl i64 %37, 2
+  %scevgep = getelementptr i8, ptr %23, i64 %38
+  %39 = xor i32 %28, -1
+  %40 = add i32 %30, %39
+  %41 = zext i32 %40 to i64
+  %42 = shl nuw nsw i64 %41, 2
+  %43 = add nuw nsw i64 %42, 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %43, i1 false), !tbaa !55
+  br label %.loopexit
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %44 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv
+  %45 = load float, ptr %44, align 4, !tbaa !55
+  %46 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv
+  store float %45, ptr %46, align 4, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond18.preheader, label %for.body9, !llvm.loop !16
+  br i1 %exitcond.not, label %.preheader41, label %.lr.ph, !llvm.loop !60
 
-if.end:                                           ; preds = %for.body, %for.body20.preheader, %for.cond18.preheader, %for.cond.preheader
-  %13 = load ptr, ptr %_sampleListPointers, align 8
-  %arrayidx27 = getelementptr inbounds ptr, ptr %13, i64 %i
-  store ptr %add.ptr, ptr %arrayidx27, align 8
+.loopexit:                                        ; preds = %.lr.ph48, %.lr.ph46.preheader, %.preheader41, %.preheader
+  store ptr %26, ptr %21, align 8, !tbaa !52
+  %47 = add nuw i64 %.03849, 1
+  %exitcond63.not = icmp eq i64 %47, %16
+  br i1 %exitcond63.not, label %._crit_edge, label %20, !llvm.loop !61
+
+48:                                               ; preds = %._crit_edge
+  tail call void @_ZdaPv(ptr noundef nonnull %6) #14
+  br label %49
+
+49:                                               ; preds = %48, %._crit_edge
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIfE22moveSamplesToNewBufferEPKjS3_PKm(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %oldNumSamples, ptr noundef %newNumSamples, ptr noundef %newSampleListPositions) unnamed_addr #3 comdat align 2 {
-entry:
-  %_sampleBuffer = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %0 = load ptr, ptr %_sampleBuffer, align 8
-  %_level.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %_level.i.i.i, align 8
-  %_sampleBufferSize.i = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %2 = load i64, ptr %_sampleBufferSize.i, align 8
-  %3 = icmp ugt i64 %2, 4611686018427387903
-  %4 = shl i64 %2, 2
-  %5 = select i1 %3, i64 -1, i64 %4
-  %call3 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %5) #14
-  store ptr %call3, ptr %_sampleBuffer, align 8
-  %_numPixels.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %6 = load i64, ptr %_numPixels.i, align 8
-  %cmp35.not = icmp eq i64 %6, 0
-  br i1 %cmp35.not, label %for.end45, label %for.body.lr.ph
+define weak_odr hidden void @_ZN7Imf_3_421TypedDeepImageChannelIfE21initializeSampleListsEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %3 = load ptr, ptr %2, align 8, !tbaa !54
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %6, label %5
 
-for.body.lr.ph:                                   ; preds = %entry
-  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
-  br label %for.body
+5:                                                ; preds = %1
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #14
+  br label %6
 
-for.body:                                         ; preds = %for.body.lr.ph, %if.end
-  %i.036 = phi i64 [ 0, %for.body.lr.ph ], [ %inc44, %if.end ]
-  %7 = load ptr, ptr %_sampleListPointers, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %7, i64 %i.036
-  %8 = load ptr, ptr %arrayidx, align 8
-  %9 = load ptr, ptr %_sampleBuffer, align 8
-  %arrayidx7 = getelementptr inbounds i64, ptr %newSampleListPositions, i64 %i.036
-  %10 = load i64, ptr %arrayidx7, align 8
-  %add.ptr = getelementptr inbounds float, ptr %9, i64 %10
-  %arrayidx8 = getelementptr inbounds i32, ptr %oldNumSamples, i64 %i.036
-  %11 = load i32, ptr %arrayidx8, align 4
-  %arrayidx9 = getelementptr inbounds i32, ptr %newNumSamples, i64 %i.036
-  %12 = load i32, ptr %arrayidx9, align 4
-  %cmp10 = icmp ugt i32 %11, %12
-  br i1 %cmp10, label %for.cond11.preheader, label %for.cond19.preheader
+6:                                                ; preds = %5, %1
+  store ptr null, ptr %2, align 8, !tbaa !54
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !31
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 136
+  %10 = load ptr, ptr %9, align 8, !tbaa !41
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 160
+  %12 = load ptr, ptr %11, align 8, !tbaa !42
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 184
+  %14 = load i64, ptr %13, align 8, !tbaa !32
+  %15 = icmp ugt i64 %14, 4611686018427387903
+  %16 = shl i64 %14, 2
+  %17 = select i1 %15, i64 -1, i64 %16
+  %18 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %17) #15
+  store ptr %18, ptr %2, align 8, !tbaa !54
+  %19 = load ptr, ptr %0, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 72
+  %21 = load ptr, ptr %20, align 8
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(72) %0)
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %23 = load i64, ptr %22, align 8, !tbaa !24
+  %.not = icmp eq i64 %23, 0
+  br i1 %.not, label %._crit_edge17, label %.lr.ph16
 
-for.cond19.preheader:                             ; preds = %for.body
-  %cmp2129.not = icmp eq i32 %11, 0
-  br i1 %cmp2129.not, label %for.cond32.preheader, label %for.body22
+.lr.ph16:                                         ; preds = %6
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %25 = load ptr, ptr %24, align 8, !tbaa !53
+  br label %26
 
-for.cond11.preheader:                             ; preds = %for.body
-  %cmp1333.not = icmp eq i32 %12, 0
-  br i1 %cmp1333.not, label %if.end, label %for.body14
+._crit_edge17:                                    ; preds = %._crit_edge, %6
+  ret void
 
-for.body14:                                       ; preds = %for.cond11.preheader, %for.body14
-  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %for.body14 ], [ 0, %for.cond11.preheader ]
-  %arrayidx15 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv43
-  %13 = load float, ptr %arrayidx15, align 4
-  %arrayidx17 = getelementptr inbounds nuw float, ptr %add.ptr, i64 %indvars.iv43
-  store float %13, ptr %arrayidx17, align 4
-  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
-  %14 = load i32, ptr %arrayidx9, align 4
-  %15 = zext i32 %14 to i64
-  %cmp13 = icmp samesign ult i64 %indvars.iv.next44, %15
-  br i1 %cmp13, label %for.body14, label %if.end, !llvm.loop !17
+26:                                               ; preds = %.lr.ph16, %._crit_edge
+  %.01114 = phi i64 [ 0, %.lr.ph16 ], [ %36, %._crit_edge ]
+  %27 = load ptr, ptr %2, align 8, !tbaa !54
+  %28 = getelementptr inbounds nuw i64, ptr %12, i64 %.01114
+  %29 = load i64, ptr %28, align 8, !tbaa !36
+  %30 = getelementptr float, ptr %27, i64 %29
+  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %.01114
+  store ptr %30, ptr %31, align 8, !tbaa !52
+  %32 = getelementptr inbounds nuw i32, ptr %10, i64 %.01114
+  %33 = load i32, ptr %32, align 4, !tbaa !37
+  %.not18 = icmp eq i32 %33, 0
+  br i1 %.not18, label %._crit_edge, label %.lr.ph.preheader
 
-for.cond32.preheader.loopexit:                    ; preds = %for.body22
-  %.pre = load i32, ptr %arrayidx9, align 4
-  br label %for.cond32.preheader
+.lr.ph.preheader:                                 ; preds = %26
+  %34 = zext i32 %33 to i64
+  %35 = shl nuw nsw i64 %34, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %30, i8 0, i64 %35, i1 false), !tbaa !55
+  br label %._crit_edge
 
-for.cond32.preheader:                             ; preds = %for.cond32.preheader.loopexit, %for.cond19.preheader
-  %16 = phi i32 [ %12, %for.cond19.preheader ], [ %.pre, %for.cond32.preheader.loopexit ]
-  %.lcssa = phi i32 [ 0, %for.cond19.preheader ], [ %19, %for.cond32.preheader.loopexit ]
-  %cmp3431 = icmp ult i32 %.lcssa, %16
-  br i1 %cmp3431, label %for.body35.preheader, label %if.end
+._crit_edge:                                      ; preds = %.lr.ph.preheader, %26
+  %36 = add nuw i64 %.01114, 1
+  %exitcond.not = icmp eq i64 %36, %23
+  br i1 %exitcond.not, label %._crit_edge17, label %26, !llvm.loop !62
+}
 
-for.body35.preheader:                             ; preds = %for.cond32.preheader
-  %17 = zext i32 %.lcssa to i64
-  br label %for.body35
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZN7Imf_3_421TypedDeepImageChannelIfE6resizeEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 {
+  tail call void @_ZN7Imf_3_412ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %3 = load ptr, ptr %2, align 8, !tbaa !53
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %6, label %5
 
-for.body22:                                       ; preds = %for.cond19.preheader, %for.body22
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body22 ], [ 0, %for.cond19.preheader ]
-  %arrayidx24 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
-  %18 = load float, ptr %arrayidx24, align 4
-  %arrayidx26 = getelementptr inbounds nuw float, ptr %add.ptr, i64 %indvars.iv
-  store float %18, ptr %arrayidx26, align 4
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = load i32, ptr %arrayidx8, align 4
-  %20 = zext i32 %19 to i64
-  %cmp21 = icmp samesign ult i64 %indvars.iv.next, %20
-  br i1 %cmp21, label %for.body22, label %for.cond32.preheader.loopexit, !llvm.loop !18
+5:                                                ; preds = %1
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #14
+  br label %6
 
-for.body35:                                       ; preds = %for.body35.preheader, %for.body35
-  %indvars.iv40 = phi i64 [ %17, %for.body35.preheader ], [ %indvars.iv.next41, %for.body35 ]
-  %arrayidx37 = getelementptr inbounds nuw float, ptr %add.ptr, i64 %indvars.iv40
-  store float 0.000000e+00, ptr %arrayidx37, align 4
-  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
-  %21 = load i32, ptr %arrayidx9, align 4
-  %22 = zext i32 %21 to i64
-  %cmp34 = icmp samesign ult i64 %indvars.iv.next41, %22
-  br i1 %cmp34, label %for.body35, label %if.end, !llvm.loop !19
-
-if.end:                                           ; preds = %for.body35, %for.body14, %for.cond32.preheader, %for.cond11.preheader
-  %23 = load ptr, ptr %_sampleListPointers, align 8
-  %arrayidx42 = getelementptr inbounds ptr, ptr %23, i64 %i.036
-  store ptr %add.ptr, ptr %arrayidx42, align 8
-  %inc44 = add nuw i64 %i.036, 1
-  %24 = load i64, ptr %_numPixels.i, align 8
-  %cmp = icmp ult i64 %inc44, %24
-  br i1 %cmp, label %for.body, label %for.end45, !llvm.loop !20
-
-for.end45:                                        ; preds = %if.end, %entry
-  %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
-
-delete.notnull:                                   ; preds = %for.end45
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #13
-  br label %delete.end
-
-delete.end:                                       ; preds = %delete.notnull, %for.end45
+6:                                                ; preds = %5, %1
+  store ptr null, ptr %2, align 8, !tbaa !53
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %8 = load i64, ptr %7, align 8, !tbaa !24
+  %9 = icmp ugt i64 %8, 2305843009213693951
+  %10 = shl i64 %8, 3
+  %11 = select i1 %9, i64 -1, i64 %10
+  %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #15
+  store ptr %12, ptr %2, align 8, !tbaa !53
+  %13 = load ptr, ptr %0, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %15 = load ptr, ptr %14, align 8
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(72) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIfE21initializeSampleListsEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  %_sampleBuffer = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %0 = load ptr, ptr %_sampleBuffer, align 8
-  %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
-
-delete.notnull:                                   ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #13
-  br label %delete.end
-
-delete.end:                                       ; preds = %delete.notnull, %entry
-  store ptr null, ptr %_sampleBuffer, align 8
-  %_level.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %_level.i.i.i, align 8
-  %_numSamples.i = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %2 = load ptr, ptr %_numSamples.i, align 8
-  %_sampleListPositions.i = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %3 = load ptr, ptr %_sampleListPositions.i, align 8
-  %_sampleBufferSize.i = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %4 = load i64, ptr %_sampleBufferSize.i, align 8
-  %5 = icmp ugt i64 %4, 4611686018427387903
-  %6 = shl i64 %4, 2
-  %7 = select i1 %5, i64 -1, i64 %6
-  %call8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #14
-  store ptr %call8, ptr %_sampleBuffer, align 8
-  %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
-  %8 = load ptr, ptr %vfn, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %_numPixels.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %9 = load i64, ptr %_numPixels.i, align 8
-  %cmp14.not = icmp eq i64 %9, 0
-  br i1 %cmp14.not, label %for.end22, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %delete.end
-  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.lr.ph, %for.inc20
-  %i.015 = phi i64 [ 0, %for.body.lr.ph ], [ %inc21, %for.inc20 ]
-  %10 = load ptr, ptr %_sampleBuffer, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %3, i64 %i.015
-  %11 = load i64, ptr %arrayidx, align 8
-  %add.ptr = getelementptr inbounds float, ptr %10, i64 %11
-  %12 = load ptr, ptr %_sampleListPointers, align 8
-  %arrayidx12 = getelementptr inbounds ptr, ptr %12, i64 %i.015
-  store ptr %add.ptr, ptr %arrayidx12, align 8
-  %arrayidx14 = getelementptr inbounds i32, ptr %2, i64 %i.015
-  %13 = load i32, ptr %arrayidx14, align 4
-  %cmp1512.not = icmp eq i32 %13, 0
-  br i1 %cmp1512.not, label %for.inc20, label %for.body16
-
-for.body16:                                       ; preds = %for.body, %for.body16
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body16 ], [ 0, %for.body ]
-  %14 = load ptr, ptr %_sampleListPointers, align 8
-  %arrayidx18 = getelementptr inbounds ptr, ptr %14, i64 %i.015
-  %15 = load ptr, ptr %arrayidx18, align 8
-  %arrayidx19 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv
-  store float 0.000000e+00, ptr %arrayidx19, align 4
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = load i32, ptr %arrayidx14, align 4
-  %17 = zext i32 %16 to i64
-  %cmp15 = icmp samesign ult i64 %indvars.iv.next, %17
-  br i1 %cmp15, label %for.body16, label %for.inc20, !llvm.loop !21
-
-for.inc20:                                        ; preds = %for.body16, %for.body
-  %inc21 = add nuw i64 %i.015, 1
-  %18 = load i64, ptr %_numPixels.i, align 8
-  %cmp = icmp ult i64 %inc21, %18
-  br i1 %cmp, label %for.body, label %for.end22, !llvm.loop !22
-
-for.end22:                                        ; preds = %for.inc20, %delete.end
+define weak_odr hidden void @_ZN7Imf_3_421TypedDeepImageChannelIfE16resetBasePointerEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %3 = load ptr, ptr %2, align 8, !tbaa !53
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !31
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  %8 = load i32, ptr %7, align 4, !tbaa !44
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %10 = load i32, ptr %9, align 4, !tbaa !19
+  %11 = mul nsw i32 %10, %8
+  %12 = sext i32 %11 to i64
+  %13 = sub nsw i64 0, %12
+  %14 = getelementptr inbounds ptr, ptr %3, i64 %13
+  %15 = load i32, ptr %6, align 4, !tbaa !47
+  %16 = sext i32 %15 to i64
+  %17 = sub nsw i64 0, %16
+  %18 = getelementptr inbounds ptr, ptr %14, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %18, ptr %19, align 8, !tbaa !48
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIfE6resizeEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  tail call void @_ZN7Imf_3_212ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
-  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %0 = load ptr, ptr %_sampleListPointers, align 8
-  %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
-
-delete.notnull:                                   ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #13
-  br label %delete.end
-
-delete.end:                                       ; preds = %delete.notnull, %entry
-  store ptr null, ptr %_sampleListPointers, align 8
-  %_numPixels.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %1 = load i64, ptr %_numPixels.i, align 8
-  %2 = icmp ugt i64 %1, 2305843009213693951
-  %3 = shl i64 %1, 3
-  %4 = select i1 %2, i64 -1, i64 %3
-  %call3 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #14
-  store ptr %call3, ptr %_sampleListPointers, align 8
-  %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
-  %5 = load ptr, ptr %vfn, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(72) %this)
+define weak_odr void @_ZNK7Imf_3_421TypedDeepImageChannelIjE5sliceEv(ptr dead_on_unwind noalias writable sret(%"struct.Imf_3_4::DeepSlice") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #3 comdat align 2 {
+  %3 = load ptr, ptr %1, align 8, !tbaa !3
+  %4 = load ptr, ptr %3, align 8
+  %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(72) %1)
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %7 = load ptr, ptr %6, align 8, !tbaa !63
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %9 = load i32, ptr %8, align 4, !tbaa !19
+  %10 = sext i32 %9 to i64
+  %11 = shl nsw i64 %10, 3
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %13 = load i32, ptr %12, align 8, !tbaa !20
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %15 = load i32, ptr %14, align 4, !tbaa !21
+  tail call void @_ZN7Imf_3_49DeepSliceC1ENS_9PixelTypeEPcmmmiidbb(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %5, ptr noundef %7, i64 noundef 8, i64 noundef %11, i64 noundef 4, i32 noundef %13, i32 noundef %15, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIfE16resetBasePointerEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %0 = load ptr, ptr %_sampleListPointers, align 8
-  %_level.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %_level.i, align 8
-  %_dataWindow.i = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %y = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %2 = load i32, ptr %y, align 4
-  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %3 = load i32, ptr %_pixelsPerRow.i, align 4
-  %mul = mul nsw i32 %3, %2
-  %idx.ext = sext i32 %mul to i64
-  %idx.neg = sub nsw i64 0, %idx.ext
-  %add.ptr = getelementptr inbounds ptr, ptr %0, i64 %idx.neg
-  %4 = load i32, ptr %_dataWindow.i, align 4
-  %idx.ext7 = sext i32 %4 to i64
-  %idx.neg8 = sub nsw i64 0, %idx.ext7
-  %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %idx.neg8
-  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr %add.ptr9, ptr %_base, align 8
-  ret void
+; Function Attrs: inlinehint mustprogress uwtable
+define weak_odr noundef ptr @_ZN7Imf_3_421TypedDeepImageChannelIjEclEii(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 comdat align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %5 = load ptr, ptr %4, align 8, !tbaa !63
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %7 = load i32, ptr %6, align 4, !tbaa !19
+  %8 = mul nsw i32 %7, %2
+  %9 = add nsw i32 %8, %1
+  %10 = sext i32 %9 to i64
+  %11 = getelementptr inbounds ptr, ptr %5, i64 %10
+  %12 = load ptr, ptr %11, align 8, !tbaa !66
+  ret ptr %12
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define weak_odr noundef ptr @_ZNK7Imf_3_421TypedDeepImageChannelIjEclEii(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 comdat align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %5 = load ptr, ptr %4, align 8, !tbaa !63
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %7 = load i32, ptr %6, align 4, !tbaa !19
+  %8 = mul nsw i32 %7, %2
+  %9 = add nsw i32 %8, %1
+  %10 = sext i32 %9 to i64
+  %11 = getelementptr inbounds ptr, ptr %5, i64 %10
+  %12 = load ptr, ptr %11, align 8, !tbaa !66
+  ret ptr %12
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define weak_odr noundef ptr @_ZN7Imf_3_421TypedDeepImageChannelIjE2atEii(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 comdat align 2 {
+  tail call void @_ZNK7Imf_3_412ImageChannel11boundsCheckEii(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, i32 noundef %2)
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %5 = load ptr, ptr %4, align 8, !tbaa !63
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %7 = load i32, ptr %6, align 4, !tbaa !19
+  %8 = mul nsw i32 %7, %2
+  %9 = add nsw i32 %8, %1
+  %10 = sext i32 %9 to i64
+  %11 = getelementptr inbounds ptr, ptr %5, i64 %10
+  %12 = load ptr, ptr %11, align 8, !tbaa !66
+  ret ptr %12
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define weak_odr noundef ptr @_ZNK7Imf_3_421TypedDeepImageChannelIjE2atEii(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 comdat align 2 {
+  tail call void @_ZNK7Imf_3_412ImageChannel11boundsCheckEii(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, i32 noundef %2)
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %5 = load ptr, ptr %4, align 8, !tbaa !63
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %7 = load i32, ptr %6, align 4, !tbaa !19
+  %8 = mul nsw i32 %7, %2
+  %9 = add nsw i32 %8, %1
+  %10 = sext i32 %9 to i64
+  %11 = getelementptr inbounds ptr, ptr %5, i64 %10
+  %12 = load ptr, ptr %11, align 8, !tbaa !66
+  ret ptr %12
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define weak_odr noundef ptr @_ZN7Imf_3_421TypedDeepImageChannelIjE3rowEi(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #4 comdat align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %4 = load ptr, ptr %3, align 8, !tbaa !63
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %6 = load i32, ptr %5, align 4, !tbaa !19
+  %7 = mul nsw i32 %6, %1
+  %8 = sext i32 %7 to i64
+  %9 = getelementptr inbounds ptr, ptr %4, i64 %8
+  ret ptr %9
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define weak_odr noundef ptr @_ZNK7Imf_3_421TypedDeepImageChannelIjE3rowEi(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #4 comdat align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %4 = load ptr, ptr %3, align 8, !tbaa !63
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %6 = load i32, ptr %5, align 4, !tbaa !19
+  %7 = mul nsw i32 %6, %1
+  %8 = sext i32 %7 to i64
+  %9 = getelementptr inbounds ptr, ptr %4, i64 %8
+  ret ptr %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZNK7Imf_3_221TypedDeepImageChannelIjE5sliceEv(ptr noalias sret(%"struct.Imf_3_2::DeepSlice") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  %vtable = load ptr, ptr %this, align 8
-  %0 = load ptr, ptr %vtable, align 8
-  %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %1 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %2 = load i32, ptr %_pixelsPerRow.i, align 4
-  %conv = sext i32 %2 to i64
-  %mul = shl nsw i64 %conv, 3
-  %_xSampling.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %3 = load i32, ptr %_xSampling.i, align 8
-  %_ySampling.i = getelementptr inbounds nuw i8, ptr %this, i64 20
-  %4 = load i32, ptr %_ySampling.i, align 4
-  tail call void @_ZN7Imf_3_29DeepSliceC1ENS_9PixelTypeEPcmmmiidbb(ptr noundef nonnull align 8 dereferenceable(56) %agg.result, i32 noundef %call, ptr noundef %1, i64 noundef 8, i64 noundef %mul, i64 noundef 4, i32 noundef %3, i32 noundef %4, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
-  ret void
-}
+define weak_odr hidden void @_ZN7Imf_3_421TypedDeepImageChannelIjEC2ERNS_14DeepImageLevelEb(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, i1 noundef zeroext %2) unnamed_addr #3 comdat($_ZN7Imf_3_421TypedDeepImageChannelIjEC5ERNS_14DeepImageLevelEb) align 2 personality ptr @__gxx_personality_v0 {
+  tail call void @_ZN7Imf_3_412ImageChannelC2ERNS_10ImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %2)
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN7Imf_3_421TypedDeepImageChannelIjEE, i64 16), ptr %0, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  invoke void @_ZN7Imf_3_412ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
+          to label %.noexc unwind label %18
 
-; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZN7Imf_3_221TypedDeepImageChannelIjEclEii(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %x, i32 noundef %y) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %1 = load i32, ptr %_pixelsPerRow.i, align 4
-  %mul = mul nsw i32 %1, %y
-  %add = add nsw i32 %mul, %x
-  %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %idxprom
-  %2 = load ptr, ptr %arrayidx, align 8
-  ret ptr %2
-}
+.noexc:                                           ; preds = %3
+  %5 = load ptr, ptr %4, align 8, !tbaa !67
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %8, label %7
 
-; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZNK7Imf_3_221TypedDeepImageChannelIjEclEii(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %x, i32 noundef %y) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %1 = load i32, ptr %_pixelsPerRow.i, align 4
-  %mul = mul nsw i32 %1, %y
-  %add = add nsw i32 %mul, %x
-  %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %idxprom
-  %2 = load ptr, ptr %arrayidx, align 8
-  ret ptr %2
-}
+7:                                                ; preds = %.noexc
+  tail call void @_ZdaPv(ptr noundef nonnull %5) #14
+  br label %8
 
-; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZN7Imf_3_221TypedDeepImageChannelIjE2atEii(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %x, i32 noundef %y) local_unnamed_addr #3 comdat align 2 {
-entry:
-  tail call void @_ZNK7Imf_3_212ImageChannel11boundsCheckEii(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %x, i32 noundef %y)
-  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %1 = load i32, ptr %_pixelsPerRow.i, align 4
-  %mul = mul nsw i32 %1, %y
-  %add = add nsw i32 %mul, %x
-  %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %idxprom
-  %2 = load ptr, ptr %arrayidx, align 8
-  ret ptr %2
-}
+8:                                                ; preds = %7, %.noexc
+  store ptr null, ptr %4, align 8, !tbaa !67
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %10 = load i64, ptr %9, align 8, !tbaa !24
+  %11 = icmp ugt i64 %10, 2305843009213693951
+  %12 = shl i64 %10, 3
+  %13 = select i1 %11, i64 -1, i64 %12
+  %14 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %13) #15
+          to label %.noexc4 unwind label %18
 
-; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZNK7Imf_3_221TypedDeepImageChannelIjE2atEii(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %x, i32 noundef %y) local_unnamed_addr #3 comdat align 2 {
-entry:
-  tail call void @_ZNK7Imf_3_212ImageChannel11boundsCheckEii(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %x, i32 noundef %y)
-  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %1 = load i32, ptr %_pixelsPerRow.i, align 4
-  %mul = mul nsw i32 %1, %y
-  %add = add nsw i32 %mul, %x
-  %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %idxprom
-  %2 = load ptr, ptr %arrayidx, align 8
-  ret ptr %2
-}
+.noexc4:                                          ; preds = %8
+  store ptr %14, ptr %4, align 8, !tbaa !67
+  %15 = load ptr, ptr %0, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  %17 = load ptr, ptr %16, align 8
+  invoke void %17(ptr noundef nonnull align 8 dereferenceable(72) %0)
+          to label %_ZN7Imf_3_421TypedDeepImageChannelIjE6resizeEv.exit unwind label %18
 
-; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZN7Imf_3_221TypedDeepImageChannelIjE3rowEi(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %r) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %1 = load i32, ptr %_pixelsPerRow.i, align 4
-  %mul = mul nsw i32 %1, %r
-  %idx.ext = sext i32 %mul to i64
-  %add.ptr = getelementptr inbounds ptr, ptr %0, i64 %idx.ext
-  ret ptr %add.ptr
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZNK7Imf_3_221TypedDeepImageChannelIjE3rowEi(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %r) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %1 = load i32, ptr %_pixelsPerRow.i, align 4
-  %mul = mul nsw i32 %1, %r
-  %idx.ext = sext i32 %mul to i64
-  %add.ptr = getelementptr inbounds ptr, ptr %0, i64 %idx.ext
-  ret ptr %add.ptr
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIjEC2ERNS_14DeepImageLevelEb(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(192) %level, i1 noundef zeroext %pLinear) unnamed_addr #3 comdat($_ZN7Imf_3_221TypedDeepImageChannelIjEC5ERNS_14DeepImageLevelEb) align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  tail call void @_ZN7Imf_3_212ImageChannelC2ERNS_10ImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(192) %level, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %pLinear)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_221TypedDeepImageChannelIjEE, i64 16), ptr %this, align 8
-  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_sampleListPointers, i8 0, i64 24, i1 false)
-  invoke void @_ZN7Imf_3_212ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
-          to label %.noexc unwind label %lpad
-
-.noexc:                                           ; preds = %entry
-  %0 = load ptr, ptr %_sampleListPointers, align 8
-  %isnull.i = icmp eq ptr %0, null
-  br i1 %isnull.i, label %delete.end.i, label %delete.notnull.i
-
-delete.notnull.i:                                 ; preds = %.noexc
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #13
-  br label %delete.end.i
-
-delete.end.i:                                     ; preds = %delete.notnull.i, %.noexc
-  store ptr null, ptr %_sampleListPointers, align 8
-  %_numPixels.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %1 = load i64, ptr %_numPixels.i.i, align 8
-  %2 = icmp ugt i64 %1, 2305843009213693951
-  %3 = shl i64 %1, 3
-  %4 = select i1 %2, i64 -1, i64 %3
-  %call3.i1 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %4) #14
-          to label %call3.i.noexc unwind label %lpad
-
-call3.i.noexc:                                    ; preds = %delete.end.i
-  store ptr %call3.i1, ptr %_sampleListPointers, align 8
-  %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 64
-  %5 = load ptr, ptr %vfn.i, align 8
-  invoke void %5(ptr noundef nonnull align 8 dereferenceable(72) %this)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %call3.i.noexc
+_ZN7Imf_3_421TypedDeepImageChannelIjE6resizeEv.exit: ; preds = %.noexc4
   ret void
 
-lpad:                                             ; preds = %call3.i.noexc, %delete.end.i, %entry
-  %6 = landingpad { ptr, i32 }
+18:                                               ; preds = %.noexc4, %8, %3
+  %19 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7Imf_3_212ImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #15
-  resume { ptr, i32 } %6
+  tail call void @_ZN7Imf_3_412ImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIjED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 comdat($_ZN7Imf_3_221TypedDeepImageChannelIjED5Ev) align 2 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_221TypedDeepImageChannelIjEE, i64 16), ptr %this, align 8
-  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %0 = load ptr, ptr %_sampleListPointers, align 8
-  %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
+define weak_odr hidden void @_ZN7Imf_3_421TypedDeepImageChannelIjED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 comdat($_ZN7Imf_3_421TypedDeepImageChannelIjED5Ev) align 2 {
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN7Imf_3_421TypedDeepImageChannelIjEE, i64 16), ptr %0, align 8, !tbaa !3
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %3 = load ptr, ptr %2, align 8, !tbaa !67
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %6, label %5
 
-delete.notnull:                                   ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #13
-  br label %delete.end
+5:                                                ; preds = %1
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #14
+  br label %6
 
-delete.end:                                       ; preds = %delete.notnull, %entry
-  %_sampleBuffer = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %1 = load ptr, ptr %_sampleBuffer, align 8
-  %isnull2 = icmp eq ptr %1, null
-  br i1 %isnull2, label %delete.end4, label %delete.notnull3
+6:                                                ; preds = %5, %1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %8 = load ptr, ptr %7, align 8, !tbaa !68
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %11, label %10
 
-delete.notnull3:                                  ; preds = %delete.end
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #13
-  br label %delete.end4
+10:                                               ; preds = %6
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #14
+  br label %11
 
-delete.end4:                                      ; preds = %delete.notnull3, %delete.end
-  tail call void @_ZN7Imf_3_212ImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #15
+11:                                               ; preds = %10, %6
+  tail call void @_ZN7Imf_3_412ImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIjED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 comdat($_ZN7Imf_3_221TypedDeepImageChannelIjED5Ev) align 2 {
-entry:
-  tail call void @_ZN7Imf_3_221TypedDeepImageChannelIjED1Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #13
+define weak_odr hidden void @_ZN7Imf_3_421TypedDeepImageChannelIjED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 comdat($_ZN7Imf_3_421TypedDeepImageChannelIjED5Ev) align 2 {
+  tail call void @_ZN7Imf_3_421TypedDeepImageChannelIjED1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIjE16setSamplesToZeroEmjj(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %i, i32 noundef %oldNumSamples, i32 noundef %newNumSamples) unnamed_addr #4 comdat align 2 {
-entry:
-  %cmp3 = icmp ult i32 %oldNumSamples, %newNumSamples
-  br i1 %cmp3, label %for.body.lr.ph, label %for.end
+define weak_odr hidden void @_ZN7Imf_3_421TypedDeepImageChannelIjE16setSamplesToZeroEmjj(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #5 comdat align 2 {
+  %5 = icmp ult i32 %2, %3
+  br i1 %5, label %.lr.ph, label %._crit_edge
 
-for.body.lr.ph:                                   ; preds = %entry
-  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %0 = zext i32 %oldNumSamples to i64
-  %wide.trip.count = zext i32 %newNumSamples to i64
-  br label %for.body
+.lr.ph:                                           ; preds = %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = load ptr, ptr %6, align 8, !tbaa !67
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %1
+  %9 = load ptr, ptr %8, align 8, !tbaa !66
+  %10 = zext i32 %2 to i64
+  %11 = shl nuw nsw i64 %10, 2
+  %scevgep = getelementptr nuw i8, ptr %9, i64 %11
+  %12 = xor i32 %2, -1
+  %13 = add i32 %3, %12
+  %14 = zext i32 %13 to i64
+  %15 = shl nuw nsw i64 %14, 2
+  %16 = add nuw nsw i64 %15, 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %16, i1 false), !tbaa !37
+  br label %._crit_edge
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %indvars.iv = phi i64 [ %0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %1 = load ptr, ptr %_sampleListPointers, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %i
-  %2 = load ptr, ptr %arrayidx, align 8
-  %arrayidx2 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
-  store i32 0, ptr %arrayidx2, align 4
+._crit_edge:                                      ; preds = %.lr.ph, %4
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define weak_odr hidden void @_ZN7Imf_3_421TypedDeepImageChannelIjE14moveSampleListEmjjm(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) unnamed_addr #5 comdat align 2 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = load ptr, ptr %6, align 8, !tbaa !67
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %1
+  %9 = load ptr, ptr %8, align 8, !tbaa !66
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = load ptr, ptr %10, align 8, !tbaa !68
+  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %4
+  %13 = icmp ugt i32 %2, %3
+  br i1 %13, label %.preheader, label %.preheader32
+
+.preheader32:                                     ; preds = %5
+  %.not = icmp eq i32 %2, 0
+  br i1 %.not, label %.preheader30, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %.preheader32
+  %wide.trip.count = zext i32 %2 to i64
+  br label %.lr.ph
+
+.preheader:                                       ; preds = %5
+  %.not38 = icmp eq i32 %3, 0
+  br i1 %.not38, label %.loopexit, label %.lr.ph37.preheader
+
+.lr.ph37.preheader:                               ; preds = %.preheader
+  %wide.trip.count47 = zext i32 %3 to i64
+  br label %.lr.ph37
+
+.lr.ph37:                                         ; preds = %.lr.ph37.preheader, %.lr.ph37
+  %indvars.iv44 = phi i64 [ 0, %.lr.ph37.preheader ], [ %indvars.iv.next45, %.lr.ph37 ]
+  %14 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv44
+  %15 = load i32, ptr %14, align 4, !tbaa !37
+  %16 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv44
+  store i32 %15, ptr %16, align 4, !tbaa !37
+  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
+  %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
+  br i1 %exitcond48.not, label %.loopexit, label %.lr.ph37, !llvm.loop !69
+
+.preheader30:                                     ; preds = %.lr.ph, %.preheader32
+  %17 = icmp ult i32 %2, %3
+  br i1 %17, label %.lr.ph35.preheader, label %.loopexit
+
+.lr.ph35.preheader:                               ; preds = %.preheader30
+  %18 = zext i32 %2 to i64
+  %19 = add i64 %4, %18
+  %20 = shl i64 %19, 2
+  %scevgep = getelementptr i8, ptr %11, i64 %20
+  %21 = xor i32 %2, -1
+  %22 = add i32 %3, %21
+  %23 = zext i32 %22 to i64
+  %24 = shl nuw nsw i64 %23, 2
+  %25 = add nuw nsw i64 %24, 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %25, i1 false), !tbaa !37
+  br label %.loopexit
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %26 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %27 = load i32, ptr %26, align 4, !tbaa !37
+  %28 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  store i32 %27, ptr %28, align 4, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !23
+  br i1 %exitcond.not, label %.preheader30, label %.lr.ph, !llvm.loop !70
 
-for.end:                                          ; preds = %for.body, %entry
+.loopexit:                                        ; preds = %.lr.ph37, %.lr.ph35.preheader, %.preheader30, %.preheader
+  store ptr %12, ptr %8, align 8, !tbaa !66
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIjE14moveSampleListEmjjm(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %i, i32 noundef %oldNumSamples, i32 noundef %newNumSamples, i64 noundef %newSampleListPosition) unnamed_addr #4 comdat align 2 {
-entry:
-  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %0 = load ptr, ptr %_sampleListPointers, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %i
-  %1 = load ptr, ptr %arrayidx, align 8
-  %_sampleBuffer = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %2 = load ptr, ptr %_sampleBuffer, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %2, i64 %newSampleListPosition
-  %cmp = icmp ugt i32 %oldNumSamples, %newNumSamples
-  br i1 %cmp, label %for.cond.preheader, label %for.cond7.preheader
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZN7Imf_3_421TypedDeepImageChannelIjE22moveSamplesToNewBufferEPKjS3_PKm(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 comdat align 2 {
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %6 = load ptr, ptr %5, align 8, !tbaa !68
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !31
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 184
+  %10 = load i64, ptr %9, align 8, !tbaa !32
+  %11 = icmp ugt i64 %10, 4611686018427387903
+  %12 = shl i64 %10, 2
+  %13 = select i1 %11, i64 -1, i64 %12
+  %14 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %13) #15
+  store ptr %14, ptr %5, align 8, !tbaa !68
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %16 = load i64, ptr %15, align 8, !tbaa !24
+  %.not = icmp eq i64 %16, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph50
 
-for.cond7.preheader:                              ; preds = %entry
-  %cmp819.not = icmp eq i32 %oldNumSamples, 0
-  br i1 %cmp819.not, label %for.cond18.preheader, label %for.body9.preheader
+.lr.ph50:                                         ; preds = %4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %18 = load ptr, ptr %17, align 8, !tbaa !67
+  br label %20
 
-for.body9.preheader:                              ; preds = %for.cond7.preheader
-  %wide.trip.count = zext i32 %oldNumSamples to i64
-  br label %for.body9
+._crit_edge:                                      ; preds = %.loopexit, %4
+  %19 = icmp eq ptr %6, null
+  br i1 %19, label %53, label %52
 
-for.cond.preheader:                               ; preds = %entry
-  %cmp223.not = icmp eq i32 %newNumSamples, 0
-  br i1 %cmp223.not, label %if.end, label %for.body.preheader
+20:                                               ; preds = %.lr.ph50, %.loopexit
+  %.03849 = phi i64 [ 0, %.lr.ph50 ], [ %51, %.loopexit ]
+  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %.03849
+  %22 = load ptr, ptr %21, align 8, !tbaa !66
+  %23 = load ptr, ptr %5, align 8, !tbaa !68
+  %24 = getelementptr inbounds nuw i64, ptr %3, i64 %.03849
+  %25 = load i64, ptr %24, align 8, !tbaa !36
+  %26 = getelementptr inbounds nuw i32, ptr %23, i64 %25
+  %27 = getelementptr inbounds nuw i32, ptr %1, i64 %.03849
+  %28 = load i32, ptr %27, align 4, !tbaa !37
+  %29 = getelementptr inbounds nuw i32, ptr %2, i64 %.03849
+  %30 = load i32, ptr %29, align 4, !tbaa !37
+  %31 = icmp ugt i32 %28, %30
+  br i1 %31, label %.preheader, label %.preheader43
 
-for.body.preheader:                               ; preds = %for.cond.preheader
-  %wide.trip.count33 = zext i32 %newNumSamples to i64
-  br label %for.body
+.preheader43:                                     ; preds = %20
+  %.not51 = icmp eq i32 %28, 0
+  br i1 %.not51, label %.preheader41, label %.lr.ph
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv30 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next31, %for.body ]
-  %arrayidx3 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv30
-  %3 = load i32, ptr %arrayidx3, align 4
-  %arrayidx5 = getelementptr inbounds nuw i32, ptr %add.ptr, i64 %indvars.iv30
-  store i32 %3, ptr %arrayidx5, align 4
-  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
-  %exitcond34.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count33
-  br i1 %exitcond34.not, label %if.end, label %for.body, !llvm.loop !24
+.preheader:                                       ; preds = %20
+  %.not52 = icmp eq i32 %30, 0
+  br i1 %.not52, label %.loopexit, label %.lr.ph48
 
-for.cond18.preheader:                             ; preds = %for.body9, %for.cond7.preheader
-  %cmp1921 = icmp ult i32 %oldNumSamples, %newNumSamples
-  br i1 %cmp1921, label %for.body20.preheader, label %if.end
+.lr.ph48:                                         ; preds = %.preheader, %.lr.ph48
+  %indvars.iv59 = phi i64 [ %indvars.iv.next60, %.lr.ph48 ], [ 0, %.preheader ]
+  %32 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv59
+  %33 = load i32, ptr %32, align 4, !tbaa !37
+  %34 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv59
+  store i32 %33, ptr %34, align 4, !tbaa !37
+  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
+  %35 = load i32, ptr %29, align 4, !tbaa !37
+  %36 = zext i32 %35 to i64
+  %37 = icmp samesign ult i64 %indvars.iv.next60, %36
+  br i1 %37, label %.lr.ph48, label %.loopexit, !llvm.loop !71
 
-for.body20.preheader:                             ; preds = %for.cond18.preheader
-  %4 = zext i32 %oldNumSamples to i64
-  %5 = add i64 %newSampleListPosition, %4
-  %6 = shl i64 %5, 2
-  %scevgep = getelementptr i8, ptr %2, i64 %6
-  %7 = xor i32 %oldNumSamples, -1
-  %8 = add i32 %newNumSamples, %7
-  %9 = zext i32 %8 to i64
-  %10 = shl nuw nsw i64 %9, 2
-  %11 = add nuw nsw i64 %10, 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %11, i1 false)
-  br label %if.end
+.preheader41.loopexit:                            ; preds = %.lr.ph
+  %.pre = load i32, ptr %29, align 4, !tbaa !37
+  br label %.preheader41
 
-for.body9:                                        ; preds = %for.body9.preheader, %for.body9
-  %indvars.iv = phi i64 [ 0, %for.body9.preheader ], [ %indvars.iv.next, %for.body9 ]
-  %arrayidx11 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %12 = load i32, ptr %arrayidx11, align 4
-  %arrayidx13 = getelementptr inbounds nuw i32, ptr %add.ptr, i64 %indvars.iv
-  store i32 %12, ptr %arrayidx13, align 4
+.preheader41:                                     ; preds = %.preheader41.loopexit, %.preheader43
+  %38 = phi i32 [ %30, %.preheader43 ], [ %.pre, %.preheader41.loopexit ]
+  %.lcssa = phi i32 [ 0, %.preheader43 ], [ %44, %.preheader41.loopexit ]
+  %39 = icmp ult i32 %.lcssa, %38
+  br i1 %39, label %.lr.ph46.preheader, label %.loopexit
+
+.lr.ph46.preheader:                               ; preds = %.preheader41
+  %40 = zext i32 %.lcssa to i64
+  br label %.lr.ph46
+
+.lr.ph:                                           ; preds = %.preheader43, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader43 ]
+  %41 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %42 = load i32, ptr %41, align 4, !tbaa !37
+  %43 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  store i32 %42, ptr %43, align 4, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond18.preheader, label %for.body9, !llvm.loop !25
+  %44 = load i32, ptr %27, align 4, !tbaa !37
+  %45 = zext i32 %44 to i64
+  %46 = icmp samesign ult i64 %indvars.iv.next, %45
+  br i1 %46, label %.lr.ph, label %.preheader41.loopexit, !llvm.loop !72
 
-if.end:                                           ; preds = %for.body, %for.body20.preheader, %for.cond18.preheader, %for.cond.preheader
-  %13 = load ptr, ptr %_sampleListPointers, align 8
-  %arrayidx27 = getelementptr inbounds ptr, ptr %13, i64 %i
-  store ptr %add.ptr, ptr %arrayidx27, align 8
+.lr.ph46:                                         ; preds = %.lr.ph46.preheader, %.lr.ph46
+  %indvars.iv56 = phi i64 [ %40, %.lr.ph46.preheader ], [ %indvars.iv.next57, %.lr.ph46 ]
+  %47 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv56
+  store i32 0, ptr %47, align 4, !tbaa !37
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
+  %48 = load i32, ptr %29, align 4, !tbaa !37
+  %49 = zext i32 %48 to i64
+  %50 = icmp samesign ult i64 %indvars.iv.next57, %49
+  br i1 %50, label %.lr.ph46, label %.loopexit, !llvm.loop !73
+
+.loopexit:                                        ; preds = %.lr.ph46, %.lr.ph48, %.preheader41, %.preheader
+  store ptr %26, ptr %21, align 8, !tbaa !66
+  %51 = add nuw i64 %.03849, 1
+  %exitcond.not = icmp eq i64 %51, %16
+  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !74
+
+52:                                               ; preds = %._crit_edge
+  tail call void @_ZdaPv(ptr noundef nonnull %6) #14
+  br label %53
+
+53:                                               ; preds = %52, %._crit_edge
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIjE22moveSamplesToNewBufferEPKjS3_PKm(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %oldNumSamples, ptr noundef %newNumSamples, ptr noundef %newSampleListPositions) unnamed_addr #3 comdat align 2 {
-entry:
-  %_sampleBuffer = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %0 = load ptr, ptr %_sampleBuffer, align 8
-  %_level.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %_level.i.i.i, align 8
-  %_sampleBufferSize.i = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %2 = load i64, ptr %_sampleBufferSize.i, align 8
-  %3 = icmp ugt i64 %2, 4611686018427387903
-  %4 = shl i64 %2, 2
-  %5 = select i1 %3, i64 -1, i64 %4
-  %call3 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %5) #14
-  store ptr %call3, ptr %_sampleBuffer, align 8
-  %_numPixels.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %6 = load i64, ptr %_numPixels.i, align 8
-  %cmp35.not = icmp eq i64 %6, 0
-  br i1 %cmp35.not, label %for.end45, label %for.body.lr.ph
+define weak_odr hidden void @_ZN7Imf_3_421TypedDeepImageChannelIjE21initializeSampleListsEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %3 = load ptr, ptr %2, align 8, !tbaa !68
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %6, label %5
 
-for.body.lr.ph:                                   ; preds = %entry
-  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
-  br label %for.body
+5:                                                ; preds = %1
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #14
+  br label %6
 
-for.body:                                         ; preds = %for.body.lr.ph, %if.end
-  %i.036 = phi i64 [ 0, %for.body.lr.ph ], [ %inc44, %if.end ]
-  %7 = load ptr, ptr %_sampleListPointers, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %7, i64 %i.036
-  %8 = load ptr, ptr %arrayidx, align 8
-  %9 = load ptr, ptr %_sampleBuffer, align 8
-  %arrayidx7 = getelementptr inbounds i64, ptr %newSampleListPositions, i64 %i.036
-  %10 = load i64, ptr %arrayidx7, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %9, i64 %10
-  %arrayidx8 = getelementptr inbounds i32, ptr %oldNumSamples, i64 %i.036
-  %11 = load i32, ptr %arrayidx8, align 4
-  %arrayidx9 = getelementptr inbounds i32, ptr %newNumSamples, i64 %i.036
-  %12 = load i32, ptr %arrayidx9, align 4
-  %cmp10 = icmp ugt i32 %11, %12
-  br i1 %cmp10, label %for.cond11.preheader, label %for.cond19.preheader
+6:                                                ; preds = %5, %1
+  store ptr null, ptr %2, align 8, !tbaa !68
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !31
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 136
+  %10 = load ptr, ptr %9, align 8, !tbaa !41
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 160
+  %12 = load ptr, ptr %11, align 8, !tbaa !42
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 184
+  %14 = load i64, ptr %13, align 8, !tbaa !32
+  %15 = icmp ugt i64 %14, 4611686018427387903
+  %16 = shl i64 %14, 2
+  %17 = select i1 %15, i64 -1, i64 %16
+  %18 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %17) #15
+  store ptr %18, ptr %2, align 8, !tbaa !68
+  %19 = load ptr, ptr %0, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 72
+  %21 = load ptr, ptr %20, align 8
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(72) %0)
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %23 = load i64, ptr %22, align 8, !tbaa !24
+  %.not = icmp eq i64 %23, 0
+  br i1 %.not, label %._crit_edge17, label %.lr.ph16
 
-for.cond19.preheader:                             ; preds = %for.body
-  %cmp2129.not = icmp eq i32 %11, 0
-  br i1 %cmp2129.not, label %for.cond32.preheader, label %for.body22
+.lr.ph16:                                         ; preds = %6
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %25 = load ptr, ptr %24, align 8, !tbaa !67
+  br label %26
 
-for.cond11.preheader:                             ; preds = %for.body
-  %cmp1333.not = icmp eq i32 %12, 0
-  br i1 %cmp1333.not, label %if.end, label %for.body14
+._crit_edge17:                                    ; preds = %._crit_edge, %6
+  ret void
 
-for.body14:                                       ; preds = %for.cond11.preheader, %for.body14
-  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %for.body14 ], [ 0, %for.cond11.preheader ]
-  %arrayidx15 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv43
-  %13 = load i32, ptr %arrayidx15, align 4
-  %arrayidx17 = getelementptr inbounds nuw i32, ptr %add.ptr, i64 %indvars.iv43
-  store i32 %13, ptr %arrayidx17, align 4
-  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
-  %14 = load i32, ptr %arrayidx9, align 4
-  %15 = zext i32 %14 to i64
-  %cmp13 = icmp samesign ult i64 %indvars.iv.next44, %15
-  br i1 %cmp13, label %for.body14, label %if.end, !llvm.loop !26
+26:                                               ; preds = %.lr.ph16, %._crit_edge
+  %.01114 = phi i64 [ 0, %.lr.ph16 ], [ %34, %._crit_edge ]
+  %27 = load ptr, ptr %2, align 8, !tbaa !68
+  %28 = getelementptr inbounds nuw i64, ptr %12, i64 %.01114
+  %29 = load i64, ptr %28, align 8, !tbaa !36
+  %30 = getelementptr inbounds nuw i32, ptr %27, i64 %29
+  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %.01114
+  store ptr %30, ptr %31, align 8, !tbaa !66
+  %32 = getelementptr inbounds nuw i32, ptr %10, i64 %.01114
+  %33 = load i32, ptr %32, align 4, !tbaa !37
+  %.not18 = icmp eq i32 %33, 0
+  br i1 %.not18, label %._crit_edge, label %.lr.ph
 
-for.cond32.preheader.loopexit:                    ; preds = %for.body22
-  %.pre = load i32, ptr %arrayidx9, align 4
-  br label %for.cond32.preheader
+._crit_edge:                                      ; preds = %.lr.ph, %26
+  %34 = add nuw i64 %.01114, 1
+  %exitcond.not = icmp eq i64 %34, %23
+  br i1 %exitcond.not, label %._crit_edge17, label %26, !llvm.loop !75
 
-for.cond32.preheader:                             ; preds = %for.cond32.preheader.loopexit, %for.cond19.preheader
-  %16 = phi i32 [ %12, %for.cond19.preheader ], [ %.pre, %for.cond32.preheader.loopexit ]
-  %.lcssa = phi i32 [ 0, %for.cond19.preheader ], [ %19, %for.cond32.preheader.loopexit ]
-  %cmp3431 = icmp ult i32 %.lcssa, %16
-  br i1 %cmp3431, label %for.body35.preheader, label %if.end
-
-for.body35.preheader:                             ; preds = %for.cond32.preheader
-  %17 = zext i32 %.lcssa to i64
-  br label %for.body35
-
-for.body22:                                       ; preds = %for.cond19.preheader, %for.body22
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body22 ], [ 0, %for.cond19.preheader ]
-  %arrayidx24 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
-  %18 = load i32, ptr %arrayidx24, align 4
-  %arrayidx26 = getelementptr inbounds nuw i32, ptr %add.ptr, i64 %indvars.iv
-  store i32 %18, ptr %arrayidx26, align 4
+.lr.ph:                                           ; preds = %26, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %26 ]
+  %35 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
+  store i32 0, ptr %35, align 4, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = load i32, ptr %arrayidx8, align 4
-  %20 = zext i32 %19 to i64
-  %cmp21 = icmp samesign ult i64 %indvars.iv.next, %20
-  br i1 %cmp21, label %for.body22, label %for.cond32.preheader.loopexit, !llvm.loop !27
+  %36 = load i32, ptr %32, align 4, !tbaa !37
+  %37 = zext i32 %36 to i64
+  %38 = icmp samesign ult i64 %indvars.iv.next, %37
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !76
+}
 
-for.body35:                                       ; preds = %for.body35.preheader, %for.body35
-  %indvars.iv40 = phi i64 [ %17, %for.body35.preheader ], [ %indvars.iv.next41, %for.body35 ]
-  %arrayidx37 = getelementptr inbounds nuw i32, ptr %add.ptr, i64 %indvars.iv40
-  store i32 0, ptr %arrayidx37, align 4
-  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
-  %21 = load i32, ptr %arrayidx9, align 4
-  %22 = zext i32 %21 to i64
-  %cmp34 = icmp samesign ult i64 %indvars.iv.next41, %22
-  br i1 %cmp34, label %for.body35, label %if.end, !llvm.loop !28
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZN7Imf_3_421TypedDeepImageChannelIjE6resizeEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 {
+  tail call void @_ZN7Imf_3_412ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %3 = load ptr, ptr %2, align 8, !tbaa !67
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %6, label %5
 
-if.end:                                           ; preds = %for.body35, %for.body14, %for.cond32.preheader, %for.cond11.preheader
-  %23 = load ptr, ptr %_sampleListPointers, align 8
-  %arrayidx42 = getelementptr inbounds ptr, ptr %23, i64 %i.036
-  store ptr %add.ptr, ptr %arrayidx42, align 8
-  %inc44 = add nuw i64 %i.036, 1
-  %24 = load i64, ptr %_numPixels.i, align 8
-  %cmp = icmp ult i64 %inc44, %24
-  br i1 %cmp, label %for.body, label %for.end45, !llvm.loop !29
+5:                                                ; preds = %1
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #14
+  br label %6
 
-for.end45:                                        ; preds = %if.end, %entry
-  %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
-
-delete.notnull:                                   ; preds = %for.end45
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #13
-  br label %delete.end
-
-delete.end:                                       ; preds = %delete.notnull, %for.end45
+6:                                                ; preds = %5, %1
+  store ptr null, ptr %2, align 8, !tbaa !67
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %8 = load i64, ptr %7, align 8, !tbaa !24
+  %9 = icmp ugt i64 %8, 2305843009213693951
+  %10 = shl i64 %8, 3
+  %11 = select i1 %9, i64 -1, i64 %10
+  %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #15
+  store ptr %12, ptr %2, align 8, !tbaa !67
+  %13 = load ptr, ptr %0, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %15 = load ptr, ptr %14, align 8
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(72) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIjE21initializeSampleListsEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  %_sampleBuffer = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %0 = load ptr, ptr %_sampleBuffer, align 8
-  %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
-
-delete.notnull:                                   ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #13
-  br label %delete.end
-
-delete.end:                                       ; preds = %delete.notnull, %entry
-  store ptr null, ptr %_sampleBuffer, align 8
-  %_level.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %_level.i.i.i, align 8
-  %_numSamples.i = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %2 = load ptr, ptr %_numSamples.i, align 8
-  %_sampleListPositions.i = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %3 = load ptr, ptr %_sampleListPositions.i, align 8
-  %_sampleBufferSize.i = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %4 = load i64, ptr %_sampleBufferSize.i, align 8
-  %5 = icmp ugt i64 %4, 4611686018427387903
-  %6 = shl i64 %4, 2
-  %7 = select i1 %5, i64 -1, i64 %6
-  %call8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #14
-  store ptr %call8, ptr %_sampleBuffer, align 8
-  %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
-  %8 = load ptr, ptr %vfn, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  %_numPixels.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %9 = load i64, ptr %_numPixels.i, align 8
-  %cmp14.not = icmp eq i64 %9, 0
-  br i1 %cmp14.not, label %for.end22, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %delete.end
-  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.lr.ph, %for.inc20
-  %i.015 = phi i64 [ 0, %for.body.lr.ph ], [ %inc21, %for.inc20 ]
-  %10 = load ptr, ptr %_sampleBuffer, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %3, i64 %i.015
-  %11 = load i64, ptr %arrayidx, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %10, i64 %11
-  %12 = load ptr, ptr %_sampleListPointers, align 8
-  %arrayidx12 = getelementptr inbounds ptr, ptr %12, i64 %i.015
-  store ptr %add.ptr, ptr %arrayidx12, align 8
-  %arrayidx14 = getelementptr inbounds i32, ptr %2, i64 %i.015
-  %13 = load i32, ptr %arrayidx14, align 4
-  %cmp1512.not = icmp eq i32 %13, 0
-  br i1 %cmp1512.not, label %for.inc20, label %for.body16
-
-for.body16:                                       ; preds = %for.body, %for.body16
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body16 ], [ 0, %for.body ]
-  %14 = load ptr, ptr %_sampleListPointers, align 8
-  %arrayidx18 = getelementptr inbounds ptr, ptr %14, i64 %i.015
-  %15 = load ptr, ptr %arrayidx18, align 8
-  %arrayidx19 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
-  store i32 0, ptr %arrayidx19, align 4
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = load i32, ptr %arrayidx14, align 4
-  %17 = zext i32 %16 to i64
-  %cmp15 = icmp samesign ult i64 %indvars.iv.next, %17
-  br i1 %cmp15, label %for.body16, label %for.inc20, !llvm.loop !30
-
-for.inc20:                                        ; preds = %for.body16, %for.body
-  %inc21 = add nuw i64 %i.015, 1
-  %18 = load i64, ptr %_numPixels.i, align 8
-  %cmp = icmp ult i64 %inc21, %18
-  br i1 %cmp, label %for.body, label %for.end22, !llvm.loop !31
-
-for.end22:                                        ; preds = %for.inc20, %delete.end
+define weak_odr hidden void @_ZN7Imf_3_421TypedDeepImageChannelIjE16resetBasePointerEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %3 = load ptr, ptr %2, align 8, !tbaa !67
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !31
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  %8 = load i32, ptr %7, align 4, !tbaa !44
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %10 = load i32, ptr %9, align 4, !tbaa !19
+  %11 = mul nsw i32 %10, %8
+  %12 = sext i32 %11 to i64
+  %13 = sub nsw i64 0, %12
+  %14 = getelementptr inbounds ptr, ptr %3, i64 %13
+  %15 = load i32, ptr %6, align 4, !tbaa !47
+  %16 = sext i32 %15 to i64
+  %17 = sub nsw i64 0, %16
+  %18 = getelementptr inbounds ptr, ptr %14, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %18, ptr %19, align 8, !tbaa !63
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIjE6resizeEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  tail call void @_ZN7Imf_3_212ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
-  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %0 = load ptr, ptr %_sampleListPointers, align 8
-  %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
-
-delete.notnull:                                   ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #13
-  br label %delete.end
-
-delete.end:                                       ; preds = %delete.notnull, %entry
-  store ptr null, ptr %_sampleListPointers, align 8
-  %_numPixels.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %1 = load i64, ptr %_numPixels.i, align 8
-  %2 = icmp ugt i64 %1, 2305843009213693951
-  %3 = shl i64 %1, 3
-  %4 = select i1 %2, i64 -1, i64 %3
-  %call3 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #14
-  store ptr %call3, ptr %_sampleListPointers, align 8
-  %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
-  %5 = load ptr, ptr %vfn, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIjE16resetBasePointerEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  %_sampleListPointers = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %0 = load ptr, ptr %_sampleListPointers, align 8
-  %_level.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %_level.i, align 8
-  %_dataWindow.i = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %y = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %2 = load i32, ptr %y, align 4
-  %_pixelsPerRow.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %3 = load i32, ptr %_pixelsPerRow.i, align 4
-  %mul = mul nsw i32 %3, %2
-  %idx.ext = sext i32 %mul to i64
-  %idx.neg = sub nsw i64 0, %idx.ext
-  %add.ptr = getelementptr inbounds ptr, ptr %0, i64 %idx.neg
-  %4 = load i32, ptr %_dataWindow.i, align 4
-  %idx.ext7 = sext i32 %4 to i64
-  %idx.neg8 = sub nsw i64 0, %idx.ext7
-  %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %idx.neg8
-  %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr %add.ptr9, ptr %_base, align 8
-  ret void
-}
-
-declare void @_ZN7Imf_3_212ImageChannelC2ERNS_10ImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, i32 noundef, i1 noundef zeroext) unnamed_addr #0
+declare void @_ZN7Imf_3_412ImageChannelC2ERNS_10ImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, i32 noundef, i1 noundef zeroext) unnamed_addr #0
 
 ; Function Attrs: nounwind
-declare void @_ZN7Imf_3_212ImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
+declare void @_ZN7Imf_3_412ImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN7Imf_3_216DeepImageChannelD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
-entry:
-  tail call void @llvm.trap() #16
+define void @_ZN7Imf_3_416DeepImageChannelD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #9 align 2 {
+  tail call void @llvm.trap() #17
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #9
+declare void @llvm.trap() #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(192) ptr @_ZN7Imf_3_216DeepImageChannel9deepLevelEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #6 align 2 {
-entry:
-  %_level.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %_level.i, align 8
-  ret ptr %0
+define noundef nonnull align 8 dereferenceable(192) ptr @_ZN7Imf_3_416DeepImageChannel9deepLevelEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #7 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !31
+  ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(192) ptr @_ZNK7Imf_3_216DeepImageChannel9deepLevelEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #6 align 2 {
-entry:
-  %_level.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %_level.i, align 8
-  ret ptr %0
+define noundef nonnull align 8 dereferenceable(192) ptr @_ZNK7Imf_3_416DeepImageChannel9deepLevelEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #7 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !31
+  ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(104) ptr @_ZNK7Imf_3_216DeepImageChannel12sampleCountsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #6 align 2 {
-entry:
-  %_level.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %_level.i.i, align 8
-  %_sampleCounts.i = getelementptr inbounds nuw i8, ptr %0, i64 88
-  ret ptr %_sampleCounts.i
+define noundef nonnull align 8 dereferenceable(104) ptr @_ZNK7Imf_3_416DeepImageChannel12sampleCountsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #7 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !31
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  ret ptr %4
 }
 
-declare void @_ZN7Imf_3_212ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #0
+declare void @_ZN7Imf_3_412ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE9pixelTypeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #10 align 2 {
-entry:
+define noundef i32 @_ZNK7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEE9pixelTypeEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #11 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK7Imf_3_221TypedDeepImageChannelIfE9pixelTypeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #10 align 2 {
-entry:
+define noundef i32 @_ZNK7Imf_3_421TypedDeepImageChannelIfE9pixelTypeEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #11 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK7Imf_3_221TypedDeepImageChannelIjE9pixelTypeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #10 align 2 {
-entry:
+define noundef i32 @_ZNK7Imf_3_421TypedDeepImageChannelIjE9pixelTypeEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #11 align 2 {
   ret i32 0
 }
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_ImfDeepImageChannel.cpp() #11 section ".text.startup" {
-entry:
+define internal void @_GLOBAL__sub_I_ImfDeepImageChannel.cpp() #12 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #16
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
-attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { builtin nounwind }
-attributes #14 = { builtin allocsize(0) }
-attributes #15 = { nounwind }
-attributes #16 = { noreturn nounwind }
+attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { builtin nounwind }
+attributes #15 = { builtin allocsize(0) }
+attributes #16 = { nounwind }
+attributes #17 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"vtable pointer", !5, i64 0}
+!5 = !{!"Simple C++ TBAA"}
+!6 = !{!7, !16, i64 56}
+!7 = !{!"_ZTSN7Imf_3_421TypedDeepImageChannelIN9Imath_3_24halfEEE", !8, i64 0, !16, i64 48, !16, i64 56, !18, i64 64}
+!8 = !{!"_ZTSN7Imf_3_416DeepImageChannelE", !9, i64 0}
+!9 = !{!"_ZTSN7Imf_3_412ImageChannelE", !10, i64 8, !13, i64 16, !13, i64 20, !14, i64 24, !13, i64 28, !13, i64 32, !15, i64 40}
+!10 = !{!"p1 _ZTSN7Imf_3_410ImageLevelE", !11, i64 0}
+!11 = !{!"any pointer", !12, i64 0}
+!12 = !{!"omnipotent char", !5, i64 0}
+!13 = !{!"int", !12, i64 0}
+!14 = !{!"bool", !12, i64 0}
+!15 = !{!"long", !12, i64 0}
+!16 = !{!"p2 _ZTSN9Imath_3_24halfE", !17, i64 0}
+!17 = !{!"any p2 pointer", !11, i64 0}
+!18 = !{!"p1 _ZTSN9Imath_3_24halfE", !11, i64 0}
+!19 = !{!9, !13, i64 28}
+!20 = !{!9, !13, i64 16}
+!21 = !{!9, !13, i64 20}
+!22 = !{!18, !18, i64 0}
+!23 = !{!7, !16, i64 48}
+!24 = !{!9, !15, i64 40}
+!25 = !{!7, !18, i64 64}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"short", !12, i64 0}
+!28 = distinct !{!28, !29}
+!29 = !{!"llvm.loop.mustprogress"}
+!30 = distinct !{!30, !29}
+!31 = !{!9, !10, i64 8}
+!32 = !{!33, !15, i64 96}
+!33 = !{!"_ZTSN7Imf_3_418SampleCountChannelE", !9, i64 0, !34, i64 48, !34, i64 56, !34, i64 64, !35, i64 72, !15, i64 80, !15, i64 88, !15, i64 96}
+!34 = !{!"p1 int", !11, i64 0}
+!35 = !{!"p1 long", !11, i64 0}
+!36 = !{!15, !15, i64 0}
+!37 = !{!13, !13, i64 0}
+!38 = distinct !{!38, !29}
+!39 = distinct !{!39, !29}
+!40 = distinct !{!40, !29}
+!41 = !{!33, !34, i64 48}
+!42 = !{!33, !35, i64 72}
+!43 = distinct !{!43, !29}
+!44 = !{!45, !13, i64 4}
+!45 = !{!"_ZTSN9Imath_3_23BoxINS_4Vec2IiEEEE", !46, i64 0, !46, i64 8}
+!46 = !{!"_ZTSN9Imath_3_24Vec2IiEE", !13, i64 0, !13, i64 4}
+!47 = !{!45, !13, i64 0}
+!48 = !{!49, !50, i64 56}
+!49 = !{!"_ZTSN7Imf_3_421TypedDeepImageChannelIfEE", !8, i64 0, !50, i64 48, !50, i64 56, !51, i64 64}
+!50 = !{!"p2 float", !17, i64 0}
+!51 = !{!"p1 float", !11, i64 0}
+!52 = !{!51, !51, i64 0}
+!53 = !{!49, !50, i64 48}
+!54 = !{!49, !51, i64 64}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"float", !12, i64 0}
+!57 = distinct !{!57, !29}
+!58 = distinct !{!58, !29}
+!59 = distinct !{!59, !29}
+!60 = distinct !{!60, !29}
+!61 = distinct !{!61, !29}
+!62 = distinct !{!62, !29}
+!63 = !{!64, !65, i64 56}
+!64 = !{!"_ZTSN7Imf_3_421TypedDeepImageChannelIjEE", !8, i64 0, !65, i64 48, !65, i64 56, !34, i64 64}
+!65 = !{!"p2 int", !17, i64 0}
+!66 = !{!34, !34, i64 0}
+!67 = !{!64, !65, i64 48}
+!68 = !{!64, !34, i64 64}
+!69 = distinct !{!69, !29}
+!70 = distinct !{!70, !29}
+!71 = distinct !{!71, !29}
+!72 = distinct !{!72, !29}
+!73 = distinct !{!73, !29}
+!74 = distinct !{!74, !29}
+!75 = distinct !{!75, !29}
+!76 = distinct !{!76, !29}

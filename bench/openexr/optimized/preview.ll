@@ -1,72 +1,71 @@
 ; ModuleID = 'bench/openexr/original/preview.ll'
 source_filename = "bench/openexr/original/preview.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [64 x i8] c"Invalid very large size for preview image (%u x %u - %lu bytes)\00", align 1
 @.str.1 = private unnamed_addr constant [50 x i8] c"Invalid reference to preview object to initialize\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_preview_init(ptr noundef %ctxt, ptr noundef writeonly %p, i32 noundef %w, i32 noundef %h) local_unnamed_addr #0 {
-entry:
-  %conv = zext i32 %w to i64
-  %conv1 = zext i32 %h to i64
-  %mul = shl nuw nsw i64 %conv, 2
-  %mul2 = mul i64 %mul, %conv1
-  %tobool.not = icmp eq ptr %ctxt, null
-  br i1 %tobool.not, label %return, label %if.end
+define hidden i32 @exr_attr_preview_init(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %5 = zext i32 %2 to i64
+  %6 = zext i32 %3 to i64
+  %7 = shl nuw nsw i64 %5, 2
+  %8 = mul i64 %7, %6
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %34, label %9
 
-if.end:                                           ; preds = %entry
-  %cmp = icmp ugt i64 %mul2, 2147483647
-  br i1 %cmp, label %if.then4, label %if.end5
+9:                                                ; preds = %4
+  %10 = icmp ugt i64 %8, 2147483647
+  br i1 %10, label %11, label %15
 
-if.then4:                                         ; preds = %if.end
-  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
-  %0 = load ptr, ptr %print_error, align 8
-  %call = tail call i32 (ptr, i32, ptr, ...) %0(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef %w, i32 noundef %h, i64 noundef %mul2) #3
-  br label %return
+11:                                               ; preds = %9
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %13 = load ptr, ptr %12, align 8, !tbaa !3
+  %14 = tail call i32 (ptr, i32, ptr, ...) %13(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef %2, i32 noundef %3, i64 noundef %8) #3
+  br label %34
 
-if.end5:                                          ; preds = %if.end
-  %tobool6.not = icmp eq ptr %p, null
-  br i1 %tobool6.not, label %if.then7, label %if.end9
+15:                                               ; preds = %9
+  %.not29 = icmp eq ptr %1, null
+  br i1 %.not29, label %16, label %20
 
-if.then7:                                         ; preds = %if.end5
-  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
-  %1 = load ptr, ptr %report_error, align 8
-  %call8 = tail call i32 %1(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.1) #3
-  br label %return
+16:                                               ; preds = %15
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %18 = load ptr, ptr %17, align 8, !tbaa !22
+  %19 = tail call i32 %18(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str.1) #3
+  br label %34
 
-if.end9:                                          ; preds = %if.end5
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %p, i8 0, i64 24, i1 false)
-  %cmp10.not = icmp eq i64 %mul2, 0
-  br i1 %cmp10.not, label %return, label %if.then12
+20:                                               ; preds = %15
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
+  %.not30 = icmp eq i64 %8, 0
+  br i1 %.not30, label %34, label %21
 
-if.then12:                                        ; preds = %if.end9
-  %alloc_fn = getelementptr inbounds nuw i8, ptr %ctxt, i64 88
-  %2 = load ptr, ptr %alloc_fn, align 8
-  %call13 = tail call ptr %2(i64 noundef %mul2) #3
-  %rgba = getelementptr inbounds nuw i8, ptr %p, i64 16
-  store ptr %call13, ptr %rgba, align 8
-  %cmp15 = icmp eq ptr %call13, null
-  br i1 %cmp15, label %if.then17, label %if.end19
+21:                                               ; preds = %20
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %23 = load ptr, ptr %22, align 8, !tbaa !23
+  %24 = tail call ptr %23(i64 noundef %8) #3
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %24, ptr %25, align 8, !tbaa !24
+  %26 = icmp eq ptr %24, null
+  br i1 %26, label %27, label %31
 
-if.then17:                                        ; preds = %if.then12
-  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
-  %3 = load ptr, ptr %standard_error, align 8
-  %call18 = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 1) #3
-  br label %return
+27:                                               ; preds = %21
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %29 = load ptr, ptr %28, align 8, !tbaa !26
+  %30 = tail call i32 %29(ptr noundef nonnull %0, i32 noundef 1) #3
+  br label %34
 
-if.end19:                                         ; preds = %if.then12
-  %alloc_size = getelementptr inbounds nuw i8, ptr %p, i64 8
-  store i64 %mul2, ptr %alloc_size, align 8
-  store i32 %w, ptr %p, align 8
-  %height = getelementptr inbounds nuw i8, ptr %p, i64 4
-  store i32 %h, ptr %height, align 4
-  br label %return
+31:                                               ; preds = %21
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %8, ptr %32, align 8, !tbaa !27
+  store i32 %2, ptr %1, align 8, !tbaa !28
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %3, ptr %33, align 4, !tbaa !29
+  br label %34
 
-return:                                           ; preds = %if.end9, %if.end19, %entry, %if.then17, %if.then7, %if.then4
-  %retval.0 = phi i32 [ %call, %if.then4 ], [ %call18, %if.then17 ], [ %call8, %if.then7 ], [ 2, %entry ], [ 0, %if.end19 ], [ 0, %if.end9 ]
-  ret i32 %retval.0
+34:                                               ; preds = %20, %31, %4, %27, %16, %11
+  %.0 = phi i32 [ %14, %11 ], [ %30, %27 ], [ %19, %16 ], [ 2, %4 ], [ 0, %31 ], [ 0, %20 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -76,131 +75,156 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_preview_create(ptr noundef %ctxt, ptr noundef %p, i32 noundef %w, i32 noundef %h, ptr noundef readonly captures(none) %d) local_unnamed_addr #0 {
-entry:
-  %conv.i = zext i32 %w to i64
-  %conv1.i = zext i32 %h to i64
-  %mul.i = shl nuw nsw i64 %conv.i, 2
-  %mul2.i = mul i64 %mul.i, %conv1.i
-  %tobool.not.i = icmp eq ptr %ctxt, null
-  br i1 %tobool.not.i, label %if.end5, label %if.end.i
+define hidden i32 @exr_attr_preview_create(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
+  %6 = zext i32 %2 to i64
+  %7 = zext i32 %3 to i64
+  %8 = shl nuw nsw i64 %6, 2
+  %9 = mul i64 %8, %7
+  %.not.i = icmp eq ptr %0, null
+  br i1 %.not.i, label %exr_attr_preview_init.exit.thread14, label %10
 
-if.end.i:                                         ; preds = %entry
-  %cmp.i = icmp ugt i64 %mul2.i, 2147483647
-  br i1 %cmp.i, label %if.then4.i, label %if.end5.i
+10:                                               ; preds = %5
+  %11 = icmp ugt i64 %9, 2147483647
+  br i1 %11, label %12, label %16
 
-if.then4.i:                                       ; preds = %if.end.i
-  %print_error.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
-  %0 = load ptr, ptr %print_error.i, align 8
-  %call.i = tail call i32 (ptr, i32, ptr, ...) %0(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef %w, i32 noundef %h, i64 noundef %mul2.i) #3
+12:                                               ; preds = %10
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %14 = load ptr, ptr %13, align 8, !tbaa !3
+  %15 = tail call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef %2, i32 noundef %3, i64 noundef %9) #3
   br label %exr_attr_preview_init.exit
 
-if.end5.i:                                        ; preds = %if.end.i
-  %tobool6.not.i = icmp eq ptr %p, null
-  br i1 %tobool6.not.i, label %if.then7.i, label %if.end9.i
+16:                                               ; preds = %10
+  %.not29.i = icmp eq ptr %1, null
+  br i1 %.not29.i, label %17, label %21
 
-if.then7.i:                                       ; preds = %if.end5.i
-  %report_error.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
-  %1 = load ptr, ptr %report_error.i, align 8
-  %call8.i = tail call i32 %1(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.1) #3
+17:                                               ; preds = %16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %19 = load ptr, ptr %18, align 8, !tbaa !22
+  %20 = tail call i32 %19(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str.1) #3
   br label %exr_attr_preview_init.exit
 
-if.end9.i:                                        ; preds = %if.end5.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %p, i8 0, i64 24, i1 false)
-  %cmp10.not.i = icmp eq i64 %mul2.i, 0
-  br i1 %cmp10.not.i, label %if.then, label %if.then12.i
+21:                                               ; preds = %16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
+  %.not30.i = icmp eq i64 %9, 0
+  br i1 %.not30.i, label %exr_attr_preview_init.exit.thread, label %22
 
-if.then12.i:                                      ; preds = %if.end9.i
-  %alloc_fn.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 88
-  %2 = load ptr, ptr %alloc_fn.i, align 8
-  %call13.i = tail call ptr %2(i64 noundef %mul2.i) #3
-  %rgba.i = getelementptr inbounds nuw i8, ptr %p, i64 16
-  store ptr %call13.i, ptr %rgba.i, align 8
-  %cmp15.i = icmp eq ptr %call13.i, null
-  br i1 %cmp15.i, label %if.then17.i, label %if.end19.i
+22:                                               ; preds = %21
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %24 = load ptr, ptr %23, align 8, !tbaa !23
+  %25 = tail call ptr %24(i64 noundef %9) #3
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %25, ptr %26, align 8, !tbaa !24
+  %27 = icmp eq ptr %25, null
+  br i1 %27, label %28, label %32
 
-if.then17.i:                                      ; preds = %if.then12.i
-  %standard_error.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
-  %3 = load ptr, ptr %standard_error.i, align 8
-  %call18.i = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 1) #3
+28:                                               ; preds = %22
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %30 = load ptr, ptr %29, align 8, !tbaa !26
+  %31 = tail call i32 %30(ptr noundef nonnull %0, i32 noundef 1) #3
   br label %exr_attr_preview_init.exit
 
-if.end19.i:                                       ; preds = %if.then12.i
-  %alloc_size.i = getelementptr inbounds nuw i8, ptr %p, i64 8
-  store i64 %mul2.i, ptr %alloc_size.i, align 8
-  store i32 %w, ptr %p, align 8
-  %height.i = getelementptr inbounds nuw i8, ptr %p, i64 4
-  store i32 %h, ptr %height.i, align 4
-  br label %if.then
+32:                                               ; preds = %22
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %9, ptr %33, align 8, !tbaa !27
+  store i32 %2, ptr %1, align 8, !tbaa !28
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %3, ptr %34, align 4, !tbaa !29
+  br label %exr_attr_preview_init.exit.thread
 
-exr_attr_preview_init.exit:                       ; preds = %if.then4.i, %if.then7.i, %if.then17.i
-  %retval.0.i = phi i32 [ %call.i, %if.then4.i ], [ %call18.i, %if.then17.i ], [ %call8.i, %if.then7.i ]
-  %cmp = icmp eq i32 %retval.0.i, 0
-  br i1 %cmp, label %if.then, label %if.end5
+exr_attr_preview_init.exit:                       ; preds = %12, %17, %28
+  %.0.i = phi i32 [ %15, %12 ], [ %31, %28 ], [ %20, %17 ]
+  %35 = icmp eq i32 %.0.i, 0
+  br i1 %35, label %exr_attr_preview_init.exit.thread, label %exr_attr_preview_init.exit.thread14
 
-if.then:                                          ; preds = %if.end9.i, %if.end19.i, %exr_attr_preview_init.exit
-  %mul = shl i32 %w, 2
-  %mul1 = mul i32 %mul, %h
-  %cmp2.not = icmp eq i32 %mul1, 0
-  br i1 %cmp2.not, label %if.end5, label %if.then4
+exr_attr_preview_init.exit.thread:                ; preds = %21, %32, %exr_attr_preview_init.exit
+  %36 = shl i32 %2, 2
+  %37 = mul i32 %36, %3
+  %.not = icmp eq i32 %37, 0
+  br i1 %.not, label %exr_attr_preview_init.exit.thread14, label %38
 
-if.then4:                                         ; preds = %if.then
-  %conv = zext i32 %mul1 to i64
-  %rgba = getelementptr inbounds nuw i8, ptr %p, i64 16
-  %4 = load ptr, ptr %rgba, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr align 1 %d, i64 %conv, i1 false)
-  br label %if.end5
+38:                                               ; preds = %exr_attr_preview_init.exit.thread
+  %39 = zext i32 %37 to i64
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %41 = load ptr, ptr %40, align 8, !tbaa !24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %41, ptr align 1 %4, i64 %39, i1 false)
+  br label %exr_attr_preview_init.exit.thread14
 
-if.end5:                                          ; preds = %entry, %if.then, %if.then4, %exr_attr_preview_init.exit
-  %retval.0.i8 = phi i32 [ 0, %if.then ], [ 0, %if.then4 ], [ %retval.0.i, %exr_attr_preview_init.exit ], [ 2, %entry ]
-  ret i32 %retval.0.i8
+exr_attr_preview_init.exit.thread14:              ; preds = %5, %exr_attr_preview_init.exit.thread, %38, %exr_attr_preview_init.exit
+  %.0.i12 = phi i32 [ 0, %exr_attr_preview_init.exit.thread ], [ 0, %38 ], [ %.0.i, %exr_attr_preview_init.exit ], [ 2, %5 ]
+  ret i32 %.0.i12
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @exr_attr_preview_destroy(ptr noundef readonly %ctxt, ptr noundef %p) local_unnamed_addr #0 {
-entry:
-  %tobool.not = icmp eq ptr %ctxt, null
-  br i1 %tobool.not, label %return, label %if.end
+define hidden range(i32 0, 3) i32 @exr_attr_preview_destroy(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %14, label %3
 
-if.end:                                           ; preds = %entry
-  %tobool1.not = icmp eq ptr %p, null
-  br i1 %tobool1.not, label %return, label %if.then2
+3:                                                ; preds = %2
+  %.not10 = icmp eq ptr %1, null
+  br i1 %.not10, label %14, label %4
 
-if.then2:                                         ; preds = %if.end
-  %rgba = getelementptr inbounds nuw i8, ptr %p, i64 16
-  %0 = load ptr, ptr %rgba, align 8
-  %tobool3.not = icmp eq ptr %0, null
-  br i1 %tobool3.not, label %if.end6, label %land.lhs.true
+4:                                                ; preds = %3
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %6 = load ptr, ptr %5, align 8, !tbaa !24
+  %.not11 = icmp eq ptr %6, null
+  br i1 %.not11, label %13, label %7
 
-land.lhs.true:                                    ; preds = %if.then2
-  %alloc_size = getelementptr inbounds nuw i8, ptr %p, i64 8
-  %1 = load i64, ptr %alloc_size, align 8
-  %cmp.not = icmp eq i64 %1, 0
-  br i1 %cmp.not, label %if.end6, label %if.then4
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = load i64, ptr %8, align 8, !tbaa !27
+  %.not12 = icmp eq i64 %9, 0
+  br i1 %.not12, label %13, label %10
 
-if.then4:                                         ; preds = %land.lhs.true
-  %free_fn = getelementptr inbounds nuw i8, ptr %ctxt, i64 96
-  %2 = load ptr, ptr %free_fn, align 8
-  tail call void %2(ptr noundef nonnull %0) #3
-  br label %if.end6
+10:                                               ; preds = %7
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %12 = load ptr, ptr %11, align 8, !tbaa !30
+  tail call void %12(ptr noundef nonnull %6) #3
+  br label %13
 
-if.end6:                                          ; preds = %if.then4, %land.lhs.true, %if.then2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %p, i8 0, i64 24, i1 false)
-  br label %return
+13:                                               ; preds = %10, %7, %4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
+  br label %14
 
-return:                                           ; preds = %if.end, %if.end6, %entry
-  %retval.0 = phi i32 [ 2, %entry ], [ 0, %if.end6 ], [ 0, %if.end ]
-  ret i32 %retval.0
+14:                                               ; preds = %3, %13, %2
+  %.0 = phi i32 [ 2, %2 ], [ 0, %13 ], [ 0, %3 ]
+  ret i32 %.0
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !10, i64 72}
+!4 = !{!"_priv_exr_context_t", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3, !5, i64 4, !5, i64 5, !5, i64 6, !5, i64 7, !7, i64 8, !7, i64 24, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !8, i64 104, !8, i64 108, !8, i64 112, !8, i64 116, !8, i64 120, !11, i64 124, !10, i64 128, !10, i64 136, !10, i64 144, !12, i64 152, !10, i64 160, !10, i64 168, !12, i64 176, !8, i64 184, !8, i64 188, !8, i64 192, !8, i64 196, !13, i64 200, !20, i64 464, !21, i64 472, !14, i64 480, !5, i64 504, !5, i64 544, !5, i64 545, !5, i64 546, !8, i64 548}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!"", !8, i64 0, !8, i64 4, !9, i64 8}
+!8 = !{!"int", !5, i64 0}
+!9 = !{!"p1 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !5, i64 0}
+!11 = !{!"float", !5, i64 0}
+!12 = !{!"long", !5, i64 0}
+!13 = !{!"_priv_exr_part_t", !8, i64 0, !8, i64 4, !14, i64 8, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136, !16, i64 144, !16, i64 160, !8, i64 176, !8, i64 180, !8, i64 184, !11, i64 188, !8, i64 192, !8, i64 196, !18, i64 200, !18, i64 208, !18, i64 216, !18, i64 224, !12, i64 232, !19, i64 240, !19, i64 242, !8, i64 244, !12, i64 248, !5, i64 256}
+!14 = !{!"exr_attribute_list", !8, i64 0, !8, i64 4, !15, i64 8, !15, i64 16}
+!15 = !{!"any p2 pointer", !10, i64 0}
+!16 = !{!"", !17, i64 0, !17, i64 8}
+!17 = !{!"", !8, i64 0, !8, i64 4}
+!18 = !{!"p1 int", !10, i64 0}
+!19 = !{!"short", !5, i64 0}
+!20 = !{!"p1 _ZTS16_priv_exr_part_t", !10, i64 0}
+!21 = !{!"p2 _ZTS16_priv_exr_part_t", !15, i64 0}
+!22 = !{!4, !10, i64 64}
+!23 = !{!4, !10, i64 88}
+!24 = !{!25, !9, i64 16}
+!25 = !{!"", !8, i64 0, !8, i64 4, !12, i64 8, !9, i64 16}
+!26 = !{!4, !10, i64 56}
+!27 = !{!25, !12, i64 8}
+!28 = !{!25, !8, i64 0}
+!29 = !{!25, !8, i64 4}
+!30 = !{!4, !10, i64 96}

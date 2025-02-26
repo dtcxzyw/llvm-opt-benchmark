@@ -1,19 +1,54 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
 %struct._Guard = type { ptr }
+%struct._Guard.0 = type { ptr }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
+
+$_ZNSt15__new_allocatorIcEC2Ev = comdat any
+
+$__clang_call_terminate = comdat any
+
+$_ZNSt15__new_allocatorIcED2Ev = comdat any
+
+$_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_ = comdat any
+
+$_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm = comdat any
+
+$_ZNSt15__new_allocatorIcE10deallocateEPcm = comdat any
+
+$_ZN9__gnu_cxx14__alloc_traitsISaIcEcE17_S_select_on_copyERKS1_ = comdat any
+
+$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag = comdat any
+
+$_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc = comdat any
+
+$_ZNSt16allocator_traitsISaIcEE37select_on_container_copy_constructionERKS0_ = comdat any
+
+$_ZNSt15__new_allocatorIcEC2ERKS0_ = comdat any
+
+$_ZSt8distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_ = comdat any
+
+$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardC2EPS4_ = comdat any
+
+$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev = comdat any
+
+$_ZSt10__distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_St26random_access_iterator_tag = comdat any
+
+$_ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_ = comdat any
+
+$_ZNSt11char_traitsIcE6assignERcRKc = comdat any
+
+$_ZNSt11char_traitsIcE4copyEPcPKcm = comdat any
 
 $_ZNSt11char_traitsIcE6lengthEPKc = comdat any
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
-
-$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev = comdat any
 
 $_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_ = comdat any
 
@@ -25,3587 +60,3565 @@ $_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random
 
 $_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_ = comdat any
 
-$__clang_call_terminate = comdat any
-
 @.str = private unnamed_addr constant [3 x i8] c"%T\00", align 1
-@_ZTIN7Iex_3_28EpermExcE = external constant ptr
-@_ZTIN7Iex_3_29EnoentExcE = external constant ptr
-@_ZTIN7Iex_3_28EsrchExcE = external constant ptr
-@_ZTIN7Iex_3_28EintrExcE = external constant ptr
-@_ZTIN7Iex_3_26EioExcE = external constant ptr
-@_ZTIN7Iex_3_28EnxioExcE = external constant ptr
-@_ZTIN7Iex_3_28E2bigExcE = external constant ptr
-@_ZTIN7Iex_3_210EnoexecExcE = external constant ptr
-@_ZTIN7Iex_3_28EbadfExcE = external constant ptr
-@_ZTIN7Iex_3_29EchildExcE = external constant ptr
-@_ZTIN7Iex_3_29EagainExcE = external constant ptr
-@_ZTIN7Iex_3_29EnomemExcE = external constant ptr
-@_ZTIN7Iex_3_29EaccesExcE = external constant ptr
-@_ZTIN7Iex_3_29EfaultExcE = external constant ptr
-@_ZTIN7Iex_3_210EnotblkExcE = external constant ptr
-@_ZTIN7Iex_3_28EbusyExcE = external constant ptr
-@_ZTIN7Iex_3_29EexistExcE = external constant ptr
-@_ZTIN7Iex_3_28ExdevExcE = external constant ptr
-@_ZTIN7Iex_3_29EnodevExcE = external constant ptr
-@_ZTIN7Iex_3_210EnotdirExcE = external constant ptr
-@_ZTIN7Iex_3_29EisdirExcE = external constant ptr
-@_ZTIN7Iex_3_29EinvalExcE = external constant ptr
-@_ZTIN7Iex_3_29EnfileExcE = external constant ptr
-@_ZTIN7Iex_3_29EmfileExcE = external constant ptr
-@_ZTIN7Iex_3_29EnottyExcE = external constant ptr
-@_ZTIN7Iex_3_210EtxtbsyExcE = external constant ptr
-@_ZTIN7Iex_3_28EfbigExcE = external constant ptr
-@_ZTIN7Iex_3_29EnospcExcE = external constant ptr
-@_ZTIN7Iex_3_29EspipeExcE = external constant ptr
-@_ZTIN7Iex_3_28ErofsExcE = external constant ptr
-@_ZTIN7Iex_3_29EmlinkExcE = external constant ptr
-@_ZTIN7Iex_3_28EpipeExcE = external constant ptr
-@_ZTIN7Iex_3_27EdomExcE = external constant ptr
-@_ZTIN7Iex_3_29ErangeExcE = external constant ptr
-@_ZTIN7Iex_3_29EnomsgExcE = external constant ptr
-@_ZTIN7Iex_3_28EidrmExcE = external constant ptr
-@_ZTIN7Iex_3_29EchrngExcE = external constant ptr
-@_ZTIN7Iex_3_211El2nsyncExcE = external constant ptr
-@_ZTIN7Iex_3_29El3hltExcE = external constant ptr
-@_ZTIN7Iex_3_29El3rstExcE = external constant ptr
-@_ZTIN7Iex_3_29ElnrngExcE = external constant ptr
-@_ZTIN7Iex_3_210EunatchExcE = external constant ptr
-@_ZTIN7Iex_3_29EnocsiExcE = external constant ptr
-@_ZTIN7Iex_3_29El2hltExcE = external constant ptr
-@_ZTIN7Iex_3_210EdeadlkExcE = external constant ptr
-@_ZTIN7Iex_3_29EnolckExcE = external constant ptr
-@_ZTIN7Iex_3_28EbadeExcE = external constant ptr
-@_ZTIN7Iex_3_28EbadrExcE = external constant ptr
-@_ZTIN7Iex_3_29ExfullExcE = external constant ptr
-@_ZTIN7Iex_3_29EnoanoExcE = external constant ptr
-@_ZTIN7Iex_3_210EbadrqcExcE = external constant ptr
-@_ZTIN7Iex_3_210EbadsltExcE = external constant ptr
-@_ZTIN7Iex_3_29EbfontExcE = external constant ptr
-@_ZTIN7Iex_3_29EnostrExcE = external constant ptr
-@_ZTIN7Iex_3_210EnodataExcE = external constant ptr
-@_ZTIN7Iex_3_28EtimeExcE = external constant ptr
-@_ZTIN7Iex_3_28EnosrExcE = external constant ptr
-@_ZTIN7Iex_3_29EnonetExcE = external constant ptr
-@_ZTIN7Iex_3_29EnopkgExcE = external constant ptr
-@_ZTIN7Iex_3_210EremoteExcE = external constant ptr
-@_ZTIN7Iex_3_210EnolinkExcE = external constant ptr
-@_ZTIN7Iex_3_27EadvExcE = external constant ptr
-@_ZTIN7Iex_3_29EsrmntExcE = external constant ptr
-@_ZTIN7Iex_3_28EcommExcE = external constant ptr
-@_ZTIN7Iex_3_29EprotoExcE = external constant ptr
-@_ZTIN7Iex_3_212EmultihopExcE = external constant ptr
-@_ZTIN7Iex_3_210EbadmsgExcE = external constant ptr
-@_ZTIN7Iex_3_215EnametoolongExcE = external constant ptr
-@_ZTIN7Iex_3_212EoverflowExcE = external constant ptr
-@_ZTIN7Iex_3_211EnotuniqExcE = external constant ptr
-@_ZTIN7Iex_3_29EbadfdExcE = external constant ptr
-@_ZTIN7Iex_3_210EremchgExcE = external constant ptr
-@_ZTIN7Iex_3_210ElibaccExcE = external constant ptr
-@_ZTIN7Iex_3_210ElibbadExcE = external constant ptr
-@_ZTIN7Iex_3_210ElibscnExcE = external constant ptr
-@_ZTIN7Iex_3_210ElibmaxExcE = external constant ptr
-@_ZTIN7Iex_3_211ElibexecExcE = external constant ptr
-@_ZTIN7Iex_3_29EilseqExcE = external constant ptr
-@_ZTIN7Iex_3_29EnosysExcE = external constant ptr
-@_ZTIN7Iex_3_28EloopExcE = external constant ptr
-@_ZTIN7Iex_3_211ErestartExcE = external constant ptr
-@_ZTIN7Iex_3_211EstrpipeExcE = external constant ptr
-@_ZTIN7Iex_3_212EnotemptyExcE = external constant ptr
-@_ZTIN7Iex_3_29EusersExcE = external constant ptr
-@_ZTIN7Iex_3_211EnotsockExcE = external constant ptr
-@_ZTIN7Iex_3_215EdestaddrreqExcE = external constant ptr
-@_ZTIN7Iex_3_211EmsgsizeExcE = external constant ptr
-@_ZTIN7Iex_3_213EprototypeExcE = external constant ptr
-@_ZTIN7Iex_3_214EnoprotooptExcE = external constant ptr
-@_ZTIN7Iex_3_218EprotonosupportExcE = external constant ptr
-@_ZTIN7Iex_3_218EsocktnosupportExcE = external constant ptr
-@_ZTIN7Iex_3_213EopnotsuppExcE = external constant ptr
-@_ZTIN7Iex_3_215EpfnosupportExcE = external constant ptr
-@_ZTIN7Iex_3_215EafnosupportExcE = external constant ptr
-@_ZTIN7Iex_3_213EaddrinuseExcE = external constant ptr
-@_ZTIN7Iex_3_216EaddrnotavailExcE = external constant ptr
-@_ZTIN7Iex_3_211EnetdownExcE = external constant ptr
-@_ZTIN7Iex_3_214EnetunreachExcE = external constant ptr
-@_ZTIN7Iex_3_212EnetresetExcE = external constant ptr
-@_ZTIN7Iex_3_215EconnabortedExcE = external constant ptr
-@_ZTIN7Iex_3_213EconnresetExcE = external constant ptr
-@_ZTIN7Iex_3_210EnobufsExcE = external constant ptr
-@_ZTIN7Iex_3_210EisconnExcE = external constant ptr
-@_ZTIN7Iex_3_211EnotconnExcE = external constant ptr
-@_ZTIN7Iex_3_212EshutdownExcE = external constant ptr
-@_ZTIN7Iex_3_215EtoomanyrefsExcE = external constant ptr
-@_ZTIN7Iex_3_212EtimedoutExcE = external constant ptr
-@_ZTIN7Iex_3_215EconnrefusedExcE = external constant ptr
-@_ZTIN7Iex_3_212EhostdownExcE = external constant ptr
-@_ZTIN7Iex_3_215EhostunreachExcE = external constant ptr
-@_ZTIN7Iex_3_211EalreadyExcE = external constant ptr
-@_ZTIN7Iex_3_214EinprogressExcE = external constant ptr
-@_ZTIN7Iex_3_29EstaleExcE = external constant ptr
-@_ZTIN7Iex_3_210EucleanExcE = external constant ptr
-@_ZTIN7Iex_3_210EnotnamExcE = external constant ptr
-@_ZTIN7Iex_3_210EnavailExcE = external constant ptr
-@_ZTIN7Iex_3_29EisnamExcE = external constant ptr
-@_ZTIN7Iex_3_212EremoteioExcE = external constant ptr
-@_ZTIN7Iex_3_212EcanceledExcE = external constant ptr
-@_ZTIN7Iex_3_29EdquotExcE = external constant ptr
-@_ZTIN7Iex_3_28ErrnoExcE = external constant ptr
+@_ZTIN7Iex_3_48EpermExcE = external constant ptr
+@_ZTIN7Iex_3_49EnoentExcE = external constant ptr
+@_ZTIN7Iex_3_48EsrchExcE = external constant ptr
+@_ZTIN7Iex_3_48EintrExcE = external constant ptr
+@_ZTIN7Iex_3_46EioExcE = external constant ptr
+@_ZTIN7Iex_3_48EnxioExcE = external constant ptr
+@_ZTIN7Iex_3_48E2bigExcE = external constant ptr
+@_ZTIN7Iex_3_410EnoexecExcE = external constant ptr
+@_ZTIN7Iex_3_48EbadfExcE = external constant ptr
+@_ZTIN7Iex_3_49EchildExcE = external constant ptr
+@_ZTIN7Iex_3_49EagainExcE = external constant ptr
+@_ZTIN7Iex_3_49EnomemExcE = external constant ptr
+@_ZTIN7Iex_3_49EaccesExcE = external constant ptr
+@_ZTIN7Iex_3_49EfaultExcE = external constant ptr
+@_ZTIN7Iex_3_410EnotblkExcE = external constant ptr
+@_ZTIN7Iex_3_48EbusyExcE = external constant ptr
+@_ZTIN7Iex_3_49EexistExcE = external constant ptr
+@_ZTIN7Iex_3_48ExdevExcE = external constant ptr
+@_ZTIN7Iex_3_49EnodevExcE = external constant ptr
+@_ZTIN7Iex_3_410EnotdirExcE = external constant ptr
+@_ZTIN7Iex_3_49EisdirExcE = external constant ptr
+@_ZTIN7Iex_3_49EinvalExcE = external constant ptr
+@_ZTIN7Iex_3_49EnfileExcE = external constant ptr
+@_ZTIN7Iex_3_49EmfileExcE = external constant ptr
+@_ZTIN7Iex_3_49EnottyExcE = external constant ptr
+@_ZTIN7Iex_3_410EtxtbsyExcE = external constant ptr
+@_ZTIN7Iex_3_48EfbigExcE = external constant ptr
+@_ZTIN7Iex_3_49EnospcExcE = external constant ptr
+@_ZTIN7Iex_3_49EspipeExcE = external constant ptr
+@_ZTIN7Iex_3_48ErofsExcE = external constant ptr
+@_ZTIN7Iex_3_49EmlinkExcE = external constant ptr
+@_ZTIN7Iex_3_48EpipeExcE = external constant ptr
+@_ZTIN7Iex_3_47EdomExcE = external constant ptr
+@_ZTIN7Iex_3_49ErangeExcE = external constant ptr
+@_ZTIN7Iex_3_49EnomsgExcE = external constant ptr
+@_ZTIN7Iex_3_48EidrmExcE = external constant ptr
+@_ZTIN7Iex_3_49EchrngExcE = external constant ptr
+@_ZTIN7Iex_3_411El2nsyncExcE = external constant ptr
+@_ZTIN7Iex_3_49El3hltExcE = external constant ptr
+@_ZTIN7Iex_3_49El3rstExcE = external constant ptr
+@_ZTIN7Iex_3_49ElnrngExcE = external constant ptr
+@_ZTIN7Iex_3_410EunatchExcE = external constant ptr
+@_ZTIN7Iex_3_49EnocsiExcE = external constant ptr
+@_ZTIN7Iex_3_49El2hltExcE = external constant ptr
+@_ZTIN7Iex_3_410EdeadlkExcE = external constant ptr
+@_ZTIN7Iex_3_49EnolckExcE = external constant ptr
+@_ZTIN7Iex_3_48EbadeExcE = external constant ptr
+@_ZTIN7Iex_3_48EbadrExcE = external constant ptr
+@_ZTIN7Iex_3_49ExfullExcE = external constant ptr
+@_ZTIN7Iex_3_49EnoanoExcE = external constant ptr
+@_ZTIN7Iex_3_410EbadrqcExcE = external constant ptr
+@_ZTIN7Iex_3_410EbadsltExcE = external constant ptr
+@_ZTIN7Iex_3_49EbfontExcE = external constant ptr
+@_ZTIN7Iex_3_49EnostrExcE = external constant ptr
+@_ZTIN7Iex_3_410EnodataExcE = external constant ptr
+@_ZTIN7Iex_3_48EtimeExcE = external constant ptr
+@_ZTIN7Iex_3_48EnosrExcE = external constant ptr
+@_ZTIN7Iex_3_49EnonetExcE = external constant ptr
+@_ZTIN7Iex_3_49EnopkgExcE = external constant ptr
+@_ZTIN7Iex_3_410EremoteExcE = external constant ptr
+@_ZTIN7Iex_3_410EnolinkExcE = external constant ptr
+@_ZTIN7Iex_3_47EadvExcE = external constant ptr
+@_ZTIN7Iex_3_49EsrmntExcE = external constant ptr
+@_ZTIN7Iex_3_48EcommExcE = external constant ptr
+@_ZTIN7Iex_3_49EprotoExcE = external constant ptr
+@_ZTIN7Iex_3_412EmultihopExcE = external constant ptr
+@_ZTIN7Iex_3_410EbadmsgExcE = external constant ptr
+@_ZTIN7Iex_3_415EnametoolongExcE = external constant ptr
+@_ZTIN7Iex_3_412EoverflowExcE = external constant ptr
+@_ZTIN7Iex_3_411EnotuniqExcE = external constant ptr
+@_ZTIN7Iex_3_49EbadfdExcE = external constant ptr
+@_ZTIN7Iex_3_410EremchgExcE = external constant ptr
+@_ZTIN7Iex_3_410ElibaccExcE = external constant ptr
+@_ZTIN7Iex_3_410ElibbadExcE = external constant ptr
+@_ZTIN7Iex_3_410ElibscnExcE = external constant ptr
+@_ZTIN7Iex_3_410ElibmaxExcE = external constant ptr
+@_ZTIN7Iex_3_411ElibexecExcE = external constant ptr
+@_ZTIN7Iex_3_49EilseqExcE = external constant ptr
+@_ZTIN7Iex_3_49EnosysExcE = external constant ptr
+@_ZTIN7Iex_3_48EloopExcE = external constant ptr
+@_ZTIN7Iex_3_411ErestartExcE = external constant ptr
+@_ZTIN7Iex_3_411EstrpipeExcE = external constant ptr
+@_ZTIN7Iex_3_412EnotemptyExcE = external constant ptr
+@_ZTIN7Iex_3_49EusersExcE = external constant ptr
+@_ZTIN7Iex_3_411EnotsockExcE = external constant ptr
+@_ZTIN7Iex_3_415EdestaddrreqExcE = external constant ptr
+@_ZTIN7Iex_3_411EmsgsizeExcE = external constant ptr
+@_ZTIN7Iex_3_413EprototypeExcE = external constant ptr
+@_ZTIN7Iex_3_414EnoprotooptExcE = external constant ptr
+@_ZTIN7Iex_3_418EprotonosupportExcE = external constant ptr
+@_ZTIN7Iex_3_418EsocktnosupportExcE = external constant ptr
+@_ZTIN7Iex_3_413EopnotsuppExcE = external constant ptr
+@_ZTIN7Iex_3_415EpfnosupportExcE = external constant ptr
+@_ZTIN7Iex_3_415EafnosupportExcE = external constant ptr
+@_ZTIN7Iex_3_413EaddrinuseExcE = external constant ptr
+@_ZTIN7Iex_3_416EaddrnotavailExcE = external constant ptr
+@_ZTIN7Iex_3_411EnetdownExcE = external constant ptr
+@_ZTIN7Iex_3_414EnetunreachExcE = external constant ptr
+@_ZTIN7Iex_3_412EnetresetExcE = external constant ptr
+@_ZTIN7Iex_3_415EconnabortedExcE = external constant ptr
+@_ZTIN7Iex_3_413EconnresetExcE = external constant ptr
+@_ZTIN7Iex_3_410EnobufsExcE = external constant ptr
+@_ZTIN7Iex_3_410EisconnExcE = external constant ptr
+@_ZTIN7Iex_3_411EnotconnExcE = external constant ptr
+@_ZTIN7Iex_3_412EshutdownExcE = external constant ptr
+@_ZTIN7Iex_3_415EtoomanyrefsExcE = external constant ptr
+@_ZTIN7Iex_3_412EtimedoutExcE = external constant ptr
+@_ZTIN7Iex_3_415EconnrefusedExcE = external constant ptr
+@_ZTIN7Iex_3_412EhostdownExcE = external constant ptr
+@_ZTIN7Iex_3_415EhostunreachExcE = external constant ptr
+@_ZTIN7Iex_3_411EalreadyExcE = external constant ptr
+@_ZTIN7Iex_3_414EinprogressExcE = external constant ptr
+@_ZTIN7Iex_3_49EstaleExcE = external constant ptr
+@_ZTIN7Iex_3_410EucleanExcE = external constant ptr
+@_ZTIN7Iex_3_410EnotnamExcE = external constant ptr
+@_ZTIN7Iex_3_410EnavailExcE = external constant ptr
+@_ZTIN7Iex_3_49EisnamExcE = external constant ptr
+@_ZTIN7Iex_3_412EremoteioExcE = external constant ptr
+@_ZTIN7Iex_3_412EcanceledExcE = external constant ptr
+@_ZTIN7Iex_3_49EdquotExcE = external constant ptr
+@_ZTIN7Iex_3_48ErrnoExcE = external constant ptr
 @.str.1 = private unnamed_addr constant [4 x i8] c"%T.\00", align 1
-@.str.2 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
+@.str.2 = private unnamed_addr constant [22 x i8] c"basic_string::replace\00", align 1
+@.str.3 = private unnamed_addr constant [55 x i8] c"%s: __pos (which is %zu) > this->size() (which is %zu)\00", align 1
+@.str.4 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_213throwErrnoExcERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(32) %text, i32 noundef %errnum) #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %text.addr = alloca ptr, align 8
-  %errnum.addr = alloca i32, align 4
-  %entext = alloca ptr, align 8
-  %tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %pos = alloca i64, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %text, ptr %text.addr, align 8
-  store i32 %errnum, ptr %errnum.addr, align 4
-  %0 = load i32, ptr %errnum.addr, align 4
-  %call = call ptr @strerror(i32 noundef %0) #8
-  store ptr %call, ptr %entext, align 8
-  %1 = load ptr, ptr %text.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %tmp, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  br label %while.cond
+define void @_ZN7Iex_3_413throwErrnoExcERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1) #0 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca %"class.std::__cxx11::basic_string", align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #14
+  %10 = load i32, ptr %4, align 4, !tbaa !8
+  %11 = call ptr @strerror(i32 noundef %10) #14
+  store ptr %11, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 32, ptr %6) #14
+  %12 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #14
+  br label %13
 
-while.cond:                                       ; preds = %invoke.cont, %entry
-  %call1 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %tmp, ptr noundef @.str, i64 noundef 0) #8
-  store i64 %call1, ptr %pos, align 8
-  %cmp = icmp ne i64 -1, %call1
-  br i1 %cmp, label %while.body, label %while.end
+13:                                               ; preds = %22, %2
+  %14 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef @.str, i64 noundef 0) #14
+  store i64 %14, ptr %7, align 8, !tbaa !12
+  %15 = icmp ne i64 -1, %14
+  br i1 %15, label %16, label %27
 
-while.body:                                       ; preds = %while.cond
-  %2 = load i64, ptr %pos, align 8
-  %3 = load ptr, ptr %entext, align 8
-  %4 = load ptr, ptr %entext, align 8
-  %call2 = call i64 @strlen(ptr noundef %4) #9
-  %call3 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %tmp, i64 noundef %2, i64 noundef 2, ptr noundef %3, i64 noundef %call2)
-          to label %invoke.cont unwind label %lpad
+16:                                               ; preds = %13
+  %17 = load i64, ptr %7, align 8, !tbaa !12
+  %18 = load ptr, ptr %5, align 8, !tbaa !10
+  %19 = load ptr, ptr %5, align 8, !tbaa !10
+  %20 = call i64 @strlen(ptr noundef %19) #15
+  %21 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %17, i64 noundef 2, ptr noundef %18, i64 noundef %20)
+          to label %22 unwind label %23
 
-invoke.cont:                                      ; preds = %while.body
-  br label %while.cond, !llvm.loop !4
+22:                                               ; preds = %16
+  br label %13, !llvm.loop !14
 
-lpad:                                             ; preds = %invoke.cont484, %invoke.cont481, %invoke.cont477, %invoke.cont473, %invoke.cont469, %invoke.cont465, %invoke.cont461, %invoke.cont457, %invoke.cont453, %invoke.cont449, %invoke.cont445, %invoke.cont441, %invoke.cont437, %invoke.cont433, %invoke.cont429, %invoke.cont425, %invoke.cont421, %invoke.cont417, %invoke.cont413, %invoke.cont409, %invoke.cont405, %invoke.cont401, %invoke.cont397, %invoke.cont393, %invoke.cont389, %invoke.cont385, %invoke.cont381, %invoke.cont377, %invoke.cont373, %invoke.cont369, %invoke.cont365, %invoke.cont361, %invoke.cont357, %invoke.cont353, %invoke.cont349, %invoke.cont345, %invoke.cont341, %invoke.cont337, %invoke.cont333, %invoke.cont329, %invoke.cont325, %invoke.cont321, %invoke.cont317, %invoke.cont313, %invoke.cont309, %invoke.cont305, %invoke.cont301, %invoke.cont297, %invoke.cont293, %invoke.cont289, %invoke.cont285, %invoke.cont281, %invoke.cont277, %invoke.cont273, %invoke.cont269, %invoke.cont265, %invoke.cont261, %invoke.cont257, %invoke.cont253, %invoke.cont249, %invoke.cont245, %invoke.cont241, %invoke.cont237, %invoke.cont233, %invoke.cont229, %invoke.cont225, %invoke.cont221, %invoke.cont217, %invoke.cont213, %invoke.cont209, %invoke.cont205, %invoke.cont201, %invoke.cont197, %invoke.cont193, %invoke.cont189, %invoke.cont185, %invoke.cont181, %invoke.cont177, %invoke.cont173, %invoke.cont169, %invoke.cont165, %invoke.cont161, %invoke.cont157, %invoke.cont153, %invoke.cont149, %invoke.cont145, %invoke.cont141, %invoke.cont137, %invoke.cont133, %invoke.cont129, %invoke.cont125, %invoke.cont121, %invoke.cont117, %invoke.cont113, %invoke.cont109, %invoke.cont105, %invoke.cont101, %invoke.cont97, %invoke.cont93, %invoke.cont89, %invoke.cont85, %invoke.cont81, %invoke.cont77, %invoke.cont73, %invoke.cont69, %invoke.cont65, %invoke.cont61, %invoke.cont57, %invoke.cont53, %invoke.cont49, %invoke.cont45, %invoke.cont41, %invoke.cont37, %invoke.cont33, %invoke.cont29, %invoke.cont25, %invoke.cont21, %invoke.cont17, %invoke.cont13, %invoke.cont9, %invoke.cont5, %while.body
-  %5 = landingpad { ptr, i32 }
-          cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
-  br label %ehcleanup
-
-while.end:                                        ; preds = %while.cond
-  %8 = load i32, ptr %errnum.addr, align 4
-  switch i32 %8, label %sw.epilog [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb6
-    i32 3, label %sw.bb10
-    i32 4, label %sw.bb14
-    i32 5, label %sw.bb18
-    i32 6, label %sw.bb22
-    i32 7, label %sw.bb26
-    i32 8, label %sw.bb30
-    i32 9, label %sw.bb34
-    i32 10, label %sw.bb38
-    i32 11, label %sw.bb42
-    i32 12, label %sw.bb46
-    i32 13, label %sw.bb50
-    i32 14, label %sw.bb54
-    i32 15, label %sw.bb58
-    i32 16, label %sw.bb62
-    i32 17, label %sw.bb66
-    i32 18, label %sw.bb70
-    i32 19, label %sw.bb74
-    i32 20, label %sw.bb78
-    i32 21, label %sw.bb82
-    i32 22, label %sw.bb86
-    i32 23, label %sw.bb90
-    i32 24, label %sw.bb94
-    i32 25, label %sw.bb98
-    i32 26, label %sw.bb102
-    i32 27, label %sw.bb106
-    i32 28, label %sw.bb110
-    i32 29, label %sw.bb114
-    i32 30, label %sw.bb118
-    i32 31, label %sw.bb122
-    i32 32, label %sw.bb126
-    i32 33, label %sw.bb130
-    i32 34, label %sw.bb134
-    i32 42, label %sw.bb138
-    i32 43, label %sw.bb142
-    i32 44, label %sw.bb146
-    i32 45, label %sw.bb150
-    i32 46, label %sw.bb154
-    i32 47, label %sw.bb158
-    i32 48, label %sw.bb162
-    i32 49, label %sw.bb166
-    i32 50, label %sw.bb170
-    i32 51, label %sw.bb174
-    i32 35, label %sw.bb178
-    i32 37, label %sw.bb182
-    i32 52, label %sw.bb186
-    i32 53, label %sw.bb190
-    i32 54, label %sw.bb194
-    i32 55, label %sw.bb198
-    i32 56, label %sw.bb202
-    i32 57, label %sw.bb206
-    i32 59, label %sw.bb210
-    i32 60, label %sw.bb214
-    i32 61, label %sw.bb218
-    i32 62, label %sw.bb222
-    i32 63, label %sw.bb226
-    i32 64, label %sw.bb230
-    i32 65, label %sw.bb234
-    i32 66, label %sw.bb238
-    i32 67, label %sw.bb242
-    i32 68, label %sw.bb246
-    i32 69, label %sw.bb250
-    i32 70, label %sw.bb254
-    i32 71, label %sw.bb258
-    i32 72, label %sw.bb262
-    i32 74, label %sw.bb266
-    i32 36, label %sw.bb270
-    i32 75, label %sw.bb274
-    i32 76, label %sw.bb278
-    i32 77, label %sw.bb282
-    i32 78, label %sw.bb286
-    i32 79, label %sw.bb290
-    i32 80, label %sw.bb294
-    i32 81, label %sw.bb298
-    i32 82, label %sw.bb302
-    i32 83, label %sw.bb306
-    i32 84, label %sw.bb310
-    i32 38, label %sw.bb314
-    i32 40, label %sw.bb318
-    i32 85, label %sw.bb322
-    i32 86, label %sw.bb326
-    i32 39, label %sw.bb330
-    i32 87, label %sw.bb334
-    i32 88, label %sw.bb338
-    i32 89, label %sw.bb342
-    i32 90, label %sw.bb346
-    i32 91, label %sw.bb350
-    i32 92, label %sw.bb354
-    i32 93, label %sw.bb358
-    i32 94, label %sw.bb362
-    i32 95, label %sw.bb366
-    i32 96, label %sw.bb370
-    i32 97, label %sw.bb374
-    i32 98, label %sw.bb378
-    i32 99, label %sw.bb382
-    i32 100, label %sw.bb386
-    i32 101, label %sw.bb390
-    i32 102, label %sw.bb394
-    i32 103, label %sw.bb398
-    i32 104, label %sw.bb402
-    i32 105, label %sw.bb406
-    i32 106, label %sw.bb410
-    i32 107, label %sw.bb414
-    i32 108, label %sw.bb418
-    i32 109, label %sw.bb422
-    i32 110, label %sw.bb426
-    i32 111, label %sw.bb430
-    i32 112, label %sw.bb434
-    i32 113, label %sw.bb438
-    i32 114, label %sw.bb442
-    i32 115, label %sw.bb446
-    i32 116, label %sw.bb450
-    i32 117, label %sw.bb454
-    i32 118, label %sw.bb458
-    i32 119, label %sw.bb462
-    i32 120, label %sw.bb466
-    i32 121, label %sw.bb470
-    i32 125, label %sw.bb474
-    i32 122, label %sw.bb478
-  ]
-
-sw.bb:                                            ; preds = %while.end
-  %exception = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_28EpermExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5 unwind label %lpad4
-
-invoke.cont5:                                     ; preds = %sw.bb
-  invoke void @__cxa_throw(ptr %exception, ptr @_ZTIN7Iex_3_28EpermExcE, ptr @_ZN7Iex_3_28EpermExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad4:                                            ; preds = %sw.bb
-  %9 = landingpad { ptr, i32 }
-          cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception) #8
-  br label %ehcleanup
-
-sw.bb6:                                           ; preds = %while.end
-  %exception7 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EnoentExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception7, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont9 unwind label %lpad8
-
-invoke.cont9:                                     ; preds = %sw.bb6
-  invoke void @__cxa_throw(ptr %exception7, ptr @_ZTIN7Iex_3_29EnoentExcE, ptr @_ZN7Iex_3_29EnoentExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad8:                                            ; preds = %sw.bb6
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception7) #8
-  br label %ehcleanup
-
-sw.bb10:                                          ; preds = %while.end
-  %exception11 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_28EsrchExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception11, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont13 unwind label %lpad12
-
-invoke.cont13:                                    ; preds = %sw.bb10
-  invoke void @__cxa_throw(ptr %exception11, ptr @_ZTIN7Iex_3_28EsrchExcE, ptr @_ZN7Iex_3_28EsrchExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad12:                                           ; preds = %sw.bb10
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception11) #8
-  br label %ehcleanup
-
-sw.bb14:                                          ; preds = %while.end
-  %exception15 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_28EintrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception15, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont17 unwind label %lpad16
-
-invoke.cont17:                                    ; preds = %sw.bb14
-  invoke void @__cxa_throw(ptr %exception15, ptr @_ZTIN7Iex_3_28EintrExcE, ptr @_ZN7Iex_3_28EintrExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad16:                                           ; preds = %sw.bb14
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception15) #8
-  br label %ehcleanup
-
-sw.bb18:                                          ; preds = %while.end
-  %exception19 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_26EioExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception19, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont21 unwind label %lpad20
-
-invoke.cont21:                                    ; preds = %sw.bb18
-  invoke void @__cxa_throw(ptr %exception19, ptr @_ZTIN7Iex_3_26EioExcE, ptr @_ZN7Iex_3_26EioExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad20:                                           ; preds = %sw.bb18
-  %21 = landingpad { ptr, i32 }
-          cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %exn.slot, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception19) #8
-  br label %ehcleanup
-
-sw.bb22:                                          ; preds = %while.end
-  %exception23 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_28EnxioExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception23, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont25 unwind label %lpad24
-
-invoke.cont25:                                    ; preds = %sw.bb22
-  invoke void @__cxa_throw(ptr %exception23, ptr @_ZTIN7Iex_3_28EnxioExcE, ptr @_ZN7Iex_3_28EnxioExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad24:                                           ; preds = %sw.bb22
+23:                                               ; preds = %871, %864, %857, %850, %843, %836, %829, %822, %815, %808, %801, %794, %787, %780, %773, %766, %759, %752, %745, %738, %731, %724, %717, %710, %703, %696, %689, %682, %675, %668, %661, %654, %647, %640, %633, %626, %619, %612, %605, %598, %591, %584, %577, %570, %563, %556, %549, %542, %535, %528, %521, %514, %507, %500, %493, %486, %479, %472, %465, %458, %451, %444, %437, %430, %423, %416, %409, %402, %395, %388, %381, %374, %367, %360, %353, %346, %339, %332, %325, %318, %311, %304, %297, %290, %283, %276, %269, %262, %255, %248, %241, %234, %227, %220, %213, %206, %199, %192, %185, %178, %171, %164, %157, %150, %143, %136, %129, %122, %115, %108, %101, %94, %87, %80, %73, %66, %59, %52, %45, %38, %31, %16
   %24 = landingpad { ptr, i32 }
           cleanup
   %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %exn.slot, align 8
+  store ptr %25, ptr %8, align 8
   %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception23) #8
-  br label %ehcleanup
+  store i32 %26, ptr %9, align 4
+  br label %876
 
-sw.bb26:                                          ; preds = %while.end
-  %exception27 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_28E2bigExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception27, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont29 unwind label %lpad28
+27:                                               ; preds = %13
+  %28 = load i32, ptr %4, align 4, !tbaa !8
+  switch i32 %28, label %869 [
+    i32 1, label %29
+    i32 2, label %36
+    i32 3, label %43
+    i32 4, label %50
+    i32 5, label %57
+    i32 6, label %64
+    i32 7, label %71
+    i32 8, label %78
+    i32 9, label %85
+    i32 10, label %92
+    i32 11, label %99
+    i32 12, label %106
+    i32 13, label %113
+    i32 14, label %120
+    i32 15, label %127
+    i32 16, label %134
+    i32 17, label %141
+    i32 18, label %148
+    i32 19, label %155
+    i32 20, label %162
+    i32 21, label %169
+    i32 22, label %176
+    i32 23, label %183
+    i32 24, label %190
+    i32 25, label %197
+    i32 26, label %204
+    i32 27, label %211
+    i32 28, label %218
+    i32 29, label %225
+    i32 30, label %232
+    i32 31, label %239
+    i32 32, label %246
+    i32 33, label %253
+    i32 34, label %260
+    i32 42, label %267
+    i32 43, label %274
+    i32 44, label %281
+    i32 45, label %288
+    i32 46, label %295
+    i32 47, label %302
+    i32 48, label %309
+    i32 49, label %316
+    i32 50, label %323
+    i32 51, label %330
+    i32 35, label %337
+    i32 37, label %344
+    i32 52, label %351
+    i32 53, label %358
+    i32 54, label %365
+    i32 55, label %372
+    i32 56, label %379
+    i32 57, label %386
+    i32 59, label %393
+    i32 60, label %400
+    i32 61, label %407
+    i32 62, label %414
+    i32 63, label %421
+    i32 64, label %428
+    i32 65, label %435
+    i32 66, label %442
+    i32 67, label %449
+    i32 68, label %456
+    i32 69, label %463
+    i32 70, label %470
+    i32 71, label %477
+    i32 72, label %484
+    i32 74, label %491
+    i32 36, label %498
+    i32 75, label %505
+    i32 76, label %512
+    i32 77, label %519
+    i32 78, label %526
+    i32 79, label %533
+    i32 80, label %540
+    i32 81, label %547
+    i32 82, label %554
+    i32 83, label %561
+    i32 84, label %568
+    i32 38, label %575
+    i32 40, label %582
+    i32 85, label %589
+    i32 86, label %596
+    i32 39, label %603
+    i32 87, label %610
+    i32 88, label %617
+    i32 89, label %624
+    i32 90, label %631
+    i32 91, label %638
+    i32 92, label %645
+    i32 93, label %652
+    i32 94, label %659
+    i32 95, label %666
+    i32 96, label %673
+    i32 97, label %680
+    i32 98, label %687
+    i32 99, label %694
+    i32 100, label %701
+    i32 101, label %708
+    i32 102, label %715
+    i32 103, label %722
+    i32 104, label %729
+    i32 105, label %736
+    i32 106, label %743
+    i32 107, label %750
+    i32 108, label %757
+    i32 109, label %764
+    i32 110, label %771
+    i32 111, label %778
+    i32 112, label %785
+    i32 113, label %792
+    i32 114, label %799
+    i32 115, label %806
+    i32 116, label %813
+    i32 117, label %820
+    i32 118, label %827
+    i32 119, label %834
+    i32 120, label %841
+    i32 121, label %848
+    i32 125, label %855
+    i32 122, label %862
+  ]
 
-invoke.cont29:                                    ; preds = %sw.bb26
-  invoke void @__cxa_throw(ptr %exception27, ptr @_ZTIN7Iex_3_28E2bigExcE, ptr @_ZN7Iex_3_28E2bigExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+29:                                               ; preds = %27
+  %30 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_48EpermExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %31 unwind label %32
 
-lpad28:                                           ; preds = %sw.bb26
-  %27 = landingpad { ptr, i32 }
-          cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %exn.slot, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception27) #8
-  br label %ehcleanup
+31:                                               ; preds = %29
+  invoke void @__cxa_throw(ptr %30, ptr @_ZTIN7Iex_3_48EpermExcE, ptr @_ZN7Iex_3_48EpermExcD1Ev) #16
+          to label %882 unwind label %23
 
-sw.bb30:                                          ; preds = %while.end
-  %exception31 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_210EnoexecExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception31, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont33 unwind label %lpad32
-
-invoke.cont33:                                    ; preds = %sw.bb30
-  invoke void @__cxa_throw(ptr %exception31, ptr @_ZTIN7Iex_3_210EnoexecExcE, ptr @_ZN7Iex_3_210EnoexecExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad32:                                           ; preds = %sw.bb30
-  %30 = landingpad { ptr, i32 }
-          cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %exn.slot, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception31) #8
-  br label %ehcleanup
-
-sw.bb34:                                          ; preds = %while.end
-  %exception35 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_28EbadfExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception35, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont37 unwind label %lpad36
-
-invoke.cont37:                                    ; preds = %sw.bb34
-  invoke void @__cxa_throw(ptr %exception35, ptr @_ZTIN7Iex_3_28EbadfExcE, ptr @_ZN7Iex_3_28EbadfExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad36:                                           ; preds = %sw.bb34
+32:                                               ; preds = %29
   %33 = landingpad { ptr, i32 }
           cleanup
   %34 = extractvalue { ptr, i32 } %33, 0
-  store ptr %34, ptr %exn.slot, align 8
+  store ptr %34, ptr %8, align 8
   %35 = extractvalue { ptr, i32 } %33, 1
-  store i32 %35, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception35) #8
-  br label %ehcleanup
+  store i32 %35, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %30) #14
+  br label %876
 
-sw.bb38:                                          ; preds = %while.end
-  %exception39 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EchildExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception39, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont41 unwind label %lpad40
+36:                                               ; preds = %27
+  %37 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EnoentExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %37, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %38 unwind label %39
 
-invoke.cont41:                                    ; preds = %sw.bb38
-  invoke void @__cxa_throw(ptr %exception39, ptr @_ZTIN7Iex_3_29EchildExcE, ptr @_ZN7Iex_3_29EchildExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+38:                                               ; preds = %36
+  invoke void @__cxa_throw(ptr %37, ptr @_ZTIN7Iex_3_49EnoentExcE, ptr @_ZN7Iex_3_49EnoentExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad40:                                           ; preds = %sw.bb38
-  %36 = landingpad { ptr, i32 }
+39:                                               ; preds = %36
+  %40 = landingpad { ptr, i32 }
           cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %exn.slot, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception39) #8
-  br label %ehcleanup
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %8, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %37) #14
+  br label %876
 
-sw.bb42:                                          ; preds = %while.end
-  %exception43 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EagainExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception43, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont45 unwind label %lpad44
+43:                                               ; preds = %27
+  %44 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_48EsrchExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %44, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %45 unwind label %46
 
-invoke.cont45:                                    ; preds = %sw.bb42
-  invoke void @__cxa_throw(ptr %exception43, ptr @_ZTIN7Iex_3_29EagainExcE, ptr @_ZN7Iex_3_29EagainExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+45:                                               ; preds = %43
+  invoke void @__cxa_throw(ptr %44, ptr @_ZTIN7Iex_3_48EsrchExcE, ptr @_ZN7Iex_3_48EsrchExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad44:                                           ; preds = %sw.bb42
-  %39 = landingpad { ptr, i32 }
+46:                                               ; preds = %43
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %exn.slot, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception43) #8
-  br label %ehcleanup
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %8, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %44) #14
+  br label %876
 
-sw.bb46:                                          ; preds = %while.end
-  %exception47 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EnomemExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception47, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont49 unwind label %lpad48
+50:                                               ; preds = %27
+  %51 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_48EintrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %51, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %52 unwind label %53
 
-invoke.cont49:                                    ; preds = %sw.bb46
-  invoke void @__cxa_throw(ptr %exception47, ptr @_ZTIN7Iex_3_29EnomemExcE, ptr @_ZN7Iex_3_29EnomemExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+52:                                               ; preds = %50
+  invoke void @__cxa_throw(ptr %51, ptr @_ZTIN7Iex_3_48EintrExcE, ptr @_ZN7Iex_3_48EintrExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad48:                                           ; preds = %sw.bb46
-  %42 = landingpad { ptr, i32 }
-          cleanup
-  %43 = extractvalue { ptr, i32 } %42, 0
-  store ptr %43, ptr %exn.slot, align 8
-  %44 = extractvalue { ptr, i32 } %42, 1
-  store i32 %44, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception47) #8
-  br label %ehcleanup
-
-sw.bb50:                                          ; preds = %while.end
-  %exception51 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EaccesExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception51, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont53 unwind label %lpad52
-
-invoke.cont53:                                    ; preds = %sw.bb50
-  invoke void @__cxa_throw(ptr %exception51, ptr @_ZTIN7Iex_3_29EaccesExcE, ptr @_ZN7Iex_3_29EaccesExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad52:                                           ; preds = %sw.bb50
-  %45 = landingpad { ptr, i32 }
-          cleanup
-  %46 = extractvalue { ptr, i32 } %45, 0
-  store ptr %46, ptr %exn.slot, align 8
-  %47 = extractvalue { ptr, i32 } %45, 1
-  store i32 %47, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception51) #8
-  br label %ehcleanup
-
-sw.bb54:                                          ; preds = %while.end
-  %exception55 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EfaultExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception55, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont57 unwind label %lpad56
-
-invoke.cont57:                                    ; preds = %sw.bb54
-  invoke void @__cxa_throw(ptr %exception55, ptr @_ZTIN7Iex_3_29EfaultExcE, ptr @_ZN7Iex_3_29EfaultExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad56:                                           ; preds = %sw.bb54
-  %48 = landingpad { ptr, i32 }
-          cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %exn.slot, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception55) #8
-  br label %ehcleanup
-
-sw.bb58:                                          ; preds = %while.end
-  %exception59 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_210EnotblkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception59, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont61 unwind label %lpad60
-
-invoke.cont61:                                    ; preds = %sw.bb58
-  invoke void @__cxa_throw(ptr %exception59, ptr @_ZTIN7Iex_3_210EnotblkExcE, ptr @_ZN7Iex_3_210EnotblkExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad60:                                           ; preds = %sw.bb58
-  %51 = landingpad { ptr, i32 }
-          cleanup
-  %52 = extractvalue { ptr, i32 } %51, 0
-  store ptr %52, ptr %exn.slot, align 8
-  %53 = extractvalue { ptr, i32 } %51, 1
-  store i32 %53, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception59) #8
-  br label %ehcleanup
-
-sw.bb62:                                          ; preds = %while.end
-  %exception63 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_28EbusyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception63, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont65 unwind label %lpad64
-
-invoke.cont65:                                    ; preds = %sw.bb62
-  invoke void @__cxa_throw(ptr %exception63, ptr @_ZTIN7Iex_3_28EbusyExcE, ptr @_ZN7Iex_3_28EbusyExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad64:                                           ; preds = %sw.bb62
+53:                                               ; preds = %50
   %54 = landingpad { ptr, i32 }
           cleanup
   %55 = extractvalue { ptr, i32 } %54, 0
-  store ptr %55, ptr %exn.slot, align 8
+  store ptr %55, ptr %8, align 8
   %56 = extractvalue { ptr, i32 } %54, 1
-  store i32 %56, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception63) #8
-  br label %ehcleanup
+  store i32 %56, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %51) #14
+  br label %876
 
-sw.bb66:                                          ; preds = %while.end
-  %exception67 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EexistExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception67, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont69 unwind label %lpad68
+57:                                               ; preds = %27
+  %58 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_46EioExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %58, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %59 unwind label %60
 
-invoke.cont69:                                    ; preds = %sw.bb66
-  invoke void @__cxa_throw(ptr %exception67, ptr @_ZTIN7Iex_3_29EexistExcE, ptr @_ZN7Iex_3_29EexistExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+59:                                               ; preds = %57
+  invoke void @__cxa_throw(ptr %58, ptr @_ZTIN7Iex_3_46EioExcE, ptr @_ZN7Iex_3_46EioExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad68:                                           ; preds = %sw.bb66
-  %57 = landingpad { ptr, i32 }
+60:                                               ; preds = %57
+  %61 = landingpad { ptr, i32 }
           cleanup
-  %58 = extractvalue { ptr, i32 } %57, 0
-  store ptr %58, ptr %exn.slot, align 8
-  %59 = extractvalue { ptr, i32 } %57, 1
-  store i32 %59, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception67) #8
-  br label %ehcleanup
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %8, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %58) #14
+  br label %876
 
-sw.bb70:                                          ; preds = %while.end
-  %exception71 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_28ExdevExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception71, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont73 unwind label %lpad72
+64:                                               ; preds = %27
+  %65 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_48EnxioExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %65, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %66 unwind label %67
 
-invoke.cont73:                                    ; preds = %sw.bb70
-  invoke void @__cxa_throw(ptr %exception71, ptr @_ZTIN7Iex_3_28ExdevExcE, ptr @_ZN7Iex_3_28ExdevExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+66:                                               ; preds = %64
+  invoke void @__cxa_throw(ptr %65, ptr @_ZTIN7Iex_3_48EnxioExcE, ptr @_ZN7Iex_3_48EnxioExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad72:                                           ; preds = %sw.bb70
-  %60 = landingpad { ptr, i32 }
+67:                                               ; preds = %64
+  %68 = landingpad { ptr, i32 }
           cleanup
-  %61 = extractvalue { ptr, i32 } %60, 0
-  store ptr %61, ptr %exn.slot, align 8
-  %62 = extractvalue { ptr, i32 } %60, 1
-  store i32 %62, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception71) #8
-  br label %ehcleanup
+  %69 = extractvalue { ptr, i32 } %68, 0
+  store ptr %69, ptr %8, align 8
+  %70 = extractvalue { ptr, i32 } %68, 1
+  store i32 %70, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %65) #14
+  br label %876
 
-sw.bb74:                                          ; preds = %while.end
-  %exception75 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EnodevExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception75, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont77 unwind label %lpad76
+71:                                               ; preds = %27
+  %72 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_48E2bigExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %72, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %73 unwind label %74
 
-invoke.cont77:                                    ; preds = %sw.bb74
-  invoke void @__cxa_throw(ptr %exception75, ptr @_ZTIN7Iex_3_29EnodevExcE, ptr @_ZN7Iex_3_29EnodevExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+73:                                               ; preds = %71
+  invoke void @__cxa_throw(ptr %72, ptr @_ZTIN7Iex_3_48E2bigExcE, ptr @_ZN7Iex_3_48E2bigExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad76:                                           ; preds = %sw.bb74
-  %63 = landingpad { ptr, i32 }
-          cleanup
-  %64 = extractvalue { ptr, i32 } %63, 0
-  store ptr %64, ptr %exn.slot, align 8
-  %65 = extractvalue { ptr, i32 } %63, 1
-  store i32 %65, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception75) #8
-  br label %ehcleanup
-
-sw.bb78:                                          ; preds = %while.end
-  %exception79 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_210EnotdirExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception79, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont81 unwind label %lpad80
-
-invoke.cont81:                                    ; preds = %sw.bb78
-  invoke void @__cxa_throw(ptr %exception79, ptr @_ZTIN7Iex_3_210EnotdirExcE, ptr @_ZN7Iex_3_210EnotdirExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad80:                                           ; preds = %sw.bb78
-  %66 = landingpad { ptr, i32 }
-          cleanup
-  %67 = extractvalue { ptr, i32 } %66, 0
-  store ptr %67, ptr %exn.slot, align 8
-  %68 = extractvalue { ptr, i32 } %66, 1
-  store i32 %68, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception79) #8
-  br label %ehcleanup
-
-sw.bb82:                                          ; preds = %while.end
-  %exception83 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EisdirExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception83, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont85 unwind label %lpad84
-
-invoke.cont85:                                    ; preds = %sw.bb82
-  invoke void @__cxa_throw(ptr %exception83, ptr @_ZTIN7Iex_3_29EisdirExcE, ptr @_ZN7Iex_3_29EisdirExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad84:                                           ; preds = %sw.bb82
-  %69 = landingpad { ptr, i32 }
-          cleanup
-  %70 = extractvalue { ptr, i32 } %69, 0
-  store ptr %70, ptr %exn.slot, align 8
-  %71 = extractvalue { ptr, i32 } %69, 1
-  store i32 %71, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception83) #8
-  br label %ehcleanup
-
-sw.bb86:                                          ; preds = %while.end
-  %exception87 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EinvalExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception87, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont89 unwind label %lpad88
-
-invoke.cont89:                                    ; preds = %sw.bb86
-  invoke void @__cxa_throw(ptr %exception87, ptr @_ZTIN7Iex_3_29EinvalExcE, ptr @_ZN7Iex_3_29EinvalExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad88:                                           ; preds = %sw.bb86
-  %72 = landingpad { ptr, i32 }
-          cleanup
-  %73 = extractvalue { ptr, i32 } %72, 0
-  store ptr %73, ptr %exn.slot, align 8
-  %74 = extractvalue { ptr, i32 } %72, 1
-  store i32 %74, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception87) #8
-  br label %ehcleanup
-
-sw.bb90:                                          ; preds = %while.end
-  %exception91 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EnfileExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception91, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont93 unwind label %lpad92
-
-invoke.cont93:                                    ; preds = %sw.bb90
-  invoke void @__cxa_throw(ptr %exception91, ptr @_ZTIN7Iex_3_29EnfileExcE, ptr @_ZN7Iex_3_29EnfileExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad92:                                           ; preds = %sw.bb90
+74:                                               ; preds = %71
   %75 = landingpad { ptr, i32 }
           cleanup
   %76 = extractvalue { ptr, i32 } %75, 0
-  store ptr %76, ptr %exn.slot, align 8
+  store ptr %76, ptr %8, align 8
   %77 = extractvalue { ptr, i32 } %75, 1
-  store i32 %77, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception91) #8
-  br label %ehcleanup
+  store i32 %77, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %72) #14
+  br label %876
 
-sw.bb94:                                          ; preds = %while.end
-  %exception95 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EmfileExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception95, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont97 unwind label %lpad96
+78:                                               ; preds = %27
+  %79 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_410EnoexecExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %79, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %80 unwind label %81
 
-invoke.cont97:                                    ; preds = %sw.bb94
-  invoke void @__cxa_throw(ptr %exception95, ptr @_ZTIN7Iex_3_29EmfileExcE, ptr @_ZN7Iex_3_29EmfileExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+80:                                               ; preds = %78
+  invoke void @__cxa_throw(ptr %79, ptr @_ZTIN7Iex_3_410EnoexecExcE, ptr @_ZN7Iex_3_410EnoexecExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad96:                                           ; preds = %sw.bb94
-  %78 = landingpad { ptr, i32 }
+81:                                               ; preds = %78
+  %82 = landingpad { ptr, i32 }
           cleanup
-  %79 = extractvalue { ptr, i32 } %78, 0
-  store ptr %79, ptr %exn.slot, align 8
-  %80 = extractvalue { ptr, i32 } %78, 1
-  store i32 %80, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception95) #8
-  br label %ehcleanup
+  %83 = extractvalue { ptr, i32 } %82, 0
+  store ptr %83, ptr %8, align 8
+  %84 = extractvalue { ptr, i32 } %82, 1
+  store i32 %84, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %79) #14
+  br label %876
 
-sw.bb98:                                          ; preds = %while.end
-  %exception99 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EnottyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception99, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont101 unwind label %lpad100
+85:                                               ; preds = %27
+  %86 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_48EbadfExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %86, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %87 unwind label %88
 
-invoke.cont101:                                   ; preds = %sw.bb98
-  invoke void @__cxa_throw(ptr %exception99, ptr @_ZTIN7Iex_3_29EnottyExcE, ptr @_ZN7Iex_3_29EnottyExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+87:                                               ; preds = %85
+  invoke void @__cxa_throw(ptr %86, ptr @_ZTIN7Iex_3_48EbadfExcE, ptr @_ZN7Iex_3_48EbadfExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad100:                                          ; preds = %sw.bb98
-  %81 = landingpad { ptr, i32 }
+88:                                               ; preds = %85
+  %89 = landingpad { ptr, i32 }
           cleanup
-  %82 = extractvalue { ptr, i32 } %81, 0
-  store ptr %82, ptr %exn.slot, align 8
-  %83 = extractvalue { ptr, i32 } %81, 1
-  store i32 %83, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception99) #8
-  br label %ehcleanup
+  %90 = extractvalue { ptr, i32 } %89, 0
+  store ptr %90, ptr %8, align 8
+  %91 = extractvalue { ptr, i32 } %89, 1
+  store i32 %91, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %86) #14
+  br label %876
 
-sw.bb102:                                         ; preds = %while.end
-  %exception103 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_210EtxtbsyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception103, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont105 unwind label %lpad104
+92:                                               ; preds = %27
+  %93 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EchildExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %93, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %94 unwind label %95
 
-invoke.cont105:                                   ; preds = %sw.bb102
-  invoke void @__cxa_throw(ptr %exception103, ptr @_ZTIN7Iex_3_210EtxtbsyExcE, ptr @_ZN7Iex_3_210EtxtbsyExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+94:                                               ; preds = %92
+  invoke void @__cxa_throw(ptr %93, ptr @_ZTIN7Iex_3_49EchildExcE, ptr @_ZN7Iex_3_49EchildExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad104:                                          ; preds = %sw.bb102
-  %84 = landingpad { ptr, i32 }
-          cleanup
-  %85 = extractvalue { ptr, i32 } %84, 0
-  store ptr %85, ptr %exn.slot, align 8
-  %86 = extractvalue { ptr, i32 } %84, 1
-  store i32 %86, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception103) #8
-  br label %ehcleanup
-
-sw.bb106:                                         ; preds = %while.end
-  %exception107 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_28EfbigExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception107, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont109 unwind label %lpad108
-
-invoke.cont109:                                   ; preds = %sw.bb106
-  invoke void @__cxa_throw(ptr %exception107, ptr @_ZTIN7Iex_3_28EfbigExcE, ptr @_ZN7Iex_3_28EfbigExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad108:                                          ; preds = %sw.bb106
-  %87 = landingpad { ptr, i32 }
-          cleanup
-  %88 = extractvalue { ptr, i32 } %87, 0
-  store ptr %88, ptr %exn.slot, align 8
-  %89 = extractvalue { ptr, i32 } %87, 1
-  store i32 %89, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception107) #8
-  br label %ehcleanup
-
-sw.bb110:                                         ; preds = %while.end
-  %exception111 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EnospcExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception111, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont113 unwind label %lpad112
-
-invoke.cont113:                                   ; preds = %sw.bb110
-  invoke void @__cxa_throw(ptr %exception111, ptr @_ZTIN7Iex_3_29EnospcExcE, ptr @_ZN7Iex_3_29EnospcExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad112:                                          ; preds = %sw.bb110
-  %90 = landingpad { ptr, i32 }
-          cleanup
-  %91 = extractvalue { ptr, i32 } %90, 0
-  store ptr %91, ptr %exn.slot, align 8
-  %92 = extractvalue { ptr, i32 } %90, 1
-  store i32 %92, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception111) #8
-  br label %ehcleanup
-
-sw.bb114:                                         ; preds = %while.end
-  %exception115 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EspipeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception115, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont117 unwind label %lpad116
-
-invoke.cont117:                                   ; preds = %sw.bb114
-  invoke void @__cxa_throw(ptr %exception115, ptr @_ZTIN7Iex_3_29EspipeExcE, ptr @_ZN7Iex_3_29EspipeExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad116:                                          ; preds = %sw.bb114
-  %93 = landingpad { ptr, i32 }
-          cleanup
-  %94 = extractvalue { ptr, i32 } %93, 0
-  store ptr %94, ptr %exn.slot, align 8
-  %95 = extractvalue { ptr, i32 } %93, 1
-  store i32 %95, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception115) #8
-  br label %ehcleanup
-
-sw.bb118:                                         ; preds = %while.end
-  %exception119 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_28ErofsExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception119, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont121 unwind label %lpad120
-
-invoke.cont121:                                   ; preds = %sw.bb118
-  invoke void @__cxa_throw(ptr %exception119, ptr @_ZTIN7Iex_3_28ErofsExcE, ptr @_ZN7Iex_3_28ErofsExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad120:                                          ; preds = %sw.bb118
+95:                                               ; preds = %92
   %96 = landingpad { ptr, i32 }
           cleanup
   %97 = extractvalue { ptr, i32 } %96, 0
-  store ptr %97, ptr %exn.slot, align 8
+  store ptr %97, ptr %8, align 8
   %98 = extractvalue { ptr, i32 } %96, 1
-  store i32 %98, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception119) #8
-  br label %ehcleanup
+  store i32 %98, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %93) #14
+  br label %876
 
-sw.bb122:                                         ; preds = %while.end
-  %exception123 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EmlinkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception123, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont125 unwind label %lpad124
+99:                                               ; preds = %27
+  %100 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EagainExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %100, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %101 unwind label %102
 
-invoke.cont125:                                   ; preds = %sw.bb122
-  invoke void @__cxa_throw(ptr %exception123, ptr @_ZTIN7Iex_3_29EmlinkExcE, ptr @_ZN7Iex_3_29EmlinkExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+101:                                              ; preds = %99
+  invoke void @__cxa_throw(ptr %100, ptr @_ZTIN7Iex_3_49EagainExcE, ptr @_ZN7Iex_3_49EagainExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad124:                                          ; preds = %sw.bb122
-  %99 = landingpad { ptr, i32 }
+102:                                              ; preds = %99
+  %103 = landingpad { ptr, i32 }
           cleanup
-  %100 = extractvalue { ptr, i32 } %99, 0
-  store ptr %100, ptr %exn.slot, align 8
-  %101 = extractvalue { ptr, i32 } %99, 1
-  store i32 %101, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception123) #8
-  br label %ehcleanup
+  %104 = extractvalue { ptr, i32 } %103, 0
+  store ptr %104, ptr %8, align 8
+  %105 = extractvalue { ptr, i32 } %103, 1
+  store i32 %105, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %100) #14
+  br label %876
 
-sw.bb126:                                         ; preds = %while.end
-  %exception127 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_28EpipeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception127, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont129 unwind label %lpad128
+106:                                              ; preds = %27
+  %107 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EnomemExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %108 unwind label %109
 
-invoke.cont129:                                   ; preds = %sw.bb126
-  invoke void @__cxa_throw(ptr %exception127, ptr @_ZTIN7Iex_3_28EpipeExcE, ptr @_ZN7Iex_3_28EpipeExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+108:                                              ; preds = %106
+  invoke void @__cxa_throw(ptr %107, ptr @_ZTIN7Iex_3_49EnomemExcE, ptr @_ZN7Iex_3_49EnomemExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad128:                                          ; preds = %sw.bb126
-  %102 = landingpad { ptr, i32 }
+109:                                              ; preds = %106
+  %110 = landingpad { ptr, i32 }
           cleanup
-  %103 = extractvalue { ptr, i32 } %102, 0
-  store ptr %103, ptr %exn.slot, align 8
-  %104 = extractvalue { ptr, i32 } %102, 1
-  store i32 %104, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception127) #8
-  br label %ehcleanup
+  %111 = extractvalue { ptr, i32 } %110, 0
+  store ptr %111, ptr %8, align 8
+  %112 = extractvalue { ptr, i32 } %110, 1
+  store i32 %112, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %107) #14
+  br label %876
 
-sw.bb130:                                         ; preds = %while.end
-  %exception131 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_27EdomExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception131, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont133 unwind label %lpad132
+113:                                              ; preds = %27
+  %114 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EaccesExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %114, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %115 unwind label %116
 
-invoke.cont133:                                   ; preds = %sw.bb130
-  invoke void @__cxa_throw(ptr %exception131, ptr @_ZTIN7Iex_3_27EdomExcE, ptr @_ZN7Iex_3_27EdomExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+115:                                              ; preds = %113
+  invoke void @__cxa_throw(ptr %114, ptr @_ZTIN7Iex_3_49EaccesExcE, ptr @_ZN7Iex_3_49EaccesExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad132:                                          ; preds = %sw.bb130
-  %105 = landingpad { ptr, i32 }
-          cleanup
-  %106 = extractvalue { ptr, i32 } %105, 0
-  store ptr %106, ptr %exn.slot, align 8
-  %107 = extractvalue { ptr, i32 } %105, 1
-  store i32 %107, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception131) #8
-  br label %ehcleanup
-
-sw.bb134:                                         ; preds = %while.end
-  %exception135 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29ErangeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception135, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont137 unwind label %lpad136
-
-invoke.cont137:                                   ; preds = %sw.bb134
-  invoke void @__cxa_throw(ptr %exception135, ptr @_ZTIN7Iex_3_29ErangeExcE, ptr @_ZN7Iex_3_29ErangeExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad136:                                          ; preds = %sw.bb134
-  %108 = landingpad { ptr, i32 }
-          cleanup
-  %109 = extractvalue { ptr, i32 } %108, 0
-  store ptr %109, ptr %exn.slot, align 8
-  %110 = extractvalue { ptr, i32 } %108, 1
-  store i32 %110, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception135) #8
-  br label %ehcleanup
-
-sw.bb138:                                         ; preds = %while.end
-  %exception139 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EnomsgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception139, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont141 unwind label %lpad140
-
-invoke.cont141:                                   ; preds = %sw.bb138
-  invoke void @__cxa_throw(ptr %exception139, ptr @_ZTIN7Iex_3_29EnomsgExcE, ptr @_ZN7Iex_3_29EnomsgExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad140:                                          ; preds = %sw.bb138
-  %111 = landingpad { ptr, i32 }
-          cleanup
-  %112 = extractvalue { ptr, i32 } %111, 0
-  store ptr %112, ptr %exn.slot, align 8
-  %113 = extractvalue { ptr, i32 } %111, 1
-  store i32 %113, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception139) #8
-  br label %ehcleanup
-
-sw.bb142:                                         ; preds = %while.end
-  %exception143 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_28EidrmExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception143, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont145 unwind label %lpad144
-
-invoke.cont145:                                   ; preds = %sw.bb142
-  invoke void @__cxa_throw(ptr %exception143, ptr @_ZTIN7Iex_3_28EidrmExcE, ptr @_ZN7Iex_3_28EidrmExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad144:                                          ; preds = %sw.bb142
-  %114 = landingpad { ptr, i32 }
-          cleanup
-  %115 = extractvalue { ptr, i32 } %114, 0
-  store ptr %115, ptr %exn.slot, align 8
-  %116 = extractvalue { ptr, i32 } %114, 1
-  store i32 %116, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception143) #8
-  br label %ehcleanup
-
-sw.bb146:                                         ; preds = %while.end
-  %exception147 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EchrngExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception147, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont149 unwind label %lpad148
-
-invoke.cont149:                                   ; preds = %sw.bb146
-  invoke void @__cxa_throw(ptr %exception147, ptr @_ZTIN7Iex_3_29EchrngExcE, ptr @_ZN7Iex_3_29EchrngExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad148:                                          ; preds = %sw.bb146
+116:                                              ; preds = %113
   %117 = landingpad { ptr, i32 }
           cleanup
   %118 = extractvalue { ptr, i32 } %117, 0
-  store ptr %118, ptr %exn.slot, align 8
+  store ptr %118, ptr %8, align 8
   %119 = extractvalue { ptr, i32 } %117, 1
-  store i32 %119, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception147) #8
-  br label %ehcleanup
+  store i32 %119, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %114) #14
+  br label %876
 
-sw.bb150:                                         ; preds = %while.end
-  %exception151 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_211El2nsyncExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception151, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont153 unwind label %lpad152
+120:                                              ; preds = %27
+  %121 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EfaultExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %121, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %122 unwind label %123
 
-invoke.cont153:                                   ; preds = %sw.bb150
-  invoke void @__cxa_throw(ptr %exception151, ptr @_ZTIN7Iex_3_211El2nsyncExcE, ptr @_ZN7Iex_3_211El2nsyncExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+122:                                              ; preds = %120
+  invoke void @__cxa_throw(ptr %121, ptr @_ZTIN7Iex_3_49EfaultExcE, ptr @_ZN7Iex_3_49EfaultExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad152:                                          ; preds = %sw.bb150
-  %120 = landingpad { ptr, i32 }
+123:                                              ; preds = %120
+  %124 = landingpad { ptr, i32 }
           cleanup
-  %121 = extractvalue { ptr, i32 } %120, 0
-  store ptr %121, ptr %exn.slot, align 8
-  %122 = extractvalue { ptr, i32 } %120, 1
-  store i32 %122, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception151) #8
-  br label %ehcleanup
+  %125 = extractvalue { ptr, i32 } %124, 0
+  store ptr %125, ptr %8, align 8
+  %126 = extractvalue { ptr, i32 } %124, 1
+  store i32 %126, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %121) #14
+  br label %876
 
-sw.bb154:                                         ; preds = %while.end
-  %exception155 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29El3hltExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception155, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont157 unwind label %lpad156
+127:                                              ; preds = %27
+  %128 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_410EnotblkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %128, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %129 unwind label %130
 
-invoke.cont157:                                   ; preds = %sw.bb154
-  invoke void @__cxa_throw(ptr %exception155, ptr @_ZTIN7Iex_3_29El3hltExcE, ptr @_ZN7Iex_3_29El3hltExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+129:                                              ; preds = %127
+  invoke void @__cxa_throw(ptr %128, ptr @_ZTIN7Iex_3_410EnotblkExcE, ptr @_ZN7Iex_3_410EnotblkExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad156:                                          ; preds = %sw.bb154
-  %123 = landingpad { ptr, i32 }
+130:                                              ; preds = %127
+  %131 = landingpad { ptr, i32 }
           cleanup
-  %124 = extractvalue { ptr, i32 } %123, 0
-  store ptr %124, ptr %exn.slot, align 8
-  %125 = extractvalue { ptr, i32 } %123, 1
-  store i32 %125, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception155) #8
-  br label %ehcleanup
+  %132 = extractvalue { ptr, i32 } %131, 0
+  store ptr %132, ptr %8, align 8
+  %133 = extractvalue { ptr, i32 } %131, 1
+  store i32 %133, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %128) #14
+  br label %876
 
-sw.bb158:                                         ; preds = %while.end
-  %exception159 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29El3rstExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception159, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont161 unwind label %lpad160
+134:                                              ; preds = %27
+  %135 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_48EbusyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %135, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %136 unwind label %137
 
-invoke.cont161:                                   ; preds = %sw.bb158
-  invoke void @__cxa_throw(ptr %exception159, ptr @_ZTIN7Iex_3_29El3rstExcE, ptr @_ZN7Iex_3_29El3rstExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+136:                                              ; preds = %134
+  invoke void @__cxa_throw(ptr %135, ptr @_ZTIN7Iex_3_48EbusyExcE, ptr @_ZN7Iex_3_48EbusyExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad160:                                          ; preds = %sw.bb158
-  %126 = landingpad { ptr, i32 }
-          cleanup
-  %127 = extractvalue { ptr, i32 } %126, 0
-  store ptr %127, ptr %exn.slot, align 8
-  %128 = extractvalue { ptr, i32 } %126, 1
-  store i32 %128, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception159) #8
-  br label %ehcleanup
-
-sw.bb162:                                         ; preds = %while.end
-  %exception163 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29ElnrngExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception163, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont165 unwind label %lpad164
-
-invoke.cont165:                                   ; preds = %sw.bb162
-  invoke void @__cxa_throw(ptr %exception163, ptr @_ZTIN7Iex_3_29ElnrngExcE, ptr @_ZN7Iex_3_29ElnrngExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad164:                                          ; preds = %sw.bb162
-  %129 = landingpad { ptr, i32 }
-          cleanup
-  %130 = extractvalue { ptr, i32 } %129, 0
-  store ptr %130, ptr %exn.slot, align 8
-  %131 = extractvalue { ptr, i32 } %129, 1
-  store i32 %131, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception163) #8
-  br label %ehcleanup
-
-sw.bb166:                                         ; preds = %while.end
-  %exception167 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_210EunatchExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception167, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont169 unwind label %lpad168
-
-invoke.cont169:                                   ; preds = %sw.bb166
-  invoke void @__cxa_throw(ptr %exception167, ptr @_ZTIN7Iex_3_210EunatchExcE, ptr @_ZN7Iex_3_210EunatchExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad168:                                          ; preds = %sw.bb166
-  %132 = landingpad { ptr, i32 }
-          cleanup
-  %133 = extractvalue { ptr, i32 } %132, 0
-  store ptr %133, ptr %exn.slot, align 8
-  %134 = extractvalue { ptr, i32 } %132, 1
-  store i32 %134, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception167) #8
-  br label %ehcleanup
-
-sw.bb170:                                         ; preds = %while.end
-  %exception171 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EnocsiExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception171, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont173 unwind label %lpad172
-
-invoke.cont173:                                   ; preds = %sw.bb170
-  invoke void @__cxa_throw(ptr %exception171, ptr @_ZTIN7Iex_3_29EnocsiExcE, ptr @_ZN7Iex_3_29EnocsiExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad172:                                          ; preds = %sw.bb170
-  %135 = landingpad { ptr, i32 }
-          cleanup
-  %136 = extractvalue { ptr, i32 } %135, 0
-  store ptr %136, ptr %exn.slot, align 8
-  %137 = extractvalue { ptr, i32 } %135, 1
-  store i32 %137, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception171) #8
-  br label %ehcleanup
-
-sw.bb174:                                         ; preds = %while.end
-  %exception175 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29El2hltExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception175, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont177 unwind label %lpad176
-
-invoke.cont177:                                   ; preds = %sw.bb174
-  invoke void @__cxa_throw(ptr %exception175, ptr @_ZTIN7Iex_3_29El2hltExcE, ptr @_ZN7Iex_3_29El2hltExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad176:                                          ; preds = %sw.bb174
+137:                                              ; preds = %134
   %138 = landingpad { ptr, i32 }
           cleanup
   %139 = extractvalue { ptr, i32 } %138, 0
-  store ptr %139, ptr %exn.slot, align 8
+  store ptr %139, ptr %8, align 8
   %140 = extractvalue { ptr, i32 } %138, 1
-  store i32 %140, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception175) #8
-  br label %ehcleanup
+  store i32 %140, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %135) #14
+  br label %876
 
-sw.bb178:                                         ; preds = %while.end
-  %exception179 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_210EdeadlkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception179, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont181 unwind label %lpad180
+141:                                              ; preds = %27
+  %142 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EexistExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %142, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %143 unwind label %144
 
-invoke.cont181:                                   ; preds = %sw.bb178
-  invoke void @__cxa_throw(ptr %exception179, ptr @_ZTIN7Iex_3_210EdeadlkExcE, ptr @_ZN7Iex_3_210EdeadlkExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+143:                                              ; preds = %141
+  invoke void @__cxa_throw(ptr %142, ptr @_ZTIN7Iex_3_49EexistExcE, ptr @_ZN7Iex_3_49EexistExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad180:                                          ; preds = %sw.bb178
-  %141 = landingpad { ptr, i32 }
+144:                                              ; preds = %141
+  %145 = landingpad { ptr, i32 }
           cleanup
-  %142 = extractvalue { ptr, i32 } %141, 0
-  store ptr %142, ptr %exn.slot, align 8
-  %143 = extractvalue { ptr, i32 } %141, 1
-  store i32 %143, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception179) #8
-  br label %ehcleanup
+  %146 = extractvalue { ptr, i32 } %145, 0
+  store ptr %146, ptr %8, align 8
+  %147 = extractvalue { ptr, i32 } %145, 1
+  store i32 %147, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %142) #14
+  br label %876
 
-sw.bb182:                                         ; preds = %while.end
-  %exception183 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EnolckExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception183, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont185 unwind label %lpad184
+148:                                              ; preds = %27
+  %149 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_48ExdevExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %149, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %150 unwind label %151
 
-invoke.cont185:                                   ; preds = %sw.bb182
-  invoke void @__cxa_throw(ptr %exception183, ptr @_ZTIN7Iex_3_29EnolckExcE, ptr @_ZN7Iex_3_29EnolckExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+150:                                              ; preds = %148
+  invoke void @__cxa_throw(ptr %149, ptr @_ZTIN7Iex_3_48ExdevExcE, ptr @_ZN7Iex_3_48ExdevExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad184:                                          ; preds = %sw.bb182
-  %144 = landingpad { ptr, i32 }
+151:                                              ; preds = %148
+  %152 = landingpad { ptr, i32 }
           cleanup
-  %145 = extractvalue { ptr, i32 } %144, 0
-  store ptr %145, ptr %exn.slot, align 8
-  %146 = extractvalue { ptr, i32 } %144, 1
-  store i32 %146, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception183) #8
-  br label %ehcleanup
+  %153 = extractvalue { ptr, i32 } %152, 0
+  store ptr %153, ptr %8, align 8
+  %154 = extractvalue { ptr, i32 } %152, 1
+  store i32 %154, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %149) #14
+  br label %876
 
-sw.bb186:                                         ; preds = %while.end
-  %exception187 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_28EbadeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception187, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont189 unwind label %lpad188
+155:                                              ; preds = %27
+  %156 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EnodevExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %156, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %157 unwind label %158
 
-invoke.cont189:                                   ; preds = %sw.bb186
-  invoke void @__cxa_throw(ptr %exception187, ptr @_ZTIN7Iex_3_28EbadeExcE, ptr @_ZN7Iex_3_28EbadeExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+157:                                              ; preds = %155
+  invoke void @__cxa_throw(ptr %156, ptr @_ZTIN7Iex_3_49EnodevExcE, ptr @_ZN7Iex_3_49EnodevExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad188:                                          ; preds = %sw.bb186
-  %147 = landingpad { ptr, i32 }
-          cleanup
-  %148 = extractvalue { ptr, i32 } %147, 0
-  store ptr %148, ptr %exn.slot, align 8
-  %149 = extractvalue { ptr, i32 } %147, 1
-  store i32 %149, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception187) #8
-  br label %ehcleanup
-
-sw.bb190:                                         ; preds = %while.end
-  %exception191 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_28EbadrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception191, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont193 unwind label %lpad192
-
-invoke.cont193:                                   ; preds = %sw.bb190
-  invoke void @__cxa_throw(ptr %exception191, ptr @_ZTIN7Iex_3_28EbadrExcE, ptr @_ZN7Iex_3_28EbadrExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad192:                                          ; preds = %sw.bb190
-  %150 = landingpad { ptr, i32 }
-          cleanup
-  %151 = extractvalue { ptr, i32 } %150, 0
-  store ptr %151, ptr %exn.slot, align 8
-  %152 = extractvalue { ptr, i32 } %150, 1
-  store i32 %152, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception191) #8
-  br label %ehcleanup
-
-sw.bb194:                                         ; preds = %while.end
-  %exception195 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29ExfullExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception195, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont197 unwind label %lpad196
-
-invoke.cont197:                                   ; preds = %sw.bb194
-  invoke void @__cxa_throw(ptr %exception195, ptr @_ZTIN7Iex_3_29ExfullExcE, ptr @_ZN7Iex_3_29ExfullExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad196:                                          ; preds = %sw.bb194
-  %153 = landingpad { ptr, i32 }
-          cleanup
-  %154 = extractvalue { ptr, i32 } %153, 0
-  store ptr %154, ptr %exn.slot, align 8
-  %155 = extractvalue { ptr, i32 } %153, 1
-  store i32 %155, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception195) #8
-  br label %ehcleanup
-
-sw.bb198:                                         ; preds = %while.end
-  %exception199 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EnoanoExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception199, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont201 unwind label %lpad200
-
-invoke.cont201:                                   ; preds = %sw.bb198
-  invoke void @__cxa_throw(ptr %exception199, ptr @_ZTIN7Iex_3_29EnoanoExcE, ptr @_ZN7Iex_3_29EnoanoExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad200:                                          ; preds = %sw.bb198
-  %156 = landingpad { ptr, i32 }
-          cleanup
-  %157 = extractvalue { ptr, i32 } %156, 0
-  store ptr %157, ptr %exn.slot, align 8
-  %158 = extractvalue { ptr, i32 } %156, 1
-  store i32 %158, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception199) #8
-  br label %ehcleanup
-
-sw.bb202:                                         ; preds = %while.end
-  %exception203 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_210EbadrqcExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception203, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont205 unwind label %lpad204
-
-invoke.cont205:                                   ; preds = %sw.bb202
-  invoke void @__cxa_throw(ptr %exception203, ptr @_ZTIN7Iex_3_210EbadrqcExcE, ptr @_ZN7Iex_3_210EbadrqcExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad204:                                          ; preds = %sw.bb202
+158:                                              ; preds = %155
   %159 = landingpad { ptr, i32 }
           cleanup
   %160 = extractvalue { ptr, i32 } %159, 0
-  store ptr %160, ptr %exn.slot, align 8
+  store ptr %160, ptr %8, align 8
   %161 = extractvalue { ptr, i32 } %159, 1
-  store i32 %161, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception203) #8
-  br label %ehcleanup
+  store i32 %161, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %156) #14
+  br label %876
 
-sw.bb206:                                         ; preds = %while.end
-  %exception207 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_210EbadsltExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception207, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont209 unwind label %lpad208
+162:                                              ; preds = %27
+  %163 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_410EnotdirExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %163, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %164 unwind label %165
 
-invoke.cont209:                                   ; preds = %sw.bb206
-  invoke void @__cxa_throw(ptr %exception207, ptr @_ZTIN7Iex_3_210EbadsltExcE, ptr @_ZN7Iex_3_210EbadsltExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+164:                                              ; preds = %162
+  invoke void @__cxa_throw(ptr %163, ptr @_ZTIN7Iex_3_410EnotdirExcE, ptr @_ZN7Iex_3_410EnotdirExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad208:                                          ; preds = %sw.bb206
-  %162 = landingpad { ptr, i32 }
+165:                                              ; preds = %162
+  %166 = landingpad { ptr, i32 }
           cleanup
-  %163 = extractvalue { ptr, i32 } %162, 0
-  store ptr %163, ptr %exn.slot, align 8
-  %164 = extractvalue { ptr, i32 } %162, 1
-  store i32 %164, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception207) #8
-  br label %ehcleanup
+  %167 = extractvalue { ptr, i32 } %166, 0
+  store ptr %167, ptr %8, align 8
+  %168 = extractvalue { ptr, i32 } %166, 1
+  store i32 %168, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %163) #14
+  br label %876
 
-sw.bb210:                                         ; preds = %while.end
-  %exception211 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EbfontExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception211, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont213 unwind label %lpad212
+169:                                              ; preds = %27
+  %170 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EisdirExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %170, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %171 unwind label %172
 
-invoke.cont213:                                   ; preds = %sw.bb210
-  invoke void @__cxa_throw(ptr %exception211, ptr @_ZTIN7Iex_3_29EbfontExcE, ptr @_ZN7Iex_3_29EbfontExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+171:                                              ; preds = %169
+  invoke void @__cxa_throw(ptr %170, ptr @_ZTIN7Iex_3_49EisdirExcE, ptr @_ZN7Iex_3_49EisdirExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad212:                                          ; preds = %sw.bb210
-  %165 = landingpad { ptr, i32 }
+172:                                              ; preds = %169
+  %173 = landingpad { ptr, i32 }
           cleanup
-  %166 = extractvalue { ptr, i32 } %165, 0
-  store ptr %166, ptr %exn.slot, align 8
-  %167 = extractvalue { ptr, i32 } %165, 1
-  store i32 %167, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception211) #8
-  br label %ehcleanup
+  %174 = extractvalue { ptr, i32 } %173, 0
+  store ptr %174, ptr %8, align 8
+  %175 = extractvalue { ptr, i32 } %173, 1
+  store i32 %175, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %170) #14
+  br label %876
 
-sw.bb214:                                         ; preds = %while.end
-  %exception215 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EnostrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception215, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont217 unwind label %lpad216
+176:                                              ; preds = %27
+  %177 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EinvalExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %177, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %178 unwind label %179
 
-invoke.cont217:                                   ; preds = %sw.bb214
-  invoke void @__cxa_throw(ptr %exception215, ptr @_ZTIN7Iex_3_29EnostrExcE, ptr @_ZN7Iex_3_29EnostrExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+178:                                              ; preds = %176
+  invoke void @__cxa_throw(ptr %177, ptr @_ZTIN7Iex_3_49EinvalExcE, ptr @_ZN7Iex_3_49EinvalExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad216:                                          ; preds = %sw.bb214
-  %168 = landingpad { ptr, i32 }
-          cleanup
-  %169 = extractvalue { ptr, i32 } %168, 0
-  store ptr %169, ptr %exn.slot, align 8
-  %170 = extractvalue { ptr, i32 } %168, 1
-  store i32 %170, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception215) #8
-  br label %ehcleanup
-
-sw.bb218:                                         ; preds = %while.end
-  %exception219 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_210EnodataExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception219, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont221 unwind label %lpad220
-
-invoke.cont221:                                   ; preds = %sw.bb218
-  invoke void @__cxa_throw(ptr %exception219, ptr @_ZTIN7Iex_3_210EnodataExcE, ptr @_ZN7Iex_3_210EnodataExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad220:                                          ; preds = %sw.bb218
-  %171 = landingpad { ptr, i32 }
-          cleanup
-  %172 = extractvalue { ptr, i32 } %171, 0
-  store ptr %172, ptr %exn.slot, align 8
-  %173 = extractvalue { ptr, i32 } %171, 1
-  store i32 %173, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception219) #8
-  br label %ehcleanup
-
-sw.bb222:                                         ; preds = %while.end
-  %exception223 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_28EtimeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception223, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont225 unwind label %lpad224
-
-invoke.cont225:                                   ; preds = %sw.bb222
-  invoke void @__cxa_throw(ptr %exception223, ptr @_ZTIN7Iex_3_28EtimeExcE, ptr @_ZN7Iex_3_28EtimeExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad224:                                          ; preds = %sw.bb222
-  %174 = landingpad { ptr, i32 }
-          cleanup
-  %175 = extractvalue { ptr, i32 } %174, 0
-  store ptr %175, ptr %exn.slot, align 8
-  %176 = extractvalue { ptr, i32 } %174, 1
-  store i32 %176, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception223) #8
-  br label %ehcleanup
-
-sw.bb226:                                         ; preds = %while.end
-  %exception227 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_28EnosrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception227, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont229 unwind label %lpad228
-
-invoke.cont229:                                   ; preds = %sw.bb226
-  invoke void @__cxa_throw(ptr %exception227, ptr @_ZTIN7Iex_3_28EnosrExcE, ptr @_ZN7Iex_3_28EnosrExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad228:                                          ; preds = %sw.bb226
-  %177 = landingpad { ptr, i32 }
-          cleanup
-  %178 = extractvalue { ptr, i32 } %177, 0
-  store ptr %178, ptr %exn.slot, align 8
-  %179 = extractvalue { ptr, i32 } %177, 1
-  store i32 %179, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception227) #8
-  br label %ehcleanup
-
-sw.bb230:                                         ; preds = %while.end
-  %exception231 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EnonetExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception231, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont233 unwind label %lpad232
-
-invoke.cont233:                                   ; preds = %sw.bb230
-  invoke void @__cxa_throw(ptr %exception231, ptr @_ZTIN7Iex_3_29EnonetExcE, ptr @_ZN7Iex_3_29EnonetExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad232:                                          ; preds = %sw.bb230
+179:                                              ; preds = %176
   %180 = landingpad { ptr, i32 }
           cleanup
   %181 = extractvalue { ptr, i32 } %180, 0
-  store ptr %181, ptr %exn.slot, align 8
+  store ptr %181, ptr %8, align 8
   %182 = extractvalue { ptr, i32 } %180, 1
-  store i32 %182, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception231) #8
-  br label %ehcleanup
+  store i32 %182, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %177) #14
+  br label %876
 
-sw.bb234:                                         ; preds = %while.end
-  %exception235 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EnopkgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception235, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont237 unwind label %lpad236
+183:                                              ; preds = %27
+  %184 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EnfileExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %184, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %185 unwind label %186
 
-invoke.cont237:                                   ; preds = %sw.bb234
-  invoke void @__cxa_throw(ptr %exception235, ptr @_ZTIN7Iex_3_29EnopkgExcE, ptr @_ZN7Iex_3_29EnopkgExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+185:                                              ; preds = %183
+  invoke void @__cxa_throw(ptr %184, ptr @_ZTIN7Iex_3_49EnfileExcE, ptr @_ZN7Iex_3_49EnfileExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad236:                                          ; preds = %sw.bb234
-  %183 = landingpad { ptr, i32 }
+186:                                              ; preds = %183
+  %187 = landingpad { ptr, i32 }
           cleanup
-  %184 = extractvalue { ptr, i32 } %183, 0
-  store ptr %184, ptr %exn.slot, align 8
-  %185 = extractvalue { ptr, i32 } %183, 1
-  store i32 %185, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception235) #8
-  br label %ehcleanup
+  %188 = extractvalue { ptr, i32 } %187, 0
+  store ptr %188, ptr %8, align 8
+  %189 = extractvalue { ptr, i32 } %187, 1
+  store i32 %189, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %184) #14
+  br label %876
 
-sw.bb238:                                         ; preds = %while.end
-  %exception239 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_210EremoteExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception239, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont241 unwind label %lpad240
+190:                                              ; preds = %27
+  %191 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EmfileExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %191, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %192 unwind label %193
 
-invoke.cont241:                                   ; preds = %sw.bb238
-  invoke void @__cxa_throw(ptr %exception239, ptr @_ZTIN7Iex_3_210EremoteExcE, ptr @_ZN7Iex_3_210EremoteExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+192:                                              ; preds = %190
+  invoke void @__cxa_throw(ptr %191, ptr @_ZTIN7Iex_3_49EmfileExcE, ptr @_ZN7Iex_3_49EmfileExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad240:                                          ; preds = %sw.bb238
-  %186 = landingpad { ptr, i32 }
+193:                                              ; preds = %190
+  %194 = landingpad { ptr, i32 }
           cleanup
-  %187 = extractvalue { ptr, i32 } %186, 0
-  store ptr %187, ptr %exn.slot, align 8
-  %188 = extractvalue { ptr, i32 } %186, 1
-  store i32 %188, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception239) #8
-  br label %ehcleanup
+  %195 = extractvalue { ptr, i32 } %194, 0
+  store ptr %195, ptr %8, align 8
+  %196 = extractvalue { ptr, i32 } %194, 1
+  store i32 %196, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %191) #14
+  br label %876
 
-sw.bb242:                                         ; preds = %while.end
-  %exception243 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_210EnolinkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception243, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont245 unwind label %lpad244
+197:                                              ; preds = %27
+  %198 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EnottyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %198, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %199 unwind label %200
 
-invoke.cont245:                                   ; preds = %sw.bb242
-  invoke void @__cxa_throw(ptr %exception243, ptr @_ZTIN7Iex_3_210EnolinkExcE, ptr @_ZN7Iex_3_210EnolinkExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+199:                                              ; preds = %197
+  invoke void @__cxa_throw(ptr %198, ptr @_ZTIN7Iex_3_49EnottyExcE, ptr @_ZN7Iex_3_49EnottyExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad244:                                          ; preds = %sw.bb242
-  %189 = landingpad { ptr, i32 }
-          cleanup
-  %190 = extractvalue { ptr, i32 } %189, 0
-  store ptr %190, ptr %exn.slot, align 8
-  %191 = extractvalue { ptr, i32 } %189, 1
-  store i32 %191, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception243) #8
-  br label %ehcleanup
-
-sw.bb246:                                         ; preds = %while.end
-  %exception247 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_27EadvExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception247, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont249 unwind label %lpad248
-
-invoke.cont249:                                   ; preds = %sw.bb246
-  invoke void @__cxa_throw(ptr %exception247, ptr @_ZTIN7Iex_3_27EadvExcE, ptr @_ZN7Iex_3_27EadvExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad248:                                          ; preds = %sw.bb246
-  %192 = landingpad { ptr, i32 }
-          cleanup
-  %193 = extractvalue { ptr, i32 } %192, 0
-  store ptr %193, ptr %exn.slot, align 8
-  %194 = extractvalue { ptr, i32 } %192, 1
-  store i32 %194, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception247) #8
-  br label %ehcleanup
-
-sw.bb250:                                         ; preds = %while.end
-  %exception251 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EsrmntExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception251, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont253 unwind label %lpad252
-
-invoke.cont253:                                   ; preds = %sw.bb250
-  invoke void @__cxa_throw(ptr %exception251, ptr @_ZTIN7Iex_3_29EsrmntExcE, ptr @_ZN7Iex_3_29EsrmntExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad252:                                          ; preds = %sw.bb250
-  %195 = landingpad { ptr, i32 }
-          cleanup
-  %196 = extractvalue { ptr, i32 } %195, 0
-  store ptr %196, ptr %exn.slot, align 8
-  %197 = extractvalue { ptr, i32 } %195, 1
-  store i32 %197, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception251) #8
-  br label %ehcleanup
-
-sw.bb254:                                         ; preds = %while.end
-  %exception255 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_28EcommExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception255, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont257 unwind label %lpad256
-
-invoke.cont257:                                   ; preds = %sw.bb254
-  invoke void @__cxa_throw(ptr %exception255, ptr @_ZTIN7Iex_3_28EcommExcE, ptr @_ZN7Iex_3_28EcommExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad256:                                          ; preds = %sw.bb254
-  %198 = landingpad { ptr, i32 }
-          cleanup
-  %199 = extractvalue { ptr, i32 } %198, 0
-  store ptr %199, ptr %exn.slot, align 8
-  %200 = extractvalue { ptr, i32 } %198, 1
-  store i32 %200, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception255) #8
-  br label %ehcleanup
-
-sw.bb258:                                         ; preds = %while.end
-  %exception259 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EprotoExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception259, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont261 unwind label %lpad260
-
-invoke.cont261:                                   ; preds = %sw.bb258
-  invoke void @__cxa_throw(ptr %exception259, ptr @_ZTIN7Iex_3_29EprotoExcE, ptr @_ZN7Iex_3_29EprotoExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad260:                                          ; preds = %sw.bb258
+200:                                              ; preds = %197
   %201 = landingpad { ptr, i32 }
           cleanup
   %202 = extractvalue { ptr, i32 } %201, 0
-  store ptr %202, ptr %exn.slot, align 8
+  store ptr %202, ptr %8, align 8
   %203 = extractvalue { ptr, i32 } %201, 1
-  store i32 %203, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception259) #8
-  br label %ehcleanup
+  store i32 %203, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %198) #14
+  br label %876
 
-sw.bb262:                                         ; preds = %while.end
-  %exception263 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_212EmultihopExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception263, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont265 unwind label %lpad264
+204:                                              ; preds = %27
+  %205 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_410EtxtbsyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %205, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %206 unwind label %207
 
-invoke.cont265:                                   ; preds = %sw.bb262
-  invoke void @__cxa_throw(ptr %exception263, ptr @_ZTIN7Iex_3_212EmultihopExcE, ptr @_ZN7Iex_3_212EmultihopExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+206:                                              ; preds = %204
+  invoke void @__cxa_throw(ptr %205, ptr @_ZTIN7Iex_3_410EtxtbsyExcE, ptr @_ZN7Iex_3_410EtxtbsyExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad264:                                          ; preds = %sw.bb262
-  %204 = landingpad { ptr, i32 }
+207:                                              ; preds = %204
+  %208 = landingpad { ptr, i32 }
           cleanup
-  %205 = extractvalue { ptr, i32 } %204, 0
-  store ptr %205, ptr %exn.slot, align 8
-  %206 = extractvalue { ptr, i32 } %204, 1
-  store i32 %206, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception263) #8
-  br label %ehcleanup
+  %209 = extractvalue { ptr, i32 } %208, 0
+  store ptr %209, ptr %8, align 8
+  %210 = extractvalue { ptr, i32 } %208, 1
+  store i32 %210, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %205) #14
+  br label %876
 
-sw.bb266:                                         ; preds = %while.end
-  %exception267 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_210EbadmsgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception267, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont269 unwind label %lpad268
+211:                                              ; preds = %27
+  %212 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_48EfbigExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %212, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %213 unwind label %214
 
-invoke.cont269:                                   ; preds = %sw.bb266
-  invoke void @__cxa_throw(ptr %exception267, ptr @_ZTIN7Iex_3_210EbadmsgExcE, ptr @_ZN7Iex_3_210EbadmsgExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+213:                                              ; preds = %211
+  invoke void @__cxa_throw(ptr %212, ptr @_ZTIN7Iex_3_48EfbigExcE, ptr @_ZN7Iex_3_48EfbigExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad268:                                          ; preds = %sw.bb266
-  %207 = landingpad { ptr, i32 }
+214:                                              ; preds = %211
+  %215 = landingpad { ptr, i32 }
           cleanup
-  %208 = extractvalue { ptr, i32 } %207, 0
-  store ptr %208, ptr %exn.slot, align 8
-  %209 = extractvalue { ptr, i32 } %207, 1
-  store i32 %209, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception267) #8
-  br label %ehcleanup
+  %216 = extractvalue { ptr, i32 } %215, 0
+  store ptr %216, ptr %8, align 8
+  %217 = extractvalue { ptr, i32 } %215, 1
+  store i32 %217, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %212) #14
+  br label %876
 
-sw.bb270:                                         ; preds = %while.end
-  %exception271 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_215EnametoolongExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception271, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont273 unwind label %lpad272
+218:                                              ; preds = %27
+  %219 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EnospcExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %219, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %220 unwind label %221
 
-invoke.cont273:                                   ; preds = %sw.bb270
-  invoke void @__cxa_throw(ptr %exception271, ptr @_ZTIN7Iex_3_215EnametoolongExcE, ptr @_ZN7Iex_3_215EnametoolongExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+220:                                              ; preds = %218
+  invoke void @__cxa_throw(ptr %219, ptr @_ZTIN7Iex_3_49EnospcExcE, ptr @_ZN7Iex_3_49EnospcExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad272:                                          ; preds = %sw.bb270
-  %210 = landingpad { ptr, i32 }
-          cleanup
-  %211 = extractvalue { ptr, i32 } %210, 0
-  store ptr %211, ptr %exn.slot, align 8
-  %212 = extractvalue { ptr, i32 } %210, 1
-  store i32 %212, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception271) #8
-  br label %ehcleanup
-
-sw.bb274:                                         ; preds = %while.end
-  %exception275 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_212EoverflowExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception275, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont277 unwind label %lpad276
-
-invoke.cont277:                                   ; preds = %sw.bb274
-  invoke void @__cxa_throw(ptr %exception275, ptr @_ZTIN7Iex_3_212EoverflowExcE, ptr @_ZN7Iex_3_212EoverflowExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad276:                                          ; preds = %sw.bb274
-  %213 = landingpad { ptr, i32 }
-          cleanup
-  %214 = extractvalue { ptr, i32 } %213, 0
-  store ptr %214, ptr %exn.slot, align 8
-  %215 = extractvalue { ptr, i32 } %213, 1
-  store i32 %215, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception275) #8
-  br label %ehcleanup
-
-sw.bb278:                                         ; preds = %while.end
-  %exception279 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_211EnotuniqExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception279, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont281 unwind label %lpad280
-
-invoke.cont281:                                   ; preds = %sw.bb278
-  invoke void @__cxa_throw(ptr %exception279, ptr @_ZTIN7Iex_3_211EnotuniqExcE, ptr @_ZN7Iex_3_211EnotuniqExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad280:                                          ; preds = %sw.bb278
-  %216 = landingpad { ptr, i32 }
-          cleanup
-  %217 = extractvalue { ptr, i32 } %216, 0
-  store ptr %217, ptr %exn.slot, align 8
-  %218 = extractvalue { ptr, i32 } %216, 1
-  store i32 %218, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception279) #8
-  br label %ehcleanup
-
-sw.bb282:                                         ; preds = %while.end
-  %exception283 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EbadfdExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception283, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont285 unwind label %lpad284
-
-invoke.cont285:                                   ; preds = %sw.bb282
-  invoke void @__cxa_throw(ptr %exception283, ptr @_ZTIN7Iex_3_29EbadfdExcE, ptr @_ZN7Iex_3_29EbadfdExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad284:                                          ; preds = %sw.bb282
-  %219 = landingpad { ptr, i32 }
-          cleanup
-  %220 = extractvalue { ptr, i32 } %219, 0
-  store ptr %220, ptr %exn.slot, align 8
-  %221 = extractvalue { ptr, i32 } %219, 1
-  store i32 %221, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception283) #8
-  br label %ehcleanup
-
-sw.bb286:                                         ; preds = %while.end
-  %exception287 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_210EremchgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception287, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont289 unwind label %lpad288
-
-invoke.cont289:                                   ; preds = %sw.bb286
-  invoke void @__cxa_throw(ptr %exception287, ptr @_ZTIN7Iex_3_210EremchgExcE, ptr @_ZN7Iex_3_210EremchgExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad288:                                          ; preds = %sw.bb286
+221:                                              ; preds = %218
   %222 = landingpad { ptr, i32 }
           cleanup
   %223 = extractvalue { ptr, i32 } %222, 0
-  store ptr %223, ptr %exn.slot, align 8
+  store ptr %223, ptr %8, align 8
   %224 = extractvalue { ptr, i32 } %222, 1
-  store i32 %224, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception287) #8
-  br label %ehcleanup
+  store i32 %224, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %219) #14
+  br label %876
 
-sw.bb290:                                         ; preds = %while.end
-  %exception291 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_210ElibaccExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception291, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont293 unwind label %lpad292
+225:                                              ; preds = %27
+  %226 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EspipeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %226, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %227 unwind label %228
 
-invoke.cont293:                                   ; preds = %sw.bb290
-  invoke void @__cxa_throw(ptr %exception291, ptr @_ZTIN7Iex_3_210ElibaccExcE, ptr @_ZN7Iex_3_210ElibaccExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+227:                                              ; preds = %225
+  invoke void @__cxa_throw(ptr %226, ptr @_ZTIN7Iex_3_49EspipeExcE, ptr @_ZN7Iex_3_49EspipeExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad292:                                          ; preds = %sw.bb290
-  %225 = landingpad { ptr, i32 }
+228:                                              ; preds = %225
+  %229 = landingpad { ptr, i32 }
           cleanup
-  %226 = extractvalue { ptr, i32 } %225, 0
-  store ptr %226, ptr %exn.slot, align 8
-  %227 = extractvalue { ptr, i32 } %225, 1
-  store i32 %227, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception291) #8
-  br label %ehcleanup
+  %230 = extractvalue { ptr, i32 } %229, 0
+  store ptr %230, ptr %8, align 8
+  %231 = extractvalue { ptr, i32 } %229, 1
+  store i32 %231, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %226) #14
+  br label %876
 
-sw.bb294:                                         ; preds = %while.end
-  %exception295 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_210ElibbadExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception295, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont297 unwind label %lpad296
+232:                                              ; preds = %27
+  %233 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_48ErofsExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %233, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %234 unwind label %235
 
-invoke.cont297:                                   ; preds = %sw.bb294
-  invoke void @__cxa_throw(ptr %exception295, ptr @_ZTIN7Iex_3_210ElibbadExcE, ptr @_ZN7Iex_3_210ElibbadExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+234:                                              ; preds = %232
+  invoke void @__cxa_throw(ptr %233, ptr @_ZTIN7Iex_3_48ErofsExcE, ptr @_ZN7Iex_3_48ErofsExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad296:                                          ; preds = %sw.bb294
-  %228 = landingpad { ptr, i32 }
+235:                                              ; preds = %232
+  %236 = landingpad { ptr, i32 }
           cleanup
-  %229 = extractvalue { ptr, i32 } %228, 0
-  store ptr %229, ptr %exn.slot, align 8
-  %230 = extractvalue { ptr, i32 } %228, 1
-  store i32 %230, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception295) #8
-  br label %ehcleanup
+  %237 = extractvalue { ptr, i32 } %236, 0
+  store ptr %237, ptr %8, align 8
+  %238 = extractvalue { ptr, i32 } %236, 1
+  store i32 %238, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %233) #14
+  br label %876
 
-sw.bb298:                                         ; preds = %while.end
-  %exception299 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_210ElibscnExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception299, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont301 unwind label %lpad300
+239:                                              ; preds = %27
+  %240 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EmlinkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %240, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %241 unwind label %242
 
-invoke.cont301:                                   ; preds = %sw.bb298
-  invoke void @__cxa_throw(ptr %exception299, ptr @_ZTIN7Iex_3_210ElibscnExcE, ptr @_ZN7Iex_3_210ElibscnExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+241:                                              ; preds = %239
+  invoke void @__cxa_throw(ptr %240, ptr @_ZTIN7Iex_3_49EmlinkExcE, ptr @_ZN7Iex_3_49EmlinkExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad300:                                          ; preds = %sw.bb298
-  %231 = landingpad { ptr, i32 }
-          cleanup
-  %232 = extractvalue { ptr, i32 } %231, 0
-  store ptr %232, ptr %exn.slot, align 8
-  %233 = extractvalue { ptr, i32 } %231, 1
-  store i32 %233, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception299) #8
-  br label %ehcleanup
-
-sw.bb302:                                         ; preds = %while.end
-  %exception303 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_210ElibmaxExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception303, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont305 unwind label %lpad304
-
-invoke.cont305:                                   ; preds = %sw.bb302
-  invoke void @__cxa_throw(ptr %exception303, ptr @_ZTIN7Iex_3_210ElibmaxExcE, ptr @_ZN7Iex_3_210ElibmaxExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad304:                                          ; preds = %sw.bb302
-  %234 = landingpad { ptr, i32 }
-          cleanup
-  %235 = extractvalue { ptr, i32 } %234, 0
-  store ptr %235, ptr %exn.slot, align 8
-  %236 = extractvalue { ptr, i32 } %234, 1
-  store i32 %236, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception303) #8
-  br label %ehcleanup
-
-sw.bb306:                                         ; preds = %while.end
-  %exception307 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_211ElibexecExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception307, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont309 unwind label %lpad308
-
-invoke.cont309:                                   ; preds = %sw.bb306
-  invoke void @__cxa_throw(ptr %exception307, ptr @_ZTIN7Iex_3_211ElibexecExcE, ptr @_ZN7Iex_3_211ElibexecExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad308:                                          ; preds = %sw.bb306
-  %237 = landingpad { ptr, i32 }
-          cleanup
-  %238 = extractvalue { ptr, i32 } %237, 0
-  store ptr %238, ptr %exn.slot, align 8
-  %239 = extractvalue { ptr, i32 } %237, 1
-  store i32 %239, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception307) #8
-  br label %ehcleanup
-
-sw.bb310:                                         ; preds = %while.end
-  %exception311 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EilseqExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception311, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont313 unwind label %lpad312
-
-invoke.cont313:                                   ; preds = %sw.bb310
-  invoke void @__cxa_throw(ptr %exception311, ptr @_ZTIN7Iex_3_29EilseqExcE, ptr @_ZN7Iex_3_29EilseqExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad312:                                          ; preds = %sw.bb310
-  %240 = landingpad { ptr, i32 }
-          cleanup
-  %241 = extractvalue { ptr, i32 } %240, 0
-  store ptr %241, ptr %exn.slot, align 8
-  %242 = extractvalue { ptr, i32 } %240, 1
-  store i32 %242, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception311) #8
-  br label %ehcleanup
-
-sw.bb314:                                         ; preds = %while.end
-  %exception315 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EnosysExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception315, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont317 unwind label %lpad316
-
-invoke.cont317:                                   ; preds = %sw.bb314
-  invoke void @__cxa_throw(ptr %exception315, ptr @_ZTIN7Iex_3_29EnosysExcE, ptr @_ZN7Iex_3_29EnosysExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad316:                                          ; preds = %sw.bb314
+242:                                              ; preds = %239
   %243 = landingpad { ptr, i32 }
           cleanup
   %244 = extractvalue { ptr, i32 } %243, 0
-  store ptr %244, ptr %exn.slot, align 8
+  store ptr %244, ptr %8, align 8
   %245 = extractvalue { ptr, i32 } %243, 1
-  store i32 %245, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception315) #8
-  br label %ehcleanup
+  store i32 %245, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %240) #14
+  br label %876
 
-sw.bb318:                                         ; preds = %while.end
-  %exception319 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_28EloopExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception319, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont321 unwind label %lpad320
+246:                                              ; preds = %27
+  %247 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_48EpipeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %247, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %248 unwind label %249
 
-invoke.cont321:                                   ; preds = %sw.bb318
-  invoke void @__cxa_throw(ptr %exception319, ptr @_ZTIN7Iex_3_28EloopExcE, ptr @_ZN7Iex_3_28EloopExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+248:                                              ; preds = %246
+  invoke void @__cxa_throw(ptr %247, ptr @_ZTIN7Iex_3_48EpipeExcE, ptr @_ZN7Iex_3_48EpipeExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad320:                                          ; preds = %sw.bb318
-  %246 = landingpad { ptr, i32 }
+249:                                              ; preds = %246
+  %250 = landingpad { ptr, i32 }
           cleanup
-  %247 = extractvalue { ptr, i32 } %246, 0
-  store ptr %247, ptr %exn.slot, align 8
-  %248 = extractvalue { ptr, i32 } %246, 1
-  store i32 %248, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception319) #8
-  br label %ehcleanup
+  %251 = extractvalue { ptr, i32 } %250, 0
+  store ptr %251, ptr %8, align 8
+  %252 = extractvalue { ptr, i32 } %250, 1
+  store i32 %252, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %247) #14
+  br label %876
 
-sw.bb322:                                         ; preds = %while.end
-  %exception323 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_211ErestartExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception323, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont325 unwind label %lpad324
+253:                                              ; preds = %27
+  %254 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_47EdomExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %254, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %255 unwind label %256
 
-invoke.cont325:                                   ; preds = %sw.bb322
-  invoke void @__cxa_throw(ptr %exception323, ptr @_ZTIN7Iex_3_211ErestartExcE, ptr @_ZN7Iex_3_211ErestartExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+255:                                              ; preds = %253
+  invoke void @__cxa_throw(ptr %254, ptr @_ZTIN7Iex_3_47EdomExcE, ptr @_ZN7Iex_3_47EdomExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad324:                                          ; preds = %sw.bb322
-  %249 = landingpad { ptr, i32 }
+256:                                              ; preds = %253
+  %257 = landingpad { ptr, i32 }
           cleanup
-  %250 = extractvalue { ptr, i32 } %249, 0
-  store ptr %250, ptr %exn.slot, align 8
-  %251 = extractvalue { ptr, i32 } %249, 1
-  store i32 %251, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception323) #8
-  br label %ehcleanup
+  %258 = extractvalue { ptr, i32 } %257, 0
+  store ptr %258, ptr %8, align 8
+  %259 = extractvalue { ptr, i32 } %257, 1
+  store i32 %259, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %254) #14
+  br label %876
 
-sw.bb326:                                         ; preds = %while.end
-  %exception327 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_211EstrpipeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception327, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont329 unwind label %lpad328
+260:                                              ; preds = %27
+  %261 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49ErangeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %261, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %262 unwind label %263
 
-invoke.cont329:                                   ; preds = %sw.bb326
-  invoke void @__cxa_throw(ptr %exception327, ptr @_ZTIN7Iex_3_211EstrpipeExcE, ptr @_ZN7Iex_3_211EstrpipeExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+262:                                              ; preds = %260
+  invoke void @__cxa_throw(ptr %261, ptr @_ZTIN7Iex_3_49ErangeExcE, ptr @_ZN7Iex_3_49ErangeExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad328:                                          ; preds = %sw.bb326
-  %252 = landingpad { ptr, i32 }
-          cleanup
-  %253 = extractvalue { ptr, i32 } %252, 0
-  store ptr %253, ptr %exn.slot, align 8
-  %254 = extractvalue { ptr, i32 } %252, 1
-  store i32 %254, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception327) #8
-  br label %ehcleanup
-
-sw.bb330:                                         ; preds = %while.end
-  %exception331 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_212EnotemptyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception331, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont333 unwind label %lpad332
-
-invoke.cont333:                                   ; preds = %sw.bb330
-  invoke void @__cxa_throw(ptr %exception331, ptr @_ZTIN7Iex_3_212EnotemptyExcE, ptr @_ZN7Iex_3_212EnotemptyExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad332:                                          ; preds = %sw.bb330
-  %255 = landingpad { ptr, i32 }
-          cleanup
-  %256 = extractvalue { ptr, i32 } %255, 0
-  store ptr %256, ptr %exn.slot, align 8
-  %257 = extractvalue { ptr, i32 } %255, 1
-  store i32 %257, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception331) #8
-  br label %ehcleanup
-
-sw.bb334:                                         ; preds = %while.end
-  %exception335 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EusersExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception335, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont337 unwind label %lpad336
-
-invoke.cont337:                                   ; preds = %sw.bb334
-  invoke void @__cxa_throw(ptr %exception335, ptr @_ZTIN7Iex_3_29EusersExcE, ptr @_ZN7Iex_3_29EusersExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad336:                                          ; preds = %sw.bb334
-  %258 = landingpad { ptr, i32 }
-          cleanup
-  %259 = extractvalue { ptr, i32 } %258, 0
-  store ptr %259, ptr %exn.slot, align 8
-  %260 = extractvalue { ptr, i32 } %258, 1
-  store i32 %260, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception335) #8
-  br label %ehcleanup
-
-sw.bb338:                                         ; preds = %while.end
-  %exception339 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_211EnotsockExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception339, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont341 unwind label %lpad340
-
-invoke.cont341:                                   ; preds = %sw.bb338
-  invoke void @__cxa_throw(ptr %exception339, ptr @_ZTIN7Iex_3_211EnotsockExcE, ptr @_ZN7Iex_3_211EnotsockExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad340:                                          ; preds = %sw.bb338
-  %261 = landingpad { ptr, i32 }
-          cleanup
-  %262 = extractvalue { ptr, i32 } %261, 0
-  store ptr %262, ptr %exn.slot, align 8
-  %263 = extractvalue { ptr, i32 } %261, 1
-  store i32 %263, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception339) #8
-  br label %ehcleanup
-
-sw.bb342:                                         ; preds = %while.end
-  %exception343 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_215EdestaddrreqExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception343, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont345 unwind label %lpad344
-
-invoke.cont345:                                   ; preds = %sw.bb342
-  invoke void @__cxa_throw(ptr %exception343, ptr @_ZTIN7Iex_3_215EdestaddrreqExcE, ptr @_ZN7Iex_3_215EdestaddrreqExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad344:                                          ; preds = %sw.bb342
+263:                                              ; preds = %260
   %264 = landingpad { ptr, i32 }
           cleanup
   %265 = extractvalue { ptr, i32 } %264, 0
-  store ptr %265, ptr %exn.slot, align 8
+  store ptr %265, ptr %8, align 8
   %266 = extractvalue { ptr, i32 } %264, 1
-  store i32 %266, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception343) #8
-  br label %ehcleanup
+  store i32 %266, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %261) #14
+  br label %876
 
-sw.bb346:                                         ; preds = %while.end
-  %exception347 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_211EmsgsizeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception347, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont349 unwind label %lpad348
+267:                                              ; preds = %27
+  %268 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EnomsgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %268, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %269 unwind label %270
 
-invoke.cont349:                                   ; preds = %sw.bb346
-  invoke void @__cxa_throw(ptr %exception347, ptr @_ZTIN7Iex_3_211EmsgsizeExcE, ptr @_ZN7Iex_3_211EmsgsizeExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+269:                                              ; preds = %267
+  invoke void @__cxa_throw(ptr %268, ptr @_ZTIN7Iex_3_49EnomsgExcE, ptr @_ZN7Iex_3_49EnomsgExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad348:                                          ; preds = %sw.bb346
-  %267 = landingpad { ptr, i32 }
+270:                                              ; preds = %267
+  %271 = landingpad { ptr, i32 }
           cleanup
-  %268 = extractvalue { ptr, i32 } %267, 0
-  store ptr %268, ptr %exn.slot, align 8
-  %269 = extractvalue { ptr, i32 } %267, 1
-  store i32 %269, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception347) #8
-  br label %ehcleanup
+  %272 = extractvalue { ptr, i32 } %271, 0
+  store ptr %272, ptr %8, align 8
+  %273 = extractvalue { ptr, i32 } %271, 1
+  store i32 %273, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %268) #14
+  br label %876
 
-sw.bb350:                                         ; preds = %while.end
-  %exception351 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_213EprototypeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception351, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont353 unwind label %lpad352
+274:                                              ; preds = %27
+  %275 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_48EidrmExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %275, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %276 unwind label %277
 
-invoke.cont353:                                   ; preds = %sw.bb350
-  invoke void @__cxa_throw(ptr %exception351, ptr @_ZTIN7Iex_3_213EprototypeExcE, ptr @_ZN7Iex_3_213EprototypeExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+276:                                              ; preds = %274
+  invoke void @__cxa_throw(ptr %275, ptr @_ZTIN7Iex_3_48EidrmExcE, ptr @_ZN7Iex_3_48EidrmExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad352:                                          ; preds = %sw.bb350
-  %270 = landingpad { ptr, i32 }
+277:                                              ; preds = %274
+  %278 = landingpad { ptr, i32 }
           cleanup
-  %271 = extractvalue { ptr, i32 } %270, 0
-  store ptr %271, ptr %exn.slot, align 8
-  %272 = extractvalue { ptr, i32 } %270, 1
-  store i32 %272, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception351) #8
-  br label %ehcleanup
+  %279 = extractvalue { ptr, i32 } %278, 0
+  store ptr %279, ptr %8, align 8
+  %280 = extractvalue { ptr, i32 } %278, 1
+  store i32 %280, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %275) #14
+  br label %876
 
-sw.bb354:                                         ; preds = %while.end
-  %exception355 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_214EnoprotooptExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception355, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont357 unwind label %lpad356
+281:                                              ; preds = %27
+  %282 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EchrngExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %282, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %283 unwind label %284
 
-invoke.cont357:                                   ; preds = %sw.bb354
-  invoke void @__cxa_throw(ptr %exception355, ptr @_ZTIN7Iex_3_214EnoprotooptExcE, ptr @_ZN7Iex_3_214EnoprotooptExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+283:                                              ; preds = %281
+  invoke void @__cxa_throw(ptr %282, ptr @_ZTIN7Iex_3_49EchrngExcE, ptr @_ZN7Iex_3_49EchrngExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad356:                                          ; preds = %sw.bb354
-  %273 = landingpad { ptr, i32 }
-          cleanup
-  %274 = extractvalue { ptr, i32 } %273, 0
-  store ptr %274, ptr %exn.slot, align 8
-  %275 = extractvalue { ptr, i32 } %273, 1
-  store i32 %275, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception355) #8
-  br label %ehcleanup
-
-sw.bb358:                                         ; preds = %while.end
-  %exception359 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_218EprotonosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception359, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont361 unwind label %lpad360
-
-invoke.cont361:                                   ; preds = %sw.bb358
-  invoke void @__cxa_throw(ptr %exception359, ptr @_ZTIN7Iex_3_218EprotonosupportExcE, ptr @_ZN7Iex_3_218EprotonosupportExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad360:                                          ; preds = %sw.bb358
-  %276 = landingpad { ptr, i32 }
-          cleanup
-  %277 = extractvalue { ptr, i32 } %276, 0
-  store ptr %277, ptr %exn.slot, align 8
-  %278 = extractvalue { ptr, i32 } %276, 1
-  store i32 %278, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception359) #8
-  br label %ehcleanup
-
-sw.bb362:                                         ; preds = %while.end
-  %exception363 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_218EsocktnosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception363, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont365 unwind label %lpad364
-
-invoke.cont365:                                   ; preds = %sw.bb362
-  invoke void @__cxa_throw(ptr %exception363, ptr @_ZTIN7Iex_3_218EsocktnosupportExcE, ptr @_ZN7Iex_3_218EsocktnosupportExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad364:                                          ; preds = %sw.bb362
-  %279 = landingpad { ptr, i32 }
-          cleanup
-  %280 = extractvalue { ptr, i32 } %279, 0
-  store ptr %280, ptr %exn.slot, align 8
-  %281 = extractvalue { ptr, i32 } %279, 1
-  store i32 %281, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception363) #8
-  br label %ehcleanup
-
-sw.bb366:                                         ; preds = %while.end
-  %exception367 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_213EopnotsuppExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception367, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont369 unwind label %lpad368
-
-invoke.cont369:                                   ; preds = %sw.bb366
-  invoke void @__cxa_throw(ptr %exception367, ptr @_ZTIN7Iex_3_213EopnotsuppExcE, ptr @_ZN7Iex_3_213EopnotsuppExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad368:                                          ; preds = %sw.bb366
-  %282 = landingpad { ptr, i32 }
-          cleanup
-  %283 = extractvalue { ptr, i32 } %282, 0
-  store ptr %283, ptr %exn.slot, align 8
-  %284 = extractvalue { ptr, i32 } %282, 1
-  store i32 %284, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception367) #8
-  br label %ehcleanup
-
-sw.bb370:                                         ; preds = %while.end
-  %exception371 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_215EpfnosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception371, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont373 unwind label %lpad372
-
-invoke.cont373:                                   ; preds = %sw.bb370
-  invoke void @__cxa_throw(ptr %exception371, ptr @_ZTIN7Iex_3_215EpfnosupportExcE, ptr @_ZN7Iex_3_215EpfnosupportExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad372:                                          ; preds = %sw.bb370
+284:                                              ; preds = %281
   %285 = landingpad { ptr, i32 }
           cleanup
   %286 = extractvalue { ptr, i32 } %285, 0
-  store ptr %286, ptr %exn.slot, align 8
+  store ptr %286, ptr %8, align 8
   %287 = extractvalue { ptr, i32 } %285, 1
-  store i32 %287, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception371) #8
-  br label %ehcleanup
+  store i32 %287, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %282) #14
+  br label %876
 
-sw.bb374:                                         ; preds = %while.end
-  %exception375 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_215EafnosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception375, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont377 unwind label %lpad376
+288:                                              ; preds = %27
+  %289 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_411El2nsyncExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %289, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %290 unwind label %291
 
-invoke.cont377:                                   ; preds = %sw.bb374
-  invoke void @__cxa_throw(ptr %exception375, ptr @_ZTIN7Iex_3_215EafnosupportExcE, ptr @_ZN7Iex_3_215EafnosupportExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+290:                                              ; preds = %288
+  invoke void @__cxa_throw(ptr %289, ptr @_ZTIN7Iex_3_411El2nsyncExcE, ptr @_ZN7Iex_3_411El2nsyncExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad376:                                          ; preds = %sw.bb374
-  %288 = landingpad { ptr, i32 }
+291:                                              ; preds = %288
+  %292 = landingpad { ptr, i32 }
           cleanup
-  %289 = extractvalue { ptr, i32 } %288, 0
-  store ptr %289, ptr %exn.slot, align 8
-  %290 = extractvalue { ptr, i32 } %288, 1
-  store i32 %290, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception375) #8
-  br label %ehcleanup
+  %293 = extractvalue { ptr, i32 } %292, 0
+  store ptr %293, ptr %8, align 8
+  %294 = extractvalue { ptr, i32 } %292, 1
+  store i32 %294, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %289) #14
+  br label %876
 
-sw.bb378:                                         ; preds = %while.end
-  %exception379 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_213EaddrinuseExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception379, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont381 unwind label %lpad380
+295:                                              ; preds = %27
+  %296 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49El3hltExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %296, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %297 unwind label %298
 
-invoke.cont381:                                   ; preds = %sw.bb378
-  invoke void @__cxa_throw(ptr %exception379, ptr @_ZTIN7Iex_3_213EaddrinuseExcE, ptr @_ZN7Iex_3_213EaddrinuseExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+297:                                              ; preds = %295
+  invoke void @__cxa_throw(ptr %296, ptr @_ZTIN7Iex_3_49El3hltExcE, ptr @_ZN7Iex_3_49El3hltExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad380:                                          ; preds = %sw.bb378
-  %291 = landingpad { ptr, i32 }
+298:                                              ; preds = %295
+  %299 = landingpad { ptr, i32 }
           cleanup
-  %292 = extractvalue { ptr, i32 } %291, 0
-  store ptr %292, ptr %exn.slot, align 8
-  %293 = extractvalue { ptr, i32 } %291, 1
-  store i32 %293, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception379) #8
-  br label %ehcleanup
+  %300 = extractvalue { ptr, i32 } %299, 0
+  store ptr %300, ptr %8, align 8
+  %301 = extractvalue { ptr, i32 } %299, 1
+  store i32 %301, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %296) #14
+  br label %876
 
-sw.bb382:                                         ; preds = %while.end
-  %exception383 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_216EaddrnotavailExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception383, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont385 unwind label %lpad384
+302:                                              ; preds = %27
+  %303 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49El3rstExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %303, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %304 unwind label %305
 
-invoke.cont385:                                   ; preds = %sw.bb382
-  invoke void @__cxa_throw(ptr %exception383, ptr @_ZTIN7Iex_3_216EaddrnotavailExcE, ptr @_ZN7Iex_3_216EaddrnotavailExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+304:                                              ; preds = %302
+  invoke void @__cxa_throw(ptr %303, ptr @_ZTIN7Iex_3_49El3rstExcE, ptr @_ZN7Iex_3_49El3rstExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad384:                                          ; preds = %sw.bb382
-  %294 = landingpad { ptr, i32 }
-          cleanup
-  %295 = extractvalue { ptr, i32 } %294, 0
-  store ptr %295, ptr %exn.slot, align 8
-  %296 = extractvalue { ptr, i32 } %294, 1
-  store i32 %296, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception383) #8
-  br label %ehcleanup
-
-sw.bb386:                                         ; preds = %while.end
-  %exception387 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_211EnetdownExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception387, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont389 unwind label %lpad388
-
-invoke.cont389:                                   ; preds = %sw.bb386
-  invoke void @__cxa_throw(ptr %exception387, ptr @_ZTIN7Iex_3_211EnetdownExcE, ptr @_ZN7Iex_3_211EnetdownExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad388:                                          ; preds = %sw.bb386
-  %297 = landingpad { ptr, i32 }
-          cleanup
-  %298 = extractvalue { ptr, i32 } %297, 0
-  store ptr %298, ptr %exn.slot, align 8
-  %299 = extractvalue { ptr, i32 } %297, 1
-  store i32 %299, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception387) #8
-  br label %ehcleanup
-
-sw.bb390:                                         ; preds = %while.end
-  %exception391 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_214EnetunreachExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception391, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont393 unwind label %lpad392
-
-invoke.cont393:                                   ; preds = %sw.bb390
-  invoke void @__cxa_throw(ptr %exception391, ptr @_ZTIN7Iex_3_214EnetunreachExcE, ptr @_ZN7Iex_3_214EnetunreachExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad392:                                          ; preds = %sw.bb390
-  %300 = landingpad { ptr, i32 }
-          cleanup
-  %301 = extractvalue { ptr, i32 } %300, 0
-  store ptr %301, ptr %exn.slot, align 8
-  %302 = extractvalue { ptr, i32 } %300, 1
-  store i32 %302, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception391) #8
-  br label %ehcleanup
-
-sw.bb394:                                         ; preds = %while.end
-  %exception395 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_212EnetresetExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception395, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont397 unwind label %lpad396
-
-invoke.cont397:                                   ; preds = %sw.bb394
-  invoke void @__cxa_throw(ptr %exception395, ptr @_ZTIN7Iex_3_212EnetresetExcE, ptr @_ZN7Iex_3_212EnetresetExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad396:                                          ; preds = %sw.bb394
-  %303 = landingpad { ptr, i32 }
-          cleanup
-  %304 = extractvalue { ptr, i32 } %303, 0
-  store ptr %304, ptr %exn.slot, align 8
-  %305 = extractvalue { ptr, i32 } %303, 1
-  store i32 %305, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception395) #8
-  br label %ehcleanup
-
-sw.bb398:                                         ; preds = %while.end
-  %exception399 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_215EconnabortedExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception399, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont401 unwind label %lpad400
-
-invoke.cont401:                                   ; preds = %sw.bb398
-  invoke void @__cxa_throw(ptr %exception399, ptr @_ZTIN7Iex_3_215EconnabortedExcE, ptr @_ZN7Iex_3_215EconnabortedExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad400:                                          ; preds = %sw.bb398
+305:                                              ; preds = %302
   %306 = landingpad { ptr, i32 }
           cleanup
   %307 = extractvalue { ptr, i32 } %306, 0
-  store ptr %307, ptr %exn.slot, align 8
+  store ptr %307, ptr %8, align 8
   %308 = extractvalue { ptr, i32 } %306, 1
-  store i32 %308, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception399) #8
-  br label %ehcleanup
+  store i32 %308, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %303) #14
+  br label %876
 
-sw.bb402:                                         ; preds = %while.end
-  %exception403 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_213EconnresetExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception403, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont405 unwind label %lpad404
+309:                                              ; preds = %27
+  %310 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49ElnrngExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %310, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %311 unwind label %312
 
-invoke.cont405:                                   ; preds = %sw.bb402
-  invoke void @__cxa_throw(ptr %exception403, ptr @_ZTIN7Iex_3_213EconnresetExcE, ptr @_ZN7Iex_3_213EconnresetExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+311:                                              ; preds = %309
+  invoke void @__cxa_throw(ptr %310, ptr @_ZTIN7Iex_3_49ElnrngExcE, ptr @_ZN7Iex_3_49ElnrngExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad404:                                          ; preds = %sw.bb402
-  %309 = landingpad { ptr, i32 }
+312:                                              ; preds = %309
+  %313 = landingpad { ptr, i32 }
           cleanup
-  %310 = extractvalue { ptr, i32 } %309, 0
-  store ptr %310, ptr %exn.slot, align 8
-  %311 = extractvalue { ptr, i32 } %309, 1
-  store i32 %311, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception403) #8
-  br label %ehcleanup
+  %314 = extractvalue { ptr, i32 } %313, 0
+  store ptr %314, ptr %8, align 8
+  %315 = extractvalue { ptr, i32 } %313, 1
+  store i32 %315, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %310) #14
+  br label %876
 
-sw.bb406:                                         ; preds = %while.end
-  %exception407 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_210EnobufsExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception407, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont409 unwind label %lpad408
+316:                                              ; preds = %27
+  %317 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_410EunatchExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %317, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %318 unwind label %319
 
-invoke.cont409:                                   ; preds = %sw.bb406
-  invoke void @__cxa_throw(ptr %exception407, ptr @_ZTIN7Iex_3_210EnobufsExcE, ptr @_ZN7Iex_3_210EnobufsExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+318:                                              ; preds = %316
+  invoke void @__cxa_throw(ptr %317, ptr @_ZTIN7Iex_3_410EunatchExcE, ptr @_ZN7Iex_3_410EunatchExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad408:                                          ; preds = %sw.bb406
-  %312 = landingpad { ptr, i32 }
+319:                                              ; preds = %316
+  %320 = landingpad { ptr, i32 }
           cleanup
-  %313 = extractvalue { ptr, i32 } %312, 0
-  store ptr %313, ptr %exn.slot, align 8
-  %314 = extractvalue { ptr, i32 } %312, 1
-  store i32 %314, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception407) #8
-  br label %ehcleanup
+  %321 = extractvalue { ptr, i32 } %320, 0
+  store ptr %321, ptr %8, align 8
+  %322 = extractvalue { ptr, i32 } %320, 1
+  store i32 %322, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %317) #14
+  br label %876
 
-sw.bb410:                                         ; preds = %while.end
-  %exception411 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_210EisconnExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception411, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont413 unwind label %lpad412
+323:                                              ; preds = %27
+  %324 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EnocsiExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %324, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %325 unwind label %326
 
-invoke.cont413:                                   ; preds = %sw.bb410
-  invoke void @__cxa_throw(ptr %exception411, ptr @_ZTIN7Iex_3_210EisconnExcE, ptr @_ZN7Iex_3_210EisconnExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+325:                                              ; preds = %323
+  invoke void @__cxa_throw(ptr %324, ptr @_ZTIN7Iex_3_49EnocsiExcE, ptr @_ZN7Iex_3_49EnocsiExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad412:                                          ; preds = %sw.bb410
-  %315 = landingpad { ptr, i32 }
-          cleanup
-  %316 = extractvalue { ptr, i32 } %315, 0
-  store ptr %316, ptr %exn.slot, align 8
-  %317 = extractvalue { ptr, i32 } %315, 1
-  store i32 %317, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception411) #8
-  br label %ehcleanup
-
-sw.bb414:                                         ; preds = %while.end
-  %exception415 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_211EnotconnExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception415, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont417 unwind label %lpad416
-
-invoke.cont417:                                   ; preds = %sw.bb414
-  invoke void @__cxa_throw(ptr %exception415, ptr @_ZTIN7Iex_3_211EnotconnExcE, ptr @_ZN7Iex_3_211EnotconnExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad416:                                          ; preds = %sw.bb414
-  %318 = landingpad { ptr, i32 }
-          cleanup
-  %319 = extractvalue { ptr, i32 } %318, 0
-  store ptr %319, ptr %exn.slot, align 8
-  %320 = extractvalue { ptr, i32 } %318, 1
-  store i32 %320, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception415) #8
-  br label %ehcleanup
-
-sw.bb418:                                         ; preds = %while.end
-  %exception419 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_212EshutdownExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception419, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont421 unwind label %lpad420
-
-invoke.cont421:                                   ; preds = %sw.bb418
-  invoke void @__cxa_throw(ptr %exception419, ptr @_ZTIN7Iex_3_212EshutdownExcE, ptr @_ZN7Iex_3_212EshutdownExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad420:                                          ; preds = %sw.bb418
-  %321 = landingpad { ptr, i32 }
-          cleanup
-  %322 = extractvalue { ptr, i32 } %321, 0
-  store ptr %322, ptr %exn.slot, align 8
-  %323 = extractvalue { ptr, i32 } %321, 1
-  store i32 %323, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception419) #8
-  br label %ehcleanup
-
-sw.bb422:                                         ; preds = %while.end
-  %exception423 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_215EtoomanyrefsExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception423, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont425 unwind label %lpad424
-
-invoke.cont425:                                   ; preds = %sw.bb422
-  invoke void @__cxa_throw(ptr %exception423, ptr @_ZTIN7Iex_3_215EtoomanyrefsExcE, ptr @_ZN7Iex_3_215EtoomanyrefsExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad424:                                          ; preds = %sw.bb422
-  %324 = landingpad { ptr, i32 }
-          cleanup
-  %325 = extractvalue { ptr, i32 } %324, 0
-  store ptr %325, ptr %exn.slot, align 8
-  %326 = extractvalue { ptr, i32 } %324, 1
-  store i32 %326, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception423) #8
-  br label %ehcleanup
-
-sw.bb426:                                         ; preds = %while.end
-  %exception427 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_212EtimedoutExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception427, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont429 unwind label %lpad428
-
-invoke.cont429:                                   ; preds = %sw.bb426
-  invoke void @__cxa_throw(ptr %exception427, ptr @_ZTIN7Iex_3_212EtimedoutExcE, ptr @_ZN7Iex_3_212EtimedoutExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad428:                                          ; preds = %sw.bb426
+326:                                              ; preds = %323
   %327 = landingpad { ptr, i32 }
           cleanup
   %328 = extractvalue { ptr, i32 } %327, 0
-  store ptr %328, ptr %exn.slot, align 8
+  store ptr %328, ptr %8, align 8
   %329 = extractvalue { ptr, i32 } %327, 1
-  store i32 %329, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception427) #8
-  br label %ehcleanup
+  store i32 %329, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %324) #14
+  br label %876
 
-sw.bb430:                                         ; preds = %while.end
-  %exception431 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_215EconnrefusedExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception431, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont433 unwind label %lpad432
+330:                                              ; preds = %27
+  %331 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49El2hltExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %331, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %332 unwind label %333
 
-invoke.cont433:                                   ; preds = %sw.bb430
-  invoke void @__cxa_throw(ptr %exception431, ptr @_ZTIN7Iex_3_215EconnrefusedExcE, ptr @_ZN7Iex_3_215EconnrefusedExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+332:                                              ; preds = %330
+  invoke void @__cxa_throw(ptr %331, ptr @_ZTIN7Iex_3_49El2hltExcE, ptr @_ZN7Iex_3_49El2hltExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad432:                                          ; preds = %sw.bb430
-  %330 = landingpad { ptr, i32 }
+333:                                              ; preds = %330
+  %334 = landingpad { ptr, i32 }
           cleanup
-  %331 = extractvalue { ptr, i32 } %330, 0
-  store ptr %331, ptr %exn.slot, align 8
-  %332 = extractvalue { ptr, i32 } %330, 1
-  store i32 %332, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception431) #8
-  br label %ehcleanup
+  %335 = extractvalue { ptr, i32 } %334, 0
+  store ptr %335, ptr %8, align 8
+  %336 = extractvalue { ptr, i32 } %334, 1
+  store i32 %336, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %331) #14
+  br label %876
 
-sw.bb434:                                         ; preds = %while.end
-  %exception435 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_212EhostdownExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception435, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont437 unwind label %lpad436
+337:                                              ; preds = %27
+  %338 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_410EdeadlkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %338, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %339 unwind label %340
 
-invoke.cont437:                                   ; preds = %sw.bb434
-  invoke void @__cxa_throw(ptr %exception435, ptr @_ZTIN7Iex_3_212EhostdownExcE, ptr @_ZN7Iex_3_212EhostdownExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+339:                                              ; preds = %337
+  invoke void @__cxa_throw(ptr %338, ptr @_ZTIN7Iex_3_410EdeadlkExcE, ptr @_ZN7Iex_3_410EdeadlkExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad436:                                          ; preds = %sw.bb434
-  %333 = landingpad { ptr, i32 }
+340:                                              ; preds = %337
+  %341 = landingpad { ptr, i32 }
           cleanup
-  %334 = extractvalue { ptr, i32 } %333, 0
-  store ptr %334, ptr %exn.slot, align 8
-  %335 = extractvalue { ptr, i32 } %333, 1
-  store i32 %335, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception435) #8
-  br label %ehcleanup
+  %342 = extractvalue { ptr, i32 } %341, 0
+  store ptr %342, ptr %8, align 8
+  %343 = extractvalue { ptr, i32 } %341, 1
+  store i32 %343, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %338) #14
+  br label %876
 
-sw.bb438:                                         ; preds = %while.end
-  %exception439 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_215EhostunreachExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception439, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont441 unwind label %lpad440
+344:                                              ; preds = %27
+  %345 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EnolckExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %345, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %346 unwind label %347
 
-invoke.cont441:                                   ; preds = %sw.bb438
-  invoke void @__cxa_throw(ptr %exception439, ptr @_ZTIN7Iex_3_215EhostunreachExcE, ptr @_ZN7Iex_3_215EhostunreachExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+346:                                              ; preds = %344
+  invoke void @__cxa_throw(ptr %345, ptr @_ZTIN7Iex_3_49EnolckExcE, ptr @_ZN7Iex_3_49EnolckExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad440:                                          ; preds = %sw.bb438
-  %336 = landingpad { ptr, i32 }
-          cleanup
-  %337 = extractvalue { ptr, i32 } %336, 0
-  store ptr %337, ptr %exn.slot, align 8
-  %338 = extractvalue { ptr, i32 } %336, 1
-  store i32 %338, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception439) #8
-  br label %ehcleanup
-
-sw.bb442:                                         ; preds = %while.end
-  %exception443 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_211EalreadyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception443, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont445 unwind label %lpad444
-
-invoke.cont445:                                   ; preds = %sw.bb442
-  invoke void @__cxa_throw(ptr %exception443, ptr @_ZTIN7Iex_3_211EalreadyExcE, ptr @_ZN7Iex_3_211EalreadyExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad444:                                          ; preds = %sw.bb442
-  %339 = landingpad { ptr, i32 }
-          cleanup
-  %340 = extractvalue { ptr, i32 } %339, 0
-  store ptr %340, ptr %exn.slot, align 8
-  %341 = extractvalue { ptr, i32 } %339, 1
-  store i32 %341, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception443) #8
-  br label %ehcleanup
-
-sw.bb446:                                         ; preds = %while.end
-  %exception447 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_214EinprogressExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception447, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont449 unwind label %lpad448
-
-invoke.cont449:                                   ; preds = %sw.bb446
-  invoke void @__cxa_throw(ptr %exception447, ptr @_ZTIN7Iex_3_214EinprogressExcE, ptr @_ZN7Iex_3_214EinprogressExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad448:                                          ; preds = %sw.bb446
-  %342 = landingpad { ptr, i32 }
-          cleanup
-  %343 = extractvalue { ptr, i32 } %342, 0
-  store ptr %343, ptr %exn.slot, align 8
-  %344 = extractvalue { ptr, i32 } %342, 1
-  store i32 %344, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception447) #8
-  br label %ehcleanup
-
-sw.bb450:                                         ; preds = %while.end
-  %exception451 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EstaleExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception451, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont453 unwind label %lpad452
-
-invoke.cont453:                                   ; preds = %sw.bb450
-  invoke void @__cxa_throw(ptr %exception451, ptr @_ZTIN7Iex_3_29EstaleExcE, ptr @_ZN7Iex_3_29EstaleExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad452:                                          ; preds = %sw.bb450
-  %345 = landingpad { ptr, i32 }
-          cleanup
-  %346 = extractvalue { ptr, i32 } %345, 0
-  store ptr %346, ptr %exn.slot, align 8
-  %347 = extractvalue { ptr, i32 } %345, 1
-  store i32 %347, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception451) #8
-  br label %ehcleanup
-
-sw.bb454:                                         ; preds = %while.end
-  %exception455 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_210EucleanExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception455, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont457 unwind label %lpad456
-
-invoke.cont457:                                   ; preds = %sw.bb454
-  invoke void @__cxa_throw(ptr %exception455, ptr @_ZTIN7Iex_3_210EucleanExcE, ptr @_ZN7Iex_3_210EucleanExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad456:                                          ; preds = %sw.bb454
+347:                                              ; preds = %344
   %348 = landingpad { ptr, i32 }
           cleanup
   %349 = extractvalue { ptr, i32 } %348, 0
-  store ptr %349, ptr %exn.slot, align 8
+  store ptr %349, ptr %8, align 8
   %350 = extractvalue { ptr, i32 } %348, 1
-  store i32 %350, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception455) #8
-  br label %ehcleanup
+  store i32 %350, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %345) #14
+  br label %876
 
-sw.bb458:                                         ; preds = %while.end
-  %exception459 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_210EnotnamExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception459, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont461 unwind label %lpad460
+351:                                              ; preds = %27
+  %352 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_48EbadeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %352, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %353 unwind label %354
 
-invoke.cont461:                                   ; preds = %sw.bb458
-  invoke void @__cxa_throw(ptr %exception459, ptr @_ZTIN7Iex_3_210EnotnamExcE, ptr @_ZN7Iex_3_210EnotnamExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+353:                                              ; preds = %351
+  invoke void @__cxa_throw(ptr %352, ptr @_ZTIN7Iex_3_48EbadeExcE, ptr @_ZN7Iex_3_48EbadeExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad460:                                          ; preds = %sw.bb458
-  %351 = landingpad { ptr, i32 }
+354:                                              ; preds = %351
+  %355 = landingpad { ptr, i32 }
           cleanup
-  %352 = extractvalue { ptr, i32 } %351, 0
-  store ptr %352, ptr %exn.slot, align 8
-  %353 = extractvalue { ptr, i32 } %351, 1
-  store i32 %353, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception459) #8
-  br label %ehcleanup
+  %356 = extractvalue { ptr, i32 } %355, 0
+  store ptr %356, ptr %8, align 8
+  %357 = extractvalue { ptr, i32 } %355, 1
+  store i32 %357, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %352) #14
+  br label %876
 
-sw.bb462:                                         ; preds = %while.end
-  %exception463 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_210EnavailExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception463, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont465 unwind label %lpad464
+358:                                              ; preds = %27
+  %359 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_48EbadrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %359, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %360 unwind label %361
 
-invoke.cont465:                                   ; preds = %sw.bb462
-  invoke void @__cxa_throw(ptr %exception463, ptr @_ZTIN7Iex_3_210EnavailExcE, ptr @_ZN7Iex_3_210EnavailExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+360:                                              ; preds = %358
+  invoke void @__cxa_throw(ptr %359, ptr @_ZTIN7Iex_3_48EbadrExcE, ptr @_ZN7Iex_3_48EbadrExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad464:                                          ; preds = %sw.bb462
-  %354 = landingpad { ptr, i32 }
+361:                                              ; preds = %358
+  %362 = landingpad { ptr, i32 }
           cleanup
-  %355 = extractvalue { ptr, i32 } %354, 0
-  store ptr %355, ptr %exn.slot, align 8
-  %356 = extractvalue { ptr, i32 } %354, 1
-  store i32 %356, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception463) #8
-  br label %ehcleanup
+  %363 = extractvalue { ptr, i32 } %362, 0
+  store ptr %363, ptr %8, align 8
+  %364 = extractvalue { ptr, i32 } %362, 1
+  store i32 %364, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %359) #14
+  br label %876
 
-sw.bb466:                                         ; preds = %while.end
-  %exception467 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EisnamExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception467, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont469 unwind label %lpad468
+365:                                              ; preds = %27
+  %366 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49ExfullExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %366, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %367 unwind label %368
 
-invoke.cont469:                                   ; preds = %sw.bb466
-  invoke void @__cxa_throw(ptr %exception467, ptr @_ZTIN7Iex_3_29EisnamExcE, ptr @_ZN7Iex_3_29EisnamExcD1Ev) #10
-          to label %unreachable unwind label %lpad
+367:                                              ; preds = %365
+  invoke void @__cxa_throw(ptr %366, ptr @_ZTIN7Iex_3_49ExfullExcE, ptr @_ZN7Iex_3_49ExfullExcD1Ev) #16
+          to label %882 unwind label %23
 
-lpad468:                                          ; preds = %sw.bb466
-  %357 = landingpad { ptr, i32 }
-          cleanup
-  %358 = extractvalue { ptr, i32 } %357, 0
-  store ptr %358, ptr %exn.slot, align 8
-  %359 = extractvalue { ptr, i32 } %357, 1
-  store i32 %359, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception467) #8
-  br label %ehcleanup
-
-sw.bb470:                                         ; preds = %while.end
-  %exception471 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_212EremoteioExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception471, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont473 unwind label %lpad472
-
-invoke.cont473:                                   ; preds = %sw.bb470
-  invoke void @__cxa_throw(ptr %exception471, ptr @_ZTIN7Iex_3_212EremoteioExcE, ptr @_ZN7Iex_3_212EremoteioExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad472:                                          ; preds = %sw.bb470
-  %360 = landingpad { ptr, i32 }
-          cleanup
-  %361 = extractvalue { ptr, i32 } %360, 0
-  store ptr %361, ptr %exn.slot, align 8
-  %362 = extractvalue { ptr, i32 } %360, 1
-  store i32 %362, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception471) #8
-  br label %ehcleanup
-
-sw.bb474:                                         ; preds = %while.end
-  %exception475 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_212EcanceledExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception475, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont477 unwind label %lpad476
-
-invoke.cont477:                                   ; preds = %sw.bb474
-  invoke void @__cxa_throw(ptr %exception475, ptr @_ZTIN7Iex_3_212EcanceledExcE, ptr @_ZN7Iex_3_212EcanceledExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad476:                                          ; preds = %sw.bb474
-  %363 = landingpad { ptr, i32 }
-          cleanup
-  %364 = extractvalue { ptr, i32 } %363, 0
-  store ptr %364, ptr %exn.slot, align 8
-  %365 = extractvalue { ptr, i32 } %363, 1
-  store i32 %365, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception475) #8
-  br label %ehcleanup
-
-sw.bb478:                                         ; preds = %while.end
-  %exception479 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_29EdquotExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception479, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont481 unwind label %lpad480
-
-invoke.cont481:                                   ; preds = %sw.bb478
-  invoke void @__cxa_throw(ptr %exception479, ptr @_ZTIN7Iex_3_29EdquotExcE, ptr @_ZN7Iex_3_29EdquotExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad480:                                          ; preds = %sw.bb478
-  %366 = landingpad { ptr, i32 }
-          cleanup
-  %367 = extractvalue { ptr, i32 } %366, 0
-  store ptr %367, ptr %exn.slot, align 8
-  %368 = extractvalue { ptr, i32 } %366, 1
-  store i32 %368, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception479) #8
-  br label %ehcleanup
-
-sw.epilog:                                        ; preds = %while.end
-  %exception482 = call ptr @__cxa_allocate_exception(i64 72) #8
-  invoke void @_ZN7Iex_3_28ErrnoExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont484 unwind label %lpad483
-
-invoke.cont484:                                   ; preds = %sw.epilog
-  invoke void @__cxa_throw(ptr %exception482, ptr @_ZTIN7Iex_3_28ErrnoExcE, ptr @_ZN7Iex_3_28ErrnoExcD1Ev) #10
-          to label %unreachable unwind label %lpad
-
-lpad483:                                          ; preds = %sw.epilog
+368:                                              ; preds = %365
   %369 = landingpad { ptr, i32 }
           cleanup
   %370 = extractvalue { ptr, i32 } %369, 0
-  store ptr %370, ptr %exn.slot, align 8
+  store ptr %370, ptr %8, align 8
   %371 = extractvalue { ptr, i32 } %369, 1
-  store i32 %371, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception482) #8
-  br label %ehcleanup
+  store i32 %371, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %366) #14
+  br label %876
 
-ehcleanup:                                        ; preds = %lpad483, %lpad480, %lpad476, %lpad472, %lpad468, %lpad464, %lpad460, %lpad456, %lpad452, %lpad448, %lpad444, %lpad440, %lpad436, %lpad432, %lpad428, %lpad424, %lpad420, %lpad416, %lpad412, %lpad408, %lpad404, %lpad400, %lpad396, %lpad392, %lpad388, %lpad384, %lpad380, %lpad376, %lpad372, %lpad368, %lpad364, %lpad360, %lpad356, %lpad352, %lpad348, %lpad344, %lpad340, %lpad336, %lpad332, %lpad328, %lpad324, %lpad320, %lpad316, %lpad312, %lpad308, %lpad304, %lpad300, %lpad296, %lpad292, %lpad288, %lpad284, %lpad280, %lpad276, %lpad272, %lpad268, %lpad264, %lpad260, %lpad256, %lpad252, %lpad248, %lpad244, %lpad240, %lpad236, %lpad232, %lpad228, %lpad224, %lpad220, %lpad216, %lpad212, %lpad208, %lpad204, %lpad200, %lpad196, %lpad192, %lpad188, %lpad184, %lpad180, %lpad176, %lpad172, %lpad168, %lpad164, %lpad160, %lpad156, %lpad152, %lpad148, %lpad144, %lpad140, %lpad136, %lpad132, %lpad128, %lpad124, %lpad120, %lpad116, %lpad112, %lpad108, %lpad104, %lpad100, %lpad96, %lpad92, %lpad88, %lpad84, %lpad80, %lpad76, %lpad72, %lpad68, %lpad64, %lpad60, %lpad56, %lpad52, %lpad48, %lpad44, %lpad40, %lpad36, %lpad32, %lpad28, %lpad24, %lpad20, %lpad16, %lpad12, %lpad8, %lpad4, %lpad
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tmp) #8
-  br label %eh.resume
+372:                                              ; preds = %27
+  %373 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EnoanoExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %373, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %374 unwind label %375
 
-eh.resume:                                        ; preds = %ehcleanup
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val485 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val485
+374:                                              ; preds = %372
+  invoke void @__cxa_throw(ptr %373, ptr @_ZTIN7Iex_3_49EnoanoExcE, ptr @_ZN7Iex_3_49EnoanoExcD1Ev) #16
+          to label %882 unwind label %23
 
-unreachable:                                      ; preds = %invoke.cont484, %invoke.cont481, %invoke.cont477, %invoke.cont473, %invoke.cont469, %invoke.cont465, %invoke.cont461, %invoke.cont457, %invoke.cont453, %invoke.cont449, %invoke.cont445, %invoke.cont441, %invoke.cont437, %invoke.cont433, %invoke.cont429, %invoke.cont425, %invoke.cont421, %invoke.cont417, %invoke.cont413, %invoke.cont409, %invoke.cont405, %invoke.cont401, %invoke.cont397, %invoke.cont393, %invoke.cont389, %invoke.cont385, %invoke.cont381, %invoke.cont377, %invoke.cont373, %invoke.cont369, %invoke.cont365, %invoke.cont361, %invoke.cont357, %invoke.cont353, %invoke.cont349, %invoke.cont345, %invoke.cont341, %invoke.cont337, %invoke.cont333, %invoke.cont329, %invoke.cont325, %invoke.cont321, %invoke.cont317, %invoke.cont313, %invoke.cont309, %invoke.cont305, %invoke.cont301, %invoke.cont297, %invoke.cont293, %invoke.cont289, %invoke.cont285, %invoke.cont281, %invoke.cont277, %invoke.cont273, %invoke.cont269, %invoke.cont265, %invoke.cont261, %invoke.cont257, %invoke.cont253, %invoke.cont249, %invoke.cont245, %invoke.cont241, %invoke.cont237, %invoke.cont233, %invoke.cont229, %invoke.cont225, %invoke.cont221, %invoke.cont217, %invoke.cont213, %invoke.cont209, %invoke.cont205, %invoke.cont201, %invoke.cont197, %invoke.cont193, %invoke.cont189, %invoke.cont185, %invoke.cont181, %invoke.cont177, %invoke.cont173, %invoke.cont169, %invoke.cont165, %invoke.cont161, %invoke.cont157, %invoke.cont153, %invoke.cont149, %invoke.cont145, %invoke.cont141, %invoke.cont137, %invoke.cont133, %invoke.cont129, %invoke.cont125, %invoke.cont121, %invoke.cont117, %invoke.cont113, %invoke.cont109, %invoke.cont105, %invoke.cont101, %invoke.cont97, %invoke.cont93, %invoke.cont89, %invoke.cont85, %invoke.cont81, %invoke.cont77, %invoke.cont73, %invoke.cont69, %invoke.cont65, %invoke.cont61, %invoke.cont57, %invoke.cont53, %invoke.cont49, %invoke.cont45, %invoke.cont41, %invoke.cont37, %invoke.cont33, %invoke.cont29, %invoke.cont25, %invoke.cont21, %invoke.cont17, %invoke.cont13, %invoke.cont9, %invoke.cont5
+375:                                              ; preds = %372
+  %376 = landingpad { ptr, i32 }
+          cleanup
+  %377 = extractvalue { ptr, i32 } %376, 0
+  store ptr %377, ptr %8, align 8
+  %378 = extractvalue { ptr, i32 } %376, 1
+  store i32 %378, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %373) #14
+  br label %876
+
+379:                                              ; preds = %27
+  %380 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_410EbadrqcExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %380, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %381 unwind label %382
+
+381:                                              ; preds = %379
+  invoke void @__cxa_throw(ptr %380, ptr @_ZTIN7Iex_3_410EbadrqcExcE, ptr @_ZN7Iex_3_410EbadrqcExcD1Ev) #16
+          to label %882 unwind label %23
+
+382:                                              ; preds = %379
+  %383 = landingpad { ptr, i32 }
+          cleanup
+  %384 = extractvalue { ptr, i32 } %383, 0
+  store ptr %384, ptr %8, align 8
+  %385 = extractvalue { ptr, i32 } %383, 1
+  store i32 %385, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %380) #14
+  br label %876
+
+386:                                              ; preds = %27
+  %387 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_410EbadsltExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %387, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %388 unwind label %389
+
+388:                                              ; preds = %386
+  invoke void @__cxa_throw(ptr %387, ptr @_ZTIN7Iex_3_410EbadsltExcE, ptr @_ZN7Iex_3_410EbadsltExcD1Ev) #16
+          to label %882 unwind label %23
+
+389:                                              ; preds = %386
+  %390 = landingpad { ptr, i32 }
+          cleanup
+  %391 = extractvalue { ptr, i32 } %390, 0
+  store ptr %391, ptr %8, align 8
+  %392 = extractvalue { ptr, i32 } %390, 1
+  store i32 %392, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %387) #14
+  br label %876
+
+393:                                              ; preds = %27
+  %394 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EbfontExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %394, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %395 unwind label %396
+
+395:                                              ; preds = %393
+  invoke void @__cxa_throw(ptr %394, ptr @_ZTIN7Iex_3_49EbfontExcE, ptr @_ZN7Iex_3_49EbfontExcD1Ev) #16
+          to label %882 unwind label %23
+
+396:                                              ; preds = %393
+  %397 = landingpad { ptr, i32 }
+          cleanup
+  %398 = extractvalue { ptr, i32 } %397, 0
+  store ptr %398, ptr %8, align 8
+  %399 = extractvalue { ptr, i32 } %397, 1
+  store i32 %399, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %394) #14
+  br label %876
+
+400:                                              ; preds = %27
+  %401 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EnostrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %401, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %402 unwind label %403
+
+402:                                              ; preds = %400
+  invoke void @__cxa_throw(ptr %401, ptr @_ZTIN7Iex_3_49EnostrExcE, ptr @_ZN7Iex_3_49EnostrExcD1Ev) #16
+          to label %882 unwind label %23
+
+403:                                              ; preds = %400
+  %404 = landingpad { ptr, i32 }
+          cleanup
+  %405 = extractvalue { ptr, i32 } %404, 0
+  store ptr %405, ptr %8, align 8
+  %406 = extractvalue { ptr, i32 } %404, 1
+  store i32 %406, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %401) #14
+  br label %876
+
+407:                                              ; preds = %27
+  %408 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_410EnodataExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %408, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %409 unwind label %410
+
+409:                                              ; preds = %407
+  invoke void @__cxa_throw(ptr %408, ptr @_ZTIN7Iex_3_410EnodataExcE, ptr @_ZN7Iex_3_410EnodataExcD1Ev) #16
+          to label %882 unwind label %23
+
+410:                                              ; preds = %407
+  %411 = landingpad { ptr, i32 }
+          cleanup
+  %412 = extractvalue { ptr, i32 } %411, 0
+  store ptr %412, ptr %8, align 8
+  %413 = extractvalue { ptr, i32 } %411, 1
+  store i32 %413, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %408) #14
+  br label %876
+
+414:                                              ; preds = %27
+  %415 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_48EtimeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %415, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %416 unwind label %417
+
+416:                                              ; preds = %414
+  invoke void @__cxa_throw(ptr %415, ptr @_ZTIN7Iex_3_48EtimeExcE, ptr @_ZN7Iex_3_48EtimeExcD1Ev) #16
+          to label %882 unwind label %23
+
+417:                                              ; preds = %414
+  %418 = landingpad { ptr, i32 }
+          cleanup
+  %419 = extractvalue { ptr, i32 } %418, 0
+  store ptr %419, ptr %8, align 8
+  %420 = extractvalue { ptr, i32 } %418, 1
+  store i32 %420, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %415) #14
+  br label %876
+
+421:                                              ; preds = %27
+  %422 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_48EnosrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %422, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %423 unwind label %424
+
+423:                                              ; preds = %421
+  invoke void @__cxa_throw(ptr %422, ptr @_ZTIN7Iex_3_48EnosrExcE, ptr @_ZN7Iex_3_48EnosrExcD1Ev) #16
+          to label %882 unwind label %23
+
+424:                                              ; preds = %421
+  %425 = landingpad { ptr, i32 }
+          cleanup
+  %426 = extractvalue { ptr, i32 } %425, 0
+  store ptr %426, ptr %8, align 8
+  %427 = extractvalue { ptr, i32 } %425, 1
+  store i32 %427, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %422) #14
+  br label %876
+
+428:                                              ; preds = %27
+  %429 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EnonetExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %429, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %430 unwind label %431
+
+430:                                              ; preds = %428
+  invoke void @__cxa_throw(ptr %429, ptr @_ZTIN7Iex_3_49EnonetExcE, ptr @_ZN7Iex_3_49EnonetExcD1Ev) #16
+          to label %882 unwind label %23
+
+431:                                              ; preds = %428
+  %432 = landingpad { ptr, i32 }
+          cleanup
+  %433 = extractvalue { ptr, i32 } %432, 0
+  store ptr %433, ptr %8, align 8
+  %434 = extractvalue { ptr, i32 } %432, 1
+  store i32 %434, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %429) #14
+  br label %876
+
+435:                                              ; preds = %27
+  %436 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EnopkgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %436, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %437 unwind label %438
+
+437:                                              ; preds = %435
+  invoke void @__cxa_throw(ptr %436, ptr @_ZTIN7Iex_3_49EnopkgExcE, ptr @_ZN7Iex_3_49EnopkgExcD1Ev) #16
+          to label %882 unwind label %23
+
+438:                                              ; preds = %435
+  %439 = landingpad { ptr, i32 }
+          cleanup
+  %440 = extractvalue { ptr, i32 } %439, 0
+  store ptr %440, ptr %8, align 8
+  %441 = extractvalue { ptr, i32 } %439, 1
+  store i32 %441, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %436) #14
+  br label %876
+
+442:                                              ; preds = %27
+  %443 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_410EremoteExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %443, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %444 unwind label %445
+
+444:                                              ; preds = %442
+  invoke void @__cxa_throw(ptr %443, ptr @_ZTIN7Iex_3_410EremoteExcE, ptr @_ZN7Iex_3_410EremoteExcD1Ev) #16
+          to label %882 unwind label %23
+
+445:                                              ; preds = %442
+  %446 = landingpad { ptr, i32 }
+          cleanup
+  %447 = extractvalue { ptr, i32 } %446, 0
+  store ptr %447, ptr %8, align 8
+  %448 = extractvalue { ptr, i32 } %446, 1
+  store i32 %448, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %443) #14
+  br label %876
+
+449:                                              ; preds = %27
+  %450 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_410EnolinkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %450, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %451 unwind label %452
+
+451:                                              ; preds = %449
+  invoke void @__cxa_throw(ptr %450, ptr @_ZTIN7Iex_3_410EnolinkExcE, ptr @_ZN7Iex_3_410EnolinkExcD1Ev) #16
+          to label %882 unwind label %23
+
+452:                                              ; preds = %449
+  %453 = landingpad { ptr, i32 }
+          cleanup
+  %454 = extractvalue { ptr, i32 } %453, 0
+  store ptr %454, ptr %8, align 8
+  %455 = extractvalue { ptr, i32 } %453, 1
+  store i32 %455, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %450) #14
+  br label %876
+
+456:                                              ; preds = %27
+  %457 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_47EadvExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %457, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %458 unwind label %459
+
+458:                                              ; preds = %456
+  invoke void @__cxa_throw(ptr %457, ptr @_ZTIN7Iex_3_47EadvExcE, ptr @_ZN7Iex_3_47EadvExcD1Ev) #16
+          to label %882 unwind label %23
+
+459:                                              ; preds = %456
+  %460 = landingpad { ptr, i32 }
+          cleanup
+  %461 = extractvalue { ptr, i32 } %460, 0
+  store ptr %461, ptr %8, align 8
+  %462 = extractvalue { ptr, i32 } %460, 1
+  store i32 %462, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %457) #14
+  br label %876
+
+463:                                              ; preds = %27
+  %464 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EsrmntExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %464, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %465 unwind label %466
+
+465:                                              ; preds = %463
+  invoke void @__cxa_throw(ptr %464, ptr @_ZTIN7Iex_3_49EsrmntExcE, ptr @_ZN7Iex_3_49EsrmntExcD1Ev) #16
+          to label %882 unwind label %23
+
+466:                                              ; preds = %463
+  %467 = landingpad { ptr, i32 }
+          cleanup
+  %468 = extractvalue { ptr, i32 } %467, 0
+  store ptr %468, ptr %8, align 8
+  %469 = extractvalue { ptr, i32 } %467, 1
+  store i32 %469, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %464) #14
+  br label %876
+
+470:                                              ; preds = %27
+  %471 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_48EcommExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %471, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %472 unwind label %473
+
+472:                                              ; preds = %470
+  invoke void @__cxa_throw(ptr %471, ptr @_ZTIN7Iex_3_48EcommExcE, ptr @_ZN7Iex_3_48EcommExcD1Ev) #16
+          to label %882 unwind label %23
+
+473:                                              ; preds = %470
+  %474 = landingpad { ptr, i32 }
+          cleanup
+  %475 = extractvalue { ptr, i32 } %474, 0
+  store ptr %475, ptr %8, align 8
+  %476 = extractvalue { ptr, i32 } %474, 1
+  store i32 %476, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %471) #14
+  br label %876
+
+477:                                              ; preds = %27
+  %478 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EprotoExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %478, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %479 unwind label %480
+
+479:                                              ; preds = %477
+  invoke void @__cxa_throw(ptr %478, ptr @_ZTIN7Iex_3_49EprotoExcE, ptr @_ZN7Iex_3_49EprotoExcD1Ev) #16
+          to label %882 unwind label %23
+
+480:                                              ; preds = %477
+  %481 = landingpad { ptr, i32 }
+          cleanup
+  %482 = extractvalue { ptr, i32 } %481, 0
+  store ptr %482, ptr %8, align 8
+  %483 = extractvalue { ptr, i32 } %481, 1
+  store i32 %483, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %478) #14
+  br label %876
+
+484:                                              ; preds = %27
+  %485 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_412EmultihopExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %485, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %486 unwind label %487
+
+486:                                              ; preds = %484
+  invoke void @__cxa_throw(ptr %485, ptr @_ZTIN7Iex_3_412EmultihopExcE, ptr @_ZN7Iex_3_412EmultihopExcD1Ev) #16
+          to label %882 unwind label %23
+
+487:                                              ; preds = %484
+  %488 = landingpad { ptr, i32 }
+          cleanup
+  %489 = extractvalue { ptr, i32 } %488, 0
+  store ptr %489, ptr %8, align 8
+  %490 = extractvalue { ptr, i32 } %488, 1
+  store i32 %490, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %485) #14
+  br label %876
+
+491:                                              ; preds = %27
+  %492 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_410EbadmsgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %492, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %493 unwind label %494
+
+493:                                              ; preds = %491
+  invoke void @__cxa_throw(ptr %492, ptr @_ZTIN7Iex_3_410EbadmsgExcE, ptr @_ZN7Iex_3_410EbadmsgExcD1Ev) #16
+          to label %882 unwind label %23
+
+494:                                              ; preds = %491
+  %495 = landingpad { ptr, i32 }
+          cleanup
+  %496 = extractvalue { ptr, i32 } %495, 0
+  store ptr %496, ptr %8, align 8
+  %497 = extractvalue { ptr, i32 } %495, 1
+  store i32 %497, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %492) #14
+  br label %876
+
+498:                                              ; preds = %27
+  %499 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_415EnametoolongExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %499, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %500 unwind label %501
+
+500:                                              ; preds = %498
+  invoke void @__cxa_throw(ptr %499, ptr @_ZTIN7Iex_3_415EnametoolongExcE, ptr @_ZN7Iex_3_415EnametoolongExcD1Ev) #16
+          to label %882 unwind label %23
+
+501:                                              ; preds = %498
+  %502 = landingpad { ptr, i32 }
+          cleanup
+  %503 = extractvalue { ptr, i32 } %502, 0
+  store ptr %503, ptr %8, align 8
+  %504 = extractvalue { ptr, i32 } %502, 1
+  store i32 %504, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %499) #14
+  br label %876
+
+505:                                              ; preds = %27
+  %506 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_412EoverflowExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %506, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %507 unwind label %508
+
+507:                                              ; preds = %505
+  invoke void @__cxa_throw(ptr %506, ptr @_ZTIN7Iex_3_412EoverflowExcE, ptr @_ZN7Iex_3_412EoverflowExcD1Ev) #16
+          to label %882 unwind label %23
+
+508:                                              ; preds = %505
+  %509 = landingpad { ptr, i32 }
+          cleanup
+  %510 = extractvalue { ptr, i32 } %509, 0
+  store ptr %510, ptr %8, align 8
+  %511 = extractvalue { ptr, i32 } %509, 1
+  store i32 %511, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %506) #14
+  br label %876
+
+512:                                              ; preds = %27
+  %513 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_411EnotuniqExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %513, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %514 unwind label %515
+
+514:                                              ; preds = %512
+  invoke void @__cxa_throw(ptr %513, ptr @_ZTIN7Iex_3_411EnotuniqExcE, ptr @_ZN7Iex_3_411EnotuniqExcD1Ev) #16
+          to label %882 unwind label %23
+
+515:                                              ; preds = %512
+  %516 = landingpad { ptr, i32 }
+          cleanup
+  %517 = extractvalue { ptr, i32 } %516, 0
+  store ptr %517, ptr %8, align 8
+  %518 = extractvalue { ptr, i32 } %516, 1
+  store i32 %518, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %513) #14
+  br label %876
+
+519:                                              ; preds = %27
+  %520 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EbadfdExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %520, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %521 unwind label %522
+
+521:                                              ; preds = %519
+  invoke void @__cxa_throw(ptr %520, ptr @_ZTIN7Iex_3_49EbadfdExcE, ptr @_ZN7Iex_3_49EbadfdExcD1Ev) #16
+          to label %882 unwind label %23
+
+522:                                              ; preds = %519
+  %523 = landingpad { ptr, i32 }
+          cleanup
+  %524 = extractvalue { ptr, i32 } %523, 0
+  store ptr %524, ptr %8, align 8
+  %525 = extractvalue { ptr, i32 } %523, 1
+  store i32 %525, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %520) #14
+  br label %876
+
+526:                                              ; preds = %27
+  %527 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_410EremchgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %527, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %528 unwind label %529
+
+528:                                              ; preds = %526
+  invoke void @__cxa_throw(ptr %527, ptr @_ZTIN7Iex_3_410EremchgExcE, ptr @_ZN7Iex_3_410EremchgExcD1Ev) #16
+          to label %882 unwind label %23
+
+529:                                              ; preds = %526
+  %530 = landingpad { ptr, i32 }
+          cleanup
+  %531 = extractvalue { ptr, i32 } %530, 0
+  store ptr %531, ptr %8, align 8
+  %532 = extractvalue { ptr, i32 } %530, 1
+  store i32 %532, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %527) #14
+  br label %876
+
+533:                                              ; preds = %27
+  %534 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_410ElibaccExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %534, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %535 unwind label %536
+
+535:                                              ; preds = %533
+  invoke void @__cxa_throw(ptr %534, ptr @_ZTIN7Iex_3_410ElibaccExcE, ptr @_ZN7Iex_3_410ElibaccExcD1Ev) #16
+          to label %882 unwind label %23
+
+536:                                              ; preds = %533
+  %537 = landingpad { ptr, i32 }
+          cleanup
+  %538 = extractvalue { ptr, i32 } %537, 0
+  store ptr %538, ptr %8, align 8
+  %539 = extractvalue { ptr, i32 } %537, 1
+  store i32 %539, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %534) #14
+  br label %876
+
+540:                                              ; preds = %27
+  %541 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_410ElibbadExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %541, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %542 unwind label %543
+
+542:                                              ; preds = %540
+  invoke void @__cxa_throw(ptr %541, ptr @_ZTIN7Iex_3_410ElibbadExcE, ptr @_ZN7Iex_3_410ElibbadExcD1Ev) #16
+          to label %882 unwind label %23
+
+543:                                              ; preds = %540
+  %544 = landingpad { ptr, i32 }
+          cleanup
+  %545 = extractvalue { ptr, i32 } %544, 0
+  store ptr %545, ptr %8, align 8
+  %546 = extractvalue { ptr, i32 } %544, 1
+  store i32 %546, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %541) #14
+  br label %876
+
+547:                                              ; preds = %27
+  %548 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_410ElibscnExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %548, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %549 unwind label %550
+
+549:                                              ; preds = %547
+  invoke void @__cxa_throw(ptr %548, ptr @_ZTIN7Iex_3_410ElibscnExcE, ptr @_ZN7Iex_3_410ElibscnExcD1Ev) #16
+          to label %882 unwind label %23
+
+550:                                              ; preds = %547
+  %551 = landingpad { ptr, i32 }
+          cleanup
+  %552 = extractvalue { ptr, i32 } %551, 0
+  store ptr %552, ptr %8, align 8
+  %553 = extractvalue { ptr, i32 } %551, 1
+  store i32 %553, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %548) #14
+  br label %876
+
+554:                                              ; preds = %27
+  %555 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_410ElibmaxExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %555, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %556 unwind label %557
+
+556:                                              ; preds = %554
+  invoke void @__cxa_throw(ptr %555, ptr @_ZTIN7Iex_3_410ElibmaxExcE, ptr @_ZN7Iex_3_410ElibmaxExcD1Ev) #16
+          to label %882 unwind label %23
+
+557:                                              ; preds = %554
+  %558 = landingpad { ptr, i32 }
+          cleanup
+  %559 = extractvalue { ptr, i32 } %558, 0
+  store ptr %559, ptr %8, align 8
+  %560 = extractvalue { ptr, i32 } %558, 1
+  store i32 %560, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %555) #14
+  br label %876
+
+561:                                              ; preds = %27
+  %562 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_411ElibexecExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %562, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %563 unwind label %564
+
+563:                                              ; preds = %561
+  invoke void @__cxa_throw(ptr %562, ptr @_ZTIN7Iex_3_411ElibexecExcE, ptr @_ZN7Iex_3_411ElibexecExcD1Ev) #16
+          to label %882 unwind label %23
+
+564:                                              ; preds = %561
+  %565 = landingpad { ptr, i32 }
+          cleanup
+  %566 = extractvalue { ptr, i32 } %565, 0
+  store ptr %566, ptr %8, align 8
+  %567 = extractvalue { ptr, i32 } %565, 1
+  store i32 %567, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %562) #14
+  br label %876
+
+568:                                              ; preds = %27
+  %569 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EilseqExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %569, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %570 unwind label %571
+
+570:                                              ; preds = %568
+  invoke void @__cxa_throw(ptr %569, ptr @_ZTIN7Iex_3_49EilseqExcE, ptr @_ZN7Iex_3_49EilseqExcD1Ev) #16
+          to label %882 unwind label %23
+
+571:                                              ; preds = %568
+  %572 = landingpad { ptr, i32 }
+          cleanup
+  %573 = extractvalue { ptr, i32 } %572, 0
+  store ptr %573, ptr %8, align 8
+  %574 = extractvalue { ptr, i32 } %572, 1
+  store i32 %574, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %569) #14
+  br label %876
+
+575:                                              ; preds = %27
+  %576 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EnosysExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %576, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %577 unwind label %578
+
+577:                                              ; preds = %575
+  invoke void @__cxa_throw(ptr %576, ptr @_ZTIN7Iex_3_49EnosysExcE, ptr @_ZN7Iex_3_49EnosysExcD1Ev) #16
+          to label %882 unwind label %23
+
+578:                                              ; preds = %575
+  %579 = landingpad { ptr, i32 }
+          cleanup
+  %580 = extractvalue { ptr, i32 } %579, 0
+  store ptr %580, ptr %8, align 8
+  %581 = extractvalue { ptr, i32 } %579, 1
+  store i32 %581, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %576) #14
+  br label %876
+
+582:                                              ; preds = %27
+  %583 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_48EloopExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %583, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %584 unwind label %585
+
+584:                                              ; preds = %582
+  invoke void @__cxa_throw(ptr %583, ptr @_ZTIN7Iex_3_48EloopExcE, ptr @_ZN7Iex_3_48EloopExcD1Ev) #16
+          to label %882 unwind label %23
+
+585:                                              ; preds = %582
+  %586 = landingpad { ptr, i32 }
+          cleanup
+  %587 = extractvalue { ptr, i32 } %586, 0
+  store ptr %587, ptr %8, align 8
+  %588 = extractvalue { ptr, i32 } %586, 1
+  store i32 %588, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %583) #14
+  br label %876
+
+589:                                              ; preds = %27
+  %590 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_411ErestartExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %590, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %591 unwind label %592
+
+591:                                              ; preds = %589
+  invoke void @__cxa_throw(ptr %590, ptr @_ZTIN7Iex_3_411ErestartExcE, ptr @_ZN7Iex_3_411ErestartExcD1Ev) #16
+          to label %882 unwind label %23
+
+592:                                              ; preds = %589
+  %593 = landingpad { ptr, i32 }
+          cleanup
+  %594 = extractvalue { ptr, i32 } %593, 0
+  store ptr %594, ptr %8, align 8
+  %595 = extractvalue { ptr, i32 } %593, 1
+  store i32 %595, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %590) #14
+  br label %876
+
+596:                                              ; preds = %27
+  %597 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_411EstrpipeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %597, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %598 unwind label %599
+
+598:                                              ; preds = %596
+  invoke void @__cxa_throw(ptr %597, ptr @_ZTIN7Iex_3_411EstrpipeExcE, ptr @_ZN7Iex_3_411EstrpipeExcD1Ev) #16
+          to label %882 unwind label %23
+
+599:                                              ; preds = %596
+  %600 = landingpad { ptr, i32 }
+          cleanup
+  %601 = extractvalue { ptr, i32 } %600, 0
+  store ptr %601, ptr %8, align 8
+  %602 = extractvalue { ptr, i32 } %600, 1
+  store i32 %602, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %597) #14
+  br label %876
+
+603:                                              ; preds = %27
+  %604 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_412EnotemptyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %604, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %605 unwind label %606
+
+605:                                              ; preds = %603
+  invoke void @__cxa_throw(ptr %604, ptr @_ZTIN7Iex_3_412EnotemptyExcE, ptr @_ZN7Iex_3_412EnotemptyExcD1Ev) #16
+          to label %882 unwind label %23
+
+606:                                              ; preds = %603
+  %607 = landingpad { ptr, i32 }
+          cleanup
+  %608 = extractvalue { ptr, i32 } %607, 0
+  store ptr %608, ptr %8, align 8
+  %609 = extractvalue { ptr, i32 } %607, 1
+  store i32 %609, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %604) #14
+  br label %876
+
+610:                                              ; preds = %27
+  %611 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EusersExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %611, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %612 unwind label %613
+
+612:                                              ; preds = %610
+  invoke void @__cxa_throw(ptr %611, ptr @_ZTIN7Iex_3_49EusersExcE, ptr @_ZN7Iex_3_49EusersExcD1Ev) #16
+          to label %882 unwind label %23
+
+613:                                              ; preds = %610
+  %614 = landingpad { ptr, i32 }
+          cleanup
+  %615 = extractvalue { ptr, i32 } %614, 0
+  store ptr %615, ptr %8, align 8
+  %616 = extractvalue { ptr, i32 } %614, 1
+  store i32 %616, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %611) #14
+  br label %876
+
+617:                                              ; preds = %27
+  %618 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_411EnotsockExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %618, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %619 unwind label %620
+
+619:                                              ; preds = %617
+  invoke void @__cxa_throw(ptr %618, ptr @_ZTIN7Iex_3_411EnotsockExcE, ptr @_ZN7Iex_3_411EnotsockExcD1Ev) #16
+          to label %882 unwind label %23
+
+620:                                              ; preds = %617
+  %621 = landingpad { ptr, i32 }
+          cleanup
+  %622 = extractvalue { ptr, i32 } %621, 0
+  store ptr %622, ptr %8, align 8
+  %623 = extractvalue { ptr, i32 } %621, 1
+  store i32 %623, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %618) #14
+  br label %876
+
+624:                                              ; preds = %27
+  %625 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_415EdestaddrreqExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %625, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %626 unwind label %627
+
+626:                                              ; preds = %624
+  invoke void @__cxa_throw(ptr %625, ptr @_ZTIN7Iex_3_415EdestaddrreqExcE, ptr @_ZN7Iex_3_415EdestaddrreqExcD1Ev) #16
+          to label %882 unwind label %23
+
+627:                                              ; preds = %624
+  %628 = landingpad { ptr, i32 }
+          cleanup
+  %629 = extractvalue { ptr, i32 } %628, 0
+  store ptr %629, ptr %8, align 8
+  %630 = extractvalue { ptr, i32 } %628, 1
+  store i32 %630, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %625) #14
+  br label %876
+
+631:                                              ; preds = %27
+  %632 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_411EmsgsizeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %632, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %633 unwind label %634
+
+633:                                              ; preds = %631
+  invoke void @__cxa_throw(ptr %632, ptr @_ZTIN7Iex_3_411EmsgsizeExcE, ptr @_ZN7Iex_3_411EmsgsizeExcD1Ev) #16
+          to label %882 unwind label %23
+
+634:                                              ; preds = %631
+  %635 = landingpad { ptr, i32 }
+          cleanup
+  %636 = extractvalue { ptr, i32 } %635, 0
+  store ptr %636, ptr %8, align 8
+  %637 = extractvalue { ptr, i32 } %635, 1
+  store i32 %637, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %632) #14
+  br label %876
+
+638:                                              ; preds = %27
+  %639 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_413EprototypeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %639, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %640 unwind label %641
+
+640:                                              ; preds = %638
+  invoke void @__cxa_throw(ptr %639, ptr @_ZTIN7Iex_3_413EprototypeExcE, ptr @_ZN7Iex_3_413EprototypeExcD1Ev) #16
+          to label %882 unwind label %23
+
+641:                                              ; preds = %638
+  %642 = landingpad { ptr, i32 }
+          cleanup
+  %643 = extractvalue { ptr, i32 } %642, 0
+  store ptr %643, ptr %8, align 8
+  %644 = extractvalue { ptr, i32 } %642, 1
+  store i32 %644, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %639) #14
+  br label %876
+
+645:                                              ; preds = %27
+  %646 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_414EnoprotooptExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %646, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %647 unwind label %648
+
+647:                                              ; preds = %645
+  invoke void @__cxa_throw(ptr %646, ptr @_ZTIN7Iex_3_414EnoprotooptExcE, ptr @_ZN7Iex_3_414EnoprotooptExcD1Ev) #16
+          to label %882 unwind label %23
+
+648:                                              ; preds = %645
+  %649 = landingpad { ptr, i32 }
+          cleanup
+  %650 = extractvalue { ptr, i32 } %649, 0
+  store ptr %650, ptr %8, align 8
+  %651 = extractvalue { ptr, i32 } %649, 1
+  store i32 %651, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %646) #14
+  br label %876
+
+652:                                              ; preds = %27
+  %653 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_418EprotonosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %653, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %654 unwind label %655
+
+654:                                              ; preds = %652
+  invoke void @__cxa_throw(ptr %653, ptr @_ZTIN7Iex_3_418EprotonosupportExcE, ptr @_ZN7Iex_3_418EprotonosupportExcD1Ev) #16
+          to label %882 unwind label %23
+
+655:                                              ; preds = %652
+  %656 = landingpad { ptr, i32 }
+          cleanup
+  %657 = extractvalue { ptr, i32 } %656, 0
+  store ptr %657, ptr %8, align 8
+  %658 = extractvalue { ptr, i32 } %656, 1
+  store i32 %658, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %653) #14
+  br label %876
+
+659:                                              ; preds = %27
+  %660 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_418EsocktnosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %660, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %661 unwind label %662
+
+661:                                              ; preds = %659
+  invoke void @__cxa_throw(ptr %660, ptr @_ZTIN7Iex_3_418EsocktnosupportExcE, ptr @_ZN7Iex_3_418EsocktnosupportExcD1Ev) #16
+          to label %882 unwind label %23
+
+662:                                              ; preds = %659
+  %663 = landingpad { ptr, i32 }
+          cleanup
+  %664 = extractvalue { ptr, i32 } %663, 0
+  store ptr %664, ptr %8, align 8
+  %665 = extractvalue { ptr, i32 } %663, 1
+  store i32 %665, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %660) #14
+  br label %876
+
+666:                                              ; preds = %27
+  %667 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_413EopnotsuppExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %667, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %668 unwind label %669
+
+668:                                              ; preds = %666
+  invoke void @__cxa_throw(ptr %667, ptr @_ZTIN7Iex_3_413EopnotsuppExcE, ptr @_ZN7Iex_3_413EopnotsuppExcD1Ev) #16
+          to label %882 unwind label %23
+
+669:                                              ; preds = %666
+  %670 = landingpad { ptr, i32 }
+          cleanup
+  %671 = extractvalue { ptr, i32 } %670, 0
+  store ptr %671, ptr %8, align 8
+  %672 = extractvalue { ptr, i32 } %670, 1
+  store i32 %672, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %667) #14
+  br label %876
+
+673:                                              ; preds = %27
+  %674 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_415EpfnosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %674, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %675 unwind label %676
+
+675:                                              ; preds = %673
+  invoke void @__cxa_throw(ptr %674, ptr @_ZTIN7Iex_3_415EpfnosupportExcE, ptr @_ZN7Iex_3_415EpfnosupportExcD1Ev) #16
+          to label %882 unwind label %23
+
+676:                                              ; preds = %673
+  %677 = landingpad { ptr, i32 }
+          cleanup
+  %678 = extractvalue { ptr, i32 } %677, 0
+  store ptr %678, ptr %8, align 8
+  %679 = extractvalue { ptr, i32 } %677, 1
+  store i32 %679, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %674) #14
+  br label %876
+
+680:                                              ; preds = %27
+  %681 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_415EafnosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %681, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %682 unwind label %683
+
+682:                                              ; preds = %680
+  invoke void @__cxa_throw(ptr %681, ptr @_ZTIN7Iex_3_415EafnosupportExcE, ptr @_ZN7Iex_3_415EafnosupportExcD1Ev) #16
+          to label %882 unwind label %23
+
+683:                                              ; preds = %680
+  %684 = landingpad { ptr, i32 }
+          cleanup
+  %685 = extractvalue { ptr, i32 } %684, 0
+  store ptr %685, ptr %8, align 8
+  %686 = extractvalue { ptr, i32 } %684, 1
+  store i32 %686, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %681) #14
+  br label %876
+
+687:                                              ; preds = %27
+  %688 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_413EaddrinuseExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %688, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %689 unwind label %690
+
+689:                                              ; preds = %687
+  invoke void @__cxa_throw(ptr %688, ptr @_ZTIN7Iex_3_413EaddrinuseExcE, ptr @_ZN7Iex_3_413EaddrinuseExcD1Ev) #16
+          to label %882 unwind label %23
+
+690:                                              ; preds = %687
+  %691 = landingpad { ptr, i32 }
+          cleanup
+  %692 = extractvalue { ptr, i32 } %691, 0
+  store ptr %692, ptr %8, align 8
+  %693 = extractvalue { ptr, i32 } %691, 1
+  store i32 %693, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %688) #14
+  br label %876
+
+694:                                              ; preds = %27
+  %695 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_416EaddrnotavailExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %695, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %696 unwind label %697
+
+696:                                              ; preds = %694
+  invoke void @__cxa_throw(ptr %695, ptr @_ZTIN7Iex_3_416EaddrnotavailExcE, ptr @_ZN7Iex_3_416EaddrnotavailExcD1Ev) #16
+          to label %882 unwind label %23
+
+697:                                              ; preds = %694
+  %698 = landingpad { ptr, i32 }
+          cleanup
+  %699 = extractvalue { ptr, i32 } %698, 0
+  store ptr %699, ptr %8, align 8
+  %700 = extractvalue { ptr, i32 } %698, 1
+  store i32 %700, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %695) #14
+  br label %876
+
+701:                                              ; preds = %27
+  %702 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_411EnetdownExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %702, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %703 unwind label %704
+
+703:                                              ; preds = %701
+  invoke void @__cxa_throw(ptr %702, ptr @_ZTIN7Iex_3_411EnetdownExcE, ptr @_ZN7Iex_3_411EnetdownExcD1Ev) #16
+          to label %882 unwind label %23
+
+704:                                              ; preds = %701
+  %705 = landingpad { ptr, i32 }
+          cleanup
+  %706 = extractvalue { ptr, i32 } %705, 0
+  store ptr %706, ptr %8, align 8
+  %707 = extractvalue { ptr, i32 } %705, 1
+  store i32 %707, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %702) #14
+  br label %876
+
+708:                                              ; preds = %27
+  %709 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_414EnetunreachExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %709, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %710 unwind label %711
+
+710:                                              ; preds = %708
+  invoke void @__cxa_throw(ptr %709, ptr @_ZTIN7Iex_3_414EnetunreachExcE, ptr @_ZN7Iex_3_414EnetunreachExcD1Ev) #16
+          to label %882 unwind label %23
+
+711:                                              ; preds = %708
+  %712 = landingpad { ptr, i32 }
+          cleanup
+  %713 = extractvalue { ptr, i32 } %712, 0
+  store ptr %713, ptr %8, align 8
+  %714 = extractvalue { ptr, i32 } %712, 1
+  store i32 %714, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %709) #14
+  br label %876
+
+715:                                              ; preds = %27
+  %716 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_412EnetresetExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %716, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %717 unwind label %718
+
+717:                                              ; preds = %715
+  invoke void @__cxa_throw(ptr %716, ptr @_ZTIN7Iex_3_412EnetresetExcE, ptr @_ZN7Iex_3_412EnetresetExcD1Ev) #16
+          to label %882 unwind label %23
+
+718:                                              ; preds = %715
+  %719 = landingpad { ptr, i32 }
+          cleanup
+  %720 = extractvalue { ptr, i32 } %719, 0
+  store ptr %720, ptr %8, align 8
+  %721 = extractvalue { ptr, i32 } %719, 1
+  store i32 %721, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %716) #14
+  br label %876
+
+722:                                              ; preds = %27
+  %723 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_415EconnabortedExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %723, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %724 unwind label %725
+
+724:                                              ; preds = %722
+  invoke void @__cxa_throw(ptr %723, ptr @_ZTIN7Iex_3_415EconnabortedExcE, ptr @_ZN7Iex_3_415EconnabortedExcD1Ev) #16
+          to label %882 unwind label %23
+
+725:                                              ; preds = %722
+  %726 = landingpad { ptr, i32 }
+          cleanup
+  %727 = extractvalue { ptr, i32 } %726, 0
+  store ptr %727, ptr %8, align 8
+  %728 = extractvalue { ptr, i32 } %726, 1
+  store i32 %728, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %723) #14
+  br label %876
+
+729:                                              ; preds = %27
+  %730 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_413EconnresetExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %730, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %731 unwind label %732
+
+731:                                              ; preds = %729
+  invoke void @__cxa_throw(ptr %730, ptr @_ZTIN7Iex_3_413EconnresetExcE, ptr @_ZN7Iex_3_413EconnresetExcD1Ev) #16
+          to label %882 unwind label %23
+
+732:                                              ; preds = %729
+  %733 = landingpad { ptr, i32 }
+          cleanup
+  %734 = extractvalue { ptr, i32 } %733, 0
+  store ptr %734, ptr %8, align 8
+  %735 = extractvalue { ptr, i32 } %733, 1
+  store i32 %735, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %730) #14
+  br label %876
+
+736:                                              ; preds = %27
+  %737 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_410EnobufsExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %737, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %738 unwind label %739
+
+738:                                              ; preds = %736
+  invoke void @__cxa_throw(ptr %737, ptr @_ZTIN7Iex_3_410EnobufsExcE, ptr @_ZN7Iex_3_410EnobufsExcD1Ev) #16
+          to label %882 unwind label %23
+
+739:                                              ; preds = %736
+  %740 = landingpad { ptr, i32 }
+          cleanup
+  %741 = extractvalue { ptr, i32 } %740, 0
+  store ptr %741, ptr %8, align 8
+  %742 = extractvalue { ptr, i32 } %740, 1
+  store i32 %742, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %737) #14
+  br label %876
+
+743:                                              ; preds = %27
+  %744 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_410EisconnExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %744, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %745 unwind label %746
+
+745:                                              ; preds = %743
+  invoke void @__cxa_throw(ptr %744, ptr @_ZTIN7Iex_3_410EisconnExcE, ptr @_ZN7Iex_3_410EisconnExcD1Ev) #16
+          to label %882 unwind label %23
+
+746:                                              ; preds = %743
+  %747 = landingpad { ptr, i32 }
+          cleanup
+  %748 = extractvalue { ptr, i32 } %747, 0
+  store ptr %748, ptr %8, align 8
+  %749 = extractvalue { ptr, i32 } %747, 1
+  store i32 %749, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %744) #14
+  br label %876
+
+750:                                              ; preds = %27
+  %751 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_411EnotconnExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %751, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %752 unwind label %753
+
+752:                                              ; preds = %750
+  invoke void @__cxa_throw(ptr %751, ptr @_ZTIN7Iex_3_411EnotconnExcE, ptr @_ZN7Iex_3_411EnotconnExcD1Ev) #16
+          to label %882 unwind label %23
+
+753:                                              ; preds = %750
+  %754 = landingpad { ptr, i32 }
+          cleanup
+  %755 = extractvalue { ptr, i32 } %754, 0
+  store ptr %755, ptr %8, align 8
+  %756 = extractvalue { ptr, i32 } %754, 1
+  store i32 %756, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %751) #14
+  br label %876
+
+757:                                              ; preds = %27
+  %758 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_412EshutdownExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %758, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %759 unwind label %760
+
+759:                                              ; preds = %757
+  invoke void @__cxa_throw(ptr %758, ptr @_ZTIN7Iex_3_412EshutdownExcE, ptr @_ZN7Iex_3_412EshutdownExcD1Ev) #16
+          to label %882 unwind label %23
+
+760:                                              ; preds = %757
+  %761 = landingpad { ptr, i32 }
+          cleanup
+  %762 = extractvalue { ptr, i32 } %761, 0
+  store ptr %762, ptr %8, align 8
+  %763 = extractvalue { ptr, i32 } %761, 1
+  store i32 %763, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %758) #14
+  br label %876
+
+764:                                              ; preds = %27
+  %765 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_415EtoomanyrefsExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %765, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %766 unwind label %767
+
+766:                                              ; preds = %764
+  invoke void @__cxa_throw(ptr %765, ptr @_ZTIN7Iex_3_415EtoomanyrefsExcE, ptr @_ZN7Iex_3_415EtoomanyrefsExcD1Ev) #16
+          to label %882 unwind label %23
+
+767:                                              ; preds = %764
+  %768 = landingpad { ptr, i32 }
+          cleanup
+  %769 = extractvalue { ptr, i32 } %768, 0
+  store ptr %769, ptr %8, align 8
+  %770 = extractvalue { ptr, i32 } %768, 1
+  store i32 %770, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %765) #14
+  br label %876
+
+771:                                              ; preds = %27
+  %772 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_412EtimedoutExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %772, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %773 unwind label %774
+
+773:                                              ; preds = %771
+  invoke void @__cxa_throw(ptr %772, ptr @_ZTIN7Iex_3_412EtimedoutExcE, ptr @_ZN7Iex_3_412EtimedoutExcD1Ev) #16
+          to label %882 unwind label %23
+
+774:                                              ; preds = %771
+  %775 = landingpad { ptr, i32 }
+          cleanup
+  %776 = extractvalue { ptr, i32 } %775, 0
+  store ptr %776, ptr %8, align 8
+  %777 = extractvalue { ptr, i32 } %775, 1
+  store i32 %777, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %772) #14
+  br label %876
+
+778:                                              ; preds = %27
+  %779 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_415EconnrefusedExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %779, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %780 unwind label %781
+
+780:                                              ; preds = %778
+  invoke void @__cxa_throw(ptr %779, ptr @_ZTIN7Iex_3_415EconnrefusedExcE, ptr @_ZN7Iex_3_415EconnrefusedExcD1Ev) #16
+          to label %882 unwind label %23
+
+781:                                              ; preds = %778
+  %782 = landingpad { ptr, i32 }
+          cleanup
+  %783 = extractvalue { ptr, i32 } %782, 0
+  store ptr %783, ptr %8, align 8
+  %784 = extractvalue { ptr, i32 } %782, 1
+  store i32 %784, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %779) #14
+  br label %876
+
+785:                                              ; preds = %27
+  %786 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_412EhostdownExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %786, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %787 unwind label %788
+
+787:                                              ; preds = %785
+  invoke void @__cxa_throw(ptr %786, ptr @_ZTIN7Iex_3_412EhostdownExcE, ptr @_ZN7Iex_3_412EhostdownExcD1Ev) #16
+          to label %882 unwind label %23
+
+788:                                              ; preds = %785
+  %789 = landingpad { ptr, i32 }
+          cleanup
+  %790 = extractvalue { ptr, i32 } %789, 0
+  store ptr %790, ptr %8, align 8
+  %791 = extractvalue { ptr, i32 } %789, 1
+  store i32 %791, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %786) #14
+  br label %876
+
+792:                                              ; preds = %27
+  %793 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_415EhostunreachExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %793, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %794 unwind label %795
+
+794:                                              ; preds = %792
+  invoke void @__cxa_throw(ptr %793, ptr @_ZTIN7Iex_3_415EhostunreachExcE, ptr @_ZN7Iex_3_415EhostunreachExcD1Ev) #16
+          to label %882 unwind label %23
+
+795:                                              ; preds = %792
+  %796 = landingpad { ptr, i32 }
+          cleanup
+  %797 = extractvalue { ptr, i32 } %796, 0
+  store ptr %797, ptr %8, align 8
+  %798 = extractvalue { ptr, i32 } %796, 1
+  store i32 %798, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %793) #14
+  br label %876
+
+799:                                              ; preds = %27
+  %800 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_411EalreadyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %800, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %801 unwind label %802
+
+801:                                              ; preds = %799
+  invoke void @__cxa_throw(ptr %800, ptr @_ZTIN7Iex_3_411EalreadyExcE, ptr @_ZN7Iex_3_411EalreadyExcD1Ev) #16
+          to label %882 unwind label %23
+
+802:                                              ; preds = %799
+  %803 = landingpad { ptr, i32 }
+          cleanup
+  %804 = extractvalue { ptr, i32 } %803, 0
+  store ptr %804, ptr %8, align 8
+  %805 = extractvalue { ptr, i32 } %803, 1
+  store i32 %805, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %800) #14
+  br label %876
+
+806:                                              ; preds = %27
+  %807 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_414EinprogressExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %807, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %808 unwind label %809
+
+808:                                              ; preds = %806
+  invoke void @__cxa_throw(ptr %807, ptr @_ZTIN7Iex_3_414EinprogressExcE, ptr @_ZN7Iex_3_414EinprogressExcD1Ev) #16
+          to label %882 unwind label %23
+
+809:                                              ; preds = %806
+  %810 = landingpad { ptr, i32 }
+          cleanup
+  %811 = extractvalue { ptr, i32 } %810, 0
+  store ptr %811, ptr %8, align 8
+  %812 = extractvalue { ptr, i32 } %810, 1
+  store i32 %812, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %807) #14
+  br label %876
+
+813:                                              ; preds = %27
+  %814 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EstaleExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %814, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %815 unwind label %816
+
+815:                                              ; preds = %813
+  invoke void @__cxa_throw(ptr %814, ptr @_ZTIN7Iex_3_49EstaleExcE, ptr @_ZN7Iex_3_49EstaleExcD1Ev) #16
+          to label %882 unwind label %23
+
+816:                                              ; preds = %813
+  %817 = landingpad { ptr, i32 }
+          cleanup
+  %818 = extractvalue { ptr, i32 } %817, 0
+  store ptr %818, ptr %8, align 8
+  %819 = extractvalue { ptr, i32 } %817, 1
+  store i32 %819, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %814) #14
+  br label %876
+
+820:                                              ; preds = %27
+  %821 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_410EucleanExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %821, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %822 unwind label %823
+
+822:                                              ; preds = %820
+  invoke void @__cxa_throw(ptr %821, ptr @_ZTIN7Iex_3_410EucleanExcE, ptr @_ZN7Iex_3_410EucleanExcD1Ev) #16
+          to label %882 unwind label %23
+
+823:                                              ; preds = %820
+  %824 = landingpad { ptr, i32 }
+          cleanup
+  %825 = extractvalue { ptr, i32 } %824, 0
+  store ptr %825, ptr %8, align 8
+  %826 = extractvalue { ptr, i32 } %824, 1
+  store i32 %826, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %821) #14
+  br label %876
+
+827:                                              ; preds = %27
+  %828 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_410EnotnamExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %828, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %829 unwind label %830
+
+829:                                              ; preds = %827
+  invoke void @__cxa_throw(ptr %828, ptr @_ZTIN7Iex_3_410EnotnamExcE, ptr @_ZN7Iex_3_410EnotnamExcD1Ev) #16
+          to label %882 unwind label %23
+
+830:                                              ; preds = %827
+  %831 = landingpad { ptr, i32 }
+          cleanup
+  %832 = extractvalue { ptr, i32 } %831, 0
+  store ptr %832, ptr %8, align 8
+  %833 = extractvalue { ptr, i32 } %831, 1
+  store i32 %833, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %828) #14
+  br label %876
+
+834:                                              ; preds = %27
+  %835 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_410EnavailExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %835, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %836 unwind label %837
+
+836:                                              ; preds = %834
+  invoke void @__cxa_throw(ptr %835, ptr @_ZTIN7Iex_3_410EnavailExcE, ptr @_ZN7Iex_3_410EnavailExcD1Ev) #16
+          to label %882 unwind label %23
+
+837:                                              ; preds = %834
+  %838 = landingpad { ptr, i32 }
+          cleanup
+  %839 = extractvalue { ptr, i32 } %838, 0
+  store ptr %839, ptr %8, align 8
+  %840 = extractvalue { ptr, i32 } %838, 1
+  store i32 %840, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %835) #14
+  br label %876
+
+841:                                              ; preds = %27
+  %842 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EisnamExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %842, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %843 unwind label %844
+
+843:                                              ; preds = %841
+  invoke void @__cxa_throw(ptr %842, ptr @_ZTIN7Iex_3_49EisnamExcE, ptr @_ZN7Iex_3_49EisnamExcD1Ev) #16
+          to label %882 unwind label %23
+
+844:                                              ; preds = %841
+  %845 = landingpad { ptr, i32 }
+          cleanup
+  %846 = extractvalue { ptr, i32 } %845, 0
+  store ptr %846, ptr %8, align 8
+  %847 = extractvalue { ptr, i32 } %845, 1
+  store i32 %847, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %842) #14
+  br label %876
+
+848:                                              ; preds = %27
+  %849 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_412EremoteioExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %849, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %850 unwind label %851
+
+850:                                              ; preds = %848
+  invoke void @__cxa_throw(ptr %849, ptr @_ZTIN7Iex_3_412EremoteioExcE, ptr @_ZN7Iex_3_412EremoteioExcD1Ev) #16
+          to label %882 unwind label %23
+
+851:                                              ; preds = %848
+  %852 = landingpad { ptr, i32 }
+          cleanup
+  %853 = extractvalue { ptr, i32 } %852, 0
+  store ptr %853, ptr %8, align 8
+  %854 = extractvalue { ptr, i32 } %852, 1
+  store i32 %854, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %849) #14
+  br label %876
+
+855:                                              ; preds = %27
+  %856 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_412EcanceledExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %856, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %857 unwind label %858
+
+857:                                              ; preds = %855
+  invoke void @__cxa_throw(ptr %856, ptr @_ZTIN7Iex_3_412EcanceledExcE, ptr @_ZN7Iex_3_412EcanceledExcD1Ev) #16
+          to label %882 unwind label %23
+
+858:                                              ; preds = %855
+  %859 = landingpad { ptr, i32 }
+          cleanup
+  %860 = extractvalue { ptr, i32 } %859, 0
+  store ptr %860, ptr %8, align 8
+  %861 = extractvalue { ptr, i32 } %859, 1
+  store i32 %861, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %856) #14
+  br label %876
+
+862:                                              ; preds = %27
+  %863 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_49EdquotExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %863, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %864 unwind label %865
+
+864:                                              ; preds = %862
+  invoke void @__cxa_throw(ptr %863, ptr @_ZTIN7Iex_3_49EdquotExcE, ptr @_ZN7Iex_3_49EdquotExcD1Ev) #16
+          to label %882 unwind label %23
+
+865:                                              ; preds = %862
+  %866 = landingpad { ptr, i32 }
+          cleanup
+  %867 = extractvalue { ptr, i32 } %866, 0
+  store ptr %867, ptr %8, align 8
+  %868 = extractvalue { ptr, i32 } %866, 1
+  store i32 %868, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %863) #14
+  br label %876
+
+869:                                              ; preds = %27
+  %870 = call ptr @__cxa_allocate_exception(i64 72) #14
+  invoke void @_ZN7Iex_3_48ErrnoExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %870, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %871 unwind label %872
+
+871:                                              ; preds = %869
+  invoke void @__cxa_throw(ptr %870, ptr @_ZTIN7Iex_3_48ErrnoExcE, ptr @_ZN7Iex_3_48ErrnoExcD1Ev) #16
+          to label %882 unwind label %23
+
+872:                                              ; preds = %869
+  %873 = landingpad { ptr, i32 }
+          cleanup
+  %874 = extractvalue { ptr, i32 } %873, 0
+  store ptr %874, ptr %8, align 8
+  %875 = extractvalue { ptr, i32 } %873, 1
+  store i32 %875, ptr %9, align 4
+  call void @__cxa_free_exception(ptr %870) #14
+  br label %876
+
+876:                                              ; preds = %872, %865, %858, %851, %844, %837, %830, %823, %816, %809, %802, %795, %788, %781, %774, %767, %760, %753, %746, %739, %732, %725, %718, %711, %704, %697, %690, %683, %676, %669, %662, %655, %648, %641, %634, %627, %620, %613, %606, %599, %592, %585, %578, %571, %564, %557, %550, %543, %536, %529, %522, %515, %508, %501, %494, %487, %480, %473, %466, %459, %452, %445, %438, %431, %424, %417, %410, %403, %396, %389, %382, %375, %368, %361, %354, %347, %340, %333, %326, %319, %312, %305, %298, %291, %284, %277, %270, %263, %256, %249, %242, %235, %228, %221, %214, %207, %200, %193, %186, %179, %172, %165, %158, %151, %144, %137, %130, %123, %116, %109, %102, %95, %88, %81, %74, %67, %60, %53, %46, %39, %32, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
+  call void @llvm.lifetime.end.p0(i64 32, ptr %6) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #14
+  br label %877
+
+877:                                              ; preds = %876
+  %878 = load ptr, ptr %8, align 8
+  %879 = load i32, ptr %9, align 4
+  %880 = insertvalue { ptr, i32 } poison, ptr %878, 0
+  %881 = insertvalue { ptr, i32 } %880, i32 %879, 1
+  resume { ptr, i32 } %881
+
+882:                                              ; preds = %871, %864, %857, %850, %843, %836, %829, %822, %815, %808, %801, %794, %787, %780, %773, %766, %759, %752, %745, %738, %731, %724, %717, %710, %703, %696, %689, %682, %675, %668, %661, %654, %647, %640, %633, %626, %619, %612, %605, %598, %591, %584, %577, %570, %563, %556, %549, %542, %535, %528, %521, %514, %507, %500, %493, %486, %479, %472, %465, %458, %451, %444, %437, %430, %423, %416, %409, %402, %395, %388, %381, %374, %367, %360, %353, %346, %339, %332, %325, %318, %311, %304, %297, %290, %283, %276, %269, %262, %255, %248, %241, %234, %227, %220, %213, %206, %199, %192, %185, %178, %171, %164, %157, %150, %143, %136, %129, %122, %115, %108, %101, %94, %87, %80, %73, %66, %59, %52, %45, %38, %31
   unreachable
 }
 
-; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) #1
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind
-declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) #1
+declare ptr @strerror(i32 noundef) #2
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) #2
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::allocator", align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %8 = load ptr, ptr %3, align 8
+  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %8, i32 0, i32 0
+  %10 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #14
+  %11 = load ptr, ptr %4, align 8, !tbaa !3
+  %12 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+  call void @_ZN9__gnu_cxx14__alloc_traitsISaIcEcE17_S_select_on_copyERKS1_(ptr dead_on_unwind writable sret(%"class.std::allocator") align 1 %5, ptr noundef nonnull align 1 dereferenceable(1) %12)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcOS3_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %13 unwind label %22
+
+13:                                               ; preds = %2
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #14
+  %14 = load ptr, ptr %4, align 8, !tbaa !3
+  %15 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14)
+  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  %17 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %16)
+  %18 = load ptr, ptr %4, align 8, !tbaa !3
+  %19 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #14
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %19
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %15, ptr noundef %20)
+          to label %21 unwind label %26
+
+21:                                               ; preds = %13
+  ret void
+
+22:                                               ; preds = %2
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %6, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %7, align 4
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #14
+  br label %30
+
+26:                                               ; preds = %13
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %6, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %7, align 4
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #14
+  br label %30
+
+30:                                               ; preds = %26, %22
+  %31 = load ptr, ptr %6, align 8
+  %32 = load i32, ptr %7, align 4
+  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
+  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
+  resume { ptr, i32 } %34
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2) #3 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  store i64 %2, ptr %6, align 8, !tbaa !12
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !10
+  %9 = load i64, ptr %6, align 8, !tbaa !12
+  %10 = load ptr, ptr %5, align 8, !tbaa !10
+  %11 = invoke noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %10)
+          to label %12 unwind label %14
+
+12:                                               ; preds = %3
+  %13 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %8, i64 noundef %9, i64 noundef %11) #14
+  ret i64 %13
+
+14:                                               ; preds = %3
+  %15 = landingpad { ptr, i32 }
+          catch ptr null
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #17
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #0 align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store i64 %1, ptr %7, align 8, !tbaa !12
+  store i64 %2, ptr %8, align 8, !tbaa !12
+  store ptr %3, ptr %9, align 8, !tbaa !10
+  store i64 %4, ptr %10, align 8, !tbaa !12
+  %11 = load ptr, ptr %6, align 8
+  %12 = load i64, ptr %7, align 8, !tbaa !12
+  %13 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %12, ptr noundef @.str.2)
+  %14 = load i64, ptr %7, align 8, !tbaa !12
+  %15 = load i64, ptr %8, align 8, !tbaa !12
+  %16 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_limitEmm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %14, i64 noundef %15) #14
+  %17 = load ptr, ptr %9, align 8, !tbaa !10
+  %18 = load i64, ptr %10, align 8, !tbaa !12
+  %19 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %13, i64 noundef %16, ptr noundef %17, i64 noundef %18)
+  ret ptr %19
+}
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #3
+declare i64 @strlen(ptr noundef) #4
 
 declare i32 @__gxx_personality_v0(...)
 
 declare ptr @__cxa_allocate_exception(i64)
 
-declare void @_ZN7Iex_3_28EpermExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48EpermExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 declare void @__cxa_free_exception(ptr)
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28EpermExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48EpermExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
 declare void @__cxa_throw(ptr, ptr, ptr)
 
-declare void @_ZN7Iex_3_29EnoentExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EnoentExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EnoentExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EnoentExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28EsrchExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48EsrchExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28EsrchExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48EsrchExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28EintrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48EintrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28EintrExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48EintrExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_26EioExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_46EioExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_26EioExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_46EioExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28EnxioExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48EnxioExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28EnxioExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48EnxioExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28E2bigExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48E2bigExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28E2bigExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48E2bigExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EnoexecExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EnoexecExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EnoexecExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EnoexecExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28EbadfExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48EbadfExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28EbadfExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48EbadfExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EchildExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EchildExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EchildExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EchildExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EagainExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EagainExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EagainExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EagainExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EnomemExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EnomemExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EnomemExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EnomemExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EaccesExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EaccesExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EaccesExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EaccesExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EfaultExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EfaultExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EfaultExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EfaultExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EnotblkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EnotblkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EnotblkExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EnotblkExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28EbusyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48EbusyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28EbusyExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48EbusyExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EexistExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EexistExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EexistExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EexistExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28ExdevExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48ExdevExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28ExdevExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48ExdevExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EnodevExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EnodevExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EnodevExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EnodevExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EnotdirExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EnotdirExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EnotdirExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EnotdirExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EisdirExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EisdirExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EisdirExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EisdirExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EinvalExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EinvalExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EinvalExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EinvalExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EnfileExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EnfileExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EnfileExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EnfileExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EmfileExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EmfileExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EmfileExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EmfileExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EnottyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EnottyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EnottyExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EnottyExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EtxtbsyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EtxtbsyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EtxtbsyExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EtxtbsyExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28EfbigExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48EfbigExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28EfbigExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48EfbigExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EnospcExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EnospcExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EnospcExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EnospcExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EspipeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EspipeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EspipeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EspipeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28ErofsExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48ErofsExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28ErofsExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48ErofsExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EmlinkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EmlinkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EmlinkExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EmlinkExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28EpipeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48EpipeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28EpipeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48EpipeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_27EdomExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_47EdomExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_27EdomExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_47EdomExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29ErangeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49ErangeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29ErangeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49ErangeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EnomsgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EnomsgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EnomsgExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EnomsgExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28EidrmExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48EidrmExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28EidrmExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48EidrmExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EchrngExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EchrngExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EchrngExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EchrngExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_211El2nsyncExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_411El2nsyncExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_211El2nsyncExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_411El2nsyncExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29El3hltExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49El3hltExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29El3hltExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49El3hltExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29El3rstExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49El3rstExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29El3rstExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49El3rstExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29ElnrngExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49ElnrngExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29ElnrngExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49ElnrngExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EunatchExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EunatchExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EunatchExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EunatchExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EnocsiExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EnocsiExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EnocsiExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EnocsiExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29El2hltExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49El2hltExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29El2hltExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49El2hltExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EdeadlkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EdeadlkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EdeadlkExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EdeadlkExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EnolckExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EnolckExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EnolckExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EnolckExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28EbadeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48EbadeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28EbadeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48EbadeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28EbadrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48EbadrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28EbadrExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48EbadrExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29ExfullExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49ExfullExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29ExfullExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49ExfullExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EnoanoExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EnoanoExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EnoanoExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EnoanoExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EbadrqcExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EbadrqcExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EbadrqcExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EbadrqcExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EbadsltExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EbadsltExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EbadsltExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EbadsltExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EbfontExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EbfontExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EbfontExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EbfontExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EnostrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EnostrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EnostrExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EnostrExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EnodataExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EnodataExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EnodataExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EnodataExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28EtimeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48EtimeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28EtimeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48EtimeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28EnosrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48EnosrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28EnosrExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48EnosrExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EnonetExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EnonetExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EnonetExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EnonetExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EnopkgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EnopkgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EnopkgExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EnopkgExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EremoteExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EremoteExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EremoteExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EremoteExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EnolinkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EnolinkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EnolinkExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EnolinkExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_27EadvExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_47EadvExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_27EadvExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_47EadvExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EsrmntExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EsrmntExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EsrmntExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EsrmntExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28EcommExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48EcommExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28EcommExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48EcommExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EprotoExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EprotoExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EprotoExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EprotoExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_212EmultihopExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_412EmultihopExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_212EmultihopExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_412EmultihopExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EbadmsgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EbadmsgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EbadmsgExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EbadmsgExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_215EnametoolongExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_415EnametoolongExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_215EnametoolongExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_415EnametoolongExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_212EoverflowExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_412EoverflowExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_212EoverflowExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_412EoverflowExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_211EnotuniqExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_411EnotuniqExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_211EnotuniqExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_411EnotuniqExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EbadfdExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EbadfdExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EbadfdExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EbadfdExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EremchgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EremchgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EremchgExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EremchgExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210ElibaccExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410ElibaccExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210ElibaccExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410ElibaccExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210ElibbadExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410ElibbadExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210ElibbadExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410ElibbadExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210ElibscnExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410ElibscnExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210ElibscnExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410ElibscnExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210ElibmaxExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410ElibmaxExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210ElibmaxExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410ElibmaxExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_211ElibexecExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_411ElibexecExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_211ElibexecExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_411ElibexecExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EilseqExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EilseqExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EilseqExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EilseqExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EnosysExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EnosysExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EnosysExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EnosysExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28EloopExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48EloopExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28EloopExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48EloopExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_211ErestartExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_411ErestartExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_211ErestartExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_411ErestartExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_211EstrpipeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_411EstrpipeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_211EstrpipeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_411EstrpipeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_212EnotemptyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_412EnotemptyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_212EnotemptyExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_412EnotemptyExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EusersExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EusersExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EusersExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EusersExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_211EnotsockExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_411EnotsockExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_211EnotsockExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_411EnotsockExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_215EdestaddrreqExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_415EdestaddrreqExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_215EdestaddrreqExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_415EdestaddrreqExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_211EmsgsizeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_411EmsgsizeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_211EmsgsizeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_411EmsgsizeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_213EprototypeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_413EprototypeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_213EprototypeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_413EprototypeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_214EnoprotooptExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_414EnoprotooptExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_214EnoprotooptExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_414EnoprotooptExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_218EprotonosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_418EprotonosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_218EprotonosupportExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_418EprotonosupportExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_218EsocktnosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_418EsocktnosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_218EsocktnosupportExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_418EsocktnosupportExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_213EopnotsuppExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_413EopnotsuppExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_213EopnotsuppExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_413EopnotsuppExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_215EpfnosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_415EpfnosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_215EpfnosupportExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_415EpfnosupportExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_215EafnosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_415EafnosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_215EafnosupportExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_415EafnosupportExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_213EaddrinuseExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_413EaddrinuseExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_213EaddrinuseExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_413EaddrinuseExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_216EaddrnotavailExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_416EaddrnotavailExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_216EaddrnotavailExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_416EaddrnotavailExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_211EnetdownExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_411EnetdownExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_211EnetdownExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_411EnetdownExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_214EnetunreachExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_414EnetunreachExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_214EnetunreachExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_414EnetunreachExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_212EnetresetExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_412EnetresetExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_212EnetresetExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_412EnetresetExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_215EconnabortedExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_415EconnabortedExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_215EconnabortedExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_415EconnabortedExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_213EconnresetExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_413EconnresetExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_213EconnresetExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_413EconnresetExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EnobufsExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EnobufsExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EnobufsExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EnobufsExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EisconnExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EisconnExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EisconnExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EisconnExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_211EnotconnExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_411EnotconnExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_211EnotconnExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_411EnotconnExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_212EshutdownExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_412EshutdownExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_212EshutdownExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_412EshutdownExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_215EtoomanyrefsExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_415EtoomanyrefsExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_215EtoomanyrefsExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_415EtoomanyrefsExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_212EtimedoutExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_412EtimedoutExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_212EtimedoutExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_412EtimedoutExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_215EconnrefusedExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_415EconnrefusedExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_215EconnrefusedExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_415EconnrefusedExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_212EhostdownExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_412EhostdownExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_212EhostdownExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_412EhostdownExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_215EhostunreachExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_415EhostunreachExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_215EhostunreachExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_415EhostunreachExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_211EalreadyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_411EalreadyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_211EalreadyExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_411EalreadyExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_214EinprogressExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_414EinprogressExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_214EinprogressExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_414EinprogressExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EstaleExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EstaleExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EstaleExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EstaleExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EucleanExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EucleanExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EucleanExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EucleanExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EnotnamExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EnotnamExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EnotnamExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EnotnamExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EnavailExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EnavailExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EnavailExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EnavailExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EisnamExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EisnamExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EisnamExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EisnamExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_212EremoteioExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_412EremoteioExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_212EremoteioExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_412EremoteioExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_212EcanceledExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_412EcanceledExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_212EcanceledExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_412EcanceledExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EdquotExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EdquotExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EdquotExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EdquotExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28ErrnoExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48ErrnoExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28ErrnoExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48ErrnoExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %4 unwind label %6
+
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  ret void
+
+6:                                                ; preds = %1
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #17
+  unreachable
+}
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_213throwErrnoExcERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %text) #0 {
-entry:
-  %text.addr = alloca ptr, align 8
-  store ptr %text, ptr %text.addr, align 8
-  %0 = load ptr, ptr %text.addr, align 8
-  %call = call ptr @__errno_location() #11
-  %1 = load i32, ptr %call, align 4
-  call void @_ZN7Iex_3_213throwErrnoExcERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1)
+define void @_ZN7Iex_3_413throwErrnoExcERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = call ptr @__errno_location() #18
+  %5 = load i32, ptr %4, align 4, !tbaa !8
+  call void @_ZN7Iex_3_413throwErrnoExcERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %5)
   ret void
 }
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #4
+declare ptr @__errno_location() #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_213throwErrnoExcEv() #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %txt = alloca %"class.std::__cxx11::basic_string", align 8
-  %ref.tmp = alloca %"class.std::allocator", align 1
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %txt, ptr noundef @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define void @_ZN7Iex_3_413throwErrnoExcEv() #0 personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"class.std::__cxx11::basic_string", align 8
+  %2 = alloca %"class.std::allocator", align 1
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 32, ptr %1) #14
+  call void @llvm.lifetime.start.p0(i64 1, ptr %2) #14
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #14
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %2)
+          to label %5 unwind label %7
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #8
-  invoke void @_ZN7Iex_3_213throwErrnoExcERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %txt)
-          to label %invoke.cont2 unwind label %lpad1
+5:                                                ; preds = %0
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #14
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #14
+  invoke void @_ZN7Iex_3_413throwErrnoExcERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %1)
+          to label %6 unwind label %11
 
-invoke.cont2:                                     ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %txt) #8
+6:                                                ; preds = %5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #14
   ret void
 
-lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+7:                                                ; preds = %0
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #8
-  br label %eh.resume
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %3, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %4, align 4
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #14
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #14
+  br label %15
 
-lpad1:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+11:                                               ; preds = %5
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %txt) #8
-  br label %eh.resume
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %3, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %4, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
+  br label %15
 
-eh.resume:                                        ; preds = %lpad1, %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val3 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val3
+15:                                               ; preds = %11, %7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #14
+  br label %16
+
+16:                                               ; preds = %15
+  %17 = load ptr, ptr %3, align 8
+  %18 = load i32, ptr %4, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
-; Function Attrs: nounwind
-declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #3 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  ret void
+}
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__s, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__s.addr = alloca ptr, align 8
-  %__a.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %__end = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__s, ptr %__s.addr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_dataplus = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this1, i32 0, i32 0
-  %call = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  %0 = load ptr, ptr %__a.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %_M_dataplus, ptr noundef %call, ptr noundef nonnull align 1 dereferenceable(1) %0)
-  %1 = load ptr, ptr %__s.addr, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  store ptr %2, ptr %6, align 8, !tbaa !16
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %10, i32 0, i32 0
+  %12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10)
+  %13 = load ptr, ptr %6, align 8, !tbaa !16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+  %14 = load ptr, ptr %5, align 8, !tbaa !10
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %22
 
-if.then:                                          ; preds = %entry
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef @.str.2) #10
-          to label %invoke.cont unwind label %lpad
+16:                                               ; preds = %3
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef @.str.4) #16
+          to label %17 unwind label %18
 
-invoke.cont:                                      ; preds = %if.then
+17:                                               ; preds = %16
   unreachable
 
-lpad:                                             ; preds = %invoke.cont2, %if.end, %if.then
-  %2 = landingpad { ptr, i32 }
+18:                                               ; preds = %16
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_dataplus) #8
-  br label %eh.resume
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %7, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %8, align 4
+  br label %34
 
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %__s.addr, align 8
-  %6 = load ptr, ptr %__s.addr, align 8
-  %call3 = invoke noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %6)
-          to label %invoke.cont2 unwind label %lpad
+22:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #14
+  %23 = load ptr, ptr %5, align 8, !tbaa !10
+  %24 = load ptr, ptr %5, align 8, !tbaa !10
+  %25 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %24)
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %25
+  store ptr %26, ptr %9, align 8, !tbaa !10
+  %27 = load ptr, ptr %5, align 8, !tbaa !10
+  %28 = load ptr, ptr %9, align 8, !tbaa !10
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %27, ptr noundef %28)
+          to label %29 unwind label %30
 
-invoke.cont2:                                     ; preds = %if.end
-  %add.ptr = getelementptr inbounds i8, ptr %5, i64 %call3
-  store ptr %add.ptr, ptr %__end, align 8
-  %7 = load ptr, ptr %__s.addr, align 8
-  %8 = load ptr, ptr %__end, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %7, ptr noundef %8)
-          to label %invoke.cont4 unwind label %lpad
-
-invoke.cont4:                                     ; preds = %invoke.cont2
+29:                                               ; preds = %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #14
   ret void
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val5 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val5
-}
-
-; Function Attrs: nounwind
-declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
-
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #2
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
-
-; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #5
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %__s) #6 comdat align 2 {
-entry:
-  %__s.addr = alloca ptr, align 8
-  store ptr %__s, ptr %__s.addr, align 8
-  %0 = load ptr, ptr %__s.addr, align 8
-  %call = call i64 @strlen(ptr noundef %0) #8
-  ret i64 %call
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr.i = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %__beg.addr = alloca ptr, align 8
-  %__end.addr = alloca ptr, align 8
-  %__dnew = alloca i64, align 8
-  %__guard = alloca %struct._Guard, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__beg, ptr %__beg.addr, align 8
-  store ptr %__end, ptr %__end.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %__beg.addr, align 8
-  %1 = load ptr, ptr %__end.addr, align 8
-  %call = call noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %0, ptr noundef %1)
-  store i64 %call, ptr %__dnew, align 8
-  %2 = load i64, ptr %__dnew, align 8
-  %cmp = icmp ugt i64 %2, 15
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %call2 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(8) %__dnew, i64 noundef 0)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %call2)
-  %3 = load i64, ptr %__dnew, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %this1, i64 noundef %3)
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  store ptr %this1, ptr %this.addr.i, align 8
-  %this1.i = load ptr, ptr %this.addr.i, align 8
-  %call.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this1.i)
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv.exit unwind label %terminate.lpad.i
-
-terminate.lpad.i:                                 ; preds = %if.else
-  %4 = landingpad { ptr, i32 }
-          catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #12
-  unreachable
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv.exit: ; preds = %if.else
-  br label %if.end
-
-if.end:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv.exit, %if.then
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %__guard, ptr noundef %this1)
-  %call4 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %if.end
-  %6 = load ptr, ptr %__beg.addr, align 8
-  %7 = load ptr, ptr %__end.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %6, ptr noundef %7) #8
-  %_M_guarded = getelementptr inbounds %struct._Guard, ptr %__guard, i32 0, i32 0
-  store ptr null, ptr %_M_guarded, align 8
-  %8 = load i64, ptr %__dnew, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %this1, i64 noundef %8)
-          to label %invoke.cont5 unwind label %lpad
-
-invoke.cont5:                                     ; preds = %invoke.cont
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #8
-  ret void
-
-lpad:                                             ; preds = %invoke.cont, %if.end
-  %9 = landingpad { ptr, i32 }
+30:                                               ; preds = %22
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #8
-  br label %eh.resume
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %7, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #14
+  br label %34
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val6 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val6
+34:                                               ; preds = %30, %18
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #14
+  br label %35
+
+35:                                               ; preds = %34
+  %36 = load ptr, ptr %7, align 8
+  %37 = load i32, ptr %8, align 4
+  %38 = insertvalue { ptr, i32 } poison, ptr %36, 0
+  %39 = insertvalue { ptr, i32 } %38, i32 %37, 1
+  resume { ptr, i32 } %39
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #6 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #8
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %__first, ptr noundef %__last) #0 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  %0 = load ptr, ptr %__first.addr, align 8
-  %1 = load ptr, ptr %__last.addr, align 8
-  call void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr)
-  %call = call noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1)
-  ret i64 %call
-}
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  br i1 %4, label %8, label %5
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) #2
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %7 = load i64, ptr %6, align 8, !tbaa !20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %7) #14
+  br label %8
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) #2
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #2
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__s) unnamed_addr #6 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__s.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__s, ptr %__s.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_guarded = getelementptr inbounds %struct._Guard, ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__s.addr, align 8
-  store ptr %0, ptr %_M_guarded, align 8
+8:                                                ; preds = %5, %1
   ret void
 }
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef, ptr noundef, ptr noundef) #1
-
-declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #2
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #2
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_guarded = getelementptr inbounds %struct._Guard, ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %_M_guarded, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %_M_guarded2 = getelementptr inbounds %struct._Guard, ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %_M_guarded2, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
-          to label %invoke.cont unwind label %terminate.lpad
-
-invoke.cont:                                      ; preds = %if.then
-  br label %if.end
-
-if.end:                                           ; preds = %invoke.cont, %entry
-  ret void
-
-terminate.lpad:                                   ; preds = %if.then
-  %2 = landingpad { ptr, i32 }
-          catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #12
-  unreachable
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %__first, ptr noundef %__last) #6 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  %0 = load ptr, ptr %__last.addr, align 8
-  %1 = load ptr, ptr %__first.addr, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  ret i64 %sub.ptr.sub
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #6 comdat {
-entry:
-  %.addr = alloca ptr, align 8
-  store ptr %0, ptr %.addr, align 8
-  ret void
-}
-
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #8
-  call void @_ZSt9terminatev() #12
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #14
+  call void @_ZSt9terminatev() #17
   unreachable
 }
 
@@ -3613,30 +3626,921 @@ declare ptr @__cxa_begin_catch(ptr)
 
 declare void @_ZSt9terminatev()
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32)) #2
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %4 = load ptr, ptr %3, align 8
+  %5 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %7 = icmp eq ptr %5, %6
+  br i1 %7, label %8, label %14
+
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8, !tbaa !21
+  %11 = icmp ugt i64 %10, 15
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %8
+  unreachable
+
+13:                                               ; preds = %8
+  store i1 true, ptr %2, align 1
+  br label %15
+
+14:                                               ; preds = %1
+  store i1 false, ptr %2, align 1
+  br label %15
+
+15:                                               ; preds = %14, %13
+  %16 = load i1, ptr %2, align 1
+  ret i1 %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #3 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8
+  %6 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %7 unwind label %12
+
+7:                                                ; preds = %2
+  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %9 = load i64, ptr %4, align 8, !tbaa !12
+  %10 = add i64 %9, 1
+  invoke void @_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %8, i64 noundef %10)
+          to label %11 unwind label %12
+
+11:                                               ; preds = %7
+  ret void
+
+12:                                               ; preds = %7, %2
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #17
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #3 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !24
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #3 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %6 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_(ptr noundef nonnull align 1 dereferenceable(1) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
+  %3 = load ptr, ptr %2, align 8, !tbaa !10
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !16
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  store i64 %2, ptr %6, align 8, !tbaa !12
+  %7 = load ptr, ptr %4, align 8, !tbaa !16
+  %8 = load ptr, ptr %5, align 8, !tbaa !10
+  %9 = load i64, ptr %6, align 8, !tbaa !12
+  call void @_ZNSt15__new_allocatorIcE10deallocateEPcm(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #3 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIcE10deallocateEPcm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !18
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  store i64 %2, ptr %6, align 8, !tbaa !12
+  %7 = load ptr, ptr %5, align 8, !tbaa !10
+  %8 = load i64, ptr %6, align 8, !tbaa !12
+  %9 = mul i64 %8, 1
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #19
+  ret void
+}
+
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #8
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #3 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %6 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN9__gnu_cxx14__alloc_traitsISaIcEcE17_S_select_on_copyERKS1_(ptr dead_on_unwind noalias writable sret(%"class.std::allocator") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZNSt16allocator_traitsISaIcEE37select_on_container_copy_constructionERKS0_(ptr dead_on_unwind writable sret(%"class.std::allocator") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #3 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #3 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !25
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  store ptr %2, ptr %6, align 8, !tbaa !16
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !16
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #14
+  %9 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %5, align 8, !tbaa !10
+  store ptr %10, ptr %9, align 8, !tbaa !27
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca %struct._Guard, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  store ptr %2, ptr %6, align 8, !tbaa !10
+  %11 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #14
+  %12 = load ptr, ptr %5, align 8, !tbaa !10
+  %13 = load ptr, ptr %6, align 8, !tbaa !10
+  %14 = call noundef i64 @_ZSt8distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_(ptr noundef %12, ptr noundef %13)
+  store i64 %14, ptr %7, align 8, !tbaa !12
+  %15 = load i64, ptr %7, align 8, !tbaa !12
+  %16 = icmp ugt i64 %15, 15
+  br i1 %16, label %17, label %20
+
+17:                                               ; preds = %3
+  %18 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %18)
+  %19 = load i64, ptr %7, align 8, !tbaa !12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %19)
+  br label %22
+
+20:                                               ; preds = %3
+  %21 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #14
+  br label %22
+
+22:                                               ; preds = %20, %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #14
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %11)
+  %23 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %24 = load ptr, ptr %5, align 8, !tbaa !10
+  %25 = load ptr, ptr %6, align 8, !tbaa !10
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcS5_S5_(ptr noundef %23, ptr noundef %24, ptr noundef %25) #14
+  %26 = getelementptr inbounds nuw %struct._Guard, ptr %8, i32 0, i32 0
+  store ptr null, ptr %26, align 8, !tbaa !28
+  %27 = load i64, ptr %7, align 8, !tbaa !12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %27)
+          to label %28 unwind label %29
+
+28:                                               ; preds = %22
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #14
+  ret void
+
+29:                                               ; preds = %22
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %9, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %10, align 4
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #14
+  br label %33
+
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %9, align 8
+  %35 = load i32, ptr %10, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #3 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !21
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc(ptr noundef nonnull align 1 dereferenceable(1) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
+  %3 = load ptr, ptr %2, align 8, !tbaa !10
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIcEE37select_on_container_copy_constructionERKS0_(ptr dead_on_unwind noalias writable sret(%"class.std::allocator") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #3 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZNSt15__new_allocatorIcEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #14
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIcEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !18
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef i64 @_ZSt8distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_(ptr noundef %0, ptr noundef %1) #9 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  %5 = load ptr, ptr %3, align 8, !tbaa !10
+  %6 = load ptr, ptr %4, align 8, !tbaa !10
+  call void @_ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %7 = call noundef i64 @_ZSt10__distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_St26random_access_iterator_tag(ptr noundef %5, ptr noundef %6)
+  ret i64 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #3 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !10
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  store ptr %6, ptr %8, align 8, !tbaa !24
+  ret void
+}
+
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) #5
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #3 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !12
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 2
+  store i64 %6, ptr %7, align 8, !tbaa !20
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #10 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !30
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct._Guard, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %7, ptr %6, align 8, !tbaa !28
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcS5_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !10
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  store ptr %2, ptr %6, align 8, !tbaa !10
+  %7 = load ptr, ptr %4, align 8, !tbaa !10
+  %8 = load ptr, ptr %5, align 8, !tbaa !10
+  %9 = load ptr, ptr %6, align 8, !tbaa !10
+  %10 = load ptr, ptr %5, align 8, !tbaa !10
+  %11 = ptrtoint ptr %9 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %7, ptr noundef %8, i64 noundef %13)
+          to label %14 unwind label %15
+
+14:                                               ; preds = %3
+  ret void
+
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          catch ptr null
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #17
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %6 = load ptr, ptr %3, align 8
+  %7 = load i64, ptr %4, align 8, !tbaa !12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %7)
+  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %9 = load i64, ptr %4, align 8, !tbaa !12
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #14
+  store i8 0, ptr %5, align 1, !tbaa !20
+  call void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #14
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !30
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct._Guard, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !28
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %11
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %struct._Guard, ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !28
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %10 unwind label %12
+
+10:                                               ; preds = %7
+  br label %11
+
+11:                                               ; preds = %10, %1
+  ret void
+
+12:                                               ; preds = %7
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #17
+  unreachable
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZSt10__distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1) #11 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  %5 = load ptr, ptr %4, align 8, !tbaa !10
+  %6 = load ptr, ptr %3, align 8, !tbaa !10
+  %7 = ptrtoint ptr %5 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = sub i64 %7, %8
+  ret i64 %9
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #11 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !32
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !10
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  store i64 %2, ptr %6, align 8, !tbaa !12
+  %7 = load i64, ptr %6, align 8, !tbaa !12
+  %8 = icmp eq i64 %7, 1
+  br i1 %8, label %9, label %12
+
+9:                                                ; preds = %3
+  %10 = load ptr, ptr %4, align 8, !tbaa !10
+  %11 = load ptr, ptr %5, align 8, !tbaa !10
+  call void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #14
+  br label %17
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %4, align 8, !tbaa !10
+  %14 = load ptr, ptr %5, align 8, !tbaa !10
+  %15 = load i64, ptr %6, align 8, !tbaa !12
+  %16 = call noundef ptr @_ZNSt11char_traitsIcE4copyEPcPKcm(ptr noundef %13, ptr noundef %14, i64 noundef %15)
+  br label %17
+
+17:                                               ; preds = %12, %9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  %5 = load ptr, ptr %4, align 8, !tbaa !10
+  %6 = load i8, ptr %5, align 1, !tbaa !20
+  %7 = load ptr, ptr %3, align 8, !tbaa !10
+  store i8 %6, ptr %7, align 1, !tbaa !20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt11char_traitsIcE4copyEPcPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !10
+  store ptr %1, ptr %6, align 8, !tbaa !10
+  store i64 %2, ptr %7, align 8, !tbaa !12
+  %8 = load i64, ptr %7, align 8, !tbaa !12
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %10, label %12
+
+10:                                               ; preds = %3
+  %11 = load ptr, ptr %5, align 8, !tbaa !10
+  store ptr %11, ptr %4, align 8
+  br label %16
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %5, align 8, !tbaa !10
+  %14 = load ptr, ptr %6, align 8, !tbaa !10
+  %15 = load i64, ptr %7, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %14, i64 %15, i1 false)
+  store ptr %13, ptr %4, align 8
+  br label %16
+
+16:                                               ; preds = %12, %10
+  %17 = load ptr, ptr %4, align 8
+  ret ptr %17
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #3 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !12
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 1
+  store i64 %6, ptr %7, align 8, !tbaa !21
+  ret void
+}
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) #5
+
+; Function Attrs: mustprogress uwtable
+define available_externally noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, ptr noundef %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !12
+  store ptr %2, ptr %6, align 8, !tbaa !10
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8, !tbaa !12
+  %9 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #14
+  %10 = icmp ugt i64 %8, %9
+  br i1 %10, label %11, label %15
+
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %6, align 8, !tbaa !10
+  %13 = load i64, ptr %5, align 8, !tbaa !12
+  %14 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #14
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef @.str.3, ptr noundef %12, i64 noundef %13, i64 noundef %14) #16
+  unreachable
+
+15:                                               ; preds = %3
+  %16 = load i64, ptr %5, align 8, !tbaa !12
+  ret i64 %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_limitEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2) #3 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !12
+  store i64 %2, ptr %6, align 8, !tbaa !12
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #14
+  %9 = load i64, ptr %6, align 8, !tbaa !12
+  %10 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #14
+  %11 = load i64, ptr %5, align 8, !tbaa !12
+  %12 = sub i64 %10, %11
+  %13 = icmp ult i64 %9, %12
+  %14 = zext i1 %13 to i8
+  store i8 %14, ptr %7, align 1, !tbaa !35
+  %15 = load i8, ptr %7, align 1, !tbaa !35, !range !37, !noundef !38
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %19
+
+17:                                               ; preds = %3
+  %18 = load i64, ptr %6, align 8, !tbaa !12
+  br label %23
+
+19:                                               ; preds = %3
+  %20 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #14
+  %21 = load i64, ptr %5, align 8, !tbaa !12
+  %22 = sub i64 %20, %21
+  br label %23
+
+23:                                               ; preds = %19, %17
+  %24 = phi i64 [ %18, %17 ], [ %22, %19 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #14
+  ret i64 %24
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #3 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !21
+  ret i64 %5
+}
+
+; Function Attrs: noreturn
+declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) #13
 
 ; Function Attrs: nounwind
-declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
+declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, i64 noundef) #2
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind willreturn memory(read) }
-attributes #10 = { noreturn }
-attributes #11 = { nounwind willreturn memory(none) }
-attributes #12 = { noreturn nounwind }
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
+  %3 = load ptr, ptr %2, align 8, !tbaa !10
+  %4 = call i64 @strlen(ptr noundef %3) #14
+  ret i64 %4
+}
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #3 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !25
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  store ptr %2, ptr %6, align 8, !tbaa !16
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !16
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #14
+  %9 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %5, align 8, !tbaa !10
+  store ptr %10, ptr %9, align 8, !tbaa !27
+  ret void
+}
+
+; Function Attrs: noreturn
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #13
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca %struct._Guard.0, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  store ptr %2, ptr %6, align 8, !tbaa !10
+  %11 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #14
+  %12 = load ptr, ptr %5, align 8, !tbaa !10
+  %13 = load ptr, ptr %6, align 8, !tbaa !10
+  %14 = call noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %12, ptr noundef %13)
+  store i64 %14, ptr %7, align 8, !tbaa !12
+  %15 = load i64, ptr %7, align 8, !tbaa !12
+  %16 = icmp ugt i64 %15, 15
+  br i1 %16, label %17, label %20
+
+17:                                               ; preds = %3
+  %18 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %18)
+  %19 = load i64, ptr %7, align 8, !tbaa !12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %19)
+  br label %22
+
+20:                                               ; preds = %3
+  %21 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #14
+  br label %22
+
+22:                                               ; preds = %20, %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #14
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %11)
+  %23 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %24 = load ptr, ptr %5, align 8, !tbaa !10
+  %25 = load ptr, ptr %6, align 8, !tbaa !10
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %23, ptr noundef %24, ptr noundef %25) #14
+  %26 = getelementptr inbounds nuw %struct._Guard.0, ptr %8, i32 0, i32 0
+  store ptr null, ptr %26, align 8, !tbaa !39
+  %27 = load i64, ptr %7, align 8, !tbaa !12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %27)
+          to label %28 unwind label %29
+
+28:                                               ; preds = %22
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #14
+  ret void
+
+29:                                               ; preds = %22
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %9, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %10, align 4
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #14
+  br label %33
+
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %9, align 8
+  %35 = load i32, ptr %10, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %0, ptr noundef %1) #9 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  %5 = load ptr, ptr %3, align 8, !tbaa !10
+  %6 = load ptr, ptr %4, align 8, !tbaa !10
+  call void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %7 = call noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %5, ptr noundef %6)
+  ret i64 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !41
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct._Guard.0, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %7, ptr %6, align 8, !tbaa !39
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !10
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  store ptr %2, ptr %6, align 8, !tbaa !10
+  %7 = load ptr, ptr %4, align 8, !tbaa !10
+  %8 = load ptr, ptr %5, align 8, !tbaa !10
+  %9 = load ptr, ptr %6, align 8, !tbaa !10
+  %10 = load ptr, ptr %5, align 8, !tbaa !10
+  %11 = ptrtoint ptr %9 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %7, ptr noundef %8, i64 noundef %13)
+          to label %14 unwind label %15
+
+14:                                               ; preds = %3
+  ret void
+
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          catch ptr null
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #17
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !41
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct._Guard.0, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %11
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %struct._Guard.0, ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !39
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %10 unwind label %12
+
+10:                                               ; preds = %7
+  br label %11
+
+11:                                               ; preds = %10, %1
+  ret void
+
+12:                                               ; preds = %7
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #17
+  unreachable
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1) #11 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  %5 = load ptr, ptr %4, align 8, !tbaa !10
+  %6 = load ptr, ptr %3, align 8, !tbaa !10
+  %7 = ptrtoint ptr %5 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = sub i64 %7, %8
+  ret i64 %9
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #11 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !32
+  ret void
+}
+
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { noreturn }
+attributes #17 = { noreturn nounwind }
+attributes #18 = { nounwind willreturn memory(none) }
+attributes #19 = { builtin nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 omnipotent char", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"long", !6, i64 0}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTSSaIcE", !5, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTSSt15__new_allocatorIcE", !5, i64 0}
+!20 = !{!6, !6, i64 0}
+!21 = !{!22, !13, i64 8}
+!22 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !23, i64 0, !13, i64 8, !6, i64 16}
+!23 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !11, i64 0}
+!24 = !{!22, !11, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !5, i64 0}
+!27 = !{!23, !11, i64 0}
+!28 = !{!29, !4, i64 0}
+!29 = !{!"_ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagE6_Guard", !4, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagE6_Guard", !5, i64 0}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p2 omnipotent char", !34, i64 0}
+!34 = !{!"any p2 pointer", !5, i64 0}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"bool", !6, i64 0}
+!37 = !{i8 0, i8 2}
+!38 = !{}
+!39 = !{!40, !4, i64 0}
+!40 = !{!"_ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagE6_Guard", !4, i64 0}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 _ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagE6_Guard", !5, i64 0}

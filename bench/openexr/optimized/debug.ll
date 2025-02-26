@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/openexr/original/debug.ll'
 source_filename = "bench/openexr/original/debug.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.exr_attr_chlist_entry_t = type { %struct.exr_attr_string_t, i32, i8, [3 x i8], i32, i32 }
 %struct.exr_attr_string_t = type { i32, i32, ptr }
@@ -83,907 +83,905 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.73 = private unnamed_addr constant [26 x i8] c"<ERROR Unknown type '%s'>\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @exr_print_context_info(ptr noundef %ctxt, i32 noundef %verbose) local_unnamed_addr #0 {
-entry:
-  %tobool.not = icmp eq ptr %ctxt, null
-  br i1 %tobool.not, label %return, label %if.end
+define range(i32 0, 3) i32 @exr_print_context_info(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %150, label %3
 
-if.end:                                           ; preds = %entry
-  %0 = load i8, ptr %ctxt, align 8
-  %cmp = icmp eq i8 %0, 1
-  br i1 %cmp, label %if.then2, label %if.end3
+3:                                                ; preds = %2
+  %4 = load i8, ptr %0, align 8, !tbaa !3
+  %5 = icmp eq i8 %4, 1
+  br i1 %5, label %6, label %9
 
-if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #5
-  br label %if.end3
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #5
+  br label %9
 
-if.end3:                                          ; preds = %if.then2, %if.end
-  %tobool4.not = icmp eq i32 %verbose, 0
-  %str21 = getelementptr inbounds nuw i8, ptr %ctxt, i64 16
-  %1 = load ptr, ptr %str21, align 8
-  br i1 %tobool4.not, label %if.else, label %if.then5
+9:                                                ; preds = %6, %3
+  %.not71 = icmp eq i32 %1, 0
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = load ptr, ptr %10, align 8, !tbaa !22
+  br i1 %.not71, label %33, label %12
 
-if.then5:                                         ; preds = %if.end3
-  %version = getelementptr inbounds nuw i8, ptr %ctxt, i64 1
-  %2 = load i8, ptr %version, align 1
-  %conv6 = zext i8 %2 to i32
-  %is_singlepart_tiled = getelementptr inbounds nuw i8, ptr %ctxt, i64 3
-  %3 = load i8, ptr %is_singlepart_tiled, align 1
-  %tobool8.not = icmp eq i8 %3, 0
-  %cond = select i1 %tobool8.not, ptr @.str.2, ptr @.str.1
-  %max_name_length = getelementptr inbounds nuw i8, ptr %ctxt, i64 2
-  %4 = load i8, ptr %max_name_length, align 2
-  %cmp10 = icmp eq i8 %4, -1
-  %cond12 = select i1 %cmp10, ptr @.str.3, ptr @.str.4
-  %has_nonimage_data = getelementptr inbounds nuw i8, ptr %ctxt, i64 4
-  %5 = load i8, ptr %has_nonimage_data, align 4
-  %tobool14.not = icmp eq i8 %5, 0
-  %cond15 = select i1 %tobool14.not, ptr @.str.2, ptr @.str.5
-  %is_multipart = getelementptr inbounds nuw i8, ptr %ctxt, i64 5
-  %6 = load i8, ptr %is_multipart, align 1
-  %tobool17.not = icmp eq i8 %6, 0
-  %cond18 = select i1 %tobool17.not, ptr @.str.2, ptr @.str.6
-  %call = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef %1, i32 noundef %conv6, ptr noundef nonnull %cond, ptr noundef nonnull %cond12, ptr noundef nonnull %cond15, ptr noundef nonnull %cond18)
-  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
-  %7 = load i32, ptr %num_parts, align 4
-  %call19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %7)
-  br label %if.end23
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %14 = load i8, ptr %13, align 1, !tbaa !23
+  %15 = zext i8 %14 to i32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %17 = load i8, ptr %16, align 1, !tbaa !24
+  %.not72 = icmp eq i8 %17, 0
+  %18 = select i1 %.not72, ptr @.str.2, ptr @.str.1
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %20 = load i8, ptr %19, align 2, !tbaa !25
+  %21 = icmp eq i8 %20, -1
+  %22 = select i1 %21, ptr @.str.3, ptr @.str.4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %24 = load i8, ptr %23, align 4, !tbaa !26
+  %.not73 = icmp eq i8 %24, 0
+  %25 = select i1 %.not73, ptr @.str.2, ptr @.str.5
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %27 = load i8, ptr %26, align 1, !tbaa !27
+  %.not74 = icmp eq i8 %27, 0
+  %28 = select i1 %.not74, ptr @.str.2, ptr @.str.6
+  %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef %11, i32 noundef %15, ptr noundef nonnull %18, ptr noundef nonnull %22, ptr noundef nonnull %25, ptr noundef nonnull %28)
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 196
+  %31 = load i32, ptr %30, align 4, !tbaa !28
+  %32 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %31)
+  br label %35
 
-if.else:                                          ; preds = %if.end3
-  %call22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef %1)
-  br label %if.end23
+33:                                               ; preds = %9
+  %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef %11)
+  br label %35
 
-if.end23:                                         ; preds = %if.else, %if.then5
-  %num_parts24 = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
-  %8 = load i32, ptr %num_parts24, align 4
-  %cmp2569 = icmp sgt i32 %8, 0
-  br i1 %cmp2569, label %for.body.lr.ph, label %for.end111
+35:                                               ; preds = %33, %12
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 196
+  %37 = load i32, ptr %36, align 4, !tbaa !28
+  %38 = icmp sgt i32 %37, 0
+  br i1 %38, label %.lr.ph97, label %._crit_edge98
 
-for.body.lr.ph:                                   ; preds = %if.end23
-  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
-  %is_multipart28 = getelementptr inbounds nuw i8, ptr %ctxt, i64 5
-  br label %for.body
+.lr.ph97:                                         ; preds = %35
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  br label %43
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.inc109
-  %indvars.iv79 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next80, %for.inc109 ]
-  %9 = load ptr, ptr %parts, align 8
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv79
-  %10 = load ptr, ptr %arrayidx, align 8
-  br i1 %tobool4.not, label %lor.lhs.false, label %if.then33
+._crit_edge98:                                    ; preds = %143, %35
+  %41 = load i8, ptr %0, align 8, !tbaa !3
+  %42 = icmp eq i8 %41, 1
+  br i1 %42, label %147, label %150
 
-lor.lhs.false:                                    ; preds = %for.body
-  %11 = load i8, ptr %is_multipart28, align 1
-  %tobool30.not = icmp eq i8 %11, 0
-  br i1 %tobool30.not, label %lor.lhs.false31, label %if.then33
+43:                                               ; preds = %.lr.ph97, %143
+  %indvars.iv106 = phi i64 [ 0, %.lr.ph97 ], [ %indvars.iv.next107, %143 ]
+  %44 = load ptr, ptr %39, align 8, !tbaa !29
+  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv106
+  %46 = load ptr, ptr %45, align 8, !tbaa !30
+  br i1 %.not71, label %47, label %52
 
-lor.lhs.false31:                                  ; preds = %lor.lhs.false
-  %name = getelementptr inbounds nuw i8, ptr %10, i64 104
-  %12 = load ptr, ptr %name, align 8
-  %tobool32.not = icmp eq ptr %12, null
-  br i1 %tobool32.not, label %if.else57, label %if.then33
+47:                                               ; preds = %43
+  %48 = load i8, ptr %40, align 1, !tbaa !27
+  %.not75 = icmp eq i8 %48, 0
+  br i1 %.not75, label %49, label %52
 
-if.then33:                                        ; preds = %lor.lhs.false31, %lor.lhs.false, %for.body
-  %name34 = getelementptr inbounds nuw i8, ptr %10, i64 104
-  %13 = load ptr, ptr %name34, align 8
-  %tobool35.not = icmp eq ptr %13, null
-  br i1 %tobool35.not, label %if.end40, label %cond.true
+49:                                               ; preds = %47
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 104
+  %51 = load ptr, ptr %50, align 8, !tbaa !31
+  %.not76 = icmp eq ptr %51, null
+  br i1 %.not76, label %.thread, label %52
 
-cond.true:                                        ; preds = %if.then33
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %15 = load ptr, ptr %14, align 8
-  %str37 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %16 = load ptr, ptr %str37, align 8
-  br label %if.end40
+52:                                               ; preds = %49, %47, %43
+  %53 = getelementptr inbounds nuw i8, ptr %46, i64 104
+  %54 = load ptr, ptr %53, align 8, !tbaa !31
+  %.not77 = icmp eq ptr %54, null
+  br i1 %.not77, label %60, label %55
 
-if.end40:                                         ; preds = %cond.true, %if.then33
-  %cond38 = phi ptr [ %16, %cond.true ], [ @.str.10, %if.then33 ]
-  %17 = trunc i64 %indvars.iv79 to i32
-  %18 = add i32 %17, 1
-  %call39 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %18, ptr noundef %cond38)
-  br i1 %tobool4.not, label %if.else57, label %for.cond43.preheader
+55:                                               ; preds = %52
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %57 = load ptr, ptr %56, align 8, !tbaa !32
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %59 = load ptr, ptr %58, align 8, !tbaa !33
+  br label %60
 
-for.cond43.preheader:                             ; preds = %if.end40
-  %attributes = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %19 = load i32, ptr %attributes, align 8
-  %cmp4463 = icmp sgt i32 %19, 0
-  br i1 %cmp4463, label %for.body46.lr.ph, label %if.end73
+60:                                               ; preds = %55, %52
+  %61 = phi ptr [ %59, %55 ], [ @.str.10, %52 ]
+  %62 = trunc i64 %indvars.iv106 to i32
+  %63 = add i32 %62, 1
+  %64 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %63, ptr noundef %61)
+  br i1 %.not71, label %.thread, label %.preheader
 
-for.body46.lr.ph:                                 ; preds = %for.cond43.preheader
-  %entries = getelementptr inbounds nuw i8, ptr %10, i64 16
-  br label %for.body46
+.preheader:                                       ; preds = %60
+  %65 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %66 = load i32, ptr %65, align 8, !tbaa !34
+  %67 = icmp sgt i32 %66, 0
+  br i1 %67, label %.lr.ph, label %._crit_edge
 
-for.body46:                                       ; preds = %for.body46.lr.ph, %if.end51
-  %indvars.iv = phi i64 [ 0, %for.body46.lr.ph ], [ %indvars.iv.next, %if.end51 ]
-  %cmp47.not = icmp eq i64 %indvars.iv, 0
-  br i1 %cmp47.not, label %if.end51, label %if.then49
+.lr.ph:                                           ; preds = %.preheader
+  %68 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  br label %69
 
-if.then49:                                        ; preds = %for.body46
-  %putchar60 = tail call i32 @putchar(i32 10)
-  br label %if.end51
+69:                                               ; preds = %.lr.ph, %71
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %71 ]
+  %.not83 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not83, label %71, label %70
 
-if.end51:                                         ; preds = %if.then49, %for.body46
-  %call52 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12)
-  %20 = load ptr, ptr %entries, align 8
-  %arrayidx55 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
-  %21 = load ptr, ptr %arrayidx55, align 8
-  tail call fastcc void @print_attr(ptr noundef %21, i32 noundef %verbose)
+70:                                               ; preds = %69
+  %putchar84 = tail call i32 @putchar(i32 10)
+  br label %71
+
+71:                                               ; preds = %70, %69
+  %72 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12)
+  %73 = load ptr, ptr %68, align 8, !tbaa !35
+  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv
+  %75 = load ptr, ptr %74, align 8, !tbaa !36
+  tail call fastcc void @print_attr(ptr noundef %75, i32 noundef %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = load i32, ptr %attributes, align 8
-  %23 = sext i32 %22 to i64
-  %cmp44 = icmp slt i64 %indvars.iv.next, %23
-  br i1 %cmp44, label %for.body46, label %if.end73, !llvm.loop !4
+  %76 = load i32, ptr %65, align 8, !tbaa !34
+  %77 = sext i32 %76 to i64
+  %78 = icmp slt i64 %indvars.iv.next, %77
+  br i1 %78, label %69, label %._crit_edge, !llvm.loop !37
 
-if.else57:                                        ; preds = %lor.lhs.false31, %if.end40
-  %type = getelementptr inbounds nuw i8, ptr %10, i64 112
-  %24 = load ptr, ptr %type, align 8
-  %tobool58.not = icmp eq ptr %24, null
-  br i1 %tobool58.not, label %if.end62, label %if.then59
+.thread:                                          ; preds = %49, %60
+  %79 = getelementptr inbounds nuw i8, ptr %46, i64 112
+  %80 = load ptr, ptr %79, align 8, !tbaa !39
+  %.not78 = icmp eq ptr %80, null
+  br i1 %.not78, label %84, label %81
 
-if.then59:                                        ; preds = %if.else57
-  %call60 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12)
-  %25 = load ptr, ptr %type, align 8
-  tail call fastcc void @print_attr(ptr noundef %25, i32 noundef 0)
-  br label %if.end62
+81:                                               ; preds = %.thread
+  %82 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12)
+  %83 = load ptr, ptr %79, align 8, !tbaa !39
+  tail call fastcc void @print_attr(ptr noundef %83, i32 noundef 0)
+  br label %84
 
-if.end62:                                         ; preds = %if.then59, %if.else57
-  %call63 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12)
-  %compression = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %26 = load ptr, ptr %compression, align 8
-  tail call fastcc void @print_attr(ptr noundef %26, i32 noundef 0)
-  %tiles = getelementptr inbounds nuw i8, ptr %10, i64 96
-  %27 = load ptr, ptr %tiles, align 8
-  %tobool64.not = icmp eq ptr %27, null
-  br i1 %tobool64.not, label %if.end68, label %if.then65
+84:                                               ; preds = %81, %.thread
+  %85 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12)
+  %86 = getelementptr inbounds nuw i8, ptr %46, i64 40
+  %87 = load ptr, ptr %86, align 8, !tbaa !40
+  tail call fastcc void @print_attr(ptr noundef %87, i32 noundef 0)
+  %88 = getelementptr inbounds nuw i8, ptr %46, i64 96
+  %89 = load ptr, ptr %88, align 8, !tbaa !41
+  %.not79 = icmp eq ptr %89, null
+  br i1 %.not79, label %93, label %90
 
-if.then65:                                        ; preds = %if.end62
-  %call66 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13)
-  %28 = load ptr, ptr %tiles, align 8
-  tail call fastcc void @print_attr(ptr noundef %28, i32 noundef 0)
-  br label %if.end68
+90:                                               ; preds = %84
+  %91 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13)
+  %92 = load ptr, ptr %88, align 8, !tbaa !41
+  tail call fastcc void @print_attr(ptr noundef %92, i32 noundef 0)
+  br label %93
 
-if.end68:                                         ; preds = %if.then65, %if.end62
-  %call69 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13)
-  %displayWindow = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %29 = load ptr, ptr %displayWindow, align 8
-  tail call fastcc void @print_attr(ptr noundef %29, i32 noundef 0)
-  %call70 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13)
-  %dataWindow = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %30 = load ptr, ptr %dataWindow, align 8
-  tail call fastcc void @print_attr(ptr noundef %30, i32 noundef 0)
-  %call71 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13)
-  %channels = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %31 = load ptr, ptr %channels, align 8
-  tail call fastcc void @print_attr(ptr noundef %31, i32 noundef 0)
-  br label %if.end73
+93:                                               ; preds = %90, %84
+  %94 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13)
+  %95 = getelementptr inbounds nuw i8, ptr %46, i64 56
+  %96 = load ptr, ptr %95, align 8, !tbaa !42
+  tail call fastcc void @print_attr(ptr noundef %96, i32 noundef 0)
+  %97 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13)
+  %98 = getelementptr inbounds nuw i8, ptr %46, i64 48
+  %99 = load ptr, ptr %98, align 8, !tbaa !43
+  tail call fastcc void @print_attr(ptr noundef %99, i32 noundef 0)
+  %100 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13)
+  %101 = getelementptr inbounds nuw i8, ptr %46, i64 32
+  %102 = load ptr, ptr %101, align 8, !tbaa !44
+  tail call fastcc void @print_attr(ptr noundef %102, i32 noundef 0)
+  br label %._crit_edge
 
-if.end73:                                         ; preds = %if.end51, %for.cond43.preheader, %if.end68
+._crit_edge:                                      ; preds = %71, %.preheader, %93
   %putchar = tail call i32 @putchar(i32 10)
-  %tiles74 = getelementptr inbounds nuw i8, ptr %10, i64 96
-  %32 = load ptr, ptr %tiles74, align 8
-  %tobool75.not = icmp eq ptr %32, null
-  br i1 %tobool75.not, label %for.inc109, label %if.then76
+  %103 = getelementptr inbounds nuw i8, ptr %46, i64 96
+  %104 = load ptr, ptr %103, align 8, !tbaa !41
+  %.not81 = icmp eq ptr %104, null
+  br i1 %.not81, label %143, label %105
 
-if.then76:                                        ; preds = %if.end73
-  %num_tile_levels_x = getelementptr inbounds nuw i8, ptr %10, i64 192
-  %33 = load i32, ptr %num_tile_levels_x, align 8
-  %num_tile_levels_y = getelementptr inbounds nuw i8, ptr %10, i64 196
-  %34 = load i32, ptr %num_tile_levels_y, align 4
-  %call77 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %33, i32 noundef %34)
-  %call78 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15)
-  %35 = load i32, ptr %num_tile_levels_x, align 8
-  %cmp8165 = icmp sgt i32 %35, 0
-  br i1 %cmp8165, label %for.body83.lr.ph, label %for.end91
+105:                                              ; preds = %._crit_edge
+  %106 = getelementptr inbounds nuw i8, ptr %46, i64 192
+  %107 = load i32, ptr %106, align 8, !tbaa !45
+  %108 = getelementptr inbounds nuw i8, ptr %46, i64 196
+  %109 = load i32, ptr %108, align 4, !tbaa !46
+  %110 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %107, i32 noundef %109)
+  %111 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15)
+  %112 = load i32, ptr %106, align 8, !tbaa !45
+  %113 = icmp sgt i32 %112, 0
+  br i1 %113, label %.lr.ph88, label %._crit_edge89
 
-for.body83.lr.ph:                                 ; preds = %if.then76
-  %tile_level_tile_count_x = getelementptr inbounds nuw i8, ptr %10, i64 200
-  %tile_level_tile_size_x = getelementptr inbounds nuw i8, ptr %10, i64 216
-  br label %for.body83
+.lr.ph88:                                         ; preds = %105
+  %114 = getelementptr inbounds nuw i8, ptr %46, i64 200
+  %115 = getelementptr inbounds nuw i8, ptr %46, i64 216
+  br label %121
 
-for.body83:                                       ; preds = %for.body83.lr.ph, %for.body83
-  %indvars.iv73 = phi i64 [ 0, %for.body83.lr.ph ], [ %indvars.iv.next74, %for.body83 ]
-  %36 = load ptr, ptr %tile_level_tile_count_x, align 8
-  %arrayidx85 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv73
-  %37 = load i32, ptr %arrayidx85, align 4
-  %38 = load ptr, ptr %tile_level_tile_size_x, align 8
-  %arrayidx87 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv73
-  %39 = load i32, ptr %arrayidx87, align 4
-  %call88 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %37, i32 noundef %39)
-  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %40 = load i32, ptr %num_tile_levels_x, align 8
-  %41 = sext i32 %40 to i64
-  %cmp81 = icmp slt i64 %indvars.iv.next74, %41
-  br i1 %cmp81, label %for.body83, label %for.end91, !llvm.loop !6
+._crit_edge89:                                    ; preds = %121, %105
+  %116 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17)
+  %117 = load i32, ptr %108, align 4, !tbaa !46
+  %118 = icmp sgt i32 %117, 0
+  br i1 %118, label %.lr.ph92, label %._crit_edge93
 
-for.end91:                                        ; preds = %for.body83, %if.then76
-  %call92 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17)
-  %42 = load i32, ptr %num_tile_levels_y, align 4
-  %cmp9667 = icmp sgt i32 %42, 0
-  br i1 %cmp9667, label %for.body98.lr.ph, label %for.end106
+.lr.ph92:                                         ; preds = %._crit_edge89
+  %119 = getelementptr inbounds nuw i8, ptr %46, i64 208
+  %120 = getelementptr inbounds nuw i8, ptr %46, i64 224
+  br label %132
 
-for.body98.lr.ph:                                 ; preds = %for.end91
-  %tile_level_tile_count_y = getelementptr inbounds nuw i8, ptr %10, i64 208
-  %tile_level_tile_size_y = getelementptr inbounds nuw i8, ptr %10, i64 224
-  br label %for.body98
+121:                                              ; preds = %.lr.ph88, %121
+  %indvars.iv100 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next101, %121 ]
+  %122 = load ptr, ptr %114, align 8, !tbaa !47
+  %123 = getelementptr inbounds nuw i32, ptr %122, i64 %indvars.iv100
+  %124 = load i32, ptr %123, align 4, !tbaa !48
+  %125 = load ptr, ptr %115, align 8, !tbaa !49
+  %126 = getelementptr inbounds nuw i32, ptr %125, i64 %indvars.iv100
+  %127 = load i32, ptr %126, align 4, !tbaa !48
+  %128 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %124, i32 noundef %127)
+  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
+  %129 = load i32, ptr %106, align 8, !tbaa !45
+  %130 = sext i32 %129 to i64
+  %131 = icmp slt i64 %indvars.iv.next101, %130
+  br i1 %131, label %121, label %._crit_edge89, !llvm.loop !50
 
-for.body98:                                       ; preds = %for.body98.lr.ph, %for.body98
-  %indvars.iv76 = phi i64 [ 0, %for.body98.lr.ph ], [ %indvars.iv.next77, %for.body98 ]
-  %43 = load ptr, ptr %tile_level_tile_count_y, align 8
-  %arrayidx100 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv76
-  %44 = load i32, ptr %arrayidx100, align 4
-  %45 = load ptr, ptr %tile_level_tile_size_y, align 8
-  %arrayidx102 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv76
-  %46 = load i32, ptr %arrayidx102, align 4
-  %call103 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %44, i32 noundef %46)
-  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
-  %47 = load i32, ptr %num_tile_levels_y, align 4
-  %48 = sext i32 %47 to i64
-  %cmp96 = icmp slt i64 %indvars.iv.next77, %48
-  br i1 %cmp96, label %for.body98, label %for.end106, !llvm.loop !7
+._crit_edge93:                                    ; preds = %132, %._crit_edge89
+  %putchar82 = tail call i32 @putchar(i32 10)
+  br label %143
 
-for.end106:                                       ; preds = %for.body98, %for.end91
-  %putchar59 = tail call i32 @putchar(i32 10)
-  br label %for.inc109
+132:                                              ; preds = %.lr.ph92, %132
+  %indvars.iv103 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next104, %132 ]
+  %133 = load ptr, ptr %119, align 8, !tbaa !51
+  %134 = getelementptr inbounds nuw i32, ptr %133, i64 %indvars.iv103
+  %135 = load i32, ptr %134, align 4, !tbaa !48
+  %136 = load ptr, ptr %120, align 8, !tbaa !52
+  %137 = getelementptr inbounds nuw i32, ptr %136, i64 %indvars.iv103
+  %138 = load i32, ptr %137, align 4, !tbaa !48
+  %139 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %135, i32 noundef %138)
+  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
+  %140 = load i32, ptr %108, align 4, !tbaa !46
+  %141 = sext i32 %140 to i64
+  %142 = icmp slt i64 %indvars.iv.next104, %141
+  br i1 %142, label %132, label %._crit_edge93, !llvm.loop !53
 
-for.inc109:                                       ; preds = %if.end73, %for.end106
-  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
-  %49 = load i32, ptr %num_parts24, align 4
-  %50 = sext i32 %49 to i64
-  %cmp25 = icmp slt i64 %indvars.iv.next80, %50
-  br i1 %cmp25, label %for.body, label %for.end111, !llvm.loop !8
+143:                                              ; preds = %._crit_edge93, %._crit_edge
+  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
+  %144 = load i32, ptr %36, align 4, !tbaa !28
+  %145 = sext i32 %144 to i64
+  %146 = icmp slt i64 %indvars.iv.next107, %145
+  br i1 %146, label %43, label %._crit_edge98, !llvm.loop !54
 
-for.end111:                                       ; preds = %for.inc109, %if.end23
-  %51 = load i8, ptr %ctxt, align 8
-  %cmp114 = icmp eq i8 %51, 1
-  br i1 %cmp114, label %cond.true116, label %return
+147:                                              ; preds = %._crit_edge98
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  %149 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %148) #5
+  br label %150
 
-cond.true116:                                     ; preds = %for.end111
-  %mutex.i61 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
-  %call.i62 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i61) #5
-  br label %return
-
-return:                                           ; preds = %cond.true116, %for.end111, %entry
-  %retval.0 = phi i32 [ 2, %entry ], [ 0, %for.end111 ], [ 0, %cond.true116 ]
-  ret i32 %retval.0
+150:                                              ; preds = %._crit_edge98, %147, %2
+  %.066 = phi i32 [ 2, %2 ], [ 0, %147 ], [ 0, %._crit_edge98 ]
+  ret i32 %.066
 }
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @print_attr(ptr noundef readonly %a, i32 noundef %verbose) unnamed_addr #2 {
-entry:
-  %tobool.not = icmp eq ptr %a, null
-  br i1 %tobool.not, label %sw.epilog, label %if.end
+define internal fastcc void @print_attr(ptr noundef readonly %0, i32 noundef %1) unnamed_addr #2 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.loopexit, label %3
 
-if.end:                                           ; preds = %entry
-  %0 = load ptr, ptr %a, align 8
-  %call = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, ptr noundef %0)
-  %tobool1.not = icmp eq i32 %verbose, 0
-  br i1 %tobool1.not, label %if.end4, label %if.then2
+3:                                                ; preds = %2
+  %4 = load ptr, ptr %0, align 8, !tbaa !55
+  %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, ptr noundef %4)
+  %.not174 = icmp eq i32 %1, 0
+  br i1 %.not174, label %10, label %6
 
-if.then2:                                         ; preds = %if.end
-  %type_name = getelementptr inbounds nuw i8, ptr %a, i64 8
-  %1 = load ptr, ptr %type_name, align 8
-  %call3 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, ptr noundef %1)
-  br label %if.end4
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !57
+  %9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, ptr noundef %8)
+  br label %10
 
-if.end4:                                          ; preds = %if.then2, %if.end
-  %type = getelementptr inbounds nuw i8, ptr %a, i64 20
-  %2 = load i32, ptr %type, align 4
-  switch i32 %2, label %sw.default [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb20
-    i32 3, label %sw.bb33
-    i32 4, label %sw.bb72
-    i32 5, label %sw.bb82
-    i32 6, label %sw.bb98
-    i32 7, label %sw.bb100
-    i32 8, label %sw.bb106
-    i32 9, label %sw.bb109
-    i32 10, label %sw.bb123
-    i32 11, label %sw.bb125
-    i32 12, label %sw.bb127
-    i32 13, label %sw.bb148
-    i32 14, label %sw.bb176
-    i32 15, label %sw.bb196
-    i32 16, label %sw.bb246
-    i32 17, label %sw.bb280
-    i32 18, label %sw.bb282
-    i32 19, label %sw.bb294
-    i32 20, label %sw.bb303
-    i32 21, label %sw.bb323
-    i32 22, label %sw.bb346
-    i32 23, label %sw.bb348
-    i32 24, label %sw.bb352
-    i32 25, label %sw.bb358
-    i32 26, label %sw.bb362
-    i32 27, label %sw.bb366
-    i32 28, label %sw.bb374
-    i32 29, label %sw.bb379
+10:                                               ; preds = %6, %3
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %12 = load i32, ptr %11, align 4, !tbaa !58
+  switch i32 %12, label %463 [
+    i32 1, label %13
+    i32 2, label %26
+    i32 3, label %41
+    i32 4, label %74
+    i32 5, label %101
+    i32 6, label %116
+    i32 7, label %120
+    i32 8, label %126
+    i32 9, label %131
+    i32 10, label %150
+    i32 11, label %154
+    i32 12, label %171
+    i32 13, label %181
+    i32 14, label %211
+    i32 15, label %232
+    i32 16, label %283
+    i32 17, label %318
+    i32 18, label %325
+    i32 19, label %341
+    i32 20, label %347
+    i32 21, label %368
+    i32 22, label %390
+    i32 23, label %397
+    i32 24, label %404
+    i32 25, label %413
+    i32 26, label %420
+    i32 27, label %429
+    i32 28, label %441
+    i32 30, label %450
   ]
 
-sw.bb:                                            ; preds = %if.end4
-  %3 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %4 = load ptr, ptr %3, align 8
-  %5 = load i32, ptr %4, align 1
-  %y = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %6 = load i32, ptr %y, align 1
-  %max = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load i32, ptr %max, align 1
-  %y8 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %8 = load i32, ptr %y8, align 1
-  %reass.sub = sub i32 %7, %5
-  %add = add i32 %reass.sub, 1
-  %reass.sub171 = sub i32 %8, %6
-  %add18 = add i32 %reass.sub171, 1
-  %call19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %add, i32 noundef %add18)
-  br label %sw.epilog
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = load ptr, ptr %14, align 8, !tbaa !32
+  %16 = load i32, ptr %15, align 1, !tbaa !59
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %18 = load i32, ptr %17, align 1, !tbaa !60
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %20 = load i32, ptr %19, align 1, !tbaa !61
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 12
+  %22 = load i32, ptr %21, align 1, !tbaa !62
+  %reass.sub = sub i32 %20, %16
+  %23 = add i32 %reass.sub, 1
+  %reass.sub189 = sub i32 %22, %18
+  %24 = add i32 %reass.sub189, 1
+  %25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %16, i32 noundef %18, i32 noundef %20, i32 noundef %22, i32 noundef %23, i32 noundef %24)
+  br label %.loopexit
 
-sw.bb20:                                          ; preds = %if.end4
-  %9 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %10 = load ptr, ptr %9, align 8
-  %11 = load float, ptr %10, align 1
-  %conv = fpext float %11 to double
-  %y24 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %12 = load float, ptr %y24, align 1
-  %conv25 = fpext float %12 to double
-  %max26 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %13 = load float, ptr %max26, align 1
-  %conv28 = fpext float %13 to double
-  %y30 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %14 = load float, ptr %y30, align 1
-  %conv31 = fpext float %14 to double
-  %call32 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, double noundef %conv, double noundef %conv25, double noundef %conv28, double noundef %conv31)
-  br label %sw.epilog
+26:                                               ; preds = %10
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %28 = load ptr, ptr %27, align 8, !tbaa !32
+  %29 = load float, ptr %28, align 1, !tbaa !63
+  %30 = fpext float %29 to double
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  %32 = load float, ptr %31, align 1, !tbaa !66
+  %33 = fpext float %32 to double
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %35 = load float, ptr %34, align 1, !tbaa !67
+  %36 = fpext float %35 to double
+  %37 = getelementptr inbounds nuw i8, ptr %28, i64 12
+  %38 = load float, ptr %37, align 1, !tbaa !68
+  %39 = fpext float %38 to double
+  %40 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, double noundef %30, double noundef %33, double noundef %36, double noundef %39)
+  br label %.loopexit
 
-sw.bb33:                                          ; preds = %if.end4
-  %15 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %16 = load ptr, ptr %15, align 8
-  %17 = load i32, ptr %16, align 8
-  %call34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, i32 noundef %17)
-  %18 = load ptr, ptr %15, align 8
-  %19 = load i32, ptr %18, align 8
-  %cmp169 = icmp sgt i32 %19, 0
-  br i1 %cmp169, label %for.body, label %sw.epilog
+41:                                               ; preds = %10
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %43 = load ptr, ptr %42, align 8, !tbaa !32
+  %44 = load i32, ptr %43, align 8, !tbaa !69
+  %45 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, i32 noundef %44)
+  %46 = load ptr, ptr %42, align 8, !tbaa !32
+  %47 = load i32, ptr %46, align 8, !tbaa !69
+  %48 = icmp sgt i32 %47, 0
+  br i1 %48, label %.lr.ph188, label %.loopexit
 
-for.body:                                         ; preds = %sw.bb33, %cond.end63
-  %20 = phi ptr [ %27, %cond.end63 ], [ %18, %sw.bb33 ]
-  %indvars.iv178 = phi i64 [ %indvars.iv.next179, %cond.end63 ], [ 0, %sw.bb33 ]
-  %cmp37.not = icmp eq i64 %indvars.iv178, 0
-  br i1 %cmp37.not, label %if.end41, label %if.then39
+.lr.ph188:                                        ; preds = %41, %63
+  %49 = phi ptr [ %70, %63 ], [ %46, %41 ]
+  %indvars.iv196 = phi i64 [ %indvars.iv.next197, %63 ], [ 0, %41 ]
+  %.not178 = icmp eq i64 %indvars.iv196, 0
+  br i1 %.not178, label %51, label %50
 
-if.then39:                                        ; preds = %for.body
-  %putchar161 = tail call i32 @putchar(i32 10)
-  %.pre181 = load ptr, ptr %15, align 8
-  br label %if.end41
+50:                                               ; preds = %.lr.ph188
+  %putchar179 = tail call i32 @putchar(i32 10)
+  %.pre199 = load ptr, ptr %42, align 8, !tbaa !32
+  br label %51
 
-if.end41:                                         ; preds = %if.then39, %for.body
-  %21 = phi ptr [ %.pre181, %if.then39 ], [ %20, %for.body ]
-  %entries = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %22 = load ptr, ptr %entries, align 8
-  %arrayidx = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %22, i64 %indvars.iv178
-  %str = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
-  %23 = load ptr, ptr %str, align 8
-  %pixel_type = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
-  %24 = load i32, ptr %pixel_type, align 8
-  switch i32 %24, label %cond.false55 [
-    i32 0, label %cond.end63
-    i32 1, label %cond.end63.fold.split
+51:                                               ; preds = %50, %.lr.ph188
+  %52 = phi ptr [ %.pre199, %50 ], [ %49, %.lr.ph188 ]
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %54 = load ptr, ptr %53, align 8, !tbaa !71
+  %55 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %54, i64 %indvars.iv196
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %57 = load ptr, ptr %56, align 8, !tbaa !72
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %59 = load i32, ptr %58, align 8, !tbaa !74
+  switch i32 %59, label %60 [
+    i32 0, label %63
+    i32 1, label %.fold.split
   ]
 
-cond.false55:                                     ; preds = %if.end41
-  %cmp60 = icmp eq i32 %24, 2
-  %cond = select i1 %cmp60, ptr @.str.26, ptr @.str.27
-  br label %cond.end63
+60:                                               ; preds = %51
+  %61 = icmp eq i32 %59, 2
+  %62 = select i1 %61, ptr @.str.26, ptr @.str.27
+  br label %63
 
-cond.end63.fold.split:                            ; preds = %if.end41
-  br label %cond.end63
+.fold.split:                                      ; preds = %51
+  br label %63
 
-cond.end63:                                       ; preds = %if.end41, %cond.end63.fold.split, %cond.false55
-  %cond64 = phi ptr [ @.str.24, %if.end41 ], [ %cond, %cond.false55 ], [ @.str.25, %cond.end63.fold.split ]
-  %x_sampling = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
-  %25 = load i32, ptr %x_sampling, align 8
-  %y_sampling = getelementptr inbounds nuw i8, ptr %arrayidx, i64 28
-  %26 = load i32, ptr %y_sampling, align 4
-  %call71 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, ptr noundef %23, ptr noundef nonnull %cond64, i32 noundef %25, i32 noundef %26)
-  %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
-  %27 = load ptr, ptr %15, align 8
-  %28 = load i32, ptr %27, align 8
-  %29 = sext i32 %28 to i64
-  %cmp = icmp slt i64 %indvars.iv.next179, %29
-  br i1 %cmp, label %for.body, label %sw.epilog, !llvm.loop !9
+63:                                               ; preds = %51, %.fold.split, %60
+  %64 = phi ptr [ @.str.24, %51 ], [ %62, %60 ], [ @.str.25, %.fold.split ]
+  %65 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %66 = load i32, ptr %65, align 8, !tbaa !75
+  %67 = getelementptr inbounds nuw i8, ptr %55, i64 28
+  %68 = load i32, ptr %67, align 4, !tbaa !76
+  %69 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, ptr noundef %57, ptr noundef nonnull %64, i32 noundef %66, i32 noundef %68)
+  %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
+  %70 = load ptr, ptr %42, align 8, !tbaa !32
+  %71 = load i32, ptr %70, align 8, !tbaa !69
+  %72 = sext i32 %71 to i64
+  %73 = icmp slt i64 %indvars.iv.next197, %72
+  br i1 %73, label %.lr.ph188, label %.loopexit, !llvm.loop !77
 
-sw.bb72:                                          ; preds = %if.end4
-  %30 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %31 = load ptr, ptr %30, align 8
-  %32 = load float, ptr %31, align 1
-  %conv73 = fpext float %32 to double
-  %red_y = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %33 = load float, ptr %red_y, align 1
-  %conv74 = fpext float %33 to double
-  %green_x = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %34 = load float, ptr %green_x, align 1
-  %conv75 = fpext float %34 to double
-  %green_y = getelementptr inbounds nuw i8, ptr %31, i64 12
-  %35 = load float, ptr %green_y, align 1
-  %conv76 = fpext float %35 to double
-  %blue_x = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %36 = load float, ptr %blue_x, align 1
-  %conv77 = fpext float %36 to double
-  %blue_y = getelementptr inbounds nuw i8, ptr %31, i64 20
-  %37 = load float, ptr %blue_y, align 1
-  %conv78 = fpext float %37 to double
-  %white_x = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %38 = load float, ptr %white_x, align 1
-  %conv79 = fpext float %38 to double
-  %white_y = getelementptr inbounds nuw i8, ptr %31, i64 28
-  %39 = load float, ptr %white_y, align 1
-  %conv80 = fpext float %39 to double
-  %call81 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, double noundef %conv73, double noundef %conv74, double noundef %conv75, double noundef %conv76, double noundef %conv77, double noundef %conv78, double noundef %conv79, double noundef %conv80)
-  br label %sw.epilog
+74:                                               ; preds = %10
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %76 = load ptr, ptr %75, align 8, !tbaa !32
+  %77 = load float, ptr %76, align 1, !tbaa !78
+  %78 = fpext float %77 to double
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 4
+  %80 = load float, ptr %79, align 1, !tbaa !80
+  %81 = fpext float %80 to double
+  %82 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  %83 = load float, ptr %82, align 1, !tbaa !81
+  %84 = fpext float %83 to double
+  %85 = getelementptr inbounds nuw i8, ptr %76, i64 12
+  %86 = load float, ptr %85, align 1, !tbaa !82
+  %87 = fpext float %86 to double
+  %88 = getelementptr inbounds nuw i8, ptr %76, i64 16
+  %89 = load float, ptr %88, align 1, !tbaa !83
+  %90 = fpext float %89 to double
+  %91 = getelementptr inbounds nuw i8, ptr %76, i64 20
+  %92 = load float, ptr %91, align 1, !tbaa !84
+  %93 = fpext float %92 to double
+  %94 = getelementptr inbounds nuw i8, ptr %76, i64 24
+  %95 = load float, ptr %94, align 1, !tbaa !85
+  %96 = fpext float %95 to double
+  %97 = getelementptr inbounds nuw i8, ptr %76, i64 28
+  %98 = load float, ptr %97, align 1, !tbaa !86
+  %99 = fpext float %98 to double
+  %100 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, double noundef %78, double noundef %81, double noundef %84, double noundef %87, double noundef %90, double noundef %93, double noundef %96, double noundef %99)
+  br label %.loopexit
 
-sw.bb82:                                          ; preds = %if.end4
-  %40 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %41 = load i8, ptr %40, align 8
-  %cmp84 = icmp ult i8 %41, 10
-  br i1 %cmp84, label %cond.true86, label %cond.end90
+101:                                              ; preds = %10
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %103 = load i8, ptr %102, align 8, !tbaa !32
+  %104 = icmp ult i8 %103, 10
+  br i1 %104, label %105, label %109
 
-cond.true86:                                      ; preds = %sw.bb82
-  %idxprom87 = zext nneg i8 %41 to i64
-  %arrayidx88 = getelementptr inbounds nuw [10 x ptr], ptr @print_attr.compressionnames, i64 0, i64 %idxprom87
-  %42 = load ptr, ptr %arrayidx88, align 8
-  br label %cond.end90
+105:                                              ; preds = %101
+  %106 = zext nneg i8 %103 to i64
+  %107 = getelementptr inbounds nuw [10 x ptr], ptr @print_attr.compressionnames, i64 0, i64 %106
+  %108 = load ptr, ptr %107, align 8, !tbaa !87
+  br label %109
 
-cond.end90:                                       ; preds = %sw.bb82, %cond.true86
-  %cond91 = phi ptr [ %42, %cond.true86 ], [ @.str.27, %sw.bb82 ]
-  %call92 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef %cond91)
-  br i1 %tobool1.not, label %sw.epilog, label %if.then94
+109:                                              ; preds = %101, %105
+  %110 = phi ptr [ %108, %105 ], [ @.str.27, %101 ]
+  %111 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef %110)
+  br i1 %.not174, label %.loopexit, label %112
 
-if.then94:                                        ; preds = %cond.end90
-  %43 = load i8, ptr %40, align 8
-  %conv95 = zext i8 %43 to i32
-  %call96 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.40, i32 noundef %conv95)
-  br label %sw.epilog
+112:                                              ; preds = %109
+  %113 = load i8, ptr %102, align 8, !tbaa !32
+  %114 = zext i8 %113 to i32
+  %115 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.40, i32 noundef %114)
+  br label %.loopexit
 
-sw.bb98:                                          ; preds = %if.end4
-  %44 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %45 = load double, ptr %44, align 8
-  %call99 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, double noundef %45)
-  br label %sw.epilog
+116:                                              ; preds = %10
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %118 = load double, ptr %117, align 8, !tbaa !32
+  %119 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, double noundef %118)
+  br label %.loopexit
 
-sw.bb100:                                         ; preds = %if.end4
-  %46 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %47 = load i8, ptr %46, align 8
-  %cmp102 = icmp eq i8 %47, 0
-  %cond104 = select i1 %cmp102, ptr @.str.43, ptr @.str.44
-  %call105 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, ptr noundef nonnull %cond104)
-  br label %sw.epilog
+120:                                              ; preds = %10
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %122 = load i8, ptr %121, align 8, !tbaa !32
+  %123 = icmp eq i8 %122, 0
+  %124 = select i1 %123, ptr @.str.43, ptr @.str.44
+  %125 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, ptr noundef nonnull %124)
+  br label %.loopexit
 
-sw.bb106:                                         ; preds = %if.end4
-  %48 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %49 = load float, ptr %48, align 8
-  %conv107 = fpext float %49 to double
-  %call108 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, double noundef %conv107)
-  br label %sw.epilog
+126:                                              ; preds = %10
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %128 = load float, ptr %127, align 8, !tbaa !32
+  %129 = fpext float %128 to double
+  %130 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, double noundef %129)
+  br label %.loopexit
 
-sw.bb109:                                         ; preds = %if.end4
-  %50 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %52 = load i32, ptr %51, align 8
-  %call110 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.45, i32 noundef %52)
-  %53 = load ptr, ptr %50, align 8
-  %54 = load i32, ptr %53, align 8
-  %cmp113167 = icmp sgt i32 %54, 0
-  br i1 %cmp113167, label %for.body115, label %sw.epilog
+131:                                              ; preds = %10
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %133 = load ptr, ptr %132, align 8, !tbaa !32
+  %134 = load i32, ptr %133, align 8, !tbaa !88
+  %135 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.45, i32 noundef %134)
+  %136 = load ptr, ptr %132, align 8, !tbaa !32
+  %137 = load i32, ptr %136, align 8, !tbaa !88
+  %138 = icmp sgt i32 %137, 0
+  br i1 %138, label %.lr.ph186, label %.loopexit
 
-for.body115:                                      ; preds = %sw.bb109, %for.body115
-  %indvars.iv175 = phi i64 [ %indvars.iv.next176, %for.body115 ], [ 0, %sw.bb109 ]
-  %55 = phi ptr [ %58, %for.body115 ], [ %53, %sw.bb109 ]
-  %arr = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %56 = load ptr, ptr %arr, align 8
-  %arrayidx117 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv175
-  %57 = load float, ptr %arrayidx117, align 4
-  %conv118 = fpext float %57 to double
-  %call119 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %conv118)
-  %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
-  %58 = load ptr, ptr %50, align 8
-  %59 = load i32, ptr %58, align 8
-  %60 = sext i32 %59 to i64
-  %cmp113 = icmp slt i64 %indvars.iv.next176, %60
-  br i1 %cmp113, label %for.body115, label %sw.epilog, !llvm.loop !10
+.lr.ph186:                                        ; preds = %131, %.lr.ph186
+  %indvars.iv193 = phi i64 [ %indvars.iv.next194, %.lr.ph186 ], [ 0, %131 ]
+  %139 = phi ptr [ %146, %.lr.ph186 ], [ %136, %131 ]
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
+  %141 = load ptr, ptr %140, align 8, !tbaa !91
+  %142 = getelementptr inbounds nuw float, ptr %141, i64 %indvars.iv193
+  %143 = load float, ptr %142, align 4, !tbaa !92
+  %144 = fpext float %143 to double
+  %145 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %144)
+  %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
+  %146 = load ptr, ptr %132, align 8, !tbaa !32
+  %147 = load i32, ptr %146, align 8, !tbaa !88
+  %148 = sext i32 %147 to i64
+  %149 = icmp slt i64 %indvars.iv.next194, %148
+  br i1 %149, label %.lr.ph186, label %.loopexit, !llvm.loop !93
 
-sw.bb123:                                         ; preds = %if.end4
-  %61 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %62 = load i32, ptr %61, align 8
-  %call124 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, i32 noundef %62)
-  br label %sw.epilog
+150:                                              ; preds = %10
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %152 = load i32, ptr %151, align 8, !tbaa !32
+  %153 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, i32 noundef %152)
+  br label %.loopexit
 
-sw.bb125:                                         ; preds = %if.end4
-  %63 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %64 = load ptr, ptr %63, align 8
-  %65 = load i32, ptr %64, align 1
-  %film_type = getelementptr inbounds nuw i8, ptr %64, i64 4
-  %66 = load i32, ptr %film_type, align 1
-  %prefix = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %67 = load i32, ptr %prefix, align 1
-  %count = getelementptr inbounds nuw i8, ptr %64, i64 12
-  %68 = load i32, ptr %count, align 1
-  %perf_offset = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %69 = load i32, ptr %perf_offset, align 1
-  %perfs_per_frame = getelementptr inbounds nuw i8, ptr %64, i64 20
-  %70 = load i32, ptr %perfs_per_frame, align 1
-  %perfs_per_count = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %71 = load i32, ptr %perfs_per_count, align 1
-  %call126 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.48, i32 noundef %65, i32 noundef %66, i32 noundef %67, i32 noundef %68, i32 noundef %69, i32 noundef %70, i32 noundef %71)
-  br label %sw.epilog
+154:                                              ; preds = %10
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %156 = load ptr, ptr %155, align 8, !tbaa !32
+  %157 = load i32, ptr %156, align 1, !tbaa !94
+  %158 = getelementptr inbounds nuw i8, ptr %156, i64 4
+  %159 = load i32, ptr %158, align 1, !tbaa !96
+  %160 = getelementptr inbounds nuw i8, ptr %156, i64 8
+  %161 = load i32, ptr %160, align 1, !tbaa !97
+  %162 = getelementptr inbounds nuw i8, ptr %156, i64 12
+  %163 = load i32, ptr %162, align 1, !tbaa !98
+  %164 = getelementptr inbounds nuw i8, ptr %156, i64 16
+  %165 = load i32, ptr %164, align 1, !tbaa !99
+  %166 = getelementptr inbounds nuw i8, ptr %156, i64 20
+  %167 = load i32, ptr %166, align 1, !tbaa !100
+  %168 = getelementptr inbounds nuw i8, ptr %156, i64 24
+  %169 = load i32, ptr %168, align 1, !tbaa !101
+  %170 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.48, i32 noundef %157, i32 noundef %159, i32 noundef %161, i32 noundef %163, i32 noundef %165, i32 noundef %167, i32 noundef %169)
+  br label %.loopexit
 
-sw.bb127:                                         ; preds = %if.end4
-  %72 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %73 = load i8, ptr %72, align 8
-  %conv128 = zext i8 %73 to i32
-  switch i8 %73, label %cond.false138 [
-    i8 0, label %cond.end145
-    i8 1, label %cond.end145.fold.split
+171:                                              ; preds = %10
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %173 = load i8, ptr %172, align 8, !tbaa !32
+  %174 = zext i8 %173 to i32
+  switch i8 %173, label %175 [
+    i8 0, label %178
+    i8 1, label %.fold.split180
   ]
 
-cond.false138:                                    ; preds = %sw.bb127
-  %cmp140 = icmp eq i8 %73, 2
-  %cond142 = select i1 %cmp140, ptr @.str.52, ptr @.str.27
-  br label %cond.end145
+175:                                              ; preds = %171
+  %176 = icmp eq i8 %173, 2
+  %177 = select i1 %176, ptr @.str.52, ptr @.str.27
+  br label %178
 
-cond.end145.fold.split:                           ; preds = %sw.bb127
-  br label %cond.end145
+.fold.split180:                                   ; preds = %171
+  br label %178
 
-cond.end145:                                      ; preds = %sw.bb127, %cond.end145.fold.split, %cond.false138
-  %cond146 = phi ptr [ @.str.50, %sw.bb127 ], [ %cond142, %cond.false138 ], [ @.str.51, %cond.end145.fold.split ]
-  %call147 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.49, i32 noundef %conv128, ptr noundef nonnull %cond146)
-  br label %sw.epilog
+178:                                              ; preds = %171, %.fold.split180, %175
+  %179 = phi ptr [ @.str.50, %171 ], [ %177, %175 ], [ @.str.51, %.fold.split180 ]
+  %180 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.49, i32 noundef %174, ptr noundef nonnull %179)
+  br label %.loopexit
 
-sw.bb148:                                         ; preds = %if.end4
-  %74 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %75 = load ptr, ptr %74, align 8
-  %76 = load float, ptr %75, align 1
-  %conv150 = fpext float %76 to double
-  %arrayidx152 = getelementptr inbounds nuw i8, ptr %75, i64 4
-  %77 = load float, ptr %arrayidx152, align 1
-  %conv153 = fpext float %77 to double
-  %arrayidx155 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %78 = load float, ptr %arrayidx155, align 1
-  %conv156 = fpext float %78 to double
-  %arrayidx158 = getelementptr inbounds nuw i8, ptr %75, i64 12
-  %79 = load float, ptr %arrayidx158, align 1
-  %conv159 = fpext float %79 to double
-  %arrayidx161 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %80 = load float, ptr %arrayidx161, align 1
-  %conv162 = fpext float %80 to double
-  %arrayidx164 = getelementptr inbounds nuw i8, ptr %75, i64 20
-  %81 = load float, ptr %arrayidx164, align 1
-  %conv165 = fpext float %81 to double
-  %arrayidx167 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %82 = load float, ptr %arrayidx167, align 1
-  %conv168 = fpext float %82 to double
-  %arrayidx170 = getelementptr inbounds nuw i8, ptr %75, i64 28
-  %83 = load float, ptr %arrayidx170, align 1
-  %conv171 = fpext float %83 to double
-  %arrayidx173 = getelementptr inbounds nuw i8, ptr %75, i64 32
-  %84 = load float, ptr %arrayidx173, align 1
-  %conv174 = fpext float %84 to double
-  %call175 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.53, double noundef %conv150, double noundef %conv153, double noundef %conv156, double noundef %conv159, double noundef %conv162, double noundef %conv165, double noundef %conv168, double noundef %conv171, double noundef %conv174)
-  br label %sw.epilog
+181:                                              ; preds = %10
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %183 = load ptr, ptr %182, align 8, !tbaa !32
+  %184 = load float, ptr %183, align 1, !tbaa !92
+  %185 = fpext float %184 to double
+  %186 = getelementptr inbounds nuw i8, ptr %183, i64 4
+  %187 = load float, ptr %186, align 1, !tbaa !92
+  %188 = fpext float %187 to double
+  %189 = getelementptr inbounds nuw i8, ptr %183, i64 8
+  %190 = load float, ptr %189, align 1, !tbaa !92
+  %191 = fpext float %190 to double
+  %192 = getelementptr inbounds nuw i8, ptr %183, i64 12
+  %193 = load float, ptr %192, align 1, !tbaa !92
+  %194 = fpext float %193 to double
+  %195 = getelementptr inbounds nuw i8, ptr %183, i64 16
+  %196 = load float, ptr %195, align 1, !tbaa !92
+  %197 = fpext float %196 to double
+  %198 = getelementptr inbounds nuw i8, ptr %183, i64 20
+  %199 = load float, ptr %198, align 1, !tbaa !92
+  %200 = fpext float %199 to double
+  %201 = getelementptr inbounds nuw i8, ptr %183, i64 24
+  %202 = load float, ptr %201, align 1, !tbaa !92
+  %203 = fpext float %202 to double
+  %204 = getelementptr inbounds nuw i8, ptr %183, i64 28
+  %205 = load float, ptr %204, align 1, !tbaa !92
+  %206 = fpext float %205 to double
+  %207 = getelementptr inbounds nuw i8, ptr %183, i64 32
+  %208 = load float, ptr %207, align 1, !tbaa !92
+  %209 = fpext float %208 to double
+  %210 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.53, double noundef %185, double noundef %188, double noundef %191, double noundef %194, double noundef %197, double noundef %200, double noundef %203, double noundef %206, double noundef %209)
+  br label %.loopexit
 
-sw.bb176:                                         ; preds = %if.end4
-  %85 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %86 = load ptr, ptr %85, align 8
-  %87 = load double, ptr %86, align 1
-  %arrayidx180 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  %88 = load double, ptr %arrayidx180, align 1
-  %arrayidx182 = getelementptr inbounds nuw i8, ptr %86, i64 16
-  %89 = load double, ptr %arrayidx182, align 1
-  %arrayidx184 = getelementptr inbounds nuw i8, ptr %86, i64 24
-  %90 = load double, ptr %arrayidx184, align 1
-  %arrayidx186 = getelementptr inbounds nuw i8, ptr %86, i64 32
-  %91 = load double, ptr %arrayidx186, align 1
-  %arrayidx188 = getelementptr inbounds nuw i8, ptr %86, i64 40
-  %92 = load double, ptr %arrayidx188, align 1
-  %arrayidx190 = getelementptr inbounds nuw i8, ptr %86, i64 48
-  %93 = load double, ptr %arrayidx190, align 1
-  %arrayidx192 = getelementptr inbounds nuw i8, ptr %86, i64 56
-  %94 = load double, ptr %arrayidx192, align 1
-  %arrayidx194 = getelementptr inbounds nuw i8, ptr %86, i64 64
-  %95 = load double, ptr %arrayidx194, align 1
-  %call195 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.53, double noundef %87, double noundef %88, double noundef %89, double noundef %90, double noundef %91, double noundef %92, double noundef %93, double noundef %94, double noundef %95)
-  br label %sw.epilog
+211:                                              ; preds = %10
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %213 = load ptr, ptr %212, align 8, !tbaa !32
+  %214 = load double, ptr %213, align 1, !tbaa !102
+  %215 = getelementptr inbounds nuw i8, ptr %213, i64 8
+  %216 = load double, ptr %215, align 1, !tbaa !102
+  %217 = getelementptr inbounds nuw i8, ptr %213, i64 16
+  %218 = load double, ptr %217, align 1, !tbaa !102
+  %219 = getelementptr inbounds nuw i8, ptr %213, i64 24
+  %220 = load double, ptr %219, align 1, !tbaa !102
+  %221 = getelementptr inbounds nuw i8, ptr %213, i64 32
+  %222 = load double, ptr %221, align 1, !tbaa !102
+  %223 = getelementptr inbounds nuw i8, ptr %213, i64 40
+  %224 = load double, ptr %223, align 1, !tbaa !102
+  %225 = getelementptr inbounds nuw i8, ptr %213, i64 48
+  %226 = load double, ptr %225, align 1, !tbaa !102
+  %227 = getelementptr inbounds nuw i8, ptr %213, i64 56
+  %228 = load double, ptr %227, align 1, !tbaa !102
+  %229 = getelementptr inbounds nuw i8, ptr %213, i64 64
+  %230 = load double, ptr %229, align 1, !tbaa !102
+  %231 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.53, double noundef %214, double noundef %216, double noundef %218, double noundef %220, double noundef %222, double noundef %224, double noundef %226, double noundef %228, double noundef %230)
+  br label %.loopexit
 
-sw.bb196:                                         ; preds = %if.end4
-  %96 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %97 = load ptr, ptr %96, align 8
-  %98 = load float, ptr %97, align 1
-  %conv199 = fpext float %98 to double
-  %arrayidx201 = getelementptr inbounds nuw i8, ptr %97, i64 4
-  %99 = load float, ptr %arrayidx201, align 1
-  %conv202 = fpext float %99 to double
-  %arrayidx204 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %100 = load float, ptr %arrayidx204, align 1
-  %conv205 = fpext float %100 to double
-  %arrayidx207 = getelementptr inbounds nuw i8, ptr %97, i64 12
-  %101 = load float, ptr %arrayidx207, align 1
-  %conv208 = fpext float %101 to double
-  %arrayidx210 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  %102 = load float, ptr %arrayidx210, align 1
-  %conv211 = fpext float %102 to double
-  %arrayidx213 = getelementptr inbounds nuw i8, ptr %97, i64 20
-  %103 = load float, ptr %arrayidx213, align 1
-  %conv214 = fpext float %103 to double
-  %arrayidx216 = getelementptr inbounds nuw i8, ptr %97, i64 24
-  %104 = load float, ptr %arrayidx216, align 1
-  %conv217 = fpext float %104 to double
-  %arrayidx219 = getelementptr inbounds nuw i8, ptr %97, i64 28
-  %105 = load float, ptr %arrayidx219, align 1
-  %conv220 = fpext float %105 to double
-  %arrayidx222 = getelementptr inbounds nuw i8, ptr %97, i64 32
-  %106 = load float, ptr %arrayidx222, align 1
-  %conv223 = fpext float %106 to double
-  %arrayidx225 = getelementptr inbounds nuw i8, ptr %97, i64 36
-  %107 = load float, ptr %arrayidx225, align 1
-  %conv226 = fpext float %107 to double
-  %arrayidx228 = getelementptr inbounds nuw i8, ptr %97, i64 40
-  %108 = load float, ptr %arrayidx228, align 1
-  %conv229 = fpext float %108 to double
-  %arrayidx231 = getelementptr inbounds nuw i8, ptr %97, i64 44
-  %109 = load float, ptr %arrayidx231, align 1
-  %conv232 = fpext float %109 to double
-  %arrayidx234 = getelementptr inbounds nuw i8, ptr %97, i64 48
-  %110 = load float, ptr %arrayidx234, align 1
-  %conv235 = fpext float %110 to double
-  %arrayidx237 = getelementptr inbounds nuw i8, ptr %97, i64 52
-  %111 = load float, ptr %arrayidx237, align 1
-  %conv238 = fpext float %111 to double
-  %arrayidx240 = getelementptr inbounds nuw i8, ptr %97, i64 56
-  %112 = load float, ptr %arrayidx240, align 1
-  %conv241 = fpext float %112 to double
-  %arrayidx243 = getelementptr inbounds nuw i8, ptr %97, i64 60
-  %113 = load float, ptr %arrayidx243, align 1
-  %conv244 = fpext float %113 to double
-  %call245 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, double noundef %conv199, double noundef %conv202, double noundef %conv205, double noundef %conv208, double noundef %conv211, double noundef %conv214, double noundef %conv217, double noundef %conv220, double noundef %conv223, double noundef %conv226, double noundef %conv229, double noundef %conv232, double noundef %conv235, double noundef %conv238, double noundef %conv241, double noundef %conv244)
-  br label %sw.epilog
+232:                                              ; preds = %10
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %234 = load ptr, ptr %233, align 8, !tbaa !32
+  %235 = load float, ptr %234, align 1, !tbaa !92
+  %236 = fpext float %235 to double
+  %237 = getelementptr inbounds nuw i8, ptr %234, i64 4
+  %238 = load float, ptr %237, align 1, !tbaa !92
+  %239 = fpext float %238 to double
+  %240 = getelementptr inbounds nuw i8, ptr %234, i64 8
+  %241 = load float, ptr %240, align 1, !tbaa !92
+  %242 = fpext float %241 to double
+  %243 = getelementptr inbounds nuw i8, ptr %234, i64 12
+  %244 = load float, ptr %243, align 1, !tbaa !92
+  %245 = fpext float %244 to double
+  %246 = getelementptr inbounds nuw i8, ptr %234, i64 16
+  %247 = load float, ptr %246, align 1, !tbaa !92
+  %248 = fpext float %247 to double
+  %249 = getelementptr inbounds nuw i8, ptr %234, i64 20
+  %250 = load float, ptr %249, align 1, !tbaa !92
+  %251 = fpext float %250 to double
+  %252 = getelementptr inbounds nuw i8, ptr %234, i64 24
+  %253 = load float, ptr %252, align 1, !tbaa !92
+  %254 = fpext float %253 to double
+  %255 = getelementptr inbounds nuw i8, ptr %234, i64 28
+  %256 = load float, ptr %255, align 1, !tbaa !92
+  %257 = fpext float %256 to double
+  %258 = getelementptr inbounds nuw i8, ptr %234, i64 32
+  %259 = load float, ptr %258, align 1, !tbaa !92
+  %260 = fpext float %259 to double
+  %261 = getelementptr inbounds nuw i8, ptr %234, i64 36
+  %262 = load float, ptr %261, align 1, !tbaa !92
+  %263 = fpext float %262 to double
+  %264 = getelementptr inbounds nuw i8, ptr %234, i64 40
+  %265 = load float, ptr %264, align 1, !tbaa !92
+  %266 = fpext float %265 to double
+  %267 = getelementptr inbounds nuw i8, ptr %234, i64 44
+  %268 = load float, ptr %267, align 1, !tbaa !92
+  %269 = fpext float %268 to double
+  %270 = getelementptr inbounds nuw i8, ptr %234, i64 48
+  %271 = load float, ptr %270, align 1, !tbaa !92
+  %272 = fpext float %271 to double
+  %273 = getelementptr inbounds nuw i8, ptr %234, i64 52
+  %274 = load float, ptr %273, align 1, !tbaa !92
+  %275 = fpext float %274 to double
+  %276 = getelementptr inbounds nuw i8, ptr %234, i64 56
+  %277 = load float, ptr %276, align 1, !tbaa !92
+  %278 = fpext float %277 to double
+  %279 = getelementptr inbounds nuw i8, ptr %234, i64 60
+  %280 = load float, ptr %279, align 1, !tbaa !92
+  %281 = fpext float %280 to double
+  %282 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, double noundef %236, double noundef %239, double noundef %242, double noundef %245, double noundef %248, double noundef %251, double noundef %254, double noundef %257, double noundef %260, double noundef %263, double noundef %266, double noundef %269, double noundef %272, double noundef %275, double noundef %278, double noundef %281)
+  br label %.loopexit
 
-sw.bb246:                                         ; preds = %if.end4
-  %114 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %115 = load ptr, ptr %114, align 8
-  %116 = load double, ptr %115, align 1
-  %arrayidx250 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  %117 = load double, ptr %arrayidx250, align 1
-  %arrayidx252 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %118 = load double, ptr %arrayidx252, align 1
-  %arrayidx254 = getelementptr inbounds nuw i8, ptr %115, i64 24
-  %119 = load double, ptr %arrayidx254, align 1
-  %arrayidx256 = getelementptr inbounds nuw i8, ptr %115, i64 32
-  %120 = load double, ptr %arrayidx256, align 1
-  %arrayidx258 = getelementptr inbounds nuw i8, ptr %115, i64 40
-  %121 = load double, ptr %arrayidx258, align 1
-  %arrayidx260 = getelementptr inbounds nuw i8, ptr %115, i64 48
-  %122 = load double, ptr %arrayidx260, align 1
-  %arrayidx262 = getelementptr inbounds nuw i8, ptr %115, i64 56
-  %123 = load double, ptr %arrayidx262, align 1
-  %arrayidx264 = getelementptr inbounds nuw i8, ptr %115, i64 64
-  %124 = load double, ptr %arrayidx264, align 1
-  %arrayidx266 = getelementptr inbounds nuw i8, ptr %115, i64 72
-  %125 = load double, ptr %arrayidx266, align 1
-  %arrayidx268 = getelementptr inbounds nuw i8, ptr %115, i64 80
-  %126 = load double, ptr %arrayidx268, align 1
-  %arrayidx270 = getelementptr inbounds nuw i8, ptr %115, i64 88
-  %127 = load double, ptr %arrayidx270, align 1
-  %arrayidx272 = getelementptr inbounds nuw i8, ptr %115, i64 96
-  %128 = load double, ptr %arrayidx272, align 1
-  %arrayidx274 = getelementptr inbounds nuw i8, ptr %115, i64 104
-  %129 = load double, ptr %arrayidx274, align 1
-  %arrayidx276 = getelementptr inbounds nuw i8, ptr %115, i64 112
-  %130 = load double, ptr %arrayidx276, align 1
-  %arrayidx278 = getelementptr inbounds nuw i8, ptr %115, i64 120
-  %131 = load double, ptr %arrayidx278, align 1
-  %call279 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, double noundef %116, double noundef %117, double noundef %118, double noundef %119, double noundef %120, double noundef %121, double noundef %122, double noundef %123, double noundef %124, double noundef %125, double noundef %126, double noundef %127, double noundef %128, double noundef %129, double noundef %130, double noundef %131)
-  br label %sw.epilog
+283:                                              ; preds = %10
+  %284 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %285 = load ptr, ptr %284, align 8, !tbaa !32
+  %286 = load double, ptr %285, align 1, !tbaa !102
+  %287 = getelementptr inbounds nuw i8, ptr %285, i64 8
+  %288 = load double, ptr %287, align 1, !tbaa !102
+  %289 = getelementptr inbounds nuw i8, ptr %285, i64 16
+  %290 = load double, ptr %289, align 1, !tbaa !102
+  %291 = getelementptr inbounds nuw i8, ptr %285, i64 24
+  %292 = load double, ptr %291, align 1, !tbaa !102
+  %293 = getelementptr inbounds nuw i8, ptr %285, i64 32
+  %294 = load double, ptr %293, align 1, !tbaa !102
+  %295 = getelementptr inbounds nuw i8, ptr %285, i64 40
+  %296 = load double, ptr %295, align 1, !tbaa !102
+  %297 = getelementptr inbounds nuw i8, ptr %285, i64 48
+  %298 = load double, ptr %297, align 1, !tbaa !102
+  %299 = getelementptr inbounds nuw i8, ptr %285, i64 56
+  %300 = load double, ptr %299, align 1, !tbaa !102
+  %301 = getelementptr inbounds nuw i8, ptr %285, i64 64
+  %302 = load double, ptr %301, align 1, !tbaa !102
+  %303 = getelementptr inbounds nuw i8, ptr %285, i64 72
+  %304 = load double, ptr %303, align 1, !tbaa !102
+  %305 = getelementptr inbounds nuw i8, ptr %285, i64 80
+  %306 = load double, ptr %305, align 1, !tbaa !102
+  %307 = getelementptr inbounds nuw i8, ptr %285, i64 88
+  %308 = load double, ptr %307, align 1, !tbaa !102
+  %309 = getelementptr inbounds nuw i8, ptr %285, i64 96
+  %310 = load double, ptr %309, align 1, !tbaa !102
+  %311 = getelementptr inbounds nuw i8, ptr %285, i64 104
+  %312 = load double, ptr %311, align 1, !tbaa !102
+  %313 = getelementptr inbounds nuw i8, ptr %285, i64 112
+  %314 = load double, ptr %313, align 1, !tbaa !102
+  %315 = getelementptr inbounds nuw i8, ptr %285, i64 120
+  %316 = load double, ptr %315, align 1, !tbaa !102
+  %317 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, double noundef %286, double noundef %288, double noundef %290, double noundef %292, double noundef %294, double noundef %296, double noundef %298, double noundef %300, double noundef %302, double noundef %304, double noundef %306, double noundef %308, double noundef %310, double noundef %312, double noundef %314, double noundef %316)
+  br label %.loopexit
 
-sw.bb280:                                         ; preds = %if.end4
-  %132 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %133 = load ptr, ptr %132, align 8
-  %134 = load i32, ptr %133, align 8
-  %height = getelementptr inbounds nuw i8, ptr %133, i64 4
-  %135 = load i32, ptr %height, align 4
-  %call281 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.55, i32 noundef %134, i32 noundef %135)
-  br label %sw.epilog
+318:                                              ; preds = %10
+  %319 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %320 = load ptr, ptr %319, align 8, !tbaa !32
+  %321 = load i32, ptr %320, align 8, !tbaa !104
+  %322 = getelementptr inbounds nuw i8, ptr %320, i64 4
+  %323 = load i32, ptr %322, align 4, !tbaa !106
+  %324 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.55, i32 noundef %321, i32 noundef %323)
+  br label %.loopexit
 
-sw.bb282:                                         ; preds = %if.end4
-  %136 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %137 = load ptr, ptr %136, align 8
-  %138 = load i32, ptr %137, align 1
-  %denom = getelementptr inbounds nuw i8, ptr %137, i64 4
-  %139 = load i32, ptr %denom, align 1
-  %call283 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.56, i32 noundef %138, i32 noundef %139)
-  %140 = load ptr, ptr %136, align 8
-  %denom284 = getelementptr inbounds nuw i8, ptr %140, i64 4
-  %141 = load i32, ptr %denom284, align 1
-  %cmp285.not = icmp eq i32 %141, 0
-  br i1 %cmp285.not, label %sw.epilog, label %if.then287
+325:                                              ; preds = %10
+  %326 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %327 = load ptr, ptr %326, align 8, !tbaa !32
+  %328 = load i32, ptr %327, align 1, !tbaa !107
+  %329 = getelementptr inbounds nuw i8, ptr %327, i64 4
+  %330 = load i32, ptr %329, align 1, !tbaa !108
+  %331 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.56, i32 noundef %328, i32 noundef %330)
+  %332 = load ptr, ptr %326, align 8, !tbaa !32
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 4
+  %334 = load i32, ptr %333, align 1, !tbaa !108
+  %.not177 = icmp eq i32 %334, 0
+  br i1 %.not177, label %.loopexit, label %335
 
-if.then287:                                       ; preds = %sw.bb282
-  %142 = load i32, ptr %140, align 1
-  %conv289 = sitofp i32 %142 to double
-  %conv291 = uitofp i32 %141 to double
-  %div = fdiv double %conv289, %conv291
-  %call292 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.57, double noundef %div)
-  br label %sw.epilog
+335:                                              ; preds = %325
+  %336 = load i32, ptr %332, align 1, !tbaa !107
+  %337 = sitofp i32 %336 to double
+  %338 = uitofp i32 %334 to double
+  %339 = fdiv double %337, %338
+  %340 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.57, double noundef %339)
+  br label %.loopexit
 
-sw.bb294:                                         ; preds = %if.end4
-  %143 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %144 = load ptr, ptr %143, align 8
-  %str295 = getelementptr inbounds nuw i8, ptr %144, i64 8
-  %145 = load ptr, ptr %str295, align 8
-  %tobool296.not = icmp eq ptr %145, null
-  %spec.select = select i1 %tobool296.not, ptr @.str.58, ptr %145
-  %call302 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef nonnull %spec.select)
-  br label %sw.epilog
+341:                                              ; preds = %10
+  %342 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %343 = load ptr, ptr %342, align 8, !tbaa !32
+  %344 = getelementptr inbounds nuw i8, ptr %343, i64 8
+  %345 = load ptr, ptr %344, align 8, !tbaa !33
+  %.not176 = icmp eq ptr %345, null
+  %spec.select = select i1 %.not176, ptr @.str.58, ptr %345
+  %346 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef nonnull %spec.select)
+  br label %.loopexit
 
-sw.bb303:                                         ; preds = %if.end4
-  %146 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %147 = load ptr, ptr %146, align 8
-  %148 = load i32, ptr %147, align 8
-  %call304 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.59, i32 noundef %148)
-  %149 = load ptr, ptr %146, align 8
-  %150 = load i32, ptr %149, align 8
-  %cmp308165 = icmp sgt i32 %150, 0
-  br i1 %cmp308165, label %for.body310, label %sw.epilog
+347:                                              ; preds = %10
+  %348 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %349 = load ptr, ptr %348, align 8, !tbaa !32
+  %350 = load i32, ptr %349, align 8, !tbaa !69
+  %351 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.59, i32 noundef %350)
+  %352 = load ptr, ptr %348, align 8, !tbaa !32
+  %353 = load i32, ptr %352, align 8, !tbaa !69
+  %354 = icmp sgt i32 %353, 0
+  br i1 %354, label %.lr.ph, label %.loopexit
 
-for.body310:                                      ; preds = %sw.bb303, %if.end315
-  %151 = phi ptr [ %155, %if.end315 ], [ %149, %sw.bb303 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %if.end315 ], [ 0, %sw.bb303 ]
-  %cmp311.not = icmp eq i64 %indvars.iv, 0
-  br i1 %cmp311.not, label %if.end315, label %if.then313
+.lr.ph:                                           ; preds = %347, %357
+  %355 = phi ptr [ %364, %357 ], [ %352, %347 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %357 ], [ 0, %347 ]
+  %.not175 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not175, label %357, label %356
 
-if.then313:                                       ; preds = %for.body310
+356:                                              ; preds = %.lr.ph
   %putchar = tail call i32 @putchar(i32 10)
-  %.pre = load ptr, ptr %146, align 8
-  br label %if.end315
+  %.pre = load ptr, ptr %348, align 8, !tbaa !32
+  br label %357
 
-if.end315:                                        ; preds = %if.then313, %for.body310
-  %152 = phi ptr [ %.pre, %if.then313 ], [ %151, %for.body310 ]
-  %strings = getelementptr inbounds nuw i8, ptr %152, i64 8
-  %153 = load ptr, ptr %strings, align 8
-  %str318 = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %153, i64 %indvars.iv, i32 2
-  %154 = load ptr, ptr %str318, align 8
-  %call319 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.60, ptr noundef %154)
+357:                                              ; preds = %356, %.lr.ph
+  %358 = phi ptr [ %.pre, %356 ], [ %355, %.lr.ph ]
+  %359 = getelementptr inbounds nuw i8, ptr %358, i64 8
+  %360 = load ptr, ptr %359, align 8, !tbaa !71
+  %361 = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %360, i64 %indvars.iv, i32 2
+  %362 = load ptr, ptr %361, align 8, !tbaa !33
+  %363 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.60, ptr noundef %362)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %155 = load ptr, ptr %146, align 8
-  %156 = load i32, ptr %155, align 8
-  %157 = sext i32 %156 to i64
-  %cmp308 = icmp slt i64 %indvars.iv.next, %157
-  br i1 %cmp308, label %for.body310, label %sw.epilog, !llvm.loop !11
+  %364 = load ptr, ptr %348, align 8, !tbaa !32
+  %365 = load i32, ptr %364, align 8, !tbaa !69
+  %366 = sext i32 %365 to i64
+  %367 = icmp slt i64 %indvars.iv.next, %366
+  br i1 %367, label %.lr.ph, label %.loopexit, !llvm.loop !109
 
-sw.bb323:                                         ; preds = %if.end4
-  %158 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %159 = load ptr, ptr %158, align 8
-  %level_and_round = getelementptr inbounds nuw i8, ptr %159, i64 8
-  %160 = load i8, ptr %level_and_round, align 1
-  %and = and i8 %160, 15
-  %161 = lshr i8 %160, 4
-  %162 = load i32, ptr %159, align 1
-  %y_size = getelementptr inbounds nuw i8, ptr %159, i64 4
-  %163 = load i32, ptr %y_size, align 1
-  %conv330 = zext nneg i8 %and to i32
-  %cmp332 = icmp samesign ult i8 %and, 3
-  br i1 %cmp332, label %cond.true334, label %cond.end338
+368:                                              ; preds = %10
+  %369 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %370 = load ptr, ptr %369, align 8, !tbaa !32
+  %371 = getelementptr inbounds nuw i8, ptr %370, i64 8
+  %372 = load i8, ptr %371, align 1, !tbaa !110
+  %373 = and i8 %372, 15
+  %374 = lshr i8 %372, 4
+  %375 = load i32, ptr %370, align 1, !tbaa !112
+  %376 = getelementptr inbounds nuw i8, ptr %370, i64 4
+  %377 = load i32, ptr %376, align 1, !tbaa !113
+  %378 = zext nneg i8 %373 to i32
+  %379 = icmp samesign ult i8 %373, 3
+  br i1 %379, label %380, label %384
 
-cond.true334:                                     ; preds = %sw.bb323
-  %idxprom335 = zext nneg i8 %and to i64
-  %arrayidx336 = getelementptr inbounds nuw [3 x ptr], ptr @print_attr.lvlModes, i64 0, i64 %idxprom335
-  %164 = load ptr, ptr %arrayidx336, align 8
-  br label %cond.end338
+380:                                              ; preds = %368
+  %381 = zext nneg i8 %373 to i64
+  %382 = getelementptr inbounds nuw [3 x ptr], ptr @print_attr.lvlModes, i64 0, i64 %381
+  %383 = load ptr, ptr %382, align 8, !tbaa !87
+  br label %384
 
-cond.end338:                                      ; preds = %sw.bb323, %cond.true334
-  %cond339 = phi ptr [ %164, %cond.true334 ], [ @.str.27, %sw.bb323 ]
-  %conv340 = zext nneg i8 %161 to i32
-  %cmp342 = icmp ult i8 %160, 16
-  %cond344 = select i1 %cmp342, ptr @.str.65, ptr @.str.66
-  %call345 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.64, i32 noundef %162, i32 noundef %163, i32 noundef %conv330, ptr noundef %cond339, i32 noundef %conv340, ptr noundef nonnull %cond344)
-  br label %sw.epilog
+384:                                              ; preds = %368, %380
+  %385 = phi ptr [ %383, %380 ], [ @.str.27, %368 ]
+  %386 = zext nneg i8 %374 to i32
+  %387 = icmp ult i8 %372, 16
+  %388 = select i1 %387, ptr @.str.65, ptr @.str.66
+  %389 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.64, i32 noundef %375, i32 noundef %377, i32 noundef %378, ptr noundef %385, i32 noundef %386, ptr noundef nonnull %388)
+  br label %.loopexit
 
-sw.bb346:                                         ; preds = %if.end4
-  %165 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %166 = load ptr, ptr %165, align 8
-  %167 = load i32, ptr %166, align 1
-  %user_data = getelementptr inbounds nuw i8, ptr %166, i64 4
-  %168 = load i32, ptr %user_data, align 1
-  %call347 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef %167, i32 noundef %168)
-  br label %sw.epilog
+390:                                              ; preds = %10
+  %391 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %392 = load ptr, ptr %391, align 8, !tbaa !32
+  %393 = load i32, ptr %392, align 1, !tbaa !107
+  %394 = getelementptr inbounds nuw i8, ptr %392, i64 4
+  %395 = load i32, ptr %394, align 1, !tbaa !108
+  %396 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef %393, i32 noundef %395)
+  br label %.loopexit
 
-sw.bb348:                                         ; preds = %if.end4
-  %169 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %170 = load ptr, ptr %169, align 8
-  %171 = load i32, ptr %170, align 1
-  %y350 = getelementptr inbounds nuw i8, ptr %170, i64 4
-  %172 = load i32, ptr %y350, align 1
-  %call351 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef %171, i32 noundef %172)
-  br label %sw.epilog
+397:                                              ; preds = %10
+  %398 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %399 = load ptr, ptr %398, align 8, !tbaa !32
+  %400 = load i32, ptr %399, align 1, !tbaa !107
+  %401 = getelementptr inbounds nuw i8, ptr %399, i64 4
+  %402 = load i32, ptr %401, align 1, !tbaa !108
+  %403 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef %400, i32 noundef %402)
+  br label %.loopexit
 
-sw.bb352:                                         ; preds = %if.end4
-  %173 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %174 = load ptr, ptr %173, align 8
-  %175 = load float, ptr %174, align 1
-  %conv354 = fpext float %175 to double
-  %y355 = getelementptr inbounds nuw i8, ptr %174, i64 4
-  %176 = load float, ptr %y355, align 1
-  %conv356 = fpext float %176 to double
-  %call357 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.69, double noundef %conv354, double noundef %conv356)
-  br label %sw.epilog
+404:                                              ; preds = %10
+  %405 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %406 = load ptr, ptr %405, align 8, !tbaa !32
+  %407 = load float, ptr %406, align 1, !tbaa !114
+  %408 = fpext float %407 to double
+  %409 = getelementptr inbounds nuw i8, ptr %406, i64 4
+  %410 = load float, ptr %409, align 1, !tbaa !115
+  %411 = fpext float %410 to double
+  %412 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.69, double noundef %408, double noundef %411)
+  br label %.loopexit
 
-sw.bb358:                                         ; preds = %if.end4
-  %177 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %178 = load ptr, ptr %177, align 8
-  %179 = load double, ptr %178, align 1
-  %y360 = getelementptr inbounds nuw i8, ptr %178, i64 8
-  %180 = load double, ptr %y360, align 1
-  %call361 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.69, double noundef %179, double noundef %180)
-  br label %sw.epilog
+413:                                              ; preds = %10
+  %414 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %415 = load ptr, ptr %414, align 8, !tbaa !32
+  %416 = load double, ptr %415, align 1, !tbaa !116
+  %417 = getelementptr inbounds nuw i8, ptr %415, i64 8
+  %418 = load double, ptr %417, align 1, !tbaa !118
+  %419 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.69, double noundef %416, double noundef %418)
+  br label %.loopexit
 
-sw.bb362:                                         ; preds = %if.end4
-  %181 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %182 = load ptr, ptr %181, align 8
-  %183 = load i32, ptr %182, align 1
-  %y364 = getelementptr inbounds nuw i8, ptr %182, i64 4
-  %184 = load i32, ptr %y364, align 1
-  %z = getelementptr inbounds nuw i8, ptr %182, i64 8
-  %185 = load i32, ptr %z, align 1
-  %call365 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.70, i32 noundef %183, i32 noundef %184, i32 noundef %185)
-  br label %sw.epilog
+420:                                              ; preds = %10
+  %421 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %422 = load ptr, ptr %421, align 8, !tbaa !32
+  %423 = load i32, ptr %422, align 1, !tbaa !119
+  %424 = getelementptr inbounds nuw i8, ptr %422, i64 4
+  %425 = load i32, ptr %424, align 1, !tbaa !121
+  %426 = getelementptr inbounds nuw i8, ptr %422, i64 8
+  %427 = load i32, ptr %426, align 1, !tbaa !122
+  %428 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.70, i32 noundef %423, i32 noundef %425, i32 noundef %427)
+  br label %.loopexit
 
-sw.bb366:                                         ; preds = %if.end4
-  %186 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %187 = load ptr, ptr %186, align 8
-  %188 = load float, ptr %187, align 1
-  %conv368 = fpext float %188 to double
-  %y369 = getelementptr inbounds nuw i8, ptr %187, i64 4
-  %189 = load float, ptr %y369, align 1
-  %conv370 = fpext float %189 to double
-  %z371 = getelementptr inbounds nuw i8, ptr %187, i64 8
-  %190 = load float, ptr %z371, align 1
-  %conv372 = fpext float %190 to double
-  %call373 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.71, double noundef %conv368, double noundef %conv370, double noundef %conv372)
-  br label %sw.epilog
+429:                                              ; preds = %10
+  %430 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %431 = load ptr, ptr %430, align 8, !tbaa !32
+  %432 = load float, ptr %431, align 1, !tbaa !123
+  %433 = fpext float %432 to double
+  %434 = getelementptr inbounds nuw i8, ptr %431, i64 4
+  %435 = load float, ptr %434, align 1, !tbaa !125
+  %436 = fpext float %435 to double
+  %437 = getelementptr inbounds nuw i8, ptr %431, i64 8
+  %438 = load float, ptr %437, align 1, !tbaa !126
+  %439 = fpext float %438 to double
+  %440 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.71, double noundef %433, double noundef %436, double noundef %439)
+  br label %.loopexit
 
-sw.bb374:                                         ; preds = %if.end4
-  %191 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %192 = load ptr, ptr %191, align 8
-  %193 = load double, ptr %192, align 1
-  %y376 = getelementptr inbounds nuw i8, ptr %192, i64 8
-  %194 = load double, ptr %y376, align 1
-  %z377 = getelementptr inbounds nuw i8, ptr %192, i64 16
-  %195 = load double, ptr %z377, align 1
-  %call378 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.71, double noundef %193, double noundef %194, double noundef %195)
-  br label %sw.epilog
+441:                                              ; preds = %10
+  %442 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %443 = load ptr, ptr %442, align 8, !tbaa !32
+  %444 = load double, ptr %443, align 1, !tbaa !127
+  %445 = getelementptr inbounds nuw i8, ptr %443, i64 8
+  %446 = load double, ptr %445, align 1, !tbaa !129
+  %447 = getelementptr inbounds nuw i8, ptr %443, i64 16
+  %448 = load double, ptr %447, align 1, !tbaa !130
+  %449 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.71, double noundef %444, double noundef %446, double noundef %448)
+  br label %.loopexit
 
-sw.bb379:                                         ; preds = %if.end4
-  %196 = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %197 = load ptr, ptr %196, align 8
-  %unpack_func_ptr = getelementptr inbounds nuw i8, ptr %197, i64 32
-  %198 = load ptr, ptr %unpack_func_ptr, align 8
-  %pack_func_ptr = getelementptr inbounds nuw i8, ptr %197, i64 40
-  %199 = load ptr, ptr %pack_func_ptr, align 8
-  %destroy_unpacked_func_ptr = getelementptr inbounds nuw i8, ptr %197, i64 48
-  %200 = load ptr, ptr %destroy_unpacked_func_ptr, align 8
-  %201 = load i32, ptr %197, align 8
-  %unpacked_size = getelementptr inbounds nuw i8, ptr %197, i64 4
-  %202 = load i32, ptr %unpacked_size, align 4
-  %call380 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.72, i32 noundef %201, i32 noundef %202, ptr noundef %198, ptr noundef %199, ptr noundef %200)
-  br label %sw.epilog
+450:                                              ; preds = %10
+  %451 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %452 = load ptr, ptr %451, align 8, !tbaa !32
+  %453 = getelementptr inbounds nuw i8, ptr %452, i64 32
+  %454 = load ptr, ptr %453, align 8, !tbaa !131
+  %455 = getelementptr inbounds nuw i8, ptr %452, i64 40
+  %456 = load ptr, ptr %455, align 8, !tbaa !133
+  %457 = getelementptr inbounds nuw i8, ptr %452, i64 48
+  %458 = load ptr, ptr %457, align 8, !tbaa !134
+  %459 = load i32, ptr %452, align 8, !tbaa !135
+  %460 = getelementptr inbounds nuw i8, ptr %452, i64 4
+  %461 = load i32, ptr %460, align 4, !tbaa !136
+  %462 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.72, i32 noundef %459, i32 noundef %461, ptr noundef %454, ptr noundef %456, ptr noundef %458)
+  br label %.loopexit
 
-sw.default:                                       ; preds = %if.end4
-  %type_name382 = getelementptr inbounds nuw i8, ptr %a, i64 8
-  %203 = load ptr, ptr %type_name382, align 8
-  %call383 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, ptr noundef %203)
-  br label %sw.epilog
+463:                                              ; preds = %10
+  %464 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %465 = load ptr, ptr %464, align 8, !tbaa !57
+  %466 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, ptr noundef %465)
+  br label %.loopexit
 
-sw.epilog:                                        ; preds = %if.end315, %for.body115, %cond.end63, %sw.bb303, %sw.bb109, %sw.bb33, %sw.bb282, %if.then287, %cond.end90, %if.then94, %entry, %sw.default, %sw.bb379, %sw.bb374, %sw.bb366, %sw.bb362, %sw.bb358, %sw.bb352, %sw.bb348, %sw.bb346, %cond.end338, %sw.bb294, %sw.bb280, %sw.bb246, %sw.bb196, %sw.bb176, %sw.bb148, %cond.end145, %sw.bb125, %sw.bb123, %sw.bb106, %sw.bb100, %sw.bb98, %sw.bb72, %sw.bb20, %sw.bb
+.loopexit:                                        ; preds = %357, %.lr.ph186, %63, %347, %131, %41, %325, %335, %109, %112, %2, %463, %450, %441, %429, %420, %413, %404, %397, %390, %384, %341, %318, %283, %232, %211, %181, %178, %154, %150, %126, %120, %116, %74, %26, %13
   ret void
 }
 
@@ -996,24 +994,149 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind }
 attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"_priv_exr_context_t", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3, !5, i64 4, !5, i64 5, !5, i64 6, !5, i64 7, !7, i64 8, !7, i64 24, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !8, i64 104, !8, i64 108, !8, i64 112, !8, i64 116, !8, i64 120, !11, i64 124, !10, i64 128, !10, i64 136, !10, i64 144, !12, i64 152, !10, i64 160, !10, i64 168, !12, i64 176, !8, i64 184, !8, i64 188, !8, i64 192, !8, i64 196, !13, i64 200, !20, i64 464, !21, i64 472, !14, i64 480, !5, i64 504, !5, i64 544, !5, i64 545, !5, i64 546, !8, i64 548}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!"", !8, i64 0, !8, i64 4, !9, i64 8}
+!8 = !{!"int", !5, i64 0}
+!9 = !{!"p1 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !5, i64 0}
+!11 = !{!"float", !5, i64 0}
+!12 = !{!"long", !5, i64 0}
+!13 = !{!"_priv_exr_part_t", !8, i64 0, !8, i64 4, !14, i64 8, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136, !16, i64 144, !16, i64 160, !8, i64 176, !8, i64 180, !8, i64 184, !11, i64 188, !8, i64 192, !8, i64 196, !18, i64 200, !18, i64 208, !18, i64 216, !18, i64 224, !12, i64 232, !19, i64 240, !19, i64 242, !8, i64 244, !12, i64 248, !5, i64 256}
+!14 = !{!"exr_attribute_list", !8, i64 0, !8, i64 4, !15, i64 8, !15, i64 16}
+!15 = !{!"any p2 pointer", !10, i64 0}
+!16 = !{!"", !17, i64 0, !17, i64 8}
+!17 = !{!"", !8, i64 0, !8, i64 4}
+!18 = !{!"p1 int", !10, i64 0}
+!19 = !{!"short", !5, i64 0}
+!20 = !{!"p1 _ZTS16_priv_exr_part_t", !10, i64 0}
+!21 = !{!"p2 _ZTS16_priv_exr_part_t", !15, i64 0}
+!22 = !{!4, !9, i64 16}
+!23 = !{!4, !5, i64 1}
+!24 = !{!4, !5, i64 3}
+!25 = !{!4, !5, i64 2}
+!26 = !{!4, !5, i64 4}
+!27 = !{!4, !5, i64 5}
+!28 = !{!4, !8, i64 196}
+!29 = !{!4, !21, i64 472}
+!30 = !{!20, !20, i64 0}
+!31 = !{!13, !10, i64 104}
+!32 = !{!5, !5, i64 0}
+!33 = !{!7, !9, i64 8}
+!34 = !{!13, !8, i64 8}
+!35 = !{!13, !15, i64 16}
+!36 = !{!10, !10, i64 0}
+!37 = distinct !{!37, !38}
+!38 = !{!"llvm.loop.mustprogress"}
+!39 = !{!13, !10, i64 112}
+!40 = !{!13, !10, i64 40}
+!41 = !{!13, !10, i64 96}
+!42 = !{!13, !10, i64 56}
+!43 = !{!13, !10, i64 48}
+!44 = !{!13, !10, i64 32}
+!45 = !{!13, !8, i64 192}
+!46 = !{!13, !8, i64 196}
+!47 = !{!13, !18, i64 200}
+!48 = !{!8, !8, i64 0}
+!49 = !{!13, !18, i64 216}
+!50 = distinct !{!50, !38}
+!51 = !{!13, !18, i64 208}
+!52 = !{!13, !18, i64 224}
+!53 = distinct !{!53, !38}
+!54 = distinct !{!54, !38}
+!55 = !{!56, !9, i64 0}
+!56 = !{!"", !9, i64 0, !9, i64 8, !5, i64 16, !5, i64 17, !5, i64 18, !8, i64 20, !5, i64 24}
+!57 = !{!56, !9, i64 8}
+!58 = !{!56, !8, i64 20}
+!59 = !{!16, !8, i64 0}
+!60 = !{!16, !8, i64 4}
+!61 = !{!16, !8, i64 8}
+!62 = !{!16, !8, i64 12}
+!63 = !{!64, !11, i64 0}
+!64 = !{!"", !65, i64 0, !65, i64 8}
+!65 = !{!"", !11, i64 0, !11, i64 4}
+!66 = !{!64, !11, i64 4}
+!67 = !{!64, !11, i64 8}
+!68 = !{!64, !11, i64 12}
+!69 = !{!70, !8, i64 0}
+!70 = !{!"", !8, i64 0, !8, i64 4, !10, i64 8}
+!71 = !{!70, !10, i64 8}
+!72 = !{!73, !9, i64 8}
+!73 = !{!"", !7, i64 0, !8, i64 16, !5, i64 20, !5, i64 21, !8, i64 24, !8, i64 28}
+!74 = !{!73, !8, i64 16}
+!75 = !{!73, !8, i64 24}
+!76 = !{!73, !8, i64 28}
+!77 = distinct !{!77, !38}
+!78 = !{!79, !11, i64 0}
+!79 = !{!"", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !11, i64 24, !11, i64 28}
+!80 = !{!79, !11, i64 4}
+!81 = !{!79, !11, i64 8}
+!82 = !{!79, !11, i64 12}
+!83 = !{!79, !11, i64 16}
+!84 = !{!79, !11, i64 20}
+!85 = !{!79, !11, i64 24}
+!86 = !{!79, !11, i64 28}
+!87 = !{!9, !9, i64 0}
+!88 = !{!89, !8, i64 0}
+!89 = !{!"", !8, i64 0, !8, i64 4, !90, i64 8}
+!90 = !{!"p1 float", !10, i64 0}
+!91 = !{!89, !90, i64 8}
+!92 = !{!11, !11, i64 0}
+!93 = distinct !{!93, !38}
+!94 = !{!95, !8, i64 0}
+!95 = !{!"", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12, !8, i64 16, !8, i64 20, !8, i64 24}
+!96 = !{!95, !8, i64 4}
+!97 = !{!95, !8, i64 8}
+!98 = !{!95, !8, i64 12}
+!99 = !{!95, !8, i64 16}
+!100 = !{!95, !8, i64 20}
+!101 = !{!95, !8, i64 24}
+!102 = !{!103, !103, i64 0}
+!103 = !{!"double", !5, i64 0}
+!104 = !{!105, !8, i64 0}
+!105 = !{!"", !8, i64 0, !8, i64 4, !12, i64 8, !9, i64 16}
+!106 = !{!105, !8, i64 4}
+!107 = !{!17, !8, i64 0}
+!108 = !{!17, !8, i64 4}
+!109 = distinct !{!109, !38}
+!110 = !{!111, !5, i64 8}
+!111 = !{!"", !8, i64 0, !8, i64 4, !5, i64 8}
+!112 = !{!111, !8, i64 0}
+!113 = !{!111, !8, i64 4}
+!114 = !{!65, !11, i64 0}
+!115 = !{!65, !11, i64 4}
+!116 = !{!117, !103, i64 0}
+!117 = !{!"", !103, i64 0, !103, i64 8}
+!118 = !{!117, !103, i64 8}
+!119 = !{!120, !8, i64 0}
+!120 = !{!"", !8, i64 0, !8, i64 4, !8, i64 8}
+!121 = !{!120, !8, i64 4}
+!122 = !{!120, !8, i64 8}
+!123 = !{!124, !11, i64 0}
+!124 = !{!"", !11, i64 0, !11, i64 4, !11, i64 8}
+!125 = !{!124, !11, i64 4}
+!126 = !{!124, !11, i64 8}
+!127 = !{!128, !103, i64 0}
+!128 = !{!"", !103, i64 0, !103, i64 8, !103, i64 16}
+!129 = !{!128, !103, i64 8}
+!130 = !{!128, !103, i64 16}
+!131 = !{!132, !10, i64 32}
+!132 = !{!"", !8, i64 0, !8, i64 4, !8, i64 8, !5, i64 12, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48}
+!133 = !{!132, !10, i64 40}
+!134 = !{!132, !10, i64 48}
+!135 = !{!132, !8, i64 0}
+!136 = !{!132, !8, i64 4}

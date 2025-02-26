@@ -1,15 +1,15 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.Imath_3_2::half" = type { i16 }
-%"class.Imf_3_2::HalfLut" = type { %class.halfFunction }
+%"class.Imf_3_4::HalfLut" = type { %class.halfFunction }
 %class.halfFunction = type { ptr }
-%"struct.Imf_3_2::Slice" = type <{ i32, [4 x i8], ptr, i64, i64, i32, i32, double, i8, i8, [6 x i8] }>
+%"struct.Imf_3_4::Slice" = type <{ i32, [4 x i8], ptr, i64, i64, i32, i32, double, i8, i8, [6 x i8] }>
 %"class.Imath_3_2::Box" = type { %"class.Imath_3_2::Vec2", %"class.Imath_3_2::Vec2" }
 %"class.Imath_3_2::Vec2" = type { i32, i32 }
-%"class.Imf_3_2::RgbaLut" = type <{ %class.halfFunction, i32, [4 x i8] }>
-%"struct.Imf_3_2::Rgba" = type { %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half" }
+%"class.Imf_3_4::RgbaLut" = type <{ %class.halfFunction, i32, [4 x i8] }>
+%"struct.Imf_3_4::Rgba" = type { %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half" }
 %union.imath_half_uif = type { i32 }
 
 $_ZNK12halfFunctionIN9Imath_3_24halfEEclES1_ = comdat any
@@ -31,9 +31,8 @@ $_ZNK9Imath_3_24half4bitsEv = comdat any
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init() #0 section ".text.startup" {
-entry:
   call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #3
+  %1 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #3
   ret void
 }
 
@@ -46,689 +45,744 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7Imf_3_27HalfLut5applyEPN9Imath_3_24halfEii(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %data, i32 noundef %nData, i32 noundef %stride) #4 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %nData.addr = alloca i32, align 4
-  %stride.addr = alloca i32, align 4
-  %ref.tmp = alloca %"class.Imath_3_2::half", align 2
-  %agg.tmp = alloca %"class.Imath_3_2::half", align 2
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store i32 %nData, ptr %nData.addr, align 4
-  store i32 %stride, ptr %stride.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  br label %while.cond
+define void @_ZNK7Imf_3_47HalfLut5applyEPN9Imath_3_24halfEii(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #4 align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca %"class.Imath_3_2::half", align 2
+  %10 = alloca %"class.Imath_3_2::half", align 2
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store i32 %2, ptr %7, align 4, !tbaa !10
+  store i32 %3, ptr %8, align 4, !tbaa !10
+  %11 = load ptr, ptr %5, align 8
+  br label %12
 
-while.cond:                                       ; preds = %while.body, %entry
-  %0 = load i32, ptr %nData.addr, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %while.body, label %while.end
+12:                                               ; preds = %15, %4
+  %13 = load i32, ptr %7, align 4, !tbaa !10
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %29
 
-while.body:                                       ; preds = %while.cond
-  %_lut = getelementptr inbounds %"class.Imf_3_2::HalfLut", ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %data.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %agg.tmp, ptr align 2 %1, i64 2, i1 false)
-  %coerce.dive = getelementptr inbounds %"class.Imath_3_2::half", ptr %agg.tmp, i32 0, i32 0
-  %2 = load i16, ptr %coerce.dive, align 2
-  %call = call i16 @_ZNK12halfFunctionIN9Imath_3_24halfEEclES1_(ptr noundef nonnull align 8 dereferenceable(8) %_lut, i16 %2)
-  %coerce.dive2 = getelementptr inbounds %"class.Imath_3_2::half", ptr %ref.tmp, i32 0, i32 0
-  store i16 %call, ptr %coerce.dive2, align 2
-  %3 = load ptr, ptr %data.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %3, ptr align 2 %ref.tmp, i64 2, i1 false)
-  %4 = load i32, ptr %stride.addr, align 4
-  %5 = load ptr, ptr %data.addr, align 8
-  %idx.ext = sext i32 %4 to i64
-  %add.ptr = getelementptr inbounds %"class.Imath_3_2::half", ptr %5, i64 %idx.ext
-  store ptr %add.ptr, ptr %data.addr, align 8
-  %6 = load i32, ptr %nData.addr, align 4
-  %sub = sub nsw i32 %6, 1
-  store i32 %sub, ptr %nData.addr, align 4
-  br label %while.cond, !llvm.loop !4
+15:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #3
+  %16 = getelementptr inbounds nuw %"class.Imf_3_4::HalfLut", ptr %11, i32 0, i32 0
+  %17 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %10, ptr align 2 %17, i64 2, i1 false), !tbaa.struct !12
+  %18 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %10, i32 0, i32 0
+  %19 = load i16, ptr %18, align 2
+  %20 = call i16 @_ZNK12halfFunctionIN9Imath_3_24halfEEclES1_(ptr noundef nonnull align 8 dereferenceable(8) %16, i16 %19)
+  %21 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %9, i32 0, i32 0
+  store i16 %20, ptr %21, align 2
+  %22 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %22, ptr align 2 %9, i64 2, i1 false), !tbaa.struct !12
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #3
+  %23 = load i32, ptr %8, align 4, !tbaa !10
+  %24 = load ptr, ptr %6, align 8, !tbaa !8
+  %25 = sext i32 %23 to i64
+  %26 = getelementptr inbounds %"class.Imath_3_2::half", ptr %24, i64 %25
+  store ptr %26, ptr %6, align 8, !tbaa !8
+  %27 = load i32, ptr %7, align 4, !tbaa !10
+  %28 = sub nsw i32 %27, 1
+  store i32 %28, ptr %7, align 4, !tbaa !10
+  br label %12, !llvm.loop !15
 
-while.end:                                        ; preds = %while.cond
+29:                                               ; preds = %12
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i16 @_ZNK12halfFunctionIN9Imath_3_24halfEEclES1_(ptr noundef nonnull align 8 dereferenceable(8) %this, i16 %x.coerce) #5 comdat align 2 {
-entry:
-  %retval = alloca %"class.Imath_3_2::half", align 2
-  %x = alloca %"class.Imath_3_2::half", align 2
-  %this.addr = alloca ptr, align 8
-  %coerce.dive = getelementptr inbounds %"class.Imath_3_2::half", ptr %x, i32 0, i32 0
-  store i16 %x.coerce, ptr %coerce.dive, align 2
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_lut = getelementptr inbounds %class.halfFunction, ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %_lut, align 8
-  %call = call noundef zeroext i16 @_ZNK9Imath_3_24half4bitsEv(ptr noundef nonnull align 2 dereferenceable(2) %x) #3
-  %idxprom = zext i16 %call to i64
-  %arrayidx = getelementptr inbounds %"class.Imath_3_2::half", ptr %0, i64 %idxprom
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %retval, ptr align 2 %arrayidx, i64 2, i1 false)
-  %coerce.dive2 = getelementptr inbounds %"class.Imath_3_2::half", ptr %retval, i32 0, i32 0
-  %1 = load i16, ptr %coerce.dive2, align 2
-  ret i16 %1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden i16 @_ZNK12halfFunctionIN9Imath_3_24halfEEclES1_(ptr noundef nonnull align 8 dereferenceable(8) %0, i16 %1) #6 comdat align 2 {
+  %3 = alloca %"class.Imath_3_2::half", align 2
+  %4 = alloca %"class.Imath_3_2::half", align 2
+  %5 = alloca ptr, align 8
+  %6 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %4, i32 0, i32 0
+  store i16 %1, ptr %6, align 2
+  store ptr %0, ptr %5, align 8, !tbaa !17
+  %7 = load ptr, ptr %5, align 8
+  %8 = getelementptr inbounds nuw %class.halfFunction, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !19
+  %10 = call noundef zeroext i16 @_ZNK9Imath_3_24half4bitsEv(ptr noundef nonnull align 2 dereferenceable(2) %4) #3
+  %11 = zext i16 %10 to i64
+  %12 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %9, i64 %11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %3, ptr align 2 %12, i64 2, i1 false), !tbaa.struct !12
+  %13 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %3, i32 0, i32 0
+  %14 = load i16, ptr %13, align 2
+  ret i16 %14
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7Imf_3_27HalfLut5applyERKNS_5SliceERKN9Imath_3_23BoxINS4_4Vec2IiEEEE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(50) %data, ptr noundef nonnull align 4 dereferenceable(16) %dataWindow) #4 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %dataWindow.addr = alloca ptr, align 8
-  %base = alloca ptr, align 8
-  %y3 = alloca i32, align 4
-  %pixel = alloca ptr, align 8
-  %x12 = alloca i32, align 4
-  %ref.tmp = alloca %"class.Imath_3_2::half", align 2
-  %agg.tmp = alloca %"class.Imath_3_2::half", align 2
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store ptr %dataWindow, ptr %dataWindow.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %data.addr, align 8
-  %base2 = getelementptr inbounds %"struct.Imf_3_2::Slice", ptr %0, i32 0, i32 2
-  %1 = load ptr, ptr %base2, align 8
-  %2 = load ptr, ptr %data.addr, align 8
-  %yStride = getelementptr inbounds %"struct.Imf_3_2::Slice", ptr %2, i32 0, i32 4
-  %3 = load i64, ptr %yStride, align 8
-  %4 = load ptr, ptr %dataWindow.addr, align 8
-  %min = getelementptr inbounds %"class.Imath_3_2::Box", ptr %4, i32 0, i32 0
-  %y = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %min, i32 0, i32 1
-  %5 = load i32, ptr %y, align 4
-  %6 = load ptr, ptr %data.addr, align 8
-  %ySampling = getelementptr inbounds %"struct.Imf_3_2::Slice", ptr %6, i32 0, i32 6
-  %7 = load i32, ptr %ySampling, align 4
-  %div = sdiv i32 %5, %7
-  %conv = sext i32 %div to i64
-  %mul = mul i64 %3, %conv
-  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
-  store ptr %add.ptr, ptr %base, align 8
-  %8 = load ptr, ptr %dataWindow.addr, align 8
-  %min4 = getelementptr inbounds %"class.Imath_3_2::Box", ptr %8, i32 0, i32 0
-  %y5 = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %min4, i32 0, i32 1
-  %9 = load i32, ptr %y5, align 4
-  store i32 %9, ptr %y3, align 4
-  br label %for.cond
+define void @_ZNK7Imf_3_47HalfLut5applyERKNS_5SliceERKN9Imath_3_23BoxINS4_4Vec2IiEEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(50) %1, ptr noundef nonnull align 4 dereferenceable(16) %2) #4 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca %"class.Imath_3_2::half", align 2
+  %13 = alloca %"class.Imath_3_2::half", align 2
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !21
+  store ptr %2, ptr %6, align 8, !tbaa !23
+  %14 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  %15 = load ptr, ptr %5, align 8, !tbaa !21
+  %16 = getelementptr inbounds nuw %"struct.Imf_3_4::Slice", ptr %15, i32 0, i32 2
+  %17 = load ptr, ptr %16, align 8, !tbaa !25
+  %18 = load ptr, ptr %5, align 8, !tbaa !21
+  %19 = getelementptr inbounds nuw %"struct.Imf_3_4::Slice", ptr %18, i32 0, i32 4
+  %20 = load i64, ptr %19, align 8, !tbaa !32
+  %21 = load ptr, ptr %6, align 8, !tbaa !23
+  %22 = getelementptr inbounds nuw %"class.Imath_3_2::Box", ptr %21, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %"class.Imath_3_2::Vec2", ptr %22, i32 0, i32 1
+  %24 = load i32, ptr %23, align 4, !tbaa !33
+  %25 = load ptr, ptr %5, align 8, !tbaa !21
+  %26 = getelementptr inbounds nuw %"struct.Imf_3_4::Slice", ptr %25, i32 0, i32 6
+  %27 = load i32, ptr %26, align 4, !tbaa !36
+  %28 = sdiv i32 %24, %27
+  %29 = sext i32 %28 to i64
+  %30 = mul i64 %20, %29
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 %30
+  store ptr %31, ptr %7, align 8, !tbaa !37
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  %32 = load ptr, ptr %6, align 8, !tbaa !23
+  %33 = getelementptr inbounds nuw %"class.Imath_3_2::Box", ptr %32, i32 0, i32 0
+  %34 = getelementptr inbounds nuw %"class.Imath_3_2::Vec2", ptr %33, i32 0, i32 1
+  %35 = load i32, ptr %34, align 4, !tbaa !33
+  store i32 %35, ptr %8, align 4, !tbaa !10
+  br label %36
 
-for.cond:                                         ; preds = %for.inc26, %entry
-  %10 = load i32, ptr %y3, align 4
-  %11 = load ptr, ptr %dataWindow.addr, align 8
-  %max = getelementptr inbounds %"class.Imath_3_2::Box", ptr %11, i32 0, i32 1
-  %y6 = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %max, i32 0, i32 1
-  %12 = load i32, ptr %y6, align 4
-  %cmp = icmp sle i32 %10, %12
-  br i1 %cmp, label %for.body, label %for.end29
+36:                                               ; preds = %97, %3
+  %37 = load i32, ptr %8, align 4, !tbaa !10
+  %38 = load ptr, ptr %6, align 8, !tbaa !23
+  %39 = getelementptr inbounds nuw %"class.Imath_3_2::Box", ptr %38, i32 0, i32 1
+  %40 = getelementptr inbounds nuw %"class.Imath_3_2::Vec2", ptr %39, i32 0, i32 1
+  %41 = load i32, ptr %40, align 4, !tbaa !38
+  %42 = icmp sle i32 %37, %41
+  br i1 %42, label %44, label %43
 
-for.body:                                         ; preds = %for.cond
-  %13 = load ptr, ptr %base, align 8
-  %14 = load ptr, ptr %data.addr, align 8
-  %xStride = getelementptr inbounds %"struct.Imf_3_2::Slice", ptr %14, i32 0, i32 3
-  %15 = load i64, ptr %xStride, align 8
-  %16 = load ptr, ptr %dataWindow.addr, align 8
-  %min7 = getelementptr inbounds %"class.Imath_3_2::Box", ptr %16, i32 0, i32 0
-  %x = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %min7, i32 0, i32 0
-  %17 = load i32, ptr %x, align 4
-  %18 = load ptr, ptr %data.addr, align 8
-  %xSampling = getelementptr inbounds %"struct.Imf_3_2::Slice", ptr %18, i32 0, i32 5
-  %19 = load i32, ptr %xSampling, align 8
-  %div8 = sdiv i32 %17, %19
-  %conv9 = sext i32 %div8 to i64
-  %mul10 = mul i64 %15, %conv9
-  %add.ptr11 = getelementptr inbounds i8, ptr %13, i64 %mul10
-  store ptr %add.ptr11, ptr %pixel, align 8
-  %20 = load ptr, ptr %dataWindow.addr, align 8
-  %min13 = getelementptr inbounds %"class.Imath_3_2::Box", ptr %20, i32 0, i32 0
-  %x14 = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %min13, i32 0, i32 0
-  %21 = load i32, ptr %x14, align 4
-  store i32 %21, ptr %x12, align 4
-  br label %for.cond15
+43:                                               ; preds = %36
+  store i32 2, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  br label %103
 
-for.cond15:                                       ; preds = %for.inc, %for.body
-  %22 = load i32, ptr %x12, align 4
-  %23 = load ptr, ptr %dataWindow.addr, align 8
-  %max16 = getelementptr inbounds %"class.Imath_3_2::Box", ptr %23, i32 0, i32 1
-  %x17 = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %max16, i32 0, i32 0
-  %24 = load i32, ptr %x17, align 4
-  %cmp18 = icmp sle i32 %22, %24
-  br i1 %cmp18, label %for.body19, label %for.end
+44:                                               ; preds = %36
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  %45 = load ptr, ptr %7, align 8, !tbaa !37
+  %46 = load ptr, ptr %5, align 8, !tbaa !21
+  %47 = getelementptr inbounds nuw %"struct.Imf_3_4::Slice", ptr %46, i32 0, i32 3
+  %48 = load i64, ptr %47, align 8, !tbaa !39
+  %49 = load ptr, ptr %6, align 8, !tbaa !23
+  %50 = getelementptr inbounds nuw %"class.Imath_3_2::Box", ptr %49, i32 0, i32 0
+  %51 = getelementptr inbounds nuw %"class.Imath_3_2::Vec2", ptr %50, i32 0, i32 0
+  %52 = load i32, ptr %51, align 4, !tbaa !40
+  %53 = load ptr, ptr %5, align 8, !tbaa !21
+  %54 = getelementptr inbounds nuw %"struct.Imf_3_4::Slice", ptr %53, i32 0, i32 5
+  %55 = load i32, ptr %54, align 8, !tbaa !41
+  %56 = sdiv i32 %52, %55
+  %57 = sext i32 %56 to i64
+  %58 = mul i64 %48, %57
+  %59 = getelementptr inbounds nuw i8, ptr %45, i64 %58
+  store ptr %59, ptr %10, align 8, !tbaa !37
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  %60 = load ptr, ptr %6, align 8, !tbaa !23
+  %61 = getelementptr inbounds nuw %"class.Imath_3_2::Box", ptr %60, i32 0, i32 0
+  %62 = getelementptr inbounds nuw %"class.Imath_3_2::Vec2", ptr %61, i32 0, i32 0
+  %63 = load i32, ptr %62, align 4, !tbaa !40
+  store i32 %63, ptr %11, align 4, !tbaa !10
+  br label %64
 
-for.body19:                                       ; preds = %for.cond15
-  %_lut = getelementptr inbounds %"class.Imf_3_2::HalfLut", ptr %this1, i32 0, i32 0
-  %25 = load ptr, ptr %pixel, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %agg.tmp, ptr align 2 %25, i64 2, i1 false)
-  %coerce.dive = getelementptr inbounds %"class.Imath_3_2::half", ptr %agg.tmp, i32 0, i32 0
-  %26 = load i16, ptr %coerce.dive, align 2
-  %call = call i16 @_ZNK12halfFunctionIN9Imath_3_24halfEEclES1_(ptr noundef nonnull align 8 dereferenceable(8) %_lut, i16 %26)
-  %coerce.dive20 = getelementptr inbounds %"class.Imath_3_2::half", ptr %ref.tmp, i32 0, i32 0
-  store i16 %call, ptr %coerce.dive20, align 2
-  %27 = load ptr, ptr %pixel, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %27, ptr align 2 %ref.tmp, i64 2, i1 false)
-  %28 = load ptr, ptr %data.addr, align 8
-  %xStride21 = getelementptr inbounds %"struct.Imf_3_2::Slice", ptr %28, i32 0, i32 3
-  %29 = load i64, ptr %xStride21, align 8
-  %30 = load ptr, ptr %pixel, align 8
-  %add.ptr22 = getelementptr inbounds i8, ptr %30, i64 %29
-  store ptr %add.ptr22, ptr %pixel, align 8
-  br label %for.inc
+64:                                               ; preds = %85, %44
+  %65 = load i32, ptr %11, align 4, !tbaa !10
+  %66 = load ptr, ptr %6, align 8, !tbaa !23
+  %67 = getelementptr inbounds nuw %"class.Imath_3_2::Box", ptr %66, i32 0, i32 1
+  %68 = getelementptr inbounds nuw %"class.Imath_3_2::Vec2", ptr %67, i32 0, i32 0
+  %69 = load i32, ptr %68, align 4, !tbaa !42
+  %70 = icmp sle i32 %65, %69
+  br i1 %70, label %72, label %71
 
-for.inc:                                          ; preds = %for.body19
-  %31 = load ptr, ptr %data.addr, align 8
-  %xSampling23 = getelementptr inbounds %"struct.Imf_3_2::Slice", ptr %31, i32 0, i32 5
-  %32 = load i32, ptr %xSampling23, align 8
-  %33 = load i32, ptr %x12, align 4
-  %add = add nsw i32 %33, %32
-  store i32 %add, ptr %x12, align 4
-  br label %for.cond15, !llvm.loop !6
+71:                                               ; preds = %64
+  store i32 5, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  br label %91
 
-for.end:                                          ; preds = %for.cond15
-  %34 = load ptr, ptr %data.addr, align 8
-  %yStride24 = getelementptr inbounds %"struct.Imf_3_2::Slice", ptr %34, i32 0, i32 4
-  %35 = load i64, ptr %yStride24, align 8
-  %36 = load ptr, ptr %base, align 8
-  %add.ptr25 = getelementptr inbounds i8, ptr %36, i64 %35
-  store ptr %add.ptr25, ptr %base, align 8
-  br label %for.inc26
+72:                                               ; preds = %64
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #3
+  %73 = getelementptr inbounds nuw %"class.Imf_3_4::HalfLut", ptr %14, i32 0, i32 0
+  %74 = load ptr, ptr %10, align 8, !tbaa !37
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %13, ptr align 2 %74, i64 2, i1 false), !tbaa.struct !12
+  %75 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %13, i32 0, i32 0
+  %76 = load i16, ptr %75, align 2
+  %77 = call i16 @_ZNK12halfFunctionIN9Imath_3_24halfEEclES1_(ptr noundef nonnull align 8 dereferenceable(8) %73, i16 %76)
+  %78 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %12, i32 0, i32 0
+  store i16 %77, ptr %78, align 2
+  %79 = load ptr, ptr %10, align 8, !tbaa !37
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %79, ptr align 2 %12, i64 2, i1 false), !tbaa.struct !12
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #3
+  %80 = load ptr, ptr %5, align 8, !tbaa !21
+  %81 = getelementptr inbounds nuw %"struct.Imf_3_4::Slice", ptr %80, i32 0, i32 3
+  %82 = load i64, ptr %81, align 8, !tbaa !39
+  %83 = load ptr, ptr %10, align 8, !tbaa !37
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 %82
+  store ptr %84, ptr %10, align 8, !tbaa !37
+  br label %85
 
-for.inc26:                                        ; preds = %for.end
-  %37 = load ptr, ptr %data.addr, align 8
-  %ySampling27 = getelementptr inbounds %"struct.Imf_3_2::Slice", ptr %37, i32 0, i32 6
-  %38 = load i32, ptr %ySampling27, align 4
-  %39 = load i32, ptr %y3, align 4
-  %add28 = add nsw i32 %39, %38
-  store i32 %add28, ptr %y3, align 4
-  br label %for.cond, !llvm.loop !7
+85:                                               ; preds = %72
+  %86 = load ptr, ptr %5, align 8, !tbaa !21
+  %87 = getelementptr inbounds nuw %"struct.Imf_3_4::Slice", ptr %86, i32 0, i32 5
+  %88 = load i32, ptr %87, align 8, !tbaa !41
+  %89 = load i32, ptr %11, align 4, !tbaa !10
+  %90 = add nsw i32 %89, %88
+  store i32 %90, ptr %11, align 4, !tbaa !10
+  br label %64, !llvm.loop !43
 
-for.end29:                                        ; preds = %for.cond
+91:                                               ; preds = %71
+  %92 = load ptr, ptr %5, align 8, !tbaa !21
+  %93 = getelementptr inbounds nuw %"struct.Imf_3_4::Slice", ptr %92, i32 0, i32 4
+  %94 = load i64, ptr %93, align 8, !tbaa !32
+  %95 = load ptr, ptr %7, align 8, !tbaa !37
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 %94
+  store ptr %96, ptr %7, align 8, !tbaa !37
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  br label %97
+
+97:                                               ; preds = %91
+  %98 = load ptr, ptr %5, align 8, !tbaa !21
+  %99 = getelementptr inbounds nuw %"struct.Imf_3_4::Slice", ptr %98, i32 0, i32 6
+  %100 = load i32, ptr %99, align 4, !tbaa !36
+  %101 = load i32, ptr %8, align 4, !tbaa !10
+  %102 = add nsw i32 %101, %100
+  store i32 %102, ptr %8, align 4, !tbaa !10
+  br label %36, !llvm.loop !44
+
+103:                                              ; preds = %43
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7Imf_3_27RgbaLut5applyEPNS_4RgbaEii(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %data, i32 noundef %nData, i32 noundef %stride) #4 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %nData.addr = alloca i32, align 4
-  %stride.addr = alloca i32, align 4
-  %ref.tmp = alloca %"class.Imath_3_2::half", align 2
-  %agg.tmp = alloca %"class.Imath_3_2::half", align 2
-  %ref.tmp9 = alloca %"class.Imath_3_2::half", align 2
-  %agg.tmp11 = alloca %"class.Imath_3_2::half", align 2
-  %ref.tmp21 = alloca %"class.Imath_3_2::half", align 2
-  %agg.tmp23 = alloca %"class.Imath_3_2::half", align 2
-  %ref.tmp33 = alloca %"class.Imath_3_2::half", align 2
-  %agg.tmp35 = alloca %"class.Imath_3_2::half", align 2
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store i32 %nData, ptr %nData.addr, align 4
-  store i32 %stride, ptr %stride.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  br label %while.cond
+define void @_ZNK7Imf_3_47RgbaLut5applyEPNS_4RgbaEii(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #4 align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca %"class.Imath_3_2::half", align 2
+  %10 = alloca %"class.Imath_3_2::half", align 2
+  %11 = alloca %"class.Imath_3_2::half", align 2
+  %12 = alloca %"class.Imath_3_2::half", align 2
+  %13 = alloca %"class.Imath_3_2::half", align 2
+  %14 = alloca %"class.Imath_3_2::half", align 2
+  %15 = alloca %"class.Imath_3_2::half", align 2
+  %16 = alloca %"class.Imath_3_2::half", align 2
+  store ptr %0, ptr %5, align 8, !tbaa !45
+  store ptr %1, ptr %6, align 8, !tbaa !47
+  store i32 %2, ptr %7, align 4, !tbaa !10
+  store i32 %3, ptr %8, align 4, !tbaa !10
+  %17 = load ptr, ptr %5, align 8
+  br label %18
 
-while.cond:                                       ; preds = %if.end40, %entry
-  %0 = load i32, ptr %nData.addr, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %while.body, label %while.end
+18:                                               ; preds = %81, %4
+  %19 = load i32, ptr %7, align 4, !tbaa !10
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %88
 
-while.body:                                       ; preds = %while.cond
-  %_chn = getelementptr inbounds %"class.Imf_3_2::RgbaLut", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %_chn, align 8
-  %and = and i32 %1, 1
-  %tobool2 = icmp ne i32 %and, 0
-  br i1 %tobool2, label %if.then, label %if.end
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds nuw %"class.Imf_3_4::RgbaLut", ptr %17, i32 0, i32 1
+  %23 = load i32, ptr %22, align 8, !tbaa !49
+  %24 = and i32 %23, 1
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %26, label %36
 
-if.then:                                          ; preds = %while.body
-  %_lut = getelementptr inbounds %"class.Imf_3_2::RgbaLut", ptr %this1, i32 0, i32 0
-  %2 = load ptr, ptr %data.addr, align 8
-  %r = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %2, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %agg.tmp, ptr align 2 %r, i64 2, i1 false)
-  %coerce.dive = getelementptr inbounds %"class.Imath_3_2::half", ptr %agg.tmp, i32 0, i32 0
-  %3 = load i16, ptr %coerce.dive, align 2
-  %call = call i16 @_ZNK12halfFunctionIN9Imath_3_24halfEEclES1_(ptr noundef nonnull align 8 dereferenceable(8) %_lut, i16 %3)
-  %coerce.dive3 = getelementptr inbounds %"class.Imath_3_2::half", ptr %ref.tmp, i32 0, i32 0
-  store i16 %call, ptr %coerce.dive3, align 2
-  %4 = load ptr, ptr %data.addr, align 8
-  %r4 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %4, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %r4, ptr align 2 %ref.tmp, i64 2, i1 false)
-  br label %if.end
+26:                                               ; preds = %21
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #3
+  %27 = getelementptr inbounds nuw %"class.Imf_3_4::RgbaLut", ptr %17, i32 0, i32 0
+  %28 = load ptr, ptr %6, align 8, !tbaa !47
+  %29 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %28, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %10, ptr align 2 %29, i64 2, i1 false), !tbaa.struct !12
+  %30 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %10, i32 0, i32 0
+  %31 = load i16, ptr %30, align 2
+  %32 = call i16 @_ZNK12halfFunctionIN9Imath_3_24halfEEclES1_(ptr noundef nonnull align 8 dereferenceable(8) %27, i16 %31)
+  %33 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %9, i32 0, i32 0
+  store i16 %32, ptr %33, align 2
+  %34 = load ptr, ptr %6, align 8, !tbaa !47
+  %35 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %34, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %35, ptr align 2 %9, i64 2, i1 false), !tbaa.struct !12
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #3
+  br label %36
 
-if.end:                                           ; preds = %if.then, %while.body
-  %_chn5 = getelementptr inbounds %"class.Imf_3_2::RgbaLut", ptr %this1, i32 0, i32 1
-  %5 = load i32, ptr %_chn5, align 8
-  %and6 = and i32 %5, 2
-  %tobool7 = icmp ne i32 %and6, 0
-  br i1 %tobool7, label %if.then8, label %if.end16
+36:                                               ; preds = %26, %21
+  %37 = getelementptr inbounds nuw %"class.Imf_3_4::RgbaLut", ptr %17, i32 0, i32 1
+  %38 = load i32, ptr %37, align 8, !tbaa !49
+  %39 = and i32 %38, 2
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %41, label %51
 
-if.then8:                                         ; preds = %if.end
-  %_lut10 = getelementptr inbounds %"class.Imf_3_2::RgbaLut", ptr %this1, i32 0, i32 0
-  %6 = load ptr, ptr %data.addr, align 8
-  %g = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %6, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %agg.tmp11, ptr align 2 %g, i64 2, i1 false)
-  %coerce.dive12 = getelementptr inbounds %"class.Imath_3_2::half", ptr %agg.tmp11, i32 0, i32 0
-  %7 = load i16, ptr %coerce.dive12, align 2
-  %call13 = call i16 @_ZNK12halfFunctionIN9Imath_3_24halfEEclES1_(ptr noundef nonnull align 8 dereferenceable(8) %_lut10, i16 %7)
-  %coerce.dive14 = getelementptr inbounds %"class.Imath_3_2::half", ptr %ref.tmp9, i32 0, i32 0
-  store i16 %call13, ptr %coerce.dive14, align 2
-  %8 = load ptr, ptr %data.addr, align 8
-  %g15 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %g15, ptr align 2 %ref.tmp9, i64 2, i1 false)
-  br label %if.end16
+41:                                               ; preds = %36
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #3
+  %42 = getelementptr inbounds nuw %"class.Imf_3_4::RgbaLut", ptr %17, i32 0, i32 0
+  %43 = load ptr, ptr %6, align 8, !tbaa !47
+  %44 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %43, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %12, ptr align 2 %44, i64 2, i1 false), !tbaa.struct !12
+  %45 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %12, i32 0, i32 0
+  %46 = load i16, ptr %45, align 2
+  %47 = call i16 @_ZNK12halfFunctionIN9Imath_3_24halfEEclES1_(ptr noundef nonnull align 8 dereferenceable(8) %42, i16 %46)
+  %48 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %11, i32 0, i32 0
+  store i16 %47, ptr %48, align 2
+  %49 = load ptr, ptr %6, align 8, !tbaa !47
+  %50 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %49, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %50, ptr align 2 %11, i64 2, i1 false), !tbaa.struct !12
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #3
+  br label %51
 
-if.end16:                                         ; preds = %if.then8, %if.end
-  %_chn17 = getelementptr inbounds %"class.Imf_3_2::RgbaLut", ptr %this1, i32 0, i32 1
-  %9 = load i32, ptr %_chn17, align 8
-  %and18 = and i32 %9, 4
-  %tobool19 = icmp ne i32 %and18, 0
-  br i1 %tobool19, label %if.then20, label %if.end28
+51:                                               ; preds = %41, %36
+  %52 = getelementptr inbounds nuw %"class.Imf_3_4::RgbaLut", ptr %17, i32 0, i32 1
+  %53 = load i32, ptr %52, align 8, !tbaa !49
+  %54 = and i32 %53, 4
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %56, label %66
 
-if.then20:                                        ; preds = %if.end16
-  %_lut22 = getelementptr inbounds %"class.Imf_3_2::RgbaLut", ptr %this1, i32 0, i32 0
-  %10 = load ptr, ptr %data.addr, align 8
-  %b = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %10, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %agg.tmp23, ptr align 2 %b, i64 2, i1 false)
-  %coerce.dive24 = getelementptr inbounds %"class.Imath_3_2::half", ptr %agg.tmp23, i32 0, i32 0
-  %11 = load i16, ptr %coerce.dive24, align 2
-  %call25 = call i16 @_ZNK12halfFunctionIN9Imath_3_24halfEEclES1_(ptr noundef nonnull align 8 dereferenceable(8) %_lut22, i16 %11)
-  %coerce.dive26 = getelementptr inbounds %"class.Imath_3_2::half", ptr %ref.tmp21, i32 0, i32 0
-  store i16 %call25, ptr %coerce.dive26, align 2
-  %12 = load ptr, ptr %data.addr, align 8
-  %b27 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %12, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %b27, ptr align 2 %ref.tmp21, i64 2, i1 false)
-  br label %if.end28
+56:                                               ; preds = %51
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #3
+  %57 = getelementptr inbounds nuw %"class.Imf_3_4::RgbaLut", ptr %17, i32 0, i32 0
+  %58 = load ptr, ptr %6, align 8, !tbaa !47
+  %59 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %58, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %14, ptr align 2 %59, i64 2, i1 false), !tbaa.struct !12
+  %60 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %14, i32 0, i32 0
+  %61 = load i16, ptr %60, align 2
+  %62 = call i16 @_ZNK12halfFunctionIN9Imath_3_24halfEEclES1_(ptr noundef nonnull align 8 dereferenceable(8) %57, i16 %61)
+  %63 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %13, i32 0, i32 0
+  store i16 %62, ptr %63, align 2
+  %64 = load ptr, ptr %6, align 8, !tbaa !47
+  %65 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %64, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %65, ptr align 2 %13, i64 2, i1 false), !tbaa.struct !12
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #3
+  br label %66
 
-if.end28:                                         ; preds = %if.then20, %if.end16
-  %_chn29 = getelementptr inbounds %"class.Imf_3_2::RgbaLut", ptr %this1, i32 0, i32 1
-  %13 = load i32, ptr %_chn29, align 8
-  %and30 = and i32 %13, 8
-  %tobool31 = icmp ne i32 %and30, 0
-  br i1 %tobool31, label %if.then32, label %if.end40
+66:                                               ; preds = %56, %51
+  %67 = getelementptr inbounds nuw %"class.Imf_3_4::RgbaLut", ptr %17, i32 0, i32 1
+  %68 = load i32, ptr %67, align 8, !tbaa !49
+  %69 = and i32 %68, 8
+  %70 = icmp ne i32 %69, 0
+  br i1 %70, label %71, label %81
 
-if.then32:                                        ; preds = %if.end28
-  %_lut34 = getelementptr inbounds %"class.Imf_3_2::RgbaLut", ptr %this1, i32 0, i32 0
-  %14 = load ptr, ptr %data.addr, align 8
-  %a = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %14, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %agg.tmp35, ptr align 2 %a, i64 2, i1 false)
-  %coerce.dive36 = getelementptr inbounds %"class.Imath_3_2::half", ptr %agg.tmp35, i32 0, i32 0
-  %15 = load i16, ptr %coerce.dive36, align 2
-  %call37 = call i16 @_ZNK12halfFunctionIN9Imath_3_24halfEEclES1_(ptr noundef nonnull align 8 dereferenceable(8) %_lut34, i16 %15)
-  %coerce.dive38 = getelementptr inbounds %"class.Imath_3_2::half", ptr %ref.tmp33, i32 0, i32 0
-  store i16 %call37, ptr %coerce.dive38, align 2
-  %16 = load ptr, ptr %data.addr, align 8
-  %a39 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %16, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %a39, ptr align 2 %ref.tmp33, i64 2, i1 false)
-  br label %if.end40
+71:                                               ; preds = %66
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #3
+  %72 = getelementptr inbounds nuw %"class.Imf_3_4::RgbaLut", ptr %17, i32 0, i32 0
+  %73 = load ptr, ptr %6, align 8, !tbaa !47
+  %74 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %73, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %16, ptr align 2 %74, i64 2, i1 false), !tbaa.struct !12
+  %75 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %16, i32 0, i32 0
+  %76 = load i16, ptr %75, align 2
+  %77 = call i16 @_ZNK12halfFunctionIN9Imath_3_24halfEEclES1_(ptr noundef nonnull align 8 dereferenceable(8) %72, i16 %76)
+  %78 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %15, i32 0, i32 0
+  store i16 %77, ptr %78, align 2
+  %79 = load ptr, ptr %6, align 8, !tbaa !47
+  %80 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %79, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %80, ptr align 2 %15, i64 2, i1 false), !tbaa.struct !12
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #3
+  br label %81
 
-if.end40:                                         ; preds = %if.then32, %if.end28
-  %17 = load i32, ptr %stride.addr, align 4
-  %18 = load ptr, ptr %data.addr, align 8
-  %idx.ext = sext i32 %17 to i64
-  %add.ptr = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %18, i64 %idx.ext
-  store ptr %add.ptr, ptr %data.addr, align 8
-  %19 = load i32, ptr %nData.addr, align 4
-  %sub = sub nsw i32 %19, 1
-  store i32 %sub, ptr %nData.addr, align 4
-  br label %while.cond, !llvm.loop !8
+81:                                               ; preds = %71, %66
+  %82 = load i32, ptr %8, align 4, !tbaa !10
+  %83 = load ptr, ptr %6, align 8, !tbaa !47
+  %84 = sext i32 %82 to i64
+  %85 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %83, i64 %84
+  store ptr %85, ptr %6, align 8, !tbaa !47
+  %86 = load i32, ptr %7, align 4, !tbaa !10
+  %87 = sub nsw i32 %86, 1
+  store i32 %87, ptr %7, align 4, !tbaa !10
+  br label %18, !llvm.loop !52
 
-while.end:                                        ; preds = %while.cond
+88:                                               ; preds = %18
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7Imf_3_27RgbaLut5applyEPNS_4RgbaEiiRKN9Imath_3_23BoxINS3_4Vec2IiEEEE(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %base, i32 noundef %xStride, i32 noundef %yStride, ptr noundef nonnull align 4 dereferenceable(16) %dataWindow) #4 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %base.addr = alloca ptr, align 8
-  %xStride.addr = alloca i32, align 4
-  %yStride.addr = alloca i32, align 4
-  %dataWindow.addr = alloca ptr, align 8
-  %y2 = alloca i32, align 4
-  %pixel = alloca ptr, align 8
-  %x10 = alloca i32, align 4
-  %ref.tmp = alloca %"class.Imath_3_2::half", align 2
-  %agg.tmp = alloca %"class.Imath_3_2::half", align 2
-  %ref.tmp24 = alloca %"class.Imath_3_2::half", align 2
-  %agg.tmp26 = alloca %"class.Imath_3_2::half", align 2
-  %ref.tmp36 = alloca %"class.Imath_3_2::half", align 2
-  %agg.tmp38 = alloca %"class.Imath_3_2::half", align 2
-  %ref.tmp48 = alloca %"class.Imath_3_2::half", align 2
-  %agg.tmp50 = alloca %"class.Imath_3_2::half", align 2
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store i32 %xStride, ptr %xStride.addr, align 4
-  store i32 %yStride, ptr %yStride.addr, align 4
-  store ptr %dataWindow, ptr %dataWindow.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %dataWindow.addr, align 8
-  %min = getelementptr inbounds %"class.Imath_3_2::Box", ptr %0, i32 0, i32 0
-  %y = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %min, i32 0, i32 1
-  %1 = load i32, ptr %y, align 4
-  %2 = load i32, ptr %yStride.addr, align 4
-  %mul = mul nsw i32 %1, %2
-  %3 = load ptr, ptr %base.addr, align 8
-  %idx.ext = sext i32 %mul to i64
-  %add.ptr = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %3, i64 %idx.ext
-  store ptr %add.ptr, ptr %base.addr, align 8
-  %4 = load ptr, ptr %dataWindow.addr, align 8
-  %min3 = getelementptr inbounds %"class.Imath_3_2::Box", ptr %4, i32 0, i32 0
-  %y4 = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %min3, i32 0, i32 1
-  %5 = load i32, ptr %y4, align 4
-  store i32 %5, ptr %y2, align 4
-  br label %for.cond
+define void @_ZNK7Imf_3_47RgbaLut5applyEPNS_4RgbaEiiRKN9Imath_3_23BoxINS3_4Vec2IiEEEE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(16) %4) #4 align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca %"class.Imath_3_2::half", align 2
+  %16 = alloca %"class.Imath_3_2::half", align 2
+  %17 = alloca %"class.Imath_3_2::half", align 2
+  %18 = alloca %"class.Imath_3_2::half", align 2
+  %19 = alloca %"class.Imath_3_2::half", align 2
+  %20 = alloca %"class.Imath_3_2::half", align 2
+  %21 = alloca %"class.Imath_3_2::half", align 2
+  %22 = alloca %"class.Imath_3_2::half", align 2
+  store ptr %0, ptr %6, align 8, !tbaa !45
+  store ptr %1, ptr %7, align 8, !tbaa !47
+  store i32 %2, ptr %8, align 4, !tbaa !10
+  store i32 %3, ptr %9, align 4, !tbaa !10
+  store ptr %4, ptr %10, align 8, !tbaa !23
+  %23 = load ptr, ptr %6, align 8
+  %24 = load ptr, ptr %10, align 8, !tbaa !23
+  %25 = getelementptr inbounds nuw %"class.Imath_3_2::Box", ptr %24, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %"class.Imath_3_2::Vec2", ptr %25, i32 0, i32 1
+  %27 = load i32, ptr %26, align 4, !tbaa !33
+  %28 = load i32, ptr %9, align 4, !tbaa !10
+  %29 = mul nsw i32 %27, %28
+  %30 = load ptr, ptr %7, align 8, !tbaa !47
+  %31 = sext i32 %29 to i64
+  %32 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %30, i64 %31
+  store ptr %32, ptr %7, align 8, !tbaa !47
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  %33 = load ptr, ptr %10, align 8, !tbaa !23
+  %34 = getelementptr inbounds nuw %"class.Imath_3_2::Box", ptr %33, i32 0, i32 0
+  %35 = getelementptr inbounds nuw %"class.Imath_3_2::Vec2", ptr %34, i32 0, i32 1
+  %36 = load i32, ptr %35, align 4, !tbaa !33
+  store i32 %36, ptr %11, align 4, !tbaa !10
+  br label %37
 
-for.cond:                                         ; preds = %for.inc60, %entry
-  %6 = load i32, ptr %y2, align 4
-  %7 = load ptr, ptr %dataWindow.addr, align 8
-  %max = getelementptr inbounds %"class.Imath_3_2::Box", ptr %7, i32 0, i32 1
-  %y5 = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %max, i32 0, i32 1
-  %8 = load i32, ptr %y5, align 4
-  %cmp = icmp sle i32 %6, %8
-  br i1 %cmp, label %for.body, label %for.end62
+37:                                               ; preds = %140, %5
+  %38 = load i32, ptr %11, align 4, !tbaa !10
+  %39 = load ptr, ptr %10, align 8, !tbaa !23
+  %40 = getelementptr inbounds nuw %"class.Imath_3_2::Box", ptr %39, i32 0, i32 1
+  %41 = getelementptr inbounds nuw %"class.Imath_3_2::Vec2", ptr %40, i32 0, i32 1
+  %42 = load i32, ptr %41, align 4, !tbaa !38
+  %43 = icmp sle i32 %38, %42
+  br i1 %43, label %45, label %44
 
-for.body:                                         ; preds = %for.cond
-  %9 = load ptr, ptr %base.addr, align 8
-  %10 = load ptr, ptr %dataWindow.addr, align 8
-  %min6 = getelementptr inbounds %"class.Imath_3_2::Box", ptr %10, i32 0, i32 0
-  %x = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %min6, i32 0, i32 0
-  %11 = load i32, ptr %x, align 4
-  %12 = load i32, ptr %xStride.addr, align 4
-  %mul7 = mul nsw i32 %11, %12
-  %idx.ext8 = sext i32 %mul7 to i64
-  %add.ptr9 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %9, i64 %idx.ext8
-  store ptr %add.ptr9, ptr %pixel, align 8
-  %13 = load ptr, ptr %dataWindow.addr, align 8
-  %min11 = getelementptr inbounds %"class.Imath_3_2::Box", ptr %13, i32 0, i32 0
-  %x12 = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %min11, i32 0, i32 0
-  %14 = load i32, ptr %x12, align 4
-  store i32 %14, ptr %x10, align 4
-  br label %for.cond13
+44:                                               ; preds = %37
+  store i32 2, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  br label %143
 
-for.cond13:                                       ; preds = %for.inc, %for.body
-  %15 = load i32, ptr %x10, align 4
-  %16 = load ptr, ptr %dataWindow.addr, align 8
-  %max14 = getelementptr inbounds %"class.Imath_3_2::Box", ptr %16, i32 0, i32 1
-  %x15 = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %max14, i32 0, i32 0
-  %17 = load i32, ptr %x15, align 4
-  %cmp16 = icmp sle i32 %15, %17
-  br i1 %cmp16, label %for.body17, label %for.end
+45:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  %46 = load ptr, ptr %7, align 8, !tbaa !47
+  %47 = load ptr, ptr %10, align 8, !tbaa !23
+  %48 = getelementptr inbounds nuw %"class.Imath_3_2::Box", ptr %47, i32 0, i32 0
+  %49 = getelementptr inbounds nuw %"class.Imath_3_2::Vec2", ptr %48, i32 0, i32 0
+  %50 = load i32, ptr %49, align 4, !tbaa !40
+  %51 = load i32, ptr %8, align 4, !tbaa !10
+  %52 = mul nsw i32 %50, %51
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %46, i64 %53
+  store ptr %54, ptr %13, align 8, !tbaa !47
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  %55 = load ptr, ptr %10, align 8, !tbaa !23
+  %56 = getelementptr inbounds nuw %"class.Imath_3_2::Box", ptr %55, i32 0, i32 0
+  %57 = getelementptr inbounds nuw %"class.Imath_3_2::Vec2", ptr %56, i32 0, i32 0
+  %58 = load i32, ptr %57, align 4, !tbaa !40
+  store i32 %58, ptr %14, align 4, !tbaa !10
+  br label %59
 
-for.body17:                                       ; preds = %for.cond13
-  %_chn = getelementptr inbounds %"class.Imf_3_2::RgbaLut", ptr %this1, i32 0, i32 1
-  %18 = load i32, ptr %_chn, align 8
-  %and = and i32 %18, 1
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then, label %if.end
+59:                                               ; preds = %132, %45
+  %60 = load i32, ptr %14, align 4, !tbaa !10
+  %61 = load ptr, ptr %10, align 8, !tbaa !23
+  %62 = getelementptr inbounds nuw %"class.Imath_3_2::Box", ptr %61, i32 0, i32 1
+  %63 = getelementptr inbounds nuw %"class.Imath_3_2::Vec2", ptr %62, i32 0, i32 0
+  %64 = load i32, ptr %63, align 4, !tbaa !42
+  %65 = icmp sle i32 %60, %64
+  br i1 %65, label %67, label %66
 
-if.then:                                          ; preds = %for.body17
-  %_lut = getelementptr inbounds %"class.Imf_3_2::RgbaLut", ptr %this1, i32 0, i32 0
-  %19 = load ptr, ptr %pixel, align 8
-  %r = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %19, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %agg.tmp, ptr align 2 %r, i64 2, i1 false)
-  %coerce.dive = getelementptr inbounds %"class.Imath_3_2::half", ptr %agg.tmp, i32 0, i32 0
-  %20 = load i16, ptr %coerce.dive, align 2
-  %call = call i16 @_ZNK12halfFunctionIN9Imath_3_24halfEEclES1_(ptr noundef nonnull align 8 dereferenceable(8) %_lut, i16 %20)
-  %coerce.dive18 = getelementptr inbounds %"class.Imath_3_2::half", ptr %ref.tmp, i32 0, i32 0
-  store i16 %call, ptr %coerce.dive18, align 2
-  %21 = load ptr, ptr %pixel, align 8
-  %r19 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %21, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %r19, ptr align 2 %ref.tmp, i64 2, i1 false)
-  br label %if.end
+66:                                               ; preds = %59
+  store i32 5, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  br label %135
 
-if.end:                                           ; preds = %if.then, %for.body17
-  %_chn20 = getelementptr inbounds %"class.Imf_3_2::RgbaLut", ptr %this1, i32 0, i32 1
-  %22 = load i32, ptr %_chn20, align 8
-  %and21 = and i32 %22, 2
-  %tobool22 = icmp ne i32 %and21, 0
-  br i1 %tobool22, label %if.then23, label %if.end31
+67:                                               ; preds = %59
+  %68 = getelementptr inbounds nuw %"class.Imf_3_4::RgbaLut", ptr %23, i32 0, i32 1
+  %69 = load i32, ptr %68, align 8, !tbaa !49
+  %70 = and i32 %69, 1
+  %71 = icmp ne i32 %70, 0
+  br i1 %71, label %72, label %82
 
-if.then23:                                        ; preds = %if.end
-  %_lut25 = getelementptr inbounds %"class.Imf_3_2::RgbaLut", ptr %this1, i32 0, i32 0
-  %23 = load ptr, ptr %pixel, align 8
-  %g = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %23, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %agg.tmp26, ptr align 2 %g, i64 2, i1 false)
-  %coerce.dive27 = getelementptr inbounds %"class.Imath_3_2::half", ptr %agg.tmp26, i32 0, i32 0
-  %24 = load i16, ptr %coerce.dive27, align 2
-  %call28 = call i16 @_ZNK12halfFunctionIN9Imath_3_24halfEEclES1_(ptr noundef nonnull align 8 dereferenceable(8) %_lut25, i16 %24)
-  %coerce.dive29 = getelementptr inbounds %"class.Imath_3_2::half", ptr %ref.tmp24, i32 0, i32 0
-  store i16 %call28, ptr %coerce.dive29, align 2
-  %25 = load ptr, ptr %pixel, align 8
-  %g30 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %25, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %g30, ptr align 2 %ref.tmp24, i64 2, i1 false)
-  br label %if.end31
+72:                                               ; preds = %67
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #3
+  %73 = getelementptr inbounds nuw %"class.Imf_3_4::RgbaLut", ptr %23, i32 0, i32 0
+  %74 = load ptr, ptr %13, align 8, !tbaa !47
+  %75 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %74, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %16, ptr align 2 %75, i64 2, i1 false), !tbaa.struct !12
+  %76 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %16, i32 0, i32 0
+  %77 = load i16, ptr %76, align 2
+  %78 = call i16 @_ZNK12halfFunctionIN9Imath_3_24halfEEclES1_(ptr noundef nonnull align 8 dereferenceable(8) %73, i16 %77)
+  %79 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %15, i32 0, i32 0
+  store i16 %78, ptr %79, align 2
+  %80 = load ptr, ptr %13, align 8, !tbaa !47
+  %81 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %80, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %81, ptr align 2 %15, i64 2, i1 false), !tbaa.struct !12
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #3
+  br label %82
 
-if.end31:                                         ; preds = %if.then23, %if.end
-  %_chn32 = getelementptr inbounds %"class.Imf_3_2::RgbaLut", ptr %this1, i32 0, i32 1
-  %26 = load i32, ptr %_chn32, align 8
-  %and33 = and i32 %26, 4
-  %tobool34 = icmp ne i32 %and33, 0
-  br i1 %tobool34, label %if.then35, label %if.end43
+82:                                               ; preds = %72, %67
+  %83 = getelementptr inbounds nuw %"class.Imf_3_4::RgbaLut", ptr %23, i32 0, i32 1
+  %84 = load i32, ptr %83, align 8, !tbaa !49
+  %85 = and i32 %84, 2
+  %86 = icmp ne i32 %85, 0
+  br i1 %86, label %87, label %97
 
-if.then35:                                        ; preds = %if.end31
-  %_lut37 = getelementptr inbounds %"class.Imf_3_2::RgbaLut", ptr %this1, i32 0, i32 0
-  %27 = load ptr, ptr %pixel, align 8
-  %b = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %27, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %agg.tmp38, ptr align 2 %b, i64 2, i1 false)
-  %coerce.dive39 = getelementptr inbounds %"class.Imath_3_2::half", ptr %agg.tmp38, i32 0, i32 0
-  %28 = load i16, ptr %coerce.dive39, align 2
-  %call40 = call i16 @_ZNK12halfFunctionIN9Imath_3_24halfEEclES1_(ptr noundef nonnull align 8 dereferenceable(8) %_lut37, i16 %28)
-  %coerce.dive41 = getelementptr inbounds %"class.Imath_3_2::half", ptr %ref.tmp36, i32 0, i32 0
-  store i16 %call40, ptr %coerce.dive41, align 2
-  %29 = load ptr, ptr %pixel, align 8
-  %b42 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %29, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %b42, ptr align 2 %ref.tmp36, i64 2, i1 false)
-  br label %if.end43
+87:                                               ; preds = %82
+  call void @llvm.lifetime.start.p0(i64 2, ptr %17) #3
+  %88 = getelementptr inbounds nuw %"class.Imf_3_4::RgbaLut", ptr %23, i32 0, i32 0
+  %89 = load ptr, ptr %13, align 8, !tbaa !47
+  %90 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %89, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %18, ptr align 2 %90, i64 2, i1 false), !tbaa.struct !12
+  %91 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %18, i32 0, i32 0
+  %92 = load i16, ptr %91, align 2
+  %93 = call i16 @_ZNK12halfFunctionIN9Imath_3_24halfEEclES1_(ptr noundef nonnull align 8 dereferenceable(8) %88, i16 %92)
+  %94 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %17, i32 0, i32 0
+  store i16 %93, ptr %94, align 2
+  %95 = load ptr, ptr %13, align 8, !tbaa !47
+  %96 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %95, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %96, ptr align 2 %17, i64 2, i1 false), !tbaa.struct !12
+  call void @llvm.lifetime.end.p0(i64 2, ptr %17) #3
+  br label %97
 
-if.end43:                                         ; preds = %if.then35, %if.end31
-  %_chn44 = getelementptr inbounds %"class.Imf_3_2::RgbaLut", ptr %this1, i32 0, i32 1
-  %30 = load i32, ptr %_chn44, align 8
-  %and45 = and i32 %30, 8
-  %tobool46 = icmp ne i32 %and45, 0
-  br i1 %tobool46, label %if.then47, label %if.end55
+97:                                               ; preds = %87, %82
+  %98 = getelementptr inbounds nuw %"class.Imf_3_4::RgbaLut", ptr %23, i32 0, i32 1
+  %99 = load i32, ptr %98, align 8, !tbaa !49
+  %100 = and i32 %99, 4
+  %101 = icmp ne i32 %100, 0
+  br i1 %101, label %102, label %112
 
-if.then47:                                        ; preds = %if.end43
-  %_lut49 = getelementptr inbounds %"class.Imf_3_2::RgbaLut", ptr %this1, i32 0, i32 0
-  %31 = load ptr, ptr %pixel, align 8
-  %a = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %31, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %agg.tmp50, ptr align 2 %a, i64 2, i1 false)
-  %coerce.dive51 = getelementptr inbounds %"class.Imath_3_2::half", ptr %agg.tmp50, i32 0, i32 0
-  %32 = load i16, ptr %coerce.dive51, align 2
-  %call52 = call i16 @_ZNK12halfFunctionIN9Imath_3_24halfEEclES1_(ptr noundef nonnull align 8 dereferenceable(8) %_lut49, i16 %32)
-  %coerce.dive53 = getelementptr inbounds %"class.Imath_3_2::half", ptr %ref.tmp48, i32 0, i32 0
-  store i16 %call52, ptr %coerce.dive53, align 2
-  %33 = load ptr, ptr %pixel, align 8
-  %a54 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %33, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %a54, ptr align 2 %ref.tmp48, i64 2, i1 false)
-  br label %if.end55
+102:                                              ; preds = %97
+  call void @llvm.lifetime.start.p0(i64 2, ptr %19) #3
+  %103 = getelementptr inbounds nuw %"class.Imf_3_4::RgbaLut", ptr %23, i32 0, i32 0
+  %104 = load ptr, ptr %13, align 8, !tbaa !47
+  %105 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %104, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %20, ptr align 2 %105, i64 2, i1 false), !tbaa.struct !12
+  %106 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %20, i32 0, i32 0
+  %107 = load i16, ptr %106, align 2
+  %108 = call i16 @_ZNK12halfFunctionIN9Imath_3_24halfEEclES1_(ptr noundef nonnull align 8 dereferenceable(8) %103, i16 %107)
+  %109 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %19, i32 0, i32 0
+  store i16 %108, ptr %109, align 2
+  %110 = load ptr, ptr %13, align 8, !tbaa !47
+  %111 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %110, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %111, ptr align 2 %19, i64 2, i1 false), !tbaa.struct !12
+  call void @llvm.lifetime.end.p0(i64 2, ptr %19) #3
+  br label %112
 
-if.end55:                                         ; preds = %if.then47, %if.end43
-  %34 = load i32, ptr %xStride.addr, align 4
-  %35 = load ptr, ptr %pixel, align 8
-  %idx.ext56 = sext i32 %34 to i64
-  %add.ptr57 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %35, i64 %idx.ext56
-  store ptr %add.ptr57, ptr %pixel, align 8
-  br label %for.inc
+112:                                              ; preds = %102, %97
+  %113 = getelementptr inbounds nuw %"class.Imf_3_4::RgbaLut", ptr %23, i32 0, i32 1
+  %114 = load i32, ptr %113, align 8, !tbaa !49
+  %115 = and i32 %114, 8
+  %116 = icmp ne i32 %115, 0
+  br i1 %116, label %117, label %127
 
-for.inc:                                          ; preds = %if.end55
-  %36 = load i32, ptr %x10, align 4
-  %inc = add nsw i32 %36, 1
-  store i32 %inc, ptr %x10, align 4
-  br label %for.cond13, !llvm.loop !9
+117:                                              ; preds = %112
+  call void @llvm.lifetime.start.p0(i64 2, ptr %21) #3
+  %118 = getelementptr inbounds nuw %"class.Imf_3_4::RgbaLut", ptr %23, i32 0, i32 0
+  %119 = load ptr, ptr %13, align 8, !tbaa !47
+  %120 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %119, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %22, ptr align 2 %120, i64 2, i1 false), !tbaa.struct !12
+  %121 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %22, i32 0, i32 0
+  %122 = load i16, ptr %121, align 2
+  %123 = call i16 @_ZNK12halfFunctionIN9Imath_3_24halfEEclES1_(ptr noundef nonnull align 8 dereferenceable(8) %118, i16 %122)
+  %124 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %21, i32 0, i32 0
+  store i16 %123, ptr %124, align 2
+  %125 = load ptr, ptr %13, align 8, !tbaa !47
+  %126 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %125, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %126, ptr align 2 %21, i64 2, i1 false), !tbaa.struct !12
+  call void @llvm.lifetime.end.p0(i64 2, ptr %21) #3
+  br label %127
 
-for.end:                                          ; preds = %for.cond13
-  %37 = load i32, ptr %yStride.addr, align 4
-  %38 = load ptr, ptr %base.addr, align 8
-  %idx.ext58 = sext i32 %37 to i64
-  %add.ptr59 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %38, i64 %idx.ext58
-  store ptr %add.ptr59, ptr %base.addr, align 8
-  br label %for.inc60
+127:                                              ; preds = %117, %112
+  %128 = load i32, ptr %8, align 4, !tbaa !10
+  %129 = load ptr, ptr %13, align 8, !tbaa !47
+  %130 = sext i32 %128 to i64
+  %131 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %129, i64 %130
+  store ptr %131, ptr %13, align 8, !tbaa !47
+  br label %132
 
-for.inc60:                                        ; preds = %for.end
-  %39 = load i32, ptr %y2, align 4
-  %inc61 = add nsw i32 %39, 1
-  store i32 %inc61, ptr %y2, align 4
-  br label %for.cond, !llvm.loop !10
+132:                                              ; preds = %127
+  %133 = load i32, ptr %14, align 4, !tbaa !10
+  %134 = add nsw i32 %133, 1
+  store i32 %134, ptr %14, align 4, !tbaa !10
+  br label %59, !llvm.loop !53
 
-for.end62:                                        ; preds = %for.cond
+135:                                              ; preds = %66
+  %136 = load i32, ptr %9, align 4, !tbaa !10
+  %137 = load ptr, ptr %7, align 8, !tbaa !47
+  %138 = sext i32 %136 to i64
+  %139 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %137, i64 %138
+  store ptr %139, ptr %7, align 8, !tbaa !47
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  br label %140
+
+140:                                              ; preds = %135
+  %141 = load i32, ptr %11, align 4, !tbaa !10
+  %142 = add nsw i32 %141, 1
+  store i32 %142, ptr %11, align 4, !tbaa !10
+  br label %37, !llvm.loop !54
+
+143:                                              ; preds = %44
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define i16 @_ZN7Imf_3_210round12logEN9Imath_3_24halfE(i16 %x.coerce) #4 {
-entry:
-  %retval = alloca %"class.Imath_3_2::half", align 2
-  %x = alloca %"class.Imath_3_2::half", align 2
-  %middleval = alloca float, align 4
-  %int12log = alloca i32, align 4
-  %coerce.dive = getelementptr inbounds %"class.Imath_3_2::half", ptr %x, i32 0, i32 0
-  store i16 %x.coerce, ptr %coerce.dive, align 2
-  %call = call double @pow(double noundef 2.000000e+00, double noundef -2.500000e+00) #3
-  %conv = fptrunc double %call to float
-  store float %conv, ptr %middleval, align 4
-  %call1 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %x) #3
-  %cmp = fcmp ole float %call1, 0.000000e+00
-  br i1 %cmp, label %if.then, label %if.else
+define i16 @_ZN7Imf_3_410round12logEN9Imath_3_24halfE(i16 %0) #4 {
+  %2 = alloca %"class.Imath_3_2::half", align 2
+  %3 = alloca %"class.Imath_3_2::half", align 2
+  %4 = alloca float, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %3, i32 0, i32 0
+  store i16 %0, ptr %7, align 2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  %8 = call double @pow(double noundef 2.000000e+00, double noundef -2.500000e+00) #3, !tbaa !10
+  %9 = fptrunc double %8 to float
+  store float %9, ptr %4, align 4, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
+  %10 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %3) #3
+  %11 = fcmp ole float %10, 0.000000e+00
+  br i1 %11, label %12, label %13
 
-if.then:                                          ; preds = %entry
-  call void @_ZN9Imath_3_24halfC2Ef(ptr noundef nonnull align 2 dereferenceable(2) %retval, float noundef 0.000000e+00) #3
-  br label %return
+12:                                               ; preds = %1
+  call void @_ZN9Imath_3_24halfC2Ef(ptr noundef nonnull align 2 dereferenceable(2) %2, float noundef 0.000000e+00) #3
+  store i32 1, ptr %6, align 4
+  br label %42
 
-if.else:                                          ; preds = %entry
-  %call2 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %x) #3
-  %0 = load float, ptr %middleval, align 4
-  %div = fdiv float %call2, %0
-  %call3 = call noundef float @_ZSt3logf(float noundef %div)
-  %conv4 = fpext float %call3 to double
-  %mul = fmul double 2.000000e+02, %conv4
-  %call5 = call double @log(double noundef 2.000000e+00) #3
-  %div6 = fdiv double %mul, %call5
-  %add = fadd double 2.000500e+03, %div6
-  %conv7 = fptosi double %add to i32
-  store i32 %conv7, ptr %int12log, align 4
-  %1 = load i32, ptr %int12log, align 4
-  %cmp8 = icmp sgt i32 %1, 4095
-  br i1 %cmp8, label %if.then9, label %if.end
+13:                                               ; preds = %1
+  %14 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %3) #3
+  %15 = load float, ptr %4, align 4, !tbaa !55
+  %16 = fdiv float %14, %15
+  %17 = call noundef float @_ZSt3logf(float noundef %16)
+  %18 = fpext float %17 to double
+  %19 = fmul double 2.000000e+02, %18
+  %20 = call double @log(double noundef 2.000000e+00) #3, !tbaa !10
+  %21 = fdiv double %19, %20
+  %22 = fadd double 2.000500e+03, %21
+  %23 = fptosi double %22 to i32
+  store i32 %23, ptr %5, align 4, !tbaa !10
+  %24 = load i32, ptr %5, align 4, !tbaa !10
+  %25 = icmp sgt i32 %24, 4095
+  br i1 %25, label %26, label %27
 
-if.then9:                                         ; preds = %if.else
-  store i32 4095, ptr %int12log, align 4
-  br label %if.end
+26:                                               ; preds = %13
+  store i32 4095, ptr %5, align 4, !tbaa !10
+  br label %27
 
-if.end:                                           ; preds = %if.then9, %if.else
-  %2 = load i32, ptr %int12log, align 4
-  %cmp10 = icmp slt i32 %2, 1
-  br i1 %cmp10, label %if.then11, label %if.end12
+27:                                               ; preds = %26, %13
+  %28 = load i32, ptr %5, align 4, !tbaa !10
+  %29 = icmp slt i32 %28, 1
+  br i1 %29, label %30, label %31
 
-if.then11:                                        ; preds = %if.end
-  store i32 1, ptr %int12log, align 4
-  br label %if.end12
+30:                                               ; preds = %27
+  store i32 1, ptr %5, align 4, !tbaa !10
+  br label %31
 
-if.end12:                                         ; preds = %if.then11, %if.end
-  br label %if.end13
+31:                                               ; preds = %30, %27
+  br label %32
 
-if.end13:                                         ; preds = %if.end12
-  %3 = load float, ptr %middleval, align 4
-  %conv14 = fpext float %3 to double
-  %4 = load i32, ptr %int12log, align 4
-  %conv15 = sitofp i32 %4 to double
-  %sub = fsub double %conv15, 2.000000e+03
-  %div16 = fdiv double %sub, 2.000000e+02
-  %call17 = call double @pow(double noundef 2.000000e+00, double noundef %div16) #3
-  %mul18 = fmul double %conv14, %call17
-  %conv19 = fptrunc double %mul18 to float
-  call void @_ZN9Imath_3_24halfC2Ef(ptr noundef nonnull align 2 dereferenceable(2) %retval, float noundef %conv19) #3
-  br label %return
+32:                                               ; preds = %31
+  %33 = load float, ptr %4, align 4, !tbaa !55
+  %34 = fpext float %33 to double
+  %35 = load i32, ptr %5, align 4, !tbaa !10
+  %36 = sitofp i32 %35 to double
+  %37 = fsub double %36, 2.000000e+03
+  %38 = fdiv double %37, 2.000000e+02
+  %39 = call double @pow(double noundef 2.000000e+00, double noundef %38) #3, !tbaa !10
+  %40 = fmul double %34, %39
+  %41 = fptrunc double %40 to float
+  call void @_ZN9Imath_3_24halfC2Ef(ptr noundef nonnull align 2 dereferenceable(2) %2, float noundef %41) #3
+  store i32 1, ptr %6, align 4
+  br label %42
 
-return:                                           ; preds = %if.end13, %if.then
-  %coerce.dive20 = getelementptr inbounds %"class.Imath_3_2::half", ptr %retval, i32 0, i32 0
-  %5 = load i16, ptr %coerce.dive20, align 2
-  ret i16 %5
+42:                                               ; preds = %32, %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  %43 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %2, i32 0, i32 0
+  %44 = load i16, ptr %43, align 2
+  ret i16 %44
 }
 
 ; Function Attrs: nounwind
 declare double @pow(double noundef, double noundef) #2
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %this) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_h = getelementptr inbounds %"class.Imath_3_2::half", ptr %this1, i32 0, i32 0
-  %0 = load i16, ptr %_h, align 2
-  %call = invoke noundef float @_ZL19imath_half_to_floatt(i16 noundef zeroext %0)
-          to label %invoke.cont unwind label %terminate.lpad
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %0) #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %3, i32 0, i32 0
+  %5 = load i16, ptr %4, align 2, !tbaa !57
+  %6 = invoke noundef float @_ZL19imath_half_to_floatt(i16 noundef zeroext %5)
+          to label %7 unwind label %8
 
-invoke.cont:                                      ; preds = %entry
-  ret float %call
+7:                                                ; preds = %1
+  ret float %6
 
-terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+8:                                                ; preds = %1
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #8
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #10
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN9Imath_3_24halfC2Ef(ptr noundef nonnull align 2 dereferenceable(2) %this, float noundef %f) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %f.addr = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store float %f, ptr %f.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_h = getelementptr inbounds %"class.Imath_3_2::half", ptr %this1, i32 0, i32 0
-  %0 = load float, ptr %f.addr, align 4
-  %call = invoke noundef zeroext i16 @_ZL19imath_float_to_halff(float noundef %0)
-          to label %invoke.cont unwind label %terminate.lpad
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN9Imath_3_24halfC2Ef(ptr noundef nonnull align 2 dereferenceable(2) %0, float noundef %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca float, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store float %1, ptr %4, align 4, !tbaa !55
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %5, i32 0, i32 0
+  %7 = load float, ptr %4, align 4, !tbaa !55
+  %8 = invoke noundef zeroext i16 @_ZL19imath_float_to_halff(float noundef %7)
+          to label %9 unwind label %10
 
-invoke.cont:                                      ; preds = %entry
-  store i16 %call, ptr %_h, align 2
+9:                                                ; preds = %2
+  store i16 %8, ptr %6, align 2, !tbaa !57
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+10:                                               ; preds = %2
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #8
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #10
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef float @_ZSt3logf(float noundef %__x) #5 comdat {
-entry:
-  %__x.addr = alloca float, align 4
-  store float %__x, ptr %__x.addr, align 4
-  %0 = load float, ptr %__x.addr, align 4
-  %call = call float @logf(float noundef %0) #3
-  ret float %call
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef float @_ZSt3logf(float noundef %0) #6 comdat {
+  %2 = alloca float, align 4
+  store float %0, ptr %2, align 4, !tbaa !55
+  %3 = load float, ptr %2, align 4, !tbaa !55
+  %4 = call float @logf(float noundef %3) #3, !tbaa !10
+  ret float %4
 }
 
 ; Function Attrs: nounwind
 declare double @log(double noundef) #2
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef float @_ZL19imath_half_to_floatt(i16 noundef zeroext %h) #5 {
-entry:
-  %h.addr = alloca i16, align 2
-  store i16 %h, ptr %h.addr, align 2
-  %0 = load ptr, ptr @imath_half_to_float_table, align 8
-  %1 = load i16, ptr %h.addr, align 2
-  %idxprom = zext i16 %1 to i64
-  %arrayidx = getelementptr inbounds %union.imath_half_uif, ptr %0, i64 %idxprom
-  %2 = load float, ptr %arrayidx, align 4
-  ret float %2
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef float @_ZL19imath_half_to_floatt(i16 noundef zeroext %0) #6 {
+  %2 = alloca i16, align 2
+  store i16 %0, ptr %2, align 2, !tbaa !13
+  %3 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !59
+  %4 = load i16, ptr %2, align 2, !tbaa !13
+  %5 = zext i16 %4 to i64
+  %6 = getelementptr inbounds nuw %union.imath_half_uif, ptr %3, i64 %5
+  %7 = load float, ptr %6, align 4, !tbaa !61
+  ret float %7
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comdat {
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #8 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
-  call void @_ZSt9terminatev() #8
+  call void @_ZSt9terminatev() #10
   unreachable
 }
 
@@ -736,215 +790,295 @@ declare ptr @__cxa_begin_catch(ptr)
 
 declare void @_ZSt9terminatev()
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i16 @_ZL19imath_float_to_halff(float noundef %f) #5 {
-entry:
-  %retval = alloca i16, align 2
-  %f.addr = alloca float, align 4
-  %v = alloca %union.imath_half_uif, align 4
-  %ret = alloca i16, align 2
-  %e = alloca i32, align 4
-  %m = alloca i32, align 4
-  %ui = alloca i32, align 4
-  %r = alloca i32, align 4
-  %shift = alloca i32, align 4
-  store float %f, ptr %f.addr, align 4
-  %0 = load float, ptr %f.addr, align 4
-  store float %0, ptr %v, align 4
-  %1 = load i32, ptr %v, align 4
-  %and = and i32 %1, 2147483647
-  store i32 %and, ptr %ui, align 4
-  %2 = load i32, ptr %v, align 4
-  %shr = lshr i32 %2, 16
-  %and1 = and i32 %shr, 32768
-  %conv = trunc i32 %and1 to i16
-  store i16 %conv, ptr %ret, align 2
-  %3 = load i32, ptr %ui, align 4
-  %cmp = icmp uge i32 %3, 947912704
-  br i1 %cmp, label %if.then, label %if.end37
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef zeroext i16 @_ZL19imath_float_to_halff(float noundef %0) #6 {
+  %2 = alloca i16, align 2
+  %3 = alloca float, align 4
+  %4 = alloca %union.imath_half_uif, align 4
+  %5 = alloca i16, align 2
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  store float %0, ptr %3, align 4, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  call void @llvm.lifetime.start.p0(i64 2, ptr %5) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  %12 = load float, ptr %3, align 4, !tbaa !55
+  store float %12, ptr %4, align 4, !tbaa !61
+  %13 = load i32, ptr %4, align 4, !tbaa !61
+  %14 = and i32 %13, 2147483647
+  store i32 %14, ptr %8, align 4, !tbaa !10
+  %15 = load i32, ptr %4, align 4, !tbaa !61
+  %16 = lshr i32 %15, 16
+  %17 = and i32 %16, 32768
+  %18 = trunc i32 %17 to i16
+  store i16 %18, ptr %5, align 2, !tbaa !13
+  %19 = load i32, ptr %8, align 4, !tbaa !10
+  %20 = icmp uge i32 %19, 947912704
+  br i1 %20, label %21, label %80
 
-if.then:                                          ; preds = %entry
-  %4 = load i32, ptr %ui, align 4
-  %cmp2 = icmp uge i32 %4, 2139095040
-  br i1 %cmp2, label %if.then4, label %if.end20
+21:                                               ; preds = %1
+  %22 = load i32, ptr %8, align 4, !tbaa !10
+  %23 = icmp uge i32 %22, 2139095040
+  %24 = zext i1 %23 to i64
+  %25 = call i64 @llvm.expect.i64(i64 %24, i64 0)
+  %26 = icmp ne i64 %25, 0
+  br i1 %26, label %27, label %52
 
-if.then4:                                         ; preds = %if.then
-  %5 = load i16, ptr %ret, align 2
-  %conv5 = zext i16 %5 to i32
-  %or = or i32 %conv5, 31744
-  %conv6 = trunc i32 %or to i16
-  store i16 %conv6, ptr %ret, align 2
-  %6 = load i32, ptr %ui, align 4
-  %cmp7 = icmp eq i32 %6, 2139095040
-  br i1 %cmp7, label %if.then8, label %if.end
+27:                                               ; preds = %21
+  %28 = load i16, ptr %5, align 2, !tbaa !13
+  %29 = zext i16 %28 to i32
+  %30 = or i32 %29, 31744
+  %31 = trunc i32 %30 to i16
+  store i16 %31, ptr %5, align 2, !tbaa !13
+  %32 = load i32, ptr %8, align 4, !tbaa !10
+  %33 = icmp eq i32 %32, 2139095040
+  br i1 %33, label %34, label %36
 
-if.then8:                                         ; preds = %if.then4
-  %7 = load i16, ptr %ret, align 2
-  store i16 %7, ptr %retval, align 2
-  br label %return
+34:                                               ; preds = %27
+  %35 = load i16, ptr %5, align 2, !tbaa !13
+  store i16 %35, ptr %2, align 2
+  store i32 1, ptr %11, align 4
+  br label %119
 
-if.end:                                           ; preds = %if.then4
-  %8 = load i32, ptr %ui, align 4
-  %and9 = and i32 %8, 8388607
-  %shr10 = lshr i32 %and9, 13
-  store i32 %shr10, ptr %m, align 4
-  %9 = load i16, ptr %ret, align 2
-  %conv11 = zext i16 %9 to i32
-  %10 = load i32, ptr %m, align 4
-  %conv12 = trunc i32 %10 to i16
-  %conv13 = zext i16 %conv12 to i32
-  %or14 = or i32 %conv11, %conv13
-  %11 = load i32, ptr %m, align 4
-  %cmp15 = icmp eq i32 %11, 0
-  %conv16 = zext i1 %cmp15 to i16
-  %conv17 = zext i16 %conv16 to i32
-  %or18 = or i32 %or14, %conv17
-  %conv19 = trunc i32 %or18 to i16
-  store i16 %conv19, ptr %retval, align 2
-  br label %return
+36:                                               ; preds = %27
+  %37 = load i32, ptr %8, align 4, !tbaa !10
+  %38 = and i32 %37, 8388607
+  %39 = lshr i32 %38, 13
+  store i32 %39, ptr %7, align 4, !tbaa !10
+  %40 = load i16, ptr %5, align 2, !tbaa !13
+  %41 = zext i16 %40 to i32
+  %42 = load i32, ptr %7, align 4, !tbaa !10
+  %43 = trunc i32 %42 to i16
+  %44 = zext i16 %43 to i32
+  %45 = or i32 %41, %44
+  %46 = load i32, ptr %7, align 4, !tbaa !10
+  %47 = icmp eq i32 %46, 0
+  %48 = zext i1 %47 to i16
+  %49 = zext i16 %48 to i32
+  %50 = or i32 %45, %49
+  %51 = trunc i32 %50 to i16
+  store i16 %51, ptr %2, align 2
+  store i32 1, ptr %11, align 4
+  br label %119
 
-if.end20:                                         ; preds = %if.then
-  %12 = load i32, ptr %ui, align 4
-  %cmp21 = icmp ugt i32 %12, 1199566847
-  br i1 %cmp21, label %if.then23, label %if.end27
+52:                                               ; preds = %21
+  %53 = load i32, ptr %8, align 4, !tbaa !10
+  %54 = icmp ugt i32 %53, 1199566847
+  %55 = zext i1 %54 to i64
+  %56 = call i64 @llvm.expect.i64(i64 %55, i64 0)
+  %57 = icmp ne i64 %56, 0
+  br i1 %57, label %58, label %63
 
-if.then23:                                        ; preds = %if.end20
-  %13 = load i16, ptr %ret, align 2
-  %conv24 = zext i16 %13 to i32
-  %or25 = or i32 %conv24, 31744
-  %conv26 = trunc i32 %or25 to i16
-  store i16 %conv26, ptr %retval, align 2
-  br label %return
+58:                                               ; preds = %52
+  %59 = load i16, ptr %5, align 2, !tbaa !13
+  %60 = zext i16 %59 to i32
+  %61 = or i32 %60, 31744
+  %62 = trunc i32 %61 to i16
+  store i16 %62, ptr %2, align 2
+  store i32 1, ptr %11, align 4
+  br label %119
 
-if.end27:                                         ; preds = %if.end20
-  %14 = load i32, ptr %ui, align 4
-  %sub = sub i32 %14, 939524096
-  store i32 %sub, ptr %ui, align 4
-  %15 = load i32, ptr %ui, align 4
-  %add = add i32 %15, 4095
-  %16 = load i32, ptr %ui, align 4
-  %shr28 = lshr i32 %16, 13
-  %and29 = and i32 %shr28, 1
-  %add30 = add i32 %add, %and29
-  %shr31 = lshr i32 %add30, 13
-  store i32 %shr31, ptr %ui, align 4
-  %17 = load i16, ptr %ret, align 2
-  %conv32 = zext i16 %17 to i32
-  %18 = load i32, ptr %ui, align 4
-  %conv33 = trunc i32 %18 to i16
-  %conv34 = zext i16 %conv33 to i32
-  %or35 = or i32 %conv32, %conv34
-  %conv36 = trunc i32 %or35 to i16
-  store i16 %conv36, ptr %retval, align 2
-  br label %return
+63:                                               ; preds = %52
+  %64 = load i32, ptr %8, align 4, !tbaa !10
+  %65 = sub i32 %64, 939524096
+  store i32 %65, ptr %8, align 4, !tbaa !10
+  %66 = load i32, ptr %8, align 4, !tbaa !10
+  %67 = add i32 %66, 4095
+  %68 = load i32, ptr %8, align 4, !tbaa !10
+  %69 = lshr i32 %68, 13
+  %70 = and i32 %69, 1
+  %71 = add i32 %67, %70
+  %72 = lshr i32 %71, 13
+  store i32 %72, ptr %8, align 4, !tbaa !10
+  %73 = load i16, ptr %5, align 2, !tbaa !13
+  %74 = zext i16 %73 to i32
+  %75 = load i32, ptr %8, align 4, !tbaa !10
+  %76 = trunc i32 %75 to i16
+  %77 = zext i16 %76 to i32
+  %78 = or i32 %74, %77
+  %79 = trunc i32 %78 to i16
+  store i16 %79, ptr %2, align 2
+  store i32 1, ptr %11, align 4
+  br label %119
 
-if.end37:                                         ; preds = %entry
-  %19 = load i32, ptr %ui, align 4
-  %cmp38 = icmp ult i32 %19, 855638017
-  br i1 %cmp38, label %if.then39, label %if.end40
+80:                                               ; preds = %1
+  %81 = load i32, ptr %8, align 4, !tbaa !10
+  %82 = icmp ult i32 %81, 855638017
+  br i1 %82, label %83, label %85
 
-if.then39:                                        ; preds = %if.end37
-  %20 = load i16, ptr %ret, align 2
-  store i16 %20, ptr %retval, align 2
-  br label %return
+83:                                               ; preds = %80
+  %84 = load i16, ptr %5, align 2, !tbaa !13
+  store i16 %84, ptr %2, align 2
+  store i32 1, ptr %11, align 4
+  br label %119
 
-if.end40:                                         ; preds = %if.end37
-  %21 = load i32, ptr %ui, align 4
-  %shr41 = lshr i32 %21, 23
-  store i32 %shr41, ptr %e, align 4
-  %22 = load i32, ptr %e, align 4
-  %sub42 = sub i32 126, %22
-  store i32 %sub42, ptr %shift, align 4
-  %23 = load i32, ptr %ui, align 4
-  %and43 = and i32 %23, 8388607
-  %or44 = or i32 8388608, %and43
-  store i32 %or44, ptr %m, align 4
-  %24 = load i32, ptr %m, align 4
-  %25 = load i32, ptr %shift, align 4
-  %sub45 = sub i32 32, %25
-  %shl = shl i32 %24, %sub45
-  store i32 %shl, ptr %r, align 4
-  %26 = load i32, ptr %m, align 4
-  %27 = load i32, ptr %shift, align 4
-  %shr46 = lshr i32 %26, %27
-  %28 = load i16, ptr %ret, align 2
-  %conv47 = zext i16 %28 to i32
-  %or48 = or i32 %conv47, %shr46
-  %conv49 = trunc i32 %or48 to i16
-  store i16 %conv49, ptr %ret, align 2
-  %29 = load i32, ptr %r, align 4
-  %cmp50 = icmp ugt i32 %29, -2147483648
-  br i1 %cmp50, label %if.then55, label %lor.lhs.false
+85:                                               ; preds = %80
+  %86 = load i32, ptr %8, align 4, !tbaa !10
+  %87 = lshr i32 %86, 23
+  store i32 %87, ptr %6, align 4, !tbaa !10
+  %88 = load i32, ptr %6, align 4, !tbaa !10
+  %89 = sub i32 126, %88
+  store i32 %89, ptr %10, align 4, !tbaa !10
+  %90 = load i32, ptr %8, align 4, !tbaa !10
+  %91 = and i32 %90, 8388607
+  %92 = or i32 8388608, %91
+  store i32 %92, ptr %7, align 4, !tbaa !10
+  %93 = load i32, ptr %7, align 4, !tbaa !10
+  %94 = load i32, ptr %10, align 4, !tbaa !10
+  %95 = sub i32 32, %94
+  %96 = shl i32 %93, %95
+  store i32 %96, ptr %9, align 4, !tbaa !10
+  %97 = load i32, ptr %7, align 4, !tbaa !10
+  %98 = load i32, ptr %10, align 4, !tbaa !10
+  %99 = lshr i32 %97, %98
+  %100 = load i16, ptr %5, align 2, !tbaa !13
+  %101 = zext i16 %100 to i32
+  %102 = or i32 %101, %99
+  %103 = trunc i32 %102 to i16
+  store i16 %103, ptr %5, align 2, !tbaa !13
+  %104 = load i32, ptr %9, align 4, !tbaa !10
+  %105 = icmp ugt i32 %104, -2147483648
+  br i1 %105, label %114, label %106
 
-lor.lhs.false:                                    ; preds = %if.end40
-  %30 = load i32, ptr %r, align 4
-  %cmp51 = icmp eq i32 %30, -2147483648
-  br i1 %cmp51, label %land.lhs.true, label %if.end56
+106:                                              ; preds = %85
+  %107 = load i32, ptr %9, align 4, !tbaa !10
+  %108 = icmp eq i32 %107, -2147483648
+  br i1 %108, label %109, label %117
 
-land.lhs.true:                                    ; preds = %lor.lhs.false
-  %31 = load i16, ptr %ret, align 2
-  %conv52 = zext i16 %31 to i32
-  %and53 = and i32 %conv52, 1
-  %cmp54 = icmp ne i32 %and53, 0
-  br i1 %cmp54, label %if.then55, label %if.end56
+109:                                              ; preds = %106
+  %110 = load i16, ptr %5, align 2, !tbaa !13
+  %111 = zext i16 %110 to i32
+  %112 = and i32 %111, 1
+  %113 = icmp ne i32 %112, 0
+  br i1 %113, label %114, label %117
 
-if.then55:                                        ; preds = %land.lhs.true, %if.end40
-  %32 = load i16, ptr %ret, align 2
-  %inc = add i16 %32, 1
-  store i16 %inc, ptr %ret, align 2
-  br label %if.end56
+114:                                              ; preds = %109, %85
+  %115 = load i16, ptr %5, align 2, !tbaa !13
+  %116 = add i16 %115, 1
+  store i16 %116, ptr %5, align 2, !tbaa !13
+  br label %117
 
-if.end56:                                         ; preds = %if.then55, %land.lhs.true, %lor.lhs.false
-  %33 = load i16, ptr %ret, align 2
-  store i16 %33, ptr %retval, align 2
-  br label %return
+117:                                              ; preds = %114, %109, %106
+  %118 = load i16, ptr %5, align 2, !tbaa !13
+  store i16 %118, ptr %2, align 2
+  store i32 1, ptr %11, align 4
+  br label %119
 
-return:                                           ; preds = %if.end56, %if.then39, %if.end27, %if.then23, %if.end, %if.then8
-  %34 = load i16, ptr %retval, align 2
-  ret i16 %34
+119:                                              ; preds = %117, %83, %63, %58, %36, %34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %5) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  %120 = load i16, ptr %2, align 2
+  ret i16 %120
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #9
 
 ; Function Attrs: nounwind
 declare float @logf(float noundef) #2
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i16 @_ZNK9Imath_3_24half4bitsEv(ptr noundef nonnull align 2 dereferenceable(2) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_h = getelementptr inbounds %"class.Imath_3_2::half", ptr %this1, i32 0, i32 0
-  %0 = load i16, ptr %_h, align 2
-  ret i16 %0
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i16 @_ZNK9Imath_3_24half4bitsEv(ptr noundef nonnull align 2 dereferenceable(2) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %3, i32 0, i32 0
+  %5 = load i16, ptr %4, align 2, !tbaa !57
+  ret i16 %5
 }
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_ImfLut.cpp() #0 section ".text.startup" {
-entry:
   call void @__cxx_global_var_init()
   ret void
 }
 
-attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
-attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #10 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN7Imf_3_47HalfLutE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTSN9Imath_3_24halfE", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !6, i64 0}
+!12 = !{i64 0, i64 2, !13}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"short", !6, i64 0}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.mustprogress"}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS12halfFunctionIN9Imath_3_24halfEE", !5, i64 0}
+!19 = !{!20, !9, i64 0}
+!20 = !{!"_ZTS12halfFunctionIN9Imath_3_24halfEE", !9, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTSN7Imf_3_45SliceE", !5, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 _ZTSN9Imath_3_23BoxINS_4Vec2IiEEEE", !5, i64 0}
+!25 = !{!26, !28, i64 8}
+!26 = !{!"_ZTSN7Imf_3_45SliceE", !27, i64 0, !28, i64 8, !29, i64 16, !29, i64 24, !11, i64 32, !11, i64 36, !30, i64 40, !31, i64 48, !31, i64 49}
+!27 = !{!"_ZTSN7Imf_3_49PixelTypeE", !6, i64 0}
+!28 = !{!"p1 omnipotent char", !5, i64 0}
+!29 = !{!"long", !6, i64 0}
+!30 = !{!"double", !6, i64 0}
+!31 = !{!"bool", !6, i64 0}
+!32 = !{!26, !29, i64 24}
+!33 = !{!34, !11, i64 4}
+!34 = !{!"_ZTSN9Imath_3_23BoxINS_4Vec2IiEEEE", !35, i64 0, !35, i64 8}
+!35 = !{!"_ZTSN9Imath_3_24Vec2IiEE", !11, i64 0, !11, i64 4}
+!36 = !{!26, !11, i64 36}
+!37 = !{!28, !28, i64 0}
+!38 = !{!34, !11, i64 12}
+!39 = !{!26, !29, i64 16}
+!40 = !{!34, !11, i64 0}
+!41 = !{!26, !11, i64 32}
+!42 = !{!34, !11, i64 8}
+!43 = distinct !{!43, !16}
+!44 = distinct !{!44, !16}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"p1 _ZTSN7Imf_3_47RgbaLutE", !5, i64 0}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTSN7Imf_3_44RgbaE", !5, i64 0}
+!49 = !{!50, !51, i64 8}
+!50 = !{!"_ZTSN7Imf_3_47RgbaLutE", !20, i64 0, !51, i64 8}
+!51 = !{!"_ZTSN7Imf_3_412RgbaChannelsE", !6, i64 0}
+!52 = distinct !{!52, !16}
+!53 = distinct !{!53, !16}
+!54 = distinct !{!54, !16}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"float", !6, i64 0}
+!57 = !{!58, !14, i64 0}
+!58 = !{!"_ZTSN9Imath_3_24halfE", !14, i64 0}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"p1 _ZTS14imath_half_uif", !5, i64 0}
+!61 = !{!6, !6, i64 0}

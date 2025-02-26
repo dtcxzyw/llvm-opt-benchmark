@@ -1,1531 +1,1593 @@
 ; ModuleID = 'bench/openexr/original/IexThrowErrnoExc.ll'
 source_filename = "bench/openexr/original/IexThrowErrnoExc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.std::allocator" = type { i8 }
-%struct._Guard = type { ptr }
-
-$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
-
-$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev = comdat any
-
-$__clang_call_terminate = comdat any
 
 @.str = private unnamed_addr constant [3 x i8] c"%T\00", align 1
-@_ZTIN7Iex_3_28EpermExcE = external constant ptr
-@_ZTIN7Iex_3_29EnoentExcE = external constant ptr
-@_ZTIN7Iex_3_28EsrchExcE = external constant ptr
-@_ZTIN7Iex_3_28EintrExcE = external constant ptr
-@_ZTIN7Iex_3_26EioExcE = external constant ptr
-@_ZTIN7Iex_3_28EnxioExcE = external constant ptr
-@_ZTIN7Iex_3_28E2bigExcE = external constant ptr
-@_ZTIN7Iex_3_210EnoexecExcE = external constant ptr
-@_ZTIN7Iex_3_28EbadfExcE = external constant ptr
-@_ZTIN7Iex_3_29EchildExcE = external constant ptr
-@_ZTIN7Iex_3_29EagainExcE = external constant ptr
-@_ZTIN7Iex_3_29EnomemExcE = external constant ptr
-@_ZTIN7Iex_3_29EaccesExcE = external constant ptr
-@_ZTIN7Iex_3_29EfaultExcE = external constant ptr
-@_ZTIN7Iex_3_210EnotblkExcE = external constant ptr
-@_ZTIN7Iex_3_28EbusyExcE = external constant ptr
-@_ZTIN7Iex_3_29EexistExcE = external constant ptr
-@_ZTIN7Iex_3_28ExdevExcE = external constant ptr
-@_ZTIN7Iex_3_29EnodevExcE = external constant ptr
-@_ZTIN7Iex_3_210EnotdirExcE = external constant ptr
-@_ZTIN7Iex_3_29EisdirExcE = external constant ptr
-@_ZTIN7Iex_3_29EinvalExcE = external constant ptr
-@_ZTIN7Iex_3_29EnfileExcE = external constant ptr
-@_ZTIN7Iex_3_29EmfileExcE = external constant ptr
-@_ZTIN7Iex_3_29EnottyExcE = external constant ptr
-@_ZTIN7Iex_3_210EtxtbsyExcE = external constant ptr
-@_ZTIN7Iex_3_28EfbigExcE = external constant ptr
-@_ZTIN7Iex_3_29EnospcExcE = external constant ptr
-@_ZTIN7Iex_3_29EspipeExcE = external constant ptr
-@_ZTIN7Iex_3_28ErofsExcE = external constant ptr
-@_ZTIN7Iex_3_29EmlinkExcE = external constant ptr
-@_ZTIN7Iex_3_28EpipeExcE = external constant ptr
-@_ZTIN7Iex_3_27EdomExcE = external constant ptr
-@_ZTIN7Iex_3_29ErangeExcE = external constant ptr
-@_ZTIN7Iex_3_29EnomsgExcE = external constant ptr
-@_ZTIN7Iex_3_28EidrmExcE = external constant ptr
-@_ZTIN7Iex_3_29EchrngExcE = external constant ptr
-@_ZTIN7Iex_3_211El2nsyncExcE = external constant ptr
-@_ZTIN7Iex_3_29El3hltExcE = external constant ptr
-@_ZTIN7Iex_3_29El3rstExcE = external constant ptr
-@_ZTIN7Iex_3_29ElnrngExcE = external constant ptr
-@_ZTIN7Iex_3_210EunatchExcE = external constant ptr
-@_ZTIN7Iex_3_29EnocsiExcE = external constant ptr
-@_ZTIN7Iex_3_29El2hltExcE = external constant ptr
-@_ZTIN7Iex_3_210EdeadlkExcE = external constant ptr
-@_ZTIN7Iex_3_29EnolckExcE = external constant ptr
-@_ZTIN7Iex_3_28EbadeExcE = external constant ptr
-@_ZTIN7Iex_3_28EbadrExcE = external constant ptr
-@_ZTIN7Iex_3_29ExfullExcE = external constant ptr
-@_ZTIN7Iex_3_29EnoanoExcE = external constant ptr
-@_ZTIN7Iex_3_210EbadrqcExcE = external constant ptr
-@_ZTIN7Iex_3_210EbadsltExcE = external constant ptr
-@_ZTIN7Iex_3_29EbfontExcE = external constant ptr
-@_ZTIN7Iex_3_29EnostrExcE = external constant ptr
-@_ZTIN7Iex_3_210EnodataExcE = external constant ptr
-@_ZTIN7Iex_3_28EtimeExcE = external constant ptr
-@_ZTIN7Iex_3_28EnosrExcE = external constant ptr
-@_ZTIN7Iex_3_29EnonetExcE = external constant ptr
-@_ZTIN7Iex_3_29EnopkgExcE = external constant ptr
-@_ZTIN7Iex_3_210EremoteExcE = external constant ptr
-@_ZTIN7Iex_3_210EnolinkExcE = external constant ptr
-@_ZTIN7Iex_3_27EadvExcE = external constant ptr
-@_ZTIN7Iex_3_29EsrmntExcE = external constant ptr
-@_ZTIN7Iex_3_28EcommExcE = external constant ptr
-@_ZTIN7Iex_3_29EprotoExcE = external constant ptr
-@_ZTIN7Iex_3_212EmultihopExcE = external constant ptr
-@_ZTIN7Iex_3_210EbadmsgExcE = external constant ptr
-@_ZTIN7Iex_3_215EnametoolongExcE = external constant ptr
-@_ZTIN7Iex_3_212EoverflowExcE = external constant ptr
-@_ZTIN7Iex_3_211EnotuniqExcE = external constant ptr
-@_ZTIN7Iex_3_29EbadfdExcE = external constant ptr
-@_ZTIN7Iex_3_210EremchgExcE = external constant ptr
-@_ZTIN7Iex_3_210ElibaccExcE = external constant ptr
-@_ZTIN7Iex_3_210ElibbadExcE = external constant ptr
-@_ZTIN7Iex_3_210ElibscnExcE = external constant ptr
-@_ZTIN7Iex_3_210ElibmaxExcE = external constant ptr
-@_ZTIN7Iex_3_211ElibexecExcE = external constant ptr
-@_ZTIN7Iex_3_29EilseqExcE = external constant ptr
-@_ZTIN7Iex_3_29EnosysExcE = external constant ptr
-@_ZTIN7Iex_3_28EloopExcE = external constant ptr
-@_ZTIN7Iex_3_211ErestartExcE = external constant ptr
-@_ZTIN7Iex_3_211EstrpipeExcE = external constant ptr
-@_ZTIN7Iex_3_212EnotemptyExcE = external constant ptr
-@_ZTIN7Iex_3_29EusersExcE = external constant ptr
-@_ZTIN7Iex_3_211EnotsockExcE = external constant ptr
-@_ZTIN7Iex_3_215EdestaddrreqExcE = external constant ptr
-@_ZTIN7Iex_3_211EmsgsizeExcE = external constant ptr
-@_ZTIN7Iex_3_213EprototypeExcE = external constant ptr
-@_ZTIN7Iex_3_214EnoprotooptExcE = external constant ptr
-@_ZTIN7Iex_3_218EprotonosupportExcE = external constant ptr
-@_ZTIN7Iex_3_218EsocktnosupportExcE = external constant ptr
-@_ZTIN7Iex_3_213EopnotsuppExcE = external constant ptr
-@_ZTIN7Iex_3_215EpfnosupportExcE = external constant ptr
-@_ZTIN7Iex_3_215EafnosupportExcE = external constant ptr
-@_ZTIN7Iex_3_213EaddrinuseExcE = external constant ptr
-@_ZTIN7Iex_3_216EaddrnotavailExcE = external constant ptr
-@_ZTIN7Iex_3_211EnetdownExcE = external constant ptr
-@_ZTIN7Iex_3_214EnetunreachExcE = external constant ptr
-@_ZTIN7Iex_3_212EnetresetExcE = external constant ptr
-@_ZTIN7Iex_3_215EconnabortedExcE = external constant ptr
-@_ZTIN7Iex_3_213EconnresetExcE = external constant ptr
-@_ZTIN7Iex_3_210EnobufsExcE = external constant ptr
-@_ZTIN7Iex_3_210EisconnExcE = external constant ptr
-@_ZTIN7Iex_3_211EnotconnExcE = external constant ptr
-@_ZTIN7Iex_3_212EshutdownExcE = external constant ptr
-@_ZTIN7Iex_3_215EtoomanyrefsExcE = external constant ptr
-@_ZTIN7Iex_3_212EtimedoutExcE = external constant ptr
-@_ZTIN7Iex_3_215EconnrefusedExcE = external constant ptr
-@_ZTIN7Iex_3_212EhostdownExcE = external constant ptr
-@_ZTIN7Iex_3_215EhostunreachExcE = external constant ptr
-@_ZTIN7Iex_3_211EalreadyExcE = external constant ptr
-@_ZTIN7Iex_3_214EinprogressExcE = external constant ptr
-@_ZTIN7Iex_3_29EstaleExcE = external constant ptr
-@_ZTIN7Iex_3_210EucleanExcE = external constant ptr
-@_ZTIN7Iex_3_210EnotnamExcE = external constant ptr
-@_ZTIN7Iex_3_210EnavailExcE = external constant ptr
-@_ZTIN7Iex_3_29EisnamExcE = external constant ptr
-@_ZTIN7Iex_3_212EremoteioExcE = external constant ptr
-@_ZTIN7Iex_3_212EcanceledExcE = external constant ptr
-@_ZTIN7Iex_3_29EdquotExcE = external constant ptr
-@_ZTIN7Iex_3_28ErrnoExcE = external constant ptr
+@_ZTIN7Iex_3_48EpermExcE = external constant ptr
+@_ZTIN7Iex_3_49EnoentExcE = external constant ptr
+@_ZTIN7Iex_3_48EsrchExcE = external constant ptr
+@_ZTIN7Iex_3_48EintrExcE = external constant ptr
+@_ZTIN7Iex_3_46EioExcE = external constant ptr
+@_ZTIN7Iex_3_48EnxioExcE = external constant ptr
+@_ZTIN7Iex_3_48E2bigExcE = external constant ptr
+@_ZTIN7Iex_3_410EnoexecExcE = external constant ptr
+@_ZTIN7Iex_3_48EbadfExcE = external constant ptr
+@_ZTIN7Iex_3_49EchildExcE = external constant ptr
+@_ZTIN7Iex_3_49EagainExcE = external constant ptr
+@_ZTIN7Iex_3_49EnomemExcE = external constant ptr
+@_ZTIN7Iex_3_49EaccesExcE = external constant ptr
+@_ZTIN7Iex_3_49EfaultExcE = external constant ptr
+@_ZTIN7Iex_3_410EnotblkExcE = external constant ptr
+@_ZTIN7Iex_3_48EbusyExcE = external constant ptr
+@_ZTIN7Iex_3_49EexistExcE = external constant ptr
+@_ZTIN7Iex_3_48ExdevExcE = external constant ptr
+@_ZTIN7Iex_3_49EnodevExcE = external constant ptr
+@_ZTIN7Iex_3_410EnotdirExcE = external constant ptr
+@_ZTIN7Iex_3_49EisdirExcE = external constant ptr
+@_ZTIN7Iex_3_49EinvalExcE = external constant ptr
+@_ZTIN7Iex_3_49EnfileExcE = external constant ptr
+@_ZTIN7Iex_3_49EmfileExcE = external constant ptr
+@_ZTIN7Iex_3_49EnottyExcE = external constant ptr
+@_ZTIN7Iex_3_410EtxtbsyExcE = external constant ptr
+@_ZTIN7Iex_3_48EfbigExcE = external constant ptr
+@_ZTIN7Iex_3_49EnospcExcE = external constant ptr
+@_ZTIN7Iex_3_49EspipeExcE = external constant ptr
+@_ZTIN7Iex_3_48ErofsExcE = external constant ptr
+@_ZTIN7Iex_3_49EmlinkExcE = external constant ptr
+@_ZTIN7Iex_3_48EpipeExcE = external constant ptr
+@_ZTIN7Iex_3_47EdomExcE = external constant ptr
+@_ZTIN7Iex_3_49ErangeExcE = external constant ptr
+@_ZTIN7Iex_3_49EnomsgExcE = external constant ptr
+@_ZTIN7Iex_3_48EidrmExcE = external constant ptr
+@_ZTIN7Iex_3_49EchrngExcE = external constant ptr
+@_ZTIN7Iex_3_411El2nsyncExcE = external constant ptr
+@_ZTIN7Iex_3_49El3hltExcE = external constant ptr
+@_ZTIN7Iex_3_49El3rstExcE = external constant ptr
+@_ZTIN7Iex_3_49ElnrngExcE = external constant ptr
+@_ZTIN7Iex_3_410EunatchExcE = external constant ptr
+@_ZTIN7Iex_3_49EnocsiExcE = external constant ptr
+@_ZTIN7Iex_3_49El2hltExcE = external constant ptr
+@_ZTIN7Iex_3_410EdeadlkExcE = external constant ptr
+@_ZTIN7Iex_3_49EnolckExcE = external constant ptr
+@_ZTIN7Iex_3_48EbadeExcE = external constant ptr
+@_ZTIN7Iex_3_48EbadrExcE = external constant ptr
+@_ZTIN7Iex_3_49ExfullExcE = external constant ptr
+@_ZTIN7Iex_3_49EnoanoExcE = external constant ptr
+@_ZTIN7Iex_3_410EbadrqcExcE = external constant ptr
+@_ZTIN7Iex_3_410EbadsltExcE = external constant ptr
+@_ZTIN7Iex_3_49EbfontExcE = external constant ptr
+@_ZTIN7Iex_3_49EnostrExcE = external constant ptr
+@_ZTIN7Iex_3_410EnodataExcE = external constant ptr
+@_ZTIN7Iex_3_48EtimeExcE = external constant ptr
+@_ZTIN7Iex_3_48EnosrExcE = external constant ptr
+@_ZTIN7Iex_3_49EnonetExcE = external constant ptr
+@_ZTIN7Iex_3_49EnopkgExcE = external constant ptr
+@_ZTIN7Iex_3_410EremoteExcE = external constant ptr
+@_ZTIN7Iex_3_410EnolinkExcE = external constant ptr
+@_ZTIN7Iex_3_47EadvExcE = external constant ptr
+@_ZTIN7Iex_3_49EsrmntExcE = external constant ptr
+@_ZTIN7Iex_3_48EcommExcE = external constant ptr
+@_ZTIN7Iex_3_49EprotoExcE = external constant ptr
+@_ZTIN7Iex_3_412EmultihopExcE = external constant ptr
+@_ZTIN7Iex_3_410EbadmsgExcE = external constant ptr
+@_ZTIN7Iex_3_415EnametoolongExcE = external constant ptr
+@_ZTIN7Iex_3_412EoverflowExcE = external constant ptr
+@_ZTIN7Iex_3_411EnotuniqExcE = external constant ptr
+@_ZTIN7Iex_3_49EbadfdExcE = external constant ptr
+@_ZTIN7Iex_3_410EremchgExcE = external constant ptr
+@_ZTIN7Iex_3_410ElibaccExcE = external constant ptr
+@_ZTIN7Iex_3_410ElibbadExcE = external constant ptr
+@_ZTIN7Iex_3_410ElibscnExcE = external constant ptr
+@_ZTIN7Iex_3_410ElibmaxExcE = external constant ptr
+@_ZTIN7Iex_3_411ElibexecExcE = external constant ptr
+@_ZTIN7Iex_3_49EilseqExcE = external constant ptr
+@_ZTIN7Iex_3_49EnosysExcE = external constant ptr
+@_ZTIN7Iex_3_48EloopExcE = external constant ptr
+@_ZTIN7Iex_3_411ErestartExcE = external constant ptr
+@_ZTIN7Iex_3_411EstrpipeExcE = external constant ptr
+@_ZTIN7Iex_3_412EnotemptyExcE = external constant ptr
+@_ZTIN7Iex_3_49EusersExcE = external constant ptr
+@_ZTIN7Iex_3_411EnotsockExcE = external constant ptr
+@_ZTIN7Iex_3_415EdestaddrreqExcE = external constant ptr
+@_ZTIN7Iex_3_411EmsgsizeExcE = external constant ptr
+@_ZTIN7Iex_3_413EprototypeExcE = external constant ptr
+@_ZTIN7Iex_3_414EnoprotooptExcE = external constant ptr
+@_ZTIN7Iex_3_418EprotonosupportExcE = external constant ptr
+@_ZTIN7Iex_3_418EsocktnosupportExcE = external constant ptr
+@_ZTIN7Iex_3_413EopnotsuppExcE = external constant ptr
+@_ZTIN7Iex_3_415EpfnosupportExcE = external constant ptr
+@_ZTIN7Iex_3_415EafnosupportExcE = external constant ptr
+@_ZTIN7Iex_3_413EaddrinuseExcE = external constant ptr
+@_ZTIN7Iex_3_416EaddrnotavailExcE = external constant ptr
+@_ZTIN7Iex_3_411EnetdownExcE = external constant ptr
+@_ZTIN7Iex_3_414EnetunreachExcE = external constant ptr
+@_ZTIN7Iex_3_412EnetresetExcE = external constant ptr
+@_ZTIN7Iex_3_415EconnabortedExcE = external constant ptr
+@_ZTIN7Iex_3_413EconnresetExcE = external constant ptr
+@_ZTIN7Iex_3_410EnobufsExcE = external constant ptr
+@_ZTIN7Iex_3_410EisconnExcE = external constant ptr
+@_ZTIN7Iex_3_411EnotconnExcE = external constant ptr
+@_ZTIN7Iex_3_412EshutdownExcE = external constant ptr
+@_ZTIN7Iex_3_415EtoomanyrefsExcE = external constant ptr
+@_ZTIN7Iex_3_412EtimedoutExcE = external constant ptr
+@_ZTIN7Iex_3_415EconnrefusedExcE = external constant ptr
+@_ZTIN7Iex_3_412EhostdownExcE = external constant ptr
+@_ZTIN7Iex_3_415EhostunreachExcE = external constant ptr
+@_ZTIN7Iex_3_411EalreadyExcE = external constant ptr
+@_ZTIN7Iex_3_414EinprogressExcE = external constant ptr
+@_ZTIN7Iex_3_49EstaleExcE = external constant ptr
+@_ZTIN7Iex_3_410EucleanExcE = external constant ptr
+@_ZTIN7Iex_3_410EnotnamExcE = external constant ptr
+@_ZTIN7Iex_3_410EnavailExcE = external constant ptr
+@_ZTIN7Iex_3_49EisnamExcE = external constant ptr
+@_ZTIN7Iex_3_412EremoteioExcE = external constant ptr
+@_ZTIN7Iex_3_412EcanceledExcE = external constant ptr
+@_ZTIN7Iex_3_49EdquotExcE = external constant ptr
+@_ZTIN7Iex_3_48ErrnoExcE = external constant ptr
 @.str.1 = private unnamed_addr constant [4 x i8] c"%T.\00", align 1
+@.str.2 = private unnamed_addr constant [22 x i8] c"basic_string::replace\00", align 1
+@.str.3 = private unnamed_addr constant [55 x i8] c"%s: __pos (which is %zu) > this->size() (which is %zu)\00", align 1
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN7Iex_3_213throwErrnoExcERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(32) %text, i32 noundef %errnum) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %call = tail call ptr @strerror(i32 noundef %errnum) #10
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %tmp, ptr noundef nonnull align 8 dereferenceable(32) %text)
-  br label %while.cond
+define void @_ZN7Iex_3_413throwErrnoExcERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %3 = alloca i64, align 8
+  %4 = alloca %"class.std::__cxx11::basic_string", align 8
+  %5 = tail call ptr @strerror(i32 noundef %1) #12
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #12
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %6, ptr %4, align 8, !tbaa !3
+  %7 = load ptr, ptr %0, align 8, !tbaa !9
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = load i64, ptr %8, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  store i64 %9, ptr %3, align 8, !tbaa !13
+  %10 = icmp ugt i64 %9, 15
+  br i1 %10, label %.noexc.i, label %._crit_edge.i.i
 
-while.cond:                                       ; preds = %while.body, %entry
-  %call1 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %tmp, ptr noundef nonnull @.str, i64 noundef 0) #10
-  %cmp.not = icmp eq i64 %call1, -1
-  br i1 %cmp.not, label %while.end, label %while.body
+.noexc.i:                                         ; preds = %2
+  %11 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
+  store ptr %11, ptr %4, align 8, !tbaa !9
+  %12 = load i64, ptr %3, align 8, !tbaa !13
+  store i64 %12, ptr %6, align 8, !tbaa !14
+  br label %._crit_edge.i.i
 
-while.body:                                       ; preds = %while.cond
-  %call2 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #11
-  %call3 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %tmp, i64 noundef %call1, i64 noundef 2, ptr noundef nonnull %call, i64 noundef %call2)
-          to label %while.cond unwind label %lpad.loopexit, !llvm.loop !4
-
-lpad.loopexit:                                    ; preds = %while.body
-  %lpad.loopexit4 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup
-
-lpad.loopexit.split-lp:                           ; preds = %invoke.cont5.invoke
-  %lpad.loopexit.split-lp5 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup
-
-while.end:                                        ; preds = %while.cond
-  %exception482 = call ptr @__cxa_allocate_exception(i64 72) #10
-  switch i32 %errnum, label %sw.epilog [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb6
-    i32 3, label %sw.bb10
-    i32 4, label %sw.bb14
-    i32 5, label %sw.bb18
-    i32 6, label %sw.bb22
-    i32 7, label %sw.bb26
-    i32 8, label %sw.bb30
-    i32 9, label %sw.bb34
-    i32 10, label %sw.bb38
-    i32 11, label %sw.bb42
-    i32 12, label %sw.bb46
-    i32 13, label %sw.bb50
-    i32 14, label %sw.bb54
-    i32 15, label %sw.bb58
-    i32 16, label %sw.bb62
-    i32 17, label %sw.bb66
-    i32 18, label %sw.bb70
-    i32 19, label %sw.bb74
-    i32 20, label %sw.bb78
-    i32 21, label %sw.bb82
-    i32 22, label %sw.bb86
-    i32 23, label %sw.bb90
-    i32 24, label %sw.bb94
-    i32 25, label %sw.bb98
-    i32 26, label %sw.bb102
-    i32 27, label %sw.bb106
-    i32 28, label %sw.bb110
-    i32 29, label %sw.bb114
-    i32 30, label %sw.bb118
-    i32 31, label %sw.bb122
-    i32 32, label %sw.bb126
-    i32 33, label %sw.bb130
-    i32 34, label %sw.bb134
-    i32 42, label %sw.bb138
-    i32 43, label %sw.bb142
-    i32 44, label %sw.bb146
-    i32 45, label %sw.bb150
-    i32 46, label %sw.bb154
-    i32 47, label %sw.bb158
-    i32 48, label %sw.bb162
-    i32 49, label %sw.bb166
-    i32 50, label %sw.bb170
-    i32 51, label %sw.bb174
-    i32 35, label %sw.bb178
-    i32 37, label %sw.bb182
-    i32 52, label %sw.bb186
-    i32 53, label %sw.bb190
-    i32 54, label %sw.bb194
-    i32 55, label %sw.bb198
-    i32 56, label %sw.bb202
-    i32 57, label %sw.bb206
-    i32 59, label %sw.bb210
-    i32 60, label %sw.bb214
-    i32 61, label %sw.bb218
-    i32 62, label %sw.bb222
-    i32 63, label %sw.bb226
-    i32 64, label %sw.bb230
-    i32 65, label %sw.bb234
-    i32 66, label %sw.bb238
-    i32 67, label %sw.bb242
-    i32 68, label %sw.bb246
-    i32 69, label %sw.bb250
-    i32 70, label %sw.bb254
-    i32 71, label %sw.bb258
-    i32 72, label %sw.bb262
-    i32 74, label %sw.bb266
-    i32 36, label %sw.bb270
-    i32 75, label %sw.bb274
-    i32 76, label %sw.bb278
-    i32 77, label %sw.bb282
-    i32 78, label %sw.bb286
-    i32 79, label %sw.bb290
-    i32 80, label %sw.bb294
-    i32 81, label %sw.bb298
-    i32 82, label %sw.bb302
-    i32 83, label %sw.bb306
-    i32 84, label %sw.bb310
-    i32 38, label %sw.bb314
-    i32 40, label %sw.bb318
-    i32 85, label %sw.bb322
-    i32 86, label %sw.bb326
-    i32 39, label %sw.bb330
-    i32 87, label %sw.bb334
-    i32 88, label %sw.bb338
-    i32 89, label %sw.bb342
-    i32 90, label %sw.bb346
-    i32 91, label %sw.bb350
-    i32 92, label %sw.bb354
-    i32 93, label %sw.bb358
-    i32 94, label %sw.bb362
-    i32 95, label %sw.bb366
-    i32 96, label %sw.bb370
-    i32 97, label %sw.bb374
-    i32 98, label %sw.bb378
-    i32 99, label %sw.bb382
-    i32 100, label %sw.bb386
-    i32 101, label %sw.bb390
-    i32 102, label %sw.bb394
-    i32 103, label %sw.bb398
-    i32 104, label %sw.bb402
-    i32 105, label %sw.bb406
-    i32 106, label %sw.bb410
-    i32 107, label %sw.bb414
-    i32 108, label %sw.bb418
-    i32 109, label %sw.bb422
-    i32 110, label %sw.bb426
-    i32 111, label %sw.bb430
-    i32 112, label %sw.bb434
-    i32 113, label %sw.bb438
-    i32 114, label %sw.bb442
-    i32 115, label %sw.bb446
-    i32 116, label %sw.bb450
-    i32 117, label %sw.bb454
-    i32 118, label %sw.bb458
-    i32 119, label %sw.bb462
-    i32 120, label %sw.bb466
-    i32 121, label %sw.bb470
-    i32 125, label %sw.bb474
-    i32 122, label %sw.bb478
+._crit_edge.i.i:                                  ; preds = %.noexc.i, %2
+  %13 = phi ptr [ %11, %.noexc.i ], [ %6, %2 ]
+  switch i64 %9, label %16 [
+    i64 1, label %14
+    i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
   ]
 
-sw.bb:                                            ; preds = %while.end
-  invoke void @_ZN7Iex_3_28EpermExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad4
+14:                                               ; preds = %._crit_edge.i.i
+  %15 = load i8, ptr %7, align 1, !tbaa !14
+  store i8 %15, ptr %13, align 1, !tbaa !14
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
 
-invoke.cont5.invoke:                              ; preds = %sw.epilog, %sw.bb478, %sw.bb474, %sw.bb470, %sw.bb466, %sw.bb462, %sw.bb458, %sw.bb454, %sw.bb450, %sw.bb446, %sw.bb442, %sw.bb438, %sw.bb434, %sw.bb430, %sw.bb426, %sw.bb422, %sw.bb418, %sw.bb414, %sw.bb410, %sw.bb406, %sw.bb402, %sw.bb398, %sw.bb394, %sw.bb390, %sw.bb386, %sw.bb382, %sw.bb378, %sw.bb374, %sw.bb370, %sw.bb366, %sw.bb362, %sw.bb358, %sw.bb354, %sw.bb350, %sw.bb346, %sw.bb342, %sw.bb338, %sw.bb334, %sw.bb330, %sw.bb326, %sw.bb322, %sw.bb318, %sw.bb314, %sw.bb310, %sw.bb306, %sw.bb302, %sw.bb298, %sw.bb294, %sw.bb290, %sw.bb286, %sw.bb282, %sw.bb278, %sw.bb274, %sw.bb270, %sw.bb266, %sw.bb262, %sw.bb258, %sw.bb254, %sw.bb250, %sw.bb246, %sw.bb242, %sw.bb238, %sw.bb234, %sw.bb230, %sw.bb226, %sw.bb222, %sw.bb218, %sw.bb214, %sw.bb210, %sw.bb206, %sw.bb202, %sw.bb198, %sw.bb194, %sw.bb190, %sw.bb186, %sw.bb182, %sw.bb178, %sw.bb174, %sw.bb170, %sw.bb166, %sw.bb162, %sw.bb158, %sw.bb154, %sw.bb150, %sw.bb146, %sw.bb142, %sw.bb138, %sw.bb134, %sw.bb130, %sw.bb126, %sw.bb122, %sw.bb118, %sw.bb114, %sw.bb110, %sw.bb106, %sw.bb102, %sw.bb98, %sw.bb94, %sw.bb90, %sw.bb86, %sw.bb82, %sw.bb78, %sw.bb74, %sw.bb70, %sw.bb66, %sw.bb62, %sw.bb58, %sw.bb54, %sw.bb50, %sw.bb46, %sw.bb42, %sw.bb38, %sw.bb34, %sw.bb30, %sw.bb26, %sw.bb22, %sw.bb18, %sw.bb14, %sw.bb10, %sw.bb6, %sw.bb
-  %0 = phi ptr [ @_ZTIN7Iex_3_28EpermExcE, %sw.bb ], [ @_ZTIN7Iex_3_29EnoentExcE, %sw.bb6 ], [ @_ZTIN7Iex_3_28EsrchExcE, %sw.bb10 ], [ @_ZTIN7Iex_3_28EintrExcE, %sw.bb14 ], [ @_ZTIN7Iex_3_26EioExcE, %sw.bb18 ], [ @_ZTIN7Iex_3_28EnxioExcE, %sw.bb22 ], [ @_ZTIN7Iex_3_28E2bigExcE, %sw.bb26 ], [ @_ZTIN7Iex_3_210EnoexecExcE, %sw.bb30 ], [ @_ZTIN7Iex_3_28EbadfExcE, %sw.bb34 ], [ @_ZTIN7Iex_3_29EchildExcE, %sw.bb38 ], [ @_ZTIN7Iex_3_29EagainExcE, %sw.bb42 ], [ @_ZTIN7Iex_3_29EnomemExcE, %sw.bb46 ], [ @_ZTIN7Iex_3_29EaccesExcE, %sw.bb50 ], [ @_ZTIN7Iex_3_29EfaultExcE, %sw.bb54 ], [ @_ZTIN7Iex_3_210EnotblkExcE, %sw.bb58 ], [ @_ZTIN7Iex_3_28EbusyExcE, %sw.bb62 ], [ @_ZTIN7Iex_3_29EexistExcE, %sw.bb66 ], [ @_ZTIN7Iex_3_28ExdevExcE, %sw.bb70 ], [ @_ZTIN7Iex_3_29EnodevExcE, %sw.bb74 ], [ @_ZTIN7Iex_3_210EnotdirExcE, %sw.bb78 ], [ @_ZTIN7Iex_3_29EisdirExcE, %sw.bb82 ], [ @_ZTIN7Iex_3_29EinvalExcE, %sw.bb86 ], [ @_ZTIN7Iex_3_29EnfileExcE, %sw.bb90 ], [ @_ZTIN7Iex_3_29EmfileExcE, %sw.bb94 ], [ @_ZTIN7Iex_3_29EnottyExcE, %sw.bb98 ], [ @_ZTIN7Iex_3_210EtxtbsyExcE, %sw.bb102 ], [ @_ZTIN7Iex_3_28EfbigExcE, %sw.bb106 ], [ @_ZTIN7Iex_3_29EnospcExcE, %sw.bb110 ], [ @_ZTIN7Iex_3_29EspipeExcE, %sw.bb114 ], [ @_ZTIN7Iex_3_28ErofsExcE, %sw.bb118 ], [ @_ZTIN7Iex_3_29EmlinkExcE, %sw.bb122 ], [ @_ZTIN7Iex_3_28EpipeExcE, %sw.bb126 ], [ @_ZTIN7Iex_3_27EdomExcE, %sw.bb130 ], [ @_ZTIN7Iex_3_29ErangeExcE, %sw.bb134 ], [ @_ZTIN7Iex_3_29EnomsgExcE, %sw.bb138 ], [ @_ZTIN7Iex_3_28EidrmExcE, %sw.bb142 ], [ @_ZTIN7Iex_3_29EchrngExcE, %sw.bb146 ], [ @_ZTIN7Iex_3_211El2nsyncExcE, %sw.bb150 ], [ @_ZTIN7Iex_3_29El3hltExcE, %sw.bb154 ], [ @_ZTIN7Iex_3_29El3rstExcE, %sw.bb158 ], [ @_ZTIN7Iex_3_29ElnrngExcE, %sw.bb162 ], [ @_ZTIN7Iex_3_210EunatchExcE, %sw.bb166 ], [ @_ZTIN7Iex_3_29EnocsiExcE, %sw.bb170 ], [ @_ZTIN7Iex_3_29El2hltExcE, %sw.bb174 ], [ @_ZTIN7Iex_3_210EdeadlkExcE, %sw.bb178 ], [ @_ZTIN7Iex_3_29EnolckExcE, %sw.bb182 ], [ @_ZTIN7Iex_3_28EbadeExcE, %sw.bb186 ], [ @_ZTIN7Iex_3_28EbadrExcE, %sw.bb190 ], [ @_ZTIN7Iex_3_29ExfullExcE, %sw.bb194 ], [ @_ZTIN7Iex_3_29EnoanoExcE, %sw.bb198 ], [ @_ZTIN7Iex_3_210EbadrqcExcE, %sw.bb202 ], [ @_ZTIN7Iex_3_210EbadsltExcE, %sw.bb206 ], [ @_ZTIN7Iex_3_29EbfontExcE, %sw.bb210 ], [ @_ZTIN7Iex_3_29EnostrExcE, %sw.bb214 ], [ @_ZTIN7Iex_3_210EnodataExcE, %sw.bb218 ], [ @_ZTIN7Iex_3_28EtimeExcE, %sw.bb222 ], [ @_ZTIN7Iex_3_28EnosrExcE, %sw.bb226 ], [ @_ZTIN7Iex_3_29EnonetExcE, %sw.bb230 ], [ @_ZTIN7Iex_3_29EnopkgExcE, %sw.bb234 ], [ @_ZTIN7Iex_3_210EremoteExcE, %sw.bb238 ], [ @_ZTIN7Iex_3_210EnolinkExcE, %sw.bb242 ], [ @_ZTIN7Iex_3_27EadvExcE, %sw.bb246 ], [ @_ZTIN7Iex_3_29EsrmntExcE, %sw.bb250 ], [ @_ZTIN7Iex_3_28EcommExcE, %sw.bb254 ], [ @_ZTIN7Iex_3_29EprotoExcE, %sw.bb258 ], [ @_ZTIN7Iex_3_212EmultihopExcE, %sw.bb262 ], [ @_ZTIN7Iex_3_210EbadmsgExcE, %sw.bb266 ], [ @_ZTIN7Iex_3_215EnametoolongExcE, %sw.bb270 ], [ @_ZTIN7Iex_3_212EoverflowExcE, %sw.bb274 ], [ @_ZTIN7Iex_3_211EnotuniqExcE, %sw.bb278 ], [ @_ZTIN7Iex_3_29EbadfdExcE, %sw.bb282 ], [ @_ZTIN7Iex_3_210EremchgExcE, %sw.bb286 ], [ @_ZTIN7Iex_3_210ElibaccExcE, %sw.bb290 ], [ @_ZTIN7Iex_3_210ElibbadExcE, %sw.bb294 ], [ @_ZTIN7Iex_3_210ElibscnExcE, %sw.bb298 ], [ @_ZTIN7Iex_3_210ElibmaxExcE, %sw.bb302 ], [ @_ZTIN7Iex_3_211ElibexecExcE, %sw.bb306 ], [ @_ZTIN7Iex_3_29EilseqExcE, %sw.bb310 ], [ @_ZTIN7Iex_3_29EnosysExcE, %sw.bb314 ], [ @_ZTIN7Iex_3_28EloopExcE, %sw.bb318 ], [ @_ZTIN7Iex_3_211ErestartExcE, %sw.bb322 ], [ @_ZTIN7Iex_3_211EstrpipeExcE, %sw.bb326 ], [ @_ZTIN7Iex_3_212EnotemptyExcE, %sw.bb330 ], [ @_ZTIN7Iex_3_29EusersExcE, %sw.bb334 ], [ @_ZTIN7Iex_3_211EnotsockExcE, %sw.bb338 ], [ @_ZTIN7Iex_3_215EdestaddrreqExcE, %sw.bb342 ], [ @_ZTIN7Iex_3_211EmsgsizeExcE, %sw.bb346 ], [ @_ZTIN7Iex_3_213EprototypeExcE, %sw.bb350 ], [ @_ZTIN7Iex_3_214EnoprotooptExcE, %sw.bb354 ], [ @_ZTIN7Iex_3_218EprotonosupportExcE, %sw.bb358 ], [ @_ZTIN7Iex_3_218EsocktnosupportExcE, %sw.bb362 ], [ @_ZTIN7Iex_3_213EopnotsuppExcE, %sw.bb366 ], [ @_ZTIN7Iex_3_215EpfnosupportExcE, %sw.bb370 ], [ @_ZTIN7Iex_3_215EafnosupportExcE, %sw.bb374 ], [ @_ZTIN7Iex_3_213EaddrinuseExcE, %sw.bb378 ], [ @_ZTIN7Iex_3_216EaddrnotavailExcE, %sw.bb382 ], [ @_ZTIN7Iex_3_211EnetdownExcE, %sw.bb386 ], [ @_ZTIN7Iex_3_214EnetunreachExcE, %sw.bb390 ], [ @_ZTIN7Iex_3_212EnetresetExcE, %sw.bb394 ], [ @_ZTIN7Iex_3_215EconnabortedExcE, %sw.bb398 ], [ @_ZTIN7Iex_3_213EconnresetExcE, %sw.bb402 ], [ @_ZTIN7Iex_3_210EnobufsExcE, %sw.bb406 ], [ @_ZTIN7Iex_3_210EisconnExcE, %sw.bb410 ], [ @_ZTIN7Iex_3_211EnotconnExcE, %sw.bb414 ], [ @_ZTIN7Iex_3_212EshutdownExcE, %sw.bb418 ], [ @_ZTIN7Iex_3_215EtoomanyrefsExcE, %sw.bb422 ], [ @_ZTIN7Iex_3_212EtimedoutExcE, %sw.bb426 ], [ @_ZTIN7Iex_3_215EconnrefusedExcE, %sw.bb430 ], [ @_ZTIN7Iex_3_212EhostdownExcE, %sw.bb434 ], [ @_ZTIN7Iex_3_215EhostunreachExcE, %sw.bb438 ], [ @_ZTIN7Iex_3_211EalreadyExcE, %sw.bb442 ], [ @_ZTIN7Iex_3_214EinprogressExcE, %sw.bb446 ], [ @_ZTIN7Iex_3_29EstaleExcE, %sw.bb450 ], [ @_ZTIN7Iex_3_210EucleanExcE, %sw.bb454 ], [ @_ZTIN7Iex_3_210EnotnamExcE, %sw.bb458 ], [ @_ZTIN7Iex_3_210EnavailExcE, %sw.bb462 ], [ @_ZTIN7Iex_3_29EisnamExcE, %sw.bb466 ], [ @_ZTIN7Iex_3_212EremoteioExcE, %sw.bb470 ], [ @_ZTIN7Iex_3_212EcanceledExcE, %sw.bb474 ], [ @_ZTIN7Iex_3_29EdquotExcE, %sw.bb478 ], [ @_ZTIN7Iex_3_28ErrnoExcE, %sw.epilog ]
-  %1 = phi ptr [ @_ZN7Iex_3_28EpermExcD1Ev, %sw.bb ], [ @_ZN7Iex_3_29EnoentExcD1Ev, %sw.bb6 ], [ @_ZN7Iex_3_28EsrchExcD1Ev, %sw.bb10 ], [ @_ZN7Iex_3_28EintrExcD1Ev, %sw.bb14 ], [ @_ZN7Iex_3_26EioExcD1Ev, %sw.bb18 ], [ @_ZN7Iex_3_28EnxioExcD1Ev, %sw.bb22 ], [ @_ZN7Iex_3_28E2bigExcD1Ev, %sw.bb26 ], [ @_ZN7Iex_3_210EnoexecExcD1Ev, %sw.bb30 ], [ @_ZN7Iex_3_28EbadfExcD1Ev, %sw.bb34 ], [ @_ZN7Iex_3_29EchildExcD1Ev, %sw.bb38 ], [ @_ZN7Iex_3_29EagainExcD1Ev, %sw.bb42 ], [ @_ZN7Iex_3_29EnomemExcD1Ev, %sw.bb46 ], [ @_ZN7Iex_3_29EaccesExcD1Ev, %sw.bb50 ], [ @_ZN7Iex_3_29EfaultExcD1Ev, %sw.bb54 ], [ @_ZN7Iex_3_210EnotblkExcD1Ev, %sw.bb58 ], [ @_ZN7Iex_3_28EbusyExcD1Ev, %sw.bb62 ], [ @_ZN7Iex_3_29EexistExcD1Ev, %sw.bb66 ], [ @_ZN7Iex_3_28ExdevExcD1Ev, %sw.bb70 ], [ @_ZN7Iex_3_29EnodevExcD1Ev, %sw.bb74 ], [ @_ZN7Iex_3_210EnotdirExcD1Ev, %sw.bb78 ], [ @_ZN7Iex_3_29EisdirExcD1Ev, %sw.bb82 ], [ @_ZN7Iex_3_29EinvalExcD1Ev, %sw.bb86 ], [ @_ZN7Iex_3_29EnfileExcD1Ev, %sw.bb90 ], [ @_ZN7Iex_3_29EmfileExcD1Ev, %sw.bb94 ], [ @_ZN7Iex_3_29EnottyExcD1Ev, %sw.bb98 ], [ @_ZN7Iex_3_210EtxtbsyExcD1Ev, %sw.bb102 ], [ @_ZN7Iex_3_28EfbigExcD1Ev, %sw.bb106 ], [ @_ZN7Iex_3_29EnospcExcD1Ev, %sw.bb110 ], [ @_ZN7Iex_3_29EspipeExcD1Ev, %sw.bb114 ], [ @_ZN7Iex_3_28ErofsExcD1Ev, %sw.bb118 ], [ @_ZN7Iex_3_29EmlinkExcD1Ev, %sw.bb122 ], [ @_ZN7Iex_3_28EpipeExcD1Ev, %sw.bb126 ], [ @_ZN7Iex_3_27EdomExcD1Ev, %sw.bb130 ], [ @_ZN7Iex_3_29ErangeExcD1Ev, %sw.bb134 ], [ @_ZN7Iex_3_29EnomsgExcD1Ev, %sw.bb138 ], [ @_ZN7Iex_3_28EidrmExcD1Ev, %sw.bb142 ], [ @_ZN7Iex_3_29EchrngExcD1Ev, %sw.bb146 ], [ @_ZN7Iex_3_211El2nsyncExcD1Ev, %sw.bb150 ], [ @_ZN7Iex_3_29El3hltExcD1Ev, %sw.bb154 ], [ @_ZN7Iex_3_29El3rstExcD1Ev, %sw.bb158 ], [ @_ZN7Iex_3_29ElnrngExcD1Ev, %sw.bb162 ], [ @_ZN7Iex_3_210EunatchExcD1Ev, %sw.bb166 ], [ @_ZN7Iex_3_29EnocsiExcD1Ev, %sw.bb170 ], [ @_ZN7Iex_3_29El2hltExcD1Ev, %sw.bb174 ], [ @_ZN7Iex_3_210EdeadlkExcD1Ev, %sw.bb178 ], [ @_ZN7Iex_3_29EnolckExcD1Ev, %sw.bb182 ], [ @_ZN7Iex_3_28EbadeExcD1Ev, %sw.bb186 ], [ @_ZN7Iex_3_28EbadrExcD1Ev, %sw.bb190 ], [ @_ZN7Iex_3_29ExfullExcD1Ev, %sw.bb194 ], [ @_ZN7Iex_3_29EnoanoExcD1Ev, %sw.bb198 ], [ @_ZN7Iex_3_210EbadrqcExcD1Ev, %sw.bb202 ], [ @_ZN7Iex_3_210EbadsltExcD1Ev, %sw.bb206 ], [ @_ZN7Iex_3_29EbfontExcD1Ev, %sw.bb210 ], [ @_ZN7Iex_3_29EnostrExcD1Ev, %sw.bb214 ], [ @_ZN7Iex_3_210EnodataExcD1Ev, %sw.bb218 ], [ @_ZN7Iex_3_28EtimeExcD1Ev, %sw.bb222 ], [ @_ZN7Iex_3_28EnosrExcD1Ev, %sw.bb226 ], [ @_ZN7Iex_3_29EnonetExcD1Ev, %sw.bb230 ], [ @_ZN7Iex_3_29EnopkgExcD1Ev, %sw.bb234 ], [ @_ZN7Iex_3_210EremoteExcD1Ev, %sw.bb238 ], [ @_ZN7Iex_3_210EnolinkExcD1Ev, %sw.bb242 ], [ @_ZN7Iex_3_27EadvExcD1Ev, %sw.bb246 ], [ @_ZN7Iex_3_29EsrmntExcD1Ev, %sw.bb250 ], [ @_ZN7Iex_3_28EcommExcD1Ev, %sw.bb254 ], [ @_ZN7Iex_3_29EprotoExcD1Ev, %sw.bb258 ], [ @_ZN7Iex_3_212EmultihopExcD1Ev, %sw.bb262 ], [ @_ZN7Iex_3_210EbadmsgExcD1Ev, %sw.bb266 ], [ @_ZN7Iex_3_215EnametoolongExcD1Ev, %sw.bb270 ], [ @_ZN7Iex_3_212EoverflowExcD1Ev, %sw.bb274 ], [ @_ZN7Iex_3_211EnotuniqExcD1Ev, %sw.bb278 ], [ @_ZN7Iex_3_29EbadfdExcD1Ev, %sw.bb282 ], [ @_ZN7Iex_3_210EremchgExcD1Ev, %sw.bb286 ], [ @_ZN7Iex_3_210ElibaccExcD1Ev, %sw.bb290 ], [ @_ZN7Iex_3_210ElibbadExcD1Ev, %sw.bb294 ], [ @_ZN7Iex_3_210ElibscnExcD1Ev, %sw.bb298 ], [ @_ZN7Iex_3_210ElibmaxExcD1Ev, %sw.bb302 ], [ @_ZN7Iex_3_211ElibexecExcD1Ev, %sw.bb306 ], [ @_ZN7Iex_3_29EilseqExcD1Ev, %sw.bb310 ], [ @_ZN7Iex_3_29EnosysExcD1Ev, %sw.bb314 ], [ @_ZN7Iex_3_28EloopExcD1Ev, %sw.bb318 ], [ @_ZN7Iex_3_211ErestartExcD1Ev, %sw.bb322 ], [ @_ZN7Iex_3_211EstrpipeExcD1Ev, %sw.bb326 ], [ @_ZN7Iex_3_212EnotemptyExcD1Ev, %sw.bb330 ], [ @_ZN7Iex_3_29EusersExcD1Ev, %sw.bb334 ], [ @_ZN7Iex_3_211EnotsockExcD1Ev, %sw.bb338 ], [ @_ZN7Iex_3_215EdestaddrreqExcD1Ev, %sw.bb342 ], [ @_ZN7Iex_3_211EmsgsizeExcD1Ev, %sw.bb346 ], [ @_ZN7Iex_3_213EprototypeExcD1Ev, %sw.bb350 ], [ @_ZN7Iex_3_214EnoprotooptExcD1Ev, %sw.bb354 ], [ @_ZN7Iex_3_218EprotonosupportExcD1Ev, %sw.bb358 ], [ @_ZN7Iex_3_218EsocktnosupportExcD1Ev, %sw.bb362 ], [ @_ZN7Iex_3_213EopnotsuppExcD1Ev, %sw.bb366 ], [ @_ZN7Iex_3_215EpfnosupportExcD1Ev, %sw.bb370 ], [ @_ZN7Iex_3_215EafnosupportExcD1Ev, %sw.bb374 ], [ @_ZN7Iex_3_213EaddrinuseExcD1Ev, %sw.bb378 ], [ @_ZN7Iex_3_216EaddrnotavailExcD1Ev, %sw.bb382 ], [ @_ZN7Iex_3_211EnetdownExcD1Ev, %sw.bb386 ], [ @_ZN7Iex_3_214EnetunreachExcD1Ev, %sw.bb390 ], [ @_ZN7Iex_3_212EnetresetExcD1Ev, %sw.bb394 ], [ @_ZN7Iex_3_215EconnabortedExcD1Ev, %sw.bb398 ], [ @_ZN7Iex_3_213EconnresetExcD1Ev, %sw.bb402 ], [ @_ZN7Iex_3_210EnobufsExcD1Ev, %sw.bb406 ], [ @_ZN7Iex_3_210EisconnExcD1Ev, %sw.bb410 ], [ @_ZN7Iex_3_211EnotconnExcD1Ev, %sw.bb414 ], [ @_ZN7Iex_3_212EshutdownExcD1Ev, %sw.bb418 ], [ @_ZN7Iex_3_215EtoomanyrefsExcD1Ev, %sw.bb422 ], [ @_ZN7Iex_3_212EtimedoutExcD1Ev, %sw.bb426 ], [ @_ZN7Iex_3_215EconnrefusedExcD1Ev, %sw.bb430 ], [ @_ZN7Iex_3_212EhostdownExcD1Ev, %sw.bb434 ], [ @_ZN7Iex_3_215EhostunreachExcD1Ev, %sw.bb438 ], [ @_ZN7Iex_3_211EalreadyExcD1Ev, %sw.bb442 ], [ @_ZN7Iex_3_214EinprogressExcD1Ev, %sw.bb446 ], [ @_ZN7Iex_3_29EstaleExcD1Ev, %sw.bb450 ], [ @_ZN7Iex_3_210EucleanExcD1Ev, %sw.bb454 ], [ @_ZN7Iex_3_210EnotnamExcD1Ev, %sw.bb458 ], [ @_ZN7Iex_3_210EnavailExcD1Ev, %sw.bb462 ], [ @_ZN7Iex_3_29EisnamExcD1Ev, %sw.bb466 ], [ @_ZN7Iex_3_212EremoteioExcD1Ev, %sw.bb470 ], [ @_ZN7Iex_3_212EcanceledExcD1Ev, %sw.bb474 ], [ @_ZN7Iex_3_29EdquotExcD1Ev, %sw.bb478 ], [ @_ZN7Iex_3_28ErrnoExcD1Ev, %sw.epilog ]
-  invoke void @__cxa_throw(ptr nonnull %exception482, ptr nonnull %0, ptr nonnull %1) #12
-          to label %invoke.cont5.cont unwind label %lpad.loopexit.split-lp
+16:                                               ; preds = %._crit_edge.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %7, i64 %9, i1 false)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
 
-invoke.cont5.cont:                                ; preds = %invoke.cont5.invoke
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %._crit_edge.i.i, %14, %16
+  %17 = load i64, ptr %3, align 8, !tbaa !13
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %17, ptr %18, align 8, !tbaa !12
+  %19 = load ptr, ptr %4, align 8, !tbaa !9
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %17
+  store i8 0, ptr %20, align 1, !tbaa !14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm.exit
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
+  %21 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 2) #12
+  %.not = icmp eq i64 %21, -1
+  br i1 %.not, label %29, label %22
+
+22:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm.exit
+  %23 = load i64, ptr %18, align 8, !tbaa !12
+  %24 = icmp ugt i64 %21, %23
+  br i1 %24, label %25, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i
+
+25:                                               ; preds = %22
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i64 noundef %21, i64 noundef %23) #13
+          to label %.noexc unwind label %.loopexit.split-lp
+
+.noexc:                                           ; preds = %25
   unreachable
 
-lpad4:                                            ; preds = %sw.bb
-  %2 = landingpad { ptr, i32 }
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i: ; preds = %22
+  %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #14
+  %27 = sub nuw i64 %23, %21
+  %spec.select.i.i = call noundef i64 @llvm.umin.i64(i64 %27, i64 2)
+  %28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %21, i64 noundef %spec.select.i.i, ptr noundef nonnull %5, i64 noundef %26)
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm.exit unwind label %.loopexit
+
+.loopexit:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i
+  %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  br label %396
 
-sw.bb6:                                           ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EnoentExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad8
-
-lpad8:                                            ; preds = %sw.bb6
-  %3 = landingpad { ptr, i32 }
+.loopexit.split-lp:                               ; preds = %.invoke, %25
+  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb10:                                          ; preds = %while.end
-  invoke void @_ZN7Iex_3_28EsrchExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad12
-
-lpad12:                                           ; preds = %sw.bb10
-  %4 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb14:                                          ; preds = %while.end
-  invoke void @_ZN7Iex_3_28EintrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad16
-
-lpad16:                                           ; preds = %sw.bb14
-  %5 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb18:                                          ; preds = %while.end
-  invoke void @_ZN7Iex_3_26EioExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad20
-
-lpad20:                                           ; preds = %sw.bb18
-  %6 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb22:                                          ; preds = %while.end
-  invoke void @_ZN7Iex_3_28EnxioExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad24
-
-lpad24:                                           ; preds = %sw.bb22
-  %7 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb26:                                          ; preds = %while.end
-  invoke void @_ZN7Iex_3_28E2bigExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad28
-
-lpad28:                                           ; preds = %sw.bb26
-  %8 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb30:                                          ; preds = %while.end
-  invoke void @_ZN7Iex_3_210EnoexecExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad32
-
-lpad32:                                           ; preds = %sw.bb30
-  %9 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb34:                                          ; preds = %while.end
-  invoke void @_ZN7Iex_3_28EbadfExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad36
-
-lpad36:                                           ; preds = %sw.bb34
-  %10 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb38:                                          ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EchildExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad40
-
-lpad40:                                           ; preds = %sw.bb38
-  %11 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb42:                                          ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EagainExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad44
-
-lpad44:                                           ; preds = %sw.bb42
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb46:                                          ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EnomemExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad48
-
-lpad48:                                           ; preds = %sw.bb46
-  %13 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb50:                                          ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EaccesExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad52
-
-lpad52:                                           ; preds = %sw.bb50
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb54:                                          ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EfaultExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad56
-
-lpad56:                                           ; preds = %sw.bb54
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb58:                                          ; preds = %while.end
-  invoke void @_ZN7Iex_3_210EnotblkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad60
-
-lpad60:                                           ; preds = %sw.bb58
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb62:                                          ; preds = %while.end
-  invoke void @_ZN7Iex_3_28EbusyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad64
-
-lpad64:                                           ; preds = %sw.bb62
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb66:                                          ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EexistExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad68
-
-lpad68:                                           ; preds = %sw.bb66
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb70:                                          ; preds = %while.end
-  invoke void @_ZN7Iex_3_28ExdevExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad72
-
-lpad72:                                           ; preds = %sw.bb70
-  %19 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb74:                                          ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EnodevExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad76
-
-lpad76:                                           ; preds = %sw.bb74
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb78:                                          ; preds = %while.end
-  invoke void @_ZN7Iex_3_210EnotdirExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad80
-
-lpad80:                                           ; preds = %sw.bb78
-  %21 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb82:                                          ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EisdirExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad84
-
-lpad84:                                           ; preds = %sw.bb82
-  %22 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb86:                                          ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EinvalExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad88
-
-lpad88:                                           ; preds = %sw.bb86
-  %23 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb90:                                          ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EnfileExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad92
-
-lpad92:                                           ; preds = %sw.bb90
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb94:                                          ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EmfileExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad96
-
-lpad96:                                           ; preds = %sw.bb94
-  %25 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb98:                                          ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EnottyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad100
-
-lpad100:                                          ; preds = %sw.bb98
-  %26 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb102:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_210EtxtbsyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad104
-
-lpad104:                                          ; preds = %sw.bb102
-  %27 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb106:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_28EfbigExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad108
-
-lpad108:                                          ; preds = %sw.bb106
-  %28 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb110:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EnospcExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad112
-
-lpad112:                                          ; preds = %sw.bb110
-  %29 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb114:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EspipeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad116
-
-lpad116:                                          ; preds = %sw.bb114
-  %30 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb118:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_28ErofsExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad120
-
-lpad120:                                          ; preds = %sw.bb118
-  %31 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb122:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EmlinkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad124
-
-lpad124:                                          ; preds = %sw.bb122
-  %32 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb126:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_28EpipeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad128
-
-lpad128:                                          ; preds = %sw.bb126
-  %33 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb130:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_27EdomExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad132
-
-lpad132:                                          ; preds = %sw.bb130
-  %34 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb134:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_29ErangeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad136
-
-lpad136:                                          ; preds = %sw.bb134
+  br label %396
+
+29:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm.exit
+  %30 = call ptr @__cxa_allocate_exception(i64 72) #12
+  switch i32 %1, label %393 [
+    i32 1, label %31
+    i32 2, label %36
+    i32 3, label %39
+    i32 4, label %42
+    i32 5, label %45
+    i32 6, label %48
+    i32 7, label %51
+    i32 8, label %54
+    i32 9, label %57
+    i32 10, label %60
+    i32 11, label %63
+    i32 12, label %66
+    i32 13, label %69
+    i32 14, label %72
+    i32 15, label %75
+    i32 16, label %78
+    i32 17, label %81
+    i32 18, label %84
+    i32 19, label %87
+    i32 20, label %90
+    i32 21, label %93
+    i32 22, label %96
+    i32 23, label %99
+    i32 24, label %102
+    i32 25, label %105
+    i32 26, label %108
+    i32 27, label %111
+    i32 28, label %114
+    i32 29, label %117
+    i32 30, label %120
+    i32 31, label %123
+    i32 32, label %126
+    i32 33, label %129
+    i32 34, label %132
+    i32 42, label %135
+    i32 43, label %138
+    i32 44, label %141
+    i32 45, label %144
+    i32 46, label %147
+    i32 47, label %150
+    i32 48, label %153
+    i32 49, label %156
+    i32 50, label %159
+    i32 51, label %162
+    i32 35, label %165
+    i32 37, label %168
+    i32 52, label %171
+    i32 53, label %174
+    i32 54, label %177
+    i32 55, label %180
+    i32 56, label %183
+    i32 57, label %186
+    i32 59, label %189
+    i32 60, label %192
+    i32 61, label %195
+    i32 62, label %198
+    i32 63, label %201
+    i32 64, label %204
+    i32 65, label %207
+    i32 66, label %210
+    i32 67, label %213
+    i32 68, label %216
+    i32 69, label %219
+    i32 70, label %222
+    i32 71, label %225
+    i32 72, label %228
+    i32 74, label %231
+    i32 36, label %234
+    i32 75, label %237
+    i32 76, label %240
+    i32 77, label %243
+    i32 78, label %246
+    i32 79, label %249
+    i32 80, label %252
+    i32 81, label %255
+    i32 82, label %258
+    i32 83, label %261
+    i32 84, label %264
+    i32 38, label %267
+    i32 40, label %270
+    i32 85, label %273
+    i32 86, label %276
+    i32 39, label %279
+    i32 87, label %282
+    i32 88, label %285
+    i32 89, label %288
+    i32 90, label %291
+    i32 91, label %294
+    i32 92, label %297
+    i32 93, label %300
+    i32 94, label %303
+    i32 95, label %306
+    i32 96, label %309
+    i32 97, label %312
+    i32 98, label %315
+    i32 99, label %318
+    i32 100, label %321
+    i32 101, label %324
+    i32 102, label %327
+    i32 103, label %330
+    i32 104, label %333
+    i32 105, label %336
+    i32 106, label %339
+    i32 107, label %342
+    i32 108, label %345
+    i32 109, label %348
+    i32 110, label %351
+    i32 111, label %354
+    i32 112, label %357
+    i32 113, label %360
+    i32 114, label %363
+    i32 115, label %366
+    i32 116, label %369
+    i32 117, label %372
+    i32 118, label %375
+    i32 119, label %378
+    i32 120, label %381
+    i32 121, label %384
+    i32 125, label %387
+    i32 122, label %390
+  ]
+
+31:                                               ; preds = %29
+  invoke void @_ZN7Iex_3_48EpermExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %34
+
+.invoke:                                          ; preds = %393, %390, %387, %384, %381, %378, %375, %372, %369, %366, %363, %360, %357, %354, %351, %348, %345, %342, %339, %336, %333, %330, %327, %324, %321, %318, %315, %312, %309, %306, %303, %300, %297, %294, %291, %288, %285, %282, %279, %276, %273, %270, %267, %264, %261, %258, %255, %252, %249, %246, %243, %240, %237, %234, %231, %228, %225, %222, %219, %216, %213, %210, %207, %204, %201, %198, %195, %192, %189, %186, %183, %180, %177, %174, %171, %168, %165, %162, %159, %156, %153, %150, %147, %144, %141, %138, %135, %132, %129, %126, %123, %120, %117, %114, %111, %108, %105, %102, %99, %96, %93, %90, %87, %84, %81, %78, %75, %72, %69, %66, %63, %60, %57, %54, %51, %48, %45, %42, %39, %36, %31
+  %32 = phi ptr [ @_ZTIN7Iex_3_48EpermExcE, %31 ], [ @_ZTIN7Iex_3_49EnoentExcE, %36 ], [ @_ZTIN7Iex_3_48EsrchExcE, %39 ], [ @_ZTIN7Iex_3_48EintrExcE, %42 ], [ @_ZTIN7Iex_3_46EioExcE, %45 ], [ @_ZTIN7Iex_3_48EnxioExcE, %48 ], [ @_ZTIN7Iex_3_48E2bigExcE, %51 ], [ @_ZTIN7Iex_3_410EnoexecExcE, %54 ], [ @_ZTIN7Iex_3_48EbadfExcE, %57 ], [ @_ZTIN7Iex_3_49EchildExcE, %60 ], [ @_ZTIN7Iex_3_49EagainExcE, %63 ], [ @_ZTIN7Iex_3_49EnomemExcE, %66 ], [ @_ZTIN7Iex_3_49EaccesExcE, %69 ], [ @_ZTIN7Iex_3_49EfaultExcE, %72 ], [ @_ZTIN7Iex_3_410EnotblkExcE, %75 ], [ @_ZTIN7Iex_3_48EbusyExcE, %78 ], [ @_ZTIN7Iex_3_49EexistExcE, %81 ], [ @_ZTIN7Iex_3_48ExdevExcE, %84 ], [ @_ZTIN7Iex_3_49EnodevExcE, %87 ], [ @_ZTIN7Iex_3_410EnotdirExcE, %90 ], [ @_ZTIN7Iex_3_49EisdirExcE, %93 ], [ @_ZTIN7Iex_3_49EinvalExcE, %96 ], [ @_ZTIN7Iex_3_49EnfileExcE, %99 ], [ @_ZTIN7Iex_3_49EmfileExcE, %102 ], [ @_ZTIN7Iex_3_49EnottyExcE, %105 ], [ @_ZTIN7Iex_3_410EtxtbsyExcE, %108 ], [ @_ZTIN7Iex_3_48EfbigExcE, %111 ], [ @_ZTIN7Iex_3_49EnospcExcE, %114 ], [ @_ZTIN7Iex_3_49EspipeExcE, %117 ], [ @_ZTIN7Iex_3_48ErofsExcE, %120 ], [ @_ZTIN7Iex_3_49EmlinkExcE, %123 ], [ @_ZTIN7Iex_3_48EpipeExcE, %126 ], [ @_ZTIN7Iex_3_47EdomExcE, %129 ], [ @_ZTIN7Iex_3_49ErangeExcE, %132 ], [ @_ZTIN7Iex_3_49EnomsgExcE, %135 ], [ @_ZTIN7Iex_3_48EidrmExcE, %138 ], [ @_ZTIN7Iex_3_49EchrngExcE, %141 ], [ @_ZTIN7Iex_3_411El2nsyncExcE, %144 ], [ @_ZTIN7Iex_3_49El3hltExcE, %147 ], [ @_ZTIN7Iex_3_49El3rstExcE, %150 ], [ @_ZTIN7Iex_3_49ElnrngExcE, %153 ], [ @_ZTIN7Iex_3_410EunatchExcE, %156 ], [ @_ZTIN7Iex_3_49EnocsiExcE, %159 ], [ @_ZTIN7Iex_3_49El2hltExcE, %162 ], [ @_ZTIN7Iex_3_410EdeadlkExcE, %165 ], [ @_ZTIN7Iex_3_49EnolckExcE, %168 ], [ @_ZTIN7Iex_3_48EbadeExcE, %171 ], [ @_ZTIN7Iex_3_48EbadrExcE, %174 ], [ @_ZTIN7Iex_3_49ExfullExcE, %177 ], [ @_ZTIN7Iex_3_49EnoanoExcE, %180 ], [ @_ZTIN7Iex_3_410EbadrqcExcE, %183 ], [ @_ZTIN7Iex_3_410EbadsltExcE, %186 ], [ @_ZTIN7Iex_3_49EbfontExcE, %189 ], [ @_ZTIN7Iex_3_49EnostrExcE, %192 ], [ @_ZTIN7Iex_3_410EnodataExcE, %195 ], [ @_ZTIN7Iex_3_48EtimeExcE, %198 ], [ @_ZTIN7Iex_3_48EnosrExcE, %201 ], [ @_ZTIN7Iex_3_49EnonetExcE, %204 ], [ @_ZTIN7Iex_3_49EnopkgExcE, %207 ], [ @_ZTIN7Iex_3_410EremoteExcE, %210 ], [ @_ZTIN7Iex_3_410EnolinkExcE, %213 ], [ @_ZTIN7Iex_3_47EadvExcE, %216 ], [ @_ZTIN7Iex_3_49EsrmntExcE, %219 ], [ @_ZTIN7Iex_3_48EcommExcE, %222 ], [ @_ZTIN7Iex_3_49EprotoExcE, %225 ], [ @_ZTIN7Iex_3_412EmultihopExcE, %228 ], [ @_ZTIN7Iex_3_410EbadmsgExcE, %231 ], [ @_ZTIN7Iex_3_415EnametoolongExcE, %234 ], [ @_ZTIN7Iex_3_412EoverflowExcE, %237 ], [ @_ZTIN7Iex_3_411EnotuniqExcE, %240 ], [ @_ZTIN7Iex_3_49EbadfdExcE, %243 ], [ @_ZTIN7Iex_3_410EremchgExcE, %246 ], [ @_ZTIN7Iex_3_410ElibaccExcE, %249 ], [ @_ZTIN7Iex_3_410ElibbadExcE, %252 ], [ @_ZTIN7Iex_3_410ElibscnExcE, %255 ], [ @_ZTIN7Iex_3_410ElibmaxExcE, %258 ], [ @_ZTIN7Iex_3_411ElibexecExcE, %261 ], [ @_ZTIN7Iex_3_49EilseqExcE, %264 ], [ @_ZTIN7Iex_3_49EnosysExcE, %267 ], [ @_ZTIN7Iex_3_48EloopExcE, %270 ], [ @_ZTIN7Iex_3_411ErestartExcE, %273 ], [ @_ZTIN7Iex_3_411EstrpipeExcE, %276 ], [ @_ZTIN7Iex_3_412EnotemptyExcE, %279 ], [ @_ZTIN7Iex_3_49EusersExcE, %282 ], [ @_ZTIN7Iex_3_411EnotsockExcE, %285 ], [ @_ZTIN7Iex_3_415EdestaddrreqExcE, %288 ], [ @_ZTIN7Iex_3_411EmsgsizeExcE, %291 ], [ @_ZTIN7Iex_3_413EprototypeExcE, %294 ], [ @_ZTIN7Iex_3_414EnoprotooptExcE, %297 ], [ @_ZTIN7Iex_3_418EprotonosupportExcE, %300 ], [ @_ZTIN7Iex_3_418EsocktnosupportExcE, %303 ], [ @_ZTIN7Iex_3_413EopnotsuppExcE, %306 ], [ @_ZTIN7Iex_3_415EpfnosupportExcE, %309 ], [ @_ZTIN7Iex_3_415EafnosupportExcE, %312 ], [ @_ZTIN7Iex_3_413EaddrinuseExcE, %315 ], [ @_ZTIN7Iex_3_416EaddrnotavailExcE, %318 ], [ @_ZTIN7Iex_3_411EnetdownExcE, %321 ], [ @_ZTIN7Iex_3_414EnetunreachExcE, %324 ], [ @_ZTIN7Iex_3_412EnetresetExcE, %327 ], [ @_ZTIN7Iex_3_415EconnabortedExcE, %330 ], [ @_ZTIN7Iex_3_413EconnresetExcE, %333 ], [ @_ZTIN7Iex_3_410EnobufsExcE, %336 ], [ @_ZTIN7Iex_3_410EisconnExcE, %339 ], [ @_ZTIN7Iex_3_411EnotconnExcE, %342 ], [ @_ZTIN7Iex_3_412EshutdownExcE, %345 ], [ @_ZTIN7Iex_3_415EtoomanyrefsExcE, %348 ], [ @_ZTIN7Iex_3_412EtimedoutExcE, %351 ], [ @_ZTIN7Iex_3_415EconnrefusedExcE, %354 ], [ @_ZTIN7Iex_3_412EhostdownExcE, %357 ], [ @_ZTIN7Iex_3_415EhostunreachExcE, %360 ], [ @_ZTIN7Iex_3_411EalreadyExcE, %363 ], [ @_ZTIN7Iex_3_414EinprogressExcE, %366 ], [ @_ZTIN7Iex_3_49EstaleExcE, %369 ], [ @_ZTIN7Iex_3_410EucleanExcE, %372 ], [ @_ZTIN7Iex_3_410EnotnamExcE, %375 ], [ @_ZTIN7Iex_3_410EnavailExcE, %378 ], [ @_ZTIN7Iex_3_49EisnamExcE, %381 ], [ @_ZTIN7Iex_3_412EremoteioExcE, %384 ], [ @_ZTIN7Iex_3_412EcanceledExcE, %387 ], [ @_ZTIN7Iex_3_49EdquotExcE, %390 ], [ @_ZTIN7Iex_3_48ErrnoExcE, %393 ]
+  %33 = phi ptr [ @_ZN7Iex_3_48EpermExcD1Ev, %31 ], [ @_ZN7Iex_3_49EnoentExcD1Ev, %36 ], [ @_ZN7Iex_3_48EsrchExcD1Ev, %39 ], [ @_ZN7Iex_3_48EintrExcD1Ev, %42 ], [ @_ZN7Iex_3_46EioExcD1Ev, %45 ], [ @_ZN7Iex_3_48EnxioExcD1Ev, %48 ], [ @_ZN7Iex_3_48E2bigExcD1Ev, %51 ], [ @_ZN7Iex_3_410EnoexecExcD1Ev, %54 ], [ @_ZN7Iex_3_48EbadfExcD1Ev, %57 ], [ @_ZN7Iex_3_49EchildExcD1Ev, %60 ], [ @_ZN7Iex_3_49EagainExcD1Ev, %63 ], [ @_ZN7Iex_3_49EnomemExcD1Ev, %66 ], [ @_ZN7Iex_3_49EaccesExcD1Ev, %69 ], [ @_ZN7Iex_3_49EfaultExcD1Ev, %72 ], [ @_ZN7Iex_3_410EnotblkExcD1Ev, %75 ], [ @_ZN7Iex_3_48EbusyExcD1Ev, %78 ], [ @_ZN7Iex_3_49EexistExcD1Ev, %81 ], [ @_ZN7Iex_3_48ExdevExcD1Ev, %84 ], [ @_ZN7Iex_3_49EnodevExcD1Ev, %87 ], [ @_ZN7Iex_3_410EnotdirExcD1Ev, %90 ], [ @_ZN7Iex_3_49EisdirExcD1Ev, %93 ], [ @_ZN7Iex_3_49EinvalExcD1Ev, %96 ], [ @_ZN7Iex_3_49EnfileExcD1Ev, %99 ], [ @_ZN7Iex_3_49EmfileExcD1Ev, %102 ], [ @_ZN7Iex_3_49EnottyExcD1Ev, %105 ], [ @_ZN7Iex_3_410EtxtbsyExcD1Ev, %108 ], [ @_ZN7Iex_3_48EfbigExcD1Ev, %111 ], [ @_ZN7Iex_3_49EnospcExcD1Ev, %114 ], [ @_ZN7Iex_3_49EspipeExcD1Ev, %117 ], [ @_ZN7Iex_3_48ErofsExcD1Ev, %120 ], [ @_ZN7Iex_3_49EmlinkExcD1Ev, %123 ], [ @_ZN7Iex_3_48EpipeExcD1Ev, %126 ], [ @_ZN7Iex_3_47EdomExcD1Ev, %129 ], [ @_ZN7Iex_3_49ErangeExcD1Ev, %132 ], [ @_ZN7Iex_3_49EnomsgExcD1Ev, %135 ], [ @_ZN7Iex_3_48EidrmExcD1Ev, %138 ], [ @_ZN7Iex_3_49EchrngExcD1Ev, %141 ], [ @_ZN7Iex_3_411El2nsyncExcD1Ev, %144 ], [ @_ZN7Iex_3_49El3hltExcD1Ev, %147 ], [ @_ZN7Iex_3_49El3rstExcD1Ev, %150 ], [ @_ZN7Iex_3_49ElnrngExcD1Ev, %153 ], [ @_ZN7Iex_3_410EunatchExcD1Ev, %156 ], [ @_ZN7Iex_3_49EnocsiExcD1Ev, %159 ], [ @_ZN7Iex_3_49El2hltExcD1Ev, %162 ], [ @_ZN7Iex_3_410EdeadlkExcD1Ev, %165 ], [ @_ZN7Iex_3_49EnolckExcD1Ev, %168 ], [ @_ZN7Iex_3_48EbadeExcD1Ev, %171 ], [ @_ZN7Iex_3_48EbadrExcD1Ev, %174 ], [ @_ZN7Iex_3_49ExfullExcD1Ev, %177 ], [ @_ZN7Iex_3_49EnoanoExcD1Ev, %180 ], [ @_ZN7Iex_3_410EbadrqcExcD1Ev, %183 ], [ @_ZN7Iex_3_410EbadsltExcD1Ev, %186 ], [ @_ZN7Iex_3_49EbfontExcD1Ev, %189 ], [ @_ZN7Iex_3_49EnostrExcD1Ev, %192 ], [ @_ZN7Iex_3_410EnodataExcD1Ev, %195 ], [ @_ZN7Iex_3_48EtimeExcD1Ev, %198 ], [ @_ZN7Iex_3_48EnosrExcD1Ev, %201 ], [ @_ZN7Iex_3_49EnonetExcD1Ev, %204 ], [ @_ZN7Iex_3_49EnopkgExcD1Ev, %207 ], [ @_ZN7Iex_3_410EremoteExcD1Ev, %210 ], [ @_ZN7Iex_3_410EnolinkExcD1Ev, %213 ], [ @_ZN7Iex_3_47EadvExcD1Ev, %216 ], [ @_ZN7Iex_3_49EsrmntExcD1Ev, %219 ], [ @_ZN7Iex_3_48EcommExcD1Ev, %222 ], [ @_ZN7Iex_3_49EprotoExcD1Ev, %225 ], [ @_ZN7Iex_3_412EmultihopExcD1Ev, %228 ], [ @_ZN7Iex_3_410EbadmsgExcD1Ev, %231 ], [ @_ZN7Iex_3_415EnametoolongExcD1Ev, %234 ], [ @_ZN7Iex_3_412EoverflowExcD1Ev, %237 ], [ @_ZN7Iex_3_411EnotuniqExcD1Ev, %240 ], [ @_ZN7Iex_3_49EbadfdExcD1Ev, %243 ], [ @_ZN7Iex_3_410EremchgExcD1Ev, %246 ], [ @_ZN7Iex_3_410ElibaccExcD1Ev, %249 ], [ @_ZN7Iex_3_410ElibbadExcD1Ev, %252 ], [ @_ZN7Iex_3_410ElibscnExcD1Ev, %255 ], [ @_ZN7Iex_3_410ElibmaxExcD1Ev, %258 ], [ @_ZN7Iex_3_411ElibexecExcD1Ev, %261 ], [ @_ZN7Iex_3_49EilseqExcD1Ev, %264 ], [ @_ZN7Iex_3_49EnosysExcD1Ev, %267 ], [ @_ZN7Iex_3_48EloopExcD1Ev, %270 ], [ @_ZN7Iex_3_411ErestartExcD1Ev, %273 ], [ @_ZN7Iex_3_411EstrpipeExcD1Ev, %276 ], [ @_ZN7Iex_3_412EnotemptyExcD1Ev, %279 ], [ @_ZN7Iex_3_49EusersExcD1Ev, %282 ], [ @_ZN7Iex_3_411EnotsockExcD1Ev, %285 ], [ @_ZN7Iex_3_415EdestaddrreqExcD1Ev, %288 ], [ @_ZN7Iex_3_411EmsgsizeExcD1Ev, %291 ], [ @_ZN7Iex_3_413EprototypeExcD1Ev, %294 ], [ @_ZN7Iex_3_414EnoprotooptExcD1Ev, %297 ], [ @_ZN7Iex_3_418EprotonosupportExcD1Ev, %300 ], [ @_ZN7Iex_3_418EsocktnosupportExcD1Ev, %303 ], [ @_ZN7Iex_3_413EopnotsuppExcD1Ev, %306 ], [ @_ZN7Iex_3_415EpfnosupportExcD1Ev, %309 ], [ @_ZN7Iex_3_415EafnosupportExcD1Ev, %312 ], [ @_ZN7Iex_3_413EaddrinuseExcD1Ev, %315 ], [ @_ZN7Iex_3_416EaddrnotavailExcD1Ev, %318 ], [ @_ZN7Iex_3_411EnetdownExcD1Ev, %321 ], [ @_ZN7Iex_3_414EnetunreachExcD1Ev, %324 ], [ @_ZN7Iex_3_412EnetresetExcD1Ev, %327 ], [ @_ZN7Iex_3_415EconnabortedExcD1Ev, %330 ], [ @_ZN7Iex_3_413EconnresetExcD1Ev, %333 ], [ @_ZN7Iex_3_410EnobufsExcD1Ev, %336 ], [ @_ZN7Iex_3_410EisconnExcD1Ev, %339 ], [ @_ZN7Iex_3_411EnotconnExcD1Ev, %342 ], [ @_ZN7Iex_3_412EshutdownExcD1Ev, %345 ], [ @_ZN7Iex_3_415EtoomanyrefsExcD1Ev, %348 ], [ @_ZN7Iex_3_412EtimedoutExcD1Ev, %351 ], [ @_ZN7Iex_3_415EconnrefusedExcD1Ev, %354 ], [ @_ZN7Iex_3_412EhostdownExcD1Ev, %357 ], [ @_ZN7Iex_3_415EhostunreachExcD1Ev, %360 ], [ @_ZN7Iex_3_411EalreadyExcD1Ev, %363 ], [ @_ZN7Iex_3_414EinprogressExcD1Ev, %366 ], [ @_ZN7Iex_3_49EstaleExcD1Ev, %369 ], [ @_ZN7Iex_3_410EucleanExcD1Ev, %372 ], [ @_ZN7Iex_3_410EnotnamExcD1Ev, %375 ], [ @_ZN7Iex_3_410EnavailExcD1Ev, %378 ], [ @_ZN7Iex_3_49EisnamExcD1Ev, %381 ], [ @_ZN7Iex_3_412EremoteioExcD1Ev, %384 ], [ @_ZN7Iex_3_412EcanceledExcD1Ev, %387 ], [ @_ZN7Iex_3_49EdquotExcD1Ev, %390 ], [ @_ZN7Iex_3_48ErrnoExcD1Ev, %393 ]
+  invoke void @__cxa_throw(ptr nonnull %30, ptr nonnull %32, ptr nonnull %33) #13
+          to label %.cont unwind label %.loopexit.split-lp
+
+.cont:                                            ; preds = %.invoke
+  unreachable
+
+34:                                               ; preds = %31
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
 
-sw.bb138:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EnomsgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad140
+36:                                               ; preds = %29
+  invoke void @_ZN7Iex_3_49EnoentExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %37
 
-lpad140:                                          ; preds = %sw.bb138
-  %36 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb142:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_28EidrmExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad144
-
-lpad144:                                          ; preds = %sw.bb142
-  %37 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb146:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EchrngExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad148
-
-lpad148:                                          ; preds = %sw.bb146
+37:                                               ; preds = %36
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
 
-sw.bb150:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_211El2nsyncExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad152
+39:                                               ; preds = %29
+  invoke void @_ZN7Iex_3_48EsrchExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %40
 
-lpad152:                                          ; preds = %sw.bb150
-  %39 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb154:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_29El3hltExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad156
-
-lpad156:                                          ; preds = %sw.bb154
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb158:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_29El3rstExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad160
-
-lpad160:                                          ; preds = %sw.bb158
+40:                                               ; preds = %39
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
 
-sw.bb162:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_29ElnrngExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad164
+42:                                               ; preds = %29
+  invoke void @_ZN7Iex_3_48EintrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %43
 
-lpad164:                                          ; preds = %sw.bb162
-  %42 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb166:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_210EunatchExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad168
-
-lpad168:                                          ; preds = %sw.bb166
-  %43 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb170:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EnocsiExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad172
-
-lpad172:                                          ; preds = %sw.bb170
+43:                                               ; preds = %42
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
 
-sw.bb174:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_29El2hltExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad176
+45:                                               ; preds = %29
+  invoke void @_ZN7Iex_3_46EioExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %46
 
-lpad176:                                          ; preds = %sw.bb174
-  %45 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb178:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_210EdeadlkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad180
-
-lpad180:                                          ; preds = %sw.bb178
-  %46 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb182:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EnolckExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad184
-
-lpad184:                                          ; preds = %sw.bb182
+46:                                               ; preds = %45
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
 
-sw.bb186:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_28EbadeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad188
+48:                                               ; preds = %29
+  invoke void @_ZN7Iex_3_48EnxioExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %49
 
-lpad188:                                          ; preds = %sw.bb186
-  %48 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb190:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_28EbadrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad192
-
-lpad192:                                          ; preds = %sw.bb190
-  %49 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb194:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_29ExfullExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad196
-
-lpad196:                                          ; preds = %sw.bb194
+49:                                               ; preds = %48
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
 
-sw.bb198:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EnoanoExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad200
+51:                                               ; preds = %29
+  invoke void @_ZN7Iex_3_48E2bigExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %52
 
-lpad200:                                          ; preds = %sw.bb198
-  %51 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb202:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_210EbadrqcExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad204
-
-lpad204:                                          ; preds = %sw.bb202
-  %52 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb206:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_210EbadsltExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad208
-
-lpad208:                                          ; preds = %sw.bb206
+52:                                               ; preds = %51
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
 
-sw.bb210:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EbfontExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad212
+54:                                               ; preds = %29
+  invoke void @_ZN7Iex_3_410EnoexecExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %55
 
-lpad212:                                          ; preds = %sw.bb210
-  %54 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb214:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EnostrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad216
-
-lpad216:                                          ; preds = %sw.bb214
-  %55 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb218:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_210EnodataExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad220
-
-lpad220:                                          ; preds = %sw.bb218
+55:                                               ; preds = %54
   %56 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
 
-sw.bb222:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_28EtimeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad224
+57:                                               ; preds = %29
+  invoke void @_ZN7Iex_3_48EbadfExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %58
 
-lpad224:                                          ; preds = %sw.bb222
-  %57 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb226:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_28EnosrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad228
-
-lpad228:                                          ; preds = %sw.bb226
-  %58 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb230:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EnonetExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad232
-
-lpad232:                                          ; preds = %sw.bb230
+58:                                               ; preds = %57
   %59 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
 
-sw.bb234:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EnopkgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad236
+60:                                               ; preds = %29
+  invoke void @_ZN7Iex_3_49EchildExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %61
 
-lpad236:                                          ; preds = %sw.bb234
-  %60 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb238:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_210EremoteExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad240
-
-lpad240:                                          ; preds = %sw.bb238
-  %61 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb242:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_210EnolinkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad244
-
-lpad244:                                          ; preds = %sw.bb242
+61:                                               ; preds = %60
   %62 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
 
-sw.bb246:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_27EadvExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad248
+63:                                               ; preds = %29
+  invoke void @_ZN7Iex_3_49EagainExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %64
 
-lpad248:                                          ; preds = %sw.bb246
-  %63 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb250:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EsrmntExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad252
-
-lpad252:                                          ; preds = %sw.bb250
-  %64 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb254:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_28EcommExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad256
-
-lpad256:                                          ; preds = %sw.bb254
+64:                                               ; preds = %63
   %65 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
 
-sw.bb258:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EprotoExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad260
+66:                                               ; preds = %29
+  invoke void @_ZN7Iex_3_49EnomemExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %67
 
-lpad260:                                          ; preds = %sw.bb258
-  %66 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb262:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_212EmultihopExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad264
-
-lpad264:                                          ; preds = %sw.bb262
-  %67 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb266:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_210EbadmsgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad268
-
-lpad268:                                          ; preds = %sw.bb266
+67:                                               ; preds = %66
   %68 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
 
-sw.bb270:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_215EnametoolongExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad272
+69:                                               ; preds = %29
+  invoke void @_ZN7Iex_3_49EaccesExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %70
 
-lpad272:                                          ; preds = %sw.bb270
-  %69 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb274:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_212EoverflowExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad276
-
-lpad276:                                          ; preds = %sw.bb274
-  %70 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb278:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_211EnotuniqExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad280
-
-lpad280:                                          ; preds = %sw.bb278
+70:                                               ; preds = %69
   %71 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
 
-sw.bb282:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EbadfdExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad284
+72:                                               ; preds = %29
+  invoke void @_ZN7Iex_3_49EfaultExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %73
 
-lpad284:                                          ; preds = %sw.bb282
-  %72 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb286:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_210EremchgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad288
-
-lpad288:                                          ; preds = %sw.bb286
-  %73 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb290:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_210ElibaccExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad292
-
-lpad292:                                          ; preds = %sw.bb290
+73:                                               ; preds = %72
   %74 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
 
-sw.bb294:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_210ElibbadExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad296
+75:                                               ; preds = %29
+  invoke void @_ZN7Iex_3_410EnotblkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %76
 
-lpad296:                                          ; preds = %sw.bb294
-  %75 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb298:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_210ElibscnExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad300
-
-lpad300:                                          ; preds = %sw.bb298
-  %76 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb302:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_210ElibmaxExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad304
-
-lpad304:                                          ; preds = %sw.bb302
+76:                                               ; preds = %75
   %77 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
 
-sw.bb306:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_211ElibexecExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad308
+78:                                               ; preds = %29
+  invoke void @_ZN7Iex_3_48EbusyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %79
 
-lpad308:                                          ; preds = %sw.bb306
-  %78 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb310:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EilseqExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad312
-
-lpad312:                                          ; preds = %sw.bb310
-  %79 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb314:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EnosysExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad316
-
-lpad316:                                          ; preds = %sw.bb314
+79:                                               ; preds = %78
   %80 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
 
-sw.bb318:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_28EloopExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad320
+81:                                               ; preds = %29
+  invoke void @_ZN7Iex_3_49EexistExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %82
 
-lpad320:                                          ; preds = %sw.bb318
-  %81 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb322:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_211ErestartExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad324
-
-lpad324:                                          ; preds = %sw.bb322
-  %82 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb326:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_211EstrpipeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad328
-
-lpad328:                                          ; preds = %sw.bb326
+82:                                               ; preds = %81
   %83 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
 
-sw.bb330:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_212EnotemptyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad332
+84:                                               ; preds = %29
+  invoke void @_ZN7Iex_3_48ExdevExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %85
 
-lpad332:                                          ; preds = %sw.bb330
-  %84 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb334:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EusersExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad336
-
-lpad336:                                          ; preds = %sw.bb334
-  %85 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb338:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_211EnotsockExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad340
-
-lpad340:                                          ; preds = %sw.bb338
+85:                                               ; preds = %84
   %86 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
 
-sw.bb342:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_215EdestaddrreqExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad344
+87:                                               ; preds = %29
+  invoke void @_ZN7Iex_3_49EnodevExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %88
 
-lpad344:                                          ; preds = %sw.bb342
-  %87 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb346:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_211EmsgsizeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad348
-
-lpad348:                                          ; preds = %sw.bb346
-  %88 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb350:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_213EprototypeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad352
-
-lpad352:                                          ; preds = %sw.bb350
+88:                                               ; preds = %87
   %89 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
 
-sw.bb354:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_214EnoprotooptExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad356
+90:                                               ; preds = %29
+  invoke void @_ZN7Iex_3_410EnotdirExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %91
 
-lpad356:                                          ; preds = %sw.bb354
-  %90 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb358:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_218EprotonosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad360
-
-lpad360:                                          ; preds = %sw.bb358
-  %91 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb362:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_218EsocktnosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad364
-
-lpad364:                                          ; preds = %sw.bb362
+91:                                               ; preds = %90
   %92 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
 
-sw.bb366:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_213EopnotsuppExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad368
+93:                                               ; preds = %29
+  invoke void @_ZN7Iex_3_49EisdirExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %94
 
-lpad368:                                          ; preds = %sw.bb366
-  %93 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb370:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_215EpfnosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad372
-
-lpad372:                                          ; preds = %sw.bb370
-  %94 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb374:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_215EafnosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad376
-
-lpad376:                                          ; preds = %sw.bb374
+94:                                               ; preds = %93
   %95 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
 
-sw.bb378:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_213EaddrinuseExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad380
+96:                                               ; preds = %29
+  invoke void @_ZN7Iex_3_49EinvalExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %97
 
-lpad380:                                          ; preds = %sw.bb378
-  %96 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb382:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_216EaddrnotavailExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad384
-
-lpad384:                                          ; preds = %sw.bb382
-  %97 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb386:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_211EnetdownExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad388
-
-lpad388:                                          ; preds = %sw.bb386
+97:                                               ; preds = %96
   %98 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
 
-sw.bb390:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_214EnetunreachExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad392
+99:                                               ; preds = %29
+  invoke void @_ZN7Iex_3_49EnfileExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %100
 
-lpad392:                                          ; preds = %sw.bb390
-  %99 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb394:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_212EnetresetExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad396
-
-lpad396:                                          ; preds = %sw.bb394
-  %100 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb398:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_215EconnabortedExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad400
-
-lpad400:                                          ; preds = %sw.bb398
+100:                                              ; preds = %99
   %101 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
 
-sw.bb402:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_213EconnresetExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad404
+102:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_49EmfileExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %103
 
-lpad404:                                          ; preds = %sw.bb402
-  %102 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb406:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_210EnobufsExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad408
-
-lpad408:                                          ; preds = %sw.bb406
-  %103 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb410:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_210EisconnExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad412
-
-lpad412:                                          ; preds = %sw.bb410
+103:                                              ; preds = %102
   %104 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
 
-sw.bb414:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_211EnotconnExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad416
+105:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_49EnottyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %106
 
-lpad416:                                          ; preds = %sw.bb414
-  %105 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb418:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_212EshutdownExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad420
-
-lpad420:                                          ; preds = %sw.bb418
-  %106 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb422:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_215EtoomanyrefsExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad424
-
-lpad424:                                          ; preds = %sw.bb422
+106:                                              ; preds = %105
   %107 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
 
-sw.bb426:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_212EtimedoutExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad428
+108:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_410EtxtbsyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %109
 
-lpad428:                                          ; preds = %sw.bb426
-  %108 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb430:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_215EconnrefusedExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad432
-
-lpad432:                                          ; preds = %sw.bb430
-  %109 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb434:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_212EhostdownExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad436
-
-lpad436:                                          ; preds = %sw.bb434
+109:                                              ; preds = %108
   %110 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
 
-sw.bb438:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_215EhostunreachExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad440
+111:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_48EfbigExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %112
 
-lpad440:                                          ; preds = %sw.bb438
-  %111 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb442:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_211EalreadyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad444
-
-lpad444:                                          ; preds = %sw.bb442
-  %112 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb446:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_214EinprogressExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad448
-
-lpad448:                                          ; preds = %sw.bb446
+112:                                              ; preds = %111
   %113 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
 
-sw.bb450:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EstaleExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad452
+114:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_49EnospcExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %115
 
-lpad452:                                          ; preds = %sw.bb450
-  %114 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb454:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_210EucleanExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad456
-
-lpad456:                                          ; preds = %sw.bb454
-  %115 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb458:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_210EnotnamExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad460
-
-lpad460:                                          ; preds = %sw.bb458
+115:                                              ; preds = %114
   %116 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
 
-sw.bb462:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_210EnavailExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad464
+117:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_49EspipeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %118
 
-lpad464:                                          ; preds = %sw.bb462
-  %117 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb466:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EisnamExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad468
-
-lpad468:                                          ; preds = %sw.bb466
-  %118 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb470:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_212EremoteioExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad472
-
-lpad472:                                          ; preds = %sw.bb470
+118:                                              ; preds = %117
   %119 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
 
-sw.bb474:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_212EcanceledExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad476
+120:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_48ErofsExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %121
 
-lpad476:                                          ; preds = %sw.bb474
-  %120 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.bb478:                                         ; preds = %while.end
-  invoke void @_ZN7Iex_3_29EdquotExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad480
-
-lpad480:                                          ; preds = %sw.bb478
-  %121 = landingpad { ptr, i32 }
-          cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
-
-sw.epilog:                                        ; preds = %while.end
-  invoke void @_ZN7Iex_3_28ErrnoExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %exception482, ptr noundef nonnull align 8 dereferenceable(32) %tmp)
-          to label %invoke.cont5.invoke unwind label %lpad483
-
-lpad483:                                          ; preds = %sw.epilog
+121:                                              ; preds = %120
   %122 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception482) #10
-  br label %ehcleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
 
-ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad483, %lpad480, %lpad476, %lpad472, %lpad468, %lpad464, %lpad460, %lpad456, %lpad452, %lpad448, %lpad444, %lpad440, %lpad436, %lpad432, %lpad428, %lpad424, %lpad420, %lpad416, %lpad412, %lpad408, %lpad404, %lpad400, %lpad396, %lpad392, %lpad388, %lpad384, %lpad380, %lpad376, %lpad372, %lpad368, %lpad364, %lpad360, %lpad356, %lpad352, %lpad348, %lpad344, %lpad340, %lpad336, %lpad332, %lpad328, %lpad324, %lpad320, %lpad316, %lpad312, %lpad308, %lpad304, %lpad300, %lpad296, %lpad292, %lpad288, %lpad284, %lpad280, %lpad276, %lpad272, %lpad268, %lpad264, %lpad260, %lpad256, %lpad252, %lpad248, %lpad244, %lpad240, %lpad236, %lpad232, %lpad228, %lpad224, %lpad220, %lpad216, %lpad212, %lpad208, %lpad204, %lpad200, %lpad196, %lpad192, %lpad188, %lpad184, %lpad180, %lpad176, %lpad172, %lpad168, %lpad164, %lpad160, %lpad156, %lpad152, %lpad148, %lpad144, %lpad140, %lpad136, %lpad132, %lpad128, %lpad124, %lpad120, %lpad116, %lpad112, %lpad108, %lpad104, %lpad100, %lpad96, %lpad92, %lpad88, %lpad84, %lpad80, %lpad76, %lpad72, %lpad68, %lpad64, %lpad60, %lpad56, %lpad52, %lpad48, %lpad44, %lpad40, %lpad36, %lpad32, %lpad28, %lpad24, %lpad20, %lpad16, %lpad12, %lpad8, %lpad4
-  %.pn = phi { ptr, i32 } [ %122, %lpad483 ], [ %121, %lpad480 ], [ %120, %lpad476 ], [ %119, %lpad472 ], [ %118, %lpad468 ], [ %117, %lpad464 ], [ %116, %lpad460 ], [ %115, %lpad456 ], [ %114, %lpad452 ], [ %113, %lpad448 ], [ %112, %lpad444 ], [ %111, %lpad440 ], [ %110, %lpad436 ], [ %109, %lpad432 ], [ %108, %lpad428 ], [ %107, %lpad424 ], [ %106, %lpad420 ], [ %105, %lpad416 ], [ %104, %lpad412 ], [ %103, %lpad408 ], [ %102, %lpad404 ], [ %101, %lpad400 ], [ %100, %lpad396 ], [ %99, %lpad392 ], [ %98, %lpad388 ], [ %97, %lpad384 ], [ %96, %lpad380 ], [ %95, %lpad376 ], [ %94, %lpad372 ], [ %93, %lpad368 ], [ %92, %lpad364 ], [ %91, %lpad360 ], [ %90, %lpad356 ], [ %89, %lpad352 ], [ %88, %lpad348 ], [ %87, %lpad344 ], [ %86, %lpad340 ], [ %85, %lpad336 ], [ %84, %lpad332 ], [ %83, %lpad328 ], [ %82, %lpad324 ], [ %81, %lpad320 ], [ %80, %lpad316 ], [ %79, %lpad312 ], [ %78, %lpad308 ], [ %77, %lpad304 ], [ %76, %lpad300 ], [ %75, %lpad296 ], [ %74, %lpad292 ], [ %73, %lpad288 ], [ %72, %lpad284 ], [ %71, %lpad280 ], [ %70, %lpad276 ], [ %69, %lpad272 ], [ %68, %lpad268 ], [ %67, %lpad264 ], [ %66, %lpad260 ], [ %65, %lpad256 ], [ %64, %lpad252 ], [ %63, %lpad248 ], [ %62, %lpad244 ], [ %61, %lpad240 ], [ %60, %lpad236 ], [ %59, %lpad232 ], [ %58, %lpad228 ], [ %57, %lpad224 ], [ %56, %lpad220 ], [ %55, %lpad216 ], [ %54, %lpad212 ], [ %53, %lpad208 ], [ %52, %lpad204 ], [ %51, %lpad200 ], [ %50, %lpad196 ], [ %49, %lpad192 ], [ %48, %lpad188 ], [ %47, %lpad184 ], [ %46, %lpad180 ], [ %45, %lpad176 ], [ %44, %lpad172 ], [ %43, %lpad168 ], [ %42, %lpad164 ], [ %41, %lpad160 ], [ %40, %lpad156 ], [ %39, %lpad152 ], [ %38, %lpad148 ], [ %37, %lpad144 ], [ %36, %lpad140 ], [ %35, %lpad136 ], [ %34, %lpad132 ], [ %33, %lpad128 ], [ %32, %lpad124 ], [ %31, %lpad120 ], [ %30, %lpad116 ], [ %29, %lpad112 ], [ %28, %lpad108 ], [ %27, %lpad104 ], [ %26, %lpad100 ], [ %25, %lpad96 ], [ %24, %lpad92 ], [ %23, %lpad88 ], [ %22, %lpad84 ], [ %21, %lpad80 ], [ %20, %lpad76 ], [ %19, %lpad72 ], [ %18, %lpad68 ], [ %17, %lpad64 ], [ %16, %lpad60 ], [ %15, %lpad56 ], [ %14, %lpad52 ], [ %13, %lpad48 ], [ %12, %lpad44 ], [ %11, %lpad40 ], [ %10, %lpad36 ], [ %9, %lpad32 ], [ %8, %lpad28 ], [ %7, %lpad24 ], [ %6, %lpad20 ], [ %5, %lpad16 ], [ %4, %lpad12 ], [ %3, %lpad8 ], [ %2, %lpad4 ], [ %lpad.loopexit4, %lpad.loopexit ], [ %lpad.loopexit.split-lp5, %lpad.loopexit.split-lp ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tmp) #10
+123:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_49EmlinkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %124
+
+124:                                              ; preds = %123
+  %125 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+126:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_48EpipeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %127
+
+127:                                              ; preds = %126
+  %128 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+129:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_47EdomExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %130
+
+130:                                              ; preds = %129
+  %131 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+132:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_49ErangeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %133
+
+133:                                              ; preds = %132
+  %134 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+135:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_49EnomsgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %136
+
+136:                                              ; preds = %135
+  %137 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+138:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_48EidrmExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %139
+
+139:                                              ; preds = %138
+  %140 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+141:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_49EchrngExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %142
+
+142:                                              ; preds = %141
+  %143 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+144:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_411El2nsyncExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %145
+
+145:                                              ; preds = %144
+  %146 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+147:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_49El3hltExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %148
+
+148:                                              ; preds = %147
+  %149 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+150:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_49El3rstExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %151
+
+151:                                              ; preds = %150
+  %152 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+153:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_49ElnrngExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %154
+
+154:                                              ; preds = %153
+  %155 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+156:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_410EunatchExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %157
+
+157:                                              ; preds = %156
+  %158 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+159:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_49EnocsiExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %160
+
+160:                                              ; preds = %159
+  %161 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+162:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_49El2hltExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %163
+
+163:                                              ; preds = %162
+  %164 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+165:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_410EdeadlkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %166
+
+166:                                              ; preds = %165
+  %167 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+168:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_49EnolckExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %169
+
+169:                                              ; preds = %168
+  %170 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+171:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_48EbadeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %172
+
+172:                                              ; preds = %171
+  %173 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+174:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_48EbadrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %175
+
+175:                                              ; preds = %174
+  %176 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+177:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_49ExfullExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %178
+
+178:                                              ; preds = %177
+  %179 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+180:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_49EnoanoExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %181
+
+181:                                              ; preds = %180
+  %182 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+183:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_410EbadrqcExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %184
+
+184:                                              ; preds = %183
+  %185 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+186:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_410EbadsltExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %187
+
+187:                                              ; preds = %186
+  %188 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+189:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_49EbfontExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %190
+
+190:                                              ; preds = %189
+  %191 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+192:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_49EnostrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %193
+
+193:                                              ; preds = %192
+  %194 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+195:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_410EnodataExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %196
+
+196:                                              ; preds = %195
+  %197 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+198:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_48EtimeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %199
+
+199:                                              ; preds = %198
+  %200 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+201:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_48EnosrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %202
+
+202:                                              ; preds = %201
+  %203 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+204:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_49EnonetExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %205
+
+205:                                              ; preds = %204
+  %206 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+207:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_49EnopkgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %208
+
+208:                                              ; preds = %207
+  %209 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+210:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_410EremoteExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %211
+
+211:                                              ; preds = %210
+  %212 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+213:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_410EnolinkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %214
+
+214:                                              ; preds = %213
+  %215 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+216:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_47EadvExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %217
+
+217:                                              ; preds = %216
+  %218 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+219:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_49EsrmntExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %220
+
+220:                                              ; preds = %219
+  %221 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+222:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_48EcommExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %223
+
+223:                                              ; preds = %222
+  %224 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+225:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_49EprotoExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %226
+
+226:                                              ; preds = %225
+  %227 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+228:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_412EmultihopExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %229
+
+229:                                              ; preds = %228
+  %230 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+231:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_410EbadmsgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %232
+
+232:                                              ; preds = %231
+  %233 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+234:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_415EnametoolongExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %235
+
+235:                                              ; preds = %234
+  %236 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+237:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_412EoverflowExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %238
+
+238:                                              ; preds = %237
+  %239 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+240:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_411EnotuniqExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %241
+
+241:                                              ; preds = %240
+  %242 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+243:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_49EbadfdExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %244
+
+244:                                              ; preds = %243
+  %245 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+246:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_410EremchgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %247
+
+247:                                              ; preds = %246
+  %248 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+249:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_410ElibaccExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %250
+
+250:                                              ; preds = %249
+  %251 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+252:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_410ElibbadExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %253
+
+253:                                              ; preds = %252
+  %254 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+255:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_410ElibscnExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %256
+
+256:                                              ; preds = %255
+  %257 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+258:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_410ElibmaxExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %259
+
+259:                                              ; preds = %258
+  %260 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+261:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_411ElibexecExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %262
+
+262:                                              ; preds = %261
+  %263 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+264:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_49EilseqExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %265
+
+265:                                              ; preds = %264
+  %266 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+267:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_49EnosysExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %268
+
+268:                                              ; preds = %267
+  %269 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+270:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_48EloopExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %271
+
+271:                                              ; preds = %270
+  %272 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+273:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_411ErestartExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %274
+
+274:                                              ; preds = %273
+  %275 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+276:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_411EstrpipeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %277
+
+277:                                              ; preds = %276
+  %278 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+279:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_412EnotemptyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %280
+
+280:                                              ; preds = %279
+  %281 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+282:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_49EusersExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %283
+
+283:                                              ; preds = %282
+  %284 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+285:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_411EnotsockExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %286
+
+286:                                              ; preds = %285
+  %287 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+288:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_415EdestaddrreqExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %289
+
+289:                                              ; preds = %288
+  %290 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+291:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_411EmsgsizeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %292
+
+292:                                              ; preds = %291
+  %293 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+294:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_413EprototypeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %295
+
+295:                                              ; preds = %294
+  %296 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+297:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_414EnoprotooptExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %298
+
+298:                                              ; preds = %297
+  %299 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+300:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_418EprotonosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %301
+
+301:                                              ; preds = %300
+  %302 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+303:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_418EsocktnosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %304
+
+304:                                              ; preds = %303
+  %305 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+306:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_413EopnotsuppExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %307
+
+307:                                              ; preds = %306
+  %308 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+309:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_415EpfnosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %310
+
+310:                                              ; preds = %309
+  %311 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+312:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_415EafnosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %313
+
+313:                                              ; preds = %312
+  %314 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+315:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_413EaddrinuseExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %316
+
+316:                                              ; preds = %315
+  %317 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+318:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_416EaddrnotavailExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %319
+
+319:                                              ; preds = %318
+  %320 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+321:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_411EnetdownExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %322
+
+322:                                              ; preds = %321
+  %323 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+324:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_414EnetunreachExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %325
+
+325:                                              ; preds = %324
+  %326 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+327:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_412EnetresetExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %328
+
+328:                                              ; preds = %327
+  %329 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+330:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_415EconnabortedExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %331
+
+331:                                              ; preds = %330
+  %332 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+333:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_413EconnresetExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %334
+
+334:                                              ; preds = %333
+  %335 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+336:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_410EnobufsExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %337
+
+337:                                              ; preds = %336
+  %338 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+339:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_410EisconnExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %340
+
+340:                                              ; preds = %339
+  %341 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+342:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_411EnotconnExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %343
+
+343:                                              ; preds = %342
+  %344 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+345:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_412EshutdownExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %346
+
+346:                                              ; preds = %345
+  %347 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+348:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_415EtoomanyrefsExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %349
+
+349:                                              ; preds = %348
+  %350 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+351:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_412EtimedoutExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %352
+
+352:                                              ; preds = %351
+  %353 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+354:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_415EconnrefusedExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %355
+
+355:                                              ; preds = %354
+  %356 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+357:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_412EhostdownExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %358
+
+358:                                              ; preds = %357
+  %359 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+360:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_415EhostunreachExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %361
+
+361:                                              ; preds = %360
+  %362 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+363:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_411EalreadyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %364
+
+364:                                              ; preds = %363
+  %365 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+366:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_414EinprogressExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %367
+
+367:                                              ; preds = %366
+  %368 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+369:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_49EstaleExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %370
+
+370:                                              ; preds = %369
+  %371 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+372:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_410EucleanExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %373
+
+373:                                              ; preds = %372
+  %374 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+375:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_410EnotnamExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %376
+
+376:                                              ; preds = %375
+  %377 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+378:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_410EnavailExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %379
+
+379:                                              ; preds = %378
+  %380 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+381:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_49EisnamExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %382
+
+382:                                              ; preds = %381
+  %383 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+384:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_412EremoteioExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %385
+
+385:                                              ; preds = %384
+  %386 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+387:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_412EcanceledExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %388
+
+388:                                              ; preds = %387
+  %389 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+390:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_49EdquotExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %391
+
+391:                                              ; preds = %390
+  %392 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+393:                                              ; preds = %29
+  invoke void @_ZN7Iex_3_48ErrnoExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.invoke unwind label %394
+
+394:                                              ; preds = %393
+  %395 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr nonnull %30) #12
+  br label %396
+
+396:                                              ; preds = %.loopexit, %.loopexit.split-lp, %394, %391, %388, %385, %382, %379, %376, %373, %370, %367, %364, %361, %358, %355, %352, %349, %346, %343, %340, %337, %334, %331, %328, %325, %322, %319, %316, %313, %310, %307, %304, %301, %298, %295, %292, %289, %286, %283, %280, %277, %274, %271, %268, %265, %262, %259, %256, %253, %250, %247, %244, %241, %238, %235, %232, %229, %226, %223, %220, %217, %214, %211, %208, %205, %202, %199, %196, %193, %190, %187, %184, %181, %178, %175, %172, %169, %166, %163, %160, %157, %154, %151, %148, %145, %142, %139, %136, %133, %130, %127, %124, %121, %118, %115, %112, %109, %106, %103, %100, %97, %94, %91, %88, %85, %82, %79, %76, %73, %70, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34
+  %.pn = phi { ptr, i32 } [ %395, %394 ], [ %392, %391 ], [ %389, %388 ], [ %386, %385 ], [ %383, %382 ], [ %380, %379 ], [ %377, %376 ], [ %374, %373 ], [ %371, %370 ], [ %368, %367 ], [ %365, %364 ], [ %362, %361 ], [ %359, %358 ], [ %356, %355 ], [ %353, %352 ], [ %350, %349 ], [ %347, %346 ], [ %344, %343 ], [ %341, %340 ], [ %338, %337 ], [ %335, %334 ], [ %332, %331 ], [ %329, %328 ], [ %326, %325 ], [ %323, %322 ], [ %320, %319 ], [ %317, %316 ], [ %314, %313 ], [ %311, %310 ], [ %308, %307 ], [ %305, %304 ], [ %302, %301 ], [ %299, %298 ], [ %296, %295 ], [ %293, %292 ], [ %290, %289 ], [ %287, %286 ], [ %284, %283 ], [ %281, %280 ], [ %278, %277 ], [ %275, %274 ], [ %272, %271 ], [ %269, %268 ], [ %266, %265 ], [ %263, %262 ], [ %260, %259 ], [ %257, %256 ], [ %254, %253 ], [ %251, %250 ], [ %248, %247 ], [ %245, %244 ], [ %242, %241 ], [ %239, %238 ], [ %236, %235 ], [ %233, %232 ], [ %230, %229 ], [ %227, %226 ], [ %224, %223 ], [ %221, %220 ], [ %218, %217 ], [ %215, %214 ], [ %212, %211 ], [ %209, %208 ], [ %206, %205 ], [ %203, %202 ], [ %200, %199 ], [ %197, %196 ], [ %194, %193 ], [ %191, %190 ], [ %188, %187 ], [ %185, %184 ], [ %182, %181 ], [ %179, %178 ], [ %176, %175 ], [ %173, %172 ], [ %170, %169 ], [ %167, %166 ], [ %164, %163 ], [ %161, %160 ], [ %158, %157 ], [ %155, %154 ], [ %152, %151 ], [ %149, %148 ], [ %146, %145 ], [ %143, %142 ], [ %140, %139 ], [ %137, %136 ], [ %134, %133 ], [ %131, %130 ], [ %128, %127 ], [ %125, %124 ], [ %122, %121 ], [ %119, %118 ], [ %116, %115 ], [ %113, %112 ], [ %110, %109 ], [ %107, %106 ], [ %104, %103 ], [ %101, %100 ], [ %98, %97 ], [ %95, %94 ], [ %92, %91 ], [ %89, %88 ], [ %86, %85 ], [ %83, %82 ], [ %80, %79 ], [ %77, %76 ], [ %74, %73 ], [ %71, %70 ], [ %68, %67 ], [ %65, %64 ], [ %62, %61 ], [ %59, %58 ], [ %56, %55 ], [ %53, %52 ], [ %50, %49 ], [ %47, %46 ], [ %44, %43 ], [ %41, %40 ], [ %38, %37 ], [ %35, %34 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %397 = load ptr, ptr %4, align 8, !tbaa !9
+  %398 = icmp eq ptr %397, %6
+  br i1 %398, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %396
+  %399 = load i64, ptr %18, align 8, !tbaa !12
+  %400 = icmp ult i64 %399, 16
+  call void @llvm.assume(i1 %400)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %396
+  %401 = load i64, ptr %6, align 8, !tbaa !14
+  %402 = add i64 %401, 1
+  call void @_ZdlPvm(ptr noundef %397, i64 noundef %402) #15
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #12
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #1
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind
-declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #1
-
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
@@ -1534,820 +1596,730 @@ declare i32 @__gxx_personality_v0(...)
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
-declare void @_ZN7Iex_3_28EpermExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48EpermExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28EpermExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48EpermExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #4
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #5
 
-declare void @_ZN7Iex_3_29EnoentExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EnoentExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EnoentExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EnoentExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28EsrchExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48EsrchExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28EsrchExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48EsrchExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28EintrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48EintrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28EintrExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48EintrExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_26EioExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_46EioExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_26EioExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_46EioExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28EnxioExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48EnxioExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28EnxioExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48EnxioExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28E2bigExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48E2bigExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28E2bigExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48E2bigExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EnoexecExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EnoexecExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EnoexecExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EnoexecExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28EbadfExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48EbadfExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28EbadfExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48EbadfExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EchildExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EchildExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EchildExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EchildExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EagainExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EagainExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EagainExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EagainExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EnomemExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EnomemExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EnomemExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EnomemExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EaccesExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EaccesExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EaccesExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EaccesExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EfaultExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EfaultExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EfaultExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EfaultExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EnotblkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EnotblkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EnotblkExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EnotblkExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28EbusyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48EbusyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28EbusyExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48EbusyExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EexistExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EexistExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EexistExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EexistExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28ExdevExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48ExdevExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28ExdevExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48ExdevExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EnodevExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EnodevExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EnodevExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EnodevExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EnotdirExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EnotdirExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EnotdirExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EnotdirExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EisdirExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EisdirExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EisdirExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EisdirExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EinvalExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EinvalExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EinvalExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EinvalExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EnfileExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EnfileExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EnfileExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EnfileExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EmfileExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EmfileExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EmfileExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EmfileExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EnottyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EnottyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EnottyExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EnottyExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EtxtbsyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EtxtbsyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EtxtbsyExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EtxtbsyExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28EfbigExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48EfbigExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28EfbigExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48EfbigExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EnospcExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EnospcExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EnospcExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EnospcExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EspipeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EspipeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EspipeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EspipeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28ErofsExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48ErofsExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28ErofsExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48ErofsExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EmlinkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EmlinkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EmlinkExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EmlinkExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28EpipeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48EpipeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28EpipeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48EpipeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_27EdomExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_47EdomExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_27EdomExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_47EdomExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29ErangeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49ErangeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29ErangeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49ErangeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EnomsgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EnomsgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EnomsgExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EnomsgExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28EidrmExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48EidrmExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28EidrmExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48EidrmExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EchrngExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EchrngExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EchrngExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EchrngExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_211El2nsyncExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_411El2nsyncExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_211El2nsyncExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_411El2nsyncExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29El3hltExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49El3hltExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29El3hltExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49El3hltExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29El3rstExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49El3rstExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29El3rstExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49El3rstExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29ElnrngExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49ElnrngExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29ElnrngExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49ElnrngExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EunatchExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EunatchExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EunatchExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EunatchExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EnocsiExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EnocsiExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EnocsiExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EnocsiExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29El2hltExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49El2hltExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29El2hltExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49El2hltExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EdeadlkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EdeadlkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EdeadlkExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EdeadlkExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EnolckExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EnolckExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EnolckExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EnolckExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28EbadeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48EbadeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28EbadeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48EbadeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28EbadrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48EbadrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28EbadrExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48EbadrExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29ExfullExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49ExfullExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29ExfullExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49ExfullExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EnoanoExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EnoanoExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EnoanoExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EnoanoExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EbadrqcExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EbadrqcExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EbadrqcExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EbadrqcExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EbadsltExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EbadsltExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EbadsltExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EbadsltExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EbfontExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EbfontExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EbfontExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EbfontExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EnostrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EnostrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EnostrExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EnostrExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EnodataExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EnodataExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EnodataExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EnodataExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28EtimeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48EtimeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28EtimeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48EtimeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28EnosrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48EnosrExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28EnosrExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48EnosrExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EnonetExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EnonetExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EnonetExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EnonetExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EnopkgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EnopkgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EnopkgExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EnopkgExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EremoteExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EremoteExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EremoteExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EremoteExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EnolinkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EnolinkExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EnolinkExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EnolinkExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_27EadvExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_47EadvExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_27EadvExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_47EadvExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EsrmntExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EsrmntExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EsrmntExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EsrmntExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28EcommExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48EcommExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28EcommExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48EcommExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EprotoExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EprotoExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EprotoExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EprotoExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_212EmultihopExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_412EmultihopExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_212EmultihopExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_412EmultihopExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EbadmsgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EbadmsgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EbadmsgExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EbadmsgExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_215EnametoolongExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_415EnametoolongExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_215EnametoolongExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_415EnametoolongExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_212EoverflowExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_412EoverflowExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_212EoverflowExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_412EoverflowExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_211EnotuniqExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_411EnotuniqExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_211EnotuniqExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_411EnotuniqExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EbadfdExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EbadfdExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EbadfdExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EbadfdExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EremchgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EremchgExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EremchgExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EremchgExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210ElibaccExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410ElibaccExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210ElibaccExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410ElibaccExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210ElibbadExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410ElibbadExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210ElibbadExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410ElibbadExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210ElibscnExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410ElibscnExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210ElibscnExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410ElibscnExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210ElibmaxExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410ElibmaxExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210ElibmaxExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410ElibmaxExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_211ElibexecExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_411ElibexecExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_211ElibexecExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_411ElibexecExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EilseqExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EilseqExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EilseqExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EilseqExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EnosysExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EnosysExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EnosysExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EnosysExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28EloopExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48EloopExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28EloopExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48EloopExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_211ErestartExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_411ErestartExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_211ErestartExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_411ErestartExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_211EstrpipeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_411EstrpipeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_211EstrpipeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_411EstrpipeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_212EnotemptyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_412EnotemptyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_212EnotemptyExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_412EnotemptyExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EusersExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EusersExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EusersExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EusersExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_211EnotsockExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_411EnotsockExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_211EnotsockExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_411EnotsockExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_215EdestaddrreqExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_415EdestaddrreqExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_215EdestaddrreqExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_415EdestaddrreqExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_211EmsgsizeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_411EmsgsizeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_211EmsgsizeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_411EmsgsizeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_213EprototypeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_413EprototypeExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_213EprototypeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_413EprototypeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_214EnoprotooptExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_414EnoprotooptExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_214EnoprotooptExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_414EnoprotooptExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_218EprotonosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_418EprotonosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_218EprotonosupportExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_418EprotonosupportExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_218EsocktnosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_418EsocktnosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_218EsocktnosupportExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_418EsocktnosupportExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_213EopnotsuppExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_413EopnotsuppExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_213EopnotsuppExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_413EopnotsuppExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_215EpfnosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_415EpfnosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_215EpfnosupportExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_415EpfnosupportExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_215EafnosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_415EafnosupportExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_215EafnosupportExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_415EafnosupportExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_213EaddrinuseExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_413EaddrinuseExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_213EaddrinuseExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_413EaddrinuseExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_216EaddrnotavailExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_416EaddrnotavailExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_216EaddrnotavailExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_416EaddrnotavailExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_211EnetdownExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_411EnetdownExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_211EnetdownExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_411EnetdownExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_214EnetunreachExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_414EnetunreachExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_214EnetunreachExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_414EnetunreachExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_212EnetresetExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_412EnetresetExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_212EnetresetExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_412EnetresetExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_215EconnabortedExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_415EconnabortedExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_215EconnabortedExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_415EconnabortedExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_213EconnresetExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_413EconnresetExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_213EconnresetExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_413EconnresetExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EnobufsExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EnobufsExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EnobufsExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EnobufsExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EisconnExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EisconnExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EisconnExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EisconnExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_211EnotconnExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_411EnotconnExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_211EnotconnExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_411EnotconnExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_212EshutdownExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_412EshutdownExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_212EshutdownExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_412EshutdownExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_215EtoomanyrefsExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_415EtoomanyrefsExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_215EtoomanyrefsExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_415EtoomanyrefsExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_212EtimedoutExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_412EtimedoutExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_212EtimedoutExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_412EtimedoutExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_215EconnrefusedExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_415EconnrefusedExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_215EconnrefusedExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_415EconnrefusedExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_212EhostdownExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_412EhostdownExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_212EhostdownExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_412EhostdownExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_215EhostunreachExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_415EhostunreachExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_215EhostunreachExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_415EhostunreachExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_211EalreadyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_411EalreadyExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_211EalreadyExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_411EalreadyExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_214EinprogressExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_414EinprogressExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_214EinprogressExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_414EinprogressExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EstaleExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EstaleExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EstaleExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EstaleExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EucleanExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EucleanExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EucleanExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EucleanExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EnotnamExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EnotnamExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EnotnamExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EnotnamExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_210EnavailExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_410EnavailExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_210EnavailExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_410EnavailExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EisnamExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EisnamExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EisnamExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EisnamExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_212EremoteioExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_412EremoteioExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_212EremoteioExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_412EremoteioExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_212EcanceledExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_412EcanceledExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_212EcanceledExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_412EcanceledExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_29EdquotExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_49EdquotExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_29EdquotExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_49EdquotExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-declare void @_ZN7Iex_3_28ErrnoExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN7Iex_3_48ErrnoExcC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN7Iex_3_28ErrnoExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+declare void @_ZN7Iex_3_48ErrnoExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN7Iex_3_213throwErrnoExcERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %text) local_unnamed_addr #0 {
-entry:
-  %call = tail call ptr @__errno_location() #13
-  %0 = load i32, ptr %call, align 4
-  tail call void @_ZN7Iex_3_213throwErrnoExcERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(32) %text, i32 noundef %0)
+define void @_ZN7Iex_3_413throwErrnoExcERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #0 {
+  %2 = tail call ptr @__errno_location() #16
+  %3 = load i32, ptr %2, align 4, !tbaa !15
+  tail call void @_ZN7Iex_3_413throwErrnoExcERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %3)
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #5
+declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN7Iex_3_213throwErrnoExcEv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %txt = alloca %"class.std::__cxx11::basic_string", align 8
-  %ref.tmp = alloca %"class.std::allocator", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #10
-  %call.i2 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %txt)
-          to label %call.i.noexc unwind label %lpad
+define void @_ZN7Iex_3_413throwErrnoExcEv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+._crit_edge.i.i:
+  %0 = alloca %"class.std::__cxx11::basic_string", align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %0) #12
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %1, ptr %0, align 8, !tbaa !3
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %1, ptr noundef nonnull align 1 dereferenceable(3) @.str.1, i64 3, i1 false)
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 3, ptr %2, align 8, !tbaa !12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 19
+  store i8 0, ptr %3, align 1, !tbaa !14
+  %4 = tail call ptr @__errno_location() #16
+  %5 = load i32, ptr %4, align 4, !tbaa !15
+  invoke void @_ZN7Iex_3_413throwErrnoExcERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %5)
+          to label %.noexc3 unwind label %6
 
-call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %txt, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
-          to label %.noexc unwind label %lpad
-
-.noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %txt, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1, i64 3))
-          to label %invoke.cont unwind label %lpad.i
-
-lpad.i:                                           ; preds = %.noexc
-  %0 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %txt) #10
-  br label %lpad.body
-
-invoke.cont:                                      ; preds = %.noexc
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #10
-  %call.i = tail call ptr @__errno_location() #13
-  %1 = load i32, ptr %call.i, align 4
-  invoke void @_ZN7Iex_3_213throwErrnoExcERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(32) %txt, i32 noundef %1)
-          to label %.noexc3 unwind label %lpad1
-
-.noexc3:                                          ; preds = %invoke.cont
+.noexc3:                                          ; preds = %._crit_edge.i.i
   unreachable
 
-lpad:                                             ; preds = %call.i.noexc, %entry
-  %2 = landingpad { ptr, i32 }
+6:                                                ; preds = %._crit_edge.i.i
+  %7 = landingpad { ptr, i32 }
           cleanup
-  br label %lpad.body
+  %8 = load ptr, ptr %0, align 8, !tbaa !9
+  %9 = icmp eq ptr %8, %1
+  br i1 %9, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4
 
-lpad.body:                                        ; preds = %lpad.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %2, %lpad ], [ %0, %lpad.i ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #10
-  br label %eh.resume
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5: ; preds = %6
+  %10 = load i64, ptr %2, align 8, !tbaa !12
+  %11 = icmp ult i64 %10, 16
+  call void @llvm.assume(i1 %11)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6
 
-lpad1:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %txt) #10
-  br label %eh.resume
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4: ; preds = %6
+  %12 = load i64, ptr %1, align 8, !tbaa !14
+  %13 = add i64 %12, 1
+  call void @_ZdlPvm(ptr noundef %8, i64 noundef %13) #15
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6
 
-eh.resume:                                        ; preds = %lpad1, %lpad.body
-  %.pn = phi { ptr, i32 } [ %3, %lpad1 ], [ %eh.lpad-body, %lpad.body ]
-  resume { ptr, i32 } %.pn
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %0) #12
+  resume { ptr, i32 } %7
 }
 
-; Function Attrs: nounwind
-declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
+
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: noreturn
+declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
-declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
+declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #10
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #11
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %__dnew = alloca i64, align 8
-  %__guard = alloca %struct._Guard, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__end to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %__beg to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  store i64 %sub.ptr.sub.i.i, ptr %__dnew, align 8
-  %cmp = icmp ugt i64 %sub.ptr.sub.i.i, 15
-  br i1 %cmp, label %if.then, label %if.else
+attributes #0 = { mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold noreturn }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn }
+attributes #14 = { nounwind willreturn memory(read) }
+attributes #15 = { builtin nounwind }
+attributes #16 = { nounwind willreturn memory(none) }
 
-if.then:                                          ; preds = %entry
-  %call2 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %__dnew, i64 noundef 0)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %call2)
-  %0 = load i64, ptr %__dnew, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %0)
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %call.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this)
-          to label %if.end unwind label %terminate.lpad.i
-
-terminate.lpad.i:                                 ; preds = %if.else
-  %1 = landingpad { ptr, i32 }
-          catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #14
-  unreachable
-
-if.end:                                           ; preds = %if.else, %if.then
-  store ptr %this, ptr %__guard, align 8
-  %call4 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %if.end
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %__beg, ptr noundef %__end) #10
-  store ptr null, ptr %__guard, align 8
-  %3 = load i64, ptr %__dnew, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %3)
-          to label %_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev.exit unwind label %lpad
-
-_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev.exit: ; preds = %invoke.cont
-  ret void
-
-lpad:                                             ; preds = %invoke.cont, %if.end
-  %4 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #10
-  resume { ptr, i32 } %4
-}
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
-
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load ptr, ptr %this, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
-          to label %if.end unwind label %terminate.lpad
-
-if.end:                                           ; preds = %if.then, %entry
-  ret void
-
-terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
-          catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #14
-  unreachable
-}
-
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
-  tail call void @_ZSt9terminatev() #14
-  unreachable
-}
-
-declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
-
-; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #9
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
-
-; Function Attrs: nounwind
-declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
-
-attributes #0 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold noreturn }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold nofree noreturn }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
-attributes #12 = { noreturn }
-attributes #13 = { nounwind willreturn memory(none) }
-attributes #14 = { noreturn nounwind }
-
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !5, i64 0}
+!5 = !{!"p1 omnipotent char", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !5, i64 0}
+!10 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !4, i64 0, !11, i64 8, !7, i64 16}
+!11 = !{!"long", !7, i64 0}
+!12 = !{!10, !11, i64 8}
+!13 = !{!11, !11, i64 0}
+!14 = !{!7, !7, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"int", !7, i64 0}

@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.Imath_3_2::half" = type { i16 }
@@ -44,9 +44,8 @@ $_ZN9Imath_3_24halfC2ENS0_11FromBitsTagEt = comdat any
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init() #0 section ".text.startup" {
-entry:
   call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #3
+  %1 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #3
   ret void
 }
 
@@ -59,435 +58,434 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN7Imf_3_210halfToUintEN9Imath_3_24halfE(i16 %h.coerce) #4 {
-entry:
-  %retval = alloca i32, align 4
-  %h = alloca %"class.Imath_3_2::half", align 2
-  %coerce.dive = getelementptr inbounds %"class.Imath_3_2::half", ptr %h, i32 0, i32 0
-  store i16 %h.coerce, ptr %coerce.dive, align 2
-  %call = call noundef zeroext i1 @_ZNK9Imath_3_24half10isNegativeEv(ptr noundef nonnull align 2 dereferenceable(2) %h) #3
-  br i1 %call, label %if.then, label %lor.lhs.false
+define noundef i32 @_ZN7Imf_3_410halfToUintEN9Imath_3_24halfE(i16 %0) #4 {
+  %2 = alloca i32, align 4
+  %3 = alloca %"class.Imath_3_2::half", align 2
+  %4 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %3, i32 0, i32 0
+  store i16 %0, ptr %4, align 2
+  %5 = call noundef zeroext i1 @_ZNK9Imath_3_24half10isNegativeEv(ptr noundef nonnull align 2 dereferenceable(2) %3) #3
+  br i1 %5, label %8, label %6
 
-lor.lhs.false:                                    ; preds = %entry
-  %call1 = call noundef zeroext i1 @_ZNK9Imath_3_24half5isNanEv(ptr noundef nonnull align 2 dereferenceable(2) %h) #3
-  br i1 %call1, label %if.then, label %if.end
+6:                                                ; preds = %1
+  %7 = call noundef zeroext i1 @_ZNK9Imath_3_24half5isNanEv(ptr noundef nonnull align 2 dereferenceable(2) %3) #3
+  br i1 %7, label %8, label %9
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+8:                                                ; preds = %6, %1
+  store i32 0, ptr %2, align 4
+  br label %16
 
-if.end:                                           ; preds = %lor.lhs.false
-  %call2 = call noundef zeroext i1 @_ZNK9Imath_3_24half10isInfinityEv(ptr noundef nonnull align 2 dereferenceable(2) %h) #3
-  br i1 %call2, label %if.then3, label %if.end5
+9:                                                ; preds = %6
+  %10 = call noundef zeroext i1 @_ZNK9Imath_3_24half10isInfinityEv(ptr noundef nonnull align 2 dereferenceable(2) %3) #3
+  br i1 %10, label %11, label %13
 
-if.then3:                                         ; preds = %if.end
-  %call4 = call noundef i32 @_ZNSt14numeric_limitsIjE3maxEv() #3
-  store i32 %call4, ptr %retval, align 4
-  br label %return
+11:                                               ; preds = %9
+  %12 = call noundef i32 @_ZNSt14numeric_limitsIjE3maxEv() #3
+  store i32 %12, ptr %2, align 4
+  br label %16
 
-if.end5:                                          ; preds = %if.end
-  %call6 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %h) #3
-  %conv = fptoui float %call6 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %return
+13:                                               ; preds = %9
+  %14 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %3) #3
+  %15 = fptoui float %14 to i32
+  store i32 %15, ptr %2, align 4
+  br label %16
 
-return:                                           ; preds = %if.end5, %if.then3, %if.then
-  %0 = load i32, ptr %retval, align 4
-  ret i32 %0
+16:                                               ; preds = %13, %11, %8
+  %17 = load i32, ptr %2, align 4
+  ret i32 %17
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK9Imath_3_24half10isNegativeEv(ptr noundef nonnull align 2 dereferenceable(2) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_h = getelementptr inbounds %"class.Imath_3_2::half", ptr %this1, i32 0, i32 0
-  %0 = load i16, ptr %_h, align 2
-  %conv = zext i16 %0 to i32
-  %and = and i32 %conv, 32768
-  %cmp = icmp ne i32 %and, 0
-  ret i1 %cmp
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK9Imath_3_24half10isNegativeEv(ptr noundef nonnull align 2 dereferenceable(2) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %3, i32 0, i32 0
+  %5 = load i16, ptr %4, align 2, !tbaa !8
+  %6 = zext i16 %5 to i32
+  %7 = and i32 %6, 32768
+  %8 = icmp ne i32 %7, 0
+  ret i1 %8
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK9Imath_3_24half5isNanEv(ptr noundef nonnull align 2 dereferenceable(2) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef zeroext i16 @_ZNK9Imath_3_24half8exponentEv(ptr noundef nonnull align 2 dereferenceable(2) %this1) #3
-  %conv = zext i16 %call to i32
-  %cmp = icmp eq i32 %conv, 31
-  br i1 %cmp, label %land.rhs, label %land.end
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK9Imath_3_24half5isNanEv(ptr noundef nonnull align 2 dereferenceable(2) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i16 @_ZNK9Imath_3_24half8exponentEv(ptr noundef nonnull align 2 dereferenceable(2) %3) #3
+  %5 = zext i16 %4 to i32
+  %6 = icmp eq i32 %5, 31
+  br i1 %6, label %7, label %11
 
-land.rhs:                                         ; preds = %entry
-  %call2 = call noundef zeroext i16 @_ZNK9Imath_3_24half8mantissaEv(ptr noundef nonnull align 2 dereferenceable(2) %this1) #3
-  %conv3 = zext i16 %call2 to i32
-  %cmp4 = icmp ne i32 %conv3, 0
-  br label %land.end
+7:                                                ; preds = %1
+  %8 = call noundef zeroext i16 @_ZNK9Imath_3_24half8mantissaEv(ptr noundef nonnull align 2 dereferenceable(2) %3) #3
+  %9 = zext i16 %8 to i32
+  %10 = icmp ne i32 %9, 0
+  br label %11
 
-land.end:                                         ; preds = %land.rhs, %entry
-  %0 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
-  ret i1 %0
+11:                                               ; preds = %7, %1
+  %12 = phi i1 [ false, %1 ], [ %10, %7 ]
+  ret i1 %12
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK9Imath_3_24half10isInfinityEv(ptr noundef nonnull align 2 dereferenceable(2) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef zeroext i16 @_ZNK9Imath_3_24half8exponentEv(ptr noundef nonnull align 2 dereferenceable(2) %this1) #3
-  %conv = zext i16 %call to i32
-  %cmp = icmp eq i32 %conv, 31
-  br i1 %cmp, label %land.rhs, label %land.end
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK9Imath_3_24half10isInfinityEv(ptr noundef nonnull align 2 dereferenceable(2) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i16 @_ZNK9Imath_3_24half8exponentEv(ptr noundef nonnull align 2 dereferenceable(2) %3) #3
+  %5 = zext i16 %4 to i32
+  %6 = icmp eq i32 %5, 31
+  br i1 %6, label %7, label %11
 
-land.rhs:                                         ; preds = %entry
-  %call2 = call noundef zeroext i16 @_ZNK9Imath_3_24half8mantissaEv(ptr noundef nonnull align 2 dereferenceable(2) %this1) #3
-  %conv3 = zext i16 %call2 to i32
-  %cmp4 = icmp eq i32 %conv3, 0
-  br label %land.end
+7:                                                ; preds = %1
+  %8 = call noundef zeroext i16 @_ZNK9Imath_3_24half8mantissaEv(ptr noundef nonnull align 2 dereferenceable(2) %3) #3
+  %9 = zext i16 %8 to i32
+  %10 = icmp eq i32 %9, 0
+  br label %11
 
-land.end:                                         ; preds = %land.rhs, %entry
-  %0 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
-  ret i1 %0
+11:                                               ; preds = %7, %1
+  %12 = phi i1 [ false, %1 ], [ %10, %7 ]
+  ret i1 %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNSt14numeric_limitsIjE3maxEv() #4 comdat align 2 {
-entry:
   ret i32 -1
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %this) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_h = getelementptr inbounds %"class.Imath_3_2::half", ptr %this1, i32 0, i32 0
-  %0 = load i16, ptr %_h, align 2
-  %call = invoke noundef float @_ZL19imath_half_to_floatt(i16 noundef zeroext %0)
-          to label %invoke.cont unwind label %terminate.lpad
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %0) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %3, i32 0, i32 0
+  %5 = load i16, ptr %4, align 2, !tbaa !8
+  %6 = invoke noundef float @_ZL19imath_half_to_floatt(i16 noundef zeroext %5)
+          to label %7 unwind label %8
 
-invoke.cont:                                      ; preds = %entry
-  ret float %call
+7:                                                ; preds = %1
+  ret float %6
 
-terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+8:                                                ; preds = %1
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #7
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #10
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7Imf_3_211floatToUintEf(float noundef %f) #5 {
-entry:
-  %retval = alloca i32, align 4
-  %f.addr = alloca float, align 4
-  store float %f, ptr %f.addr, align 4
-  %0 = load float, ptr %f.addr, align 4
-  %call = call noundef zeroext i1 @_ZN7Imf_3_212_GLOBAL__N_110isNegativeEf(float noundef %0)
-  br i1 %call, label %if.then, label %lor.lhs.false
+define noundef i32 @_ZN7Imf_3_411floatToUintEf(float noundef %0) #6 {
+  %2 = alloca i32, align 4
+  %3 = alloca float, align 4
+  store float %0, ptr %3, align 4, !tbaa !11
+  %4 = load float, ptr %3, align 4, !tbaa !11
+  %5 = call noundef zeroext i1 @_ZN7Imf_3_412_GLOBAL__N_110isNegativeEf(float noundef %4)
+  br i1 %5, label %9, label %6
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load float, ptr %f.addr, align 4
-  %call1 = call noundef zeroext i1 @_ZN7Imf_3_212_GLOBAL__N_15isNanEf(float noundef %1)
-  br i1 %call1, label %if.then, label %if.end
+6:                                                ; preds = %1
+  %7 = load float, ptr %3, align 4, !tbaa !11
+  %8 = call noundef zeroext i1 @_ZN7Imf_3_412_GLOBAL__N_15isNanEf(float noundef %7)
+  br i1 %8, label %9, label %10
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+9:                                                ; preds = %6, %1
+  store i32 0, ptr %2, align 4
+  br label %23
 
-if.end:                                           ; preds = %lor.lhs.false
-  %2 = load float, ptr %f.addr, align 4
-  %call2 = call noundef zeroext i1 @_ZN7Imf_3_212_GLOBAL__N_110isInfinityEf(float noundef %2)
-  br i1 %call2, label %if.then5, label %lor.lhs.false3
+10:                                               ; preds = %6
+  %11 = load float, ptr %3, align 4, !tbaa !11
+  %12 = call noundef zeroext i1 @_ZN7Imf_3_412_GLOBAL__N_110isInfinityEf(float noundef %11)
+  br i1 %12, label %18, label %13
 
-lor.lhs.false3:                                   ; preds = %if.end
-  %3 = load float, ptr %f.addr, align 4
-  %call4 = call noundef i32 @_ZNSt14numeric_limitsIjE3maxEv() #3
-  %conv = uitofp i32 %call4 to float
-  %cmp = fcmp ogt float %3, %conv
-  br i1 %cmp, label %if.then5, label %if.end7
+13:                                               ; preds = %10
+  %14 = load float, ptr %3, align 4, !tbaa !11
+  %15 = call noundef i32 @_ZNSt14numeric_limitsIjE3maxEv() #3
+  %16 = uitofp i32 %15 to float
+  %17 = fcmp ogt float %14, %16
+  br i1 %17, label %18, label %20
 
-if.then5:                                         ; preds = %lor.lhs.false3, %if.end
-  %call6 = call noundef i32 @_ZNSt14numeric_limitsIjE3maxEv() #3
-  store i32 %call6, ptr %retval, align 4
-  br label %return
+18:                                               ; preds = %13, %10
+  %19 = call noundef i32 @_ZNSt14numeric_limitsIjE3maxEv() #3
+  store i32 %19, ptr %2, align 4
+  br label %23
 
-if.end7:                                          ; preds = %lor.lhs.false3
-  %4 = load float, ptr %f.addr, align 4
-  %conv8 = fptoui float %4 to i32
-  store i32 %conv8, ptr %retval, align 4
-  br label %return
+20:                                               ; preds = %13
+  %21 = load float, ptr %3, align 4, !tbaa !11
+  %22 = fptoui float %21 to i32
+  store i32 %22, ptr %2, align 4
+  br label %23
 
-return:                                           ; preds = %if.end7, %if.then5, %if.then
-  %5 = load i32, ptr %retval, align 4
-  ret i32 %5
+23:                                               ; preds = %20, %18, %9
+  %24 = load i32, ptr %2, align 4
+  ret i32 %24
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef zeroext i1 @_ZN7Imf_3_412_GLOBAL__N_110isNegativeEf(float noundef %0) #5 {
+  %2 = alloca float, align 4
+  %3 = alloca %union.anon, align 4
+  store float %0, ptr %2, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #3
+  %4 = load float, ptr %2, align 4, !tbaa !11
+  store float %4, ptr %3, align 4, !tbaa !13
+  %5 = load i32, ptr %3, align 4, !tbaa !13
+  %6 = and i32 %5, -2147483648
+  %7 = icmp ne i32 %6, 0
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #3
+  ret i1 %7
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef zeroext i1 @_ZN7Imf_3_412_GLOBAL__N_15isNanEf(float noundef %0) #5 {
+  %2 = alloca float, align 4
+  %3 = alloca %union.anon.0, align 4
+  store float %0, ptr %2, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #3
+  %4 = load float, ptr %2, align 4, !tbaa !11
+  store float %4, ptr %3, align 4, !tbaa !13
+  %5 = load i32, ptr %3, align 4, !tbaa !13
+  %6 = and i32 %5, 2147483647
+  %7 = icmp sgt i32 %6, 2139095040
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #3
+  ret i1 %7
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef zeroext i1 @_ZN7Imf_3_412_GLOBAL__N_110isInfinityEf(float noundef %0) #5 {
+  %2 = alloca float, align 4
+  %3 = alloca %union.anon.1, align 4
+  store float %0, ptr %2, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #3
+  %4 = load float, ptr %2, align 4, !tbaa !11
+  store float %4, ptr %3, align 4, !tbaa !13
+  %5 = load i32, ptr %3, align 4, !tbaa !13
+  %6 = and i32 %5, 2147483647
+  %7 = icmp eq i32 %6, 2139095040
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #3
+  ret i1 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN7Imf_3_212_GLOBAL__N_110isNegativeEf(float noundef %f) #4 {
-entry:
-  %f.addr = alloca float, align 4
-  %u = alloca %union.anon, align 4
-  store float %f, ptr %f.addr, align 4
-  %0 = load float, ptr %f.addr, align 4
-  store float %0, ptr %u, align 4
-  %1 = load i32, ptr %u, align 4
-  %and = and i32 %1, -2147483648
-  %cmp = icmp ne i32 %and, 0
-  ret i1 %cmp
+define i16 @_ZN7Imf_3_410uintToHalfEj(i32 noundef %0) #4 {
+  %2 = alloca %"class.Imath_3_2::half", align 2
+  %3 = alloca i32, align 4
+  %4 = alloca %"class.Imath_3_2::half", align 2
+  store i32 %0, ptr %3, align 4, !tbaa !14
+  %5 = load i32, ptr %3, align 4, !tbaa !14
+  %6 = uitofp i32 %5 to float
+  call void @llvm.lifetime.start.p0(i64 2, ptr %4) #3
+  %7 = call i16 @_ZNSt14numeric_limitsIN9Imath_3_24halfEE3maxEv() #3
+  %8 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %4, i32 0, i32 0
+  store i16 %7, ptr %8, align 2
+  %9 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %4) #3
+  %10 = fcmp ogt float %6, %9
+  call void @llvm.lifetime.end.p0(i64 2, ptr %4) #3
+  br i1 %10, label %11, label %14
+
+11:                                               ; preds = %1
+  %12 = call i16 @_ZN9Imath_3_24half6posInfEv() #3
+  %13 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %2, i32 0, i32 0
+  store i16 %12, ptr %13, align 2
+  br label %17
+
+14:                                               ; preds = %1
+  %15 = load i32, ptr %3, align 4, !tbaa !14
+  %16 = uitofp i32 %15 to float
+  call void @_ZN9Imath_3_24halfC2Ef(ptr noundef nonnull align 2 dereferenceable(2) %2, float noundef %16) #3
+  br label %17
+
+17:                                               ; preds = %14, %11
+  %18 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %2, i32 0, i32 0
+  %19 = load i16, ptr %18, align 2
+  ret i16 %19
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN7Imf_3_212_GLOBAL__N_15isNanEf(float noundef %f) #4 {
-entry:
-  %f.addr = alloca float, align 4
-  %u = alloca %union.anon.0, align 4
-  store float %f, ptr %f.addr, align 4
-  %0 = load float, ptr %f.addr, align 4
-  store float %0, ptr %u, align 4
-  %1 = load i32, ptr %u, align 4
-  %and = and i32 %1, 2147483647
-  %cmp = icmp sgt i32 %and, 2139095040
-  ret i1 %cmp
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN7Imf_3_212_GLOBAL__N_110isInfinityEf(float noundef %f) #4 {
-entry:
-  %f.addr = alloca float, align 4
-  %u = alloca %union.anon.1, align 4
-  store float %f, ptr %f.addr, align 4
-  %0 = load float, ptr %f.addr, align 4
-  store float %0, ptr %u, align 4
-  %1 = load i32, ptr %u, align 4
-  %and = and i32 %1, 2147483647
-  %cmp = icmp eq i32 %and, 2139095040
-  ret i1 %cmp
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define i16 @_ZN7Imf_3_210uintToHalfEj(i32 noundef %ui) #4 {
-entry:
-  %retval = alloca %"class.Imath_3_2::half", align 2
-  %ui.addr = alloca i32, align 4
-  %ref.tmp = alloca %"class.Imath_3_2::half", align 2
-  store i32 %ui, ptr %ui.addr, align 4
-  %0 = load i32, ptr %ui.addr, align 4
-  %conv = uitofp i32 %0 to float
-  %call = call i16 @_ZNSt14numeric_limitsIN9Imath_3_24halfEE3maxEv() #3
-  %coerce.dive = getelementptr inbounds %"class.Imath_3_2::half", ptr %ref.tmp, i32 0, i32 0
-  store i16 %call, ptr %coerce.dive, align 2
-  %call1 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %ref.tmp) #3
-  %cmp = fcmp ogt float %conv, %call1
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %call2 = call i16 @_ZN9Imath_3_24half6posInfEv() #3
-  %coerce.dive3 = getelementptr inbounds %"class.Imath_3_2::half", ptr %retval, i32 0, i32 0
-  store i16 %call2, ptr %coerce.dive3, align 2
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load i32, ptr %ui.addr, align 4
-  %conv4 = uitofp i32 %1 to float
-  call void @_ZN9Imath_3_24halfC2Ef(ptr noundef nonnull align 2 dereferenceable(2) %retval, float noundef %conv4) #3
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %coerce.dive5 = getelementptr inbounds %"class.Imath_3_2::half", ptr %retval, i32 0, i32 0
-  %2 = load i16, ptr %coerce.dive5, align 2
-  ret i16 %2
-}
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden i16 @_ZNSt14numeric_limitsIN9Imath_3_24halfEE3maxEv() #4 comdat align 2 {
-entry:
-  %retval = alloca %"class.Imath_3_2::half", align 2
-  call void @_ZN9Imath_3_24halfC2ENS0_11FromBitsTagEt(ptr noundef nonnull align 2 dereferenceable(2) %retval, i32 noundef 0, i16 noundef zeroext 31743) #3
-  %coerce.dive = getelementptr inbounds %"class.Imath_3_2::half", ptr %retval, i32 0, i32 0
-  %0 = load i16, ptr %coerce.dive, align 2
-  ret i16 %0
+  %1 = alloca %"class.Imath_3_2::half", align 2
+  call void @_ZN9Imath_3_24halfC2ENS0_11FromBitsTagEt(ptr noundef nonnull align 2 dereferenceable(2) %1, i32 noundef 0, i16 noundef zeroext 31743) #3
+  %2 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %1, i32 0, i32 0
+  %3 = load i16, ptr %2, align 2
+  ret i16 %3
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i16 @_ZN9Imath_3_24half6posInfEv() #4 comdat align 2 {
-entry:
-  %retval = alloca %"class.Imath_3_2::half", align 2
-  call void @_ZN9Imath_3_24halfC2ENS0_11FromBitsTagEt(ptr noundef nonnull align 2 dereferenceable(2) %retval, i32 noundef 0, i16 noundef zeroext 31744) #3
-  %coerce.dive = getelementptr inbounds %"class.Imath_3_2::half", ptr %retval, i32 0, i32 0
-  %0 = load i16, ptr %coerce.dive, align 2
-  ret i16 %0
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden i16 @_ZN9Imath_3_24half6posInfEv() #5 comdat align 2 {
+  %1 = alloca %"class.Imath_3_2::half", align 2
+  call void @_ZN9Imath_3_24halfC2ENS0_11FromBitsTagEt(ptr noundef nonnull align 2 dereferenceable(2) %1, i32 noundef 0, i16 noundef zeroext 31744) #3
+  %2 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %1, i32 0, i32 0
+  %3 = load i16, ptr %2, align 2
+  ret i16 %3
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN9Imath_3_24halfC2Ef(ptr noundef nonnull align 2 dereferenceable(2) %this, float noundef %f) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %f.addr = alloca float, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store float %f, ptr %f.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_h = getelementptr inbounds %"class.Imath_3_2::half", ptr %this1, i32 0, i32 0
-  %0 = load float, ptr %f.addr, align 4
-  %call = invoke noundef zeroext i16 @_ZL19imath_float_to_halff(float noundef %0)
-          to label %invoke.cont unwind label %terminate.lpad
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN9Imath_3_24halfC2Ef(ptr noundef nonnull align 2 dereferenceable(2) %0, float noundef %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca float, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store float %1, ptr %4, align 4, !tbaa !11
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %5, i32 0, i32 0
+  %7 = load float, ptr %4, align 4, !tbaa !11
+  %8 = invoke noundef zeroext i16 @_ZL19imath_float_to_halff(float noundef %7)
+          to label %9 unwind label %10
 
-invoke.cont:                                      ; preds = %entry
-  store i16 %call, ptr %_h, align 2
+9:                                                ; preds = %2
+  store i16 %8, ptr %6, align 2, !tbaa !8
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+10:                                               ; preds = %2
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #7
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #10
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define i16 @_ZN7Imf_3_211floatToHalfEf(float noundef %f) #5 {
-entry:
-  %retval = alloca %"class.Imath_3_2::half", align 2
-  %f.addr = alloca float, align 4
-  %ref.tmp = alloca %"class.Imath_3_2::half", align 2
-  %ref.tmp6 = alloca %"class.Imath_3_2::half", align 2
-  store float %f, ptr %f.addr, align 4
-  %0 = load float, ptr %f.addr, align 4
-  %call = call noundef zeroext i1 @_ZN7Imf_3_212_GLOBAL__N_18isFiniteEf(float noundef %0)
-  br i1 %call, label %if.then, label %if.end15
+define i16 @_ZN7Imf_3_411floatToHalfEf(float noundef %0) #6 {
+  %2 = alloca %"class.Imath_3_2::half", align 2
+  %3 = alloca float, align 4
+  %4 = alloca %"class.Imath_3_2::half", align 2
+  %5 = alloca %"class.Imath_3_2::half", align 2
+  store float %0, ptr %3, align 4, !tbaa !11
+  %6 = load float, ptr %3, align 4, !tbaa !11
+  %7 = call noundef zeroext i1 @_ZN7Imf_3_412_GLOBAL__N_18isFiniteEf(float noundef %6)
+  br i1 %7, label %8, label %27
 
-if.then:                                          ; preds = %entry
-  %1 = load float, ptr %f.addr, align 4
-  %call1 = call i16 @_ZNSt14numeric_limitsIN9Imath_3_24halfEE3maxEv() #3
-  %coerce.dive = getelementptr inbounds %"class.Imath_3_2::half", ptr %ref.tmp, i32 0, i32 0
-  store i16 %call1, ptr %coerce.dive, align 2
-  %call2 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %ref.tmp) #3
-  %cmp = fcmp ogt float %1, %call2
-  br i1 %cmp, label %if.then3, label %if.end
+8:                                                ; preds = %1
+  %9 = load float, ptr %3, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 2, ptr %4) #3
+  %10 = call i16 @_ZNSt14numeric_limitsIN9Imath_3_24halfEE3maxEv() #3
+  %11 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %4, i32 0, i32 0
+  store i16 %10, ptr %11, align 2
+  %12 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %4) #3
+  %13 = fcmp ogt float %9, %12
+  call void @llvm.lifetime.end.p0(i64 2, ptr %4) #3
+  br i1 %13, label %14, label %17
 
-if.then3:                                         ; preds = %if.then
-  %call4 = call i16 @_ZN9Imath_3_24half6posInfEv() #3
-  %coerce.dive5 = getelementptr inbounds %"class.Imath_3_2::half", ptr %retval, i32 0, i32 0
-  store i16 %call4, ptr %coerce.dive5, align 2
-  br label %return
+14:                                               ; preds = %8
+  %15 = call i16 @_ZN9Imath_3_24half6posInfEv() #3
+  %16 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %2, i32 0, i32 0
+  store i16 %15, ptr %16, align 2
+  br label %29
 
-if.end:                                           ; preds = %if.then
-  %2 = load float, ptr %f.addr, align 4
-  %call7 = call i16 @_ZNSt14numeric_limitsIN9Imath_3_24halfEE6lowestEv()
-  %coerce.dive8 = getelementptr inbounds %"class.Imath_3_2::half", ptr %ref.tmp6, i32 0, i32 0
-  store i16 %call7, ptr %coerce.dive8, align 2
-  %call9 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %ref.tmp6) #3
-  %cmp10 = fcmp olt float %2, %call9
-  br i1 %cmp10, label %if.then11, label %if.end14
+17:                                               ; preds = %8
+  %18 = load float, ptr %3, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 2, ptr %5) #3
+  %19 = call i16 @_ZNSt14numeric_limitsIN9Imath_3_24halfEE6lowestEv()
+  %20 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %5, i32 0, i32 0
+  store i16 %19, ptr %20, align 2
+  %21 = call noundef float @_ZNK9Imath_3_24halfcvfEv(ptr noundef nonnull align 2 dereferenceable(2) %5) #3
+  %22 = fcmp olt float %18, %21
+  call void @llvm.lifetime.end.p0(i64 2, ptr %5) #3
+  br i1 %22, label %23, label %26
 
-if.then11:                                        ; preds = %if.end
-  %call12 = call i16 @_ZN9Imath_3_24half6negInfEv() #3
-  %coerce.dive13 = getelementptr inbounds %"class.Imath_3_2::half", ptr %retval, i32 0, i32 0
-  store i16 %call12, ptr %coerce.dive13, align 2
-  br label %return
+23:                                               ; preds = %17
+  %24 = call i16 @_ZN9Imath_3_24half6negInfEv() #3
+  %25 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %2, i32 0, i32 0
+  store i16 %24, ptr %25, align 2
+  br label %29
 
-if.end14:                                         ; preds = %if.end
-  br label %if.end15
+26:                                               ; preds = %17
+  br label %27
 
-if.end15:                                         ; preds = %if.end14, %entry
-  %3 = load float, ptr %f.addr, align 4
-  call void @_ZN9Imath_3_24halfC2Ef(ptr noundef nonnull align 2 dereferenceable(2) %retval, float noundef %3) #3
-  br label %return
+27:                                               ; preds = %26, %1
+  %28 = load float, ptr %3, align 4, !tbaa !11
+  call void @_ZN9Imath_3_24halfC2Ef(ptr noundef nonnull align 2 dereferenceable(2) %2, float noundef %28) #3
+  br label %29
 
-return:                                           ; preds = %if.end15, %if.then11, %if.then3
-  %coerce.dive16 = getelementptr inbounds %"class.Imath_3_2::half", ptr %retval, i32 0, i32 0
-  %4 = load i16, ptr %coerce.dive16, align 2
-  ret i16 %4
+29:                                               ; preds = %27, %23, %14
+  %30 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %2, i32 0, i32 0
+  %31 = load i16, ptr %30, align 2
+  ret i16 %31
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN7Imf_3_212_GLOBAL__N_18isFiniteEf(float noundef %f) #4 {
-entry:
-  %f.addr = alloca float, align 4
-  %u = alloca %union.anon.2, align 4
-  store float %f, ptr %f.addr, align 4
-  %0 = load float, ptr %f.addr, align 4
-  store float %0, ptr %u, align 4
-  %1 = load i32, ptr %u, align 4
-  %and = and i32 %1, 2139095040
-  %cmp = icmp ne i32 %and, 2139095040
-  ret i1 %cmp
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef zeroext i1 @_ZN7Imf_3_412_GLOBAL__N_18isFiniteEf(float noundef %0) #5 {
+  %2 = alloca float, align 4
+  %3 = alloca %union.anon.2, align 4
+  store float %0, ptr %2, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #3
+  %4 = load float, ptr %2, align 4, !tbaa !11
+  store float %4, ptr %3, align 4, !tbaa !13
+  %5 = load i32, ptr %3, align 4, !tbaa !13
+  %6 = and i32 %5, 2139095040
+  %7 = icmp ne i32 %6, 2139095040
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #3
+  ret i1 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden i16 @_ZNSt14numeric_limitsIN9Imath_3_24halfEE6lowestEv() #4 comdat align 2 {
-entry:
-  %retval = alloca %"class.Imath_3_2::half", align 2
-  call void @_ZN9Imath_3_24halfC2ENS0_11FromBitsTagEt(ptr noundef nonnull align 2 dereferenceable(2) %retval, i32 noundef 0, i16 noundef zeroext -1025) #3
-  %coerce.dive = getelementptr inbounds %"class.Imath_3_2::half", ptr %retval, i32 0, i32 0
-  %0 = load i16, ptr %coerce.dive, align 2
-  ret i16 %0
+  %1 = alloca %"class.Imath_3_2::half", align 2
+  call void @_ZN9Imath_3_24halfC2ENS0_11FromBitsTagEt(ptr noundef nonnull align 2 dereferenceable(2) %1, i32 noundef 0, i16 noundef zeroext -1025) #3
+  %2 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %1, i32 0, i32 0
+  %3 = load i16, ptr %2, align 2
+  ret i16 %3
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden i16 @_ZN9Imath_3_24half6negInfEv() #4 comdat align 2 {
-entry:
-  %retval = alloca %"class.Imath_3_2::half", align 2
-  call void @_ZN9Imath_3_24halfC2ENS0_11FromBitsTagEt(ptr noundef nonnull align 2 dereferenceable(2) %retval, i32 noundef 0, i16 noundef zeroext -1024) #3
-  %coerce.dive = getelementptr inbounds %"class.Imath_3_2::half", ptr %retval, i32 0, i32 0
-  %0 = load i16, ptr %coerce.dive, align 2
-  ret i16 %0
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden i16 @_ZN9Imath_3_24half6negInfEv() #5 comdat align 2 {
+  %1 = alloca %"class.Imath_3_2::half", align 2
+  call void @_ZN9Imath_3_24halfC2ENS0_11FromBitsTagEt(ptr noundef nonnull align 2 dereferenceable(2) %1, i32 noundef 0, i16 noundef zeroext -1024) #3
+  %2 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %1, i32 0, i32 0
+  %3 = load i16, ptr %2, align 2
+  ret i16 %3
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i16 @_ZNK9Imath_3_24half8exponentEv(ptr noundef nonnull align 2 dereferenceable(2) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_h = getelementptr inbounds %"class.Imath_3_2::half", ptr %this1, i32 0, i32 0
-  %0 = load i16, ptr %_h, align 2
-  %conv = zext i16 %0 to i32
-  %shr = ashr i32 %conv, 10
-  %and = and i32 %shr, 31
-  %conv2 = trunc i32 %and to i16
-  ret i16 %conv2
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i16 @_ZNK9Imath_3_24half8exponentEv(ptr noundef nonnull align 2 dereferenceable(2) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %3, i32 0, i32 0
+  %5 = load i16, ptr %4, align 2, !tbaa !8
+  %6 = zext i16 %5 to i32
+  %7 = ashr i32 %6, 10
+  %8 = and i32 %7, 31
+  %9 = trunc i32 %8 to i16
+  ret i16 %9
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i16 @_ZNK9Imath_3_24half8mantissaEv(ptr noundef nonnull align 2 dereferenceable(2) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_h = getelementptr inbounds %"class.Imath_3_2::half", ptr %this1, i32 0, i32 0
-  %0 = load i16, ptr %_h, align 2
-  %conv = zext i16 %0 to i32
-  %and = and i32 %conv, 1023
-  %conv2 = trunc i32 %and to i16
-  ret i16 %conv2
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i16 @_ZNK9Imath_3_24half8mantissaEv(ptr noundef nonnull align 2 dereferenceable(2) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %3, i32 0, i32 0
+  %5 = load i16, ptr %4, align 2, !tbaa !8
+  %6 = zext i16 %5 to i32
+  %7 = and i32 %6, 1023
+  %8 = trunc i32 %7 to i16
+  ret i16 %8
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef float @_ZL19imath_half_to_floatt(i16 noundef zeroext %h) #4 {
-entry:
-  %h.addr = alloca i16, align 2
-  store i16 %h, ptr %h.addr, align 2
-  %0 = load ptr, ptr @imath_half_to_float_table, align 8
-  %1 = load i16, ptr %h.addr, align 2
-  %idxprom = zext i16 %1 to i64
-  %arrayidx = getelementptr inbounds %union.imath_half_uif, ptr %0, i64 %idxprom
-  %2 = load float, ptr %arrayidx, align 4
-  ret float %2
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef float @_ZL19imath_half_to_floatt(i16 noundef zeroext %0) #5 {
+  %2 = alloca i16, align 2
+  store i16 %0, ptr %2, align 2, !tbaa !16
+  %3 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !17
+  %4 = load i16, ptr %2, align 2, !tbaa !16
+  %5 = zext i16 %4 to i64
+  %6 = getelementptr inbounds nuw %union.imath_half_uif, ptr %3, i64 %5
+  %7 = load float, ptr %6, align 4, !tbaa !13
+  ret float %7
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #6 comdat {
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #8 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
-  call void @_ZSt9terminatev() #7
+  call void @_ZSt9terminatev() #10
   unreachable
 }
 
@@ -495,209 +493,256 @@ declare ptr @__cxa_begin_catch(ptr)
 
 declare void @_ZSt9terminatev()
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN9Imath_3_24halfC2ENS0_11FromBitsTagEt(ptr noundef nonnull align 2 dereferenceable(2) %this, i32 noundef %0, i16 noundef zeroext %bits) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca i32, align 4
-  %bits.addr = alloca i16, align 2
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %0, ptr %.addr, align 4
-  store i16 %bits, ptr %bits.addr, align 2
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_h = getelementptr inbounds %"class.Imath_3_2::half", ptr %this1, i32 0, i32 0
-  %1 = load i16, ptr %bits.addr, align 2
-  store i16 %1, ptr %_h, align 2
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN9Imath_3_24halfC2ENS0_11FromBitsTagEt(ptr noundef nonnull align 2 dereferenceable(2) %0, i32 noundef %1, i16 noundef zeroext %2) unnamed_addr #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i16, align 2
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !19
+  store i16 %2, ptr %6, align 2, !tbaa !16
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %7, i32 0, i32 0
+  %9 = load i16, ptr %6, align 2, !tbaa !16
+  store i16 %9, ptr %8, align 2, !tbaa !8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i16 @_ZL19imath_float_to_halff(float noundef %f) #4 {
-entry:
-  %retval = alloca i16, align 2
-  %f.addr = alloca float, align 4
-  %v = alloca %union.imath_half_uif, align 4
-  %ret = alloca i16, align 2
-  %e = alloca i32, align 4
-  %m = alloca i32, align 4
-  %ui = alloca i32, align 4
-  %r = alloca i32, align 4
-  %shift = alloca i32, align 4
-  store float %f, ptr %f.addr, align 4
-  %0 = load float, ptr %f.addr, align 4
-  store float %0, ptr %v, align 4
-  %1 = load i32, ptr %v, align 4
-  %and = and i32 %1, 2147483647
-  store i32 %and, ptr %ui, align 4
-  %2 = load i32, ptr %v, align 4
-  %shr = lshr i32 %2, 16
-  %and1 = and i32 %shr, 32768
-  %conv = trunc i32 %and1 to i16
-  store i16 %conv, ptr %ret, align 2
-  %3 = load i32, ptr %ui, align 4
-  %cmp = icmp uge i32 %3, 947912704
-  br i1 %cmp, label %if.then, label %if.end37
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef zeroext i16 @_ZL19imath_float_to_halff(float noundef %0) #5 {
+  %2 = alloca i16, align 2
+  %3 = alloca float, align 4
+  %4 = alloca %union.imath_half_uif, align 4
+  %5 = alloca i16, align 2
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  store float %0, ptr %3, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  call void @llvm.lifetime.start.p0(i64 2, ptr %5) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  %12 = load float, ptr %3, align 4, !tbaa !11
+  store float %12, ptr %4, align 4, !tbaa !13
+  %13 = load i32, ptr %4, align 4, !tbaa !13
+  %14 = and i32 %13, 2147483647
+  store i32 %14, ptr %8, align 4, !tbaa !14
+  %15 = load i32, ptr %4, align 4, !tbaa !13
+  %16 = lshr i32 %15, 16
+  %17 = and i32 %16, 32768
+  %18 = trunc i32 %17 to i16
+  store i16 %18, ptr %5, align 2, !tbaa !16
+  %19 = load i32, ptr %8, align 4, !tbaa !14
+  %20 = icmp uge i32 %19, 947912704
+  br i1 %20, label %21, label %80
 
-if.then:                                          ; preds = %entry
-  %4 = load i32, ptr %ui, align 4
-  %cmp2 = icmp uge i32 %4, 2139095040
-  br i1 %cmp2, label %if.then4, label %if.end20
+21:                                               ; preds = %1
+  %22 = load i32, ptr %8, align 4, !tbaa !14
+  %23 = icmp uge i32 %22, 2139095040
+  %24 = zext i1 %23 to i64
+  %25 = call i64 @llvm.expect.i64(i64 %24, i64 0)
+  %26 = icmp ne i64 %25, 0
+  br i1 %26, label %27, label %52
 
-if.then4:                                         ; preds = %if.then
-  %5 = load i16, ptr %ret, align 2
-  %conv5 = zext i16 %5 to i32
-  %or = or i32 %conv5, 31744
-  %conv6 = trunc i32 %or to i16
-  store i16 %conv6, ptr %ret, align 2
-  %6 = load i32, ptr %ui, align 4
-  %cmp7 = icmp eq i32 %6, 2139095040
-  br i1 %cmp7, label %if.then8, label %if.end
+27:                                               ; preds = %21
+  %28 = load i16, ptr %5, align 2, !tbaa !16
+  %29 = zext i16 %28 to i32
+  %30 = or i32 %29, 31744
+  %31 = trunc i32 %30 to i16
+  store i16 %31, ptr %5, align 2, !tbaa !16
+  %32 = load i32, ptr %8, align 4, !tbaa !14
+  %33 = icmp eq i32 %32, 2139095040
+  br i1 %33, label %34, label %36
 
-if.then8:                                         ; preds = %if.then4
-  %7 = load i16, ptr %ret, align 2
-  store i16 %7, ptr %retval, align 2
-  br label %return
+34:                                               ; preds = %27
+  %35 = load i16, ptr %5, align 2, !tbaa !16
+  store i16 %35, ptr %2, align 2
+  store i32 1, ptr %11, align 4
+  br label %119
 
-if.end:                                           ; preds = %if.then4
-  %8 = load i32, ptr %ui, align 4
-  %and9 = and i32 %8, 8388607
-  %shr10 = lshr i32 %and9, 13
-  store i32 %shr10, ptr %m, align 4
-  %9 = load i16, ptr %ret, align 2
-  %conv11 = zext i16 %9 to i32
-  %10 = load i32, ptr %m, align 4
-  %conv12 = trunc i32 %10 to i16
-  %conv13 = zext i16 %conv12 to i32
-  %or14 = or i32 %conv11, %conv13
-  %11 = load i32, ptr %m, align 4
-  %cmp15 = icmp eq i32 %11, 0
-  %conv16 = zext i1 %cmp15 to i16
-  %conv17 = zext i16 %conv16 to i32
-  %or18 = or i32 %or14, %conv17
-  %conv19 = trunc i32 %or18 to i16
-  store i16 %conv19, ptr %retval, align 2
-  br label %return
+36:                                               ; preds = %27
+  %37 = load i32, ptr %8, align 4, !tbaa !14
+  %38 = and i32 %37, 8388607
+  %39 = lshr i32 %38, 13
+  store i32 %39, ptr %7, align 4, !tbaa !14
+  %40 = load i16, ptr %5, align 2, !tbaa !16
+  %41 = zext i16 %40 to i32
+  %42 = load i32, ptr %7, align 4, !tbaa !14
+  %43 = trunc i32 %42 to i16
+  %44 = zext i16 %43 to i32
+  %45 = or i32 %41, %44
+  %46 = load i32, ptr %7, align 4, !tbaa !14
+  %47 = icmp eq i32 %46, 0
+  %48 = zext i1 %47 to i16
+  %49 = zext i16 %48 to i32
+  %50 = or i32 %45, %49
+  %51 = trunc i32 %50 to i16
+  store i16 %51, ptr %2, align 2
+  store i32 1, ptr %11, align 4
+  br label %119
 
-if.end20:                                         ; preds = %if.then
-  %12 = load i32, ptr %ui, align 4
-  %cmp21 = icmp ugt i32 %12, 1199566847
-  br i1 %cmp21, label %if.then23, label %if.end27
+52:                                               ; preds = %21
+  %53 = load i32, ptr %8, align 4, !tbaa !14
+  %54 = icmp ugt i32 %53, 1199566847
+  %55 = zext i1 %54 to i64
+  %56 = call i64 @llvm.expect.i64(i64 %55, i64 0)
+  %57 = icmp ne i64 %56, 0
+  br i1 %57, label %58, label %63
 
-if.then23:                                        ; preds = %if.end20
-  %13 = load i16, ptr %ret, align 2
-  %conv24 = zext i16 %13 to i32
-  %or25 = or i32 %conv24, 31744
-  %conv26 = trunc i32 %or25 to i16
-  store i16 %conv26, ptr %retval, align 2
-  br label %return
+58:                                               ; preds = %52
+  %59 = load i16, ptr %5, align 2, !tbaa !16
+  %60 = zext i16 %59 to i32
+  %61 = or i32 %60, 31744
+  %62 = trunc i32 %61 to i16
+  store i16 %62, ptr %2, align 2
+  store i32 1, ptr %11, align 4
+  br label %119
 
-if.end27:                                         ; preds = %if.end20
-  %14 = load i32, ptr %ui, align 4
-  %sub = sub i32 %14, 939524096
-  store i32 %sub, ptr %ui, align 4
-  %15 = load i32, ptr %ui, align 4
-  %add = add i32 %15, 4095
-  %16 = load i32, ptr %ui, align 4
-  %shr28 = lshr i32 %16, 13
-  %and29 = and i32 %shr28, 1
-  %add30 = add i32 %add, %and29
-  %shr31 = lshr i32 %add30, 13
-  store i32 %shr31, ptr %ui, align 4
-  %17 = load i16, ptr %ret, align 2
-  %conv32 = zext i16 %17 to i32
-  %18 = load i32, ptr %ui, align 4
-  %conv33 = trunc i32 %18 to i16
-  %conv34 = zext i16 %conv33 to i32
-  %or35 = or i32 %conv32, %conv34
-  %conv36 = trunc i32 %or35 to i16
-  store i16 %conv36, ptr %retval, align 2
-  br label %return
+63:                                               ; preds = %52
+  %64 = load i32, ptr %8, align 4, !tbaa !14
+  %65 = sub i32 %64, 939524096
+  store i32 %65, ptr %8, align 4, !tbaa !14
+  %66 = load i32, ptr %8, align 4, !tbaa !14
+  %67 = add i32 %66, 4095
+  %68 = load i32, ptr %8, align 4, !tbaa !14
+  %69 = lshr i32 %68, 13
+  %70 = and i32 %69, 1
+  %71 = add i32 %67, %70
+  %72 = lshr i32 %71, 13
+  store i32 %72, ptr %8, align 4, !tbaa !14
+  %73 = load i16, ptr %5, align 2, !tbaa !16
+  %74 = zext i16 %73 to i32
+  %75 = load i32, ptr %8, align 4, !tbaa !14
+  %76 = trunc i32 %75 to i16
+  %77 = zext i16 %76 to i32
+  %78 = or i32 %74, %77
+  %79 = trunc i32 %78 to i16
+  store i16 %79, ptr %2, align 2
+  store i32 1, ptr %11, align 4
+  br label %119
 
-if.end37:                                         ; preds = %entry
-  %19 = load i32, ptr %ui, align 4
-  %cmp38 = icmp ult i32 %19, 855638017
-  br i1 %cmp38, label %if.then39, label %if.end40
+80:                                               ; preds = %1
+  %81 = load i32, ptr %8, align 4, !tbaa !14
+  %82 = icmp ult i32 %81, 855638017
+  br i1 %82, label %83, label %85
 
-if.then39:                                        ; preds = %if.end37
-  %20 = load i16, ptr %ret, align 2
-  store i16 %20, ptr %retval, align 2
-  br label %return
+83:                                               ; preds = %80
+  %84 = load i16, ptr %5, align 2, !tbaa !16
+  store i16 %84, ptr %2, align 2
+  store i32 1, ptr %11, align 4
+  br label %119
 
-if.end40:                                         ; preds = %if.end37
-  %21 = load i32, ptr %ui, align 4
-  %shr41 = lshr i32 %21, 23
-  store i32 %shr41, ptr %e, align 4
-  %22 = load i32, ptr %e, align 4
-  %sub42 = sub i32 126, %22
-  store i32 %sub42, ptr %shift, align 4
-  %23 = load i32, ptr %ui, align 4
-  %and43 = and i32 %23, 8388607
-  %or44 = or i32 8388608, %and43
-  store i32 %or44, ptr %m, align 4
-  %24 = load i32, ptr %m, align 4
-  %25 = load i32, ptr %shift, align 4
-  %sub45 = sub i32 32, %25
-  %shl = shl i32 %24, %sub45
-  store i32 %shl, ptr %r, align 4
-  %26 = load i32, ptr %m, align 4
-  %27 = load i32, ptr %shift, align 4
-  %shr46 = lshr i32 %26, %27
-  %28 = load i16, ptr %ret, align 2
-  %conv47 = zext i16 %28 to i32
-  %or48 = or i32 %conv47, %shr46
-  %conv49 = trunc i32 %or48 to i16
-  store i16 %conv49, ptr %ret, align 2
-  %29 = load i32, ptr %r, align 4
-  %cmp50 = icmp ugt i32 %29, -2147483648
-  br i1 %cmp50, label %if.then55, label %lor.lhs.false
+85:                                               ; preds = %80
+  %86 = load i32, ptr %8, align 4, !tbaa !14
+  %87 = lshr i32 %86, 23
+  store i32 %87, ptr %6, align 4, !tbaa !14
+  %88 = load i32, ptr %6, align 4, !tbaa !14
+  %89 = sub i32 126, %88
+  store i32 %89, ptr %10, align 4, !tbaa !14
+  %90 = load i32, ptr %8, align 4, !tbaa !14
+  %91 = and i32 %90, 8388607
+  %92 = or i32 8388608, %91
+  store i32 %92, ptr %7, align 4, !tbaa !14
+  %93 = load i32, ptr %7, align 4, !tbaa !14
+  %94 = load i32, ptr %10, align 4, !tbaa !14
+  %95 = sub i32 32, %94
+  %96 = shl i32 %93, %95
+  store i32 %96, ptr %9, align 4, !tbaa !14
+  %97 = load i32, ptr %7, align 4, !tbaa !14
+  %98 = load i32, ptr %10, align 4, !tbaa !14
+  %99 = lshr i32 %97, %98
+  %100 = load i16, ptr %5, align 2, !tbaa !16
+  %101 = zext i16 %100 to i32
+  %102 = or i32 %101, %99
+  %103 = trunc i32 %102 to i16
+  store i16 %103, ptr %5, align 2, !tbaa !16
+  %104 = load i32, ptr %9, align 4, !tbaa !14
+  %105 = icmp ugt i32 %104, -2147483648
+  br i1 %105, label %114, label %106
 
-lor.lhs.false:                                    ; preds = %if.end40
-  %30 = load i32, ptr %r, align 4
-  %cmp51 = icmp eq i32 %30, -2147483648
-  br i1 %cmp51, label %land.lhs.true, label %if.end56
+106:                                              ; preds = %85
+  %107 = load i32, ptr %9, align 4, !tbaa !14
+  %108 = icmp eq i32 %107, -2147483648
+  br i1 %108, label %109, label %117
 
-land.lhs.true:                                    ; preds = %lor.lhs.false
-  %31 = load i16, ptr %ret, align 2
-  %conv52 = zext i16 %31 to i32
-  %and53 = and i32 %conv52, 1
-  %cmp54 = icmp ne i32 %and53, 0
-  br i1 %cmp54, label %if.then55, label %if.end56
+109:                                              ; preds = %106
+  %110 = load i16, ptr %5, align 2, !tbaa !16
+  %111 = zext i16 %110 to i32
+  %112 = and i32 %111, 1
+  %113 = icmp ne i32 %112, 0
+  br i1 %113, label %114, label %117
 
-if.then55:                                        ; preds = %land.lhs.true, %if.end40
-  %32 = load i16, ptr %ret, align 2
-  %inc = add i16 %32, 1
-  store i16 %inc, ptr %ret, align 2
-  br label %if.end56
+114:                                              ; preds = %109, %85
+  %115 = load i16, ptr %5, align 2, !tbaa !16
+  %116 = add i16 %115, 1
+  store i16 %116, ptr %5, align 2, !tbaa !16
+  br label %117
 
-if.end56:                                         ; preds = %if.then55, %land.lhs.true, %lor.lhs.false
-  %33 = load i16, ptr %ret, align 2
-  store i16 %33, ptr %retval, align 2
-  br label %return
+117:                                              ; preds = %114, %109, %106
+  %118 = load i16, ptr %5, align 2, !tbaa !16
+  store i16 %118, ptr %2, align 2
+  store i32 1, ptr %11, align 4
+  br label %119
 
-return:                                           ; preds = %if.end56, %if.then39, %if.end27, %if.then23, %if.end, %if.then8
-  %34 = load i16, ptr %retval, align 2
-  ret i16 %34
+119:                                              ; preds = %117, %83, %63, %58, %36, %34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %5) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  %120 = load i16, ptr %2, align 2
+  ret i16 %120
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #9
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_ImfConvert.cpp() #0 section ".text.startup" {
-entry:
   call void @__cxx_global_var_init()
   ret void
 }
 
-attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
-attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind }
+attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #10 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN9Imath_3_24halfE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !10, i64 0}
+!9 = !{!"_ZTSN9Imath_3_24halfE", !10, i64 0}
+!10 = !{!"short", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"float", !6, i64 0}
+!13 = !{!6, !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"int", !6, i64 0}
+!16 = !{!10, !10, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS14imath_half_uif", !5, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"_ZTSN9Imath_3_24half11FromBitsTagE", !6, i64 0}

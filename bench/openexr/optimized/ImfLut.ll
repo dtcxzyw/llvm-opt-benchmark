@@ -1,11 +1,11 @@
 ; ModuleID = 'bench/openexr/original/ImfLut.ll'
 source_filename = "bench/openexr/original/ImfLut.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.Imath_3_2::half" = type { i16 }
-%"struct.Imf_3_2::Rgba" = type { %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half" }
+%"struct.Imf_3_4::Rgba" = type { %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half" }
 %union.imath_half_uif = type { i32 }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
@@ -22,452 +22,1013 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK7Imf_3_27HalfLut5applyEPN9Imath_3_24halfEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef captures(none) %data, i32 noundef %nData, i32 noundef %stride) local_unnamed_addr #3 align 2 {
-entry:
-  %tobool.not4 = icmp eq i32 %nData, 0
-  br i1 %tobool.not4, label %while.end, label %while.body.lr.ph
+define void @_ZNK7Imf_3_47HalfLut5applyEPN9Imath_3_24halfEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+  %.not8 = icmp eq i32 %2, 0
+  br i1 %.not8, label %._crit_edge, label %.lr.ph
 
-while.body.lr.ph:                                 ; preds = %entry
-  %idx.ext = sext i32 %stride to i64
-  br label %while.body
+.lr.ph:                                           ; preds = %4
+  %5 = load ptr, ptr %0, align 8, !tbaa !3
+  %6 = sext i32 %3 to i64
+  br label %7
 
-while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %data.addr.06 = phi ptr [ %data, %while.body.lr.ph ], [ %add.ptr, %while.body ]
-  %nData.addr.05 = phi i32 [ %nData, %while.body.lr.ph ], [ %sub, %while.body ]
-  %agg.tmp.sroa.0.0.copyload = load i16, ptr %data.addr.06, align 2
-  %0 = load ptr, ptr %this, align 8
-  %idxprom.i = zext i16 %agg.tmp.sroa.0.0.copyload to i64
-  %arrayidx.i = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %0, i64 %idxprom.i
-  %retval.sroa.0.0.copyload.i = load i16, ptr %arrayidx.i, align 2
-  store i16 %retval.sroa.0.0.copyload.i, ptr %data.addr.06, align 2
-  %add.ptr = getelementptr inbounds %"class.Imath_3_2::half", ptr %data.addr.06, i64 %idx.ext
-  %sub = add nsw i32 %nData.addr.05, -1
-  %tobool.not = icmp eq i32 %sub, 0
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !4
+7:                                                ; preds = %.lr.ph, %7
+  %.010 = phi ptr [ %1, %.lr.ph ], [ %10, %7 ]
+  %.079 = phi i32 [ %2, %.lr.ph ], [ %11, %7 ]
+  %.sroa.0.0.copyload = load i16, ptr %.010, align 2, !tbaa !9
+  %8 = zext i16 %.sroa.0.0.copyload to i64
+  %9 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %5, i64 %8
+  %.sroa.0.0.copyload.i = load i16, ptr %9, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i, ptr %.010, align 2, !tbaa !9
+  %10 = getelementptr inbounds %"class.Imath_3_2::half", ptr %.010, i64 %6
+  %11 = add nsw i32 %.079, -1
+  %.not = icmp eq i32 %11, 0
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !11
 
-while.end:                                        ; preds = %while.body, %entry
+._crit_edge:                                      ; preds = %7, %4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK7Imf_3_27HalfLut5applyERKNS_5SliceERKN9Imath_3_23BoxINS4_4Vec2IiEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %data, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %dataWindow) local_unnamed_addr #4 align 2 {
-entry:
-  %yStride = getelementptr inbounds nuw i8, ptr %data, i64 24
-  %y = getelementptr inbounds nuw i8, ptr %dataWindow, i64 4
-  %0 = load i32, ptr %y, align 4
-  %ySampling = getelementptr inbounds nuw i8, ptr %data, i64 36
-  %max = getelementptr inbounds nuw i8, ptr %dataWindow, i64 8
-  %y6 = getelementptr inbounds nuw i8, ptr %dataWindow, i64 12
-  %1 = load i32, ptr %y6, align 4
-  %cmp.not22 = icmp sgt i32 %0, %1
-  br i1 %cmp.not22, label %for.end29, label %for.body.lr.ph
+define void @_ZNK7Imf_3_47HalfLut5applyERKNS_5SliceERKN9Imath_3_23BoxINS4_4Vec2IiEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2) local_unnamed_addr #4 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %5 = load i64, ptr %4, align 8, !tbaa !13
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %7 = load i32, ptr %6, align 4, !tbaa !21
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %9 = load i32, ptr %8, align 4, !tbaa !24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %11 = load i32, ptr %10, align 4, !tbaa !25
+  %.not32 = icmp sgt i32 %7, %11
+  br i1 %.not32, label %._crit_edge37, label %.lr.ph36
 
-for.body.lr.ph:                                   ; preds = %entry
-  %xStride = getelementptr inbounds nuw i8, ptr %data, i64 16
-  %xSampling = getelementptr inbounds nuw i8, ptr %data, i64 32
-  %2 = load i32, ptr %dataWindow, align 4
-  %3 = load i32, ptr %max, align 4
-  %4 = icmp sgt i32 %2, %3
-  br i1 %4, label %for.end29, label %for.body.preheader
+.lr.ph36:                                         ; preds = %3
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %14 = load i64, ptr %13, align 8, !tbaa !26
+  %15 = load i32, ptr %2, align 4, !tbaa !27
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %17 = load i32, ptr %16, align 8, !tbaa !28
+  %18 = sdiv i32 %15, %17
+  %19 = sext i32 %18 to i64
+  %20 = mul i64 %14, %19
+  %21 = load i32, ptr %12, align 4, !tbaa !29
+  %.not2829 = icmp sgt i32 %15, %21
+  %22 = load ptr, ptr %0, align 8
+  br i1 %.not2829, label %._crit_edge37, label %.lr.ph.preheader
 
-for.body.preheader:                               ; preds = %for.body.lr.ph
-  %base2 = getelementptr inbounds nuw i8, ptr %data, i64 8
-  %5 = load ptr, ptr %base2, align 8
-  %6 = load i64, ptr %yStride, align 8
-  %7 = load i32, ptr %ySampling, align 4
-  %div = sdiv i32 %0, %7
-  %conv = sext i32 %div to i64
-  %mul = mul i64 %6, %conv
-  %add.ptr = getelementptr inbounds i8, ptr %5, i64 %mul
-  %.pre = load i64, ptr %xStride, align 8
-  %.pre26 = load i32, ptr %xSampling, align 8
-  br label %for.body
+.lr.ph.preheader:                                 ; preds = %.lr.ph36
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !30
+  %25 = sdiv i32 %7, %9
+  %26 = sext i32 %25 to i64
+  %27 = mul i64 %5, %26
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 %27
+  br label %.lr.ph
 
-for.body:                                         ; preds = %for.body.preheader, %for.end
-  %8 = phi i32 [ %19, %for.end ], [ %1, %for.body.preheader ]
-  %9 = phi i32 [ %20, %for.end ], [ %7, %for.body.preheader ]
-  %10 = phi i64 [ %21, %for.end ], [ %6, %for.body.preheader ]
-  %11 = phi i32 [ %22, %for.end ], [ %3, %for.body.preheader ]
-  %12 = phi i32 [ %23, %for.end ], [ %.pre26, %for.body.preheader ]
-  %13 = phi i64 [ %24, %for.end ], [ %.pre, %for.body.preheader ]
-  %base.024 = phi ptr [ %add.ptr25, %for.end ], [ %add.ptr, %for.body.preheader ]
-  %y3.023 = phi i32 [ %add28, %for.end ], [ %0, %for.body.preheader ]
-  %14 = load i32, ptr %dataWindow, align 4
-  %cmp18.not19 = icmp sgt i32 %14, %11
-  br i1 %cmp18.not19, label %for.end, label %for.body19.preheader
+._crit_edge37:                                    ; preds = %._crit_edge, %.lr.ph36, %3
+  ret void
 
-for.body19.preheader:                             ; preds = %for.body
-  %div8 = sdiv i32 %14, %12
-  %conv9 = sext i32 %div8 to i64
-  %mul10 = mul i64 %13, %conv9
-  %add.ptr11 = getelementptr inbounds i8, ptr %base.024, i64 %mul10
-  br label %for.body19
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %._crit_edge
+  %.034 = phi ptr [ %30, %._crit_edge ], [ %28, %.lr.ph.preheader ]
+  %.02533 = phi i32 [ %31, %._crit_edge ], [ %7, %.lr.ph.preheader ]
+  %29 = getelementptr inbounds nuw i8, ptr %.034, i64 %20
+  br label %32
 
-for.body19:                                       ; preds = %for.body19.preheader, %for.body19
-  %x12.021 = phi i32 [ %add, %for.body19 ], [ %14, %for.body19.preheader ]
-  %pixel.020 = phi ptr [ %add.ptr22, %for.body19 ], [ %add.ptr11, %for.body19.preheader ]
-  %agg.tmp.sroa.0.0.copyload = load i16, ptr %pixel.020, align 2
-  %15 = load ptr, ptr %this, align 8
-  %idxprom.i = zext i16 %agg.tmp.sroa.0.0.copyload to i64
-  %arrayidx.i = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %15, i64 %idxprom.i
-  %retval.sroa.0.0.copyload.i = load i16, ptr %arrayidx.i, align 2
-  store i16 %retval.sroa.0.0.copyload.i, ptr %pixel.020, align 2
-  %16 = load i64, ptr %xStride, align 8
-  %add.ptr22 = getelementptr inbounds i8, ptr %pixel.020, i64 %16
-  %17 = load i32, ptr %xSampling, align 8
-  %add = add nsw i32 %17, %x12.021
-  %18 = load i32, ptr %max, align 4
-  %cmp18.not = icmp sgt i32 %add, %18
-  br i1 %cmp18.not, label %for.end.loopexit, label %for.body19, !llvm.loop !6
+._crit_edge:                                      ; preds = %32
+  %30 = getelementptr inbounds nuw i8, ptr %.034, i64 %5
+  %31 = add nsw i32 %.02533, %9
+  %.not = icmp sgt i32 %31, %11
+  br i1 %.not, label %._crit_edge37, label %.lr.ph, !llvm.loop !31
 
-for.end.loopexit:                                 ; preds = %for.body19
-  %.pre27 = load i64, ptr %yStride, align 8
-  %.pre28 = load i32, ptr %ySampling, align 4
-  %.pre29 = load i32, ptr %y6, align 4
-  br label %for.end
+32:                                               ; preds = %.lr.ph, %32
+  %.02631 = phi i32 [ %15, %.lr.ph ], [ %36, %32 ]
+  %.02730 = phi ptr [ %29, %.lr.ph ], [ %35, %32 ]
+  %.sroa.0.0.copyload = load i16, ptr %.02730, align 2, !tbaa !9
+  %33 = zext i16 %.sroa.0.0.copyload to i64
+  %34 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %22, i64 %33
+  %.sroa.0.0.copyload.i = load i16, ptr %34, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i, ptr %.02730, align 2, !tbaa !9
+  %35 = getelementptr inbounds nuw i8, ptr %.02730, i64 %14
+  %36 = add nsw i32 %.02631, %17
+  %.not28 = icmp sgt i32 %36, %21
+  br i1 %.not28, label %._crit_edge, label %32, !llvm.loop !32
+}
 
-for.end:                                          ; preds = %for.end.loopexit, %for.body
-  %19 = phi i32 [ %.pre29, %for.end.loopexit ], [ %8, %for.body ]
-  %20 = phi i32 [ %.pre28, %for.end.loopexit ], [ %9, %for.body ]
-  %21 = phi i64 [ %.pre27, %for.end.loopexit ], [ %10, %for.body ]
-  %22 = phi i32 [ %18, %for.end.loopexit ], [ %11, %for.body ]
-  %23 = phi i32 [ %17, %for.end.loopexit ], [ %12, %for.body ]
-  %24 = phi i64 [ %16, %for.end.loopexit ], [ %13, %for.body ]
-  %add.ptr25 = getelementptr inbounds i8, ptr %base.024, i64 %21
-  %add28 = add nsw i32 %20, %y3.023
-  %cmp.not = icmp sgt i32 %add28, %19
-  br i1 %cmp.not, label %for.end29, label %for.body, !llvm.loop !7
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define void @_ZNK7Imf_3_47RgbaLut5applyEPNS_4RgbaEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+  %.not27 = icmp eq i32 %2, 0
+  br i1 %.not27, label %._crit_edge, label %.lr.ph
 
-for.end29:                                        ; preds = %for.end, %for.body.lr.ph, %entry
+.lr.ph:                                           ; preds = %4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load i32, ptr %5, align 8, !tbaa !33
+  %7 = and i32 %6, 1
+  %.not20 = icmp eq i32 %7, 0
+  %8 = load ptr, ptr %0, align 8
+  %9 = and i32 %6, 2
+  %.not21 = icmp eq i32 %9, 0
+  %10 = and i32 %6, 4
+  %.not22 = icmp eq i32 %10, 0
+  %11 = and i32 %6, 8
+  %.not23 = icmp eq i32 %11, 0
+  %12 = sext i32 %3 to i64
+  br i1 %.not20, label %.lr.ph.split.us, label %.lr.ph.split
+
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %27
+  %.029.us = phi ptr [ %28, %27 ], [ %1, %.lr.ph ]
+  %.01928.us = phi i32 [ %29, %27 ], [ %2, %.lr.ph ]
+  br i1 %.not21, label %17, label %13
+
+13:                                               ; preds = %.lr.ph.split.us
+  %14 = getelementptr inbounds nuw i8, ptr %.029.us, i64 2
+  %.sroa.04.0.copyload.us = load i16, ptr %14, align 2, !tbaa !9
+  %15 = zext i16 %.sroa.04.0.copyload.us to i64
+  %16 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %15
+  %.sroa.0.0.copyload.i24.us = load i16, ptr %16, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i24.us, ptr %14, align 2, !tbaa !9
+  br label %17
+
+17:                                               ; preds = %13, %.lr.ph.split.us
+  br i1 %.not22, label %22, label %18
+
+18:                                               ; preds = %17
+  %19 = getelementptr inbounds nuw i8, ptr %.029.us, i64 4
+  %.sroa.02.0.copyload.us = load i16, ptr %19, align 2, !tbaa !9
+  %20 = zext i16 %.sroa.02.0.copyload.us to i64
+  %21 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %20
+  %.sroa.0.0.copyload.i25.us = load i16, ptr %21, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i25.us, ptr %19, align 2, !tbaa !9
+  br label %22
+
+22:                                               ; preds = %18, %17
+  br i1 %.not23, label %27, label %23
+
+23:                                               ; preds = %22
+  %24 = getelementptr inbounds nuw i8, ptr %.029.us, i64 6
+  %.sroa.0.0.copyload.us = load i16, ptr %24, align 2, !tbaa !9
+  %25 = zext i16 %.sroa.0.0.copyload.us to i64
+  %26 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %25
+  %.sroa.0.0.copyload.i26.us = load i16, ptr %26, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i26.us, ptr %24, align 2, !tbaa !9
+  br label %27
+
+27:                                               ; preds = %23, %22
+  %28 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.029.us, i64 %12
+  %29 = add nsw i32 %.01928.us, -1
+  %.not.us = icmp eq i32 %29, 0
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !36
+
+.lr.ph.split:                                     ; preds = %.lr.ph
+  br i1 %.not21, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
+  br i1 %.not22, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
+
+.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us
+  br i1 %.not23, label %.lr.ph.split.split.us.split.us.split.us, label %.lr.ph.split.split.us.split.us.split
+
+.lr.ph.split.split.us.split.us.split.us:          ; preds = %.lr.ph.split.split.us.split.us, %.lr.ph.split.split.us.split.us.split.us
+  %.029.us30.us.us = phi ptr [ %32, %.lr.ph.split.split.us.split.us.split.us ], [ %1, %.lr.ph.split.split.us.split.us ]
+  %.01928.us31.us.us = phi i32 [ %33, %.lr.ph.split.split.us.split.us.split.us ], [ %2, %.lr.ph.split.split.us.split.us ]
+  %.sroa.06.0.copyload.us.us.us = load i16, ptr %.029.us30.us.us, align 2, !tbaa !9
+  %30 = zext i16 %.sroa.06.0.copyload.us.us.us to i64
+  %31 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %30
+  %.sroa.0.0.copyload.i.us.us.us = load i16, ptr %31, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i.us.us.us, ptr %.029.us30.us.us, align 2, !tbaa !9
+  %32 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.029.us30.us.us, i64 %12
+  %33 = add nsw i32 %.01928.us31.us.us, -1
+  %.not.us36.us.us = icmp eq i32 %33, 0
+  br i1 %.not.us36.us.us, label %._crit_edge, label %.lr.ph.split.split.us.split.us.split.us, !llvm.loop !36
+
+.lr.ph.split.split.us.split.us.split:             ; preds = %.lr.ph.split.split.us.split.us, %.lr.ph.split.split.us.split.us.split
+  %.029.us30.us = phi ptr [ %39, %.lr.ph.split.split.us.split.us.split ], [ %1, %.lr.ph.split.split.us.split.us ]
+  %.01928.us31.us = phi i32 [ %40, %.lr.ph.split.split.us.split.us.split ], [ %2, %.lr.ph.split.split.us.split.us ]
+  %.sroa.06.0.copyload.us.us = load i16, ptr %.029.us30.us, align 2, !tbaa !9
+  %34 = zext i16 %.sroa.06.0.copyload.us.us to i64
+  %35 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %34
+  %.sroa.0.0.copyload.i.us.us = load i16, ptr %35, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i.us.us, ptr %.029.us30.us, align 2, !tbaa !9
+  %36 = getelementptr inbounds nuw i8, ptr %.029.us30.us, i64 6
+  %.sroa.0.0.copyload.us34.us = load i16, ptr %36, align 2, !tbaa !9
+  %37 = zext i16 %.sroa.0.0.copyload.us34.us to i64
+  %38 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %37
+  %.sroa.0.0.copyload.i26.us35.us = load i16, ptr %38, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i26.us35.us, ptr %36, align 2, !tbaa !9
+  %39 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.029.us30.us, i64 %12
+  %40 = add nsw i32 %.01928.us31.us, -1
+  %.not.us36.us = icmp eq i32 %40, 0
+  br i1 %.not.us36.us, label %._crit_edge, label %.lr.ph.split.split.us.split.us.split, !llvm.loop !36
+
+.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us
+  br i1 %.not23, label %.lr.ph.split.split.us.split.split.us, label %.lr.ph.split.split.us.split.split
+
+.lr.ph.split.split.us.split.split.us:             ; preds = %.lr.ph.split.split.us.split, %.lr.ph.split.split.us.split.split.us
+  %.029.us30.us55 = phi ptr [ %46, %.lr.ph.split.split.us.split.split.us ], [ %1, %.lr.ph.split.split.us.split ]
+  %.01928.us31.us56 = phi i32 [ %47, %.lr.ph.split.split.us.split.split.us ], [ %2, %.lr.ph.split.split.us.split ]
+  %.sroa.06.0.copyload.us.us57 = load i16, ptr %.029.us30.us55, align 2, !tbaa !9
+  %41 = zext i16 %.sroa.06.0.copyload.us.us57 to i64
+  %42 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %41
+  %.sroa.0.0.copyload.i.us.us58 = load i16, ptr %42, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i.us.us58, ptr %.029.us30.us55, align 2, !tbaa !9
+  %43 = getelementptr inbounds nuw i8, ptr %.029.us30.us55, i64 4
+  %.sroa.02.0.copyload.us32.us = load i16, ptr %43, align 2, !tbaa !9
+  %44 = zext i16 %.sroa.02.0.copyload.us32.us to i64
+  %45 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %44
+  %.sroa.0.0.copyload.i25.us33.us = load i16, ptr %45, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i25.us33.us, ptr %43, align 2, !tbaa !9
+  %46 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.029.us30.us55, i64 %12
+  %47 = add nsw i32 %.01928.us31.us56, -1
+  %.not.us36.us59 = icmp eq i32 %47, 0
+  br i1 %.not.us36.us59, label %._crit_edge, label %.lr.ph.split.split.us.split.split.us, !llvm.loop !36
+
+.lr.ph.split.split.us.split.split:                ; preds = %.lr.ph.split.split.us.split, %.lr.ph.split.split.us.split.split
+  %.029.us30 = phi ptr [ %56, %.lr.ph.split.split.us.split.split ], [ %1, %.lr.ph.split.split.us.split ]
+  %.01928.us31 = phi i32 [ %57, %.lr.ph.split.split.us.split.split ], [ %2, %.lr.ph.split.split.us.split ]
+  %.sroa.06.0.copyload.us = load i16, ptr %.029.us30, align 2, !tbaa !9
+  %48 = zext i16 %.sroa.06.0.copyload.us to i64
+  %49 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %48
+  %.sroa.0.0.copyload.i.us = load i16, ptr %49, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i.us, ptr %.029.us30, align 2, !tbaa !9
+  %50 = getelementptr inbounds nuw i8, ptr %.029.us30, i64 4
+  %.sroa.02.0.copyload.us32 = load i16, ptr %50, align 2, !tbaa !9
+  %51 = zext i16 %.sroa.02.0.copyload.us32 to i64
+  %52 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %51
+  %.sroa.0.0.copyload.i25.us33 = load i16, ptr %52, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i25.us33, ptr %50, align 2, !tbaa !9
+  %53 = getelementptr inbounds nuw i8, ptr %.029.us30, i64 6
+  %.sroa.0.0.copyload.us34 = load i16, ptr %53, align 2, !tbaa !9
+  %54 = zext i16 %.sroa.0.0.copyload.us34 to i64
+  %55 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %54
+  %.sroa.0.0.copyload.i26.us35 = load i16, ptr %55, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i26.us35, ptr %53, align 2, !tbaa !9
+  %56 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.029.us30, i64 %12
+  %57 = add nsw i32 %.01928.us31, -1
+  %.not.us36 = icmp eq i32 %57, 0
+  br i1 %.not.us36, label %._crit_edge, label %.lr.ph.split.split.us.split.split, !llvm.loop !36
+
+.lr.ph.split.split:                               ; preds = %.lr.ph.split
+  br i1 %.not22, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
+
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split
+  br i1 %.not23, label %.lr.ph.split.split.split.us.split.us, label %.lr.ph.split.split.split.us.split
+
+.lr.ph.split.split.split.us.split.us:             ; preds = %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us.split.us
+  %.029.us37.us = phi ptr [ %63, %.lr.ph.split.split.split.us.split.us ], [ %1, %.lr.ph.split.split.split.us ]
+  %.01928.us38.us = phi i32 [ %64, %.lr.ph.split.split.split.us.split.us ], [ %2, %.lr.ph.split.split.split.us ]
+  %.sroa.06.0.copyload.us39.us = load i16, ptr %.029.us37.us, align 2, !tbaa !9
+  %58 = zext i16 %.sroa.06.0.copyload.us39.us to i64
+  %59 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %58
+  %.sroa.0.0.copyload.i.us40.us = load i16, ptr %59, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i.us40.us, ptr %.029.us37.us, align 2, !tbaa !9
+  %60 = getelementptr inbounds nuw i8, ptr %.029.us37.us, i64 2
+  %.sroa.04.0.copyload.us41.us = load i16, ptr %60, align 2, !tbaa !9
+  %61 = zext i16 %.sroa.04.0.copyload.us41.us to i64
+  %62 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %61
+  %.sroa.0.0.copyload.i24.us42.us = load i16, ptr %62, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i24.us42.us, ptr %60, align 2, !tbaa !9
+  %63 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.029.us37.us, i64 %12
+  %64 = add nsw i32 %.01928.us38.us, -1
+  %.not.us45.us = icmp eq i32 %64, 0
+  br i1 %.not.us45.us, label %._crit_edge, label %.lr.ph.split.split.split.us.split.us, !llvm.loop !36
+
+.lr.ph.split.split.split.us.split:                ; preds = %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us.split
+  %.029.us37 = phi ptr [ %73, %.lr.ph.split.split.split.us.split ], [ %1, %.lr.ph.split.split.split.us ]
+  %.01928.us38 = phi i32 [ %74, %.lr.ph.split.split.split.us.split ], [ %2, %.lr.ph.split.split.split.us ]
+  %.sroa.06.0.copyload.us39 = load i16, ptr %.029.us37, align 2, !tbaa !9
+  %65 = zext i16 %.sroa.06.0.copyload.us39 to i64
+  %66 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %65
+  %.sroa.0.0.copyload.i.us40 = load i16, ptr %66, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i.us40, ptr %.029.us37, align 2, !tbaa !9
+  %67 = getelementptr inbounds nuw i8, ptr %.029.us37, i64 2
+  %.sroa.04.0.copyload.us41 = load i16, ptr %67, align 2, !tbaa !9
+  %68 = zext i16 %.sroa.04.0.copyload.us41 to i64
+  %69 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %68
+  %.sroa.0.0.copyload.i24.us42 = load i16, ptr %69, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i24.us42, ptr %67, align 2, !tbaa !9
+  %70 = getelementptr inbounds nuw i8, ptr %.029.us37, i64 6
+  %.sroa.0.0.copyload.us43 = load i16, ptr %70, align 2, !tbaa !9
+  %71 = zext i16 %.sroa.0.0.copyload.us43 to i64
+  %72 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %71
+  %.sroa.0.0.copyload.i26.us44 = load i16, ptr %72, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i26.us44, ptr %70, align 2, !tbaa !9
+  %73 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.029.us37, i64 %12
+  %74 = add nsw i32 %.01928.us38, -1
+  %.not.us45 = icmp eq i32 %74, 0
+  br i1 %.not.us45, label %._crit_edge, label %.lr.ph.split.split.split.us.split, !llvm.loop !36
+
+.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
+  br i1 %.not23, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
+
+.lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
+  %.029.us46 = phi ptr [ %83, %.lr.ph.split.split.split.split.us ], [ %1, %.lr.ph.split.split.split ]
+  %.01928.us47 = phi i32 [ %84, %.lr.ph.split.split.split.split.us ], [ %2, %.lr.ph.split.split.split ]
+  %.sroa.06.0.copyload.us48 = load i16, ptr %.029.us46, align 2, !tbaa !9
+  %75 = zext i16 %.sroa.06.0.copyload.us48 to i64
+  %76 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %75
+  %.sroa.0.0.copyload.i.us49 = load i16, ptr %76, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i.us49, ptr %.029.us46, align 2, !tbaa !9
+  %77 = getelementptr inbounds nuw i8, ptr %.029.us46, i64 2
+  %.sroa.04.0.copyload.us50 = load i16, ptr %77, align 2, !tbaa !9
+  %78 = zext i16 %.sroa.04.0.copyload.us50 to i64
+  %79 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %78
+  %.sroa.0.0.copyload.i24.us51 = load i16, ptr %79, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i24.us51, ptr %77, align 2, !tbaa !9
+  %80 = getelementptr inbounds nuw i8, ptr %.029.us46, i64 4
+  %.sroa.02.0.copyload.us52 = load i16, ptr %80, align 2, !tbaa !9
+  %81 = zext i16 %.sroa.02.0.copyload.us52 to i64
+  %82 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %81
+  %.sroa.0.0.copyload.i25.us53 = load i16, ptr %82, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i25.us53, ptr %80, align 2, !tbaa !9
+  %83 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.029.us46, i64 %12
+  %84 = add nsw i32 %.01928.us47, -1
+  %.not.us54 = icmp eq i32 %84, 0
+  br i1 %.not.us54, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !36
+
+.lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
+  %.029 = phi ptr [ %96, %.lr.ph.split.split.split.split ], [ %1, %.lr.ph.split.split.split ]
+  %.01928 = phi i32 [ %97, %.lr.ph.split.split.split.split ], [ %2, %.lr.ph.split.split.split ]
+  %.sroa.06.0.copyload = load i16, ptr %.029, align 2, !tbaa !9
+  %85 = zext i16 %.sroa.06.0.copyload to i64
+  %86 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %85
+  %.sroa.0.0.copyload.i = load i16, ptr %86, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i, ptr %.029, align 2, !tbaa !9
+  %87 = getelementptr inbounds nuw i8, ptr %.029, i64 2
+  %.sroa.04.0.copyload = load i16, ptr %87, align 2, !tbaa !9
+  %88 = zext i16 %.sroa.04.0.copyload to i64
+  %89 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %88
+  %.sroa.0.0.copyload.i24 = load i16, ptr %89, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i24, ptr %87, align 2, !tbaa !9
+  %90 = getelementptr inbounds nuw i8, ptr %.029, i64 4
+  %.sroa.02.0.copyload = load i16, ptr %90, align 2, !tbaa !9
+  %91 = zext i16 %.sroa.02.0.copyload to i64
+  %92 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %91
+  %.sroa.0.0.copyload.i25 = load i16, ptr %92, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i25, ptr %90, align 2, !tbaa !9
+  %93 = getelementptr inbounds nuw i8, ptr %.029, i64 6
+  %.sroa.0.0.copyload = load i16, ptr %93, align 2, !tbaa !9
+  %94 = zext i16 %.sroa.0.0.copyload to i64
+  %95 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %8, i64 %94
+  %.sroa.0.0.copyload.i26 = load i16, ptr %95, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i26, ptr %93, align 2, !tbaa !9
+  %96 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.029, i64 %12
+  %97 = add nsw i32 %.01928, -1
+  %.not = icmp eq i32 %97, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !36
+
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.us.split.split, %.lr.ph.split.split.us.split.split.us, %.lr.ph.split.split.us.split.us.split, %.lr.ph.split.split.us.split.us.split.us, %27, %4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK7Imf_3_27RgbaLut5applyEPNS_4RgbaEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this, ptr noundef captures(none) %data, i32 noundef %nData, i32 noundef %stride) local_unnamed_addr #3 align 2 {
-entry:
-  %tobool.not19 = icmp eq i32 %nData, 0
-  br i1 %tobool.not19, label %while.end, label %while.body.lr.ph
+define void @_ZNK7Imf_3_47RgbaLut5applyEPNS_4RgbaEiiRKN9Imath_3_23BoxINS3_4Vec2IiEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %4) local_unnamed_addr #3 align 2 {
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %7 = load i32, ptr %6, align 4, !tbaa !21
+  %8 = mul nsw i32 %7, %3
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %1, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %12 = load i32, ptr %11, align 4, !tbaa !25
+  %.not63 = icmp sgt i32 %7, %12
+  br i1 %.not63, label %._crit_edge68, label %.lr.ph67
 
-while.body.lr.ph:                                 ; preds = %entry
-  %_chn = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %idx.ext = sext i32 %stride to i64
-  br label %while.body
+.lr.ph67:                                         ; preds = %5
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %14 = load i32, ptr %4, align 4, !tbaa !27
+  %15 = mul nsw i32 %14, %2
+  %16 = sext i32 %15 to i64
+  %17 = load i32, ptr %13, align 4, !tbaa !29
+  %.not3644 = icmp sgt i32 %14, %17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = load i32, ptr %18, align 8
+  %20 = and i32 %19, 2
+  %.not38 = icmp eq i32 %20, 0
+  %21 = and i32 %19, 4
+  %.not39 = icmp eq i32 %21, 0
+  %22 = and i32 %19, 8
+  %.not40 = icmp eq i32 %22, 0
+  %23 = sext i32 %2 to i64
+  %24 = sext i32 %3 to i64
+  br i1 %.not3644, label %._crit_edge68, label %.lr.ph67.split
 
-while.body:                                       ; preds = %while.body.lr.ph, %if.end40
-  %data.addr.021 = phi ptr [ %data, %while.body.lr.ph ], [ %add.ptr, %if.end40 ]
-  %nData.addr.020 = phi i32 [ %nData, %while.body.lr.ph ], [ %sub, %if.end40 ]
-  %0 = load i32, ptr %_chn, align 8
-  %and = and i32 %0, 1
-  %tobool2.not = icmp eq i32 %and, 0
-  br i1 %tobool2.not, label %if.end, label %if.then
+.lr.ph67.split:                                   ; preds = %.lr.ph67
+  %25 = and i32 %19, 1
+  %.not37 = icmp eq i32 %25, 0
+  br i1 %.not37, label %.lr.ph67.split.split.us, label %.lr.ph67.split.split
 
-if.then:                                          ; preds = %while.body
-  %agg.tmp.sroa.0.0.copyload = load i16, ptr %data.addr.021, align 2
-  %1 = load ptr, ptr %this, align 8
-  %idxprom.i = zext i16 %agg.tmp.sroa.0.0.copyload to i64
-  %arrayidx.i = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %1, i64 %idxprom.i
-  %retval.sroa.0.0.copyload.i = load i16, ptr %arrayidx.i, align 2
-  store i16 %retval.sroa.0.0.copyload.i, ptr %data.addr.021, align 2
-  %.pre = load i32, ptr %_chn, align 8
-  br label %if.end
+.lr.ph67.split.split.us:                          ; preds = %.lr.ph67.split
+  br i1 %.not38, label %.lr.ph67.split.split.us.split.us, label %.lr.ph67.split.split.us.split
 
-if.end:                                           ; preds = %if.then, %while.body
-  %2 = phi i32 [ %.pre, %if.then ], [ %0, %while.body ]
-  %and6 = and i32 %2, 2
-  %tobool7.not = icmp eq i32 %and6, 0
-  br i1 %tobool7.not, label %if.end16, label %if.then8
+.lr.ph67.split.split.us.split.us:                 ; preds = %.lr.ph67.split.split.us
+  br i1 %.not39, label %.lr.ph67.split.split.us.split.us.split.us, label %.lr.ph67.split.split.us.split.us.split
 
-if.then8:                                         ; preds = %if.end
-  %g = getelementptr inbounds nuw i8, ptr %data.addr.021, i64 2
-  %agg.tmp11.sroa.0.0.copyload = load i16, ptr %g, align 2
-  %3 = load ptr, ptr %this, align 8
-  %idxprom.i10 = zext i16 %agg.tmp11.sroa.0.0.copyload to i64
-  %arrayidx.i11 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %3, i64 %idxprom.i10
-  %retval.sroa.0.0.copyload.i12 = load i16, ptr %arrayidx.i11, align 2
-  store i16 %retval.sroa.0.0.copyload.i12, ptr %g, align 2
-  %.pre22 = load i32, ptr %_chn, align 8
-  br label %if.end16
+.lr.ph67.split.split.us.split.us.split.us:        ; preds = %.lr.ph67.split.split.us.split.us
+  br i1 %.not40, label %._crit_edge68, label %.lr.ph.us.us.us
 
-if.end16:                                         ; preds = %if.then8, %if.end
-  %4 = phi i32 [ %.pre22, %if.then8 ], [ %2, %if.end ]
-  %and18 = and i32 %4, 4
-  %tobool19.not = icmp eq i32 %and18, 0
-  br i1 %tobool19.not, label %if.end28, label %if.then20
+.lr.ph.us.us.us:                                  ; preds = %.lr.ph67.split.split.us.split.us.split.us, %._crit_edge.split.us.us.split.us.split.us.split.us132.us
+  %.065.us69.us.us = phi ptr [ %34, %._crit_edge.split.us.us.split.us.split.us.split.us132.us ], [ %10, %.lr.ph67.split.split.us.split.us.split.us ]
+  %.03364.us70.us.us = phi i32 [ %35, %._crit_edge.split.us.us.split.us.split.us.split.us132.us ], [ %7, %.lr.ph67.split.split.us.split.us.split.us ]
+  %26 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69.us.us, i64 %16
+  %27 = load ptr, ptr %0, align 8
+  br label %28
 
-if.then20:                                        ; preds = %if.end16
-  %b = getelementptr inbounds nuw i8, ptr %data.addr.021, i64 4
-  %agg.tmp23.sroa.0.0.copyload = load i16, ptr %b, align 2
-  %5 = load ptr, ptr %this, align 8
-  %idxprom.i13 = zext i16 %agg.tmp23.sroa.0.0.copyload to i64
-  %arrayidx.i14 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %5, i64 %idxprom.i13
-  %retval.sroa.0.0.copyload.i15 = load i16, ptr %arrayidx.i14, align 2
-  store i16 %retval.sroa.0.0.copyload.i15, ptr %b, align 2
-  %.pre23 = load i32, ptr %_chn, align 8
-  br label %if.end28
+28:                                               ; preds = %.lr.ph.us.us.us, %28
+  %.03446.us.us.us.us.us129.us = phi ptr [ %26, %.lr.ph.us.us.us ], [ %32, %28 ]
+  %.03545.us.us.us.us.us130.us = phi i32 [ %14, %.lr.ph.us.us.us ], [ %33, %28 ]
+  %29 = getelementptr inbounds nuw i8, ptr %.03446.us.us.us.us.us129.us, i64 6
+  %.sroa.0.0.copyload.us.us.us.us.us.us = load i16, ptr %29, align 2, !tbaa !9
+  %30 = zext i16 %.sroa.0.0.copyload.us.us.us.us.us.us to i64
+  %31 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %27, i64 %30
+  %.sroa.0.0.copyload.i43.us.us.us.us.us.us = load i16, ptr %31, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i43.us.us.us.us.us.us, ptr %29, align 2, !tbaa !9
+  %32 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us.us.us.us.us129.us, i64 %23
+  %33 = add i32 %.03545.us.us.us.us.us130.us, 1
+  %exitcond195.not = icmp eq i32 %.03545.us.us.us.us.us130.us, %17
+  br i1 %exitcond195.not, label %._crit_edge.split.us.us.split.us.split.us.split.us132.us, label %28, !llvm.loop !37
 
-if.end28:                                         ; preds = %if.then20, %if.end16
-  %6 = phi i32 [ %.pre23, %if.then20 ], [ %4, %if.end16 ]
-  %and30 = and i32 %6, 8
-  %tobool31.not = icmp eq i32 %and30, 0
-  br i1 %tobool31.not, label %if.end40, label %if.then32
+._crit_edge.split.us.us.split.us.split.us.split.us132.us: ; preds = %28
+  %34 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69.us.us, i64 %24
+  %35 = add i32 %.03364.us70.us.us, 1
+  %exitcond196.not = icmp eq i32 %.03364.us70.us.us, %12
+  br i1 %exitcond196.not, label %._crit_edge68, label %.lr.ph.us.us.us, !llvm.loop !38
 
-if.then32:                                        ; preds = %if.end28
-  %a = getelementptr inbounds nuw i8, ptr %data.addr.021, i64 6
-  %agg.tmp35.sroa.0.0.copyload = load i16, ptr %a, align 2
-  %7 = load ptr, ptr %this, align 8
-  %idxprom.i16 = zext i16 %agg.tmp35.sroa.0.0.copyload to i64
-  %arrayidx.i17 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %7, i64 %idxprom.i16
-  %retval.sroa.0.0.copyload.i18 = load i16, ptr %arrayidx.i17, align 2
-  store i16 %retval.sroa.0.0.copyload.i18, ptr %a, align 2
-  br label %if.end40
+.lr.ph67.split.split.us.split.us.split:           ; preds = %.lr.ph67.split.split.us.split.us
+  br i1 %.not40, label %.lr.ph.us.us.us151, label %.lr.ph.us.us
 
-if.end40:                                         ; preds = %if.then32, %if.end28
-  %add.ptr = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %data.addr.021, i64 %idx.ext
-  %sub = add nsw i32 %nData.addr.020, -1
-  %tobool.not = icmp eq i32 %sub, 0
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !9
+.lr.ph.us.us.us151:                               ; preds = %.lr.ph67.split.split.us.split.us.split, %._crit_edge.split.us.us.split.us.split.split.us.us.us
+  %.065.us69.us.us152 = phi ptr [ %44, %._crit_edge.split.us.us.split.us.split.split.us.us.us ], [ %10, %.lr.ph67.split.split.us.split.us.split ]
+  %.03364.us70.us.us153 = phi i32 [ %45, %._crit_edge.split.us.us.split.us.split.split.us.us.us ], [ %7, %.lr.ph67.split.split.us.split.us.split ]
+  %36 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69.us.us152, i64 %16
+  %37 = load ptr, ptr %0, align 8
+  br label %38
 
-while.end:                                        ; preds = %if.end40, %entry
+38:                                               ; preds = %38, %.lr.ph.us.us.us151
+  %.03446.us.us.us.us117.us.us = phi ptr [ %36, %.lr.ph.us.us.us151 ], [ %42, %38 ]
+  %.03545.us.us.us.us118.us.us = phi i32 [ %14, %.lr.ph.us.us.us151 ], [ %43, %38 ]
+  %39 = getelementptr inbounds nuw i8, ptr %.03446.us.us.us.us117.us.us, i64 4
+  %.sroa.02.0.copyload.us.us.us.us.us.us = load i16, ptr %39, align 2, !tbaa !9
+  %40 = zext i16 %.sroa.02.0.copyload.us.us.us.us.us.us to i64
+  %41 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %37, i64 %40
+  %.sroa.0.0.copyload.i42.us.us.us.us.us.us = load i16, ptr %41, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i42.us.us.us.us.us.us, ptr %39, align 2, !tbaa !9
+  %42 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us.us.us.us117.us.us, i64 %23
+  %43 = add i32 %.03545.us.us.us.us118.us.us, 1
+  %exitcond193.not = icmp eq i32 %.03545.us.us.us.us118.us.us, %17
+  br i1 %exitcond193.not, label %._crit_edge.split.us.us.split.us.split.split.us.us.us, label %38, !llvm.loop !37
+
+._crit_edge.split.us.us.split.us.split.split.us.us.us: ; preds = %38
+  %44 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69.us.us152, i64 %24
+  %45 = add i32 %.03364.us70.us.us153, 1
+  %exitcond194.not = icmp eq i32 %.03364.us70.us.us153, %12
+  br i1 %exitcond194.not, label %._crit_edge68, label %.lr.ph.us.us.us151, !llvm.loop !38
+
+.lr.ph.us.us:                                     ; preds = %.lr.ph67.split.split.us.split.us.split, %._crit_edge.split.us.us.split.us.split.split.us127
+  %.065.us69.us = phi ptr [ %57, %._crit_edge.split.us.us.split.us.split.split.us127 ], [ %10, %.lr.ph67.split.split.us.split.us.split ]
+  %.03364.us70.us = phi i32 [ %58, %._crit_edge.split.us.us.split.us.split.split.us127 ], [ %7, %.lr.ph67.split.split.us.split.us.split ]
+  %46 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69.us, i64 %16
+  %47 = load ptr, ptr %0, align 8
+  br label %48
+
+48:                                               ; preds = %.lr.ph.us.us, %48
+  %.03446.us.us.us.us120 = phi ptr [ %46, %.lr.ph.us.us ], [ %55, %48 ]
+  %.03545.us.us.us.us121 = phi i32 [ %14, %.lr.ph.us.us ], [ %56, %48 ]
+  %49 = getelementptr inbounds nuw i8, ptr %.03446.us.us.us.us120, i64 4
+  %.sroa.02.0.copyload.us.us.us.us122 = load i16, ptr %49, align 2, !tbaa !9
+  %50 = zext i16 %.sroa.02.0.copyload.us.us.us.us122 to i64
+  %51 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %47, i64 %50
+  %.sroa.0.0.copyload.i42.us.us.us.us123 = load i16, ptr %51, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i42.us.us.us.us123, ptr %49, align 2, !tbaa !9
+  %52 = getelementptr inbounds nuw i8, ptr %.03446.us.us.us.us120, i64 6
+  %.sroa.0.0.copyload.us.us.us.us124 = load i16, ptr %52, align 2, !tbaa !9
+  %53 = zext i16 %.sroa.0.0.copyload.us.us.us.us124 to i64
+  %54 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %47, i64 %53
+  %.sroa.0.0.copyload.i43.us.us.us.us125 = load i16, ptr %54, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i43.us.us.us.us125, ptr %52, align 2, !tbaa !9
+  %55 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us.us.us.us120, i64 %23
+  %56 = add i32 %.03545.us.us.us.us121, 1
+  %exitcond191.not = icmp eq i32 %.03545.us.us.us.us121, %17
+  br i1 %exitcond191.not, label %._crit_edge.split.us.us.split.us.split.split.us127, label %48, !llvm.loop !37
+
+._crit_edge.split.us.us.split.us.split.split.us127: ; preds = %48
+  %57 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69.us, i64 %24
+  %58 = add i32 %.03364.us70.us, 1
+  %exitcond192.not = icmp eq i32 %.03364.us70.us, %12
+  br i1 %exitcond192.not, label %._crit_edge68, label %.lr.ph.us.us, !llvm.loop !38
+
+.lr.ph67.split.split.us.split:                    ; preds = %.lr.ph67.split.split.us
+  br i1 %.not39, label %.lr.ph67.split.split.us.split.split.us, label %.lr.ph67.split.split.us.split.split
+
+.lr.ph67.split.split.us.split.split.us:           ; preds = %.lr.ph67.split.split.us.split
+  br i1 %.not40, label %.lr.ph.us.us136.us, label %.lr.ph.us.us136
+
+.lr.ph.us.us136.us:                               ; preds = %.lr.ph67.split.split.us.split.split.us, %._crit_edge.split.us.us.split.split.us.split.us.us.us
+  %.065.us69.us137.us = phi ptr [ %67, %._crit_edge.split.us.us.split.split.us.split.us.us.us ], [ %10, %.lr.ph67.split.split.us.split.split.us ]
+  %.03364.us70.us138.us = phi i32 [ %68, %._crit_edge.split.us.us.split.split.us.split.us.us.us ], [ %7, %.lr.ph67.split.split.us.split.split.us ]
+  %59 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69.us137.us, i64 %16
+  %60 = load ptr, ptr %0, align 8
+  br label %61
+
+61:                                               ; preds = %61, %.lr.ph.us.us136.us
+  %.03446.us.us.us105.us.us.us = phi ptr [ %59, %.lr.ph.us.us136.us ], [ %65, %61 ]
+  %.03545.us.us.us106.us.us.us = phi i32 [ %14, %.lr.ph.us.us136.us ], [ %66, %61 ]
+  %62 = getelementptr inbounds nuw i8, ptr %.03446.us.us.us105.us.us.us, i64 2
+  %.sroa.04.0.copyload.us.us.us.us.us.us = load i16, ptr %62, align 2, !tbaa !9
+  %63 = zext i16 %.sroa.04.0.copyload.us.us.us.us.us.us to i64
+  %64 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %60, i64 %63
+  %.sroa.0.0.copyload.i41.us.us.us.us.us.us = load i16, ptr %64, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i41.us.us.us.us.us.us, ptr %62, align 2, !tbaa !9
+  %65 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us.us.us105.us.us.us, i64 %23
+  %66 = add i32 %.03545.us.us.us106.us.us.us, 1
+  %exitcond189.not = icmp eq i32 %.03545.us.us.us106.us.us.us, %17
+  br i1 %exitcond189.not, label %._crit_edge.split.us.us.split.split.us.split.us.us.us, label %61, !llvm.loop !37
+
+._crit_edge.split.us.us.split.split.us.split.us.us.us: ; preds = %61
+  %67 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69.us137.us, i64 %24
+  %68 = add i32 %.03364.us70.us138.us, 1
+  %exitcond190.not = icmp eq i32 %.03364.us70.us138.us, %12
+  br i1 %exitcond190.not, label %._crit_edge68, label %.lr.ph.us.us136.us, !llvm.loop !38
+
+.lr.ph.us.us136:                                  ; preds = %.lr.ph67.split.split.us.split.split.us, %._crit_edge.split.us.us.split.split.us.split.us145
+  %.065.us69.us137 = phi ptr [ %80, %._crit_edge.split.us.us.split.split.us.split.us145 ], [ %10, %.lr.ph67.split.split.us.split.split.us ]
+  %.03364.us70.us138 = phi i32 [ %81, %._crit_edge.split.us.us.split.split.us.split.us145 ], [ %7, %.lr.ph67.split.split.us.split.split.us ]
+  %69 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69.us137, i64 %16
+  %70 = load ptr, ptr %0, align 8
+  br label %71
+
+71:                                               ; preds = %.lr.ph.us.us136, %71
+  %.03446.us.us.us105.us140 = phi ptr [ %69, %.lr.ph.us.us136 ], [ %78, %71 ]
+  %.03545.us.us.us106.us141 = phi i32 [ %14, %.lr.ph.us.us136 ], [ %79, %71 ]
+  %72 = getelementptr inbounds nuw i8, ptr %.03446.us.us.us105.us140, i64 2
+  %.sroa.04.0.copyload.us.us.us.us142 = load i16, ptr %72, align 2, !tbaa !9
+  %73 = zext i16 %.sroa.04.0.copyload.us.us.us.us142 to i64
+  %74 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %70, i64 %73
+  %.sroa.0.0.copyload.i41.us.us.us.us143 = load i16, ptr %74, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i41.us.us.us.us143, ptr %72, align 2, !tbaa !9
+  %75 = getelementptr inbounds nuw i8, ptr %.03446.us.us.us105.us140, i64 6
+  %.sroa.0.0.copyload.us.us.us107.us = load i16, ptr %75, align 2, !tbaa !9
+  %76 = zext i16 %.sroa.0.0.copyload.us.us.us107.us to i64
+  %77 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %70, i64 %76
+  %.sroa.0.0.copyload.i43.us.us.us108.us = load i16, ptr %77, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i43.us.us.us108.us, ptr %75, align 2, !tbaa !9
+  %78 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us.us.us105.us140, i64 %23
+  %79 = add i32 %.03545.us.us.us106.us141, 1
+  %exitcond187.not = icmp eq i32 %.03545.us.us.us106.us141, %17
+  br i1 %exitcond187.not, label %._crit_edge.split.us.us.split.split.us.split.us145, label %71, !llvm.loop !37
+
+._crit_edge.split.us.us.split.split.us.split.us145: ; preds = %71
+  %80 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69.us137, i64 %24
+  %81 = add i32 %.03364.us70.us138, 1
+  %exitcond188.not = icmp eq i32 %.03364.us70.us138, %12
+  br i1 %exitcond188.not, label %._crit_edge68, label %.lr.ph.us.us136, !llvm.loop !38
+
+.lr.ph67.split.split.us.split.split:              ; preds = %.lr.ph67.split.split.us.split
+  br i1 %.not40, label %.lr.ph.us.us147, label %.lr.ph.us
+
+.lr.ph.us.us147:                                  ; preds = %.lr.ph67.split.split.us.split.split, %._crit_edge.split.us.us.split.split.split.us.us
+  %.065.us69.us148 = phi ptr [ %93, %._crit_edge.split.us.us.split.split.split.us.us ], [ %10, %.lr.ph67.split.split.us.split.split ]
+  %.03364.us70.us149 = phi i32 [ %94, %._crit_edge.split.us.us.split.split.split.us.us ], [ %7, %.lr.ph67.split.split.us.split.split ]
+  %82 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69.us148, i64 %16
+  %83 = load ptr, ptr %0, align 8
+  br label %84
+
+84:                                               ; preds = %84, %.lr.ph.us.us147
+  %.03446.us.us.us110.us = phi ptr [ %82, %.lr.ph.us.us147 ], [ %91, %84 ]
+  %.03545.us.us.us111.us = phi i32 [ %14, %.lr.ph.us.us147 ], [ %92, %84 ]
+  %85 = getelementptr inbounds nuw i8, ptr %.03446.us.us.us110.us, i64 2
+  %.sroa.04.0.copyload.us.us.us112.us = load i16, ptr %85, align 2, !tbaa !9
+  %86 = zext i16 %.sroa.04.0.copyload.us.us.us112.us to i64
+  %87 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %83, i64 %86
+  %.sroa.0.0.copyload.i41.us.us.us113.us = load i16, ptr %87, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i41.us.us.us113.us, ptr %85, align 2, !tbaa !9
+  %88 = getelementptr inbounds nuw i8, ptr %.03446.us.us.us110.us, i64 4
+  %.sroa.02.0.copyload.us.us.us114.us = load i16, ptr %88, align 2, !tbaa !9
+  %89 = zext i16 %.sroa.02.0.copyload.us.us.us114.us to i64
+  %90 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %83, i64 %89
+  %.sroa.0.0.copyload.i42.us.us.us115.us = load i16, ptr %90, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i42.us.us.us115.us, ptr %88, align 2, !tbaa !9
+  %91 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us.us.us110.us, i64 %23
+  %92 = add i32 %.03545.us.us.us111.us, 1
+  %exitcond185.not = icmp eq i32 %.03545.us.us.us111.us, %17
+  br i1 %exitcond185.not, label %._crit_edge.split.us.us.split.split.split.us.us, label %84, !llvm.loop !37
+
+._crit_edge.split.us.us.split.split.split.us.us:  ; preds = %84
+  %93 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69.us148, i64 %24
+  %94 = add i32 %.03364.us70.us149, 1
+  %exitcond186.not = icmp eq i32 %.03364.us70.us149, %12
+  br i1 %exitcond186.not, label %._crit_edge68, label %.lr.ph.us.us147, !llvm.loop !38
+
+.lr.ph.us:                                        ; preds = %.lr.ph67.split.split.us.split.split, %._crit_edge.split.us.us.split.split.split
+  %.065.us69 = phi ptr [ %109, %._crit_edge.split.us.us.split.split.split ], [ %10, %.lr.ph67.split.split.us.split.split ]
+  %.03364.us70 = phi i32 [ %110, %._crit_edge.split.us.us.split.split.split ], [ %7, %.lr.ph67.split.split.us.split.split ]
+  %95 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69, i64 %16
+  %96 = load ptr, ptr %0, align 8
+  br label %97
+
+97:                                               ; preds = %97, %.lr.ph.us
+  %.03446.us.us = phi ptr [ %95, %.lr.ph.us ], [ %107, %97 ]
+  %.03545.us.us = phi i32 [ %14, %.lr.ph.us ], [ %108, %97 ]
+  %98 = getelementptr inbounds nuw i8, ptr %.03446.us.us, i64 2
+  %.sroa.04.0.copyload.us.us = load i16, ptr %98, align 2, !tbaa !9
+  %99 = zext i16 %.sroa.04.0.copyload.us.us to i64
+  %100 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %96, i64 %99
+  %.sroa.0.0.copyload.i41.us.us = load i16, ptr %100, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i41.us.us, ptr %98, align 2, !tbaa !9
+  %101 = getelementptr inbounds nuw i8, ptr %.03446.us.us, i64 4
+  %.sroa.02.0.copyload.us.us = load i16, ptr %101, align 2, !tbaa !9
+  %102 = zext i16 %.sroa.02.0.copyload.us.us to i64
+  %103 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %96, i64 %102
+  %.sroa.0.0.copyload.i42.us.us = load i16, ptr %103, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i42.us.us, ptr %101, align 2, !tbaa !9
+  %104 = getelementptr inbounds nuw i8, ptr %.03446.us.us, i64 6
+  %.sroa.0.0.copyload.us.us = load i16, ptr %104, align 2, !tbaa !9
+  %105 = zext i16 %.sroa.0.0.copyload.us.us to i64
+  %106 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %96, i64 %105
+  %.sroa.0.0.copyload.i43.us.us = load i16, ptr %106, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i43.us.us, ptr %104, align 2, !tbaa !9
+  %107 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us.us, i64 %23
+  %108 = add i32 %.03545.us.us, 1
+  %exitcond183.not = icmp eq i32 %.03545.us.us, %17
+  br i1 %exitcond183.not, label %._crit_edge.split.us.us.split.split.split, label %97, !llvm.loop !37
+
+._crit_edge.split.us.us.split.split.split:        ; preds = %97
+  %109 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69, i64 %24
+  %110 = add i32 %.03364.us70, 1
+  %exitcond184.not = icmp eq i32 %.03364.us70, %12
+  br i1 %exitcond184.not, label %._crit_edge68, label %.lr.ph.us, !llvm.loop !38
+
+.lr.ph67.split.split:                             ; preds = %.lr.ph67.split
+  br i1 %.not38, label %.lr.ph67.split.split.split.us, label %.lr.ph67.split.split.split
+
+.lr.ph67.split.split.split.us:                    ; preds = %.lr.ph67.split.split
+  br i1 %.not39, label %.lr.ph67.split.split.split.us.split.us, label %.lr.ph67.split.split.split.us.split
+
+.lr.ph67.split.split.split.us.split.us:           ; preds = %.lr.ph67.split.split.split.us
+  br i1 %.not40, label %.lr.ph.us72.us.us, label %.lr.ph.us72.us
+
+.lr.ph.us72.us.us:                                ; preds = %.lr.ph67.split.split.split.us.split.us, %._crit_edge.split.split.us.us.split.us.split.us.us.us
+  %.065.us73.us.us = phi ptr [ %118, %._crit_edge.split.split.us.us.split.us.split.us.us.us ], [ %10, %.lr.ph67.split.split.split.us.split.us ]
+  %.03364.us74.us.us = phi i32 [ %119, %._crit_edge.split.split.us.us.split.us.split.us.us.us ], [ %7, %.lr.ph67.split.split.split.us.split.us ]
+  %111 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us73.us.us, i64 %16
+  %112 = load ptr, ptr %0, align 8
+  br label %113
+
+113:                                              ; preds = %113, %.lr.ph.us72.us.us
+  %.03446.us47.us.us.us.us.us = phi ptr [ %111, %.lr.ph.us72.us.us ], [ %116, %113 ]
+  %.03545.us48.us.us.us.us.us = phi i32 [ %14, %.lr.ph.us72.us.us ], [ %117, %113 ]
+  %.sroa.06.0.copyload.us.us.us.us.us.us = load i16, ptr %.03446.us47.us.us.us.us.us, align 2, !tbaa !9
+  %114 = zext i16 %.sroa.06.0.copyload.us.us.us.us.us.us to i64
+  %115 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %112, i64 %114
+  %.sroa.0.0.copyload.i.us.us.us.us.us.us = load i16, ptr %115, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i.us.us.us.us.us.us, ptr %.03446.us47.us.us.us.us.us, align 2, !tbaa !9
+  %116 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us47.us.us.us.us.us, i64 %23
+  %117 = add i32 %.03545.us48.us.us.us.us.us, 1
+  %exitcond181.not = icmp eq i32 %.03545.us48.us.us.us.us.us, %17
+  br i1 %exitcond181.not, label %._crit_edge.split.split.us.us.split.us.split.us.us.us, label %113, !llvm.loop !37
+
+._crit_edge.split.split.us.us.split.us.split.us.us.us: ; preds = %113
+  %118 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us73.us.us, i64 %24
+  %119 = add i32 %.03364.us74.us.us, 1
+  %exitcond182.not = icmp eq i32 %.03364.us74.us.us, %12
+  br i1 %exitcond182.not, label %._crit_edge68, label %.lr.ph.us72.us.us, !llvm.loop !38
+
+.lr.ph.us72.us:                                   ; preds = %.lr.ph67.split.split.split.us.split.us, %._crit_edge.split.split.us.us.split.us.split.us99
+  %.065.us73.us = phi ptr [ %130, %._crit_edge.split.split.us.us.split.us.split.us99 ], [ %10, %.lr.ph67.split.split.split.us.split.us ]
+  %.03364.us74.us = phi i32 [ %131, %._crit_edge.split.split.us.us.split.us.split.us99 ], [ %7, %.lr.ph67.split.split.split.us.split.us ]
+  %120 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us73.us, i64 %16
+  %121 = load ptr, ptr %0, align 8
+  br label %122
+
+122:                                              ; preds = %.lr.ph.us72.us, %122
+  %.03446.us47.us.us.us94 = phi ptr [ %120, %.lr.ph.us72.us ], [ %128, %122 ]
+  %.03545.us48.us.us.us95 = phi i32 [ %14, %.lr.ph.us72.us ], [ %129, %122 ]
+  %.sroa.06.0.copyload.us.us.us.us96 = load i16, ptr %.03446.us47.us.us.us94, align 2, !tbaa !9
+  %123 = zext i16 %.sroa.06.0.copyload.us.us.us.us96 to i64
+  %124 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %121, i64 %123
+  %.sroa.0.0.copyload.i.us.us.us.us97 = load i16, ptr %124, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i.us.us.us.us97, ptr %.03446.us47.us.us.us94, align 2, !tbaa !9
+  %125 = getelementptr inbounds nuw i8, ptr %.03446.us47.us.us.us94, i64 6
+  %.sroa.0.0.copyload.us51.us.us.us = load i16, ptr %125, align 2, !tbaa !9
+  %126 = zext i16 %.sroa.0.0.copyload.us51.us.us.us to i64
+  %127 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %121, i64 %126
+  %.sroa.0.0.copyload.i43.us52.us.us.us = load i16, ptr %127, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i43.us52.us.us.us, ptr %125, align 2, !tbaa !9
+  %128 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us47.us.us.us94, i64 %23
+  %129 = add i32 %.03545.us48.us.us.us95, 1
+  %exitcond179.not = icmp eq i32 %.03545.us48.us.us.us95, %17
+  br i1 %exitcond179.not, label %._crit_edge.split.split.us.us.split.us.split.us99, label %122, !llvm.loop !37
+
+._crit_edge.split.split.us.us.split.us.split.us99: ; preds = %122
+  %130 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us73.us, i64 %24
+  %131 = add i32 %.03364.us74.us, 1
+  %exitcond180.not = icmp eq i32 %.03364.us74.us, %12
+  br i1 %exitcond180.not, label %._crit_edge68, label %.lr.ph.us72.us, !llvm.loop !38
+
+.lr.ph67.split.split.split.us.split:              ; preds = %.lr.ph67.split.split.split.us
+  br i1 %.not40, label %.lr.ph.us72.us101, label %.lr.ph.us72
+
+.lr.ph.us72.us101:                                ; preds = %.lr.ph67.split.split.split.us.split, %._crit_edge.split.split.us.us.split.split.us.us
+  %.065.us73.us102 = phi ptr [ %142, %._crit_edge.split.split.us.us.split.split.us.us ], [ %10, %.lr.ph67.split.split.split.us.split ]
+  %.03364.us74.us103 = phi i32 [ %143, %._crit_edge.split.split.us.us.split.split.us.us ], [ %7, %.lr.ph67.split.split.split.us.split ]
+  %132 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us73.us102, i64 %16
+  %133 = load ptr, ptr %0, align 8
+  br label %134
+
+134:                                              ; preds = %134, %.lr.ph.us72.us101
+  %.03446.us47.us.us89.us = phi ptr [ %132, %.lr.ph.us72.us101 ], [ %140, %134 ]
+  %.03545.us48.us.us90.us = phi i32 [ %14, %.lr.ph.us72.us101 ], [ %141, %134 ]
+  %.sroa.06.0.copyload.us.us.us91.us = load i16, ptr %.03446.us47.us.us89.us, align 2, !tbaa !9
+  %135 = zext i16 %.sroa.06.0.copyload.us.us.us91.us to i64
+  %136 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %133, i64 %135
+  %.sroa.0.0.copyload.i.us.us.us92.us = load i16, ptr %136, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i.us.us.us92.us, ptr %.03446.us47.us.us89.us, align 2, !tbaa !9
+  %137 = getelementptr inbounds nuw i8, ptr %.03446.us47.us.us89.us, i64 4
+  %.sroa.02.0.copyload.us49.us.us.us = load i16, ptr %137, align 2, !tbaa !9
+  %138 = zext i16 %.sroa.02.0.copyload.us49.us.us.us to i64
+  %139 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %133, i64 %138
+  %.sroa.0.0.copyload.i42.us50.us.us.us = load i16, ptr %139, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i42.us50.us.us.us, ptr %137, align 2, !tbaa !9
+  %140 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us47.us.us89.us, i64 %23
+  %141 = add i32 %.03545.us48.us.us90.us, 1
+  %exitcond177.not = icmp eq i32 %.03545.us48.us.us90.us, %17
+  br i1 %exitcond177.not, label %._crit_edge.split.split.us.us.split.split.us.us, label %134, !llvm.loop !37
+
+._crit_edge.split.split.us.us.split.split.us.us:  ; preds = %134
+  %142 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us73.us102, i64 %24
+  %143 = add i32 %.03364.us74.us103, 1
+  %exitcond178.not = icmp eq i32 %.03364.us74.us103, %12
+  br i1 %exitcond178.not, label %._crit_edge68, label %.lr.ph.us72.us101, !llvm.loop !38
+
+.lr.ph.us72:                                      ; preds = %.lr.ph67.split.split.split.us.split, %._crit_edge.split.split.us.us.split.split
+  %.065.us73 = phi ptr [ %157, %._crit_edge.split.split.us.us.split.split ], [ %10, %.lr.ph67.split.split.split.us.split ]
+  %.03364.us74 = phi i32 [ %158, %._crit_edge.split.split.us.us.split.split ], [ %7, %.lr.ph67.split.split.split.us.split ]
+  %144 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us73, i64 %16
+  %145 = load ptr, ptr %0, align 8
+  br label %146
+
+146:                                              ; preds = %146, %.lr.ph.us72
+  %.03446.us47.us = phi ptr [ %144, %.lr.ph.us72 ], [ %155, %146 ]
+  %.03545.us48.us = phi i32 [ %14, %.lr.ph.us72 ], [ %156, %146 ]
+  %.sroa.06.0.copyload.us.us = load i16, ptr %.03446.us47.us, align 2, !tbaa !9
+  %147 = zext i16 %.sroa.06.0.copyload.us.us to i64
+  %148 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %145, i64 %147
+  %.sroa.0.0.copyload.i.us.us = load i16, ptr %148, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i.us.us, ptr %.03446.us47.us, align 2, !tbaa !9
+  %149 = getelementptr inbounds nuw i8, ptr %.03446.us47.us, i64 4
+  %.sroa.02.0.copyload.us49.us = load i16, ptr %149, align 2, !tbaa !9
+  %150 = zext i16 %.sroa.02.0.copyload.us49.us to i64
+  %151 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %145, i64 %150
+  %.sroa.0.0.copyload.i42.us50.us = load i16, ptr %151, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i42.us50.us, ptr %149, align 2, !tbaa !9
+  %152 = getelementptr inbounds nuw i8, ptr %.03446.us47.us, i64 6
+  %.sroa.0.0.copyload.us51.us = load i16, ptr %152, align 2, !tbaa !9
+  %153 = zext i16 %.sroa.0.0.copyload.us51.us to i64
+  %154 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %145, i64 %153
+  %.sroa.0.0.copyload.i43.us52.us = load i16, ptr %154, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i43.us52.us, ptr %152, align 2, !tbaa !9
+  %155 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us47.us, i64 %23
+  %156 = add i32 %.03545.us48.us, 1
+  %exitcond175.not = icmp eq i32 %.03545.us48.us, %17
+  br i1 %exitcond175.not, label %._crit_edge.split.split.us.us.split.split, label %146, !llvm.loop !37
+
+._crit_edge.split.split.us.us.split.split:        ; preds = %146
+  %157 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us73, i64 %24
+  %158 = add i32 %.03364.us74, 1
+  %exitcond176.not = icmp eq i32 %.03364.us74, %12
+  br i1 %exitcond176.not, label %._crit_edge68, label %.lr.ph.us72, !llvm.loop !38
+
+.lr.ph67.split.split.split:                       ; preds = %.lr.ph67.split.split
+  br i1 %.not39, label %.lr.ph67.split.split.split.split.us, label %.lr.ph
+
+.lr.ph67.split.split.split.split.us:              ; preds = %.lr.ph67.split.split.split
+  br i1 %.not40, label %.lr.ph.us76.us, label %.lr.ph.us76
+
+.lr.ph.us76.us:                                   ; preds = %.lr.ph67.split.split.split.split.us, %._crit_edge.split.split.split.us.split.us.us.us
+  %.065.us77.us = phi ptr [ %169, %._crit_edge.split.split.split.us.split.us.us.us ], [ %10, %.lr.ph67.split.split.split.split.us ]
+  %.03364.us78.us = phi i32 [ %170, %._crit_edge.split.split.split.us.split.us.us.us ], [ %7, %.lr.ph67.split.split.split.split.us ]
+  %159 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us77.us, i64 %16
+  %160 = load ptr, ptr %0, align 8
+  br label %161
+
+161:                                              ; preds = %161, %.lr.ph.us76.us
+  %.03446.us54.us.us.us = phi ptr [ %159, %.lr.ph.us76.us ], [ %167, %161 ]
+  %.03545.us55.us.us.us = phi i32 [ %14, %.lr.ph.us76.us ], [ %168, %161 ]
+  %.sroa.06.0.copyload.us56.us.us.us = load i16, ptr %.03446.us54.us.us.us, align 2, !tbaa !9
+  %162 = zext i16 %.sroa.06.0.copyload.us56.us.us.us to i64
+  %163 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %160, i64 %162
+  %.sroa.0.0.copyload.i.us57.us.us.us = load i16, ptr %163, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i.us57.us.us.us, ptr %.03446.us54.us.us.us, align 2, !tbaa !9
+  %164 = getelementptr inbounds nuw i8, ptr %.03446.us54.us.us.us, i64 2
+  %.sroa.04.0.copyload.us58.us.us.us = load i16, ptr %164, align 2, !tbaa !9
+  %165 = zext i16 %.sroa.04.0.copyload.us58.us.us.us to i64
+  %166 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %160, i64 %165
+  %.sroa.0.0.copyload.i41.us59.us.us.us = load i16, ptr %166, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i41.us59.us.us.us, ptr %164, align 2, !tbaa !9
+  %167 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us54.us.us.us, i64 %23
+  %168 = add i32 %.03545.us55.us.us.us, 1
+  %exitcond173.not = icmp eq i32 %.03545.us55.us.us.us, %17
+  br i1 %exitcond173.not, label %._crit_edge.split.split.split.us.split.us.us.us, label %161, !llvm.loop !37
+
+._crit_edge.split.split.split.us.split.us.us.us:  ; preds = %161
+  %169 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us77.us, i64 %24
+  %170 = add i32 %.03364.us78.us, 1
+  %exitcond174.not = icmp eq i32 %.03364.us78.us, %12
+  br i1 %exitcond174.not, label %._crit_edge68, label %.lr.ph.us76.us, !llvm.loop !38
+
+.lr.ph.us76:                                      ; preds = %.lr.ph67.split.split.split.split.us, %._crit_edge.split.split.split.us.split.us87
+  %.065.us77 = phi ptr [ %184, %._crit_edge.split.split.split.us.split.us87 ], [ %10, %.lr.ph67.split.split.split.split.us ]
+  %.03364.us78 = phi i32 [ %185, %._crit_edge.split.split.split.us.split.us87 ], [ %7, %.lr.ph67.split.split.split.split.us ]
+  %171 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us77, i64 %16
+  %172 = load ptr, ptr %0, align 8
+  br label %173
+
+173:                                              ; preds = %.lr.ph.us76, %173
+  %.03446.us54.us80 = phi ptr [ %171, %.lr.ph.us76 ], [ %182, %173 ]
+  %.03545.us55.us81 = phi i32 [ %14, %.lr.ph.us76 ], [ %183, %173 ]
+  %.sroa.06.0.copyload.us56.us82 = load i16, ptr %.03446.us54.us80, align 2, !tbaa !9
+  %174 = zext i16 %.sroa.06.0.copyload.us56.us82 to i64
+  %175 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %172, i64 %174
+  %.sroa.0.0.copyload.i.us57.us83 = load i16, ptr %175, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i.us57.us83, ptr %.03446.us54.us80, align 2, !tbaa !9
+  %176 = getelementptr inbounds nuw i8, ptr %.03446.us54.us80, i64 2
+  %.sroa.04.0.copyload.us58.us84 = load i16, ptr %176, align 2, !tbaa !9
+  %177 = zext i16 %.sroa.04.0.copyload.us58.us84 to i64
+  %178 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %172, i64 %177
+  %.sroa.0.0.copyload.i41.us59.us85 = load i16, ptr %178, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i41.us59.us85, ptr %176, align 2, !tbaa !9
+  %179 = getelementptr inbounds nuw i8, ptr %.03446.us54.us80, i64 6
+  %.sroa.0.0.copyload.us60.us = load i16, ptr %179, align 2, !tbaa !9
+  %180 = zext i16 %.sroa.0.0.copyload.us60.us to i64
+  %181 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %172, i64 %180
+  %.sroa.0.0.copyload.i43.us61.us = load i16, ptr %181, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i43.us61.us, ptr %179, align 2, !tbaa !9
+  %182 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us54.us80, i64 %23
+  %183 = add i32 %.03545.us55.us81, 1
+  %exitcond171.not = icmp eq i32 %.03545.us55.us81, %17
+  br i1 %exitcond171.not, label %._crit_edge.split.split.split.us.split.us87, label %173, !llvm.loop !37
+
+._crit_edge.split.split.split.us.split.us87:      ; preds = %173
+  %184 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us77, i64 %24
+  %185 = add i32 %.03364.us78, 1
+  %exitcond172.not = icmp eq i32 %.03364.us78, %12
+  br i1 %exitcond172.not, label %._crit_edge68, label %.lr.ph.us76, !llvm.loop !38
+
+._crit_edge68:                                    ; preds = %._crit_edge.split.split.split, %._crit_edge.split.split.split.us.split.us87, %._crit_edge.split.split.split.us.split.us.us.us, %._crit_edge.split.split.us.us.split.split, %._crit_edge.split.split.us.us.split.split.us.us, %._crit_edge.split.split.us.us.split.us.split.us99, %._crit_edge.split.split.us.us.split.us.split.us.us.us, %._crit_edge.split.us.us.split.split.split, %._crit_edge.split.us.us.split.split.split.us.us, %._crit_edge.split.us.us.split.split.us.split.us145, %._crit_edge.split.us.us.split.split.us.split.us.us.us, %._crit_edge.split.us.us.split.us.split.split.us127, %._crit_edge.split.us.us.split.us.split.split.us.us.us, %._crit_edge.split.us.us.split.us.split.us.split.us132.us, %.lr.ph67.split.split.us.split.us.split.us, %.lr.ph67, %5
   ret void
-}
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK7Imf_3_27RgbaLut5applyEPNS_4RgbaEiiRKN9Imath_3_23BoxINS3_4Vec2IiEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this, ptr noundef captures(none) %base, i32 noundef %xStride, i32 noundef %yStride, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %dataWindow) local_unnamed_addr #3 align 2 {
-entry:
-  %y = getelementptr inbounds nuw i8, ptr %dataWindow, i64 4
-  %0 = load i32, ptr %y, align 4
-  %max = getelementptr inbounds nuw i8, ptr %dataWindow, i64 8
-  %y5 = getelementptr inbounds nuw i8, ptr %dataWindow, i64 12
-  %1 = load i32, ptr %y5, align 4
-  %cmp.not32 = icmp sgt i32 %0, %1
-  br i1 %cmp.not32, label %for.end62, label %for.body.lr.ph
+.lr.ph:                                           ; preds = %.lr.ph67.split.split.split, %._crit_edge.split.split.split
+  %.065 = phi ptr [ %188, %._crit_edge.split.split.split ], [ %10, %.lr.ph67.split.split.split ]
+  %.03364 = phi i32 [ %189, %._crit_edge.split.split.split ], [ %7, %.lr.ph67.split.split.split ]
+  %186 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065, i64 %16
+  %187 = load ptr, ptr %0, align 8
+  br label %190
 
-for.body.lr.ph:                                   ; preds = %entry
-  %_chn = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %idx.ext56 = sext i32 %xStride to i64
-  %idx.ext58 = sext i32 %yStride to i64
-  %2 = load i32, ptr %dataWindow, align 4
-  %3 = load i32, ptr %max, align 4
-  %4 = icmp sgt i32 %2, %3
-  br i1 %4, label %for.end62, label %for.body.preheader
+._crit_edge.split.split.split:                    ; preds = %203
+  %188 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065, i64 %24
+  %189 = add i32 %.03364, 1
+  %exitcond170.not = icmp eq i32 %.03364, %12
+  br i1 %exitcond170.not, label %._crit_edge68, label %.lr.ph, !llvm.loop !38
 
-for.body.preheader:                               ; preds = %for.body.lr.ph
-  %mul = mul nsw i32 %0, %yStride
-  %idx.ext = sext i32 %mul to i64
-  %add.ptr = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %base, i64 %idx.ext
-  br label %for.body
+190:                                              ; preds = %.lr.ph, %203
+  %.03446 = phi ptr [ %186, %.lr.ph ], [ %204, %203 ]
+  %.03545 = phi i32 [ %14, %.lr.ph ], [ %205, %203 ]
+  %.sroa.06.0.copyload = load i16, ptr %.03446, align 2, !tbaa !9
+  %191 = zext i16 %.sroa.06.0.copyload to i64
+  %192 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %187, i64 %191
+  %.sroa.0.0.copyload.i = load i16, ptr %192, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i, ptr %.03446, align 2, !tbaa !9
+  %193 = getelementptr inbounds nuw i8, ptr %.03446, i64 2
+  %.sroa.04.0.copyload = load i16, ptr %193, align 2, !tbaa !9
+  %194 = zext i16 %.sroa.04.0.copyload to i64
+  %195 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %187, i64 %194
+  %.sroa.0.0.copyload.i41 = load i16, ptr %195, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i41, ptr %193, align 2, !tbaa !9
+  %196 = getelementptr inbounds nuw i8, ptr %.03446, i64 4
+  %.sroa.02.0.copyload = load i16, ptr %196, align 2, !tbaa !9
+  %197 = zext i16 %.sroa.02.0.copyload to i64
+  %198 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %187, i64 %197
+  %.sroa.0.0.copyload.i42 = load i16, ptr %198, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i42, ptr %196, align 2, !tbaa !9
+  br i1 %.not40, label %203, label %199
 
-for.body:                                         ; preds = %for.body.preheader, %for.end
-  %5 = phi i32 [ %17, %for.end ], [ %1, %for.body.preheader ]
-  %6 = phi i32 [ %18, %for.end ], [ %3, %for.body.preheader ]
-  %base.addr.034 = phi ptr [ %add.ptr59, %for.end ], [ %add.ptr, %for.body.preheader ]
-  %y2.033 = phi i32 [ %inc61, %for.end ], [ %0, %for.body.preheader ]
-  %7 = load i32, ptr %dataWindow, align 4
-  %cmp16.not29 = icmp sgt i32 %7, %6
-  br i1 %cmp16.not29, label %for.end, label %for.body17.preheader
+199:                                              ; preds = %190
+  %200 = getelementptr inbounds nuw i8, ptr %.03446, i64 6
+  %.sroa.0.0.copyload = load i16, ptr %200, align 2, !tbaa !9
+  %201 = zext i16 %.sroa.0.0.copyload to i64
+  %202 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %187, i64 %201
+  %.sroa.0.0.copyload.i43 = load i16, ptr %202, align 2, !tbaa !9
+  store i16 %.sroa.0.0.copyload.i43, ptr %200, align 2, !tbaa !9
+  br label %203
 
-for.body17.preheader:                             ; preds = %for.body
-  %mul7 = mul nsw i32 %7, %xStride
-  %idx.ext8 = sext i32 %mul7 to i64
-  %add.ptr9 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %base.addr.034, i64 %idx.ext8
-  br label %for.body17
-
-for.body17:                                       ; preds = %for.body17.preheader, %if.end55
-  %pixel.031 = phi ptr [ %add.ptr57, %if.end55 ], [ %add.ptr9, %for.body17.preheader ]
-  %x10.030 = phi i32 [ %inc, %if.end55 ], [ %7, %for.body17.preheader ]
-  %8 = load i32, ptr %_chn, align 8
-  %and = and i32 %8, 1
-  %tobool.not = icmp eq i32 %and, 0
-  br i1 %tobool.not, label %if.end, label %if.then
-
-if.then:                                          ; preds = %for.body17
-  %agg.tmp.sroa.0.0.copyload = load i16, ptr %pixel.031, align 2
-  %9 = load ptr, ptr %this, align 8
-  %idxprom.i = zext i16 %agg.tmp.sroa.0.0.copyload to i64
-  %arrayidx.i = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %9, i64 %idxprom.i
-  %retval.sroa.0.0.copyload.i = load i16, ptr %arrayidx.i, align 2
-  store i16 %retval.sroa.0.0.copyload.i, ptr %pixel.031, align 2
-  %.pre = load i32, ptr %_chn, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %for.body17
-  %10 = phi i32 [ %.pre, %if.then ], [ %8, %for.body17 ]
-  %and21 = and i32 %10, 2
-  %tobool22.not = icmp eq i32 %and21, 0
-  br i1 %tobool22.not, label %if.end31, label %if.then23
-
-if.then23:                                        ; preds = %if.end
-  %g = getelementptr inbounds nuw i8, ptr %pixel.031, i64 2
-  %agg.tmp26.sroa.0.0.copyload = load i16, ptr %g, align 2
-  %11 = load ptr, ptr %this, align 8
-  %idxprom.i20 = zext i16 %agg.tmp26.sroa.0.0.copyload to i64
-  %arrayidx.i21 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %11, i64 %idxprom.i20
-  %retval.sroa.0.0.copyload.i22 = load i16, ptr %arrayidx.i21, align 2
-  store i16 %retval.sroa.0.0.copyload.i22, ptr %g, align 2
-  %.pre36 = load i32, ptr %_chn, align 8
-  br label %if.end31
-
-if.end31:                                         ; preds = %if.then23, %if.end
-  %12 = phi i32 [ %.pre36, %if.then23 ], [ %10, %if.end ]
-  %and33 = and i32 %12, 4
-  %tobool34.not = icmp eq i32 %and33, 0
-  br i1 %tobool34.not, label %if.end43, label %if.then35
-
-if.then35:                                        ; preds = %if.end31
-  %b = getelementptr inbounds nuw i8, ptr %pixel.031, i64 4
-  %agg.tmp38.sroa.0.0.copyload = load i16, ptr %b, align 2
-  %13 = load ptr, ptr %this, align 8
-  %idxprom.i23 = zext i16 %agg.tmp38.sroa.0.0.copyload to i64
-  %arrayidx.i24 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %13, i64 %idxprom.i23
-  %retval.sroa.0.0.copyload.i25 = load i16, ptr %arrayidx.i24, align 2
-  store i16 %retval.sroa.0.0.copyload.i25, ptr %b, align 2
-  %.pre37 = load i32, ptr %_chn, align 8
-  br label %if.end43
-
-if.end43:                                         ; preds = %if.then35, %if.end31
-  %14 = phi i32 [ %.pre37, %if.then35 ], [ %12, %if.end31 ]
-  %and45 = and i32 %14, 8
-  %tobool46.not = icmp eq i32 %and45, 0
-  br i1 %tobool46.not, label %if.end55, label %if.then47
-
-if.then47:                                        ; preds = %if.end43
-  %a = getelementptr inbounds nuw i8, ptr %pixel.031, i64 6
-  %agg.tmp50.sroa.0.0.copyload = load i16, ptr %a, align 2
-  %15 = load ptr, ptr %this, align 8
-  %idxprom.i26 = zext i16 %agg.tmp50.sroa.0.0.copyload to i64
-  %arrayidx.i27 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %15, i64 %idxprom.i26
-  %retval.sroa.0.0.copyload.i28 = load i16, ptr %arrayidx.i27, align 2
-  store i16 %retval.sroa.0.0.copyload.i28, ptr %a, align 2
-  br label %if.end55
-
-if.end55:                                         ; preds = %if.then47, %if.end43
-  %add.ptr57 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %pixel.031, i64 %idx.ext56
-  %inc = add nsw i32 %x10.030, 1
-  %16 = load i32, ptr %max, align 4
-  %cmp16.not.not = icmp slt i32 %x10.030, %16
-  br i1 %cmp16.not.not, label %for.body17, label %for.end.loopexit, !llvm.loop !10
-
-for.end.loopexit:                                 ; preds = %if.end55
-  %.pre38 = load i32, ptr %y5, align 4
-  br label %for.end
-
-for.end:                                          ; preds = %for.end.loopexit, %for.body
-  %17 = phi i32 [ %.pre38, %for.end.loopexit ], [ %5, %for.body ]
-  %18 = phi i32 [ %16, %for.end.loopexit ], [ %6, %for.body ]
-  %add.ptr59 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %base.addr.034, i64 %idx.ext58
-  %inc61 = add nsw i32 %y2.033, 1
-  %cmp.not.not = icmp slt i32 %y2.033, %17
-  br i1 %cmp.not.not, label %for.body, label %for.end62, !llvm.loop !11
-
-for.end62:                                        ; preds = %for.end, %for.body.lr.ph, %entry
-  ret void
+203:                                              ; preds = %199, %190
+  %204 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446, i64 %23
+  %205 = add i32 %.03545, 1
+  %exitcond.not = icmp eq i32 %.03545, %17
+  br i1 %exitcond.not, label %._crit_edge.split.split.split, label %190, !llvm.loop !37
 }
 
 ; Function Attrs: mustprogress uwtable
-define i16 @_ZN7Imf_3_210round12logEN9Imath_3_24halfE(i16 %x.coerce) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load ptr, ptr @imath_half_to_float_table, align 8
-  %idxprom.i.i = zext i16 %x.coerce to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %union.imath_half_uif, ptr %0, i64 %idxprom.i.i
-  %1 = load float, ptr %arrayidx.i.i, align 4
-  %cmp = fcmp ugt float %1, 0.000000e+00
-  br i1 %cmp, label %if.else, label %return
+define i16 @_ZN7Imf_3_410round12logEN9Imath_3_24halfE(i16 %0) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+  %2 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !39
+  %3 = zext i16 %0 to i64
+  %4 = getelementptr inbounds nuw %union.imath_half_uif, ptr %2, i64 %3
+  %5 = load float, ptr %4, align 4, !tbaa !41
+  %6 = fcmp ugt float %5, 0.000000e+00
+  br i1 %6, label %7, label %_ZN9Imath_3_24halfC2Ef.exit
 
-if.else:                                          ; preds = %entry
-  %div = fdiv float %1, 0x3FC6A09E60000000
-  %call.i = tail call noundef float @logf(float noundef %div) #9
-  %conv4 = fpext float %call.i to double
-  %mul = fmul double %conv4, 2.000000e+02
-  %div6 = fdiv double %mul, 0x3FE62E42FEFA39EF
-  %add = fadd double %div6, 2.000500e+03
-  %conv7 = fptosi double %add to i32
-  %spec.store.select = tail call i32 @llvm.smin.i32(i32 %conv7, i32 4095)
+7:                                                ; preds = %1
+  %8 = fdiv float %5, 0x3FC6A09E60000000
+  %9 = tail call noundef float @logf(float noundef %8) #9, !tbaa !42
+  %10 = fpext float %9 to double
+  %11 = fmul double %10, 2.000000e+02
+  %12 = fdiv double %11, 0x3FE62E42FEFA39EF
+  %13 = fadd double %12, 2.000500e+03
+  %14 = fptosi double %13 to i32
+  %spec.store.select = tail call i32 @llvm.smin.i32(i32 %14, i32 4095)
   %spec.store.select1 = tail call i32 @llvm.smax.i32(i32 %spec.store.select, i32 1)
-  %2 = add nsw i32 %spec.store.select1, -2000
-  %sub = sitofp i32 %2 to double
-  %div16 = fdiv double %sub, 2.000000e+02
-  %exp2 = tail call double @exp2(double %div16)
-  %mul18 = fmul double %exp2, 0x3FC6A09E60000000
-  %conv19 = fptrunc double %mul18 to float
-  %3 = bitcast float %conv19 to i32
-  %4 = tail call float @llvm.fabs.f32(float %conv19)
-  %and.i.i = bitcast float %4 to i32
-  %shr.i.i = lshr i32 %3, 16
-  %5 = trunc nuw i32 %shr.i.i to i16
-  %conv.i.i = and i16 %5, -32768
-  %cmp.i.i = icmp samesign ugt i32 %and.i.i, 947912703
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end37.i.i
+  %15 = add nsw i32 %spec.store.select1, -2000
+  %16 = sitofp i32 %15 to double
+  %17 = fdiv double %16, 2.000000e+02
+  %exp2 = tail call double @exp2(double %17)
+  %18 = fmul double %exp2, 0x3FC6A09E60000000
+  %19 = fptrunc double %18 to float
+  %20 = bitcast float %19 to i32
+  %21 = tail call float @llvm.fabs.f32(float %19)
+  %22 = bitcast float %21 to i32
+  %23 = lshr i32 %20, 16
+  %24 = trunc nuw i32 %23 to i16
+  %25 = and i16 %24, -32768
+  %26 = icmp samesign ugt i32 %22, 947912703
+  br i1 %26, label %27, label %53
 
-if.then.i.i:                                      ; preds = %if.else
-  %cmp2.i.i = icmp samesign ugt i32 %and.i.i, 2139095039
-  br i1 %cmp2.i.i, label %if.then4.i.i, label %if.end20.i.i
+27:                                               ; preds = %7
+  %28 = icmp samesign ugt i32 %22, 2139095039
+  br i1 %28, label %29, label %40, !prof !43
 
-if.then4.i.i:                                     ; preds = %if.then.i.i
-  %conv6.i.i = or disjoint i16 %conv.i.i, 31744
-  %cmp7.i.i = icmp eq i32 %and.i.i, 2139095040
-  br i1 %cmp7.i.i, label %return, label %if.end.i.i
+29:                                               ; preds = %27
+  %30 = or disjoint i16 %25, 31744
+  %31 = icmp eq i32 %22, 2139095040
+  br i1 %31, label %_ZN9Imath_3_24halfC2Ef.exit, label %32
 
-if.end.i.i:                                       ; preds = %if.then4.i.i
-  %and9.i.i = lshr i32 %and.i.i, 13
-  %shr10.i.i = and i32 %and9.i.i, 1023
-  %cmp15.i.i = icmp eq i32 %shr10.i.i, 0
-  %6 = zext i1 %cmp15.i.i to i16
-  %7 = trunc nuw nsw i32 %shr10.i.i to i16
-  %8 = or i16 %7, %6
-  %conv19.i.i = or disjoint i16 %8, %conv6.i.i
-  br label %return
+32:                                               ; preds = %29
+  %33 = lshr i32 %22, 13
+  %34 = and i32 %33, 1023
+  %35 = icmp eq i32 %34, 0
+  %36 = zext i1 %35 to i16
+  %37 = trunc nuw nsw i32 %34 to i16
+  %38 = or i16 %37, %36
+  %39 = or disjoint i16 %38, %30
+  br label %_ZN9Imath_3_24halfC2Ef.exit
 
-if.end20.i.i:                                     ; preds = %if.then.i.i
-  %cmp21.i.i = icmp samesign ugt i32 %and.i.i, 1199566847
-  br i1 %cmp21.i.i, label %if.then23.i.i, label %if.end27.i.i
+40:                                               ; preds = %27
+  %41 = icmp samesign ugt i32 %22, 1199566847
+  br i1 %41, label %42, label %44, !prof !43
 
-if.then23.i.i:                                    ; preds = %if.end20.i.i
-  %conv26.i.i = or disjoint i16 %conv.i.i, 31744
-  br label %return
+42:                                               ; preds = %40
+  %43 = or disjoint i16 %25, 31744
+  br label %_ZN9Imath_3_24halfC2Ef.exit
 
-if.end27.i.i:                                     ; preds = %if.end20.i.i
-  %add.i.i = add nuw nsw i32 %and.i.i, 134221823
-  %shr28.i.i = lshr i32 %and.i.i, 13
-  %and29.i.i = and i32 %shr28.i.i, 1
-  %add30.i.i = add nuw nsw i32 %add.i.i, %and29.i.i
-  %shr31.i.i = lshr i32 %add30.i.i, 13
-  %conv32.i.i = and i32 %shr.i.i, 32768
-  %or35.i.i = or i32 %shr31.i.i, %conv32.i.i
-  %conv36.i.i = trunc i32 %or35.i.i to i16
-  br label %return
+44:                                               ; preds = %40
+  %45 = add nuw nsw i32 %22, 134221823
+  %46 = lshr i32 %22, 13
+  %47 = and i32 %46, 1
+  %48 = add nuw nsw i32 %45, %47
+  %49 = lshr i32 %48, 13
+  %50 = and i32 %23, 32768
+  %51 = or i32 %49, %50
+  %52 = trunc i32 %51 to i16
+  br label %_ZN9Imath_3_24halfC2Ef.exit
 
-if.end37.i.i:                                     ; preds = %if.else
-  %cmp38.i.i = icmp samesign ult i32 %and.i.i, 855638017
-  br i1 %cmp38.i.i, label %return, label %if.end40.i.i
+53:                                               ; preds = %7
+  %54 = icmp samesign ult i32 %22, 855638017
+  br i1 %54, label %_ZN9Imath_3_24halfC2Ef.exit, label %55
 
-if.end40.i.i:                                     ; preds = %if.end37.i.i
-  %shr41.i.i = lshr i32 %and.i.i, 23
-  %sub42.i.i = sub nuw nsw i32 126, %shr41.i.i
-  %and43.i.i = and i32 %and.i.i, 8388607
-  %or44.i.i = or disjoint i32 %and43.i.i, 8388608
-  %sub45.i.i = add nsw i32 %shr41.i.i, -94
-  %shl.i.i = shl i32 %or44.i.i, %sub45.i.i
-  %shr46.i.i = lshr i32 %or44.i.i, %sub42.i.i
-  %conv47.i.i = and i32 %shr.i.i, 32768
-  %or48.i.i = or i32 %shr46.i.i, %conv47.i.i
-  %conv49.i.i = trunc nuw i32 %or48.i.i to i16
-  %cmp50.i.i = icmp ugt i32 %shl.i.i, -2147483648
-  br i1 %cmp50.i.i, label %if.then55.i.i, label %lor.lhs.false.i.i
+55:                                               ; preds = %53
+  %56 = lshr i32 %22, 23
+  %57 = sub nuw nsw i32 126, %56
+  %58 = and i32 %22, 8388607
+  %59 = or disjoint i32 %58, 8388608
+  %60 = add nsw i32 %56, -94
+  %61 = shl i32 %59, %60
+  %62 = lshr i32 %59, %57
+  %63 = and i32 %23, 32768
+  %64 = or i32 %62, %63
+  %65 = trunc nuw i32 %64 to i16
+  %66 = icmp ugt i32 %61, -2147483648
+  br i1 %66, label %70, label %67
 
-lor.lhs.false.i.i:                                ; preds = %if.end40.i.i
-  %cmp51.i.i = icmp ne i32 %shl.i.i, -2147483648
-  %and53.i.i = and i32 %shr46.i.i, 1
-  %cmp54.not.i.i = icmp eq i32 %and53.i.i, 0
-  %or.cond.i.i = select i1 %cmp51.i.i, i1 true, i1 %cmp54.not.i.i
-  br i1 %or.cond.i.i, label %return, label %if.then55.i.i
+67:                                               ; preds = %55
+  %68 = icmp ne i32 %61, -2147483648
+  %69 = and i32 %62, 1
+  %.not.i.i = icmp eq i32 %69, 0
+  %or.cond.i.i = select i1 %68, i1 true, i1 %.not.i.i
+  br i1 %or.cond.i.i, label %_ZN9Imath_3_24halfC2Ef.exit, label %70
 
-if.then55.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.end40.i.i
-  %inc.i.i = add nuw i16 %conv49.i.i, 1
-  br label %return
+70:                                               ; preds = %67, %55
+  %71 = add nuw i16 %65, 1
+  br label %_ZN9Imath_3_24halfC2Ef.exit
 
-return:                                           ; preds = %if.then55.i.i, %lor.lhs.false.i.i, %if.end37.i.i, %if.end27.i.i, %if.then23.i.i, %if.end.i.i, %if.then4.i.i, %entry
-  %retval.sroa.0.0 = phi i16 [ 0, %entry ], [ %conv19.i.i, %if.end.i.i ], [ %conv26.i.i, %if.then23.i.i ], [ %conv36.i.i, %if.end27.i.i ], [ %conv6.i.i, %if.then4.i.i ], [ %conv.i.i, %if.end37.i.i ], [ %inc.i.i, %if.then55.i.i ], [ %conv49.i.i, %lor.lhs.false.i.i ]
-  ret i16 %retval.sroa.0.0
+_ZN9Imath_3_24halfC2Ef.exit:                      ; preds = %70, %67, %53, %44, %42, %32, %29, %1
+  %.sroa.06.0 = phi i16 [ 0, %1 ], [ %39, %32 ], [ %43, %42 ], [ %52, %44 ], [ %30, %29 ], [ %25, %53 ], [ %71, %70 ], [ %65, %67 ]
+  ret i16 %.sroa.06.0
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -477,9 +1038,8 @@ declare float @logf(float noundef) local_unnamed_addr #6
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_ImfLut.cpp() #7 section ".text.startup" {
-entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #9
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #9
   ret void
 }
 
@@ -494,28 +1054,60 @@ declare double @exp2(double) local_unnamed_addr
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #8
 
-attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5, !8}
-!8 = !{!"llvm.loop.unswitch.partial.disable"}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5, !8}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"_ZTS12halfFunctionIN9Imath_3_24halfEE", !5, i64 0}
+!5 = !{!"p1 _ZTSN9Imath_3_24halfE", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"short", !7, i64 0}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.mustprogress"}
+!13 = !{!14, !17, i64 24}
+!14 = !{!"_ZTSN7Imf_3_45SliceE", !15, i64 0, !16, i64 8, !17, i64 16, !17, i64 24, !18, i64 32, !18, i64 36, !19, i64 40, !20, i64 48, !20, i64 49}
+!15 = !{!"_ZTSN7Imf_3_49PixelTypeE", !7, i64 0}
+!16 = !{!"p1 omnipotent char", !6, i64 0}
+!17 = !{!"long", !7, i64 0}
+!18 = !{!"int", !7, i64 0}
+!19 = !{!"double", !7, i64 0}
+!20 = !{!"bool", !7, i64 0}
+!21 = !{!22, !18, i64 4}
+!22 = !{!"_ZTSN9Imath_3_23BoxINS_4Vec2IiEEEE", !23, i64 0, !23, i64 8}
+!23 = !{!"_ZTSN9Imath_3_24Vec2IiEE", !18, i64 0, !18, i64 4}
+!24 = !{!14, !18, i64 36}
+!25 = !{!22, !18, i64 12}
+!26 = !{!14, !17, i64 16}
+!27 = !{!22, !18, i64 0}
+!28 = !{!14, !18, i64 32}
+!29 = !{!22, !18, i64 8}
+!30 = !{!14, !16, i64 8}
+!31 = distinct !{!31, !12}
+!32 = distinct !{!32, !12}
+!33 = !{!34, !35, i64 8}
+!34 = !{!"_ZTSN7Imf_3_47RgbaLutE", !4, i64 0, !35, i64 8}
+!35 = !{!"_ZTSN7Imf_3_412RgbaChannelsE", !7, i64 0}
+!36 = distinct !{!36, !12}
+!37 = distinct !{!37, !12}
+!38 = distinct !{!38, !12}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 _ZTS14imath_half_uif", !6, i64 0}
+!41 = !{!7, !7, i64 0}
+!42 = !{!18, !18, i64 0}
+!43 = !{!"branch_weights", !"expected", i32 1, i32 2000}
