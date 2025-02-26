@@ -416,7 +416,7 @@ define internal fastcc ptr @__vga_tryget(ptr noundef nonnull %0, i32 noundef %1)
   %55 = getelementptr inbounds nuw i8, ptr %33, i64 52
   %56 = load i8, ptr %55, align 4, !range !14, !noundef !15
   %57 = icmp eq i8 %56, 0
-  br i1 %57, label %58, label %64
+  br i1 %57, label %58, label %68
 
 58:                                               ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %33, i64 24
@@ -426,16 +426,16 @@ define internal fastcc ptr @__vga_tryget(ptr noundef nonnull %0, i32 noundef %1)
   %63 = select i1 %62, i32 0, i32 2
   br label %64
 
-64:                                               ; preds = %58, %54
-  %65 = phi i32 [ 0, %54 ], [ %61, %58 ]
-  %66 = phi i32 [ 0, %54 ], [ %63, %58 ]
-  %67 = zext i1 %43 to i32
-  %68 = or disjoint i32 %66, %67
-  %69 = tail call i32 @pci_set_vga_state(ptr noundef %40, i1 noundef zeroext false, i32 noundef %65, i32 noundef %68) #14
-  %70 = xor i32 %52, -1
-  %71 = load i32, ptr %50, align 4
-  %72 = and i32 %71, %70
-  %73 = and i32 %65, 2
+68:                                               ; preds = %58, %54
+  %69 = phi i32 [ 0, %54 ], [ %61, %58 ]
+  %70 = phi i32 [ 0, %54 ], [ %63, %58 ]
+  %71 = zext i1 %43 to i32
+  %72 = or disjoint i32 %70, %71
+  %73 = tail call i32 @pci_set_vga_state(ptr noundef %40, i1 noundef zeroext false, i32 noundef %69, i32 noundef %72) #14
+  %74 = xor i32 %52, -1
+  %75 = load i32, ptr %50, align 4
+  %76 = and i32 %75, %74
+  %77 = and i32 %69, 2
   %74 = icmp eq i32 %73, 0
   %75 = and i32 %72, -9
   %76 = select i1 %74, i32 %72, i32 %75
@@ -449,12 +449,12 @@ define internal fastcc ptr @__vga_tryget(ptr noundef nonnull %0, i32 noundef %1)
   store i32 %80, ptr %50, align 4
   br label %81
 
-81:                                               ; preds = %.preheader, %49, %79, %64
+81:; preds = %.preheader, %49, %79, %68
   %82 = load ptr, ptr %33, align 8
   %83 = icmp eq ptr %82, @vga_list
   br i1 %83, label %.loopexit5, label %.preheader, !llvm.loop !16
 
-.loopexit5:                                       ; preds = %81, %27
+.loopexit5:; preds = %81, %27
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %85 = load i8, ptr %84, align 4, !range !14, !noundef !15
   %86 = icmp eq i8 %85, 0
@@ -470,7 +470,7 @@ define internal fastcc ptr @__vga_tryget(ptr noundef nonnull %0, i32 noundef %1)
   %94 = or disjoint i32 %90, %93
   br label %95
 
-95:                                               ; preds = %87, %.loopexit5
+136:                                              ; preds = %87, %.loopexit5
   %96 = phi i32 [ 0, %.loopexit5 ], [ %94, %87 ]
   %97 = phi i32 [ 0, %.loopexit5 ], [ 2, %87 ]
   %98 = zext i1 %29 to i32
@@ -536,8 +536,8 @@ define internal fastcc ptr @__vga_tryget(ptr noundef nonnull %0, i32 noundef %1)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %132, %129
-  %136 = phi ptr [ null, %132 ], [ null, %129 ], [ %33, %35 ]
-  ret ptr %136
+  %140 = phi ptr [ null, %132 ], [ null, %129 ], [ %33, %35 ]
+  ret ptr %140
 }
 
 ; Function Attrs: null_pointer_is_valid

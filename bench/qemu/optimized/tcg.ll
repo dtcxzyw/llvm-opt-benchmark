@@ -21881,7 +21881,7 @@ define internal fastcc range(i32 0, 256) i32 @tcg_out_cmp(ptr noundef captures(n
   %33 = getelementptr inbounds nuw [16 x i8], ptr @tcg_cond_to_jcc, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
-  br label %223
+  br label %221
 
 36:                                               ; preds = %6
   %37 = zext nneg i32 %1 to i64
@@ -21898,7 +21898,7 @@ define internal fastcc range(i32 0, 256) i32 @tcg_out_cmp(ptr noundef captures(n
   %45 = trunc i64 %2 to i32
   %46 = trunc i64 %3 to i32
   tail call fastcc void @tcg_out_modrm(ptr noundef %0, i32 noundef %44, i32 noundef %45, i32 noundef %46)
-  br label %223
+  br label %221
 
 47:                                               ; preds = %36
   %48 = icmp ult i64 %3, 256
@@ -21948,7 +21948,7 @@ tcg_out_modrm.exit:                               ; preds = %51, %59
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 1
   store ptr %74, ptr %65, align 8
   store i8 %72, ptr %73, align 1
-  br label %223
+  br label %221
 
 75:                                               ; preds = %49
   %76 = lshr i32 %50, 1
@@ -21986,7 +21986,7 @@ tcg_out_modrm.exit111:                            ; preds = %75, %83
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 1
   store ptr %98, ptr %89, align 8
   store i8 %96, ptr %97, align 1
-  br label %223
+  br label %221
 
 99:                                               ; preds = %49
   %100 = lshr i32 %50, 3
@@ -22023,7 +22023,7 @@ tcg_out_modrm.exit113:                            ; preds = %99, %104
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 1
   store ptr %119, ptr %110, align 8
   store i8 %trunc126, ptr %118, align 1
-  br label %223
+  br label %221
 
 120:                                              ; preds = %47
   %121 = and i64 %3, -65281
@@ -22053,7 +22053,7 @@ tcg_out_modrm.exit115:                            ; preds = %124
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 1
   store ptr %133, ptr %126, align 8
   store i8 %131, ptr %132, align 1
-  br label %223
+  br label %221
 
 tcg_out_modrm.exit117:                            ; preds = %124
   store i8 -124, ptr %127, align 1
@@ -22064,7 +22064,7 @@ tcg_out_modrm.exit117:                            ; preds = %124
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 1
   store ptr %138, ptr %126, align 8
   store i8 %136, ptr %137, align 1
-  br label %223
+  br label %221
 
 tcg_out_modrm.exit119:                            ; preds = %124
   store i8 -10, ptr %127, align 1
@@ -22079,7 +22079,7 @@ tcg_out_modrm.exit119:                            ; preds = %124
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 1
   store ptr %145, ptr %126, align 8
   store i8 %143, ptr %144, align 1
-  br label %223
+  br label %221
 
 146:                                              ; preds = %120
   switch i64 %3, label %194 [
@@ -22125,7 +22125,7 @@ tcg_out_modrm.exit121:                            ; preds = %147, %157
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 1
   store ptr %170, ptr %149, align 8
   store i8 %168, ptr %169, align 1
-  br label %223
+  br label %221
 
 171:                                              ; preds = %146
   %172 = trunc i64 %2 to i32
@@ -22162,7 +22162,7 @@ tcg_out_modrm.exit123:                            ; preds = %171, %178
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 1
   store ptr %193, ptr %184, align 8
   store i8 %191, ptr %192, align 1
-  br label %223
+  br label %221
 
 194:                                              ; preds = %146
   %.not107 = icmp eq i32 %5, 0
@@ -22176,18 +22176,18 @@ tcg_out_modrm.exit123:                            ; preds = %171, %178
   %199 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %3, i1 true)
   %200 = trunc nuw nsw i64 %199 to i32
   %201 = shl nuw nsw i32 %200, 7
-  %202 = and i32 %201, 4096
+  %201 = and i32 %201, 4096
   %203 = and i32 %200, 31
   %204 = icmp eq i32 %203, 31
   br i1 %204, label %205, label %208
 
-205:                                              ; preds = %198
+205:; preds = %198
   %206 = or disjoint i32 %202, 133
   %207 = trunc i64 %2 to i32
   tail call fastcc void @tcg_out_modrm(ptr noundef %0, i32 noundef %206, i32 noundef %207, i32 noundef %207)
   br label %223
 
-208:                                              ; preds = %198
+208:; preds = %198
   %209 = select i1 %41, i32 2, i32 3
   %210 = or disjoint i32 %202, 442
   %211 = trunc i64 %2 to i32
@@ -22201,20 +22201,20 @@ tcg_out_modrm.exit123:                            ; preds = %171, %178
   br label %223
 
 is_power_of_2.exit.thread:                        ; preds = %194
-  %216 = trunc i64 %3 to i32
-  %217 = icmp ult i64 %3, 4294967296
-  %218 = add nuw nsw i32 %5, 247
-  %spec.select = select i1 %217, i32 247, i32 %218
-  %219 = trunc i64 %2 to i32
-  tail call fastcc void @tcg_out_modrm(ptr noundef %0, i32 noundef %spec.select, i32 noundef 0, i32 noundef %219)
-  %220 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %221 = load ptr, ptr %220, align 8
-  store i32 %216, ptr %221, align 1
-  %222 = getelementptr inbounds nuw i8, ptr %221, i64 4
-  store ptr %222, ptr %220, align 8
-  br label %223
+  %214 = trunc i64 %3 to i32
+  %215 = icmp ult i64 %3, 4294967296
+  %216 = add nuw nsw i32 %5, 247
+  %spec.select = select i1 %215, i32 247, i32 %216
+  %217 = trunc i64 %2 to i32
+  tail call fastcc void @tcg_out_modrm(ptr noundef %0, i32 noundef %spec.select, i32 noundef 0, i32 noundef %217)
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %219 = load ptr, ptr %218, align 8
+  store i32 %214, ptr %219, align 1
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 4
+  store ptr %220, ptr %218, align 8
+  br label %221
 
-223:                                              ; preds = %205, %208, %is_power_of_2.exit.thread, %tcg_out_modrm.exit123, %tcg_out_modrm.exit121, %tcg_out_modrm.exit119, %tcg_out_modrm.exit117, %tcg_out_modrm.exit115, %tcg_out_modrm.exit113, %tcg_out_modrm.exit111, %tcg_out_modrm.exit, %43, %31
+221:                                              ; preds = %205, %208, %is_power_of_2.exit.thread, %tcg_out_modrm.exit123, %tcg_out_modrm.exit121, %tcg_out_modrm.exit119, %tcg_out_modrm.exit117, %tcg_out_modrm.exit115, %tcg_out_modrm.exit113, %tcg_out_modrm.exit111, %tcg_out_modrm.exit, %43, %31
   %.0 = phi i32 [ %42, %tcg_out_modrm.exit ], [ %40, %tcg_out_modrm.exit111 ], [ %40, %tcg_out_modrm.exit113 ], [ %42, %tcg_out_modrm.exit115 ], [ %40, %tcg_out_modrm.exit117 ], [ %40, %tcg_out_modrm.exit119 ], [ %40, %tcg_out_modrm.exit121 ], [ %40, %tcg_out_modrm.exit123 ], [ %40, %is_power_of_2.exit.thread ], [ %40, %43 ], [ %35, %31 ], [ %42, %205 ], [ %209, %208 ]
   ret i32 %.0
 }

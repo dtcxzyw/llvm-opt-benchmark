@@ -34142,7 +34142,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
   br label %37
 
 28:                                               ; preds = %24
-  %29 = shl nuw i64 %.sroa.0.0.sroa.speculated.i, 3
+  %.sroa.0.0.sroa.speculated.i = shl nuw i64 %.sroa.0.0.sroa.speculated.i, 3
   %30 = udiv i64 %29, 7
   %31 = add nsw i64 %30, -1
   %32 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %31, i1 true)

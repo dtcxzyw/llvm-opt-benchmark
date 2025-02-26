@@ -65569,7 +65569,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %40
 
 31:                                               ; preds = %27
-  %32 = shl nuw i64 %.sroa.0.0.sroa.speculated.i, 3
+  %.sroa.0.0.sroa.speculated.i = shl nuw i64 %.sroa.0.0.sroa.speculated.i, 3
   %33 = udiv i64 %32, 7
   %34 = add nsw i64 %33, -1
   %35 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %34, i1 true)
@@ -65951,7 +65951,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %38
 
 29:                                               ; preds = %25
-  %30 = shl nuw i64 %.sroa.0.0.sroa.speculated.i, 3
+  %.sroa.0.0.sroa.speculated.i = shl nuw i64 %.sroa.0.0.sroa.speculated.i, 3
   %31 = udiv i64 %30, 7
   %32 = add nsw i64 %31, -1
   %33 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %32, i1 true)
@@ -67236,7 +67236,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %38
 
 29:                                               ; preds = %25
-  %30 = shl nuw i64 %.sroa.0.0.sroa.speculated.i, 3
+  %.sroa.0.0.sroa.speculated.i = shl nuw i64 %.sroa.0.0.sroa.speculated.i, 3
   %31 = udiv i64 %30, 7
   %32 = add nsw i64 %31, -1
   %33 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %32, i1 true)
@@ -67553,7 +67553,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %36
 
 27:                                               ; preds = %23
-  %28 = shl nuw i64 %.sroa.0.0.sroa.speculated.i, 3
+  %.sroa.0.0.sroa.speculated.i = shl nuw i64 %.sroa.0.0.sroa.speculated.i, 3
   %29 = udiv i64 %28, 7
   %30 = add nsw i64 %29, -1
   %31 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %30, i1 true)
@@ -68247,7 +68247,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h7e41988e435530d5E.llvm.12726036149210647513.exit.thread
 
 28:                                               ; preds = %23
-  %29 = shl nuw i64 %.sroa.0.0.sroa.speculated.i, 3
+  %.sroa.0.0.sroa.speculated.i = shl nuw i64 %.sroa.0.0.sroa.speculated.i, 3
   %30 = udiv i64 %29, 7
   %31 = add nsw i64 %30, -1
   %32 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %31, i1 true)
@@ -68860,7 +68860,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h7e41988e435530d5E.llvm.12726036149210647513.exit.thread
 
 28:                                               ; preds = %23
-  %29 = shl nuw i64 %.sroa.0.0.sroa.speculated.i, 3
+  %.sroa.0.0.sroa.speculated.i = shl nuw i64 %.sroa.0.0.sroa.speculated.i, 3
   %30 = udiv i64 %29, 7
   %31 = add nsw i64 %30, -1
   %32 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %31, i1 true)
@@ -69147,7 +69147,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h7e41988e435530d5E.llvm.12726036149210647513.exit.thread
 
 30:                                               ; preds = %25
-  %31 = shl nuw i64 %.sroa.0.0.sroa.speculated.i, 3
+  %.sroa.0.0.sroa.speculated.i = shl nuw i64 %.sroa.0.0.sroa.speculated.i, 3
   %32 = udiv i64 %31, 7
   %33 = add nsw i64 %32, -1
   %34 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %33, i1 true)
@@ -70162,7 +70162,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h7e41988e435530d5E.llvm.12726036149210647513.exit.thread
 
 30:                                               ; preds = %25
-  %31 = shl nuw i64 %.sroa.0.0.sroa.speculated.i, 3
+  %.sroa.0.0.sroa.speculated.i = shl nuw i64 %.sroa.0.0.sroa.speculated.i, 3
   %32 = udiv i64 %31, 7
   %33 = add nsw i64 %32, -1
   %34 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %33, i1 true)
@@ -74181,7 +74181,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
   br label %"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$14prepare_resize17h7469fc063905b2c1E.exit.thread"
 
 28:                                               ; preds = %23
-  %29 = shl nuw i64 %.sroa.0.0.sroa.speculated.i, 3
+  %.sroa.0.0.sroa.speculated.i = shl nuw i64 %.sroa.0.0.sroa.speculated.i, 3
   %30 = udiv i64 %29, 7
   %31 = add nsw i64 %30, -1
   %32 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %31, i1 true)
@@ -74683,7 +74683,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
   br label %39
 
 30:                                               ; preds = %26
-  %31 = shl nuw i64 %.sroa.0.0.sroa.speculated.i, 3
+  %.sroa.0.0.sroa.speculated.i = shl nuw i64 %.sroa.0.0.sroa.speculated.i, 3
   %32 = udiv i64 %31, 7
   %33 = add nsw i64 %32, -1
   %34 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %33, i1 true)
@@ -74996,7 +74996,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
   br label %39
 
 30:                                               ; preds = %26
-  %31 = shl nuw i64 %.sroa.0.0.sroa.speculated.i, 3
+  %.sroa.0.0.sroa.speculated.i = shl nuw i64 %.sroa.0.0.sroa.speculated.i, 3
   %32 = udiv i64 %31, 7
   %33 = add nsw i64 %32, -1
   %34 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %33, i1 true)
@@ -75309,7 +75309,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
   br label %39
 
 30:                                               ; preds = %26
-  %31 = shl nuw i64 %.sroa.0.0.sroa.speculated.i, 3
+  %.sroa.0.0.sroa.speculated.i = shl nuw i64 %.sroa.0.0.sroa.speculated.i, 3
   %32 = udiv i64 %31, 7
   %33 = add nsw i64 %32, -1
   %34 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %33, i1 true)

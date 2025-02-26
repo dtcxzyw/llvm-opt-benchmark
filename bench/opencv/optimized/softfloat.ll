@@ -8397,7 +8397,7 @@ define internal fastcc void @_ZN2cvL20softfloat_addMagsF32Emm(ptr dead_on_unwind
   %27 = add nuw nsw i64 %25, %26
   br label %_ZN2cvL24softfloat_roundPackToF32Eblm.exit
 
-28:                                               ; preds = %16
+29:                                               ; preds = %16
   %29 = icmp samesign ugt i64 %1, 2147483647
   %30 = shl nuw nsw i64 %18, 6
   br label %90
@@ -8502,10 +8502,10 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit75:     ; preds = %68, %78
   %89 = shl nuw nsw i64 %85, 1
   br label %90
 
-90:                                               ; preds = %83, %87, %28
-  %.059.in = phi i1 [ %32, %87 ], [ %32, %83 ], [ %29, %28 ]
-  %.058 = phi i64 [ %88, %87 ], [ %.1, %83 ], [ %5, %28 ]
-  %.0 = phi i64 [ %89, %87 ], [ %85, %83 ], [ %30, %28 ]
+90:                                               ; preds = %83, %87, %29
+  %.059.in = phi i1 [ %32, %87 ], [ %32, %83 ], [ %29, %29 ]
+  %.058 = phi i64 [ %88, %87 ], [ %.1, %83 ], [ %5, %29 ]
+  %.0 = phi i64 [ %89, %87 ], [ %85, %83 ], [ %30, %29 ]
   %91 = trunc i64 %.0 to i8
   %92 = icmp ugt i64 %.058, 252
   br i1 %92, label %93, label %112

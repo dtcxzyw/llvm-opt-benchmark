@@ -28137,9 +28137,9 @@ define hidden { i32, i32 } @_ZN3hir13as_assoc_item17hfdffe61602779536E(ptr nound
   %12 = and i32 %11, 2
   %spec.select3 = xor i32 %12, 3
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4)
-  %13 = insertvalue { i32, i32 } poison, i32 %spec.select3, 0
-  %14 = insertvalue { i32, i32 } %13, i32 %2, 1
-  ret { i32, i32 } %14
+  %12 = insertvalue { i32, i32 } poison, i32 %spec.select3, 0
+  %13 = insertvalue { i32, i32 } %12, i32 %2, 1
+  ret { i32, i32 } %13
 }
 
 ; Function Attrs: nonlazybind uwtable
