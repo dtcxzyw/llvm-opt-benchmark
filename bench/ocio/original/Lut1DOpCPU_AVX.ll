@@ -1,43 +1,46 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.OpenColorIO_v2_4dev::CPUInfo" = type <{ i32, i32, i32, [65 x i8], [13 x i8], [2 x i8] }>
+%"struct.OpenColorIO_v2_5dev::CPUInfo" = type <{ i32, i32, i32, [65 x i8], [13 x i8], [2 x i8] }>
 %"class.Imath_3_1::half" = type { i16 }
+%struct.__loadu_ps = type { <8 x float> }
+%struct.__storeu_si256 = type { <4 x i64> }
+%struct.__storeu_ps = type { <8 x float> }
 
-$_ZNK19OpenColorIO_v2_4dev7CPUInfo7hasF16CEv = comdat any
+$_ZNK19OpenColorIO_v2_5dev7CPUInfo7hasF16CEv = comdat any
 
-$_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE8EE4LoadEPKfRDv8_fS6_S6_S6_ = comdat any
+$_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE8EE4LoadEPKfRDv8_fS6_S6_S6_ = comdat any
 
-$_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE1EE5StoreEPhDv8_fS4_S4_S4_ = comdat any
+$_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE1EE5StoreEPhDv8_fS4_S4_S4_ = comdat any
 
-$_ZN19OpenColorIO_v2_4dev24avxRGBATranspose_4x4_4x4EDv8_fS0_S0_S0_RS0_S1_S1_S1_ = comdat any
+$_ZN19OpenColorIO_v2_5dev24avxRGBATranspose_4x4_4x4EDv8_fS0_S0_S0_RS0_S1_S1_S1_ = comdat any
 
-$_ZN19OpenColorIO_v2_4dev13avx_movelh_psEDv8_fS0_ = comdat any
+$_ZN19OpenColorIO_v2_5dev13avx_movelh_psEDv8_fS0_ = comdat any
 
-$_ZN19OpenColorIO_v2_4dev13avx_movehl_psEDv8_fS0_ = comdat any
+$_ZN19OpenColorIO_v2_5dev13avx_movehl_psEDv8_fS0_ = comdat any
 
-$_ZN19OpenColorIO_v2_4dev9avx_clampEDv8_fRKS0_ = comdat any
+$_ZN19OpenColorIO_v2_5dev9avx_clampEDv8_fRKS0_ = comdat any
 
-$_ZN19OpenColorIO_v2_4dev11avx_pack_u8EDv4_xS0_ = comdat any
+$_ZN19OpenColorIO_v2_5dev11avx_pack_u8EDv4_xS0_ = comdat any
 
-$_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE2EE5StoreEPtDv8_fS4_S4_S4_ = comdat any
+$_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE2EE5StoreEPtDv8_fS4_S4_S4_ = comdat any
 
-$_ZN19OpenColorIO_v2_4dev13AVXRGBAPack16ILNS_8BitDepthE2EE5StoreEPtDv8_fS4_S4_S4_ = comdat any
+$_ZN19OpenColorIO_v2_5dev13AVXRGBAPack16ILNS_8BitDepthE2EE5StoreEPtDv8_fS4_S4_S4_ = comdat any
 
-$_ZN19OpenColorIO_v2_4dev12avx_pack_u16EDv4_x = comdat any
+$_ZN19OpenColorIO_v2_5dev12avx_pack_u16EDv4_x = comdat any
 
-$_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE3EE5StoreEPtDv8_fS4_S4_S4_ = comdat any
+$_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE3EE5StoreEPtDv8_fS4_S4_S4_ = comdat any
 
-$_ZN19OpenColorIO_v2_4dev13AVXRGBAPack16ILNS_8BitDepthE3EE5StoreEPtDv8_fS4_S4_S4_ = comdat any
+$_ZN19OpenColorIO_v2_5dev13AVXRGBAPack16ILNS_8BitDepthE3EE5StoreEPtDv8_fS4_S4_S4_ = comdat any
 
-$_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE5EE5StoreEPtDv8_fS4_S4_S4_ = comdat any
+$_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE5EE5StoreEPtDv8_fS4_S4_S4_ = comdat any
 
-$_ZN19OpenColorIO_v2_4dev13AVXRGBAPack16ILNS_8BitDepthE5EE5StoreEPtDv8_fS4_S4_S4_ = comdat any
+$_ZN19OpenColorIO_v2_5dev13AVXRGBAPack16ILNS_8BitDepthE5EE5StoreEPtDv8_fS4_S4_S4_ = comdat any
 
-$_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE7EE5StoreEPN9Imath_3_14halfEDv8_fS6_S6_S6_ = comdat any
+$_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE7EE5StoreEPN9Imath_3_14halfEDv8_fS6_S6_S6_ = comdat any
 
-$_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE8EE5StoreEPfDv8_fS4_S4_S4_ = comdat any
+$_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE8EE5StoreEPfDv8_fS4_S4_S4_ = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -45,9 +48,8 @@ $_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE8EE5StoreEPfDv8_fS4_S4_S4_ 
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init() #0 section ".text.startup" {
-entry:
   call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #3
+  %1 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #3
   ret void
 }
 
@@ -60,4914 +62,3660 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN19OpenColorIO_v2_4dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef %inBD, i32 noundef %outBD) #4 {
-entry:
-  %retval = alloca ptr, align 8
-  %inBD.addr = alloca i32, align 4
-  %outBD.addr = alloca i32, align 4
-  store i32 %inBD, ptr %inBD.addr, align 4
-  store i32 %outBD, ptr %outBD.addr, align 4
-  %0 = load i32, ptr %inBD.addr, align 4
-  switch i32 %0, label %sw.default [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb
-    i32 3, label %sw.bb
-    i32 5, label %sw.bb
-    i32 7, label %sw.bb
-    i32 8, label %sw.bb1
-    i32 4, label %sw.bb2
-    i32 6, label %sw.bb2
-    i32 0, label %sw.bb2
+define hidden noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef %0, i32 noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !3
+  %6 = load i32, ptr %4, align 4, !tbaa !3
+  switch i32 %6, label %12 [
+    i32 1, label %7
+    i32 2, label %7
+    i32 3, label %7
+    i32 5, label %7
+    i32 7, label %7
+    i32 8, label %8
+    i32 4, label %11
+    i32 6, label %11
+    i32 0, label %11
   ]
 
-sw.bb:                                            ; preds = %entry, %entry, %entry, %entry, %entry
-  br label %sw.epilog
+7:                                                ; preds = %2, %2, %2, %2, %2
+  br label %13
 
-sw.bb1:                                           ; preds = %entry
-  %1 = load i32, ptr %outBD.addr, align 4
-  %call = call noundef ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_120GetConvertInBitDepthILNS_8BitDepthE8EEEPFvPKfS4_S4_iPKvPvlES2_(i32 noundef %1)
-  store ptr %call, ptr %retval, align 8
-  br label %return
+8:                                                ; preds = %2
+  %9 = load i32, ptr %5, align 4, !tbaa !3
+  %10 = call noundef ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_120GetConvertInBitDepthILNS_8BitDepthE8EEEPFvPKfS4_S4_iPKvPvlES2_(i32 noundef %9)
+  store ptr %10, ptr %3, align 8
+  br label %14
 
-sw.bb2:                                           ; preds = %entry, %entry, %entry
-  br label %sw.default
+11:                                               ; preds = %2, %2, %2
+  br label %12
 
-sw.default:                                       ; preds = %sw.bb2, %entry
-  br label %sw.epilog
+12:                                               ; preds = %2, %11
+  br label %13
 
-sw.epilog:                                        ; preds = %sw.default, %sw.bb
-  store ptr null, ptr %retval, align 8
-  br label %return
+13:                                               ; preds = %12, %7
+  store ptr null, ptr %3, align 8
+  br label %14
 
-return:                                           ; preds = %sw.epilog, %sw.bb1
-  %2 = load ptr, ptr %retval, align 8
-  ret ptr %2
+14:                                               ; preds = %13, %8
+  %15 = load ptr, ptr %3, align 8
+  ret ptr %15
 }
 
-; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_120GetConvertInBitDepthILNS_8BitDepthE8EEEPFvPKfS4_S4_iPKvPvlES2_(i32 noundef %outBD) #4 {
-entry:
-  %retval = alloca ptr, align 8
-  %outBD.addr = alloca i32, align 4
-  store i32 %outBD, ptr %outBD.addr, align 4
-  %0 = load i32, ptr %outBD.addr, align 4
-  switch i32 %0, label %sw.default [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb1
-    i32 3, label %sw.bb2
-    i32 5, label %sw.bb3
-    i32 7, label %sw.bb4
-    i32 8, label %sw.bb6
-    i32 4, label %sw.bb7
-    i32 6, label %sw.bb7
-    i32 0, label %sw.bb7
+; Function Attrs: inlinehint mustprogress uwtable
+define internal noundef ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_120GetConvertInBitDepthILNS_8BitDepthE8EEEPFvPKfS4_S4_iPKvPvlES2_(i32 noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  %4 = load i32, ptr %3, align 4, !tbaa !3
+  switch i32 %4, label %16 [
+    i32 1, label %5
+    i32 2, label %6
+    i32 3, label %7
+    i32 5, label %8
+    i32 7, label %9
+    i32 8, label %14
+    i32 4, label %15
+    i32 6, label %15
+    i32 0, label %15
   ]
 
-sw.bb:                                            ; preds = %entry
-  store ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_1EEEvPKfS4_S4_iPKvPvl, ptr %retval, align 8
-  br label %return
+5:                                                ; preds = %1
+  store ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_1EEEvPKfS4_S4_iPKvPvl, ptr %2, align 8
+  br label %18
 
-sw.bb1:                                           ; preds = %entry
-  store ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_2EEEvPKfS4_S4_iPKvPvl, ptr %retval, align 8
-  br label %return
+6:                                                ; preds = %1
+  store ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_2EEEvPKfS4_S4_iPKvPvl, ptr %2, align 8
+  br label %18
 
-sw.bb2:                                           ; preds = %entry
-  store ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_3EEEvPKfS4_S4_iPKvPvl, ptr %retval, align 8
-  br label %return
+7:                                                ; preds = %1
+  store ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_3EEEvPKfS4_S4_iPKvPvl, ptr %2, align 8
+  br label %18
 
-sw.bb3:                                           ; preds = %entry
-  store ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_5EEEvPKfS4_S4_iPKvPvl, ptr %retval, align 8
-  br label %return
+8:                                                ; preds = %1
+  store ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_5EEEvPKfS4_S4_iPKvPvl, ptr %2, align 8
+  br label %18
 
-sw.bb4:                                           ; preds = %entry
-  %call = call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_4dev7CPUInfo8instanceEv()
-  %call5 = call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev7CPUInfo7hasF16CEv(ptr noundef nonnull align 4 dereferenceable(90) %call)
-  br i1 %call5, label %if.then, label %if.end
+9:                                                ; preds = %1
+  %10 = call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
+  %11 = call noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev7CPUInfo7hasF16CEv(ptr noundef nonnull align 4 dereferenceable(90) %10)
+  br i1 %11, label %12, label %13
 
-if.then:                                          ; preds = %sw.bb4
-  store ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_7EEEvPKfS4_S4_iPKvPvl, ptr %retval, align 8
-  br label %return
+12:                                               ; preds = %9
+  store ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_7EEEvPKfS4_S4_iPKvPvl, ptr %2, align 8
+  br label %18
 
-if.end:                                           ; preds = %sw.bb4
-  br label %sw.epilog
+13:                                               ; preds = %9
+  br label %17
 
-sw.bb6:                                           ; preds = %entry
-  store ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_8EEEvPKfS4_S4_iPKvPvl, ptr %retval, align 8
-  br label %return
+14:                                               ; preds = %1
+  store ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_8EEEvPKfS4_S4_iPKvPvl, ptr %2, align 8
+  br label %18
 
-sw.bb7:                                           ; preds = %entry, %entry, %entry
-  br label %sw.default
+15:                                               ; preds = %1, %1, %1
+  br label %16
 
-sw.default:                                       ; preds = %sw.bb7, %entry
-  br label %sw.epilog
+16:                                               ; preds = %1, %15
+  br label %17
 
-sw.epilog:                                        ; preds = %sw.default, %if.end
-  store ptr null, ptr %retval, align 8
-  br label %return
+17:                                               ; preds = %16, %13
+  store ptr null, ptr %2, align 8
+  br label %18
 
-return:                                           ; preds = %sw.epilog, %sw.bb6, %if.then, %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
-  %1 = load ptr, ptr %retval, align 8
-  ret ptr %1
+18:                                               ; preds = %17, %14, %12, %8, %7, %6, %5
+  %19 = load ptr, ptr %2, align 8
+  ret ptr %19
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_1EEEvPKfS4_S4_iPKvPvl(ptr noundef %lutR, ptr noundef %lutG, ptr noundef %lutB, i32 noundef %dim, ptr noundef %inImg, ptr noundef %outImg, i64 noundef %numPixels) #5 {
-entry:
-  %__a.addr.i94 = alloca float, align 4
-  %__b.addr.i95 = alloca float, align 4
-  %__c.addr.i96 = alloca float, align 4
-  %__d.addr.i97 = alloca float, align 4
-  %__e.addr.i98 = alloca float, align 4
-  %__f.addr.i99 = alloca float, align 4
-  %__g.addr.i100 = alloca float, align 4
-  %__h.addr.i101 = alloca float, align 4
-  %.compoundliteral.i102 = alloca <8 x float>, align 32
-  %__a.addr.i77 = alloca float, align 4
-  %__b.addr.i78 = alloca float, align 4
-  %__c.addr.i79 = alloca float, align 4
-  %__d.addr.i80 = alloca float, align 4
-  %__e.addr.i81 = alloca float, align 4
-  %__f.addr.i82 = alloca float, align 4
-  %__g.addr.i83 = alloca float, align 4
-  %__h.addr.i84 = alloca float, align 4
-  %.compoundliteral.i85 = alloca <8 x float>, align 32
-  %__a.addr.i75 = alloca float, align 4
-  %__b.addr.i76 = alloca float, align 4
-  %__c.addr.i = alloca float, align 4
-  %__d.addr.i = alloca float, align 4
-  %__e.addr.i = alloca float, align 4
-  %__f.addr.i = alloca float, align 4
-  %__g.addr.i = alloca float, align 4
-  %__h.addr.i = alloca float, align 4
-  %.compoundliteral.i = alloca <8 x float>, align 32
-  %__a.addr.i72 = alloca <8 x float>, align 32
-  %__b.addr.i73 = alloca <8 x float>, align 32
-  %__a.addr.i = alloca <8 x float>, align 32
-  %__b.addr.i = alloca <8 x float>, align 32
-  %__w.addr.i70 = alloca float, align 4
-  %__w.addr.i68 = alloca float, align 4
-  %__w.addr.i = alloca float, align 4
-  %lutR.addr = alloca ptr, align 8
-  %lutG.addr = alloca ptr, align 8
-  %lutB.addr = alloca ptr, align 8
-  %dim.addr = alloca i32, align 4
-  %inImg.addr = alloca ptr, align 8
-  %outImg.addr = alloca ptr, align 8
-  %numPixels.addr = alloca i64, align 8
-  %src = alloca ptr, align 8
-  %dst = alloca ptr, align 8
-  %r = alloca <8 x float>, align 32
-  %g = alloca <8 x float>, align 32
-  %b = alloca <8 x float>, align 32
-  %a = alloca <8 x float>, align 32
-  %alpha_scale = alloca <8 x float>, align 32
-  %rgb_scale = alloca float, align 4
-  %lut_scale = alloca <8 x float>, align 32
-  %lut_max = alloca <8 x float>, align 32
-  %pixel_count = alloca i32, align 4
-  %remainder = alloca i32, align 4
-  %i = alloca i32, align 4
-  %in_buf = alloca [32 x float], align 16
-  %out_buf = alloca [32 x i8], align 16
-  %i15 = alloca i32, align 4
-  %i43 = alloca i32, align 4
-  store ptr %lutR, ptr %lutR.addr, align 8
-  store ptr %lutG, ptr %lutG.addr, align 8
-  store ptr %lutB, ptr %lutB.addr, align 8
-  store i32 %dim, ptr %dim.addr, align 4
-  store ptr %inImg, ptr %inImg.addr, align 8
-  store ptr %outImg, ptr %outImg.addr, align 8
-  store i64 %numPixels, ptr %numPixels.addr, align 8
-  %0 = load ptr, ptr %inImg.addr, align 8
-  store ptr %0, ptr %src, align 8
-  %1 = load ptr, ptr %outImg.addr, align 8
-  store ptr %1, ptr %dst, align 8
-  %2 = load i32, ptr %dim.addr, align 4
-  %conv = sitofp i32 %2 to float
-  %sub = fsub float %conv, 1.000000e+00
-  %mul = fmul float 1.000000e+00, %sub
-  store float %mul, ptr %rgb_scale, align 4
-  %3 = load float, ptr %rgb_scale, align 4
-  store float %3, ptr %__w.addr.i70, align 4
-  %4 = load float, ptr %__w.addr.i70, align 4
-  %5 = load float, ptr %__w.addr.i70, align 4
-  %6 = load float, ptr %__w.addr.i70, align 4
-  %7 = load float, ptr %__w.addr.i70, align 4
-  %8 = load float, ptr %__w.addr.i70, align 4
-  %9 = load float, ptr %__w.addr.i70, align 4
-  %10 = load float, ptr %__w.addr.i70, align 4
-  %11 = load float, ptr %__w.addr.i70, align 4
-  store float %4, ptr %__a.addr.i75, align 4
-  store float %5, ptr %__b.addr.i76, align 4
-  store float %6, ptr %__c.addr.i, align 4
-  store float %7, ptr %__d.addr.i, align 4
-  store float %8, ptr %__e.addr.i, align 4
-  store float %9, ptr %__f.addr.i, align 4
-  store float %10, ptr %__g.addr.i, align 4
-  store float %11, ptr %__h.addr.i, align 4
-  %12 = load float, ptr %__h.addr.i, align 4
-  %vecinit.i = insertelement <8 x float> undef, float %12, i32 0
-  %13 = load float, ptr %__g.addr.i, align 4
-  %vecinit1.i = insertelement <8 x float> %vecinit.i, float %13, i32 1
-  %14 = load float, ptr %__f.addr.i, align 4
-  %vecinit2.i = insertelement <8 x float> %vecinit1.i, float %14, i32 2
-  %15 = load float, ptr %__e.addr.i, align 4
-  %vecinit3.i = insertelement <8 x float> %vecinit2.i, float %15, i32 3
-  %16 = load float, ptr %__d.addr.i, align 4
-  %vecinit4.i = insertelement <8 x float> %vecinit3.i, float %16, i32 4
-  %17 = load float, ptr %__c.addr.i, align 4
-  %vecinit5.i = insertelement <8 x float> %vecinit4.i, float %17, i32 5
-  %18 = load float, ptr %__b.addr.i76, align 4
-  %vecinit6.i = insertelement <8 x float> %vecinit5.i, float %18, i32 6
-  %19 = load float, ptr %__a.addr.i75, align 4
-  %vecinit7.i = insertelement <8 x float> %vecinit6.i, float %19, i32 7
-  store <8 x float> %vecinit7.i, ptr %.compoundliteral.i, align 32
-  %20 = load <8 x float>, ptr %.compoundliteral.i, align 32
-  store <8 x float> %20, ptr %lut_scale, align 32
-  %21 = load i32, ptr %dim.addr, align 4
-  %conv1 = sitofp i32 %21 to float
-  %sub2 = fsub float %conv1, 1.000000e+00
-  store float %sub2, ptr %__w.addr.i68, align 4
-  %22 = load float, ptr %__w.addr.i68, align 4
-  %23 = load float, ptr %__w.addr.i68, align 4
-  %24 = load float, ptr %__w.addr.i68, align 4
-  %25 = load float, ptr %__w.addr.i68, align 4
-  %26 = load float, ptr %__w.addr.i68, align 4
-  %27 = load float, ptr %__w.addr.i68, align 4
-  %28 = load float, ptr %__w.addr.i68, align 4
-  %29 = load float, ptr %__w.addr.i68, align 4
-  store float %22, ptr %__a.addr.i77, align 4
-  store float %23, ptr %__b.addr.i78, align 4
-  store float %24, ptr %__c.addr.i79, align 4
-  store float %25, ptr %__d.addr.i80, align 4
-  store float %26, ptr %__e.addr.i81, align 4
-  store float %27, ptr %__f.addr.i82, align 4
-  store float %28, ptr %__g.addr.i83, align 4
-  store float %29, ptr %__h.addr.i84, align 4
-  %30 = load float, ptr %__h.addr.i84, align 4
-  %vecinit.i86 = insertelement <8 x float> undef, float %30, i32 0
-  %31 = load float, ptr %__g.addr.i83, align 4
-  %vecinit1.i87 = insertelement <8 x float> %vecinit.i86, float %31, i32 1
-  %32 = load float, ptr %__f.addr.i82, align 4
-  %vecinit2.i88 = insertelement <8 x float> %vecinit1.i87, float %32, i32 2
-  %33 = load float, ptr %__e.addr.i81, align 4
-  %vecinit3.i89 = insertelement <8 x float> %vecinit2.i88, float %33, i32 3
-  %34 = load float, ptr %__d.addr.i80, align 4
-  %vecinit4.i90 = insertelement <8 x float> %vecinit3.i89, float %34, i32 4
-  %35 = load float, ptr %__c.addr.i79, align 4
-  %vecinit5.i91 = insertelement <8 x float> %vecinit4.i90, float %35, i32 5
-  %36 = load float, ptr %__b.addr.i78, align 4
-  %vecinit6.i92 = insertelement <8 x float> %vecinit5.i91, float %36, i32 6
-  %37 = load float, ptr %__a.addr.i77, align 4
-  %vecinit7.i93 = insertelement <8 x float> %vecinit6.i92, float %37, i32 7
-  store <8 x float> %vecinit7.i93, ptr %.compoundliteral.i85, align 32
-  %38 = load <8 x float>, ptr %.compoundliteral.i85, align 32
-  store <8 x float> %38, ptr %lut_max, align 32
-  store float 2.550000e+02, ptr %__w.addr.i, align 4
-  %39 = load float, ptr %__w.addr.i, align 4
-  %40 = load float, ptr %__w.addr.i, align 4
-  %41 = load float, ptr %__w.addr.i, align 4
-  %42 = load float, ptr %__w.addr.i, align 4
-  %43 = load float, ptr %__w.addr.i, align 4
-  %44 = load float, ptr %__w.addr.i, align 4
-  %45 = load float, ptr %__w.addr.i, align 4
-  %46 = load float, ptr %__w.addr.i, align 4
-  store float %39, ptr %__a.addr.i94, align 4
-  store float %40, ptr %__b.addr.i95, align 4
-  store float %41, ptr %__c.addr.i96, align 4
-  store float %42, ptr %__d.addr.i97, align 4
-  store float %43, ptr %__e.addr.i98, align 4
-  store float %44, ptr %__f.addr.i99, align 4
-  store float %45, ptr %__g.addr.i100, align 4
-  store float %46, ptr %__h.addr.i101, align 4
-  %47 = load float, ptr %__h.addr.i101, align 4
-  %vecinit.i103 = insertelement <8 x float> undef, float %47, i32 0
-  %48 = load float, ptr %__g.addr.i100, align 4
-  %vecinit1.i104 = insertelement <8 x float> %vecinit.i103, float %48, i32 1
-  %49 = load float, ptr %__f.addr.i99, align 4
-  %vecinit2.i105 = insertelement <8 x float> %vecinit1.i104, float %49, i32 2
-  %50 = load float, ptr %__e.addr.i98, align 4
-  %vecinit3.i106 = insertelement <8 x float> %vecinit2.i105, float %50, i32 3
-  %51 = load float, ptr %__d.addr.i97, align 4
-  %vecinit4.i107 = insertelement <8 x float> %vecinit3.i106, float %51, i32 4
-  %52 = load float, ptr %__c.addr.i96, align 4
-  %vecinit5.i108 = insertelement <8 x float> %vecinit4.i107, float %52, i32 5
-  %53 = load float, ptr %__b.addr.i95, align 4
-  %vecinit6.i109 = insertelement <8 x float> %vecinit5.i108, float %53, i32 6
-  %54 = load float, ptr %__a.addr.i94, align 4
-  %vecinit7.i110 = insertelement <8 x float> %vecinit6.i109, float %54, i32 7
-  store <8 x float> %vecinit7.i110, ptr %.compoundliteral.i102, align 32
-  %55 = load <8 x float>, ptr %.compoundliteral.i102, align 32
-  store <8 x float> %55, ptr %alpha_scale, align 32
-  %56 = load i64, ptr %numPixels.addr, align 8
-  %div = sdiv i64 %56, 8
-  %mul5 = mul nsw i64 %div, 8
-  %conv6 = trunc i64 %mul5 to i32
-  store i32 %conv6, ptr %pixel_count, align 4
-  %57 = load i64, ptr %numPixels.addr, align 8
-  %58 = load i32, ptr %pixel_count, align 4
-  %conv7 = sext i32 %58 to i64
-  %sub8 = sub nsw i64 %57, %conv7
-  %conv9 = trunc i64 %sub8 to i32
-  store i32 %conv9, ptr %remainder, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_1EEEvPKfS4_S4_iPKvPvl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6) #6 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca <8 x float>, align 32
+  %18 = alloca <8 x float>, align 32
+  %19 = alloca <8 x float>, align 32
+  %20 = alloca <8 x float>, align 32
+  %21 = alloca <8 x float>, align 32
+  %22 = alloca float, align 4
+  %23 = alloca <8 x float>, align 32
+  %24 = alloca <8 x float>, align 32
+  %25 = alloca i32, align 4
+  %26 = alloca i32, align 4
+  %27 = alloca i32, align 4
+  %28 = alloca [32 x float], align 16
+  %29 = alloca [32 x i8], align 16
+  %30 = alloca i32, align 4
+  %31 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !7
+  store ptr %1, ptr %9, align 8, !tbaa !7
+  store ptr %2, ptr %10, align 8, !tbaa !7
+  store i32 %3, ptr %11, align 4, !tbaa !10
+  store ptr %4, ptr %12, align 8, !tbaa !12
+  store ptr %5, ptr %13, align 8, !tbaa !12
+  store i64 %6, ptr %14, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  %32 = load ptr, ptr %12, align 8, !tbaa !12
+  store ptr %32, ptr %15, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
+  %33 = load ptr, ptr %13, align 8, !tbaa !12
+  store ptr %33, ptr %16, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 32, ptr %17) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %18) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %19) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %20) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %21) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #3
+  %34 = load i32, ptr %11, align 4, !tbaa !10
+  %35 = sitofp i32 %34 to float
+  %36 = fsub float %35, 1.000000e+00
+  %37 = fmul float 1.000000e+00, %36
+  store float %37, ptr %22, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 32, ptr %23) #3
+  %38 = load float, ptr %22, align 4, !tbaa !17
+  %39 = call noundef <8 x float> @_ZL14_mm256_set1_psf(float noundef %38)
+  store <8 x float> %39, ptr %23, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %24) #3
+  %40 = load i32, ptr %11, align 4, !tbaa !10
+  %41 = sitofp i32 %40 to float
+  %42 = fsub float %41, 1.000000e+00
+  %43 = call noundef <8 x float> @_ZL14_mm256_set1_psf(float noundef %42)
+  store <8 x float> %43, ptr %24, align 32, !tbaa !19
+  %44 = call noundef <8 x float> @_ZL14_mm256_set1_psf(float noundef 2.550000e+02)
+  store <8 x float> %44, ptr %21, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #3
+  %45 = load i64, ptr %14, align 8, !tbaa !13
+  %46 = sdiv i64 %45, 8
+  %47 = mul nsw i64 %46, 8
+  %48 = trunc i64 %47 to i32
+  store i32 %48, ptr %25, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #3
+  %49 = load i64, ptr %14, align 8, !tbaa !13
+  %50 = load i32, ptr %25, align 4, !tbaa !10
+  %51 = sext i32 %50 to i64
+  %52 = sub nsw i64 %49, %51
+  %53 = trunc i64 %52 to i32
+  store i32 %53, ptr %26, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #3
+  store i32 0, ptr %27, align 4, !tbaa !10
+  br label %54
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %59 = load i32, ptr %i, align 4
-  %60 = load i32, ptr %pixel_count, align 4
-  %cmp = icmp slt i32 %59, %60
-  br i1 %cmp, label %for.body, label %for.end
+54:                                               ; preds = %82, %7
+  %55 = load i32, ptr %27, align 4, !tbaa !10
+  %56 = load i32, ptr %25, align 4, !tbaa !10
+  %57 = icmp slt i32 %55, %56
+  br i1 %57, label %59, label %58
 
-for.body:                                         ; preds = %for.cond
-  %61 = load ptr, ptr %src, align 8
-  call void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE8EE4LoadEPKfRDv8_fS6_S6_S6_(ptr noundef %61, ptr noundef nonnull align 32 dereferenceable(32) %r, ptr noundef nonnull align 32 dereferenceable(32) %g, ptr noundef nonnull align 32 dereferenceable(32) %b, ptr noundef nonnull align 32 dereferenceable(32) %a)
-  %62 = load ptr, ptr %lutR.addr, align 8
-  %63 = load <8 x float>, ptr %r, align 32
-  %call10 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %62, <8 x float> noundef %63, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call10, ptr %r, align 32
-  %64 = load ptr, ptr %lutG.addr, align 8
-  %65 = load <8 x float>, ptr %g, align 32
-  %call11 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %64, <8 x float> noundef %65, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call11, ptr %g, align 32
-  %66 = load ptr, ptr %lutB.addr, align 8
-  %67 = load <8 x float>, ptr %b, align 32
-  %call12 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %66, <8 x float> noundef %67, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call12, ptr %b, align 32
-  %68 = load <8 x float>, ptr %a, align 32
-  %69 = load <8 x float>, ptr %alpha_scale, align 32
-  store <8 x float> %68, ptr %__a.addr.i72, align 32
-  store <8 x float> %69, ptr %__b.addr.i73, align 32
-  %70 = load <8 x float>, ptr %__a.addr.i72, align 32
-  %71 = load <8 x float>, ptr %__b.addr.i73, align 32
-  %mul.i74 = fmul <8 x float> %70, %71
-  store <8 x float> %mul.i74, ptr %a, align 32
-  %72 = load ptr, ptr %dst, align 8
-  %73 = load <8 x float>, ptr %r, align 32
-  %74 = load <8 x float>, ptr %g, align 32
-  %75 = load <8 x float>, ptr %b, align 32
-  %76 = load <8 x float>, ptr %a, align 32
-  call void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE1EE5StoreEPhDv8_fS4_S4_S4_(ptr noundef %72, <8 x float> noundef %73, <8 x float> noundef %74, <8 x float> noundef %75, <8 x float> noundef %76)
-  %77 = load ptr, ptr %src, align 8
-  %add.ptr = getelementptr inbounds float, ptr %77, i64 32
-  store ptr %add.ptr, ptr %src, align 8
-  %78 = load ptr, ptr %dst, align 8
-  %add.ptr14 = getelementptr inbounds i8, ptr %78, i64 32
-  store ptr %add.ptr14, ptr %dst, align 8
-  br label %for.inc
+58:                                               ; preds = %54
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #3
+  br label %85
 
-for.inc:                                          ; preds = %for.body
-  %79 = load i32, ptr %i, align 4
-  %add = add nsw i32 %79, 8
-  store i32 %add, ptr %i, align 4
-  br label %for.cond, !llvm.loop !4
+59:                                               ; preds = %54
+  %60 = load ptr, ptr %15, align 8, !tbaa !7
+  call void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE8EE4LoadEPKfRDv8_fS6_S6_S6_(ptr noundef %60, ptr noundef nonnull align 32 dereferenceable(32) %17, ptr noundef nonnull align 32 dereferenceable(32) %18, ptr noundef nonnull align 32 dereferenceable(32) %19, ptr noundef nonnull align 32 dereferenceable(32) %20)
+  %61 = load ptr, ptr %8, align 8, !tbaa !7
+  %62 = load <8 x float>, ptr %17, align 32, !tbaa !19
+  %63 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %61, <8 x float> noundef %62, ptr noundef nonnull align 32 dereferenceable(32) %23, ptr noundef nonnull align 32 dereferenceable(32) %24)
+  store <8 x float> %63, ptr %17, align 32, !tbaa !19
+  %64 = load ptr, ptr %9, align 8, !tbaa !7
+  %65 = load <8 x float>, ptr %18, align 32, !tbaa !19
+  %66 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %64, <8 x float> noundef %65, ptr noundef nonnull align 32 dereferenceable(32) %23, ptr noundef nonnull align 32 dereferenceable(32) %24)
+  store <8 x float> %66, ptr %18, align 32, !tbaa !19
+  %67 = load ptr, ptr %10, align 8, !tbaa !7
+  %68 = load <8 x float>, ptr %19, align 32, !tbaa !19
+  %69 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %67, <8 x float> noundef %68, ptr noundef nonnull align 32 dereferenceable(32) %23, ptr noundef nonnull align 32 dereferenceable(32) %24)
+  store <8 x float> %69, ptr %19, align 32, !tbaa !19
+  %70 = load <8 x float>, ptr %20, align 32, !tbaa !19
+  %71 = load <8 x float>, ptr %21, align 32, !tbaa !19
+  %72 = call noundef <8 x float> @_ZL13_mm256_mul_psDv8_fS_(<8 x float> noundef %70, <8 x float> noundef %71)
+  store <8 x float> %72, ptr %20, align 32, !tbaa !19
+  %73 = load ptr, ptr %16, align 8, !tbaa !15
+  %74 = load <8 x float>, ptr %17, align 32, !tbaa !19
+  %75 = load <8 x float>, ptr %18, align 32, !tbaa !19
+  %76 = load <8 x float>, ptr %19, align 32, !tbaa !19
+  %77 = load <8 x float>, ptr %20, align 32, !tbaa !19
+  call void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE1EE5StoreEPhDv8_fS4_S4_S4_(ptr noundef %73, <8 x float> noundef %74, <8 x float> noundef %75, <8 x float> noundef %76, <8 x float> noundef %77)
+  %78 = load ptr, ptr %15, align 8, !tbaa !7
+  %79 = getelementptr inbounds float, ptr %78, i64 32
+  store ptr %79, ptr %15, align 8, !tbaa !7
+  %80 = load ptr, ptr %16, align 8, !tbaa !15
+  %81 = getelementptr inbounds i8, ptr %80, i64 32
+  store ptr %81, ptr %16, align 8, !tbaa !15
+  br label %82
 
-for.end:                                          ; preds = %for.cond
-  %80 = load i32, ptr %remainder, align 4
-  %tobool = icmp ne i32 %80, 0
-  br i1 %tobool, label %if.then, label %if.end
+82:                                               ; preds = %59
+  %83 = load i32, ptr %27, align 4, !tbaa !10
+  %84 = add nsw i32 %83, 8
+  store i32 %84, ptr %27, align 4, !tbaa !10
+  br label %54, !llvm.loop !20
 
-if.then:                                          ; preds = %for.end
-  call void @llvm.memset.p0.i64(ptr align 16 %in_buf, i8 0, i64 128, i1 false)
-  store i32 0, ptr %i15, align 4
-  br label %for.cond16
+85:                                               ; preds = %58
+  %86 = load i32, ptr %26, align 4, !tbaa !10
+  %87 = icmp ne i32 %86, 0
+  br i1 %87, label %88, label %189
 
-for.cond16:                                       ; preds = %for.inc35, %if.then
-  %81 = load i32, ptr %i15, align 4
-  %82 = load i32, ptr %remainder, align 4
-  %mul17 = mul nsw i32 %82, 4
-  %cmp18 = icmp slt i32 %81, %mul17
-  br i1 %cmp18, label %for.body19, label %for.end37
+88:                                               ; preds = %85
+  call void @llvm.lifetime.start.p0(i64 128, ptr %28) #3
+  call void @llvm.memset.p0.i64(ptr align 16 %28, i8 0, i64 128, i1 false)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %29) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #3
+  store i32 0, ptr %30, align 4, !tbaa !10
+  br label %89
 
-for.body19:                                       ; preds = %for.cond16
-  %83 = load ptr, ptr %src, align 8
-  %arrayidx = getelementptr inbounds float, ptr %83, i64 0
-  %84 = load float, ptr %arrayidx, align 4
-  %85 = load i32, ptr %i15, align 4
-  %add20 = add nsw i32 %85, 0
-  %idxprom = sext i32 %add20 to i64
-  %arrayidx21 = getelementptr inbounds [32 x float], ptr %in_buf, i64 0, i64 %idxprom
-  store float %84, ptr %arrayidx21, align 4
-  %86 = load ptr, ptr %src, align 8
-  %arrayidx22 = getelementptr inbounds float, ptr %86, i64 1
-  %87 = load float, ptr %arrayidx22, align 4
-  %88 = load i32, ptr %i15, align 4
-  %add23 = add nsw i32 %88, 1
-  %idxprom24 = sext i32 %add23 to i64
-  %arrayidx25 = getelementptr inbounds [32 x float], ptr %in_buf, i64 0, i64 %idxprom24
-  store float %87, ptr %arrayidx25, align 4
-  %89 = load ptr, ptr %src, align 8
-  %arrayidx26 = getelementptr inbounds float, ptr %89, i64 2
-  %90 = load float, ptr %arrayidx26, align 4
-  %91 = load i32, ptr %i15, align 4
-  %add27 = add nsw i32 %91, 2
-  %idxprom28 = sext i32 %add27 to i64
-  %arrayidx29 = getelementptr inbounds [32 x float], ptr %in_buf, i64 0, i64 %idxprom28
-  store float %90, ptr %arrayidx29, align 4
-  %92 = load ptr, ptr %src, align 8
-  %arrayidx30 = getelementptr inbounds float, ptr %92, i64 3
-  %93 = load float, ptr %arrayidx30, align 4
-  %94 = load i32, ptr %i15, align 4
-  %add31 = add nsw i32 %94, 3
-  %idxprom32 = sext i32 %add31 to i64
-  %arrayidx33 = getelementptr inbounds [32 x float], ptr %in_buf, i64 0, i64 %idxprom32
-  store float %93, ptr %arrayidx33, align 4
-  %95 = load ptr, ptr %src, align 8
-  %add.ptr34 = getelementptr inbounds float, ptr %95, i64 4
-  store ptr %add.ptr34, ptr %src, align 8
-  br label %for.inc35
+89:                                               ; preds = %126, %88
+  %90 = load i32, ptr %30, align 4, !tbaa !10
+  %91 = load i32, ptr %26, align 4, !tbaa !10
+  %92 = mul nsw i32 %91, 4
+  %93 = icmp slt i32 %90, %92
+  br i1 %93, label %95, label %94
 
-for.inc35:                                        ; preds = %for.body19
-  %96 = load i32, ptr %i15, align 4
-  %add36 = add nsw i32 %96, 4
-  store i32 %add36, ptr %i15, align 4
-  br label %for.cond16, !llvm.loop !6
+94:                                               ; preds = %89
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #3
+  br label %129
 
-for.end37:                                        ; preds = %for.cond16
-  %arraydecay = getelementptr inbounds [32 x float], ptr %in_buf, i64 0, i64 0
-  call void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE8EE4LoadEPKfRDv8_fS6_S6_S6_(ptr noundef %arraydecay, ptr noundef nonnull align 32 dereferenceable(32) %r, ptr noundef nonnull align 32 dereferenceable(32) %g, ptr noundef nonnull align 32 dereferenceable(32) %b, ptr noundef nonnull align 32 dereferenceable(32) %a)
-  %97 = load ptr, ptr %lutR.addr, align 8
-  %98 = load <8 x float>, ptr %r, align 32
-  %call38 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %97, <8 x float> noundef %98, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call38, ptr %r, align 32
-  %99 = load ptr, ptr %lutG.addr, align 8
-  %100 = load <8 x float>, ptr %g, align 32
-  %call39 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %99, <8 x float> noundef %100, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call39, ptr %g, align 32
-  %101 = load ptr, ptr %lutB.addr, align 8
-  %102 = load <8 x float>, ptr %b, align 32
-  %call40 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %101, <8 x float> noundef %102, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call40, ptr %b, align 32
-  %103 = load <8 x float>, ptr %a, align 32
-  %104 = load <8 x float>, ptr %alpha_scale, align 32
-  store <8 x float> %103, ptr %__a.addr.i, align 32
-  store <8 x float> %104, ptr %__b.addr.i, align 32
-  %105 = load <8 x float>, ptr %__a.addr.i, align 32
-  %106 = load <8 x float>, ptr %__b.addr.i, align 32
-  %mul.i = fmul <8 x float> %105, %106
-  store <8 x float> %mul.i, ptr %a, align 32
-  %arraydecay42 = getelementptr inbounds [32 x i8], ptr %out_buf, i64 0, i64 0
-  %107 = load <8 x float>, ptr %r, align 32
-  %108 = load <8 x float>, ptr %g, align 32
-  %109 = load <8 x float>, ptr %b, align 32
-  %110 = load <8 x float>, ptr %a, align 32
-  call void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE1EE5StoreEPhDv8_fS4_S4_S4_(ptr noundef %arraydecay42, <8 x float> noundef %107, <8 x float> noundef %108, <8 x float> noundef %109, <8 x float> noundef %110)
-  store i32 0, ptr %i43, align 4
-  br label %for.cond44
+95:                                               ; preds = %89
+  %96 = load ptr, ptr %15, align 8, !tbaa !7
+  %97 = getelementptr inbounds float, ptr %96, i64 0
+  %98 = load float, ptr %97, align 4, !tbaa !17
+  %99 = load i32, ptr %30, align 4, !tbaa !10
+  %100 = add nsw i32 %99, 0
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds [32 x float], ptr %28, i64 0, i64 %101
+  store float %98, ptr %102, align 4, !tbaa !17
+  %103 = load ptr, ptr %15, align 8, !tbaa !7
+  %104 = getelementptr inbounds float, ptr %103, i64 1
+  %105 = load float, ptr %104, align 4, !tbaa !17
+  %106 = load i32, ptr %30, align 4, !tbaa !10
+  %107 = add nsw i32 %106, 1
+  %108 = sext i32 %107 to i64
+  %109 = getelementptr inbounds [32 x float], ptr %28, i64 0, i64 %108
+  store float %105, ptr %109, align 4, !tbaa !17
+  %110 = load ptr, ptr %15, align 8, !tbaa !7
+  %111 = getelementptr inbounds float, ptr %110, i64 2
+  %112 = load float, ptr %111, align 4, !tbaa !17
+  %113 = load i32, ptr %30, align 4, !tbaa !10
+  %114 = add nsw i32 %113, 2
+  %115 = sext i32 %114 to i64
+  %116 = getelementptr inbounds [32 x float], ptr %28, i64 0, i64 %115
+  store float %112, ptr %116, align 4, !tbaa !17
+  %117 = load ptr, ptr %15, align 8, !tbaa !7
+  %118 = getelementptr inbounds float, ptr %117, i64 3
+  %119 = load float, ptr %118, align 4, !tbaa !17
+  %120 = load i32, ptr %30, align 4, !tbaa !10
+  %121 = add nsw i32 %120, 3
+  %122 = sext i32 %121 to i64
+  %123 = getelementptr inbounds [32 x float], ptr %28, i64 0, i64 %122
+  store float %119, ptr %123, align 4, !tbaa !17
+  %124 = load ptr, ptr %15, align 8, !tbaa !7
+  %125 = getelementptr inbounds float, ptr %124, i64 4
+  store ptr %125, ptr %15, align 8, !tbaa !7
+  br label %126
 
-for.cond44:                                       ; preds = %for.inc65, %for.end37
-  %111 = load i32, ptr %i43, align 4
-  %112 = load i32, ptr %remainder, align 4
-  %mul45 = mul nsw i32 %112, 4
-  %cmp46 = icmp slt i32 %111, %mul45
-  br i1 %cmp46, label %for.body47, label %for.end67
+126:                                              ; preds = %95
+  %127 = load i32, ptr %30, align 4, !tbaa !10
+  %128 = add nsw i32 %127, 4
+  store i32 %128, ptr %30, align 4, !tbaa !10
+  br label %89, !llvm.loop !22
 
-for.body47:                                       ; preds = %for.cond44
-  %113 = load i32, ptr %i43, align 4
-  %add48 = add nsw i32 %113, 0
-  %idxprom49 = sext i32 %add48 to i64
-  %arrayidx50 = getelementptr inbounds [32 x i8], ptr %out_buf, i64 0, i64 %idxprom49
-  %114 = load i8, ptr %arrayidx50, align 1
-  %115 = load ptr, ptr %dst, align 8
-  %arrayidx51 = getelementptr inbounds i8, ptr %115, i64 0
-  store i8 %114, ptr %arrayidx51, align 1
-  %116 = load i32, ptr %i43, align 4
-  %add52 = add nsw i32 %116, 1
-  %idxprom53 = sext i32 %add52 to i64
-  %arrayidx54 = getelementptr inbounds [32 x i8], ptr %out_buf, i64 0, i64 %idxprom53
-  %117 = load i8, ptr %arrayidx54, align 1
-  %118 = load ptr, ptr %dst, align 8
-  %arrayidx55 = getelementptr inbounds i8, ptr %118, i64 1
-  store i8 %117, ptr %arrayidx55, align 1
-  %119 = load i32, ptr %i43, align 4
-  %add56 = add nsw i32 %119, 2
-  %idxprom57 = sext i32 %add56 to i64
-  %arrayidx58 = getelementptr inbounds [32 x i8], ptr %out_buf, i64 0, i64 %idxprom57
-  %120 = load i8, ptr %arrayidx58, align 1
-  %121 = load ptr, ptr %dst, align 8
-  %arrayidx59 = getelementptr inbounds i8, ptr %121, i64 2
-  store i8 %120, ptr %arrayidx59, align 1
-  %122 = load i32, ptr %i43, align 4
-  %add60 = add nsw i32 %122, 3
-  %idxprom61 = sext i32 %add60 to i64
-  %arrayidx62 = getelementptr inbounds [32 x i8], ptr %out_buf, i64 0, i64 %idxprom61
-  %123 = load i8, ptr %arrayidx62, align 1
-  %124 = load ptr, ptr %dst, align 8
-  %arrayidx63 = getelementptr inbounds i8, ptr %124, i64 3
-  store i8 %123, ptr %arrayidx63, align 1
-  %125 = load ptr, ptr %dst, align 8
-  %add.ptr64 = getelementptr inbounds i8, ptr %125, i64 4
-  store ptr %add.ptr64, ptr %dst, align 8
-  br label %for.inc65
+129:                                              ; preds = %94
+  %130 = getelementptr inbounds [32 x float], ptr %28, i64 0, i64 0
+  call void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE8EE4LoadEPKfRDv8_fS6_S6_S6_(ptr noundef %130, ptr noundef nonnull align 32 dereferenceable(32) %17, ptr noundef nonnull align 32 dereferenceable(32) %18, ptr noundef nonnull align 32 dereferenceable(32) %19, ptr noundef nonnull align 32 dereferenceable(32) %20)
+  %131 = load ptr, ptr %8, align 8, !tbaa !7
+  %132 = load <8 x float>, ptr %17, align 32, !tbaa !19
+  %133 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %131, <8 x float> noundef %132, ptr noundef nonnull align 32 dereferenceable(32) %23, ptr noundef nonnull align 32 dereferenceable(32) %24)
+  store <8 x float> %133, ptr %17, align 32, !tbaa !19
+  %134 = load ptr, ptr %9, align 8, !tbaa !7
+  %135 = load <8 x float>, ptr %18, align 32, !tbaa !19
+  %136 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %134, <8 x float> noundef %135, ptr noundef nonnull align 32 dereferenceable(32) %23, ptr noundef nonnull align 32 dereferenceable(32) %24)
+  store <8 x float> %136, ptr %18, align 32, !tbaa !19
+  %137 = load ptr, ptr %10, align 8, !tbaa !7
+  %138 = load <8 x float>, ptr %19, align 32, !tbaa !19
+  %139 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %137, <8 x float> noundef %138, ptr noundef nonnull align 32 dereferenceable(32) %23, ptr noundef nonnull align 32 dereferenceable(32) %24)
+  store <8 x float> %139, ptr %19, align 32, !tbaa !19
+  %140 = load <8 x float>, ptr %20, align 32, !tbaa !19
+  %141 = load <8 x float>, ptr %21, align 32, !tbaa !19
+  %142 = call noundef <8 x float> @_ZL13_mm256_mul_psDv8_fS_(<8 x float> noundef %140, <8 x float> noundef %141)
+  store <8 x float> %142, ptr %20, align 32, !tbaa !19
+  %143 = getelementptr inbounds [32 x i8], ptr %29, i64 0, i64 0
+  %144 = load <8 x float>, ptr %17, align 32, !tbaa !19
+  %145 = load <8 x float>, ptr %18, align 32, !tbaa !19
+  %146 = load <8 x float>, ptr %19, align 32, !tbaa !19
+  %147 = load <8 x float>, ptr %20, align 32, !tbaa !19
+  call void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE1EE5StoreEPhDv8_fS4_S4_S4_(ptr noundef %143, <8 x float> noundef %144, <8 x float> noundef %145, <8 x float> noundef %146, <8 x float> noundef %147)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %31) #3
+  store i32 0, ptr %31, align 4, !tbaa !10
+  br label %148
 
-for.inc65:                                        ; preds = %for.body47
-  %126 = load i32, ptr %i43, align 4
-  %add66 = add nsw i32 %126, 4
-  store i32 %add66, ptr %i43, align 4
-  br label %for.cond44, !llvm.loop !7
+148:                                              ; preds = %185, %129
+  %149 = load i32, ptr %31, align 4, !tbaa !10
+  %150 = load i32, ptr %26, align 4, !tbaa !10
+  %151 = mul nsw i32 %150, 4
+  %152 = icmp slt i32 %149, %151
+  br i1 %152, label %154, label %153
 
-for.end67:                                        ; preds = %for.cond44
-  br label %if.end
+153:                                              ; preds = %148
+  call void @llvm.lifetime.end.p0(i64 4, ptr %31) #3
+  br label %188
 
-if.end:                                           ; preds = %for.end67, %for.end
+154:                                              ; preds = %148
+  %155 = load i32, ptr %31, align 4, !tbaa !10
+  %156 = add nsw i32 %155, 0
+  %157 = sext i32 %156 to i64
+  %158 = getelementptr inbounds [32 x i8], ptr %29, i64 0, i64 %157
+  %159 = load i8, ptr %158, align 1, !tbaa !19
+  %160 = load ptr, ptr %16, align 8, !tbaa !15
+  %161 = getelementptr inbounds i8, ptr %160, i64 0
+  store i8 %159, ptr %161, align 1, !tbaa !19
+  %162 = load i32, ptr %31, align 4, !tbaa !10
+  %163 = add nsw i32 %162, 1
+  %164 = sext i32 %163 to i64
+  %165 = getelementptr inbounds [32 x i8], ptr %29, i64 0, i64 %164
+  %166 = load i8, ptr %165, align 1, !tbaa !19
+  %167 = load ptr, ptr %16, align 8, !tbaa !15
+  %168 = getelementptr inbounds i8, ptr %167, i64 1
+  store i8 %166, ptr %168, align 1, !tbaa !19
+  %169 = load i32, ptr %31, align 4, !tbaa !10
+  %170 = add nsw i32 %169, 2
+  %171 = sext i32 %170 to i64
+  %172 = getelementptr inbounds [32 x i8], ptr %29, i64 0, i64 %171
+  %173 = load i8, ptr %172, align 1, !tbaa !19
+  %174 = load ptr, ptr %16, align 8, !tbaa !15
+  %175 = getelementptr inbounds i8, ptr %174, i64 2
+  store i8 %173, ptr %175, align 1, !tbaa !19
+  %176 = load i32, ptr %31, align 4, !tbaa !10
+  %177 = add nsw i32 %176, 3
+  %178 = sext i32 %177 to i64
+  %179 = getelementptr inbounds [32 x i8], ptr %29, i64 0, i64 %178
+  %180 = load i8, ptr %179, align 1, !tbaa !19
+  %181 = load ptr, ptr %16, align 8, !tbaa !15
+  %182 = getelementptr inbounds i8, ptr %181, i64 3
+  store i8 %180, ptr %182, align 1, !tbaa !19
+  %183 = load ptr, ptr %16, align 8, !tbaa !15
+  %184 = getelementptr inbounds i8, ptr %183, i64 4
+  store ptr %184, ptr %16, align 8, !tbaa !15
+  br label %185
+
+185:                                              ; preds = %154
+  %186 = load i32, ptr %31, align 4, !tbaa !10
+  %187 = add nsw i32 %186, 4
+  store i32 %187, ptr %31, align 4, !tbaa !10
+  br label %148, !llvm.loop !23
+
+188:                                              ; preds = %153
+  call void @llvm.lifetime.end.p0(i64 32, ptr %29) #3
+  call void @llvm.lifetime.end.p0(i64 128, ptr %28) #3
+  br label %189
+
+189:                                              ; preds = %188, %85
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %24) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %23) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_2EEEvPKfS4_S4_iPKvPvl(ptr noundef %lutR, ptr noundef %lutG, ptr noundef %lutB, i32 noundef %dim, ptr noundef %inImg, ptr noundef %outImg, i64 noundef %numPixels) #5 {
-entry:
-  %__a.addr.i94 = alloca float, align 4
-  %__b.addr.i95 = alloca float, align 4
-  %__c.addr.i96 = alloca float, align 4
-  %__d.addr.i97 = alloca float, align 4
-  %__e.addr.i98 = alloca float, align 4
-  %__f.addr.i99 = alloca float, align 4
-  %__g.addr.i100 = alloca float, align 4
-  %__h.addr.i101 = alloca float, align 4
-  %.compoundliteral.i102 = alloca <8 x float>, align 32
-  %__a.addr.i77 = alloca float, align 4
-  %__b.addr.i78 = alloca float, align 4
-  %__c.addr.i79 = alloca float, align 4
-  %__d.addr.i80 = alloca float, align 4
-  %__e.addr.i81 = alloca float, align 4
-  %__f.addr.i82 = alloca float, align 4
-  %__g.addr.i83 = alloca float, align 4
-  %__h.addr.i84 = alloca float, align 4
-  %.compoundliteral.i85 = alloca <8 x float>, align 32
-  %__a.addr.i75 = alloca float, align 4
-  %__b.addr.i76 = alloca float, align 4
-  %__c.addr.i = alloca float, align 4
-  %__d.addr.i = alloca float, align 4
-  %__e.addr.i = alloca float, align 4
-  %__f.addr.i = alloca float, align 4
-  %__g.addr.i = alloca float, align 4
-  %__h.addr.i = alloca float, align 4
-  %.compoundliteral.i = alloca <8 x float>, align 32
-  %__a.addr.i72 = alloca <8 x float>, align 32
-  %__b.addr.i73 = alloca <8 x float>, align 32
-  %__a.addr.i = alloca <8 x float>, align 32
-  %__b.addr.i = alloca <8 x float>, align 32
-  %__w.addr.i70 = alloca float, align 4
-  %__w.addr.i68 = alloca float, align 4
-  %__w.addr.i = alloca float, align 4
-  %lutR.addr = alloca ptr, align 8
-  %lutG.addr = alloca ptr, align 8
-  %lutB.addr = alloca ptr, align 8
-  %dim.addr = alloca i32, align 4
-  %inImg.addr = alloca ptr, align 8
-  %outImg.addr = alloca ptr, align 8
-  %numPixels.addr = alloca i64, align 8
-  %src = alloca ptr, align 8
-  %dst = alloca ptr, align 8
-  %r = alloca <8 x float>, align 32
-  %g = alloca <8 x float>, align 32
-  %b = alloca <8 x float>, align 32
-  %a = alloca <8 x float>, align 32
-  %alpha_scale = alloca <8 x float>, align 32
-  %rgb_scale = alloca float, align 4
-  %lut_scale = alloca <8 x float>, align 32
-  %lut_max = alloca <8 x float>, align 32
-  %pixel_count = alloca i32, align 4
-  %remainder = alloca i32, align 4
-  %i = alloca i32, align 4
-  %in_buf = alloca [32 x float], align 16
-  %out_buf = alloca [32 x i16], align 16
-  %i15 = alloca i32, align 4
-  %i43 = alloca i32, align 4
-  store ptr %lutR, ptr %lutR.addr, align 8
-  store ptr %lutG, ptr %lutG.addr, align 8
-  store ptr %lutB, ptr %lutB.addr, align 8
-  store i32 %dim, ptr %dim.addr, align 4
-  store ptr %inImg, ptr %inImg.addr, align 8
-  store ptr %outImg, ptr %outImg.addr, align 8
-  store i64 %numPixels, ptr %numPixels.addr, align 8
-  %0 = load ptr, ptr %inImg.addr, align 8
-  store ptr %0, ptr %src, align 8
-  %1 = load ptr, ptr %outImg.addr, align 8
-  store ptr %1, ptr %dst, align 8
-  %2 = load i32, ptr %dim.addr, align 4
-  %conv = sitofp i32 %2 to float
-  %sub = fsub float %conv, 1.000000e+00
-  %mul = fmul float 1.000000e+00, %sub
-  store float %mul, ptr %rgb_scale, align 4
-  %3 = load float, ptr %rgb_scale, align 4
-  store float %3, ptr %__w.addr.i70, align 4
-  %4 = load float, ptr %__w.addr.i70, align 4
-  %5 = load float, ptr %__w.addr.i70, align 4
-  %6 = load float, ptr %__w.addr.i70, align 4
-  %7 = load float, ptr %__w.addr.i70, align 4
-  %8 = load float, ptr %__w.addr.i70, align 4
-  %9 = load float, ptr %__w.addr.i70, align 4
-  %10 = load float, ptr %__w.addr.i70, align 4
-  %11 = load float, ptr %__w.addr.i70, align 4
-  store float %4, ptr %__a.addr.i75, align 4
-  store float %5, ptr %__b.addr.i76, align 4
-  store float %6, ptr %__c.addr.i, align 4
-  store float %7, ptr %__d.addr.i, align 4
-  store float %8, ptr %__e.addr.i, align 4
-  store float %9, ptr %__f.addr.i, align 4
-  store float %10, ptr %__g.addr.i, align 4
-  store float %11, ptr %__h.addr.i, align 4
-  %12 = load float, ptr %__h.addr.i, align 4
-  %vecinit.i = insertelement <8 x float> undef, float %12, i32 0
-  %13 = load float, ptr %__g.addr.i, align 4
-  %vecinit1.i = insertelement <8 x float> %vecinit.i, float %13, i32 1
-  %14 = load float, ptr %__f.addr.i, align 4
-  %vecinit2.i = insertelement <8 x float> %vecinit1.i, float %14, i32 2
-  %15 = load float, ptr %__e.addr.i, align 4
-  %vecinit3.i = insertelement <8 x float> %vecinit2.i, float %15, i32 3
-  %16 = load float, ptr %__d.addr.i, align 4
-  %vecinit4.i = insertelement <8 x float> %vecinit3.i, float %16, i32 4
-  %17 = load float, ptr %__c.addr.i, align 4
-  %vecinit5.i = insertelement <8 x float> %vecinit4.i, float %17, i32 5
-  %18 = load float, ptr %__b.addr.i76, align 4
-  %vecinit6.i = insertelement <8 x float> %vecinit5.i, float %18, i32 6
-  %19 = load float, ptr %__a.addr.i75, align 4
-  %vecinit7.i = insertelement <8 x float> %vecinit6.i, float %19, i32 7
-  store <8 x float> %vecinit7.i, ptr %.compoundliteral.i, align 32
-  %20 = load <8 x float>, ptr %.compoundliteral.i, align 32
-  store <8 x float> %20, ptr %lut_scale, align 32
-  %21 = load i32, ptr %dim.addr, align 4
-  %conv1 = sitofp i32 %21 to float
-  %sub2 = fsub float %conv1, 1.000000e+00
-  store float %sub2, ptr %__w.addr.i68, align 4
-  %22 = load float, ptr %__w.addr.i68, align 4
-  %23 = load float, ptr %__w.addr.i68, align 4
-  %24 = load float, ptr %__w.addr.i68, align 4
-  %25 = load float, ptr %__w.addr.i68, align 4
-  %26 = load float, ptr %__w.addr.i68, align 4
-  %27 = load float, ptr %__w.addr.i68, align 4
-  %28 = load float, ptr %__w.addr.i68, align 4
-  %29 = load float, ptr %__w.addr.i68, align 4
-  store float %22, ptr %__a.addr.i77, align 4
-  store float %23, ptr %__b.addr.i78, align 4
-  store float %24, ptr %__c.addr.i79, align 4
-  store float %25, ptr %__d.addr.i80, align 4
-  store float %26, ptr %__e.addr.i81, align 4
-  store float %27, ptr %__f.addr.i82, align 4
-  store float %28, ptr %__g.addr.i83, align 4
-  store float %29, ptr %__h.addr.i84, align 4
-  %30 = load float, ptr %__h.addr.i84, align 4
-  %vecinit.i86 = insertelement <8 x float> undef, float %30, i32 0
-  %31 = load float, ptr %__g.addr.i83, align 4
-  %vecinit1.i87 = insertelement <8 x float> %vecinit.i86, float %31, i32 1
-  %32 = load float, ptr %__f.addr.i82, align 4
-  %vecinit2.i88 = insertelement <8 x float> %vecinit1.i87, float %32, i32 2
-  %33 = load float, ptr %__e.addr.i81, align 4
-  %vecinit3.i89 = insertelement <8 x float> %vecinit2.i88, float %33, i32 3
-  %34 = load float, ptr %__d.addr.i80, align 4
-  %vecinit4.i90 = insertelement <8 x float> %vecinit3.i89, float %34, i32 4
-  %35 = load float, ptr %__c.addr.i79, align 4
-  %vecinit5.i91 = insertelement <8 x float> %vecinit4.i90, float %35, i32 5
-  %36 = load float, ptr %__b.addr.i78, align 4
-  %vecinit6.i92 = insertelement <8 x float> %vecinit5.i91, float %36, i32 6
-  %37 = load float, ptr %__a.addr.i77, align 4
-  %vecinit7.i93 = insertelement <8 x float> %vecinit6.i92, float %37, i32 7
-  store <8 x float> %vecinit7.i93, ptr %.compoundliteral.i85, align 32
-  %38 = load <8 x float>, ptr %.compoundliteral.i85, align 32
-  store <8 x float> %38, ptr %lut_max, align 32
-  store float 1.023000e+03, ptr %__w.addr.i, align 4
-  %39 = load float, ptr %__w.addr.i, align 4
-  %40 = load float, ptr %__w.addr.i, align 4
-  %41 = load float, ptr %__w.addr.i, align 4
-  %42 = load float, ptr %__w.addr.i, align 4
-  %43 = load float, ptr %__w.addr.i, align 4
-  %44 = load float, ptr %__w.addr.i, align 4
-  %45 = load float, ptr %__w.addr.i, align 4
-  %46 = load float, ptr %__w.addr.i, align 4
-  store float %39, ptr %__a.addr.i94, align 4
-  store float %40, ptr %__b.addr.i95, align 4
-  store float %41, ptr %__c.addr.i96, align 4
-  store float %42, ptr %__d.addr.i97, align 4
-  store float %43, ptr %__e.addr.i98, align 4
-  store float %44, ptr %__f.addr.i99, align 4
-  store float %45, ptr %__g.addr.i100, align 4
-  store float %46, ptr %__h.addr.i101, align 4
-  %47 = load float, ptr %__h.addr.i101, align 4
-  %vecinit.i103 = insertelement <8 x float> undef, float %47, i32 0
-  %48 = load float, ptr %__g.addr.i100, align 4
-  %vecinit1.i104 = insertelement <8 x float> %vecinit.i103, float %48, i32 1
-  %49 = load float, ptr %__f.addr.i99, align 4
-  %vecinit2.i105 = insertelement <8 x float> %vecinit1.i104, float %49, i32 2
-  %50 = load float, ptr %__e.addr.i98, align 4
-  %vecinit3.i106 = insertelement <8 x float> %vecinit2.i105, float %50, i32 3
-  %51 = load float, ptr %__d.addr.i97, align 4
-  %vecinit4.i107 = insertelement <8 x float> %vecinit3.i106, float %51, i32 4
-  %52 = load float, ptr %__c.addr.i96, align 4
-  %vecinit5.i108 = insertelement <8 x float> %vecinit4.i107, float %52, i32 5
-  %53 = load float, ptr %__b.addr.i95, align 4
-  %vecinit6.i109 = insertelement <8 x float> %vecinit5.i108, float %53, i32 6
-  %54 = load float, ptr %__a.addr.i94, align 4
-  %vecinit7.i110 = insertelement <8 x float> %vecinit6.i109, float %54, i32 7
-  store <8 x float> %vecinit7.i110, ptr %.compoundliteral.i102, align 32
-  %55 = load <8 x float>, ptr %.compoundliteral.i102, align 32
-  store <8 x float> %55, ptr %alpha_scale, align 32
-  %56 = load i64, ptr %numPixels.addr, align 8
-  %div = sdiv i64 %56, 8
-  %mul5 = mul nsw i64 %div, 8
-  %conv6 = trunc i64 %mul5 to i32
-  store i32 %conv6, ptr %pixel_count, align 4
-  %57 = load i64, ptr %numPixels.addr, align 8
-  %58 = load i32, ptr %pixel_count, align 4
-  %conv7 = sext i32 %58 to i64
-  %sub8 = sub nsw i64 %57, %conv7
-  %conv9 = trunc i64 %sub8 to i32
-  store i32 %conv9, ptr %remainder, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_2EEEvPKfS4_S4_iPKvPvl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6) #6 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca <8 x float>, align 32
+  %18 = alloca <8 x float>, align 32
+  %19 = alloca <8 x float>, align 32
+  %20 = alloca <8 x float>, align 32
+  %21 = alloca <8 x float>, align 32
+  %22 = alloca float, align 4
+  %23 = alloca <8 x float>, align 32
+  %24 = alloca <8 x float>, align 32
+  %25 = alloca i32, align 4
+  %26 = alloca i32, align 4
+  %27 = alloca i32, align 4
+  %28 = alloca [32 x float], align 16
+  %29 = alloca [32 x i16], align 16
+  %30 = alloca i32, align 4
+  %31 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !7
+  store ptr %1, ptr %9, align 8, !tbaa !7
+  store ptr %2, ptr %10, align 8, !tbaa !7
+  store i32 %3, ptr %11, align 4, !tbaa !10
+  store ptr %4, ptr %12, align 8, !tbaa !12
+  store ptr %5, ptr %13, align 8, !tbaa !12
+  store i64 %6, ptr %14, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  %32 = load ptr, ptr %12, align 8, !tbaa !12
+  store ptr %32, ptr %15, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
+  %33 = load ptr, ptr %13, align 8, !tbaa !12
+  store ptr %33, ptr %16, align 8, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 32, ptr %17) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %18) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %19) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %20) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %21) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #3
+  %34 = load i32, ptr %11, align 4, !tbaa !10
+  %35 = sitofp i32 %34 to float
+  %36 = fsub float %35, 1.000000e+00
+  %37 = fmul float 1.000000e+00, %36
+  store float %37, ptr %22, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 32, ptr %23) #3
+  %38 = load float, ptr %22, align 4, !tbaa !17
+  %39 = call noundef <8 x float> @_ZL14_mm256_set1_psf(float noundef %38)
+  store <8 x float> %39, ptr %23, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %24) #3
+  %40 = load i32, ptr %11, align 4, !tbaa !10
+  %41 = sitofp i32 %40 to float
+  %42 = fsub float %41, 1.000000e+00
+  %43 = call noundef <8 x float> @_ZL14_mm256_set1_psf(float noundef %42)
+  store <8 x float> %43, ptr %24, align 32, !tbaa !19
+  %44 = call noundef <8 x float> @_ZL14_mm256_set1_psf(float noundef 1.023000e+03)
+  store <8 x float> %44, ptr %21, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #3
+  %45 = load i64, ptr %14, align 8, !tbaa !13
+  %46 = sdiv i64 %45, 8
+  %47 = mul nsw i64 %46, 8
+  %48 = trunc i64 %47 to i32
+  store i32 %48, ptr %25, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #3
+  %49 = load i64, ptr %14, align 8, !tbaa !13
+  %50 = load i32, ptr %25, align 4, !tbaa !10
+  %51 = sext i32 %50 to i64
+  %52 = sub nsw i64 %49, %51
+  %53 = trunc i64 %52 to i32
+  store i32 %53, ptr %26, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #3
+  store i32 0, ptr %27, align 4, !tbaa !10
+  br label %54
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %59 = load i32, ptr %i, align 4
-  %60 = load i32, ptr %pixel_count, align 4
-  %cmp = icmp slt i32 %59, %60
-  br i1 %cmp, label %for.body, label %for.end
+54:                                               ; preds = %82, %7
+  %55 = load i32, ptr %27, align 4, !tbaa !10
+  %56 = load i32, ptr %25, align 4, !tbaa !10
+  %57 = icmp slt i32 %55, %56
+  br i1 %57, label %59, label %58
 
-for.body:                                         ; preds = %for.cond
-  %61 = load ptr, ptr %src, align 8
-  call void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE8EE4LoadEPKfRDv8_fS6_S6_S6_(ptr noundef %61, ptr noundef nonnull align 32 dereferenceable(32) %r, ptr noundef nonnull align 32 dereferenceable(32) %g, ptr noundef nonnull align 32 dereferenceable(32) %b, ptr noundef nonnull align 32 dereferenceable(32) %a)
-  %62 = load ptr, ptr %lutR.addr, align 8
-  %63 = load <8 x float>, ptr %r, align 32
-  %call10 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %62, <8 x float> noundef %63, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call10, ptr %r, align 32
-  %64 = load ptr, ptr %lutG.addr, align 8
-  %65 = load <8 x float>, ptr %g, align 32
-  %call11 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %64, <8 x float> noundef %65, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call11, ptr %g, align 32
-  %66 = load ptr, ptr %lutB.addr, align 8
-  %67 = load <8 x float>, ptr %b, align 32
-  %call12 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %66, <8 x float> noundef %67, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call12, ptr %b, align 32
-  %68 = load <8 x float>, ptr %a, align 32
-  %69 = load <8 x float>, ptr %alpha_scale, align 32
-  store <8 x float> %68, ptr %__a.addr.i72, align 32
-  store <8 x float> %69, ptr %__b.addr.i73, align 32
-  %70 = load <8 x float>, ptr %__a.addr.i72, align 32
-  %71 = load <8 x float>, ptr %__b.addr.i73, align 32
-  %mul.i74 = fmul <8 x float> %70, %71
-  store <8 x float> %mul.i74, ptr %a, align 32
-  %72 = load ptr, ptr %dst, align 8
-  %73 = load <8 x float>, ptr %r, align 32
-  %74 = load <8 x float>, ptr %g, align 32
-  %75 = load <8 x float>, ptr %b, align 32
-  %76 = load <8 x float>, ptr %a, align 32
-  call void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE2EE5StoreEPtDv8_fS4_S4_S4_(ptr noundef %72, <8 x float> noundef %73, <8 x float> noundef %74, <8 x float> noundef %75, <8 x float> noundef %76)
-  %77 = load ptr, ptr %src, align 8
-  %add.ptr = getelementptr inbounds float, ptr %77, i64 32
-  store ptr %add.ptr, ptr %src, align 8
-  %78 = load ptr, ptr %dst, align 8
-  %add.ptr14 = getelementptr inbounds i16, ptr %78, i64 32
-  store ptr %add.ptr14, ptr %dst, align 8
-  br label %for.inc
+58:                                               ; preds = %54
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #3
+  br label %85
 
-for.inc:                                          ; preds = %for.body
-  %79 = load i32, ptr %i, align 4
-  %add = add nsw i32 %79, 8
-  store i32 %add, ptr %i, align 4
-  br label %for.cond, !llvm.loop !8
+59:                                               ; preds = %54
+  %60 = load ptr, ptr %15, align 8, !tbaa !7
+  call void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE8EE4LoadEPKfRDv8_fS6_S6_S6_(ptr noundef %60, ptr noundef nonnull align 32 dereferenceable(32) %17, ptr noundef nonnull align 32 dereferenceable(32) %18, ptr noundef nonnull align 32 dereferenceable(32) %19, ptr noundef nonnull align 32 dereferenceable(32) %20)
+  %61 = load ptr, ptr %8, align 8, !tbaa !7
+  %62 = load <8 x float>, ptr %17, align 32, !tbaa !19
+  %63 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %61, <8 x float> noundef %62, ptr noundef nonnull align 32 dereferenceable(32) %23, ptr noundef nonnull align 32 dereferenceable(32) %24)
+  store <8 x float> %63, ptr %17, align 32, !tbaa !19
+  %64 = load ptr, ptr %9, align 8, !tbaa !7
+  %65 = load <8 x float>, ptr %18, align 32, !tbaa !19
+  %66 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %64, <8 x float> noundef %65, ptr noundef nonnull align 32 dereferenceable(32) %23, ptr noundef nonnull align 32 dereferenceable(32) %24)
+  store <8 x float> %66, ptr %18, align 32, !tbaa !19
+  %67 = load ptr, ptr %10, align 8, !tbaa !7
+  %68 = load <8 x float>, ptr %19, align 32, !tbaa !19
+  %69 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %67, <8 x float> noundef %68, ptr noundef nonnull align 32 dereferenceable(32) %23, ptr noundef nonnull align 32 dereferenceable(32) %24)
+  store <8 x float> %69, ptr %19, align 32, !tbaa !19
+  %70 = load <8 x float>, ptr %20, align 32, !tbaa !19
+  %71 = load <8 x float>, ptr %21, align 32, !tbaa !19
+  %72 = call noundef <8 x float> @_ZL13_mm256_mul_psDv8_fS_(<8 x float> noundef %70, <8 x float> noundef %71)
+  store <8 x float> %72, ptr %20, align 32, !tbaa !19
+  %73 = load ptr, ptr %16, align 8, !tbaa !24
+  %74 = load <8 x float>, ptr %17, align 32, !tbaa !19
+  %75 = load <8 x float>, ptr %18, align 32, !tbaa !19
+  %76 = load <8 x float>, ptr %19, align 32, !tbaa !19
+  %77 = load <8 x float>, ptr %20, align 32, !tbaa !19
+  call void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE2EE5StoreEPtDv8_fS4_S4_S4_(ptr noundef %73, <8 x float> noundef %74, <8 x float> noundef %75, <8 x float> noundef %76, <8 x float> noundef %77)
+  %78 = load ptr, ptr %15, align 8, !tbaa !7
+  %79 = getelementptr inbounds float, ptr %78, i64 32
+  store ptr %79, ptr %15, align 8, !tbaa !7
+  %80 = load ptr, ptr %16, align 8, !tbaa !24
+  %81 = getelementptr inbounds i16, ptr %80, i64 32
+  store ptr %81, ptr %16, align 8, !tbaa !24
+  br label %82
 
-for.end:                                          ; preds = %for.cond
-  %80 = load i32, ptr %remainder, align 4
-  %tobool = icmp ne i32 %80, 0
-  br i1 %tobool, label %if.then, label %if.end
+82:                                               ; preds = %59
+  %83 = load i32, ptr %27, align 4, !tbaa !10
+  %84 = add nsw i32 %83, 8
+  store i32 %84, ptr %27, align 4, !tbaa !10
+  br label %54, !llvm.loop !26
 
-if.then:                                          ; preds = %for.end
-  call void @llvm.memset.p0.i64(ptr align 16 %in_buf, i8 0, i64 128, i1 false)
-  store i32 0, ptr %i15, align 4
-  br label %for.cond16
+85:                                               ; preds = %58
+  %86 = load i32, ptr %26, align 4, !tbaa !10
+  %87 = icmp ne i32 %86, 0
+  br i1 %87, label %88, label %189
 
-for.cond16:                                       ; preds = %for.inc35, %if.then
-  %81 = load i32, ptr %i15, align 4
-  %82 = load i32, ptr %remainder, align 4
-  %mul17 = mul nsw i32 %82, 4
-  %cmp18 = icmp slt i32 %81, %mul17
-  br i1 %cmp18, label %for.body19, label %for.end37
+88:                                               ; preds = %85
+  call void @llvm.lifetime.start.p0(i64 128, ptr %28) #3
+  call void @llvm.memset.p0.i64(ptr align 16 %28, i8 0, i64 128, i1 false)
+  call void @llvm.lifetime.start.p0(i64 64, ptr %29) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #3
+  store i32 0, ptr %30, align 4, !tbaa !10
+  br label %89
 
-for.body19:                                       ; preds = %for.cond16
-  %83 = load ptr, ptr %src, align 8
-  %arrayidx = getelementptr inbounds float, ptr %83, i64 0
-  %84 = load float, ptr %arrayidx, align 4
-  %85 = load i32, ptr %i15, align 4
-  %add20 = add nsw i32 %85, 0
-  %idxprom = sext i32 %add20 to i64
-  %arrayidx21 = getelementptr inbounds [32 x float], ptr %in_buf, i64 0, i64 %idxprom
-  store float %84, ptr %arrayidx21, align 4
-  %86 = load ptr, ptr %src, align 8
-  %arrayidx22 = getelementptr inbounds float, ptr %86, i64 1
-  %87 = load float, ptr %arrayidx22, align 4
-  %88 = load i32, ptr %i15, align 4
-  %add23 = add nsw i32 %88, 1
-  %idxprom24 = sext i32 %add23 to i64
-  %arrayidx25 = getelementptr inbounds [32 x float], ptr %in_buf, i64 0, i64 %idxprom24
-  store float %87, ptr %arrayidx25, align 4
-  %89 = load ptr, ptr %src, align 8
-  %arrayidx26 = getelementptr inbounds float, ptr %89, i64 2
-  %90 = load float, ptr %arrayidx26, align 4
-  %91 = load i32, ptr %i15, align 4
-  %add27 = add nsw i32 %91, 2
-  %idxprom28 = sext i32 %add27 to i64
-  %arrayidx29 = getelementptr inbounds [32 x float], ptr %in_buf, i64 0, i64 %idxprom28
-  store float %90, ptr %arrayidx29, align 4
-  %92 = load ptr, ptr %src, align 8
-  %arrayidx30 = getelementptr inbounds float, ptr %92, i64 3
-  %93 = load float, ptr %arrayidx30, align 4
-  %94 = load i32, ptr %i15, align 4
-  %add31 = add nsw i32 %94, 3
-  %idxprom32 = sext i32 %add31 to i64
-  %arrayidx33 = getelementptr inbounds [32 x float], ptr %in_buf, i64 0, i64 %idxprom32
-  store float %93, ptr %arrayidx33, align 4
-  %95 = load ptr, ptr %src, align 8
-  %add.ptr34 = getelementptr inbounds float, ptr %95, i64 4
-  store ptr %add.ptr34, ptr %src, align 8
-  br label %for.inc35
+89:                                               ; preds = %126, %88
+  %90 = load i32, ptr %30, align 4, !tbaa !10
+  %91 = load i32, ptr %26, align 4, !tbaa !10
+  %92 = mul nsw i32 %91, 4
+  %93 = icmp slt i32 %90, %92
+  br i1 %93, label %95, label %94
 
-for.inc35:                                        ; preds = %for.body19
-  %96 = load i32, ptr %i15, align 4
-  %add36 = add nsw i32 %96, 4
-  store i32 %add36, ptr %i15, align 4
-  br label %for.cond16, !llvm.loop !9
+94:                                               ; preds = %89
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #3
+  br label %129
 
-for.end37:                                        ; preds = %for.cond16
-  %arraydecay = getelementptr inbounds [32 x float], ptr %in_buf, i64 0, i64 0
-  call void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE8EE4LoadEPKfRDv8_fS6_S6_S6_(ptr noundef %arraydecay, ptr noundef nonnull align 32 dereferenceable(32) %r, ptr noundef nonnull align 32 dereferenceable(32) %g, ptr noundef nonnull align 32 dereferenceable(32) %b, ptr noundef nonnull align 32 dereferenceable(32) %a)
-  %97 = load ptr, ptr %lutR.addr, align 8
-  %98 = load <8 x float>, ptr %r, align 32
-  %call38 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %97, <8 x float> noundef %98, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call38, ptr %r, align 32
-  %99 = load ptr, ptr %lutG.addr, align 8
-  %100 = load <8 x float>, ptr %g, align 32
-  %call39 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %99, <8 x float> noundef %100, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call39, ptr %g, align 32
-  %101 = load ptr, ptr %lutB.addr, align 8
-  %102 = load <8 x float>, ptr %b, align 32
-  %call40 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %101, <8 x float> noundef %102, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call40, ptr %b, align 32
-  %103 = load <8 x float>, ptr %a, align 32
-  %104 = load <8 x float>, ptr %alpha_scale, align 32
-  store <8 x float> %103, ptr %__a.addr.i, align 32
-  store <8 x float> %104, ptr %__b.addr.i, align 32
-  %105 = load <8 x float>, ptr %__a.addr.i, align 32
-  %106 = load <8 x float>, ptr %__b.addr.i, align 32
-  %mul.i = fmul <8 x float> %105, %106
-  store <8 x float> %mul.i, ptr %a, align 32
-  %arraydecay42 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 0
-  %107 = load <8 x float>, ptr %r, align 32
-  %108 = load <8 x float>, ptr %g, align 32
-  %109 = load <8 x float>, ptr %b, align 32
-  %110 = load <8 x float>, ptr %a, align 32
-  call void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE2EE5StoreEPtDv8_fS4_S4_S4_(ptr noundef %arraydecay42, <8 x float> noundef %107, <8 x float> noundef %108, <8 x float> noundef %109, <8 x float> noundef %110)
-  store i32 0, ptr %i43, align 4
-  br label %for.cond44
+95:                                               ; preds = %89
+  %96 = load ptr, ptr %15, align 8, !tbaa !7
+  %97 = getelementptr inbounds float, ptr %96, i64 0
+  %98 = load float, ptr %97, align 4, !tbaa !17
+  %99 = load i32, ptr %30, align 4, !tbaa !10
+  %100 = add nsw i32 %99, 0
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds [32 x float], ptr %28, i64 0, i64 %101
+  store float %98, ptr %102, align 4, !tbaa !17
+  %103 = load ptr, ptr %15, align 8, !tbaa !7
+  %104 = getelementptr inbounds float, ptr %103, i64 1
+  %105 = load float, ptr %104, align 4, !tbaa !17
+  %106 = load i32, ptr %30, align 4, !tbaa !10
+  %107 = add nsw i32 %106, 1
+  %108 = sext i32 %107 to i64
+  %109 = getelementptr inbounds [32 x float], ptr %28, i64 0, i64 %108
+  store float %105, ptr %109, align 4, !tbaa !17
+  %110 = load ptr, ptr %15, align 8, !tbaa !7
+  %111 = getelementptr inbounds float, ptr %110, i64 2
+  %112 = load float, ptr %111, align 4, !tbaa !17
+  %113 = load i32, ptr %30, align 4, !tbaa !10
+  %114 = add nsw i32 %113, 2
+  %115 = sext i32 %114 to i64
+  %116 = getelementptr inbounds [32 x float], ptr %28, i64 0, i64 %115
+  store float %112, ptr %116, align 4, !tbaa !17
+  %117 = load ptr, ptr %15, align 8, !tbaa !7
+  %118 = getelementptr inbounds float, ptr %117, i64 3
+  %119 = load float, ptr %118, align 4, !tbaa !17
+  %120 = load i32, ptr %30, align 4, !tbaa !10
+  %121 = add nsw i32 %120, 3
+  %122 = sext i32 %121 to i64
+  %123 = getelementptr inbounds [32 x float], ptr %28, i64 0, i64 %122
+  store float %119, ptr %123, align 4, !tbaa !17
+  %124 = load ptr, ptr %15, align 8, !tbaa !7
+  %125 = getelementptr inbounds float, ptr %124, i64 4
+  store ptr %125, ptr %15, align 8, !tbaa !7
+  br label %126
 
-for.cond44:                                       ; preds = %for.inc65, %for.end37
-  %111 = load i32, ptr %i43, align 4
-  %112 = load i32, ptr %remainder, align 4
-  %mul45 = mul nsw i32 %112, 4
-  %cmp46 = icmp slt i32 %111, %mul45
-  br i1 %cmp46, label %for.body47, label %for.end67
+126:                                              ; preds = %95
+  %127 = load i32, ptr %30, align 4, !tbaa !10
+  %128 = add nsw i32 %127, 4
+  store i32 %128, ptr %30, align 4, !tbaa !10
+  br label %89, !llvm.loop !27
 
-for.body47:                                       ; preds = %for.cond44
-  %113 = load i32, ptr %i43, align 4
-  %add48 = add nsw i32 %113, 0
-  %idxprom49 = sext i32 %add48 to i64
-  %arrayidx50 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 %idxprom49
-  %114 = load i16, ptr %arrayidx50, align 2
-  %115 = load ptr, ptr %dst, align 8
-  %arrayidx51 = getelementptr inbounds i16, ptr %115, i64 0
-  store i16 %114, ptr %arrayidx51, align 2
-  %116 = load i32, ptr %i43, align 4
-  %add52 = add nsw i32 %116, 1
-  %idxprom53 = sext i32 %add52 to i64
-  %arrayidx54 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 %idxprom53
-  %117 = load i16, ptr %arrayidx54, align 2
-  %118 = load ptr, ptr %dst, align 8
-  %arrayidx55 = getelementptr inbounds i16, ptr %118, i64 1
-  store i16 %117, ptr %arrayidx55, align 2
-  %119 = load i32, ptr %i43, align 4
-  %add56 = add nsw i32 %119, 2
-  %idxprom57 = sext i32 %add56 to i64
-  %arrayidx58 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 %idxprom57
-  %120 = load i16, ptr %arrayidx58, align 2
-  %121 = load ptr, ptr %dst, align 8
-  %arrayidx59 = getelementptr inbounds i16, ptr %121, i64 2
-  store i16 %120, ptr %arrayidx59, align 2
-  %122 = load i32, ptr %i43, align 4
-  %add60 = add nsw i32 %122, 3
-  %idxprom61 = sext i32 %add60 to i64
-  %arrayidx62 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 %idxprom61
-  %123 = load i16, ptr %arrayidx62, align 2
-  %124 = load ptr, ptr %dst, align 8
-  %arrayidx63 = getelementptr inbounds i16, ptr %124, i64 3
-  store i16 %123, ptr %arrayidx63, align 2
-  %125 = load ptr, ptr %dst, align 8
-  %add.ptr64 = getelementptr inbounds i16, ptr %125, i64 4
-  store ptr %add.ptr64, ptr %dst, align 8
-  br label %for.inc65
+129:                                              ; preds = %94
+  %130 = getelementptr inbounds [32 x float], ptr %28, i64 0, i64 0
+  call void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE8EE4LoadEPKfRDv8_fS6_S6_S6_(ptr noundef %130, ptr noundef nonnull align 32 dereferenceable(32) %17, ptr noundef nonnull align 32 dereferenceable(32) %18, ptr noundef nonnull align 32 dereferenceable(32) %19, ptr noundef nonnull align 32 dereferenceable(32) %20)
+  %131 = load ptr, ptr %8, align 8, !tbaa !7
+  %132 = load <8 x float>, ptr %17, align 32, !tbaa !19
+  %133 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %131, <8 x float> noundef %132, ptr noundef nonnull align 32 dereferenceable(32) %23, ptr noundef nonnull align 32 dereferenceable(32) %24)
+  store <8 x float> %133, ptr %17, align 32, !tbaa !19
+  %134 = load ptr, ptr %9, align 8, !tbaa !7
+  %135 = load <8 x float>, ptr %18, align 32, !tbaa !19
+  %136 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %134, <8 x float> noundef %135, ptr noundef nonnull align 32 dereferenceable(32) %23, ptr noundef nonnull align 32 dereferenceable(32) %24)
+  store <8 x float> %136, ptr %18, align 32, !tbaa !19
+  %137 = load ptr, ptr %10, align 8, !tbaa !7
+  %138 = load <8 x float>, ptr %19, align 32, !tbaa !19
+  %139 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %137, <8 x float> noundef %138, ptr noundef nonnull align 32 dereferenceable(32) %23, ptr noundef nonnull align 32 dereferenceable(32) %24)
+  store <8 x float> %139, ptr %19, align 32, !tbaa !19
+  %140 = load <8 x float>, ptr %20, align 32, !tbaa !19
+  %141 = load <8 x float>, ptr %21, align 32, !tbaa !19
+  %142 = call noundef <8 x float> @_ZL13_mm256_mul_psDv8_fS_(<8 x float> noundef %140, <8 x float> noundef %141)
+  store <8 x float> %142, ptr %20, align 32, !tbaa !19
+  %143 = getelementptr inbounds [32 x i16], ptr %29, i64 0, i64 0
+  %144 = load <8 x float>, ptr %17, align 32, !tbaa !19
+  %145 = load <8 x float>, ptr %18, align 32, !tbaa !19
+  %146 = load <8 x float>, ptr %19, align 32, !tbaa !19
+  %147 = load <8 x float>, ptr %20, align 32, !tbaa !19
+  call void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE2EE5StoreEPtDv8_fS4_S4_S4_(ptr noundef %143, <8 x float> noundef %144, <8 x float> noundef %145, <8 x float> noundef %146, <8 x float> noundef %147)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %31) #3
+  store i32 0, ptr %31, align 4, !tbaa !10
+  br label %148
 
-for.inc65:                                        ; preds = %for.body47
-  %126 = load i32, ptr %i43, align 4
-  %add66 = add nsw i32 %126, 4
-  store i32 %add66, ptr %i43, align 4
-  br label %for.cond44, !llvm.loop !10
+148:                                              ; preds = %185, %129
+  %149 = load i32, ptr %31, align 4, !tbaa !10
+  %150 = load i32, ptr %26, align 4, !tbaa !10
+  %151 = mul nsw i32 %150, 4
+  %152 = icmp slt i32 %149, %151
+  br i1 %152, label %154, label %153
 
-for.end67:                                        ; preds = %for.cond44
-  br label %if.end
+153:                                              ; preds = %148
+  call void @llvm.lifetime.end.p0(i64 4, ptr %31) #3
+  br label %188
 
-if.end:                                           ; preds = %for.end67, %for.end
+154:                                              ; preds = %148
+  %155 = load i32, ptr %31, align 4, !tbaa !10
+  %156 = add nsw i32 %155, 0
+  %157 = sext i32 %156 to i64
+  %158 = getelementptr inbounds [32 x i16], ptr %29, i64 0, i64 %157
+  %159 = load i16, ptr %158, align 2, !tbaa !28
+  %160 = load ptr, ptr %16, align 8, !tbaa !24
+  %161 = getelementptr inbounds i16, ptr %160, i64 0
+  store i16 %159, ptr %161, align 2, !tbaa !28
+  %162 = load i32, ptr %31, align 4, !tbaa !10
+  %163 = add nsw i32 %162, 1
+  %164 = sext i32 %163 to i64
+  %165 = getelementptr inbounds [32 x i16], ptr %29, i64 0, i64 %164
+  %166 = load i16, ptr %165, align 2, !tbaa !28
+  %167 = load ptr, ptr %16, align 8, !tbaa !24
+  %168 = getelementptr inbounds i16, ptr %167, i64 1
+  store i16 %166, ptr %168, align 2, !tbaa !28
+  %169 = load i32, ptr %31, align 4, !tbaa !10
+  %170 = add nsw i32 %169, 2
+  %171 = sext i32 %170 to i64
+  %172 = getelementptr inbounds [32 x i16], ptr %29, i64 0, i64 %171
+  %173 = load i16, ptr %172, align 2, !tbaa !28
+  %174 = load ptr, ptr %16, align 8, !tbaa !24
+  %175 = getelementptr inbounds i16, ptr %174, i64 2
+  store i16 %173, ptr %175, align 2, !tbaa !28
+  %176 = load i32, ptr %31, align 4, !tbaa !10
+  %177 = add nsw i32 %176, 3
+  %178 = sext i32 %177 to i64
+  %179 = getelementptr inbounds [32 x i16], ptr %29, i64 0, i64 %178
+  %180 = load i16, ptr %179, align 2, !tbaa !28
+  %181 = load ptr, ptr %16, align 8, !tbaa !24
+  %182 = getelementptr inbounds i16, ptr %181, i64 3
+  store i16 %180, ptr %182, align 2, !tbaa !28
+  %183 = load ptr, ptr %16, align 8, !tbaa !24
+  %184 = getelementptr inbounds i16, ptr %183, i64 4
+  store ptr %184, ptr %16, align 8, !tbaa !24
+  br label %185
+
+185:                                              ; preds = %154
+  %186 = load i32, ptr %31, align 4, !tbaa !10
+  %187 = add nsw i32 %186, 4
+  store i32 %187, ptr %31, align 4, !tbaa !10
+  br label %148, !llvm.loop !30
+
+188:                                              ; preds = %153
+  call void @llvm.lifetime.end.p0(i64 64, ptr %29) #3
+  call void @llvm.lifetime.end.p0(i64 128, ptr %28) #3
+  br label %189
+
+189:                                              ; preds = %188, %85
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %24) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %23) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_3EEEvPKfS4_S4_iPKvPvl(ptr noundef %lutR, ptr noundef %lutG, ptr noundef %lutB, i32 noundef %dim, ptr noundef %inImg, ptr noundef %outImg, i64 noundef %numPixels) #5 {
-entry:
-  %__a.addr.i94 = alloca float, align 4
-  %__b.addr.i95 = alloca float, align 4
-  %__c.addr.i96 = alloca float, align 4
-  %__d.addr.i97 = alloca float, align 4
-  %__e.addr.i98 = alloca float, align 4
-  %__f.addr.i99 = alloca float, align 4
-  %__g.addr.i100 = alloca float, align 4
-  %__h.addr.i101 = alloca float, align 4
-  %.compoundliteral.i102 = alloca <8 x float>, align 32
-  %__a.addr.i77 = alloca float, align 4
-  %__b.addr.i78 = alloca float, align 4
-  %__c.addr.i79 = alloca float, align 4
-  %__d.addr.i80 = alloca float, align 4
-  %__e.addr.i81 = alloca float, align 4
-  %__f.addr.i82 = alloca float, align 4
-  %__g.addr.i83 = alloca float, align 4
-  %__h.addr.i84 = alloca float, align 4
-  %.compoundliteral.i85 = alloca <8 x float>, align 32
-  %__a.addr.i75 = alloca float, align 4
-  %__b.addr.i76 = alloca float, align 4
-  %__c.addr.i = alloca float, align 4
-  %__d.addr.i = alloca float, align 4
-  %__e.addr.i = alloca float, align 4
-  %__f.addr.i = alloca float, align 4
-  %__g.addr.i = alloca float, align 4
-  %__h.addr.i = alloca float, align 4
-  %.compoundliteral.i = alloca <8 x float>, align 32
-  %__a.addr.i72 = alloca <8 x float>, align 32
-  %__b.addr.i73 = alloca <8 x float>, align 32
-  %__a.addr.i = alloca <8 x float>, align 32
-  %__b.addr.i = alloca <8 x float>, align 32
-  %__w.addr.i70 = alloca float, align 4
-  %__w.addr.i68 = alloca float, align 4
-  %__w.addr.i = alloca float, align 4
-  %lutR.addr = alloca ptr, align 8
-  %lutG.addr = alloca ptr, align 8
-  %lutB.addr = alloca ptr, align 8
-  %dim.addr = alloca i32, align 4
-  %inImg.addr = alloca ptr, align 8
-  %outImg.addr = alloca ptr, align 8
-  %numPixels.addr = alloca i64, align 8
-  %src = alloca ptr, align 8
-  %dst = alloca ptr, align 8
-  %r = alloca <8 x float>, align 32
-  %g = alloca <8 x float>, align 32
-  %b = alloca <8 x float>, align 32
-  %a = alloca <8 x float>, align 32
-  %alpha_scale = alloca <8 x float>, align 32
-  %rgb_scale = alloca float, align 4
-  %lut_scale = alloca <8 x float>, align 32
-  %lut_max = alloca <8 x float>, align 32
-  %pixel_count = alloca i32, align 4
-  %remainder = alloca i32, align 4
-  %i = alloca i32, align 4
-  %in_buf = alloca [32 x float], align 16
-  %out_buf = alloca [32 x i16], align 16
-  %i15 = alloca i32, align 4
-  %i43 = alloca i32, align 4
-  store ptr %lutR, ptr %lutR.addr, align 8
-  store ptr %lutG, ptr %lutG.addr, align 8
-  store ptr %lutB, ptr %lutB.addr, align 8
-  store i32 %dim, ptr %dim.addr, align 4
-  store ptr %inImg, ptr %inImg.addr, align 8
-  store ptr %outImg, ptr %outImg.addr, align 8
-  store i64 %numPixels, ptr %numPixels.addr, align 8
-  %0 = load ptr, ptr %inImg.addr, align 8
-  store ptr %0, ptr %src, align 8
-  %1 = load ptr, ptr %outImg.addr, align 8
-  store ptr %1, ptr %dst, align 8
-  %2 = load i32, ptr %dim.addr, align 4
-  %conv = sitofp i32 %2 to float
-  %sub = fsub float %conv, 1.000000e+00
-  %mul = fmul float 1.000000e+00, %sub
-  store float %mul, ptr %rgb_scale, align 4
-  %3 = load float, ptr %rgb_scale, align 4
-  store float %3, ptr %__w.addr.i70, align 4
-  %4 = load float, ptr %__w.addr.i70, align 4
-  %5 = load float, ptr %__w.addr.i70, align 4
-  %6 = load float, ptr %__w.addr.i70, align 4
-  %7 = load float, ptr %__w.addr.i70, align 4
-  %8 = load float, ptr %__w.addr.i70, align 4
-  %9 = load float, ptr %__w.addr.i70, align 4
-  %10 = load float, ptr %__w.addr.i70, align 4
-  %11 = load float, ptr %__w.addr.i70, align 4
-  store float %4, ptr %__a.addr.i75, align 4
-  store float %5, ptr %__b.addr.i76, align 4
-  store float %6, ptr %__c.addr.i, align 4
-  store float %7, ptr %__d.addr.i, align 4
-  store float %8, ptr %__e.addr.i, align 4
-  store float %9, ptr %__f.addr.i, align 4
-  store float %10, ptr %__g.addr.i, align 4
-  store float %11, ptr %__h.addr.i, align 4
-  %12 = load float, ptr %__h.addr.i, align 4
-  %vecinit.i = insertelement <8 x float> undef, float %12, i32 0
-  %13 = load float, ptr %__g.addr.i, align 4
-  %vecinit1.i = insertelement <8 x float> %vecinit.i, float %13, i32 1
-  %14 = load float, ptr %__f.addr.i, align 4
-  %vecinit2.i = insertelement <8 x float> %vecinit1.i, float %14, i32 2
-  %15 = load float, ptr %__e.addr.i, align 4
-  %vecinit3.i = insertelement <8 x float> %vecinit2.i, float %15, i32 3
-  %16 = load float, ptr %__d.addr.i, align 4
-  %vecinit4.i = insertelement <8 x float> %vecinit3.i, float %16, i32 4
-  %17 = load float, ptr %__c.addr.i, align 4
-  %vecinit5.i = insertelement <8 x float> %vecinit4.i, float %17, i32 5
-  %18 = load float, ptr %__b.addr.i76, align 4
-  %vecinit6.i = insertelement <8 x float> %vecinit5.i, float %18, i32 6
-  %19 = load float, ptr %__a.addr.i75, align 4
-  %vecinit7.i = insertelement <8 x float> %vecinit6.i, float %19, i32 7
-  store <8 x float> %vecinit7.i, ptr %.compoundliteral.i, align 32
-  %20 = load <8 x float>, ptr %.compoundliteral.i, align 32
-  store <8 x float> %20, ptr %lut_scale, align 32
-  %21 = load i32, ptr %dim.addr, align 4
-  %conv1 = sitofp i32 %21 to float
-  %sub2 = fsub float %conv1, 1.000000e+00
-  store float %sub2, ptr %__w.addr.i68, align 4
-  %22 = load float, ptr %__w.addr.i68, align 4
-  %23 = load float, ptr %__w.addr.i68, align 4
-  %24 = load float, ptr %__w.addr.i68, align 4
-  %25 = load float, ptr %__w.addr.i68, align 4
-  %26 = load float, ptr %__w.addr.i68, align 4
-  %27 = load float, ptr %__w.addr.i68, align 4
-  %28 = load float, ptr %__w.addr.i68, align 4
-  %29 = load float, ptr %__w.addr.i68, align 4
-  store float %22, ptr %__a.addr.i77, align 4
-  store float %23, ptr %__b.addr.i78, align 4
-  store float %24, ptr %__c.addr.i79, align 4
-  store float %25, ptr %__d.addr.i80, align 4
-  store float %26, ptr %__e.addr.i81, align 4
-  store float %27, ptr %__f.addr.i82, align 4
-  store float %28, ptr %__g.addr.i83, align 4
-  store float %29, ptr %__h.addr.i84, align 4
-  %30 = load float, ptr %__h.addr.i84, align 4
-  %vecinit.i86 = insertelement <8 x float> undef, float %30, i32 0
-  %31 = load float, ptr %__g.addr.i83, align 4
-  %vecinit1.i87 = insertelement <8 x float> %vecinit.i86, float %31, i32 1
-  %32 = load float, ptr %__f.addr.i82, align 4
-  %vecinit2.i88 = insertelement <8 x float> %vecinit1.i87, float %32, i32 2
-  %33 = load float, ptr %__e.addr.i81, align 4
-  %vecinit3.i89 = insertelement <8 x float> %vecinit2.i88, float %33, i32 3
-  %34 = load float, ptr %__d.addr.i80, align 4
-  %vecinit4.i90 = insertelement <8 x float> %vecinit3.i89, float %34, i32 4
-  %35 = load float, ptr %__c.addr.i79, align 4
-  %vecinit5.i91 = insertelement <8 x float> %vecinit4.i90, float %35, i32 5
-  %36 = load float, ptr %__b.addr.i78, align 4
-  %vecinit6.i92 = insertelement <8 x float> %vecinit5.i91, float %36, i32 6
-  %37 = load float, ptr %__a.addr.i77, align 4
-  %vecinit7.i93 = insertelement <8 x float> %vecinit6.i92, float %37, i32 7
-  store <8 x float> %vecinit7.i93, ptr %.compoundliteral.i85, align 32
-  %38 = load <8 x float>, ptr %.compoundliteral.i85, align 32
-  store <8 x float> %38, ptr %lut_max, align 32
-  store float 4.095000e+03, ptr %__w.addr.i, align 4
-  %39 = load float, ptr %__w.addr.i, align 4
-  %40 = load float, ptr %__w.addr.i, align 4
-  %41 = load float, ptr %__w.addr.i, align 4
-  %42 = load float, ptr %__w.addr.i, align 4
-  %43 = load float, ptr %__w.addr.i, align 4
-  %44 = load float, ptr %__w.addr.i, align 4
-  %45 = load float, ptr %__w.addr.i, align 4
-  %46 = load float, ptr %__w.addr.i, align 4
-  store float %39, ptr %__a.addr.i94, align 4
-  store float %40, ptr %__b.addr.i95, align 4
-  store float %41, ptr %__c.addr.i96, align 4
-  store float %42, ptr %__d.addr.i97, align 4
-  store float %43, ptr %__e.addr.i98, align 4
-  store float %44, ptr %__f.addr.i99, align 4
-  store float %45, ptr %__g.addr.i100, align 4
-  store float %46, ptr %__h.addr.i101, align 4
-  %47 = load float, ptr %__h.addr.i101, align 4
-  %vecinit.i103 = insertelement <8 x float> undef, float %47, i32 0
-  %48 = load float, ptr %__g.addr.i100, align 4
-  %vecinit1.i104 = insertelement <8 x float> %vecinit.i103, float %48, i32 1
-  %49 = load float, ptr %__f.addr.i99, align 4
-  %vecinit2.i105 = insertelement <8 x float> %vecinit1.i104, float %49, i32 2
-  %50 = load float, ptr %__e.addr.i98, align 4
-  %vecinit3.i106 = insertelement <8 x float> %vecinit2.i105, float %50, i32 3
-  %51 = load float, ptr %__d.addr.i97, align 4
-  %vecinit4.i107 = insertelement <8 x float> %vecinit3.i106, float %51, i32 4
-  %52 = load float, ptr %__c.addr.i96, align 4
-  %vecinit5.i108 = insertelement <8 x float> %vecinit4.i107, float %52, i32 5
-  %53 = load float, ptr %__b.addr.i95, align 4
-  %vecinit6.i109 = insertelement <8 x float> %vecinit5.i108, float %53, i32 6
-  %54 = load float, ptr %__a.addr.i94, align 4
-  %vecinit7.i110 = insertelement <8 x float> %vecinit6.i109, float %54, i32 7
-  store <8 x float> %vecinit7.i110, ptr %.compoundliteral.i102, align 32
-  %55 = load <8 x float>, ptr %.compoundliteral.i102, align 32
-  store <8 x float> %55, ptr %alpha_scale, align 32
-  %56 = load i64, ptr %numPixels.addr, align 8
-  %div = sdiv i64 %56, 8
-  %mul5 = mul nsw i64 %div, 8
-  %conv6 = trunc i64 %mul5 to i32
-  store i32 %conv6, ptr %pixel_count, align 4
-  %57 = load i64, ptr %numPixels.addr, align 8
-  %58 = load i32, ptr %pixel_count, align 4
-  %conv7 = sext i32 %58 to i64
-  %sub8 = sub nsw i64 %57, %conv7
-  %conv9 = trunc i64 %sub8 to i32
-  store i32 %conv9, ptr %remainder, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_3EEEvPKfS4_S4_iPKvPvl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6) #6 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca <8 x float>, align 32
+  %18 = alloca <8 x float>, align 32
+  %19 = alloca <8 x float>, align 32
+  %20 = alloca <8 x float>, align 32
+  %21 = alloca <8 x float>, align 32
+  %22 = alloca float, align 4
+  %23 = alloca <8 x float>, align 32
+  %24 = alloca <8 x float>, align 32
+  %25 = alloca i32, align 4
+  %26 = alloca i32, align 4
+  %27 = alloca i32, align 4
+  %28 = alloca [32 x float], align 16
+  %29 = alloca [32 x i16], align 16
+  %30 = alloca i32, align 4
+  %31 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !7
+  store ptr %1, ptr %9, align 8, !tbaa !7
+  store ptr %2, ptr %10, align 8, !tbaa !7
+  store i32 %3, ptr %11, align 4, !tbaa !10
+  store ptr %4, ptr %12, align 8, !tbaa !12
+  store ptr %5, ptr %13, align 8, !tbaa !12
+  store i64 %6, ptr %14, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  %32 = load ptr, ptr %12, align 8, !tbaa !12
+  store ptr %32, ptr %15, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
+  %33 = load ptr, ptr %13, align 8, !tbaa !12
+  store ptr %33, ptr %16, align 8, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 32, ptr %17) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %18) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %19) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %20) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %21) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #3
+  %34 = load i32, ptr %11, align 4, !tbaa !10
+  %35 = sitofp i32 %34 to float
+  %36 = fsub float %35, 1.000000e+00
+  %37 = fmul float 1.000000e+00, %36
+  store float %37, ptr %22, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 32, ptr %23) #3
+  %38 = load float, ptr %22, align 4, !tbaa !17
+  %39 = call noundef <8 x float> @_ZL14_mm256_set1_psf(float noundef %38)
+  store <8 x float> %39, ptr %23, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %24) #3
+  %40 = load i32, ptr %11, align 4, !tbaa !10
+  %41 = sitofp i32 %40 to float
+  %42 = fsub float %41, 1.000000e+00
+  %43 = call noundef <8 x float> @_ZL14_mm256_set1_psf(float noundef %42)
+  store <8 x float> %43, ptr %24, align 32, !tbaa !19
+  %44 = call noundef <8 x float> @_ZL14_mm256_set1_psf(float noundef 4.095000e+03)
+  store <8 x float> %44, ptr %21, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #3
+  %45 = load i64, ptr %14, align 8, !tbaa !13
+  %46 = sdiv i64 %45, 8
+  %47 = mul nsw i64 %46, 8
+  %48 = trunc i64 %47 to i32
+  store i32 %48, ptr %25, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #3
+  %49 = load i64, ptr %14, align 8, !tbaa !13
+  %50 = load i32, ptr %25, align 4, !tbaa !10
+  %51 = sext i32 %50 to i64
+  %52 = sub nsw i64 %49, %51
+  %53 = trunc i64 %52 to i32
+  store i32 %53, ptr %26, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #3
+  store i32 0, ptr %27, align 4, !tbaa !10
+  br label %54
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %59 = load i32, ptr %i, align 4
-  %60 = load i32, ptr %pixel_count, align 4
-  %cmp = icmp slt i32 %59, %60
-  br i1 %cmp, label %for.body, label %for.end
+54:                                               ; preds = %82, %7
+  %55 = load i32, ptr %27, align 4, !tbaa !10
+  %56 = load i32, ptr %25, align 4, !tbaa !10
+  %57 = icmp slt i32 %55, %56
+  br i1 %57, label %59, label %58
 
-for.body:                                         ; preds = %for.cond
-  %61 = load ptr, ptr %src, align 8
-  call void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE8EE4LoadEPKfRDv8_fS6_S6_S6_(ptr noundef %61, ptr noundef nonnull align 32 dereferenceable(32) %r, ptr noundef nonnull align 32 dereferenceable(32) %g, ptr noundef nonnull align 32 dereferenceable(32) %b, ptr noundef nonnull align 32 dereferenceable(32) %a)
-  %62 = load ptr, ptr %lutR.addr, align 8
-  %63 = load <8 x float>, ptr %r, align 32
-  %call10 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %62, <8 x float> noundef %63, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call10, ptr %r, align 32
-  %64 = load ptr, ptr %lutG.addr, align 8
-  %65 = load <8 x float>, ptr %g, align 32
-  %call11 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %64, <8 x float> noundef %65, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call11, ptr %g, align 32
-  %66 = load ptr, ptr %lutB.addr, align 8
-  %67 = load <8 x float>, ptr %b, align 32
-  %call12 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %66, <8 x float> noundef %67, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call12, ptr %b, align 32
-  %68 = load <8 x float>, ptr %a, align 32
-  %69 = load <8 x float>, ptr %alpha_scale, align 32
-  store <8 x float> %68, ptr %__a.addr.i72, align 32
-  store <8 x float> %69, ptr %__b.addr.i73, align 32
-  %70 = load <8 x float>, ptr %__a.addr.i72, align 32
-  %71 = load <8 x float>, ptr %__b.addr.i73, align 32
-  %mul.i74 = fmul <8 x float> %70, %71
-  store <8 x float> %mul.i74, ptr %a, align 32
-  %72 = load ptr, ptr %dst, align 8
-  %73 = load <8 x float>, ptr %r, align 32
-  %74 = load <8 x float>, ptr %g, align 32
-  %75 = load <8 x float>, ptr %b, align 32
-  %76 = load <8 x float>, ptr %a, align 32
-  call void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE3EE5StoreEPtDv8_fS4_S4_S4_(ptr noundef %72, <8 x float> noundef %73, <8 x float> noundef %74, <8 x float> noundef %75, <8 x float> noundef %76)
-  %77 = load ptr, ptr %src, align 8
-  %add.ptr = getelementptr inbounds float, ptr %77, i64 32
-  store ptr %add.ptr, ptr %src, align 8
-  %78 = load ptr, ptr %dst, align 8
-  %add.ptr14 = getelementptr inbounds i16, ptr %78, i64 32
-  store ptr %add.ptr14, ptr %dst, align 8
-  br label %for.inc
+58:                                               ; preds = %54
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #3
+  br label %85
 
-for.inc:                                          ; preds = %for.body
-  %79 = load i32, ptr %i, align 4
-  %add = add nsw i32 %79, 8
-  store i32 %add, ptr %i, align 4
-  br label %for.cond, !llvm.loop !11
+59:                                               ; preds = %54
+  %60 = load ptr, ptr %15, align 8, !tbaa !7
+  call void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE8EE4LoadEPKfRDv8_fS6_S6_S6_(ptr noundef %60, ptr noundef nonnull align 32 dereferenceable(32) %17, ptr noundef nonnull align 32 dereferenceable(32) %18, ptr noundef nonnull align 32 dereferenceable(32) %19, ptr noundef nonnull align 32 dereferenceable(32) %20)
+  %61 = load ptr, ptr %8, align 8, !tbaa !7
+  %62 = load <8 x float>, ptr %17, align 32, !tbaa !19
+  %63 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %61, <8 x float> noundef %62, ptr noundef nonnull align 32 dereferenceable(32) %23, ptr noundef nonnull align 32 dereferenceable(32) %24)
+  store <8 x float> %63, ptr %17, align 32, !tbaa !19
+  %64 = load ptr, ptr %9, align 8, !tbaa !7
+  %65 = load <8 x float>, ptr %18, align 32, !tbaa !19
+  %66 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %64, <8 x float> noundef %65, ptr noundef nonnull align 32 dereferenceable(32) %23, ptr noundef nonnull align 32 dereferenceable(32) %24)
+  store <8 x float> %66, ptr %18, align 32, !tbaa !19
+  %67 = load ptr, ptr %10, align 8, !tbaa !7
+  %68 = load <8 x float>, ptr %19, align 32, !tbaa !19
+  %69 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %67, <8 x float> noundef %68, ptr noundef nonnull align 32 dereferenceable(32) %23, ptr noundef nonnull align 32 dereferenceable(32) %24)
+  store <8 x float> %69, ptr %19, align 32, !tbaa !19
+  %70 = load <8 x float>, ptr %20, align 32, !tbaa !19
+  %71 = load <8 x float>, ptr %21, align 32, !tbaa !19
+  %72 = call noundef <8 x float> @_ZL13_mm256_mul_psDv8_fS_(<8 x float> noundef %70, <8 x float> noundef %71)
+  store <8 x float> %72, ptr %20, align 32, !tbaa !19
+  %73 = load ptr, ptr %16, align 8, !tbaa !24
+  %74 = load <8 x float>, ptr %17, align 32, !tbaa !19
+  %75 = load <8 x float>, ptr %18, align 32, !tbaa !19
+  %76 = load <8 x float>, ptr %19, align 32, !tbaa !19
+  %77 = load <8 x float>, ptr %20, align 32, !tbaa !19
+  call void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE3EE5StoreEPtDv8_fS4_S4_S4_(ptr noundef %73, <8 x float> noundef %74, <8 x float> noundef %75, <8 x float> noundef %76, <8 x float> noundef %77)
+  %78 = load ptr, ptr %15, align 8, !tbaa !7
+  %79 = getelementptr inbounds float, ptr %78, i64 32
+  store ptr %79, ptr %15, align 8, !tbaa !7
+  %80 = load ptr, ptr %16, align 8, !tbaa !24
+  %81 = getelementptr inbounds i16, ptr %80, i64 32
+  store ptr %81, ptr %16, align 8, !tbaa !24
+  br label %82
 
-for.end:                                          ; preds = %for.cond
-  %80 = load i32, ptr %remainder, align 4
-  %tobool = icmp ne i32 %80, 0
-  br i1 %tobool, label %if.then, label %if.end
+82:                                               ; preds = %59
+  %83 = load i32, ptr %27, align 4, !tbaa !10
+  %84 = add nsw i32 %83, 8
+  store i32 %84, ptr %27, align 4, !tbaa !10
+  br label %54, !llvm.loop !31
 
-if.then:                                          ; preds = %for.end
-  call void @llvm.memset.p0.i64(ptr align 16 %in_buf, i8 0, i64 128, i1 false)
-  store i32 0, ptr %i15, align 4
-  br label %for.cond16
+85:                                               ; preds = %58
+  %86 = load i32, ptr %26, align 4, !tbaa !10
+  %87 = icmp ne i32 %86, 0
+  br i1 %87, label %88, label %189
 
-for.cond16:                                       ; preds = %for.inc35, %if.then
-  %81 = load i32, ptr %i15, align 4
-  %82 = load i32, ptr %remainder, align 4
-  %mul17 = mul nsw i32 %82, 4
-  %cmp18 = icmp slt i32 %81, %mul17
-  br i1 %cmp18, label %for.body19, label %for.end37
+88:                                               ; preds = %85
+  call void @llvm.lifetime.start.p0(i64 128, ptr %28) #3
+  call void @llvm.memset.p0.i64(ptr align 16 %28, i8 0, i64 128, i1 false)
+  call void @llvm.lifetime.start.p0(i64 64, ptr %29) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #3
+  store i32 0, ptr %30, align 4, !tbaa !10
+  br label %89
 
-for.body19:                                       ; preds = %for.cond16
-  %83 = load ptr, ptr %src, align 8
-  %arrayidx = getelementptr inbounds float, ptr %83, i64 0
-  %84 = load float, ptr %arrayidx, align 4
-  %85 = load i32, ptr %i15, align 4
-  %add20 = add nsw i32 %85, 0
-  %idxprom = sext i32 %add20 to i64
-  %arrayidx21 = getelementptr inbounds [32 x float], ptr %in_buf, i64 0, i64 %idxprom
-  store float %84, ptr %arrayidx21, align 4
-  %86 = load ptr, ptr %src, align 8
-  %arrayidx22 = getelementptr inbounds float, ptr %86, i64 1
-  %87 = load float, ptr %arrayidx22, align 4
-  %88 = load i32, ptr %i15, align 4
-  %add23 = add nsw i32 %88, 1
-  %idxprom24 = sext i32 %add23 to i64
-  %arrayidx25 = getelementptr inbounds [32 x float], ptr %in_buf, i64 0, i64 %idxprom24
-  store float %87, ptr %arrayidx25, align 4
-  %89 = load ptr, ptr %src, align 8
-  %arrayidx26 = getelementptr inbounds float, ptr %89, i64 2
-  %90 = load float, ptr %arrayidx26, align 4
-  %91 = load i32, ptr %i15, align 4
-  %add27 = add nsw i32 %91, 2
-  %idxprom28 = sext i32 %add27 to i64
-  %arrayidx29 = getelementptr inbounds [32 x float], ptr %in_buf, i64 0, i64 %idxprom28
-  store float %90, ptr %arrayidx29, align 4
-  %92 = load ptr, ptr %src, align 8
-  %arrayidx30 = getelementptr inbounds float, ptr %92, i64 3
-  %93 = load float, ptr %arrayidx30, align 4
-  %94 = load i32, ptr %i15, align 4
-  %add31 = add nsw i32 %94, 3
-  %idxprom32 = sext i32 %add31 to i64
-  %arrayidx33 = getelementptr inbounds [32 x float], ptr %in_buf, i64 0, i64 %idxprom32
-  store float %93, ptr %arrayidx33, align 4
-  %95 = load ptr, ptr %src, align 8
-  %add.ptr34 = getelementptr inbounds float, ptr %95, i64 4
-  store ptr %add.ptr34, ptr %src, align 8
-  br label %for.inc35
+89:                                               ; preds = %126, %88
+  %90 = load i32, ptr %30, align 4, !tbaa !10
+  %91 = load i32, ptr %26, align 4, !tbaa !10
+  %92 = mul nsw i32 %91, 4
+  %93 = icmp slt i32 %90, %92
+  br i1 %93, label %95, label %94
 
-for.inc35:                                        ; preds = %for.body19
-  %96 = load i32, ptr %i15, align 4
-  %add36 = add nsw i32 %96, 4
-  store i32 %add36, ptr %i15, align 4
-  br label %for.cond16, !llvm.loop !12
+94:                                               ; preds = %89
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #3
+  br label %129
 
-for.end37:                                        ; preds = %for.cond16
-  %arraydecay = getelementptr inbounds [32 x float], ptr %in_buf, i64 0, i64 0
-  call void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE8EE4LoadEPKfRDv8_fS6_S6_S6_(ptr noundef %arraydecay, ptr noundef nonnull align 32 dereferenceable(32) %r, ptr noundef nonnull align 32 dereferenceable(32) %g, ptr noundef nonnull align 32 dereferenceable(32) %b, ptr noundef nonnull align 32 dereferenceable(32) %a)
-  %97 = load ptr, ptr %lutR.addr, align 8
-  %98 = load <8 x float>, ptr %r, align 32
-  %call38 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %97, <8 x float> noundef %98, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call38, ptr %r, align 32
-  %99 = load ptr, ptr %lutG.addr, align 8
-  %100 = load <8 x float>, ptr %g, align 32
-  %call39 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %99, <8 x float> noundef %100, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call39, ptr %g, align 32
-  %101 = load ptr, ptr %lutB.addr, align 8
-  %102 = load <8 x float>, ptr %b, align 32
-  %call40 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %101, <8 x float> noundef %102, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call40, ptr %b, align 32
-  %103 = load <8 x float>, ptr %a, align 32
-  %104 = load <8 x float>, ptr %alpha_scale, align 32
-  store <8 x float> %103, ptr %__a.addr.i, align 32
-  store <8 x float> %104, ptr %__b.addr.i, align 32
-  %105 = load <8 x float>, ptr %__a.addr.i, align 32
-  %106 = load <8 x float>, ptr %__b.addr.i, align 32
-  %mul.i = fmul <8 x float> %105, %106
-  store <8 x float> %mul.i, ptr %a, align 32
-  %arraydecay42 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 0
-  %107 = load <8 x float>, ptr %r, align 32
-  %108 = load <8 x float>, ptr %g, align 32
-  %109 = load <8 x float>, ptr %b, align 32
-  %110 = load <8 x float>, ptr %a, align 32
-  call void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE3EE5StoreEPtDv8_fS4_S4_S4_(ptr noundef %arraydecay42, <8 x float> noundef %107, <8 x float> noundef %108, <8 x float> noundef %109, <8 x float> noundef %110)
-  store i32 0, ptr %i43, align 4
-  br label %for.cond44
+95:                                               ; preds = %89
+  %96 = load ptr, ptr %15, align 8, !tbaa !7
+  %97 = getelementptr inbounds float, ptr %96, i64 0
+  %98 = load float, ptr %97, align 4, !tbaa !17
+  %99 = load i32, ptr %30, align 4, !tbaa !10
+  %100 = add nsw i32 %99, 0
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds [32 x float], ptr %28, i64 0, i64 %101
+  store float %98, ptr %102, align 4, !tbaa !17
+  %103 = load ptr, ptr %15, align 8, !tbaa !7
+  %104 = getelementptr inbounds float, ptr %103, i64 1
+  %105 = load float, ptr %104, align 4, !tbaa !17
+  %106 = load i32, ptr %30, align 4, !tbaa !10
+  %107 = add nsw i32 %106, 1
+  %108 = sext i32 %107 to i64
+  %109 = getelementptr inbounds [32 x float], ptr %28, i64 0, i64 %108
+  store float %105, ptr %109, align 4, !tbaa !17
+  %110 = load ptr, ptr %15, align 8, !tbaa !7
+  %111 = getelementptr inbounds float, ptr %110, i64 2
+  %112 = load float, ptr %111, align 4, !tbaa !17
+  %113 = load i32, ptr %30, align 4, !tbaa !10
+  %114 = add nsw i32 %113, 2
+  %115 = sext i32 %114 to i64
+  %116 = getelementptr inbounds [32 x float], ptr %28, i64 0, i64 %115
+  store float %112, ptr %116, align 4, !tbaa !17
+  %117 = load ptr, ptr %15, align 8, !tbaa !7
+  %118 = getelementptr inbounds float, ptr %117, i64 3
+  %119 = load float, ptr %118, align 4, !tbaa !17
+  %120 = load i32, ptr %30, align 4, !tbaa !10
+  %121 = add nsw i32 %120, 3
+  %122 = sext i32 %121 to i64
+  %123 = getelementptr inbounds [32 x float], ptr %28, i64 0, i64 %122
+  store float %119, ptr %123, align 4, !tbaa !17
+  %124 = load ptr, ptr %15, align 8, !tbaa !7
+  %125 = getelementptr inbounds float, ptr %124, i64 4
+  store ptr %125, ptr %15, align 8, !tbaa !7
+  br label %126
 
-for.cond44:                                       ; preds = %for.inc65, %for.end37
-  %111 = load i32, ptr %i43, align 4
-  %112 = load i32, ptr %remainder, align 4
-  %mul45 = mul nsw i32 %112, 4
-  %cmp46 = icmp slt i32 %111, %mul45
-  br i1 %cmp46, label %for.body47, label %for.end67
+126:                                              ; preds = %95
+  %127 = load i32, ptr %30, align 4, !tbaa !10
+  %128 = add nsw i32 %127, 4
+  store i32 %128, ptr %30, align 4, !tbaa !10
+  br label %89, !llvm.loop !32
 
-for.body47:                                       ; preds = %for.cond44
-  %113 = load i32, ptr %i43, align 4
-  %add48 = add nsw i32 %113, 0
-  %idxprom49 = sext i32 %add48 to i64
-  %arrayidx50 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 %idxprom49
-  %114 = load i16, ptr %arrayidx50, align 2
-  %115 = load ptr, ptr %dst, align 8
-  %arrayidx51 = getelementptr inbounds i16, ptr %115, i64 0
-  store i16 %114, ptr %arrayidx51, align 2
-  %116 = load i32, ptr %i43, align 4
-  %add52 = add nsw i32 %116, 1
-  %idxprom53 = sext i32 %add52 to i64
-  %arrayidx54 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 %idxprom53
-  %117 = load i16, ptr %arrayidx54, align 2
-  %118 = load ptr, ptr %dst, align 8
-  %arrayidx55 = getelementptr inbounds i16, ptr %118, i64 1
-  store i16 %117, ptr %arrayidx55, align 2
-  %119 = load i32, ptr %i43, align 4
-  %add56 = add nsw i32 %119, 2
-  %idxprom57 = sext i32 %add56 to i64
-  %arrayidx58 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 %idxprom57
-  %120 = load i16, ptr %arrayidx58, align 2
-  %121 = load ptr, ptr %dst, align 8
-  %arrayidx59 = getelementptr inbounds i16, ptr %121, i64 2
-  store i16 %120, ptr %arrayidx59, align 2
-  %122 = load i32, ptr %i43, align 4
-  %add60 = add nsw i32 %122, 3
-  %idxprom61 = sext i32 %add60 to i64
-  %arrayidx62 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 %idxprom61
-  %123 = load i16, ptr %arrayidx62, align 2
-  %124 = load ptr, ptr %dst, align 8
-  %arrayidx63 = getelementptr inbounds i16, ptr %124, i64 3
-  store i16 %123, ptr %arrayidx63, align 2
-  %125 = load ptr, ptr %dst, align 8
-  %add.ptr64 = getelementptr inbounds i16, ptr %125, i64 4
-  store ptr %add.ptr64, ptr %dst, align 8
-  br label %for.inc65
+129:                                              ; preds = %94
+  %130 = getelementptr inbounds [32 x float], ptr %28, i64 0, i64 0
+  call void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE8EE4LoadEPKfRDv8_fS6_S6_S6_(ptr noundef %130, ptr noundef nonnull align 32 dereferenceable(32) %17, ptr noundef nonnull align 32 dereferenceable(32) %18, ptr noundef nonnull align 32 dereferenceable(32) %19, ptr noundef nonnull align 32 dereferenceable(32) %20)
+  %131 = load ptr, ptr %8, align 8, !tbaa !7
+  %132 = load <8 x float>, ptr %17, align 32, !tbaa !19
+  %133 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %131, <8 x float> noundef %132, ptr noundef nonnull align 32 dereferenceable(32) %23, ptr noundef nonnull align 32 dereferenceable(32) %24)
+  store <8 x float> %133, ptr %17, align 32, !tbaa !19
+  %134 = load ptr, ptr %9, align 8, !tbaa !7
+  %135 = load <8 x float>, ptr %18, align 32, !tbaa !19
+  %136 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %134, <8 x float> noundef %135, ptr noundef nonnull align 32 dereferenceable(32) %23, ptr noundef nonnull align 32 dereferenceable(32) %24)
+  store <8 x float> %136, ptr %18, align 32, !tbaa !19
+  %137 = load ptr, ptr %10, align 8, !tbaa !7
+  %138 = load <8 x float>, ptr %19, align 32, !tbaa !19
+  %139 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %137, <8 x float> noundef %138, ptr noundef nonnull align 32 dereferenceable(32) %23, ptr noundef nonnull align 32 dereferenceable(32) %24)
+  store <8 x float> %139, ptr %19, align 32, !tbaa !19
+  %140 = load <8 x float>, ptr %20, align 32, !tbaa !19
+  %141 = load <8 x float>, ptr %21, align 32, !tbaa !19
+  %142 = call noundef <8 x float> @_ZL13_mm256_mul_psDv8_fS_(<8 x float> noundef %140, <8 x float> noundef %141)
+  store <8 x float> %142, ptr %20, align 32, !tbaa !19
+  %143 = getelementptr inbounds [32 x i16], ptr %29, i64 0, i64 0
+  %144 = load <8 x float>, ptr %17, align 32, !tbaa !19
+  %145 = load <8 x float>, ptr %18, align 32, !tbaa !19
+  %146 = load <8 x float>, ptr %19, align 32, !tbaa !19
+  %147 = load <8 x float>, ptr %20, align 32, !tbaa !19
+  call void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE3EE5StoreEPtDv8_fS4_S4_S4_(ptr noundef %143, <8 x float> noundef %144, <8 x float> noundef %145, <8 x float> noundef %146, <8 x float> noundef %147)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %31) #3
+  store i32 0, ptr %31, align 4, !tbaa !10
+  br label %148
 
-for.inc65:                                        ; preds = %for.body47
-  %126 = load i32, ptr %i43, align 4
-  %add66 = add nsw i32 %126, 4
-  store i32 %add66, ptr %i43, align 4
-  br label %for.cond44, !llvm.loop !13
+148:                                              ; preds = %185, %129
+  %149 = load i32, ptr %31, align 4, !tbaa !10
+  %150 = load i32, ptr %26, align 4, !tbaa !10
+  %151 = mul nsw i32 %150, 4
+  %152 = icmp slt i32 %149, %151
+  br i1 %152, label %154, label %153
 
-for.end67:                                        ; preds = %for.cond44
-  br label %if.end
+153:                                              ; preds = %148
+  call void @llvm.lifetime.end.p0(i64 4, ptr %31) #3
+  br label %188
 
-if.end:                                           ; preds = %for.end67, %for.end
+154:                                              ; preds = %148
+  %155 = load i32, ptr %31, align 4, !tbaa !10
+  %156 = add nsw i32 %155, 0
+  %157 = sext i32 %156 to i64
+  %158 = getelementptr inbounds [32 x i16], ptr %29, i64 0, i64 %157
+  %159 = load i16, ptr %158, align 2, !tbaa !28
+  %160 = load ptr, ptr %16, align 8, !tbaa !24
+  %161 = getelementptr inbounds i16, ptr %160, i64 0
+  store i16 %159, ptr %161, align 2, !tbaa !28
+  %162 = load i32, ptr %31, align 4, !tbaa !10
+  %163 = add nsw i32 %162, 1
+  %164 = sext i32 %163 to i64
+  %165 = getelementptr inbounds [32 x i16], ptr %29, i64 0, i64 %164
+  %166 = load i16, ptr %165, align 2, !tbaa !28
+  %167 = load ptr, ptr %16, align 8, !tbaa !24
+  %168 = getelementptr inbounds i16, ptr %167, i64 1
+  store i16 %166, ptr %168, align 2, !tbaa !28
+  %169 = load i32, ptr %31, align 4, !tbaa !10
+  %170 = add nsw i32 %169, 2
+  %171 = sext i32 %170 to i64
+  %172 = getelementptr inbounds [32 x i16], ptr %29, i64 0, i64 %171
+  %173 = load i16, ptr %172, align 2, !tbaa !28
+  %174 = load ptr, ptr %16, align 8, !tbaa !24
+  %175 = getelementptr inbounds i16, ptr %174, i64 2
+  store i16 %173, ptr %175, align 2, !tbaa !28
+  %176 = load i32, ptr %31, align 4, !tbaa !10
+  %177 = add nsw i32 %176, 3
+  %178 = sext i32 %177 to i64
+  %179 = getelementptr inbounds [32 x i16], ptr %29, i64 0, i64 %178
+  %180 = load i16, ptr %179, align 2, !tbaa !28
+  %181 = load ptr, ptr %16, align 8, !tbaa !24
+  %182 = getelementptr inbounds i16, ptr %181, i64 3
+  store i16 %180, ptr %182, align 2, !tbaa !28
+  %183 = load ptr, ptr %16, align 8, !tbaa !24
+  %184 = getelementptr inbounds i16, ptr %183, i64 4
+  store ptr %184, ptr %16, align 8, !tbaa !24
+  br label %185
+
+185:                                              ; preds = %154
+  %186 = load i32, ptr %31, align 4, !tbaa !10
+  %187 = add nsw i32 %186, 4
+  store i32 %187, ptr %31, align 4, !tbaa !10
+  br label %148, !llvm.loop !33
+
+188:                                              ; preds = %153
+  call void @llvm.lifetime.end.p0(i64 64, ptr %29) #3
+  call void @llvm.lifetime.end.p0(i64 128, ptr %28) #3
+  br label %189
+
+189:                                              ; preds = %188, %85
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %24) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %23) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_5EEEvPKfS4_S4_iPKvPvl(ptr noundef %lutR, ptr noundef %lutG, ptr noundef %lutB, i32 noundef %dim, ptr noundef %inImg, ptr noundef %outImg, i64 noundef %numPixels) #5 {
-entry:
-  %__a.addr.i94 = alloca float, align 4
-  %__b.addr.i95 = alloca float, align 4
-  %__c.addr.i96 = alloca float, align 4
-  %__d.addr.i97 = alloca float, align 4
-  %__e.addr.i98 = alloca float, align 4
-  %__f.addr.i99 = alloca float, align 4
-  %__g.addr.i100 = alloca float, align 4
-  %__h.addr.i101 = alloca float, align 4
-  %.compoundliteral.i102 = alloca <8 x float>, align 32
-  %__a.addr.i77 = alloca float, align 4
-  %__b.addr.i78 = alloca float, align 4
-  %__c.addr.i79 = alloca float, align 4
-  %__d.addr.i80 = alloca float, align 4
-  %__e.addr.i81 = alloca float, align 4
-  %__f.addr.i82 = alloca float, align 4
-  %__g.addr.i83 = alloca float, align 4
-  %__h.addr.i84 = alloca float, align 4
-  %.compoundliteral.i85 = alloca <8 x float>, align 32
-  %__a.addr.i75 = alloca float, align 4
-  %__b.addr.i76 = alloca float, align 4
-  %__c.addr.i = alloca float, align 4
-  %__d.addr.i = alloca float, align 4
-  %__e.addr.i = alloca float, align 4
-  %__f.addr.i = alloca float, align 4
-  %__g.addr.i = alloca float, align 4
-  %__h.addr.i = alloca float, align 4
-  %.compoundliteral.i = alloca <8 x float>, align 32
-  %__a.addr.i72 = alloca <8 x float>, align 32
-  %__b.addr.i73 = alloca <8 x float>, align 32
-  %__a.addr.i = alloca <8 x float>, align 32
-  %__b.addr.i = alloca <8 x float>, align 32
-  %__w.addr.i70 = alloca float, align 4
-  %__w.addr.i68 = alloca float, align 4
-  %__w.addr.i = alloca float, align 4
-  %lutR.addr = alloca ptr, align 8
-  %lutG.addr = alloca ptr, align 8
-  %lutB.addr = alloca ptr, align 8
-  %dim.addr = alloca i32, align 4
-  %inImg.addr = alloca ptr, align 8
-  %outImg.addr = alloca ptr, align 8
-  %numPixels.addr = alloca i64, align 8
-  %src = alloca ptr, align 8
-  %dst = alloca ptr, align 8
-  %r = alloca <8 x float>, align 32
-  %g = alloca <8 x float>, align 32
-  %b = alloca <8 x float>, align 32
-  %a = alloca <8 x float>, align 32
-  %alpha_scale = alloca <8 x float>, align 32
-  %rgb_scale = alloca float, align 4
-  %lut_scale = alloca <8 x float>, align 32
-  %lut_max = alloca <8 x float>, align 32
-  %pixel_count = alloca i32, align 4
-  %remainder = alloca i32, align 4
-  %i = alloca i32, align 4
-  %in_buf = alloca [32 x float], align 16
-  %out_buf = alloca [32 x i16], align 16
-  %i15 = alloca i32, align 4
-  %i43 = alloca i32, align 4
-  store ptr %lutR, ptr %lutR.addr, align 8
-  store ptr %lutG, ptr %lutG.addr, align 8
-  store ptr %lutB, ptr %lutB.addr, align 8
-  store i32 %dim, ptr %dim.addr, align 4
-  store ptr %inImg, ptr %inImg.addr, align 8
-  store ptr %outImg, ptr %outImg.addr, align 8
-  store i64 %numPixels, ptr %numPixels.addr, align 8
-  %0 = load ptr, ptr %inImg.addr, align 8
-  store ptr %0, ptr %src, align 8
-  %1 = load ptr, ptr %outImg.addr, align 8
-  store ptr %1, ptr %dst, align 8
-  %2 = load i32, ptr %dim.addr, align 4
-  %conv = sitofp i32 %2 to float
-  %sub = fsub float %conv, 1.000000e+00
-  %mul = fmul float 1.000000e+00, %sub
-  store float %mul, ptr %rgb_scale, align 4
-  %3 = load float, ptr %rgb_scale, align 4
-  store float %3, ptr %__w.addr.i70, align 4
-  %4 = load float, ptr %__w.addr.i70, align 4
-  %5 = load float, ptr %__w.addr.i70, align 4
-  %6 = load float, ptr %__w.addr.i70, align 4
-  %7 = load float, ptr %__w.addr.i70, align 4
-  %8 = load float, ptr %__w.addr.i70, align 4
-  %9 = load float, ptr %__w.addr.i70, align 4
-  %10 = load float, ptr %__w.addr.i70, align 4
-  %11 = load float, ptr %__w.addr.i70, align 4
-  store float %4, ptr %__a.addr.i75, align 4
-  store float %5, ptr %__b.addr.i76, align 4
-  store float %6, ptr %__c.addr.i, align 4
-  store float %7, ptr %__d.addr.i, align 4
-  store float %8, ptr %__e.addr.i, align 4
-  store float %9, ptr %__f.addr.i, align 4
-  store float %10, ptr %__g.addr.i, align 4
-  store float %11, ptr %__h.addr.i, align 4
-  %12 = load float, ptr %__h.addr.i, align 4
-  %vecinit.i = insertelement <8 x float> undef, float %12, i32 0
-  %13 = load float, ptr %__g.addr.i, align 4
-  %vecinit1.i = insertelement <8 x float> %vecinit.i, float %13, i32 1
-  %14 = load float, ptr %__f.addr.i, align 4
-  %vecinit2.i = insertelement <8 x float> %vecinit1.i, float %14, i32 2
-  %15 = load float, ptr %__e.addr.i, align 4
-  %vecinit3.i = insertelement <8 x float> %vecinit2.i, float %15, i32 3
-  %16 = load float, ptr %__d.addr.i, align 4
-  %vecinit4.i = insertelement <8 x float> %vecinit3.i, float %16, i32 4
-  %17 = load float, ptr %__c.addr.i, align 4
-  %vecinit5.i = insertelement <8 x float> %vecinit4.i, float %17, i32 5
-  %18 = load float, ptr %__b.addr.i76, align 4
-  %vecinit6.i = insertelement <8 x float> %vecinit5.i, float %18, i32 6
-  %19 = load float, ptr %__a.addr.i75, align 4
-  %vecinit7.i = insertelement <8 x float> %vecinit6.i, float %19, i32 7
-  store <8 x float> %vecinit7.i, ptr %.compoundliteral.i, align 32
-  %20 = load <8 x float>, ptr %.compoundliteral.i, align 32
-  store <8 x float> %20, ptr %lut_scale, align 32
-  %21 = load i32, ptr %dim.addr, align 4
-  %conv1 = sitofp i32 %21 to float
-  %sub2 = fsub float %conv1, 1.000000e+00
-  store float %sub2, ptr %__w.addr.i68, align 4
-  %22 = load float, ptr %__w.addr.i68, align 4
-  %23 = load float, ptr %__w.addr.i68, align 4
-  %24 = load float, ptr %__w.addr.i68, align 4
-  %25 = load float, ptr %__w.addr.i68, align 4
-  %26 = load float, ptr %__w.addr.i68, align 4
-  %27 = load float, ptr %__w.addr.i68, align 4
-  %28 = load float, ptr %__w.addr.i68, align 4
-  %29 = load float, ptr %__w.addr.i68, align 4
-  store float %22, ptr %__a.addr.i77, align 4
-  store float %23, ptr %__b.addr.i78, align 4
-  store float %24, ptr %__c.addr.i79, align 4
-  store float %25, ptr %__d.addr.i80, align 4
-  store float %26, ptr %__e.addr.i81, align 4
-  store float %27, ptr %__f.addr.i82, align 4
-  store float %28, ptr %__g.addr.i83, align 4
-  store float %29, ptr %__h.addr.i84, align 4
-  %30 = load float, ptr %__h.addr.i84, align 4
-  %vecinit.i86 = insertelement <8 x float> undef, float %30, i32 0
-  %31 = load float, ptr %__g.addr.i83, align 4
-  %vecinit1.i87 = insertelement <8 x float> %vecinit.i86, float %31, i32 1
-  %32 = load float, ptr %__f.addr.i82, align 4
-  %vecinit2.i88 = insertelement <8 x float> %vecinit1.i87, float %32, i32 2
-  %33 = load float, ptr %__e.addr.i81, align 4
-  %vecinit3.i89 = insertelement <8 x float> %vecinit2.i88, float %33, i32 3
-  %34 = load float, ptr %__d.addr.i80, align 4
-  %vecinit4.i90 = insertelement <8 x float> %vecinit3.i89, float %34, i32 4
-  %35 = load float, ptr %__c.addr.i79, align 4
-  %vecinit5.i91 = insertelement <8 x float> %vecinit4.i90, float %35, i32 5
-  %36 = load float, ptr %__b.addr.i78, align 4
-  %vecinit6.i92 = insertelement <8 x float> %vecinit5.i91, float %36, i32 6
-  %37 = load float, ptr %__a.addr.i77, align 4
-  %vecinit7.i93 = insertelement <8 x float> %vecinit6.i92, float %37, i32 7
-  store <8 x float> %vecinit7.i93, ptr %.compoundliteral.i85, align 32
-  %38 = load <8 x float>, ptr %.compoundliteral.i85, align 32
-  store <8 x float> %38, ptr %lut_max, align 32
-  store float 6.553500e+04, ptr %__w.addr.i, align 4
-  %39 = load float, ptr %__w.addr.i, align 4
-  %40 = load float, ptr %__w.addr.i, align 4
-  %41 = load float, ptr %__w.addr.i, align 4
-  %42 = load float, ptr %__w.addr.i, align 4
-  %43 = load float, ptr %__w.addr.i, align 4
-  %44 = load float, ptr %__w.addr.i, align 4
-  %45 = load float, ptr %__w.addr.i, align 4
-  %46 = load float, ptr %__w.addr.i, align 4
-  store float %39, ptr %__a.addr.i94, align 4
-  store float %40, ptr %__b.addr.i95, align 4
-  store float %41, ptr %__c.addr.i96, align 4
-  store float %42, ptr %__d.addr.i97, align 4
-  store float %43, ptr %__e.addr.i98, align 4
-  store float %44, ptr %__f.addr.i99, align 4
-  store float %45, ptr %__g.addr.i100, align 4
-  store float %46, ptr %__h.addr.i101, align 4
-  %47 = load float, ptr %__h.addr.i101, align 4
-  %vecinit.i103 = insertelement <8 x float> undef, float %47, i32 0
-  %48 = load float, ptr %__g.addr.i100, align 4
-  %vecinit1.i104 = insertelement <8 x float> %vecinit.i103, float %48, i32 1
-  %49 = load float, ptr %__f.addr.i99, align 4
-  %vecinit2.i105 = insertelement <8 x float> %vecinit1.i104, float %49, i32 2
-  %50 = load float, ptr %__e.addr.i98, align 4
-  %vecinit3.i106 = insertelement <8 x float> %vecinit2.i105, float %50, i32 3
-  %51 = load float, ptr %__d.addr.i97, align 4
-  %vecinit4.i107 = insertelement <8 x float> %vecinit3.i106, float %51, i32 4
-  %52 = load float, ptr %__c.addr.i96, align 4
-  %vecinit5.i108 = insertelement <8 x float> %vecinit4.i107, float %52, i32 5
-  %53 = load float, ptr %__b.addr.i95, align 4
-  %vecinit6.i109 = insertelement <8 x float> %vecinit5.i108, float %53, i32 6
-  %54 = load float, ptr %__a.addr.i94, align 4
-  %vecinit7.i110 = insertelement <8 x float> %vecinit6.i109, float %54, i32 7
-  store <8 x float> %vecinit7.i110, ptr %.compoundliteral.i102, align 32
-  %55 = load <8 x float>, ptr %.compoundliteral.i102, align 32
-  store <8 x float> %55, ptr %alpha_scale, align 32
-  %56 = load i64, ptr %numPixels.addr, align 8
-  %div = sdiv i64 %56, 8
-  %mul5 = mul nsw i64 %div, 8
-  %conv6 = trunc i64 %mul5 to i32
-  store i32 %conv6, ptr %pixel_count, align 4
-  %57 = load i64, ptr %numPixels.addr, align 8
-  %58 = load i32, ptr %pixel_count, align 4
-  %conv7 = sext i32 %58 to i64
-  %sub8 = sub nsw i64 %57, %conv7
-  %conv9 = trunc i64 %sub8 to i32
-  store i32 %conv9, ptr %remainder, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_5EEEvPKfS4_S4_iPKvPvl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6) #6 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca <8 x float>, align 32
+  %18 = alloca <8 x float>, align 32
+  %19 = alloca <8 x float>, align 32
+  %20 = alloca <8 x float>, align 32
+  %21 = alloca <8 x float>, align 32
+  %22 = alloca float, align 4
+  %23 = alloca <8 x float>, align 32
+  %24 = alloca <8 x float>, align 32
+  %25 = alloca i32, align 4
+  %26 = alloca i32, align 4
+  %27 = alloca i32, align 4
+  %28 = alloca [32 x float], align 16
+  %29 = alloca [32 x i16], align 16
+  %30 = alloca i32, align 4
+  %31 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !7
+  store ptr %1, ptr %9, align 8, !tbaa !7
+  store ptr %2, ptr %10, align 8, !tbaa !7
+  store i32 %3, ptr %11, align 4, !tbaa !10
+  store ptr %4, ptr %12, align 8, !tbaa !12
+  store ptr %5, ptr %13, align 8, !tbaa !12
+  store i64 %6, ptr %14, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  %32 = load ptr, ptr %12, align 8, !tbaa !12
+  store ptr %32, ptr %15, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
+  %33 = load ptr, ptr %13, align 8, !tbaa !12
+  store ptr %33, ptr %16, align 8, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 32, ptr %17) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %18) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %19) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %20) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %21) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #3
+  %34 = load i32, ptr %11, align 4, !tbaa !10
+  %35 = sitofp i32 %34 to float
+  %36 = fsub float %35, 1.000000e+00
+  %37 = fmul float 1.000000e+00, %36
+  store float %37, ptr %22, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 32, ptr %23) #3
+  %38 = load float, ptr %22, align 4, !tbaa !17
+  %39 = call noundef <8 x float> @_ZL14_mm256_set1_psf(float noundef %38)
+  store <8 x float> %39, ptr %23, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %24) #3
+  %40 = load i32, ptr %11, align 4, !tbaa !10
+  %41 = sitofp i32 %40 to float
+  %42 = fsub float %41, 1.000000e+00
+  %43 = call noundef <8 x float> @_ZL14_mm256_set1_psf(float noundef %42)
+  store <8 x float> %43, ptr %24, align 32, !tbaa !19
+  %44 = call noundef <8 x float> @_ZL14_mm256_set1_psf(float noundef 6.553500e+04)
+  store <8 x float> %44, ptr %21, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #3
+  %45 = load i64, ptr %14, align 8, !tbaa !13
+  %46 = sdiv i64 %45, 8
+  %47 = mul nsw i64 %46, 8
+  %48 = trunc i64 %47 to i32
+  store i32 %48, ptr %25, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #3
+  %49 = load i64, ptr %14, align 8, !tbaa !13
+  %50 = load i32, ptr %25, align 4, !tbaa !10
+  %51 = sext i32 %50 to i64
+  %52 = sub nsw i64 %49, %51
+  %53 = trunc i64 %52 to i32
+  store i32 %53, ptr %26, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #3
+  store i32 0, ptr %27, align 4, !tbaa !10
+  br label %54
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %59 = load i32, ptr %i, align 4
-  %60 = load i32, ptr %pixel_count, align 4
-  %cmp = icmp slt i32 %59, %60
-  br i1 %cmp, label %for.body, label %for.end
+54:                                               ; preds = %82, %7
+  %55 = load i32, ptr %27, align 4, !tbaa !10
+  %56 = load i32, ptr %25, align 4, !tbaa !10
+  %57 = icmp slt i32 %55, %56
+  br i1 %57, label %59, label %58
 
-for.body:                                         ; preds = %for.cond
-  %61 = load ptr, ptr %src, align 8
-  call void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE8EE4LoadEPKfRDv8_fS6_S6_S6_(ptr noundef %61, ptr noundef nonnull align 32 dereferenceable(32) %r, ptr noundef nonnull align 32 dereferenceable(32) %g, ptr noundef nonnull align 32 dereferenceable(32) %b, ptr noundef nonnull align 32 dereferenceable(32) %a)
-  %62 = load ptr, ptr %lutR.addr, align 8
-  %63 = load <8 x float>, ptr %r, align 32
-  %call10 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %62, <8 x float> noundef %63, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call10, ptr %r, align 32
-  %64 = load ptr, ptr %lutG.addr, align 8
-  %65 = load <8 x float>, ptr %g, align 32
-  %call11 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %64, <8 x float> noundef %65, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call11, ptr %g, align 32
-  %66 = load ptr, ptr %lutB.addr, align 8
-  %67 = load <8 x float>, ptr %b, align 32
-  %call12 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %66, <8 x float> noundef %67, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call12, ptr %b, align 32
-  %68 = load <8 x float>, ptr %a, align 32
-  %69 = load <8 x float>, ptr %alpha_scale, align 32
-  store <8 x float> %68, ptr %__a.addr.i72, align 32
-  store <8 x float> %69, ptr %__b.addr.i73, align 32
-  %70 = load <8 x float>, ptr %__a.addr.i72, align 32
-  %71 = load <8 x float>, ptr %__b.addr.i73, align 32
-  %mul.i74 = fmul <8 x float> %70, %71
-  store <8 x float> %mul.i74, ptr %a, align 32
-  %72 = load ptr, ptr %dst, align 8
-  %73 = load <8 x float>, ptr %r, align 32
-  %74 = load <8 x float>, ptr %g, align 32
-  %75 = load <8 x float>, ptr %b, align 32
-  %76 = load <8 x float>, ptr %a, align 32
-  call void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE5EE5StoreEPtDv8_fS4_S4_S4_(ptr noundef %72, <8 x float> noundef %73, <8 x float> noundef %74, <8 x float> noundef %75, <8 x float> noundef %76)
-  %77 = load ptr, ptr %src, align 8
-  %add.ptr = getelementptr inbounds float, ptr %77, i64 32
-  store ptr %add.ptr, ptr %src, align 8
-  %78 = load ptr, ptr %dst, align 8
-  %add.ptr14 = getelementptr inbounds i16, ptr %78, i64 32
-  store ptr %add.ptr14, ptr %dst, align 8
-  br label %for.inc
+58:                                               ; preds = %54
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #3
+  br label %85
 
-for.inc:                                          ; preds = %for.body
-  %79 = load i32, ptr %i, align 4
-  %add = add nsw i32 %79, 8
-  store i32 %add, ptr %i, align 4
-  br label %for.cond, !llvm.loop !14
+59:                                               ; preds = %54
+  %60 = load ptr, ptr %15, align 8, !tbaa !7
+  call void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE8EE4LoadEPKfRDv8_fS6_S6_S6_(ptr noundef %60, ptr noundef nonnull align 32 dereferenceable(32) %17, ptr noundef nonnull align 32 dereferenceable(32) %18, ptr noundef nonnull align 32 dereferenceable(32) %19, ptr noundef nonnull align 32 dereferenceable(32) %20)
+  %61 = load ptr, ptr %8, align 8, !tbaa !7
+  %62 = load <8 x float>, ptr %17, align 32, !tbaa !19
+  %63 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %61, <8 x float> noundef %62, ptr noundef nonnull align 32 dereferenceable(32) %23, ptr noundef nonnull align 32 dereferenceable(32) %24)
+  store <8 x float> %63, ptr %17, align 32, !tbaa !19
+  %64 = load ptr, ptr %9, align 8, !tbaa !7
+  %65 = load <8 x float>, ptr %18, align 32, !tbaa !19
+  %66 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %64, <8 x float> noundef %65, ptr noundef nonnull align 32 dereferenceable(32) %23, ptr noundef nonnull align 32 dereferenceable(32) %24)
+  store <8 x float> %66, ptr %18, align 32, !tbaa !19
+  %67 = load ptr, ptr %10, align 8, !tbaa !7
+  %68 = load <8 x float>, ptr %19, align 32, !tbaa !19
+  %69 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %67, <8 x float> noundef %68, ptr noundef nonnull align 32 dereferenceable(32) %23, ptr noundef nonnull align 32 dereferenceable(32) %24)
+  store <8 x float> %69, ptr %19, align 32, !tbaa !19
+  %70 = load <8 x float>, ptr %20, align 32, !tbaa !19
+  %71 = load <8 x float>, ptr %21, align 32, !tbaa !19
+  %72 = call noundef <8 x float> @_ZL13_mm256_mul_psDv8_fS_(<8 x float> noundef %70, <8 x float> noundef %71)
+  store <8 x float> %72, ptr %20, align 32, !tbaa !19
+  %73 = load ptr, ptr %16, align 8, !tbaa !24
+  %74 = load <8 x float>, ptr %17, align 32, !tbaa !19
+  %75 = load <8 x float>, ptr %18, align 32, !tbaa !19
+  %76 = load <8 x float>, ptr %19, align 32, !tbaa !19
+  %77 = load <8 x float>, ptr %20, align 32, !tbaa !19
+  call void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE5EE5StoreEPtDv8_fS4_S4_S4_(ptr noundef %73, <8 x float> noundef %74, <8 x float> noundef %75, <8 x float> noundef %76, <8 x float> noundef %77)
+  %78 = load ptr, ptr %15, align 8, !tbaa !7
+  %79 = getelementptr inbounds float, ptr %78, i64 32
+  store ptr %79, ptr %15, align 8, !tbaa !7
+  %80 = load ptr, ptr %16, align 8, !tbaa !24
+  %81 = getelementptr inbounds i16, ptr %80, i64 32
+  store ptr %81, ptr %16, align 8, !tbaa !24
+  br label %82
 
-for.end:                                          ; preds = %for.cond
-  %80 = load i32, ptr %remainder, align 4
-  %tobool = icmp ne i32 %80, 0
-  br i1 %tobool, label %if.then, label %if.end
+82:                                               ; preds = %59
+  %83 = load i32, ptr %27, align 4, !tbaa !10
+  %84 = add nsw i32 %83, 8
+  store i32 %84, ptr %27, align 4, !tbaa !10
+  br label %54, !llvm.loop !34
 
-if.then:                                          ; preds = %for.end
-  call void @llvm.memset.p0.i64(ptr align 16 %in_buf, i8 0, i64 128, i1 false)
-  store i32 0, ptr %i15, align 4
-  br label %for.cond16
+85:                                               ; preds = %58
+  %86 = load i32, ptr %26, align 4, !tbaa !10
+  %87 = icmp ne i32 %86, 0
+  br i1 %87, label %88, label %189
 
-for.cond16:                                       ; preds = %for.inc35, %if.then
-  %81 = load i32, ptr %i15, align 4
-  %82 = load i32, ptr %remainder, align 4
-  %mul17 = mul nsw i32 %82, 4
-  %cmp18 = icmp slt i32 %81, %mul17
-  br i1 %cmp18, label %for.body19, label %for.end37
+88:                                               ; preds = %85
+  call void @llvm.lifetime.start.p0(i64 128, ptr %28) #3
+  call void @llvm.memset.p0.i64(ptr align 16 %28, i8 0, i64 128, i1 false)
+  call void @llvm.lifetime.start.p0(i64 64, ptr %29) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #3
+  store i32 0, ptr %30, align 4, !tbaa !10
+  br label %89
 
-for.body19:                                       ; preds = %for.cond16
-  %83 = load ptr, ptr %src, align 8
-  %arrayidx = getelementptr inbounds float, ptr %83, i64 0
-  %84 = load float, ptr %arrayidx, align 4
-  %85 = load i32, ptr %i15, align 4
-  %add20 = add nsw i32 %85, 0
-  %idxprom = sext i32 %add20 to i64
-  %arrayidx21 = getelementptr inbounds [32 x float], ptr %in_buf, i64 0, i64 %idxprom
-  store float %84, ptr %arrayidx21, align 4
-  %86 = load ptr, ptr %src, align 8
-  %arrayidx22 = getelementptr inbounds float, ptr %86, i64 1
-  %87 = load float, ptr %arrayidx22, align 4
-  %88 = load i32, ptr %i15, align 4
-  %add23 = add nsw i32 %88, 1
-  %idxprom24 = sext i32 %add23 to i64
-  %arrayidx25 = getelementptr inbounds [32 x float], ptr %in_buf, i64 0, i64 %idxprom24
-  store float %87, ptr %arrayidx25, align 4
-  %89 = load ptr, ptr %src, align 8
-  %arrayidx26 = getelementptr inbounds float, ptr %89, i64 2
-  %90 = load float, ptr %arrayidx26, align 4
-  %91 = load i32, ptr %i15, align 4
-  %add27 = add nsw i32 %91, 2
-  %idxprom28 = sext i32 %add27 to i64
-  %arrayidx29 = getelementptr inbounds [32 x float], ptr %in_buf, i64 0, i64 %idxprom28
-  store float %90, ptr %arrayidx29, align 4
-  %92 = load ptr, ptr %src, align 8
-  %arrayidx30 = getelementptr inbounds float, ptr %92, i64 3
-  %93 = load float, ptr %arrayidx30, align 4
-  %94 = load i32, ptr %i15, align 4
-  %add31 = add nsw i32 %94, 3
-  %idxprom32 = sext i32 %add31 to i64
-  %arrayidx33 = getelementptr inbounds [32 x float], ptr %in_buf, i64 0, i64 %idxprom32
-  store float %93, ptr %arrayidx33, align 4
-  %95 = load ptr, ptr %src, align 8
-  %add.ptr34 = getelementptr inbounds float, ptr %95, i64 4
-  store ptr %add.ptr34, ptr %src, align 8
-  br label %for.inc35
+89:                                               ; preds = %126, %88
+  %90 = load i32, ptr %30, align 4, !tbaa !10
+  %91 = load i32, ptr %26, align 4, !tbaa !10
+  %92 = mul nsw i32 %91, 4
+  %93 = icmp slt i32 %90, %92
+  br i1 %93, label %95, label %94
 
-for.inc35:                                        ; preds = %for.body19
-  %96 = load i32, ptr %i15, align 4
-  %add36 = add nsw i32 %96, 4
-  store i32 %add36, ptr %i15, align 4
-  br label %for.cond16, !llvm.loop !15
+94:                                               ; preds = %89
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #3
+  br label %129
 
-for.end37:                                        ; preds = %for.cond16
-  %arraydecay = getelementptr inbounds [32 x float], ptr %in_buf, i64 0, i64 0
-  call void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE8EE4LoadEPKfRDv8_fS6_S6_S6_(ptr noundef %arraydecay, ptr noundef nonnull align 32 dereferenceable(32) %r, ptr noundef nonnull align 32 dereferenceable(32) %g, ptr noundef nonnull align 32 dereferenceable(32) %b, ptr noundef nonnull align 32 dereferenceable(32) %a)
-  %97 = load ptr, ptr %lutR.addr, align 8
-  %98 = load <8 x float>, ptr %r, align 32
-  %call38 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %97, <8 x float> noundef %98, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call38, ptr %r, align 32
-  %99 = load ptr, ptr %lutG.addr, align 8
-  %100 = load <8 x float>, ptr %g, align 32
-  %call39 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %99, <8 x float> noundef %100, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call39, ptr %g, align 32
-  %101 = load ptr, ptr %lutB.addr, align 8
-  %102 = load <8 x float>, ptr %b, align 32
-  %call40 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %101, <8 x float> noundef %102, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call40, ptr %b, align 32
-  %103 = load <8 x float>, ptr %a, align 32
-  %104 = load <8 x float>, ptr %alpha_scale, align 32
-  store <8 x float> %103, ptr %__a.addr.i, align 32
-  store <8 x float> %104, ptr %__b.addr.i, align 32
-  %105 = load <8 x float>, ptr %__a.addr.i, align 32
-  %106 = load <8 x float>, ptr %__b.addr.i, align 32
-  %mul.i = fmul <8 x float> %105, %106
-  store <8 x float> %mul.i, ptr %a, align 32
-  %arraydecay42 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 0
-  %107 = load <8 x float>, ptr %r, align 32
-  %108 = load <8 x float>, ptr %g, align 32
-  %109 = load <8 x float>, ptr %b, align 32
-  %110 = load <8 x float>, ptr %a, align 32
-  call void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE5EE5StoreEPtDv8_fS4_S4_S4_(ptr noundef %arraydecay42, <8 x float> noundef %107, <8 x float> noundef %108, <8 x float> noundef %109, <8 x float> noundef %110)
-  store i32 0, ptr %i43, align 4
-  br label %for.cond44
+95:                                               ; preds = %89
+  %96 = load ptr, ptr %15, align 8, !tbaa !7
+  %97 = getelementptr inbounds float, ptr %96, i64 0
+  %98 = load float, ptr %97, align 4, !tbaa !17
+  %99 = load i32, ptr %30, align 4, !tbaa !10
+  %100 = add nsw i32 %99, 0
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds [32 x float], ptr %28, i64 0, i64 %101
+  store float %98, ptr %102, align 4, !tbaa !17
+  %103 = load ptr, ptr %15, align 8, !tbaa !7
+  %104 = getelementptr inbounds float, ptr %103, i64 1
+  %105 = load float, ptr %104, align 4, !tbaa !17
+  %106 = load i32, ptr %30, align 4, !tbaa !10
+  %107 = add nsw i32 %106, 1
+  %108 = sext i32 %107 to i64
+  %109 = getelementptr inbounds [32 x float], ptr %28, i64 0, i64 %108
+  store float %105, ptr %109, align 4, !tbaa !17
+  %110 = load ptr, ptr %15, align 8, !tbaa !7
+  %111 = getelementptr inbounds float, ptr %110, i64 2
+  %112 = load float, ptr %111, align 4, !tbaa !17
+  %113 = load i32, ptr %30, align 4, !tbaa !10
+  %114 = add nsw i32 %113, 2
+  %115 = sext i32 %114 to i64
+  %116 = getelementptr inbounds [32 x float], ptr %28, i64 0, i64 %115
+  store float %112, ptr %116, align 4, !tbaa !17
+  %117 = load ptr, ptr %15, align 8, !tbaa !7
+  %118 = getelementptr inbounds float, ptr %117, i64 3
+  %119 = load float, ptr %118, align 4, !tbaa !17
+  %120 = load i32, ptr %30, align 4, !tbaa !10
+  %121 = add nsw i32 %120, 3
+  %122 = sext i32 %121 to i64
+  %123 = getelementptr inbounds [32 x float], ptr %28, i64 0, i64 %122
+  store float %119, ptr %123, align 4, !tbaa !17
+  %124 = load ptr, ptr %15, align 8, !tbaa !7
+  %125 = getelementptr inbounds float, ptr %124, i64 4
+  store ptr %125, ptr %15, align 8, !tbaa !7
+  br label %126
 
-for.cond44:                                       ; preds = %for.inc65, %for.end37
-  %111 = load i32, ptr %i43, align 4
-  %112 = load i32, ptr %remainder, align 4
-  %mul45 = mul nsw i32 %112, 4
-  %cmp46 = icmp slt i32 %111, %mul45
-  br i1 %cmp46, label %for.body47, label %for.end67
+126:                                              ; preds = %95
+  %127 = load i32, ptr %30, align 4, !tbaa !10
+  %128 = add nsw i32 %127, 4
+  store i32 %128, ptr %30, align 4, !tbaa !10
+  br label %89, !llvm.loop !35
 
-for.body47:                                       ; preds = %for.cond44
-  %113 = load i32, ptr %i43, align 4
-  %add48 = add nsw i32 %113, 0
-  %idxprom49 = sext i32 %add48 to i64
-  %arrayidx50 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 %idxprom49
-  %114 = load i16, ptr %arrayidx50, align 2
-  %115 = load ptr, ptr %dst, align 8
-  %arrayidx51 = getelementptr inbounds i16, ptr %115, i64 0
-  store i16 %114, ptr %arrayidx51, align 2
-  %116 = load i32, ptr %i43, align 4
-  %add52 = add nsw i32 %116, 1
-  %idxprom53 = sext i32 %add52 to i64
-  %arrayidx54 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 %idxprom53
-  %117 = load i16, ptr %arrayidx54, align 2
-  %118 = load ptr, ptr %dst, align 8
-  %arrayidx55 = getelementptr inbounds i16, ptr %118, i64 1
-  store i16 %117, ptr %arrayidx55, align 2
-  %119 = load i32, ptr %i43, align 4
-  %add56 = add nsw i32 %119, 2
-  %idxprom57 = sext i32 %add56 to i64
-  %arrayidx58 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 %idxprom57
-  %120 = load i16, ptr %arrayidx58, align 2
-  %121 = load ptr, ptr %dst, align 8
-  %arrayidx59 = getelementptr inbounds i16, ptr %121, i64 2
-  store i16 %120, ptr %arrayidx59, align 2
-  %122 = load i32, ptr %i43, align 4
-  %add60 = add nsw i32 %122, 3
-  %idxprom61 = sext i32 %add60 to i64
-  %arrayidx62 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 %idxprom61
-  %123 = load i16, ptr %arrayidx62, align 2
-  %124 = load ptr, ptr %dst, align 8
-  %arrayidx63 = getelementptr inbounds i16, ptr %124, i64 3
-  store i16 %123, ptr %arrayidx63, align 2
-  %125 = load ptr, ptr %dst, align 8
-  %add.ptr64 = getelementptr inbounds i16, ptr %125, i64 4
-  store ptr %add.ptr64, ptr %dst, align 8
-  br label %for.inc65
+129:                                              ; preds = %94
+  %130 = getelementptr inbounds [32 x float], ptr %28, i64 0, i64 0
+  call void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE8EE4LoadEPKfRDv8_fS6_S6_S6_(ptr noundef %130, ptr noundef nonnull align 32 dereferenceable(32) %17, ptr noundef nonnull align 32 dereferenceable(32) %18, ptr noundef nonnull align 32 dereferenceable(32) %19, ptr noundef nonnull align 32 dereferenceable(32) %20)
+  %131 = load ptr, ptr %8, align 8, !tbaa !7
+  %132 = load <8 x float>, ptr %17, align 32, !tbaa !19
+  %133 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %131, <8 x float> noundef %132, ptr noundef nonnull align 32 dereferenceable(32) %23, ptr noundef nonnull align 32 dereferenceable(32) %24)
+  store <8 x float> %133, ptr %17, align 32, !tbaa !19
+  %134 = load ptr, ptr %9, align 8, !tbaa !7
+  %135 = load <8 x float>, ptr %18, align 32, !tbaa !19
+  %136 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %134, <8 x float> noundef %135, ptr noundef nonnull align 32 dereferenceable(32) %23, ptr noundef nonnull align 32 dereferenceable(32) %24)
+  store <8 x float> %136, ptr %18, align 32, !tbaa !19
+  %137 = load ptr, ptr %10, align 8, !tbaa !7
+  %138 = load <8 x float>, ptr %19, align 32, !tbaa !19
+  %139 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %137, <8 x float> noundef %138, ptr noundef nonnull align 32 dereferenceable(32) %23, ptr noundef nonnull align 32 dereferenceable(32) %24)
+  store <8 x float> %139, ptr %19, align 32, !tbaa !19
+  %140 = load <8 x float>, ptr %20, align 32, !tbaa !19
+  %141 = load <8 x float>, ptr %21, align 32, !tbaa !19
+  %142 = call noundef <8 x float> @_ZL13_mm256_mul_psDv8_fS_(<8 x float> noundef %140, <8 x float> noundef %141)
+  store <8 x float> %142, ptr %20, align 32, !tbaa !19
+  %143 = getelementptr inbounds [32 x i16], ptr %29, i64 0, i64 0
+  %144 = load <8 x float>, ptr %17, align 32, !tbaa !19
+  %145 = load <8 x float>, ptr %18, align 32, !tbaa !19
+  %146 = load <8 x float>, ptr %19, align 32, !tbaa !19
+  %147 = load <8 x float>, ptr %20, align 32, !tbaa !19
+  call void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE5EE5StoreEPtDv8_fS4_S4_S4_(ptr noundef %143, <8 x float> noundef %144, <8 x float> noundef %145, <8 x float> noundef %146, <8 x float> noundef %147)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %31) #3
+  store i32 0, ptr %31, align 4, !tbaa !10
+  br label %148
 
-for.inc65:                                        ; preds = %for.body47
-  %126 = load i32, ptr %i43, align 4
-  %add66 = add nsw i32 %126, 4
-  store i32 %add66, ptr %i43, align 4
-  br label %for.cond44, !llvm.loop !16
+148:                                              ; preds = %185, %129
+  %149 = load i32, ptr %31, align 4, !tbaa !10
+  %150 = load i32, ptr %26, align 4, !tbaa !10
+  %151 = mul nsw i32 %150, 4
+  %152 = icmp slt i32 %149, %151
+  br i1 %152, label %154, label %153
 
-for.end67:                                        ; preds = %for.cond44
-  br label %if.end
+153:                                              ; preds = %148
+  call void @llvm.lifetime.end.p0(i64 4, ptr %31) #3
+  br label %188
 
-if.end:                                           ; preds = %for.end67, %for.end
+154:                                              ; preds = %148
+  %155 = load i32, ptr %31, align 4, !tbaa !10
+  %156 = add nsw i32 %155, 0
+  %157 = sext i32 %156 to i64
+  %158 = getelementptr inbounds [32 x i16], ptr %29, i64 0, i64 %157
+  %159 = load i16, ptr %158, align 2, !tbaa !28
+  %160 = load ptr, ptr %16, align 8, !tbaa !24
+  %161 = getelementptr inbounds i16, ptr %160, i64 0
+  store i16 %159, ptr %161, align 2, !tbaa !28
+  %162 = load i32, ptr %31, align 4, !tbaa !10
+  %163 = add nsw i32 %162, 1
+  %164 = sext i32 %163 to i64
+  %165 = getelementptr inbounds [32 x i16], ptr %29, i64 0, i64 %164
+  %166 = load i16, ptr %165, align 2, !tbaa !28
+  %167 = load ptr, ptr %16, align 8, !tbaa !24
+  %168 = getelementptr inbounds i16, ptr %167, i64 1
+  store i16 %166, ptr %168, align 2, !tbaa !28
+  %169 = load i32, ptr %31, align 4, !tbaa !10
+  %170 = add nsw i32 %169, 2
+  %171 = sext i32 %170 to i64
+  %172 = getelementptr inbounds [32 x i16], ptr %29, i64 0, i64 %171
+  %173 = load i16, ptr %172, align 2, !tbaa !28
+  %174 = load ptr, ptr %16, align 8, !tbaa !24
+  %175 = getelementptr inbounds i16, ptr %174, i64 2
+  store i16 %173, ptr %175, align 2, !tbaa !28
+  %176 = load i32, ptr %31, align 4, !tbaa !10
+  %177 = add nsw i32 %176, 3
+  %178 = sext i32 %177 to i64
+  %179 = getelementptr inbounds [32 x i16], ptr %29, i64 0, i64 %178
+  %180 = load i16, ptr %179, align 2, !tbaa !28
+  %181 = load ptr, ptr %16, align 8, !tbaa !24
+  %182 = getelementptr inbounds i16, ptr %181, i64 3
+  store i16 %180, ptr %182, align 2, !tbaa !28
+  %183 = load ptr, ptr %16, align 8, !tbaa !24
+  %184 = getelementptr inbounds i16, ptr %183, i64 4
+  store ptr %184, ptr %16, align 8, !tbaa !24
+  br label %185
+
+185:                                              ; preds = %154
+  %186 = load i32, ptr %31, align 4, !tbaa !10
+  %187 = add nsw i32 %186, 4
+  store i32 %187, ptr %31, align 4, !tbaa !10
+  br label %148, !llvm.loop !36
+
+188:                                              ; preds = %153
+  call void @llvm.lifetime.end.p0(i64 64, ptr %29) #3
+  call void @llvm.lifetime.end.p0(i64 128, ptr %28) #3
+  br label %189
+
+189:                                              ; preds = %188, %85
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %24) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %23) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
   ret void
 }
 
-declare noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_4dev7CPUInfo8instanceEv() #1
+declare noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv() #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev7CPUInfo7hasF16CEv(ptr noundef nonnull align 4 dereferenceable(90) %this) #6 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %flags = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::CPUInfo", ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %flags, align 4
-  %and = and i32 %0, 8192
-  %tobool = icmp ne i32 %and, 0
-  ret i1 %tobool
+define linkonce_odr hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev7CPUInfo7hasF16CEv(ptr noundef nonnull align 4 dereferenceable(90) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::CPUInfo", ptr %3, i32 0, i32 0
+  %5 = load i32, ptr %4, align 4, !tbaa !39
+  %6 = and i32 %5, 8192
+  %7 = icmp ne i32 %6, 0
+  ret i1 %7
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_7EEEvPKfS4_S4_iPKvPvl(ptr noundef %lutR, ptr noundef %lutG, ptr noundef %lutB, i32 noundef %dim, ptr noundef %inImg, ptr noundef %outImg, i64 noundef %numPixels) #5 {
-entry:
-  %__a.addr.i94 = alloca float, align 4
-  %__b.addr.i95 = alloca float, align 4
-  %__c.addr.i96 = alloca float, align 4
-  %__d.addr.i97 = alloca float, align 4
-  %__e.addr.i98 = alloca float, align 4
-  %__f.addr.i99 = alloca float, align 4
-  %__g.addr.i100 = alloca float, align 4
-  %__h.addr.i101 = alloca float, align 4
-  %.compoundliteral.i102 = alloca <8 x float>, align 32
-  %__a.addr.i77 = alloca float, align 4
-  %__b.addr.i78 = alloca float, align 4
-  %__c.addr.i79 = alloca float, align 4
-  %__d.addr.i80 = alloca float, align 4
-  %__e.addr.i81 = alloca float, align 4
-  %__f.addr.i82 = alloca float, align 4
-  %__g.addr.i83 = alloca float, align 4
-  %__h.addr.i84 = alloca float, align 4
-  %.compoundliteral.i85 = alloca <8 x float>, align 32
-  %__a.addr.i75 = alloca float, align 4
-  %__b.addr.i76 = alloca float, align 4
-  %__c.addr.i = alloca float, align 4
-  %__d.addr.i = alloca float, align 4
-  %__e.addr.i = alloca float, align 4
-  %__f.addr.i = alloca float, align 4
-  %__g.addr.i = alloca float, align 4
-  %__h.addr.i = alloca float, align 4
-  %.compoundliteral.i = alloca <8 x float>, align 32
-  %__a.addr.i72 = alloca <8 x float>, align 32
-  %__b.addr.i73 = alloca <8 x float>, align 32
-  %__a.addr.i = alloca <8 x float>, align 32
-  %__b.addr.i = alloca <8 x float>, align 32
-  %__w.addr.i70 = alloca float, align 4
-  %__w.addr.i68 = alloca float, align 4
-  %__w.addr.i = alloca float, align 4
-  %lutR.addr = alloca ptr, align 8
-  %lutG.addr = alloca ptr, align 8
-  %lutB.addr = alloca ptr, align 8
-  %dim.addr = alloca i32, align 4
-  %inImg.addr = alloca ptr, align 8
-  %outImg.addr = alloca ptr, align 8
-  %numPixels.addr = alloca i64, align 8
-  %src = alloca ptr, align 8
-  %dst = alloca ptr, align 8
-  %r = alloca <8 x float>, align 32
-  %g = alloca <8 x float>, align 32
-  %b = alloca <8 x float>, align 32
-  %a = alloca <8 x float>, align 32
-  %alpha_scale = alloca <8 x float>, align 32
-  %rgb_scale = alloca float, align 4
-  %lut_scale = alloca <8 x float>, align 32
-  %lut_max = alloca <8 x float>, align 32
-  %pixel_count = alloca i32, align 4
-  %remainder = alloca i32, align 4
-  %i = alloca i32, align 4
-  %in_buf = alloca [32 x float], align 16
-  %out_buf = alloca [32 x %"class.Imath_3_1::half"], align 16
-  %i15 = alloca i32, align 4
-  %i43 = alloca i32, align 4
-  store ptr %lutR, ptr %lutR.addr, align 8
-  store ptr %lutG, ptr %lutG.addr, align 8
-  store ptr %lutB, ptr %lutB.addr, align 8
-  store i32 %dim, ptr %dim.addr, align 4
-  store ptr %inImg, ptr %inImg.addr, align 8
-  store ptr %outImg, ptr %outImg.addr, align 8
-  store i64 %numPixels, ptr %numPixels.addr, align 8
-  %0 = load ptr, ptr %inImg.addr, align 8
-  store ptr %0, ptr %src, align 8
-  %1 = load ptr, ptr %outImg.addr, align 8
-  store ptr %1, ptr %dst, align 8
-  %2 = load i32, ptr %dim.addr, align 4
-  %conv = sitofp i32 %2 to float
-  %sub = fsub float %conv, 1.000000e+00
-  %mul = fmul float 1.000000e+00, %sub
-  store float %mul, ptr %rgb_scale, align 4
-  %3 = load float, ptr %rgb_scale, align 4
-  store float %3, ptr %__w.addr.i70, align 4
-  %4 = load float, ptr %__w.addr.i70, align 4
-  %5 = load float, ptr %__w.addr.i70, align 4
-  %6 = load float, ptr %__w.addr.i70, align 4
-  %7 = load float, ptr %__w.addr.i70, align 4
-  %8 = load float, ptr %__w.addr.i70, align 4
-  %9 = load float, ptr %__w.addr.i70, align 4
-  %10 = load float, ptr %__w.addr.i70, align 4
-  %11 = load float, ptr %__w.addr.i70, align 4
-  store float %4, ptr %__a.addr.i75, align 4
-  store float %5, ptr %__b.addr.i76, align 4
-  store float %6, ptr %__c.addr.i, align 4
-  store float %7, ptr %__d.addr.i, align 4
-  store float %8, ptr %__e.addr.i, align 4
-  store float %9, ptr %__f.addr.i, align 4
-  store float %10, ptr %__g.addr.i, align 4
-  store float %11, ptr %__h.addr.i, align 4
-  %12 = load float, ptr %__h.addr.i, align 4
-  %vecinit.i = insertelement <8 x float> undef, float %12, i32 0
-  %13 = load float, ptr %__g.addr.i, align 4
-  %vecinit1.i = insertelement <8 x float> %vecinit.i, float %13, i32 1
-  %14 = load float, ptr %__f.addr.i, align 4
-  %vecinit2.i = insertelement <8 x float> %vecinit1.i, float %14, i32 2
-  %15 = load float, ptr %__e.addr.i, align 4
-  %vecinit3.i = insertelement <8 x float> %vecinit2.i, float %15, i32 3
-  %16 = load float, ptr %__d.addr.i, align 4
-  %vecinit4.i = insertelement <8 x float> %vecinit3.i, float %16, i32 4
-  %17 = load float, ptr %__c.addr.i, align 4
-  %vecinit5.i = insertelement <8 x float> %vecinit4.i, float %17, i32 5
-  %18 = load float, ptr %__b.addr.i76, align 4
-  %vecinit6.i = insertelement <8 x float> %vecinit5.i, float %18, i32 6
-  %19 = load float, ptr %__a.addr.i75, align 4
-  %vecinit7.i = insertelement <8 x float> %vecinit6.i, float %19, i32 7
-  store <8 x float> %vecinit7.i, ptr %.compoundliteral.i, align 32
-  %20 = load <8 x float>, ptr %.compoundliteral.i, align 32
-  store <8 x float> %20, ptr %lut_scale, align 32
-  %21 = load i32, ptr %dim.addr, align 4
-  %conv1 = sitofp i32 %21 to float
-  %sub2 = fsub float %conv1, 1.000000e+00
-  store float %sub2, ptr %__w.addr.i68, align 4
-  %22 = load float, ptr %__w.addr.i68, align 4
-  %23 = load float, ptr %__w.addr.i68, align 4
-  %24 = load float, ptr %__w.addr.i68, align 4
-  %25 = load float, ptr %__w.addr.i68, align 4
-  %26 = load float, ptr %__w.addr.i68, align 4
-  %27 = load float, ptr %__w.addr.i68, align 4
-  %28 = load float, ptr %__w.addr.i68, align 4
-  %29 = load float, ptr %__w.addr.i68, align 4
-  store float %22, ptr %__a.addr.i77, align 4
-  store float %23, ptr %__b.addr.i78, align 4
-  store float %24, ptr %__c.addr.i79, align 4
-  store float %25, ptr %__d.addr.i80, align 4
-  store float %26, ptr %__e.addr.i81, align 4
-  store float %27, ptr %__f.addr.i82, align 4
-  store float %28, ptr %__g.addr.i83, align 4
-  store float %29, ptr %__h.addr.i84, align 4
-  %30 = load float, ptr %__h.addr.i84, align 4
-  %vecinit.i86 = insertelement <8 x float> undef, float %30, i32 0
-  %31 = load float, ptr %__g.addr.i83, align 4
-  %vecinit1.i87 = insertelement <8 x float> %vecinit.i86, float %31, i32 1
-  %32 = load float, ptr %__f.addr.i82, align 4
-  %vecinit2.i88 = insertelement <8 x float> %vecinit1.i87, float %32, i32 2
-  %33 = load float, ptr %__e.addr.i81, align 4
-  %vecinit3.i89 = insertelement <8 x float> %vecinit2.i88, float %33, i32 3
-  %34 = load float, ptr %__d.addr.i80, align 4
-  %vecinit4.i90 = insertelement <8 x float> %vecinit3.i89, float %34, i32 4
-  %35 = load float, ptr %__c.addr.i79, align 4
-  %vecinit5.i91 = insertelement <8 x float> %vecinit4.i90, float %35, i32 5
-  %36 = load float, ptr %__b.addr.i78, align 4
-  %vecinit6.i92 = insertelement <8 x float> %vecinit5.i91, float %36, i32 6
-  %37 = load float, ptr %__a.addr.i77, align 4
-  %vecinit7.i93 = insertelement <8 x float> %vecinit6.i92, float %37, i32 7
-  store <8 x float> %vecinit7.i93, ptr %.compoundliteral.i85, align 32
-  %38 = load <8 x float>, ptr %.compoundliteral.i85, align 32
-  store <8 x float> %38, ptr %lut_max, align 32
-  store float 1.000000e+00, ptr %__w.addr.i, align 4
-  %39 = load float, ptr %__w.addr.i, align 4
-  %40 = load float, ptr %__w.addr.i, align 4
-  %41 = load float, ptr %__w.addr.i, align 4
-  %42 = load float, ptr %__w.addr.i, align 4
-  %43 = load float, ptr %__w.addr.i, align 4
-  %44 = load float, ptr %__w.addr.i, align 4
-  %45 = load float, ptr %__w.addr.i, align 4
-  %46 = load float, ptr %__w.addr.i, align 4
-  store float %39, ptr %__a.addr.i94, align 4
-  store float %40, ptr %__b.addr.i95, align 4
-  store float %41, ptr %__c.addr.i96, align 4
-  store float %42, ptr %__d.addr.i97, align 4
-  store float %43, ptr %__e.addr.i98, align 4
-  store float %44, ptr %__f.addr.i99, align 4
-  store float %45, ptr %__g.addr.i100, align 4
-  store float %46, ptr %__h.addr.i101, align 4
-  %47 = load float, ptr %__h.addr.i101, align 4
-  %vecinit.i103 = insertelement <8 x float> undef, float %47, i32 0
-  %48 = load float, ptr %__g.addr.i100, align 4
-  %vecinit1.i104 = insertelement <8 x float> %vecinit.i103, float %48, i32 1
-  %49 = load float, ptr %__f.addr.i99, align 4
-  %vecinit2.i105 = insertelement <8 x float> %vecinit1.i104, float %49, i32 2
-  %50 = load float, ptr %__e.addr.i98, align 4
-  %vecinit3.i106 = insertelement <8 x float> %vecinit2.i105, float %50, i32 3
-  %51 = load float, ptr %__d.addr.i97, align 4
-  %vecinit4.i107 = insertelement <8 x float> %vecinit3.i106, float %51, i32 4
-  %52 = load float, ptr %__c.addr.i96, align 4
-  %vecinit5.i108 = insertelement <8 x float> %vecinit4.i107, float %52, i32 5
-  %53 = load float, ptr %__b.addr.i95, align 4
-  %vecinit6.i109 = insertelement <8 x float> %vecinit5.i108, float %53, i32 6
-  %54 = load float, ptr %__a.addr.i94, align 4
-  %vecinit7.i110 = insertelement <8 x float> %vecinit6.i109, float %54, i32 7
-  store <8 x float> %vecinit7.i110, ptr %.compoundliteral.i102, align 32
-  %55 = load <8 x float>, ptr %.compoundliteral.i102, align 32
-  store <8 x float> %55, ptr %alpha_scale, align 32
-  %56 = load i64, ptr %numPixels.addr, align 8
-  %div = sdiv i64 %56, 8
-  %mul5 = mul nsw i64 %div, 8
-  %conv6 = trunc i64 %mul5 to i32
-  store i32 %conv6, ptr %pixel_count, align 4
-  %57 = load i64, ptr %numPixels.addr, align 8
-  %58 = load i32, ptr %pixel_count, align 4
-  %conv7 = sext i32 %58 to i64
-  %sub8 = sub nsw i64 %57, %conv7
-  %conv9 = trunc i64 %sub8 to i32
-  store i32 %conv9, ptr %remainder, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_7EEEvPKfS4_S4_iPKvPvl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6) #6 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca <8 x float>, align 32
+  %18 = alloca <8 x float>, align 32
+  %19 = alloca <8 x float>, align 32
+  %20 = alloca <8 x float>, align 32
+  %21 = alloca <8 x float>, align 32
+  %22 = alloca float, align 4
+  %23 = alloca <8 x float>, align 32
+  %24 = alloca <8 x float>, align 32
+  %25 = alloca i32, align 4
+  %26 = alloca i32, align 4
+  %27 = alloca i32, align 4
+  %28 = alloca [32 x float], align 16
+  %29 = alloca [32 x %"class.Imath_3_1::half"], align 16
+  %30 = alloca i32, align 4
+  %31 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !7
+  store ptr %1, ptr %9, align 8, !tbaa !7
+  store ptr %2, ptr %10, align 8, !tbaa !7
+  store i32 %3, ptr %11, align 4, !tbaa !10
+  store ptr %4, ptr %12, align 8, !tbaa !12
+  store ptr %5, ptr %13, align 8, !tbaa !12
+  store i64 %6, ptr %14, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  %32 = load ptr, ptr %12, align 8, !tbaa !12
+  store ptr %32, ptr %15, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
+  %33 = load ptr, ptr %13, align 8, !tbaa !12
+  store ptr %33, ptr %16, align 8, !tbaa !41
+  call void @llvm.lifetime.start.p0(i64 32, ptr %17) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %18) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %19) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %20) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %21) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #3
+  %34 = load i32, ptr %11, align 4, !tbaa !10
+  %35 = sitofp i32 %34 to float
+  %36 = fsub float %35, 1.000000e+00
+  %37 = fmul float 1.000000e+00, %36
+  store float %37, ptr %22, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 32, ptr %23) #3
+  %38 = load float, ptr %22, align 4, !tbaa !17
+  %39 = call noundef <8 x float> @_ZL14_mm256_set1_psf(float noundef %38)
+  store <8 x float> %39, ptr %23, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %24) #3
+  %40 = load i32, ptr %11, align 4, !tbaa !10
+  %41 = sitofp i32 %40 to float
+  %42 = fsub float %41, 1.000000e+00
+  %43 = call noundef <8 x float> @_ZL14_mm256_set1_psf(float noundef %42)
+  store <8 x float> %43, ptr %24, align 32, !tbaa !19
+  %44 = call noundef <8 x float> @_ZL14_mm256_set1_psf(float noundef 1.000000e+00)
+  store <8 x float> %44, ptr %21, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #3
+  %45 = load i64, ptr %14, align 8, !tbaa !13
+  %46 = sdiv i64 %45, 8
+  %47 = mul nsw i64 %46, 8
+  %48 = trunc i64 %47 to i32
+  store i32 %48, ptr %25, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #3
+  %49 = load i64, ptr %14, align 8, !tbaa !13
+  %50 = load i32, ptr %25, align 4, !tbaa !10
+  %51 = sext i32 %50 to i64
+  %52 = sub nsw i64 %49, %51
+  %53 = trunc i64 %52 to i32
+  store i32 %53, ptr %26, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #3
+  store i32 0, ptr %27, align 4, !tbaa !10
+  br label %54
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %59 = load i32, ptr %i, align 4
-  %60 = load i32, ptr %pixel_count, align 4
-  %cmp = icmp slt i32 %59, %60
-  br i1 %cmp, label %for.body, label %for.end
+54:                                               ; preds = %82, %7
+  %55 = load i32, ptr %27, align 4, !tbaa !10
+  %56 = load i32, ptr %25, align 4, !tbaa !10
+  %57 = icmp slt i32 %55, %56
+  br i1 %57, label %59, label %58
 
-for.body:                                         ; preds = %for.cond
-  %61 = load ptr, ptr %src, align 8
-  call void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE8EE4LoadEPKfRDv8_fS6_S6_S6_(ptr noundef %61, ptr noundef nonnull align 32 dereferenceable(32) %r, ptr noundef nonnull align 32 dereferenceable(32) %g, ptr noundef nonnull align 32 dereferenceable(32) %b, ptr noundef nonnull align 32 dereferenceable(32) %a)
-  %62 = load ptr, ptr %lutR.addr, align 8
-  %63 = load <8 x float>, ptr %r, align 32
-  %call10 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %62, <8 x float> noundef %63, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call10, ptr %r, align 32
-  %64 = load ptr, ptr %lutG.addr, align 8
-  %65 = load <8 x float>, ptr %g, align 32
-  %call11 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %64, <8 x float> noundef %65, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call11, ptr %g, align 32
-  %66 = load ptr, ptr %lutB.addr, align 8
-  %67 = load <8 x float>, ptr %b, align 32
-  %call12 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %66, <8 x float> noundef %67, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call12, ptr %b, align 32
-  %68 = load <8 x float>, ptr %a, align 32
-  %69 = load <8 x float>, ptr %alpha_scale, align 32
-  store <8 x float> %68, ptr %__a.addr.i72, align 32
-  store <8 x float> %69, ptr %__b.addr.i73, align 32
-  %70 = load <8 x float>, ptr %__a.addr.i72, align 32
-  %71 = load <8 x float>, ptr %__b.addr.i73, align 32
-  %mul.i74 = fmul <8 x float> %70, %71
-  store <8 x float> %mul.i74, ptr %a, align 32
-  %72 = load ptr, ptr %dst, align 8
-  %73 = load <8 x float>, ptr %r, align 32
-  %74 = load <8 x float>, ptr %g, align 32
-  %75 = load <8 x float>, ptr %b, align 32
-  %76 = load <8 x float>, ptr %a, align 32
-  call void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE7EE5StoreEPN9Imath_3_14halfEDv8_fS6_S6_S6_(ptr noundef %72, <8 x float> noundef %73, <8 x float> noundef %74, <8 x float> noundef %75, <8 x float> noundef %76)
-  %77 = load ptr, ptr %src, align 8
-  %add.ptr = getelementptr inbounds float, ptr %77, i64 32
-  store ptr %add.ptr, ptr %src, align 8
-  %78 = load ptr, ptr %dst, align 8
-  %add.ptr14 = getelementptr inbounds %"class.Imath_3_1::half", ptr %78, i64 32
-  store ptr %add.ptr14, ptr %dst, align 8
-  br label %for.inc
+58:                                               ; preds = %54
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #3
+  br label %85
 
-for.inc:                                          ; preds = %for.body
-  %79 = load i32, ptr %i, align 4
-  %add = add nsw i32 %79, 8
-  store i32 %add, ptr %i, align 4
-  br label %for.cond, !llvm.loop !17
+59:                                               ; preds = %54
+  %60 = load ptr, ptr %15, align 8, !tbaa !7
+  call void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE8EE4LoadEPKfRDv8_fS6_S6_S6_(ptr noundef %60, ptr noundef nonnull align 32 dereferenceable(32) %17, ptr noundef nonnull align 32 dereferenceable(32) %18, ptr noundef nonnull align 32 dereferenceable(32) %19, ptr noundef nonnull align 32 dereferenceable(32) %20)
+  %61 = load ptr, ptr %8, align 8, !tbaa !7
+  %62 = load <8 x float>, ptr %17, align 32, !tbaa !19
+  %63 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %61, <8 x float> noundef %62, ptr noundef nonnull align 32 dereferenceable(32) %23, ptr noundef nonnull align 32 dereferenceable(32) %24)
+  store <8 x float> %63, ptr %17, align 32, !tbaa !19
+  %64 = load ptr, ptr %9, align 8, !tbaa !7
+  %65 = load <8 x float>, ptr %18, align 32, !tbaa !19
+  %66 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %64, <8 x float> noundef %65, ptr noundef nonnull align 32 dereferenceable(32) %23, ptr noundef nonnull align 32 dereferenceable(32) %24)
+  store <8 x float> %66, ptr %18, align 32, !tbaa !19
+  %67 = load ptr, ptr %10, align 8, !tbaa !7
+  %68 = load <8 x float>, ptr %19, align 32, !tbaa !19
+  %69 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %67, <8 x float> noundef %68, ptr noundef nonnull align 32 dereferenceable(32) %23, ptr noundef nonnull align 32 dereferenceable(32) %24)
+  store <8 x float> %69, ptr %19, align 32, !tbaa !19
+  %70 = load <8 x float>, ptr %20, align 32, !tbaa !19
+  %71 = load <8 x float>, ptr %21, align 32, !tbaa !19
+  %72 = call noundef <8 x float> @_ZL13_mm256_mul_psDv8_fS_(<8 x float> noundef %70, <8 x float> noundef %71)
+  store <8 x float> %72, ptr %20, align 32, !tbaa !19
+  %73 = load ptr, ptr %16, align 8, !tbaa !41
+  %74 = load <8 x float>, ptr %17, align 32, !tbaa !19
+  %75 = load <8 x float>, ptr %18, align 32, !tbaa !19
+  %76 = load <8 x float>, ptr %19, align 32, !tbaa !19
+  %77 = load <8 x float>, ptr %20, align 32, !tbaa !19
+  call void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE7EE5StoreEPN9Imath_3_14halfEDv8_fS6_S6_S6_(ptr noundef %73, <8 x float> noundef %74, <8 x float> noundef %75, <8 x float> noundef %76, <8 x float> noundef %77)
+  %78 = load ptr, ptr %15, align 8, !tbaa !7
+  %79 = getelementptr inbounds float, ptr %78, i64 32
+  store ptr %79, ptr %15, align 8, !tbaa !7
+  %80 = load ptr, ptr %16, align 8, !tbaa !41
+  %81 = getelementptr inbounds %"class.Imath_3_1::half", ptr %80, i64 32
+  store ptr %81, ptr %16, align 8, !tbaa !41
+  br label %82
 
-for.end:                                          ; preds = %for.cond
-  %80 = load i32, ptr %remainder, align 4
-  %tobool = icmp ne i32 %80, 0
-  br i1 %tobool, label %if.then, label %if.end
+82:                                               ; preds = %59
+  %83 = load i32, ptr %27, align 4, !tbaa !10
+  %84 = add nsw i32 %83, 8
+  store i32 %84, ptr %27, align 4, !tbaa !10
+  br label %54, !llvm.loop !43
 
-if.then:                                          ; preds = %for.end
-  call void @llvm.memset.p0.i64(ptr align 16 %in_buf, i8 0, i64 128, i1 false)
-  store i32 0, ptr %i15, align 4
-  br label %for.cond16
+85:                                               ; preds = %58
+  %86 = load i32, ptr %26, align 4, !tbaa !10
+  %87 = icmp ne i32 %86, 0
+  br i1 %87, label %88, label %185
 
-for.cond16:                                       ; preds = %for.inc35, %if.then
-  %81 = load i32, ptr %i15, align 4
-  %82 = load i32, ptr %remainder, align 4
-  %mul17 = mul nsw i32 %82, 4
-  %cmp18 = icmp slt i32 %81, %mul17
-  br i1 %cmp18, label %for.body19, label %for.end37
+88:                                               ; preds = %85
+  call void @llvm.lifetime.start.p0(i64 128, ptr %28) #3
+  call void @llvm.memset.p0.i64(ptr align 16 %28, i8 0, i64 128, i1 false)
+  call void @llvm.lifetime.start.p0(i64 64, ptr %29) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #3
+  store i32 0, ptr %30, align 4, !tbaa !10
+  br label %89
 
-for.body19:                                       ; preds = %for.cond16
-  %83 = load ptr, ptr %src, align 8
-  %arrayidx = getelementptr inbounds float, ptr %83, i64 0
-  %84 = load float, ptr %arrayidx, align 4
-  %85 = load i32, ptr %i15, align 4
-  %add20 = add nsw i32 %85, 0
-  %idxprom = sext i32 %add20 to i64
-  %arrayidx21 = getelementptr inbounds [32 x float], ptr %in_buf, i64 0, i64 %idxprom
-  store float %84, ptr %arrayidx21, align 4
-  %86 = load ptr, ptr %src, align 8
-  %arrayidx22 = getelementptr inbounds float, ptr %86, i64 1
-  %87 = load float, ptr %arrayidx22, align 4
-  %88 = load i32, ptr %i15, align 4
-  %add23 = add nsw i32 %88, 1
-  %idxprom24 = sext i32 %add23 to i64
-  %arrayidx25 = getelementptr inbounds [32 x float], ptr %in_buf, i64 0, i64 %idxprom24
-  store float %87, ptr %arrayidx25, align 4
-  %89 = load ptr, ptr %src, align 8
-  %arrayidx26 = getelementptr inbounds float, ptr %89, i64 2
-  %90 = load float, ptr %arrayidx26, align 4
-  %91 = load i32, ptr %i15, align 4
-  %add27 = add nsw i32 %91, 2
-  %idxprom28 = sext i32 %add27 to i64
-  %arrayidx29 = getelementptr inbounds [32 x float], ptr %in_buf, i64 0, i64 %idxprom28
-  store float %90, ptr %arrayidx29, align 4
-  %92 = load ptr, ptr %src, align 8
-  %arrayidx30 = getelementptr inbounds float, ptr %92, i64 3
-  %93 = load float, ptr %arrayidx30, align 4
-  %94 = load i32, ptr %i15, align 4
-  %add31 = add nsw i32 %94, 3
-  %idxprom32 = sext i32 %add31 to i64
-  %arrayidx33 = getelementptr inbounds [32 x float], ptr %in_buf, i64 0, i64 %idxprom32
-  store float %93, ptr %arrayidx33, align 4
-  %95 = load ptr, ptr %src, align 8
-  %add.ptr34 = getelementptr inbounds float, ptr %95, i64 4
-  store ptr %add.ptr34, ptr %src, align 8
-  br label %for.inc35
+89:                                               ; preds = %126, %88
+  %90 = load i32, ptr %30, align 4, !tbaa !10
+  %91 = load i32, ptr %26, align 4, !tbaa !10
+  %92 = mul nsw i32 %91, 4
+  %93 = icmp slt i32 %90, %92
+  br i1 %93, label %95, label %94
 
-for.inc35:                                        ; preds = %for.body19
-  %96 = load i32, ptr %i15, align 4
-  %add36 = add nsw i32 %96, 4
-  store i32 %add36, ptr %i15, align 4
-  br label %for.cond16, !llvm.loop !18
+94:                                               ; preds = %89
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #3
+  br label %129
 
-for.end37:                                        ; preds = %for.cond16
-  %arraydecay = getelementptr inbounds [32 x float], ptr %in_buf, i64 0, i64 0
-  call void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE8EE4LoadEPKfRDv8_fS6_S6_S6_(ptr noundef %arraydecay, ptr noundef nonnull align 32 dereferenceable(32) %r, ptr noundef nonnull align 32 dereferenceable(32) %g, ptr noundef nonnull align 32 dereferenceable(32) %b, ptr noundef nonnull align 32 dereferenceable(32) %a)
-  %97 = load ptr, ptr %lutR.addr, align 8
-  %98 = load <8 x float>, ptr %r, align 32
-  %call38 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %97, <8 x float> noundef %98, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call38, ptr %r, align 32
-  %99 = load ptr, ptr %lutG.addr, align 8
-  %100 = load <8 x float>, ptr %g, align 32
-  %call39 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %99, <8 x float> noundef %100, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call39, ptr %g, align 32
-  %101 = load ptr, ptr %lutB.addr, align 8
-  %102 = load <8 x float>, ptr %b, align 32
-  %call40 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %101, <8 x float> noundef %102, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call40, ptr %b, align 32
-  %103 = load <8 x float>, ptr %a, align 32
-  %104 = load <8 x float>, ptr %alpha_scale, align 32
-  store <8 x float> %103, ptr %__a.addr.i, align 32
-  store <8 x float> %104, ptr %__b.addr.i, align 32
-  %105 = load <8 x float>, ptr %__a.addr.i, align 32
-  %106 = load <8 x float>, ptr %__b.addr.i, align 32
-  %mul.i = fmul <8 x float> %105, %106
-  store <8 x float> %mul.i, ptr %a, align 32
-  %arraydecay42 = getelementptr inbounds [32 x %"class.Imath_3_1::half"], ptr %out_buf, i64 0, i64 0
-  %107 = load <8 x float>, ptr %r, align 32
-  %108 = load <8 x float>, ptr %g, align 32
-  %109 = load <8 x float>, ptr %b, align 32
-  %110 = load <8 x float>, ptr %a, align 32
-  call void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE7EE5StoreEPN9Imath_3_14halfEDv8_fS6_S6_S6_(ptr noundef %arraydecay42, <8 x float> noundef %107, <8 x float> noundef %108, <8 x float> noundef %109, <8 x float> noundef %110)
-  store i32 0, ptr %i43, align 4
-  br label %for.cond44
+95:                                               ; preds = %89
+  %96 = load ptr, ptr %15, align 8, !tbaa !7
+  %97 = getelementptr inbounds float, ptr %96, i64 0
+  %98 = load float, ptr %97, align 4, !tbaa !17
+  %99 = load i32, ptr %30, align 4, !tbaa !10
+  %100 = add nsw i32 %99, 0
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds [32 x float], ptr %28, i64 0, i64 %101
+  store float %98, ptr %102, align 4, !tbaa !17
+  %103 = load ptr, ptr %15, align 8, !tbaa !7
+  %104 = getelementptr inbounds float, ptr %103, i64 1
+  %105 = load float, ptr %104, align 4, !tbaa !17
+  %106 = load i32, ptr %30, align 4, !tbaa !10
+  %107 = add nsw i32 %106, 1
+  %108 = sext i32 %107 to i64
+  %109 = getelementptr inbounds [32 x float], ptr %28, i64 0, i64 %108
+  store float %105, ptr %109, align 4, !tbaa !17
+  %110 = load ptr, ptr %15, align 8, !tbaa !7
+  %111 = getelementptr inbounds float, ptr %110, i64 2
+  %112 = load float, ptr %111, align 4, !tbaa !17
+  %113 = load i32, ptr %30, align 4, !tbaa !10
+  %114 = add nsw i32 %113, 2
+  %115 = sext i32 %114 to i64
+  %116 = getelementptr inbounds [32 x float], ptr %28, i64 0, i64 %115
+  store float %112, ptr %116, align 4, !tbaa !17
+  %117 = load ptr, ptr %15, align 8, !tbaa !7
+  %118 = getelementptr inbounds float, ptr %117, i64 3
+  %119 = load float, ptr %118, align 4, !tbaa !17
+  %120 = load i32, ptr %30, align 4, !tbaa !10
+  %121 = add nsw i32 %120, 3
+  %122 = sext i32 %121 to i64
+  %123 = getelementptr inbounds [32 x float], ptr %28, i64 0, i64 %122
+  store float %119, ptr %123, align 4, !tbaa !17
+  %124 = load ptr, ptr %15, align 8, !tbaa !7
+  %125 = getelementptr inbounds float, ptr %124, i64 4
+  store ptr %125, ptr %15, align 8, !tbaa !7
+  br label %126
 
-for.cond44:                                       ; preds = %for.inc65, %for.end37
-  %111 = load i32, ptr %i43, align 4
-  %112 = load i32, ptr %remainder, align 4
-  %mul45 = mul nsw i32 %112, 4
-  %cmp46 = icmp slt i32 %111, %mul45
-  br i1 %cmp46, label %for.body47, label %for.end67
+126:                                              ; preds = %95
+  %127 = load i32, ptr %30, align 4, !tbaa !10
+  %128 = add nsw i32 %127, 4
+  store i32 %128, ptr %30, align 4, !tbaa !10
+  br label %89, !llvm.loop !44
 
-for.body47:                                       ; preds = %for.cond44
-  %113 = load i32, ptr %i43, align 4
-  %add48 = add nsw i32 %113, 0
-  %idxprom49 = sext i32 %add48 to i64
-  %arrayidx50 = getelementptr inbounds [32 x %"class.Imath_3_1::half"], ptr %out_buf, i64 0, i64 %idxprom49
-  %114 = load ptr, ptr %dst, align 8
-  %arrayidx51 = getelementptr inbounds %"class.Imath_3_1::half", ptr %114, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %arrayidx51, ptr align 2 %arrayidx50, i64 2, i1 false)
-  %115 = load i32, ptr %i43, align 4
-  %add52 = add nsw i32 %115, 1
-  %idxprom53 = sext i32 %add52 to i64
-  %arrayidx54 = getelementptr inbounds [32 x %"class.Imath_3_1::half"], ptr %out_buf, i64 0, i64 %idxprom53
-  %116 = load ptr, ptr %dst, align 8
-  %arrayidx55 = getelementptr inbounds %"class.Imath_3_1::half", ptr %116, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %arrayidx55, ptr align 2 %arrayidx54, i64 2, i1 false)
-  %117 = load i32, ptr %i43, align 4
-  %add56 = add nsw i32 %117, 2
-  %idxprom57 = sext i32 %add56 to i64
-  %arrayidx58 = getelementptr inbounds [32 x %"class.Imath_3_1::half"], ptr %out_buf, i64 0, i64 %idxprom57
-  %118 = load ptr, ptr %dst, align 8
-  %arrayidx59 = getelementptr inbounds %"class.Imath_3_1::half", ptr %118, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %arrayidx59, ptr align 2 %arrayidx58, i64 2, i1 false)
-  %119 = load i32, ptr %i43, align 4
-  %add60 = add nsw i32 %119, 3
-  %idxprom61 = sext i32 %add60 to i64
-  %arrayidx62 = getelementptr inbounds [32 x %"class.Imath_3_1::half"], ptr %out_buf, i64 0, i64 %idxprom61
-  %120 = load ptr, ptr %dst, align 8
-  %arrayidx63 = getelementptr inbounds %"class.Imath_3_1::half", ptr %120, i64 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %arrayidx63, ptr align 2 %arrayidx62, i64 2, i1 false)
-  %121 = load ptr, ptr %dst, align 8
-  %add.ptr64 = getelementptr inbounds %"class.Imath_3_1::half", ptr %121, i64 4
-  store ptr %add.ptr64, ptr %dst, align 8
-  br label %for.inc65
+129:                                              ; preds = %94
+  %130 = getelementptr inbounds [32 x float], ptr %28, i64 0, i64 0
+  call void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE8EE4LoadEPKfRDv8_fS6_S6_S6_(ptr noundef %130, ptr noundef nonnull align 32 dereferenceable(32) %17, ptr noundef nonnull align 32 dereferenceable(32) %18, ptr noundef nonnull align 32 dereferenceable(32) %19, ptr noundef nonnull align 32 dereferenceable(32) %20)
+  %131 = load ptr, ptr %8, align 8, !tbaa !7
+  %132 = load <8 x float>, ptr %17, align 32, !tbaa !19
+  %133 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %131, <8 x float> noundef %132, ptr noundef nonnull align 32 dereferenceable(32) %23, ptr noundef nonnull align 32 dereferenceable(32) %24)
+  store <8 x float> %133, ptr %17, align 32, !tbaa !19
+  %134 = load ptr, ptr %9, align 8, !tbaa !7
+  %135 = load <8 x float>, ptr %18, align 32, !tbaa !19
+  %136 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %134, <8 x float> noundef %135, ptr noundef nonnull align 32 dereferenceable(32) %23, ptr noundef nonnull align 32 dereferenceable(32) %24)
+  store <8 x float> %136, ptr %18, align 32, !tbaa !19
+  %137 = load ptr, ptr %10, align 8, !tbaa !7
+  %138 = load <8 x float>, ptr %19, align 32, !tbaa !19
+  %139 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %137, <8 x float> noundef %138, ptr noundef nonnull align 32 dereferenceable(32) %23, ptr noundef nonnull align 32 dereferenceable(32) %24)
+  store <8 x float> %139, ptr %19, align 32, !tbaa !19
+  %140 = load <8 x float>, ptr %20, align 32, !tbaa !19
+  %141 = load <8 x float>, ptr %21, align 32, !tbaa !19
+  %142 = call noundef <8 x float> @_ZL13_mm256_mul_psDv8_fS_(<8 x float> noundef %140, <8 x float> noundef %141)
+  store <8 x float> %142, ptr %20, align 32, !tbaa !19
+  %143 = getelementptr inbounds [32 x %"class.Imath_3_1::half"], ptr %29, i64 0, i64 0
+  %144 = load <8 x float>, ptr %17, align 32, !tbaa !19
+  %145 = load <8 x float>, ptr %18, align 32, !tbaa !19
+  %146 = load <8 x float>, ptr %19, align 32, !tbaa !19
+  %147 = load <8 x float>, ptr %20, align 32, !tbaa !19
+  call void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE7EE5StoreEPN9Imath_3_14halfEDv8_fS6_S6_S6_(ptr noundef %143, <8 x float> noundef %144, <8 x float> noundef %145, <8 x float> noundef %146, <8 x float> noundef %147)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %31) #3
+  store i32 0, ptr %31, align 4, !tbaa !10
+  br label %148
 
-for.inc65:                                        ; preds = %for.body47
-  %122 = load i32, ptr %i43, align 4
-  %add66 = add nsw i32 %122, 4
-  store i32 %add66, ptr %i43, align 4
-  br label %for.cond44, !llvm.loop !19
+148:                                              ; preds = %181, %129
+  %149 = load i32, ptr %31, align 4, !tbaa !10
+  %150 = load i32, ptr %26, align 4, !tbaa !10
+  %151 = mul nsw i32 %150, 4
+  %152 = icmp slt i32 %149, %151
+  br i1 %152, label %154, label %153
 
-for.end67:                                        ; preds = %for.cond44
-  br label %if.end
+153:                                              ; preds = %148
+  call void @llvm.lifetime.end.p0(i64 4, ptr %31) #3
+  br label %184
 
-if.end:                                           ; preds = %for.end67, %for.end
+154:                                              ; preds = %148
+  %155 = load i32, ptr %31, align 4, !tbaa !10
+  %156 = add nsw i32 %155, 0
+  %157 = sext i32 %156 to i64
+  %158 = getelementptr inbounds [32 x %"class.Imath_3_1::half"], ptr %29, i64 0, i64 %157
+  %159 = load ptr, ptr %16, align 8, !tbaa !41
+  %160 = getelementptr inbounds %"class.Imath_3_1::half", ptr %159, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %160, ptr align 2 %158, i64 2, i1 false), !tbaa.struct !45
+  %161 = load i32, ptr %31, align 4, !tbaa !10
+  %162 = add nsw i32 %161, 1
+  %163 = sext i32 %162 to i64
+  %164 = getelementptr inbounds [32 x %"class.Imath_3_1::half"], ptr %29, i64 0, i64 %163
+  %165 = load ptr, ptr %16, align 8, !tbaa !41
+  %166 = getelementptr inbounds %"class.Imath_3_1::half", ptr %165, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %166, ptr align 2 %164, i64 2, i1 false), !tbaa.struct !45
+  %167 = load i32, ptr %31, align 4, !tbaa !10
+  %168 = add nsw i32 %167, 2
+  %169 = sext i32 %168 to i64
+  %170 = getelementptr inbounds [32 x %"class.Imath_3_1::half"], ptr %29, i64 0, i64 %169
+  %171 = load ptr, ptr %16, align 8, !tbaa !41
+  %172 = getelementptr inbounds %"class.Imath_3_1::half", ptr %171, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %172, ptr align 2 %170, i64 2, i1 false), !tbaa.struct !45
+  %173 = load i32, ptr %31, align 4, !tbaa !10
+  %174 = add nsw i32 %173, 3
+  %175 = sext i32 %174 to i64
+  %176 = getelementptr inbounds [32 x %"class.Imath_3_1::half"], ptr %29, i64 0, i64 %175
+  %177 = load ptr, ptr %16, align 8, !tbaa !41
+  %178 = getelementptr inbounds %"class.Imath_3_1::half", ptr %177, i64 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %178, ptr align 2 %176, i64 2, i1 false), !tbaa.struct !45
+  %179 = load ptr, ptr %16, align 8, !tbaa !41
+  %180 = getelementptr inbounds %"class.Imath_3_1::half", ptr %179, i64 4
+  store ptr %180, ptr %16, align 8, !tbaa !41
+  br label %181
+
+181:                                              ; preds = %154
+  %182 = load i32, ptr %31, align 4, !tbaa !10
+  %183 = add nsw i32 %182, 4
+  store i32 %183, ptr %31, align 4, !tbaa !10
+  br label %148, !llvm.loop !46
+
+184:                                              ; preds = %153
+  call void @llvm.lifetime.end.p0(i64 64, ptr %29) #3
+  call void @llvm.lifetime.end.p0(i64 128, ptr %28) #3
+  br label %185
+
+185:                                              ; preds = %184, %85
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %24) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %23) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_8EEEvPKfS4_S4_iPKvPvl(ptr noundef %lutR, ptr noundef %lutG, ptr noundef %lutB, i32 noundef %dim, ptr noundef %inImg, ptr noundef %outImg, i64 noundef %numPixels) #5 {
-entry:
-  %__a.addr.i67 = alloca float, align 4
-  %__b.addr.i68 = alloca float, align 4
-  %__c.addr.i69 = alloca float, align 4
-  %__d.addr.i70 = alloca float, align 4
-  %__e.addr.i71 = alloca float, align 4
-  %__f.addr.i72 = alloca float, align 4
-  %__g.addr.i73 = alloca float, align 4
-  %__h.addr.i74 = alloca float, align 4
-  %.compoundliteral.i75 = alloca <8 x float>, align 32
-  %__a.addr.i = alloca float, align 4
-  %__b.addr.i = alloca float, align 4
-  %__c.addr.i = alloca float, align 4
-  %__d.addr.i = alloca float, align 4
-  %__e.addr.i = alloca float, align 4
-  %__f.addr.i = alloca float, align 4
-  %__g.addr.i = alloca float, align 4
-  %__h.addr.i = alloca float, align 4
-  %.compoundliteral.i = alloca <8 x float>, align 32
-  %__w.addr.i65 = alloca float, align 4
-  %__w.addr.i = alloca float, align 4
-  %lutR.addr = alloca ptr, align 8
-  %lutG.addr = alloca ptr, align 8
-  %lutB.addr = alloca ptr, align 8
-  %dim.addr = alloca i32, align 4
-  %inImg.addr = alloca ptr, align 8
-  %outImg.addr = alloca ptr, align 8
-  %numPixels.addr = alloca i64, align 8
-  %src = alloca ptr, align 8
-  %dst = alloca ptr, align 8
-  %r = alloca <8 x float>, align 32
-  %g = alloca <8 x float>, align 32
-  %b = alloca <8 x float>, align 32
-  %a = alloca <8 x float>, align 32
-  %rgb_scale = alloca float, align 4
-  %lut_scale = alloca <8 x float>, align 32
-  %lut_max = alloca <8 x float>, align 32
-  %pixel_count = alloca i32, align 4
-  %remainder = alloca i32, align 4
-  %i = alloca i32, align 4
-  %in_buf = alloca [32 x float], align 16
-  %out_buf = alloca [32 x float], align 16
-  %i13 = alloca i32, align 4
-  %i40 = alloca i32, align 4
-  store ptr %lutR, ptr %lutR.addr, align 8
-  store ptr %lutG, ptr %lutG.addr, align 8
-  store ptr %lutB, ptr %lutB.addr, align 8
-  store i32 %dim, ptr %dim.addr, align 4
-  store ptr %inImg, ptr %inImg.addr, align 8
-  store ptr %outImg, ptr %outImg.addr, align 8
-  store i64 %numPixels, ptr %numPixels.addr, align 8
-  %0 = load ptr, ptr %inImg.addr, align 8
-  store ptr %0, ptr %src, align 8
-  %1 = load ptr, ptr %outImg.addr, align 8
-  store ptr %1, ptr %dst, align 8
-  %2 = load i32, ptr %dim.addr, align 4
-  %conv = sitofp i32 %2 to float
-  %sub = fsub float %conv, 1.000000e+00
-  %mul = fmul float 1.000000e+00, %sub
-  store float %mul, ptr %rgb_scale, align 4
-  %3 = load float, ptr %rgb_scale, align 4
-  store float %3, ptr %__w.addr.i65, align 4
-  %4 = load float, ptr %__w.addr.i65, align 4
-  %5 = load float, ptr %__w.addr.i65, align 4
-  %6 = load float, ptr %__w.addr.i65, align 4
-  %7 = load float, ptr %__w.addr.i65, align 4
-  %8 = load float, ptr %__w.addr.i65, align 4
-  %9 = load float, ptr %__w.addr.i65, align 4
-  %10 = load float, ptr %__w.addr.i65, align 4
-  %11 = load float, ptr %__w.addr.i65, align 4
-  store float %4, ptr %__a.addr.i, align 4
-  store float %5, ptr %__b.addr.i, align 4
-  store float %6, ptr %__c.addr.i, align 4
-  store float %7, ptr %__d.addr.i, align 4
-  store float %8, ptr %__e.addr.i, align 4
-  store float %9, ptr %__f.addr.i, align 4
-  store float %10, ptr %__g.addr.i, align 4
-  store float %11, ptr %__h.addr.i, align 4
-  %12 = load float, ptr %__h.addr.i, align 4
-  %vecinit.i = insertelement <8 x float> undef, float %12, i32 0
-  %13 = load float, ptr %__g.addr.i, align 4
-  %vecinit1.i = insertelement <8 x float> %vecinit.i, float %13, i32 1
-  %14 = load float, ptr %__f.addr.i, align 4
-  %vecinit2.i = insertelement <8 x float> %vecinit1.i, float %14, i32 2
-  %15 = load float, ptr %__e.addr.i, align 4
-  %vecinit3.i = insertelement <8 x float> %vecinit2.i, float %15, i32 3
-  %16 = load float, ptr %__d.addr.i, align 4
-  %vecinit4.i = insertelement <8 x float> %vecinit3.i, float %16, i32 4
-  %17 = load float, ptr %__c.addr.i, align 4
-  %vecinit5.i = insertelement <8 x float> %vecinit4.i, float %17, i32 5
-  %18 = load float, ptr %__b.addr.i, align 4
-  %vecinit6.i = insertelement <8 x float> %vecinit5.i, float %18, i32 6
-  %19 = load float, ptr %__a.addr.i, align 4
-  %vecinit7.i = insertelement <8 x float> %vecinit6.i, float %19, i32 7
-  store <8 x float> %vecinit7.i, ptr %.compoundliteral.i, align 32
-  %20 = load <8 x float>, ptr %.compoundliteral.i, align 32
-  store <8 x float> %20, ptr %lut_scale, align 32
-  %21 = load i32, ptr %dim.addr, align 4
-  %conv1 = sitofp i32 %21 to float
-  %sub2 = fsub float %conv1, 1.000000e+00
-  store float %sub2, ptr %__w.addr.i, align 4
-  %22 = load float, ptr %__w.addr.i, align 4
-  %23 = load float, ptr %__w.addr.i, align 4
-  %24 = load float, ptr %__w.addr.i, align 4
-  %25 = load float, ptr %__w.addr.i, align 4
-  %26 = load float, ptr %__w.addr.i, align 4
-  %27 = load float, ptr %__w.addr.i, align 4
-  %28 = load float, ptr %__w.addr.i, align 4
-  %29 = load float, ptr %__w.addr.i, align 4
-  store float %22, ptr %__a.addr.i67, align 4
-  store float %23, ptr %__b.addr.i68, align 4
-  store float %24, ptr %__c.addr.i69, align 4
-  store float %25, ptr %__d.addr.i70, align 4
-  store float %26, ptr %__e.addr.i71, align 4
-  store float %27, ptr %__f.addr.i72, align 4
-  store float %28, ptr %__g.addr.i73, align 4
-  store float %29, ptr %__h.addr.i74, align 4
-  %30 = load float, ptr %__h.addr.i74, align 4
-  %vecinit.i76 = insertelement <8 x float> undef, float %30, i32 0
-  %31 = load float, ptr %__g.addr.i73, align 4
-  %vecinit1.i77 = insertelement <8 x float> %vecinit.i76, float %31, i32 1
-  %32 = load float, ptr %__f.addr.i72, align 4
-  %vecinit2.i78 = insertelement <8 x float> %vecinit1.i77, float %32, i32 2
-  %33 = load float, ptr %__e.addr.i71, align 4
-  %vecinit3.i79 = insertelement <8 x float> %vecinit2.i78, float %33, i32 3
-  %34 = load float, ptr %__d.addr.i70, align 4
-  %vecinit4.i80 = insertelement <8 x float> %vecinit3.i79, float %34, i32 4
-  %35 = load float, ptr %__c.addr.i69, align 4
-  %vecinit5.i81 = insertelement <8 x float> %vecinit4.i80, float %35, i32 5
-  %36 = load float, ptr %__b.addr.i68, align 4
-  %vecinit6.i82 = insertelement <8 x float> %vecinit5.i81, float %36, i32 6
-  %37 = load float, ptr %__a.addr.i67, align 4
-  %vecinit7.i83 = insertelement <8 x float> %vecinit6.i82, float %37, i32 7
-  store <8 x float> %vecinit7.i83, ptr %.compoundliteral.i75, align 32
-  %38 = load <8 x float>, ptr %.compoundliteral.i75, align 32
-  store <8 x float> %38, ptr %lut_max, align 32
-  %39 = load i64, ptr %numPixels.addr, align 8
-  %div = sdiv i64 %39, 8
-  %mul4 = mul nsw i64 %div, 8
-  %conv5 = trunc i64 %mul4 to i32
-  store i32 %conv5, ptr %pixel_count, align 4
-  %40 = load i64, ptr %numPixels.addr, align 8
-  %41 = load i32, ptr %pixel_count, align 4
-  %conv6 = sext i32 %41 to i64
-  %sub7 = sub nsw i64 %40, %conv6
-  %conv8 = trunc i64 %sub7 to i32
-  store i32 %conv8, ptr %remainder, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_8EEEvPKfS4_S4_iPKvPvl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6) #6 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca <8 x float>, align 32
+  %18 = alloca <8 x float>, align 32
+  %19 = alloca <8 x float>, align 32
+  %20 = alloca <8 x float>, align 32
+  %21 = alloca float, align 4
+  %22 = alloca <8 x float>, align 32
+  %23 = alloca <8 x float>, align 32
+  %24 = alloca i32, align 4
+  %25 = alloca i32, align 4
+  %26 = alloca i32, align 4
+  %27 = alloca [32 x float], align 16
+  %28 = alloca [32 x float], align 16
+  %29 = alloca i32, align 4
+  %30 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !7
+  store ptr %1, ptr %9, align 8, !tbaa !7
+  store ptr %2, ptr %10, align 8, !tbaa !7
+  store i32 %3, ptr %11, align 4, !tbaa !10
+  store ptr %4, ptr %12, align 8, !tbaa !12
+  store ptr %5, ptr %13, align 8, !tbaa !12
+  store i64 %6, ptr %14, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  %31 = load ptr, ptr %12, align 8, !tbaa !12
+  store ptr %31, ptr %15, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
+  %32 = load ptr, ptr %13, align 8, !tbaa !12
+  store ptr %32, ptr %16, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 32, ptr %17) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %18) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %19) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %20) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #3
+  %33 = load i32, ptr %11, align 4, !tbaa !10
+  %34 = sitofp i32 %33 to float
+  %35 = fsub float %34, 1.000000e+00
+  %36 = fmul float 1.000000e+00, %35
+  store float %36, ptr %21, align 4, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 32, ptr %22) #3
+  %37 = load float, ptr %21, align 4, !tbaa !17
+  %38 = call noundef <8 x float> @_ZL14_mm256_set1_psf(float noundef %37)
+  store <8 x float> %38, ptr %22, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %23) #3
+  %39 = load i32, ptr %11, align 4, !tbaa !10
+  %40 = sitofp i32 %39 to float
+  %41 = fsub float %40, 1.000000e+00
+  %42 = call noundef <8 x float> @_ZL14_mm256_set1_psf(float noundef %41)
+  store <8 x float> %42, ptr %23, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #3
+  %43 = load i64, ptr %14, align 8, !tbaa !13
+  %44 = sdiv i64 %43, 8
+  %45 = mul nsw i64 %44, 8
+  %46 = trunc i64 %45 to i32
+  store i32 %46, ptr %24, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #3
+  %47 = load i64, ptr %14, align 8, !tbaa !13
+  %48 = load i32, ptr %24, align 4, !tbaa !10
+  %49 = sext i32 %48 to i64
+  %50 = sub nsw i64 %47, %49
+  %51 = trunc i64 %50 to i32
+  store i32 %51, ptr %25, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #3
+  store i32 0, ptr %26, align 4, !tbaa !10
+  br label %52
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %42 = load i32, ptr %i, align 4
-  %43 = load i32, ptr %pixel_count, align 4
-  %cmp = icmp slt i32 %42, %43
-  br i1 %cmp, label %for.body, label %for.end
+52:                                               ; preds = %77, %7
+  %53 = load i32, ptr %26, align 4, !tbaa !10
+  %54 = load i32, ptr %24, align 4, !tbaa !10
+  %55 = icmp slt i32 %53, %54
+  br i1 %55, label %57, label %56
 
-for.body:                                         ; preds = %for.cond
-  %44 = load ptr, ptr %src, align 8
-  call void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE8EE4LoadEPKfRDv8_fS6_S6_S6_(ptr noundef %44, ptr noundef nonnull align 32 dereferenceable(32) %r, ptr noundef nonnull align 32 dereferenceable(32) %g, ptr noundef nonnull align 32 dereferenceable(32) %b, ptr noundef nonnull align 32 dereferenceable(32) %a)
-  %45 = load ptr, ptr %lutR.addr, align 8
-  %46 = load <8 x float>, ptr %r, align 32
-  %call9 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %45, <8 x float> noundef %46, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call9, ptr %r, align 32
-  %47 = load ptr, ptr %lutG.addr, align 8
-  %48 = load <8 x float>, ptr %g, align 32
-  %call10 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %47, <8 x float> noundef %48, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call10, ptr %g, align 32
-  %49 = load ptr, ptr %lutB.addr, align 8
-  %50 = load <8 x float>, ptr %b, align 32
-  %call11 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %49, <8 x float> noundef %50, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call11, ptr %b, align 32
-  %51 = load ptr, ptr %dst, align 8
-  %52 = load <8 x float>, ptr %r, align 32
-  %53 = load <8 x float>, ptr %g, align 32
-  %54 = load <8 x float>, ptr %b, align 32
-  %55 = load <8 x float>, ptr %a, align 32
-  call void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE8EE5StoreEPfDv8_fS4_S4_S4_(ptr noundef %51, <8 x float> noundef %52, <8 x float> noundef %53, <8 x float> noundef %54, <8 x float> noundef %55)
-  %56 = load ptr, ptr %src, align 8
-  %add.ptr = getelementptr inbounds float, ptr %56, i64 32
-  store ptr %add.ptr, ptr %src, align 8
-  %57 = load ptr, ptr %dst, align 8
-  %add.ptr12 = getelementptr inbounds float, ptr %57, i64 32
-  store ptr %add.ptr12, ptr %dst, align 8
-  br label %for.inc
+56:                                               ; preds = %52
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #3
+  br label %80
 
-for.inc:                                          ; preds = %for.body
-  %58 = load i32, ptr %i, align 4
-  %add = add nsw i32 %58, 8
-  store i32 %add, ptr %i, align 4
-  br label %for.cond, !llvm.loop !20
+57:                                               ; preds = %52
+  %58 = load ptr, ptr %15, align 8, !tbaa !7
+  call void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE8EE4LoadEPKfRDv8_fS6_S6_S6_(ptr noundef %58, ptr noundef nonnull align 32 dereferenceable(32) %17, ptr noundef nonnull align 32 dereferenceable(32) %18, ptr noundef nonnull align 32 dereferenceable(32) %19, ptr noundef nonnull align 32 dereferenceable(32) %20)
+  %59 = load ptr, ptr %8, align 8, !tbaa !7
+  %60 = load <8 x float>, ptr %17, align 32, !tbaa !19
+  %61 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %59, <8 x float> noundef %60, ptr noundef nonnull align 32 dereferenceable(32) %22, ptr noundef nonnull align 32 dereferenceable(32) %23)
+  store <8 x float> %61, ptr %17, align 32, !tbaa !19
+  %62 = load ptr, ptr %9, align 8, !tbaa !7
+  %63 = load <8 x float>, ptr %18, align 32, !tbaa !19
+  %64 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %62, <8 x float> noundef %63, ptr noundef nonnull align 32 dereferenceable(32) %22, ptr noundef nonnull align 32 dereferenceable(32) %23)
+  store <8 x float> %64, ptr %18, align 32, !tbaa !19
+  %65 = load ptr, ptr %10, align 8, !tbaa !7
+  %66 = load <8 x float>, ptr %19, align 32, !tbaa !19
+  %67 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %65, <8 x float> noundef %66, ptr noundef nonnull align 32 dereferenceable(32) %22, ptr noundef nonnull align 32 dereferenceable(32) %23)
+  store <8 x float> %67, ptr %19, align 32, !tbaa !19
+  %68 = load ptr, ptr %16, align 8, !tbaa !7
+  %69 = load <8 x float>, ptr %17, align 32, !tbaa !19
+  %70 = load <8 x float>, ptr %18, align 32, !tbaa !19
+  %71 = load <8 x float>, ptr %19, align 32, !tbaa !19
+  %72 = load <8 x float>, ptr %20, align 32, !tbaa !19
+  call void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE8EE5StoreEPfDv8_fS4_S4_S4_(ptr noundef %68, <8 x float> noundef %69, <8 x float> noundef %70, <8 x float> noundef %71, <8 x float> noundef %72)
+  %73 = load ptr, ptr %15, align 8, !tbaa !7
+  %74 = getelementptr inbounds float, ptr %73, i64 32
+  store ptr %74, ptr %15, align 8, !tbaa !7
+  %75 = load ptr, ptr %16, align 8, !tbaa !7
+  %76 = getelementptr inbounds float, ptr %75, i64 32
+  store ptr %76, ptr %16, align 8, !tbaa !7
+  br label %77
 
-for.end:                                          ; preds = %for.cond
-  %59 = load i32, ptr %remainder, align 4
-  %tobool = icmp ne i32 %59, 0
-  br i1 %tobool, label %if.then, label %if.end
+77:                                               ; preds = %57
+  %78 = load i32, ptr %26, align 4, !tbaa !10
+  %79 = add nsw i32 %78, 8
+  store i32 %79, ptr %26, align 4, !tbaa !10
+  br label %52, !llvm.loop !47
 
-if.then:                                          ; preds = %for.end
-  call void @llvm.memset.p0.i64(ptr align 16 %in_buf, i8 0, i64 128, i1 false)
-  store i32 0, ptr %i13, align 4
-  br label %for.cond14
+80:                                               ; preds = %56
+  %81 = load i32, ptr %25, align 4, !tbaa !10
+  %82 = icmp ne i32 %81, 0
+  br i1 %82, label %83, label %181
 
-for.cond14:                                       ; preds = %for.inc33, %if.then
-  %60 = load i32, ptr %i13, align 4
-  %61 = load i32, ptr %remainder, align 4
-  %mul15 = mul nsw i32 %61, 4
-  %cmp16 = icmp slt i32 %60, %mul15
-  br i1 %cmp16, label %for.body17, label %for.end35
+83:                                               ; preds = %80
+  call void @llvm.lifetime.start.p0(i64 128, ptr %27) #3
+  call void @llvm.memset.p0.i64(ptr align 16 %27, i8 0, i64 128, i1 false)
+  call void @llvm.lifetime.start.p0(i64 128, ptr %28) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %29) #3
+  store i32 0, ptr %29, align 4, !tbaa !10
+  br label %84
 
-for.body17:                                       ; preds = %for.cond14
-  %62 = load ptr, ptr %src, align 8
-  %arrayidx = getelementptr inbounds float, ptr %62, i64 0
-  %63 = load float, ptr %arrayidx, align 4
-  %64 = load i32, ptr %i13, align 4
-  %add18 = add nsw i32 %64, 0
-  %idxprom = sext i32 %add18 to i64
-  %arrayidx19 = getelementptr inbounds [32 x float], ptr %in_buf, i64 0, i64 %idxprom
-  store float %63, ptr %arrayidx19, align 4
-  %65 = load ptr, ptr %src, align 8
-  %arrayidx20 = getelementptr inbounds float, ptr %65, i64 1
-  %66 = load float, ptr %arrayidx20, align 4
-  %67 = load i32, ptr %i13, align 4
-  %add21 = add nsw i32 %67, 1
-  %idxprom22 = sext i32 %add21 to i64
-  %arrayidx23 = getelementptr inbounds [32 x float], ptr %in_buf, i64 0, i64 %idxprom22
-  store float %66, ptr %arrayidx23, align 4
-  %68 = load ptr, ptr %src, align 8
-  %arrayidx24 = getelementptr inbounds float, ptr %68, i64 2
-  %69 = load float, ptr %arrayidx24, align 4
-  %70 = load i32, ptr %i13, align 4
-  %add25 = add nsw i32 %70, 2
-  %idxprom26 = sext i32 %add25 to i64
-  %arrayidx27 = getelementptr inbounds [32 x float], ptr %in_buf, i64 0, i64 %idxprom26
-  store float %69, ptr %arrayidx27, align 4
-  %71 = load ptr, ptr %src, align 8
-  %arrayidx28 = getelementptr inbounds float, ptr %71, i64 3
-  %72 = load float, ptr %arrayidx28, align 4
-  %73 = load i32, ptr %i13, align 4
-  %add29 = add nsw i32 %73, 3
-  %idxprom30 = sext i32 %add29 to i64
-  %arrayidx31 = getelementptr inbounds [32 x float], ptr %in_buf, i64 0, i64 %idxprom30
-  store float %72, ptr %arrayidx31, align 4
-  %74 = load ptr, ptr %src, align 8
-  %add.ptr32 = getelementptr inbounds float, ptr %74, i64 4
-  store ptr %add.ptr32, ptr %src, align 8
-  br label %for.inc33
+84:                                               ; preds = %121, %83
+  %85 = load i32, ptr %29, align 4, !tbaa !10
+  %86 = load i32, ptr %25, align 4, !tbaa !10
+  %87 = mul nsw i32 %86, 4
+  %88 = icmp slt i32 %85, %87
+  br i1 %88, label %90, label %89
 
-for.inc33:                                        ; preds = %for.body17
-  %75 = load i32, ptr %i13, align 4
-  %add34 = add nsw i32 %75, 4
-  store i32 %add34, ptr %i13, align 4
-  br label %for.cond14, !llvm.loop !21
+89:                                               ; preds = %84
+  call void @llvm.lifetime.end.p0(i64 4, ptr %29) #3
+  br label %124
 
-for.end35:                                        ; preds = %for.cond14
-  %arraydecay = getelementptr inbounds [32 x float], ptr %in_buf, i64 0, i64 0
-  call void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE8EE4LoadEPKfRDv8_fS6_S6_S6_(ptr noundef %arraydecay, ptr noundef nonnull align 32 dereferenceable(32) %r, ptr noundef nonnull align 32 dereferenceable(32) %g, ptr noundef nonnull align 32 dereferenceable(32) %b, ptr noundef nonnull align 32 dereferenceable(32) %a)
-  %76 = load ptr, ptr %lutR.addr, align 8
-  %77 = load <8 x float>, ptr %r, align 32
-  %call36 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %76, <8 x float> noundef %77, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call36, ptr %r, align 32
-  %78 = load ptr, ptr %lutG.addr, align 8
-  %79 = load <8 x float>, ptr %g, align 32
-  %call37 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %78, <8 x float> noundef %79, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call37, ptr %g, align 32
-  %80 = load ptr, ptr %lutB.addr, align 8
-  %81 = load <8 x float>, ptr %b, align 32
-  %call38 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %80, <8 x float> noundef %81, ptr noundef nonnull align 32 dereferenceable(32) %lut_scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max)
-  store <8 x float> %call38, ptr %b, align 32
-  %arraydecay39 = getelementptr inbounds [32 x float], ptr %out_buf, i64 0, i64 0
-  %82 = load <8 x float>, ptr %r, align 32
-  %83 = load <8 x float>, ptr %g, align 32
-  %84 = load <8 x float>, ptr %b, align 32
-  %85 = load <8 x float>, ptr %a, align 32
-  call void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE8EE5StoreEPfDv8_fS4_S4_S4_(ptr noundef %arraydecay39, <8 x float> noundef %82, <8 x float> noundef %83, <8 x float> noundef %84, <8 x float> noundef %85)
-  store i32 0, ptr %i40, align 4
-  br label %for.cond41
+90:                                               ; preds = %84
+  %91 = load ptr, ptr %15, align 8, !tbaa !7
+  %92 = getelementptr inbounds float, ptr %91, i64 0
+  %93 = load float, ptr %92, align 4, !tbaa !17
+  %94 = load i32, ptr %29, align 4, !tbaa !10
+  %95 = add nsw i32 %94, 0
+  %96 = sext i32 %95 to i64
+  %97 = getelementptr inbounds [32 x float], ptr %27, i64 0, i64 %96
+  store float %93, ptr %97, align 4, !tbaa !17
+  %98 = load ptr, ptr %15, align 8, !tbaa !7
+  %99 = getelementptr inbounds float, ptr %98, i64 1
+  %100 = load float, ptr %99, align 4, !tbaa !17
+  %101 = load i32, ptr %29, align 4, !tbaa !10
+  %102 = add nsw i32 %101, 1
+  %103 = sext i32 %102 to i64
+  %104 = getelementptr inbounds [32 x float], ptr %27, i64 0, i64 %103
+  store float %100, ptr %104, align 4, !tbaa !17
+  %105 = load ptr, ptr %15, align 8, !tbaa !7
+  %106 = getelementptr inbounds float, ptr %105, i64 2
+  %107 = load float, ptr %106, align 4, !tbaa !17
+  %108 = load i32, ptr %29, align 4, !tbaa !10
+  %109 = add nsw i32 %108, 2
+  %110 = sext i32 %109 to i64
+  %111 = getelementptr inbounds [32 x float], ptr %27, i64 0, i64 %110
+  store float %107, ptr %111, align 4, !tbaa !17
+  %112 = load ptr, ptr %15, align 8, !tbaa !7
+  %113 = getelementptr inbounds float, ptr %112, i64 3
+  %114 = load float, ptr %113, align 4, !tbaa !17
+  %115 = load i32, ptr %29, align 4, !tbaa !10
+  %116 = add nsw i32 %115, 3
+  %117 = sext i32 %116 to i64
+  %118 = getelementptr inbounds [32 x float], ptr %27, i64 0, i64 %117
+  store float %114, ptr %118, align 4, !tbaa !17
+  %119 = load ptr, ptr %15, align 8, !tbaa !7
+  %120 = getelementptr inbounds float, ptr %119, i64 4
+  store ptr %120, ptr %15, align 8, !tbaa !7
+  br label %121
 
-for.cond41:                                       ; preds = %for.inc62, %for.end35
-  %86 = load i32, ptr %i40, align 4
-  %87 = load i32, ptr %remainder, align 4
-  %mul42 = mul nsw i32 %87, 4
-  %cmp43 = icmp slt i32 %86, %mul42
-  br i1 %cmp43, label %for.body44, label %for.end64
+121:                                              ; preds = %90
+  %122 = load i32, ptr %29, align 4, !tbaa !10
+  %123 = add nsw i32 %122, 4
+  store i32 %123, ptr %29, align 4, !tbaa !10
+  br label %84, !llvm.loop !48
 
-for.body44:                                       ; preds = %for.cond41
-  %88 = load i32, ptr %i40, align 4
-  %add45 = add nsw i32 %88, 0
-  %idxprom46 = sext i32 %add45 to i64
-  %arrayidx47 = getelementptr inbounds [32 x float], ptr %out_buf, i64 0, i64 %idxprom46
-  %89 = load float, ptr %arrayidx47, align 4
-  %90 = load ptr, ptr %dst, align 8
-  %arrayidx48 = getelementptr inbounds float, ptr %90, i64 0
-  store float %89, ptr %arrayidx48, align 4
-  %91 = load i32, ptr %i40, align 4
-  %add49 = add nsw i32 %91, 1
-  %idxprom50 = sext i32 %add49 to i64
-  %arrayidx51 = getelementptr inbounds [32 x float], ptr %out_buf, i64 0, i64 %idxprom50
-  %92 = load float, ptr %arrayidx51, align 4
-  %93 = load ptr, ptr %dst, align 8
-  %arrayidx52 = getelementptr inbounds float, ptr %93, i64 1
-  store float %92, ptr %arrayidx52, align 4
-  %94 = load i32, ptr %i40, align 4
-  %add53 = add nsw i32 %94, 2
-  %idxprom54 = sext i32 %add53 to i64
-  %arrayidx55 = getelementptr inbounds [32 x float], ptr %out_buf, i64 0, i64 %idxprom54
-  %95 = load float, ptr %arrayidx55, align 4
-  %96 = load ptr, ptr %dst, align 8
-  %arrayidx56 = getelementptr inbounds float, ptr %96, i64 2
-  store float %95, ptr %arrayidx56, align 4
-  %97 = load i32, ptr %i40, align 4
-  %add57 = add nsw i32 %97, 3
-  %idxprom58 = sext i32 %add57 to i64
-  %arrayidx59 = getelementptr inbounds [32 x float], ptr %out_buf, i64 0, i64 %idxprom58
-  %98 = load float, ptr %arrayidx59, align 4
-  %99 = load ptr, ptr %dst, align 8
-  %arrayidx60 = getelementptr inbounds float, ptr %99, i64 3
-  store float %98, ptr %arrayidx60, align 4
-  %100 = load ptr, ptr %dst, align 8
-  %add.ptr61 = getelementptr inbounds float, ptr %100, i64 4
-  store ptr %add.ptr61, ptr %dst, align 8
-  br label %for.inc62
+124:                                              ; preds = %89
+  %125 = getelementptr inbounds [32 x float], ptr %27, i64 0, i64 0
+  call void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE8EE4LoadEPKfRDv8_fS6_S6_S6_(ptr noundef %125, ptr noundef nonnull align 32 dereferenceable(32) %17, ptr noundef nonnull align 32 dereferenceable(32) %18, ptr noundef nonnull align 32 dereferenceable(32) %19, ptr noundef nonnull align 32 dereferenceable(32) %20)
+  %126 = load ptr, ptr %8, align 8, !tbaa !7
+  %127 = load <8 x float>, ptr %17, align 32, !tbaa !19
+  %128 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %126, <8 x float> noundef %127, ptr noundef nonnull align 32 dereferenceable(32) %22, ptr noundef nonnull align 32 dereferenceable(32) %23)
+  store <8 x float> %128, ptr %17, align 32, !tbaa !19
+  %129 = load ptr, ptr %9, align 8, !tbaa !7
+  %130 = load <8 x float>, ptr %18, align 32, !tbaa !19
+  %131 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %129, <8 x float> noundef %130, ptr noundef nonnull align 32 dereferenceable(32) %22, ptr noundef nonnull align 32 dereferenceable(32) %23)
+  store <8 x float> %131, ptr %18, align 32, !tbaa !19
+  %132 = load ptr, ptr %10, align 8, !tbaa !7
+  %133 = load <8 x float>, ptr %19, align 32, !tbaa !19
+  %134 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %132, <8 x float> noundef %133, ptr noundef nonnull align 32 dereferenceable(32) %22, ptr noundef nonnull align 32 dereferenceable(32) %23)
+  store <8 x float> %134, ptr %19, align 32, !tbaa !19
+  %135 = getelementptr inbounds [32 x float], ptr %28, i64 0, i64 0
+  %136 = load <8 x float>, ptr %17, align 32, !tbaa !19
+  %137 = load <8 x float>, ptr %18, align 32, !tbaa !19
+  %138 = load <8 x float>, ptr %19, align 32, !tbaa !19
+  %139 = load <8 x float>, ptr %20, align 32, !tbaa !19
+  call void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE8EE5StoreEPfDv8_fS4_S4_S4_(ptr noundef %135, <8 x float> noundef %136, <8 x float> noundef %137, <8 x float> noundef %138, <8 x float> noundef %139)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #3
+  store i32 0, ptr %30, align 4, !tbaa !10
+  br label %140
 
-for.inc62:                                        ; preds = %for.body44
-  %101 = load i32, ptr %i40, align 4
-  %add63 = add nsw i32 %101, 4
-  store i32 %add63, ptr %i40, align 4
-  br label %for.cond41, !llvm.loop !22
+140:                                              ; preds = %177, %124
+  %141 = load i32, ptr %30, align 4, !tbaa !10
+  %142 = load i32, ptr %25, align 4, !tbaa !10
+  %143 = mul nsw i32 %142, 4
+  %144 = icmp slt i32 %141, %143
+  br i1 %144, label %146, label %145
 
-for.end64:                                        ; preds = %for.cond41
-  br label %if.end
+145:                                              ; preds = %140
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #3
+  br label %180
 
-if.end:                                           ; preds = %for.end64, %for.end
+146:                                              ; preds = %140
+  %147 = load i32, ptr %30, align 4, !tbaa !10
+  %148 = add nsw i32 %147, 0
+  %149 = sext i32 %148 to i64
+  %150 = getelementptr inbounds [32 x float], ptr %28, i64 0, i64 %149
+  %151 = load float, ptr %150, align 4, !tbaa !17
+  %152 = load ptr, ptr %16, align 8, !tbaa !7
+  %153 = getelementptr inbounds float, ptr %152, i64 0
+  store float %151, ptr %153, align 4, !tbaa !17
+  %154 = load i32, ptr %30, align 4, !tbaa !10
+  %155 = add nsw i32 %154, 1
+  %156 = sext i32 %155 to i64
+  %157 = getelementptr inbounds [32 x float], ptr %28, i64 0, i64 %156
+  %158 = load float, ptr %157, align 4, !tbaa !17
+  %159 = load ptr, ptr %16, align 8, !tbaa !7
+  %160 = getelementptr inbounds float, ptr %159, i64 1
+  store float %158, ptr %160, align 4, !tbaa !17
+  %161 = load i32, ptr %30, align 4, !tbaa !10
+  %162 = add nsw i32 %161, 2
+  %163 = sext i32 %162 to i64
+  %164 = getelementptr inbounds [32 x float], ptr %28, i64 0, i64 %163
+  %165 = load float, ptr %164, align 4, !tbaa !17
+  %166 = load ptr, ptr %16, align 8, !tbaa !7
+  %167 = getelementptr inbounds float, ptr %166, i64 2
+  store float %165, ptr %167, align 4, !tbaa !17
+  %168 = load i32, ptr %30, align 4, !tbaa !10
+  %169 = add nsw i32 %168, 3
+  %170 = sext i32 %169 to i64
+  %171 = getelementptr inbounds [32 x float], ptr %28, i64 0, i64 %170
+  %172 = load float, ptr %171, align 4, !tbaa !17
+  %173 = load ptr, ptr %16, align 8, !tbaa !7
+  %174 = getelementptr inbounds float, ptr %173, i64 3
+  store float %172, ptr %174, align 4, !tbaa !17
+  %175 = load ptr, ptr %16, align 8, !tbaa !7
+  %176 = getelementptr inbounds float, ptr %175, i64 4
+  store ptr %176, ptr %16, align 8, !tbaa !7
+  br label %177
+
+177:                                              ; preds = %146
+  %178 = load i32, ptr %30, align 4, !tbaa !10
+  %179 = add nsw i32 %178, 4
+  store i32 %179, ptr %30, align 4, !tbaa !10
+  br label %140, !llvm.loop !49
+
+180:                                              ; preds = %145
+  call void @llvm.lifetime.end.p0(i64 128, ptr %28) #3
+  call void @llvm.lifetime.end.p0(i64 128, ptr %27) #3
+  br label %181
+
+181:                                              ; preds = %180, %80
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %23) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE8EE4LoadEPKfRDv8_fS6_S6_S6_(ptr noundef %in, ptr noundef nonnull align 32 dereferenceable(32) %r, ptr noundef nonnull align 32 dereferenceable(32) %g, ptr noundef nonnull align 32 dereferenceable(32) %b, ptr noundef nonnull align 32 dereferenceable(32) %a) #5 comdat align 2 {
-entry:
-  %__p.addr.i9 = alloca ptr, align 8
-  %__p.addr.i8 = alloca ptr, align 8
-  %__p.addr.i7 = alloca ptr, align 8
-  %__p.addr.i = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  %r.addr = alloca ptr, align 8
-  %g.addr = alloca ptr, align 8
-  %b.addr = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  %rgba0 = alloca <8 x float>, align 32
-  %rgba1 = alloca <8 x float>, align 32
-  %rgba2 = alloca <8 x float>, align 32
-  %rgba3 = alloca <8 x float>, align 32
-  store ptr %in, ptr %in.addr, align 8
-  store ptr %r, ptr %r.addr, align 8
-  store ptr %g, ptr %g.addr, align 8
-  store ptr %b, ptr %b.addr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  %0 = load ptr, ptr %in.addr, align 8
-  %add.ptr = getelementptr inbounds float, ptr %0, i64 0
-  store ptr %add.ptr, ptr %__p.addr.i9, align 8
-  %1 = load ptr, ptr %__p.addr.i9, align 8
-  %2 = load <8 x float>, ptr %1, align 1
-  store <8 x float> %2, ptr %rgba0, align 32
-  %3 = load ptr, ptr %in.addr, align 8
-  %add.ptr1 = getelementptr inbounds float, ptr %3, i64 8
-  store ptr %add.ptr1, ptr %__p.addr.i8, align 8
-  %4 = load ptr, ptr %__p.addr.i8, align 8
-  %5 = load <8 x float>, ptr %4, align 1
-  store <8 x float> %5, ptr %rgba1, align 32
-  %6 = load ptr, ptr %in.addr, align 8
-  %add.ptr3 = getelementptr inbounds float, ptr %6, i64 16
-  store ptr %add.ptr3, ptr %__p.addr.i7, align 8
-  %7 = load ptr, ptr %__p.addr.i7, align 8
-  %8 = load <8 x float>, ptr %7, align 1
-  store <8 x float> %8, ptr %rgba2, align 32
-  %9 = load ptr, ptr %in.addr, align 8
-  %add.ptr5 = getelementptr inbounds float, ptr %9, i64 24
-  store ptr %add.ptr5, ptr %__p.addr.i, align 8
-  %10 = load ptr, ptr %__p.addr.i, align 8
-  %11 = load <8 x float>, ptr %10, align 1
-  store <8 x float> %11, ptr %rgba3, align 32
-  %12 = load <8 x float>, ptr %rgba0, align 32
-  %13 = load <8 x float>, ptr %rgba1, align 32
-  %14 = load <8 x float>, ptr %rgba2, align 32
-  %15 = load <8 x float>, ptr %rgba3, align 32
-  %16 = load ptr, ptr %r.addr, align 8
-  %17 = load ptr, ptr %g.addr, align 8
-  %18 = load ptr, ptr %b.addr, align 8
-  %19 = load ptr, ptr %a.addr, align 8
-  call void @_ZN19OpenColorIO_v2_4dev24avxRGBATranspose_4x4_4x4EDv8_fS0_S0_S0_RS0_S1_S1_S1_(<8 x float> noundef %12, <8 x float> noundef %13, <8 x float> noundef %14, <8 x float> noundef %15, ptr noundef nonnull align 32 dereferenceable(32) %16, ptr noundef nonnull align 32 dereferenceable(32) %17, ptr noundef nonnull align 32 dereferenceable(32) %18, ptr noundef nonnull align 32 dereferenceable(32) %19)
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define internal noundef <8 x float> @_ZL14_mm256_set1_psf(float noundef %0) #9 {
+  %2 = alloca float, align 4
+  store float %0, ptr %2, align 4, !tbaa !17
+  %3 = load float, ptr %2, align 4, !tbaa !17
+  %4 = load float, ptr %2, align 4, !tbaa !17
+  %5 = load float, ptr %2, align 4, !tbaa !17
+  %6 = load float, ptr %2, align 4, !tbaa !17
+  %7 = load float, ptr %2, align 4, !tbaa !17
+  %8 = load float, ptr %2, align 4, !tbaa !17
+  %9 = load float, ptr %2, align 4, !tbaa !17
+  %10 = load float, ptr %2, align 4, !tbaa !17
+  %11 = call noundef <8 x float> @_ZL13_mm256_set_psffffffff(float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10)
+  ret <8 x float> %11
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE8EE4LoadEPKfRDv8_fS6_S6_S6_(ptr noundef %0, ptr noundef nonnull align 32 dereferenceable(32) %1, ptr noundef nonnull align 32 dereferenceable(32) %2, ptr noundef nonnull align 32 dereferenceable(32) %3, ptr noundef nonnull align 32 dereferenceable(32) %4) #6 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca <8 x float>, align 32
+  %12 = alloca <8 x float>, align 32
+  %13 = alloca <8 x float>, align 32
+  %14 = alloca <8 x float>, align 32
+  store ptr %0, ptr %6, align 8, !tbaa !7
+  store ptr %1, ptr %7, align 8, !tbaa !12
+  store ptr %2, ptr %8, align 8, !tbaa !12
+  store ptr %3, ptr %9, align 8, !tbaa !12
+  store ptr %4, ptr %10, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 32, ptr %11) #3
+  %15 = load ptr, ptr %6, align 8, !tbaa !7
+  %16 = getelementptr inbounds float, ptr %15, i64 0
+  %17 = call noundef <8 x float> @_ZL15_mm256_loadu_psPKf(ptr noundef %16)
+  store <8 x float> %17, ptr %11, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %12) #3
+  %18 = load ptr, ptr %6, align 8, !tbaa !7
+  %19 = getelementptr inbounds float, ptr %18, i64 8
+  %20 = call noundef <8 x float> @_ZL15_mm256_loadu_psPKf(ptr noundef %19)
+  store <8 x float> %20, ptr %12, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %13) #3
+  %21 = load ptr, ptr %6, align 8, !tbaa !7
+  %22 = getelementptr inbounds float, ptr %21, i64 16
+  %23 = call noundef <8 x float> @_ZL15_mm256_loadu_psPKf(ptr noundef %22)
+  store <8 x float> %23, ptr %13, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %14) #3
+  %24 = load ptr, ptr %6, align 8, !tbaa !7
+  %25 = getelementptr inbounds float, ptr %24, i64 24
+  %26 = call noundef <8 x float> @_ZL15_mm256_loadu_psPKf(ptr noundef %25)
+  store <8 x float> %26, ptr %14, align 32, !tbaa !19
+  %27 = load <8 x float>, ptr %11, align 32, !tbaa !19
+  %28 = load <8 x float>, ptr %12, align 32, !tbaa !19
+  %29 = load <8 x float>, ptr %13, align 32, !tbaa !19
+  %30 = load <8 x float>, ptr %14, align 32, !tbaa !19
+  %31 = load ptr, ptr %7, align 8, !tbaa !12
+  %32 = load ptr, ptr %8, align 8, !tbaa !12
+  %33 = load ptr, ptr %9, align 8, !tbaa !12
+  %34 = load ptr, ptr %10, align 8, !tbaa !12
+  call void @_ZN19OpenColorIO_v2_5dev24avxRGBATranspose_4x4_4x4EDv8_fS0_S0_S0_RS0_S1_S1_S1_(<8 x float> noundef %27, <8 x float> noundef %28, <8 x float> noundef %29, <8 x float> noundef %30, ptr noundef nonnull align 32 dereferenceable(32) %31, ptr noundef nonnull align 32 dereferenceable(32) %32, ptr noundef nonnull align 32 dereferenceable(32) %33, ptr noundef nonnull align 32 dereferenceable(32) %34)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %11) #3
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %lut, <8 x float> noundef %v, ptr noundef nonnull align 32 dereferenceable(32) %scale, ptr noundef nonnull align 32 dereferenceable(32) %lut_max) #5 {
-entry:
-  %__p.addr.i101 = alloca ptr, align 8
-  %__p.addr.i100 = alloca ptr, align 8
-  %__p.addr.i98 = alloca ptr, align 8
-  %__a.addr.i99 = alloca <4 x i64>, align 32
-  %__p.addr.i = alloca ptr, align 8
-  %__a.addr.i97 = alloca <4 x i64>, align 32
-  %__a.addr.i96 = alloca <8 x float>, align 32
-  %__a.addr.i95 = alloca <8 x float>, align 32
-  %__a.addr.i93 = alloca <8 x float>, align 32
-  %__b.addr.i94 = alloca <8 x float>, align 32
-  %__a.addr.i90 = alloca <8 x float>, align 32
-  %__b.addr.i91 = alloca <8 x float>, align 32
-  %__a.addr.i88 = alloca <8 x float>, align 32
-  %__b.addr.i89 = alloca <8 x float>, align 32
-  %__a.addr.i86 = alloca <8 x float>, align 32
-  %__b.addr.i87 = alloca <8 x float>, align 32
-  %__a.addr.i84 = alloca <8 x float>, align 32
-  %__b.addr.i85 = alloca <8 x float>, align 32
-  %__a.addr.i82 = alloca <8 x float>, align 32
-  %__b.addr.i83 = alloca <8 x float>, align 32
-  %.compoundliteral.i81 = alloca <8 x float>, align 32
-  %__a.addr.i79 = alloca float, align 4
-  %__b.addr.i80 = alloca float, align 4
-  %__c.addr.i = alloca float, align 4
-  %__d.addr.i = alloca float, align 4
-  %__e.addr.i = alloca float, align 4
-  %__f.addr.i = alloca float, align 4
-  %__g.addr.i = alloca float, align 4
-  %__h.addr.i = alloca float, align 4
-  %.compoundliteral.i = alloca <8 x float>, align 32
-  %__a.addr.i = alloca <8 x float>, align 32
-  %__b.addr.i = alloca <8 x float>, align 32
-  %__w.addr.i = alloca float, align 4
-  %lut.addr = alloca ptr, align 8
-  %v.addr = alloca <8 x float>, align 32
-  %scale.addr = alloca ptr, align 8
-  %lut_max.addr = alloca ptr, align 8
-  %indices_p = alloca [8 x i32], align 32
-  %indices_n = alloca [8 x i32], align 32
-  %buffer_p = alloca [8 x float], align 32
-  %buffer_n = alloca [8 x float], align 32
-  %zero = alloca <8 x float>, align 32
-  %one_f = alloca <8 x float>, align 32
-  %scaled = alloca <8 x float>, align 32
-  %x = alloca <8 x float>, align 32
-  %prev_f = alloca <8 x float>, align 32
-  %d = alloca <8 x float>, align 32
-  %next_f = alloca <8 x float>, align 32
-  %prev_i = alloca <4 x i64>, align 32
-  %next_i = alloca <4 x i64>, align 32
-  %p = alloca <8 x float>, align 32
-  %n = alloca <8 x float>, align 32
-  store ptr %lut, ptr %lut.addr, align 8
-  store <8 x float> %v, ptr %v.addr, align 32
-  store ptr %scale, ptr %scale.addr, align 8
-  store ptr %lut_max, ptr %lut_max.addr, align 8
-  store <8 x float> zeroinitializer, ptr %.compoundliteral.i81, align 32
-  %0 = load <8 x float>, ptr %.compoundliteral.i81, align 32
-  store <8 x float> %0, ptr %zero, align 32
-  store float 1.000000e+00, ptr %__w.addr.i, align 4
-  %1 = load float, ptr %__w.addr.i, align 4
-  %2 = load float, ptr %__w.addr.i, align 4
-  %3 = load float, ptr %__w.addr.i, align 4
-  %4 = load float, ptr %__w.addr.i, align 4
-  %5 = load float, ptr %__w.addr.i, align 4
-  %6 = load float, ptr %__w.addr.i, align 4
-  %7 = load float, ptr %__w.addr.i, align 4
-  %8 = load float, ptr %__w.addr.i, align 4
-  store float %1, ptr %__a.addr.i79, align 4
-  store float %2, ptr %__b.addr.i80, align 4
-  store float %3, ptr %__c.addr.i, align 4
-  store float %4, ptr %__d.addr.i, align 4
-  store float %5, ptr %__e.addr.i, align 4
-  store float %6, ptr %__f.addr.i, align 4
-  store float %7, ptr %__g.addr.i, align 4
-  store float %8, ptr %__h.addr.i, align 4
-  %9 = load float, ptr %__h.addr.i, align 4
-  %vecinit.i = insertelement <8 x float> undef, float %9, i32 0
-  %10 = load float, ptr %__g.addr.i, align 4
-  %vecinit1.i = insertelement <8 x float> %vecinit.i, float %10, i32 1
-  %11 = load float, ptr %__f.addr.i, align 4
-  %vecinit2.i = insertelement <8 x float> %vecinit1.i, float %11, i32 2
-  %12 = load float, ptr %__e.addr.i, align 4
-  %vecinit3.i = insertelement <8 x float> %vecinit2.i, float %12, i32 3
-  %13 = load float, ptr %__d.addr.i, align 4
-  %vecinit4.i = insertelement <8 x float> %vecinit3.i, float %13, i32 4
-  %14 = load float, ptr %__c.addr.i, align 4
-  %vecinit5.i = insertelement <8 x float> %vecinit4.i, float %14, i32 5
-  %15 = load float, ptr %__b.addr.i80, align 4
-  %vecinit6.i = insertelement <8 x float> %vecinit5.i, float %15, i32 6
-  %16 = load float, ptr %__a.addr.i79, align 4
-  %vecinit7.i = insertelement <8 x float> %vecinit6.i, float %16, i32 7
-  store <8 x float> %vecinit7.i, ptr %.compoundliteral.i, align 32
-  %17 = load <8 x float>, ptr %.compoundliteral.i, align 32
-  store <8 x float> %17, ptr %one_f, align 32
-  %18 = load <8 x float>, ptr %v.addr, align 32
-  %19 = load ptr, ptr %scale.addr, align 8
-  %20 = load <8 x float>, ptr %19, align 32
-  store <8 x float> %18, ptr %__a.addr.i, align 32
-  store <8 x float> %20, ptr %__b.addr.i, align 32
-  %21 = load <8 x float>, ptr %__a.addr.i, align 32
-  %22 = load <8 x float>, ptr %__b.addr.i, align 32
-  %mul.i = fmul <8 x float> %21, %22
-  store <8 x float> %mul.i, ptr %scaled, align 32
-  %23 = load <8 x float>, ptr %scaled, align 32
-  %24 = load <8 x float>, ptr %zero, align 32
-  store <8 x float> %23, ptr %__a.addr.i86, align 32
-  store <8 x float> %24, ptr %__b.addr.i87, align 32
-  %25 = load <8 x float>, ptr %__a.addr.i86, align 32
-  %26 = load <8 x float>, ptr %__b.addr.i87, align 32
-  %27 = call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %25, <8 x float> %26)
-  %28 = load ptr, ptr %lut_max.addr, align 8
-  %29 = load <8 x float>, ptr %28, align 32
-  store <8 x float> %27, ptr %__a.addr.i84, align 32
-  store <8 x float> %29, ptr %__b.addr.i85, align 32
-  %30 = load <8 x float>, ptr %__a.addr.i84, align 32
-  %31 = load <8 x float>, ptr %__b.addr.i85, align 32
-  %32 = call noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %30, <8 x float> %31)
-  store <8 x float> %32, ptr %x, align 32
-  %33 = load <8 x float>, ptr %x, align 32
-  %34 = call <8 x float> @llvm.x86.avx.round.ps.256(<8 x float> %33, i32 1)
-  store <8 x float> %34, ptr %prev_f, align 32
-  %35 = load <8 x float>, ptr %x, align 32
-  %36 = load <8 x float>, ptr %prev_f, align 32
-  store <8 x float> %35, ptr %__a.addr.i90, align 32
-  store <8 x float> %36, ptr %__b.addr.i91, align 32
-  %37 = load <8 x float>, ptr %__a.addr.i90, align 32
-  %38 = load <8 x float>, ptr %__b.addr.i91, align 32
-  %sub.i92 = fsub <8 x float> %37, %38
-  store <8 x float> %sub.i92, ptr %d, align 32
-  %39 = load <8 x float>, ptr %prev_f, align 32
-  %40 = load <8 x float>, ptr %one_f, align 32
-  store <8 x float> %39, ptr %__a.addr.i93, align 32
-  store <8 x float> %40, ptr %__b.addr.i94, align 32
-  %41 = load <8 x float>, ptr %__a.addr.i93, align 32
-  %42 = load <8 x float>, ptr %__b.addr.i94, align 32
-  %add.i = fadd <8 x float> %41, %42
-  %43 = load ptr, ptr %lut_max.addr, align 8
-  %44 = load <8 x float>, ptr %43, align 32
-  store <8 x float> %add.i, ptr %__a.addr.i82, align 32
-  store <8 x float> %44, ptr %__b.addr.i83, align 32
-  %45 = load <8 x float>, ptr %__a.addr.i82, align 32
-  %46 = load <8 x float>, ptr %__b.addr.i83, align 32
-  %47 = call noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %45, <8 x float> %46)
-  store <8 x float> %47, ptr %next_f, align 32
-  %48 = load <8 x float>, ptr %prev_f, align 32
-  store <8 x float> %48, ptr %__a.addr.i96, align 32
-  %49 = load <8 x float>, ptr %__a.addr.i96, align 32
-  %50 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %49)
-  %51 = bitcast <8 x i32> %50 to <4 x i64>
-  store <4 x i64> %51, ptr %prev_i, align 32
-  %52 = load <8 x float>, ptr %next_f, align 32
-  store <8 x float> %52, ptr %__a.addr.i95, align 32
-  %53 = load <8 x float>, ptr %__a.addr.i95, align 32
-  %54 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %53)
-  %55 = bitcast <8 x i32> %54 to <4 x i64>
-  store <4 x i64> %55, ptr %next_i, align 32
-  %arraydecay = getelementptr inbounds [8 x i32], ptr %indices_p, i64 0, i64 0
-  %56 = load <4 x i64>, ptr %prev_i, align 32
-  store ptr %arraydecay, ptr %__p.addr.i98, align 8
-  store <4 x i64> %56, ptr %__a.addr.i99, align 32
-  %57 = load <4 x i64>, ptr %__a.addr.i99, align 32
-  %58 = load ptr, ptr %__p.addr.i98, align 8
-  store <4 x i64> %57, ptr %58, align 32
-  %59 = load ptr, ptr %lut.addr, align 8
-  %arrayidx = getelementptr inbounds [8 x i32], ptr %indices_p, i64 0, i64 0
-  %60 = load i32, ptr %arrayidx, align 32
-  %idxprom = zext i32 %60 to i64
-  %arrayidx10 = getelementptr inbounds float, ptr %59, i64 %idxprom
-  %61 = load float, ptr %arrayidx10, align 4
-  %arrayidx11 = getelementptr inbounds [8 x float], ptr %buffer_p, i64 0, i64 0
-  store float %61, ptr %arrayidx11, align 32
-  %62 = load ptr, ptr %lut.addr, align 8
-  %arrayidx12 = getelementptr inbounds [8 x i32], ptr %indices_p, i64 0, i64 1
-  %63 = load i32, ptr %arrayidx12, align 4
-  %idxprom13 = zext i32 %63 to i64
-  %arrayidx14 = getelementptr inbounds float, ptr %62, i64 %idxprom13
-  %64 = load float, ptr %arrayidx14, align 4
-  %arrayidx15 = getelementptr inbounds [8 x float], ptr %buffer_p, i64 0, i64 1
-  store float %64, ptr %arrayidx15, align 4
-  %65 = load ptr, ptr %lut.addr, align 8
-  %arrayidx16 = getelementptr inbounds [8 x i32], ptr %indices_p, i64 0, i64 2
-  %66 = load i32, ptr %arrayidx16, align 8
-  %idxprom17 = zext i32 %66 to i64
-  %arrayidx18 = getelementptr inbounds float, ptr %65, i64 %idxprom17
-  %67 = load float, ptr %arrayidx18, align 4
-  %arrayidx19 = getelementptr inbounds [8 x float], ptr %buffer_p, i64 0, i64 2
-  store float %67, ptr %arrayidx19, align 8
-  %68 = load ptr, ptr %lut.addr, align 8
-  %arrayidx20 = getelementptr inbounds [8 x i32], ptr %indices_p, i64 0, i64 3
-  %69 = load i32, ptr %arrayidx20, align 4
-  %idxprom21 = zext i32 %69 to i64
-  %arrayidx22 = getelementptr inbounds float, ptr %68, i64 %idxprom21
-  %70 = load float, ptr %arrayidx22, align 4
-  %arrayidx23 = getelementptr inbounds [8 x float], ptr %buffer_p, i64 0, i64 3
-  store float %70, ptr %arrayidx23, align 4
-  %71 = load ptr, ptr %lut.addr, align 8
-  %arrayidx24 = getelementptr inbounds [8 x i32], ptr %indices_p, i64 0, i64 4
-  %72 = load i32, ptr %arrayidx24, align 16
-  %idxprom25 = zext i32 %72 to i64
-  %arrayidx26 = getelementptr inbounds float, ptr %71, i64 %idxprom25
-  %73 = load float, ptr %arrayidx26, align 4
-  %arrayidx27 = getelementptr inbounds [8 x float], ptr %buffer_p, i64 0, i64 4
-  store float %73, ptr %arrayidx27, align 16
-  %74 = load ptr, ptr %lut.addr, align 8
-  %arrayidx28 = getelementptr inbounds [8 x i32], ptr %indices_p, i64 0, i64 5
-  %75 = load i32, ptr %arrayidx28, align 4
-  %idxprom29 = zext i32 %75 to i64
-  %arrayidx30 = getelementptr inbounds float, ptr %74, i64 %idxprom29
-  %76 = load float, ptr %arrayidx30, align 4
-  %arrayidx31 = getelementptr inbounds [8 x float], ptr %buffer_p, i64 0, i64 5
-  store float %76, ptr %arrayidx31, align 4
-  %77 = load ptr, ptr %lut.addr, align 8
-  %arrayidx32 = getelementptr inbounds [8 x i32], ptr %indices_p, i64 0, i64 6
-  %78 = load i32, ptr %arrayidx32, align 8
-  %idxprom33 = zext i32 %78 to i64
-  %arrayidx34 = getelementptr inbounds float, ptr %77, i64 %idxprom33
-  %79 = load float, ptr %arrayidx34, align 4
-  %arrayidx35 = getelementptr inbounds [8 x float], ptr %buffer_p, i64 0, i64 6
-  store float %79, ptr %arrayidx35, align 8
-  %80 = load ptr, ptr %lut.addr, align 8
-  %arrayidx36 = getelementptr inbounds [8 x i32], ptr %indices_p, i64 0, i64 7
-  %81 = load i32, ptr %arrayidx36, align 4
-  %idxprom37 = zext i32 %81 to i64
-  %arrayidx38 = getelementptr inbounds float, ptr %80, i64 %idxprom37
-  %82 = load float, ptr %arrayidx38, align 4
-  %arrayidx39 = getelementptr inbounds [8 x float], ptr %buffer_p, i64 0, i64 7
-  store float %82, ptr %arrayidx39, align 4
-  %arraydecay40 = getelementptr inbounds [8 x float], ptr %buffer_p, i64 0, i64 0
-  store ptr %arraydecay40, ptr %__p.addr.i101, align 8
-  %83 = load ptr, ptr %__p.addr.i101, align 8
-  %84 = load <8 x float>, ptr %83, align 32
-  store <8 x float> %84, ptr %p, align 32
-  %arraydecay42 = getelementptr inbounds [8 x i32], ptr %indices_n, i64 0, i64 0
-  %85 = load <4 x i64>, ptr %next_i, align 32
-  store ptr %arraydecay42, ptr %__p.addr.i, align 8
-  store <4 x i64> %85, ptr %__a.addr.i97, align 32
-  %86 = load <4 x i64>, ptr %__a.addr.i97, align 32
-  %87 = load ptr, ptr %__p.addr.i, align 8
-  store <4 x i64> %86, ptr %87, align 32
-  %88 = load ptr, ptr %lut.addr, align 8
-  %arrayidx43 = getelementptr inbounds [8 x i32], ptr %indices_n, i64 0, i64 0
-  %89 = load i32, ptr %arrayidx43, align 32
-  %idxprom44 = zext i32 %89 to i64
-  %arrayidx45 = getelementptr inbounds float, ptr %88, i64 %idxprom44
-  %90 = load float, ptr %arrayidx45, align 4
-  %arrayidx46 = getelementptr inbounds [8 x float], ptr %buffer_n, i64 0, i64 0
-  store float %90, ptr %arrayidx46, align 32
-  %91 = load ptr, ptr %lut.addr, align 8
-  %arrayidx47 = getelementptr inbounds [8 x i32], ptr %indices_n, i64 0, i64 1
-  %92 = load i32, ptr %arrayidx47, align 4
-  %idxprom48 = zext i32 %92 to i64
-  %arrayidx49 = getelementptr inbounds float, ptr %91, i64 %idxprom48
-  %93 = load float, ptr %arrayidx49, align 4
-  %arrayidx50 = getelementptr inbounds [8 x float], ptr %buffer_n, i64 0, i64 1
-  store float %93, ptr %arrayidx50, align 4
-  %94 = load ptr, ptr %lut.addr, align 8
-  %arrayidx51 = getelementptr inbounds [8 x i32], ptr %indices_n, i64 0, i64 2
-  %95 = load i32, ptr %arrayidx51, align 8
-  %idxprom52 = zext i32 %95 to i64
-  %arrayidx53 = getelementptr inbounds float, ptr %94, i64 %idxprom52
-  %96 = load float, ptr %arrayidx53, align 4
-  %arrayidx54 = getelementptr inbounds [8 x float], ptr %buffer_n, i64 0, i64 2
-  store float %96, ptr %arrayidx54, align 8
-  %97 = load ptr, ptr %lut.addr, align 8
-  %arrayidx55 = getelementptr inbounds [8 x i32], ptr %indices_n, i64 0, i64 3
-  %98 = load i32, ptr %arrayidx55, align 4
-  %idxprom56 = zext i32 %98 to i64
-  %arrayidx57 = getelementptr inbounds float, ptr %97, i64 %idxprom56
-  %99 = load float, ptr %arrayidx57, align 4
-  %arrayidx58 = getelementptr inbounds [8 x float], ptr %buffer_n, i64 0, i64 3
-  store float %99, ptr %arrayidx58, align 4
-  %100 = load ptr, ptr %lut.addr, align 8
-  %arrayidx59 = getelementptr inbounds [8 x i32], ptr %indices_n, i64 0, i64 4
-  %101 = load i32, ptr %arrayidx59, align 16
-  %idxprom60 = zext i32 %101 to i64
-  %arrayidx61 = getelementptr inbounds float, ptr %100, i64 %idxprom60
-  %102 = load float, ptr %arrayidx61, align 4
-  %arrayidx62 = getelementptr inbounds [8 x float], ptr %buffer_n, i64 0, i64 4
-  store float %102, ptr %arrayidx62, align 16
-  %103 = load ptr, ptr %lut.addr, align 8
-  %arrayidx63 = getelementptr inbounds [8 x i32], ptr %indices_n, i64 0, i64 5
-  %104 = load i32, ptr %arrayidx63, align 4
-  %idxprom64 = zext i32 %104 to i64
-  %arrayidx65 = getelementptr inbounds float, ptr %103, i64 %idxprom64
-  %105 = load float, ptr %arrayidx65, align 4
-  %arrayidx66 = getelementptr inbounds [8 x float], ptr %buffer_n, i64 0, i64 5
-  store float %105, ptr %arrayidx66, align 4
-  %106 = load ptr, ptr %lut.addr, align 8
-  %arrayidx67 = getelementptr inbounds [8 x i32], ptr %indices_n, i64 0, i64 6
-  %107 = load i32, ptr %arrayidx67, align 8
-  %idxprom68 = zext i32 %107 to i64
-  %arrayidx69 = getelementptr inbounds float, ptr %106, i64 %idxprom68
-  %108 = load float, ptr %arrayidx69, align 4
-  %arrayidx70 = getelementptr inbounds [8 x float], ptr %buffer_n, i64 0, i64 6
-  store float %108, ptr %arrayidx70, align 8
-  %109 = load ptr, ptr %lut.addr, align 8
-  %arrayidx71 = getelementptr inbounds [8 x i32], ptr %indices_n, i64 0, i64 7
-  %110 = load i32, ptr %arrayidx71, align 4
-  %idxprom72 = zext i32 %110 to i64
-  %arrayidx73 = getelementptr inbounds float, ptr %109, i64 %idxprom72
-  %111 = load float, ptr %arrayidx73, align 4
-  %arrayidx74 = getelementptr inbounds [8 x float], ptr %buffer_n, i64 0, i64 7
-  store float %111, ptr %arrayidx74, align 4
-  %arraydecay75 = getelementptr inbounds [8 x float], ptr %buffer_n, i64 0, i64 0
-  store ptr %arraydecay75, ptr %__p.addr.i100, align 8
-  %112 = load ptr, ptr %__p.addr.i100, align 8
-  %113 = load <8 x float>, ptr %112, align 32
-  store <8 x float> %113, ptr %n, align 32
-  %114 = load <8 x float>, ptr %n, align 32
-  %115 = load <8 x float>, ptr %p, align 32
-  store <8 x float> %114, ptr %__a.addr.i88, align 32
-  store <8 x float> %115, ptr %__b.addr.i89, align 32
-  %116 = load <8 x float>, ptr %__a.addr.i88, align 32
-  %117 = load <8 x float>, ptr %__b.addr.i89, align 32
-  %sub.i = fsub <8 x float> %116, %117
-  %118 = load <8 x float>, ptr %d, align 32
-  %119 = load <8 x float>, ptr %p, align 32
-  %call78 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112fmadd_ps_avxEDv8_fS1_S1_(<8 x float> noundef %sub.i, <8 x float> noundef %118, <8 x float> noundef %119)
-  store <8 x float> %call78, ptr %v.addr, align 32
-  %120 = load <8 x float>, ptr %v.addr, align 32
-  ret <8 x float> %120
+; Function Attrs: inlinehint mustprogress uwtable
+define internal noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113apply_lut_avxEPKfDv8_fRKS3_S5_(ptr noundef %0, <8 x float> noundef %1, ptr noundef nonnull align 32 dereferenceable(32) %2, ptr noundef nonnull align 32 dereferenceable(32) %3) #6 {
+  %5 = alloca ptr, align 8
+  %6 = alloca <8 x float>, align 32
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca [8 x i32], align 32
+  %10 = alloca [8 x i32], align 32
+  %11 = alloca [8 x float], align 32
+  %12 = alloca [8 x float], align 32
+  %13 = alloca <8 x float>, align 32
+  %14 = alloca <8 x float>, align 32
+  %15 = alloca <8 x float>, align 32
+  %16 = alloca <8 x float>, align 32
+  %17 = alloca <8 x float>, align 32
+  %18 = alloca <8 x float>, align 32
+  %19 = alloca <8 x float>, align 32
+  %20 = alloca <4 x i64>, align 32
+  %21 = alloca <4 x i64>, align 32
+  %22 = alloca <8 x float>, align 32
+  %23 = alloca <8 x float>, align 32
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store <8 x float> %1, ptr %6, align 32, !tbaa !19
+  store ptr %2, ptr %7, align 8, !tbaa !12
+  store ptr %3, ptr %8, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 32, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %13) #3
+  %24 = call noundef <8 x float> @_ZL17_mm256_setzero_psv()
+  store <8 x float> %24, ptr %13, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %14) #3
+  %25 = call noundef <8 x float> @_ZL14_mm256_set1_psf(float noundef 1.000000e+00)
+  store <8 x float> %25, ptr %14, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %15) #3
+  %26 = load <8 x float>, ptr %6, align 32, !tbaa !19
+  %27 = load ptr, ptr %7, align 8, !tbaa !12
+  %28 = load <8 x float>, ptr %27, align 32, !tbaa !19
+  %29 = call noundef <8 x float> @_ZL13_mm256_mul_psDv8_fS_(<8 x float> noundef %26, <8 x float> noundef %28)
+  store <8 x float> %29, ptr %15, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %16) #3
+  %30 = load <8 x float>, ptr %15, align 32, !tbaa !19
+  %31 = load <8 x float>, ptr %13, align 32, !tbaa !19
+  %32 = call noundef <8 x float> @_ZL13_mm256_max_psDv8_fS_(<8 x float> noundef %30, <8 x float> noundef %31)
+  %33 = load ptr, ptr %8, align 8, !tbaa !12
+  %34 = load <8 x float>, ptr %33, align 32, !tbaa !19
+  %35 = call noundef <8 x float> @_ZL13_mm256_min_psDv8_fS_(<8 x float> noundef %32, <8 x float> noundef %34)
+  store <8 x float> %35, ptr %16, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %17) #3
+  %36 = load <8 x float>, ptr %16, align 32, !tbaa !19
+  %37 = call <8 x float> @llvm.x86.avx.round.ps.256(<8 x float> %36, i32 1)
+  store <8 x float> %37, ptr %17, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %18) #3
+  %38 = load <8 x float>, ptr %16, align 32, !tbaa !19
+  %39 = load <8 x float>, ptr %17, align 32, !tbaa !19
+  %40 = call noundef <8 x float> @_ZL13_mm256_sub_psDv8_fS_(<8 x float> noundef %38, <8 x float> noundef %39)
+  store <8 x float> %40, ptr %18, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %19) #3
+  %41 = load <8 x float>, ptr %17, align 32, !tbaa !19
+  %42 = load <8 x float>, ptr %14, align 32, !tbaa !19
+  %43 = call noundef <8 x float> @_ZL13_mm256_add_psDv8_fS_(<8 x float> noundef %41, <8 x float> noundef %42)
+  %44 = load ptr, ptr %8, align 8, !tbaa !12
+  %45 = load <8 x float>, ptr %44, align 32, !tbaa !19
+  %46 = call noundef <8 x float> @_ZL13_mm256_min_psDv8_fS_(<8 x float> noundef %43, <8 x float> noundef %45)
+  store <8 x float> %46, ptr %19, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %20) #3
+  %47 = load <8 x float>, ptr %17, align 32, !tbaa !19
+  %48 = call noundef <4 x i64> @_ZL19_mm256_cvttps_epi32Dv8_f(<8 x float> noundef %47)
+  store <4 x i64> %48, ptr %20, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %21) #3
+  %49 = load <8 x float>, ptr %19, align 32, !tbaa !19
+  %50 = call noundef <4 x i64> @_ZL19_mm256_cvttps_epi32Dv8_f(<8 x float> noundef %49)
+  store <4 x i64> %50, ptr %21, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %22) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %23) #3
+  %51 = getelementptr inbounds [8 x i32], ptr %9, i64 0, i64 0
+  %52 = load <4 x i64>, ptr %20, align 32, !tbaa !19
+  call void @_ZL18_mm256_store_si256PDv4_xS_(ptr noundef %51, <4 x i64> noundef %52)
+  %53 = load ptr, ptr %5, align 8, !tbaa !7
+  %54 = getelementptr inbounds [8 x i32], ptr %9, i64 0, i64 0
+  %55 = load i32, ptr %54, align 32, !tbaa !10
+  %56 = zext i32 %55 to i64
+  %57 = getelementptr inbounds nuw float, ptr %53, i64 %56
+  %58 = load float, ptr %57, align 4, !tbaa !17
+  %59 = getelementptr inbounds [8 x float], ptr %11, i64 0, i64 0
+  store float %58, ptr %59, align 32, !tbaa !17
+  %60 = load ptr, ptr %5, align 8, !tbaa !7
+  %61 = getelementptr inbounds [8 x i32], ptr %9, i64 0, i64 1
+  %62 = load i32, ptr %61, align 4, !tbaa !10
+  %63 = zext i32 %62 to i64
+  %64 = getelementptr inbounds nuw float, ptr %60, i64 %63
+  %65 = load float, ptr %64, align 4, !tbaa !17
+  %66 = getelementptr inbounds [8 x float], ptr %11, i64 0, i64 1
+  store float %65, ptr %66, align 4, !tbaa !17
+  %67 = load ptr, ptr %5, align 8, !tbaa !7
+  %68 = getelementptr inbounds [8 x i32], ptr %9, i64 0, i64 2
+  %69 = load i32, ptr %68, align 8, !tbaa !10
+  %70 = zext i32 %69 to i64
+  %71 = getelementptr inbounds nuw float, ptr %67, i64 %70
+  %72 = load float, ptr %71, align 4, !tbaa !17
+  %73 = getelementptr inbounds [8 x float], ptr %11, i64 0, i64 2
+  store float %72, ptr %73, align 8, !tbaa !17
+  %74 = load ptr, ptr %5, align 8, !tbaa !7
+  %75 = getelementptr inbounds [8 x i32], ptr %9, i64 0, i64 3
+  %76 = load i32, ptr %75, align 4, !tbaa !10
+  %77 = zext i32 %76 to i64
+  %78 = getelementptr inbounds nuw float, ptr %74, i64 %77
+  %79 = load float, ptr %78, align 4, !tbaa !17
+  %80 = getelementptr inbounds [8 x float], ptr %11, i64 0, i64 3
+  store float %79, ptr %80, align 4, !tbaa !17
+  %81 = load ptr, ptr %5, align 8, !tbaa !7
+  %82 = getelementptr inbounds [8 x i32], ptr %9, i64 0, i64 4
+  %83 = load i32, ptr %82, align 16, !tbaa !10
+  %84 = zext i32 %83 to i64
+  %85 = getelementptr inbounds nuw float, ptr %81, i64 %84
+  %86 = load float, ptr %85, align 4, !tbaa !17
+  %87 = getelementptr inbounds [8 x float], ptr %11, i64 0, i64 4
+  store float %86, ptr %87, align 16, !tbaa !17
+  %88 = load ptr, ptr %5, align 8, !tbaa !7
+  %89 = getelementptr inbounds [8 x i32], ptr %9, i64 0, i64 5
+  %90 = load i32, ptr %89, align 4, !tbaa !10
+  %91 = zext i32 %90 to i64
+  %92 = getelementptr inbounds nuw float, ptr %88, i64 %91
+  %93 = load float, ptr %92, align 4, !tbaa !17
+  %94 = getelementptr inbounds [8 x float], ptr %11, i64 0, i64 5
+  store float %93, ptr %94, align 4, !tbaa !17
+  %95 = load ptr, ptr %5, align 8, !tbaa !7
+  %96 = getelementptr inbounds [8 x i32], ptr %9, i64 0, i64 6
+  %97 = load i32, ptr %96, align 8, !tbaa !10
+  %98 = zext i32 %97 to i64
+  %99 = getelementptr inbounds nuw float, ptr %95, i64 %98
+  %100 = load float, ptr %99, align 4, !tbaa !17
+  %101 = getelementptr inbounds [8 x float], ptr %11, i64 0, i64 6
+  store float %100, ptr %101, align 8, !tbaa !17
+  %102 = load ptr, ptr %5, align 8, !tbaa !7
+  %103 = getelementptr inbounds [8 x i32], ptr %9, i64 0, i64 7
+  %104 = load i32, ptr %103, align 4, !tbaa !10
+  %105 = zext i32 %104 to i64
+  %106 = getelementptr inbounds nuw float, ptr %102, i64 %105
+  %107 = load float, ptr %106, align 4, !tbaa !17
+  %108 = getelementptr inbounds [8 x float], ptr %11, i64 0, i64 7
+  store float %107, ptr %108, align 4, !tbaa !17
+  %109 = getelementptr inbounds [8 x float], ptr %11, i64 0, i64 0
+  %110 = call noundef <8 x float> @_ZL14_mm256_load_psPKf(ptr noundef %109)
+  store <8 x float> %110, ptr %22, align 32, !tbaa !19
+  %111 = getelementptr inbounds [8 x i32], ptr %10, i64 0, i64 0
+  %112 = load <4 x i64>, ptr %21, align 32, !tbaa !19
+  call void @_ZL18_mm256_store_si256PDv4_xS_(ptr noundef %111, <4 x i64> noundef %112)
+  %113 = load ptr, ptr %5, align 8, !tbaa !7
+  %114 = getelementptr inbounds [8 x i32], ptr %10, i64 0, i64 0
+  %115 = load i32, ptr %114, align 32, !tbaa !10
+  %116 = zext i32 %115 to i64
+  %117 = getelementptr inbounds nuw float, ptr %113, i64 %116
+  %118 = load float, ptr %117, align 4, !tbaa !17
+  %119 = getelementptr inbounds [8 x float], ptr %12, i64 0, i64 0
+  store float %118, ptr %119, align 32, !tbaa !17
+  %120 = load ptr, ptr %5, align 8, !tbaa !7
+  %121 = getelementptr inbounds [8 x i32], ptr %10, i64 0, i64 1
+  %122 = load i32, ptr %121, align 4, !tbaa !10
+  %123 = zext i32 %122 to i64
+  %124 = getelementptr inbounds nuw float, ptr %120, i64 %123
+  %125 = load float, ptr %124, align 4, !tbaa !17
+  %126 = getelementptr inbounds [8 x float], ptr %12, i64 0, i64 1
+  store float %125, ptr %126, align 4, !tbaa !17
+  %127 = load ptr, ptr %5, align 8, !tbaa !7
+  %128 = getelementptr inbounds [8 x i32], ptr %10, i64 0, i64 2
+  %129 = load i32, ptr %128, align 8, !tbaa !10
+  %130 = zext i32 %129 to i64
+  %131 = getelementptr inbounds nuw float, ptr %127, i64 %130
+  %132 = load float, ptr %131, align 4, !tbaa !17
+  %133 = getelementptr inbounds [8 x float], ptr %12, i64 0, i64 2
+  store float %132, ptr %133, align 8, !tbaa !17
+  %134 = load ptr, ptr %5, align 8, !tbaa !7
+  %135 = getelementptr inbounds [8 x i32], ptr %10, i64 0, i64 3
+  %136 = load i32, ptr %135, align 4, !tbaa !10
+  %137 = zext i32 %136 to i64
+  %138 = getelementptr inbounds nuw float, ptr %134, i64 %137
+  %139 = load float, ptr %138, align 4, !tbaa !17
+  %140 = getelementptr inbounds [8 x float], ptr %12, i64 0, i64 3
+  store float %139, ptr %140, align 4, !tbaa !17
+  %141 = load ptr, ptr %5, align 8, !tbaa !7
+  %142 = getelementptr inbounds [8 x i32], ptr %10, i64 0, i64 4
+  %143 = load i32, ptr %142, align 16, !tbaa !10
+  %144 = zext i32 %143 to i64
+  %145 = getelementptr inbounds nuw float, ptr %141, i64 %144
+  %146 = load float, ptr %145, align 4, !tbaa !17
+  %147 = getelementptr inbounds [8 x float], ptr %12, i64 0, i64 4
+  store float %146, ptr %147, align 16, !tbaa !17
+  %148 = load ptr, ptr %5, align 8, !tbaa !7
+  %149 = getelementptr inbounds [8 x i32], ptr %10, i64 0, i64 5
+  %150 = load i32, ptr %149, align 4, !tbaa !10
+  %151 = zext i32 %150 to i64
+  %152 = getelementptr inbounds nuw float, ptr %148, i64 %151
+  %153 = load float, ptr %152, align 4, !tbaa !17
+  %154 = getelementptr inbounds [8 x float], ptr %12, i64 0, i64 5
+  store float %153, ptr %154, align 4, !tbaa !17
+  %155 = load ptr, ptr %5, align 8, !tbaa !7
+  %156 = getelementptr inbounds [8 x i32], ptr %10, i64 0, i64 6
+  %157 = load i32, ptr %156, align 8, !tbaa !10
+  %158 = zext i32 %157 to i64
+  %159 = getelementptr inbounds nuw float, ptr %155, i64 %158
+  %160 = load float, ptr %159, align 4, !tbaa !17
+  %161 = getelementptr inbounds [8 x float], ptr %12, i64 0, i64 6
+  store float %160, ptr %161, align 8, !tbaa !17
+  %162 = load ptr, ptr %5, align 8, !tbaa !7
+  %163 = getelementptr inbounds [8 x i32], ptr %10, i64 0, i64 7
+  %164 = load i32, ptr %163, align 4, !tbaa !10
+  %165 = zext i32 %164 to i64
+  %166 = getelementptr inbounds nuw float, ptr %162, i64 %165
+  %167 = load float, ptr %166, align 4, !tbaa !17
+  %168 = getelementptr inbounds [8 x float], ptr %12, i64 0, i64 7
+  store float %167, ptr %168, align 4, !tbaa !17
+  %169 = getelementptr inbounds [8 x float], ptr %12, i64 0, i64 0
+  %170 = call noundef <8 x float> @_ZL14_mm256_load_psPKf(ptr noundef %169)
+  store <8 x float> %170, ptr %23, align 32, !tbaa !19
+  %171 = load <8 x float>, ptr %23, align 32, !tbaa !19
+  %172 = load <8 x float>, ptr %22, align 32, !tbaa !19
+  %173 = call noundef <8 x float> @_ZL13_mm256_sub_psDv8_fS_(<8 x float> noundef %171, <8 x float> noundef %172)
+  %174 = load <8 x float>, ptr %18, align 32, !tbaa !19
+  %175 = load <8 x float>, ptr %22, align 32, !tbaa !19
+  %176 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112fmadd_ps_avxEDv8_fS1_S1_(<8 x float> noundef %173, <8 x float> noundef %174, <8 x float> noundef %175)
+  store <8 x float> %176, ptr %6, align 32, !tbaa !19
+  %177 = load <8 x float>, ptr %6, align 32, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 32, ptr %23) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %9) #3
+  ret <8 x float> %177
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE1EE5StoreEPhDv8_fS4_S4_S4_(ptr noundef %out, <8 x float> noundef %r, <8 x float> noundef %g, <8 x float> noundef %b, <8 x float> noundef %a) #5 comdat align 2 {
-entry:
-  %__p.addr.i = alloca ptr, align 8
-  %__a.addr.i17 = alloca <4 x i64>, align 32
-  %__a.addr.i16 = alloca <2 x i64>, align 16
-  %__a.addr.i15 = alloca <8 x float>, align 32
-  %__a.addr.i14 = alloca <8 x float>, align 32
-  %__a.addr.i13 = alloca <8 x float>, align 32
-  %__a.addr.i12 = alloca <8 x float>, align 32
-  %__a.addr.i = alloca float, align 4
-  %__b.addr.i = alloca float, align 4
-  %__c.addr.i = alloca float, align 4
-  %__d.addr.i = alloca float, align 4
-  %__e.addr.i = alloca float, align 4
-  %__f.addr.i = alloca float, align 4
-  %__g.addr.i = alloca float, align 4
-  %__h.addr.i = alloca float, align 4
-  %.compoundliteral.i = alloca <8 x float>, align 32
-  %__w.addr.i = alloca float, align 4
-  %out.addr = alloca ptr, align 8
-  %r.addr = alloca <8 x float>, align 32
-  %g.addr = alloca <8 x float>, align 32
-  %b.addr = alloca <8 x float>, align 32
-  %a.addr = alloca <8 x float>, align 32
-  %rgba0 = alloca <8 x float>, align 32
-  %rgba1 = alloca <8 x float>, align 32
-  %rgba2 = alloca <8 x float>, align 32
-  %rgba3 = alloca <8 x float>, align 32
-  %maxValue = alloca <8 x float>, align 32
-  %rgba01 = alloca <4 x i64>, align 32
-  %rgba23 = alloca <4 x i64>, align 32
-  %rgba45 = alloca <4 x i64>, align 32
-  %rgba67 = alloca <4 x i64>, align 32
-  %lo = alloca <2 x i64>, align 16
-  %hi = alloca <2 x i64>, align 16
-  %rgba = alloca <4 x i64>, align 32
-  store ptr %out, ptr %out.addr, align 8
-  store <8 x float> %r, ptr %r.addr, align 32
-  store <8 x float> %g, ptr %g.addr, align 32
-  store <8 x float> %b, ptr %b.addr, align 32
-  store <8 x float> %a, ptr %a.addr, align 32
-  store float 2.550000e+02, ptr %__w.addr.i, align 4
-  %0 = load float, ptr %__w.addr.i, align 4
-  %1 = load float, ptr %__w.addr.i, align 4
-  %2 = load float, ptr %__w.addr.i, align 4
-  %3 = load float, ptr %__w.addr.i, align 4
-  %4 = load float, ptr %__w.addr.i, align 4
-  %5 = load float, ptr %__w.addr.i, align 4
-  %6 = load float, ptr %__w.addr.i, align 4
-  %7 = load float, ptr %__w.addr.i, align 4
-  store float %0, ptr %__a.addr.i, align 4
-  store float %1, ptr %__b.addr.i, align 4
-  store float %2, ptr %__c.addr.i, align 4
-  store float %3, ptr %__d.addr.i, align 4
-  store float %4, ptr %__e.addr.i, align 4
-  store float %5, ptr %__f.addr.i, align 4
-  store float %6, ptr %__g.addr.i, align 4
-  store float %7, ptr %__h.addr.i, align 4
-  %8 = load float, ptr %__h.addr.i, align 4
-  %vecinit.i = insertelement <8 x float> undef, float %8, i32 0
-  %9 = load float, ptr %__g.addr.i, align 4
-  %vecinit1.i = insertelement <8 x float> %vecinit.i, float %9, i32 1
-  %10 = load float, ptr %__f.addr.i, align 4
-  %vecinit2.i = insertelement <8 x float> %vecinit1.i, float %10, i32 2
-  %11 = load float, ptr %__e.addr.i, align 4
-  %vecinit3.i = insertelement <8 x float> %vecinit2.i, float %11, i32 3
-  %12 = load float, ptr %__d.addr.i, align 4
-  %vecinit4.i = insertelement <8 x float> %vecinit3.i, float %12, i32 4
-  %13 = load float, ptr %__c.addr.i, align 4
-  %vecinit5.i = insertelement <8 x float> %vecinit4.i, float %13, i32 5
-  %14 = load float, ptr %__b.addr.i, align 4
-  %vecinit6.i = insertelement <8 x float> %vecinit5.i, float %14, i32 6
-  %15 = load float, ptr %__a.addr.i, align 4
-  %vecinit7.i = insertelement <8 x float> %vecinit6.i, float %15, i32 7
-  store <8 x float> %vecinit7.i, ptr %.compoundliteral.i, align 32
-  %16 = load <8 x float>, ptr %.compoundliteral.i, align 32
-  store <8 x float> %16, ptr %maxValue, align 32
-  %17 = load <8 x float>, ptr %r.addr, align 32
-  %18 = load <8 x float>, ptr %g.addr, align 32
-  %19 = load <8 x float>, ptr %b.addr, align 32
-  %20 = load <8 x float>, ptr %a.addr, align 32
-  call void @_ZN19OpenColorIO_v2_4dev24avxRGBATranspose_4x4_4x4EDv8_fS0_S0_S0_RS0_S1_S1_S1_(<8 x float> noundef %17, <8 x float> noundef %18, <8 x float> noundef %19, <8 x float> noundef %20, ptr noundef nonnull align 32 dereferenceable(32) %rgba0, ptr noundef nonnull align 32 dereferenceable(32) %rgba1, ptr noundef nonnull align 32 dereferenceable(32) %rgba2, ptr noundef nonnull align 32 dereferenceable(32) %rgba3)
-  %21 = load <8 x float>, ptr %rgba0, align 32
-  %call1 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %21, ptr noundef nonnull align 32 dereferenceable(32) %maxValue)
-  store <8 x float> %call1, ptr %rgba0, align 32
-  %22 = load <8 x float>, ptr %rgba1, align 32
-  %call2 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %22, ptr noundef nonnull align 32 dereferenceable(32) %maxValue)
-  store <8 x float> %call2, ptr %rgba1, align 32
-  %23 = load <8 x float>, ptr %rgba2, align 32
-  %call3 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %23, ptr noundef nonnull align 32 dereferenceable(32) %maxValue)
-  store <8 x float> %call3, ptr %rgba2, align 32
-  %24 = load <8 x float>, ptr %rgba3, align 32
-  %call4 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %24, ptr noundef nonnull align 32 dereferenceable(32) %maxValue)
-  store <8 x float> %call4, ptr %rgba3, align 32
-  %25 = load <8 x float>, ptr %rgba0, align 32
-  store <8 x float> %25, ptr %__a.addr.i15, align 32
-  %26 = load <8 x float>, ptr %__a.addr.i15, align 32
-  %27 = call <8 x i32> @llvm.x86.avx.cvt.ps2dq.256(<8 x float> %26)
-  %28 = bitcast <8 x i32> %27 to <4 x i64>
-  store <4 x i64> %28, ptr %rgba01, align 32
-  %29 = load <8 x float>, ptr %rgba1, align 32
-  store <8 x float> %29, ptr %__a.addr.i14, align 32
-  %30 = load <8 x float>, ptr %__a.addr.i14, align 32
-  %31 = call <8 x i32> @llvm.x86.avx.cvt.ps2dq.256(<8 x float> %30)
-  %32 = bitcast <8 x i32> %31 to <4 x i64>
-  store <4 x i64> %32, ptr %rgba23, align 32
-  %33 = load <8 x float>, ptr %rgba2, align 32
-  store <8 x float> %33, ptr %__a.addr.i13, align 32
-  %34 = load <8 x float>, ptr %__a.addr.i13, align 32
-  %35 = call <8 x i32> @llvm.x86.avx.cvt.ps2dq.256(<8 x float> %34)
-  %36 = bitcast <8 x i32> %35 to <4 x i64>
-  store <4 x i64> %36, ptr %rgba45, align 32
-  %37 = load <8 x float>, ptr %rgba3, align 32
-  store <8 x float> %37, ptr %__a.addr.i12, align 32
-  %38 = load <8 x float>, ptr %__a.addr.i12, align 32
-  %39 = call <8 x i32> @llvm.x86.avx.cvt.ps2dq.256(<8 x float> %38)
-  %40 = bitcast <8 x i32> %39 to <4 x i64>
-  store <4 x i64> %40, ptr %rgba67, align 32
-  %41 = load <4 x i64>, ptr %rgba01, align 32
-  %42 = load <4 x i64>, ptr %rgba23, align 32
-  %call9 = call noundef <2 x i64> @_ZN19OpenColorIO_v2_4dev11avx_pack_u8EDv4_xS0_(<4 x i64> noundef %41, <4 x i64> noundef %42)
-  store <2 x i64> %call9, ptr %lo, align 16
-  %43 = load <4 x i64>, ptr %rgba45, align 32
-  %44 = load <4 x i64>, ptr %rgba67, align 32
-  %call10 = call noundef <2 x i64> @_ZN19OpenColorIO_v2_4dev11avx_pack_u8EDv4_xS0_(<4 x i64> noundef %43, <4 x i64> noundef %44)
-  store <2 x i64> %call10, ptr %hi, align 16
-  %45 = load <2 x i64>, ptr %lo, align 16
-  store <2 x i64> %45, ptr %__a.addr.i16, align 16
-  %46 = load <2 x i64>, ptr %__a.addr.i16, align 16
-  %47 = freeze <2 x i64> poison
-  %shuffle.i = shufflevector <2 x i64> %46, <2 x i64> %47, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %48 = bitcast <4 x i64> %shuffle.i to <8 x i32>
-  %49 = load <2 x i64>, ptr %hi, align 16
-  %50 = bitcast <2 x i64> %49 to <4 x i32>
-  %widen = shufflevector <4 x i32> %50, <4 x i32> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %insert = shufflevector <8 x i32> %48, <8 x i32> %widen, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
-  %51 = bitcast <8 x i32> %insert to <4 x i64>
-  store <4 x i64> %51, ptr %rgba, align 32
-  %52 = load ptr, ptr %out.addr, align 8
-  %53 = load <4 x i64>, ptr %rgba, align 32
-  store ptr %52, ptr %__p.addr.i, align 8
-  store <4 x i64> %53, ptr %__a.addr.i17, align 32
-  %54 = load <4 x i64>, ptr %__a.addr.i17, align 32
-  %55 = load ptr, ptr %__p.addr.i, align 8
-  store <4 x i64> %54, ptr %55, align 1
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <8 x float> @_ZL13_mm256_mul_psDv8_fS_(<8 x float> noundef %0, <8 x float> noundef %1) #10 {
+  %3 = alloca <8 x float>, align 32
+  %4 = alloca <8 x float>, align 32
+  store <8 x float> %0, ptr %3, align 32, !tbaa !19
+  store <8 x float> %1, ptr %4, align 32, !tbaa !19
+  %5 = load <8 x float>, ptr %3, align 32, !tbaa !19
+  %6 = load <8 x float>, ptr %4, align 32, !tbaa !19
+  %7 = fmul <8 x float> %5, %6
+  ret <8 x float> %7
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE1EE5StoreEPhDv8_fS4_S4_S4_(ptr noundef %0, <8 x float> noundef %1, <8 x float> noundef %2, <8 x float> noundef %3, <8 x float> noundef %4) #6 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca <8 x float>, align 32
+  %8 = alloca <8 x float>, align 32
+  %9 = alloca <8 x float>, align 32
+  %10 = alloca <8 x float>, align 32
+  %11 = alloca <8 x float>, align 32
+  %12 = alloca <8 x float>, align 32
+  %13 = alloca <8 x float>, align 32
+  %14 = alloca <8 x float>, align 32
+  %15 = alloca <8 x float>, align 32
+  %16 = alloca <4 x i64>, align 32
+  %17 = alloca <4 x i64>, align 32
+  %18 = alloca <4 x i64>, align 32
+  %19 = alloca <4 x i64>, align 32
+  %20 = alloca <2 x i64>, align 16
+  %21 = alloca <2 x i64>, align 16
+  %22 = alloca <4 x i64>, align 32
+  store ptr %0, ptr %6, align 8, !tbaa !15
+  store <8 x float> %1, ptr %7, align 32, !tbaa !19
+  store <8 x float> %2, ptr %8, align 32, !tbaa !19
+  store <8 x float> %3, ptr %9, align 32, !tbaa !19
+  store <8 x float> %4, ptr %10, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %15) #3
+  %23 = call noundef <8 x float> @_ZL14_mm256_set1_psf(float noundef 2.550000e+02)
+  store <8 x float> %23, ptr %15, align 32, !tbaa !19
+  %24 = load <8 x float>, ptr %7, align 32, !tbaa !19
+  %25 = load <8 x float>, ptr %8, align 32, !tbaa !19
+  %26 = load <8 x float>, ptr %9, align 32, !tbaa !19
+  %27 = load <8 x float>, ptr %10, align 32, !tbaa !19
+  call void @_ZN19OpenColorIO_v2_5dev24avxRGBATranspose_4x4_4x4EDv8_fS0_S0_S0_RS0_S1_S1_S1_(<8 x float> noundef %24, <8 x float> noundef %25, <8 x float> noundef %26, <8 x float> noundef %27, ptr noundef nonnull align 32 dereferenceable(32) %11, ptr noundef nonnull align 32 dereferenceable(32) %12, ptr noundef nonnull align 32 dereferenceable(32) %13, ptr noundef nonnull align 32 dereferenceable(32) %14)
+  %28 = load <8 x float>, ptr %11, align 32, !tbaa !19
+  %29 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %28, ptr noundef nonnull align 32 dereferenceable(32) %15)
+  store <8 x float> %29, ptr %11, align 32, !tbaa !19
+  %30 = load <8 x float>, ptr %12, align 32, !tbaa !19
+  %31 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %30, ptr noundef nonnull align 32 dereferenceable(32) %15)
+  store <8 x float> %31, ptr %12, align 32, !tbaa !19
+  %32 = load <8 x float>, ptr %13, align 32, !tbaa !19
+  %33 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %32, ptr noundef nonnull align 32 dereferenceable(32) %15)
+  store <8 x float> %33, ptr %13, align 32, !tbaa !19
+  %34 = load <8 x float>, ptr %14, align 32, !tbaa !19
+  %35 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %34, ptr noundef nonnull align 32 dereferenceable(32) %15)
+  store <8 x float> %35, ptr %14, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %16) #3
+  %36 = load <8 x float>, ptr %11, align 32, !tbaa !19
+  %37 = call noundef <4 x i64> @_ZL18_mm256_cvtps_epi32Dv8_f(<8 x float> noundef %36)
+  store <4 x i64> %37, ptr %16, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %17) #3
+  %38 = load <8 x float>, ptr %12, align 32, !tbaa !19
+  %39 = call noundef <4 x i64> @_ZL18_mm256_cvtps_epi32Dv8_f(<8 x float> noundef %38)
+  store <4 x i64> %39, ptr %17, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %18) #3
+  %40 = load <8 x float>, ptr %13, align 32, !tbaa !19
+  %41 = call noundef <4 x i64> @_ZL18_mm256_cvtps_epi32Dv8_f(<8 x float> noundef %40)
+  store <4 x i64> %41, ptr %18, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %19) #3
+  %42 = load <8 x float>, ptr %14, align 32, !tbaa !19
+  %43 = call noundef <4 x i64> @_ZL18_mm256_cvtps_epi32Dv8_f(<8 x float> noundef %42)
+  store <4 x i64> %43, ptr %19, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 16, ptr %20) #3
+  %44 = load <4 x i64>, ptr %16, align 32, !tbaa !19
+  %45 = load <4 x i64>, ptr %17, align 32, !tbaa !19
+  %46 = call noundef <2 x i64> @_ZN19OpenColorIO_v2_5dev11avx_pack_u8EDv4_xS0_(<4 x i64> noundef %44, <4 x i64> noundef %45)
+  store <2 x i64> %46, ptr %20, align 16, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 16, ptr %21) #3
+  %47 = load <4 x i64>, ptr %18, align 32, !tbaa !19
+  %48 = load <4 x i64>, ptr %19, align 32, !tbaa !19
+  %49 = call noundef <2 x i64> @_ZN19OpenColorIO_v2_5dev11avx_pack_u8EDv4_xS0_(<4 x i64> noundef %47, <4 x i64> noundef %48)
+  store <2 x i64> %49, ptr %21, align 16, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %22) #3
+  %50 = load <2 x i64>, ptr %20, align 16, !tbaa !19
+  %51 = call noundef <4 x i64> @_ZL22_mm256_castsi128_si256Dv2_x(<2 x i64> noundef %50)
+  %52 = bitcast <4 x i64> %51 to <8 x i32>
+  %53 = load <2 x i64>, ptr %21, align 16, !tbaa !19
+  %54 = bitcast <2 x i64> %53 to <4 x i32>
+  %55 = shufflevector <4 x i32> %54, <4 x i32> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %56 = shufflevector <8 x i32> %52, <8 x i32> %55, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
+  %57 = bitcast <8 x i32> %56 to <4 x i64>
+  store <4 x i64> %57, ptr %22, align 32, !tbaa !19
+  %58 = load ptr, ptr %6, align 8, !tbaa !15
+  %59 = load <4 x i64>, ptr %22, align 32, !tbaa !19
+  call void @_ZL19_mm256_storeu_si256PDv4_xS_(ptr noundef %58, <4 x i64> noundef %59)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %11) #3
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev24avxRGBATranspose_4x4_4x4EDv8_fS0_S0_S0_RS0_S1_S1_S1_(<8 x float> noundef %row0, <8 x float> noundef %row1, <8 x float> noundef %row2, <8 x float> noundef %row3, ptr noundef nonnull align 32 dereferenceable(32) %out_r, ptr noundef nonnull align 32 dereferenceable(32) %out_g, ptr noundef nonnull align 32 dereferenceable(32) %out_b, ptr noundef nonnull align 32 dereferenceable(32) %out_a) #5 comdat {
-entry:
-  %__a.addr.i14 = alloca <8 x float>, align 32
-  %__b.addr.i15 = alloca <8 x float>, align 32
-  %__a.addr.i11 = alloca <8 x float>, align 32
-  %__b.addr.i12 = alloca <8 x float>, align 32
-  %__a.addr.i8 = alloca <8 x float>, align 32
-  %__b.addr.i9 = alloca <8 x float>, align 32
-  %__a.addr.i = alloca <8 x float>, align 32
-  %__b.addr.i = alloca <8 x float>, align 32
-  %row0.addr = alloca <8 x float>, align 32
-  %row1.addr = alloca <8 x float>, align 32
-  %row2.addr = alloca <8 x float>, align 32
-  %row3.addr = alloca <8 x float>, align 32
-  %out_r.addr = alloca ptr, align 8
-  %out_g.addr = alloca ptr, align 8
-  %out_b.addr = alloca ptr, align 8
-  %out_a.addr = alloca ptr, align 8
-  %tmp0 = alloca <8 x float>, align 32
-  %tmp2 = alloca <8 x float>, align 32
-  %tmp1 = alloca <8 x float>, align 32
-  %tmp3 = alloca <8 x float>, align 32
-  store <8 x float> %row0, ptr %row0.addr, align 32
-  store <8 x float> %row1, ptr %row1.addr, align 32
-  store <8 x float> %row2, ptr %row2.addr, align 32
-  store <8 x float> %row3, ptr %row3.addr, align 32
-  store ptr %out_r, ptr %out_r.addr, align 8
-  store ptr %out_g, ptr %out_g.addr, align 8
-  store ptr %out_b, ptr %out_b.addr, align 8
-  store ptr %out_a, ptr %out_a.addr, align 8
-  %0 = load <8 x float>, ptr %row0.addr, align 32
-  %1 = load <8 x float>, ptr %row1.addr, align 32
-  store <8 x float> %0, ptr %__a.addr.i8, align 32
-  store <8 x float> %1, ptr %__b.addr.i9, align 32
-  %2 = load <8 x float>, ptr %__a.addr.i8, align 32
-  %3 = load <8 x float>, ptr %__b.addr.i9, align 32
-  %shuffle.i10 = shufflevector <8 x float> %2, <8 x float> %3, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
-  store <8 x float> %shuffle.i10, ptr %tmp0, align 32
-  %4 = load <8 x float>, ptr %row2.addr, align 32
-  %5 = load <8 x float>, ptr %row3.addr, align 32
-  store <8 x float> %4, ptr %__a.addr.i, align 32
-  store <8 x float> %5, ptr %__b.addr.i, align 32
-  %6 = load <8 x float>, ptr %__a.addr.i, align 32
-  %7 = load <8 x float>, ptr %__b.addr.i, align 32
-  %shuffle.i = shufflevector <8 x float> %6, <8 x float> %7, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
-  store <8 x float> %shuffle.i, ptr %tmp2, align 32
-  %8 = load <8 x float>, ptr %row0.addr, align 32
-  %9 = load <8 x float>, ptr %row1.addr, align 32
-  store <8 x float> %8, ptr %__a.addr.i14, align 32
-  store <8 x float> %9, ptr %__b.addr.i15, align 32
-  %10 = load <8 x float>, ptr %__a.addr.i14, align 32
-  %11 = load <8 x float>, ptr %__b.addr.i15, align 32
-  %shuffle.i16 = shufflevector <8 x float> %10, <8 x float> %11, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  store <8 x float> %shuffle.i16, ptr %tmp1, align 32
-  %12 = load <8 x float>, ptr %row2.addr, align 32
-  %13 = load <8 x float>, ptr %row3.addr, align 32
-  store <8 x float> %12, ptr %__a.addr.i11, align 32
-  store <8 x float> %13, ptr %__b.addr.i12, align 32
-  %14 = load <8 x float>, ptr %__a.addr.i11, align 32
-  %15 = load <8 x float>, ptr %__b.addr.i12, align 32
-  %shuffle.i13 = shufflevector <8 x float> %14, <8 x float> %15, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  store <8 x float> %shuffle.i13, ptr %tmp3, align 32
-  %16 = load <8 x float>, ptr %tmp0, align 32
-  %17 = load <8 x float>, ptr %tmp2, align 32
-  %call4 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev13avx_movelh_psEDv8_fS0_(<8 x float> noundef %16, <8 x float> noundef %17)
-  %18 = load ptr, ptr %out_r.addr, align 8
-  store <8 x float> %call4, ptr %18, align 32
-  %19 = load <8 x float>, ptr %tmp2, align 32
-  %20 = load <8 x float>, ptr %tmp0, align 32
-  %call5 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev13avx_movehl_psEDv8_fS0_(<8 x float> noundef %19, <8 x float> noundef %20)
-  %21 = load ptr, ptr %out_g.addr, align 8
-  store <8 x float> %call5, ptr %21, align 32
-  %22 = load <8 x float>, ptr %tmp1, align 32
-  %23 = load <8 x float>, ptr %tmp3, align 32
-  %call6 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev13avx_movelh_psEDv8_fS0_(<8 x float> noundef %22, <8 x float> noundef %23)
-  %24 = load ptr, ptr %out_b.addr, align 8
-  store <8 x float> %call6, ptr %24, align 32
-  %25 = load <8 x float>, ptr %tmp3, align 32
-  %26 = load <8 x float>, ptr %tmp1, align 32
-  %call7 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev13avx_movehl_psEDv8_fS0_(<8 x float> noundef %25, <8 x float> noundef %26)
-  %27 = load ptr, ptr %out_a.addr, align 8
-  store <8 x float> %call7, ptr %27, align 32
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <8 x float> @_ZL13_mm256_set_psffffffff(float noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7) #10 {
+  %9 = alloca float, align 4
+  %10 = alloca float, align 4
+  %11 = alloca float, align 4
+  %12 = alloca float, align 4
+  %13 = alloca float, align 4
+  %14 = alloca float, align 4
+  %15 = alloca float, align 4
+  %16 = alloca float, align 4
+  %17 = alloca <8 x float>, align 32
+  store float %0, ptr %9, align 4, !tbaa !17
+  store float %1, ptr %10, align 4, !tbaa !17
+  store float %2, ptr %11, align 4, !tbaa !17
+  store float %3, ptr %12, align 4, !tbaa !17
+  store float %4, ptr %13, align 4, !tbaa !17
+  store float %5, ptr %14, align 4, !tbaa !17
+  store float %6, ptr %15, align 4, !tbaa !17
+  store float %7, ptr %16, align 4, !tbaa !17
+  %18 = load float, ptr %16, align 4, !tbaa !17
+  %19 = insertelement <8 x float> poison, float %18, i32 0
+  %20 = load float, ptr %15, align 4, !tbaa !17
+  %21 = insertelement <8 x float> %19, float %20, i32 1
+  %22 = load float, ptr %14, align 4, !tbaa !17
+  %23 = insertelement <8 x float> %21, float %22, i32 2
+  %24 = load float, ptr %13, align 4, !tbaa !17
+  %25 = insertelement <8 x float> %23, float %24, i32 3
+  %26 = load float, ptr %12, align 4, !tbaa !17
+  %27 = insertelement <8 x float> %25, float %26, i32 4
+  %28 = load float, ptr %11, align 4, !tbaa !17
+  %29 = insertelement <8 x float> %27, float %28, i32 5
+  %30 = load float, ptr %10, align 4, !tbaa !17
+  %31 = insertelement <8 x float> %29, float %30, i32 6
+  %32 = load float, ptr %9, align 4, !tbaa !17
+  %33 = insertelement <8 x float> %31, float %32, i32 7
+  store <8 x float> %33, ptr %17, align 32, !tbaa !19
+  %34 = load <8 x float>, ptr %17, align 32, !tbaa !19
+  ret <8 x float> %34
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <8 x float> @_ZL15_mm256_loadu_psPKf(ptr noundef %0) #10 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !7
+  %3 = load ptr, ptr %2, align 8, !tbaa !7
+  %4 = getelementptr inbounds nuw %struct.__loadu_ps, ptr %3, i32 0, i32 0
+  %5 = load <8 x float>, ptr %4, align 1, !tbaa !19
+  ret <8 x float> %5
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev24avxRGBATranspose_4x4_4x4EDv8_fS0_S0_S0_RS0_S1_S1_S1_(<8 x float> noundef %0, <8 x float> noundef %1, <8 x float> noundef %2, <8 x float> noundef %3, ptr noundef nonnull align 32 dereferenceable(32) %4, ptr noundef nonnull align 32 dereferenceable(32) %5, ptr noundef nonnull align 32 dereferenceable(32) %6, ptr noundef nonnull align 32 dereferenceable(32) %7) #6 comdat {
+  %9 = alloca <8 x float>, align 32
+  %10 = alloca <8 x float>, align 32
+  %11 = alloca <8 x float>, align 32
+  %12 = alloca <8 x float>, align 32
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca <8 x float>, align 32
+  %18 = alloca <8 x float>, align 32
+  %19 = alloca <8 x float>, align 32
+  %20 = alloca <8 x float>, align 32
+  store <8 x float> %0, ptr %9, align 32, !tbaa !19
+  store <8 x float> %1, ptr %10, align 32, !tbaa !19
+  store <8 x float> %2, ptr %11, align 32, !tbaa !19
+  store <8 x float> %3, ptr %12, align 32, !tbaa !19
+  store ptr %4, ptr %13, align 8, !tbaa !12
+  store ptr %5, ptr %14, align 8, !tbaa !12
+  store ptr %6, ptr %15, align 8, !tbaa !12
+  store ptr %7, ptr %16, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 32, ptr %17) #3
+  %21 = load <8 x float>, ptr %9, align 32, !tbaa !19
+  %22 = load <8 x float>, ptr %10, align 32, !tbaa !19
+  %23 = call noundef <8 x float> @_ZL18_mm256_unpacklo_psDv8_fS_(<8 x float> noundef %21, <8 x float> noundef %22)
+  store <8 x float> %23, ptr %17, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %18) #3
+  %24 = load <8 x float>, ptr %11, align 32, !tbaa !19
+  %25 = load <8 x float>, ptr %12, align 32, !tbaa !19
+  %26 = call noundef <8 x float> @_ZL18_mm256_unpacklo_psDv8_fS_(<8 x float> noundef %24, <8 x float> noundef %25)
+  store <8 x float> %26, ptr %18, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %19) #3
+  %27 = load <8 x float>, ptr %9, align 32, !tbaa !19
+  %28 = load <8 x float>, ptr %10, align 32, !tbaa !19
+  %29 = call noundef <8 x float> @_ZL18_mm256_unpackhi_psDv8_fS_(<8 x float> noundef %27, <8 x float> noundef %28)
+  store <8 x float> %29, ptr %19, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %20) #3
+  %30 = load <8 x float>, ptr %11, align 32, !tbaa !19
+  %31 = load <8 x float>, ptr %12, align 32, !tbaa !19
+  %32 = call noundef <8 x float> @_ZL18_mm256_unpackhi_psDv8_fS_(<8 x float> noundef %30, <8 x float> noundef %31)
+  store <8 x float> %32, ptr %20, align 32, !tbaa !19
+  %33 = load <8 x float>, ptr %17, align 32, !tbaa !19
+  %34 = load <8 x float>, ptr %18, align 32, !tbaa !19
+  %35 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev13avx_movelh_psEDv8_fS0_(<8 x float> noundef %33, <8 x float> noundef %34)
+  %36 = load ptr, ptr %13, align 8, !tbaa !12
+  store <8 x float> %35, ptr %36, align 32, !tbaa !19
+  %37 = load <8 x float>, ptr %18, align 32, !tbaa !19
+  %38 = load <8 x float>, ptr %17, align 32, !tbaa !19
+  %39 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev13avx_movehl_psEDv8_fS0_(<8 x float> noundef %37, <8 x float> noundef %38)
+  %40 = load ptr, ptr %14, align 8, !tbaa !12
+  store <8 x float> %39, ptr %40, align 32, !tbaa !19
+  %41 = load <8 x float>, ptr %19, align 32, !tbaa !19
+  %42 = load <8 x float>, ptr %20, align 32, !tbaa !19
+  %43 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev13avx_movelh_psEDv8_fS0_(<8 x float> noundef %41, <8 x float> noundef %42)
+  %44 = load ptr, ptr %15, align 8, !tbaa !12
+  store <8 x float> %43, ptr %44, align 32, !tbaa !19
+  %45 = load <8 x float>, ptr %20, align 32, !tbaa !19
+  %46 = load <8 x float>, ptr %19, align 32, !tbaa !19
+  %47 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev13avx_movehl_psEDv8_fS0_(<8 x float> noundef %45, <8 x float> noundef %46)
+  %48 = load ptr, ptr %16, align 8, !tbaa !12
+  store <8 x float> %47, ptr %48, align 32, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 32, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %17) #3
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef <8 x float> @_ZN19OpenColorIO_v2_4dev13avx_movelh_psEDv8_fS0_(<8 x float> noundef %a, <8 x float> noundef %b) #5 comdat {
-entry:
-  %__a.addr.i6 = alloca <8 x float>, align 32
-  %__a.addr.i5 = alloca <8 x float>, align 32
-  %__a.addr.i4 = alloca <4 x double>, align 32
-  %__b.addr.i = alloca <4 x double>, align 32
-  %__a.addr.i = alloca <4 x double>, align 32
-  %a.addr = alloca <8 x float>, align 32
-  %b.addr = alloca <8 x float>, align 32
-  store <8 x float> %a, ptr %a.addr, align 32
-  store <8 x float> %b, ptr %b.addr, align 32
-  %0 = load <8 x float>, ptr %a.addr, align 32
-  store <8 x float> %0, ptr %__a.addr.i6, align 32
-  %1 = load <8 x float>, ptr %__a.addr.i6, align 32
-  %2 = bitcast <8 x float> %1 to <4 x double>
-  %3 = load <8 x float>, ptr %b.addr, align 32
-  store <8 x float> %3, ptr %__a.addr.i5, align 32
-  %4 = load <8 x float>, ptr %__a.addr.i5, align 32
-  %5 = bitcast <8 x float> %4 to <4 x double>
-  store <4 x double> %2, ptr %__a.addr.i4, align 32
-  store <4 x double> %5, ptr %__b.addr.i, align 32
-  %6 = load <4 x double>, ptr %__a.addr.i4, align 32
-  %7 = load <4 x double>, ptr %__b.addr.i, align 32
-  %shuffle.i = shufflevector <4 x double> %6, <4 x double> %7, <4 x i32> <i32 0, i32 4, i32 2, i32 6>
-  store <4 x double> %shuffle.i, ptr %__a.addr.i, align 32
-  %8 = load <4 x double>, ptr %__a.addr.i, align 32
-  %9 = bitcast <4 x double> %8 to <8 x float>
-  ret <8 x float> %9
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <8 x float> @_ZL18_mm256_unpacklo_psDv8_fS_(<8 x float> noundef %0, <8 x float> noundef %1) #10 {
+  %3 = alloca <8 x float>, align 32
+  %4 = alloca <8 x float>, align 32
+  store <8 x float> %0, ptr %3, align 32, !tbaa !19
+  store <8 x float> %1, ptr %4, align 32, !tbaa !19
+  %5 = load <8 x float>, ptr %3, align 32, !tbaa !19
+  %6 = load <8 x float>, ptr %4, align 32, !tbaa !19
+  %7 = shufflevector <8 x float> %5, <8 x float> %6, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  ret <8 x float> %7
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef <8 x float> @_ZN19OpenColorIO_v2_4dev13avx_movehl_psEDv8_fS0_(<8 x float> noundef %a, <8 x float> noundef %b) #5 comdat {
-entry:
-  %__a.addr.i6 = alloca <4 x double>, align 32
-  %__b.addr.i = alloca <4 x double>, align 32
-  %__a.addr.i5 = alloca <8 x float>, align 32
-  %__a.addr.i4 = alloca <8 x float>, align 32
-  %__a.addr.i = alloca <4 x double>, align 32
-  %a.addr = alloca <8 x float>, align 32
-  %b.addr = alloca <8 x float>, align 32
-  store <8 x float> %a, ptr %a.addr, align 32
-  store <8 x float> %b, ptr %b.addr, align 32
-  %0 = load <8 x float>, ptr %b.addr, align 32
-  store <8 x float> %0, ptr %__a.addr.i5, align 32
-  %1 = load <8 x float>, ptr %__a.addr.i5, align 32
-  %2 = bitcast <8 x float> %1 to <4 x double>
-  %3 = load <8 x float>, ptr %a.addr, align 32
-  store <8 x float> %3, ptr %__a.addr.i4, align 32
-  %4 = load <8 x float>, ptr %__a.addr.i4, align 32
-  %5 = bitcast <8 x float> %4 to <4 x double>
-  store <4 x double> %2, ptr %__a.addr.i6, align 32
-  store <4 x double> %5, ptr %__b.addr.i, align 32
-  %6 = load <4 x double>, ptr %__a.addr.i6, align 32
-  %7 = load <4 x double>, ptr %__b.addr.i, align 32
-  %shuffle.i = shufflevector <4 x double> %6, <4 x double> %7, <4 x i32> <i32 1, i32 5, i32 3, i32 7>
-  store <4 x double> %shuffle.i, ptr %__a.addr.i, align 32
-  %8 = load <4 x double>, ptr %__a.addr.i, align 32
-  %9 = bitcast <4 x double> %8 to <8 x float>
-  ret <8 x float> %9
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <8 x float> @_ZL18_mm256_unpackhi_psDv8_fS_(<8 x float> noundef %0, <8 x float> noundef %1) #10 {
+  %3 = alloca <8 x float>, align 32
+  %4 = alloca <8 x float>, align 32
+  store <8 x float> %0, ptr %3, align 32, !tbaa !19
+  store <8 x float> %1, ptr %4, align 32, !tbaa !19
+  %5 = load <8 x float>, ptr %3, align 32, !tbaa !19
+  %6 = load <8 x float>, ptr %4, align 32, !tbaa !19
+  %7 = shufflevector <8 x float> %5, <8 x float> %6, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  ret <8 x float> %7
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.round.ps.256(<8 x float>, i32 immarg) #8
-
-; Function Attrs: mustprogress uwtable
-define internal noundef <8 x float> @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112fmadd_ps_avxEDv8_fS1_S1_(<8 x float> noundef %a, <8 x float> noundef %b, <8 x float> noundef %c) #5 {
-entry:
-  %__a.addr.i2 = alloca <8 x float>, align 32
-  %__b.addr.i3 = alloca <8 x float>, align 32
-  %__a.addr.i = alloca <8 x float>, align 32
-  %__b.addr.i = alloca <8 x float>, align 32
-  %a.addr = alloca <8 x float>, align 32
-  %b.addr = alloca <8 x float>, align 32
-  %c.addr = alloca <8 x float>, align 32
-  store <8 x float> %a, ptr %a.addr, align 32
-  store <8 x float> %b, ptr %b.addr, align 32
-  store <8 x float> %c, ptr %c.addr, align 32
-  %0 = load <8 x float>, ptr %a.addr, align 32
-  %1 = load <8 x float>, ptr %b.addr, align 32
-  store <8 x float> %0, ptr %__a.addr.i, align 32
-  store <8 x float> %1, ptr %__b.addr.i, align 32
-  %2 = load <8 x float>, ptr %__a.addr.i, align 32
-  %3 = load <8 x float>, ptr %__b.addr.i, align 32
-  %mul.i = fmul <8 x float> %2, %3
-  %4 = load <8 x float>, ptr %c.addr, align 32
-  store <8 x float> %mul.i, ptr %__a.addr.i2, align 32
-  store <8 x float> %4, ptr %__b.addr.i3, align 32
-  %5 = load <8 x float>, ptr %__a.addr.i2, align 32
-  %6 = load <8 x float>, ptr %__b.addr.i3, align 32
-  %add.i = fadd <8 x float> %5, %6
-  ret <8 x float> %add.i
-}
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.min.ps.256(<8 x float>, <8 x float>) #8
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.max.ps.256(<8 x float>, <8 x float>) #8
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float>) #8
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef <8 x float> @_ZN19OpenColorIO_v2_4dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %value, ptr noundef nonnull align 32 dereferenceable(32) %maxValue) #9 comdat {
-entry:
-  %__a.addr.i3 = alloca <8 x float>, align 32
-  %__b.addr.i4 = alloca <8 x float>, align 32
-  %__a.addr.i = alloca <8 x float>, align 32
-  %__b.addr.i = alloca <8 x float>, align 32
-  %.compoundliteral.i = alloca <8 x float>, align 32
-  %value.addr = alloca <8 x float>, align 32
-  %maxValue.addr = alloca ptr, align 8
-  store <8 x float> %value, ptr %value.addr, align 32
-  store ptr %maxValue, ptr %maxValue.addr, align 8
-  %0 = load <8 x float>, ptr %value.addr, align 32
-  store <8 x float> zeroinitializer, ptr %.compoundliteral.i, align 32
-  %1 = load <8 x float>, ptr %.compoundliteral.i, align 32
-  store <8 x float> %0, ptr %__a.addr.i3, align 32
-  store <8 x float> %1, ptr %__b.addr.i4, align 32
-  %2 = load <8 x float>, ptr %__a.addr.i3, align 32
-  %3 = load <8 x float>, ptr %__b.addr.i4, align 32
-  %4 = call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %2, <8 x float> %3)
-  store <8 x float> %4, ptr %value.addr, align 32
-  %5 = load <8 x float>, ptr %value.addr, align 32
-  %6 = load ptr, ptr %maxValue.addr, align 8
-  %7 = load <8 x float>, ptr %6, align 32
-  store <8 x float> %5, ptr %__a.addr.i, align 32
-  store <8 x float> %7, ptr %__b.addr.i, align 32
-  %8 = load <8 x float>, ptr %__a.addr.i, align 32
-  %9 = load <8 x float>, ptr %__b.addr.i, align 32
-  %10 = call noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %8, <8 x float> %9)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef <8 x float> @_ZN19OpenColorIO_v2_5dev13avx_movelh_psEDv8_fS0_(<8 x float> noundef %0, <8 x float> noundef %1) #6 comdat {
+  %3 = alloca <8 x float>, align 32
+  %4 = alloca <8 x float>, align 32
+  store <8 x float> %0, ptr %3, align 32, !tbaa !19
+  store <8 x float> %1, ptr %4, align 32, !tbaa !19
+  %5 = load <8 x float>, ptr %3, align 32, !tbaa !19
+  %6 = call noundef <4 x double> @_ZL16_mm256_castps_pdDv8_f(<8 x float> noundef %5)
+  %7 = load <8 x float>, ptr %4, align 32, !tbaa !19
+  %8 = call noundef <4 x double> @_ZL16_mm256_castps_pdDv8_f(<8 x float> noundef %7)
+  %9 = call noundef <4 x double> @_ZL18_mm256_unpacklo_pdDv4_dS_(<4 x double> noundef %6, <4 x double> noundef %8)
+  %10 = call noundef <8 x float> @_ZL16_mm256_castpd_psDv4_d(<4 x double> noundef %9)
   ret <8 x float> %10
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef <2 x i64> @_ZN19OpenColorIO_v2_4dev11avx_pack_u8EDv4_xS0_(<4 x i64> noundef %a, <4 x i64> noundef %b) #5 comdat {
-entry:
-  %__b15.addr.i164 = alloca i8, align 1
-  %__b14.addr.i165 = alloca i8, align 1
-  %__b13.addr.i166 = alloca i8, align 1
-  %__b12.addr.i167 = alloca i8, align 1
-  %__b11.addr.i168 = alloca i8, align 1
-  %__b10.addr.i169 = alloca i8, align 1
-  %__b9.addr.i170 = alloca i8, align 1
-  %__b8.addr.i171 = alloca i8, align 1
-  %__b7.addr.i172 = alloca i8, align 1
-  %__b6.addr.i173 = alloca i8, align 1
-  %__b5.addr.i174 = alloca i8, align 1
-  %__b4.addr.i175 = alloca i8, align 1
-  %__b3.addr.i176 = alloca i8, align 1
-  %__b2.addr.i177 = alloca i8, align 1
-  %__b1.addr.i178 = alloca i8, align 1
-  %__b0.addr.i179 = alloca i8, align 1
-  %.compoundliteral.i180 = alloca <16 x i8>, align 16
-  %__b15.addr.i131 = alloca i8, align 1
-  %__b14.addr.i132 = alloca i8, align 1
-  %__b13.addr.i133 = alloca i8, align 1
-  %__b12.addr.i134 = alloca i8, align 1
-  %__b11.addr.i135 = alloca i8, align 1
-  %__b10.addr.i136 = alloca i8, align 1
-  %__b9.addr.i137 = alloca i8, align 1
-  %__b8.addr.i138 = alloca i8, align 1
-  %__b7.addr.i139 = alloca i8, align 1
-  %__b6.addr.i140 = alloca i8, align 1
-  %__b5.addr.i141 = alloca i8, align 1
-  %__b4.addr.i142 = alloca i8, align 1
-  %__b3.addr.i143 = alloca i8, align 1
-  %__b2.addr.i144 = alloca i8, align 1
-  %__b1.addr.i145 = alloca i8, align 1
-  %__b0.addr.i146 = alloca i8, align 1
-  %.compoundliteral.i147 = alloca <16 x i8>, align 16
-  %__b15.addr.i98 = alloca i8, align 1
-  %__b14.addr.i99 = alloca i8, align 1
-  %__b13.addr.i100 = alloca i8, align 1
-  %__b12.addr.i101 = alloca i8, align 1
-  %__b11.addr.i102 = alloca i8, align 1
-  %__b10.addr.i103 = alloca i8, align 1
-  %__b9.addr.i104 = alloca i8, align 1
-  %__b8.addr.i105 = alloca i8, align 1
-  %__b7.addr.i106 = alloca i8, align 1
-  %__b6.addr.i107 = alloca i8, align 1
-  %__b5.addr.i108 = alloca i8, align 1
-  %__b4.addr.i109 = alloca i8, align 1
-  %__b3.addr.i110 = alloca i8, align 1
-  %__b2.addr.i111 = alloca i8, align 1
-  %__b1.addr.i112 = alloca i8, align 1
-  %__b0.addr.i113 = alloca i8, align 1
-  %.compoundliteral.i114 = alloca <16 x i8>, align 16
-  %__b15.addr.i82 = alloca i8, align 1
-  %__b14.addr.i83 = alloca i8, align 1
-  %__b13.addr.i84 = alloca i8, align 1
-  %__b12.addr.i85 = alloca i8, align 1
-  %__b11.addr.i86 = alloca i8, align 1
-  %__b10.addr.i87 = alloca i8, align 1
-  %__b9.addr.i88 = alloca i8, align 1
-  %__b8.addr.i89 = alloca i8, align 1
-  %__b7.addr.i90 = alloca i8, align 1
-  %__b6.addr.i91 = alloca i8, align 1
-  %__b5.addr.i92 = alloca i8, align 1
-  %__b4.addr.i93 = alloca i8, align 1
-  %__b3.addr.i94 = alloca i8, align 1
-  %__b2.addr.i95 = alloca i8, align 1
-  %__b1.addr.i96 = alloca i8, align 1
-  %__b0.addr.i97 = alloca i8, align 1
-  %.compoundliteral.i = alloca <16 x i8>, align 16
-  %__a.addr.i79 = alloca <2 x i64>, align 16
-  %__b.addr.i80 = alloca <2 x i64>, align 16
-  %__a.addr.i76 = alloca <2 x i64>, align 16
-  %__b.addr.i77 = alloca <2 x i64>, align 16
-  %__a.addr.i74 = alloca <2 x i64>, align 16
-  %__b.addr.i75 = alloca <2 x i64>, align 16
-  %__a.addr.i72 = alloca <4 x i64>, align 32
-  %__a.addr.i71 = alloca <4 x i64>, align 32
-  %__a.addr.i69 = alloca <2 x i64>, align 16
-  %__b.addr.i70 = alloca <2 x i64>, align 16
-  %__a.addr.i67 = alloca <2 x i64>, align 16
-  %__b.addr.i68 = alloca <2 x i64>, align 16
-  %__a.addr.i65 = alloca <2 x i64>, align 16
-  %__b.addr.i66 = alloca <2 x i64>, align 16
-  %__a.addr.i = alloca <2 x i64>, align 16
-  %__b.addr.i = alloca <2 x i64>, align 16
-  %__b0.addr.i48 = alloca i8, align 1
-  %__b1.addr.i49 = alloca i8, align 1
-  %__b2.addr.i50 = alloca i8, align 1
-  %__b3.addr.i51 = alloca i8, align 1
-  %__b4.addr.i52 = alloca i8, align 1
-  %__b5.addr.i53 = alloca i8, align 1
-  %__b6.addr.i54 = alloca i8, align 1
-  %__b7.addr.i55 = alloca i8, align 1
-  %__b8.addr.i56 = alloca i8, align 1
-  %__b9.addr.i57 = alloca i8, align 1
-  %__b10.addr.i58 = alloca i8, align 1
-  %__b11.addr.i59 = alloca i8, align 1
-  %__b12.addr.i60 = alloca i8, align 1
-  %__b13.addr.i61 = alloca i8, align 1
-  %__b14.addr.i62 = alloca i8, align 1
-  %__b15.addr.i63 = alloca i8, align 1
-  %__b0.addr.i31 = alloca i8, align 1
-  %__b1.addr.i32 = alloca i8, align 1
-  %__b2.addr.i33 = alloca i8, align 1
-  %__b3.addr.i34 = alloca i8, align 1
-  %__b4.addr.i35 = alloca i8, align 1
-  %__b5.addr.i36 = alloca i8, align 1
-  %__b6.addr.i37 = alloca i8, align 1
-  %__b7.addr.i38 = alloca i8, align 1
-  %__b8.addr.i39 = alloca i8, align 1
-  %__b9.addr.i40 = alloca i8, align 1
-  %__b10.addr.i41 = alloca i8, align 1
-  %__b11.addr.i42 = alloca i8, align 1
-  %__b12.addr.i43 = alloca i8, align 1
-  %__b13.addr.i44 = alloca i8, align 1
-  %__b14.addr.i45 = alloca i8, align 1
-  %__b15.addr.i46 = alloca i8, align 1
-  %__b0.addr.i14 = alloca i8, align 1
-  %__b1.addr.i15 = alloca i8, align 1
-  %__b2.addr.i16 = alloca i8, align 1
-  %__b3.addr.i17 = alloca i8, align 1
-  %__b4.addr.i18 = alloca i8, align 1
-  %__b5.addr.i19 = alloca i8, align 1
-  %__b6.addr.i20 = alloca i8, align 1
-  %__b7.addr.i21 = alloca i8, align 1
-  %__b8.addr.i22 = alloca i8, align 1
-  %__b9.addr.i23 = alloca i8, align 1
-  %__b10.addr.i24 = alloca i8, align 1
-  %__b11.addr.i25 = alloca i8, align 1
-  %__b12.addr.i26 = alloca i8, align 1
-  %__b13.addr.i27 = alloca i8, align 1
-  %__b14.addr.i28 = alloca i8, align 1
-  %__b15.addr.i29 = alloca i8, align 1
-  %__b0.addr.i = alloca i8, align 1
-  %__b1.addr.i = alloca i8, align 1
-  %__b2.addr.i = alloca i8, align 1
-  %__b3.addr.i = alloca i8, align 1
-  %__b4.addr.i = alloca i8, align 1
-  %__b5.addr.i = alloca i8, align 1
-  %__b6.addr.i = alloca i8, align 1
-  %__b7.addr.i = alloca i8, align 1
-  %__b8.addr.i = alloca i8, align 1
-  %__b9.addr.i = alloca i8, align 1
-  %__b10.addr.i = alloca i8, align 1
-  %__b11.addr.i = alloca i8, align 1
-  %__b12.addr.i = alloca i8, align 1
-  %__b13.addr.i = alloca i8, align 1
-  %__b14.addr.i = alloca i8, align 1
-  %__b15.addr.i = alloca i8, align 1
-  %a.addr = alloca <4 x i64>, align 32
-  %b.addr = alloca <4 x i64>, align 32
-  %lo0_shuf = alloca <2 x i64>, align 16
-  %lo1_shuf = alloca <2 x i64>, align 16
-  %hi0_shuf = alloca <2 x i64>, align 16
-  %hi1_shuf = alloca <2 x i64>, align 16
-  %lo0 = alloca <2 x i64>, align 16
-  %lo1 = alloca <2 x i64>, align 16
-  %hi0 = alloca <2 x i64>, align 16
-  %hi1 = alloca <2 x i64>, align 16
-  store <4 x i64> %a, ptr %a.addr, align 32
-  store <4 x i64> %b, ptr %b.addr, align 32
-  store i8 0, ptr %__b0.addr.i48, align 1
-  store i8 4, ptr %__b1.addr.i49, align 1
-  store i8 8, ptr %__b2.addr.i50, align 1
-  store i8 12, ptr %__b3.addr.i51, align 1
-  store i8 -1, ptr %__b4.addr.i52, align 1
-  store i8 -1, ptr %__b5.addr.i53, align 1
-  store i8 -1, ptr %__b6.addr.i54, align 1
-  store i8 -1, ptr %__b7.addr.i55, align 1
-  store i8 -1, ptr %__b8.addr.i56, align 1
-  store i8 -1, ptr %__b9.addr.i57, align 1
-  store i8 -1, ptr %__b10.addr.i58, align 1
-  store i8 -1, ptr %__b11.addr.i59, align 1
-  store i8 -1, ptr %__b12.addr.i60, align 1
-  store i8 -1, ptr %__b13.addr.i61, align 1
-  store i8 -1, ptr %__b14.addr.i62, align 1
-  store i8 -1, ptr %__b15.addr.i63, align 1
-  %0 = load i8, ptr %__b15.addr.i63, align 1
-  %1 = load i8, ptr %__b14.addr.i62, align 1
-  %2 = load i8, ptr %__b13.addr.i61, align 1
-  %3 = load i8, ptr %__b12.addr.i60, align 1
-  %4 = load i8, ptr %__b11.addr.i59, align 1
-  %5 = load i8, ptr %__b10.addr.i58, align 1
-  %6 = load i8, ptr %__b9.addr.i57, align 1
-  %7 = load i8, ptr %__b8.addr.i56, align 1
-  %8 = load i8, ptr %__b7.addr.i55, align 1
-  %9 = load i8, ptr %__b6.addr.i54, align 1
-  %10 = load i8, ptr %__b5.addr.i53, align 1
-  %11 = load i8, ptr %__b4.addr.i52, align 1
-  %12 = load i8, ptr %__b3.addr.i51, align 1
-  %13 = load i8, ptr %__b2.addr.i50, align 1
-  %14 = load i8, ptr %__b1.addr.i49, align 1
-  %15 = load i8, ptr %__b0.addr.i48, align 1
-  store i8 %0, ptr %__b15.addr.i82, align 1
-  store i8 %1, ptr %__b14.addr.i83, align 1
-  store i8 %2, ptr %__b13.addr.i84, align 1
-  store i8 %3, ptr %__b12.addr.i85, align 1
-  store i8 %4, ptr %__b11.addr.i86, align 1
-  store i8 %5, ptr %__b10.addr.i87, align 1
-  store i8 %6, ptr %__b9.addr.i88, align 1
-  store i8 %7, ptr %__b8.addr.i89, align 1
-  store i8 %8, ptr %__b7.addr.i90, align 1
-  store i8 %9, ptr %__b6.addr.i91, align 1
-  store i8 %10, ptr %__b5.addr.i92, align 1
-  store i8 %11, ptr %__b4.addr.i93, align 1
-  store i8 %12, ptr %__b3.addr.i94, align 1
-  store i8 %13, ptr %__b2.addr.i95, align 1
-  store i8 %14, ptr %__b1.addr.i96, align 1
-  store i8 %15, ptr %__b0.addr.i97, align 1
-  %16 = load i8, ptr %__b0.addr.i97, align 1
-  %vecinit.i = insertelement <16 x i8> undef, i8 %16, i32 0
-  %17 = load i8, ptr %__b1.addr.i96, align 1
-  %vecinit1.i = insertelement <16 x i8> %vecinit.i, i8 %17, i32 1
-  %18 = load i8, ptr %__b2.addr.i95, align 1
-  %vecinit2.i = insertelement <16 x i8> %vecinit1.i, i8 %18, i32 2
-  %19 = load i8, ptr %__b3.addr.i94, align 1
-  %vecinit3.i = insertelement <16 x i8> %vecinit2.i, i8 %19, i32 3
-  %20 = load i8, ptr %__b4.addr.i93, align 1
-  %vecinit4.i = insertelement <16 x i8> %vecinit3.i, i8 %20, i32 4
-  %21 = load i8, ptr %__b5.addr.i92, align 1
-  %vecinit5.i = insertelement <16 x i8> %vecinit4.i, i8 %21, i32 5
-  %22 = load i8, ptr %__b6.addr.i91, align 1
-  %vecinit6.i = insertelement <16 x i8> %vecinit5.i, i8 %22, i32 6
-  %23 = load i8, ptr %__b7.addr.i90, align 1
-  %vecinit7.i = insertelement <16 x i8> %vecinit6.i, i8 %23, i32 7
-  %24 = load i8, ptr %__b8.addr.i89, align 1
-  %vecinit8.i = insertelement <16 x i8> %vecinit7.i, i8 %24, i32 8
-  %25 = load i8, ptr %__b9.addr.i88, align 1
-  %vecinit9.i = insertelement <16 x i8> %vecinit8.i, i8 %25, i32 9
-  %26 = load i8, ptr %__b10.addr.i87, align 1
-  %vecinit10.i = insertelement <16 x i8> %vecinit9.i, i8 %26, i32 10
-  %27 = load i8, ptr %__b11.addr.i86, align 1
-  %vecinit11.i = insertelement <16 x i8> %vecinit10.i, i8 %27, i32 11
-  %28 = load i8, ptr %__b12.addr.i85, align 1
-  %vecinit12.i = insertelement <16 x i8> %vecinit11.i, i8 %28, i32 12
-  %29 = load i8, ptr %__b13.addr.i84, align 1
-  %vecinit13.i = insertelement <16 x i8> %vecinit12.i, i8 %29, i32 13
-  %30 = load i8, ptr %__b14.addr.i83, align 1
-  %vecinit14.i = insertelement <16 x i8> %vecinit13.i, i8 %30, i32 14
-  %31 = load i8, ptr %__b15.addr.i82, align 1
-  %vecinit15.i = insertelement <16 x i8> %vecinit14.i, i8 %31, i32 15
-  store <16 x i8> %vecinit15.i, ptr %.compoundliteral.i, align 16
-  %32 = load <16 x i8>, ptr %.compoundliteral.i, align 16
-  %33 = bitcast <16 x i8> %32 to <2 x i64>
-  store <2 x i64> %33, ptr %lo0_shuf, align 16
-  store i8 -1, ptr %__b0.addr.i31, align 1
-  store i8 -1, ptr %__b1.addr.i32, align 1
-  store i8 -1, ptr %__b2.addr.i33, align 1
-  store i8 -1, ptr %__b3.addr.i34, align 1
-  store i8 0, ptr %__b4.addr.i35, align 1
-  store i8 4, ptr %__b5.addr.i36, align 1
-  store i8 8, ptr %__b6.addr.i37, align 1
-  store i8 12, ptr %__b7.addr.i38, align 1
-  store i8 -1, ptr %__b8.addr.i39, align 1
-  store i8 -1, ptr %__b9.addr.i40, align 1
-  store i8 -1, ptr %__b10.addr.i41, align 1
-  store i8 -1, ptr %__b11.addr.i42, align 1
-  store i8 -1, ptr %__b12.addr.i43, align 1
-  store i8 -1, ptr %__b13.addr.i44, align 1
-  store i8 -1, ptr %__b14.addr.i45, align 1
-  store i8 -1, ptr %__b15.addr.i46, align 1
-  %34 = load i8, ptr %__b15.addr.i46, align 1
-  %35 = load i8, ptr %__b14.addr.i45, align 1
-  %36 = load i8, ptr %__b13.addr.i44, align 1
-  %37 = load i8, ptr %__b12.addr.i43, align 1
-  %38 = load i8, ptr %__b11.addr.i42, align 1
-  %39 = load i8, ptr %__b10.addr.i41, align 1
-  %40 = load i8, ptr %__b9.addr.i40, align 1
-  %41 = load i8, ptr %__b8.addr.i39, align 1
-  %42 = load i8, ptr %__b7.addr.i38, align 1
-  %43 = load i8, ptr %__b6.addr.i37, align 1
-  %44 = load i8, ptr %__b5.addr.i36, align 1
-  %45 = load i8, ptr %__b4.addr.i35, align 1
-  %46 = load i8, ptr %__b3.addr.i34, align 1
-  %47 = load i8, ptr %__b2.addr.i33, align 1
-  %48 = load i8, ptr %__b1.addr.i32, align 1
-  %49 = load i8, ptr %__b0.addr.i31, align 1
-  store i8 %34, ptr %__b15.addr.i98, align 1
-  store i8 %35, ptr %__b14.addr.i99, align 1
-  store i8 %36, ptr %__b13.addr.i100, align 1
-  store i8 %37, ptr %__b12.addr.i101, align 1
-  store i8 %38, ptr %__b11.addr.i102, align 1
-  store i8 %39, ptr %__b10.addr.i103, align 1
-  store i8 %40, ptr %__b9.addr.i104, align 1
-  store i8 %41, ptr %__b8.addr.i105, align 1
-  store i8 %42, ptr %__b7.addr.i106, align 1
-  store i8 %43, ptr %__b6.addr.i107, align 1
-  store i8 %44, ptr %__b5.addr.i108, align 1
-  store i8 %45, ptr %__b4.addr.i109, align 1
-  store i8 %46, ptr %__b3.addr.i110, align 1
-  store i8 %47, ptr %__b2.addr.i111, align 1
-  store i8 %48, ptr %__b1.addr.i112, align 1
-  store i8 %49, ptr %__b0.addr.i113, align 1
-  %50 = load i8, ptr %__b0.addr.i113, align 1
-  %vecinit.i115 = insertelement <16 x i8> undef, i8 %50, i32 0
-  %51 = load i8, ptr %__b1.addr.i112, align 1
-  %vecinit1.i116 = insertelement <16 x i8> %vecinit.i115, i8 %51, i32 1
-  %52 = load i8, ptr %__b2.addr.i111, align 1
-  %vecinit2.i117 = insertelement <16 x i8> %vecinit1.i116, i8 %52, i32 2
-  %53 = load i8, ptr %__b3.addr.i110, align 1
-  %vecinit3.i118 = insertelement <16 x i8> %vecinit2.i117, i8 %53, i32 3
-  %54 = load i8, ptr %__b4.addr.i109, align 1
-  %vecinit4.i119 = insertelement <16 x i8> %vecinit3.i118, i8 %54, i32 4
-  %55 = load i8, ptr %__b5.addr.i108, align 1
-  %vecinit5.i120 = insertelement <16 x i8> %vecinit4.i119, i8 %55, i32 5
-  %56 = load i8, ptr %__b6.addr.i107, align 1
-  %vecinit6.i121 = insertelement <16 x i8> %vecinit5.i120, i8 %56, i32 6
-  %57 = load i8, ptr %__b7.addr.i106, align 1
-  %vecinit7.i122 = insertelement <16 x i8> %vecinit6.i121, i8 %57, i32 7
-  %58 = load i8, ptr %__b8.addr.i105, align 1
-  %vecinit8.i123 = insertelement <16 x i8> %vecinit7.i122, i8 %58, i32 8
-  %59 = load i8, ptr %__b9.addr.i104, align 1
-  %vecinit9.i124 = insertelement <16 x i8> %vecinit8.i123, i8 %59, i32 9
-  %60 = load i8, ptr %__b10.addr.i103, align 1
-  %vecinit10.i125 = insertelement <16 x i8> %vecinit9.i124, i8 %60, i32 10
-  %61 = load i8, ptr %__b11.addr.i102, align 1
-  %vecinit11.i126 = insertelement <16 x i8> %vecinit10.i125, i8 %61, i32 11
-  %62 = load i8, ptr %__b12.addr.i101, align 1
-  %vecinit12.i127 = insertelement <16 x i8> %vecinit11.i126, i8 %62, i32 12
-  %63 = load i8, ptr %__b13.addr.i100, align 1
-  %vecinit13.i128 = insertelement <16 x i8> %vecinit12.i127, i8 %63, i32 13
-  %64 = load i8, ptr %__b14.addr.i99, align 1
-  %vecinit14.i129 = insertelement <16 x i8> %vecinit13.i128, i8 %64, i32 14
-  %65 = load i8, ptr %__b15.addr.i98, align 1
-  %vecinit15.i130 = insertelement <16 x i8> %vecinit14.i129, i8 %65, i32 15
-  store <16 x i8> %vecinit15.i130, ptr %.compoundliteral.i114, align 16
-  %66 = load <16 x i8>, ptr %.compoundliteral.i114, align 16
-  %67 = bitcast <16 x i8> %66 to <2 x i64>
-  store <2 x i64> %67, ptr %lo1_shuf, align 16
-  store i8 -1, ptr %__b0.addr.i14, align 1
-  store i8 -1, ptr %__b1.addr.i15, align 1
-  store i8 -1, ptr %__b2.addr.i16, align 1
-  store i8 -1, ptr %__b3.addr.i17, align 1
-  store i8 -1, ptr %__b4.addr.i18, align 1
-  store i8 -1, ptr %__b5.addr.i19, align 1
-  store i8 -1, ptr %__b6.addr.i20, align 1
-  store i8 -1, ptr %__b7.addr.i21, align 1
-  store i8 0, ptr %__b8.addr.i22, align 1
-  store i8 4, ptr %__b9.addr.i23, align 1
-  store i8 8, ptr %__b10.addr.i24, align 1
-  store i8 12, ptr %__b11.addr.i25, align 1
-  store i8 -1, ptr %__b12.addr.i26, align 1
-  store i8 -1, ptr %__b13.addr.i27, align 1
-  store i8 -1, ptr %__b14.addr.i28, align 1
-  store i8 -1, ptr %__b15.addr.i29, align 1
-  %68 = load i8, ptr %__b15.addr.i29, align 1
-  %69 = load i8, ptr %__b14.addr.i28, align 1
-  %70 = load i8, ptr %__b13.addr.i27, align 1
-  %71 = load i8, ptr %__b12.addr.i26, align 1
-  %72 = load i8, ptr %__b11.addr.i25, align 1
-  %73 = load i8, ptr %__b10.addr.i24, align 1
-  %74 = load i8, ptr %__b9.addr.i23, align 1
-  %75 = load i8, ptr %__b8.addr.i22, align 1
-  %76 = load i8, ptr %__b7.addr.i21, align 1
-  %77 = load i8, ptr %__b6.addr.i20, align 1
-  %78 = load i8, ptr %__b5.addr.i19, align 1
-  %79 = load i8, ptr %__b4.addr.i18, align 1
-  %80 = load i8, ptr %__b3.addr.i17, align 1
-  %81 = load i8, ptr %__b2.addr.i16, align 1
-  %82 = load i8, ptr %__b1.addr.i15, align 1
-  %83 = load i8, ptr %__b0.addr.i14, align 1
-  store i8 %68, ptr %__b15.addr.i131, align 1
-  store i8 %69, ptr %__b14.addr.i132, align 1
-  store i8 %70, ptr %__b13.addr.i133, align 1
-  store i8 %71, ptr %__b12.addr.i134, align 1
-  store i8 %72, ptr %__b11.addr.i135, align 1
-  store i8 %73, ptr %__b10.addr.i136, align 1
-  store i8 %74, ptr %__b9.addr.i137, align 1
-  store i8 %75, ptr %__b8.addr.i138, align 1
-  store i8 %76, ptr %__b7.addr.i139, align 1
-  store i8 %77, ptr %__b6.addr.i140, align 1
-  store i8 %78, ptr %__b5.addr.i141, align 1
-  store i8 %79, ptr %__b4.addr.i142, align 1
-  store i8 %80, ptr %__b3.addr.i143, align 1
-  store i8 %81, ptr %__b2.addr.i144, align 1
-  store i8 %82, ptr %__b1.addr.i145, align 1
-  store i8 %83, ptr %__b0.addr.i146, align 1
-  %84 = load i8, ptr %__b0.addr.i146, align 1
-  %vecinit.i148 = insertelement <16 x i8> undef, i8 %84, i32 0
-  %85 = load i8, ptr %__b1.addr.i145, align 1
-  %vecinit1.i149 = insertelement <16 x i8> %vecinit.i148, i8 %85, i32 1
-  %86 = load i8, ptr %__b2.addr.i144, align 1
-  %vecinit2.i150 = insertelement <16 x i8> %vecinit1.i149, i8 %86, i32 2
-  %87 = load i8, ptr %__b3.addr.i143, align 1
-  %vecinit3.i151 = insertelement <16 x i8> %vecinit2.i150, i8 %87, i32 3
-  %88 = load i8, ptr %__b4.addr.i142, align 1
-  %vecinit4.i152 = insertelement <16 x i8> %vecinit3.i151, i8 %88, i32 4
-  %89 = load i8, ptr %__b5.addr.i141, align 1
-  %vecinit5.i153 = insertelement <16 x i8> %vecinit4.i152, i8 %89, i32 5
-  %90 = load i8, ptr %__b6.addr.i140, align 1
-  %vecinit6.i154 = insertelement <16 x i8> %vecinit5.i153, i8 %90, i32 6
-  %91 = load i8, ptr %__b7.addr.i139, align 1
-  %vecinit7.i155 = insertelement <16 x i8> %vecinit6.i154, i8 %91, i32 7
-  %92 = load i8, ptr %__b8.addr.i138, align 1
-  %vecinit8.i156 = insertelement <16 x i8> %vecinit7.i155, i8 %92, i32 8
-  %93 = load i8, ptr %__b9.addr.i137, align 1
-  %vecinit9.i157 = insertelement <16 x i8> %vecinit8.i156, i8 %93, i32 9
-  %94 = load i8, ptr %__b10.addr.i136, align 1
-  %vecinit10.i158 = insertelement <16 x i8> %vecinit9.i157, i8 %94, i32 10
-  %95 = load i8, ptr %__b11.addr.i135, align 1
-  %vecinit11.i159 = insertelement <16 x i8> %vecinit10.i158, i8 %95, i32 11
-  %96 = load i8, ptr %__b12.addr.i134, align 1
-  %vecinit12.i160 = insertelement <16 x i8> %vecinit11.i159, i8 %96, i32 12
-  %97 = load i8, ptr %__b13.addr.i133, align 1
-  %vecinit13.i161 = insertelement <16 x i8> %vecinit12.i160, i8 %97, i32 13
-  %98 = load i8, ptr %__b14.addr.i132, align 1
-  %vecinit14.i162 = insertelement <16 x i8> %vecinit13.i161, i8 %98, i32 14
-  %99 = load i8, ptr %__b15.addr.i131, align 1
-  %vecinit15.i163 = insertelement <16 x i8> %vecinit14.i162, i8 %99, i32 15
-  store <16 x i8> %vecinit15.i163, ptr %.compoundliteral.i147, align 16
-  %100 = load <16 x i8>, ptr %.compoundliteral.i147, align 16
-  %101 = bitcast <16 x i8> %100 to <2 x i64>
-  store <2 x i64> %101, ptr %hi0_shuf, align 16
-  store i8 -1, ptr %__b0.addr.i, align 1
-  store i8 -1, ptr %__b1.addr.i, align 1
-  store i8 -1, ptr %__b2.addr.i, align 1
-  store i8 -1, ptr %__b3.addr.i, align 1
-  store i8 -1, ptr %__b4.addr.i, align 1
-  store i8 -1, ptr %__b5.addr.i, align 1
-  store i8 -1, ptr %__b6.addr.i, align 1
-  store i8 -1, ptr %__b7.addr.i, align 1
-  store i8 -1, ptr %__b8.addr.i, align 1
-  store i8 -1, ptr %__b9.addr.i, align 1
-  store i8 -1, ptr %__b10.addr.i, align 1
-  store i8 -1, ptr %__b11.addr.i, align 1
-  store i8 0, ptr %__b12.addr.i, align 1
-  store i8 4, ptr %__b13.addr.i, align 1
-  store i8 8, ptr %__b14.addr.i, align 1
-  store i8 12, ptr %__b15.addr.i, align 1
-  %102 = load i8, ptr %__b15.addr.i, align 1
-  %103 = load i8, ptr %__b14.addr.i, align 1
-  %104 = load i8, ptr %__b13.addr.i, align 1
-  %105 = load i8, ptr %__b12.addr.i, align 1
-  %106 = load i8, ptr %__b11.addr.i, align 1
-  %107 = load i8, ptr %__b10.addr.i, align 1
-  %108 = load i8, ptr %__b9.addr.i, align 1
-  %109 = load i8, ptr %__b8.addr.i, align 1
-  %110 = load i8, ptr %__b7.addr.i, align 1
-  %111 = load i8, ptr %__b6.addr.i, align 1
-  %112 = load i8, ptr %__b5.addr.i, align 1
-  %113 = load i8, ptr %__b4.addr.i, align 1
-  %114 = load i8, ptr %__b3.addr.i, align 1
-  %115 = load i8, ptr %__b2.addr.i, align 1
-  %116 = load i8, ptr %__b1.addr.i, align 1
-  %117 = load i8, ptr %__b0.addr.i, align 1
-  store i8 %102, ptr %__b15.addr.i164, align 1
-  store i8 %103, ptr %__b14.addr.i165, align 1
-  store i8 %104, ptr %__b13.addr.i166, align 1
-  store i8 %105, ptr %__b12.addr.i167, align 1
-  store i8 %106, ptr %__b11.addr.i168, align 1
-  store i8 %107, ptr %__b10.addr.i169, align 1
-  store i8 %108, ptr %__b9.addr.i170, align 1
-  store i8 %109, ptr %__b8.addr.i171, align 1
-  store i8 %110, ptr %__b7.addr.i172, align 1
-  store i8 %111, ptr %__b6.addr.i173, align 1
-  store i8 %112, ptr %__b5.addr.i174, align 1
-  store i8 %113, ptr %__b4.addr.i175, align 1
-  store i8 %114, ptr %__b3.addr.i176, align 1
-  store i8 %115, ptr %__b2.addr.i177, align 1
-  store i8 %116, ptr %__b1.addr.i178, align 1
-  store i8 %117, ptr %__b0.addr.i179, align 1
-  %118 = load i8, ptr %__b0.addr.i179, align 1
-  %vecinit.i181 = insertelement <16 x i8> undef, i8 %118, i32 0
-  %119 = load i8, ptr %__b1.addr.i178, align 1
-  %vecinit1.i182 = insertelement <16 x i8> %vecinit.i181, i8 %119, i32 1
-  %120 = load i8, ptr %__b2.addr.i177, align 1
-  %vecinit2.i183 = insertelement <16 x i8> %vecinit1.i182, i8 %120, i32 2
-  %121 = load i8, ptr %__b3.addr.i176, align 1
-  %vecinit3.i184 = insertelement <16 x i8> %vecinit2.i183, i8 %121, i32 3
-  %122 = load i8, ptr %__b4.addr.i175, align 1
-  %vecinit4.i185 = insertelement <16 x i8> %vecinit3.i184, i8 %122, i32 4
-  %123 = load i8, ptr %__b5.addr.i174, align 1
-  %vecinit5.i186 = insertelement <16 x i8> %vecinit4.i185, i8 %123, i32 5
-  %124 = load i8, ptr %__b6.addr.i173, align 1
-  %vecinit6.i187 = insertelement <16 x i8> %vecinit5.i186, i8 %124, i32 6
-  %125 = load i8, ptr %__b7.addr.i172, align 1
-  %vecinit7.i188 = insertelement <16 x i8> %vecinit6.i187, i8 %125, i32 7
-  %126 = load i8, ptr %__b8.addr.i171, align 1
-  %vecinit8.i189 = insertelement <16 x i8> %vecinit7.i188, i8 %126, i32 8
-  %127 = load i8, ptr %__b9.addr.i170, align 1
-  %vecinit9.i190 = insertelement <16 x i8> %vecinit8.i189, i8 %127, i32 9
-  %128 = load i8, ptr %__b10.addr.i169, align 1
-  %vecinit10.i191 = insertelement <16 x i8> %vecinit9.i190, i8 %128, i32 10
-  %129 = load i8, ptr %__b11.addr.i168, align 1
-  %vecinit11.i192 = insertelement <16 x i8> %vecinit10.i191, i8 %129, i32 11
-  %130 = load i8, ptr %__b12.addr.i167, align 1
-  %vecinit12.i193 = insertelement <16 x i8> %vecinit11.i192, i8 %130, i32 12
-  %131 = load i8, ptr %__b13.addr.i166, align 1
-  %vecinit13.i194 = insertelement <16 x i8> %vecinit12.i193, i8 %131, i32 13
-  %132 = load i8, ptr %__b14.addr.i165, align 1
-  %vecinit14.i195 = insertelement <16 x i8> %vecinit13.i194, i8 %132, i32 14
-  %133 = load i8, ptr %__b15.addr.i164, align 1
-  %vecinit15.i196 = insertelement <16 x i8> %vecinit14.i195, i8 %133, i32 15
-  store <16 x i8> %vecinit15.i196, ptr %.compoundliteral.i180, align 16
-  %134 = load <16 x i8>, ptr %.compoundliteral.i180, align 16
-  %135 = bitcast <16 x i8> %134 to <2 x i64>
-  store <2 x i64> %135, ptr %hi1_shuf, align 16
-  %136 = load <4 x i64>, ptr %a.addr, align 32
-  store <4 x i64> %136, ptr %__a.addr.i72, align 32
-  %137 = load <4 x i64>, ptr %__a.addr.i72, align 32
-  %138 = load <4 x i64>, ptr %__a.addr.i72, align 32
-  %shuffle.i73 = shufflevector <4 x i64> %137, <4 x i64> %138, <2 x i32> <i32 0, i32 1>
-  %139 = load <2 x i64>, ptr %lo0_shuf, align 16
-  store <2 x i64> %shuffle.i73, ptr %__a.addr.i69, align 16
-  store <2 x i64> %139, ptr %__b.addr.i70, align 16
-  %140 = load <2 x i64>, ptr %__a.addr.i69, align 16
-  %141 = bitcast <2 x i64> %140 to <16 x i8>
-  %142 = load <2 x i64>, ptr %__b.addr.i70, align 16
-  %143 = bitcast <2 x i64> %142 to <16 x i8>
-  %144 = call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %141, <16 x i8> %143)
-  %145 = bitcast <16 x i8> %144 to <2 x i64>
-  store <2 x i64> %145, ptr %lo0, align 16
-  %146 = load <4 x i64>, ptr %a.addr, align 32
-  %147 = bitcast <4 x i64> %146 to <8 x i32>
-  %extract = shufflevector <8 x i32> %147, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %148 = bitcast <4 x i32> %extract to <2 x i64>
-  %149 = load <2 x i64>, ptr %lo1_shuf, align 16
-  store <2 x i64> %148, ptr %__a.addr.i67, align 16
-  store <2 x i64> %149, ptr %__b.addr.i68, align 16
-  %150 = load <2 x i64>, ptr %__a.addr.i67, align 16
-  %151 = bitcast <2 x i64> %150 to <16 x i8>
-  %152 = load <2 x i64>, ptr %__b.addr.i68, align 16
-  %153 = bitcast <2 x i64> %152 to <16 x i8>
-  %154 = call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %151, <16 x i8> %153)
-  %155 = bitcast <16 x i8> %154 to <2 x i64>
-  store <2 x i64> %155, ptr %lo1, align 16
-  %156 = load <4 x i64>, ptr %b.addr, align 32
-  store <4 x i64> %156, ptr %__a.addr.i71, align 32
-  %157 = load <4 x i64>, ptr %__a.addr.i71, align 32
-  %158 = load <4 x i64>, ptr %__a.addr.i71, align 32
-  %shuffle.i = shufflevector <4 x i64> %157, <4 x i64> %158, <2 x i32> <i32 0, i32 1>
-  %159 = load <2 x i64>, ptr %hi0_shuf, align 16
-  store <2 x i64> %shuffle.i, ptr %__a.addr.i65, align 16
-  store <2 x i64> %159, ptr %__b.addr.i66, align 16
-  %160 = load <2 x i64>, ptr %__a.addr.i65, align 16
-  %161 = bitcast <2 x i64> %160 to <16 x i8>
-  %162 = load <2 x i64>, ptr %__b.addr.i66, align 16
-  %163 = bitcast <2 x i64> %162 to <16 x i8>
-  %164 = call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %161, <16 x i8> %163)
-  %165 = bitcast <16 x i8> %164 to <2 x i64>
-  store <2 x i64> %165, ptr %hi0, align 16
-  %166 = load <4 x i64>, ptr %b.addr, align 32
-  %167 = bitcast <4 x i64> %166 to <8 x i32>
-  %extract9 = shufflevector <8 x i32> %167, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %168 = bitcast <4 x i32> %extract9 to <2 x i64>
-  %169 = load <2 x i64>, ptr %hi1_shuf, align 16
-  store <2 x i64> %168, ptr %__a.addr.i, align 16
-  store <2 x i64> %169, ptr %__b.addr.i, align 16
-  %170 = load <2 x i64>, ptr %__a.addr.i, align 16
-  %171 = bitcast <2 x i64> %170 to <16 x i8>
-  %172 = load <2 x i64>, ptr %__b.addr.i, align 16
-  %173 = bitcast <2 x i64> %172 to <16 x i8>
-  %174 = call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %171, <16 x i8> %173)
-  %175 = bitcast <16 x i8> %174 to <2 x i64>
-  store <2 x i64> %175, ptr %hi1, align 16
-  %176 = load <2 x i64>, ptr %lo0, align 16
-  %177 = load <2 x i64>, ptr %lo1, align 16
-  store <2 x i64> %176, ptr %__a.addr.i79, align 16
-  store <2 x i64> %177, ptr %__b.addr.i80, align 16
-  %178 = load <2 x i64>, ptr %__a.addr.i79, align 16
-  %179 = load <2 x i64>, ptr %__b.addr.i80, align 16
-  %or.i81 = or <2 x i64> %178, %179
-  %180 = load <2 x i64>, ptr %hi0, align 16
-  store <2 x i64> %or.i81, ptr %__a.addr.i76, align 16
-  store <2 x i64> %180, ptr %__b.addr.i77, align 16
-  %181 = load <2 x i64>, ptr %__a.addr.i76, align 16
-  %182 = load <2 x i64>, ptr %__b.addr.i77, align 16
-  %or.i78 = or <2 x i64> %181, %182
-  %183 = load <2 x i64>, ptr %hi1, align 16
-  store <2 x i64> %or.i78, ptr %__a.addr.i74, align 16
-  store <2 x i64> %183, ptr %__b.addr.i75, align 16
-  %184 = load <2 x i64>, ptr %__a.addr.i74, align 16
-  %185 = load <2 x i64>, ptr %__b.addr.i75, align 16
-  %or.i = or <2 x i64> %184, %185
-  ret <2 x i64> %or.i
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef <8 x float> @_ZN19OpenColorIO_v2_5dev13avx_movehl_psEDv8_fS0_(<8 x float> noundef %0, <8 x float> noundef %1) #6 comdat {
+  %3 = alloca <8 x float>, align 32
+  %4 = alloca <8 x float>, align 32
+  store <8 x float> %0, ptr %3, align 32, !tbaa !19
+  store <8 x float> %1, ptr %4, align 32, !tbaa !19
+  %5 = load <8 x float>, ptr %4, align 32, !tbaa !19
+  %6 = call noundef <4 x double> @_ZL16_mm256_castps_pdDv8_f(<8 x float> noundef %5)
+  %7 = load <8 x float>, ptr %3, align 32, !tbaa !19
+  %8 = call noundef <4 x double> @_ZL16_mm256_castps_pdDv8_f(<8 x float> noundef %7)
+  %9 = call noundef <4 x double> @_ZL18_mm256_unpackhi_pdDv4_dS_(<4 x double> noundef %6, <4 x double> noundef %8)
+  %10 = call noundef <8 x float> @_ZL16_mm256_castpd_psDv4_d(<4 x double> noundef %9)
+  ret <8 x float> %10
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <8 x float> @_ZL16_mm256_castpd_psDv4_d(<4 x double> noundef %0) #10 {
+  %2 = alloca <4 x double>, align 32
+  store <4 x double> %0, ptr %2, align 32, !tbaa !19
+  %3 = load <4 x double>, ptr %2, align 32, !tbaa !19
+  %4 = bitcast <4 x double> %3 to <8 x float>
+  ret <8 x float> %4
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <4 x double> @_ZL18_mm256_unpacklo_pdDv4_dS_(<4 x double> noundef %0, <4 x double> noundef %1) #10 {
+  %3 = alloca <4 x double>, align 32
+  %4 = alloca <4 x double>, align 32
+  store <4 x double> %0, ptr %3, align 32, !tbaa !19
+  store <4 x double> %1, ptr %4, align 32, !tbaa !19
+  %5 = load <4 x double>, ptr %3, align 32, !tbaa !19
+  %6 = load <4 x double>, ptr %4, align 32, !tbaa !19
+  %7 = shufflevector <4 x double> %5, <4 x double> %6, <4 x i32> <i32 0, i32 4, i32 2, i32 6>
+  ret <4 x double> %7
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <4 x double> @_ZL16_mm256_castps_pdDv8_f(<8 x float> noundef %0) #10 {
+  %2 = alloca <8 x float>, align 32
+  store <8 x float> %0, ptr %2, align 32, !tbaa !19
+  %3 = load <8 x float>, ptr %2, align 32, !tbaa !19
+  %4 = bitcast <8 x float> %3 to <4 x double>
+  ret <4 x double> %4
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <4 x double> @_ZL18_mm256_unpackhi_pdDv4_dS_(<4 x double> noundef %0, <4 x double> noundef %1) #10 {
+  %3 = alloca <4 x double>, align 32
+  %4 = alloca <4 x double>, align 32
+  store <4 x double> %0, ptr %3, align 32, !tbaa !19
+  store <4 x double> %1, ptr %4, align 32, !tbaa !19
+  %5 = load <4 x double>, ptr %3, align 32, !tbaa !19
+  %6 = load <4 x double>, ptr %4, align 32, !tbaa !19
+  %7 = shufflevector <4 x double> %5, <4 x double> %6, <4 x i32> <i32 1, i32 5, i32 3, i32 7>
+  ret <4 x double> %7
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <8 x float> @_ZL17_mm256_setzero_psv() #10 {
+  %1 = alloca <8 x float>, align 32
+  store <8 x float> zeroinitializer, ptr %1, align 32, !tbaa !19
+  %2 = load <8 x float>, ptr %1, align 32, !tbaa !19
+  ret <8 x float> %2
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <8 x float> @_ZL13_mm256_min_psDv8_fS_(<8 x float> noundef %0, <8 x float> noundef %1) #10 {
+  %3 = alloca <8 x float>, align 32
+  %4 = alloca <8 x float>, align 32
+  store <8 x float> %0, ptr %3, align 32, !tbaa !19
+  store <8 x float> %1, ptr %4, align 32, !tbaa !19
+  %5 = load <8 x float>, ptr %3, align 32, !tbaa !19
+  %6 = load <8 x float>, ptr %4, align 32, !tbaa !19
+  %7 = call <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %5, <8 x float> %6)
+  ret <8 x float> %7
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <8 x float> @_ZL13_mm256_max_psDv8_fS_(<8 x float> noundef %0, <8 x float> noundef %1) #10 {
+  %3 = alloca <8 x float>, align 32
+  %4 = alloca <8 x float>, align 32
+  store <8 x float> %0, ptr %3, align 32, !tbaa !19
+  store <8 x float> %1, ptr %4, align 32, !tbaa !19
+  %5 = load <8 x float>, ptr %3, align 32, !tbaa !19
+  %6 = load <8 x float>, ptr %4, align 32, !tbaa !19
+  %7 = call <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %5, <8 x float> %6)
+  ret <8 x float> %7
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i32> @llvm.x86.avx.cvt.ps2dq.256(<8 x float>) #8
+declare <8 x float> @llvm.x86.avx.round.ps.256(<8 x float>, i32 immarg) #12
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <8 x float> @_ZL13_mm256_sub_psDv8_fS_(<8 x float> noundef %0, <8 x float> noundef %1) #10 {
+  %3 = alloca <8 x float>, align 32
+  %4 = alloca <8 x float>, align 32
+  store <8 x float> %0, ptr %3, align 32, !tbaa !19
+  store <8 x float> %1, ptr %4, align 32, !tbaa !19
+  %5 = load <8 x float>, ptr %3, align 32, !tbaa !19
+  %6 = load <8 x float>, ptr %4, align 32, !tbaa !19
+  %7 = fsub <8 x float> %5, %6
+  ret <8 x float> %7
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <8 x float> @_ZL13_mm256_add_psDv8_fS_(<8 x float> noundef %0, <8 x float> noundef %1) #10 {
+  %3 = alloca <8 x float>, align 32
+  %4 = alloca <8 x float>, align 32
+  store <8 x float> %0, ptr %3, align 32, !tbaa !19
+  store <8 x float> %1, ptr %4, align 32, !tbaa !19
+  %5 = load <8 x float>, ptr %3, align 32, !tbaa !19
+  %6 = load <8 x float>, ptr %4, align 32, !tbaa !19
+  %7 = fadd <8 x float> %5, %6
+  ret <8 x float> %7
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <4 x i64> @_ZL19_mm256_cvttps_epi32Dv8_f(<8 x float> noundef %0) #10 {
+  %2 = alloca <8 x float>, align 32
+  store <8 x float> %0, ptr %2, align 32, !tbaa !19
+  %3 = load <8 x float>, ptr %2, align 32, !tbaa !19
+  %4 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %3)
+  %5 = bitcast <8 x i32> %4 to <4 x i64>
+  ret <4 x i64> %5
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal void @_ZL18_mm256_store_si256PDv4_xS_(ptr noundef %0, <4 x i64> noundef %1) #10 {
+  %3 = alloca ptr, align 8
+  %4 = alloca <4 x i64>, align 32
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store <4 x i64> %1, ptr %4, align 32, !tbaa !19
+  %5 = load <4 x i64>, ptr %4, align 32, !tbaa !19
+  %6 = load ptr, ptr %3, align 8, !tbaa !12
+  store <4 x i64> %5, ptr %6, align 32, !tbaa !19
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <8 x float> @_ZL14_mm256_load_psPKf(ptr noundef %0) #10 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !7
+  %3 = load ptr, ptr %2, align 8, !tbaa !7
+  %4 = load <8 x float>, ptr %3, align 32, !tbaa !19
+  ret <8 x float> %4
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define internal noundef <8 x float> @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112fmadd_ps_avxEDv8_fS1_S1_(<8 x float> noundef %0, <8 x float> noundef %1, <8 x float> noundef %2) #6 {
+  %4 = alloca <8 x float>, align 32
+  %5 = alloca <8 x float>, align 32
+  %6 = alloca <8 x float>, align 32
+  store <8 x float> %0, ptr %4, align 32, !tbaa !19
+  store <8 x float> %1, ptr %5, align 32, !tbaa !19
+  store <8 x float> %2, ptr %6, align 32, !tbaa !19
+  %7 = load <8 x float>, ptr %4, align 32, !tbaa !19
+  %8 = load <8 x float>, ptr %5, align 32, !tbaa !19
+  %9 = call noundef <8 x float> @_ZL13_mm256_mul_psDv8_fS_(<8 x float> noundef %7, <8 x float> noundef %8)
+  %10 = load <8 x float>, ptr %6, align 32, !tbaa !19
+  %11 = call noundef <8 x float> @_ZL13_mm256_add_psDv8_fS_(<8 x float> noundef %9, <8 x float> noundef %10)
+  ret <8 x float> %11
+}
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8>, <16 x i8>) #8
+declare <8 x float> @llvm.x86.avx.min.ps.256(<8 x float>, <8 x float>) #12
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE2EE5StoreEPtDv8_fS4_S4_S4_(ptr noundef %out, <8 x float> noundef %r, <8 x float> noundef %g, <8 x float> noundef %b, <8 x float> noundef %a) #5 comdat align 2 {
-entry:
-  %out.addr = alloca ptr, align 8
-  %r.addr = alloca <8 x float>, align 32
-  %g.addr = alloca <8 x float>, align 32
-  %b.addr = alloca <8 x float>, align 32
-  %a.addr = alloca <8 x float>, align 32
-  store ptr %out, ptr %out.addr, align 8
-  store <8 x float> %r, ptr %r.addr, align 32
-  store <8 x float> %g, ptr %g.addr, align 32
-  store <8 x float> %b, ptr %b.addr, align 32
-  store <8 x float> %a, ptr %a.addr, align 32
-  %0 = load ptr, ptr %out.addr, align 8
-  %1 = load <8 x float>, ptr %r.addr, align 32
-  %2 = load <8 x float>, ptr %g.addr, align 32
-  %3 = load <8 x float>, ptr %b.addr, align 32
-  %4 = load <8 x float>, ptr %a.addr, align 32
-  call void @_ZN19OpenColorIO_v2_4dev13AVXRGBAPack16ILNS_8BitDepthE2EE5StoreEPtDv8_fS4_S4_S4_(ptr noundef %0, <8 x float> noundef %1, <8 x float> noundef %2, <8 x float> noundef %3, <8 x float> noundef %4)
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare <8 x float> @llvm.x86.avx.max.ps.256(<8 x float>, <8 x float>) #12
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float>) #12
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef <8 x float> @_ZN19OpenColorIO_v2_5dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %0, ptr noundef nonnull align 32 dereferenceable(32) %1) #13 comdat {
+  %3 = alloca <8 x float>, align 32
+  %4 = alloca ptr, align 8
+  store <8 x float> %0, ptr %3, align 32, !tbaa !19
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %5 = load <8 x float>, ptr %3, align 32, !tbaa !19
+  %6 = call noundef <8 x float> @_ZL17_mm256_setzero_psv()
+  %7 = call noundef <8 x float> @_ZL13_mm256_max_psDv8_fS_(<8 x float> noundef %5, <8 x float> noundef %6)
+  store <8 x float> %7, ptr %3, align 32, !tbaa !19
+  %8 = load <8 x float>, ptr %3, align 32, !tbaa !19
+  %9 = load ptr, ptr %4, align 8, !tbaa !12
+  %10 = load <8 x float>, ptr %9, align 32, !tbaa !19
+  %11 = call noundef <8 x float> @_ZL13_mm256_min_psDv8_fS_(<8 x float> noundef %8, <8 x float> noundef %10)
+  ret <8 x float> %11
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <4 x i64> @_ZL18_mm256_cvtps_epi32Dv8_f(<8 x float> noundef %0) #10 {
+  %2 = alloca <8 x float>, align 32
+  store <8 x float> %0, ptr %2, align 32, !tbaa !19
+  %3 = load <8 x float>, ptr %2, align 32, !tbaa !19
+  %4 = call <8 x i32> @llvm.x86.avx.cvt.ps2dq.256(<8 x float> %3)
+  %5 = bitcast <8 x i32> %4 to <4 x i64>
+  ret <4 x i64> %5
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef <2 x i64> @_ZN19OpenColorIO_v2_5dev11avx_pack_u8EDv4_xS0_(<4 x i64> noundef %0, <4 x i64> noundef %1) #6 comdat {
+  %3 = alloca <4 x i64>, align 32
+  %4 = alloca <4 x i64>, align 32
+  %5 = alloca <2 x i64>, align 16
+  %6 = alloca <2 x i64>, align 16
+  %7 = alloca <2 x i64>, align 16
+  %8 = alloca <2 x i64>, align 16
+  %9 = alloca <2 x i64>, align 16
+  %10 = alloca <2 x i64>, align 16
+  %11 = alloca <2 x i64>, align 16
+  %12 = alloca <2 x i64>, align 16
+  store <4 x i64> %0, ptr %3, align 32, !tbaa !19
+  store <4 x i64> %1, ptr %4, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #3
+  %13 = call noundef <2 x i64> @_ZL13_mm_setr_epi8cccccccccccccccc(i8 noundef signext 0, i8 noundef signext 4, i8 noundef signext 8, i8 noundef signext 12, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1)
+  store <2 x i64> %13, ptr %5, align 16, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #3
+  %14 = call noundef <2 x i64> @_ZL13_mm_setr_epi8cccccccccccccccc(i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext 0, i8 noundef signext 4, i8 noundef signext 8, i8 noundef signext 12, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1)
+  store <2 x i64> %14, ptr %6, align 16, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #3
+  %15 = call noundef <2 x i64> @_ZL13_mm_setr_epi8cccccccccccccccc(i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext 0, i8 noundef signext 4, i8 noundef signext 8, i8 noundef signext 12, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1)
+  store <2 x i64> %15, ptr %7, align 16, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #3
+  %16 = call noundef <2 x i64> @_ZL13_mm_setr_epi8cccccccccccccccc(i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext 0, i8 noundef signext 4, i8 noundef signext 8, i8 noundef signext 12)
+  store <2 x i64> %16, ptr %8, align 16, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #3
+  %17 = load <4 x i64>, ptr %3, align 32, !tbaa !19
+  %18 = call noundef <2 x i64> @_ZL22_mm256_castsi256_si128Dv4_x(<4 x i64> noundef %17)
+  %19 = call noundef <2 x i64> @_ZL16_mm_shuffle_epi8Dv2_xS_(<2 x i64> noundef %18, <2 x i64> noundef <i64 -4093115392, i64 -1>)
+  store <2 x i64> %19, ptr %9, align 16, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #3
+  %20 = load <4 x i64>, ptr %3, align 32, !tbaa !19
+  %21 = bitcast <4 x i64> %20 to <8 x i32>
+  %22 = shufflevector <8 x i32> %21, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %23 = bitcast <4 x i32> %22 to <2 x i64>
+  %24 = call noundef <2 x i64> @_ZL16_mm_shuffle_epi8Dv2_xS_(<2 x i64> noundef %23, <2 x i64> noundef <i64 866947330610298879, i64 -1>)
+  store <2 x i64> %24, ptr %10, align 16, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #3
+  %25 = load <4 x i64>, ptr %4, align 32, !tbaa !19
+  %26 = call noundef <2 x i64> @_ZL22_mm256_castsi256_si128Dv4_x(<4 x i64> noundef %25)
+  %27 = call noundef <2 x i64> @_ZL16_mm_shuffle_epi8Dv2_xS_(<2 x i64> noundef %26, <2 x i64> noundef <i64 -1, i64 -4093115392>)
+  store <2 x i64> %27, ptr %11, align 16, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #3
+  %28 = load <4 x i64>, ptr %4, align 32, !tbaa !19
+  %29 = bitcast <4 x i64> %28 to <8 x i32>
+  %30 = shufflevector <8 x i32> %29, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %31 = bitcast <4 x i32> %30 to <2 x i64>
+  %32 = call noundef <2 x i64> @_ZL16_mm_shuffle_epi8Dv2_xS_(<2 x i64> noundef %31, <2 x i64> noundef <i64 -1, i64 866947330610298879>)
+  store <2 x i64> %32, ptr %12, align 16, !tbaa !19
+  %33 = load <2 x i64>, ptr %9, align 16, !tbaa !19
+  %34 = load <2 x i64>, ptr %10, align 16, !tbaa !19
+  %35 = call noundef <2 x i64> @_ZL12_mm_or_si128Dv2_xS_(<2 x i64> noundef %33, <2 x i64> noundef %34)
+  %36 = load <2 x i64>, ptr %11, align 16, !tbaa !19
+  %37 = call noundef <2 x i64> @_ZL12_mm_or_si128Dv2_xS_(<2 x i64> noundef %35, <2 x i64> noundef %36)
+  %38 = load <2 x i64>, ptr %12, align 16, !tbaa !19
+  %39 = call noundef <2 x i64> @_ZL12_mm_or_si128Dv2_xS_(<2 x i64> noundef %37, <2 x i64> noundef %38)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #3
+  ret <2 x i64> %39
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <4 x i64> @_ZL22_mm256_castsi128_si256Dv2_x(<2 x i64> noundef %0) #10 {
+  %2 = alloca <2 x i64>, align 16
+  store <2 x i64> %0, ptr %2, align 16, !tbaa !19
+  %3 = load <2 x i64>, ptr %2, align 16, !tbaa !19
+  %4 = freeze <2 x i64> poison
+  %5 = shufflevector <2 x i64> %3, <2 x i64> %4, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  ret <4 x i64> %5
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal void @_ZL19_mm256_storeu_si256PDv4_xS_(ptr noundef %0, <4 x i64> noundef %1) #10 {
+  %3 = alloca ptr, align 8
+  %4 = alloca <4 x i64>, align 32
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store <4 x i64> %1, ptr %4, align 32, !tbaa !19
+  %5 = load <4 x i64>, ptr %4, align 32, !tbaa !19
+  %6 = load ptr, ptr %3, align 8, !tbaa !12
+  %7 = getelementptr inbounds nuw %struct.__storeu_si256, ptr %6, i32 0, i32 0
+  store <4 x i64> %5, ptr %7, align 1, !tbaa !19
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev13AVXRGBAPack16ILNS_8BitDepthE2EE5StoreEPtDv8_fS4_S4_S4_(ptr noundef %out, <8 x float> noundef %r, <8 x float> noundef %g, <8 x float> noundef %b, <8 x float> noundef %a) #5 comdat align 2 {
-entry:
-  %__p.addr.i26 = alloca ptr, align 8
-  %__a.addr.i27 = alloca <4 x i64>, align 32
-  %__p.addr.i = alloca ptr, align 8
-  %__a.addr.i25 = alloca <4 x i64>, align 32
-  %__a.addr.i23 = alloca <2 x i64>, align 16
-  %__a.addr.i22 = alloca <2 x i64>, align 16
-  %__a.addr.i21 = alloca <8 x float>, align 32
-  %__a.addr.i20 = alloca <8 x float>, align 32
-  %__a.addr.i19 = alloca <8 x float>, align 32
-  %__a.addr.i18 = alloca <8 x float>, align 32
-  %__a.addr.i = alloca float, align 4
-  %__b.addr.i = alloca float, align 4
-  %__c.addr.i = alloca float, align 4
-  %__d.addr.i = alloca float, align 4
-  %__e.addr.i = alloca float, align 4
-  %__f.addr.i = alloca float, align 4
-  %__g.addr.i = alloca float, align 4
-  %__h.addr.i = alloca float, align 4
-  %.compoundliteral.i = alloca <8 x float>, align 32
-  %__w.addr.i = alloca float, align 4
-  %out.addr = alloca ptr, align 8
-  %r.addr = alloca <8 x float>, align 32
-  %g.addr = alloca <8 x float>, align 32
-  %b.addr = alloca <8 x float>, align 32
-  %a.addr = alloca <8 x float>, align 32
-  %rgba0 = alloca <8 x float>, align 32
-  %rgba1 = alloca <8 x float>, align 32
-  %rgba2 = alloca <8 x float>, align 32
-  %rgba3 = alloca <8 x float>, align 32
-  %lo = alloca <2 x i64>, align 16
-  %hi = alloca <2 x i64>, align 16
-  %rgba = alloca <4 x i64>, align 32
-  %maxValue = alloca <8 x float>, align 32
-  %rgba01 = alloca <4 x i64>, align 32
-  %rgba23 = alloca <4 x i64>, align 32
-  %rgba45 = alloca <4 x i64>, align 32
-  %rgba67 = alloca <4 x i64>, align 32
-  store ptr %out, ptr %out.addr, align 8
-  store <8 x float> %r, ptr %r.addr, align 32
-  store <8 x float> %g, ptr %g.addr, align 32
-  store <8 x float> %b, ptr %b.addr, align 32
-  store <8 x float> %a, ptr %a.addr, align 32
-  store float 1.023000e+03, ptr %__w.addr.i, align 4
-  %0 = load float, ptr %__w.addr.i, align 4
-  %1 = load float, ptr %__w.addr.i, align 4
-  %2 = load float, ptr %__w.addr.i, align 4
-  %3 = load float, ptr %__w.addr.i, align 4
-  %4 = load float, ptr %__w.addr.i, align 4
-  %5 = load float, ptr %__w.addr.i, align 4
-  %6 = load float, ptr %__w.addr.i, align 4
-  %7 = load float, ptr %__w.addr.i, align 4
-  store float %0, ptr %__a.addr.i, align 4
-  store float %1, ptr %__b.addr.i, align 4
-  store float %2, ptr %__c.addr.i, align 4
-  store float %3, ptr %__d.addr.i, align 4
-  store float %4, ptr %__e.addr.i, align 4
-  store float %5, ptr %__f.addr.i, align 4
-  store float %6, ptr %__g.addr.i, align 4
-  store float %7, ptr %__h.addr.i, align 4
-  %8 = load float, ptr %__h.addr.i, align 4
-  %vecinit.i = insertelement <8 x float> undef, float %8, i32 0
-  %9 = load float, ptr %__g.addr.i, align 4
-  %vecinit1.i = insertelement <8 x float> %vecinit.i, float %9, i32 1
-  %10 = load float, ptr %__f.addr.i, align 4
-  %vecinit2.i = insertelement <8 x float> %vecinit1.i, float %10, i32 2
-  %11 = load float, ptr %__e.addr.i, align 4
-  %vecinit3.i = insertelement <8 x float> %vecinit2.i, float %11, i32 3
-  %12 = load float, ptr %__d.addr.i, align 4
-  %vecinit4.i = insertelement <8 x float> %vecinit3.i, float %12, i32 4
-  %13 = load float, ptr %__c.addr.i, align 4
-  %vecinit5.i = insertelement <8 x float> %vecinit4.i, float %13, i32 5
-  %14 = load float, ptr %__b.addr.i, align 4
-  %vecinit6.i = insertelement <8 x float> %vecinit5.i, float %14, i32 6
-  %15 = load float, ptr %__a.addr.i, align 4
-  %vecinit7.i = insertelement <8 x float> %vecinit6.i, float %15, i32 7
-  store <8 x float> %vecinit7.i, ptr %.compoundliteral.i, align 32
-  %16 = load <8 x float>, ptr %.compoundliteral.i, align 32
-  store <8 x float> %16, ptr %maxValue, align 32
-  %17 = load <8 x float>, ptr %r.addr, align 32
-  %18 = load <8 x float>, ptr %g.addr, align 32
-  %19 = load <8 x float>, ptr %b.addr, align 32
-  %20 = load <8 x float>, ptr %a.addr, align 32
-  call void @_ZN19OpenColorIO_v2_4dev24avxRGBATranspose_4x4_4x4EDv8_fS0_S0_S0_RS0_S1_S1_S1_(<8 x float> noundef %17, <8 x float> noundef %18, <8 x float> noundef %19, <8 x float> noundef %20, ptr noundef nonnull align 32 dereferenceable(32) %rgba0, ptr noundef nonnull align 32 dereferenceable(32) %rgba1, ptr noundef nonnull align 32 dereferenceable(32) %rgba2, ptr noundef nonnull align 32 dereferenceable(32) %rgba3)
-  %21 = load <8 x float>, ptr %rgba0, align 32
-  %call1 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %21, ptr noundef nonnull align 32 dereferenceable(32) %maxValue)
-  store <8 x float> %call1, ptr %rgba0, align 32
-  %22 = load <8 x float>, ptr %rgba1, align 32
-  %call2 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %22, ptr noundef nonnull align 32 dereferenceable(32) %maxValue)
-  store <8 x float> %call2, ptr %rgba1, align 32
-  %23 = load <8 x float>, ptr %rgba2, align 32
-  %call3 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %23, ptr noundef nonnull align 32 dereferenceable(32) %maxValue)
-  store <8 x float> %call3, ptr %rgba2, align 32
-  %24 = load <8 x float>, ptr %rgba3, align 32
-  %call4 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %24, ptr noundef nonnull align 32 dereferenceable(32) %maxValue)
-  store <8 x float> %call4, ptr %rgba3, align 32
-  %25 = load <8 x float>, ptr %rgba0, align 32
-  store <8 x float> %25, ptr %__a.addr.i21, align 32
-  %26 = load <8 x float>, ptr %__a.addr.i21, align 32
-  %27 = call <8 x i32> @llvm.x86.avx.cvt.ps2dq.256(<8 x float> %26)
-  %28 = bitcast <8 x i32> %27 to <4 x i64>
-  store <4 x i64> %28, ptr %rgba01, align 32
-  %29 = load <8 x float>, ptr %rgba1, align 32
-  store <8 x float> %29, ptr %__a.addr.i20, align 32
-  %30 = load <8 x float>, ptr %__a.addr.i20, align 32
-  %31 = call <8 x i32> @llvm.x86.avx.cvt.ps2dq.256(<8 x float> %30)
-  %32 = bitcast <8 x i32> %31 to <4 x i64>
-  store <4 x i64> %32, ptr %rgba23, align 32
-  %33 = load <8 x float>, ptr %rgba2, align 32
-  store <8 x float> %33, ptr %__a.addr.i19, align 32
-  %34 = load <8 x float>, ptr %__a.addr.i19, align 32
-  %35 = call <8 x i32> @llvm.x86.avx.cvt.ps2dq.256(<8 x float> %34)
-  %36 = bitcast <8 x i32> %35 to <4 x i64>
-  store <4 x i64> %36, ptr %rgba45, align 32
-  %37 = load <8 x float>, ptr %rgba3, align 32
-  store <8 x float> %37, ptr %__a.addr.i18, align 32
-  %38 = load <8 x float>, ptr %__a.addr.i18, align 32
-  %39 = call <8 x i32> @llvm.x86.avx.cvt.ps2dq.256(<8 x float> %38)
-  %40 = bitcast <8 x i32> %39 to <4 x i64>
-  store <4 x i64> %40, ptr %rgba67, align 32
-  %41 = load <4 x i64>, ptr %rgba01, align 32
-  %call9 = call noundef <2 x i64> @_ZN19OpenColorIO_v2_4dev12avx_pack_u16EDv4_x(<4 x i64> noundef %41)
-  store <2 x i64> %call9, ptr %lo, align 16
-  %42 = load <4 x i64>, ptr %rgba23, align 32
-  %call10 = call noundef <2 x i64> @_ZN19OpenColorIO_v2_4dev12avx_pack_u16EDv4_x(<4 x i64> noundef %42)
-  store <2 x i64> %call10, ptr %hi, align 16
-  %43 = load <2 x i64>, ptr %lo, align 16
-  store <2 x i64> %43, ptr %__a.addr.i23, align 16
-  %44 = load <2 x i64>, ptr %__a.addr.i23, align 16
-  %45 = freeze <2 x i64> poison
-  %shuffle.i24 = shufflevector <2 x i64> %44, <2 x i64> %45, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %46 = bitcast <4 x i64> %shuffle.i24 to <8 x i32>
-  %47 = load <2 x i64>, ptr %hi, align 16
-  %48 = bitcast <2 x i64> %47 to <4 x i32>
-  %widen = shufflevector <4 x i32> %48, <4 x i32> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %insert = shufflevector <8 x i32> %46, <8 x i32> %widen, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
-  %49 = bitcast <8 x i32> %insert to <4 x i64>
-  store <4 x i64> %49, ptr %rgba, align 32
-  %50 = load ptr, ptr %out.addr, align 8
-  %add.ptr = getelementptr inbounds i16, ptr %50, i64 0
-  %51 = load <4 x i64>, ptr %rgba, align 32
-  store ptr %add.ptr, ptr %__p.addr.i26, align 8
-  store <4 x i64> %51, ptr %__a.addr.i27, align 32
-  %52 = load <4 x i64>, ptr %__a.addr.i27, align 32
-  %53 = load ptr, ptr %__p.addr.i26, align 8
-  store <4 x i64> %52, ptr %53, align 1
-  %54 = load <4 x i64>, ptr %rgba45, align 32
-  %call12 = call noundef <2 x i64> @_ZN19OpenColorIO_v2_4dev12avx_pack_u16EDv4_x(<4 x i64> noundef %54)
-  store <2 x i64> %call12, ptr %lo, align 16
-  %55 = load <4 x i64>, ptr %rgba67, align 32
-  %call13 = call noundef <2 x i64> @_ZN19OpenColorIO_v2_4dev12avx_pack_u16EDv4_x(<4 x i64> noundef %55)
-  store <2 x i64> %call13, ptr %hi, align 16
-  %56 = load <2 x i64>, ptr %lo, align 16
-  store <2 x i64> %56, ptr %__a.addr.i22, align 16
-  %57 = load <2 x i64>, ptr %__a.addr.i22, align 16
-  %58 = freeze <2 x i64> poison
-  %shuffle.i = shufflevector <2 x i64> %57, <2 x i64> %58, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %59 = bitcast <4 x i64> %shuffle.i to <8 x i32>
-  %60 = load <2 x i64>, ptr %hi, align 16
-  %61 = bitcast <2 x i64> %60 to <4 x i32>
-  %widen15 = shufflevector <4 x i32> %61, <4 x i32> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %insert16 = shufflevector <8 x i32> %59, <8 x i32> %widen15, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
-  %62 = bitcast <8 x i32> %insert16 to <4 x i64>
-  store <4 x i64> %62, ptr %rgba, align 32
-  %63 = load ptr, ptr %out.addr, align 8
-  %add.ptr17 = getelementptr inbounds i16, ptr %63, i64 16
-  %64 = load <4 x i64>, ptr %rgba, align 32
-  store ptr %add.ptr17, ptr %__p.addr.i, align 8
-  store <4 x i64> %64, ptr %__a.addr.i25, align 32
-  %65 = load <4 x i64>, ptr %__a.addr.i25, align 32
-  %66 = load ptr, ptr %__p.addr.i, align 8
-  store <4 x i64> %65, ptr %66, align 1
-  ret void
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare <8 x i32> @llvm.x86.avx.cvt.ps2dq.256(<8 x float>) #12
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define internal noundef <2 x i64> @_ZL13_mm_setr_epi8cccccccccccccccc(i8 noundef signext %0, i8 noundef signext %1, i8 noundef signext %2, i8 noundef signext %3, i8 noundef signext %4, i8 noundef signext %5, i8 noundef signext %6, i8 noundef signext %7, i8 noundef signext %8, i8 noundef signext %9, i8 noundef signext %10, i8 noundef signext %11, i8 noundef signext %12, i8 noundef signext %13, i8 noundef signext %14, i8 noundef signext %15) #14 {
+  %17 = alloca i8, align 1
+  %18 = alloca i8, align 1
+  %19 = alloca i8, align 1
+  %20 = alloca i8, align 1
+  %21 = alloca i8, align 1
+  %22 = alloca i8, align 1
+  %23 = alloca i8, align 1
+  %24 = alloca i8, align 1
+  %25 = alloca i8, align 1
+  %26 = alloca i8, align 1
+  %27 = alloca i8, align 1
+  %28 = alloca i8, align 1
+  %29 = alloca i8, align 1
+  %30 = alloca i8, align 1
+  %31 = alloca i8, align 1
+  %32 = alloca i8, align 1
+  store i8 %0, ptr %17, align 1, !tbaa !19
+  store i8 %1, ptr %18, align 1, !tbaa !19
+  store i8 %2, ptr %19, align 1, !tbaa !19
+  store i8 %3, ptr %20, align 1, !tbaa !19
+  store i8 %4, ptr %21, align 1, !tbaa !19
+  store i8 %5, ptr %22, align 1, !tbaa !19
+  store i8 %6, ptr %23, align 1, !tbaa !19
+  store i8 %7, ptr %24, align 1, !tbaa !19
+  store i8 %8, ptr %25, align 1, !tbaa !19
+  store i8 %9, ptr %26, align 1, !tbaa !19
+  store i8 %10, ptr %27, align 1, !tbaa !19
+  store i8 %11, ptr %28, align 1, !tbaa !19
+  store i8 %12, ptr %29, align 1, !tbaa !19
+  store i8 %13, ptr %30, align 1, !tbaa !19
+  store i8 %14, ptr %31, align 1, !tbaa !19
+  store i8 %15, ptr %32, align 1, !tbaa !19
+  %33 = load i8, ptr %32, align 1, !tbaa !19
+  %34 = load i8, ptr %31, align 1, !tbaa !19
+  %35 = load i8, ptr %30, align 1, !tbaa !19
+  %36 = load i8, ptr %29, align 1, !tbaa !19
+  %37 = load i8, ptr %28, align 1, !tbaa !19
+  %38 = load i8, ptr %27, align 1, !tbaa !19
+  %39 = load i8, ptr %26, align 1, !tbaa !19
+  %40 = load i8, ptr %25, align 1, !tbaa !19
+  %41 = load i8, ptr %24, align 1, !tbaa !19
+  %42 = load i8, ptr %23, align 1, !tbaa !19
+  %43 = load i8, ptr %22, align 1, !tbaa !19
+  %44 = load i8, ptr %21, align 1, !tbaa !19
+  %45 = load i8, ptr %20, align 1, !tbaa !19
+  %46 = load i8, ptr %19, align 1, !tbaa !19
+  %47 = load i8, ptr %18, align 1, !tbaa !19
+  %48 = load i8, ptr %17, align 1, !tbaa !19
+  %49 = call noundef <2 x i64> @_ZL12_mm_set_epi8cccccccccccccccc(i8 noundef signext %33, i8 noundef signext %34, i8 noundef signext %35, i8 noundef signext %36, i8 noundef signext %37, i8 noundef signext %38, i8 noundef signext %39, i8 noundef signext %40, i8 noundef signext %41, i8 noundef signext %42, i8 noundef signext %43, i8 noundef signext %44, i8 noundef signext %45, i8 noundef signext %46, i8 noundef signext %47, i8 noundef signext %48)
+  ret <2 x i64> %49
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef <2 x i64> @_ZN19OpenColorIO_v2_4dev12avx_pack_u16EDv4_x(<4 x i64> noundef %a) #5 comdat {
-entry:
-  %__b15.addr.i44 = alloca i8, align 1
-  %__b14.addr.i45 = alloca i8, align 1
-  %__b13.addr.i46 = alloca i8, align 1
-  %__b12.addr.i47 = alloca i8, align 1
-  %__b11.addr.i48 = alloca i8, align 1
-  %__b10.addr.i49 = alloca i8, align 1
-  %__b9.addr.i50 = alloca i8, align 1
-  %__b8.addr.i51 = alloca i8, align 1
-  %__b7.addr.i52 = alloca i8, align 1
-  %__b6.addr.i53 = alloca i8, align 1
-  %__b5.addr.i54 = alloca i8, align 1
-  %__b4.addr.i55 = alloca i8, align 1
-  %__b3.addr.i56 = alloca i8, align 1
-  %__b2.addr.i57 = alloca i8, align 1
-  %__b1.addr.i58 = alloca i8, align 1
-  %__b0.addr.i59 = alloca i8, align 1
-  %.compoundliteral.i60 = alloca <16 x i8>, align 16
-  %__b15.addr.i28 = alloca i8, align 1
-  %__b14.addr.i29 = alloca i8, align 1
-  %__b13.addr.i30 = alloca i8, align 1
-  %__b12.addr.i31 = alloca i8, align 1
-  %__b11.addr.i32 = alloca i8, align 1
-  %__b10.addr.i33 = alloca i8, align 1
-  %__b9.addr.i34 = alloca i8, align 1
-  %__b8.addr.i35 = alloca i8, align 1
-  %__b7.addr.i36 = alloca i8, align 1
-  %__b6.addr.i37 = alloca i8, align 1
-  %__b5.addr.i38 = alloca i8, align 1
-  %__b4.addr.i39 = alloca i8, align 1
-  %__b3.addr.i40 = alloca i8, align 1
-  %__b2.addr.i41 = alloca i8, align 1
-  %__b1.addr.i42 = alloca i8, align 1
-  %__b0.addr.i43 = alloca i8, align 1
-  %.compoundliteral.i = alloca <16 x i8>, align 16
-  %__a.addr.i26 = alloca <2 x i64>, align 16
-  %__b.addr.i27 = alloca <2 x i64>, align 16
-  %__a.addr.i25 = alloca <4 x i64>, align 32
-  %__a.addr.i23 = alloca <2 x i64>, align 16
-  %__b.addr.i24 = alloca <2 x i64>, align 16
-  %__a.addr.i = alloca <2 x i64>, align 16
-  %__b.addr.i = alloca <2 x i64>, align 16
-  %__b0.addr.i6 = alloca i8, align 1
-  %__b1.addr.i7 = alloca i8, align 1
-  %__b2.addr.i8 = alloca i8, align 1
-  %__b3.addr.i9 = alloca i8, align 1
-  %__b4.addr.i10 = alloca i8, align 1
-  %__b5.addr.i11 = alloca i8, align 1
-  %__b6.addr.i12 = alloca i8, align 1
-  %__b7.addr.i13 = alloca i8, align 1
-  %__b8.addr.i14 = alloca i8, align 1
-  %__b9.addr.i15 = alloca i8, align 1
-  %__b10.addr.i16 = alloca i8, align 1
-  %__b11.addr.i17 = alloca i8, align 1
-  %__b12.addr.i18 = alloca i8, align 1
-  %__b13.addr.i19 = alloca i8, align 1
-  %__b14.addr.i20 = alloca i8, align 1
-  %__b15.addr.i21 = alloca i8, align 1
-  %__b0.addr.i = alloca i8, align 1
-  %__b1.addr.i = alloca i8, align 1
-  %__b2.addr.i = alloca i8, align 1
-  %__b3.addr.i = alloca i8, align 1
-  %__b4.addr.i = alloca i8, align 1
-  %__b5.addr.i = alloca i8, align 1
-  %__b6.addr.i = alloca i8, align 1
-  %__b7.addr.i = alloca i8, align 1
-  %__b8.addr.i = alloca i8, align 1
-  %__b9.addr.i = alloca i8, align 1
-  %__b10.addr.i = alloca i8, align 1
-  %__b11.addr.i = alloca i8, align 1
-  %__b12.addr.i = alloca i8, align 1
-  %__b13.addr.i = alloca i8, align 1
-  %__b14.addr.i = alloca i8, align 1
-  %__b15.addr.i = alloca i8, align 1
-  %a.addr = alloca <4 x i64>, align 32
-  %lo_pack_shuffle16 = alloca <2 x i64>, align 16
-  %hi_pack_shuffle16 = alloca <2 x i64>, align 16
-  %hi = alloca <2 x i64>, align 16
-  %lo = alloca <2 x i64>, align 16
-  store <4 x i64> %a, ptr %a.addr, align 32
-  store i8 0, ptr %__b0.addr.i6, align 1
-  store i8 1, ptr %__b1.addr.i7, align 1
-  store i8 4, ptr %__b2.addr.i8, align 1
-  store i8 5, ptr %__b3.addr.i9, align 1
-  store i8 8, ptr %__b4.addr.i10, align 1
-  store i8 9, ptr %__b5.addr.i11, align 1
-  store i8 12, ptr %__b6.addr.i12, align 1
-  store i8 13, ptr %__b7.addr.i13, align 1
-  store i8 -1, ptr %__b8.addr.i14, align 1
-  store i8 -1, ptr %__b9.addr.i15, align 1
-  store i8 -1, ptr %__b10.addr.i16, align 1
-  store i8 -1, ptr %__b11.addr.i17, align 1
-  store i8 -1, ptr %__b12.addr.i18, align 1
-  store i8 -1, ptr %__b13.addr.i19, align 1
-  store i8 -1, ptr %__b14.addr.i20, align 1
-  store i8 -1, ptr %__b15.addr.i21, align 1
-  %0 = load i8, ptr %__b15.addr.i21, align 1
-  %1 = load i8, ptr %__b14.addr.i20, align 1
-  %2 = load i8, ptr %__b13.addr.i19, align 1
-  %3 = load i8, ptr %__b12.addr.i18, align 1
-  %4 = load i8, ptr %__b11.addr.i17, align 1
-  %5 = load i8, ptr %__b10.addr.i16, align 1
-  %6 = load i8, ptr %__b9.addr.i15, align 1
-  %7 = load i8, ptr %__b8.addr.i14, align 1
-  %8 = load i8, ptr %__b7.addr.i13, align 1
-  %9 = load i8, ptr %__b6.addr.i12, align 1
-  %10 = load i8, ptr %__b5.addr.i11, align 1
-  %11 = load i8, ptr %__b4.addr.i10, align 1
-  %12 = load i8, ptr %__b3.addr.i9, align 1
-  %13 = load i8, ptr %__b2.addr.i8, align 1
-  %14 = load i8, ptr %__b1.addr.i7, align 1
-  %15 = load i8, ptr %__b0.addr.i6, align 1
-  store i8 %0, ptr %__b15.addr.i28, align 1
-  store i8 %1, ptr %__b14.addr.i29, align 1
-  store i8 %2, ptr %__b13.addr.i30, align 1
-  store i8 %3, ptr %__b12.addr.i31, align 1
-  store i8 %4, ptr %__b11.addr.i32, align 1
-  store i8 %5, ptr %__b10.addr.i33, align 1
-  store i8 %6, ptr %__b9.addr.i34, align 1
-  store i8 %7, ptr %__b8.addr.i35, align 1
-  store i8 %8, ptr %__b7.addr.i36, align 1
-  store i8 %9, ptr %__b6.addr.i37, align 1
-  store i8 %10, ptr %__b5.addr.i38, align 1
-  store i8 %11, ptr %__b4.addr.i39, align 1
-  store i8 %12, ptr %__b3.addr.i40, align 1
-  store i8 %13, ptr %__b2.addr.i41, align 1
-  store i8 %14, ptr %__b1.addr.i42, align 1
-  store i8 %15, ptr %__b0.addr.i43, align 1
-  %16 = load i8, ptr %__b0.addr.i43, align 1
-  %vecinit.i = insertelement <16 x i8> undef, i8 %16, i32 0
-  %17 = load i8, ptr %__b1.addr.i42, align 1
-  %vecinit1.i = insertelement <16 x i8> %vecinit.i, i8 %17, i32 1
-  %18 = load i8, ptr %__b2.addr.i41, align 1
-  %vecinit2.i = insertelement <16 x i8> %vecinit1.i, i8 %18, i32 2
-  %19 = load i8, ptr %__b3.addr.i40, align 1
-  %vecinit3.i = insertelement <16 x i8> %vecinit2.i, i8 %19, i32 3
-  %20 = load i8, ptr %__b4.addr.i39, align 1
-  %vecinit4.i = insertelement <16 x i8> %vecinit3.i, i8 %20, i32 4
-  %21 = load i8, ptr %__b5.addr.i38, align 1
-  %vecinit5.i = insertelement <16 x i8> %vecinit4.i, i8 %21, i32 5
-  %22 = load i8, ptr %__b6.addr.i37, align 1
-  %vecinit6.i = insertelement <16 x i8> %vecinit5.i, i8 %22, i32 6
-  %23 = load i8, ptr %__b7.addr.i36, align 1
-  %vecinit7.i = insertelement <16 x i8> %vecinit6.i, i8 %23, i32 7
-  %24 = load i8, ptr %__b8.addr.i35, align 1
-  %vecinit8.i = insertelement <16 x i8> %vecinit7.i, i8 %24, i32 8
-  %25 = load i8, ptr %__b9.addr.i34, align 1
-  %vecinit9.i = insertelement <16 x i8> %vecinit8.i, i8 %25, i32 9
-  %26 = load i8, ptr %__b10.addr.i33, align 1
-  %vecinit10.i = insertelement <16 x i8> %vecinit9.i, i8 %26, i32 10
-  %27 = load i8, ptr %__b11.addr.i32, align 1
-  %vecinit11.i = insertelement <16 x i8> %vecinit10.i, i8 %27, i32 11
-  %28 = load i8, ptr %__b12.addr.i31, align 1
-  %vecinit12.i = insertelement <16 x i8> %vecinit11.i, i8 %28, i32 12
-  %29 = load i8, ptr %__b13.addr.i30, align 1
-  %vecinit13.i = insertelement <16 x i8> %vecinit12.i, i8 %29, i32 13
-  %30 = load i8, ptr %__b14.addr.i29, align 1
-  %vecinit14.i = insertelement <16 x i8> %vecinit13.i, i8 %30, i32 14
-  %31 = load i8, ptr %__b15.addr.i28, align 1
-  %vecinit15.i = insertelement <16 x i8> %vecinit14.i, i8 %31, i32 15
-  store <16 x i8> %vecinit15.i, ptr %.compoundliteral.i, align 16
-  %32 = load <16 x i8>, ptr %.compoundliteral.i, align 16
-  %33 = bitcast <16 x i8> %32 to <2 x i64>
-  store <2 x i64> %33, ptr %lo_pack_shuffle16, align 16
-  store i8 -1, ptr %__b0.addr.i, align 1
-  store i8 -1, ptr %__b1.addr.i, align 1
-  store i8 -1, ptr %__b2.addr.i, align 1
-  store i8 -1, ptr %__b3.addr.i, align 1
-  store i8 -1, ptr %__b4.addr.i, align 1
-  store i8 -1, ptr %__b5.addr.i, align 1
-  store i8 -1, ptr %__b6.addr.i, align 1
-  store i8 -1, ptr %__b7.addr.i, align 1
-  store i8 0, ptr %__b8.addr.i, align 1
-  store i8 1, ptr %__b9.addr.i, align 1
-  store i8 4, ptr %__b10.addr.i, align 1
-  store i8 5, ptr %__b11.addr.i, align 1
-  store i8 8, ptr %__b12.addr.i, align 1
-  store i8 9, ptr %__b13.addr.i, align 1
-  store i8 12, ptr %__b14.addr.i, align 1
-  store i8 13, ptr %__b15.addr.i, align 1
-  %34 = load i8, ptr %__b15.addr.i, align 1
-  %35 = load i8, ptr %__b14.addr.i, align 1
-  %36 = load i8, ptr %__b13.addr.i, align 1
-  %37 = load i8, ptr %__b12.addr.i, align 1
-  %38 = load i8, ptr %__b11.addr.i, align 1
-  %39 = load i8, ptr %__b10.addr.i, align 1
-  %40 = load i8, ptr %__b9.addr.i, align 1
-  %41 = load i8, ptr %__b8.addr.i, align 1
-  %42 = load i8, ptr %__b7.addr.i, align 1
-  %43 = load i8, ptr %__b6.addr.i, align 1
-  %44 = load i8, ptr %__b5.addr.i, align 1
-  %45 = load i8, ptr %__b4.addr.i, align 1
-  %46 = load i8, ptr %__b3.addr.i, align 1
-  %47 = load i8, ptr %__b2.addr.i, align 1
-  %48 = load i8, ptr %__b1.addr.i, align 1
-  %49 = load i8, ptr %__b0.addr.i, align 1
-  store i8 %34, ptr %__b15.addr.i44, align 1
-  store i8 %35, ptr %__b14.addr.i45, align 1
-  store i8 %36, ptr %__b13.addr.i46, align 1
-  store i8 %37, ptr %__b12.addr.i47, align 1
-  store i8 %38, ptr %__b11.addr.i48, align 1
-  store i8 %39, ptr %__b10.addr.i49, align 1
-  store i8 %40, ptr %__b9.addr.i50, align 1
-  store i8 %41, ptr %__b8.addr.i51, align 1
-  store i8 %42, ptr %__b7.addr.i52, align 1
-  store i8 %43, ptr %__b6.addr.i53, align 1
-  store i8 %44, ptr %__b5.addr.i54, align 1
-  store i8 %45, ptr %__b4.addr.i55, align 1
-  store i8 %46, ptr %__b3.addr.i56, align 1
-  store i8 %47, ptr %__b2.addr.i57, align 1
-  store i8 %48, ptr %__b1.addr.i58, align 1
-  store i8 %49, ptr %__b0.addr.i59, align 1
-  %50 = load i8, ptr %__b0.addr.i59, align 1
-  %vecinit.i61 = insertelement <16 x i8> undef, i8 %50, i32 0
-  %51 = load i8, ptr %__b1.addr.i58, align 1
-  %vecinit1.i62 = insertelement <16 x i8> %vecinit.i61, i8 %51, i32 1
-  %52 = load i8, ptr %__b2.addr.i57, align 1
-  %vecinit2.i63 = insertelement <16 x i8> %vecinit1.i62, i8 %52, i32 2
-  %53 = load i8, ptr %__b3.addr.i56, align 1
-  %vecinit3.i64 = insertelement <16 x i8> %vecinit2.i63, i8 %53, i32 3
-  %54 = load i8, ptr %__b4.addr.i55, align 1
-  %vecinit4.i65 = insertelement <16 x i8> %vecinit3.i64, i8 %54, i32 4
-  %55 = load i8, ptr %__b5.addr.i54, align 1
-  %vecinit5.i66 = insertelement <16 x i8> %vecinit4.i65, i8 %55, i32 5
-  %56 = load i8, ptr %__b6.addr.i53, align 1
-  %vecinit6.i67 = insertelement <16 x i8> %vecinit5.i66, i8 %56, i32 6
-  %57 = load i8, ptr %__b7.addr.i52, align 1
-  %vecinit7.i68 = insertelement <16 x i8> %vecinit6.i67, i8 %57, i32 7
-  %58 = load i8, ptr %__b8.addr.i51, align 1
-  %vecinit8.i69 = insertelement <16 x i8> %vecinit7.i68, i8 %58, i32 8
-  %59 = load i8, ptr %__b9.addr.i50, align 1
-  %vecinit9.i70 = insertelement <16 x i8> %vecinit8.i69, i8 %59, i32 9
-  %60 = load i8, ptr %__b10.addr.i49, align 1
-  %vecinit10.i71 = insertelement <16 x i8> %vecinit9.i70, i8 %60, i32 10
-  %61 = load i8, ptr %__b11.addr.i48, align 1
-  %vecinit11.i72 = insertelement <16 x i8> %vecinit10.i71, i8 %61, i32 11
-  %62 = load i8, ptr %__b12.addr.i47, align 1
-  %vecinit12.i73 = insertelement <16 x i8> %vecinit11.i72, i8 %62, i32 12
-  %63 = load i8, ptr %__b13.addr.i46, align 1
-  %vecinit13.i74 = insertelement <16 x i8> %vecinit12.i73, i8 %63, i32 13
-  %64 = load i8, ptr %__b14.addr.i45, align 1
-  %vecinit14.i75 = insertelement <16 x i8> %vecinit13.i74, i8 %64, i32 14
-  %65 = load i8, ptr %__b15.addr.i44, align 1
-  %vecinit15.i76 = insertelement <16 x i8> %vecinit14.i75, i8 %65, i32 15
-  store <16 x i8> %vecinit15.i76, ptr %.compoundliteral.i60, align 16
-  %66 = load <16 x i8>, ptr %.compoundliteral.i60, align 16
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <2 x i64> @_ZL16_mm_shuffle_epi8Dv2_xS_(<2 x i64> noundef %0, <2 x i64> noundef %1) #15 {
+  %3 = alloca <2 x i64>, align 16
+  %4 = alloca <2 x i64>, align 16
+  store <2 x i64> %0, ptr %3, align 16, !tbaa !19
+  store <2 x i64> %1, ptr %4, align 16, !tbaa !19
+  %5 = load <2 x i64>, ptr %3, align 16, !tbaa !19
+  %6 = bitcast <2 x i64> %5 to <16 x i8>
+  %7 = load <2 x i64>, ptr %4, align 16, !tbaa !19
+  %8 = bitcast <2 x i64> %7 to <16 x i8>
+  %9 = call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %6, <16 x i8> %8)
+  %10 = bitcast <16 x i8> %9 to <2 x i64>
+  ret <2 x i64> %10
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <2 x i64> @_ZL22_mm256_castsi256_si128Dv4_x(<4 x i64> noundef %0) #10 {
+  %2 = alloca <4 x i64>, align 32
+  store <4 x i64> %0, ptr %2, align 32, !tbaa !19
+  %3 = load <4 x i64>, ptr %2, align 32, !tbaa !19
+  %4 = load <4 x i64>, ptr %2, align 32, !tbaa !19
+  %5 = shufflevector <4 x i64> %3, <4 x i64> %4, <2 x i32> <i32 0, i32 1>
+  ret <2 x i64> %5
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <2 x i64> @_ZL12_mm_or_si128Dv2_xS_(<2 x i64> noundef %0, <2 x i64> noundef %1) #15 {
+  %3 = alloca <2 x i64>, align 16
+  %4 = alloca <2 x i64>, align 16
+  store <2 x i64> %0, ptr %3, align 16, !tbaa !19
+  store <2 x i64> %1, ptr %4, align 16, !tbaa !19
+  %5 = load <2 x i64>, ptr %3, align 16, !tbaa !19
+  %6 = load <2 x i64>, ptr %4, align 16, !tbaa !19
+  %7 = or <2 x i64> %5, %6
+  ret <2 x i64> %7
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <2 x i64> @_ZL12_mm_set_epi8cccccccccccccccc(i8 noundef signext %0, i8 noundef signext %1, i8 noundef signext %2, i8 noundef signext %3, i8 noundef signext %4, i8 noundef signext %5, i8 noundef signext %6, i8 noundef signext %7, i8 noundef signext %8, i8 noundef signext %9, i8 noundef signext %10, i8 noundef signext %11, i8 noundef signext %12, i8 noundef signext %13, i8 noundef signext %14, i8 noundef signext %15) #15 {
+  %17 = alloca i8, align 1
+  %18 = alloca i8, align 1
+  %19 = alloca i8, align 1
+  %20 = alloca i8, align 1
+  %21 = alloca i8, align 1
+  %22 = alloca i8, align 1
+  %23 = alloca i8, align 1
+  %24 = alloca i8, align 1
+  %25 = alloca i8, align 1
+  %26 = alloca i8, align 1
+  %27 = alloca i8, align 1
+  %28 = alloca i8, align 1
+  %29 = alloca i8, align 1
+  %30 = alloca i8, align 1
+  %31 = alloca i8, align 1
+  %32 = alloca i8, align 1
+  %33 = alloca <16 x i8>, align 16
+  store i8 %0, ptr %17, align 1, !tbaa !19
+  store i8 %1, ptr %18, align 1, !tbaa !19
+  store i8 %2, ptr %19, align 1, !tbaa !19
+  store i8 %3, ptr %20, align 1, !tbaa !19
+  store i8 %4, ptr %21, align 1, !tbaa !19
+  store i8 %5, ptr %22, align 1, !tbaa !19
+  store i8 %6, ptr %23, align 1, !tbaa !19
+  store i8 %7, ptr %24, align 1, !tbaa !19
+  store i8 %8, ptr %25, align 1, !tbaa !19
+  store i8 %9, ptr %26, align 1, !tbaa !19
+  store i8 %10, ptr %27, align 1, !tbaa !19
+  store i8 %11, ptr %28, align 1, !tbaa !19
+  store i8 %12, ptr %29, align 1, !tbaa !19
+  store i8 %13, ptr %30, align 1, !tbaa !19
+  store i8 %14, ptr %31, align 1, !tbaa !19
+  store i8 %15, ptr %32, align 1, !tbaa !19
+  %34 = load i8, ptr %32, align 1, !tbaa !19
+  %35 = insertelement <16 x i8> poison, i8 %34, i32 0
+  %36 = load i8, ptr %31, align 1, !tbaa !19
+  %37 = insertelement <16 x i8> %35, i8 %36, i32 1
+  %38 = load i8, ptr %30, align 1, !tbaa !19
+  %39 = insertelement <16 x i8> %37, i8 %38, i32 2
+  %40 = load i8, ptr %29, align 1, !tbaa !19
+  %41 = insertelement <16 x i8> %39, i8 %40, i32 3
+  %42 = load i8, ptr %28, align 1, !tbaa !19
+  %43 = insertelement <16 x i8> %41, i8 %42, i32 4
+  %44 = load i8, ptr %27, align 1, !tbaa !19
+  %45 = insertelement <16 x i8> %43, i8 %44, i32 5
+  %46 = load i8, ptr %26, align 1, !tbaa !19
+  %47 = insertelement <16 x i8> %45, i8 %46, i32 6
+  %48 = load i8, ptr %25, align 1, !tbaa !19
+  %49 = insertelement <16 x i8> %47, i8 %48, i32 7
+  %50 = load i8, ptr %24, align 1, !tbaa !19
+  %51 = insertelement <16 x i8> %49, i8 %50, i32 8
+  %52 = load i8, ptr %23, align 1, !tbaa !19
+  %53 = insertelement <16 x i8> %51, i8 %52, i32 9
+  %54 = load i8, ptr %22, align 1, !tbaa !19
+  %55 = insertelement <16 x i8> %53, i8 %54, i32 10
+  %56 = load i8, ptr %21, align 1, !tbaa !19
+  %57 = insertelement <16 x i8> %55, i8 %56, i32 11
+  %58 = load i8, ptr %20, align 1, !tbaa !19
+  %59 = insertelement <16 x i8> %57, i8 %58, i32 12
+  %60 = load i8, ptr %19, align 1, !tbaa !19
+  %61 = insertelement <16 x i8> %59, i8 %60, i32 13
+  %62 = load i8, ptr %18, align 1, !tbaa !19
+  %63 = insertelement <16 x i8> %61, i8 %62, i32 14
+  %64 = load i8, ptr %17, align 1, !tbaa !19
+  %65 = insertelement <16 x i8> %63, i8 %64, i32 15
+  store <16 x i8> %65, ptr %33, align 16, !tbaa !19
+  %66 = load <16 x i8>, ptr %33, align 16, !tbaa !19
   %67 = bitcast <16 x i8> %66 to <2 x i64>
-  store <2 x i64> %67, ptr %hi_pack_shuffle16, align 16
-  %68 = load <4 x i64>, ptr %a.addr, align 32
-  %69 = bitcast <4 x i64> %68 to <8 x i32>
-  %extract = shufflevector <8 x i32> %69, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %70 = bitcast <4 x i32> %extract to <2 x i64>
-  store <2 x i64> %70, ptr %hi, align 16
-  %71 = load <4 x i64>, ptr %a.addr, align 32
-  store <4 x i64> %71, ptr %__a.addr.i25, align 32
-  %72 = load <4 x i64>, ptr %__a.addr.i25, align 32
-  %73 = load <4 x i64>, ptr %__a.addr.i25, align 32
-  %shuffle.i = shufflevector <4 x i64> %72, <4 x i64> %73, <2 x i32> <i32 0, i32 1>
-  store <2 x i64> %shuffle.i, ptr %lo, align 16
-  %74 = load <2 x i64>, ptr %lo, align 16
-  %75 = load <2 x i64>, ptr %lo_pack_shuffle16, align 16
-  store <2 x i64> %74, ptr %__a.addr.i23, align 16
-  store <2 x i64> %75, ptr %__b.addr.i24, align 16
-  %76 = load <2 x i64>, ptr %__a.addr.i23, align 16
-  %77 = bitcast <2 x i64> %76 to <16 x i8>
-  %78 = load <2 x i64>, ptr %__b.addr.i24, align 16
-  %79 = bitcast <2 x i64> %78 to <16 x i8>
-  %80 = call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %77, <16 x i8> %79)
-  %81 = bitcast <16 x i8> %80 to <2 x i64>
-  store <2 x i64> %81, ptr %lo, align 16
-  %82 = load <2 x i64>, ptr %hi, align 16
-  %83 = load <2 x i64>, ptr %hi_pack_shuffle16, align 16
-  store <2 x i64> %82, ptr %__a.addr.i, align 16
-  store <2 x i64> %83, ptr %__b.addr.i, align 16
-  %84 = load <2 x i64>, ptr %__a.addr.i, align 16
-  %85 = bitcast <2 x i64> %84 to <16 x i8>
-  %86 = load <2 x i64>, ptr %__b.addr.i, align 16
-  %87 = bitcast <2 x i64> %86 to <16 x i8>
-  %88 = call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %85, <16 x i8> %87)
-  %89 = bitcast <16 x i8> %88 to <2 x i64>
-  store <2 x i64> %89, ptr %hi, align 16
-  %90 = load <2 x i64>, ptr %lo, align 16
-  %91 = load <2 x i64>, ptr %hi, align 16
-  store <2 x i64> %90, ptr %__a.addr.i26, align 16
-  store <2 x i64> %91, ptr %__b.addr.i27, align 16
-  %92 = load <2 x i64>, ptr %__a.addr.i26, align 16
-  %93 = load <2 x i64>, ptr %__b.addr.i27, align 16
-  %or.i = or <2 x i64> %92, %93
-  ret <2 x i64> %or.i
+  ret <2 x i64> %67
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE3EE5StoreEPtDv8_fS4_S4_S4_(ptr noundef %out, <8 x float> noundef %r, <8 x float> noundef %g, <8 x float> noundef %b, <8 x float> noundef %a) #5 comdat align 2 {
-entry:
-  %out.addr = alloca ptr, align 8
-  %r.addr = alloca <8 x float>, align 32
-  %g.addr = alloca <8 x float>, align 32
-  %b.addr = alloca <8 x float>, align 32
-  %a.addr = alloca <8 x float>, align 32
-  store ptr %out, ptr %out.addr, align 8
-  store <8 x float> %r, ptr %r.addr, align 32
-  store <8 x float> %g, ptr %g.addr, align 32
-  store <8 x float> %b, ptr %b.addr, align 32
-  store <8 x float> %a, ptr %a.addr, align 32
-  %0 = load ptr, ptr %out.addr, align 8
-  %1 = load <8 x float>, ptr %r.addr, align 32
-  %2 = load <8 x float>, ptr %g.addr, align 32
-  %3 = load <8 x float>, ptr %b.addr, align 32
-  %4 = load <8 x float>, ptr %a.addr, align 32
-  call void @_ZN19OpenColorIO_v2_4dev13AVXRGBAPack16ILNS_8BitDepthE3EE5StoreEPtDv8_fS4_S4_S4_(ptr noundef %0, <8 x float> noundef %1, <8 x float> noundef %2, <8 x float> noundef %3, <8 x float> noundef %4)
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8>, <16 x i8>) #12
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE2EE5StoreEPtDv8_fS4_S4_S4_(ptr noundef %0, <8 x float> noundef %1, <8 x float> noundef %2, <8 x float> noundef %3, <8 x float> noundef %4) #6 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca <8 x float>, align 32
+  %8 = alloca <8 x float>, align 32
+  %9 = alloca <8 x float>, align 32
+  %10 = alloca <8 x float>, align 32
+  store ptr %0, ptr %6, align 8, !tbaa !24
+  store <8 x float> %1, ptr %7, align 32, !tbaa !19
+  store <8 x float> %2, ptr %8, align 32, !tbaa !19
+  store <8 x float> %3, ptr %9, align 32, !tbaa !19
+  store <8 x float> %4, ptr %10, align 32, !tbaa !19
+  %11 = load ptr, ptr %6, align 8, !tbaa !24
+  %12 = load <8 x float>, ptr %7, align 32, !tbaa !19
+  %13 = load <8 x float>, ptr %8, align 32, !tbaa !19
+  %14 = load <8 x float>, ptr %9, align 32, !tbaa !19
+  %15 = load <8 x float>, ptr %10, align 32, !tbaa !19
+  call void @_ZN19OpenColorIO_v2_5dev13AVXRGBAPack16ILNS_8BitDepthE2EE5StoreEPtDv8_fS4_S4_S4_(ptr noundef %11, <8 x float> noundef %12, <8 x float> noundef %13, <8 x float> noundef %14, <8 x float> noundef %15)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev13AVXRGBAPack16ILNS_8BitDepthE3EE5StoreEPtDv8_fS4_S4_S4_(ptr noundef %out, <8 x float> noundef %r, <8 x float> noundef %g, <8 x float> noundef %b, <8 x float> noundef %a) #5 comdat align 2 {
-entry:
-  %__p.addr.i26 = alloca ptr, align 8
-  %__a.addr.i27 = alloca <4 x i64>, align 32
-  %__p.addr.i = alloca ptr, align 8
-  %__a.addr.i25 = alloca <4 x i64>, align 32
-  %__a.addr.i23 = alloca <2 x i64>, align 16
-  %__a.addr.i22 = alloca <2 x i64>, align 16
-  %__a.addr.i21 = alloca <8 x float>, align 32
-  %__a.addr.i20 = alloca <8 x float>, align 32
-  %__a.addr.i19 = alloca <8 x float>, align 32
-  %__a.addr.i18 = alloca <8 x float>, align 32
-  %__a.addr.i = alloca float, align 4
-  %__b.addr.i = alloca float, align 4
-  %__c.addr.i = alloca float, align 4
-  %__d.addr.i = alloca float, align 4
-  %__e.addr.i = alloca float, align 4
-  %__f.addr.i = alloca float, align 4
-  %__g.addr.i = alloca float, align 4
-  %__h.addr.i = alloca float, align 4
-  %.compoundliteral.i = alloca <8 x float>, align 32
-  %__w.addr.i = alloca float, align 4
-  %out.addr = alloca ptr, align 8
-  %r.addr = alloca <8 x float>, align 32
-  %g.addr = alloca <8 x float>, align 32
-  %b.addr = alloca <8 x float>, align 32
-  %a.addr = alloca <8 x float>, align 32
-  %rgba0 = alloca <8 x float>, align 32
-  %rgba1 = alloca <8 x float>, align 32
-  %rgba2 = alloca <8 x float>, align 32
-  %rgba3 = alloca <8 x float>, align 32
-  %lo = alloca <2 x i64>, align 16
-  %hi = alloca <2 x i64>, align 16
-  %rgba = alloca <4 x i64>, align 32
-  %maxValue = alloca <8 x float>, align 32
-  %rgba01 = alloca <4 x i64>, align 32
-  %rgba23 = alloca <4 x i64>, align 32
-  %rgba45 = alloca <4 x i64>, align 32
-  %rgba67 = alloca <4 x i64>, align 32
-  store ptr %out, ptr %out.addr, align 8
-  store <8 x float> %r, ptr %r.addr, align 32
-  store <8 x float> %g, ptr %g.addr, align 32
-  store <8 x float> %b, ptr %b.addr, align 32
-  store <8 x float> %a, ptr %a.addr, align 32
-  store float 4.095000e+03, ptr %__w.addr.i, align 4
-  %0 = load float, ptr %__w.addr.i, align 4
-  %1 = load float, ptr %__w.addr.i, align 4
-  %2 = load float, ptr %__w.addr.i, align 4
-  %3 = load float, ptr %__w.addr.i, align 4
-  %4 = load float, ptr %__w.addr.i, align 4
-  %5 = load float, ptr %__w.addr.i, align 4
-  %6 = load float, ptr %__w.addr.i, align 4
-  %7 = load float, ptr %__w.addr.i, align 4
-  store float %0, ptr %__a.addr.i, align 4
-  store float %1, ptr %__b.addr.i, align 4
-  store float %2, ptr %__c.addr.i, align 4
-  store float %3, ptr %__d.addr.i, align 4
-  store float %4, ptr %__e.addr.i, align 4
-  store float %5, ptr %__f.addr.i, align 4
-  store float %6, ptr %__g.addr.i, align 4
-  store float %7, ptr %__h.addr.i, align 4
-  %8 = load float, ptr %__h.addr.i, align 4
-  %vecinit.i = insertelement <8 x float> undef, float %8, i32 0
-  %9 = load float, ptr %__g.addr.i, align 4
-  %vecinit1.i = insertelement <8 x float> %vecinit.i, float %9, i32 1
-  %10 = load float, ptr %__f.addr.i, align 4
-  %vecinit2.i = insertelement <8 x float> %vecinit1.i, float %10, i32 2
-  %11 = load float, ptr %__e.addr.i, align 4
-  %vecinit3.i = insertelement <8 x float> %vecinit2.i, float %11, i32 3
-  %12 = load float, ptr %__d.addr.i, align 4
-  %vecinit4.i = insertelement <8 x float> %vecinit3.i, float %12, i32 4
-  %13 = load float, ptr %__c.addr.i, align 4
-  %vecinit5.i = insertelement <8 x float> %vecinit4.i, float %13, i32 5
-  %14 = load float, ptr %__b.addr.i, align 4
-  %vecinit6.i = insertelement <8 x float> %vecinit5.i, float %14, i32 6
-  %15 = load float, ptr %__a.addr.i, align 4
-  %vecinit7.i = insertelement <8 x float> %vecinit6.i, float %15, i32 7
-  store <8 x float> %vecinit7.i, ptr %.compoundliteral.i, align 32
-  %16 = load <8 x float>, ptr %.compoundliteral.i, align 32
-  store <8 x float> %16, ptr %maxValue, align 32
-  %17 = load <8 x float>, ptr %r.addr, align 32
-  %18 = load <8 x float>, ptr %g.addr, align 32
-  %19 = load <8 x float>, ptr %b.addr, align 32
-  %20 = load <8 x float>, ptr %a.addr, align 32
-  call void @_ZN19OpenColorIO_v2_4dev24avxRGBATranspose_4x4_4x4EDv8_fS0_S0_S0_RS0_S1_S1_S1_(<8 x float> noundef %17, <8 x float> noundef %18, <8 x float> noundef %19, <8 x float> noundef %20, ptr noundef nonnull align 32 dereferenceable(32) %rgba0, ptr noundef nonnull align 32 dereferenceable(32) %rgba1, ptr noundef nonnull align 32 dereferenceable(32) %rgba2, ptr noundef nonnull align 32 dereferenceable(32) %rgba3)
-  %21 = load <8 x float>, ptr %rgba0, align 32
-  %call1 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %21, ptr noundef nonnull align 32 dereferenceable(32) %maxValue)
-  store <8 x float> %call1, ptr %rgba0, align 32
-  %22 = load <8 x float>, ptr %rgba1, align 32
-  %call2 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %22, ptr noundef nonnull align 32 dereferenceable(32) %maxValue)
-  store <8 x float> %call2, ptr %rgba1, align 32
-  %23 = load <8 x float>, ptr %rgba2, align 32
-  %call3 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %23, ptr noundef nonnull align 32 dereferenceable(32) %maxValue)
-  store <8 x float> %call3, ptr %rgba2, align 32
-  %24 = load <8 x float>, ptr %rgba3, align 32
-  %call4 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %24, ptr noundef nonnull align 32 dereferenceable(32) %maxValue)
-  store <8 x float> %call4, ptr %rgba3, align 32
-  %25 = load <8 x float>, ptr %rgba0, align 32
-  store <8 x float> %25, ptr %__a.addr.i21, align 32
-  %26 = load <8 x float>, ptr %__a.addr.i21, align 32
-  %27 = call <8 x i32> @llvm.x86.avx.cvt.ps2dq.256(<8 x float> %26)
-  %28 = bitcast <8 x i32> %27 to <4 x i64>
-  store <4 x i64> %28, ptr %rgba01, align 32
-  %29 = load <8 x float>, ptr %rgba1, align 32
-  store <8 x float> %29, ptr %__a.addr.i20, align 32
-  %30 = load <8 x float>, ptr %__a.addr.i20, align 32
-  %31 = call <8 x i32> @llvm.x86.avx.cvt.ps2dq.256(<8 x float> %30)
-  %32 = bitcast <8 x i32> %31 to <4 x i64>
-  store <4 x i64> %32, ptr %rgba23, align 32
-  %33 = load <8 x float>, ptr %rgba2, align 32
-  store <8 x float> %33, ptr %__a.addr.i19, align 32
-  %34 = load <8 x float>, ptr %__a.addr.i19, align 32
-  %35 = call <8 x i32> @llvm.x86.avx.cvt.ps2dq.256(<8 x float> %34)
-  %36 = bitcast <8 x i32> %35 to <4 x i64>
-  store <4 x i64> %36, ptr %rgba45, align 32
-  %37 = load <8 x float>, ptr %rgba3, align 32
-  store <8 x float> %37, ptr %__a.addr.i18, align 32
-  %38 = load <8 x float>, ptr %__a.addr.i18, align 32
-  %39 = call <8 x i32> @llvm.x86.avx.cvt.ps2dq.256(<8 x float> %38)
-  %40 = bitcast <8 x i32> %39 to <4 x i64>
-  store <4 x i64> %40, ptr %rgba67, align 32
-  %41 = load <4 x i64>, ptr %rgba01, align 32
-  %call9 = call noundef <2 x i64> @_ZN19OpenColorIO_v2_4dev12avx_pack_u16EDv4_x(<4 x i64> noundef %41)
-  store <2 x i64> %call9, ptr %lo, align 16
-  %42 = load <4 x i64>, ptr %rgba23, align 32
-  %call10 = call noundef <2 x i64> @_ZN19OpenColorIO_v2_4dev12avx_pack_u16EDv4_x(<4 x i64> noundef %42)
-  store <2 x i64> %call10, ptr %hi, align 16
-  %43 = load <2 x i64>, ptr %lo, align 16
-  store <2 x i64> %43, ptr %__a.addr.i23, align 16
-  %44 = load <2 x i64>, ptr %__a.addr.i23, align 16
-  %45 = freeze <2 x i64> poison
-  %shuffle.i24 = shufflevector <2 x i64> %44, <2 x i64> %45, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %46 = bitcast <4 x i64> %shuffle.i24 to <8 x i32>
-  %47 = load <2 x i64>, ptr %hi, align 16
-  %48 = bitcast <2 x i64> %47 to <4 x i32>
-  %widen = shufflevector <4 x i32> %48, <4 x i32> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %insert = shufflevector <8 x i32> %46, <8 x i32> %widen, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
-  %49 = bitcast <8 x i32> %insert to <4 x i64>
-  store <4 x i64> %49, ptr %rgba, align 32
-  %50 = load ptr, ptr %out.addr, align 8
-  %add.ptr = getelementptr inbounds i16, ptr %50, i64 0
-  %51 = load <4 x i64>, ptr %rgba, align 32
-  store ptr %add.ptr, ptr %__p.addr.i26, align 8
-  store <4 x i64> %51, ptr %__a.addr.i27, align 32
-  %52 = load <4 x i64>, ptr %__a.addr.i27, align 32
-  %53 = load ptr, ptr %__p.addr.i26, align 8
-  store <4 x i64> %52, ptr %53, align 1
-  %54 = load <4 x i64>, ptr %rgba45, align 32
-  %call12 = call noundef <2 x i64> @_ZN19OpenColorIO_v2_4dev12avx_pack_u16EDv4_x(<4 x i64> noundef %54)
-  store <2 x i64> %call12, ptr %lo, align 16
-  %55 = load <4 x i64>, ptr %rgba67, align 32
-  %call13 = call noundef <2 x i64> @_ZN19OpenColorIO_v2_4dev12avx_pack_u16EDv4_x(<4 x i64> noundef %55)
-  store <2 x i64> %call13, ptr %hi, align 16
-  %56 = load <2 x i64>, ptr %lo, align 16
-  store <2 x i64> %56, ptr %__a.addr.i22, align 16
-  %57 = load <2 x i64>, ptr %__a.addr.i22, align 16
-  %58 = freeze <2 x i64> poison
-  %shuffle.i = shufflevector <2 x i64> %57, <2 x i64> %58, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %59 = bitcast <4 x i64> %shuffle.i to <8 x i32>
-  %60 = load <2 x i64>, ptr %hi, align 16
-  %61 = bitcast <2 x i64> %60 to <4 x i32>
-  %widen15 = shufflevector <4 x i32> %61, <4 x i32> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %insert16 = shufflevector <8 x i32> %59, <8 x i32> %widen15, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
-  %62 = bitcast <8 x i32> %insert16 to <4 x i64>
-  store <4 x i64> %62, ptr %rgba, align 32
-  %63 = load ptr, ptr %out.addr, align 8
-  %add.ptr17 = getelementptr inbounds i16, ptr %63, i64 16
-  %64 = load <4 x i64>, ptr %rgba, align 32
-  store ptr %add.ptr17, ptr %__p.addr.i, align 8
-  store <4 x i64> %64, ptr %__a.addr.i25, align 32
-  %65 = load <4 x i64>, ptr %__a.addr.i25, align 32
-  %66 = load ptr, ptr %__p.addr.i, align 8
-  store <4 x i64> %65, ptr %66, align 1
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev13AVXRGBAPack16ILNS_8BitDepthE2EE5StoreEPtDv8_fS4_S4_S4_(ptr noundef %0, <8 x float> noundef %1, <8 x float> noundef %2, <8 x float> noundef %3, <8 x float> noundef %4) #6 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca <8 x float>, align 32
+  %8 = alloca <8 x float>, align 32
+  %9 = alloca <8 x float>, align 32
+  %10 = alloca <8 x float>, align 32
+  %11 = alloca <8 x float>, align 32
+  %12 = alloca <8 x float>, align 32
+  %13 = alloca <8 x float>, align 32
+  %14 = alloca <8 x float>, align 32
+  %15 = alloca <2 x i64>, align 16
+  %16 = alloca <2 x i64>, align 16
+  %17 = alloca <4 x i64>, align 32
+  %18 = alloca <8 x float>, align 32
+  %19 = alloca <4 x i64>, align 32
+  %20 = alloca <4 x i64>, align 32
+  %21 = alloca <4 x i64>, align 32
+  %22 = alloca <4 x i64>, align 32
+  store ptr %0, ptr %6, align 8, !tbaa !24
+  store <8 x float> %1, ptr %7, align 32, !tbaa !19
+  store <8 x float> %2, ptr %8, align 32, !tbaa !19
+  store <8 x float> %3, ptr %9, align 32, !tbaa !19
+  store <8 x float> %4, ptr %10, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 16, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 16, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %17) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %18) #3
+  %23 = call noundef <8 x float> @_ZL14_mm256_set1_psf(float noundef 1.023000e+03)
+  store <8 x float> %23, ptr %18, align 32, !tbaa !19
+  %24 = load <8 x float>, ptr %7, align 32, !tbaa !19
+  %25 = load <8 x float>, ptr %8, align 32, !tbaa !19
+  %26 = load <8 x float>, ptr %9, align 32, !tbaa !19
+  %27 = load <8 x float>, ptr %10, align 32, !tbaa !19
+  call void @_ZN19OpenColorIO_v2_5dev24avxRGBATranspose_4x4_4x4EDv8_fS0_S0_S0_RS0_S1_S1_S1_(<8 x float> noundef %24, <8 x float> noundef %25, <8 x float> noundef %26, <8 x float> noundef %27, ptr noundef nonnull align 32 dereferenceable(32) %11, ptr noundef nonnull align 32 dereferenceable(32) %12, ptr noundef nonnull align 32 dereferenceable(32) %13, ptr noundef nonnull align 32 dereferenceable(32) %14)
+  %28 = load <8 x float>, ptr %11, align 32, !tbaa !19
+  %29 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %28, ptr noundef nonnull align 32 dereferenceable(32) %18)
+  store <8 x float> %29, ptr %11, align 32, !tbaa !19
+  %30 = load <8 x float>, ptr %12, align 32, !tbaa !19
+  %31 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %30, ptr noundef nonnull align 32 dereferenceable(32) %18)
+  store <8 x float> %31, ptr %12, align 32, !tbaa !19
+  %32 = load <8 x float>, ptr %13, align 32, !tbaa !19
+  %33 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %32, ptr noundef nonnull align 32 dereferenceable(32) %18)
+  store <8 x float> %33, ptr %13, align 32, !tbaa !19
+  %34 = load <8 x float>, ptr %14, align 32, !tbaa !19
+  %35 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %34, ptr noundef nonnull align 32 dereferenceable(32) %18)
+  store <8 x float> %35, ptr %14, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %19) #3
+  %36 = load <8 x float>, ptr %11, align 32, !tbaa !19
+  %37 = call noundef <4 x i64> @_ZL18_mm256_cvtps_epi32Dv8_f(<8 x float> noundef %36)
+  store <4 x i64> %37, ptr %19, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %20) #3
+  %38 = load <8 x float>, ptr %12, align 32, !tbaa !19
+  %39 = call noundef <4 x i64> @_ZL18_mm256_cvtps_epi32Dv8_f(<8 x float> noundef %38)
+  store <4 x i64> %39, ptr %20, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %21) #3
+  %40 = load <8 x float>, ptr %13, align 32, !tbaa !19
+  %41 = call noundef <4 x i64> @_ZL18_mm256_cvtps_epi32Dv8_f(<8 x float> noundef %40)
+  store <4 x i64> %41, ptr %21, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %22) #3
+  %42 = load <8 x float>, ptr %14, align 32, !tbaa !19
+  %43 = call noundef <4 x i64> @_ZL18_mm256_cvtps_epi32Dv8_f(<8 x float> noundef %42)
+  store <4 x i64> %43, ptr %22, align 32, !tbaa !19
+  %44 = load <4 x i64>, ptr %19, align 32, !tbaa !19
+  %45 = call noundef <2 x i64> @_ZN19OpenColorIO_v2_5dev12avx_pack_u16EDv4_x(<4 x i64> noundef %44)
+  store <2 x i64> %45, ptr %15, align 16, !tbaa !19
+  %46 = load <4 x i64>, ptr %20, align 32, !tbaa !19
+  %47 = call noundef <2 x i64> @_ZN19OpenColorIO_v2_5dev12avx_pack_u16EDv4_x(<4 x i64> noundef %46)
+  store <2 x i64> %47, ptr %16, align 16, !tbaa !19
+  %48 = load <2 x i64>, ptr %15, align 16, !tbaa !19
+  %49 = call noundef <4 x i64> @_ZL22_mm256_castsi128_si256Dv2_x(<2 x i64> noundef %48)
+  %50 = bitcast <4 x i64> %49 to <8 x i32>
+  %51 = load <2 x i64>, ptr %16, align 16, !tbaa !19
+  %52 = bitcast <2 x i64> %51 to <4 x i32>
+  %53 = shufflevector <4 x i32> %52, <4 x i32> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %54 = shufflevector <8 x i32> %50, <8 x i32> %53, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
+  %55 = bitcast <8 x i32> %54 to <4 x i64>
+  store <4 x i64> %55, ptr %17, align 32, !tbaa !19
+  %56 = load ptr, ptr %6, align 8, !tbaa !24
+  %57 = getelementptr inbounds i16, ptr %56, i64 0
+  %58 = load <4 x i64>, ptr %17, align 32, !tbaa !19
+  call void @_ZL19_mm256_storeu_si256PDv4_xS_(ptr noundef %57, <4 x i64> noundef %58)
+  %59 = load <4 x i64>, ptr %21, align 32, !tbaa !19
+  %60 = call noundef <2 x i64> @_ZN19OpenColorIO_v2_5dev12avx_pack_u16EDv4_x(<4 x i64> noundef %59)
+  store <2 x i64> %60, ptr %15, align 16, !tbaa !19
+  %61 = load <4 x i64>, ptr %22, align 32, !tbaa !19
+  %62 = call noundef <2 x i64> @_ZN19OpenColorIO_v2_5dev12avx_pack_u16EDv4_x(<4 x i64> noundef %61)
+  store <2 x i64> %62, ptr %16, align 16, !tbaa !19
+  %63 = load <2 x i64>, ptr %15, align 16, !tbaa !19
+  %64 = call noundef <4 x i64> @_ZL22_mm256_castsi128_si256Dv2_x(<2 x i64> noundef %63)
+  %65 = bitcast <4 x i64> %64 to <8 x i32>
+  %66 = load <2 x i64>, ptr %16, align 16, !tbaa !19
+  %67 = bitcast <2 x i64> %66 to <4 x i32>
+  %68 = shufflevector <4 x i32> %67, <4 x i32> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %69 = shufflevector <8 x i32> %65, <8 x i32> %68, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
+  %70 = bitcast <8 x i32> %69 to <4 x i64>
+  store <4 x i64> %70, ptr %17, align 32, !tbaa !19
+  %71 = load ptr, ptr %6, align 8, !tbaa !24
+  %72 = getelementptr inbounds i16, ptr %71, i64 16
+  %73 = load <4 x i64>, ptr %17, align 32, !tbaa !19
+  call void @_ZL19_mm256_storeu_si256PDv4_xS_(ptr noundef %72, <4 x i64> noundef %73)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %11) #3
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE5EE5StoreEPtDv8_fS4_S4_S4_(ptr noundef %out, <8 x float> noundef %r, <8 x float> noundef %g, <8 x float> noundef %b, <8 x float> noundef %a) #5 comdat align 2 {
-entry:
-  %out.addr = alloca ptr, align 8
-  %r.addr = alloca <8 x float>, align 32
-  %g.addr = alloca <8 x float>, align 32
-  %b.addr = alloca <8 x float>, align 32
-  %a.addr = alloca <8 x float>, align 32
-  store ptr %out, ptr %out.addr, align 8
-  store <8 x float> %r, ptr %r.addr, align 32
-  store <8 x float> %g, ptr %g.addr, align 32
-  store <8 x float> %b, ptr %b.addr, align 32
-  store <8 x float> %a, ptr %a.addr, align 32
-  %0 = load ptr, ptr %out.addr, align 8
-  %1 = load <8 x float>, ptr %r.addr, align 32
-  %2 = load <8 x float>, ptr %g.addr, align 32
-  %3 = load <8 x float>, ptr %b.addr, align 32
-  %4 = load <8 x float>, ptr %a.addr, align 32
-  call void @_ZN19OpenColorIO_v2_4dev13AVXRGBAPack16ILNS_8BitDepthE5EE5StoreEPtDv8_fS4_S4_S4_(ptr noundef %0, <8 x float> noundef %1, <8 x float> noundef %2, <8 x float> noundef %3, <8 x float> noundef %4)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef <2 x i64> @_ZN19OpenColorIO_v2_5dev12avx_pack_u16EDv4_x(<4 x i64> noundef %0) #6 comdat {
+  %2 = alloca <4 x i64>, align 32
+  %3 = alloca <2 x i64>, align 16
+  %4 = alloca <2 x i64>, align 16
+  %5 = alloca <2 x i64>, align 16
+  %6 = alloca <2 x i64>, align 16
+  store <4 x i64> %0, ptr %2, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 16, ptr %3) #3
+  %7 = call noundef <2 x i64> @_ZL13_mm_setr_epi8cccccccccccccccc(i8 noundef signext 0, i8 noundef signext 1, i8 noundef signext 4, i8 noundef signext 5, i8 noundef signext 8, i8 noundef signext 9, i8 noundef signext 12, i8 noundef signext 13, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1)
+  store <2 x i64> %7, ptr %3, align 16, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 16, ptr %4) #3
+  %8 = call noundef <2 x i64> @_ZL13_mm_setr_epi8cccccccccccccccc(i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext -1, i8 noundef signext 0, i8 noundef signext 1, i8 noundef signext 4, i8 noundef signext 5, i8 noundef signext 8, i8 noundef signext 9, i8 noundef signext 12, i8 noundef signext 13)
+  store <2 x i64> %8, ptr %4, align 16, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #3
+  %9 = load <4 x i64>, ptr %2, align 32, !tbaa !19
+  %10 = bitcast <4 x i64> %9 to <8 x i32>
+  %11 = shufflevector <8 x i32> %10, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %12 = bitcast <4 x i32> %11 to <2 x i64>
+  store <2 x i64> %12, ptr %5, align 16, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #3
+  %13 = load <4 x i64>, ptr %2, align 32, !tbaa !19
+  %14 = call noundef <2 x i64> @_ZL22_mm256_castsi256_si128Dv4_x(<4 x i64> noundef %13)
+  store <2 x i64> %14, ptr %6, align 16, !tbaa !19
+  %15 = load <2 x i64>, ptr %6, align 16, !tbaa !19
+  %16 = call noundef <2 x i64> @_ZL16_mm_shuffle_epi8Dv2_xS_(<2 x i64> noundef %15, <2 x i64> noundef <i64 940136352262127872, i64 -1>)
+  store <2 x i64> %16, ptr %6, align 16, !tbaa !19
+  %17 = load <2 x i64>, ptr %5, align 16, !tbaa !19
+  %18 = call noundef <2 x i64> @_ZL16_mm_shuffle_epi8Dv2_xS_(<2 x i64> noundef %17, <2 x i64> noundef <i64 -1, i64 940136352262127872>)
+  store <2 x i64> %18, ptr %5, align 16, !tbaa !19
+  %19 = load <2 x i64>, ptr %6, align 16, !tbaa !19
+  %20 = load <2 x i64>, ptr %5, align 16, !tbaa !19
+  %21 = call noundef <2 x i64> @_ZL12_mm_or_si128Dv2_xS_(<2 x i64> noundef %19, <2 x i64> noundef %20)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %4) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %3) #3
+  ret <2 x i64> %21
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE3EE5StoreEPtDv8_fS4_S4_S4_(ptr noundef %0, <8 x float> noundef %1, <8 x float> noundef %2, <8 x float> noundef %3, <8 x float> noundef %4) #6 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca <8 x float>, align 32
+  %8 = alloca <8 x float>, align 32
+  %9 = alloca <8 x float>, align 32
+  %10 = alloca <8 x float>, align 32
+  store ptr %0, ptr %6, align 8, !tbaa !24
+  store <8 x float> %1, ptr %7, align 32, !tbaa !19
+  store <8 x float> %2, ptr %8, align 32, !tbaa !19
+  store <8 x float> %3, ptr %9, align 32, !tbaa !19
+  store <8 x float> %4, ptr %10, align 32, !tbaa !19
+  %11 = load ptr, ptr %6, align 8, !tbaa !24
+  %12 = load <8 x float>, ptr %7, align 32, !tbaa !19
+  %13 = load <8 x float>, ptr %8, align 32, !tbaa !19
+  %14 = load <8 x float>, ptr %9, align 32, !tbaa !19
+  %15 = load <8 x float>, ptr %10, align 32, !tbaa !19
+  call void @_ZN19OpenColorIO_v2_5dev13AVXRGBAPack16ILNS_8BitDepthE3EE5StoreEPtDv8_fS4_S4_S4_(ptr noundef %11, <8 x float> noundef %12, <8 x float> noundef %13, <8 x float> noundef %14, <8 x float> noundef %15)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev13AVXRGBAPack16ILNS_8BitDepthE5EE5StoreEPtDv8_fS4_S4_S4_(ptr noundef %out, <8 x float> noundef %r, <8 x float> noundef %g, <8 x float> noundef %b, <8 x float> noundef %a) #5 comdat align 2 {
-entry:
-  %__p.addr.i26 = alloca ptr, align 8
-  %__a.addr.i27 = alloca <4 x i64>, align 32
-  %__p.addr.i = alloca ptr, align 8
-  %__a.addr.i25 = alloca <4 x i64>, align 32
-  %__a.addr.i23 = alloca <2 x i64>, align 16
-  %__a.addr.i22 = alloca <2 x i64>, align 16
-  %__a.addr.i21 = alloca <8 x float>, align 32
-  %__a.addr.i20 = alloca <8 x float>, align 32
-  %__a.addr.i19 = alloca <8 x float>, align 32
-  %__a.addr.i18 = alloca <8 x float>, align 32
-  %__a.addr.i = alloca float, align 4
-  %__b.addr.i = alloca float, align 4
-  %__c.addr.i = alloca float, align 4
-  %__d.addr.i = alloca float, align 4
-  %__e.addr.i = alloca float, align 4
-  %__f.addr.i = alloca float, align 4
-  %__g.addr.i = alloca float, align 4
-  %__h.addr.i = alloca float, align 4
-  %.compoundliteral.i = alloca <8 x float>, align 32
-  %__w.addr.i = alloca float, align 4
-  %out.addr = alloca ptr, align 8
-  %r.addr = alloca <8 x float>, align 32
-  %g.addr = alloca <8 x float>, align 32
-  %b.addr = alloca <8 x float>, align 32
-  %a.addr = alloca <8 x float>, align 32
-  %rgba0 = alloca <8 x float>, align 32
-  %rgba1 = alloca <8 x float>, align 32
-  %rgba2 = alloca <8 x float>, align 32
-  %rgba3 = alloca <8 x float>, align 32
-  %lo = alloca <2 x i64>, align 16
-  %hi = alloca <2 x i64>, align 16
-  %rgba = alloca <4 x i64>, align 32
-  %maxValue = alloca <8 x float>, align 32
-  %rgba01 = alloca <4 x i64>, align 32
-  %rgba23 = alloca <4 x i64>, align 32
-  %rgba45 = alloca <4 x i64>, align 32
-  %rgba67 = alloca <4 x i64>, align 32
-  store ptr %out, ptr %out.addr, align 8
-  store <8 x float> %r, ptr %r.addr, align 32
-  store <8 x float> %g, ptr %g.addr, align 32
-  store <8 x float> %b, ptr %b.addr, align 32
-  store <8 x float> %a, ptr %a.addr, align 32
-  store float 6.553500e+04, ptr %__w.addr.i, align 4
-  %0 = load float, ptr %__w.addr.i, align 4
-  %1 = load float, ptr %__w.addr.i, align 4
-  %2 = load float, ptr %__w.addr.i, align 4
-  %3 = load float, ptr %__w.addr.i, align 4
-  %4 = load float, ptr %__w.addr.i, align 4
-  %5 = load float, ptr %__w.addr.i, align 4
-  %6 = load float, ptr %__w.addr.i, align 4
-  %7 = load float, ptr %__w.addr.i, align 4
-  store float %0, ptr %__a.addr.i, align 4
-  store float %1, ptr %__b.addr.i, align 4
-  store float %2, ptr %__c.addr.i, align 4
-  store float %3, ptr %__d.addr.i, align 4
-  store float %4, ptr %__e.addr.i, align 4
-  store float %5, ptr %__f.addr.i, align 4
-  store float %6, ptr %__g.addr.i, align 4
-  store float %7, ptr %__h.addr.i, align 4
-  %8 = load float, ptr %__h.addr.i, align 4
-  %vecinit.i = insertelement <8 x float> undef, float %8, i32 0
-  %9 = load float, ptr %__g.addr.i, align 4
-  %vecinit1.i = insertelement <8 x float> %vecinit.i, float %9, i32 1
-  %10 = load float, ptr %__f.addr.i, align 4
-  %vecinit2.i = insertelement <8 x float> %vecinit1.i, float %10, i32 2
-  %11 = load float, ptr %__e.addr.i, align 4
-  %vecinit3.i = insertelement <8 x float> %vecinit2.i, float %11, i32 3
-  %12 = load float, ptr %__d.addr.i, align 4
-  %vecinit4.i = insertelement <8 x float> %vecinit3.i, float %12, i32 4
-  %13 = load float, ptr %__c.addr.i, align 4
-  %vecinit5.i = insertelement <8 x float> %vecinit4.i, float %13, i32 5
-  %14 = load float, ptr %__b.addr.i, align 4
-  %vecinit6.i = insertelement <8 x float> %vecinit5.i, float %14, i32 6
-  %15 = load float, ptr %__a.addr.i, align 4
-  %vecinit7.i = insertelement <8 x float> %vecinit6.i, float %15, i32 7
-  store <8 x float> %vecinit7.i, ptr %.compoundliteral.i, align 32
-  %16 = load <8 x float>, ptr %.compoundliteral.i, align 32
-  store <8 x float> %16, ptr %maxValue, align 32
-  %17 = load <8 x float>, ptr %r.addr, align 32
-  %18 = load <8 x float>, ptr %g.addr, align 32
-  %19 = load <8 x float>, ptr %b.addr, align 32
-  %20 = load <8 x float>, ptr %a.addr, align 32
-  call void @_ZN19OpenColorIO_v2_4dev24avxRGBATranspose_4x4_4x4EDv8_fS0_S0_S0_RS0_S1_S1_S1_(<8 x float> noundef %17, <8 x float> noundef %18, <8 x float> noundef %19, <8 x float> noundef %20, ptr noundef nonnull align 32 dereferenceable(32) %rgba0, ptr noundef nonnull align 32 dereferenceable(32) %rgba1, ptr noundef nonnull align 32 dereferenceable(32) %rgba2, ptr noundef nonnull align 32 dereferenceable(32) %rgba3)
-  %21 = load <8 x float>, ptr %rgba0, align 32
-  %call1 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %21, ptr noundef nonnull align 32 dereferenceable(32) %maxValue)
-  store <8 x float> %call1, ptr %rgba0, align 32
-  %22 = load <8 x float>, ptr %rgba1, align 32
-  %call2 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %22, ptr noundef nonnull align 32 dereferenceable(32) %maxValue)
-  store <8 x float> %call2, ptr %rgba1, align 32
-  %23 = load <8 x float>, ptr %rgba2, align 32
-  %call3 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %23, ptr noundef nonnull align 32 dereferenceable(32) %maxValue)
-  store <8 x float> %call3, ptr %rgba2, align 32
-  %24 = load <8 x float>, ptr %rgba3, align 32
-  %call4 = call noundef <8 x float> @_ZN19OpenColorIO_v2_4dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %24, ptr noundef nonnull align 32 dereferenceable(32) %maxValue)
-  store <8 x float> %call4, ptr %rgba3, align 32
-  %25 = load <8 x float>, ptr %rgba0, align 32
-  store <8 x float> %25, ptr %__a.addr.i21, align 32
-  %26 = load <8 x float>, ptr %__a.addr.i21, align 32
-  %27 = call <8 x i32> @llvm.x86.avx.cvt.ps2dq.256(<8 x float> %26)
-  %28 = bitcast <8 x i32> %27 to <4 x i64>
-  store <4 x i64> %28, ptr %rgba01, align 32
-  %29 = load <8 x float>, ptr %rgba1, align 32
-  store <8 x float> %29, ptr %__a.addr.i20, align 32
-  %30 = load <8 x float>, ptr %__a.addr.i20, align 32
-  %31 = call <8 x i32> @llvm.x86.avx.cvt.ps2dq.256(<8 x float> %30)
-  %32 = bitcast <8 x i32> %31 to <4 x i64>
-  store <4 x i64> %32, ptr %rgba23, align 32
-  %33 = load <8 x float>, ptr %rgba2, align 32
-  store <8 x float> %33, ptr %__a.addr.i19, align 32
-  %34 = load <8 x float>, ptr %__a.addr.i19, align 32
-  %35 = call <8 x i32> @llvm.x86.avx.cvt.ps2dq.256(<8 x float> %34)
-  %36 = bitcast <8 x i32> %35 to <4 x i64>
-  store <4 x i64> %36, ptr %rgba45, align 32
-  %37 = load <8 x float>, ptr %rgba3, align 32
-  store <8 x float> %37, ptr %__a.addr.i18, align 32
-  %38 = load <8 x float>, ptr %__a.addr.i18, align 32
-  %39 = call <8 x i32> @llvm.x86.avx.cvt.ps2dq.256(<8 x float> %38)
-  %40 = bitcast <8 x i32> %39 to <4 x i64>
-  store <4 x i64> %40, ptr %rgba67, align 32
-  %41 = load <4 x i64>, ptr %rgba01, align 32
-  %call9 = call noundef <2 x i64> @_ZN19OpenColorIO_v2_4dev12avx_pack_u16EDv4_x(<4 x i64> noundef %41)
-  store <2 x i64> %call9, ptr %lo, align 16
-  %42 = load <4 x i64>, ptr %rgba23, align 32
-  %call10 = call noundef <2 x i64> @_ZN19OpenColorIO_v2_4dev12avx_pack_u16EDv4_x(<4 x i64> noundef %42)
-  store <2 x i64> %call10, ptr %hi, align 16
-  %43 = load <2 x i64>, ptr %lo, align 16
-  store <2 x i64> %43, ptr %__a.addr.i23, align 16
-  %44 = load <2 x i64>, ptr %__a.addr.i23, align 16
-  %45 = freeze <2 x i64> poison
-  %shuffle.i24 = shufflevector <2 x i64> %44, <2 x i64> %45, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %46 = bitcast <4 x i64> %shuffle.i24 to <8 x i32>
-  %47 = load <2 x i64>, ptr %hi, align 16
-  %48 = bitcast <2 x i64> %47 to <4 x i32>
-  %widen = shufflevector <4 x i32> %48, <4 x i32> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %insert = shufflevector <8 x i32> %46, <8 x i32> %widen, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
-  %49 = bitcast <8 x i32> %insert to <4 x i64>
-  store <4 x i64> %49, ptr %rgba, align 32
-  %50 = load ptr, ptr %out.addr, align 8
-  %add.ptr = getelementptr inbounds i16, ptr %50, i64 0
-  %51 = load <4 x i64>, ptr %rgba, align 32
-  store ptr %add.ptr, ptr %__p.addr.i26, align 8
-  store <4 x i64> %51, ptr %__a.addr.i27, align 32
-  %52 = load <4 x i64>, ptr %__a.addr.i27, align 32
-  %53 = load ptr, ptr %__p.addr.i26, align 8
-  store <4 x i64> %52, ptr %53, align 1
-  %54 = load <4 x i64>, ptr %rgba45, align 32
-  %call12 = call noundef <2 x i64> @_ZN19OpenColorIO_v2_4dev12avx_pack_u16EDv4_x(<4 x i64> noundef %54)
-  store <2 x i64> %call12, ptr %lo, align 16
-  %55 = load <4 x i64>, ptr %rgba67, align 32
-  %call13 = call noundef <2 x i64> @_ZN19OpenColorIO_v2_4dev12avx_pack_u16EDv4_x(<4 x i64> noundef %55)
-  store <2 x i64> %call13, ptr %hi, align 16
-  %56 = load <2 x i64>, ptr %lo, align 16
-  store <2 x i64> %56, ptr %__a.addr.i22, align 16
-  %57 = load <2 x i64>, ptr %__a.addr.i22, align 16
-  %58 = freeze <2 x i64> poison
-  %shuffle.i = shufflevector <2 x i64> %57, <2 x i64> %58, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %59 = bitcast <4 x i64> %shuffle.i to <8 x i32>
-  %60 = load <2 x i64>, ptr %hi, align 16
-  %61 = bitcast <2 x i64> %60 to <4 x i32>
-  %widen15 = shufflevector <4 x i32> %61, <4 x i32> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %insert16 = shufflevector <8 x i32> %59, <8 x i32> %widen15, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
-  %62 = bitcast <8 x i32> %insert16 to <4 x i64>
-  store <4 x i64> %62, ptr %rgba, align 32
-  %63 = load ptr, ptr %out.addr, align 8
-  %add.ptr17 = getelementptr inbounds i16, ptr %63, i64 16
-  %64 = load <4 x i64>, ptr %rgba, align 32
-  store ptr %add.ptr17, ptr %__p.addr.i, align 8
-  store <4 x i64> %64, ptr %__a.addr.i25, align 32
-  %65 = load <4 x i64>, ptr %__a.addr.i25, align 32
-  %66 = load ptr, ptr %__p.addr.i, align 8
-  store <4 x i64> %65, ptr %66, align 1
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev13AVXRGBAPack16ILNS_8BitDepthE3EE5StoreEPtDv8_fS4_S4_S4_(ptr noundef %0, <8 x float> noundef %1, <8 x float> noundef %2, <8 x float> noundef %3, <8 x float> noundef %4) #6 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca <8 x float>, align 32
+  %8 = alloca <8 x float>, align 32
+  %9 = alloca <8 x float>, align 32
+  %10 = alloca <8 x float>, align 32
+  %11 = alloca <8 x float>, align 32
+  %12 = alloca <8 x float>, align 32
+  %13 = alloca <8 x float>, align 32
+  %14 = alloca <8 x float>, align 32
+  %15 = alloca <2 x i64>, align 16
+  %16 = alloca <2 x i64>, align 16
+  %17 = alloca <4 x i64>, align 32
+  %18 = alloca <8 x float>, align 32
+  %19 = alloca <4 x i64>, align 32
+  %20 = alloca <4 x i64>, align 32
+  %21 = alloca <4 x i64>, align 32
+  %22 = alloca <4 x i64>, align 32
+  store ptr %0, ptr %6, align 8, !tbaa !24
+  store <8 x float> %1, ptr %7, align 32, !tbaa !19
+  store <8 x float> %2, ptr %8, align 32, !tbaa !19
+  store <8 x float> %3, ptr %9, align 32, !tbaa !19
+  store <8 x float> %4, ptr %10, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 16, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 16, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %17) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %18) #3
+  %23 = call noundef <8 x float> @_ZL14_mm256_set1_psf(float noundef 4.095000e+03)
+  store <8 x float> %23, ptr %18, align 32, !tbaa !19
+  %24 = load <8 x float>, ptr %7, align 32, !tbaa !19
+  %25 = load <8 x float>, ptr %8, align 32, !tbaa !19
+  %26 = load <8 x float>, ptr %9, align 32, !tbaa !19
+  %27 = load <8 x float>, ptr %10, align 32, !tbaa !19
+  call void @_ZN19OpenColorIO_v2_5dev24avxRGBATranspose_4x4_4x4EDv8_fS0_S0_S0_RS0_S1_S1_S1_(<8 x float> noundef %24, <8 x float> noundef %25, <8 x float> noundef %26, <8 x float> noundef %27, ptr noundef nonnull align 32 dereferenceable(32) %11, ptr noundef nonnull align 32 dereferenceable(32) %12, ptr noundef nonnull align 32 dereferenceable(32) %13, ptr noundef nonnull align 32 dereferenceable(32) %14)
+  %28 = load <8 x float>, ptr %11, align 32, !tbaa !19
+  %29 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %28, ptr noundef nonnull align 32 dereferenceable(32) %18)
+  store <8 x float> %29, ptr %11, align 32, !tbaa !19
+  %30 = load <8 x float>, ptr %12, align 32, !tbaa !19
+  %31 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %30, ptr noundef nonnull align 32 dereferenceable(32) %18)
+  store <8 x float> %31, ptr %12, align 32, !tbaa !19
+  %32 = load <8 x float>, ptr %13, align 32, !tbaa !19
+  %33 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %32, ptr noundef nonnull align 32 dereferenceable(32) %18)
+  store <8 x float> %33, ptr %13, align 32, !tbaa !19
+  %34 = load <8 x float>, ptr %14, align 32, !tbaa !19
+  %35 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %34, ptr noundef nonnull align 32 dereferenceable(32) %18)
+  store <8 x float> %35, ptr %14, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %19) #3
+  %36 = load <8 x float>, ptr %11, align 32, !tbaa !19
+  %37 = call noundef <4 x i64> @_ZL18_mm256_cvtps_epi32Dv8_f(<8 x float> noundef %36)
+  store <4 x i64> %37, ptr %19, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %20) #3
+  %38 = load <8 x float>, ptr %12, align 32, !tbaa !19
+  %39 = call noundef <4 x i64> @_ZL18_mm256_cvtps_epi32Dv8_f(<8 x float> noundef %38)
+  store <4 x i64> %39, ptr %20, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %21) #3
+  %40 = load <8 x float>, ptr %13, align 32, !tbaa !19
+  %41 = call noundef <4 x i64> @_ZL18_mm256_cvtps_epi32Dv8_f(<8 x float> noundef %40)
+  store <4 x i64> %41, ptr %21, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %22) #3
+  %42 = load <8 x float>, ptr %14, align 32, !tbaa !19
+  %43 = call noundef <4 x i64> @_ZL18_mm256_cvtps_epi32Dv8_f(<8 x float> noundef %42)
+  store <4 x i64> %43, ptr %22, align 32, !tbaa !19
+  %44 = load <4 x i64>, ptr %19, align 32, !tbaa !19
+  %45 = call noundef <2 x i64> @_ZN19OpenColorIO_v2_5dev12avx_pack_u16EDv4_x(<4 x i64> noundef %44)
+  store <2 x i64> %45, ptr %15, align 16, !tbaa !19
+  %46 = load <4 x i64>, ptr %20, align 32, !tbaa !19
+  %47 = call noundef <2 x i64> @_ZN19OpenColorIO_v2_5dev12avx_pack_u16EDv4_x(<4 x i64> noundef %46)
+  store <2 x i64> %47, ptr %16, align 16, !tbaa !19
+  %48 = load <2 x i64>, ptr %15, align 16, !tbaa !19
+  %49 = call noundef <4 x i64> @_ZL22_mm256_castsi128_si256Dv2_x(<2 x i64> noundef %48)
+  %50 = bitcast <4 x i64> %49 to <8 x i32>
+  %51 = load <2 x i64>, ptr %16, align 16, !tbaa !19
+  %52 = bitcast <2 x i64> %51 to <4 x i32>
+  %53 = shufflevector <4 x i32> %52, <4 x i32> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %54 = shufflevector <8 x i32> %50, <8 x i32> %53, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
+  %55 = bitcast <8 x i32> %54 to <4 x i64>
+  store <4 x i64> %55, ptr %17, align 32, !tbaa !19
+  %56 = load ptr, ptr %6, align 8, !tbaa !24
+  %57 = getelementptr inbounds i16, ptr %56, i64 0
+  %58 = load <4 x i64>, ptr %17, align 32, !tbaa !19
+  call void @_ZL19_mm256_storeu_si256PDv4_xS_(ptr noundef %57, <4 x i64> noundef %58)
+  %59 = load <4 x i64>, ptr %21, align 32, !tbaa !19
+  %60 = call noundef <2 x i64> @_ZN19OpenColorIO_v2_5dev12avx_pack_u16EDv4_x(<4 x i64> noundef %59)
+  store <2 x i64> %60, ptr %15, align 16, !tbaa !19
+  %61 = load <4 x i64>, ptr %22, align 32, !tbaa !19
+  %62 = call noundef <2 x i64> @_ZN19OpenColorIO_v2_5dev12avx_pack_u16EDv4_x(<4 x i64> noundef %61)
+  store <2 x i64> %62, ptr %16, align 16, !tbaa !19
+  %63 = load <2 x i64>, ptr %15, align 16, !tbaa !19
+  %64 = call noundef <4 x i64> @_ZL22_mm256_castsi128_si256Dv2_x(<2 x i64> noundef %63)
+  %65 = bitcast <4 x i64> %64 to <8 x i32>
+  %66 = load <2 x i64>, ptr %16, align 16, !tbaa !19
+  %67 = bitcast <2 x i64> %66 to <4 x i32>
+  %68 = shufflevector <4 x i32> %67, <4 x i32> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %69 = shufflevector <8 x i32> %65, <8 x i32> %68, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
+  %70 = bitcast <8 x i32> %69 to <4 x i64>
+  store <4 x i64> %70, ptr %17, align 32, !tbaa !19
+  %71 = load ptr, ptr %6, align 8, !tbaa !24
+  %72 = getelementptr inbounds i16, ptr %71, i64 16
+  %73 = load <4 x i64>, ptr %17, align 32, !tbaa !19
+  call void @_ZL19_mm256_storeu_si256PDv4_xS_(ptr noundef %72, <4 x i64> noundef %73)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %11) #3
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE7EE5StoreEPN9Imath_3_14halfEDv8_fS6_S6_S6_(ptr noundef %out, <8 x float> noundef %r, <8 x float> noundef %g, <8 x float> noundef %b, <8 x float> noundef %a) #5 comdat align 2 {
-entry:
-  %__p.addr.i8 = alloca ptr, align 8
-  %__a.addr.i9 = alloca <4 x i64>, align 32
-  %__p.addr.i = alloca ptr, align 8
-  %__a.addr.i7 = alloca <4 x i64>, align 32
-  %__a.addr.i5 = alloca <2 x i64>, align 16
-  %__a.addr.i = alloca <2 x i64>, align 16
-  %out.addr = alloca ptr, align 8
-  %r.addr = alloca <8 x float>, align 32
-  %g.addr = alloca <8 x float>, align 32
-  %b.addr = alloca <8 x float>, align 32
-  %a.addr = alloca <8 x float>, align 32
-  %rgba0 = alloca <8 x float>, align 32
-  %rgba1 = alloca <8 x float>, align 32
-  %rgba2 = alloca <8 x float>, align 32
-  %rgba3 = alloca <8 x float>, align 32
-  %rgba = alloca <4 x i64>, align 32
-  %rgba00_03 = alloca <2 x i64>, align 16
-  %rgba04_07 = alloca <2 x i64>, align 16
-  %rgba08_11 = alloca <2 x i64>, align 16
-  %rgba12_16 = alloca <2 x i64>, align 16
-  store ptr %out, ptr %out.addr, align 8
-  store <8 x float> %r, ptr %r.addr, align 32
-  store <8 x float> %g, ptr %g.addr, align 32
-  store <8 x float> %b, ptr %b.addr, align 32
-  store <8 x float> %a, ptr %a.addr, align 32
-  %0 = load <8 x float>, ptr %r.addr, align 32
-  %1 = load <8 x float>, ptr %g.addr, align 32
-  %2 = load <8 x float>, ptr %b.addr, align 32
-  %3 = load <8 x float>, ptr %a.addr, align 32
-  call void @_ZN19OpenColorIO_v2_4dev24avxRGBATranspose_4x4_4x4EDv8_fS0_S0_S0_RS0_S1_S1_S1_(<8 x float> noundef %0, <8 x float> noundef %1, <8 x float> noundef %2, <8 x float> noundef %3, ptr noundef nonnull align 32 dereferenceable(32) %rgba0, ptr noundef nonnull align 32 dereferenceable(32) %rgba1, ptr noundef nonnull align 32 dereferenceable(32) %rgba2, ptr noundef nonnull align 32 dereferenceable(32) %rgba3)
-  %4 = load <8 x float>, ptr %rgba0, align 32
-  %5 = call <8 x i16> @llvm.x86.vcvtps2ph.256(<8 x float> %4, i32 0)
-  %6 = bitcast <8 x i16> %5 to <2 x i64>
-  store <2 x i64> %6, ptr %rgba00_03, align 16
-  %7 = load <8 x float>, ptr %rgba1, align 32
-  %8 = call <8 x i16> @llvm.x86.vcvtps2ph.256(<8 x float> %7, i32 0)
-  %9 = bitcast <8 x i16> %8 to <2 x i64>
-  store <2 x i64> %9, ptr %rgba04_07, align 16
-  %10 = load <8 x float>, ptr %rgba2, align 32
-  %11 = call <8 x i16> @llvm.x86.vcvtps2ph.256(<8 x float> %10, i32 0)
-  %12 = bitcast <8 x i16> %11 to <2 x i64>
-  store <2 x i64> %12, ptr %rgba08_11, align 16
-  %13 = load <8 x float>, ptr %rgba3, align 32
-  %14 = call <8 x i16> @llvm.x86.vcvtps2ph.256(<8 x float> %13, i32 0)
-  %15 = bitcast <8 x i16> %14 to <2 x i64>
-  store <2 x i64> %15, ptr %rgba12_16, align 16
-  %16 = load <2 x i64>, ptr %rgba00_03, align 16
-  store <2 x i64> %16, ptr %__a.addr.i5, align 16
-  %17 = load <2 x i64>, ptr %__a.addr.i5, align 16
-  %18 = freeze <2 x i64> poison
-  %shuffle.i6 = shufflevector <2 x i64> %17, <2 x i64> %18, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %19 = bitcast <4 x i64> %shuffle.i6 to <8 x i32>
-  %20 = load <2 x i64>, ptr %rgba04_07, align 16
-  %21 = bitcast <2 x i64> %20 to <4 x i32>
-  %widen = shufflevector <4 x i32> %21, <4 x i32> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %insert = shufflevector <8 x i32> %19, <8 x i32> %widen, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
-  %22 = bitcast <8 x i32> %insert to <4 x i64>
-  store <4 x i64> %22, ptr %rgba, align 32
-  %23 = load ptr, ptr %out.addr, align 8
-  %add.ptr = getelementptr inbounds %"class.Imath_3_1::half", ptr %23, i64 0
-  %24 = load <4 x i64>, ptr %rgba, align 32
-  store ptr %add.ptr, ptr %__p.addr.i8, align 8
-  store <4 x i64> %24, ptr %__a.addr.i9, align 32
-  %25 = load <4 x i64>, ptr %__a.addr.i9, align 32
-  %26 = load ptr, ptr %__p.addr.i8, align 8
-  store <4 x i64> %25, ptr %26, align 1
-  %27 = load <2 x i64>, ptr %rgba08_11, align 16
-  store <2 x i64> %27, ptr %__a.addr.i, align 16
-  %28 = load <2 x i64>, ptr %__a.addr.i, align 16
-  %29 = freeze <2 x i64> poison
-  %shuffle.i = shufflevector <2 x i64> %28, <2 x i64> %29, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %30 = bitcast <4 x i64> %shuffle.i to <8 x i32>
-  %31 = load <2 x i64>, ptr %rgba12_16, align 16
-  %32 = bitcast <2 x i64> %31 to <4 x i32>
-  %widen2 = shufflevector <4 x i32> %32, <4 x i32> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %insert3 = shufflevector <8 x i32> %30, <8 x i32> %widen2, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
-  %33 = bitcast <8 x i32> %insert3 to <4 x i64>
-  store <4 x i64> %33, ptr %rgba, align 32
-  %34 = load ptr, ptr %out.addr, align 8
-  %add.ptr4 = getelementptr inbounds %"class.Imath_3_1::half", ptr %34, i64 16
-  %35 = load <4 x i64>, ptr %rgba, align 32
-  store ptr %add.ptr4, ptr %__p.addr.i, align 8
-  store <4 x i64> %35, ptr %__a.addr.i7, align 32
-  %36 = load <4 x i64>, ptr %__a.addr.i7, align 32
-  %37 = load ptr, ptr %__p.addr.i, align 8
-  store <4 x i64> %36, ptr %37, align 1
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE5EE5StoreEPtDv8_fS4_S4_S4_(ptr noundef %0, <8 x float> noundef %1, <8 x float> noundef %2, <8 x float> noundef %3, <8 x float> noundef %4) #6 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca <8 x float>, align 32
+  %8 = alloca <8 x float>, align 32
+  %9 = alloca <8 x float>, align 32
+  %10 = alloca <8 x float>, align 32
+  store ptr %0, ptr %6, align 8, !tbaa !24
+  store <8 x float> %1, ptr %7, align 32, !tbaa !19
+  store <8 x float> %2, ptr %8, align 32, !tbaa !19
+  store <8 x float> %3, ptr %9, align 32, !tbaa !19
+  store <8 x float> %4, ptr %10, align 32, !tbaa !19
+  %11 = load ptr, ptr %6, align 8, !tbaa !24
+  %12 = load <8 x float>, ptr %7, align 32, !tbaa !19
+  %13 = load <8 x float>, ptr %8, align 32, !tbaa !19
+  %14 = load <8 x float>, ptr %9, align 32, !tbaa !19
+  %15 = load <8 x float>, ptr %10, align 32, !tbaa !19
+  call void @_ZN19OpenColorIO_v2_5dev13AVXRGBAPack16ILNS_8BitDepthE5EE5StoreEPtDv8_fS4_S4_S4_(ptr noundef %11, <8 x float> noundef %12, <8 x float> noundef %13, <8 x float> noundef %14, <8 x float> noundef %15)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev13AVXRGBAPack16ILNS_8BitDepthE5EE5StoreEPtDv8_fS4_S4_S4_(ptr noundef %0, <8 x float> noundef %1, <8 x float> noundef %2, <8 x float> noundef %3, <8 x float> noundef %4) #6 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca <8 x float>, align 32
+  %8 = alloca <8 x float>, align 32
+  %9 = alloca <8 x float>, align 32
+  %10 = alloca <8 x float>, align 32
+  %11 = alloca <8 x float>, align 32
+  %12 = alloca <8 x float>, align 32
+  %13 = alloca <8 x float>, align 32
+  %14 = alloca <8 x float>, align 32
+  %15 = alloca <2 x i64>, align 16
+  %16 = alloca <2 x i64>, align 16
+  %17 = alloca <4 x i64>, align 32
+  %18 = alloca <8 x float>, align 32
+  %19 = alloca <4 x i64>, align 32
+  %20 = alloca <4 x i64>, align 32
+  %21 = alloca <4 x i64>, align 32
+  %22 = alloca <4 x i64>, align 32
+  store ptr %0, ptr %6, align 8, !tbaa !24
+  store <8 x float> %1, ptr %7, align 32, !tbaa !19
+  store <8 x float> %2, ptr %8, align 32, !tbaa !19
+  store <8 x float> %3, ptr %9, align 32, !tbaa !19
+  store <8 x float> %4, ptr %10, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 16, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 16, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %17) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %18) #3
+  %23 = call noundef <8 x float> @_ZL14_mm256_set1_psf(float noundef 6.553500e+04)
+  store <8 x float> %23, ptr %18, align 32, !tbaa !19
+  %24 = load <8 x float>, ptr %7, align 32, !tbaa !19
+  %25 = load <8 x float>, ptr %8, align 32, !tbaa !19
+  %26 = load <8 x float>, ptr %9, align 32, !tbaa !19
+  %27 = load <8 x float>, ptr %10, align 32, !tbaa !19
+  call void @_ZN19OpenColorIO_v2_5dev24avxRGBATranspose_4x4_4x4EDv8_fS0_S0_S0_RS0_S1_S1_S1_(<8 x float> noundef %24, <8 x float> noundef %25, <8 x float> noundef %26, <8 x float> noundef %27, ptr noundef nonnull align 32 dereferenceable(32) %11, ptr noundef nonnull align 32 dereferenceable(32) %12, ptr noundef nonnull align 32 dereferenceable(32) %13, ptr noundef nonnull align 32 dereferenceable(32) %14)
+  %28 = load <8 x float>, ptr %11, align 32, !tbaa !19
+  %29 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %28, ptr noundef nonnull align 32 dereferenceable(32) %18)
+  store <8 x float> %29, ptr %11, align 32, !tbaa !19
+  %30 = load <8 x float>, ptr %12, align 32, !tbaa !19
+  %31 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %30, ptr noundef nonnull align 32 dereferenceable(32) %18)
+  store <8 x float> %31, ptr %12, align 32, !tbaa !19
+  %32 = load <8 x float>, ptr %13, align 32, !tbaa !19
+  %33 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %32, ptr noundef nonnull align 32 dereferenceable(32) %18)
+  store <8 x float> %33, ptr %13, align 32, !tbaa !19
+  %34 = load <8 x float>, ptr %14, align 32, !tbaa !19
+  %35 = call noundef <8 x float> @_ZN19OpenColorIO_v2_5dev9avx_clampEDv8_fRKS0_(<8 x float> noundef %34, ptr noundef nonnull align 32 dereferenceable(32) %18)
+  store <8 x float> %35, ptr %14, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %19) #3
+  %36 = load <8 x float>, ptr %11, align 32, !tbaa !19
+  %37 = call noundef <4 x i64> @_ZL18_mm256_cvtps_epi32Dv8_f(<8 x float> noundef %36)
+  store <4 x i64> %37, ptr %19, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %20) #3
+  %38 = load <8 x float>, ptr %12, align 32, !tbaa !19
+  %39 = call noundef <4 x i64> @_ZL18_mm256_cvtps_epi32Dv8_f(<8 x float> noundef %38)
+  store <4 x i64> %39, ptr %20, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %21) #3
+  %40 = load <8 x float>, ptr %13, align 32, !tbaa !19
+  %41 = call noundef <4 x i64> @_ZL18_mm256_cvtps_epi32Dv8_f(<8 x float> noundef %40)
+  store <4 x i64> %41, ptr %21, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %22) #3
+  %42 = load <8 x float>, ptr %14, align 32, !tbaa !19
+  %43 = call noundef <4 x i64> @_ZL18_mm256_cvtps_epi32Dv8_f(<8 x float> noundef %42)
+  store <4 x i64> %43, ptr %22, align 32, !tbaa !19
+  %44 = load <4 x i64>, ptr %19, align 32, !tbaa !19
+  %45 = call noundef <2 x i64> @_ZN19OpenColorIO_v2_5dev12avx_pack_u16EDv4_x(<4 x i64> noundef %44)
+  store <2 x i64> %45, ptr %15, align 16, !tbaa !19
+  %46 = load <4 x i64>, ptr %20, align 32, !tbaa !19
+  %47 = call noundef <2 x i64> @_ZN19OpenColorIO_v2_5dev12avx_pack_u16EDv4_x(<4 x i64> noundef %46)
+  store <2 x i64> %47, ptr %16, align 16, !tbaa !19
+  %48 = load <2 x i64>, ptr %15, align 16, !tbaa !19
+  %49 = call noundef <4 x i64> @_ZL22_mm256_castsi128_si256Dv2_x(<2 x i64> noundef %48)
+  %50 = bitcast <4 x i64> %49 to <8 x i32>
+  %51 = load <2 x i64>, ptr %16, align 16, !tbaa !19
+  %52 = bitcast <2 x i64> %51 to <4 x i32>
+  %53 = shufflevector <4 x i32> %52, <4 x i32> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %54 = shufflevector <8 x i32> %50, <8 x i32> %53, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
+  %55 = bitcast <8 x i32> %54 to <4 x i64>
+  store <4 x i64> %55, ptr %17, align 32, !tbaa !19
+  %56 = load ptr, ptr %6, align 8, !tbaa !24
+  %57 = getelementptr inbounds i16, ptr %56, i64 0
+  %58 = load <4 x i64>, ptr %17, align 32, !tbaa !19
+  call void @_ZL19_mm256_storeu_si256PDv4_xS_(ptr noundef %57, <4 x i64> noundef %58)
+  %59 = load <4 x i64>, ptr %21, align 32, !tbaa !19
+  %60 = call noundef <2 x i64> @_ZN19OpenColorIO_v2_5dev12avx_pack_u16EDv4_x(<4 x i64> noundef %59)
+  store <2 x i64> %60, ptr %15, align 16, !tbaa !19
+  %61 = load <4 x i64>, ptr %22, align 32, !tbaa !19
+  %62 = call noundef <2 x i64> @_ZN19OpenColorIO_v2_5dev12avx_pack_u16EDv4_x(<4 x i64> noundef %61)
+  store <2 x i64> %62, ptr %16, align 16, !tbaa !19
+  %63 = load <2 x i64>, ptr %15, align 16, !tbaa !19
+  %64 = call noundef <4 x i64> @_ZL22_mm256_castsi128_si256Dv2_x(<2 x i64> noundef %63)
+  %65 = bitcast <4 x i64> %64 to <8 x i32>
+  %66 = load <2 x i64>, ptr %16, align 16, !tbaa !19
+  %67 = bitcast <2 x i64> %66 to <4 x i32>
+  %68 = shufflevector <4 x i32> %67, <4 x i32> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %69 = shufflevector <8 x i32> %65, <8 x i32> %68, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
+  %70 = bitcast <8 x i32> %69 to <4 x i64>
+  store <4 x i64> %70, ptr %17, align 32, !tbaa !19
+  %71 = load ptr, ptr %6, align 8, !tbaa !24
+  %72 = getelementptr inbounds i16, ptr %71, i64 16
+  %73 = load <4 x i64>, ptr %17, align 32, !tbaa !19
+  call void @_ZL19_mm256_storeu_si256PDv4_xS_(ptr noundef %72, <4 x i64> noundef %73)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %11) #3
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE7EE5StoreEPN9Imath_3_14halfEDv8_fS6_S6_S6_(ptr noundef %0, <8 x float> noundef %1, <8 x float> noundef %2, <8 x float> noundef %3, <8 x float> noundef %4) #6 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca <8 x float>, align 32
+  %8 = alloca <8 x float>, align 32
+  %9 = alloca <8 x float>, align 32
+  %10 = alloca <8 x float>, align 32
+  %11 = alloca <8 x float>, align 32
+  %12 = alloca <8 x float>, align 32
+  %13 = alloca <8 x float>, align 32
+  %14 = alloca <8 x float>, align 32
+  %15 = alloca <4 x i64>, align 32
+  %16 = alloca <2 x i64>, align 16
+  %17 = alloca <2 x i64>, align 16
+  %18 = alloca <2 x i64>, align 16
+  %19 = alloca <2 x i64>, align 16
+  store ptr %0, ptr %6, align 8, !tbaa !41
+  store <8 x float> %1, ptr %7, align 32, !tbaa !19
+  store <8 x float> %2, ptr %8, align 32, !tbaa !19
+  store <8 x float> %3, ptr %9, align 32, !tbaa !19
+  store <8 x float> %4, ptr %10, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %15) #3
+  %20 = load <8 x float>, ptr %7, align 32, !tbaa !19
+  %21 = load <8 x float>, ptr %8, align 32, !tbaa !19
+  %22 = load <8 x float>, ptr %9, align 32, !tbaa !19
+  %23 = load <8 x float>, ptr %10, align 32, !tbaa !19
+  call void @_ZN19OpenColorIO_v2_5dev24avxRGBATranspose_4x4_4x4EDv8_fS0_S0_S0_RS0_S1_S1_S1_(<8 x float> noundef %20, <8 x float> noundef %21, <8 x float> noundef %22, <8 x float> noundef %23, ptr noundef nonnull align 32 dereferenceable(32) %11, ptr noundef nonnull align 32 dereferenceable(32) %12, ptr noundef nonnull align 32 dereferenceable(32) %13, ptr noundef nonnull align 32 dereferenceable(32) %14)
+  call void @llvm.lifetime.start.p0(i64 16, ptr %16) #3
+  %24 = load <8 x float>, ptr %11, align 32, !tbaa !19
+  %25 = call <8 x i16> @llvm.x86.vcvtps2ph.256(<8 x float> %24, i32 0)
+  %26 = bitcast <8 x i16> %25 to <2 x i64>
+  store <2 x i64> %26, ptr %16, align 16, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 16, ptr %17) #3
+  %27 = load <8 x float>, ptr %12, align 32, !tbaa !19
+  %28 = call <8 x i16> @llvm.x86.vcvtps2ph.256(<8 x float> %27, i32 0)
+  %29 = bitcast <8 x i16> %28 to <2 x i64>
+  store <2 x i64> %29, ptr %17, align 16, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 16, ptr %18) #3
+  %30 = load <8 x float>, ptr %13, align 32, !tbaa !19
+  %31 = call <8 x i16> @llvm.x86.vcvtps2ph.256(<8 x float> %30, i32 0)
+  %32 = bitcast <8 x i16> %31 to <2 x i64>
+  store <2 x i64> %32, ptr %18, align 16, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 16, ptr %19) #3
+  %33 = load <8 x float>, ptr %14, align 32, !tbaa !19
+  %34 = call <8 x i16> @llvm.x86.vcvtps2ph.256(<8 x float> %33, i32 0)
+  %35 = bitcast <8 x i16> %34 to <2 x i64>
+  store <2 x i64> %35, ptr %19, align 16, !tbaa !19
+  %36 = load <2 x i64>, ptr %16, align 16, !tbaa !19
+  %37 = call noundef <4 x i64> @_ZL22_mm256_castsi128_si256Dv2_x(<2 x i64> noundef %36)
+  %38 = bitcast <4 x i64> %37 to <8 x i32>
+  %39 = load <2 x i64>, ptr %17, align 16, !tbaa !19
+  %40 = bitcast <2 x i64> %39 to <4 x i32>
+  %41 = shufflevector <4 x i32> %40, <4 x i32> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %42 = shufflevector <8 x i32> %38, <8 x i32> %41, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
+  %43 = bitcast <8 x i32> %42 to <4 x i64>
+  store <4 x i64> %43, ptr %15, align 32, !tbaa !19
+  %44 = load ptr, ptr %6, align 8, !tbaa !41
+  %45 = getelementptr inbounds %"class.Imath_3_1::half", ptr %44, i64 0
+  %46 = load <4 x i64>, ptr %15, align 32, !tbaa !19
+  call void @_ZL19_mm256_storeu_si256PDv4_xS_(ptr noundef %45, <4 x i64> noundef %46)
+  %47 = load <2 x i64>, ptr %18, align 16, !tbaa !19
+  %48 = call noundef <4 x i64> @_ZL22_mm256_castsi128_si256Dv2_x(<2 x i64> noundef %47)
+  %49 = bitcast <4 x i64> %48 to <8 x i32>
+  %50 = load <2 x i64>, ptr %19, align 16, !tbaa !19
+  %51 = bitcast <2 x i64> %50 to <4 x i32>
+  %52 = shufflevector <4 x i32> %51, <4 x i32> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %53 = shufflevector <8 x i32> %49, <8 x i32> %52, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
+  %54 = bitcast <8 x i32> %53 to <4 x i64>
+  store <4 x i64> %54, ptr %15, align 32, !tbaa !19
+  %55 = load ptr, ptr %6, align 8, !tbaa !41
+  %56 = getelementptr inbounds %"class.Imath_3_1::half", ptr %55, i64 16
+  %57 = load <4 x i64>, ptr %15, align 32, !tbaa !19
+  call void @_ZL19_mm256_storeu_si256PDv4_xS_(ptr noundef %56, <4 x i64> noundef %57)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %11) #3
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.vcvtps2ph.256(<8 x float>, i32 immarg) #8
+declare <8 x i16> @llvm.x86.vcvtps2ph.256(<8 x float>, i32 immarg) #12
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev11AVXRGBAPackILNS_8BitDepthE8EE5StoreEPfDv8_fS4_S4_S4_(ptr noundef %out, <8 x float> noundef %r, <8 x float> noundef %g, <8 x float> noundef %b, <8 x float> noundef %a) #5 comdat align 2 {
-entry:
-  %__p.addr.i8 = alloca ptr, align 8
-  %__a.addr.i9 = alloca <8 x float>, align 32
-  %__p.addr.i6 = alloca ptr, align 8
-  %__a.addr.i7 = alloca <8 x float>, align 32
-  %__p.addr.i4 = alloca ptr, align 8
-  %__a.addr.i5 = alloca <8 x float>, align 32
-  %__p.addr.i = alloca ptr, align 8
-  %__a.addr.i = alloca <8 x float>, align 32
-  %out.addr = alloca ptr, align 8
-  %r.addr = alloca <8 x float>, align 32
-  %g.addr = alloca <8 x float>, align 32
-  %b.addr = alloca <8 x float>, align 32
-  %a.addr = alloca <8 x float>, align 32
-  %rgba0 = alloca <8 x float>, align 32
-  %rgba1 = alloca <8 x float>, align 32
-  %rgba2 = alloca <8 x float>, align 32
-  %rgba3 = alloca <8 x float>, align 32
-  store ptr %out, ptr %out.addr, align 8
-  store <8 x float> %r, ptr %r.addr, align 32
-  store <8 x float> %g, ptr %g.addr, align 32
-  store <8 x float> %b, ptr %b.addr, align 32
-  store <8 x float> %a, ptr %a.addr, align 32
-  %0 = load <8 x float>, ptr %r.addr, align 32
-  %1 = load <8 x float>, ptr %g.addr, align 32
-  %2 = load <8 x float>, ptr %b.addr, align 32
-  %3 = load <8 x float>, ptr %a.addr, align 32
-  call void @_ZN19OpenColorIO_v2_4dev24avxRGBATranspose_4x4_4x4EDv8_fS0_S0_S0_RS0_S1_S1_S1_(<8 x float> noundef %0, <8 x float> noundef %1, <8 x float> noundef %2, <8 x float> noundef %3, ptr noundef nonnull align 32 dereferenceable(32) %rgba0, ptr noundef nonnull align 32 dereferenceable(32) %rgba1, ptr noundef nonnull align 32 dereferenceable(32) %rgba2, ptr noundef nonnull align 32 dereferenceable(32) %rgba3)
-  %4 = load ptr, ptr %out.addr, align 8
-  %add.ptr = getelementptr inbounds float, ptr %4, i64 0
-  %5 = load <8 x float>, ptr %rgba0, align 32
-  store ptr %add.ptr, ptr %__p.addr.i8, align 8
-  store <8 x float> %5, ptr %__a.addr.i9, align 32
-  %6 = load <8 x float>, ptr %__a.addr.i9, align 32
-  %7 = load ptr, ptr %__p.addr.i8, align 8
-  store <8 x float> %6, ptr %7, align 1
-  %8 = load ptr, ptr %out.addr, align 8
-  %add.ptr1 = getelementptr inbounds float, ptr %8, i64 8
-  %9 = load <8 x float>, ptr %rgba1, align 32
-  store ptr %add.ptr1, ptr %__p.addr.i6, align 8
-  store <8 x float> %9, ptr %__a.addr.i7, align 32
-  %10 = load <8 x float>, ptr %__a.addr.i7, align 32
-  %11 = load ptr, ptr %__p.addr.i6, align 8
-  store <8 x float> %10, ptr %11, align 1
-  %12 = load ptr, ptr %out.addr, align 8
-  %add.ptr2 = getelementptr inbounds float, ptr %12, i64 16
-  %13 = load <8 x float>, ptr %rgba2, align 32
-  store ptr %add.ptr2, ptr %__p.addr.i4, align 8
-  store <8 x float> %13, ptr %__a.addr.i5, align 32
-  %14 = load <8 x float>, ptr %__a.addr.i5, align 32
-  %15 = load ptr, ptr %__p.addr.i4, align 8
-  store <8 x float> %14, ptr %15, align 1
-  %16 = load ptr, ptr %out.addr, align 8
-  %add.ptr3 = getelementptr inbounds float, ptr %16, i64 24
-  %17 = load <8 x float>, ptr %rgba3, align 32
-  store ptr %add.ptr3, ptr %__p.addr.i, align 8
-  store <8 x float> %17, ptr %__a.addr.i, align 32
-  %18 = load <8 x float>, ptr %__a.addr.i, align 32
-  %19 = load ptr, ptr %__p.addr.i, align 8
-  store <8 x float> %18, ptr %19, align 1
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev11AVXRGBAPackILNS_8BitDepthE8EE5StoreEPfDv8_fS4_S4_S4_(ptr noundef %0, <8 x float> noundef %1, <8 x float> noundef %2, <8 x float> noundef %3, <8 x float> noundef %4) #6 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca <8 x float>, align 32
+  %8 = alloca <8 x float>, align 32
+  %9 = alloca <8 x float>, align 32
+  %10 = alloca <8 x float>, align 32
+  %11 = alloca <8 x float>, align 32
+  %12 = alloca <8 x float>, align 32
+  %13 = alloca <8 x float>, align 32
+  %14 = alloca <8 x float>, align 32
+  store ptr %0, ptr %6, align 8, !tbaa !7
+  store <8 x float> %1, ptr %7, align 32, !tbaa !19
+  store <8 x float> %2, ptr %8, align 32, !tbaa !19
+  store <8 x float> %3, ptr %9, align 32, !tbaa !19
+  store <8 x float> %4, ptr %10, align 32, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 32, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %14) #3
+  %15 = load <8 x float>, ptr %7, align 32, !tbaa !19
+  %16 = load <8 x float>, ptr %8, align 32, !tbaa !19
+  %17 = load <8 x float>, ptr %9, align 32, !tbaa !19
+  %18 = load <8 x float>, ptr %10, align 32, !tbaa !19
+  call void @_ZN19OpenColorIO_v2_5dev24avxRGBATranspose_4x4_4x4EDv8_fS0_S0_S0_RS0_S1_S1_S1_(<8 x float> noundef %15, <8 x float> noundef %16, <8 x float> noundef %17, <8 x float> noundef %18, ptr noundef nonnull align 32 dereferenceable(32) %11, ptr noundef nonnull align 32 dereferenceable(32) %12, ptr noundef nonnull align 32 dereferenceable(32) %13, ptr noundef nonnull align 32 dereferenceable(32) %14)
+  %19 = load ptr, ptr %6, align 8, !tbaa !7
+  %20 = getelementptr inbounds float, ptr %19, i64 0
+  %21 = load <8 x float>, ptr %11, align 32, !tbaa !19
+  call void @_ZL16_mm256_storeu_psPfDv8_f(ptr noundef %20, <8 x float> noundef %21)
+  %22 = load ptr, ptr %6, align 8, !tbaa !7
+  %23 = getelementptr inbounds float, ptr %22, i64 8
+  %24 = load <8 x float>, ptr %12, align 32, !tbaa !19
+  call void @_ZL16_mm256_storeu_psPfDv8_f(ptr noundef %23, <8 x float> noundef %24)
+  %25 = load ptr, ptr %6, align 8, !tbaa !7
+  %26 = getelementptr inbounds float, ptr %25, i64 16
+  %27 = load <8 x float>, ptr %13, align 32, !tbaa !19
+  call void @_ZL16_mm256_storeu_psPfDv8_f(ptr noundef %26, <8 x float> noundef %27)
+  %28 = load ptr, ptr %6, align 8, !tbaa !7
+  %29 = getelementptr inbounds float, ptr %28, i64 24
+  %30 = load <8 x float>, ptr %14, align 32, !tbaa !19
+  call void @_ZL16_mm256_storeu_psPfDv8_f(ptr noundef %29, <8 x float> noundef %30)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %11) #3
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal void @_ZL16_mm256_storeu_psPfDv8_f(ptr noundef %0, <8 x float> noundef %1) #10 {
+  %3 = alloca ptr, align 8
+  %4 = alloca <8 x float>, align 32
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store <8 x float> %1, ptr %4, align 32, !tbaa !19
+  %5 = load <8 x float>, ptr %4, align 32, !tbaa !19
+  %6 = load ptr, ptr %3, align 8, !tbaa !7
+  %7 = getelementptr inbounds nuw %struct.__storeu_ps, ptr %6, i32 0, i32 0
+  store <8 x float> %5, ptr %7, align 1, !tbaa !19
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_Lut1DOpCPU_AVX.cpp() #0 section ".text.startup" {
-entry:
   call void @__cxx_global_var_init()
   ret void
 }
 
-attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+f16c,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+f16c,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+f16c,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+f16c,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+f16c,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+f16c,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
-attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+f16c,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+f16c,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+f16c,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #9 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+f16c,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+f16c,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #5 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+f16c,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #6 = { inlinehint mustprogress uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+f16c,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+f16c,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { alwaysinline mustprogress uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+f16c,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #10 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+f16c,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #13 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+f16c,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #14 = { alwaysinline mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+f16c,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #15 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+f16c,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"_ZTSN19OpenColorIO_v2_5dev8BitDepthE", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 float", !9, i64 0}
+!9 = !{!"any pointer", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !5, i64 0}
+!12 = !{!9, !9, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !5, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 omnipotent char", !9, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"float", !5, i64 0}
+!19 = !{!5, !5, i64 0}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.mustprogress"}
+!22 = distinct !{!22, !21}
+!23 = distinct !{!23, !21}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 short", !9, i64 0}
+!26 = distinct !{!26, !21}
+!27 = distinct !{!27, !21}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"short", !5, i64 0}
+!30 = distinct !{!30, !21}
+!31 = distinct !{!31, !21}
+!32 = distinct !{!32, !21}
+!33 = distinct !{!33, !21}
+!34 = distinct !{!34, !21}
+!35 = distinct !{!35, !21}
+!36 = distinct !{!36, !21}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev7CPUInfoE", !9, i64 0}
+!39 = !{!40, !11, i64 0}
+!40 = !{!"_ZTSN19OpenColorIO_v2_5dev7CPUInfoE", !11, i64 0, !11, i64 4, !11, i64 8, !5, i64 12, !5, i64 77}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 _ZTSN9Imath_3_14halfE", !9, i64 0}
+!43 = distinct !{!43, !21}
+!44 = distinct !{!44, !21}
+!45 = !{i64 0, i64 2, !28}
+!46 = distinct !{!46, !21}
+!47 = distinct !{!47, !21}
+!48 = distinct !{!48, !21}
+!49 = distinct !{!49, !21}

@@ -115,6 +115,7 @@ supported_project = [
     "nghttp2",
     "ninja",
     "opencc",
+    "ocio",
 ]
 
 modify_only = [

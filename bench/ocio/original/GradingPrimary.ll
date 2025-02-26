@@ -1,8 +1,8 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%"struct.OpenColorIO_v2_4dev::GradingRGBM" = type { double, double, double, double }
-%"struct.OpenColorIO_v2_4dev::GradingPrimary" = type { %"struct.OpenColorIO_v2_4dev::GradingRGBM", %"struct.OpenColorIO_v2_4dev::GradingRGBM", %"struct.OpenColorIO_v2_4dev::GradingRGBM", %"struct.OpenColorIO_v2_4dev::GradingRGBM", %"struct.OpenColorIO_v2_4dev::GradingRGBM", %"struct.OpenColorIO_v2_4dev::GradingRGBM", %"struct.OpenColorIO_v2_4dev::GradingRGBM", double, double, double, double, double, double }
+%"struct.OpenColorIO_v2_5dev::GradingRGBM" = type { double, double, double, double }
+%"struct.OpenColorIO_v2_5dev::GradingPrimary" = type { %"struct.OpenColorIO_v2_5dev::GradingRGBM", %"struct.OpenColorIO_v2_5dev::GradingRGBM", %"struct.OpenColorIO_v2_5dev::GradingRGBM", %"struct.OpenColorIO_v2_5dev::GradingRGBM", %"struct.OpenColorIO_v2_5dev::GradingRGBM", %"struct.OpenColorIO_v2_5dev::GradingRGBM", %"struct.OpenColorIO_v2_5dev::GradingRGBM", double, double, double, double, double, double }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
@@ -14,8 +14,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender" = type <{ %"struct.std::array", %"struct.std::array", %"struct.std::array", %"struct.std::array", %"struct.std::array", %"struct.std::array", double, i8, i8, [6 x i8] }>
+%"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender" = type <{ %"struct.std::array", %"struct.std::array", %"struct.std::array", %"struct.std::array", %"struct.std::array", %"struct.std::array", double, i8, i8, [6 x i8] }>
 %"struct.std::array" = type { [3 x float] }
+%"class.std::allocator" = type { i8 }
+%"class.__gnu_cxx::__normal_iterator" = type { ptr }
+%"class.__gnu_cxx::__normal_iterator.1" = type { ptr }
 
 $_ZNSt14numeric_limitsIdE3maxEv = comdat any
 
@@ -25,2002 +28,2248 @@ $_ZSt3powff = comdat any
 
 $__clang_call_terminate = comdat any
 
+$_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_ = comdat any
+
+$_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm = comdat any
+
+$_ZNSt15__new_allocatorIcE10deallocateEPcm = comdat any
+
+$_ZNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEED2Ev = comdat any
+
+$_ZNSt15__new_allocatorIcED2Ev = comdat any
+
+$_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc = comdat any
+
+$_ZNSt15__new_allocatorIcEC2Ev = comdat any
+
+$_ZNSt15__new_allocatorIcEC2ERKS0_ = comdat any
+
+$_ZNSt11char_traitsIcE6assignERcRKc = comdat any
+
+$_ZNSt11char_traitsIcE6lengthEPKc = comdat any
+
+$_ZStorSt12_Ios_IostateS_ = comdat any
+
+$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignIPcvEERS4_T_S8_ = comdat any
+
+$_ZN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IPcvEERKNS0_IT_S8_EE = comdat any
+
+$_ZN9__gnu_cxxmiIPKcPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTmicldtfp_4baseEcldtfp0_4baseEERKNS_17__normal_iteratorIT_T1_EERKNSB_IT0_SD_EE = comdat any
+
+$_ZN9__gnu_cxxmiIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSC_SF_ = comdat any
+
+$_ZNK9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4baseEv = comdat any
+
+$_ZNK9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4baseEv = comdat any
+
+$_ZN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS1_ = comdat any
+
 $_ZNSt14__array_traitsIfLm3EE6_S_refERA3_Kfm = comdat any
 
-@_ZZNK19OpenColorIO_v2_4dev14GradingPrimary8validateENS_12GradingStyleEE24GradingPrimaryLowerBound = internal constant double 1.000000e-02, align 8
-@_ZZNK19OpenColorIO_v2_4dev14GradingPrimary8validateENS_12GradingStyleEE24GradingPrimaryBoundError = internal constant double 0x3EB0C6F7A0B5ED8D, align 8
-@_ZZNK19OpenColorIO_v2_4dev14GradingPrimary8validateENS_12GradingStyleEE17GradingPrimaryMin = internal constant double 0x3F847A5B0FF10ECC, align 8
 @.str = private unnamed_addr constant [23 x i8] c"GradingPrimary gamma '\00", align 1
 @.str.1 = private unnamed_addr constant [26 x i8] c"' are below lower bound (\00", align 1
 @.str.2 = private unnamed_addr constant [3 x i8] c").\00", align 1
-@_ZTIN19OpenColorIO_v2_4dev9ExceptionE = external constant ptr
+@_ZTIN19OpenColorIO_v2_5dev9ExceptionE = external constant ptr
 @.str.3 = private unnamed_addr constant [26 x i8] c"GradingPrimary contrast '\00", align 1
 @.str.4 = private unnamed_addr constant [63 x i8] c"GradingPrimary black pivot should be smaller than white pivot.\00", align 1
 @.str.5 = private unnamed_addr constant [63 x i8] c"GradingPrimary black clamp should be smaller than white clamp.\00", align 1
+@_ZTVNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE = external unnamed_addr constant { [5 x ptr], [5 x ptr] }, align 8
+@_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE = external unnamed_addr constant [4 x ptr], align 8
+@_ZTVSt9basic_iosIcSt11char_traitsIcEE = external unnamed_addr constant { [4 x ptr] }, align 8
+@_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE = external unnamed_addr constant { [16 x ptr] }, align 8
+@_ZTVSt15basic_streambufIcSt11char_traitsIcEE = external unnamed_addr constant { [16 x ptr] }, align 8
+@.str.6 = private unnamed_addr constant [22 x i8] c"basic_string::replace\00", align 1
+@.str.7 = private unnamed_addr constant [55 x i8] c"%s: __pos (which is %zu) > this->size() (which is %zu)\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_11GradingRGBMES2_(ptr noundef nonnull align 8 dereferenceable(32) %lhs, ptr noundef nonnull align 8 dereferenceable(32) %rhs) #0 {
-entry:
-  %lhs.addr = alloca ptr, align 8
-  %rhs.addr = alloca ptr, align 8
-  store ptr %lhs, ptr %lhs.addr, align 8
-  store ptr %rhs, ptr %rhs.addr, align 8
-  %0 = load ptr, ptr %lhs.addr, align 8
-  %m_red = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %0, i32 0, i32 0
-  %1 = load double, ptr %m_red, align 8
-  %2 = load ptr, ptr %rhs.addr, align 8
-  %m_red1 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %2, i32 0, i32 0
-  %3 = load double, ptr %m_red1, align 8
-  %cmp = fcmp oeq double %1, %3
-  br i1 %cmp, label %land.lhs.true, label %land.end
+define noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_11GradingRGBMES2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %5, i32 0, i32 0
+  %7 = load double, ptr %6, align 8, !tbaa !8
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %8, i32 0, i32 0
+  %10 = load double, ptr %9, align 8, !tbaa !8
+  %11 = fcmp oeq double %7, %10
+  br i1 %11, label %12, label %36
 
-land.lhs.true:                                    ; preds = %entry
-  %4 = load ptr, ptr %lhs.addr, align 8
-  %m_green = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %4, i32 0, i32 1
-  %5 = load double, ptr %m_green, align 8
-  %6 = load ptr, ptr %rhs.addr, align 8
-  %m_green2 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %6, i32 0, i32 1
-  %7 = load double, ptr %m_green2, align 8
-  %cmp3 = fcmp oeq double %5, %7
-  br i1 %cmp3, label %land.lhs.true4, label %land.end
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %3, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %13, i32 0, i32 1
+  %15 = load double, ptr %14, align 8, !tbaa !11
+  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %16, i32 0, i32 1
+  %18 = load double, ptr %17, align 8, !tbaa !11
+  %19 = fcmp oeq double %15, %18
+  br i1 %19, label %20, label %36
 
-land.lhs.true4:                                   ; preds = %land.lhs.true
-  %8 = load ptr, ptr %lhs.addr, align 8
-  %m_blue = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %8, i32 0, i32 2
-  %9 = load double, ptr %m_blue, align 8
-  %10 = load ptr, ptr %rhs.addr, align 8
-  %m_blue5 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %10, i32 0, i32 2
-  %11 = load double, ptr %m_blue5, align 8
-  %cmp6 = fcmp oeq double %9, %11
-  br i1 %cmp6, label %land.rhs, label %land.end
+20:                                               ; preds = %12
+  %21 = load ptr, ptr %3, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %21, i32 0, i32 2
+  %23 = load double, ptr %22, align 8, !tbaa !12
+  %24 = load ptr, ptr %4, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %24, i32 0, i32 2
+  %26 = load double, ptr %25, align 8, !tbaa !12
+  %27 = fcmp oeq double %23, %26
+  br i1 %27, label %28, label %36
 
-land.rhs:                                         ; preds = %land.lhs.true4
-  %12 = load ptr, ptr %lhs.addr, align 8
-  %m_master = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %12, i32 0, i32 3
-  %13 = load double, ptr %m_master, align 8
-  %14 = load ptr, ptr %rhs.addr, align 8
-  %m_master7 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %14, i32 0, i32 3
-  %15 = load double, ptr %m_master7, align 8
-  %cmp8 = fcmp oeq double %13, %15
-  br label %land.end
+28:                                               ; preds = %20
+  %29 = load ptr, ptr %3, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %29, i32 0, i32 3
+  %31 = load double, ptr %30, align 8, !tbaa !13
+  %32 = load ptr, ptr %4, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %32, i32 0, i32 3
+  %34 = load double, ptr %33, align 8, !tbaa !13
+  %35 = fcmp oeq double %31, %34
+  br label %36
 
-land.end:                                         ; preds = %land.rhs, %land.lhs.true4, %land.lhs.true, %entry
-  %16 = phi i1 [ false, %land.lhs.true4 ], [ false, %land.lhs.true ], [ false, %entry ], [ %cmp8, %land.rhs ]
-  ret i1 %16
+36:                                               ; preds = %28, %20, %12, %2
+  %37 = phi i1 [ false, %20 ], [ false, %12 ], [ false, %2 ], [ %35, %28 ]
+  ret i1 %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN19OpenColorIO_v2_4devneERKNS_11GradingRGBMES2_(ptr noundef nonnull align 8 dereferenceable(32) %lhs, ptr noundef nonnull align 8 dereferenceable(32) %rhs) #0 {
-entry:
-  %lhs.addr = alloca ptr, align 8
-  %rhs.addr = alloca ptr, align 8
-  store ptr %lhs, ptr %lhs.addr, align 8
-  store ptr %rhs, ptr %rhs.addr, align 8
-  %0 = load ptr, ptr %lhs.addr, align 8
-  %1 = load ptr, ptr %rhs.addr, align 8
-  %call = call noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_11GradingRGBMES2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %lnot = xor i1 %call, true
-  ret i1 %lnot
+define noundef zeroext i1 @_ZN19OpenColorIO_v2_5devneERKNS_11GradingRGBMES2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
+  %7 = call noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_11GradingRGBMES2_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %8 = xor i1 %7, true
+  ret i1 %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_14GradingPrimaryES2_(ptr noundef nonnull align 8 dereferenceable(272) %lhs, ptr noundef nonnull align 8 dereferenceable(272) %rhs) #0 {
-entry:
-  %lhs.addr = alloca ptr, align 8
-  %rhs.addr = alloca ptr, align 8
-  store ptr %lhs, ptr %lhs.addr, align 8
-  store ptr %rhs, ptr %rhs.addr, align 8
-  %0 = load ptr, ptr %lhs.addr, align 8
-  %m_brightness = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %rhs.addr, align 8
-  %m_brightness1 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %1, i32 0, i32 0
-  %call = call noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_11GradingRGBMES2_(ptr noundef nonnull align 8 dereferenceable(32) %m_brightness, ptr noundef nonnull align 8 dereferenceable(32) %m_brightness1)
-  br i1 %call, label %land.lhs.true, label %land.end
+define noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_14GradingPrimaryES2_(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(272) %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !14
+  store ptr %1, ptr %4, align 8, !tbaa !14
+  %5 = load ptr, ptr %3, align 8, !tbaa !14
+  %6 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !14
+  %8 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %7, i32 0, i32 0
+  %9 = call noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_11GradingRGBMES2_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  br i1 %9, label %10, label %94
 
-land.lhs.true:                                    ; preds = %entry
-  %2 = load ptr, ptr %lhs.addr, align 8
-  %m_contrast = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %rhs.addr, align 8
-  %m_contrast2 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %3, i32 0, i32 1
-  %call3 = call noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_11GradingRGBMES2_(ptr noundef nonnull align 8 dereferenceable(32) %m_contrast, ptr noundef nonnull align 8 dereferenceable(32) %m_contrast2)
-  br i1 %call3, label %land.lhs.true4, label %land.end
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %3, align 8, !tbaa !14
+  %12 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %4, align 8, !tbaa !14
+  %14 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %13, i32 0, i32 1
+  %15 = call noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_11GradingRGBMES2_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %14)
+  br i1 %15, label %16, label %94
 
-land.lhs.true4:                                   ; preds = %land.lhs.true
-  %4 = load ptr, ptr %lhs.addr, align 8
-  %m_gamma = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %4, i32 0, i32 2
-  %5 = load ptr, ptr %rhs.addr, align 8
-  %m_gamma5 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %5, i32 0, i32 2
-  %call6 = call noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_11GradingRGBMES2_(ptr noundef nonnull align 8 dereferenceable(32) %m_gamma, ptr noundef nonnull align 8 dereferenceable(32) %m_gamma5)
-  br i1 %call6, label %land.lhs.true7, label %land.end
+16:                                               ; preds = %10
+  %17 = load ptr, ptr %3, align 8, !tbaa !14
+  %18 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %17, i32 0, i32 2
+  %19 = load ptr, ptr %4, align 8, !tbaa !14
+  %20 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %19, i32 0, i32 2
+  %21 = call noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_11GradingRGBMES2_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %20)
+  br i1 %21, label %22, label %94
 
-land.lhs.true7:                                   ; preds = %land.lhs.true4
-  %6 = load ptr, ptr %lhs.addr, align 8
-  %m_offset = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %6, i32 0, i32 3
-  %7 = load ptr, ptr %rhs.addr, align 8
-  %m_offset8 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %7, i32 0, i32 3
-  %call9 = call noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_11GradingRGBMES2_(ptr noundef nonnull align 8 dereferenceable(32) %m_offset, ptr noundef nonnull align 8 dereferenceable(32) %m_offset8)
-  br i1 %call9, label %land.lhs.true10, label %land.end
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %3, align 8, !tbaa !14
+  %24 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %23, i32 0, i32 3
+  %25 = load ptr, ptr %4, align 8, !tbaa !14
+  %26 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %25, i32 0, i32 3
+  %27 = call noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_11GradingRGBMES2_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %26)
+  br i1 %27, label %28, label %94
 
-land.lhs.true10:                                  ; preds = %land.lhs.true7
-  %8 = load ptr, ptr %lhs.addr, align 8
-  %m_exposure = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %8, i32 0, i32 4
-  %9 = load ptr, ptr %rhs.addr, align 8
-  %m_exposure11 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %9, i32 0, i32 4
-  %call12 = call noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_11GradingRGBMES2_(ptr noundef nonnull align 8 dereferenceable(32) %m_exposure, ptr noundef nonnull align 8 dereferenceable(32) %m_exposure11)
-  br i1 %call12, label %land.lhs.true13, label %land.end
+28:                                               ; preds = %22
+  %29 = load ptr, ptr %3, align 8, !tbaa !14
+  %30 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %29, i32 0, i32 4
+  %31 = load ptr, ptr %4, align 8, !tbaa !14
+  %32 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %31, i32 0, i32 4
+  %33 = call noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_11GradingRGBMES2_(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %32)
+  br i1 %33, label %34, label %94
 
-land.lhs.true13:                                  ; preds = %land.lhs.true10
-  %10 = load ptr, ptr %lhs.addr, align 8
-  %m_lift = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %10, i32 0, i32 5
-  %11 = load ptr, ptr %rhs.addr, align 8
-  %m_lift14 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %11, i32 0, i32 5
-  %call15 = call noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_11GradingRGBMES2_(ptr noundef nonnull align 8 dereferenceable(32) %m_lift, ptr noundef nonnull align 8 dereferenceable(32) %m_lift14)
-  br i1 %call15, label %land.lhs.true16, label %land.end
+34:                                               ; preds = %28
+  %35 = load ptr, ptr %3, align 8, !tbaa !14
+  %36 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %35, i32 0, i32 5
+  %37 = load ptr, ptr %4, align 8, !tbaa !14
+  %38 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %37, i32 0, i32 5
+  %39 = call noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_11GradingRGBMES2_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %38)
+  br i1 %39, label %40, label %94
 
-land.lhs.true16:                                  ; preds = %land.lhs.true13
-  %12 = load ptr, ptr %lhs.addr, align 8
-  %m_gain = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %12, i32 0, i32 6
-  %13 = load ptr, ptr %rhs.addr, align 8
-  %m_gain17 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %13, i32 0, i32 6
-  %call18 = call noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_11GradingRGBMES2_(ptr noundef nonnull align 8 dereferenceable(32) %m_gain, ptr noundef nonnull align 8 dereferenceable(32) %m_gain17)
-  br i1 %call18, label %land.lhs.true19, label %land.end
+40:                                               ; preds = %34
+  %41 = load ptr, ptr %3, align 8, !tbaa !14
+  %42 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %41, i32 0, i32 6
+  %43 = load ptr, ptr %4, align 8, !tbaa !14
+  %44 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %43, i32 0, i32 6
+  %45 = call noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_11GradingRGBMES2_(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %44)
+  br i1 %45, label %46, label %94
 
-land.lhs.true19:                                  ; preds = %land.lhs.true16
-  %14 = load ptr, ptr %lhs.addr, align 8
-  %m_pivot = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %14, i32 0, i32 8
-  %15 = load double, ptr %m_pivot, align 8
-  %16 = load ptr, ptr %rhs.addr, align 8
-  %m_pivot20 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %16, i32 0, i32 8
-  %17 = load double, ptr %m_pivot20, align 8
-  %cmp = fcmp oeq double %15, %17
-  br i1 %cmp, label %land.lhs.true21, label %land.end
+46:                                               ; preds = %40
+  %47 = load ptr, ptr %3, align 8, !tbaa !14
+  %48 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %47, i32 0, i32 8
+  %49 = load double, ptr %48, align 8, !tbaa !16
+  %50 = load ptr, ptr %4, align 8, !tbaa !14
+  %51 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %50, i32 0, i32 8
+  %52 = load double, ptr %51, align 8, !tbaa !16
+  %53 = fcmp oeq double %49, %52
+  br i1 %53, label %54, label %94
 
-land.lhs.true21:                                  ; preds = %land.lhs.true19
-  %18 = load ptr, ptr %lhs.addr, align 8
-  %m_saturation = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %18, i32 0, i32 7
-  %19 = load double, ptr %m_saturation, align 8
-  %20 = load ptr, ptr %rhs.addr, align 8
-  %m_saturation22 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %20, i32 0, i32 7
-  %21 = load double, ptr %m_saturation22, align 8
-  %cmp23 = fcmp oeq double %19, %21
-  br i1 %cmp23, label %land.lhs.true24, label %land.end
+54:                                               ; preds = %46
+  %55 = load ptr, ptr %3, align 8, !tbaa !14
+  %56 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %55, i32 0, i32 7
+  %57 = load double, ptr %56, align 8, !tbaa !18
+  %58 = load ptr, ptr %4, align 8, !tbaa !14
+  %59 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %58, i32 0, i32 7
+  %60 = load double, ptr %59, align 8, !tbaa !18
+  %61 = fcmp oeq double %57, %60
+  br i1 %61, label %62, label %94
 
-land.lhs.true24:                                  ; preds = %land.lhs.true21
-  %22 = load ptr, ptr %lhs.addr, align 8
-  %m_clampWhite = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %22, i32 0, i32 12
-  %23 = load double, ptr %m_clampWhite, align 8
-  %24 = load ptr, ptr %rhs.addr, align 8
-  %m_clampWhite25 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %24, i32 0, i32 12
-  %25 = load double, ptr %m_clampWhite25, align 8
-  %cmp26 = fcmp oeq double %23, %25
-  br i1 %cmp26, label %land.lhs.true27, label %land.end
+62:                                               ; preds = %54
+  %63 = load ptr, ptr %3, align 8, !tbaa !14
+  %64 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %63, i32 0, i32 12
+  %65 = load double, ptr %64, align 8, !tbaa !19
+  %66 = load ptr, ptr %4, align 8, !tbaa !14
+  %67 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %66, i32 0, i32 12
+  %68 = load double, ptr %67, align 8, !tbaa !19
+  %69 = fcmp oeq double %65, %68
+  br i1 %69, label %70, label %94
 
-land.lhs.true27:                                  ; preds = %land.lhs.true24
-  %26 = load ptr, ptr %lhs.addr, align 8
-  %m_clampBlack = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %26, i32 0, i32 11
-  %27 = load double, ptr %m_clampBlack, align 8
-  %28 = load ptr, ptr %rhs.addr, align 8
-  %m_clampBlack28 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %28, i32 0, i32 11
-  %29 = load double, ptr %m_clampBlack28, align 8
-  %cmp29 = fcmp oeq double %27, %29
-  br i1 %cmp29, label %land.lhs.true30, label %land.end
+70:                                               ; preds = %62
+  %71 = load ptr, ptr %3, align 8, !tbaa !14
+  %72 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %71, i32 0, i32 11
+  %73 = load double, ptr %72, align 8, !tbaa !20
+  %74 = load ptr, ptr %4, align 8, !tbaa !14
+  %75 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %74, i32 0, i32 11
+  %76 = load double, ptr %75, align 8, !tbaa !20
+  %77 = fcmp oeq double %73, %76
+  br i1 %77, label %78, label %94
 
-land.lhs.true30:                                  ; preds = %land.lhs.true27
-  %30 = load ptr, ptr %lhs.addr, align 8
-  %m_pivotWhite = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %30, i32 0, i32 10
-  %31 = load double, ptr %m_pivotWhite, align 8
-  %32 = load ptr, ptr %rhs.addr, align 8
-  %m_pivotWhite31 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %32, i32 0, i32 10
-  %33 = load double, ptr %m_pivotWhite31, align 8
-  %cmp32 = fcmp oeq double %31, %33
-  br i1 %cmp32, label %land.rhs, label %land.end
+78:                                               ; preds = %70
+  %79 = load ptr, ptr %3, align 8, !tbaa !14
+  %80 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %79, i32 0, i32 10
+  %81 = load double, ptr %80, align 8, !tbaa !21
+  %82 = load ptr, ptr %4, align 8, !tbaa !14
+  %83 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %82, i32 0, i32 10
+  %84 = load double, ptr %83, align 8, !tbaa !21
+  %85 = fcmp oeq double %81, %84
+  br i1 %85, label %86, label %94
 
-land.rhs:                                         ; preds = %land.lhs.true30
-  %34 = load ptr, ptr %lhs.addr, align 8
-  %m_pivotBlack = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %34, i32 0, i32 9
-  %35 = load double, ptr %m_pivotBlack, align 8
-  %36 = load ptr, ptr %rhs.addr, align 8
-  %m_pivotBlack33 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %36, i32 0, i32 9
-  %37 = load double, ptr %m_pivotBlack33, align 8
-  %cmp34 = fcmp oeq double %35, %37
-  br label %land.end
+86:                                               ; preds = %78
+  %87 = load ptr, ptr %3, align 8, !tbaa !14
+  %88 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %87, i32 0, i32 9
+  %89 = load double, ptr %88, align 8, !tbaa !22
+  %90 = load ptr, ptr %4, align 8, !tbaa !14
+  %91 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %90, i32 0, i32 9
+  %92 = load double, ptr %91, align 8, !tbaa !22
+  %93 = fcmp oeq double %89, %92
+  br label %94
 
-land.end:                                         ; preds = %land.rhs, %land.lhs.true30, %land.lhs.true27, %land.lhs.true24, %land.lhs.true21, %land.lhs.true19, %land.lhs.true16, %land.lhs.true13, %land.lhs.true10, %land.lhs.true7, %land.lhs.true4, %land.lhs.true, %entry
-  %38 = phi i1 [ false, %land.lhs.true30 ], [ false, %land.lhs.true27 ], [ false, %land.lhs.true24 ], [ false, %land.lhs.true21 ], [ false, %land.lhs.true19 ], [ false, %land.lhs.true16 ], [ false, %land.lhs.true13 ], [ false, %land.lhs.true10 ], [ false, %land.lhs.true7 ], [ false, %land.lhs.true4 ], [ false, %land.lhs.true ], [ false, %entry ], [ %cmp34, %land.rhs ]
-  ret i1 %38
+94:                                               ; preds = %86, %78, %70, %62, %54, %46, %40, %34, %28, %22, %16, %10, %2
+  %95 = phi i1 [ false, %78 ], [ false, %70 ], [ false, %62 ], [ false, %54 ], [ false, %46 ], [ false, %40 ], [ false, %34 ], [ false, %28 ], [ false, %22 ], [ false, %16 ], [ false, %10 ], [ false, %2 ], [ %93, %86 ]
+  ret i1 %95
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN19OpenColorIO_v2_4devneERKNS_14GradingPrimaryES2_(ptr noundef nonnull align 8 dereferenceable(272) %lhs, ptr noundef nonnull align 8 dereferenceable(272) %rhs) #0 {
-entry:
-  %lhs.addr = alloca ptr, align 8
-  %rhs.addr = alloca ptr, align 8
-  store ptr %lhs, ptr %lhs.addr, align 8
-  store ptr %rhs, ptr %rhs.addr, align 8
-  %0 = load ptr, ptr %lhs.addr, align 8
-  %1 = load ptr, ptr %rhs.addr, align 8
-  %call = call noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_14GradingPrimaryES2_(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(272) %1)
-  %lnot = xor i1 %call, true
-  ret i1 %lnot
+define noundef zeroext i1 @_ZN19OpenColorIO_v2_5devneERKNS_14GradingPrimaryES2_(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(272) %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !14
+  store ptr %1, ptr %4, align 8, !tbaa !14
+  %5 = load ptr, ptr %3, align 8, !tbaa !14
+  %6 = load ptr, ptr %4, align 8, !tbaa !14
+  %7 = call noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_14GradingPrimaryES2_(ptr noundef nonnull align 8 dereferenceable(272) %5, ptr noundef nonnull align 8 dereferenceable(272) %6)
+  %8 = xor i1 %7, true
+  ret i1 %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef double @_ZN19OpenColorIO_v2_4dev14GradingPrimary12NoClampBlackEv() #0 align 2 {
-entry:
-  %call = call noundef double @_ZNSt14numeric_limitsIdE3maxEv() #6
-  %fneg = fneg double %call
-  ret double %fneg
+define noundef double @_ZN19OpenColorIO_v2_5dev14GradingPrimary12NoClampBlackEv() #0 align 2 {
+  %1 = call noundef double @_ZNSt14numeric_limitsIdE3maxEv() #12
+  %2 = fneg double %1
+  ret double %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef double @_ZNSt14numeric_limitsIdE3maxEv() #0 comdat align 2 {
-entry:
   ret double 0x7FEFFFFFFFFFFFFF
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef double @_ZN19OpenColorIO_v2_4dev14GradingPrimary12NoClampWhiteEv() #0 align 2 {
-entry:
-  %call = call noundef double @_ZNSt14numeric_limitsIdE3maxEv() #6
-  ret double %call
+define noundef double @_ZN19OpenColorIO_v2_5dev14GradingPrimary12NoClampWhiteEv() #0 align 2 {
+  %1 = call noundef double @_ZNSt14numeric_limitsIdE3maxEv() #12
+  ret double %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK19OpenColorIO_v2_4dev14GradingPrimary8validateENS_12GradingStyleE(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %style) #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %style.addr = alloca i32, align 4
-  %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %cleanup.isactive = alloca i1, align 1
-  %oss43 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
-  %ref.tmp57 = alloca %"class.std::__cxx11::basic_string", align 8
-  %cleanup.isactive63 = alloca i1, align 1
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %style, ptr %style.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %style.addr, align 4
-  %cmp = icmp ne i32 %0, 1
-  br i1 %cmp, label %land.lhs.true, label %if.end
+define void @_ZNK19OpenColorIO_v2_5dev14GradingPrimary8validateENS_12GradingStyleE(ptr noundef nonnull align 8 dereferenceable(272) %0, i32 noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca %"class.std::__cxx11::basic_string", align 8
+  %9 = alloca i1, align 1
+  %10 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
+  %11 = alloca %"class.std::__cxx11::basic_string", align 8
+  %12 = alloca i1, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !14
+  store i32 %1, ptr %4, align 4, !tbaa !23
+  %13 = load ptr, ptr %3, align 8
+  %14 = load i32, ptr %4, align 4, !tbaa !23
+  %15 = icmp ne i32 %14, 1
+  br i1 %15, label %16, label %69
 
-land.lhs.true:                                    ; preds = %entry
-  %m_gamma = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %this1, i32 0, i32 2
-  %m_red = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %m_gamma, i32 0, i32 0
-  %1 = load double, ptr %m_red, align 8
-  %cmp2 = fcmp olt double %1, 0x3F847A5B0FF10ECC
-  br i1 %cmp2, label %if.then, label %lor.lhs.false
+16:                                               ; preds = %2
+  %17 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %13, i32 0, i32 2
+  %18 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %17, i32 0, i32 0
+  %19 = load double, ptr %18, align 8, !tbaa !25
+  %20 = fcmp olt double %19, 0x3F847A5B0FF10ECC
+  br i1 %20, label %36, label %21
 
-lor.lhs.false:                                    ; preds = %land.lhs.true
-  %m_gamma3 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %this1, i32 0, i32 2
-  %m_green = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %m_gamma3, i32 0, i32 1
-  %2 = load double, ptr %m_green, align 8
-  %cmp4 = fcmp olt double %2, 0x3F847A5B0FF10ECC
-  br i1 %cmp4, label %if.then, label %lor.lhs.false5
+21:                                               ; preds = %16
+  %22 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %13, i32 0, i32 2
+  %23 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %22, i32 0, i32 1
+  %24 = load double, ptr %23, align 8, !tbaa !26
+  %25 = fcmp olt double %24, 0x3F847A5B0FF10ECC
+  br i1 %25, label %36, label %26
 
-lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %m_gamma6 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %this1, i32 0, i32 2
-  %m_blue = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %m_gamma6, i32 0, i32 2
-  %3 = load double, ptr %m_blue, align 8
-  %cmp7 = fcmp olt double %3, 0x3F847A5B0FF10ECC
-  br i1 %cmp7, label %if.then, label %lor.lhs.false8
+26:                                               ; preds = %21
+  %27 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %13, i32 0, i32 2
+  %28 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %27, i32 0, i32 2
+  %29 = load double, ptr %28, align 8, !tbaa !27
+  %30 = fcmp olt double %29, 0x3F847A5B0FF10ECC
+  br i1 %30, label %36, label %31
 
-lor.lhs.false8:                                   ; preds = %lor.lhs.false5
-  %m_gamma9 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %this1, i32 0, i32 2
-  %m_master = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %m_gamma9, i32 0, i32 3
-  %4 = load double, ptr %m_master, align 8
-  %cmp10 = fcmp olt double %4, 0x3F847A5B0FF10ECC
-  br i1 %cmp10, label %if.then, label %if.end
+31:                                               ; preds = %26
+  %32 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %13, i32 0, i32 2
+  %33 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %32, i32 0, i32 3
+  %34 = load double, ptr %33, align 8, !tbaa !28
+  %35 = fcmp olt double %34, 0x3F847A5B0FF10ECC
+  br i1 %35, label %36, label %69
 
-if.then:                                          ; preds = %lor.lhs.false8, %lor.lhs.false5, %lor.lhs.false, %land.lhs.true
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss)
-  %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %oss, ptr noundef @.str)
-          to label %invoke.cont unwind label %lpad
+36:                                               ; preds = %31, %26, %21, %16
+  call void @llvm.lifetime.start.p0(i64 376, ptr %5) #12
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5)
+  %37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef @.str)
+          to label %38 unwind label %52
 
-invoke.cont:                                      ; preds = %if.then
-  %m_gamma11 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %this1, i32 0, i32 2
-  %call13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4devlsERSoRKNS_11GradingRGBME(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 8 dereferenceable(32) %m_gamma11)
-          to label %invoke.cont12 unwind label %lpad
+38:                                               ; preds = %36
+  %39 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %13, i32 0, i32 2
+  %40 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5devlsERSoRKNS_11GradingRGBME(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(32) %39)
+          to label %41 unwind label %52
 
-invoke.cont12:                                    ; preds = %invoke.cont
-  %call15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call13, ptr noundef @.str.1)
-          to label %invoke.cont14 unwind label %lpad
+41:                                               ; preds = %38
+  %42 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef @.str.1)
+          to label %43 unwind label %52
 
-invoke.cont14:                                    ; preds = %invoke.cont12
-  %call17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call15, double noundef 1.000000e-02)
-          to label %invoke.cont16 unwind label %lpad
+43:                                               ; preds = %41
+  %44 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %42, double noundef 1.000000e-02)
+          to label %45 unwind label %52
 
-invoke.cont16:                                    ; preds = %invoke.cont14
-  %call19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call17, ptr noundef @.str.2)
-          to label %invoke.cont18 unwind label %lpad
+45:                                               ; preds = %43
+  %46 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef @.str.2)
+          to label %47 unwind label %52
 
-invoke.cont18:                                    ; preds = %invoke.cont16
-  store i1 true, ptr %cleanup.isactive, align 1
-  %exception = call ptr @__cxa_allocate_exception(i64 16) #6
-  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(112) %oss)
-          to label %invoke.cont21 unwind label %lpad20
+47:                                               ; preds = %45
+  store i1 true, ptr %9, align 1
+  %48 = call ptr @__cxa_allocate_exception(i64 16) #12
+  call void @llvm.lifetime.start.p0(i64 32, ptr %8) #12
+  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(112) %5)
+          to label %49 unwind label %56
 
-invoke.cont21:                                    ; preds = %invoke.cont18
-  %call22 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #6
-  invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef %call22)
-          to label %invoke.cont24 unwind label %lpad23
+49:                                               ; preds = %47
+  %50 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #12
+  invoke void @_ZN19OpenColorIO_v2_5dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef %50)
+          to label %51 unwind label %60
 
-invoke.cont24:                                    ; preds = %invoke.cont21
-  store i1 false, ptr %cleanup.isactive, align 1
-  invoke void @__cxa_throw(ptr %exception, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #7
-          to label %unreachable unwind label %lpad23
+51:                                               ; preds = %49
+  store i1 false, ptr %9, align 1
+  invoke void @__cxa_throw(ptr %48, ptr @_ZTIN19OpenColorIO_v2_5dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_5dev9ExceptionD1Ev) #13
+          to label %158 unwind label %60
 
-lpad:                                             ; preds = %invoke.cont16, %invoke.cont14, %invoke.cont12, %invoke.cont, %if.then
-  %5 = landingpad { ptr, i32 }
+52:                                               ; preds = %45, %43, %41, %38, %36
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
-  br label %ehcleanup25
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %6, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %7, align 4
+  br label %68
 
-lpad20:                                           ; preds = %invoke.cont18
-  %8 = landingpad { ptr, i32 }
+56:                                               ; preds = %47
+  %57 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
-  br label %ehcleanup
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %6, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %7, align 4
+  br label %64
 
-lpad23:                                           ; preds = %invoke.cont24, %invoke.cont21
-  %11 = landingpad { ptr, i32 }
+60:                                               ; preds = %51, %49
+  %61 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #6
-  br label %ehcleanup
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %6, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %7, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #12
+  br label %64
 
-ehcleanup:                                        ; preds = %lpad23, %lpad20
-  %cleanup.is_active = load i1, ptr %cleanup.isactive, align 1
-  br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
+64:                                               ; preds = %60, %56
+  call void @llvm.lifetime.end.p0(i64 32, ptr %8) #12
+  %65 = load i1, ptr %9, align 1
+  br i1 %65, label %66, label %67
 
-cleanup.action:                                   ; preds = %ehcleanup
-  call void @__cxa_free_exception(ptr %exception) #6
-  br label %cleanup.done
+66:                                               ; preds = %64
+  call void @__cxa_free_exception(ptr %48) #12
+  br label %67
 
-cleanup.done:                                     ; preds = %cleanup.action, %ehcleanup
-  br label %ehcleanup25
+67:                                               ; preds = %66, %64
+  br label %68
 
-ehcleanup25:                                      ; preds = %cleanup.done, %lpad
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss) #6
-  br label %eh.resume
+68:                                               ; preds = %67, %52
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #12
+  call void @llvm.lifetime.end.p0(i64 376, ptr %5) #12
+  br label %153
 
-if.end:                                           ; preds = %lor.lhs.false8, %entry
-  %14 = load i32, ptr %style.addr, align 4
-  %cmp26 = icmp eq i32 %14, 1
-  br i1 %cmp26, label %land.lhs.true27, label %if.end70
+69:                                               ; preds = %31, %2
+  %70 = load i32, ptr %4, align 4, !tbaa !23
+  %71 = icmp eq i32 %70, 1
+  br i1 %71, label %72, label %125
 
-land.lhs.true27:                                  ; preds = %if.end
-  %m_contrast = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %this1, i32 0, i32 1
-  %m_red28 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %m_contrast, i32 0, i32 0
-  %15 = load double, ptr %m_red28, align 8
-  %cmp29 = fcmp olt double %15, 0x3F847A5B0FF10ECC
-  br i1 %cmp29, label %if.then42, label %lor.lhs.false30
+72:                                               ; preds = %69
+  %73 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %13, i32 0, i32 1
+  %74 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %73, i32 0, i32 0
+  %75 = load double, ptr %74, align 8, !tbaa !29
+  %76 = fcmp olt double %75, 0x3F847A5B0FF10ECC
+  br i1 %76, label %92, label %77
 
-lor.lhs.false30:                                  ; preds = %land.lhs.true27
-  %m_contrast31 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %this1, i32 0, i32 1
-  %m_green32 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %m_contrast31, i32 0, i32 1
-  %16 = load double, ptr %m_green32, align 8
-  %cmp33 = fcmp olt double %16, 0x3F847A5B0FF10ECC
-  br i1 %cmp33, label %if.then42, label %lor.lhs.false34
+77:                                               ; preds = %72
+  %78 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %13, i32 0, i32 1
+  %79 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %78, i32 0, i32 1
+  %80 = load double, ptr %79, align 8, !tbaa !30
+  %81 = fcmp olt double %80, 0x3F847A5B0FF10ECC
+  br i1 %81, label %92, label %82
 
-lor.lhs.false34:                                  ; preds = %lor.lhs.false30
-  %m_contrast35 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %this1, i32 0, i32 1
-  %m_blue36 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %m_contrast35, i32 0, i32 2
-  %17 = load double, ptr %m_blue36, align 8
-  %cmp37 = fcmp olt double %17, 0x3F847A5B0FF10ECC
-  br i1 %cmp37, label %if.then42, label %lor.lhs.false38
+82:                                               ; preds = %77
+  %83 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %13, i32 0, i32 1
+  %84 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %83, i32 0, i32 2
+  %85 = load double, ptr %84, align 8, !tbaa !31
+  %86 = fcmp olt double %85, 0x3F847A5B0FF10ECC
+  br i1 %86, label %92, label %87
 
-lor.lhs.false38:                                  ; preds = %lor.lhs.false34
-  %m_contrast39 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %this1, i32 0, i32 1
-  %m_master40 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %m_contrast39, i32 0, i32 3
-  %18 = load double, ptr %m_master40, align 8
-  %cmp41 = fcmp olt double %18, 0x3F847A5B0FF10ECC
-  br i1 %cmp41, label %if.then42, label %if.end70
+87:                                               ; preds = %82
+  %88 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %13, i32 0, i32 1
+  %89 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %88, i32 0, i32 3
+  %90 = load double, ptr %89, align 8, !tbaa !32
+  %91 = fcmp olt double %90, 0x3F847A5B0FF10ECC
+  br i1 %91, label %92, label %125
 
-if.then42:                                        ; preds = %lor.lhs.false38, %lor.lhs.false34, %lor.lhs.false30, %land.lhs.true27
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss43)
-  %call46 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %oss43, ptr noundef @.str.3)
-          to label %invoke.cont45 unwind label %lpad44
+92:                                               ; preds = %87, %82, %77, %72
+  call void @llvm.lifetime.start.p0(i64 376, ptr %10) #12
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %10)
+  %93 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef @.str.3)
+          to label %94 unwind label %108
 
-invoke.cont45:                                    ; preds = %if.then42
-  %m_contrast47 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %this1, i32 0, i32 1
-  %call49 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4devlsERSoRKNS_11GradingRGBME(ptr noundef nonnull align 8 dereferenceable(8) %call46, ptr noundef nonnull align 8 dereferenceable(32) %m_contrast47)
-          to label %invoke.cont48 unwind label %lpad44
+94:                                               ; preds = %92
+  %95 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %13, i32 0, i32 1
+  %96 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5devlsERSoRKNS_11GradingRGBME(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull align 8 dereferenceable(32) %95)
+          to label %97 unwind label %108
 
-invoke.cont48:                                    ; preds = %invoke.cont45
-  %call51 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call49, ptr noundef @.str.1)
-          to label %invoke.cont50 unwind label %lpad44
+97:                                               ; preds = %94
+  %98 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %96, ptr noundef @.str.1)
+          to label %99 unwind label %108
 
-invoke.cont50:                                    ; preds = %invoke.cont48
-  %call53 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call51, double noundef 1.000000e-02)
-          to label %invoke.cont52 unwind label %lpad44
+99:                                               ; preds = %97
+  %100 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %98, double noundef 1.000000e-02)
+          to label %101 unwind label %108
 
-invoke.cont52:                                    ; preds = %invoke.cont50
-  %call55 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call53, ptr noundef @.str.2)
-          to label %invoke.cont54 unwind label %lpad44
+101:                                              ; preds = %99
+  %102 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %100, ptr noundef @.str.2)
+          to label %103 unwind label %108
 
-invoke.cont54:                                    ; preds = %invoke.cont52
-  store i1 true, ptr %cleanup.isactive63, align 1
-  %exception56 = call ptr @__cxa_allocate_exception(i64 16) #6
-  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp57, ptr noundef nonnull align 8 dereferenceable(112) %oss43)
-          to label %invoke.cont59 unwind label %lpad58
+103:                                              ; preds = %101
+  store i1 true, ptr %12, align 1
+  %104 = call ptr @__cxa_allocate_exception(i64 16) #12
+  call void @llvm.lifetime.start.p0(i64 32, ptr %11) #12
+  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(112) %10)
+          to label %105 unwind label %112
 
-invoke.cont59:                                    ; preds = %invoke.cont54
-  %call60 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp57) #6
-  invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception56, ptr noundef %call60)
-          to label %invoke.cont62 unwind label %lpad61
+105:                                              ; preds = %103
+  %106 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #12
+  invoke void @_ZN19OpenColorIO_v2_5dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %104, ptr noundef %106)
+          to label %107 unwind label %116
 
-invoke.cont62:                                    ; preds = %invoke.cont59
-  store i1 false, ptr %cleanup.isactive63, align 1
-  invoke void @__cxa_throw(ptr %exception56, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #7
-          to label %unreachable unwind label %lpad61
+107:                                              ; preds = %105
+  store i1 false, ptr %12, align 1
+  invoke void @__cxa_throw(ptr %104, ptr @_ZTIN19OpenColorIO_v2_5dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_5dev9ExceptionD1Ev) #13
+          to label %158 unwind label %116
 
-lpad44:                                           ; preds = %invoke.cont52, %invoke.cont50, %invoke.cont48, %invoke.cont45, %if.then42
-  %19 = landingpad { ptr, i32 }
+108:                                              ; preds = %101, %99, %97, %94, %92
+  %109 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
-  br label %ehcleanup69
+  %110 = extractvalue { ptr, i32 } %109, 0
+  store ptr %110, ptr %6, align 8
+  %111 = extractvalue { ptr, i32 } %109, 1
+  store i32 %111, ptr %7, align 4
+  br label %124
 
-lpad58:                                           ; preds = %invoke.cont54
+112:                                              ; preds = %103
+  %113 = landingpad { ptr, i32 }
+          cleanup
+  %114 = extractvalue { ptr, i32 } %113, 0
+  store ptr %114, ptr %6, align 8
+  %115 = extractvalue { ptr, i32 } %113, 1
+  store i32 %115, ptr %7, align 4
+  br label %120
+
+116:                                              ; preds = %107, %105
+  %117 = landingpad { ptr, i32 }
+          cleanup
+  %118 = extractvalue { ptr, i32 } %117, 0
+  store ptr %118, ptr %6, align 8
+  %119 = extractvalue { ptr, i32 } %117, 1
+  store i32 %119, ptr %7, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #12
+  br label %120
+
+120:                                              ; preds = %116, %112
+  call void @llvm.lifetime.end.p0(i64 32, ptr %11) #12
+  %121 = load i1, ptr %12, align 1
+  br i1 %121, label %122, label %123
+
+122:                                              ; preds = %120
+  call void @__cxa_free_exception(ptr %104) #12
+  br label %123
+
+123:                                              ; preds = %122, %120
+  br label %124
+
+124:                                              ; preds = %123, %108
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %10) #12
+  call void @llvm.lifetime.end.p0(i64 376, ptr %10) #12
+  br label %153
+
+125:                                              ; preds = %87, %69
+  %126 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %13, i32 0, i32 10
+  %127 = load double, ptr %126, align 8, !tbaa !21
+  %128 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %13, i32 0, i32 9
+  %129 = load double, ptr %128, align 8, !tbaa !22
+  %130 = fsub double %127, %129
+  %131 = fcmp olt double %130, 0x3F847A5B0FF10ECC
+  br i1 %131, label %132, label %139
+
+132:                                              ; preds = %125
+  %133 = call ptr @__cxa_allocate_exception(i64 16) #12
+  invoke void @_ZN19OpenColorIO_v2_5dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %133, ptr noundef @.str.4)
+          to label %134 unwind label %135
+
+134:                                              ; preds = %132
+  call void @__cxa_throw(ptr %133, ptr @_ZTIN19OpenColorIO_v2_5dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_5dev9ExceptionD1Ev) #13
+  unreachable
+
+135:                                              ; preds = %132
+  %136 = landingpad { ptr, i32 }
+          cleanup
+  %137 = extractvalue { ptr, i32 } %136, 0
+  store ptr %137, ptr %6, align 8
+  %138 = extractvalue { ptr, i32 } %136, 1
+  store i32 %138, ptr %7, align 4
+  call void @__cxa_free_exception(ptr %133) #12
+  br label %153
+
+139:                                              ; preds = %125
+  %140 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %13, i32 0, i32 11
+  %141 = load double, ptr %140, align 8, !tbaa !20
+  %142 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %13, i32 0, i32 12
+  %143 = load double, ptr %142, align 8, !tbaa !19
+  %144 = fcmp ogt double %141, %143
+  br i1 %144, label %145, label %152
+
+145:                                              ; preds = %139
+  %146 = call ptr @__cxa_allocate_exception(i64 16) #12
+  invoke void @_ZN19OpenColorIO_v2_5dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %146, ptr noundef @.str.5)
+          to label %147 unwind label %148
+
+147:                                              ; preds = %145
+  call void @__cxa_throw(ptr %146, ptr @_ZTIN19OpenColorIO_v2_5dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_5dev9ExceptionD1Ev) #13
+  unreachable
+
+148:                                              ; preds = %145
+  %149 = landingpad { ptr, i32 }
+          cleanup
+  %150 = extractvalue { ptr, i32 } %149, 0
+  store ptr %150, ptr %6, align 8
+  %151 = extractvalue { ptr, i32 } %149, 1
+  store i32 %151, ptr %7, align 4
+  call void @__cxa_free_exception(ptr %146) #12
+  br label %153
+
+152:                                              ; preds = %139
+  ret void
+
+153:                                              ; preds = %148, %135, %124, %68
+  %154 = load ptr, ptr %6, align 8
+  %155 = load i32, ptr %7, align 4
+  %156 = insertvalue { ptr, i32 } poison, ptr %154, 0
+  %157 = insertvalue { ptr, i32 } %156, i32 %155, 1
+  resume { ptr, i32 } %157
+
+158:                                              ; preds = %107, %51
+  unreachable
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !33
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr inbounds i8, ptr %5, i64 112
+  call void @_ZNSt9basic_iosIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %6)
+  invoke void @_ZNSoC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1))
+          to label %7 unwind label %17
+
+7:                                                ; preds = %1
+  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i32 0, i32 0, i32 3), ptr %5, align 8, !tbaa !35
+  %8 = getelementptr inbounds i8, ptr %5, i64 112
+  store ptr getelementptr inbounds inrange(-24, 16) ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i32 0, i32 1, i32 3), ptr %8, align 8, !tbaa !35
+  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_ostringstream", ptr %5, i32 0, i32 1
+  invoke void @_ZNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEC2ESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(104) %9, i32 noundef 16)
+          to label %10 unwind label %21
+
+10:                                               ; preds = %7
+  %11 = load ptr, ptr %5, align 8, !tbaa !35
+  %12 = getelementptr i8, ptr %11, i64 -24
+  %13 = load i64, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %5, i64 %13
+  %15 = getelementptr inbounds nuw %"class.std::__cxx11::basic_ostringstream", ptr %5, i32 0, i32 1
+  invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %14, ptr noundef %15)
+          to label %16 unwind label %25
+
+16:                                               ; preds = %10
+  ret void
+
+17:                                               ; preds = %1
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %3, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %4, align 4
+  br label %30
+
+21:                                               ; preds = %7
   %22 = landingpad { ptr, i32 }
           cleanup
   %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
+  store ptr %23, ptr %3, align 8
   %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
-  br label %ehcleanup65
+  store i32 %24, ptr %4, align 4
+  br label %29
 
-lpad61:                                           ; preds = %invoke.cont62, %invoke.cont59
-  %25 = landingpad { ptr, i32 }
+25:                                               ; preds = %10
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %exn.slot, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %ehselector.slot, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp57) #6
-  br label %ehcleanup65
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %3, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %4, align 4
+  call void @_ZNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %9) #12
+  br label %29
 
-ehcleanup65:                                      ; preds = %lpad61, %lpad58
-  %cleanup.is_active66 = load i1, ptr %cleanup.isactive63, align 1
-  br i1 %cleanup.is_active66, label %cleanup.action67, label %cleanup.done68
+29:                                               ; preds = %25, %21
+  call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1)) #12
+  br label %30
 
-cleanup.action67:                                 ; preds = %ehcleanup65
-  call void @__cxa_free_exception(ptr %exception56) #6
-  br label %cleanup.done68
+30:                                               ; preds = %29, %17
+  %31 = getelementptr inbounds i8, ptr %5, i64 112
+  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %31) #12
+  br label %32
 
-cleanup.done68:                                   ; preds = %cleanup.action67, %ehcleanup65
-  br label %ehcleanup69
-
-ehcleanup69:                                      ; preds = %cleanup.done68, %lpad44
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss43) #6
-  br label %eh.resume
-
-if.end70:                                         ; preds = %lor.lhs.false38, %if.end
-  %m_pivotWhite = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %this1, i32 0, i32 10
-  %28 = load double, ptr %m_pivotWhite, align 8
-  %m_pivotBlack = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %this1, i32 0, i32 9
-  %29 = load double, ptr %m_pivotBlack, align 8
-  %sub = fsub double %28, %29
-  %cmp71 = fcmp olt double %sub, 0x3F847A5B0FF10ECC
-  br i1 %cmp71, label %if.then72, label %if.end77
-
-if.then72:                                        ; preds = %if.end70
-  %exception73 = call ptr @__cxa_allocate_exception(i64 16) #6
-  invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception73, ptr noundef @.str.4)
-          to label %invoke.cont75 unwind label %lpad74
-
-invoke.cont75:                                    ; preds = %if.then72
-  call void @__cxa_throw(ptr %exception73, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #7
-  unreachable
-
-lpad74:                                           ; preds = %if.then72
-  %30 = landingpad { ptr, i32 }
-          cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %exn.slot, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception73) #6
-  br label %eh.resume
-
-if.end77:                                         ; preds = %if.end70
-  %m_clampBlack = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %this1, i32 0, i32 11
-  %33 = load double, ptr %m_clampBlack, align 8
-  %m_clampWhite = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %this1, i32 0, i32 12
-  %34 = load double, ptr %m_clampWhite, align 8
-  %cmp78 = fcmp ogt double %33, %34
-  br i1 %cmp78, label %if.then79, label %if.end84
-
-if.then79:                                        ; preds = %if.end77
-  %exception80 = call ptr @__cxa_allocate_exception(i64 16) #6
-  invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception80, ptr noundef @.str.5)
-          to label %invoke.cont82 unwind label %lpad81
-
-invoke.cont82:                                    ; preds = %if.then79
-  call void @__cxa_throw(ptr %exception80, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #7
-  unreachable
-
-lpad81:                                           ; preds = %if.then79
-  %35 = landingpad { ptr, i32 }
-          cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %exn.slot, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %ehselector.slot, align 4
-  call void @__cxa_free_exception(ptr %exception80) #6
-  br label %eh.resume
-
-if.end84:                                         ; preds = %if.end77
-  ret void
-
-eh.resume:                                        ; preds = %lpad81, %lpad74, %ehcleanup69, %ehcleanup25
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val85 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val85
-
-unreachable:                                      ; preds = %invoke.cont62, %invoke.cont24
-  unreachable
+32:                                               ; preds = %30
+  %33 = load ptr, ptr %3, align 8
+  %34 = load i32, ptr %4, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
-declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #2
+; Function Attrs: inlinehint mustprogress uwtable
+define available_externally noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store ptr %1, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %13, label %7
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) #2
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %3, align 8, !tbaa !37
+  %9 = load ptr, ptr %8, align 8, !tbaa !35
+  %10 = getelementptr i8, ptr %9, i64 -24
+  %11 = load i64, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %8, i64 %11
+  call void @_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %12, i32 noundef 1)
+  br label %19
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4devlsERSoRKNS_11GradingRGBME(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) #2
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %3, align 8, !tbaa !37
+  %15 = load ptr, ptr %4, align 8, !tbaa !39
+  %16 = load ptr, ptr %4, align 8, !tbaa !39
+  %17 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %16)
+  %18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %15, i64 noundef %17)
+  br label %19
+
+19:                                               ; preds = %13, %7
+  %20 = load ptr, ptr %3, align 8, !tbaa !37
+  ret ptr %20
+}
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5devlsERSoRKNS_11GradingRGBME(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) #4
 
 declare i32 @__gxx_personality_v0(...)
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8), double noundef) #2
+; Function Attrs: mustprogress uwtable
+define available_externally noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %1) #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca double, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store double %1, ptr %4, align 8, !tbaa !41
+  %5 = load ptr, ptr %3, align 8
+  %6 = load double, ptr %4, align 8, !tbaa !41
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %5, double noundef %6)
+  ret ptr %7
+}
 
 declare ptr @__cxa_allocate_exception(i64)
 
-declare void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(112)) #2
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %1) #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !33
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw %"class.std::__cxx11::basic_ostringstream", ptr %5, i32 0, i32 1
+  call void @_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8
+  %4 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %5 unwind label %6
+
+5:                                                ; preds = %1
+  ret ptr %4
+
+6:                                                ; preds = %1
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #14
+  unreachable
+}
+
+declare void @_ZN19OpenColorIO_v2_5dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) #3
-
-declare void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #2
-
-; Function Attrs: nounwind
-declare void @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
+declare void @_ZN19OpenColorIO_v2_5dev9ExceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
 
 declare void @__cxa_throw(ptr, ptr, ptr)
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %4 unwind label %6
+
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
+  ret void
+
+6:                                                ; preds = %1
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #14
+  unreachable
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @__cxa_free_exception(ptr)
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #3
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE) #12
+  %4 = getelementptr inbounds i8, ptr %3, i64 112
+  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %4) #12
+  ret void
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev23GradingPrimaryPreRender6updateENS_12GradingStyleENS_18TransformDirectionERKNS_14GradingPrimaryE(ptr noundef nonnull align 8 dereferenceable(82) %this, i32 noundef %style, i32 noundef %dir, ptr noundef nonnull align 8 dereferenceable(272) %v) #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %style.addr = alloca i32, align 4
-  %dir.addr = alloca i32, align 4
-  %v.addr = alloca ptr, align 8
-  %b = alloca ptr, align 8
-  %c = alloca ptr, align 8
-  %g = alloca ptr, align 8
-  %c0 = alloca double, align 8
-  %c1 = alloca double, align 8
-  %c2 = alloca double, align 8
-  %o = alloca ptr, align 8
-  %e = alloca ptr, align 8
-  %c185 = alloca ptr, align 8
-  %o369 = alloca ptr, align 8
-  %l = alloca ptr, align 8
-  %gain0 = alloca double, align 8
-  %gain1 = alloca double, align 8
-  %gain2 = alloca double, align 8
-  %g400 = alloca ptr, align 8
-  %slopeDen0 = alloca double, align 8
-  %slopeDen1 = alloca double, align 8
-  %slopeDen2 = alloca double, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %style, ptr %style.addr, align 4
-  store i32 %dir, ptr %dir.addr, align 4
-  store ptr %v, ptr %v.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %v.addr, align 8
-  %m_saturation = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %0, i32 0, i32 7
-  %1 = load double, ptr %m_saturation, align 8
-  %cmp = fcmp oeq double %1, 1.000000e+00
-  br i1 %cmp, label %land.lhs.true, label %land.end
+define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_12GradingStyleENS_18TransformDirectionERKNS_14GradingPrimaryE(ptr noundef nonnull align 8 dereferenceable(82) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(272) %3) #0 align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca double, align 8
+  %13 = alloca double, align 8
+  %14 = alloca double, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca double, align 8
+  %21 = alloca double, align 8
+  %22 = alloca double, align 8
+  %23 = alloca ptr, align 8
+  %24 = alloca double, align 8
+  %25 = alloca double, align 8
+  %26 = alloca double, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !44
+  store i32 %1, ptr %6, align 4, !tbaa !23
+  store i32 %2, ptr %7, align 4, !tbaa !46
+  store ptr %3, ptr %8, align 8, !tbaa !14
+  %27 = load ptr, ptr %5, align 8
+  %28 = load ptr, ptr %8, align 8, !tbaa !14
+  %29 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %28, i32 0, i32 7
+  %30 = load double, ptr %29, align 8, !tbaa !18
+  %31 = fcmp oeq double %30, 1.000000e+00
+  br i1 %31, label %32, label %44
 
-land.lhs.true:                                    ; preds = %entry
-  %2 = load ptr, ptr %v.addr, align 8
-  %m_clampBlack = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %2, i32 0, i32 11
-  %3 = load double, ptr %m_clampBlack, align 8
-  %call = call noundef double @_ZN19OpenColorIO_v2_4dev14GradingPrimary12NoClampBlackEv()
-  %cmp2 = fcmp oeq double %3, %call
-  br i1 %cmp2, label %land.rhs, label %land.end
+32:                                               ; preds = %4
+  %33 = load ptr, ptr %8, align 8, !tbaa !14
+  %34 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %33, i32 0, i32 11
+  %35 = load double, ptr %34, align 8, !tbaa !20
+  %36 = call noundef double @_ZN19OpenColorIO_v2_5dev14GradingPrimary12NoClampBlackEv()
+  %37 = fcmp oeq double %35, %36
+  br i1 %37, label %38, label %44
 
-land.rhs:                                         ; preds = %land.lhs.true
-  %4 = load ptr, ptr %v.addr, align 8
-  %m_clampWhite = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %4, i32 0, i32 12
-  %5 = load double, ptr %m_clampWhite, align 8
-  %call3 = call noundef double @_ZN19OpenColorIO_v2_4dev14GradingPrimary12NoClampWhiteEv()
-  %cmp4 = fcmp oeq double %5, %call3
-  br label %land.end
+38:                                               ; preds = %32
+  %39 = load ptr, ptr %8, align 8, !tbaa !14
+  %40 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %39, i32 0, i32 12
+  %41 = load double, ptr %40, align 8, !tbaa !19
+  %42 = call noundef double @_ZN19OpenColorIO_v2_5dev14GradingPrimary12NoClampWhiteEv()
+  %43 = fcmp oeq double %41, %42
+  br label %44
 
-land.end:                                         ; preds = %land.rhs, %land.lhs.true, %entry
-  %6 = phi i1 [ false, %land.lhs.true ], [ false, %entry ], [ %cmp4, %land.rhs ]
-  %m_localBypass = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 8
-  %frombool = zext i1 %6 to i8
-  store i8 %frombool, ptr %m_localBypass, align 1
-  %7 = load i32, ptr %style.addr, align 4
-  switch i32 %7, label %sw.epilog654 [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb184
-    i32 2, label %sw.bb368
+44:                                               ; preds = %38, %32, %4
+  %45 = phi i1 [ false, %32 ], [ false, %4 ], [ %43, %38 ]
+  %46 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 8
+  %47 = zext i1 %45 to i8
+  store i8 %47, ptr %46, align 1, !tbaa !48
+  %48 = load i32, ptr %6, align 4, !tbaa !23
+  switch i32 %48, label %1104 [
+    i32 0, label %49
+    i32 1, label %346
+    i32 2, label %623
   ]
 
-sw.bb:                                            ; preds = %land.end
-  %8 = load ptr, ptr %v.addr, align 8
-  %m_brightness = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %8, i32 0, i32 0
-  store ptr %m_brightness, ptr %b, align 8
-  %9 = load ptr, ptr %v.addr, align 8
-  %m_contrast = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %9, i32 0, i32 1
-  store ptr %m_contrast, ptr %c, align 8
-  %10 = load ptr, ptr %v.addr, align 8
-  %m_gamma = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %10, i32 0, i32 2
-  store ptr %m_gamma, ptr %g, align 8
-  %11 = load i32, ptr %dir.addr, align 4
-  switch i32 %11, label %sw.epilog [
-    i32 0, label %sw.bb5
-    i32 1, label %sw.bb61
+49:                                               ; preds = %44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  %50 = load ptr, ptr %8, align 8, !tbaa !14
+  %51 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %50, i32 0, i32 0
+  store ptr %51, ptr %9, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  %52 = load ptr, ptr %8, align 8, !tbaa !14
+  %53 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %52, i32 0, i32 1
+  store ptr %53, ptr %10, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #12
+  %54 = load ptr, ptr %8, align 8, !tbaa !14
+  %55 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %54, i32 0, i32 2
+  store ptr %55, ptr %11, align 8, !tbaa !3
+  %56 = load i32, ptr %7, align 4, !tbaa !46
+  switch i32 %56, label %281 [
+    i32 0, label %57
+    i32 1, label %157
   ]
 
-sw.bb5:                                           ; preds = %sw.bb
-  %12 = load ptr, ptr %b, align 8
-  %m_master = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %12, i32 0, i32 3
-  %13 = load double, ptr %m_master, align 8
-  %14 = load ptr, ptr %b, align 8
-  %m_red = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %14, i32 0, i32 0
-  %15 = load double, ptr %m_red, align 8
-  %add = fadd double %13, %15
-  %mul = fmul double %add, 6.250000e+00
-  %div = fdiv double %mul, 1.023000e+03
-  %conv = fptrunc double %div to float
-  %m_brightness6 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 0
-  %call7 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_brightness6, i64 noundef 0) #6
-  store float %conv, ptr %call7, align 4
-  %16 = load ptr, ptr %b, align 8
-  %m_master8 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %16, i32 0, i32 3
-  %17 = load double, ptr %m_master8, align 8
-  %18 = load ptr, ptr %b, align 8
-  %m_green = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %18, i32 0, i32 1
-  %19 = load double, ptr %m_green, align 8
-  %add9 = fadd double %17, %19
-  %mul10 = fmul double %add9, 6.250000e+00
-  %div11 = fdiv double %mul10, 1.023000e+03
-  %conv12 = fptrunc double %div11 to float
-  %m_brightness13 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 0
-  %call14 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_brightness13, i64 noundef 1) #6
-  store float %conv12, ptr %call14, align 4
-  %20 = load ptr, ptr %b, align 8
-  %m_master15 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %20, i32 0, i32 3
-  %21 = load double, ptr %m_master15, align 8
-  %22 = load ptr, ptr %b, align 8
-  %m_blue = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %22, i32 0, i32 2
-  %23 = load double, ptr %m_blue, align 8
-  %add16 = fadd double %21, %23
-  %mul17 = fmul double %add16, 6.250000e+00
-  %div18 = fdiv double %mul17, 1.023000e+03
-  %conv19 = fptrunc double %div18 to float
-  %m_brightness20 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 0
-  %call21 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_brightness20, i64 noundef 2) #6
-  store float %conv19, ptr %call21, align 4
-  %24 = load ptr, ptr %c, align 8
-  %m_master22 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %24, i32 0, i32 3
-  %25 = load double, ptr %m_master22, align 8
-  %26 = load ptr, ptr %c, align 8
-  %m_red23 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %26, i32 0, i32 0
-  %27 = load double, ptr %m_red23, align 8
-  %mul24 = fmul double %25, %27
-  %conv25 = fptrunc double %mul24 to float
-  %m_contrast26 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 1
-  %call27 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_contrast26, i64 noundef 0) #6
-  store float %conv25, ptr %call27, align 4
-  %28 = load ptr, ptr %c, align 8
-  %m_master28 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %28, i32 0, i32 3
-  %29 = load double, ptr %m_master28, align 8
-  %30 = load ptr, ptr %c, align 8
-  %m_green29 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %30, i32 0, i32 1
-  %31 = load double, ptr %m_green29, align 8
-  %mul30 = fmul double %29, %31
-  %conv31 = fptrunc double %mul30 to float
-  %m_contrast32 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 1
-  %call33 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_contrast32, i64 noundef 1) #6
-  store float %conv31, ptr %call33, align 4
-  %32 = load ptr, ptr %c, align 8
-  %m_master34 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %32, i32 0, i32 3
-  %33 = load double, ptr %m_master34, align 8
-  %34 = load ptr, ptr %c, align 8
-  %m_blue35 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %34, i32 0, i32 2
-  %35 = load double, ptr %m_blue35, align 8
-  %mul36 = fmul double %33, %35
-  %conv37 = fptrunc double %mul36 to float
-  %m_contrast38 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 1
-  %call39 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_contrast38, i64 noundef 2) #6
-  store float %conv37, ptr %call39, align 4
-  %36 = load ptr, ptr %g, align 8
-  %m_master40 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %36, i32 0, i32 3
-  %37 = load double, ptr %m_master40, align 8
-  %38 = load ptr, ptr %g, align 8
-  %m_red41 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %38, i32 0, i32 0
-  %39 = load double, ptr %m_red41, align 8
-  %mul42 = fmul double %37, %39
-  %div43 = fdiv double 1.000000e+00, %mul42
-  %conv44 = fptrunc double %div43 to float
-  %m_gamma45 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 2
-  %call46 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_gamma45, i64 noundef 0) #6
-  store float %conv44, ptr %call46, align 4
-  %40 = load ptr, ptr %g, align 8
-  %m_master47 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %40, i32 0, i32 3
-  %41 = load double, ptr %m_master47, align 8
-  %42 = load ptr, ptr %g, align 8
-  %m_green48 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %42, i32 0, i32 1
-  %43 = load double, ptr %m_green48, align 8
-  %mul49 = fmul double %41, %43
-  %div50 = fdiv double 1.000000e+00, %mul49
-  %conv51 = fptrunc double %div50 to float
-  %m_gamma52 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 2
-  %call53 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_gamma52, i64 noundef 1) #6
-  store float %conv51, ptr %call53, align 4
-  %44 = load ptr, ptr %g, align 8
-  %m_master54 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %44, i32 0, i32 3
-  %45 = load double, ptr %m_master54, align 8
-  %46 = load ptr, ptr %g, align 8
-  %m_blue55 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %46, i32 0, i32 2
-  %47 = load double, ptr %m_blue55, align 8
-  %mul56 = fmul double %45, %47
-  %div57 = fdiv double 1.000000e+00, %mul56
-  %conv58 = fptrunc double %div57 to float
-  %m_gamma59 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 2
-  %call60 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_gamma59, i64 noundef 2) #6
-  store float %conv58, ptr %call60, align 4
-  br label %sw.epilog
+57:                                               ; preds = %49
+  %58 = load ptr, ptr %9, align 8, !tbaa !3
+  %59 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %58, i32 0, i32 3
+  %60 = load double, ptr %59, align 8, !tbaa !13
+  %61 = load ptr, ptr %9, align 8, !tbaa !3
+  %62 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %61, i32 0, i32 0
+  %63 = load double, ptr %62, align 8, !tbaa !8
+  %64 = fadd double %60, %63
+  %65 = fmul double %64, 6.250000e+00
+  %66 = fdiv double %65, 1.023000e+03
+  %67 = fptrunc double %66 to float
+  %68 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 0
+  %69 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %68, i64 noundef 0) #12
+  store float %67, ptr %69, align 4, !tbaa !52
+  %70 = load ptr, ptr %9, align 8, !tbaa !3
+  %71 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %70, i32 0, i32 3
+  %72 = load double, ptr %71, align 8, !tbaa !13
+  %73 = load ptr, ptr %9, align 8, !tbaa !3
+  %74 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %73, i32 0, i32 1
+  %75 = load double, ptr %74, align 8, !tbaa !11
+  %76 = fadd double %72, %75
+  %77 = fmul double %76, 6.250000e+00
+  %78 = fdiv double %77, 1.023000e+03
+  %79 = fptrunc double %78 to float
+  %80 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 0
+  %81 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %80, i64 noundef 1) #12
+  store float %79, ptr %81, align 4, !tbaa !52
+  %82 = load ptr, ptr %9, align 8, !tbaa !3
+  %83 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %82, i32 0, i32 3
+  %84 = load double, ptr %83, align 8, !tbaa !13
+  %85 = load ptr, ptr %9, align 8, !tbaa !3
+  %86 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %85, i32 0, i32 2
+  %87 = load double, ptr %86, align 8, !tbaa !12
+  %88 = fadd double %84, %87
+  %89 = fmul double %88, 6.250000e+00
+  %90 = fdiv double %89, 1.023000e+03
+  %91 = fptrunc double %90 to float
+  %92 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 0
+  %93 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %92, i64 noundef 2) #12
+  store float %91, ptr %93, align 4, !tbaa !52
+  %94 = load ptr, ptr %10, align 8, !tbaa !3
+  %95 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %94, i32 0, i32 3
+  %96 = load double, ptr %95, align 8, !tbaa !13
+  %97 = load ptr, ptr %10, align 8, !tbaa !3
+  %98 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %97, i32 0, i32 0
+  %99 = load double, ptr %98, align 8, !tbaa !8
+  %100 = fmul double %96, %99
+  %101 = fptrunc double %100 to float
+  %102 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 1
+  %103 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %102, i64 noundef 0) #12
+  store float %101, ptr %103, align 4, !tbaa !52
+  %104 = load ptr, ptr %10, align 8, !tbaa !3
+  %105 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %104, i32 0, i32 3
+  %106 = load double, ptr %105, align 8, !tbaa !13
+  %107 = load ptr, ptr %10, align 8, !tbaa !3
+  %108 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %107, i32 0, i32 1
+  %109 = load double, ptr %108, align 8, !tbaa !11
+  %110 = fmul double %106, %109
+  %111 = fptrunc double %110 to float
+  %112 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 1
+  %113 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %112, i64 noundef 1) #12
+  store float %111, ptr %113, align 4, !tbaa !52
+  %114 = load ptr, ptr %10, align 8, !tbaa !3
+  %115 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %114, i32 0, i32 3
+  %116 = load double, ptr %115, align 8, !tbaa !13
+  %117 = load ptr, ptr %10, align 8, !tbaa !3
+  %118 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %117, i32 0, i32 2
+  %119 = load double, ptr %118, align 8, !tbaa !12
+  %120 = fmul double %116, %119
+  %121 = fptrunc double %120 to float
+  %122 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 1
+  %123 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %122, i64 noundef 2) #12
+  store float %121, ptr %123, align 4, !tbaa !52
+  %124 = load ptr, ptr %11, align 8, !tbaa !3
+  %125 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %124, i32 0, i32 3
+  %126 = load double, ptr %125, align 8, !tbaa !13
+  %127 = load ptr, ptr %11, align 8, !tbaa !3
+  %128 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %127, i32 0, i32 0
+  %129 = load double, ptr %128, align 8, !tbaa !8
+  %130 = fmul double %126, %129
+  %131 = fdiv double 1.000000e+00, %130
+  %132 = fptrunc double %131 to float
+  %133 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 2
+  %134 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %133, i64 noundef 0) #12
+  store float %132, ptr %134, align 4, !tbaa !52
+  %135 = load ptr, ptr %11, align 8, !tbaa !3
+  %136 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %135, i32 0, i32 3
+  %137 = load double, ptr %136, align 8, !tbaa !13
+  %138 = load ptr, ptr %11, align 8, !tbaa !3
+  %139 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %138, i32 0, i32 1
+  %140 = load double, ptr %139, align 8, !tbaa !11
+  %141 = fmul double %137, %140
+  %142 = fdiv double 1.000000e+00, %141
+  %143 = fptrunc double %142 to float
+  %144 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 2
+  %145 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %144, i64 noundef 1) #12
+  store float %143, ptr %145, align 4, !tbaa !52
+  %146 = load ptr, ptr %11, align 8, !tbaa !3
+  %147 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %146, i32 0, i32 3
+  %148 = load double, ptr %147, align 8, !tbaa !13
+  %149 = load ptr, ptr %11, align 8, !tbaa !3
+  %150 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %149, i32 0, i32 2
+  %151 = load double, ptr %150, align 8, !tbaa !12
+  %152 = fmul double %148, %151
+  %153 = fdiv double 1.000000e+00, %152
+  %154 = fptrunc double %153 to float
+  %155 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 2
+  %156 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %155, i64 noundef 2) #12
+  store float %154, ptr %156, align 4, !tbaa !52
+  br label %281
 
-sw.bb61:                                          ; preds = %sw.bb
-  %48 = load ptr, ptr %b, align 8
-  %m_master62 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %48, i32 0, i32 3
-  %49 = load double, ptr %m_master62, align 8
-  %50 = load ptr, ptr %b, align 8
-  %m_red63 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %50, i32 0, i32 0
-  %51 = load double, ptr %m_red63, align 8
-  %add64 = fadd double %49, %51
-  %mul65 = fmul double %add64, 6.250000e+00
-  %div66 = fdiv double %mul65, 1.023000e+03
-  %conv67 = fptrunc double %div66 to float
-  %fneg = fneg float %conv67
-  %m_brightness68 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 0
-  %call69 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_brightness68, i64 noundef 0) #6
-  store float %fneg, ptr %call69, align 4
-  %52 = load ptr, ptr %b, align 8
-  %m_master70 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %52, i32 0, i32 3
-  %53 = load double, ptr %m_master70, align 8
-  %54 = load ptr, ptr %b, align 8
-  %m_green71 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %54, i32 0, i32 1
-  %55 = load double, ptr %m_green71, align 8
-  %add72 = fadd double %53, %55
-  %mul73 = fmul double %add72, 6.250000e+00
-  %div74 = fdiv double %mul73, 1.023000e+03
-  %conv75 = fptrunc double %div74 to float
-  %fneg76 = fneg float %conv75
-  %m_brightness77 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 0
-  %call78 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_brightness77, i64 noundef 1) #6
-  store float %fneg76, ptr %call78, align 4
-  %56 = load ptr, ptr %b, align 8
-  %m_master79 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %56, i32 0, i32 3
-  %57 = load double, ptr %m_master79, align 8
-  %58 = load ptr, ptr %b, align 8
-  %m_blue80 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %58, i32 0, i32 2
-  %59 = load double, ptr %m_blue80, align 8
-  %add81 = fadd double %57, %59
-  %mul82 = fmul double %add81, 6.250000e+00
-  %div83 = fdiv double %mul82, 1.023000e+03
-  %conv84 = fptrunc double %div83 to float
-  %fneg85 = fneg float %conv84
-  %m_brightness86 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 0
-  %call87 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_brightness86, i64 noundef 2) #6
-  store float %fneg85, ptr %call87, align 4
-  %60 = load ptr, ptr %c, align 8
-  %m_master88 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %60, i32 0, i32 3
-  %61 = load double, ptr %m_master88, align 8
-  %62 = load ptr, ptr %c, align 8
-  %m_red89 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %62, i32 0, i32 0
-  %63 = load double, ptr %m_red89, align 8
-  %mul90 = fmul double %61, %63
-  store double %mul90, ptr %c0, align 8
-  %64 = load ptr, ptr %c, align 8
-  %m_master91 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %64, i32 0, i32 3
-  %65 = load double, ptr %m_master91, align 8
-  %66 = load ptr, ptr %c, align 8
-  %m_green92 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %66, i32 0, i32 1
-  %67 = load double, ptr %m_green92, align 8
-  %mul93 = fmul double %65, %67
-  store double %mul93, ptr %c1, align 8
-  %68 = load ptr, ptr %c, align 8
-  %m_master94 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %68, i32 0, i32 3
-  %69 = load double, ptr %m_master94, align 8
-  %70 = load ptr, ptr %c, align 8
-  %m_blue95 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %70, i32 0, i32 2
-  %71 = load double, ptr %m_blue95, align 8
-  %mul96 = fmul double %69, %71
-  store double %mul96, ptr %c2, align 8
-  %72 = load double, ptr %c0, align 8
-  %cmp97 = fcmp oeq double %72, 0.000000e+00
-  br i1 %cmp97, label %cond.true, label %cond.false
+157:                                              ; preds = %49
+  %158 = load ptr, ptr %9, align 8, !tbaa !3
+  %159 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %158, i32 0, i32 3
+  %160 = load double, ptr %159, align 8, !tbaa !13
+  %161 = load ptr, ptr %9, align 8, !tbaa !3
+  %162 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %161, i32 0, i32 0
+  %163 = load double, ptr %162, align 8, !tbaa !8
+  %164 = fadd double %160, %163
+  %165 = fmul double %164, 6.250000e+00
+  %166 = fdiv double %165, 1.023000e+03
+  %167 = fptrunc double %166 to float
+  %168 = fneg float %167
+  %169 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 0
+  %170 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %169, i64 noundef 0) #12
+  store float %168, ptr %170, align 4, !tbaa !52
+  %171 = load ptr, ptr %9, align 8, !tbaa !3
+  %172 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %171, i32 0, i32 3
+  %173 = load double, ptr %172, align 8, !tbaa !13
+  %174 = load ptr, ptr %9, align 8, !tbaa !3
+  %175 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %174, i32 0, i32 1
+  %176 = load double, ptr %175, align 8, !tbaa !11
+  %177 = fadd double %173, %176
+  %178 = fmul double %177, 6.250000e+00
+  %179 = fdiv double %178, 1.023000e+03
+  %180 = fptrunc double %179 to float
+  %181 = fneg float %180
+  %182 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 0
+  %183 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %182, i64 noundef 1) #12
+  store float %181, ptr %183, align 4, !tbaa !52
+  %184 = load ptr, ptr %9, align 8, !tbaa !3
+  %185 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %184, i32 0, i32 3
+  %186 = load double, ptr %185, align 8, !tbaa !13
+  %187 = load ptr, ptr %9, align 8, !tbaa !3
+  %188 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %187, i32 0, i32 2
+  %189 = load double, ptr %188, align 8, !tbaa !12
+  %190 = fadd double %186, %189
+  %191 = fmul double %190, 6.250000e+00
+  %192 = fdiv double %191, 1.023000e+03
+  %193 = fptrunc double %192 to float
+  %194 = fneg float %193
+  %195 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 0
+  %196 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %195, i64 noundef 2) #12
+  store float %194, ptr %196, align 4, !tbaa !52
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #12
+  %197 = load ptr, ptr %10, align 8, !tbaa !3
+  %198 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %197, i32 0, i32 3
+  %199 = load double, ptr %198, align 8, !tbaa !13
+  %200 = load ptr, ptr %10, align 8, !tbaa !3
+  %201 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %200, i32 0, i32 0
+  %202 = load double, ptr %201, align 8, !tbaa !8
+  %203 = fmul double %199, %202
+  store double %203, ptr %12, align 8, !tbaa !41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #12
+  %204 = load ptr, ptr %10, align 8, !tbaa !3
+  %205 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %204, i32 0, i32 3
+  %206 = load double, ptr %205, align 8, !tbaa !13
+  %207 = load ptr, ptr %10, align 8, !tbaa !3
+  %208 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %207, i32 0, i32 1
+  %209 = load double, ptr %208, align 8, !tbaa !11
+  %210 = fmul double %206, %209
+  store double %210, ptr %13, align 8, !tbaa !41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #12
+  %211 = load ptr, ptr %10, align 8, !tbaa !3
+  %212 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %211, i32 0, i32 3
+  %213 = load double, ptr %212, align 8, !tbaa !13
+  %214 = load ptr, ptr %10, align 8, !tbaa !3
+  %215 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %214, i32 0, i32 2
+  %216 = load double, ptr %215, align 8, !tbaa !12
+  %217 = fmul double %213, %216
+  store double %217, ptr %14, align 8, !tbaa !41
+  %218 = load double, ptr %12, align 8, !tbaa !41
+  %219 = fcmp oeq double %218, 0.000000e+00
+  br i1 %219, label %220, label %221
 
-cond.true:                                        ; preds = %sw.bb61
-  br label %cond.end
+220:                                              ; preds = %157
+  br label %223
 
-cond.false:                                       ; preds = %sw.bb61
-  %73 = load double, ptr %c0, align 8
-  br label %cond.end
+221:                                              ; preds = %157
+  %222 = load double, ptr %12, align 8, !tbaa !41
+  br label %223
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi double [ 1.000000e+00, %cond.true ], [ %73, %cond.false ]
-  %div98 = fdiv double 1.000000e+00, %cond
-  %conv99 = fptrunc double %div98 to float
-  %m_contrast100 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 1
-  %call101 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_contrast100, i64 noundef 0) #6
-  store float %conv99, ptr %call101, align 4
-  %74 = load double, ptr %c1, align 8
-  %cmp102 = fcmp oeq double %74, 0.000000e+00
-  br i1 %cmp102, label %cond.true103, label %cond.false104
+223:                                              ; preds = %221, %220
+  %224 = phi double [ 1.000000e+00, %220 ], [ %222, %221 ]
+  %225 = fdiv double 1.000000e+00, %224
+  %226 = fptrunc double %225 to float
+  %227 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 1
+  %228 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %227, i64 noundef 0) #12
+  store float %226, ptr %228, align 4, !tbaa !52
+  %229 = load double, ptr %13, align 8, !tbaa !41
+  %230 = fcmp oeq double %229, 0.000000e+00
+  br i1 %230, label %231, label %232
 
-cond.true103:                                     ; preds = %cond.end
-  br label %cond.end105
+231:                                              ; preds = %223
+  br label %234
 
-cond.false104:                                    ; preds = %cond.end
-  %75 = load double, ptr %c1, align 8
-  br label %cond.end105
+232:                                              ; preds = %223
+  %233 = load double, ptr %13, align 8, !tbaa !41
+  br label %234
 
-cond.end105:                                      ; preds = %cond.false104, %cond.true103
-  %cond106 = phi double [ 1.000000e+00, %cond.true103 ], [ %75, %cond.false104 ]
-  %div107 = fdiv double 1.000000e+00, %cond106
-  %conv108 = fptrunc double %div107 to float
-  %m_contrast109 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 1
-  %call110 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_contrast109, i64 noundef 1) #6
-  store float %conv108, ptr %call110, align 4
-  %76 = load double, ptr %c2, align 8
-  %cmp111 = fcmp oeq double %76, 0.000000e+00
-  br i1 %cmp111, label %cond.true112, label %cond.false113
+234:                                              ; preds = %232, %231
+  %235 = phi double [ 1.000000e+00, %231 ], [ %233, %232 ]
+  %236 = fdiv double 1.000000e+00, %235
+  %237 = fptrunc double %236 to float
+  %238 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 1
+  %239 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %238, i64 noundef 1) #12
+  store float %237, ptr %239, align 4, !tbaa !52
+  %240 = load double, ptr %14, align 8, !tbaa !41
+  %241 = fcmp oeq double %240, 0.000000e+00
+  br i1 %241, label %242, label %243
 
-cond.true112:                                     ; preds = %cond.end105
-  br label %cond.end114
+242:                                              ; preds = %234
+  br label %245
 
-cond.false113:                                    ; preds = %cond.end105
-  %77 = load double, ptr %c2, align 8
-  br label %cond.end114
+243:                                              ; preds = %234
+  %244 = load double, ptr %14, align 8, !tbaa !41
+  br label %245
 
-cond.end114:                                      ; preds = %cond.false113, %cond.true112
-  %cond115 = phi double [ 1.000000e+00, %cond.true112 ], [ %77, %cond.false113 ]
-  %div116 = fdiv double 1.000000e+00, %cond115
-  %conv117 = fptrunc double %div116 to float
-  %m_contrast118 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 1
-  %call119 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_contrast118, i64 noundef 2) #6
-  store float %conv117, ptr %call119, align 4
-  %78 = load ptr, ptr %g, align 8
-  %m_master120 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %78, i32 0, i32 3
-  %79 = load double, ptr %m_master120, align 8
-  %80 = load ptr, ptr %g, align 8
-  %m_red121 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %80, i32 0, i32 0
-  %81 = load double, ptr %m_red121, align 8
-  %mul122 = fmul double %79, %81
-  %conv123 = fptrunc double %mul122 to float
-  %m_gamma124 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 2
-  %call125 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_gamma124, i64 noundef 0) #6
-  store float %conv123, ptr %call125, align 4
-  %82 = load ptr, ptr %g, align 8
-  %m_master126 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %82, i32 0, i32 3
-  %83 = load double, ptr %m_master126, align 8
-  %84 = load ptr, ptr %g, align 8
-  %m_green127 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %84, i32 0, i32 1
-  %85 = load double, ptr %m_green127, align 8
-  %mul128 = fmul double %83, %85
-  %conv129 = fptrunc double %mul128 to float
-  %m_gamma130 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 2
-  %call131 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_gamma130, i64 noundef 1) #6
-  store float %conv129, ptr %call131, align 4
-  %86 = load ptr, ptr %g, align 8
-  %m_master132 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %86, i32 0, i32 3
-  %87 = load double, ptr %m_master132, align 8
-  %88 = load ptr, ptr %g, align 8
-  %m_blue133 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %88, i32 0, i32 2
-  %89 = load double, ptr %m_blue133, align 8
-  %mul134 = fmul double %87, %89
-  %conv135 = fptrunc double %mul134 to float
-  %m_gamma136 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 2
-  %call137 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_gamma136, i64 noundef 2) #6
-  store float %conv135, ptr %call137, align 4
-  br label %sw.epilog
+245:                                              ; preds = %243, %242
+  %246 = phi double [ 1.000000e+00, %242 ], [ %244, %243 ]
+  %247 = fdiv double 1.000000e+00, %246
+  %248 = fptrunc double %247 to float
+  %249 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 1
+  %250 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %249, i64 noundef 2) #12
+  store float %248, ptr %250, align 4, !tbaa !52
+  %251 = load ptr, ptr %11, align 8, !tbaa !3
+  %252 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %251, i32 0, i32 3
+  %253 = load double, ptr %252, align 8, !tbaa !13
+  %254 = load ptr, ptr %11, align 8, !tbaa !3
+  %255 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %254, i32 0, i32 0
+  %256 = load double, ptr %255, align 8, !tbaa !8
+  %257 = fmul double %253, %256
+  %258 = fptrunc double %257 to float
+  %259 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 2
+  %260 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %259, i64 noundef 0) #12
+  store float %258, ptr %260, align 4, !tbaa !52
+  %261 = load ptr, ptr %11, align 8, !tbaa !3
+  %262 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %261, i32 0, i32 3
+  %263 = load double, ptr %262, align 8, !tbaa !13
+  %264 = load ptr, ptr %11, align 8, !tbaa !3
+  %265 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %264, i32 0, i32 1
+  %266 = load double, ptr %265, align 8, !tbaa !11
+  %267 = fmul double %263, %266
+  %268 = fptrunc double %267 to float
+  %269 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 2
+  %270 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %269, i64 noundef 1) #12
+  store float %268, ptr %270, align 4, !tbaa !52
+  %271 = load ptr, ptr %11, align 8, !tbaa !3
+  %272 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %271, i32 0, i32 3
+  %273 = load double, ptr %272, align 8, !tbaa !13
+  %274 = load ptr, ptr %11, align 8, !tbaa !3
+  %275 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %274, i32 0, i32 2
+  %276 = load double, ptr %275, align 8, !tbaa !12
+  %277 = fmul double %273, %276
+  %278 = fptrunc double %277 to float
+  %279 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 2
+  %280 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %279, i64 noundef 2) #12
+  store float %278, ptr %280, align 4, !tbaa !52
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #12
+  br label %281
 
-sw.epilog:                                        ; preds = %cond.end114, %sw.bb5, %sw.bb
-  %m_gamma138 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 2
-  %call139 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_gamma138, i64 noundef 0) #6
-  %90 = load float, ptr %call139, align 4
-  %cmp140 = fcmp oeq float %90, 1.000000e+00
-  br i1 %cmp140, label %land.lhs.true141, label %land.end149
+281:                                              ; preds = %49, %245, %57
+  %282 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 2
+  %283 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %282, i64 noundef 0) #12
+  %284 = load float, ptr %283, align 4, !tbaa !52
+  %285 = fcmp oeq float %284, 1.000000e+00
+  br i1 %285, label %286, label %296
 
-land.lhs.true141:                                 ; preds = %sw.epilog
-  %m_gamma142 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 2
-  %call143 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_gamma142, i64 noundef 1) #6
-  %91 = load float, ptr %call143, align 4
-  %cmp144 = fcmp oeq float %91, 1.000000e+00
-  br i1 %cmp144, label %land.rhs145, label %land.end149
+286:                                              ; preds = %281
+  %287 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 2
+  %288 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %287, i64 noundef 1) #12
+  %289 = load float, ptr %288, align 4, !tbaa !52
+  %290 = fcmp oeq float %289, 1.000000e+00
+  br i1 %290, label %291, label %296
 
-land.rhs145:                                      ; preds = %land.lhs.true141
-  %m_gamma146 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 2
-  %call147 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_gamma146, i64 noundef 2) #6
-  %92 = load float, ptr %call147, align 4
-  %cmp148 = fcmp oeq float %92, 1.000000e+00
-  br label %land.end149
+291:                                              ; preds = %286
+  %292 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 2
+  %293 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %292, i64 noundef 2) #12
+  %294 = load float, ptr %293, align 4, !tbaa !52
+  %295 = fcmp oeq float %294, 1.000000e+00
+  br label %296
 
-land.end149:                                      ; preds = %land.rhs145, %land.lhs.true141, %sw.epilog
-  %93 = phi i1 [ false, %land.lhs.true141 ], [ false, %sw.epilog ], [ %cmp148, %land.rhs145 ]
-  %m_isPowerIdentity = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 7
-  %frombool150 = zext i1 %93 to i8
-  store i8 %frombool150, ptr %m_isPowerIdentity, align 8
-  %94 = load ptr, ptr %v.addr, align 8
-  %m_pivot = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %94, i32 0, i32 8
-  %95 = load double, ptr %m_pivot, align 8
-  %96 = call double @llvm.fmuladd.f64(double %95, double 5.000000e-01, double 5.000000e-01)
-  %m_pivot152 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 6
-  store double %96, ptr %m_pivot152, align 8
-  %m_localBypass153 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 8
-  %97 = load i8, ptr %m_localBypass153, align 1
-  %tobool = trunc i8 %97 to i1
-  br i1 %tobool, label %land.lhs.true154, label %land.end181
+296:                                              ; preds = %291, %286, %281
+  %297 = phi i1 [ false, %286 ], [ false, %281 ], [ %295, %291 ]
+  %298 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 7
+  %299 = zext i1 %297 to i8
+  store i8 %299, ptr %298, align 8, !tbaa !54
+  %300 = load ptr, ptr %8, align 8, !tbaa !14
+  %301 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %300, i32 0, i32 8
+  %302 = load double, ptr %301, align 8, !tbaa !16
+  %303 = call double @llvm.fmuladd.f64(double %302, double 5.000000e-01, double 5.000000e-01)
+  %304 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 6
+  store double %303, ptr %304, align 8, !tbaa !55
+  %305 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 8
+  %306 = load i8, ptr %305, align 1, !tbaa !48, !range !56, !noundef !57
+  %307 = trunc i8 %306 to i1
+  br i1 %307, label %308, label %342
 
-land.lhs.true154:                                 ; preds = %land.end149
-  %m_isPowerIdentity155 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 7
-  %98 = load i8, ptr %m_isPowerIdentity155, align 8
-  %tobool156 = trunc i8 %98 to i1
-  br i1 %tobool156, label %land.lhs.true157, label %land.end181
+308:                                              ; preds = %296
+  %309 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 7
+  %310 = load i8, ptr %309, align 8, !tbaa !54, !range !56, !noundef !57
+  %311 = trunc i8 %310 to i1
+  br i1 %311, label %312, label %342
 
-land.lhs.true157:                                 ; preds = %land.lhs.true154
-  %m_brightness158 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 0
-  %call159 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_brightness158, i64 noundef 0) #6
-  %99 = load float, ptr %call159, align 4
-  %cmp160 = fcmp oeq float %99, 0.000000e+00
-  br i1 %cmp160, label %land.lhs.true161, label %land.end181
+312:                                              ; preds = %308
+  %313 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 0
+  %314 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %313, i64 noundef 0) #12
+  %315 = load float, ptr %314, align 4, !tbaa !52
+  %316 = fcmp oeq float %315, 0.000000e+00
+  br i1 %316, label %317, label %342
 
-land.lhs.true161:                                 ; preds = %land.lhs.true157
-  %m_brightness162 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 0
-  %call163 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_brightness162, i64 noundef 1) #6
-  %100 = load float, ptr %call163, align 4
-  %cmp164 = fcmp oeq float %100, 0.000000e+00
-  br i1 %cmp164, label %land.lhs.true165, label %land.end181
+317:                                              ; preds = %312
+  %318 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 0
+  %319 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %318, i64 noundef 1) #12
+  %320 = load float, ptr %319, align 4, !tbaa !52
+  %321 = fcmp oeq float %320, 0.000000e+00
+  br i1 %321, label %322, label %342
 
-land.lhs.true165:                                 ; preds = %land.lhs.true161
-  %m_brightness166 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 0
-  %call167 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_brightness166, i64 noundef 2) #6
-  %101 = load float, ptr %call167, align 4
-  %cmp168 = fcmp oeq float %101, 0.000000e+00
-  br i1 %cmp168, label %land.lhs.true169, label %land.end181
+322:                                              ; preds = %317
+  %323 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 0
+  %324 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %323, i64 noundef 2) #12
+  %325 = load float, ptr %324, align 4, !tbaa !52
+  %326 = fcmp oeq float %325, 0.000000e+00
+  br i1 %326, label %327, label %342
 
-land.lhs.true169:                                 ; preds = %land.lhs.true165
-  %m_contrast170 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 1
-  %call171 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_contrast170, i64 noundef 0) #6
-  %102 = load float, ptr %call171, align 4
-  %cmp172 = fcmp oeq float %102, 1.000000e+00
-  br i1 %cmp172, label %land.lhs.true173, label %land.end181
+327:                                              ; preds = %322
+  %328 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 1
+  %329 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %328, i64 noundef 0) #12
+  %330 = load float, ptr %329, align 4, !tbaa !52
+  %331 = fcmp oeq float %330, 1.000000e+00
+  br i1 %331, label %332, label %342
 
-land.lhs.true173:                                 ; preds = %land.lhs.true169
-  %m_contrast174 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 1
-  %call175 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_contrast174, i64 noundef 1) #6
-  %103 = load float, ptr %call175, align 4
-  %cmp176 = fcmp oeq float %103, 1.000000e+00
-  br i1 %cmp176, label %land.rhs177, label %land.end181
+332:                                              ; preds = %327
+  %333 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 1
+  %334 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %333, i64 noundef 1) #12
+  %335 = load float, ptr %334, align 4, !tbaa !52
+  %336 = fcmp oeq float %335, 1.000000e+00
+  br i1 %336, label %337, label %342
 
-land.rhs177:                                      ; preds = %land.lhs.true173
-  %m_contrast178 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 1
-  %call179 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_contrast178, i64 noundef 2) #6
-  %104 = load float, ptr %call179, align 4
-  %cmp180 = fcmp oeq float %104, 1.000000e+00
-  br label %land.end181
+337:                                              ; preds = %332
+  %338 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 1
+  %339 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %338, i64 noundef 2) #12
+  %340 = load float, ptr %339, align 4, !tbaa !52
+  %341 = fcmp oeq float %340, 1.000000e+00
+  br label %342
 
-land.end181:                                      ; preds = %land.rhs177, %land.lhs.true173, %land.lhs.true169, %land.lhs.true165, %land.lhs.true161, %land.lhs.true157, %land.lhs.true154, %land.end149
-  %105 = phi i1 [ false, %land.lhs.true173 ], [ false, %land.lhs.true169 ], [ false, %land.lhs.true165 ], [ false, %land.lhs.true161 ], [ false, %land.lhs.true157 ], [ false, %land.lhs.true154 ], [ false, %land.end149 ], [ %cmp180, %land.rhs177 ]
-  %m_localBypass182 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 8
-  %frombool183 = zext i1 %105 to i8
-  store i8 %frombool183, ptr %m_localBypass182, align 1
-  br label %sw.epilog654
+342:                                              ; preds = %337, %332, %327, %322, %317, %312, %308, %296
+  %343 = phi i1 [ false, %332 ], [ false, %327 ], [ false, %322 ], [ false, %317 ], [ false, %312 ], [ false, %308 ], [ false, %296 ], [ %341, %337 ]
+  %344 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 8
+  %345 = zext i1 %343 to i8
+  store i8 %345, ptr %344, align 1, !tbaa !48
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  br label %1104
 
-sw.bb184:                                         ; preds = %land.end
-  %106 = load ptr, ptr %v.addr, align 8
-  %m_offset = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %106, i32 0, i32 3
-  store ptr %m_offset, ptr %o, align 8
-  %107 = load ptr, ptr %v.addr, align 8
-  %m_exposure = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %107, i32 0, i32 4
-  store ptr %m_exposure, ptr %e, align 8
-  %108 = load ptr, ptr %v.addr, align 8
-  %m_contrast186 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %108, i32 0, i32 1
-  store ptr %m_contrast186, ptr %c185, align 8
-  %109 = load i32, ptr %dir.addr, align 4
-  switch i32 %109, label %sw.epilog317 [
-    i32 0, label %sw.bb187
-    i32 1, label %sw.bb247
+346:                                              ; preds = %44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #12
+  %347 = load ptr, ptr %8, align 8, !tbaa !14
+  %348 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %347, i32 0, i32 3
+  store ptr %348, ptr %15, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #12
+  %349 = load ptr, ptr %8, align 8, !tbaa !14
+  %350 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %349, i32 0, i32 4
+  store ptr %350, ptr %16, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #12
+  %351 = load ptr, ptr %8, align 8, !tbaa !14
+  %352 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %351, i32 0, i32 1
+  store ptr %352, ptr %17, align 8, !tbaa !3
+  %353 = load i32, ptr %7, align 4, !tbaa !46
+  switch i32 %353, label %557 [
+    i32 0, label %354
+    i32 1, label %451
   ]
 
-sw.bb187:                                         ; preds = %sw.bb184
-  %110 = load ptr, ptr %o, align 8
-  %m_master188 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %110, i32 0, i32 3
-  %111 = load double, ptr %m_master188, align 8
-  %112 = load ptr, ptr %o, align 8
-  %m_red189 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %112, i32 0, i32 0
-  %113 = load double, ptr %m_red189, align 8
-  %add190 = fadd double %111, %113
-  %conv191 = fptrunc double %add190 to float
-  %m_offset192 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 4
-  %call193 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_offset192, i64 noundef 0) #6
-  store float %conv191, ptr %call193, align 4
-  %114 = load ptr, ptr %o, align 8
-  %m_master194 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %114, i32 0, i32 3
-  %115 = load double, ptr %m_master194, align 8
-  %116 = load ptr, ptr %o, align 8
-  %m_green195 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %116, i32 0, i32 1
-  %117 = load double, ptr %m_green195, align 8
-  %add196 = fadd double %115, %117
-  %conv197 = fptrunc double %add196 to float
-  %m_offset198 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 4
-  %call199 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_offset198, i64 noundef 1) #6
-  store float %conv197, ptr %call199, align 4
-  %118 = load ptr, ptr %o, align 8
-  %m_master200 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %118, i32 0, i32 3
-  %119 = load double, ptr %m_master200, align 8
-  %120 = load ptr, ptr %o, align 8
-  %m_blue201 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %120, i32 0, i32 2
-  %121 = load double, ptr %m_blue201, align 8
-  %add202 = fadd double %119, %121
-  %conv203 = fptrunc double %add202 to float
-  %m_offset204 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 4
-  %call205 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_offset204, i64 noundef 2) #6
-  store float %conv203, ptr %call205, align 4
-  %122 = load ptr, ptr %e, align 8
-  %m_master206 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %122, i32 0, i32 3
-  %123 = load double, ptr %m_master206, align 8
-  %124 = load ptr, ptr %e, align 8
-  %m_red207 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %124, i32 0, i32 0
-  %125 = load double, ptr %m_red207, align 8
-  %add208 = fadd double %123, %125
-  %conv209 = fptrunc double %add208 to float
-  %call210 = invoke noundef float @_ZSt3powff(float noundef 2.000000e+00, float noundef %conv209)
-          to label %invoke.cont unwind label %terminate.lpad
+354:                                              ; preds = %346
+  %355 = load ptr, ptr %15, align 8, !tbaa !3
+  %356 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %355, i32 0, i32 3
+  %357 = load double, ptr %356, align 8, !tbaa !13
+  %358 = load ptr, ptr %15, align 8, !tbaa !3
+  %359 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %358, i32 0, i32 0
+  %360 = load double, ptr %359, align 8, !tbaa !8
+  %361 = fadd double %357, %360
+  %362 = fptrunc double %361 to float
+  %363 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 4
+  %364 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %363, i64 noundef 0) #12
+  store float %362, ptr %364, align 4, !tbaa !52
+  %365 = load ptr, ptr %15, align 8, !tbaa !3
+  %366 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %365, i32 0, i32 3
+  %367 = load double, ptr %366, align 8, !tbaa !13
+  %368 = load ptr, ptr %15, align 8, !tbaa !3
+  %369 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %368, i32 0, i32 1
+  %370 = load double, ptr %369, align 8, !tbaa !11
+  %371 = fadd double %367, %370
+  %372 = fptrunc double %371 to float
+  %373 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 4
+  %374 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %373, i64 noundef 1) #12
+  store float %372, ptr %374, align 4, !tbaa !52
+  %375 = load ptr, ptr %15, align 8, !tbaa !3
+  %376 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %375, i32 0, i32 3
+  %377 = load double, ptr %376, align 8, !tbaa !13
+  %378 = load ptr, ptr %15, align 8, !tbaa !3
+  %379 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %378, i32 0, i32 2
+  %380 = load double, ptr %379, align 8, !tbaa !12
+  %381 = fadd double %377, %380
+  %382 = fptrunc double %381 to float
+  %383 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 4
+  %384 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %383, i64 noundef 2) #12
+  store float %382, ptr %384, align 4, !tbaa !52
+  %385 = load ptr, ptr %16, align 8, !tbaa !3
+  %386 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %385, i32 0, i32 3
+  %387 = load double, ptr %386, align 8, !tbaa !13
+  %388 = load ptr, ptr %16, align 8, !tbaa !3
+  %389 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %388, i32 0, i32 0
+  %390 = load double, ptr %389, align 8, !tbaa !8
+  %391 = fadd double %387, %390
+  %392 = fptrunc double %391 to float
+  %393 = invoke noundef float @_ZSt3powff(float noundef 2.000000e+00, float noundef %392)
+          to label %394 unwind label %1105
 
-invoke.cont:                                      ; preds = %sw.bb187
-  %m_exposure211 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 3
-  %call212 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_exposure211, i64 noundef 0) #6
-  store float %call210, ptr %call212, align 4
-  %126 = load ptr, ptr %e, align 8
-  %m_master213 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %126, i32 0, i32 3
-  %127 = load double, ptr %m_master213, align 8
-  %128 = load ptr, ptr %e, align 8
-  %m_green214 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %128, i32 0, i32 1
-  %129 = load double, ptr %m_green214, align 8
-  %add215 = fadd double %127, %129
-  %conv216 = fptrunc double %add215 to float
-  %call218 = invoke noundef float @_ZSt3powff(float noundef 2.000000e+00, float noundef %conv216)
-          to label %invoke.cont217 unwind label %terminate.lpad
+394:                                              ; preds = %354
+  %395 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 3
+  %396 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %395, i64 noundef 0) #12
+  store float %393, ptr %396, align 4, !tbaa !52
+  %397 = load ptr, ptr %16, align 8, !tbaa !3
+  %398 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %397, i32 0, i32 3
+  %399 = load double, ptr %398, align 8, !tbaa !13
+  %400 = load ptr, ptr %16, align 8, !tbaa !3
+  %401 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %400, i32 0, i32 1
+  %402 = load double, ptr %401, align 8, !tbaa !11
+  %403 = fadd double %399, %402
+  %404 = fptrunc double %403 to float
+  %405 = invoke noundef float @_ZSt3powff(float noundef 2.000000e+00, float noundef %404)
+          to label %406 unwind label %1105
 
-invoke.cont217:                                   ; preds = %invoke.cont
-  %m_exposure219 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 3
-  %call220 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_exposure219, i64 noundef 1) #6
-  store float %call218, ptr %call220, align 4
-  %130 = load ptr, ptr %e, align 8
-  %m_master221 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %130, i32 0, i32 3
-  %131 = load double, ptr %m_master221, align 8
-  %132 = load ptr, ptr %e, align 8
-  %m_blue222 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %132, i32 0, i32 2
-  %133 = load double, ptr %m_blue222, align 8
-  %add223 = fadd double %131, %133
-  %conv224 = fptrunc double %add223 to float
-  %call226 = invoke noundef float @_ZSt3powff(float noundef 2.000000e+00, float noundef %conv224)
-          to label %invoke.cont225 unwind label %terminate.lpad
+406:                                              ; preds = %394
+  %407 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 3
+  %408 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %407, i64 noundef 1) #12
+  store float %405, ptr %408, align 4, !tbaa !52
+  %409 = load ptr, ptr %16, align 8, !tbaa !3
+  %410 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %409, i32 0, i32 3
+  %411 = load double, ptr %410, align 8, !tbaa !13
+  %412 = load ptr, ptr %16, align 8, !tbaa !3
+  %413 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %412, i32 0, i32 2
+  %414 = load double, ptr %413, align 8, !tbaa !12
+  %415 = fadd double %411, %414
+  %416 = fptrunc double %415 to float
+  %417 = invoke noundef float @_ZSt3powff(float noundef 2.000000e+00, float noundef %416)
+          to label %418 unwind label %1105
 
-invoke.cont225:                                   ; preds = %invoke.cont217
-  %m_exposure227 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 3
-  %call228 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_exposure227, i64 noundef 2) #6
-  store float %call226, ptr %call228, align 4
-  %134 = load ptr, ptr %c185, align 8
-  %m_master229 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %134, i32 0, i32 3
-  %135 = load double, ptr %m_master229, align 8
-  %136 = load ptr, ptr %c185, align 8
-  %m_red230 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %136, i32 0, i32 0
-  %137 = load double, ptr %m_red230, align 8
-  %mul231 = fmul double %135, %137
-  %conv232 = fptrunc double %mul231 to float
-  %m_contrast233 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 1
-  %call234 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_contrast233, i64 noundef 0) #6
-  store float %conv232, ptr %call234, align 4
-  %138 = load ptr, ptr %c185, align 8
-  %m_master235 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %138, i32 0, i32 3
-  %139 = load double, ptr %m_master235, align 8
-  %140 = load ptr, ptr %c185, align 8
-  %m_green236 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %140, i32 0, i32 1
-  %141 = load double, ptr %m_green236, align 8
-  %mul237 = fmul double %139, %141
-  %conv238 = fptrunc double %mul237 to float
-  %m_contrast239 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 1
-  %call240 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_contrast239, i64 noundef 1) #6
-  store float %conv238, ptr %call240, align 4
-  %142 = load ptr, ptr %c185, align 8
-  %m_master241 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %142, i32 0, i32 3
-  %143 = load double, ptr %m_master241, align 8
-  %144 = load ptr, ptr %c185, align 8
-  %m_blue242 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %144, i32 0, i32 2
-  %145 = load double, ptr %m_blue242, align 8
-  %mul243 = fmul double %143, %145
-  %conv244 = fptrunc double %mul243 to float
-  %m_contrast245 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 1
-  %call246 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_contrast245, i64 noundef 2) #6
-  store float %conv244, ptr %call246, align 4
-  br label %sw.epilog317
+418:                                              ; preds = %406
+  %419 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 3
+  %420 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %419, i64 noundef 2) #12
+  store float %417, ptr %420, align 4, !tbaa !52
+  %421 = load ptr, ptr %17, align 8, !tbaa !3
+  %422 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %421, i32 0, i32 3
+  %423 = load double, ptr %422, align 8, !tbaa !13
+  %424 = load ptr, ptr %17, align 8, !tbaa !3
+  %425 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %424, i32 0, i32 0
+  %426 = load double, ptr %425, align 8, !tbaa !8
+  %427 = fmul double %423, %426
+  %428 = fptrunc double %427 to float
+  %429 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 1
+  %430 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %429, i64 noundef 0) #12
+  store float %428, ptr %430, align 4, !tbaa !52
+  %431 = load ptr, ptr %17, align 8, !tbaa !3
+  %432 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %431, i32 0, i32 3
+  %433 = load double, ptr %432, align 8, !tbaa !13
+  %434 = load ptr, ptr %17, align 8, !tbaa !3
+  %435 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %434, i32 0, i32 1
+  %436 = load double, ptr %435, align 8, !tbaa !11
+  %437 = fmul double %433, %436
+  %438 = fptrunc double %437 to float
+  %439 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 1
+  %440 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %439, i64 noundef 1) #12
+  store float %438, ptr %440, align 4, !tbaa !52
+  %441 = load ptr, ptr %17, align 8, !tbaa !3
+  %442 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %441, i32 0, i32 3
+  %443 = load double, ptr %442, align 8, !tbaa !13
+  %444 = load ptr, ptr %17, align 8, !tbaa !3
+  %445 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %444, i32 0, i32 2
+  %446 = load double, ptr %445, align 8, !tbaa !12
+  %447 = fmul double %443, %446
+  %448 = fptrunc double %447 to float
+  %449 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 1
+  %450 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %449, i64 noundef 2) #12
+  store float %448, ptr %450, align 4, !tbaa !52
+  br label %557
 
-sw.bb247:                                         ; preds = %sw.bb184
-  %146 = load ptr, ptr %o, align 8
-  %m_master248 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %146, i32 0, i32 3
-  %147 = load double, ptr %m_master248, align 8
-  %148 = load ptr, ptr %o, align 8
-  %m_red249 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %148, i32 0, i32 0
-  %149 = load double, ptr %m_red249, align 8
-  %add250 = fadd double %147, %149
-  %conv251 = fptrunc double %add250 to float
-  %fneg252 = fneg float %conv251
-  %m_offset253 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 4
-  %call254 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_offset253, i64 noundef 0) #6
-  store float %fneg252, ptr %call254, align 4
-  %150 = load ptr, ptr %o, align 8
-  %m_master255 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %150, i32 0, i32 3
-  %151 = load double, ptr %m_master255, align 8
-  %152 = load ptr, ptr %o, align 8
-  %m_green256 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %152, i32 0, i32 1
-  %153 = load double, ptr %m_green256, align 8
-  %add257 = fadd double %151, %153
-  %conv258 = fptrunc double %add257 to float
-  %fneg259 = fneg float %conv258
-  %m_offset260 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 4
-  %call261 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_offset260, i64 noundef 1) #6
-  store float %fneg259, ptr %call261, align 4
-  %154 = load ptr, ptr %o, align 8
-  %m_master262 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %154, i32 0, i32 3
-  %155 = load double, ptr %m_master262, align 8
-  %156 = load ptr, ptr %o, align 8
-  %m_blue263 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %156, i32 0, i32 2
-  %157 = load double, ptr %m_blue263, align 8
-  %add264 = fadd double %155, %157
-  %conv265 = fptrunc double %add264 to float
-  %fneg266 = fneg float %conv265
-  %m_offset267 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 4
-  %call268 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_offset267, i64 noundef 2) #6
-  store float %fneg266, ptr %call268, align 4
-  %158 = load ptr, ptr %e, align 8
-  %m_master269 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %158, i32 0, i32 3
-  %159 = load double, ptr %m_master269, align 8
-  %160 = load ptr, ptr %e, align 8
-  %m_red270 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %160, i32 0, i32 0
-  %161 = load double, ptr %m_red270, align 8
-  %add271 = fadd double %159, %161
-  %conv272 = fptrunc double %add271 to float
-  %call274 = invoke noundef float @_ZSt3powff(float noundef 2.000000e+00, float noundef %conv272)
-          to label %invoke.cont273 unwind label %terminate.lpad
+451:                                              ; preds = %346
+  %452 = load ptr, ptr %15, align 8, !tbaa !3
+  %453 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %452, i32 0, i32 3
+  %454 = load double, ptr %453, align 8, !tbaa !13
+  %455 = load ptr, ptr %15, align 8, !tbaa !3
+  %456 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %455, i32 0, i32 0
+  %457 = load double, ptr %456, align 8, !tbaa !8
+  %458 = fadd double %454, %457
+  %459 = fptrunc double %458 to float
+  %460 = fneg float %459
+  %461 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 4
+  %462 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %461, i64 noundef 0) #12
+  store float %460, ptr %462, align 4, !tbaa !52
+  %463 = load ptr, ptr %15, align 8, !tbaa !3
+  %464 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %463, i32 0, i32 3
+  %465 = load double, ptr %464, align 8, !tbaa !13
+  %466 = load ptr, ptr %15, align 8, !tbaa !3
+  %467 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %466, i32 0, i32 1
+  %468 = load double, ptr %467, align 8, !tbaa !11
+  %469 = fadd double %465, %468
+  %470 = fptrunc double %469 to float
+  %471 = fneg float %470
+  %472 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 4
+  %473 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %472, i64 noundef 1) #12
+  store float %471, ptr %473, align 4, !tbaa !52
+  %474 = load ptr, ptr %15, align 8, !tbaa !3
+  %475 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %474, i32 0, i32 3
+  %476 = load double, ptr %475, align 8, !tbaa !13
+  %477 = load ptr, ptr %15, align 8, !tbaa !3
+  %478 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %477, i32 0, i32 2
+  %479 = load double, ptr %478, align 8, !tbaa !12
+  %480 = fadd double %476, %479
+  %481 = fptrunc double %480 to float
+  %482 = fneg float %481
+  %483 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 4
+  %484 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %483, i64 noundef 2) #12
+  store float %482, ptr %484, align 4, !tbaa !52
+  %485 = load ptr, ptr %16, align 8, !tbaa !3
+  %486 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %485, i32 0, i32 3
+  %487 = load double, ptr %486, align 8, !tbaa !13
+  %488 = load ptr, ptr %16, align 8, !tbaa !3
+  %489 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %488, i32 0, i32 0
+  %490 = load double, ptr %489, align 8, !tbaa !8
+  %491 = fadd double %487, %490
+  %492 = fptrunc double %491 to float
+  %493 = invoke noundef float @_ZSt3powff(float noundef 2.000000e+00, float noundef %492)
+          to label %494 unwind label %1105
 
-invoke.cont273:                                   ; preds = %sw.bb247
-  %div275 = fdiv float 1.000000e+00, %call274
-  %m_exposure276 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 3
-  %call277 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_exposure276, i64 noundef 0) #6
-  store float %div275, ptr %call277, align 4
-  %162 = load ptr, ptr %e, align 8
-  %m_master278 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %162, i32 0, i32 3
-  %163 = load double, ptr %m_master278, align 8
-  %164 = load ptr, ptr %e, align 8
-  %m_green279 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %164, i32 0, i32 1
-  %165 = load double, ptr %m_green279, align 8
-  %add280 = fadd double %163, %165
-  %conv281 = fptrunc double %add280 to float
-  %call283 = invoke noundef float @_ZSt3powff(float noundef 2.000000e+00, float noundef %conv281)
-          to label %invoke.cont282 unwind label %terminate.lpad
+494:                                              ; preds = %451
+  %495 = fdiv float 1.000000e+00, %493
+  %496 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 3
+  %497 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %496, i64 noundef 0) #12
+  store float %495, ptr %497, align 4, !tbaa !52
+  %498 = load ptr, ptr %16, align 8, !tbaa !3
+  %499 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %498, i32 0, i32 3
+  %500 = load double, ptr %499, align 8, !tbaa !13
+  %501 = load ptr, ptr %16, align 8, !tbaa !3
+  %502 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %501, i32 0, i32 1
+  %503 = load double, ptr %502, align 8, !tbaa !11
+  %504 = fadd double %500, %503
+  %505 = fptrunc double %504 to float
+  %506 = invoke noundef float @_ZSt3powff(float noundef 2.000000e+00, float noundef %505)
+          to label %507 unwind label %1105
 
-invoke.cont282:                                   ; preds = %invoke.cont273
-  %div284 = fdiv float 1.000000e+00, %call283
-  %m_exposure285 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 3
-  %call286 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_exposure285, i64 noundef 1) #6
-  store float %div284, ptr %call286, align 4
-  %166 = load ptr, ptr %e, align 8
-  %m_master287 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %166, i32 0, i32 3
-  %167 = load double, ptr %m_master287, align 8
-  %168 = load ptr, ptr %e, align 8
-  %m_blue288 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %168, i32 0, i32 2
-  %169 = load double, ptr %m_blue288, align 8
-  %add289 = fadd double %167, %169
-  %conv290 = fptrunc double %add289 to float
-  %call292 = invoke noundef float @_ZSt3powff(float noundef 2.000000e+00, float noundef %conv290)
-          to label %invoke.cont291 unwind label %terminate.lpad
+507:                                              ; preds = %494
+  %508 = fdiv float 1.000000e+00, %506
+  %509 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 3
+  %510 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %509, i64 noundef 1) #12
+  store float %508, ptr %510, align 4, !tbaa !52
+  %511 = load ptr, ptr %16, align 8, !tbaa !3
+  %512 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %511, i32 0, i32 3
+  %513 = load double, ptr %512, align 8, !tbaa !13
+  %514 = load ptr, ptr %16, align 8, !tbaa !3
+  %515 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %514, i32 0, i32 2
+  %516 = load double, ptr %515, align 8, !tbaa !12
+  %517 = fadd double %513, %516
+  %518 = fptrunc double %517 to float
+  %519 = invoke noundef float @_ZSt3powff(float noundef 2.000000e+00, float noundef %518)
+          to label %520 unwind label %1105
 
-invoke.cont291:                                   ; preds = %invoke.cont282
-  %div293 = fdiv float 1.000000e+00, %call292
-  %m_exposure294 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 3
-  %call295 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_exposure294, i64 noundef 2) #6
-  store float %div293, ptr %call295, align 4
-  %170 = load ptr, ptr %c185, align 8
-  %m_master296 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %170, i32 0, i32 3
-  %171 = load double, ptr %m_master296, align 8
-  %172 = load ptr, ptr %c185, align 8
-  %m_red297 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %172, i32 0, i32 0
-  %173 = load double, ptr %m_red297, align 8
-  %mul298 = fmul double %171, %173
-  %div299 = fdiv double 1.000000e+00, %mul298
-  %conv300 = fptrunc double %div299 to float
-  %m_contrast301 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 1
-  %call302 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_contrast301, i64 noundef 0) #6
-  store float %conv300, ptr %call302, align 4
-  %174 = load ptr, ptr %c185, align 8
-  %m_master303 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %174, i32 0, i32 3
-  %175 = load double, ptr %m_master303, align 8
-  %176 = load ptr, ptr %c185, align 8
-  %m_green304 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %176, i32 0, i32 1
-  %177 = load double, ptr %m_green304, align 8
-  %mul305 = fmul double %175, %177
-  %div306 = fdiv double 1.000000e+00, %mul305
-  %conv307 = fptrunc double %div306 to float
-  %m_contrast308 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 1
-  %call309 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_contrast308, i64 noundef 1) #6
-  store float %conv307, ptr %call309, align 4
-  %178 = load ptr, ptr %c185, align 8
-  %m_master310 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %178, i32 0, i32 3
-  %179 = load double, ptr %m_master310, align 8
-  %180 = load ptr, ptr %c185, align 8
-  %m_blue311 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %180, i32 0, i32 2
-  %181 = load double, ptr %m_blue311, align 8
-  %mul312 = fmul double %179, %181
-  %div313 = fdiv double 1.000000e+00, %mul312
-  %conv314 = fptrunc double %div313 to float
-  %m_contrast315 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 1
-  %call316 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_contrast315, i64 noundef 2) #6
-  store float %conv314, ptr %call316, align 4
-  br label %sw.epilog317
+520:                                              ; preds = %507
+  %521 = fdiv float 1.000000e+00, %519
+  %522 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 3
+  %523 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %522, i64 noundef 2) #12
+  store float %521, ptr %523, align 4, !tbaa !52
+  %524 = load ptr, ptr %17, align 8, !tbaa !3
+  %525 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %524, i32 0, i32 3
+  %526 = load double, ptr %525, align 8, !tbaa !13
+  %527 = load ptr, ptr %17, align 8, !tbaa !3
+  %528 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %527, i32 0, i32 0
+  %529 = load double, ptr %528, align 8, !tbaa !8
+  %530 = fmul double %526, %529
+  %531 = fdiv double 1.000000e+00, %530
+  %532 = fptrunc double %531 to float
+  %533 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 1
+  %534 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %533, i64 noundef 0) #12
+  store float %532, ptr %534, align 4, !tbaa !52
+  %535 = load ptr, ptr %17, align 8, !tbaa !3
+  %536 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %535, i32 0, i32 3
+  %537 = load double, ptr %536, align 8, !tbaa !13
+  %538 = load ptr, ptr %17, align 8, !tbaa !3
+  %539 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %538, i32 0, i32 1
+  %540 = load double, ptr %539, align 8, !tbaa !11
+  %541 = fmul double %537, %540
+  %542 = fdiv double 1.000000e+00, %541
+  %543 = fptrunc double %542 to float
+  %544 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 1
+  %545 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %544, i64 noundef 1) #12
+  store float %543, ptr %545, align 4, !tbaa !52
+  %546 = load ptr, ptr %17, align 8, !tbaa !3
+  %547 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %546, i32 0, i32 3
+  %548 = load double, ptr %547, align 8, !tbaa !13
+  %549 = load ptr, ptr %17, align 8, !tbaa !3
+  %550 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %549, i32 0, i32 2
+  %551 = load double, ptr %550, align 8, !tbaa !12
+  %552 = fmul double %548, %551
+  %553 = fdiv double 1.000000e+00, %552
+  %554 = fptrunc double %553 to float
+  %555 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 1
+  %556 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %555, i64 noundef 2) #12
+  store float %554, ptr %556, align 4, !tbaa !52
+  br label %557
 
-sw.epilog317:                                     ; preds = %invoke.cont291, %invoke.cont225, %sw.bb184
-  %m_contrast318 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 1
-  %call319 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_contrast318, i64 noundef 0) #6
-  %182 = load float, ptr %call319, align 4
-  %cmp320 = fcmp oeq float %182, 1.000000e+00
-  br i1 %cmp320, label %land.lhs.true321, label %land.end329
+557:                                              ; preds = %346, %520, %418
+  %558 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 1
+  %559 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %558, i64 noundef 0) #12
+  %560 = load float, ptr %559, align 4, !tbaa !52
+  %561 = fcmp oeq float %560, 1.000000e+00
+  br i1 %561, label %562, label %572
 
-land.lhs.true321:                                 ; preds = %sw.epilog317
-  %m_contrast322 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 1
-  %call323 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_contrast322, i64 noundef 1) #6
-  %183 = load float, ptr %call323, align 4
-  %cmp324 = fcmp oeq float %183, 1.000000e+00
-  br i1 %cmp324, label %land.rhs325, label %land.end329
+562:                                              ; preds = %557
+  %563 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 1
+  %564 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %563, i64 noundef 1) #12
+  %565 = load float, ptr %564, align 4, !tbaa !52
+  %566 = fcmp oeq float %565, 1.000000e+00
+  br i1 %566, label %567, label %572
 
-land.rhs325:                                      ; preds = %land.lhs.true321
-  %m_contrast326 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 1
-  %call327 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_contrast326, i64 noundef 2) #6
-  %184 = load float, ptr %call327, align 4
-  %cmp328 = fcmp oeq float %184, 1.000000e+00
-  br label %land.end329
+567:                                              ; preds = %562
+  %568 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 1
+  %569 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %568, i64 noundef 2) #12
+  %570 = load float, ptr %569, align 4, !tbaa !52
+  %571 = fcmp oeq float %570, 1.000000e+00
+  br label %572
 
-land.end329:                                      ; preds = %land.rhs325, %land.lhs.true321, %sw.epilog317
-  %185 = phi i1 [ false, %land.lhs.true321 ], [ false, %sw.epilog317 ], [ %cmp328, %land.rhs325 ]
-  %m_isPowerIdentity330 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 7
-  %frombool331 = zext i1 %185 to i8
-  store i8 %frombool331, ptr %m_isPowerIdentity330, align 8
-  %186 = load ptr, ptr %v.addr, align 8
-  %m_pivot332 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %186, i32 0, i32 8
-  %187 = load double, ptr %m_pivot332, align 8
-  %call333 = call double @pow(double noundef 2.000000e+00, double noundef %187) #6
-  %mul334 = fmul double 1.800000e-01, %call333
-  %m_pivot335 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 6
-  store double %mul334, ptr %m_pivot335, align 8
-  %m_localBypass336 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 8
-  %188 = load i8, ptr %m_localBypass336, align 1
-  %tobool337 = trunc i8 %188 to i1
-  br i1 %tobool337, label %land.lhs.true338, label %land.end365
+572:                                              ; preds = %567, %562, %557
+  %573 = phi i1 [ false, %562 ], [ false, %557 ], [ %571, %567 ]
+  %574 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 7
+  %575 = zext i1 %573 to i8
+  store i8 %575, ptr %574, align 8, !tbaa !54
+  %576 = load ptr, ptr %8, align 8, !tbaa !14
+  %577 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %576, i32 0, i32 8
+  %578 = load double, ptr %577, align 8, !tbaa !16
+  %579 = call double @pow(double noundef 2.000000e+00, double noundef %578) #12, !tbaa !58
+  %580 = fmul double 1.800000e-01, %579
+  %581 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 6
+  store double %580, ptr %581, align 8, !tbaa !55
+  %582 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 8
+  %583 = load i8, ptr %582, align 1, !tbaa !48, !range !56, !noundef !57
+  %584 = trunc i8 %583 to i1
+  br i1 %584, label %585, label %619
 
-land.lhs.true338:                                 ; preds = %land.end329
-  %m_isPowerIdentity339 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 7
-  %189 = load i8, ptr %m_isPowerIdentity339, align 8
-  %tobool340 = trunc i8 %189 to i1
-  br i1 %tobool340, label %land.lhs.true341, label %land.end365
+585:                                              ; preds = %572
+  %586 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 7
+  %587 = load i8, ptr %586, align 8, !tbaa !54, !range !56, !noundef !57
+  %588 = trunc i8 %587 to i1
+  br i1 %588, label %589, label %619
 
-land.lhs.true341:                                 ; preds = %land.lhs.true338
-  %m_exposure342 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 3
-  %call343 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_exposure342, i64 noundef 0) #6
-  %190 = load float, ptr %call343, align 4
-  %cmp344 = fcmp oeq float %190, 1.000000e+00
-  br i1 %cmp344, label %land.lhs.true345, label %land.end365
+589:                                              ; preds = %585
+  %590 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 3
+  %591 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %590, i64 noundef 0) #12
+  %592 = load float, ptr %591, align 4, !tbaa !52
+  %593 = fcmp oeq float %592, 1.000000e+00
+  br i1 %593, label %594, label %619
 
-land.lhs.true345:                                 ; preds = %land.lhs.true341
-  %m_exposure346 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 3
-  %call347 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_exposure346, i64 noundef 1) #6
-  %191 = load float, ptr %call347, align 4
-  %cmp348 = fcmp oeq float %191, 1.000000e+00
-  br i1 %cmp348, label %land.lhs.true349, label %land.end365
+594:                                              ; preds = %589
+  %595 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 3
+  %596 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %595, i64 noundef 1) #12
+  %597 = load float, ptr %596, align 4, !tbaa !52
+  %598 = fcmp oeq float %597, 1.000000e+00
+  br i1 %598, label %599, label %619
 
-land.lhs.true349:                                 ; preds = %land.lhs.true345
-  %m_exposure350 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 3
-  %call351 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_exposure350, i64 noundef 2) #6
-  %192 = load float, ptr %call351, align 4
-  %cmp352 = fcmp oeq float %192, 1.000000e+00
-  br i1 %cmp352, label %land.lhs.true353, label %land.end365
+599:                                              ; preds = %594
+  %600 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 3
+  %601 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %600, i64 noundef 2) #12
+  %602 = load float, ptr %601, align 4, !tbaa !52
+  %603 = fcmp oeq float %602, 1.000000e+00
+  br i1 %603, label %604, label %619
 
-land.lhs.true353:                                 ; preds = %land.lhs.true349
-  %m_offset354 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 4
-  %call355 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_offset354, i64 noundef 0) #6
-  %193 = load float, ptr %call355, align 4
-  %cmp356 = fcmp oeq float %193, 0.000000e+00
-  br i1 %cmp356, label %land.lhs.true357, label %land.end365
+604:                                              ; preds = %599
+  %605 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 4
+  %606 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %605, i64 noundef 0) #12
+  %607 = load float, ptr %606, align 4, !tbaa !52
+  %608 = fcmp oeq float %607, 0.000000e+00
+  br i1 %608, label %609, label %619
 
-land.lhs.true357:                                 ; preds = %land.lhs.true353
-  %m_offset358 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 4
-  %call359 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_offset358, i64 noundef 1) #6
-  %194 = load float, ptr %call359, align 4
-  %cmp360 = fcmp oeq float %194, 0.000000e+00
-  br i1 %cmp360, label %land.rhs361, label %land.end365
+609:                                              ; preds = %604
+  %610 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 4
+  %611 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %610, i64 noundef 1) #12
+  %612 = load float, ptr %611, align 4, !tbaa !52
+  %613 = fcmp oeq float %612, 0.000000e+00
+  br i1 %613, label %614, label %619
 
-land.rhs361:                                      ; preds = %land.lhs.true357
-  %m_offset362 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 4
-  %call363 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_offset362, i64 noundef 2) #6
-  %195 = load float, ptr %call363, align 4
-  %cmp364 = fcmp oeq float %195, 0.000000e+00
-  br label %land.end365
+614:                                              ; preds = %609
+  %615 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 4
+  %616 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %615, i64 noundef 2) #12
+  %617 = load float, ptr %616, align 4, !tbaa !52
+  %618 = fcmp oeq float %617, 0.000000e+00
+  br label %619
 
-land.end365:                                      ; preds = %land.rhs361, %land.lhs.true357, %land.lhs.true353, %land.lhs.true349, %land.lhs.true345, %land.lhs.true341, %land.lhs.true338, %land.end329
-  %196 = phi i1 [ false, %land.lhs.true357 ], [ false, %land.lhs.true353 ], [ false, %land.lhs.true349 ], [ false, %land.lhs.true345 ], [ false, %land.lhs.true341 ], [ false, %land.lhs.true338 ], [ false, %land.end329 ], [ %cmp364, %land.rhs361 ]
-  %m_localBypass366 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 8
-  %frombool367 = zext i1 %196 to i8
-  store i8 %frombool367, ptr %m_localBypass366, align 1
-  br label %sw.epilog654
+619:                                              ; preds = %614, %609, %604, %599, %594, %589, %585, %572
+  %620 = phi i1 [ false, %609 ], [ false, %604 ], [ false, %599 ], [ false, %594 ], [ false, %589 ], [ false, %585 ], [ false, %572 ], [ %618, %614 ]
+  %621 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 8
+  %622 = zext i1 %620 to i8
+  store i8 %622, ptr %621, align 1, !tbaa !48
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #12
+  br label %1104
 
-sw.bb368:                                         ; preds = %land.end
-  %197 = load ptr, ptr %v.addr, align 8
-  %m_offset370 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %197, i32 0, i32 3
-  store ptr %m_offset370, ptr %o369, align 8
-  %198 = load ptr, ptr %v.addr, align 8
-  %m_lift = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %198, i32 0, i32 5
-  store ptr %m_lift, ptr %l, align 8
-  %199 = load ptr, ptr %v.addr, align 8
-  %m_gain = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %199, i32 0, i32 6
-  %m_master371 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %m_gain, i32 0, i32 3
-  %200 = load double, ptr %m_master371, align 8
-  %201 = load ptr, ptr %v.addr, align 8
-  %m_gain372 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %201, i32 0, i32 6
-  %m_red373 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %m_gain372, i32 0, i32 0
-  %202 = load double, ptr %m_red373, align 8
-  %mul374 = fmul double %200, %202
-  store double %mul374, ptr %gain0, align 8
-  %203 = load ptr, ptr %v.addr, align 8
-  %m_gain375 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %203, i32 0, i32 6
-  %m_master376 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %m_gain375, i32 0, i32 3
-  %204 = load double, ptr %m_master376, align 8
-  %205 = load ptr, ptr %v.addr, align 8
-  %m_gain377 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %205, i32 0, i32 6
-  %m_green378 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %m_gain377, i32 0, i32 1
-  %206 = load double, ptr %m_green378, align 8
-  %mul379 = fmul double %204, %206
-  store double %mul379, ptr %gain1, align 8
-  %207 = load ptr, ptr %v.addr, align 8
-  %m_gain380 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %207, i32 0, i32 6
-  %m_master381 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %m_gain380, i32 0, i32 3
-  %208 = load double, ptr %m_master381, align 8
-  %209 = load ptr, ptr %v.addr, align 8
-  %m_gain382 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %209, i32 0, i32 6
-  %m_blue383 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %m_gain382, i32 0, i32 2
-  %210 = load double, ptr %m_blue383, align 8
-  %mul384 = fmul double %208, %210
-  store double %mul384, ptr %gain2, align 8
-  %211 = load double, ptr %gain0, align 8
-  %cmp385 = fcmp oeq double %211, 0.000000e+00
-  br i1 %cmp385, label %cond.true386, label %cond.false387
+623:                                              ; preds = %44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #12
+  %624 = load ptr, ptr %8, align 8, !tbaa !14
+  %625 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %624, i32 0, i32 3
+  store ptr %625, ptr %18, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #12
+  %626 = load ptr, ptr %8, align 8, !tbaa !14
+  %627 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %626, i32 0, i32 5
+  store ptr %627, ptr %19, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #12
+  %628 = load ptr, ptr %8, align 8, !tbaa !14
+  %629 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %628, i32 0, i32 6
+  %630 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %629, i32 0, i32 3
+  %631 = load double, ptr %630, align 8, !tbaa !60
+  %632 = load ptr, ptr %8, align 8, !tbaa !14
+  %633 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %632, i32 0, i32 6
+  %634 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %633, i32 0, i32 0
+  %635 = load double, ptr %634, align 8, !tbaa !61
+  %636 = fmul double %631, %635
+  store double %636, ptr %20, align 8, !tbaa !41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #12
+  %637 = load ptr, ptr %8, align 8, !tbaa !14
+  %638 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %637, i32 0, i32 6
+  %639 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %638, i32 0, i32 3
+  %640 = load double, ptr %639, align 8, !tbaa !60
+  %641 = load ptr, ptr %8, align 8, !tbaa !14
+  %642 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %641, i32 0, i32 6
+  %643 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %642, i32 0, i32 1
+  %644 = load double, ptr %643, align 8, !tbaa !62
+  %645 = fmul double %640, %644
+  store double %645, ptr %21, align 8, !tbaa !41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #12
+  %646 = load ptr, ptr %8, align 8, !tbaa !14
+  %647 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %646, i32 0, i32 6
+  %648 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %647, i32 0, i32 3
+  %649 = load double, ptr %648, align 8, !tbaa !60
+  %650 = load ptr, ptr %8, align 8, !tbaa !14
+  %651 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %650, i32 0, i32 6
+  %652 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %651, i32 0, i32 2
+  %653 = load double, ptr %652, align 8, !tbaa !63
+  %654 = fmul double %649, %653
+  store double %654, ptr %22, align 8, !tbaa !41
+  %655 = load double, ptr %20, align 8, !tbaa !41
+  %656 = fcmp oeq double %655, 0.000000e+00
+  br i1 %656, label %657, label %658
 
-cond.true386:                                     ; preds = %sw.bb368
-  br label %cond.end388
+657:                                              ; preds = %623
+  br label %660
 
-cond.false387:                                    ; preds = %sw.bb368
-  %212 = load double, ptr %gain0, align 8
-  br label %cond.end388
+658:                                              ; preds = %623
+  %659 = load double, ptr %20, align 8, !tbaa !41
+  br label %660
 
-cond.end388:                                      ; preds = %cond.false387, %cond.true386
-  %cond389 = phi double [ 1.000000e+00, %cond.true386 ], [ %212, %cond.false387 ]
-  store double %cond389, ptr %gain0, align 8
-  %213 = load double, ptr %gain1, align 8
-  %cmp390 = fcmp oeq double %213, 0.000000e+00
-  br i1 %cmp390, label %cond.true391, label %cond.false392
+660:                                              ; preds = %658, %657
+  %661 = phi double [ 1.000000e+00, %657 ], [ %659, %658 ]
+  store double %661, ptr %20, align 8, !tbaa !41
+  %662 = load double, ptr %21, align 8, !tbaa !41
+  %663 = fcmp oeq double %662, 0.000000e+00
+  br i1 %663, label %664, label %665
 
-cond.true391:                                     ; preds = %cond.end388
-  br label %cond.end393
+664:                                              ; preds = %660
+  br label %667
 
-cond.false392:                                    ; preds = %cond.end388
-  %214 = load double, ptr %gain1, align 8
-  br label %cond.end393
+665:                                              ; preds = %660
+  %666 = load double, ptr %21, align 8, !tbaa !41
+  br label %667
 
-cond.end393:                                      ; preds = %cond.false392, %cond.true391
-  %cond394 = phi double [ 1.000000e+00, %cond.true391 ], [ %214, %cond.false392 ]
-  store double %cond394, ptr %gain1, align 8
-  %215 = load double, ptr %gain2, align 8
-  %cmp395 = fcmp oeq double %215, 0.000000e+00
-  br i1 %cmp395, label %cond.true396, label %cond.false397
+667:                                              ; preds = %665, %664
+  %668 = phi double [ 1.000000e+00, %664 ], [ %666, %665 ]
+  store double %668, ptr %21, align 8, !tbaa !41
+  %669 = load double, ptr %22, align 8, !tbaa !41
+  %670 = fcmp oeq double %669, 0.000000e+00
+  br i1 %670, label %671, label %672
 
-cond.true396:                                     ; preds = %cond.end393
-  br label %cond.end398
+671:                                              ; preds = %667
+  br label %674
 
-cond.false397:                                    ; preds = %cond.end393
-  %216 = load double, ptr %gain2, align 8
-  br label %cond.end398
+672:                                              ; preds = %667
+  %673 = load double, ptr %22, align 8, !tbaa !41
+  br label %674
 
-cond.end398:                                      ; preds = %cond.false397, %cond.true396
-  %cond399 = phi double [ 1.000000e+00, %cond.true396 ], [ %216, %cond.false397 ]
-  store double %cond399, ptr %gain2, align 8
-  %217 = load ptr, ptr %v.addr, align 8
-  %m_gamma401 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %217, i32 0, i32 2
-  store ptr %m_gamma401, ptr %g400, align 8
-  %218 = load i32, ptr %dir.addr, align 4
-  switch i32 %218, label %sw.epilog607 [
-    i32 0, label %sw.bb402
-    i32 1, label %sw.bb510
+674:                                              ; preds = %672, %671
+  %675 = phi double [ 1.000000e+00, %671 ], [ %673, %672 ]
+  store double %675, ptr %22, align 8, !tbaa !41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #12
+  %676 = load ptr, ptr %8, align 8, !tbaa !14
+  %677 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %676, i32 0, i32 2
+  store ptr %677, ptr %23, align 8, !tbaa !3
+  %678 = load i32, ptr %7, align 4, !tbaa !46
+  switch i32 %678, label %1044 [
+    i32 0, label %679
+    i32 1, label %872
   ]
 
-sw.bb402:                                         ; preds = %cond.end398
-  %219 = load ptr, ptr %o369, align 8
-  %m_master403 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %219, i32 0, i32 3
-  %220 = load double, ptr %m_master403, align 8
-  %221 = load ptr, ptr %o369, align 8
-  %m_red404 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %221, i32 0, i32 0
-  %222 = load double, ptr %m_red404, align 8
-  %add405 = fadd double %220, %222
-  %223 = load ptr, ptr %l, align 8
-  %m_master406 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %223, i32 0, i32 3
-  %224 = load double, ptr %m_master406, align 8
-  %add407 = fadd double %add405, %224
-  %225 = load ptr, ptr %l, align 8
-  %m_red408 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %225, i32 0, i32 0
-  %226 = load double, ptr %m_red408, align 8
-  %add409 = fadd double %add407, %226
-  %conv410 = fptrunc double %add409 to float
-  %m_offset411 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 4
-  %call412 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_offset411, i64 noundef 0) #6
-  store float %conv410, ptr %call412, align 4
-  %227 = load ptr, ptr %o369, align 8
-  %m_master413 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %227, i32 0, i32 3
-  %228 = load double, ptr %m_master413, align 8
-  %229 = load ptr, ptr %o369, align 8
-  %m_green414 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %229, i32 0, i32 1
-  %230 = load double, ptr %m_green414, align 8
-  %add415 = fadd double %228, %230
-  %231 = load ptr, ptr %l, align 8
-  %m_master416 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %231, i32 0, i32 3
-  %232 = load double, ptr %m_master416, align 8
-  %add417 = fadd double %add415, %232
-  %233 = load ptr, ptr %l, align 8
-  %m_green418 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %233, i32 0, i32 1
-  %234 = load double, ptr %m_green418, align 8
-  %add419 = fadd double %add417, %234
-  %conv420 = fptrunc double %add419 to float
-  %m_offset421 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 4
-  %call422 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_offset421, i64 noundef 1) #6
-  store float %conv420, ptr %call422, align 4
-  %235 = load ptr, ptr %o369, align 8
-  %m_master423 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %235, i32 0, i32 3
-  %236 = load double, ptr %m_master423, align 8
-  %237 = load ptr, ptr %o369, align 8
-  %m_blue424 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %237, i32 0, i32 2
-  %238 = load double, ptr %m_blue424, align 8
-  %add425 = fadd double %236, %238
-  %239 = load ptr, ptr %l, align 8
-  %m_master426 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %239, i32 0, i32 3
-  %240 = load double, ptr %m_master426, align 8
-  %add427 = fadd double %add425, %240
-  %241 = load ptr, ptr %l, align 8
-  %m_blue428 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %241, i32 0, i32 2
-  %242 = load double, ptr %m_blue428, align 8
-  %add429 = fadd double %add427, %242
-  %conv430 = fptrunc double %add429 to float
-  %m_offset431 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 4
-  %call432 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_offset431, i64 noundef 2) #6
-  store float %conv430, ptr %call432, align 4
-  %243 = load ptr, ptr %v.addr, align 8
-  %m_pivotWhite = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %243, i32 0, i32 10
-  %244 = load double, ptr %m_pivotWhite, align 8
-  %245 = load double, ptr %gain0, align 8
-  %div433 = fdiv double %244, %245
-  %246 = load ptr, ptr %l, align 8
-  %m_master434 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %246, i32 0, i32 3
-  %247 = load double, ptr %m_master434, align 8
-  %add435 = fadd double %div433, %247
-  %248 = load ptr, ptr %l, align 8
-  %m_red436 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %248, i32 0, i32 0
-  %249 = load double, ptr %m_red436, align 8
-  %add437 = fadd double %add435, %249
-  %250 = load ptr, ptr %v.addr, align 8
-  %m_pivotBlack = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %250, i32 0, i32 9
-  %251 = load double, ptr %m_pivotBlack, align 8
-  %sub = fsub double %add437, %251
-  store double %sub, ptr %slopeDen0, align 8
-  %252 = load ptr, ptr %v.addr, align 8
-  %m_pivotWhite438 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %252, i32 0, i32 10
-  %253 = load double, ptr %m_pivotWhite438, align 8
-  %254 = load double, ptr %gain1, align 8
-  %div439 = fdiv double %253, %254
-  %255 = load ptr, ptr %l, align 8
-  %m_master440 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %255, i32 0, i32 3
-  %256 = load double, ptr %m_master440, align 8
-  %add441 = fadd double %div439, %256
-  %257 = load ptr, ptr %l, align 8
-  %m_green442 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %257, i32 0, i32 1
-  %258 = load double, ptr %m_green442, align 8
-  %add443 = fadd double %add441, %258
-  %259 = load ptr, ptr %v.addr, align 8
-  %m_pivotBlack444 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %259, i32 0, i32 9
-  %260 = load double, ptr %m_pivotBlack444, align 8
-  %sub445 = fsub double %add443, %260
-  store double %sub445, ptr %slopeDen1, align 8
-  %261 = load ptr, ptr %v.addr, align 8
-  %m_pivotWhite446 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %261, i32 0, i32 10
-  %262 = load double, ptr %m_pivotWhite446, align 8
-  %263 = load double, ptr %gain2, align 8
-  %div447 = fdiv double %262, %263
-  %264 = load ptr, ptr %l, align 8
-  %m_master448 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %264, i32 0, i32 3
-  %265 = load double, ptr %m_master448, align 8
-  %add449 = fadd double %div447, %265
-  %266 = load ptr, ptr %l, align 8
-  %m_blue450 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %266, i32 0, i32 2
-  %267 = load double, ptr %m_blue450, align 8
-  %add451 = fadd double %add449, %267
-  %268 = load ptr, ptr %v.addr, align 8
-  %m_pivotBlack452 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %268, i32 0, i32 9
-  %269 = load double, ptr %m_pivotBlack452, align 8
-  %sub453 = fsub double %add451, %269
-  store double %sub453, ptr %slopeDen2, align 8
-  %270 = load ptr, ptr %v.addr, align 8
-  %m_pivotWhite454 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %270, i32 0, i32 10
-  %271 = load double, ptr %m_pivotWhite454, align 8
-  %272 = load ptr, ptr %v.addr, align 8
-  %m_pivotBlack455 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %272, i32 0, i32 9
-  %273 = load double, ptr %m_pivotBlack455, align 8
-  %sub456 = fsub double %271, %273
-  %274 = load double, ptr %slopeDen0, align 8
-  %cmp457 = fcmp oeq double %274, 0.000000e+00
-  br i1 %cmp457, label %cond.true458, label %cond.false459
+679:                                              ; preds = %674
+  %680 = load ptr, ptr %18, align 8, !tbaa !3
+  %681 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %680, i32 0, i32 3
+  %682 = load double, ptr %681, align 8, !tbaa !13
+  %683 = load ptr, ptr %18, align 8, !tbaa !3
+  %684 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %683, i32 0, i32 0
+  %685 = load double, ptr %684, align 8, !tbaa !8
+  %686 = fadd double %682, %685
+  %687 = load ptr, ptr %19, align 8, !tbaa !3
+  %688 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %687, i32 0, i32 3
+  %689 = load double, ptr %688, align 8, !tbaa !13
+  %690 = fadd double %686, %689
+  %691 = load ptr, ptr %19, align 8, !tbaa !3
+  %692 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %691, i32 0, i32 0
+  %693 = load double, ptr %692, align 8, !tbaa !8
+  %694 = fadd double %690, %693
+  %695 = fptrunc double %694 to float
+  %696 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 4
+  %697 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %696, i64 noundef 0) #12
+  store float %695, ptr %697, align 4, !tbaa !52
+  %698 = load ptr, ptr %18, align 8, !tbaa !3
+  %699 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %698, i32 0, i32 3
+  %700 = load double, ptr %699, align 8, !tbaa !13
+  %701 = load ptr, ptr %18, align 8, !tbaa !3
+  %702 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %701, i32 0, i32 1
+  %703 = load double, ptr %702, align 8, !tbaa !11
+  %704 = fadd double %700, %703
+  %705 = load ptr, ptr %19, align 8, !tbaa !3
+  %706 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %705, i32 0, i32 3
+  %707 = load double, ptr %706, align 8, !tbaa !13
+  %708 = fadd double %704, %707
+  %709 = load ptr, ptr %19, align 8, !tbaa !3
+  %710 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %709, i32 0, i32 1
+  %711 = load double, ptr %710, align 8, !tbaa !11
+  %712 = fadd double %708, %711
+  %713 = fptrunc double %712 to float
+  %714 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 4
+  %715 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %714, i64 noundef 1) #12
+  store float %713, ptr %715, align 4, !tbaa !52
+  %716 = load ptr, ptr %18, align 8, !tbaa !3
+  %717 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %716, i32 0, i32 3
+  %718 = load double, ptr %717, align 8, !tbaa !13
+  %719 = load ptr, ptr %18, align 8, !tbaa !3
+  %720 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %719, i32 0, i32 2
+  %721 = load double, ptr %720, align 8, !tbaa !12
+  %722 = fadd double %718, %721
+  %723 = load ptr, ptr %19, align 8, !tbaa !3
+  %724 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %723, i32 0, i32 3
+  %725 = load double, ptr %724, align 8, !tbaa !13
+  %726 = fadd double %722, %725
+  %727 = load ptr, ptr %19, align 8, !tbaa !3
+  %728 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %727, i32 0, i32 2
+  %729 = load double, ptr %728, align 8, !tbaa !12
+  %730 = fadd double %726, %729
+  %731 = fptrunc double %730 to float
+  %732 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 4
+  %733 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %732, i64 noundef 2) #12
+  store float %731, ptr %733, align 4, !tbaa !52
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #12
+  %734 = load ptr, ptr %8, align 8, !tbaa !14
+  %735 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %734, i32 0, i32 10
+  %736 = load double, ptr %735, align 8, !tbaa !21
+  %737 = load double, ptr %20, align 8, !tbaa !41
+  %738 = fdiv double %736, %737
+  %739 = load ptr, ptr %19, align 8, !tbaa !3
+  %740 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %739, i32 0, i32 3
+  %741 = load double, ptr %740, align 8, !tbaa !13
+  %742 = fadd double %738, %741
+  %743 = load ptr, ptr %19, align 8, !tbaa !3
+  %744 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %743, i32 0, i32 0
+  %745 = load double, ptr %744, align 8, !tbaa !8
+  %746 = fadd double %742, %745
+  %747 = load ptr, ptr %8, align 8, !tbaa !14
+  %748 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %747, i32 0, i32 9
+  %749 = load double, ptr %748, align 8, !tbaa !22
+  %750 = fsub double %746, %749
+  store double %750, ptr %24, align 8, !tbaa !41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #12
+  %751 = load ptr, ptr %8, align 8, !tbaa !14
+  %752 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %751, i32 0, i32 10
+  %753 = load double, ptr %752, align 8, !tbaa !21
+  %754 = load double, ptr %21, align 8, !tbaa !41
+  %755 = fdiv double %753, %754
+  %756 = load ptr, ptr %19, align 8, !tbaa !3
+  %757 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %756, i32 0, i32 3
+  %758 = load double, ptr %757, align 8, !tbaa !13
+  %759 = fadd double %755, %758
+  %760 = load ptr, ptr %19, align 8, !tbaa !3
+  %761 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %760, i32 0, i32 1
+  %762 = load double, ptr %761, align 8, !tbaa !11
+  %763 = fadd double %759, %762
+  %764 = load ptr, ptr %8, align 8, !tbaa !14
+  %765 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %764, i32 0, i32 9
+  %766 = load double, ptr %765, align 8, !tbaa !22
+  %767 = fsub double %763, %766
+  store double %767, ptr %25, align 8, !tbaa !41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #12
+  %768 = load ptr, ptr %8, align 8, !tbaa !14
+  %769 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %768, i32 0, i32 10
+  %770 = load double, ptr %769, align 8, !tbaa !21
+  %771 = load double, ptr %22, align 8, !tbaa !41
+  %772 = fdiv double %770, %771
+  %773 = load ptr, ptr %19, align 8, !tbaa !3
+  %774 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %773, i32 0, i32 3
+  %775 = load double, ptr %774, align 8, !tbaa !13
+  %776 = fadd double %772, %775
+  %777 = load ptr, ptr %19, align 8, !tbaa !3
+  %778 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %777, i32 0, i32 2
+  %779 = load double, ptr %778, align 8, !tbaa !12
+  %780 = fadd double %776, %779
+  %781 = load ptr, ptr %8, align 8, !tbaa !14
+  %782 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %781, i32 0, i32 9
+  %783 = load double, ptr %782, align 8, !tbaa !22
+  %784 = fsub double %780, %783
+  store double %784, ptr %26, align 8, !tbaa !41
+  %785 = load ptr, ptr %8, align 8, !tbaa !14
+  %786 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %785, i32 0, i32 10
+  %787 = load double, ptr %786, align 8, !tbaa !21
+  %788 = load ptr, ptr %8, align 8, !tbaa !14
+  %789 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %788, i32 0, i32 9
+  %790 = load double, ptr %789, align 8, !tbaa !22
+  %791 = fsub double %787, %790
+  %792 = load double, ptr %24, align 8, !tbaa !41
+  %793 = fcmp oeq double %792, 0.000000e+00
+  br i1 %793, label %794, label %795
 
-cond.true458:                                     ; preds = %sw.bb402
-  br label %cond.end460
+794:                                              ; preds = %679
+  br label %797
 
-cond.false459:                                    ; preds = %sw.bb402
-  %275 = load double, ptr %slopeDen0, align 8
-  br label %cond.end460
+795:                                              ; preds = %679
+  %796 = load double, ptr %24, align 8, !tbaa !41
+  br label %797
 
-cond.end460:                                      ; preds = %cond.false459, %cond.true458
-  %cond461 = phi double [ 1.000000e+00, %cond.true458 ], [ %275, %cond.false459 ]
-  %div462 = fdiv double %sub456, %cond461
-  %conv463 = fptrunc double %div462 to float
-  %m_slope = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 5
-  %call464 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_slope, i64 noundef 0) #6
-  store float %conv463, ptr %call464, align 4
-  %276 = load ptr, ptr %v.addr, align 8
-  %m_pivotWhite465 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %276, i32 0, i32 10
-  %277 = load double, ptr %m_pivotWhite465, align 8
-  %278 = load ptr, ptr %v.addr, align 8
-  %m_pivotBlack466 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %278, i32 0, i32 9
-  %279 = load double, ptr %m_pivotBlack466, align 8
-  %sub467 = fsub double %277, %279
-  %280 = load double, ptr %slopeDen1, align 8
-  %cmp468 = fcmp oeq double %280, 0.000000e+00
-  br i1 %cmp468, label %cond.true469, label %cond.false470
+797:                                              ; preds = %795, %794
+  %798 = phi double [ 1.000000e+00, %794 ], [ %796, %795 ]
+  %799 = fdiv double %791, %798
+  %800 = fptrunc double %799 to float
+  %801 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 5
+  %802 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %801, i64 noundef 0) #12
+  store float %800, ptr %802, align 4, !tbaa !52
+  %803 = load ptr, ptr %8, align 8, !tbaa !14
+  %804 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %803, i32 0, i32 10
+  %805 = load double, ptr %804, align 8, !tbaa !21
+  %806 = load ptr, ptr %8, align 8, !tbaa !14
+  %807 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %806, i32 0, i32 9
+  %808 = load double, ptr %807, align 8, !tbaa !22
+  %809 = fsub double %805, %808
+  %810 = load double, ptr %25, align 8, !tbaa !41
+  %811 = fcmp oeq double %810, 0.000000e+00
+  br i1 %811, label %812, label %813
 
-cond.true469:                                     ; preds = %cond.end460
-  br label %cond.end471
+812:                                              ; preds = %797
+  br label %815
 
-cond.false470:                                    ; preds = %cond.end460
-  %281 = load double, ptr %slopeDen1, align 8
-  br label %cond.end471
+813:                                              ; preds = %797
+  %814 = load double, ptr %25, align 8, !tbaa !41
+  br label %815
 
-cond.end471:                                      ; preds = %cond.false470, %cond.true469
-  %cond472 = phi double [ 1.000000e+00, %cond.true469 ], [ %281, %cond.false470 ]
-  %div473 = fdiv double %sub467, %cond472
-  %conv474 = fptrunc double %div473 to float
-  %m_slope475 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 5
-  %call476 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_slope475, i64 noundef 1) #6
-  store float %conv474, ptr %call476, align 4
-  %282 = load ptr, ptr %v.addr, align 8
-  %m_pivotWhite477 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %282, i32 0, i32 10
-  %283 = load double, ptr %m_pivotWhite477, align 8
-  %284 = load ptr, ptr %v.addr, align 8
-  %m_pivotBlack478 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %284, i32 0, i32 9
-  %285 = load double, ptr %m_pivotBlack478, align 8
-  %sub479 = fsub double %283, %285
-  %286 = load double, ptr %slopeDen2, align 8
-  %cmp480 = fcmp oeq double %286, 0.000000e+00
-  br i1 %cmp480, label %cond.true481, label %cond.false482
+815:                                              ; preds = %813, %812
+  %816 = phi double [ 1.000000e+00, %812 ], [ %814, %813 ]
+  %817 = fdiv double %809, %816
+  %818 = fptrunc double %817 to float
+  %819 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 5
+  %820 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %819, i64 noundef 1) #12
+  store float %818, ptr %820, align 4, !tbaa !52
+  %821 = load ptr, ptr %8, align 8, !tbaa !14
+  %822 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %821, i32 0, i32 10
+  %823 = load double, ptr %822, align 8, !tbaa !21
+  %824 = load ptr, ptr %8, align 8, !tbaa !14
+  %825 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %824, i32 0, i32 9
+  %826 = load double, ptr %825, align 8, !tbaa !22
+  %827 = fsub double %823, %826
+  %828 = load double, ptr %26, align 8, !tbaa !41
+  %829 = fcmp oeq double %828, 0.000000e+00
+  br i1 %829, label %830, label %831
 
-cond.true481:                                     ; preds = %cond.end471
-  br label %cond.end483
+830:                                              ; preds = %815
+  br label %833
 
-cond.false482:                                    ; preds = %cond.end471
-  %287 = load double, ptr %slopeDen2, align 8
-  br label %cond.end483
+831:                                              ; preds = %815
+  %832 = load double, ptr %26, align 8, !tbaa !41
+  br label %833
 
-cond.end483:                                      ; preds = %cond.false482, %cond.true481
-  %cond484 = phi double [ 1.000000e+00, %cond.true481 ], [ %287, %cond.false482 ]
-  %div485 = fdiv double %sub479, %cond484
-  %conv486 = fptrunc double %div485 to float
-  %m_slope487 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 5
-  %call488 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_slope487, i64 noundef 2) #6
-  store float %conv486, ptr %call488, align 4
-  %288 = load ptr, ptr %g400, align 8
-  %m_master489 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %288, i32 0, i32 3
-  %289 = load double, ptr %m_master489, align 8
-  %290 = load ptr, ptr %g400, align 8
-  %m_red490 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %290, i32 0, i32 0
-  %291 = load double, ptr %m_red490, align 8
-  %mul491 = fmul double %289, %291
-  %div492 = fdiv double 1.000000e+00, %mul491
-  %conv493 = fptrunc double %div492 to float
-  %m_gamma494 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 2
-  %call495 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_gamma494, i64 noundef 0) #6
-  store float %conv493, ptr %call495, align 4
-  %292 = load ptr, ptr %g400, align 8
-  %m_master496 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %292, i32 0, i32 3
-  %293 = load double, ptr %m_master496, align 8
-  %294 = load ptr, ptr %g400, align 8
-  %m_green497 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %294, i32 0, i32 1
-  %295 = load double, ptr %m_green497, align 8
-  %mul498 = fmul double %293, %295
-  %div499 = fdiv double 1.000000e+00, %mul498
-  %conv500 = fptrunc double %div499 to float
-  %m_gamma501 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 2
-  %call502 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_gamma501, i64 noundef 1) #6
-  store float %conv500, ptr %call502, align 4
-  %296 = load ptr, ptr %g400, align 8
-  %m_master503 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %296, i32 0, i32 3
-  %297 = load double, ptr %m_master503, align 8
-  %298 = load ptr, ptr %g400, align 8
-  %m_blue504 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %298, i32 0, i32 2
-  %299 = load double, ptr %m_blue504, align 8
-  %mul505 = fmul double %297, %299
-  %div506 = fdiv double 1.000000e+00, %mul505
-  %conv507 = fptrunc double %div506 to float
-  %m_gamma508 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 2
-  %call509 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_gamma508, i64 noundef 2) #6
-  store float %conv507, ptr %call509, align 4
-  br label %sw.epilog607
+833:                                              ; preds = %831, %830
+  %834 = phi double [ 1.000000e+00, %830 ], [ %832, %831 ]
+  %835 = fdiv double %827, %834
+  %836 = fptrunc double %835 to float
+  %837 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 5
+  %838 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %837, i64 noundef 2) #12
+  store float %836, ptr %838, align 4, !tbaa !52
+  %839 = load ptr, ptr %23, align 8, !tbaa !3
+  %840 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %839, i32 0, i32 3
+  %841 = load double, ptr %840, align 8, !tbaa !13
+  %842 = load ptr, ptr %23, align 8, !tbaa !3
+  %843 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %842, i32 0, i32 0
+  %844 = load double, ptr %843, align 8, !tbaa !8
+  %845 = fmul double %841, %844
+  %846 = fdiv double 1.000000e+00, %845
+  %847 = fptrunc double %846 to float
+  %848 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 2
+  %849 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %848, i64 noundef 0) #12
+  store float %847, ptr %849, align 4, !tbaa !52
+  %850 = load ptr, ptr %23, align 8, !tbaa !3
+  %851 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %850, i32 0, i32 3
+  %852 = load double, ptr %851, align 8, !tbaa !13
+  %853 = load ptr, ptr %23, align 8, !tbaa !3
+  %854 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %853, i32 0, i32 1
+  %855 = load double, ptr %854, align 8, !tbaa !11
+  %856 = fmul double %852, %855
+  %857 = fdiv double 1.000000e+00, %856
+  %858 = fptrunc double %857 to float
+  %859 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 2
+  %860 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %859, i64 noundef 1) #12
+  store float %858, ptr %860, align 4, !tbaa !52
+  %861 = load ptr, ptr %23, align 8, !tbaa !3
+  %862 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %861, i32 0, i32 3
+  %863 = load double, ptr %862, align 8, !tbaa !13
+  %864 = load ptr, ptr %23, align 8, !tbaa !3
+  %865 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %864, i32 0, i32 2
+  %866 = load double, ptr %865, align 8, !tbaa !12
+  %867 = fmul double %863, %866
+  %868 = fdiv double 1.000000e+00, %867
+  %869 = fptrunc double %868 to float
+  %870 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 2
+  %871 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %870, i64 noundef 2) #12
+  store float %869, ptr %871, align 4, !tbaa !52
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #12
+  br label %1044
 
-sw.bb510:                                         ; preds = %cond.end398
-  %300 = load ptr, ptr %o369, align 8
-  %m_master511 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %300, i32 0, i32 3
-  %301 = load double, ptr %m_master511, align 8
-  %302 = load ptr, ptr %o369, align 8
-  %m_red512 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %302, i32 0, i32 0
-  %303 = load double, ptr %m_red512, align 8
-  %add513 = fadd double %301, %303
-  %304 = load ptr, ptr %l, align 8
-  %m_master514 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %304, i32 0, i32 3
-  %305 = load double, ptr %m_master514, align 8
-  %add515 = fadd double %add513, %305
-  %306 = load ptr, ptr %l, align 8
-  %m_red516 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %306, i32 0, i32 0
-  %307 = load double, ptr %m_red516, align 8
-  %add517 = fadd double %add515, %307
-  %conv518 = fptrunc double %add517 to float
-  %fneg519 = fneg float %conv518
-  %m_offset520 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 4
-  %call521 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_offset520, i64 noundef 0) #6
-  store float %fneg519, ptr %call521, align 4
-  %308 = load ptr, ptr %o369, align 8
-  %m_master522 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %308, i32 0, i32 3
-  %309 = load double, ptr %m_master522, align 8
-  %310 = load ptr, ptr %o369, align 8
-  %m_green523 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %310, i32 0, i32 1
-  %311 = load double, ptr %m_green523, align 8
-  %add524 = fadd double %309, %311
-  %312 = load ptr, ptr %l, align 8
-  %m_master525 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %312, i32 0, i32 3
-  %313 = load double, ptr %m_master525, align 8
-  %add526 = fadd double %add524, %313
-  %314 = load ptr, ptr %l, align 8
-  %m_green527 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %314, i32 0, i32 1
-  %315 = load double, ptr %m_green527, align 8
-  %add528 = fadd double %add526, %315
-  %conv529 = fptrunc double %add528 to float
-  %fneg530 = fneg float %conv529
-  %m_offset531 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 4
-  %call532 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_offset531, i64 noundef 1) #6
-  store float %fneg530, ptr %call532, align 4
-  %316 = load ptr, ptr %o369, align 8
-  %m_master533 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %316, i32 0, i32 3
-  %317 = load double, ptr %m_master533, align 8
-  %318 = load ptr, ptr %o369, align 8
-  %m_blue534 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %318, i32 0, i32 2
-  %319 = load double, ptr %m_blue534, align 8
-  %add535 = fadd double %317, %319
-  %320 = load ptr, ptr %l, align 8
-  %m_master536 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %320, i32 0, i32 3
-  %321 = load double, ptr %m_master536, align 8
-  %add537 = fadd double %add535, %321
-  %322 = load ptr, ptr %l, align 8
-  %m_blue538 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %322, i32 0, i32 2
-  %323 = load double, ptr %m_blue538, align 8
-  %add539 = fadd double %add537, %323
-  %conv540 = fptrunc double %add539 to float
-  %fneg541 = fneg float %conv540
-  %m_offset542 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 4
-  %call543 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_offset542, i64 noundef 2) #6
-  store float %fneg541, ptr %call543, align 4
-  %324 = load ptr, ptr %v.addr, align 8
-  %m_pivotWhite544 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %324, i32 0, i32 10
-  %325 = load double, ptr %m_pivotWhite544, align 8
-  %326 = load double, ptr %gain0, align 8
-  %div545 = fdiv double %325, %326
-  %327 = load ptr, ptr %l, align 8
-  %m_master546 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %327, i32 0, i32 3
-  %328 = load double, ptr %m_master546, align 8
-  %329 = load ptr, ptr %l, align 8
-  %m_red547 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %329, i32 0, i32 0
-  %330 = load double, ptr %m_red547, align 8
-  %add548 = fadd double %328, %330
-  %331 = load ptr, ptr %v.addr, align 8
-  %m_pivotBlack549 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %331, i32 0, i32 9
-  %332 = load double, ptr %m_pivotBlack549, align 8
-  %sub550 = fsub double %add548, %332
-  %add551 = fadd double %div545, %sub550
-  %333 = load ptr, ptr %v.addr, align 8
-  %m_pivotWhite552 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %333, i32 0, i32 10
-  %334 = load double, ptr %m_pivotWhite552, align 8
-  %335 = load ptr, ptr %v.addr, align 8
-  %m_pivotBlack553 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %335, i32 0, i32 9
-  %336 = load double, ptr %m_pivotBlack553, align 8
-  %sub554 = fsub double %334, %336
-  %div555 = fdiv double %add551, %sub554
-  %conv556 = fptrunc double %div555 to float
-  %m_slope557 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 5
-  %call558 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_slope557, i64 noundef 0) #6
-  store float %conv556, ptr %call558, align 4
-  %337 = load ptr, ptr %v.addr, align 8
-  %m_pivotWhite559 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %337, i32 0, i32 10
-  %338 = load double, ptr %m_pivotWhite559, align 8
-  %339 = load double, ptr %gain1, align 8
-  %div560 = fdiv double %338, %339
-  %340 = load ptr, ptr %l, align 8
-  %m_master561 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %340, i32 0, i32 3
-  %341 = load double, ptr %m_master561, align 8
-  %342 = load ptr, ptr %l, align 8
-  %m_green562 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %342, i32 0, i32 1
-  %343 = load double, ptr %m_green562, align 8
-  %add563 = fadd double %341, %343
-  %344 = load ptr, ptr %v.addr, align 8
-  %m_pivotBlack564 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %344, i32 0, i32 9
-  %345 = load double, ptr %m_pivotBlack564, align 8
-  %sub565 = fsub double %add563, %345
-  %add566 = fadd double %div560, %sub565
-  %346 = load ptr, ptr %v.addr, align 8
-  %m_pivotWhite567 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %346, i32 0, i32 10
-  %347 = load double, ptr %m_pivotWhite567, align 8
-  %348 = load ptr, ptr %v.addr, align 8
-  %m_pivotBlack568 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %348, i32 0, i32 9
-  %349 = load double, ptr %m_pivotBlack568, align 8
-  %sub569 = fsub double %347, %349
-  %div570 = fdiv double %add566, %sub569
-  %conv571 = fptrunc double %div570 to float
-  %m_slope572 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 5
-  %call573 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_slope572, i64 noundef 1) #6
-  store float %conv571, ptr %call573, align 4
-  %350 = load ptr, ptr %v.addr, align 8
-  %m_pivotWhite574 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %350, i32 0, i32 10
-  %351 = load double, ptr %m_pivotWhite574, align 8
-  %352 = load double, ptr %gain2, align 8
-  %div575 = fdiv double %351, %352
-  %353 = load ptr, ptr %l, align 8
-  %m_master576 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %353, i32 0, i32 3
-  %354 = load double, ptr %m_master576, align 8
-  %355 = load ptr, ptr %l, align 8
-  %m_blue577 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %355, i32 0, i32 2
-  %356 = load double, ptr %m_blue577, align 8
-  %add578 = fadd double %354, %356
-  %357 = load ptr, ptr %v.addr, align 8
-  %m_pivotBlack579 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %357, i32 0, i32 9
-  %358 = load double, ptr %m_pivotBlack579, align 8
-  %sub580 = fsub double %add578, %358
-  %add581 = fadd double %div575, %sub580
-  %359 = load ptr, ptr %v.addr, align 8
-  %m_pivotWhite582 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %359, i32 0, i32 10
-  %360 = load double, ptr %m_pivotWhite582, align 8
-  %361 = load ptr, ptr %v.addr, align 8
-  %m_pivotBlack583 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %361, i32 0, i32 9
-  %362 = load double, ptr %m_pivotBlack583, align 8
-  %sub584 = fsub double %360, %362
-  %div585 = fdiv double %add581, %sub584
-  %conv586 = fptrunc double %div585 to float
-  %m_slope587 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 5
-  %call588 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_slope587, i64 noundef 2) #6
-  store float %conv586, ptr %call588, align 4
-  %363 = load ptr, ptr %g400, align 8
-  %m_master589 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %363, i32 0, i32 3
-  %364 = load double, ptr %m_master589, align 8
-  %365 = load ptr, ptr %g400, align 8
-  %m_red590 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %365, i32 0, i32 0
-  %366 = load double, ptr %m_red590, align 8
-  %mul591 = fmul double %364, %366
-  %conv592 = fptrunc double %mul591 to float
-  %m_gamma593 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 2
-  %call594 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_gamma593, i64 noundef 0) #6
-  store float %conv592, ptr %call594, align 4
-  %367 = load ptr, ptr %g400, align 8
-  %m_master595 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %367, i32 0, i32 3
-  %368 = load double, ptr %m_master595, align 8
-  %369 = load ptr, ptr %g400, align 8
-  %m_green596 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %369, i32 0, i32 1
-  %370 = load double, ptr %m_green596, align 8
-  %mul597 = fmul double %368, %370
-  %conv598 = fptrunc double %mul597 to float
-  %m_gamma599 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 2
-  %call600 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_gamma599, i64 noundef 1) #6
-  store float %conv598, ptr %call600, align 4
-  %371 = load ptr, ptr %g400, align 8
-  %m_master601 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %371, i32 0, i32 3
-  %372 = load double, ptr %m_master601, align 8
-  %373 = load ptr, ptr %g400, align 8
-  %m_blue602 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBM", ptr %373, i32 0, i32 2
-  %374 = load double, ptr %m_blue602, align 8
-  %mul603 = fmul double %372, %374
-  %conv604 = fptrunc double %mul603 to float
-  %m_gamma605 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 2
-  %call606 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_gamma605, i64 noundef 2) #6
-  store float %conv604, ptr %call606, align 4
-  br label %sw.epilog607
+872:                                              ; preds = %674
+  %873 = load ptr, ptr %18, align 8, !tbaa !3
+  %874 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %873, i32 0, i32 3
+  %875 = load double, ptr %874, align 8, !tbaa !13
+  %876 = load ptr, ptr %18, align 8, !tbaa !3
+  %877 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %876, i32 0, i32 0
+  %878 = load double, ptr %877, align 8, !tbaa !8
+  %879 = fadd double %875, %878
+  %880 = load ptr, ptr %19, align 8, !tbaa !3
+  %881 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %880, i32 0, i32 3
+  %882 = load double, ptr %881, align 8, !tbaa !13
+  %883 = fadd double %879, %882
+  %884 = load ptr, ptr %19, align 8, !tbaa !3
+  %885 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %884, i32 0, i32 0
+  %886 = load double, ptr %885, align 8, !tbaa !8
+  %887 = fadd double %883, %886
+  %888 = fptrunc double %887 to float
+  %889 = fneg float %888
+  %890 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 4
+  %891 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %890, i64 noundef 0) #12
+  store float %889, ptr %891, align 4, !tbaa !52
+  %892 = load ptr, ptr %18, align 8, !tbaa !3
+  %893 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %892, i32 0, i32 3
+  %894 = load double, ptr %893, align 8, !tbaa !13
+  %895 = load ptr, ptr %18, align 8, !tbaa !3
+  %896 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %895, i32 0, i32 1
+  %897 = load double, ptr %896, align 8, !tbaa !11
+  %898 = fadd double %894, %897
+  %899 = load ptr, ptr %19, align 8, !tbaa !3
+  %900 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %899, i32 0, i32 3
+  %901 = load double, ptr %900, align 8, !tbaa !13
+  %902 = fadd double %898, %901
+  %903 = load ptr, ptr %19, align 8, !tbaa !3
+  %904 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %903, i32 0, i32 1
+  %905 = load double, ptr %904, align 8, !tbaa !11
+  %906 = fadd double %902, %905
+  %907 = fptrunc double %906 to float
+  %908 = fneg float %907
+  %909 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 4
+  %910 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %909, i64 noundef 1) #12
+  store float %908, ptr %910, align 4, !tbaa !52
+  %911 = load ptr, ptr %18, align 8, !tbaa !3
+  %912 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %911, i32 0, i32 3
+  %913 = load double, ptr %912, align 8, !tbaa !13
+  %914 = load ptr, ptr %18, align 8, !tbaa !3
+  %915 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %914, i32 0, i32 2
+  %916 = load double, ptr %915, align 8, !tbaa !12
+  %917 = fadd double %913, %916
+  %918 = load ptr, ptr %19, align 8, !tbaa !3
+  %919 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %918, i32 0, i32 3
+  %920 = load double, ptr %919, align 8, !tbaa !13
+  %921 = fadd double %917, %920
+  %922 = load ptr, ptr %19, align 8, !tbaa !3
+  %923 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %922, i32 0, i32 2
+  %924 = load double, ptr %923, align 8, !tbaa !12
+  %925 = fadd double %921, %924
+  %926 = fptrunc double %925 to float
+  %927 = fneg float %926
+  %928 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 4
+  %929 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %928, i64 noundef 2) #12
+  store float %927, ptr %929, align 4, !tbaa !52
+  %930 = load ptr, ptr %8, align 8, !tbaa !14
+  %931 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %930, i32 0, i32 10
+  %932 = load double, ptr %931, align 8, !tbaa !21
+  %933 = load double, ptr %20, align 8, !tbaa !41
+  %934 = fdiv double %932, %933
+  %935 = load ptr, ptr %19, align 8, !tbaa !3
+  %936 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %935, i32 0, i32 3
+  %937 = load double, ptr %936, align 8, !tbaa !13
+  %938 = load ptr, ptr %19, align 8, !tbaa !3
+  %939 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %938, i32 0, i32 0
+  %940 = load double, ptr %939, align 8, !tbaa !8
+  %941 = fadd double %937, %940
+  %942 = load ptr, ptr %8, align 8, !tbaa !14
+  %943 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %942, i32 0, i32 9
+  %944 = load double, ptr %943, align 8, !tbaa !22
+  %945 = fsub double %941, %944
+  %946 = fadd double %934, %945
+  %947 = load ptr, ptr %8, align 8, !tbaa !14
+  %948 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %947, i32 0, i32 10
+  %949 = load double, ptr %948, align 8, !tbaa !21
+  %950 = load ptr, ptr %8, align 8, !tbaa !14
+  %951 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %950, i32 0, i32 9
+  %952 = load double, ptr %951, align 8, !tbaa !22
+  %953 = fsub double %949, %952
+  %954 = fdiv double %946, %953
+  %955 = fptrunc double %954 to float
+  %956 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 5
+  %957 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %956, i64 noundef 0) #12
+  store float %955, ptr %957, align 4, !tbaa !52
+  %958 = load ptr, ptr %8, align 8, !tbaa !14
+  %959 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %958, i32 0, i32 10
+  %960 = load double, ptr %959, align 8, !tbaa !21
+  %961 = load double, ptr %21, align 8, !tbaa !41
+  %962 = fdiv double %960, %961
+  %963 = load ptr, ptr %19, align 8, !tbaa !3
+  %964 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %963, i32 0, i32 3
+  %965 = load double, ptr %964, align 8, !tbaa !13
+  %966 = load ptr, ptr %19, align 8, !tbaa !3
+  %967 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %966, i32 0, i32 1
+  %968 = load double, ptr %967, align 8, !tbaa !11
+  %969 = fadd double %965, %968
+  %970 = load ptr, ptr %8, align 8, !tbaa !14
+  %971 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %970, i32 0, i32 9
+  %972 = load double, ptr %971, align 8, !tbaa !22
+  %973 = fsub double %969, %972
+  %974 = fadd double %962, %973
+  %975 = load ptr, ptr %8, align 8, !tbaa !14
+  %976 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %975, i32 0, i32 10
+  %977 = load double, ptr %976, align 8, !tbaa !21
+  %978 = load ptr, ptr %8, align 8, !tbaa !14
+  %979 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %978, i32 0, i32 9
+  %980 = load double, ptr %979, align 8, !tbaa !22
+  %981 = fsub double %977, %980
+  %982 = fdiv double %974, %981
+  %983 = fptrunc double %982 to float
+  %984 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 5
+  %985 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %984, i64 noundef 1) #12
+  store float %983, ptr %985, align 4, !tbaa !52
+  %986 = load ptr, ptr %8, align 8, !tbaa !14
+  %987 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %986, i32 0, i32 10
+  %988 = load double, ptr %987, align 8, !tbaa !21
+  %989 = load double, ptr %22, align 8, !tbaa !41
+  %990 = fdiv double %988, %989
+  %991 = load ptr, ptr %19, align 8, !tbaa !3
+  %992 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %991, i32 0, i32 3
+  %993 = load double, ptr %992, align 8, !tbaa !13
+  %994 = load ptr, ptr %19, align 8, !tbaa !3
+  %995 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %994, i32 0, i32 2
+  %996 = load double, ptr %995, align 8, !tbaa !12
+  %997 = fadd double %993, %996
+  %998 = load ptr, ptr %8, align 8, !tbaa !14
+  %999 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %998, i32 0, i32 9
+  %1000 = load double, ptr %999, align 8, !tbaa !22
+  %1001 = fsub double %997, %1000
+  %1002 = fadd double %990, %1001
+  %1003 = load ptr, ptr %8, align 8, !tbaa !14
+  %1004 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %1003, i32 0, i32 10
+  %1005 = load double, ptr %1004, align 8, !tbaa !21
+  %1006 = load ptr, ptr %8, align 8, !tbaa !14
+  %1007 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimary", ptr %1006, i32 0, i32 9
+  %1008 = load double, ptr %1007, align 8, !tbaa !22
+  %1009 = fsub double %1005, %1008
+  %1010 = fdiv double %1002, %1009
+  %1011 = fptrunc double %1010 to float
+  %1012 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 5
+  %1013 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %1012, i64 noundef 2) #12
+  store float %1011, ptr %1013, align 4, !tbaa !52
+  %1014 = load ptr, ptr %23, align 8, !tbaa !3
+  %1015 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %1014, i32 0, i32 3
+  %1016 = load double, ptr %1015, align 8, !tbaa !13
+  %1017 = load ptr, ptr %23, align 8, !tbaa !3
+  %1018 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %1017, i32 0, i32 0
+  %1019 = load double, ptr %1018, align 8, !tbaa !8
+  %1020 = fmul double %1016, %1019
+  %1021 = fptrunc double %1020 to float
+  %1022 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 2
+  %1023 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %1022, i64 noundef 0) #12
+  store float %1021, ptr %1023, align 4, !tbaa !52
+  %1024 = load ptr, ptr %23, align 8, !tbaa !3
+  %1025 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %1024, i32 0, i32 3
+  %1026 = load double, ptr %1025, align 8, !tbaa !13
+  %1027 = load ptr, ptr %23, align 8, !tbaa !3
+  %1028 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %1027, i32 0, i32 1
+  %1029 = load double, ptr %1028, align 8, !tbaa !11
+  %1030 = fmul double %1026, %1029
+  %1031 = fptrunc double %1030 to float
+  %1032 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 2
+  %1033 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %1032, i64 noundef 1) #12
+  store float %1031, ptr %1033, align 4, !tbaa !52
+  %1034 = load ptr, ptr %23, align 8, !tbaa !3
+  %1035 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %1034, i32 0, i32 3
+  %1036 = load double, ptr %1035, align 8, !tbaa !13
+  %1037 = load ptr, ptr %23, align 8, !tbaa !3
+  %1038 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingRGBM", ptr %1037, i32 0, i32 2
+  %1039 = load double, ptr %1038, align 8, !tbaa !12
+  %1040 = fmul double %1036, %1039
+  %1041 = fptrunc double %1040 to float
+  %1042 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 2
+  %1043 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %1042, i64 noundef 2) #12
+  store float %1041, ptr %1043, align 4, !tbaa !52
+  br label %1044
 
-sw.epilog607:                                     ; preds = %sw.bb510, %cond.end483, %cond.end398
-  %m_gamma608 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 2
-  %call609 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_gamma608, i64 noundef 0) #6
-  %375 = load float, ptr %call609, align 4
-  %cmp610 = fcmp oeq float %375, 1.000000e+00
-  br i1 %cmp610, label %land.lhs.true611, label %land.end619
+1044:                                             ; preds = %674, %872, %833
+  %1045 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 2
+  %1046 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %1045, i64 noundef 0) #12
+  %1047 = load float, ptr %1046, align 4, !tbaa !52
+  %1048 = fcmp oeq float %1047, 1.000000e+00
+  br i1 %1048, label %1049, label %1059
 
-land.lhs.true611:                                 ; preds = %sw.epilog607
-  %m_gamma612 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 2
-  %call613 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_gamma612, i64 noundef 1) #6
-  %376 = load float, ptr %call613, align 4
-  %cmp614 = fcmp oeq float %376, 1.000000e+00
-  br i1 %cmp614, label %land.rhs615, label %land.end619
+1049:                                             ; preds = %1044
+  %1050 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 2
+  %1051 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %1050, i64 noundef 1) #12
+  %1052 = load float, ptr %1051, align 4, !tbaa !52
+  %1053 = fcmp oeq float %1052, 1.000000e+00
+  br i1 %1053, label %1054, label %1059
 
-land.rhs615:                                      ; preds = %land.lhs.true611
-  %m_gamma616 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 2
-  %call617 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_gamma616, i64 noundef 2) #6
-  %377 = load float, ptr %call617, align 4
-  %cmp618 = fcmp oeq float %377, 1.000000e+00
-  br label %land.end619
+1054:                                             ; preds = %1049
+  %1055 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 2
+  %1056 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %1055, i64 noundef 2) #12
+  %1057 = load float, ptr %1056, align 4, !tbaa !52
+  %1058 = fcmp oeq float %1057, 1.000000e+00
+  br label %1059
 
-land.end619:                                      ; preds = %land.rhs615, %land.lhs.true611, %sw.epilog607
-  %378 = phi i1 [ false, %land.lhs.true611 ], [ false, %sw.epilog607 ], [ %cmp618, %land.rhs615 ]
-  %m_isPowerIdentity620 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 7
-  %frombool621 = zext i1 %378 to i8
-  store i8 %frombool621, ptr %m_isPowerIdentity620, align 8
-  %m_localBypass622 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 8
-  %379 = load i8, ptr %m_localBypass622, align 1
-  %tobool623 = trunc i8 %379 to i1
-  br i1 %tobool623, label %land.lhs.true624, label %land.end651
+1059:                                             ; preds = %1054, %1049, %1044
+  %1060 = phi i1 [ false, %1049 ], [ false, %1044 ], [ %1058, %1054 ]
+  %1061 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 7
+  %1062 = zext i1 %1060 to i8
+  store i8 %1062, ptr %1061, align 8, !tbaa !54
+  %1063 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 8
+  %1064 = load i8, ptr %1063, align 1, !tbaa !48, !range !56, !noundef !57
+  %1065 = trunc i8 %1064 to i1
+  br i1 %1065, label %1066, label %1100
 
-land.lhs.true624:                                 ; preds = %land.end619
-  %m_isPowerIdentity625 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 7
-  %380 = load i8, ptr %m_isPowerIdentity625, align 8
-  %tobool626 = trunc i8 %380 to i1
-  br i1 %tobool626, label %land.lhs.true627, label %land.end651
+1066:                                             ; preds = %1059
+  %1067 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 7
+  %1068 = load i8, ptr %1067, align 8, !tbaa !54, !range !56, !noundef !57
+  %1069 = trunc i8 %1068 to i1
+  br i1 %1069, label %1070, label %1100
 
-land.lhs.true627:                                 ; preds = %land.lhs.true624
-  %m_slope628 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 5
-  %call629 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_slope628, i64 noundef 0) #6
-  %381 = load float, ptr %call629, align 4
-  %cmp630 = fcmp oeq float %381, 1.000000e+00
-  br i1 %cmp630, label %land.lhs.true631, label %land.end651
+1070:                                             ; preds = %1066
+  %1071 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 5
+  %1072 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %1071, i64 noundef 0) #12
+  %1073 = load float, ptr %1072, align 4, !tbaa !52
+  %1074 = fcmp oeq float %1073, 1.000000e+00
+  br i1 %1074, label %1075, label %1100
 
-land.lhs.true631:                                 ; preds = %land.lhs.true627
-  %m_slope632 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 5
-  %call633 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_slope632, i64 noundef 1) #6
-  %382 = load float, ptr %call633, align 4
-  %cmp634 = fcmp oeq float %382, 1.000000e+00
-  br i1 %cmp634, label %land.lhs.true635, label %land.end651
+1075:                                             ; preds = %1070
+  %1076 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 5
+  %1077 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %1076, i64 noundef 1) #12
+  %1078 = load float, ptr %1077, align 4, !tbaa !52
+  %1079 = fcmp oeq float %1078, 1.000000e+00
+  br i1 %1079, label %1080, label %1100
 
-land.lhs.true635:                                 ; preds = %land.lhs.true631
-  %m_slope636 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 5
-  %call637 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_slope636, i64 noundef 2) #6
-  %383 = load float, ptr %call637, align 4
-  %cmp638 = fcmp oeq float %383, 1.000000e+00
-  br i1 %cmp638, label %land.lhs.true639, label %land.end651
+1080:                                             ; preds = %1075
+  %1081 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 5
+  %1082 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %1081, i64 noundef 2) #12
+  %1083 = load float, ptr %1082, align 4, !tbaa !52
+  %1084 = fcmp oeq float %1083, 1.000000e+00
+  br i1 %1084, label %1085, label %1100
 
-land.lhs.true639:                                 ; preds = %land.lhs.true635
-  %m_offset640 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 4
-  %call641 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_offset640, i64 noundef 0) #6
-  %384 = load float, ptr %call641, align 4
-  %cmp642 = fcmp oeq float %384, 0.000000e+00
-  br i1 %cmp642, label %land.lhs.true643, label %land.end651
+1085:                                             ; preds = %1080
+  %1086 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 4
+  %1087 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %1086, i64 noundef 0) #12
+  %1088 = load float, ptr %1087, align 4, !tbaa !52
+  %1089 = fcmp oeq float %1088, 0.000000e+00
+  br i1 %1089, label %1090, label %1100
 
-land.lhs.true643:                                 ; preds = %land.lhs.true639
-  %m_offset644 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 4
-  %call645 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_offset644, i64 noundef 1) #6
-  %385 = load float, ptr %call645, align 4
-  %cmp646 = fcmp oeq float %385, 0.000000e+00
-  br i1 %cmp646, label %land.rhs647, label %land.end651
+1090:                                             ; preds = %1085
+  %1091 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 4
+  %1092 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %1091, i64 noundef 1) #12
+  %1093 = load float, ptr %1092, align 4, !tbaa !52
+  %1094 = fcmp oeq float %1093, 0.000000e+00
+  br i1 %1094, label %1095, label %1100
 
-land.rhs647:                                      ; preds = %land.lhs.true643
-  %m_offset648 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 4
-  %call649 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %m_offset648, i64 noundef 2) #6
-  %386 = load float, ptr %call649, align 4
-  %cmp650 = fcmp oeq float %386, 0.000000e+00
-  br label %land.end651
+1095:                                             ; preds = %1090
+  %1096 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 4
+  %1097 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %1096, i64 noundef 2) #12
+  %1098 = load float, ptr %1097, align 4, !tbaa !52
+  %1099 = fcmp oeq float %1098, 0.000000e+00
+  br label %1100
 
-land.end651:                                      ; preds = %land.rhs647, %land.lhs.true643, %land.lhs.true639, %land.lhs.true635, %land.lhs.true631, %land.lhs.true627, %land.lhs.true624, %land.end619
-  %387 = phi i1 [ false, %land.lhs.true643 ], [ false, %land.lhs.true639 ], [ false, %land.lhs.true635 ], [ false, %land.lhs.true631 ], [ false, %land.lhs.true627 ], [ false, %land.lhs.true624 ], [ false, %land.end619 ], [ %cmp650, %land.rhs647 ]
-  %m_localBypass652 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender", ptr %this1, i32 0, i32 8
-  %frombool653 = zext i1 %387 to i8
-  store i8 %frombool653, ptr %m_localBypass652, align 1
-  br label %sw.epilog654
+1100:                                             ; preds = %1095, %1090, %1085, %1080, %1075, %1070, %1066, %1059
+  %1101 = phi i1 [ false, %1090 ], [ false, %1085 ], [ false, %1080 ], [ false, %1075 ], [ false, %1070 ], [ false, %1066 ], [ false, %1059 ], [ %1099, %1095 ]
+  %1102 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GradingPrimaryPreRender", ptr %27, i32 0, i32 8
+  %1103 = zext i1 %1101 to i8
+  store i8 %1103, ptr %1102, align 1, !tbaa !48
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #12
+  br label %1104
 
-sw.epilog654:                                     ; preds = %land.end651, %land.end365, %land.end181, %land.end
+1104:                                             ; preds = %44, %1100, %619, %342
   ret void
 
-terminate.lpad:                                   ; preds = %invoke.cont282, %invoke.cont273, %sw.bb247, %invoke.cont217, %invoke.cont, %sw.bb187
-  %388 = landingpad { ptr, i32 }
+1105:                                             ; preds = %507, %494, %451, %406, %394, %354
+  %1106 = landingpad { ptr, i32 }
           catch ptr null
-  %389 = extractvalue { ptr, i32 } %388, 0
-  call void @__clang_call_terminate(ptr %389) #8
+  %1107 = extractvalue { ptr, i32 } %1106, 0
+  call void @__clang_call_terminate(ptr %1107) #14
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %this, i64 noundef %__n) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_elems = getelementptr inbounds %"struct.std::array", ptr %this1, i32 0, i32 0
-  %0 = load i64, ptr %__n.addr, align 8
-  %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt14__array_traitsIfLm3EE6_S_refERA3_Kfm(ptr noundef nonnull align 4 dereferenceable(12) %_M_elems, i64 noundef %0) #6
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm3EEixEm(ptr noundef nonnull align 4 dereferenceable(12) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !64
+  store i64 %1, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::array", ptr %5, i32 0, i32 0
+  %7 = load i64, ptr %4, align 8, !tbaa !66
+  %8 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt14__array_traitsIfLm3EE6_S_refERA3_Kfm(ptr noundef nonnull align 4 dereferenceable(12) %6, i64 noundef %7) #12
+  ret ptr %8
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #4
+declare double @llvm.fmuladd.f64(double, double, double) #6
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef float @_ZSt3powff(float noundef %__x, float noundef %__y) #0 comdat {
-entry:
-  %__x.addr = alloca float, align 4
-  %__y.addr = alloca float, align 4
-  store float %__x, ptr %__x.addr, align 4
-  store float %__y, ptr %__y.addr, align 4
-  %0 = load float, ptr %__x.addr, align 4
-  %1 = load float, ptr %__y.addr, align 4
-  %call = call float @powf(float noundef %0, float noundef %1) #6
-  ret float %call
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef float @_ZSt3powff(float noundef %0, float noundef %1) #7 comdat {
+  %3 = alloca float, align 4
+  %4 = alloca float, align 4
+  store float %0, ptr %3, align 4, !tbaa !52
+  store float %1, ptr %4, align 4, !tbaa !52
+  %5 = load float, ptr %3, align 4, !tbaa !52
+  %6 = load float, ptr %4, align 4, !tbaa !52
+  %7 = call float @powf(float noundef %5, float noundef %6) #12, !tbaa !58
+  ret float %7
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #5 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #6
-  call void @_ZSt9terminatev() #8
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #8 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #12
+  call void @_ZSt9terminatev() #14
   unreachable
 }
 
@@ -2029,37 +2278,1300 @@ declare ptr @__cxa_begin_catch(ptr)
 declare void @_ZSt9terminatev()
 
 ; Function Attrs: nounwind
-declare double @pow(double noundef, double noundef) #3
+declare double @pow(double noundef, double noundef) #5
 
 ; Function Attrs: nounwind
-declare float @powf(float noundef, float noundef) #3
+declare float @powf(float noundef, float noundef) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt14__array_traitsIfLm3EE6_S_refERA3_Kfm(ptr noundef nonnull align 4 dereferenceable(12) %__t, i64 noundef %__n) #0 comdat align 2 {
-entry:
-  %__t.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %arrayidx = getelementptr inbounds [3 x float], ptr %0, i64 0, i64 %1
-  ret ptr %arrayidx
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !68
+  ret ptr %6
 }
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { noreturn }
-attributes #8 = { noreturn nounwind }
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  br i1 %4, label %8, label %5
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %7 = load i64, ptr %6, align 8, !tbaa !71
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %7) #12
+  br label %8
+
+8:                                                ; preds = %5, %1
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #1 align 2 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !42
+  %4 = load ptr, ptr %3, align 8
+  %5 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %7 = icmp eq ptr %5, %6
+  br i1 %7, label %8, label %14
+
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8, !tbaa !72
+  %11 = icmp ugt i64 %10, 15
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %8
+  unreachable
+
+13:                                               ; preds = %8
+  store i1 true, ptr %2, align 1
+  br label %15
+
+14:                                               ; preds = %1
+  store i1 false, ptr %2, align 1
+  br label %15
+
+15:                                               ; preds = %14, %13
+  %16 = load i1, ptr %2, align 1
+  ret i1 %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !42
+  store i64 %1, ptr %4, align 8, !tbaa !66
+  %7 = load ptr, ptr %3, align 8
+  %8 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
+          to label %9 unwind label %14
+
+9:                                                ; preds = %2
+  %10 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
+  %11 = load i64, ptr %4, align 8, !tbaa !66
+  %12 = add i64 %11, 1
+  invoke void @_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef %10, i64 noundef %12)
+          to label %13 unwind label %14
+
+13:                                               ; preds = %9
+  ret void
+
+14:                                               ; preds = %9, %2
+  %15 = landingpad { ptr, i32 }
+          filter [0 x ptr] zeroinitializer
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  call void @__cxa_call_unexpected(ptr %19) #13
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %6 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !39
+  %3 = load ptr, ptr %2, align 8, !tbaa !39
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !73
+  store ptr %1, ptr %5, align 8, !tbaa !39
+  store i64 %2, ptr %6, align 8, !tbaa !66
+  %7 = load ptr, ptr %4, align 8, !tbaa !73
+  %8 = load ptr, ptr %5, align 8, !tbaa !39
+  %9 = load i64, ptr %6, align 8, !tbaa !66
+  call void @_ZNSt15__new_allocatorIcE10deallocateEPcm(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+declare void @__cxa_call_unexpected(ptr)
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIcE10deallocateEPcm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !75
+  store ptr %1, ptr %5, align 8, !tbaa !39
+  store i64 %2, ptr %6, align 8, !tbaa !66
+  %7 = load ptr, ptr %5, align 8, !tbaa !39
+  %8 = load i64, ptr %6, align 8, !tbaa !66
+  %9 = mul i64 %8, 1
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #15
+  ret void
+}
+
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #9
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt9basic_iosIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !77
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8ios_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(216) %3) #12
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVSt9basic_iosIcSt11char_traitsIcEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !35
+  %4 = getelementptr inbounds nuw %"class.std::basic_ios", ptr %3, i32 0, i32 1
+  store ptr null, ptr %4, align 8, !tbaa !79
+  %5 = getelementptr inbounds nuw %"class.std::basic_ios", ptr %3, i32 0, i32 2
+  store i8 0, ptr %5, align 8, !tbaa !93
+  %6 = getelementptr inbounds nuw %"class.std::basic_ios", ptr %3, i32 0, i32 3
+  store i8 0, ptr %6, align 1, !tbaa !94
+  %7 = getelementptr inbounds nuw %"class.std::basic_ios", ptr %3, i32 0, i32 4
+  store ptr null, ptr %7, align 8, !tbaa !95
+  %8 = getelementptr inbounds nuw %"class.std::basic_ios", ptr %3, i32 0, i32 5
+  store ptr null, ptr %8, align 8, !tbaa !96
+  %9 = getelementptr inbounds nuw %"class.std::basic_ios", ptr %3, i32 0, i32 6
+  store ptr null, ptr %9, align 8, !tbaa !97
+  %10 = getelementptr inbounds nuw %"class.std::basic_ios", ptr %3, i32 0, i32 7
+  store ptr null, ptr %10, align 8, !tbaa !98
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSoC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store ptr %1, ptr %4, align 8, !tbaa !99
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %5, align 8, !tbaa !35
+  %8 = getelementptr inbounds ptr, ptr %6, i64 1
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %5, align 8, !tbaa !35
+  %11 = getelementptr i8, ptr %10, i64 -24
+  %12 = load i64, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %5, i64 %12
+  store ptr %9, ptr %13, align 8, !tbaa !35
+  %14 = load ptr, ptr %5, align 8, !tbaa !35
+  %15 = getelementptr i8, ptr %14, i64 -24
+  %16 = load i64, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %5, i64 %16
+  call void @_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %17, ptr noundef null)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEC2ESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1) unnamed_addr #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !101
+  store i32 %1, ptr %4, align 4, !tbaa !103
+  %5 = load ptr, ptr %3, align 8
+  call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5)
+  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !35
+  %6 = getelementptr inbounds nuw %"class.std::__cxx11::basic_stringbuf", ptr %5, i32 0, i32 1
+  %7 = load i32, ptr %4, align 4, !tbaa !103
+  store i32 %7, ptr %6, align 8, !tbaa !105
+  %8 = getelementptr inbounds nuw %"class.std::__cxx11::basic_stringbuf", ptr %5, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #12
+  ret void
+}
+
+declare void @_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264), ptr noundef) #4
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !101
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !35
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_stringbuf", ptr %3, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
+  call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store ptr %1, ptr %4, align 8, !tbaa !99
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #5
+
+; Function Attrs: nounwind
+declare void @_ZNSt8ios_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #5
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !108
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !35
+  %4 = getelementptr inbounds nuw %"class.std::basic_streambuf", ptr %3, i32 0, i32 1
+  store ptr null, ptr %4, align 8, !tbaa !109
+  %5 = getelementptr inbounds nuw %"class.std::basic_streambuf", ptr %3, i32 0, i32 2
+  store ptr null, ptr %5, align 8, !tbaa !110
+  %6 = getelementptr inbounds nuw %"class.std::basic_streambuf", ptr %3, i32 0, i32 3
+  store ptr null, ptr %6, align 8, !tbaa !111
+  %7 = getelementptr inbounds nuw %"class.std::basic_streambuf", ptr %3, i32 0, i32 4
+  store ptr null, ptr %7, align 8, !tbaa !112
+  %8 = getelementptr inbounds nuw %"class.std::basic_streambuf", ptr %3, i32 0, i32 5
+  store ptr null, ptr %8, align 8, !tbaa !113
+  %9 = getelementptr inbounds nuw %"class.std::basic_streambuf", ptr %3, i32 0, i32 6
+  store ptr null, ptr %9, align 8, !tbaa !114
+  %10 = getelementptr inbounds nuw %"class.std::basic_streambuf", ptr %3, i32 0, i32 7
+  call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.std::allocator", align 1
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %4 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i32 0, i32 0
+  %6 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %7 unwind label %11
+
+7:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #12
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcOS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %8 unwind label %11
+
+8:                                                ; preds = %7
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #12
+  %9 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 0)
+          to label %10 unwind label %11
+
+10:                                               ; preds = %8
+  ret void
+
+11:                                               ; preds = %8, %7, %1
+  %12 = landingpad { ptr, i32 }
+          catch ptr null
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #14
+  unreachable
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #5
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %6 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !73
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !115
+  store ptr %1, ptr %5, align 8, !tbaa !39
+  store ptr %2, ptr %6, align 8, !tbaa !73
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !73
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #12
+  %9 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %5, align 8, !tbaa !39
+  store ptr %10, ptr %9, align 8, !tbaa !117
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !75
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #10 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !42
+  store i64 %1, ptr %4, align 8, !tbaa !66
+  %6 = load ptr, ptr %3, align 8
+  %7 = load i64, ptr %4, align 8, !tbaa !66
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %7)
+  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %9 = load i64, ptr %4, align 8, !tbaa !66
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #12
+  store i8 0, ptr %5, align 1, !tbaa !71
+  call void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %5) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !39
+  %3 = load ptr, ptr %2, align 8, !tbaa !39
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !75
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIcEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !75
+  store ptr %1, ptr %4, align 8, !tbaa !75
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !42
+  store i64 %1, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !66
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 1
+  store i64 %6, ptr %7, align 8, !tbaa !72
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !39
+  store ptr %1, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
+  %6 = load i8, ptr %5, align 1, !tbaa !71
+  %7 = load ptr, ptr %3, align 8, !tbaa !39
+  store i8 %6, ptr %7, align 1, !tbaa !71
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !108
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !35
+  %4 = getelementptr inbounds nuw %"class.std::basic_streambuf", ptr %3, i32 0, i32 7
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #5
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !33
+  store ptr %1, ptr %4, align 8, !tbaa !99
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %5, align 8, !tbaa !35
+  %8 = getelementptr inbounds ptr, ptr %6, i64 3
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %5, align 8, !tbaa !35
+  %11 = getelementptr i8, ptr %10, i64 -24
+  %12 = load i64, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %5, i64 %12
+  store ptr %9, ptr %13, align 8, !tbaa !35
+  %14 = getelementptr inbounds nuw %"class.std::__cxx11::basic_ostringstream", ptr %5, i32 0, i32 1
+  call void @_ZNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %14) #12
+  %15 = getelementptr inbounds ptr, ptr %6, i64 1
+  call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %15) #12
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %1) #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !77
+  store i32 %1, ptr %4, align 4, !tbaa !118
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef i32 @_ZNKSt9basic_iosIcSt11char_traitsIcEE7rdstateEv(ptr noundef nonnull align 8 dereferenceable(264) %5)
+  %7 = load i32, ptr %4, align 4, !tbaa !118
+  %8 = call noundef i32 @_ZStorSt12_Ios_IostateS_(i32 noundef %6, i32 noundef %7)
+  call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %5, i32 noundef %8)
+  ret void
+}
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) #4
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !39
+  %3 = load ptr, ptr %2, align 8, !tbaa !39
+  %4 = call i64 @strlen(ptr noundef %3) #12
+  ret i64 %4
+}
+
+declare void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264), i32 noundef) #4
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZStorSt12_Ios_IostateS_(i32 noundef %0, i32 noundef %1) #7 comdat {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !118
+  store i32 %1, ptr %4, align 4, !tbaa !118
+  %5 = load i32, ptr %3, align 4, !tbaa !118
+  %6 = load i32, ptr %4, align 4, !tbaa !118
+  %7 = or i32 %5, %6
+  ret i32 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i32 @_ZNKSt9basic_iosIcSt11char_traitsIcEE7rdstateEv(ptr noundef nonnull align 8 dereferenceable(264) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !77
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::ios_base", ptr %3, i32 0, i32 5
+  %5 = load i32, ptr %4, align 8, !tbaa !119
+  ret i32 %5
+}
+
+; Function Attrs: nounwind
+declare i64 @strlen(ptr noundef) #5
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), double noundef) #4
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i1, align 1
+  %6 = alloca %"class.std::allocator", align 1
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !101
+  %10 = load ptr, ptr %4, align 8
+  store i1 false, ptr %5, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #12
+  %11 = getelementptr inbounds nuw %"class.std::__cxx11::basic_stringbuf", ptr %10, i32 0, i32 2
+  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13get_allocatorEv(ptr dead_on_unwind writable sret(%"class.std::allocator") align 1 %6, ptr noundef nonnull align 8 dereferenceable(32) %11) #12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 dereferenceable(1) %6) #12
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  %12 = call noundef ptr @_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv(ptr noundef nonnull align 8 dereferenceable(104) %10) #12
+  store ptr %12, ptr %7, align 8, !tbaa !39
+  %13 = load ptr, ptr %7, align 8, !tbaa !39
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %15, label %25
+
+15:                                               ; preds = %2
+  %16 = invoke noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE5pbaseEv(ptr noundef nonnull align 8 dereferenceable(64) %10)
+          to label %17 unwind label %21
+
+17:                                               ; preds = %15
+  %18 = load ptr, ptr %7, align 8, !tbaa !39
+  %19 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignIPcvEERS4_T_S8_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %16, ptr noundef %18)
+          to label %20 unwind label %21
+
+20:                                               ; preds = %17
+  br label %29
+
+21:                                               ; preds = %25, %17, %15
+  %22 = landingpad { ptr, i32 }
+          cleanup
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %8, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #12
+  br label %33
+
+25:                                               ; preds = %2
+  %26 = getelementptr inbounds nuw %"class.std::__cxx11::basic_stringbuf", ptr %10, i32 0, i32 2
+  %27 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %26)
+          to label %28 unwind label %21
+
+28:                                               ; preds = %25
+  br label %29
+
+29:                                               ; preds = %28, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  store i1 true, ptr %5, align 1
+  %30 = load i1, ptr %5, align 1
+  br i1 %30, label %32, label %31
+
+31:                                               ; preds = %29
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #12
+  br label %32
+
+32:                                               ; preds = %31, %29
+  ret void
+
+33:                                               ; preds = %21
+  %34 = load ptr, ptr %8, align 8
+  %35 = load i32, ptr %9, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13get_allocatorEv(ptr dead_on_unwind noalias writable sret(%"class.std::allocator") align 1 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !42
+  %5 = load ptr, ptr %4, align 8
+  %6 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %7 unwind label %8
+
+7:                                                ; preds = %2
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %6) #12
+  ret void
+
+8:                                                ; preds = %2
+  %9 = landingpad { ptr, i32 }
+          catch ptr null
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #14
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !42
+  store ptr %1, ptr %4, align 8, !tbaa !73
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 0
+  %7 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %8 = load ptr, ptr %4, align 8, !tbaa !73
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %8)
+          to label %9 unwind label %12
+
+9:                                                ; preds = %2
+  %10 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0)
+          to label %11 unwind label %12
+
+11:                                               ; preds = %9
+  ret void
+
+12:                                               ; preds = %9, %2
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #14
+  unreachable
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv(ptr noundef nonnull align 8 dereferenceable(104) %0) #10 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !101
+  %7 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #12
+  %8 = invoke noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE4pptrEv(ptr noundef nonnull align 8 dereferenceable(64) %7)
+          to label %9 unwind label %32
+
+9:                                                ; preds = %1
+  store ptr %8, ptr %4, align 8, !tbaa !39
+  %10 = load ptr, ptr %4, align 8, !tbaa !39
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %26
+
+12:                                               ; preds = %9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %13 = invoke noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE5egptrEv(ptr noundef nonnull align 8 dereferenceable(64) %7)
+          to label %14 unwind label %32
+
+14:                                               ; preds = %12
+  store ptr %13, ptr %5, align 8, !tbaa !39
+  %15 = load ptr, ptr %5, align 8, !tbaa !39
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %21
+
+17:                                               ; preds = %14
+  %18 = load ptr, ptr %4, align 8, !tbaa !39
+  %19 = load ptr, ptr %5, align 8, !tbaa !39
+  %20 = icmp ugt ptr %18, %19
+  br i1 %20, label %21, label %23
+
+21:                                               ; preds = %17, %14
+  %22 = load ptr, ptr %4, align 8, !tbaa !39
+  store ptr %22, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %25
+
+23:                                               ; preds = %17
+  %24 = load ptr, ptr %5, align 8, !tbaa !39
+  store ptr %24, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %25
+
+25:                                               ; preds = %23, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  br label %27
+
+26:                                               ; preds = %9
+  store i32 0, ptr %6, align 4
+  br label %27
+
+27:                                               ; preds = %26, %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #12
+  %28 = load i32, ptr %6, align 4
+  switch i32 %28, label %35 [
+    i32 0, label %29
+    i32 1, label %30
+  ]
+
+29:                                               ; preds = %27
+  store ptr null, ptr %2, align 8
+  br label %30
+
+30:                                               ; preds = %29, %27
+  %31 = load ptr, ptr %2, align 8
+  ret ptr %31
+
+32:                                               ; preds = %12, %1
+  %33 = landingpad { ptr, i32 }
+          catch ptr null
+  %34 = extractvalue { ptr, i32 } %33, 0
+  call void @__clang_call_terminate(ptr %34) #14
+  unreachable
+
+35:                                               ; preds = %27
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignIPcvEERS4_T_S8_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %8 = alloca %"class.__gnu_cxx::__normal_iterator.1", align 8
+  %9 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %10 = alloca %"class.__gnu_cxx::__normal_iterator.1", align 8
+  store ptr %0, ptr %4, align 8, !tbaa !42
+  store ptr %1, ptr %5, align 8, !tbaa !39
+  store ptr %2, ptr %6, align 8, !tbaa !39
+  %11 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %12 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #12
+  %13 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.1", ptr %8, i32 0, i32 0
+  store ptr %12, ptr %13, align 8
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IPcvEERKNS0_IT_S8_EE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  %14 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #12
+  %15 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.1", ptr %10, i32 0, i32 0
+  store ptr %14, ptr %15, align 8
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IPcvEERKNS0_IT_S8_EE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #12
+  %16 = load ptr, ptr %5, align 8, !tbaa !39
+  %17 = load ptr, ptr %6, align 8, !tbaa !39
+  %18 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %7, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %9, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  %22 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_PcSA_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr %19, ptr %21, ptr noundef %16, ptr noundef %17)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  ret ptr %22
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE5pbaseEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !108
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::basic_streambuf", ptr %3, i32 0, i32 4
+  %5 = load ptr, ptr %4, align 8, !tbaa !112
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !42
+  store ptr %1, ptr %4, align 8, !tbaa !42
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !42
+  %7 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !73
+  store ptr %1, ptr %4, align 8, !tbaa !73
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !73
+  call void @_ZNSt15__new_allocatorIcEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !115
+  store ptr %1, ptr %5, align 8, !tbaa !39
+  store ptr %2, ptr %6, align 8, !tbaa !73
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !73
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #12
+  %9 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %5, align 8, !tbaa !39
+  store ptr %10, ptr %9, align 8, !tbaa !117
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE4pptrEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !108
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::basic_streambuf", ptr %3, i32 0, i32 5
+  %5 = load ptr, ptr %4, align 8, !tbaa !113
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE5egptrEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !108
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::basic_streambuf", ptr %3, i32 0, i32 3
+  %5 = load ptr, ptr %4, align 8, !tbaa !111
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_PcSA_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, ptr %2, ptr noundef %3, ptr noundef %4) #1 align 2 {
+  %6 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %7 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca %"class.__gnu_cxx::__normal_iterator.1", align 8
+  %12 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %6, i32 0, i32 0
+  store ptr %1, ptr %12, align 8
+  %13 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %7, i32 0, i32 0
+  store ptr %2, ptr %13, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !42
+  store ptr %3, ptr %9, align 8, !tbaa !39
+  store ptr %4, ptr %10, align 8, !tbaa !39
+  %14 = load ptr, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #12
+  %15 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #12
+  %16 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.1", ptr %11, i32 0, i32 0
+  store ptr %15, ptr %16, align 8
+  %17 = call noundef i64 @_ZN9__gnu_cxxmiIPKcPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTmicldtfp_4baseEcldtfp0_4baseEERKNS_17__normal_iteratorIT_T1_EERKNSB_IT0_SD_EE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %11) #12
+  %18 = call noundef i64 @_ZN9__gnu_cxxmiIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSC_SF_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %6) #12
+  %19 = load ptr, ptr %9, align 8, !tbaa !39
+  %20 = load ptr, ptr %10, align 8, !tbaa !39
+  %21 = load ptr, ptr %9, align 8, !tbaa !39
+  %22 = ptrtoint ptr %20 to i64
+  %23 = ptrtoint ptr %21 to i64
+  %24 = sub i64 %22, %23
+  %25 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %17, i64 noundef %18, ptr noundef %19, i64 noundef %24)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #12
+  ret ptr %25
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator.1", align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !42
+  %5 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #12
+  %6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+  store ptr %6, ptr %4, align 8, !tbaa !39
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %4) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #12
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.1", ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IPcvEERKNS0_IT_S8_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !120
+  store ptr %1, ptr %4, align 8, !tbaa !122
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !122
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
+  %9 = load ptr, ptr %8, align 8, !tbaa !39
+  store ptr %9, ptr %6, align 8, !tbaa !124
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator.1", align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !42
+  %5 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #12
+  %6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %7 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  store ptr %8, ptr %4, align 8, !tbaa !39
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %4) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #12
+  %9 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.1", ptr %2, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #1 align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !42
+  store i64 %1, ptr %7, align 8, !tbaa !66
+  store i64 %2, ptr %8, align 8, !tbaa !66
+  store ptr %3, ptr %9, align 8, !tbaa !39
+  store i64 %4, ptr %10, align 8, !tbaa !66
+  %11 = load ptr, ptr %6, align 8
+  %12 = load i64, ptr %7, align 8, !tbaa !66
+  %13 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %12, ptr noundef @.str.6)
+  %14 = load i64, ptr %7, align 8, !tbaa !66
+  %15 = load i64, ptr %8, align 8, !tbaa !66
+  %16 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_limitEmm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %14, i64 noundef %15) #12
+  %17 = load ptr, ptr %9, align 8, !tbaa !39
+  %18 = load i64, ptr %10, align 8, !tbaa !66
+  %19 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %13, i64 noundef %16, ptr noundef %17, i64 noundef %18)
+  ret ptr %19
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN9__gnu_cxxmiIPKcPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDTmicldtfp_4baseEcldtfp0_4baseEERKNS_17__normal_iteratorIT_T1_EERKNSB_IT0_SD_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !120
+  store ptr %1, ptr %4, align 8, !tbaa !122
+  %5 = load ptr, ptr %3, align 8, !tbaa !120
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
+  %7 = load ptr, ptr %6, align 8, !tbaa !39
+  %8 = load ptr, ptr %4, align 8, !tbaa !122
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #12
+  %10 = load ptr, ptr %9, align 8, !tbaa !39
+  %11 = ptrtoint ptr %7 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  ret i64 %13
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN9__gnu_cxxmiIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSC_SF_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !120
+  store ptr %1, ptr %4, align 8, !tbaa !120
+  %5 = load ptr, ptr %3, align 8, !tbaa !120
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
+  %7 = load ptr, ptr %6, align 8, !tbaa !39
+  %8 = load ptr, ptr %4, align 8, !tbaa !120
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #12
+  %10 = load ptr, ptr %9, align 8, !tbaa !39
+  %11 = ptrtoint ptr %7 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  ret i64 %13
+}
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) #4
+
+; Function Attrs: mustprogress uwtable
+define available_externally noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, ptr noundef %2) #1 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !42
+  store i64 %1, ptr %5, align 8, !tbaa !66
+  store ptr %2, ptr %6, align 8, !tbaa !39
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8, !tbaa !66
+  %9 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
+  %10 = icmp ugt i64 %8, %9
+  br i1 %10, label %11, label %15
+
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %6, align 8, !tbaa !39
+  %13 = load i64, ptr %5, align 8, !tbaa !66
+  %14 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef @.str.7, ptr noundef %12, i64 noundef %13, i64 noundef %14) #13
+  unreachable
+
+15:                                               ; preds = %3
+  %16 = load i64, ptr %5, align 8, !tbaa !66
+  ret i64 %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_limitEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !42
+  store i64 %1, ptr %5, align 8, !tbaa !66
+  store i64 %2, ptr %6, align 8, !tbaa !66
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #12
+  %9 = load i64, ptr %6, align 8, !tbaa !66
+  %10 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #12
+  %11 = load i64, ptr %5, align 8, !tbaa !66
+  %12 = sub i64 %10, %11
+  %13 = icmp ult i64 %9, %12
+  %14 = zext i1 %13 to i8
+  store i8 %14, ptr %7, align 1, !tbaa !126
+  %15 = load i8, ptr %7, align 1, !tbaa !126, !range !56, !noundef !57
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %19
+
+17:                                               ; preds = %3
+  %18 = load i64, ptr %6, align 8, !tbaa !66
+  br label %23
+
+19:                                               ; preds = %3
+  %20 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #12
+  %21 = load i64, ptr %5, align 8, !tbaa !66
+  %22 = sub i64 %20, %21
+  br label %23
+
+23:                                               ; preds = %19, %17
+  %24 = phi i64 [ %18, %17 ], [ %22, %19 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #12
+  ret i64 %24
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !72
+  ret i64 %5
+}
+
+; Function Attrs: noreturn
+declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) #11
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !120
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !122
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.1", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !122
+  store ptr %1, ptr %4, align 8, !tbaa !127
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.1", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !127
+  %8 = load ptr, ptr %7, align 8, !tbaa !39
+  store ptr %8, ptr %6, align 8, !tbaa !129
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !42
+  store ptr %1, ptr %4, align 8, !tbaa !42
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !42
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  ret ptr %5
+}
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) #4
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt14__array_traitsIfLm3EE6_S_refERA3_Kfm(ptr noundef nonnull align 4 dereferenceable(12) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !131
+  store i64 %1, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %3, align 8, !tbaa !131
+  %6 = load i64, ptr %4, align 8, !tbaa !66
+  %7 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %6
+  ret ptr %7
+}
+
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { builtin nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev11GradingRGBME", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !10, i64 0}
+!9 = !{!"_ZTSN19OpenColorIO_v2_5dev11GradingRGBME", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24}
+!10 = !{!"double", !6, i64 0}
+!11 = !{!9, !10, i64 8}
+!12 = !{!9, !10, i64 16}
+!13 = !{!9, !10, i64 24}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev14GradingPrimaryE", !5, i64 0}
+!16 = !{!17, !10, i64 232}
+!17 = !{!"_ZTSN19OpenColorIO_v2_5dev14GradingPrimaryE", !9, i64 0, !9, i64 32, !9, i64 64, !9, i64 96, !9, i64 128, !9, i64 160, !9, i64 192, !10, i64 224, !10, i64 232, !10, i64 240, !10, i64 248, !10, i64 256, !10, i64 264}
+!18 = !{!17, !10, i64 224}
+!19 = !{!17, !10, i64 264}
+!20 = !{!17, !10, i64 256}
+!21 = !{!17, !10, i64 248}
+!22 = !{!17, !10, i64 240}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"_ZTSN19OpenColorIO_v2_5dev12GradingStyleE", !6, i64 0}
+!25 = !{!17, !10, i64 64}
+!26 = !{!17, !10, i64 72}
+!27 = !{!17, !10, i64 80}
+!28 = !{!17, !10, i64 88}
+!29 = !{!17, !10, i64 32}
+!30 = !{!17, !10, i64 40}
+!31 = !{!17, !10, i64 48}
+!32 = !{!17, !10, i64 56}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 _ZTSNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE", !5, i64 0}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"vtable pointer", !7, i64 0}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 _ZTSSo", !5, i64 0}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 omnipotent char", !5, i64 0}
+!41 = !{!10, !10, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !5, i64 0}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev23GradingPrimaryPreRenderE", !5, i64 0}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"_ZTSN19OpenColorIO_v2_5dev18TransformDirectionE", !6, i64 0}
+!48 = !{!49, !51, i64 81}
+!49 = !{!"_ZTSN19OpenColorIO_v2_5dev23GradingPrimaryPreRenderE", !50, i64 0, !50, i64 12, !50, i64 24, !50, i64 36, !50, i64 48, !50, i64 60, !10, i64 72, !51, i64 80, !51, i64 81}
+!50 = !{!"_ZTSSt5arrayIfLm3EE", !6, i64 0}
+!51 = !{!"bool", !6, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"float", !6, i64 0}
+!54 = !{!49, !51, i64 80}
+!55 = !{!49, !10, i64 72}
+!56 = !{i8 0, i8 2}
+!57 = !{}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"int", !6, i64 0}
+!60 = !{!17, !10, i64 216}
+!61 = !{!17, !10, i64 192}
+!62 = !{!17, !10, i64 200}
+!63 = !{!17, !10, i64 208}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"p1 _ZTSSt5arrayIfLm3EE", !5, i64 0}
+!66 = !{!67, !67, i64 0}
+!67 = !{!"long", !6, i64 0}
+!68 = !{!69, !40, i64 0}
+!69 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !70, i64 0, !67, i64 8, !6, i64 16}
+!70 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !40, i64 0}
+!71 = !{!6, !6, i64 0}
+!72 = !{!69, !67, i64 8}
+!73 = !{!74, !74, i64 0}
+!74 = !{!"p1 _ZTSSaIcE", !5, i64 0}
+!75 = !{!76, !76, i64 0}
+!76 = !{!"p1 _ZTSSt15__new_allocatorIcE", !5, i64 0}
+!77 = !{!78, !78, i64 0}
+!78 = !{!"p1 _ZTSSt9basic_iosIcSt11char_traitsIcEE", !5, i64 0}
+!79 = !{!80, !38, i64 216}
+!80 = !{!"_ZTSSt9basic_iosIcSt11char_traitsIcEE", !81, i64 0, !38, i64 216, !6, i64 224, !51, i64 225, !89, i64 232, !90, i64 240, !91, i64 248, !92, i64 256}
+!81 = !{!"_ZTSSt8ios_base", !67, i64 8, !67, i64 16, !82, i64 24, !83, i64 28, !83, i64 32, !84, i64 40, !85, i64 48, !6, i64 64, !59, i64 192, !86, i64 200, !87, i64 208}
+!82 = !{!"_ZTSSt13_Ios_Fmtflags", !6, i64 0}
+!83 = !{!"_ZTSSt12_Ios_Iostate", !6, i64 0}
+!84 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !5, i64 0}
+!85 = !{!"_ZTSNSt8ios_base6_WordsE", !5, i64 0, !67, i64 8}
+!86 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !5, i64 0}
+!87 = !{!"_ZTSSt6locale", !88, i64 0}
+!88 = !{!"p1 _ZTSNSt6locale5_ImplE", !5, i64 0}
+!89 = !{!"p1 _ZTSSt15basic_streambufIcSt11char_traitsIcEE", !5, i64 0}
+!90 = !{!"p1 _ZTSSt5ctypeIcE", !5, i64 0}
+!91 = !{!"p1 _ZTSSt7num_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE", !5, i64 0}
+!92 = !{!"p1 _ZTSSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE", !5, i64 0}
+!93 = !{!80, !6, i64 224}
+!94 = !{!80, !51, i64 225}
+!95 = !{!80, !89, i64 232}
+!96 = !{!80, !90, i64 240}
+!97 = !{!80, !91, i64 248}
+!98 = !{!80, !92, i64 256}
+!99 = !{!100, !100, i64 0}
+!100 = !{!"any p2 pointer", !5, i64 0}
+!101 = !{!102, !102, i64 0}
+!102 = !{!"p1 _ZTSNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE", !5, i64 0}
+!103 = !{!104, !104, i64 0}
+!104 = !{!"_ZTSSt13_Ios_Openmode", !6, i64 0}
+!105 = !{!106, !104, i64 64}
+!106 = !{!"_ZTSNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE", !107, i64 0, !104, i64 64, !69, i64 72}
+!107 = !{!"_ZTSSt15basic_streambufIcSt11char_traitsIcEE", !40, i64 8, !40, i64 16, !40, i64 24, !40, i64 32, !40, i64 40, !40, i64 48, !87, i64 56}
+!108 = !{!89, !89, i64 0}
+!109 = !{!107, !40, i64 8}
+!110 = !{!107, !40, i64 16}
+!111 = !{!107, !40, i64 24}
+!112 = !{!107, !40, i64 32}
+!113 = !{!107, !40, i64 40}
+!114 = !{!107, !40, i64 48}
+!115 = !{!116, !116, i64 0}
+!116 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !5, i64 0}
+!117 = !{!70, !40, i64 0}
+!118 = !{!83, !83, i64 0}
+!119 = !{!81, !83, i64 32}
+!120 = !{!121, !121, i64 0}
+!121 = !{!"p1 _ZTSN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !5, i64 0}
+!122 = !{!123, !123, i64 0}
+!123 = !{!"p1 _ZTSN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !5, i64 0}
+!124 = !{!125, !40, i64 0}
+!125 = !{!"_ZTSN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !40, i64 0}
+!126 = !{!51, !51, i64 0}
+!127 = !{!128, !128, i64 0}
+!128 = !{!"p2 omnipotent char", !100, i64 0}
+!129 = !{!130, !40, i64 0}
+!130 = !{!"_ZTSN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !40, i64 0}
+!131 = !{!132, !132, i64 0}
+!132 = !{!"p1 float", !5, i64 0}
