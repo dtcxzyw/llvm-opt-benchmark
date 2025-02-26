@@ -7,45 +7,45 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4ncnn6OptionC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((0, 1), (4, 61)) %0) unnamed_addr #0 align 2 {
-  store i8 1, ptr %0, align 8
+  store i8 1, ptr %0, align 8, !tbaa !4
   %2 = tail call noundef i32 @_ZN4ncnn26get_physical_big_cpu_countEv()
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %2, ptr %3, align 4
+  store i32 %2, ptr %3, align 4, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  store i32 20, ptr %5, align 8
+  store i32 20, ptr %5, align 8, !tbaa !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i8 1, ptr %6, align 4
+  store i8 1, ptr %6, align 4, !tbaa !14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 29
-  store i8 1, ptr %7, align 1
+  store i8 1, ptr %7, align 1, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 30
-  store i8 1, ptr %8, align 2
+  store i8 1, ptr %8, align 2, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 31
-  store i8 0, ptr %9, align 1
+  store i8 0, ptr %9, align 1, !tbaa !17
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 0, ptr %10, align 8
+  store i8 0, ptr %10, align 8, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 38
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %11, i8 1, i64 5, i1 false)
-  store i8 0, ptr %12, align 2
+  store i8 0, ptr %12, align 2, !tbaa !19
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 39
-  store i8 1, ptr %13, align 1
+  store i8 1, ptr %13, align 1, !tbaa !20
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 0, ptr %14, align 8
-  store i32 3, ptr %15, align 8
+  store i32 3, ptr %15, align 8, !tbaa !21
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 52
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %16, i8 1, i64 6, i1 false)
   %17 = tail call noundef i32 @_ZN4ncnn36is_current_thread_running_on_a53_a55Ev()
   %18 = icmp ne i32 %17, 0
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 58
   %20 = zext i1 %18 to i8
-  store i8 %20, ptr %19, align 2
+  store i8 %20, ptr %19, align 2, !tbaa !22
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 59
-  store i8 1, ptr %21, align 1
+  store i8 1, ptr %21, align 1, !tbaa !23
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 1, ptr %22, align 4
+  store i8 1, ptr %22, align 4, !tbaa !24
   ret void
 }
 
@@ -56,13 +56,34 @@ declare noundef i32 @_ZN4ncnn36is_current_thread_running_on_a53_a55Ev() local_un
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-attributes #0 = { mustprogress uwtable "approx-func-fp-math"="true" "frame-pointer"="all" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
-attributes #1 = { "approx-func-fp-math"="true" "frame-pointer"="all" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
+attributes #0 = { mustprogress uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
+attributes #1 = { "approx-func-fp-math"="true" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 7, !"openmp", i32 51}
+!2 = !{i32 8, !"PIC Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{!5, !6, i64 0}
+!5 = !{!"_ZTSN4ncnn6OptionE", !6, i64 0, !9, i64 4, !10, i64 8, !10, i64 16, !9, i64 24, !6, i64 28, !6, i64 29, !6, i64 30, !6, i64 31, !6, i64 32, !6, i64 33, !6, i64 34, !6, i64 35, !6, i64 36, !6, i64 37, !6, i64 38, !6, i64 39, !6, i64 40, !6, i64 41, !6, i64 42, !6, i64 43, !6, i64 44, !6, i64 45, !6, i64 46, !6, i64 47, !9, i64 48, !6, i64 52, !6, i64 53, !6, i64 54, !6, i64 55, !6, i64 56, !6, i64 57, !6, i64 58, !6, i64 59, !6, i64 60, !6, i64 61, !6, i64 62, !6, i64 63}
+!6 = !{!"bool", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!"int", !7, i64 0}
+!10 = !{!"p1 _ZTSN4ncnn9AllocatorE", !11, i64 0}
+!11 = !{!"any pointer", !7, i64 0}
+!12 = !{!5, !9, i64 4}
+!13 = !{!5, !9, i64 24}
+!14 = !{!5, !6, i64 28}
+!15 = !{!5, !6, i64 29}
+!16 = !{!5, !6, i64 30}
+!17 = !{!5, !6, i64 31}
+!18 = !{!5, !6, i64 32}
+!19 = !{!5, !6, i64 38}
+!20 = !{!5, !6, i64 39}
+!21 = !{!5, !9, i64 48}
+!22 = !{!5, !6, i64 58}
+!23 = !{!5, !6, i64 59}
+!24 = !{!5, !6, i64 60}

@@ -14,13 +14,18 @@ define hidden noundef nofpclass(nan inf) double @_ZN4ncnn16get_current_timeEv() 
   ret double %4
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind
-declare i64 @_ZNSt6chrono3_V212system_clock3nowEv() local_unnamed_addr #1
+declare i64 @_ZNSt6chrono3_V212system_clock3nowEv() local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4ncnn5sleepEy(i64 noundef %0) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4ncnn5sleepEy(i64 noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %3 = icmp slt i64 %0, 1
   br i1 %3, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit, label %4
 
@@ -29,54 +34,60 @@ define hidden void @_ZN4ncnn5sleepEy(i64 noundef %0) local_unnamed_addr #2 perso
   %.neg.i.i = mul nsw i64 %5, -1000
   %6 = add nsw i64 %.neg.i.i, %0
   %7 = mul nsw i64 %6, 1000000
-  store i64 %5, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #6
+  store i64 %5, ptr %2, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %7, ptr %8, align 8
+  store i64 %7, ptr %8, align 8, !tbaa !9
   br label %9
 
 9:                                                ; preds = %12, %4
   %10 = call i32 @nanosleep(ptr noundef nonnull %2, ptr noundef nonnull %2)
   %11 = icmp eq i32 %10, -1
-  br i1 %11, label %12, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit
+  br i1 %11, label %12, label %.critedge.i
 
 12:                                               ; preds = %9
   %13 = tail call ptr @__errno_location() #7
-  %14 = load i32, ptr %13, align 4
+  %14 = load i32, ptr %13, align 4, !tbaa !10
   %15 = icmp eq i32 %14, 4
-  br i1 %15, label %9, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit, !llvm.loop !4
+  br i1 %15, label %9, label %.critedge.i, !llvm.loop !12
 
-_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit: ; preds = %9, %12, %1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+.critedge.i:                                      ; preds = %12, %9
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #6
+  br label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit
+
+_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit: ; preds = %1, %.critedge.i
   ret void
 }
 
-declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #4
+declare ptr @__errno_location() local_unnamed_addr #5
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
-attributes #0 = { mustprogress nounwind uwtable "approx-func-fp-math"="true" "frame-pointer"="all" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
-attributes #1 = { nounwind "approx-func-fp-math"="true" "frame-pointer"="all" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
-attributes #2 = { mustprogress uwtable "approx-func-fp-math"="true" "frame-pointer"="all" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
-attributes #3 = { "approx-func-fp-math"="true" "frame-pointer"="all" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "approx-func-fp-math"="true" "frame-pointer"="all" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { mustprogress nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind "approx-func-fp-math"="true" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
+attributes #3 = { mustprogress uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
+attributes #4 = { "approx-func-fp-math"="true" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "approx-func-fp-math"="true" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 7, !"openmp", i32 51}
+!2 = !{i32 8, !"PIC Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{!5, !6, i64 0}
+!5 = !{!"_ZTS8timespec", !6, i64 0, !6, i64 8}
+!6 = !{!"long", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!5, !6, i64 8}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !7, i64 0}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.mustprogress"}

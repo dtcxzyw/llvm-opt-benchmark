@@ -111,6 +111,7 @@ supported_project = [
     "mold",
     "msgpack",
     "nanobind",
+    "ncnn",
 ]
 
 modify_only = [
