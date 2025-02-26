@@ -102,6 +102,7 @@ def guess_language(dir):
         if count_cpp >= count_rs and count_cpp >= count_c:
             return (name, "C++", url, last_updated)
         return (name, "C", url, last_updated)
+    raise Exception("Unknown language for " + dir)
 
 
 def get_stars(url: str):
