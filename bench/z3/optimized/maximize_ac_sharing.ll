@@ -142,8 +142,8 @@ _ZNK9func_decl14is_associativeEv.exit:            ; preds = %entry
   %bf.load.i.i = load i16, ptr %m_left_assoc.i.i, align 1
   %1 = and i16 %bf.load.i.i, 3
   %2 = icmp ne i16 %1, 3
-  %cmp = icmp ult i32 %num_args, 3
-  %or.cond48 = or i1 %cmp, %2
+  %bf.cast4.i.i = icmp ult i32 %num_args, 3
+  %or.cond48 = or i1 %bf.cast4.i.i, %2
   br i1 %or.cond48, label %return, label %if.end4
 
 if.end4:                                          ; preds = %_ZNK9func_decl14is_associativeEv.exit

@@ -1053,51 +1053,51 @@ define void @_ZN9grpc_core33FaultInjectionServiceConfigParser20ParsePerMethodPar
   %7 = alloca %"class.grpc_core::JsonArgs", align 8
   %8 = tail call i16 @_ZNK9grpc_core11ChannelArgs7GetBoolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 49, ptr nonnull @.str.18)
   %9 = and i16 %8, 257
-  %.0.i = icmp eq i16 %9, 257
-  br i1 %.0.i, label %11, label %10
-
-10:                                               ; preds = %5
-  store ptr null, ptr %0, align 8, !tbaa !51
-  br label %21
+  %.not = icmp eq i16 %9, 257
+  br i1 %.not, label %11, label %10
 
 11:                                               ; preds = %5
+  store ptr null, ptr %0, align 8, !tbaa !51
+  br label %22
+
+12:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #21
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN9grpc_core8JsonArgsE, i64 16), ptr %7, align 8, !tbaa !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
   store ptr null, ptr %6, align 8, !tbaa !57, !alias.scope !54
-  %12 = load ptr, ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt10unique_ptrINS_32FaultInjectionMethodParsedConfigESt14default_deleteIS4_EEEEE6value_E, align 8, !tbaa !4, !noalias !54
-  %13 = load ptr, ptr %12, align 8, !noalias !54
+  %13 = load ptr, ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt10unique_ptrINS_32FaultInjectionMethodParsedConfigESt14default_deleteIS4_EEEEE6value_E, align 8, !tbaa !4, !noalias !54
+  %14 = load ptr, ptr %13, align 8, !noalias !54
   invoke void %13(ptr noundef nonnull align 8 dereferenceable(8) @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt10unique_ptrINS_32FaultInjectionMethodParsedConfigESt14default_deleteIS4_EEEEE6value_E, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 %6, ptr noundef %4)
-          to label %_ZNSt10unique_ptrIN9grpc_core32FaultInjectionMethodParsedConfigESt14default_deleteIS1_EED2Ev.exit unwind label %14
+          to label %_ZNSt10unique_ptrIN9grpc_core32FaultInjectionMethodParsedConfigESt14default_deleteIS1_EED2Ev.exit unwind label %15
 
-14:                                               ; preds = %11
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %12
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = load ptr, ptr %6, align 8, !tbaa !60, !alias.scope !54
-  %.not.i.i = icmp eq ptr %16, null
+  %17 = load ptr, ptr %6, align 8, !tbaa !60, !alias.scope !54
+  %.not.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN9grpc_core32FaultInjectionMethodParsedConfigESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN9grpc_core32FaultInjectionMethodParsedConfigEEclEPS1_.exit.i.i
 
-_ZNKSt14default_deleteIN9grpc_core32FaultInjectionMethodParsedConfigEEclEPS1_.exit.i.i: ; preds = %14
-  %17 = load ptr, ptr %16, align 8, !tbaa !4
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(32) %16) #21
+_ZNKSt14default_deleteIN9grpc_core32FaultInjectionMethodParsedConfigEEclEPS1_.exit.i.i: ; preds = %15
+  %18 = load ptr, ptr %17, align 8, !tbaa !4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %20 = load ptr, ptr %19, align 8
+  call void %19(ptr noundef nonnull align 8 dereferenceable(32) %17) #21
   br label %_ZNSt10unique_ptrIN9grpc_core32FaultInjectionMethodParsedConfigESt14default_deleteIS1_EED2Ev.exit.i
 
-_ZNSt10unique_ptrIN9grpc_core32FaultInjectionMethodParsedConfigESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core32FaultInjectionMethodParsedConfigEEclEPS1_.exit.i.i, %14
+_ZNSt10unique_ptrIN9grpc_core32FaultInjectionMethodParsedConfigESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core32FaultInjectionMethodParsedConfigEEclEPS1_.exit.i.i, %15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #21
-  resume { ptr, i32 } %15
+  resume { ptr, i32 } %16
 
-_ZNSt10unique_ptrIN9grpc_core32FaultInjectionMethodParsedConfigESt14default_deleteIS1_EED2Ev.exit: ; preds = %11
-  %20 = load ptr, ptr %6, align 8, !tbaa !60
-  store ptr %20, ptr %0, align 8, !tbaa !51
+_ZNSt10unique_ptrIN9grpc_core32FaultInjectionMethodParsedConfigESt14default_deleteIS1_EED2Ev.exit: ; preds = %12
+  %21 = load ptr, ptr %6, align 8, !tbaa !60
+  store ptr %21, ptr %0, align 8, !tbaa !51
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #21
-  br label %21
+  br label %22
 
-21:                                               ; preds = %_ZNSt10unique_ptrIN9grpc_core32FaultInjectionMethodParsedConfigESt14default_deleteIS1_EED2Ev.exit, %10
+22:                                               ; preds = %_ZNSt10unique_ptrIN9grpc_core32FaultInjectionMethodParsedConfigESt14default_deleteIS1_EED2Ev.exit, %11
   ret void
 }
 

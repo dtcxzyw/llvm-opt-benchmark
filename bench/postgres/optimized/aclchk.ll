@@ -1086,9 +1086,9 @@ define internal fastcc void @ExecGrantStmt_oids(ptr noundef nonnull %0) unnamed_
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load ptr, ptr %42, align 8
   %.not.i = icmp eq ptr %43, null
-  br i1 %.not.i, label %ExecGrant_Relation.exit, label %.lr.ph214.i
+  br i1 %.not.i, label %ExecGrant_Relation.exit, label %.lr.ph213.i
 
-.lr.ph214.i:                                      ; preds = %39
+.lr.ph213.i:                                      ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1110,10 +1110,10 @@ define internal fastcc void @ExecGrantStmt_oids(ptr noundef nonnull %0) unnamed_
   %62 = icmp sgt i32 %61, 0
   br i1 %62, label %.lr.ph69, label %ExecGrant_Relation.exit
 
-.lr.ph69:                                         ; preds = %.lr.ph214.i, %.loopexit.i
-  %indvars.iv252.i68 = phi i64 [ %indvars.iv.next253.i, %.loopexit.i ], [ 0, %.lr.ph214.i ]
+.lr.ph69:                                         ; preds = %.lr.ph213.i, %.loopexit.i
+  %indvars.iv251.i68 = phi i64 [ %indvars.iv.next252.i, %.loopexit.i ], [ 0, %.lr.ph213.i ]
   %63 = load ptr, ptr %45, align 8
-  %64 = getelementptr inbounds nuw %union.ListCell, ptr %63, i64 %indvars.iv252.i68
+  %64 = getelementptr inbounds nuw %union.ListCell, ptr %63, i64 %indvars.iv251.i68
   %65 = load i32, ptr %64, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %29) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #9
@@ -1183,9 +1183,9 @@ define internal fastcc void @ExecGrantStmt_oids(ptr noundef nonnull %0) unnamed_
   %99 = trunc nuw i8 %98 to i1
   %.pre.i = load i64, ptr %47, align 8
   %100 = icmp eq i64 %.pre.i, 0
-  %or.cond288.i = select i1 %99, i1 %100, i1 false
+  %or.cond287.i = select i1 %99, i1 %100, i1 false
   %..i = select i1 %.not142.i, i64 262, i64 16511
-  %.0125.i = select i1 %or.cond288.i, i64 %..i, i64 %.pre.i
+  %.0125.i = select i1 %or.cond287.i, i64 %..i, i64 %.pre.i
   %101 = icmp eq i32 %90, 41
   br i1 %101, label %102, label %119
 
@@ -1313,8 +1313,8 @@ expand_all_col_privileges.exit.i:                 ; preds = %157, %131, %129, %1
 165:                                              ; preds = %expand_all_col_privileges.exit.i
   %166 = load i8, ptr %77, align 1
   %cond1.i = icmp eq i8 %166, 83
-  %.289.i = select i1 %cond1.i, i32 37, i32 41
-  %167 = call ptr @acldefault(i32 noundef %.289.i, i32 noundef %161) #9
+  %.288.i = select i1 %cond1.i, i32 37, i32 41
+  %167 = call ptr @acldefault(i32 noundef %.288.i, i32 noundef %161) #9
   store ptr null, ptr %30, align 8
   br label %172
 
@@ -1419,10 +1419,10 @@ recordExtensionInitPriv.exit.i:                   ; preds = %204, %201
 ._crit_edge.i:                                    ; preds = %expand_col_privileges.exit.i, %.lr.ph.i, %209
   %.1127.lcssa.i = phi i1 [ %.0126.i, %209 ], [ %.0126.i, %.lr.ph.i ], [ true, %expand_col_privileges.exit.i ]
   %216 = icmp sgt i16 %121, -8
-  %or.cond217.i = and i1 %216, %.1127.lcssa.i
-  br i1 %or.cond217.i, label %.lr.ph211.i, label %.loopexit.i
+  %or.cond216.i = and i1 %216, %.1127.lcssa.i
+  br i1 %or.cond216.i, label %.lr.ph210.i, label %.loopexit.i
 
-.lr.ph211.i:                                      ; preds = %._crit_edge.i
+.lr.ph210.i:                                      ; preds = %._crit_edge.i
   %217 = getelementptr inbounds nuw i8, ptr %76, i64 4
   br label %277
 
@@ -1542,16 +1542,16 @@ expand_col_privileges.exit.i:                     ; preds = %266, %.lr.ph.i154.i
   %276 = icmp slt i64 %indvars.iv.next.i, %275
   br i1 %276, label %.lr.ph67, label %._crit_edge.i
 
-277:                                              ; preds = %375, %.lr.ph211.i
-  %.0210.i = phi i16 [ 0, %.lr.ph211.i ], [ %376, %375 ]
-  %278 = sext i16 %.0210.i to i64
+277:                                              ; preds = %375, %.lr.ph210.i
+  %.0209.i = phi i16 [ 0, %.lr.ph210.i ], [ %376, %375 ]
+  %278 = sext i16 %.0209.i to i64
   %279 = getelementptr inbounds i64, ptr %126, i64 %278
   %280 = load i64, ptr %279, align 8
   %281 = icmp eq i64 %280, 0
   br i1 %281, label %375, label %282
 
 282:                                              ; preds = %277
-  %283 = add i16 %.0210.i, -7
+  %283 = add i16 %.0209.i, -7
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %21) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #9
@@ -1760,7 +1760,7 @@ ExecGrant_Attribute.exit.i:                       ; preds = %recordExtensionInit
   br label %375
 
 375:                                              ; preds = %ExecGrant_Attribute.exit.i, %277
-  %376 = add i16 %.0210.i, 1
+  %376 = add i16 %.0209.i, 1
   %377 = sext i16 %376 to i32
   %378 = icmp sgt i32 %123, %377
   br i1 %378, label %277, label %.loopexit.i, !llvm.loop !10
@@ -1772,13 +1772,13 @@ ExecGrant_Attribute.exit.i:                       ; preds = %recordExtensionInit
   call void @CommandCounterIncrement() #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %29) #9
-  %indvars.iv.next253.i = add nuw nsw i64 %indvars.iv252.i68, 1
+  %indvars.iv.next252.i = add nuw nsw i64 %indvars.iv251.i68, 1
   %379 = load i32, ptr %44, align 4
   %380 = sext i32 %379 to i64
-  %381 = icmp slt i64 %indvars.iv.next253.i, %380
+  %381 = icmp slt i64 %indvars.iv.next252.i, %380
   br i1 %381, label %.lr.ph69, label %ExecGrant_Relation.exit
 
-ExecGrant_Relation.exit:                          ; preds = %.loopexit.i, %.lr.ph214.i, %39
+ExecGrant_Relation.exit:                          ; preds = %.loopexit.i, %.lr.ph213.i, %39
   call void @table_close(ptr noundef %41, i32 noundef 3) #9
   call void @table_close(ptr noundef %40, i32 noundef 3) #9
   br label %570

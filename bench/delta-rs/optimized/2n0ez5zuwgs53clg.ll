@@ -64752,8 +64752,8 @@ define internal fastcc noundef zeroext i1 @"_ZN64_$LT$sqlparser..ast..ListAgg$u2
   %35 = load i8, ptr %34, align 1, !range !1281, !alias.scope !10478, !noalias !10481, !noundef !4
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %37 = load i8, ptr %36, align 1, !range !1281, !alias.scope !10481, !noalias !10478, !noundef !4
-  %.not3.i = icmp eq i8 %35, %37
-  br i1 %.not3.i, label %.thread12, label %.critedge
+  %.not4.i = icmp eq i8 %35, %37
+  br i1 %.not4.i, label %.thread12, label %.critedge
 
 38:                                               ; preds = %32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10478)

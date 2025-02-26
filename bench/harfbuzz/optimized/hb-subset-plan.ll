@@ -3585,7 +3585,7 @@ _ZN12hb_hashmap_tIj6TripleLb0EEaSERKS1_.exit:     ; preds = %_ZNR9hb_iter_tI10hb
 518:                                              ; preds = %516, %_ZN12hb_hashmap_tIj6TripleLb0EEaSERKS1_.exit
   %519 = load i8, ptr %398, align 8, !tbaa !187, !range !31, !noundef !32
   %520 = trunc nuw i8 %519 to i1
-  br i1 %520, label %521, label %4453, !prof !35
+  br i1 %520, label %521, label %4473, !prof !35
 
 521:                                              ; preds = %518
   %522 = load i32, ptr %483, align 4, !tbaa !203
@@ -9308,7 +9308,7 @@ _ZL28_populate_unicodes_to_retainPK8hb_set_tS1_P16hb_subset_plan_t.exit: ; preds
   call fastcc void @_ZL24_populate_gids_to_retainP16hb_subset_plan_tP8hb_set_t(ptr noundef %0, ptr noundef %2896)
   %2897 = load i8, ptr %398, align 8, !tbaa !187, !range !31, !noundef !32
   %2898 = trunc nuw i8 %2897 to i1
-  br i1 %2898, label %2899, label %4453, !prof !35
+  br i1 %2898, label %2899, label %4473, !prof !35
 
 2899:                                             ; preds = %_ZL28_populate_unicodes_to_retainPK8hb_set_tS1_P16hb_subset_plan_t.exit
   %2900 = load i32, ptr %399, align 8, !tbaa !188
@@ -10538,7 +10538,7 @@ _ZL30_create_old_gid_to_new_gid_mapPK9hb_face_tbPK8hb_set_tPK8hb_map_tPS5_S8_P11
 _ZL30_create_old_gid_to_new_gid_mapPK9hb_face_tbPK8hb_set_tPK8hb_map_tPS5_S8_P11hb_vector_tI9hb_pair_tIjjELb1EEPj.exit: ; preds = %_ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIK9hb_pair_tIjjEEMS3_KFS3_vEL24hb_function_sortedness_t0ELPv0EES3_EppEv.exit.i.us.i.i, %_ZorI17hb_sorted_array_tIK9hb_pair_tIjjEE9hb_sink_tIR8hb_map_tETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSA_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISA_Efp_EEEOSA_OSG_.exit.i
   %3360 = load i8, ptr %398, align 8, !tbaa !187, !range !31, !noundef !32
   %3361 = trunc nuw i8 %3360 to i1
-  br i1 %3361, label %3362, label %4453
+  br i1 %3361, label %3362, label %4473
 
 3362:                                             ; preds = %_ZL30_create_old_gid_to_new_gid_mapPK9hb_face_tbPK8hb_set_tPK8hb_map_tPS5_S8_P11hb_vector_tI9hb_pair_tIjjELb1EEPj.exit
   %3363 = load ptr, ptr %472, align 8, !tbaa !197
@@ -11439,7 +11439,7 @@ _ZNK2OT4BASE25collect_variation_indicesEPK16hb_subset_plan_tR8hb_set_t.exit.i: ;
 _ZL31_collect_base_variation_indicesP16hb_subset_plan_t.exit: ; preds = %_ZNK2OT4BASE25collect_variation_indicesEPK16hb_subset_plan_tR8hb_set_t.exit.i, %3679, %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit263
   %3744 = load i8, ptr %398, align 8, !tbaa !187, !range !31, !noundef !32
   %3745 = trunc nuw i8 %3744 to i1
-  br i1 %3745, label %3746, label %4453, !prof !35
+  br i1 %3745, label %3746, label %4473, !prof !35
 
 3746:                                             ; preds = %_ZL31_collect_base_variation_indicesP16hb_subset_plan_t.exit
   %3747 = getelementptr inbounds nuw i8, ptr %0, i64 2188
@@ -12664,7 +12664,7 @@ _ZL35_get_instance_glyphs_contour_pointsP16hb_subset_plan_t.exit: ; preds = %_ZL
   %4294 = and i1 %.0.i322, %4293
   %4295 = zext i1 %4294 to i8
   store i8 %4295, ptr %398, align 8, !tbaa !187
-  br i1 %4294, label %4296, label %4453
+  br i1 %4294, label %4296, label %4473
 
 4296:                                             ; preds = %_ZL35_get_instance_glyphs_contour_pointsP16hb_subset_plan_t.exit
   %4297 = load i8, ptr %101, align 8, !tbaa !133, !range !31, !noundef !32
@@ -12841,9 +12841,9 @@ _ZN23hb_subset_accelerator_t6createEP9hb_face_tRK8hb_map_tRK8hb_set_tb.exit: ; p
 .sink.split:                                      ; preds = %4313, %_ZL30_create_old_gid_to_new_gid_mapPK9hb_face_tbPK8hb_set_tPK8hb_map_tPS5_S8_P11hb_vector_tI9hb_pair_tIjjELb1EEPj.exit.thread
   %.sink = phi i8 [ 0, %_ZL30_create_old_gid_to_new_gid_mapPK9hb_face_tbPK8hb_set_tPK8hb_map_tPS5_S8_P11hb_vector_tI9hb_pair_tIjjELb1EEPj.exit.thread ], [ %4452, %4313 ]
   store i8 %.sink, ptr %398, align 8, !tbaa !187
-  br label %4453
+  br label %4473
 
-4453:                                             ; preds = %.sink.split, %_ZL35_get_instance_glyphs_contour_pointsP16hb_subset_plan_t.exit, %_ZL31_collect_base_variation_indicesP16hb_subset_plan_t.exit, %_ZL30_create_old_gid_to_new_gid_mapPK9hb_face_tbPK8hb_set_tPK8hb_map_tPS5_S8_P11hb_vector_tI9hb_pair_tIjjELb1EEPj.exit, %_ZL28_populate_unicodes_to_retainPK8hb_set_tS1_P16hb_subset_plan_t.exit, %518
+4473:                                             ; preds = %.sink.split, %_ZL35_get_instance_glyphs_contour_pointsP16hb_subset_plan_t.exit, %_ZL31_collect_base_variation_indicesP16hb_subset_plan_t.exit, %_ZL30_create_old_gid_to_new_gid_mapPK9hb_face_tbPK8hb_set_tPK8hb_map_tPS5_S8_P11hb_vector_tI9hb_pair_tIjjELb1EEPj.exit, %_ZL28_populate_unicodes_to_retainPK8hb_set_tS1_P16hb_subset_plan_t.exit, %518
   ret void
 }
 

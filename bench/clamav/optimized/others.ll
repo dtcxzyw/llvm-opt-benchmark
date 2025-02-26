@@ -2724,8 +2724,8 @@ cli_virus_found_cb.exit:                          ; preds = %30, %25, %23
 
 56:                                               ; preds = %53, %39, %cli_virus_found_cb.exit
   %57 = phi i32 [ %.pre43, %53 ], [ %37, %39 ], [ %37, %cli_virus_found_cb.exit ]
-  %.masked = and i32 %57, 1
-  %58 = or i32 %.masked, %2
+  %58 = and i32 %57, 1
+  %58 = or i32 %58, %2
   %or.cond = icmp eq i32 %58, 0
   br i1 %or.cond, label %59, label %61
 

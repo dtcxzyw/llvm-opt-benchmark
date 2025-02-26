@@ -1986,7 +1986,7 @@ _ZN4Luau12TypeIteratorINS_9UnionTypeEE7advanceEv.exit.i133.i: ; preds = %_ZN4Lua
 _ZN4Luau12TypeIteratorINS_9UnionTypeEEppEv.exit136.i: ; preds = %_ZN4Luau12TypeIteratorINS_9UnionTypeEE7advanceEv.exit.i133.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #23
   invoke void @_ZN4Luau3endEPKNS_9UnionTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypeIterator") align 8 %5, ptr noundef nonnull %16)
-          to label %190 unwind label %221
+          to label %190 unwind label %222
 
 190:                                              ; preds = %_ZN4Luau12TypeIteratorINS_9UnionTypeEEppEv.exit136.i
   %191 = load i64, ptr %18, align 8, !tbaa !14
@@ -2038,13 +2038,13 @@ _ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit138.i: ; preds = %216, %213
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #23
   br i1 %.0.i.i.i, label %223, label %.critedge.thread.i
 
-221:                                              ; preds = %_ZN4Luau12TypeIteratorINS_9UnionTypeEEppEv.exit136.i
-  %222 = landingpad { ptr, i32 }
+222:                                              ; preds = %_ZN4Luau12TypeIteratorINS_9UnionTypeEEppEv.exit136.i
+  %223 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #23
   br label %.loopexit.split-lp.i
 
-223:                                              ; preds = %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit138.i
+.critedge.thread.i:                               ; preds = %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit138.i
   %224 = and i8 %.355.ph.i, 1
   %225 = and i8 %224, %.551.ph.i
   %226 = icmp ne i8 %225, 0
@@ -2057,22 +2057,22 @@ _ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit138.i: ; preds = %216, %213
   %.not.i.i.i139.i = icmp eq ptr %228, null
   br i1 %.not.i.i.i139.i, label %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit140.i, label %229
 
-229:                                              ; preds = %.critedge.thread.i
+226:                                              ; preds = %.critedge.thread.i
   call void @_ZdlPv(ptr noundef nonnull %228) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %227, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit140.i
 
-_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit140.i: ; preds = %229, %.critedge.thread.i
-  %230 = load ptr, ptr %2, align 8, !tbaa !18
-  %231 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %232 = load i64, ptr %231, align 8, !tbaa !29
-  %233 = shl i64 %232, 4
-  call void @_ZdlPvm(ptr noundef %230, i64 noundef %233) #24
+_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit140.i: ; preds = %226, %.critedge.thread.i
+  %227 = load ptr, ptr %2, align 8, !tbaa !18
+  %228 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %229 = load i64, ptr %228, align 8, !tbaa !29
+  %230 = shl i64 %229, 4
+  call void @_ZdlPvm(ptr noundef %227, i64 noundef %230) #24
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #23
   br label %_ZN4LuauL11isFalsyTypeEPKNS_4TypeE.exit
 
-.loopexit.split-lp.i:                             ; preds = %221, %135, %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %49
-  %.pn92.pn.pn.i = phi { ptr, i32 } [ %50, %49 ], [ %222, %221 ], [ %136, %135 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit173.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp174.i, %.loopexit.split-lp.loopexit.split-lp.i ]
+.loopexit.split-lp.i:                             ; preds = %222, %135, %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %49
+  %.pn92.pn.pn.i = phi { ptr, i32 } [ %50, %49 ], [ %223, %222 ], [ %136, %135 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit173.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp174.i, %.loopexit.split-lp.loopexit.split-lp.i ]
   call void @_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #23
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #23
   resume { ptr, i32 } %.pn92.pn.pn.i

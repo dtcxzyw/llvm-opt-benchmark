@@ -1729,27 +1729,27 @@ if.end24:                                         ; preds = %_ZNK9func_decl14is_
   br i1 %cmp.not.i14, label %if.end35, label %_ZNK9func_decl14is_commutativeEv.exit
 
 _ZNK9func_decl14is_commutativeEv.exit:            ; preds = %_ZNK9func_decl14is_associativeEv.exit, %if.end24
-  %.pr31 = phi ptr [ %.pr.pre, %if.end24 ], [ %16, %_ZNK9func_decl14is_associativeEv.exit ]
-  %m_commutative.i.i = getelementptr inbounds nuw i8, ptr %.pr31, i64 17
+  %.pr32 = phi ptr [ %.pr.pre, %if.end24 ], [ %16, %_ZNK9func_decl14is_associativeEv.exit ]
+  %m_commutative.i.i = getelementptr inbounds nuw i8, ptr %.pr32, i64 17
   %bf.load.i.i16 = load i16, ptr %m_commutative.i.i, align 1
   %20 = and i16 %bf.load.i.i16, 8
-  %bf.cast.i.i.not = icmp eq i16 %20, 0
-  br i1 %bf.cast.i.i.not, label %_ZNK9func_decl12is_injectiveEv.exit, label %if.end29
+  %bf.cast.i.i17.not = icmp eq i16 %20, 0
+  br i1 %bf.cast.i.i17.not, label %_ZNK9func_decl12is_injectiveEv.exit, label %if.end29
 
 if.end29:                                         ; preds = %_ZNK9func_decl14is_commutativeEv.exit
   %21 = load ptr, ptr %this, align 8
   %call28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull @.str.21)
-  %.pr25.pre = load ptr, ptr %m_info.i, align 8
-  %cmp.not.i18 = icmp eq ptr %.pr25.pre, null
-  br i1 %cmp.not.i18, label %if.end35, label %_ZNK9func_decl12is_injectiveEv.exit
+  %.pr26.pre = load ptr, ptr %m_info.i, align 8
+  %cmp.not.i19 = icmp eq ptr %.pr26.pre, null
+  br i1 %cmp.not.i19, label %if.end35, label %_ZNK9func_decl12is_injectiveEv.exit
 
 _ZNK9func_decl12is_injectiveEv.exit:              ; preds = %_ZNK9func_decl14is_commutativeEv.exit, %if.end29
-  %.pr2534 = phi ptr [ %.pr25.pre, %if.end29 ], [ %.pr31, %_ZNK9func_decl14is_commutativeEv.exit ]
-  %m_injective.i.i = getelementptr inbounds nuw i8, ptr %.pr2534, i64 17
-  %bf.load.i.i20 = load i16, ptr %m_injective.i.i, align 1
-  %22 = and i16 %bf.load.i.i20, 64
-  %bf.cast.i.i21.not = icmp eq i16 %22, 0
-  br i1 %bf.cast.i.i21.not, label %if.end35, label %if.then31
+  %.pr2635 = phi ptr [ %.pr26.pre, %if.end29 ], [ %.pr32, %_ZNK9func_decl14is_commutativeEv.exit ]
+  %m_injective.i.i = getelementptr inbounds nuw i8, ptr %.pr2635, i64 17
+  %bf.load.i.i21 = load i16, ptr %m_injective.i.i, align 1
+  %22 = and i16 %bf.load.i.i21, 64
+  %bf.cast.i.i22.not = icmp eq i16 %22, 0
+  br i1 %bf.cast.i.i22.not, label %if.end35, label %if.then31
 
 if.then31:                                        ; preds = %_ZNK9func_decl12is_injectiveEv.exit
   %23 = load ptr, ptr %this, align 8

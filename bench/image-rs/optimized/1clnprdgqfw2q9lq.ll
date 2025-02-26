@@ -22713,7 +22713,7 @@ define hidden void @"_ZN3exr5block6reader15Reader$LT$R$GT$18read_from_buffered17
   %45 = icmp eq i8 %38, 2
   br i1 %45, label %46, label %55
 
-46:                                               ; preds = %36
+48:                                               ; preds = %36
   %47 = lshr exact i32 %.sroa.667.sroa.0.sroa.8.0.insert.shift80.i.i, 16
   %48 = lshr i32 %.sroa.5.032.ph.i.i.i, 12
   %49 = trunc i32 %39 to i1
@@ -22722,7 +22722,7 @@ define hidden void @"_ZN3exr5block6reader15Reader$LT$R$GT$18read_from_buffered17
   %or.cond.not.i.i = select i1 %49, i1 %brmerge.not9.i.i.i, i1 false
   br i1 %or.cond.not.i.i, label %55, label %_ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i
 
-_ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i: ; preds = %46
+_ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i: ; preds = %48
   call void @llvm.lifetime.start.p0(i64 4288, ptr nonnull %10), !noalias !4732
   invoke void @_ZN3exr4meta6header6Header8read_all17h7dfd89fdf9673848E(ptr noalias noundef nonnull sret({ i64, [535 x i64] }) align 8 captures(none) dereferenceable(4288) %10, ptr noalias noundef nonnull align 8 dereferenceable(48) %14, ptr noalias noundef nonnull readonly align 1 dereferenceable(5) %11, i1 noundef zeroext %16)
           to label %.noexc21 unwind label %105
@@ -23182,16 +23182,16 @@ define hidden void @"_ZN3exr5block6reader15Reader$LT$R$GT$18read_from_buffered17
   %44 = icmp eq i8 %37, 2
   br i1 %44, label %45, label %54
 
-45:                                               ; preds = %35
+47:                                               ; preds = %35
   %46 = lshr exact i32 %.sroa.667.sroa.0.sroa.8.0.insert.shift80.i.i, 16
   %47 = lshr i32 %.sroa.5.032.ph.i.i.i, 12
   %48 = trunc i32 %38 to i1
-  %49 = or i32 %46, %47
+  %49 = or i32 %48, %47
   %brmerge.not9.i.i.i = icmp ne i32 %49, 0
   %or.cond.not.i.i = select i1 %48, i1 %brmerge.not9.i.i.i, i1 false
   br i1 %or.cond.not.i.i, label %54, label %_ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i
 
-_ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i: ; preds = %45
+_ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i: ; preds = %47
   call void @llvm.lifetime.start.p0(i64 4288, ptr nonnull %9), !noalias !4808
   invoke void @_ZN3exr4meta6header6Header8read_all17hb2bb52394676cf53E(ptr noalias noundef nonnull sret({ i64, [535 x i64] }) align 8 captures(none) dereferenceable(4288) %9, ptr noalias noundef nonnull align 8 dereferenceable(72) %13, ptr noalias noundef nonnull readonly align 1 dereferenceable(5) %10, i1 noundef zeroext %15)
           to label %.noexc21 unwind label %104

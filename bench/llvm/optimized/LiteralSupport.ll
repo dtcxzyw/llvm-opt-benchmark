@@ -3565,7 +3565,7 @@ _ZN4llvm12StringSwitchIbbE8CaseImplERbNS_13StringLiteralE.exit19.sink.split.i.i:
   %18 = icmp ne i64 %17, 0
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit7.thread100
 
-_ZNK4llvm9StringRef11starts_withES0_.exit7.thread100.fold.split: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i
+_ZNK4llvm9StringRef11starts_withES0_.exit7.thread100: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit7.thread100
 
 _ZNK4llvm9StringRef11starts_withES0_.exit7.thread100: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit7.thread100.fold.split, %_ZN4llvm12StringSwitchIbbE8CaseImplERbNS_13StringLiteralE.exit19.sink.split.i.i, %.thread162, %_ZN4llvmeqENS_9StringRefES0_.exit.i28.i.i17, %_ZN4llvmeqENS_9StringRefES0_.exit.i17.i.i20, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i22, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i39, %_ZN4llvmeqENS_9StringRefES0_.exit.i28.i.i34, %_ZN4llvmeqENS_9StringRefES0_.exit.i17.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread99, %_ZNK4llvm9StringRef11starts_withES0_.exit7, %3

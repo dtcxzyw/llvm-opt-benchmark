@@ -2717,7 +2717,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK9grpc_core15JsonChannelArgs9IsEnable
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = tail call i16 @_ZNK9grpc_core11ChannelArgs7GetBoolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 %1, ptr %2)
   %6 = and i16 %5, 257
-  %.0.i = icmp eq i16 %6, 257
+  %.not = icmp eq i16 %6, 257
   ret i1 %.0.i
 }
 

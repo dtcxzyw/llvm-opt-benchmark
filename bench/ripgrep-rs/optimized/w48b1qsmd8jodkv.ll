@@ -3210,12 +3210,12 @@ define hidden noundef zeroext i1 @_ZN6ignore3dir6Ignore20has_any_ignore_rules17h
   %16 = load ptr, ptr %15, align 8, !nonnull !7, !noundef !7
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load i64, ptr %17, align 8, !noundef !7
-  %19 = or i8 %6, %4
-  %20 = or i8 %19, %8
-  %21 = or i8 %20, %10
-  %brmerge2 = icmp ne i8 %21, 0
-  %22 = or i64 %18, %14
-  %23 = icmp ne i64 %22, 0
+  %brmerge4 = or i8 %6, %4
+  %brmerge15 = or i8 %brmerge4, %8
+  %brmerge26 = or i8 %brmerge15, %10
+  %brmerge2 = icmp ne i8 %brmerge26, 0
+  %19 = or i64 %18, %14
+  %20 = icmp ne i64 %19, 0
   %narrow = or i1 %brmerge2, %23
   ret i1 %narrow
 }

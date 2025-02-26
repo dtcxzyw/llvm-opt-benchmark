@@ -5816,7 +5816,7 @@ declare void @_ZN16remote_bitbang_t4tickEv(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5sim_t10read_chunkEmmPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2800) %0, i64 noundef %1, i64 %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.target_endian, align 8
-  %6 = alloca %"class.std::tuple.313", align 8
+  %4 = alloca %"class.std::tuple.313", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %8 = load ptr, ptr %7, align 8, !tbaa !211
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
@@ -5834,8 +5834,8 @@ define void @_ZN5sim_t10read_chunkEmmPv(ptr noundef nonnull readonly align 8 cap
 
 17:                                               ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 32912
-  %19 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %18, i64 0, i64 %11
-  %20 = load ptr, ptr %19, align 8, !tbaa !438
+  %17 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %18, i64 0, i64 %11
+  %20 = load ptr, ptr %17, align 8, !tbaa !438
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %1
   %22 = load i64, ptr %21, align 8
   store i64 %22, ptr %5, align 8
@@ -5866,7 +5866,7 @@ define void @_ZN5sim_t10read_chunkEmmPv(ptr noundef nonnull readonly align 8 cap
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %1, ptr %33, align 8, !tbaa !446
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #32
   br label %_ZN5mmu_t4loadImEET_m13xlate_flags_t.exit
 
 _ZN5mmu_t4loadImEET_m13xlate_flags_t.exit:        ; preds = %23, %26, %30

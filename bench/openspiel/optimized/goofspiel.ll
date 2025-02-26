@@ -16527,7 +16527,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %4, %40, %53, %_ZNSt
 61:                                               ; preds = %59
   %62 = landingpad { ptr, i32 }
           cleanup
-  br label %102
+  br label %100
 
 63:                                               ; preds = %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit
   store i32 %2, ptr %9, align 4
@@ -16551,7 +16551,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %4, %40, %53, %_ZNSt
 71:                                               ; preds = %69
   %72 = landingpad { ptr, i32 }
           cleanup
-  br label %102
+  br label %100
 
 73:                                               ; preds = %63
   %74 = getelementptr inbounds nuw i8, ptr %14, i64 364
@@ -16597,40 +16597,40 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %4, %40, %53, %_ZNSt
   %brmerge58.not.not = icmp eq i8 %93, 0
   br i1 %brmerge58.not.not, label %95, label %94
 
-94:                                               ; preds = %91
+92:                                               ; preds = %91
   tail call void @_ZNK10open_spiel9goofspiel17GoofspielObserver16WriteWinSequenceERKNS0_13GoofspielGameERKNS0_14GoofspielStateEiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(366) %14, ptr noundef nonnull align 8 dereferenceable(264) %1, i32 noundef %2, ptr noundef %3)
-  br label %95
+  br label %93
 
-95:                                               ; preds = %91, %94
+93:                                               ; preds = %91, %92
   %.not60 = xor i1 %82, true
   %brmerge61 = select i1 %.not, i1 true, i1 %.not60
-  br i1 %brmerge61, label %97, label %96
+  br i1 %brmerge61, label %95, label %94
+
+94:                                               ; preds = %93
+  tail call void @_ZNK10open_spiel9goofspiel17GoofspielObserver22WritePointCardSequenceERKNS0_13GoofspielGameERKNS0_14GoofspielStateEPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(366) %14, ptr noundef nonnull align 8 dereferenceable(264) %1, ptr noundef %3)
+  br label %95
+
+95:                                               ; preds = %93, %94
+  %brmerge64 = select i1 %.not53, i1 true, i1 %.not60
+  %brmerge66 = select i1 %brmerge64, i1 true, i1 %85
+  br i1 %brmerge66, label %97, label %96
 
 96:                                               ; preds = %95
-  tail call void @_ZNK10open_spiel9goofspiel17GoofspielObserver22WritePointCardSequenceERKNS0_13GoofspielGameERKNS0_14GoofspielStateEPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(366) %14, ptr noundef nonnull align 8 dereferenceable(264) %1, ptr noundef %3)
+  tail call void @_ZNK10open_spiel9goofspiel17GoofspielObserver25WritePlayerActionSequenceERKNS0_13GoofspielGameERKNS0_14GoofspielStateEiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(366) %14, ptr noundef nonnull align 8 dereferenceable(264) %1, i32 noundef %2, ptr noundef %3)
   br label %97
 
 97:                                               ; preds = %95, %96
-  %brmerge64 = select i1 %.not53, i1 true, i1 %.not60
-  %brmerge66 = select i1 %brmerge64, i1 true, i1 %85
-  br i1 %brmerge66, label %99, label %98
+  %brmerge68 = or i1 %76, %.not
+  br i1 %brmerge68, label %99, label %98
 
 98:                                               ; preds = %97
-  tail call void @_ZNK10open_spiel9goofspiel17GoofspielObserver25WritePlayerActionSequenceERKNS0_13GoofspielGameERKNS0_14GoofspielStateEiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(366) %14, ptr noundef nonnull align 8 dereferenceable(264) %1, i32 noundef %2, ptr noundef %3)
+  tail call void @_ZNK10open_spiel9goofspiel17GoofspielObserver20WriteAllPlayersHandsERKNS0_13GoofspielGameERKNS0_14GoofspielStateEiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(366) %14, ptr noundef nonnull align 8 dereferenceable(264) %1, i32 noundef %2, ptr noundef %3)
   br label %99
 
 99:                                               ; preds = %97, %98
-  %brmerge68 = or i1 %76, %.not
-  br i1 %brmerge68, label %101, label %100
-
-100:                                              ; preds = %99
-  tail call void @_ZNK10open_spiel9goofspiel17GoofspielObserver20WriteAllPlayersHandsERKNS0_13GoofspielGameERKNS0_14GoofspielStateEiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(366) %14, ptr noundef nonnull align 8 dereferenceable(264) %1, i32 noundef %2, ptr noundef %3)
-  br label %101
-
-101:                                              ; preds = %99, %100
   ret void
 
-102:                                              ; preds = %71, %61
+100:                                              ; preds = %71, %61
   %.sink = phi ptr [ %11, %71 ], [ %7, %61 ]
   %.pn = phi { ptr, i32 } [ %72, %71 ], [ %62, %61 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #25

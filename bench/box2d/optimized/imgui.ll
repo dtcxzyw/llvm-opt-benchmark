@@ -58167,22 +58167,22 @@ _ZN5ImGui22GetTypematicRepeatRateEiPfS0_.exit:    ; preds = %28, %33, %38
   %44 = add i32 %0, -4096
   %45 = tail call i32 @llvm.fshl.i32(i32 %44, i32 %44, i32 20)
   %46 = icmp ult i32 %45, 8
-  br i1 %46, label %switch.hole_check69, label %_ZN5ImGui10GetKeyDataE8ImGuiKey.exit.i
+  br i1 %46, label %switch.hole_check70, label %_ZN5ImGui10GetKeyDataE8ImGuiKey.exit.i
 
-switch.hole_check69:                              ; preds = %43
-  %switch.maskindex71 = trunc nuw i32 %45 to i8
-  %switch.shifted72 = lshr i8 -117, %switch.maskindex71
-  %switch.lobit73 = trunc i8 %switch.shifted72 to i1
-  br i1 %switch.lobit73, label %switch.lookup70, label %_ZN5ImGui10GetKeyDataE8ImGuiKey.exit.i
+switch.hole_check70:                              ; preds = %43
+  %switch.maskindex72 = trunc nuw i32 %45 to i8
+  %switch.shifted73 = lshr i8 -117, %switch.maskindex72
+  %switch.lobit74 = trunc i8 %switch.shifted73 to i1
+  br i1 %switch.lobit74, label %switch.lookup71, label %_ZN5ImGui10GetKeyDataE8ImGuiKey.exit.i
 
-switch.lookup70:                                  ; preds = %switch.hole_check69
+switch.lookup71:                                  ; preds = %switch.hole_check70
   %47 = zext nneg i32 %45 to i64
-  %switch.gep74 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN5ImGui16DebugBreakButtonEPKcS1_, i64 0, i64 %47
-  %switch.load75 = load i32, ptr %switch.gep74, align 4
+  %switch.gep75 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN5ImGui16DebugBreakButtonEPKcS1_, i64 0, i64 %47
+  %switch.load76 = load i32, ptr %switch.gep75, align 4
   br label %_ZN5ImGui10GetKeyDataE8ImGuiKey.exit.i
 
-_ZN5ImGui10GetKeyDataE8ImGuiKey.exit.i:           ; preds = %43, %switch.hole_check69, %switch.lookup70, %42
-  %.0.i.i.i = phi i32 [ %0, %42 ], [ %switch.load75, %switch.lookup70 ], [ %0, %switch.hole_check69 ], [ %0, %43 ]
+_ZN5ImGui10GetKeyDataE8ImGuiKey.exit.i:           ; preds = %43, %switch.hole_check70, %switch.lookup71, %42
+  %.0.i.i.i = phi i32 [ %0, %42 ], [ %switch.load76, %switch.lookup71 ], [ %0, %switch.hole_check70 ], [ %0, %43 ]
   %48 = add nsw i32 %.0.i.i.i, -512
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds [154 x %struct.ImGuiKeyData], ptr %11, i64 0, i64 %49
@@ -58321,22 +58321,22 @@ switch.early.test.i.i:                            ; preds = %107
   %122 = add i32 %0, -4096
   %123 = tail call i32 @llvm.fshl.i32(i32 %122, i32 %122, i32 20)
   %124 = icmp ult i32 %123, 8
-  br i1 %124, label %switch.hole_check77, label %_ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i
+  br i1 %124, label %switch.hole_check78, label %_ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i
 
-switch.hole_check77:                              ; preds = %121
-  %switch.maskindex79 = trunc nuw i32 %123 to i8
-  %switch.shifted80 = lshr i8 -117, %switch.maskindex79
-  %switch.lobit81 = trunc i8 %switch.shifted80 to i1
-  br i1 %switch.lobit81, label %switch.lookup78, label %_ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i
+switch.hole_check78:                              ; preds = %121
+  %switch.maskindex80 = trunc nuw i32 %123 to i8
+  %switch.shifted81 = lshr i8 -117, %switch.maskindex80
+  %switch.lobit82 = trunc i8 %switch.shifted81 to i1
+  br i1 %switch.lobit82, label %switch.lookup79, label %_ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i
 
-switch.lookup78:                                  ; preds = %switch.hole_check77
+switch.lookup79:                                  ; preds = %switch.hole_check78
   %125 = zext nneg i32 %123 to i64
-  %switch.gep82 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN5ImGui16DebugBreakButtonEPKcS1_, i64 0, i64 %125
-  %switch.load83 = load i32, ptr %switch.gep82, align 4
+  %switch.gep83 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN5ImGui16DebugBreakButtonEPKcS1_, i64 0, i64 %125
+  %switch.load84 = load i32, ptr %switch.gep83, align 4
   br label %_ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i
 
-_ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i: ; preds = %121, %switch.hole_check77, %switch.lookup78, %120
-  %.0.i.i42 = phi i32 [ %0, %120 ], [ %switch.load83, %switch.lookup78 ], [ %0, %switch.hole_check77 ], [ %0, %121 ]
+_ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i: ; preds = %121, %switch.hole_check78, %switch.lookup79, %120
+  %.0.i.i42 = phi i32 [ %0, %120 ], [ %switch.load84, %switch.lookup79 ], [ %0, %switch.hole_check78 ], [ %0, %121 ]
   %126 = getelementptr inbounds nuw i8, ptr %4, i64 5156
   %127 = add nsw i32 %.0.i.i42, -512
   %128 = sext i32 %127 to i64

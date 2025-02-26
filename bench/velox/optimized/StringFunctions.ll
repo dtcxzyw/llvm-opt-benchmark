@@ -4483,7 +4483,7 @@ if.end.i:                                         ; preds = %invoke.cont
 
 invoke.cont12:                                    ; preds = %if.then.i
   %8 = and i16 %call1.i21, 257
-  %9 = icmp eq i16 %8, 257
+  %tobool.i.i.i = icmp eq i16 %8, 257
   br i1 %9, label %land.rhs, label %if.end28
 
 land.rhs:                                         ; preds = %invoke.cont12
@@ -7930,7 +7930,7 @@ if.end.i:                                         ; preds = %invoke.cont
 
 invoke.cont12:                                    ; preds = %if.then.i
   %8 = and i16 %call1.i21, 257
-  %9 = icmp eq i16 %8, 257
+  %tobool.i.i.i = icmp eq i16 %8, 257
   br i1 %9, label %land.rhs, label %if.end26
 
 land.rhs:                                         ; preds = %invoke.cont12

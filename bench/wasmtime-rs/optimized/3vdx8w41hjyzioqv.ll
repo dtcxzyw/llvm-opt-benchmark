@@ -26884,7 +26884,7 @@ define void @_ZN8wasmtime7runtime4trap13WasmBacktrace13from_captured17h8c6ec1205
 10:                                               ; preds = %.body, %11
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %12, %11 ]
   invoke void @"_ZN4core3ptr73drop_in_place$LT$wasmtime_runtime..traphandlers..backtrace..Backtrace$GT$17h1c1e25124ab33ddcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #55
-          to label %87 unwind label %85
+          to label %86 unwind label %84
 
 11:                                               ; preds = %13, %5
   %12 = landingpad { ptr, i32 }
@@ -26933,7 +26933,7 @@ define void @_ZN8wasmtime7runtime4trap13WasmBacktrace13from_captured17h8c6ec1205
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %72
   %eh.lpad-body = phi { ptr, i32 } [ %73, %72 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$wasmtime..runtime..trap..FrameInfo$GT$$GT$17h4b9de0ec015dcb0cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #55
-          to label %10 unwind label %85
+          to label %10 unwind label %84
 
 33:                                               ; preds = %23
   %34 = extractvalue { ptr, ptr } %32, 0
@@ -26967,10 +26967,10 @@ define void @_ZN8wasmtime7runtime4trap13WasmBacktrace13from_captured17h8c6ec1205
   ret void
 
 44:                                               ; preds = %.lr.ph, %_ZN8wasmtime7runtime6module8registry14ModuleRegistry17lookup_frame_info17hcdaf47fe5754c6f1E.exit.thread
-  %.01131 = phi i8 [ 0, %.lr.ph ], [ %.126, %_ZN8wasmtime7runtime6module8registry14ModuleRegistry17lookup_frame_info17hcdaf47fe5754c6f1E.exit.thread ]
-  %.sroa.016.030 = phi ptr [ %34, %.lr.ph ], [ %45, %_ZN8wasmtime7runtime6module8registry14ModuleRegistry17lookup_frame_info17hcdaf47fe5754c6f1E.exit.thread ]
-  %45 = getelementptr inbounds nuw i8, ptr %.sroa.016.030, i64 16
-  %46 = invoke noundef i64 @_ZN16wasmtime_runtime12traphandlers9backtrace5Frame2pc17h5d2d31486aae8484E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.016.030)
+  %.01132 = phi i8 [ 0, %.lr.ph ], [ %.126, %_ZN8wasmtime7runtime6module8registry14ModuleRegistry17lookup_frame_info17hcdaf47fe5754c6f1E.exit.thread ]
+  %.sroa.016.031 = phi ptr [ %34, %.lr.ph ], [ %45, %_ZN8wasmtime7runtime6module8registry14ModuleRegistry17lookup_frame_info17hcdaf47fe5754c6f1E.exit.thread ]
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.016.031, i64 16
+  %46 = invoke noundef i64 @_ZN16wasmtime_runtime12traphandlers9backtrace5Frame2pc17h5d2d31486aae8484E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.016.031)
           to label %47 unwind label %.loopexit
 
 47:                                               ; preds = %44
@@ -26979,11 +26979,11 @@ define void @_ZN8wasmtime7runtime4trap13WasmBacktrace13from_captured17h8c6ec1205
   br i1 %.010, label %51, label %49
 
 49:                                               ; preds = %47
-  %50 = invoke noundef i64 @_ZN16wasmtime_runtime12traphandlers9backtrace5Frame2pc17h5d2d31486aae8484E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.016.030)
+  %50 = invoke noundef i64 @_ZN16wasmtime_runtime12traphandlers9backtrace5Frame2pc17h5d2d31486aae8484E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.016.031)
           to label %53 unwind label %.loopexit
 
 51:                                               ; preds = %47
-  %52 = invoke noundef i64 @_ZN16wasmtime_runtime12traphandlers9backtrace5Frame2pc17h5d2d31486aae8484E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.016.030)
+  %52 = invoke noundef i64 @_ZN16wasmtime_runtime12traphandlers9backtrace5Frame2pc17h5d2d31486aae8484E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.016.031)
           to label %55 unwind label %.loopexit
 
 53:                                               ; preds = %49
@@ -27065,23 +27065,23 @@ _ZN8wasmtime7runtime6module8registry14ModuleRegistry17lookup_frame_info17hcdaf47
   %80 = load ptr, ptr %57, align 8, !alias.scope !6184, !nonnull !4, !noundef !4
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 97
   %82 = load i8, ptr %81, align 1, !range !3158, !alias.scope !6187, !noundef !4
-  %83 = and i8 %82, %31
-  %brmerge.demorgan.not = icmp eq i8 %83, 0
-  %spec.select = select i1 %brmerge.demorgan.not, i8 %.01131, i8 1
+  %brmerge.demorgan27 = and i8 %82, %31
+  %brmerge.demorgan.not = icmp eq i8 %brmerge.demorgan27, 0
+  %spec.select = select i1 %brmerge.demorgan.not, i8 %.01132, i8 1
   br label %_ZN8wasmtime7runtime6module8registry14ModuleRegistry17lookup_frame_info17hcdaf47fe5754c6f1E.exit.thread
 
 _ZN8wasmtime7runtime6module8registry14ModuleRegistry17lookup_frame_info17hcdaf47fe5754c6f1E.exit.thread: ; preds = %67, %.noexc, %.thread
-  %.126 = phi i8 [ %spec.select, %.thread ], [ %.01131, %.noexc ], [ %.01131, %67 ]
-  %84 = icmp eq ptr %45, %35
-  br i1 %84, label %._crit_edge.loopexit, label %44
+  %.126 = phi i8 [ %spec.select, %.thread ], [ %.01132, %.noexc ], [ %.01132, %67 ]
+  %83 = icmp eq ptr %45, %35
+  br i1 %83, label %._crit_edge.loopexit, label %44
 
-85:                                               ; preds = %.body, %10
-  %86 = landingpad { ptr, i32 }
+84:                                               ; preds = %.body, %10
+  %85 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #56
   unreachable
 
-87:                                               ; preds = %10
+86:                                               ; preds = %10
   resume { ptr, i32 } %.pn
 }
 
