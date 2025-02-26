@@ -34,8 +34,6 @@ $_ZNK6marisa3Key2idEv = comdat any
 
 $_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_ = comdat any
 
-$_ZN6marisa9ExceptionD2Ev = comdat any
-
 $_ZN6marisa3Key10set_weightEf = comdat any
 
 $_ZN6marisa6KeysetD2Ev = comdat any
@@ -94,18 +92,18 @@ $_ZSt4swapIPN6marisa12scoped_arrayINS0_3KeyEEEENSt9enable_ifIXsr6__and_ISt6__not
 
 $_ZSt4swapIPN6marisa3KeyEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_ = comdat any
 
-$_ZTSN6marisa9ExceptionE = comdat any
-
 $_ZTIN6marisa9ExceptionE = comdat any
+
+$_ZTSN6marisa9ExceptionE = comdat any
 
 $_ZTVN6marisa9ExceptionE = comdat any
 
 @.str = private unnamed_addr constant [130 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/opencc/OpenCC/deps/marisa-0.2.6/lib/marisa/keyset.cc\00", align 1
 @.str.1 = private unnamed_addr constant [165 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/opencc/OpenCC/deps/marisa-0.2.6/lib/marisa/keyset.cc:50: MARISA_NULL_ERROR: str == NULL\00", align 1
+@_ZTIN6marisa9ExceptionE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6marisa9ExceptionE, ptr @_ZTISt9exception }, comdat, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN6marisa9ExceptionE = linkonce_odr constant [20 x i8] c"N6marisa9ExceptionE\00", comdat, align 1
 @_ZTISt9exception = external constant ptr
-@_ZTIN6marisa9ExceptionE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6marisa9ExceptionE, ptr @_ZTISt9exception }, comdat, align 8
 @.str.2 = private unnamed_addr constant [184 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/opencc/OpenCC/deps/marisa-0.2.6/lib/marisa/keyset.cc:61: MARISA_NULL_ERROR: (ptr == NULL) && (length != 0)\00", align 1
 @.str.3 = private unnamed_addr constant [180 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/opencc/OpenCC/deps/marisa-0.2.6/lib/marisa/keyset.cc:62: MARISA_SIZE_ERROR: length > MARISA_UINT32_MAX\00", align 1
 @_ZSt7nothrow = external global %"struct.std::nothrow_t", align 1
@@ -115,8 +113,8 @@ $_ZTVN6marisa9ExceptionE = comdat any
 @.str.7 = private unnamed_addr constant [180 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/opencc/OpenCC/deps/marisa-0.2.6/lib/marisa/keyset.cc:159: MARISA_MEMORY_ERROR: new_block.get() == NULL\00", align 1
 @.str.8 = private unnamed_addr constant [181 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/opencc/OpenCC/deps/marisa-0.2.6/lib/marisa/keyset.cc:169: MARISA_MEMORY_ERROR: new_blocks.get() == NULL\00", align 1
 @.str.9 = private unnamed_addr constant [180 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/opencc/OpenCC/deps/marisa-0.2.6/lib/marisa/keyset.cc:177: MARISA_MEMORY_ERROR: new_block.get() == NULL\00", align 1
-@_ZTVN6marisa9ExceptionE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZN6marisa9ExceptionD2Ev, ptr @_ZN6marisa9ExceptionD0Ev, ptr @_ZNK6marisa9Exception4whatEv] }, comdat, align 8
-@_ZTVSt9exception = external unnamed_addr constant { [5 x ptr] }, align 8
+@_ZTVN6marisa9ExceptionE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZNSt9exceptionD2Ev, ptr @_ZN6marisa9ExceptionD0Ev, ptr @_ZNK6marisa9Exception4whatEv] }, comdat, align 8
+@_ZTVSt9exception = available_externally unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTISt9exception, ptr @_ZNSt9exceptionD1Ev, ptr @_ZNSt9exceptionD0Ev, ptr @_ZNKSt9exception4whatEv] }, align 8
 
 @_ZN6marisa6KeysetC1Ev = unnamed_addr alias void (ptr), ptr @_ZN6marisa6KeysetC2Ev
 
@@ -125,40 +123,40 @@ define void @_ZN6marisa6KeysetC2Ev(ptr noundef nonnull align 8 dereferenceable(1
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %"class.marisa::Keyset", ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %5, i32 0, i32 0
   call void @_ZN6marisa12scoped_arrayINS0_IcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
-  %7 = getelementptr inbounds %"class.marisa::Keyset", ptr %5, i32 0, i32 1
-  store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.marisa::Keyset", ptr %5, i32 0, i32 2
-  store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.marisa::Keyset", ptr %5, i32 0, i32 3
+  %7 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %5, i32 0, i32 1
+  store i64 0, ptr %7, align 8, !tbaa !8
+  %8 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %5, i32 0, i32 2
+  store i64 0, ptr %8, align 8, !tbaa !16
+  %9 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %5, i32 0, i32 3
   invoke void @_ZN6marisa12scoped_arrayINS0_IcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %10 unwind label %21
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds %"class.marisa::Keyset", ptr %5, i32 0, i32 4
-  store i64 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.marisa::Keyset", ptr %5, i32 0, i32 5
-  store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds %"class.marisa::Keyset", ptr %5, i32 0, i32 6
+  %11 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %5, i32 0, i32 4
+  store i64 0, ptr %11, align 8, !tbaa !17
+  %12 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %5, i32 0, i32 5
+  store i64 0, ptr %12, align 8, !tbaa !18
+  %13 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %5, i32 0, i32 6
   invoke void @_ZN6marisa12scoped_arrayINS0_INS_3KeyEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13)
           to label %14 unwind label %25
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds %"class.marisa::Keyset", ptr %5, i32 0, i32 7
-  store i64 0, ptr %15, align 8
-  %16 = getelementptr inbounds %"class.marisa::Keyset", ptr %5, i32 0, i32 8
-  store i64 0, ptr %16, align 8
-  %17 = getelementptr inbounds %"class.marisa::Keyset", ptr %5, i32 0, i32 9
-  store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds %"class.marisa::Keyset", ptr %5, i32 0, i32 10
-  store i64 0, ptr %18, align 8
-  %19 = getelementptr inbounds %"class.marisa::Keyset", ptr %5, i32 0, i32 11
-  store i64 0, ptr %19, align 8
-  %20 = getelementptr inbounds %"class.marisa::Keyset", ptr %5, i32 0, i32 12
-  store i64 0, ptr %20, align 8
+  %15 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %5, i32 0, i32 7
+  store i64 0, ptr %15, align 8, !tbaa !19
+  %16 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %5, i32 0, i32 8
+  store i64 0, ptr %16, align 8, !tbaa !20
+  %17 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %5, i32 0, i32 9
+  store ptr null, ptr %17, align 8, !tbaa !21
+  %18 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %5, i32 0, i32 10
+  store i64 0, ptr %18, align 8, !tbaa !22
+  %19 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %5, i32 0, i32 11
+  store i64 0, ptr %19, align 8, !tbaa !23
+  %20 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %5, i32 0, i32 12
+  store i64 0, ptr %20, align 8, !tbaa !24
   ret void
 
 21:                                               ; preds = %1
@@ -177,11 +175,11 @@ define void @_ZN6marisa6KeysetC2Ev(ptr noundef nonnull align 8 dereferenceable(1
   store ptr %27, ptr %3, align 8
   %28 = extractvalue { ptr, i32 } %26, 1
   store i32 %28, ptr %4, align 4
-  call void @_ZN6marisa12scoped_arrayINS0_IcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #7
+  call void @_ZN6marisa12scoped_arrayINS0_IcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #9
   br label %29
 
 29:                                               ; preds = %25, %21
-  call void @_ZN6marisa12scoped_arrayINS0_IcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #7
+  call void @_ZN6marisa12scoped_arrayINS0_IcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #9
   br label %30
 
 30:                                               ; preds = %29
@@ -195,10 +193,10 @@ define void @_ZN6marisa6KeysetC2Ev(ptr noundef nonnull align 8 dereferenceable(1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6marisa12scoped_arrayINS0_IcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !25
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.marisa::scoped_array", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.marisa::scoped_array", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !27
   ret void
 }
 
@@ -207,22 +205,22 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6marisa12scoped_arrayINS0_INS_3KeyEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.marisa::scoped_array.0", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.marisa::scoped_array.0", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6marisa12scoped_arrayINS0_IcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !25
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.marisa::scoped_array", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.marisa::scoped_array", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !27
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %17, label %7
+  br i1 %6, label %19, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %5, i64 -8
@@ -234,15 +232,17 @@ define linkonce_odr void @_ZN6marisa12scoped_arrayINS0_IcEEED2Ev(ptr noundef non
 12:                                               ; preds = %12, %7
   %13 = phi ptr [ %10, %7 ], [ %14, %12 ]
   %14 = getelementptr inbounds %"class.marisa::scoped_array.2", ptr %13, i64 -1
-  call void @_ZN6marisa12scoped_arrayIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #7
+  call void @_ZN6marisa12scoped_arrayIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #9
   %15 = icmp eq ptr %14, %5
   br i1 %15, label %16, label %12
 
 16:                                               ; preds = %12, %7
-  call void @_ZdaPv(ptr noundef %8) #8
-  br label %17
+  %17 = mul i64 8, %9
+  %18 = add i64 %17, 8
+  call void @_ZdaPvm(ptr noundef %8, i64 noundef %18) #10
+  br label %19
 
-17:                                               ; preds = %16, %1
+19:                                               ; preds = %16, %1
   ret void
 }
 
@@ -253,85 +253,97 @@ define void @_ZN6marisa6Keyset9push_backERKNS_3KeyE(ptr noundef nonnull align 8 
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !31
   %8 = load ptr, ptr %3, align 8
-  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %9 = load ptr, ptr %4, align 8, !tbaa !31
   %10 = call noundef i64 @_ZNK6marisa3Key6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
   %11 = call noundef ptr @_ZN6marisa6Keyset7reserveEm(ptr noundef nonnull align 8 dereferenceable(104) %8, i64 noundef %10)
-  store ptr %11, ptr %5, align 8
-  store i64 0, ptr %6, align 8
+  store ptr %11, ptr %5, align 8, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  store i64 0, ptr %6, align 8, !tbaa !34
   br label %12
 
-12:                                               ; preds = %24, %2
-  %13 = load i64, ptr %6, align 8
-  %14 = load ptr, ptr %4, align 8
+12:                                               ; preds = %25, %2
+  %13 = load i64, ptr %6, align 8, !tbaa !34
+  %14 = load ptr, ptr %4, align 8, !tbaa !31
   %15 = call noundef i64 @_ZNK6marisa3Key6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %14)
   %16 = icmp ult i64 %13, %15
-  br i1 %16, label %17, label %27
+  br i1 %16, label %18, label %17
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr %4, align 8
-  %19 = load i64, ptr %6, align 8
-  %20 = call noundef signext i8 @_ZNK6marisa3KeyixEm(ptr noundef nonnull align 8 dereferenceable(16) %18, i64 noundef %19)
-  %21 = load ptr, ptr %5, align 8
-  %22 = load i64, ptr %6, align 8
-  %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  store i8 %20, ptr %23, align 1
-  br label %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  br label %28
 
-24:                                               ; preds = %17
-  %25 = load i64, ptr %6, align 8
-  %26 = add i64 %25, 1
-  store i64 %26, ptr %6, align 8
-  br label %12, !llvm.loop !4
+18:                                               ; preds = %12
+  %19 = load ptr, ptr %4, align 8, !tbaa !31
+  %20 = load i64, ptr %6, align 8, !tbaa !34
+  %21 = call noundef signext i8 @_ZNK6marisa3KeyixEm(ptr noundef nonnull align 8 dereferenceable(16) %19, i64 noundef %20)
+  %22 = load ptr, ptr %5, align 8, !tbaa !33
+  %23 = load i64, ptr %6, align 8, !tbaa !34
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %23
+  store i8 %21, ptr %24, align 1, !tbaa !35
+  br label %25
 
-27:                                               ; preds = %12
-  %28 = getelementptr inbounds %"class.marisa::Keyset", ptr %8, i32 0, i32 6
-  %29 = getelementptr inbounds %"class.marisa::Keyset", ptr %8, i32 0, i32 11
-  %30 = load i64, ptr %29, align 8
-  %31 = udiv i64 %30, 256
-  %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_INS_3KeyEEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %28, i64 noundef %31)
-  %33 = getelementptr inbounds %"class.marisa::Keyset", ptr %8, i32 0, i32 11
-  %34 = load i64, ptr %33, align 8
-  %35 = urem i64 %34, 256
-  %36 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK6marisa12scoped_arrayINS_3KeyEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %32, i64 noundef %35)
-  store ptr %36, ptr %7, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = load ptr, ptr %5, align 8
-  %39 = load ptr, ptr %4, align 8
-  %40 = call noundef i64 @_ZNK6marisa3Key6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %39)
-  call void @_ZN6marisa3Key7set_strEPKcm(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef %38, i64 noundef %40)
-  %41 = load ptr, ptr %7, align 8
-  %42 = load ptr, ptr %4, align 8
-  %43 = call noundef i64 @_ZNK6marisa3Key2idEv(ptr noundef nonnull align 8 dereferenceable(16) %42)
-  call void @_ZN6marisa3Key6set_idEm(ptr noundef nonnull align 8 dereferenceable(16) %41, i64 noundef %43)
-  %44 = getelementptr inbounds %"class.marisa::Keyset", ptr %8, i32 0, i32 11
-  %45 = load i64, ptr %44, align 8
-  %46 = add i64 %45, 1
-  store i64 %46, ptr %44, align 8
-  %47 = load ptr, ptr %7, align 8
-  %48 = call noundef i64 @_ZNK6marisa3Key6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %47)
-  %49 = getelementptr inbounds %"class.marisa::Keyset", ptr %8, i32 0, i32 12
-  %50 = load i64, ptr %49, align 8
-  %51 = add i64 %50, %48
-  store i64 %51, ptr %49, align 8
+25:                                               ; preds = %18
+  %26 = load i64, ptr %6, align 8, !tbaa !34
+  %27 = add i64 %26, 1
+  store i64 %27, ptr %6, align 8, !tbaa !34
+  br label %12, !llvm.loop !36
+
+28:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  %29 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %8, i32 0, i32 6
+  %30 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %8, i32 0, i32 11
+  %31 = load i64, ptr %30, align 8, !tbaa !23
+  %32 = udiv i64 %31, 256
+  %33 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_INS_3KeyEEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %29, i64 noundef %32)
+  %34 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %8, i32 0, i32 11
+  %35 = load i64, ptr %34, align 8, !tbaa !23
+  %36 = urem i64 %35, 256
+  %37 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK6marisa12scoped_arrayINS_3KeyEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %33, i64 noundef %36)
+  store ptr %37, ptr %7, align 8, !tbaa !31
+  %38 = load ptr, ptr %7, align 8, !tbaa !31
+  %39 = load ptr, ptr %5, align 8, !tbaa !33
+  %40 = load ptr, ptr %4, align 8, !tbaa !31
+  %41 = call noundef i64 @_ZNK6marisa3Key6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %40)
+  call void @_ZN6marisa3Key7set_strEPKcm(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef %39, i64 noundef %41)
+  %42 = load ptr, ptr %7, align 8, !tbaa !31
+  %43 = load ptr, ptr %4, align 8, !tbaa !31
+  %44 = call noundef i64 @_ZNK6marisa3Key2idEv(ptr noundef nonnull align 8 dereferenceable(16) %43)
+  call void @_ZN6marisa3Key6set_idEm(ptr noundef nonnull align 8 dereferenceable(16) %42, i64 noundef %44)
+  %45 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %8, i32 0, i32 11
+  %46 = load i64, ptr %45, align 8, !tbaa !23
+  %47 = add i64 %46, 1
+  store i64 %47, ptr %45, align 8, !tbaa !23
+  %48 = load ptr, ptr %7, align 8, !tbaa !31
+  %49 = call noundef i64 @_ZNK6marisa3Key6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %48)
+  %50 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %8, i32 0, i32 12
+  %51 = load i64, ptr %50, align 8, !tbaa !24
+  %52 = add i64 %51, %49
+  store i64 %52, ptr %50, align 8, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6marisa6Keyset7reserveEm(ptr noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !34
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"class.marisa::Keyset", ptr %6, i32 0, i32 11
-  %8 = load i64, ptr %7, align 8
+  %7 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %6, i32 0, i32 11
+  %8 = load i64, ptr %7, align 8, !tbaa !23
   %9 = udiv i64 %8, 256
-  %10 = getelementptr inbounds %"class.marisa::Keyset", ptr %6, i32 0, i32 7
-  %11 = load i64, ptr %10, align 8
+  %10 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %6, i32 0, i32 7
+  %11 = load i64, ptr %10, align 8, !tbaa !19
   %12 = icmp eq i64 %9, %11
   br i1 %12, label %13, label %14
 
@@ -340,16 +352,16 @@ define noundef ptr @_ZN6marisa6Keyset7reserveEm(ptr noundef nonnull align 8 dere
   br label %14
 
 14:                                               ; preds = %13, %2
-  %15 = load i64, ptr %5, align 8
+  %15 = load i64, ptr %5, align 8, !tbaa !34
   %16 = icmp ugt i64 %15, 1024
   br i1 %16, label %17, label %25
 
 17:                                               ; preds = %14
-  %18 = load i64, ptr %5, align 8
+  %18 = load i64, ptr %5, align 8, !tbaa !34
   call void @_ZN6marisa6Keyset18append_extra_blockEm(ptr noundef nonnull align 8 dereferenceable(104) %6, i64 noundef %18)
-  %19 = getelementptr inbounds %"class.marisa::Keyset", ptr %6, i32 0, i32 3
-  %20 = getelementptr inbounds %"class.marisa::Keyset", ptr %6, i32 0, i32 4
-  %21 = load i64, ptr %20, align 8
+  %19 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %6, i32 0, i32 3
+  %20 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %6, i32 0, i32 4
+  %21 = load i64, ptr %20, align 8, !tbaa !17
   %22 = sub i64 %21, 1
   %23 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_IcEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %19, i64 noundef %22)
   %24 = call noundef ptr @_ZNK6marisa12scoped_arrayIcE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %23)
@@ -357,9 +369,9 @@ define noundef ptr @_ZN6marisa6Keyset7reserveEm(ptr noundef nonnull align 8 dere
   br label %45
 
 25:                                               ; preds = %14
-  %26 = load i64, ptr %5, align 8
-  %27 = getelementptr inbounds %"class.marisa::Keyset", ptr %6, i32 0, i32 10
-  %28 = load i64, ptr %27, align 8
+  %26 = load i64, ptr %5, align 8, !tbaa !34
+  %27 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %6, i32 0, i32 10
+  %28 = load i64, ptr %27, align 8, !tbaa !22
   %29 = icmp ugt i64 %26, %28
   br i1 %29, label %30, label %31
 
@@ -368,19 +380,19 @@ define noundef ptr @_ZN6marisa6Keyset7reserveEm(ptr noundef nonnull align 8 dere
   br label %31
 
 31:                                               ; preds = %30, %25
-  %32 = load i64, ptr %5, align 8
-  %33 = getelementptr inbounds %"class.marisa::Keyset", ptr %6, i32 0, i32 9
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 %32
-  store ptr %35, ptr %33, align 8
-  %36 = load i64, ptr %5, align 8
-  %37 = getelementptr inbounds %"class.marisa::Keyset", ptr %6, i32 0, i32 10
-  %38 = load i64, ptr %37, align 8
+  %32 = load i64, ptr %5, align 8, !tbaa !34
+  %33 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %6, i32 0, i32 9
+  %34 = load ptr, ptr %33, align 8, !tbaa !21
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %32
+  store ptr %35, ptr %33, align 8, !tbaa !21
+  %36 = load i64, ptr %5, align 8, !tbaa !34
+  %37 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %6, i32 0, i32 10
+  %38 = load i64, ptr %37, align 8, !tbaa !22
   %39 = sub i64 %38, %36
-  store i64 %39, ptr %37, align 8
-  %40 = getelementptr inbounds %"class.marisa::Keyset", ptr %6, i32 0, i32 9
-  %41 = load ptr, ptr %40, align 8
-  %42 = load i64, ptr %5, align 8
+  store i64 %39, ptr %37, align 8, !tbaa !22
+  %40 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %6, i32 0, i32 9
+  %41 = load ptr, ptr %40, align 8, !tbaa !21
+  %42 = load i64, ptr %5, align 8, !tbaa !34
   %43 = sub i64 0, %42
   %44 = getelementptr inbounds i8, ptr %41, i64 %43
   store ptr %44, ptr %3, align 8
@@ -394,10 +406,10 @@ define noundef ptr @_ZN6marisa6Keyset7reserveEm(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNK6marisa3Key6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !31
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.marisa::Key", ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.marisa::Key", ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 8, !tbaa !38
   %6 = zext i32 %5 to i64
   ret i64 %6
 }
@@ -406,28 +418,31 @@ define linkonce_odr noundef i64 @_ZNK6marisa3Key6lengthEv(ptr noundef nonnull al
 define linkonce_odr noundef signext i8 @_ZNK6marisa3KeyixEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !31
+  store i64 %1, ptr %4, align 8, !tbaa !34
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.marisa::Key", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i64, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 %8
-  %10 = load i8, ptr %9, align 1
+  %6 = getelementptr inbounds nuw %"class.marisa::Key", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !41
+  %8 = load i64, ptr %4, align 8, !tbaa !34
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 %8
+  %10 = load i8, ptr %9, align 1, !tbaa !35
   ret i8 %10
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_INS_3KeyEEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store i64 %1, ptr %4, align 8, !tbaa !34
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.marisa::scoped_array.0", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i64, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.marisa::scoped_array.1", ptr %7, i64 %8
+  %6 = getelementptr inbounds nuw %"class.marisa::scoped_array.0", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !30
+  %8 = load i64, ptr %4, align 8, !tbaa !34
+  %9 = getelementptr inbounds nuw %"class.marisa::scoped_array.1", ptr %7, i64 %8
   ret ptr %9
 }
 
@@ -435,13 +450,13 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa1
 define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNK6marisa12scoped_arrayINS_3KeyEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !42
+  store i64 %1, ptr %4, align 8, !tbaa !34
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.marisa::scoped_array.1", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i64, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.marisa::Key", ptr %7, i64 %8
+  %6 = getelementptr inbounds nuw %"class.marisa::scoped_array.1", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !43
+  %8 = load i64, ptr %4, align 8, !tbaa !34
+  %9 = getelementptr inbounds nuw %"class.marisa::Key", ptr %7, i64 %8
   ret ptr %9
 }
 
@@ -450,17 +465,17 @@ define linkonce_odr void @_ZN6marisa3Key7set_strEPKcm(ptr noundef nonnull align 
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !31
+  store ptr %1, ptr %5, align 8, !tbaa !33
+  store i64 %2, ptr %6, align 8, !tbaa !34
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds %"class.marisa::Key", ptr %7, i32 0, i32 0
-  store ptr %8, ptr %9, align 8
-  %10 = load i64, ptr %6, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !33
+  %9 = getelementptr inbounds nuw %"class.marisa::Key", ptr %7, i32 0, i32 0
+  store ptr %8, ptr %9, align 8, !tbaa !41
+  %10 = load i64, ptr %6, align 8, !tbaa !34
   %11 = trunc i64 %10 to i32
-  %12 = getelementptr inbounds %"class.marisa::Key", ptr %7, i32 0, i32 1
-  store i32 %11, ptr %12, align 8
+  %12 = getelementptr inbounds nuw %"class.marisa::Key", ptr %7, i32 0, i32 1
+  store i32 %11, ptr %12, align 8, !tbaa !38
   ret void
 }
 
@@ -468,23 +483,23 @@ define linkonce_odr void @_ZN6marisa3Key7set_strEPKcm(ptr noundef nonnull align 
 define linkonce_odr void @_ZN6marisa3Key6set_idEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !31
+  store i64 %1, ptr %4, align 8, !tbaa !34
   %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !34
   %7 = trunc i64 %6 to i32
-  %8 = getelementptr inbounds %"class.marisa::Key", ptr %5, i32 0, i32 2
-  store i32 %7, ptr %8, align 4
+  %8 = getelementptr inbounds nuw %"class.marisa::Key", ptr %5, i32 0, i32 2
+  store i32 %7, ptr %8, align 4, !tbaa !35
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNK6marisa3Key2idEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !31
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.marisa::Key", ptr %3, i32 0, i32 2
-  %5 = load i32, ptr %4, align 4
+  %4 = getelementptr inbounds nuw %"class.marisa::Key", ptr %3, i32 0, i32 2
+  %5 = load i32, ptr %4, align 4, !tbaa !35
   %6 = zext i32 %5 to i64
   ret i64 %6
 }
@@ -497,15 +512,15 @@ define void @_ZN6marisa6Keyset9push_backERKNS_3KeyEc(ptr noundef nonnull align 8
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i8 %2, ptr %6, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !31
+  store i8 %2, ptr %6, align 1, !tbaa !35
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.marisa::Keyset", ptr %10, i32 0, i32 11
-  %12 = load i64, ptr %11, align 8
+  %11 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %10, i32 0, i32 11
+  %12 = load i64, ptr %11, align 8, !tbaa !23
   %13 = udiv i64 %12, 256
-  %14 = getelementptr inbounds %"class.marisa::Keyset", ptr %10, i32 0, i32 7
-  %15 = load i64, ptr %14, align 8
+  %14 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %10, i32 0, i32 7
+  %15 = load i64, ptr %14, align 8, !tbaa !19
   %16 = icmp eq i64 %13, %15
   br i1 %16, label %17, label %18
 
@@ -514,73 +529,82 @@ define void @_ZN6marisa6Keyset9push_backERKNS_3KeyEc(ptr noundef nonnull align 8
   br label %18
 
 18:                                               ; preds = %17, %3
-  %19 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  %19 = load ptr, ptr %5, align 8, !tbaa !31
   %20 = call noundef i64 @_ZNK6marisa3Key6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %19)
   %21 = add i64 %20, 1
   %22 = call noundef ptr @_ZN6marisa6Keyset7reserveEm(ptr noundef nonnull align 8 dereferenceable(104) %10, i64 noundef %21)
-  store ptr %22, ptr %7, align 8
-  store i64 0, ptr %8, align 8
+  store ptr %22, ptr %7, align 8, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #9
+  store i64 0, ptr %8, align 8, !tbaa !34
   br label %23
 
-23:                                               ; preds = %35, %18
-  %24 = load i64, ptr %8, align 8
-  %25 = load ptr, ptr %5, align 8
+23:                                               ; preds = %36, %18
+  %24 = load i64, ptr %8, align 8, !tbaa !34
+  %25 = load ptr, ptr %5, align 8, !tbaa !31
   %26 = call noundef i64 @_ZNK6marisa3Key6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %25)
   %27 = icmp ult i64 %24, %26
-  br i1 %27, label %28, label %38
+  br i1 %27, label %29, label %28
 
 28:                                               ; preds = %23
-  %29 = load ptr, ptr %5, align 8
-  %30 = load i64, ptr %8, align 8
-  %31 = call noundef signext i8 @_ZNK6marisa3KeyixEm(ptr noundef nonnull align 8 dereferenceable(16) %29, i64 noundef %30)
-  %32 = load ptr, ptr %7, align 8
-  %33 = load i64, ptr %8, align 8
-  %34 = getelementptr inbounds i8, ptr %32, i64 %33
-  store i8 %31, ptr %34, align 1
-  br label %35
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #9
+  br label %39
 
-35:                                               ; preds = %28
-  %36 = load i64, ptr %8, align 8
-  %37 = add i64 %36, 1
-  store i64 %37, ptr %8, align 8
-  br label %23, !llvm.loop !6
+29:                                               ; preds = %23
+  %30 = load ptr, ptr %5, align 8, !tbaa !31
+  %31 = load i64, ptr %8, align 8, !tbaa !34
+  %32 = call noundef signext i8 @_ZNK6marisa3KeyixEm(ptr noundef nonnull align 8 dereferenceable(16) %30, i64 noundef %31)
+  %33 = load ptr, ptr %7, align 8, !tbaa !33
+  %34 = load i64, ptr %8, align 8, !tbaa !34
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
+  store i8 %32, ptr %35, align 1, !tbaa !35
+  br label %36
 
-38:                                               ; preds = %23
-  %39 = load i8, ptr %6, align 1
-  %40 = load ptr, ptr %7, align 8
-  %41 = load ptr, ptr %5, align 8
-  %42 = call noundef i64 @_ZNK6marisa3Key6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %41)
-  %43 = getelementptr inbounds i8, ptr %40, i64 %42
-  store i8 %39, ptr %43, align 1
-  %44 = getelementptr inbounds %"class.marisa::Keyset", ptr %10, i32 0, i32 6
-  %45 = getelementptr inbounds %"class.marisa::Keyset", ptr %10, i32 0, i32 11
-  %46 = load i64, ptr %45, align 8
-  %47 = udiv i64 %46, 256
-  %48 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_INS_3KeyEEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %44, i64 noundef %47)
-  %49 = getelementptr inbounds %"class.marisa::Keyset", ptr %10, i32 0, i32 11
-  %50 = load i64, ptr %49, align 8
-  %51 = urem i64 %50, 256
-  %52 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK6marisa12scoped_arrayINS_3KeyEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %48, i64 noundef %51)
-  store ptr %52, ptr %9, align 8
-  %53 = load ptr, ptr %9, align 8
-  %54 = load ptr, ptr %7, align 8
-  %55 = load ptr, ptr %5, align 8
-  %56 = call noundef i64 @_ZNK6marisa3Key6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %55)
-  call void @_ZN6marisa3Key7set_strEPKcm(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef %54, i64 noundef %56)
-  %57 = load ptr, ptr %9, align 8
-  %58 = load ptr, ptr %5, align 8
-  %59 = call noundef i64 @_ZNK6marisa3Key2idEv(ptr noundef nonnull align 8 dereferenceable(16) %58)
-  call void @_ZN6marisa3Key6set_idEm(ptr noundef nonnull align 8 dereferenceable(16) %57, i64 noundef %59)
-  %60 = getelementptr inbounds %"class.marisa::Keyset", ptr %10, i32 0, i32 11
-  %61 = load i64, ptr %60, align 8
-  %62 = add i64 %61, 1
-  store i64 %62, ptr %60, align 8
-  %63 = load ptr, ptr %9, align 8
-  %64 = call noundef i64 @_ZNK6marisa3Key6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %63)
-  %65 = getelementptr inbounds %"class.marisa::Keyset", ptr %10, i32 0, i32 12
-  %66 = load i64, ptr %65, align 8
-  %67 = add i64 %66, %64
-  store i64 %67, ptr %65, align 8
+36:                                               ; preds = %29
+  %37 = load i64, ptr %8, align 8, !tbaa !34
+  %38 = add i64 %37, 1
+  store i64 %38, ptr %8, align 8, !tbaa !34
+  br label %23, !llvm.loop !45
+
+39:                                               ; preds = %28
+  %40 = load i8, ptr %6, align 1, !tbaa !35
+  %41 = load ptr, ptr %7, align 8, !tbaa !33
+  %42 = load ptr, ptr %5, align 8, !tbaa !31
+  %43 = call noundef i64 @_ZNK6marisa3Key6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %42)
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 %43
+  store i8 %40, ptr %44, align 1, !tbaa !35
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #9
+  %45 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %10, i32 0, i32 6
+  %46 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %10, i32 0, i32 11
+  %47 = load i64, ptr %46, align 8, !tbaa !23
+  %48 = udiv i64 %47, 256
+  %49 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_INS_3KeyEEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %45, i64 noundef %48)
+  %50 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %10, i32 0, i32 11
+  %51 = load i64, ptr %50, align 8, !tbaa !23
+  %52 = urem i64 %51, 256
+  %53 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK6marisa12scoped_arrayINS_3KeyEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %49, i64 noundef %52)
+  store ptr %53, ptr %9, align 8, !tbaa !31
+  %54 = load ptr, ptr %9, align 8, !tbaa !31
+  %55 = load ptr, ptr %7, align 8, !tbaa !33
+  %56 = load ptr, ptr %5, align 8, !tbaa !31
+  %57 = call noundef i64 @_ZNK6marisa3Key6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %56)
+  call void @_ZN6marisa3Key7set_strEPKcm(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef %55, i64 noundef %57)
+  %58 = load ptr, ptr %9, align 8, !tbaa !31
+  %59 = load ptr, ptr %5, align 8, !tbaa !31
+  %60 = call noundef i64 @_ZNK6marisa3Key2idEv(ptr noundef nonnull align 8 dereferenceable(16) %59)
+  call void @_ZN6marisa3Key6set_idEm(ptr noundef nonnull align 8 dereferenceable(16) %58, i64 noundef %60)
+  %61 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %10, i32 0, i32 11
+  %62 = load i64, ptr %61, align 8, !tbaa !23
+  %63 = add i64 %62, 1
+  store i64 %63, ptr %61, align 8, !tbaa !23
+  %64 = load ptr, ptr %9, align 8, !tbaa !31
+  %65 = call noundef i64 @_ZNK6marisa3Key6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %64)
+  %66 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %10, i32 0, i32 12
+  %67 = load i64, ptr %66, align 8, !tbaa !24
+  %68 = add i64 %67, %65
+  store i64 %68, ptr %66, align 8, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
   ret void
 }
 
@@ -605,24 +629,25 @@ define void @_ZN6marisa6Keyset16append_key_blockEv(ptr noundef nonnull align 8 d
   %18 = alloca i1, align 1
   %19 = alloca ptr, align 8
   %20 = alloca i1, align 1
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds %"class.marisa::Keyset", ptr %21, i32 0, i32 7
-  %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds %"class.marisa::Keyset", ptr %21, i32 0, i32 8
-  %25 = load i64, ptr %24, align 8
+  %22 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %21, i32 0, i32 7
+  %23 = load i64, ptr %22, align 8, !tbaa !19
+  %24 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %21, i32 0, i32 8
+  %25 = load i64, ptr %24, align 8, !tbaa !20
   %26 = icmp eq i64 %23, %25
-  br i1 %26, label %27, label %124
+  br i1 %26, label %27, label %130
 
 27:                                               ; preds = %1
-  %28 = getelementptr inbounds %"class.marisa::Keyset", ptr %21, i32 0, i32 7
-  %29 = load i64, ptr %28, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #9
+  %28 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %21, i32 0, i32 7
+  %29 = load i64, ptr %28, align 8, !tbaa !19
   %30 = icmp ne i64 %29, 0
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds %"class.marisa::Keyset", ptr %21, i32 0, i32 7
-  %33 = load i64, ptr %32, align 8
+  %32 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %21, i32 0, i32 7
+  %33 = load i64, ptr %32, align 8, !tbaa !19
   %34 = mul i64 %33, 2
   br label %36
 
@@ -631,8 +656,9 @@ define void @_ZN6marisa6Keyset16append_key_blockEv(ptr noundef nonnull align 8 d
 
 36:                                               ; preds = %35, %31
   %37 = phi i64 [ %34, %31 ], [ 1, %35 ]
-  store i64 %37, ptr %3, align 8
-  %38 = load i64, ptr %3, align 8
+  store i64 %37, ptr %3, align 8, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #9
+  %38 = load i64, ptr %3, align 8, !tbaa !34
   %39 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %38, i64 8)
   %40 = extractvalue { i64, i1 } %39, 1
   %41 = extractvalue { i64, i1 } %39, 0
@@ -641,7 +667,7 @@ define void @_ZN6marisa6Keyset16append_key_blockEv(ptr noundef nonnull align 8 d
   %44 = or i1 %40, %43
   %45 = extractvalue { i64, i1 } %42, 0
   %46 = select i1 %44, i64 -1, i64 %45
-  %47 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %46, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #9
+  %47 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %46, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #11
   %48 = icmp eq ptr %47, null
   store i1 false, ptr %7, align 1
   store i1 false, ptr %10, align 1
@@ -666,14 +692,14 @@ define void @_ZN6marisa6Keyset16append_key_blockEv(ptr noundef nonnull align 8 d
   store ptr %55, ptr %9, align 8
   store i1 true, ptr %10, align 1
   invoke void @_ZN6marisa12scoped_arrayINS_3KeyEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %55)
-          to label %56 unwind label %87
+          to label %56 unwind label %76
 
 56:                                               ; preds = %54
   %57 = getelementptr inbounds %"class.marisa::scoped_array.1", ptr %55, i64 1
   %58 = icmp eq ptr %57, %53
   br i1 %58, label %59, label %54
 
-59:                                               ; preds = %56, %49
+59:                                               ; preds = %49, %56
   br label %60
 
 60:                                               ; preds = %59, %36
@@ -681,266 +707,294 @@ define void @_ZN6marisa6Keyset16append_key_blockEv(ptr noundef nonnull align 8 d
   call void @_ZN6marisa12scoped_arrayINS0_INS_3KeyEEEEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %61)
   store i1 false, ptr %14, align 1
   %62 = invoke noundef ptr @_ZNK6marisa12scoped_arrayINS0_INS_3KeyEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %63 unwind label %106
+          to label %63 unwind label %95
 
 63:                                               ; preds = %60
   %64 = icmp eq ptr %62, null
   br i1 %64, label %65, label %69
 
 65:                                               ; preds = %63
-  %66 = call ptr @__cxa_allocate_exception(i64 32) #7
+  %66 = call ptr @__cxa_allocate_exception(i64 32) #9
   store ptr %66, ptr %13, align 8
   store i1 true, ptr %14, align 1
   invoke void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef @.str, i32 noundef 169, i32 noundef 8, ptr noundef @.str.8)
-          to label %67 unwind label %110
+          to label %67 unwind label %99
 
 67:                                               ; preds = %65
-  invoke void @__cxa_throw(ptr %66, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZN6marisa9ExceptionD2Ev) #10
-          to label %178 unwind label %106
+  invoke void @__cxa_throw(ptr %66, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZNSt9exceptionD2Ev) #12
+          to label %185 unwind label %95
 
 68:                                               ; No predecessors!
   br label %69
 
 69:                                               ; preds = %68, %63
-  store i64 0, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #9
+  store i64 0, ptr %15, align 8, !tbaa !34
   br label %70
 
-70:                                               ; preds = %84, %69
-  %71 = load i64, ptr %15, align 8
-  %72 = getelementptr inbounds %"class.marisa::Keyset", ptr %21, i32 0, i32 7
-  %73 = load i64, ptr %72, align 8
+70:                                               ; preds = %116, %69
+  %71 = load i64, ptr %15, align 8, !tbaa !34
+  %72 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %21, i32 0, i32 7
+  %73 = load i64, ptr %72, align 8, !tbaa !19
   %74 = icmp ult i64 %71, %73
-  br i1 %74, label %75, label %118
+  br i1 %74, label %107, label %75
 
 75:                                               ; preds = %70
-  %76 = getelementptr inbounds %"class.marisa::Keyset", ptr %21, i32 0, i32 6
-  %77 = load i64, ptr %15, align 8
-  %78 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_INS_3KeyEEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %76, i64 noundef %77)
-          to label %79 unwind label %106
-
-79:                                               ; preds = %75
-  %80 = load i64, ptr %15, align 8
-  %81 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_INS_3KeyEEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %80)
-          to label %82 unwind label %106
-
-82:                                               ; preds = %79
-  invoke void @_ZN6marisa12scoped_arrayINS_3KeyEE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(8) %78, ptr noundef nonnull align 8 dereferenceable(8) %81)
-          to label %83 unwind label %106
-
-83:                                               ; preds = %82
-  br label %84
-
-84:                                               ; preds = %83
-  %85 = load i64, ptr %15, align 8
-  %86 = add i64 %85, 1
-  store i64 %86, ptr %15, align 8
-  br label %70, !llvm.loop !7
-
-87:                                               ; preds = %54
-  %88 = landingpad { ptr, i32 }
-          cleanup
-  %89 = extractvalue { ptr, i32 } %88, 0
-  store ptr %89, ptr %11, align 8
-  %90 = extractvalue { ptr, i32 } %88, 1
-  store i32 %90, ptr %12, align 4
-  %91 = load i1, ptr %10, align 1
-  br i1 %91, label %92, label %101
-
-92:                                               ; preds = %87
-  %93 = load ptr, ptr %8, align 8
-  %94 = load ptr, ptr %9, align 8
-  %95 = icmp eq ptr %93, %94
-  br i1 %95, label %100, label %96
-
-96:                                               ; preds = %96, %92
-  %97 = phi ptr [ %94, %92 ], [ %98, %96 ]
-  %98 = getelementptr inbounds %"class.marisa::scoped_array.1", ptr %97, i64 -1
-  call void @_ZN6marisa12scoped_arrayINS_3KeyEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %98) #7
-  %99 = icmp eq ptr %98, %93
-  br i1 %99, label %100, label %96
-
-100:                                              ; preds = %96, %92
-  br label %101
-
-101:                                              ; preds = %100, %87
-  %102 = load i1, ptr %7, align 1
-  br i1 %102, label %103, label %105
-
-103:                                              ; preds = %101
-  %104 = load ptr, ptr %5, align 8
-  call void @_ZdaPvRKSt9nothrow_t(ptr noundef %104, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #8
-  br label %105
-
-105:                                              ; preds = %103, %101
-  br label %173
-
-106:                                              ; preds = %118, %82, %79, %75, %67, %60
-  %107 = landingpad { ptr, i32 }
-          cleanup
-  %108 = extractvalue { ptr, i32 } %107, 0
-  store ptr %108, ptr %11, align 8
-  %109 = extractvalue { ptr, i32 } %107, 1
-  store i32 %109, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #9
   br label %123
 
-110:                                              ; preds = %65
-  %111 = landingpad { ptr, i32 }
+76:                                               ; preds = %54
+  %77 = landingpad { ptr, i32 }
           cleanup
-  %112 = extractvalue { ptr, i32 } %111, 0
-  store ptr %112, ptr %11, align 8
-  %113 = extractvalue { ptr, i32 } %111, 1
-  store i32 %113, ptr %12, align 4
-  %114 = load i1, ptr %14, align 1
-  br i1 %114, label %115, label %117
+  %78 = extractvalue { ptr, i32 } %77, 0
+  store ptr %78, ptr %11, align 8
+  %79 = extractvalue { ptr, i32 } %77, 1
+  store i32 %79, ptr %12, align 4
+  %80 = load i1, ptr %10, align 1
+  br i1 %80, label %81, label %90
 
-115:                                              ; preds = %110
-  %116 = load ptr, ptr %13, align 8
-  call void @__cxa_free_exception(ptr %116) #7
-  br label %117
+81:                                               ; preds = %76
+  %82 = load ptr, ptr %8, align 8
+  %83 = load ptr, ptr %9, align 8
+  %84 = icmp eq ptr %82, %83
+  br i1 %84, label %89, label %85
 
-117:                                              ; preds = %115, %110
-  br label %123
+85:                                               ; preds = %85, %81
+  %86 = phi ptr [ %83, %81 ], [ %87, %85 ]
+  %87 = getelementptr inbounds %"class.marisa::scoped_array.1", ptr %86, i64 -1
+  call void @_ZN6marisa12scoped_arrayINS_3KeyEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %87) #9
+  %88 = icmp eq ptr %87, %82
+  br i1 %88, label %89, label %85
 
-118:                                              ; preds = %70
-  %119 = getelementptr inbounds %"class.marisa::Keyset", ptr %21, i32 0, i32 6
-  invoke void @_ZN6marisa12scoped_arrayINS0_INS_3KeyEEEE4swapERS3_(ptr noundef nonnull align 8 dereferenceable(8) %119, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %120 unwind label %106
+89:                                               ; preds = %85, %81
+  br label %90
 
-120:                                              ; preds = %118
-  %121 = load i64, ptr %3, align 8
-  %122 = getelementptr inbounds %"class.marisa::Keyset", ptr %21, i32 0, i32 8
-  store i64 %121, ptr %122, align 8
-  call void @_ZN6marisa12scoped_arrayINS0_INS_3KeyEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #7
-  br label %124
+90:                                               ; preds = %89, %76
+  %91 = load i1, ptr %7, align 1
+  br i1 %91, label %92, label %94
 
-123:                                              ; preds = %117, %106
-  call void @_ZN6marisa12scoped_arrayINS0_INS_3KeyEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #7
-  br label %173
+92:                                               ; preds = %90
+  %93 = load ptr, ptr %5, align 8
+  call void @_ZdaPvRKSt9nothrow_t(ptr noundef %93, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #10
+  br label %94
 
-124:                                              ; preds = %120, %1
-  %125 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef 4096, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #9
-  %126 = icmp eq ptr %125, null
-  store i1 false, ptr %18, align 1
-  br i1 %126, label %135, label %127
-
-127:                                              ; preds = %124
-  store ptr %125, ptr %17, align 8
-  store i1 true, ptr %18, align 1
-  %128 = getelementptr inbounds %"class.marisa::Key", ptr %125, i64 256
+94:                                               ; preds = %92, %90
   br label %129
 
-129:                                              ; preds = %131, %127
-  %130 = phi ptr [ %125, %127 ], [ %132, %131 ]
-  invoke void @_ZN6marisa3KeyC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %130)
-          to label %131 unwind label %152
+95:                                               ; preds = %123, %67, %60
+  %96 = landingpad { ptr, i32 }
+          cleanup
+  %97 = extractvalue { ptr, i32 } %96, 0
+  store ptr %97, ptr %11, align 8
+  %98 = extractvalue { ptr, i32 } %96, 1
+  store i32 %98, ptr %12, align 4
+  br label %128
 
-131:                                              ; preds = %129
-  %132 = getelementptr inbounds %"class.marisa::Key", ptr %130, i64 1
-  %133 = icmp eq ptr %132, %128
-  br i1 %133, label %134, label %129
+99:                                               ; preds = %65
+  %100 = landingpad { ptr, i32 }
+          cleanup
+  %101 = extractvalue { ptr, i32 } %100, 0
+  store ptr %101, ptr %11, align 8
+  %102 = extractvalue { ptr, i32 } %100, 1
+  store i32 %102, ptr %12, align 4
+  %103 = load i1, ptr %14, align 1
+  br i1 %103, label %104, label %106
 
-134:                                              ; preds = %131
+104:                                              ; preds = %99
+  %105 = load ptr, ptr %13, align 8
+  call void @__cxa_free_exception(ptr %105) #9
+  br label %106
+
+106:                                              ; preds = %104, %99
+  br label %128
+
+107:                                              ; preds = %70
+  %108 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %21, i32 0, i32 6
+  %109 = load i64, ptr %15, align 8, !tbaa !34
+  %110 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_INS_3KeyEEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %108, i64 noundef %109)
+          to label %111 unwind label %119
+
+111:                                              ; preds = %107
+  %112 = load i64, ptr %15, align 8, !tbaa !34
+  %113 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_INS_3KeyEEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %112)
+          to label %114 unwind label %119
+
+114:                                              ; preds = %111
+  invoke void @_ZN6marisa12scoped_arrayINS_3KeyEE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull align 8 dereferenceable(8) %113)
+          to label %115 unwind label %119
+
+115:                                              ; preds = %114
+  br label %116
+
+116:                                              ; preds = %115
+  %117 = load i64, ptr %15, align 8, !tbaa !34
+  %118 = add i64 %117, 1
+  store i64 %118, ptr %15, align 8, !tbaa !34
+  br label %70, !llvm.loop !46
+
+119:                                              ; preds = %114, %111, %107
+  %120 = landingpad { ptr, i32 }
+          cleanup
+  %121 = extractvalue { ptr, i32 } %120, 0
+  store ptr %121, ptr %11, align 8
+  %122 = extractvalue { ptr, i32 } %120, 1
+  store i32 %122, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #9
+  br label %128
+
+123:                                              ; preds = %75
+  %124 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %21, i32 0, i32 6
+  invoke void @_ZN6marisa12scoped_arrayINS0_INS_3KeyEEEE4swapERS3_(ptr noundef nonnull align 8 dereferenceable(8) %124, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %125 unwind label %95
+
+125:                                              ; preds = %123
+  %126 = load i64, ptr %3, align 8, !tbaa !34
+  %127 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %21, i32 0, i32 8
+  store i64 %126, ptr %127, align 8, !tbaa !20
+  call void @_ZN6marisa12scoped_arrayINS0_INS_3KeyEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #9
+  br label %130
+
+128:                                              ; preds = %119, %106, %95
+  call void @_ZN6marisa12scoped_arrayINS0_INS_3KeyEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #9
+  br label %129
+
+129:                                              ; preds = %128, %94
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #9
+  br label %180
+
+130:                                              ; preds = %125, %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #9
+  %131 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef 4096, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #11
+  %132 = icmp eq ptr %131, null
+  store i1 false, ptr %18, align 1
+  br i1 %132, label %141, label %133
+
+133:                                              ; preds = %130
+  store ptr %131, ptr %17, align 8
+  store i1 true, ptr %18, align 1
+  %134 = getelementptr inbounds %"class.marisa::Key", ptr %131, i64 256
   br label %135
 
-135:                                              ; preds = %134, %124
-  %136 = phi ptr [ %125, %134 ], [ null, %124 ]
-  call void @_ZN6marisa12scoped_arrayINS_3KeyEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %136)
+135:                                              ; preds = %137, %133
+  %136 = phi ptr [ %131, %133 ], [ %138, %137 ]
+  invoke void @_ZN6marisa3KeyC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %136)
+          to label %137 unwind label %158
+
+137:                                              ; preds = %135
+  %138 = getelementptr inbounds %"class.marisa::Key", ptr %136, i64 1
+  %139 = icmp eq ptr %138, %134
+  br i1 %139, label %140, label %135
+
+140:                                              ; preds = %137
+  br label %141
+
+141:                                              ; preds = %140, %130
+  %142 = phi ptr [ %131, %140 ], [ null, %130 ]
+  call void @_ZN6marisa12scoped_arrayINS_3KeyEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %142)
   store i1 false, ptr %20, align 1
-  %137 = invoke noundef ptr @_ZNK6marisa12scoped_arrayINS_3KeyEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %16)
-          to label %138 unwind label %160
+  %143 = invoke noundef ptr @_ZNK6marisa12scoped_arrayINS_3KeyEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %16)
+          to label %144 unwind label %166
 
-138:                                              ; preds = %135
-  %139 = icmp eq ptr %137, null
-  br i1 %139, label %140, label %144
+144:                                              ; preds = %141
+  %145 = icmp eq ptr %143, null
+  br i1 %145, label %146, label %150
 
-140:                                              ; preds = %138
-  %141 = call ptr @__cxa_allocate_exception(i64 32) #7
-  store ptr %141, ptr %19, align 8
+146:                                              ; preds = %144
+  %147 = call ptr @__cxa_allocate_exception(i64 32) #9
+  store ptr %147, ptr %19, align 8
   store i1 true, ptr %20, align 1
-  invoke void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr noundef nonnull align 8 dereferenceable(32) %141, ptr noundef @.str, i32 noundef 177, i32 noundef 8, ptr noundef @.str.9)
-          to label %142 unwind label %164
+  invoke void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr noundef nonnull align 8 dereferenceable(32) %147, ptr noundef @.str, i32 noundef 177, i32 noundef 8, ptr noundef @.str.9)
+          to label %148 unwind label %170
 
-142:                                              ; preds = %140
-  invoke void @__cxa_throw(ptr %141, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZN6marisa9ExceptionD2Ev) #10
-          to label %178 unwind label %160
+148:                                              ; preds = %146
+  invoke void @__cxa_throw(ptr %147, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZNSt9exceptionD2Ev) #12
+          to label %185 unwind label %166
 
-143:                                              ; No predecessors!
-  br label %144
+149:                                              ; No predecessors!
+  br label %150
 
-144:                                              ; preds = %143, %138
-  %145 = getelementptr inbounds %"class.marisa::Keyset", ptr %21, i32 0, i32 6
-  %146 = getelementptr inbounds %"class.marisa::Keyset", ptr %21, i32 0, i32 7
-  %147 = load i64, ptr %146, align 8
-  %148 = add i64 %147, 1
-  store i64 %148, ptr %146, align 8
-  %149 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_INS_3KeyEEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %145, i64 noundef %147)
-          to label %150 unwind label %160
+150:                                              ; preds = %149, %144
+  %151 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %21, i32 0, i32 6
+  %152 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %21, i32 0, i32 7
+  %153 = load i64, ptr %152, align 8, !tbaa !19
+  %154 = add i64 %153, 1
+  store i64 %154, ptr %152, align 8, !tbaa !19
+  %155 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_INS_3KeyEEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %151, i64 noundef %153)
+          to label %156 unwind label %166
 
-150:                                              ; preds = %144
-  invoke void @_ZN6marisa12scoped_arrayINS_3KeyEE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(8) %149, ptr noundef nonnull align 8 dereferenceable(8) %16)
-          to label %151 unwind label %160
+156:                                              ; preds = %150
+  invoke void @_ZN6marisa12scoped_arrayINS_3KeyEE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(8) %155, ptr noundef nonnull align 8 dereferenceable(8) %16)
+          to label %157 unwind label %166
 
-151:                                              ; preds = %150
-  call void @_ZN6marisa12scoped_arrayINS_3KeyEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #7
+157:                                              ; preds = %156
+  call void @_ZN6marisa12scoped_arrayINS_3KeyEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #9
   ret void
 
-152:                                              ; preds = %129
-  %153 = landingpad { ptr, i32 }
+158:                                              ; preds = %135
+  %159 = landingpad { ptr, i32 }
           cleanup
-  %154 = extractvalue { ptr, i32 } %153, 0
-  store ptr %154, ptr %11, align 8
-  %155 = extractvalue { ptr, i32 } %153, 1
-  store i32 %155, ptr %12, align 4
-  %156 = load i1, ptr %18, align 1
-  br i1 %156, label %157, label %159
+  %160 = extractvalue { ptr, i32 } %159, 0
+  store ptr %160, ptr %11, align 8
+  %161 = extractvalue { ptr, i32 } %159, 1
+  store i32 %161, ptr %12, align 4
+  %162 = load i1, ptr %18, align 1
+  br i1 %162, label %163, label %165
 
-157:                                              ; preds = %152
-  %158 = load ptr, ptr %17, align 8
-  call void @_ZdaPvRKSt9nothrow_t(ptr noundef %158, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #8
-  br label %159
+163:                                              ; preds = %158
+  %164 = load ptr, ptr %17, align 8
+  call void @_ZdaPvRKSt9nothrow_t(ptr noundef %164, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #10
+  br label %165
 
-159:                                              ; preds = %157, %152
-  br label %173
+165:                                              ; preds = %163, %158
+  br label %179
 
-160:                                              ; preds = %150, %144, %142, %135
-  %161 = landingpad { ptr, i32 }
+166:                                              ; preds = %156, %150, %148, %141
+  %167 = landingpad { ptr, i32 }
           cleanup
-  %162 = extractvalue { ptr, i32 } %161, 0
-  store ptr %162, ptr %11, align 8
-  %163 = extractvalue { ptr, i32 } %161, 1
-  store i32 %163, ptr %12, align 4
-  br label %172
+  %168 = extractvalue { ptr, i32 } %167, 0
+  store ptr %168, ptr %11, align 8
+  %169 = extractvalue { ptr, i32 } %167, 1
+  store i32 %169, ptr %12, align 4
+  br label %178
 
-164:                                              ; preds = %140
-  %165 = landingpad { ptr, i32 }
+170:                                              ; preds = %146
+  %171 = landingpad { ptr, i32 }
           cleanup
-  %166 = extractvalue { ptr, i32 } %165, 0
-  store ptr %166, ptr %11, align 8
-  %167 = extractvalue { ptr, i32 } %165, 1
-  store i32 %167, ptr %12, align 4
-  %168 = load i1, ptr %20, align 1
-  br i1 %168, label %169, label %171
+  %172 = extractvalue { ptr, i32 } %171, 0
+  store ptr %172, ptr %11, align 8
+  %173 = extractvalue { ptr, i32 } %171, 1
+  store i32 %173, ptr %12, align 4
+  %174 = load i1, ptr %20, align 1
+  br i1 %174, label %175, label %177
 
-169:                                              ; preds = %164
-  %170 = load ptr, ptr %19, align 8
-  call void @__cxa_free_exception(ptr %170) #7
-  br label %171
+175:                                              ; preds = %170
+  %176 = load ptr, ptr %19, align 8
+  call void @__cxa_free_exception(ptr %176) #9
+  br label %177
 
-171:                                              ; preds = %169, %164
-  br label %172
+177:                                              ; preds = %175, %170
+  br label %178
 
-172:                                              ; preds = %171, %160
-  call void @_ZN6marisa12scoped_arrayINS_3KeyEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #7
-  br label %173
+178:                                              ; preds = %177, %166
+  call void @_ZN6marisa12scoped_arrayINS_3KeyEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #9
+  br label %179
 
-173:                                              ; preds = %172, %159, %123, %105
-  %174 = load ptr, ptr %11, align 8
-  %175 = load i32, ptr %12, align 4
-  %176 = insertvalue { ptr, i32 } poison, ptr %174, 0
-  %177 = insertvalue { ptr, i32 } %176, i32 %175, 1
-  resume { ptr, i32 } %177
+179:                                              ; preds = %178, %165
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #9
+  br label %180
 
-178:                                              ; preds = %142, %67
+180:                                              ; preds = %179, %129
+  %181 = load ptr, ptr %11, align 8
+  %182 = load i32, ptr %12, align 4
+  %183 = insertvalue { ptr, i32 } poison, ptr %181, 0
+  %184 = insertvalue { ptr, i32 } %183, i32 %182, 1
+  resume { ptr, i32 } %184
+
+185:                                              ; preds = %148, %67
   unreachable
 }
 
@@ -953,46 +1007,47 @@ define void @_ZN6marisa6Keyset9push_backEPKc(ptr noundef nonnull align 8 derefer
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !33
   %10 = load ptr, ptr %3, align 8
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !33
   %12 = icmp eq ptr %11, null
   store i1 false, ptr %6, align 1
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %2
-  %14 = call ptr @__cxa_allocate_exception(i64 32) #7
+  %14 = call ptr @__cxa_allocate_exception(i64 32) #9
   store ptr %14, ptr %5, align 8
   store i1 true, ptr %6, align 1
   invoke void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef @.str, i32 noundef 50, i32 noundef 2, ptr noundef @.str.1)
           to label %15 unwind label %28
 
 15:                                               ; preds = %13
-  call void @__cxa_throw(ptr %14, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZN6marisa9ExceptionD2Ev) #10
+  call void @__cxa_throw(ptr %14, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZNSt9exceptionD2Ev) #12
   unreachable
 
 16:                                               ; No predecessors!
   br label %17
 
 17:                                               ; preds = %16, %2
-  store i64 0, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #9
+  store i64 0, ptr %9, align 8, !tbaa !34
   br label %18
 
 18:                                               ; preds = %25, %17
-  %19 = load ptr, ptr %4, align 8
-  %20 = load i64, ptr %9, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 %20
-  %22 = load i8, ptr %21, align 1
+  %19 = load ptr, ptr %4, align 8, !tbaa !33
+  %20 = load i64, ptr %9, align 8, !tbaa !34
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %20
+  %22 = load i8, ptr %21, align 1, !tbaa !35
   %23 = sext i8 %22 to i32
   %24 = icmp ne i32 %23, 0
   br i1 %24, label %25, label %36
 
 25:                                               ; preds = %18
-  %26 = load i64, ptr %9, align 8
+  %26 = load i64, ptr %9, align 8, !tbaa !34
   %27 = add i64 %26, 1
-  store i64 %27, ptr %9, align 8
-  br label %18, !llvm.loop !8
+  store i64 %27, ptr %9, align 8, !tbaa !34
+  br label %18, !llvm.loop !47
 
 28:                                               ; preds = %13
   %29 = landingpad { ptr, i32 }
@@ -1006,16 +1061,17 @@ define void @_ZN6marisa6Keyset9push_backEPKc(ptr noundef nonnull align 8 derefer
 
 33:                                               ; preds = %28
   %34 = load ptr, ptr %5, align 8
-  call void @__cxa_free_exception(ptr %34) #7
+  call void @__cxa_free_exception(ptr %34) #9
   br label %35
 
 35:                                               ; preds = %33, %28
   br label %39
 
 36:                                               ; preds = %18
-  %37 = load ptr, ptr %4, align 8
-  %38 = load i64, ptr %9, align 8
+  %37 = load ptr, ptr %4, align 8, !tbaa !33
+  %38 = load i64, ptr %9, align 8, !tbaa !34
   call void @_ZN6marisa6Keyset9push_backEPKcmf(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef %37, i64 noundef %38, float noundef 1.000000e+00)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #9
   ret void
 
 39:                                               ; preds = %35
@@ -1035,40 +1091,33 @@ define linkonce_odr void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store i32 %2, ptr %8, align 4
-  store i32 %3, ptr %9, align 4
-  store ptr %4, ptr %10, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !48
+  store ptr %1, ptr %7, align 8, !tbaa !33
+  store i32 %2, ptr %8, align 4, !tbaa !50
+  store i32 %3, ptr %9, align 4, !tbaa !51
+  store ptr %4, ptr %10, align 8, !tbaa !33
   %11 = load ptr, ptr %6, align 8
-  call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #7
-  %12 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i32 0, i32 0, i32 2
-  store ptr %12, ptr %11, align 8
-  %13 = getelementptr inbounds %"class.marisa::Exception", ptr %11, i32 0, i32 1
-  %14 = load ptr, ptr %7, align 8
-  store ptr %14, ptr %13, align 8
-  %15 = getelementptr inbounds %"class.marisa::Exception", ptr %11, i32 0, i32 2
-  %16 = load i32, ptr %8, align 4
-  store i32 %16, ptr %15, align 8
-  %17 = getelementptr inbounds %"class.marisa::Exception", ptr %11, i32 0, i32 3
-  %18 = load i32, ptr %9, align 4
-  store i32 %18, ptr %17, align 4
-  %19 = getelementptr inbounds %"class.marisa::Exception", ptr %11, i32 0, i32 4
-  %20 = load ptr, ptr %10, align 8
-  store ptr %20, ptr %19, align 8
+  call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #9
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i32 0, i32 0, i32 2), ptr %11, align 8, !tbaa !53
+  %12 = getelementptr inbounds nuw %"class.marisa::Exception", ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %7, align 8, !tbaa !33
+  store ptr %13, ptr %12, align 8, !tbaa !55
+  %14 = getelementptr inbounds nuw %"class.marisa::Exception", ptr %11, i32 0, i32 2
+  %15 = load i32, ptr %8, align 4, !tbaa !50
+  store i32 %15, ptr %14, align 8, !tbaa !58
+  %16 = getelementptr inbounds nuw %"class.marisa::Exception", ptr %11, i32 0, i32 3
+  %17 = load i32, ptr %9, align 4, !tbaa !51
+  store i32 %17, ptr %16, align 4, !tbaa !59
+  %18 = getelementptr inbounds nuw %"class.marisa::Exception", ptr %11, i32 0, i32 4
+  %19 = load ptr, ptr %10, align 8, !tbaa !33
+  store ptr %19, ptr %18, align 8, !tbaa !60
   ret void
 }
 
 declare void @__cxa_free_exception(ptr)
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6marisa9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  ret void
-}
+; Function Attrs: nounwind
+declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 declare void @__cxa_throw(ptr, ptr, ptr)
 
@@ -1087,188 +1136,197 @@ define void @_ZN6marisa6Keyset9push_backEPKcmf(ptr noundef nonnull align 8 deref
   %15 = alloca ptr, align 8
   %16 = alloca i64, align 8
   %17 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  store float %3, ptr %8, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !33
+  store i64 %2, ptr %7, align 8, !tbaa !34
+  store float %3, ptr %8, align 4, !tbaa !61
   %18 = load ptr, ptr %5, align 8
-  %19 = load ptr, ptr %6, align 8
+  %19 = load ptr, ptr %6, align 8, !tbaa !33
   %20 = icmp eq ptr %19, null
   store i1 false, ptr %10, align 1
   br i1 %20, label %21, label %28
 
 21:                                               ; preds = %4
-  %22 = load i64, ptr %7, align 8
+  %22 = load i64, ptr %7, align 8, !tbaa !34
   %23 = icmp ne i64 %22, 0
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %21
-  %25 = call ptr @__cxa_allocate_exception(i64 32) #7
+  %25 = call ptr @__cxa_allocate_exception(i64 32) #9
   store ptr %25, ptr %9, align 8
   store i1 true, ptr %10, align 1
   invoke void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef @.str, i32 noundef 61, i32 noundef 2, ptr noundef @.str.2)
-          to label %26 unwind label %53
+          to label %26 unwind label %43
 
 26:                                               ; preds = %24
-  call void @__cxa_throw(ptr %25, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZN6marisa9ExceptionD2Ev) #10
+  call void @__cxa_throw(ptr %25, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZNSt9exceptionD2Ev) #12
   unreachable
 
 27:                                               ; No predecessors!
   br label %28
 
 28:                                               ; preds = %27, %21, %4
-  %29 = load i64, ptr %7, align 8
+  %29 = load i64, ptr %7, align 8, !tbaa !34
   %30 = icmp ugt i64 %29, 4294967295
   store i1 false, ptr %14, align 1
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %28
-  %32 = call ptr @__cxa_allocate_exception(i64 32) #7
+  %32 = call ptr @__cxa_allocate_exception(i64 32) #9
   store ptr %32, ptr %13, align 8
   store i1 true, ptr %14, align 1
   invoke void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef @.str, i32 noundef 62, i32 noundef 7, ptr noundef @.str.3)
-          to label %33 unwind label %61
+          to label %33 unwind label %51
 
 33:                                               ; preds = %31
-  call void @__cxa_throw(ptr %32, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZN6marisa9ExceptionD2Ev) #10
+  call void @__cxa_throw(ptr %32, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZNSt9exceptionD2Ev) #12
   unreachable
 
 34:                                               ; No predecessors!
   br label %35
 
 35:                                               ; preds = %34, %28
-  %36 = load i64, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #9
+  %36 = load i64, ptr %7, align 8, !tbaa !34
   %37 = call noundef ptr @_ZN6marisa6Keyset7reserveEm(ptr noundef nonnull align 8 dereferenceable(104) %18, i64 noundef %36)
-  store ptr %37, ptr %15, align 8
-  store i64 0, ptr %16, align 8
+  store ptr %37, ptr %15, align 8, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #9
+  store i64 0, ptr %16, align 8, !tbaa !34
   br label %38
 
-38:                                               ; preds = %50, %35
-  %39 = load i64, ptr %16, align 8
-  %40 = load i64, ptr %7, align 8
+38:                                               ; preds = %67, %35
+  %39 = load i64, ptr %16, align 8, !tbaa !34
+  %40 = load i64, ptr %7, align 8, !tbaa !34
   %41 = icmp ult i64 %39, %40
-  br i1 %41, label %42, label %69
+  br i1 %41, label %59, label %42
 
 42:                                               ; preds = %38
-  %43 = load ptr, ptr %6, align 8
-  %44 = load i64, ptr %16, align 8
-  %45 = getelementptr inbounds i8, ptr %43, i64 %44
-  %46 = load i8, ptr %45, align 1
-  %47 = load ptr, ptr %15, align 8
-  %48 = load i64, ptr %16, align 8
-  %49 = getelementptr inbounds i8, ptr %47, i64 %48
-  store i8 %46, ptr %49, align 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #9
+  br label %70
+
+43:                                               ; preds = %24
+  %44 = landingpad { ptr, i32 }
+          cleanup
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %11, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %12, align 4
+  %47 = load i1, ptr %10, align 1
+  br i1 %47, label %48, label %50
+
+48:                                               ; preds = %43
+  %49 = load ptr, ptr %9, align 8
+  call void @__cxa_free_exception(ptr %49) #9
   br label %50
 
-50:                                               ; preds = %42
-  %51 = load i64, ptr %16, align 8
-  %52 = add i64 %51, 1
-  store i64 %52, ptr %16, align 8
-  br label %38, !llvm.loop !9
+50:                                               ; preds = %48, %43
+  br label %92
 
-53:                                               ; preds = %24
-  %54 = landingpad { ptr, i32 }
+51:                                               ; preds = %31
+  %52 = landingpad { ptr, i32 }
           cleanup
-  %55 = extractvalue { ptr, i32 } %54, 0
-  store ptr %55, ptr %11, align 8
-  %56 = extractvalue { ptr, i32 } %54, 1
-  store i32 %56, ptr %12, align 4
-  %57 = load i1, ptr %10, align 1
-  br i1 %57, label %58, label %60
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %11, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %12, align 4
+  %55 = load i1, ptr %14, align 1
+  br i1 %55, label %56, label %58
 
-58:                                               ; preds = %53
-  %59 = load ptr, ptr %9, align 8
-  call void @__cxa_free_exception(ptr %59) #7
-  br label %60
+56:                                               ; preds = %51
+  %57 = load ptr, ptr %13, align 8
+  call void @__cxa_free_exception(ptr %57) #9
+  br label %58
 
-60:                                               ; preds = %58, %53
-  br label %91
+58:                                               ; preds = %56, %51
+  br label %92
 
-61:                                               ; preds = %31
-  %62 = landingpad { ptr, i32 }
-          cleanup
-  %63 = extractvalue { ptr, i32 } %62, 0
-  store ptr %63, ptr %11, align 8
-  %64 = extractvalue { ptr, i32 } %62, 1
-  store i32 %64, ptr %12, align 4
-  %65 = load i1, ptr %14, align 1
-  br i1 %65, label %66, label %68
+59:                                               ; preds = %38
+  %60 = load ptr, ptr %6, align 8, !tbaa !33
+  %61 = load i64, ptr %16, align 8, !tbaa !34
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 %61
+  %63 = load i8, ptr %62, align 1, !tbaa !35
+  %64 = load ptr, ptr %15, align 8, !tbaa !33
+  %65 = load i64, ptr %16, align 8, !tbaa !34
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 %65
+  store i8 %63, ptr %66, align 1, !tbaa !35
+  br label %67
 
-66:                                               ; preds = %61
-  %67 = load ptr, ptr %13, align 8
-  call void @__cxa_free_exception(ptr %67) #7
-  br label %68
+67:                                               ; preds = %59
+  %68 = load i64, ptr %16, align 8, !tbaa !34
+  %69 = add i64 %68, 1
+  store i64 %69, ptr %16, align 8, !tbaa !34
+  br label %38, !llvm.loop !63
 
-68:                                               ; preds = %66, %61
-  br label %91
-
-69:                                               ; preds = %38
-  %70 = getelementptr inbounds %"class.marisa::Keyset", ptr %18, i32 0, i32 6
-  %71 = getelementptr inbounds %"class.marisa::Keyset", ptr %18, i32 0, i32 11
-  %72 = load i64, ptr %71, align 8
-  %73 = udiv i64 %72, 256
-  %74 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_INS_3KeyEEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %70, i64 noundef %73)
-  %75 = getelementptr inbounds %"class.marisa::Keyset", ptr %18, i32 0, i32 11
-  %76 = load i64, ptr %75, align 8
-  %77 = urem i64 %76, 256
-  %78 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK6marisa12scoped_arrayINS_3KeyEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %74, i64 noundef %77)
-  store ptr %78, ptr %17, align 8
-  %79 = load ptr, ptr %17, align 8
-  %80 = load ptr, ptr %15, align 8
-  %81 = load i64, ptr %7, align 8
-  call void @_ZN6marisa3Key7set_strEPKcm(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef %80, i64 noundef %81)
-  %82 = load ptr, ptr %17, align 8
-  %83 = load float, ptr %8, align 4
-  call void @_ZN6marisa3Key10set_weightEf(ptr noundef nonnull align 8 dereferenceable(16) %82, float noundef %83)
-  %84 = getelementptr inbounds %"class.marisa::Keyset", ptr %18, i32 0, i32 11
-  %85 = load i64, ptr %84, align 8
-  %86 = add i64 %85, 1
-  store i64 %86, ptr %84, align 8
-  %87 = load i64, ptr %7, align 8
-  %88 = getelementptr inbounds %"class.marisa::Keyset", ptr %18, i32 0, i32 12
-  %89 = load i64, ptr %88, align 8
-  %90 = add i64 %89, %87
-  store i64 %90, ptr %88, align 8
+70:                                               ; preds = %42
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #9
+  %71 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %18, i32 0, i32 6
+  %72 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %18, i32 0, i32 11
+  %73 = load i64, ptr %72, align 8, !tbaa !23
+  %74 = udiv i64 %73, 256
+  %75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_INS_3KeyEEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %71, i64 noundef %74)
+  %76 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %18, i32 0, i32 11
+  %77 = load i64, ptr %76, align 8, !tbaa !23
+  %78 = urem i64 %77, 256
+  %79 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK6marisa12scoped_arrayINS_3KeyEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %75, i64 noundef %78)
+  store ptr %79, ptr %17, align 8, !tbaa !31
+  %80 = load ptr, ptr %17, align 8, !tbaa !31
+  %81 = load ptr, ptr %15, align 8, !tbaa !33
+  %82 = load i64, ptr %7, align 8, !tbaa !34
+  call void @_ZN6marisa3Key7set_strEPKcm(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef %81, i64 noundef %82)
+  %83 = load ptr, ptr %17, align 8, !tbaa !31
+  %84 = load float, ptr %8, align 4, !tbaa !61
+  call void @_ZN6marisa3Key10set_weightEf(ptr noundef nonnull align 8 dereferenceable(16) %83, float noundef %84)
+  %85 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %18, i32 0, i32 11
+  %86 = load i64, ptr %85, align 8, !tbaa !23
+  %87 = add i64 %86, 1
+  store i64 %87, ptr %85, align 8, !tbaa !23
+  %88 = load i64, ptr %7, align 8, !tbaa !34
+  %89 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %18, i32 0, i32 12
+  %90 = load i64, ptr %89, align 8, !tbaa !24
+  %91 = add i64 %90, %88
+  store i64 %91, ptr %89, align 8, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #9
   ret void
 
-91:                                               ; preds = %68, %60
-  %92 = load ptr, ptr %11, align 8
-  %93 = load i32, ptr %12, align 4
-  %94 = insertvalue { ptr, i32 } poison, ptr %92, 0
-  %95 = insertvalue { ptr, i32 } %94, i32 %93, 1
-  resume { ptr, i32 } %95
+92:                                               ; preds = %58, %50
+  %93 = load ptr, ptr %11, align 8
+  %94 = load i32, ptr %12, align 4
+  %95 = insertvalue { ptr, i32 } poison, ptr %93, 0
+  %96 = insertvalue { ptr, i32 } %95, i32 %94, 1
+  resume { ptr, i32 } %96
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6marisa3Key10set_weightEf(ptr noundef nonnull align 8 dereferenceable(16) %0, float noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca float, align 4
-  store ptr %0, ptr %3, align 8
-  store float %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !31
+  store float %1, ptr %4, align 4, !tbaa !61
   %5 = load ptr, ptr %3, align 8
-  %6 = load float, ptr %4, align 4
-  %7 = getelementptr inbounds %"class.marisa::Key", ptr %5, i32 0, i32 2
-  store float %6, ptr %7, align 4
+  %6 = load float, ptr %4, align 4, !tbaa !61
+  %7 = getelementptr inbounds nuw %"class.marisa::Key", ptr %5, i32 0, i32 2
+  store float %6, ptr %7, align 4, !tbaa !35
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6marisa6Keyset5resetEv(ptr noundef nonnull align 8 dereferenceable(104) %0) #1 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.marisa::Keyset", ptr %3, i32 0, i32 1
-  store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.marisa::Keyset", ptr %3, i32 0, i32 4
-  store i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds %"class.marisa::Keyset", ptr %3, i32 0, i32 9
-  store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.marisa::Keyset", ptr %3, i32 0, i32 10
-  store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.marisa::Keyset", ptr %3, i32 0, i32 11
-  store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.marisa::Keyset", ptr %3, i32 0, i32 12
-  store i64 0, ptr %9, align 8
+  %4 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %3, i32 0, i32 1
+  store i64 0, ptr %4, align 8, !tbaa !8
+  %5 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %3, i32 0, i32 4
+  store i64 0, ptr %5, align 8, !tbaa !17
+  %6 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %3, i32 0, i32 9
+  store ptr null, ptr %6, align 8, !tbaa !21
+  %7 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %3, i32 0, i32 10
+  store i64 0, ptr %7, align 8, !tbaa !22
+  %8 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %3, i32 0, i32 11
+  store i64 0, ptr %8, align 8, !tbaa !23
+  %9 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %3, i32 0, i32 12
+  store i64 0, ptr %9, align 8, !tbaa !24
   ret void
 }
 
@@ -1278,14 +1336,16 @@ define void @_ZN6marisa6Keyset5clearEv(ptr noundef nonnull align 8 dereferenceab
   %3 = alloca %"class.marisa::Keyset", align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %6 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 104, ptr %3) #9
   call void @_ZN6marisa6KeysetC1Ev(ptr noundef nonnull align 8 dereferenceable(104) %3)
   invoke void @_ZN6marisa6Keyset4swapERS0_(ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef nonnull align 8 dereferenceable(104) %6)
           to label %7 unwind label %8
 
 7:                                                ; preds = %1
-  call void @_ZN6marisa6KeysetD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3) #7
+  call void @_ZN6marisa6KeysetD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3) #9
+  call void @llvm.lifetime.end.p0(i64 104, ptr %3) #9
   ret void
 
 8:                                                ; preds = %1
@@ -1295,7 +1355,8 @@ define void @_ZN6marisa6Keyset5clearEv(ptr noundef nonnull align 8 dereferenceab
   store ptr %10, ptr %4, align 8
   %11 = extractvalue { ptr, i32 } %9, 1
   store i32 %11, ptr %5, align 4
-  call void @_ZN6marisa6KeysetD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3) #7
+  call void @_ZN6marisa6KeysetD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3) #9
+  call void @llvm.lifetime.end.p0(i64 104, ptr %3) #9
   br label %12
 
 12:                                               ; preds = %8
@@ -1310,75 +1371,75 @@ define void @_ZN6marisa6Keyset5clearEv(ptr noundef nonnull align 8 dereferenceab
 define void @_ZN6marisa6Keyset4swapERS0_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.marisa::Keyset", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.marisa::Keyset", ptr %7, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %7, i32 0, i32 0
   call void @_ZN6marisa12scoped_arrayINS0_IcEEE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  %9 = getelementptr inbounds %"class.marisa::Keyset", ptr %5, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.marisa::Keyset", ptr %10, i32 0, i32 1
-  call void @_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %11) #7
-  %12 = getelementptr inbounds %"class.marisa::Keyset", ptr %5, i32 0, i32 2
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %"class.marisa::Keyset", ptr %13, i32 0, i32 2
-  call void @_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %14) #7
-  %15 = getelementptr inbounds %"class.marisa::Keyset", ptr %5, i32 0, i32 3
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %"class.marisa::Keyset", ptr %16, i32 0, i32 3
+  %9 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %5, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %10, i32 0, i32 1
+  call void @_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %11) #9
+  %12 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %5, i32 0, i32 2
+  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %13, i32 0, i32 2
+  call void @_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %14) #9
+  %15 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %5, i32 0, i32 3
+  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %16, i32 0, i32 3
   call void @_ZN6marisa12scoped_arrayINS0_IcEEE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %17)
-  %18 = getelementptr inbounds %"class.marisa::Keyset", ptr %5, i32 0, i32 4
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %"class.marisa::Keyset", ptr %19, i32 0, i32 4
-  call void @_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %20) #7
-  %21 = getelementptr inbounds %"class.marisa::Keyset", ptr %5, i32 0, i32 5
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %"class.marisa::Keyset", ptr %22, i32 0, i32 5
-  call void @_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %23) #7
-  %24 = getelementptr inbounds %"class.marisa::Keyset", ptr %5, i32 0, i32 6
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %"class.marisa::Keyset", ptr %25, i32 0, i32 6
+  %18 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %5, i32 0, i32 4
+  %19 = load ptr, ptr %4, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %19, i32 0, i32 4
+  call void @_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %20) #9
+  %21 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %5, i32 0, i32 5
+  %22 = load ptr, ptr %4, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %22, i32 0, i32 5
+  call void @_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %23) #9
+  %24 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %5, i32 0, i32 6
+  %25 = load ptr, ptr %4, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %25, i32 0, i32 6
   call void @_ZN6marisa12scoped_arrayINS0_INS_3KeyEEEE4swapERS3_(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(8) %26)
-  %27 = getelementptr inbounds %"class.marisa::Keyset", ptr %5, i32 0, i32 7
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %"class.marisa::Keyset", ptr %28, i32 0, i32 7
-  call void @_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %29) #7
-  %30 = getelementptr inbounds %"class.marisa::Keyset", ptr %5, i32 0, i32 8
-  %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds %"class.marisa::Keyset", ptr %31, i32 0, i32 8
-  call void @_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %32) #7
-  %33 = getelementptr inbounds %"class.marisa::Keyset", ptr %5, i32 0, i32 9
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %"class.marisa::Keyset", ptr %34, i32 0, i32 9
-  call void @_ZSt4swapIPcENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(8) %35) #7
-  %36 = getelementptr inbounds %"class.marisa::Keyset", ptr %5, i32 0, i32 10
-  %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %"class.marisa::Keyset", ptr %37, i32 0, i32 10
-  call void @_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(8) %38) #7
-  %39 = getelementptr inbounds %"class.marisa::Keyset", ptr %5, i32 0, i32 11
-  %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds %"class.marisa::Keyset", ptr %40, i32 0, i32 11
-  call void @_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(8) %41) #7
-  %42 = getelementptr inbounds %"class.marisa::Keyset", ptr %5, i32 0, i32 12
-  %43 = load ptr, ptr %4, align 8
-  %44 = getelementptr inbounds %"class.marisa::Keyset", ptr %43, i32 0, i32 12
-  call void @_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull align 8 dereferenceable(8) %44) #7
+  %27 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %5, i32 0, i32 7
+  %28 = load ptr, ptr %4, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %28, i32 0, i32 7
+  call void @_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %29) #9
+  %30 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %5, i32 0, i32 8
+  %31 = load ptr, ptr %4, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %31, i32 0, i32 8
+  call void @_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %32) #9
+  %33 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %5, i32 0, i32 9
+  %34 = load ptr, ptr %4, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %34, i32 0, i32 9
+  call void @_ZSt4swapIPcENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(8) %35) #9
+  %36 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %5, i32 0, i32 10
+  %37 = load ptr, ptr %4, align 8, !tbaa !3
+  %38 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %37, i32 0, i32 10
+  call void @_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(8) %38) #9
+  %39 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %5, i32 0, i32 11
+  %40 = load ptr, ptr %4, align 8, !tbaa !3
+  %41 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %40, i32 0, i32 11
+  call void @_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(8) %41) #9
+  %42 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %5, i32 0, i32 12
+  %43 = load ptr, ptr %4, align 8, !tbaa !3
+  %44 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %43, i32 0, i32 12
+  call void @_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull align 8 dereferenceable(8) %44) #9
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6marisa6KeysetD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6marisa6KeysetD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.marisa::Keyset", ptr %3, i32 0, i32 6
-  call void @_ZN6marisa12scoped_arrayINS0_INS_3KeyEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #7
-  %5 = getelementptr inbounds %"class.marisa::Keyset", ptr %3, i32 0, i32 3
-  call void @_ZN6marisa12scoped_arrayINS0_IcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  %6 = getelementptr inbounds %"class.marisa::Keyset", ptr %3, i32 0, i32 0
-  call void @_ZN6marisa12scoped_arrayINS0_IcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #7
+  %4 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %3, i32 0, i32 6
+  call void @_ZN6marisa12scoped_arrayINS0_INS_3KeyEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #9
+  %5 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %3, i32 0, i32 3
+  call void @_ZN6marisa12scoped_arrayINS0_IcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #9
+  %6 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %3, i32 0, i32 0
+  call void @_ZN6marisa12scoped_arrayINS0_IcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #9
   ret void
 }
 
@@ -1386,33 +1447,35 @@ define linkonce_odr void @_ZN6marisa6KeysetD2Ev(ptr noundef nonnull align 8 dere
 define linkonce_odr void @_ZN6marisa12scoped_arrayINS0_IcEEE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !25
+  store ptr %1, ptr %4, align 8, !tbaa !25
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.marisa::scoped_array", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.marisa::scoped_array", ptr %7, i32 0, i32 0
-  call void @_ZSt4swapIPN6marisa12scoped_arrayIcEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #7
+  %6 = getelementptr inbounds nuw %"class.marisa::scoped_array", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !25
+  %8 = getelementptr inbounds nuw %"class.marisa::scoped_array", ptr %7, i32 0, i32 0
+  call void @_ZSt4swapIPN6marisa12scoped_arrayIcEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #9
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load i64, ptr %6, align 8
-  store i64 %7, ptr %5, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load i64, ptr %8, align 8
-  %10 = load ptr, ptr %3, align 8
-  store i64 %9, ptr %10, align 8
-  %11 = load i64, ptr %5, align 8
-  %12 = load ptr, ptr %4, align 8
-  store i64 %11, ptr %12, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !64
+  store ptr %1, ptr %4, align 8, !tbaa !64
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %6 = load ptr, ptr %3, align 8, !tbaa !64
+  %7 = load i64, ptr %6, align 8, !tbaa !34
+  store i64 %7, ptr %5, align 8, !tbaa !34
+  %8 = load ptr, ptr %4, align 8, !tbaa !64
+  %9 = load i64, ptr %8, align 8, !tbaa !34
+  %10 = load ptr, ptr %3, align 8, !tbaa !64
+  store i64 %9, ptr %10, align 8, !tbaa !34
+  %11 = load i64, ptr %5, align 8, !tbaa !34
+  %12 = load ptr, ptr %4, align 8, !tbaa !64
+  store i64 %11, ptr %12, align 8, !tbaa !34
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
   ret void
 }
 
@@ -1420,33 +1483,35 @@ define linkonce_odr void @_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__i
 define linkonce_odr void @_ZN6marisa12scoped_arrayINS0_INS_3KeyEEEE4swapERS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !28
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.marisa::scoped_array.0", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.marisa::scoped_array.0", ptr %7, i32 0, i32 0
-  call void @_ZSt4swapIPN6marisa12scoped_arrayINS0_3KeyEEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS8_ESt18is_move_assignableIS8_EEE5valueEvE4typeERS8_SH_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #7
+  %6 = getelementptr inbounds nuw %"class.marisa::scoped_array.0", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !28
+  %8 = getelementptr inbounds nuw %"class.marisa::scoped_array.0", ptr %7, i32 0, i32 0
+  call void @_ZSt4swapIPN6marisa12scoped_arrayINS0_3KeyEEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS8_ESt18is_move_assignableIS8_EEE5valueEvE4typeERS8_SH_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #9
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt4swapIPcENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt4swapIPcENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %5, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %3, align 8
-  store ptr %9, ptr %10, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %12, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !66
+  store ptr %1, ptr %4, align 8, !tbaa !66
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %6 = load ptr, ptr %3, align 8, !tbaa !66
+  %7 = load ptr, ptr %6, align 8, !tbaa !33
+  store ptr %7, ptr %5, align 8, !tbaa !33
+  %8 = load ptr, ptr %4, align 8, !tbaa !66
+  %9 = load ptr, ptr %8, align 8, !tbaa !33
+  %10 = load ptr, ptr %3, align 8, !tbaa !66
+  store ptr %9, ptr %10, align 8, !tbaa !33
+  %11 = load ptr, ptr %5, align 8, !tbaa !33
+  %12 = load ptr, ptr %4, align 8, !tbaa !66
+  store ptr %11, ptr %12, align 8, !tbaa !33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
   ret void
 }
 
@@ -1470,25 +1535,26 @@ define void @_ZN6marisa6Keyset18append_extra_blockEm(ptr noundef nonnull align 8
   %18 = alloca %"class.marisa::scoped_array.2", align 8
   %19 = alloca ptr, align 8
   %20 = alloca i1, align 1
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i64 %1, ptr %4, align 8, !tbaa !34
   %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %"class.marisa::Keyset", ptr %21, i32 0, i32 4
-  %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds %"class.marisa::Keyset", ptr %21, i32 0, i32 5
-  %25 = load i64, ptr %24, align 8
+  %22 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %21, i32 0, i32 4
+  %23 = load i64, ptr %22, align 8, !tbaa !17
+  %24 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %21, i32 0, i32 5
+  %25 = load i64, ptr %24, align 8, !tbaa !18
   %26 = icmp eq i64 %23, %25
-  br i1 %26, label %27, label %124
+  br i1 %26, label %27, label %130
 
 27:                                               ; preds = %2
-  %28 = getelementptr inbounds %"class.marisa::Keyset", ptr %21, i32 0, i32 4
-  %29 = load i64, ptr %28, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %28 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %21, i32 0, i32 4
+  %29 = load i64, ptr %28, align 8, !tbaa !17
   %30 = icmp ne i64 %29, 0
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds %"class.marisa::Keyset", ptr %21, i32 0, i32 4
-  %33 = load i64, ptr %32, align 8
+  %32 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %21, i32 0, i32 4
+  %33 = load i64, ptr %32, align 8, !tbaa !17
   %34 = mul i64 %33, 2
   br label %36
 
@@ -1497,8 +1563,9 @@ define void @_ZN6marisa6Keyset18append_extra_blockEm(ptr noundef nonnull align 8
 
 36:                                               ; preds = %35, %31
   %37 = phi i64 [ %34, %31 ], [ 1, %35 ]
-  store i64 %37, ptr %5, align 8
-  %38 = load i64, ptr %5, align 8
+  store i64 %37, ptr %5, align 8, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  %38 = load i64, ptr %5, align 8, !tbaa !34
   %39 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %38, i64 8)
   %40 = extractvalue { i64, i1 } %39, 1
   %41 = extractvalue { i64, i1 } %39, 0
@@ -1507,7 +1574,7 @@ define void @_ZN6marisa6Keyset18append_extra_blockEm(ptr noundef nonnull align 8
   %44 = or i1 %40, %43
   %45 = extractvalue { i64, i1 } %42, 0
   %46 = select i1 %44, i64 -1, i64 %45
-  %47 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %46, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #9
+  %47 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %46, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #11
   %48 = icmp eq ptr %47, null
   store i1 false, ptr %9, align 1
   store i1 false, ptr %12, align 1
@@ -1532,14 +1599,14 @@ define void @_ZN6marisa6Keyset18append_extra_blockEm(ptr noundef nonnull align 8
   store ptr %55, ptr %11, align 8
   store i1 true, ptr %12, align 1
   invoke void @_ZN6marisa12scoped_arrayIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %55)
-          to label %56 unwind label %87
+          to label %56 unwind label %76
 
 56:                                               ; preds = %54
   %57 = getelementptr inbounds %"class.marisa::scoped_array.2", ptr %55, i64 1
   %58 = icmp eq ptr %57, %53
   br i1 %58, label %59, label %54
 
-59:                                               ; preds = %56, %49
+59:                                               ; preds = %49, %56
   br label %60
 
 60:                                               ; preds = %59, %36
@@ -1547,224 +1614,249 @@ define void @_ZN6marisa6Keyset18append_extra_blockEm(ptr noundef nonnull align 8
   call void @_ZN6marisa12scoped_arrayINS0_IcEEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %61)
   store i1 false, ptr %16, align 1
   %62 = invoke noundef ptr @_ZNK6marisa12scoped_arrayINS0_IcEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %63 unwind label %106
+          to label %63 unwind label %95
 
 63:                                               ; preds = %60
   %64 = icmp eq ptr %62, null
   br i1 %64, label %65, label %69
 
 65:                                               ; preds = %63
-  %66 = call ptr @__cxa_allocate_exception(i64 32) #7
+  %66 = call ptr @__cxa_allocate_exception(i64 32) #9
   store ptr %66, ptr %15, align 8
   store i1 true, ptr %16, align 1
   invoke void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef @.str, i32 noundef 151, i32 noundef 8, ptr noundef @.str.6)
-          to label %67 unwind label %110
+          to label %67 unwind label %99
 
 67:                                               ; preds = %65
-  invoke void @__cxa_throw(ptr %66, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZN6marisa9ExceptionD2Ev) #10
-          to label %160 unwind label %106
+  invoke void @__cxa_throw(ptr %66, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZNSt9exceptionD2Ev) #12
+          to label %166 unwind label %95
 
 68:                                               ; No predecessors!
   br label %69
 
 69:                                               ; preds = %68, %63
-  store i64 0, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #9
+  store i64 0, ptr %17, align 8, !tbaa !34
   br label %70
 
-70:                                               ; preds = %84, %69
-  %71 = load i64, ptr %17, align 8
-  %72 = getelementptr inbounds %"class.marisa::Keyset", ptr %21, i32 0, i32 4
-  %73 = load i64, ptr %72, align 8
+70:                                               ; preds = %116, %69
+  %71 = load i64, ptr %17, align 8, !tbaa !34
+  %72 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %21, i32 0, i32 4
+  %73 = load i64, ptr %72, align 8, !tbaa !17
   %74 = icmp ult i64 %71, %73
-  br i1 %74, label %75, label %118
+  br i1 %74, label %107, label %75
 
 75:                                               ; preds = %70
-  %76 = getelementptr inbounds %"class.marisa::Keyset", ptr %21, i32 0, i32 3
-  %77 = load i64, ptr %17, align 8
-  %78 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_IcEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %76, i64 noundef %77)
-          to label %79 unwind label %106
-
-79:                                               ; preds = %75
-  %80 = load i64, ptr %17, align 8
-  %81 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_IcEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %80)
-          to label %82 unwind label %106
-
-82:                                               ; preds = %79
-  invoke void @_ZN6marisa12scoped_arrayIcE4swapERS1_(ptr noundef nonnull align 8 dereferenceable(8) %78, ptr noundef nonnull align 8 dereferenceable(8) %81)
-          to label %83 unwind label %106
-
-83:                                               ; preds = %82
-  br label %84
-
-84:                                               ; preds = %83
-  %85 = load i64, ptr %17, align 8
-  %86 = add i64 %85, 1
-  store i64 %86, ptr %17, align 8
-  br label %70, !llvm.loop !10
-
-87:                                               ; preds = %54
-  %88 = landingpad { ptr, i32 }
-          cleanup
-  %89 = extractvalue { ptr, i32 } %88, 0
-  store ptr %89, ptr %13, align 8
-  %90 = extractvalue { ptr, i32 } %88, 1
-  store i32 %90, ptr %14, align 4
-  %91 = load i1, ptr %12, align 1
-  br i1 %91, label %92, label %101
-
-92:                                               ; preds = %87
-  %93 = load ptr, ptr %10, align 8
-  %94 = load ptr, ptr %11, align 8
-  %95 = icmp eq ptr %93, %94
-  br i1 %95, label %100, label %96
-
-96:                                               ; preds = %96, %92
-  %97 = phi ptr [ %94, %92 ], [ %98, %96 ]
-  %98 = getelementptr inbounds %"class.marisa::scoped_array.2", ptr %97, i64 -1
-  call void @_ZN6marisa12scoped_arrayIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %98) #7
-  %99 = icmp eq ptr %98, %93
-  br i1 %99, label %100, label %96
-
-100:                                              ; preds = %96, %92
-  br label %101
-
-101:                                              ; preds = %100, %87
-  %102 = load i1, ptr %9, align 1
-  br i1 %102, label %103, label %105
-
-103:                                              ; preds = %101
-  %104 = load ptr, ptr %7, align 8
-  call void @_ZdaPvRKSt9nothrow_t(ptr noundef %104, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #8
-  br label %105
-
-105:                                              ; preds = %103, %101
-  br label %155
-
-106:                                              ; preds = %118, %82, %79, %75, %67, %60
-  %107 = landingpad { ptr, i32 }
-          cleanup
-  %108 = extractvalue { ptr, i32 } %107, 0
-  store ptr %108, ptr %13, align 8
-  %109 = extractvalue { ptr, i32 } %107, 1
-  store i32 %109, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #9
   br label %123
 
-110:                                              ; preds = %65
-  %111 = landingpad { ptr, i32 }
+76:                                               ; preds = %54
+  %77 = landingpad { ptr, i32 }
           cleanup
-  %112 = extractvalue { ptr, i32 } %111, 0
-  store ptr %112, ptr %13, align 8
-  %113 = extractvalue { ptr, i32 } %111, 1
-  store i32 %113, ptr %14, align 4
-  %114 = load i1, ptr %16, align 1
-  br i1 %114, label %115, label %117
+  %78 = extractvalue { ptr, i32 } %77, 0
+  store ptr %78, ptr %13, align 8
+  %79 = extractvalue { ptr, i32 } %77, 1
+  store i32 %79, ptr %14, align 4
+  %80 = load i1, ptr %12, align 1
+  br i1 %80, label %81, label %90
 
-115:                                              ; preds = %110
-  %116 = load ptr, ptr %15, align 8
-  call void @__cxa_free_exception(ptr %116) #7
-  br label %117
+81:                                               ; preds = %76
+  %82 = load ptr, ptr %10, align 8
+  %83 = load ptr, ptr %11, align 8
+  %84 = icmp eq ptr %82, %83
+  br i1 %84, label %89, label %85
 
-117:                                              ; preds = %115, %110
-  br label %123
+85:                                               ; preds = %85, %81
+  %86 = phi ptr [ %83, %81 ], [ %87, %85 ]
+  %87 = getelementptr inbounds %"class.marisa::scoped_array.2", ptr %86, i64 -1
+  call void @_ZN6marisa12scoped_arrayIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %87) #9
+  %88 = icmp eq ptr %87, %82
+  br i1 %88, label %89, label %85
 
-118:                                              ; preds = %70
-  %119 = getelementptr inbounds %"class.marisa::Keyset", ptr %21, i32 0, i32 3
-  invoke void @_ZN6marisa12scoped_arrayINS0_IcEEE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(8) %119, ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %120 unwind label %106
+89:                                               ; preds = %85, %81
+  br label %90
 
-120:                                              ; preds = %118
-  %121 = load i64, ptr %5, align 8
-  %122 = getelementptr inbounds %"class.marisa::Keyset", ptr %21, i32 0, i32 5
-  store i64 %121, ptr %122, align 8
-  call void @_ZN6marisa12scoped_arrayINS0_IcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #7
-  br label %124
+90:                                               ; preds = %89, %76
+  %91 = load i1, ptr %9, align 1
+  br i1 %91, label %92, label %94
 
-123:                                              ; preds = %117, %106
-  call void @_ZN6marisa12scoped_arrayINS0_IcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #7
-  br label %155
+92:                                               ; preds = %90
+  %93 = load ptr, ptr %7, align 8
+  call void @_ZdaPvRKSt9nothrow_t(ptr noundef %93, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #10
+  br label %94
 
-124:                                              ; preds = %120, %2
-  %125 = load i64, ptr %4, align 8
-  %126 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %125, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #9
-  call void @_ZN6marisa12scoped_arrayIcEC2EPc(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %126)
+94:                                               ; preds = %92, %90
+  br label %129
+
+95:                                               ; preds = %123, %67, %60
+  %96 = landingpad { ptr, i32 }
+          cleanup
+  %97 = extractvalue { ptr, i32 } %96, 0
+  store ptr %97, ptr %13, align 8
+  %98 = extractvalue { ptr, i32 } %96, 1
+  store i32 %98, ptr %14, align 4
+  br label %128
+
+99:                                               ; preds = %65
+  %100 = landingpad { ptr, i32 }
+          cleanup
+  %101 = extractvalue { ptr, i32 } %100, 0
+  store ptr %101, ptr %13, align 8
+  %102 = extractvalue { ptr, i32 } %100, 1
+  store i32 %102, ptr %14, align 4
+  %103 = load i1, ptr %16, align 1
+  br i1 %103, label %104, label %106
+
+104:                                              ; preds = %99
+  %105 = load ptr, ptr %15, align 8
+  call void @__cxa_free_exception(ptr %105) #9
+  br label %106
+
+106:                                              ; preds = %104, %99
+  br label %128
+
+107:                                              ; preds = %70
+  %108 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %21, i32 0, i32 3
+  %109 = load i64, ptr %17, align 8, !tbaa !34
+  %110 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_IcEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %108, i64 noundef %109)
+          to label %111 unwind label %119
+
+111:                                              ; preds = %107
+  %112 = load i64, ptr %17, align 8, !tbaa !34
+  %113 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_IcEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %112)
+          to label %114 unwind label %119
+
+114:                                              ; preds = %111
+  invoke void @_ZN6marisa12scoped_arrayIcE4swapERS1_(ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull align 8 dereferenceable(8) %113)
+          to label %115 unwind label %119
+
+115:                                              ; preds = %114
+  br label %116
+
+116:                                              ; preds = %115
+  %117 = load i64, ptr %17, align 8, !tbaa !34
+  %118 = add i64 %117, 1
+  store i64 %118, ptr %17, align 8, !tbaa !34
+  br label %70, !llvm.loop !69
+
+119:                                              ; preds = %114, %111, %107
+  %120 = landingpad { ptr, i32 }
+          cleanup
+  %121 = extractvalue { ptr, i32 } %120, 0
+  store ptr %121, ptr %13, align 8
+  %122 = extractvalue { ptr, i32 } %120, 1
+  store i32 %122, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #9
+  br label %128
+
+123:                                              ; preds = %75
+  %124 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %21, i32 0, i32 3
+  invoke void @_ZN6marisa12scoped_arrayINS0_IcEEE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(8) %124, ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %125 unwind label %95
+
+125:                                              ; preds = %123
+  %126 = load i64, ptr %5, align 8, !tbaa !34
+  %127 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %21, i32 0, i32 5
+  store i64 %126, ptr %127, align 8, !tbaa !18
+  call void @_ZN6marisa12scoped_arrayINS0_IcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  br label %130
+
+128:                                              ; preds = %119, %106, %95
+  call void @_ZN6marisa12scoped_arrayINS0_IcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #9
+  br label %129
+
+129:                                              ; preds = %128, %94
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  br label %161
+
+130:                                              ; preds = %125, %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #9
+  %131 = load i64, ptr %4, align 8, !tbaa !34
+  %132 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %131, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #11
+  call void @_ZN6marisa12scoped_arrayIcEC2EPc(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %132)
   store i1 false, ptr %20, align 1
-  %127 = invoke noundef ptr @_ZNK6marisa12scoped_arrayIcE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %18)
-          to label %128 unwind label %142
+  %133 = invoke noundef ptr @_ZNK6marisa12scoped_arrayIcE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %18)
+          to label %134 unwind label %148
 
-128:                                              ; preds = %124
-  %129 = icmp eq ptr %127, null
-  br i1 %129, label %130, label %134
+134:                                              ; preds = %130
+  %135 = icmp eq ptr %133, null
+  br i1 %135, label %136, label %140
 
-130:                                              ; preds = %128
-  %131 = call ptr @__cxa_allocate_exception(i64 32) #7
-  store ptr %131, ptr %19, align 8
+136:                                              ; preds = %134
+  %137 = call ptr @__cxa_allocate_exception(i64 32) #9
+  store ptr %137, ptr %19, align 8
   store i1 true, ptr %20, align 1
-  invoke void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr noundef nonnull align 8 dereferenceable(32) %131, ptr noundef @.str, i32 noundef 159, i32 noundef 8, ptr noundef @.str.7)
-          to label %132 unwind label %146
+  invoke void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef @.str, i32 noundef 159, i32 noundef 8, ptr noundef @.str.7)
+          to label %138 unwind label %152
 
-132:                                              ; preds = %130
-  invoke void @__cxa_throw(ptr %131, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZN6marisa9ExceptionD2Ev) #10
-          to label %160 unwind label %142
+138:                                              ; preds = %136
+  invoke void @__cxa_throw(ptr %137, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZNSt9exceptionD2Ev) #12
+          to label %166 unwind label %148
 
-133:                                              ; No predecessors!
-  br label %134
+139:                                              ; No predecessors!
+  br label %140
 
-134:                                              ; preds = %133, %128
-  %135 = getelementptr inbounds %"class.marisa::Keyset", ptr %21, i32 0, i32 3
-  %136 = getelementptr inbounds %"class.marisa::Keyset", ptr %21, i32 0, i32 4
-  %137 = load i64, ptr %136, align 8
-  %138 = add i64 %137, 1
-  store i64 %138, ptr %136, align 8
-  %139 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_IcEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %135, i64 noundef %137)
-          to label %140 unwind label %142
+140:                                              ; preds = %139, %134
+  %141 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %21, i32 0, i32 3
+  %142 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %21, i32 0, i32 4
+  %143 = load i64, ptr %142, align 8, !tbaa !17
+  %144 = add i64 %143, 1
+  store i64 %144, ptr %142, align 8, !tbaa !17
+  %145 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_IcEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %141, i64 noundef %143)
+          to label %146 unwind label %148
 
-140:                                              ; preds = %134
-  invoke void @_ZN6marisa12scoped_arrayIcE4swapERS1_(ptr noundef nonnull align 8 dereferenceable(8) %139, ptr noundef nonnull align 8 dereferenceable(8) %18)
-          to label %141 unwind label %142
+146:                                              ; preds = %140
+  invoke void @_ZN6marisa12scoped_arrayIcE4swapERS1_(ptr noundef nonnull align 8 dereferenceable(8) %145, ptr noundef nonnull align 8 dereferenceable(8) %18)
+          to label %147 unwind label %148
 
-141:                                              ; preds = %140
-  call void @_ZN6marisa12scoped_arrayIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #7
+147:                                              ; preds = %146
+  call void @_ZN6marisa12scoped_arrayIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #9
   ret void
 
-142:                                              ; preds = %140, %134, %132, %124
-  %143 = landingpad { ptr, i32 }
+148:                                              ; preds = %146, %140, %138, %130
+  %149 = landingpad { ptr, i32 }
           cleanup
-  %144 = extractvalue { ptr, i32 } %143, 0
-  store ptr %144, ptr %13, align 8
-  %145 = extractvalue { ptr, i32 } %143, 1
-  store i32 %145, ptr %14, align 4
-  br label %154
+  %150 = extractvalue { ptr, i32 } %149, 0
+  store ptr %150, ptr %13, align 8
+  %151 = extractvalue { ptr, i32 } %149, 1
+  store i32 %151, ptr %14, align 4
+  br label %160
 
-146:                                              ; preds = %130
-  %147 = landingpad { ptr, i32 }
+152:                                              ; preds = %136
+  %153 = landingpad { ptr, i32 }
           cleanup
-  %148 = extractvalue { ptr, i32 } %147, 0
-  store ptr %148, ptr %13, align 8
-  %149 = extractvalue { ptr, i32 } %147, 1
-  store i32 %149, ptr %14, align 4
-  %150 = load i1, ptr %20, align 1
-  br i1 %150, label %151, label %153
+  %154 = extractvalue { ptr, i32 } %153, 0
+  store ptr %154, ptr %13, align 8
+  %155 = extractvalue { ptr, i32 } %153, 1
+  store i32 %155, ptr %14, align 4
+  %156 = load i1, ptr %20, align 1
+  br i1 %156, label %157, label %159
 
-151:                                              ; preds = %146
-  %152 = load ptr, ptr %19, align 8
-  call void @__cxa_free_exception(ptr %152) #7
-  br label %153
+157:                                              ; preds = %152
+  %158 = load ptr, ptr %19, align 8
+  call void @__cxa_free_exception(ptr %158) #9
+  br label %159
 
-153:                                              ; preds = %151, %146
-  br label %154
+159:                                              ; preds = %157, %152
+  br label %160
 
-154:                                              ; preds = %153, %142
-  call void @_ZN6marisa12scoped_arrayIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #7
-  br label %155
+160:                                              ; preds = %159, %148
+  call void @_ZN6marisa12scoped_arrayIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #9
+  br label %161
 
-155:                                              ; preds = %154, %123, %105
-  %156 = load ptr, ptr %13, align 8
-  %157 = load i32, ptr %14, align 4
-  %158 = insertvalue { ptr, i32 } poison, ptr %156, 0
-  %159 = insertvalue { ptr, i32 } %158, i32 %157, 1
-  resume { ptr, i32 } %159
+161:                                              ; preds = %160, %129
+  %162 = load ptr, ptr %13, align 8
+  %163 = load i32, ptr %14, align 4
+  %164 = insertvalue { ptr, i32 } poison, ptr %162, 0
+  %165 = insertvalue { ptr, i32 } %164, i32 %163, 1
+  resume { ptr, i32 } %165
 
-160:                                              ; preds = %132, %67
+166:                                              ; preds = %138, %67
   unreachable
 }
 
@@ -1772,23 +1864,23 @@ define void @_ZN6marisa6Keyset18append_extra_blockEm(ptr noundef nonnull align 8
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_IcEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !25
+  store i64 %1, ptr %4, align 8, !tbaa !34
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.marisa::scoped_array", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i64, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.marisa::scoped_array.2", ptr %7, i64 %8
+  %6 = getelementptr inbounds nuw %"class.marisa::scoped_array", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !27
+  %8 = load i64, ptr %4, align 8, !tbaa !34
+  %9 = getelementptr inbounds nuw %"class.marisa::scoped_array.2", ptr %7, i64 %8
   ret ptr %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK6marisa12scoped_arrayIcE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.marisa::scoped_array.2", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.marisa::scoped_array.2", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !71
   ret ptr %5
 }
 
@@ -1811,24 +1903,25 @@ define void @_ZN6marisa6Keyset17append_base_blockEv(ptr noundef nonnull align 8 
   %16 = alloca %"class.marisa::scoped_array.2", align 8
   %17 = alloca ptr, align 8
   %18 = alloca i1, align 1
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %"class.marisa::Keyset", ptr %19, i32 0, i32 1
-  %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds %"class.marisa::Keyset", ptr %19, i32 0, i32 2
-  %23 = load i64, ptr %22, align 8
+  %20 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %19, i32 0, i32 1
+  %21 = load i64, ptr %20, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %19, i32 0, i32 2
+  %23 = load i64, ptr %22, align 8, !tbaa !16
   %24 = icmp eq i64 %21, %23
-  br i1 %24, label %25, label %122
+  br i1 %24, label %25, label %128
 
 25:                                               ; preds = %1
-  %26 = getelementptr inbounds %"class.marisa::Keyset", ptr %19, i32 0, i32 1
-  %27 = load i64, ptr %26, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #9
+  %26 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %19, i32 0, i32 1
+  %27 = load i64, ptr %26, align 8, !tbaa !8
   %28 = icmp ne i64 %27, 0
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds %"class.marisa::Keyset", ptr %19, i32 0, i32 1
-  %31 = load i64, ptr %30, align 8
+  %30 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %19, i32 0, i32 1
+  %31 = load i64, ptr %30, align 8, !tbaa !8
   %32 = mul i64 %31, 2
   br label %34
 
@@ -1837,8 +1930,9 @@ define void @_ZN6marisa6Keyset17append_base_blockEv(ptr noundef nonnull align 8 
 
 34:                                               ; preds = %33, %29
   %35 = phi i64 [ %32, %29 ], [ 1, %33 ]
-  store i64 %35, ptr %3, align 8
-  %36 = load i64, ptr %3, align 8
+  store i64 %35, ptr %3, align 8, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #9
+  %36 = load i64, ptr %3, align 8, !tbaa !34
   %37 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %36, i64 8)
   %38 = extractvalue { i64, i1 } %37, 1
   %39 = extractvalue { i64, i1 } %37, 0
@@ -1847,7 +1941,7 @@ define void @_ZN6marisa6Keyset17append_base_blockEv(ptr noundef nonnull align 8 
   %42 = or i1 %38, %41
   %43 = extractvalue { i64, i1 } %40, 0
   %44 = select i1 %42, i64 -1, i64 %43
-  %45 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %44, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #9
+  %45 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %44, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #11
   %46 = icmp eq ptr %45, null
   store i1 false, ptr %7, align 1
   store i1 false, ptr %10, align 1
@@ -1872,14 +1966,14 @@ define void @_ZN6marisa6Keyset17append_base_blockEv(ptr noundef nonnull align 8 
   store ptr %53, ptr %9, align 8
   store i1 true, ptr %10, align 1
   invoke void @_ZN6marisa12scoped_arrayIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %53)
-          to label %54 unwind label %85
+          to label %54 unwind label %74
 
 54:                                               ; preds = %52
   %55 = getelementptr inbounds %"class.marisa::scoped_array.2", ptr %53, i64 1
   %56 = icmp eq ptr %55, %51
   br i1 %56, label %57, label %52
 
-57:                                               ; preds = %54, %47
+57:                                               ; preds = %47, %54
   br label %58
 
 58:                                               ; preds = %57, %34
@@ -1887,278 +1981,303 @@ define void @_ZN6marisa6Keyset17append_base_blockEv(ptr noundef nonnull align 8 
   call void @_ZN6marisa12scoped_arrayINS0_IcEEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %59)
   store i1 false, ptr %14, align 1
   %60 = invoke noundef ptr @_ZNK6marisa12scoped_arrayINS0_IcEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %61 unwind label %104
+          to label %61 unwind label %93
 
 61:                                               ; preds = %58
   %62 = icmp eq ptr %60, null
   br i1 %62, label %63, label %67
 
 63:                                               ; preds = %61
-  %64 = call ptr @__cxa_allocate_exception(i64 32) #7
+  %64 = call ptr @__cxa_allocate_exception(i64 32) #9
   store ptr %64, ptr %13, align 8
   store i1 true, ptr %14, align 1
   invoke void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef @.str, i32 noundef 129, i32 noundef 8, ptr noundef @.str.4)
-          to label %65 unwind label %108
+          to label %65 unwind label %97
 
 65:                                               ; preds = %63
-  invoke void @__cxa_throw(ptr %64, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZN6marisa9ExceptionD2Ev) #10
-          to label %172 unwind label %104
+  invoke void @__cxa_throw(ptr %64, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZNSt9exceptionD2Ev) #12
+          to label %178 unwind label %93
 
 66:                                               ; No predecessors!
   br label %67
 
 67:                                               ; preds = %66, %61
-  store i64 0, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #9
+  store i64 0, ptr %15, align 8, !tbaa !34
   br label %68
 
-68:                                               ; preds = %82, %67
-  %69 = load i64, ptr %15, align 8
-  %70 = getelementptr inbounds %"class.marisa::Keyset", ptr %19, i32 0, i32 1
-  %71 = load i64, ptr %70, align 8
+68:                                               ; preds = %114, %67
+  %69 = load i64, ptr %15, align 8, !tbaa !34
+  %70 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %19, i32 0, i32 1
+  %71 = load i64, ptr %70, align 8, !tbaa !8
   %72 = icmp ult i64 %69, %71
-  br i1 %72, label %73, label %116
+  br i1 %72, label %105, label %73
 
 73:                                               ; preds = %68
-  %74 = getelementptr inbounds %"class.marisa::Keyset", ptr %19, i32 0, i32 0
-  %75 = load i64, ptr %15, align 8
-  %76 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_IcEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %74, i64 noundef %75)
-          to label %77 unwind label %104
-
-77:                                               ; preds = %73
-  %78 = load i64, ptr %15, align 8
-  %79 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_IcEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %78)
-          to label %80 unwind label %104
-
-80:                                               ; preds = %77
-  invoke void @_ZN6marisa12scoped_arrayIcE4swapERS1_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %79)
-          to label %81 unwind label %104
-
-81:                                               ; preds = %80
-  br label %82
-
-82:                                               ; preds = %81
-  %83 = load i64, ptr %15, align 8
-  %84 = add i64 %83, 1
-  store i64 %84, ptr %15, align 8
-  br label %68, !llvm.loop !11
-
-85:                                               ; preds = %52
-  %86 = landingpad { ptr, i32 }
-          cleanup
-  %87 = extractvalue { ptr, i32 } %86, 0
-  store ptr %87, ptr %11, align 8
-  %88 = extractvalue { ptr, i32 } %86, 1
-  store i32 %88, ptr %12, align 4
-  %89 = load i1, ptr %10, align 1
-  br i1 %89, label %90, label %99
-
-90:                                               ; preds = %85
-  %91 = load ptr, ptr %8, align 8
-  %92 = load ptr, ptr %9, align 8
-  %93 = icmp eq ptr %91, %92
-  br i1 %93, label %98, label %94
-
-94:                                               ; preds = %94, %90
-  %95 = phi ptr [ %92, %90 ], [ %96, %94 ]
-  %96 = getelementptr inbounds %"class.marisa::scoped_array.2", ptr %95, i64 -1
-  call void @_ZN6marisa12scoped_arrayIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %96) #7
-  %97 = icmp eq ptr %96, %91
-  br i1 %97, label %98, label %94
-
-98:                                               ; preds = %94, %90
-  br label %99
-
-99:                                               ; preds = %98, %85
-  %100 = load i1, ptr %7, align 1
-  br i1 %100, label %101, label %103
-
-101:                                              ; preds = %99
-  %102 = load ptr, ptr %5, align 8
-  call void @_ZdaPvRKSt9nothrow_t(ptr noundef %102, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #8
-  br label %103
-
-103:                                              ; preds = %101, %99
-  br label %167
-
-104:                                              ; preds = %116, %80, %77, %73, %65, %58
-  %105 = landingpad { ptr, i32 }
-          cleanup
-  %106 = extractvalue { ptr, i32 } %105, 0
-  store ptr %106, ptr %11, align 8
-  %107 = extractvalue { ptr, i32 } %105, 1
-  store i32 %107, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #9
   br label %121
 
-108:                                              ; preds = %63
-  %109 = landingpad { ptr, i32 }
+74:                                               ; preds = %52
+  %75 = landingpad { ptr, i32 }
           cleanup
-  %110 = extractvalue { ptr, i32 } %109, 0
-  store ptr %110, ptr %11, align 8
-  %111 = extractvalue { ptr, i32 } %109, 1
-  store i32 %111, ptr %12, align 4
-  %112 = load i1, ptr %14, align 1
-  br i1 %112, label %113, label %115
+  %76 = extractvalue { ptr, i32 } %75, 0
+  store ptr %76, ptr %11, align 8
+  %77 = extractvalue { ptr, i32 } %75, 1
+  store i32 %77, ptr %12, align 4
+  %78 = load i1, ptr %10, align 1
+  br i1 %78, label %79, label %88
 
-113:                                              ; preds = %108
-  %114 = load ptr, ptr %13, align 8
-  call void @__cxa_free_exception(ptr %114) #7
-  br label %115
+79:                                               ; preds = %74
+  %80 = load ptr, ptr %8, align 8
+  %81 = load ptr, ptr %9, align 8
+  %82 = icmp eq ptr %80, %81
+  br i1 %82, label %87, label %83
 
-115:                                              ; preds = %113, %108
-  br label %121
+83:                                               ; preds = %83, %79
+  %84 = phi ptr [ %81, %79 ], [ %85, %83 ]
+  %85 = getelementptr inbounds %"class.marisa::scoped_array.2", ptr %84, i64 -1
+  call void @_ZN6marisa12scoped_arrayIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %85) #9
+  %86 = icmp eq ptr %85, %80
+  br i1 %86, label %87, label %83
 
-116:                                              ; preds = %68
-  %117 = getelementptr inbounds %"class.marisa::Keyset", ptr %19, i32 0, i32 0
-  invoke void @_ZN6marisa12scoped_arrayINS0_IcEEE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(8) %117, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %118 unwind label %104
+87:                                               ; preds = %83, %79
+  br label %88
 
-118:                                              ; preds = %116
-  %119 = load i64, ptr %3, align 8
-  %120 = getelementptr inbounds %"class.marisa::Keyset", ptr %19, i32 0, i32 2
-  store i64 %119, ptr %120, align 8
-  call void @_ZN6marisa12scoped_arrayINS0_IcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #7
-  br label %122
+88:                                               ; preds = %87, %74
+  %89 = load i1, ptr %7, align 1
+  br i1 %89, label %90, label %92
 
-121:                                              ; preds = %115, %104
-  call void @_ZN6marisa12scoped_arrayINS0_IcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #7
-  br label %167
+90:                                               ; preds = %88
+  %91 = load ptr, ptr %5, align 8
+  call void @_ZdaPvRKSt9nothrow_t(ptr noundef %91, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #10
+  br label %92
 
-122:                                              ; preds = %118, %1
-  %123 = getelementptr inbounds %"class.marisa::Keyset", ptr %19, i32 0, i32 0
-  %124 = getelementptr inbounds %"class.marisa::Keyset", ptr %19, i32 0, i32 1
-  %125 = load i64, ptr %124, align 8
-  %126 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_IcEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %123, i64 noundef %125)
-  %127 = call noundef ptr @_ZNK6marisa12scoped_arrayIcE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %126)
-  %128 = icmp eq ptr %127, null
-  br i1 %128, label %129, label %158
+92:                                               ; preds = %90, %88
+  br label %127
 
-129:                                              ; preds = %122
-  %130 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef 4096, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #9
-  call void @_ZN6marisa12scoped_arrayIcEC2EPc(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %130)
+93:                                               ; preds = %121, %65, %58
+  %94 = landingpad { ptr, i32 }
+          cleanup
+  %95 = extractvalue { ptr, i32 } %94, 0
+  store ptr %95, ptr %11, align 8
+  %96 = extractvalue { ptr, i32 } %94, 1
+  store i32 %96, ptr %12, align 4
+  br label %126
+
+97:                                               ; preds = %63
+  %98 = landingpad { ptr, i32 }
+          cleanup
+  %99 = extractvalue { ptr, i32 } %98, 0
+  store ptr %99, ptr %11, align 8
+  %100 = extractvalue { ptr, i32 } %98, 1
+  store i32 %100, ptr %12, align 4
+  %101 = load i1, ptr %14, align 1
+  br i1 %101, label %102, label %104
+
+102:                                              ; preds = %97
+  %103 = load ptr, ptr %13, align 8
+  call void @__cxa_free_exception(ptr %103) #9
+  br label %104
+
+104:                                              ; preds = %102, %97
+  br label %126
+
+105:                                              ; preds = %68
+  %106 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %19, i32 0, i32 0
+  %107 = load i64, ptr %15, align 8, !tbaa !34
+  %108 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_IcEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %106, i64 noundef %107)
+          to label %109 unwind label %117
+
+109:                                              ; preds = %105
+  %110 = load i64, ptr %15, align 8, !tbaa !34
+  %111 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_IcEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %110)
+          to label %112 unwind label %117
+
+112:                                              ; preds = %109
+  invoke void @_ZN6marisa12scoped_arrayIcE4swapERS1_(ptr noundef nonnull align 8 dereferenceable(8) %108, ptr noundef nonnull align 8 dereferenceable(8) %111)
+          to label %113 unwind label %117
+
+113:                                              ; preds = %112
+  br label %114
+
+114:                                              ; preds = %113
+  %115 = load i64, ptr %15, align 8, !tbaa !34
+  %116 = add i64 %115, 1
+  store i64 %116, ptr %15, align 8, !tbaa !34
+  br label %68, !llvm.loop !73
+
+117:                                              ; preds = %112, %109, %105
+  %118 = landingpad { ptr, i32 }
+          cleanup
+  %119 = extractvalue { ptr, i32 } %118, 0
+  store ptr %119, ptr %11, align 8
+  %120 = extractvalue { ptr, i32 } %118, 1
+  store i32 %120, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #9
+  br label %126
+
+121:                                              ; preds = %73
+  %122 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %19, i32 0, i32 0
+  invoke void @_ZN6marisa12scoped_arrayINS0_IcEEE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(8) %122, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %123 unwind label %93
+
+123:                                              ; preds = %121
+  %124 = load i64, ptr %3, align 8, !tbaa !34
+  %125 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %19, i32 0, i32 2
+  store i64 %124, ptr %125, align 8, !tbaa !16
+  call void @_ZN6marisa12scoped_arrayINS0_IcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #9
+  br label %128
+
+126:                                              ; preds = %117, %104, %93
+  call void @_ZN6marisa12scoped_arrayINS0_IcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #9
+  br label %127
+
+127:                                              ; preds = %126, %92
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #9
+  br label %173
+
+128:                                              ; preds = %123, %1
+  %129 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %19, i32 0, i32 0
+  %130 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %19, i32 0, i32 1
+  %131 = load i64, ptr %130, align 8, !tbaa !8
+  %132 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_IcEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %129, i64 noundef %131)
+  %133 = call noundef ptr @_ZNK6marisa12scoped_arrayIcE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %132)
+  %134 = icmp eq ptr %133, null
+  br i1 %134, label %135, label %164
+
+135:                                              ; preds = %128
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #9
+  %136 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef 4096, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #11
+  call void @_ZN6marisa12scoped_arrayIcEC2EPc(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %136)
   store i1 false, ptr %18, align 1
-  %131 = invoke noundef ptr @_ZNK6marisa12scoped_arrayIcE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %16)
-          to label %132 unwind label %145
+  %137 = invoke noundef ptr @_ZNK6marisa12scoped_arrayIcE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %16)
+          to label %138 unwind label %151
 
-132:                                              ; preds = %129
-  %133 = icmp eq ptr %131, null
-  br i1 %133, label %134, label %138
+138:                                              ; preds = %135
+  %139 = icmp eq ptr %137, null
+  br i1 %139, label %140, label %144
 
-134:                                              ; preds = %132
-  %135 = call ptr @__cxa_allocate_exception(i64 32) #7
-  store ptr %135, ptr %17, align 8
+140:                                              ; preds = %138
+  %141 = call ptr @__cxa_allocate_exception(i64 32) #9
+  store ptr %141, ptr %17, align 8
   store i1 true, ptr %18, align 1
-  invoke void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef @.str, i32 noundef 138, i32 noundef 8, ptr noundef @.str.5)
-          to label %136 unwind label %149
+  invoke void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr noundef nonnull align 8 dereferenceable(32) %141, ptr noundef @.str, i32 noundef 138, i32 noundef 8, ptr noundef @.str.5)
+          to label %142 unwind label %155
 
-136:                                              ; preds = %134
-  invoke void @__cxa_throw(ptr %135, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZN6marisa9ExceptionD2Ev) #10
-          to label %172 unwind label %145
+142:                                              ; preds = %140
+  invoke void @__cxa_throw(ptr %141, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZNSt9exceptionD2Ev) #12
+          to label %178 unwind label %151
 
-137:                                              ; No predecessors!
-  br label %138
+143:                                              ; No predecessors!
+  br label %144
 
-138:                                              ; preds = %137, %132
-  %139 = getelementptr inbounds %"class.marisa::Keyset", ptr %19, i32 0, i32 0
-  %140 = getelementptr inbounds %"class.marisa::Keyset", ptr %19, i32 0, i32 1
-  %141 = load i64, ptr %140, align 8
-  %142 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_IcEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %139, i64 noundef %141)
-          to label %143 unwind label %145
+144:                                              ; preds = %143, %138
+  %145 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %19, i32 0, i32 0
+  %146 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %19, i32 0, i32 1
+  %147 = load i64, ptr %146, align 8, !tbaa !8
+  %148 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_IcEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %145, i64 noundef %147)
+          to label %149 unwind label %151
 
-143:                                              ; preds = %138
-  invoke void @_ZN6marisa12scoped_arrayIcE4swapERS1_(ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 8 dereferenceable(8) %16)
-          to label %144 unwind label %145
+149:                                              ; preds = %144
+  invoke void @_ZN6marisa12scoped_arrayIcE4swapERS1_(ptr noundef nonnull align 8 dereferenceable(8) %148, ptr noundef nonnull align 8 dereferenceable(8) %16)
+          to label %150 unwind label %151
 
-144:                                              ; preds = %143
-  call void @_ZN6marisa12scoped_arrayIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #7
-  br label %158
+150:                                              ; preds = %149
+  call void @_ZN6marisa12scoped_arrayIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #9
+  br label %164
 
-145:                                              ; preds = %143, %138, %136, %129
-  %146 = landingpad { ptr, i32 }
+151:                                              ; preds = %149, %144, %142, %135
+  %152 = landingpad { ptr, i32 }
           cleanup
-  %147 = extractvalue { ptr, i32 } %146, 0
-  store ptr %147, ptr %11, align 8
-  %148 = extractvalue { ptr, i32 } %146, 1
-  store i32 %148, ptr %12, align 4
-  br label %157
+  %153 = extractvalue { ptr, i32 } %152, 0
+  store ptr %153, ptr %11, align 8
+  %154 = extractvalue { ptr, i32 } %152, 1
+  store i32 %154, ptr %12, align 4
+  br label %163
 
-149:                                              ; preds = %134
-  %150 = landingpad { ptr, i32 }
+155:                                              ; preds = %140
+  %156 = landingpad { ptr, i32 }
           cleanup
-  %151 = extractvalue { ptr, i32 } %150, 0
-  store ptr %151, ptr %11, align 8
-  %152 = extractvalue { ptr, i32 } %150, 1
-  store i32 %152, ptr %12, align 4
-  %153 = load i1, ptr %18, align 1
-  br i1 %153, label %154, label %156
+  %157 = extractvalue { ptr, i32 } %156, 0
+  store ptr %157, ptr %11, align 8
+  %158 = extractvalue { ptr, i32 } %156, 1
+  store i32 %158, ptr %12, align 4
+  %159 = load i1, ptr %18, align 1
+  br i1 %159, label %160, label %162
 
-154:                                              ; preds = %149
-  %155 = load ptr, ptr %17, align 8
-  call void @__cxa_free_exception(ptr %155) #7
-  br label %156
+160:                                              ; preds = %155
+  %161 = load ptr, ptr %17, align 8
+  call void @__cxa_free_exception(ptr %161) #9
+  br label %162
 
-156:                                              ; preds = %154, %149
-  br label %157
+162:                                              ; preds = %160, %155
+  br label %163
 
-157:                                              ; preds = %156, %145
-  call void @_ZN6marisa12scoped_arrayIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #7
-  br label %167
+163:                                              ; preds = %162, %151
+  call void @_ZN6marisa12scoped_arrayIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #9
+  br label %173
 
-158:                                              ; preds = %144, %122
-  %159 = getelementptr inbounds %"class.marisa::Keyset", ptr %19, i32 0, i32 0
-  %160 = getelementptr inbounds %"class.marisa::Keyset", ptr %19, i32 0, i32 1
-  %161 = load i64, ptr %160, align 8
-  %162 = add i64 %161, 1
-  store i64 %162, ptr %160, align 8
-  %163 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_IcEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %159, i64 noundef %161)
-  %164 = call noundef ptr @_ZNK6marisa12scoped_arrayIcE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %163)
-  %165 = getelementptr inbounds %"class.marisa::Keyset", ptr %19, i32 0, i32 9
-  store ptr %164, ptr %165, align 8
-  %166 = getelementptr inbounds %"class.marisa::Keyset", ptr %19, i32 0, i32 10
-  store i64 4096, ptr %166, align 8
+164:                                              ; preds = %150, %128
+  %165 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %19, i32 0, i32 0
+  %166 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %19, i32 0, i32 1
+  %167 = load i64, ptr %166, align 8, !tbaa !8
+  %168 = add i64 %167, 1
+  store i64 %168, ptr %166, align 8, !tbaa !8
+  %169 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6marisa12scoped_arrayINS0_IcEEEixEm(ptr noundef nonnull align 8 dereferenceable(8) %165, i64 noundef %167)
+  %170 = call noundef ptr @_ZNK6marisa12scoped_arrayIcE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %169)
+  %171 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %19, i32 0, i32 9
+  store ptr %170, ptr %171, align 8, !tbaa !21
+  %172 = getelementptr inbounds nuw %"class.marisa::Keyset", ptr %19, i32 0, i32 10
+  store i64 4096, ptr %172, align 8, !tbaa !22
   ret void
 
-167:                                              ; preds = %157, %121, %103
-  %168 = load ptr, ptr %11, align 8
-  %169 = load i32, ptr %12, align 4
-  %170 = insertvalue { ptr, i32 } poison, ptr %168, 0
-  %171 = insertvalue { ptr, i32 } %170, i32 %169, 1
-  resume { ptr, i32 } %171
+173:                                              ; preds = %163, %127
+  %174 = load ptr, ptr %11, align 8
+  %175 = load i32, ptr %12, align 4
+  %176 = insertvalue { ptr, i32 } poison, ptr %174, 0
+  %177 = insertvalue { ptr, i32 } %176, i32 %175, 1
+  resume { ptr, i32 } %177
 
-172:                                              ; preds = %136, %65
+178:                                              ; preds = %142, %65
   unreachable
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #2
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #2
+declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #5
 
 ; Function Attrs: nobuiltin nounwind allocsize(0)
-declare noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) #3
+declare noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6marisa12scoped_arrayIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.marisa::scoped_array.2", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.marisa::scoped_array.2", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !71
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6marisa12scoped_arrayIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.marisa::scoped_array.2", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.marisa::scoped_array.2", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !71
   %6 = icmp eq ptr %5, null
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %1
-  call void @_ZdaPv(ptr noundef %5) #8
+  call void @_ZdaPv(ptr noundef %5) #10
   br label %8
 
 8:                                                ; preds = %7, %1
@@ -2166,28 +2285,28 @@ define linkonce_odr void @_ZN6marisa12scoped_arrayIcED2Ev(ptr noundef nonnull al
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPvRKSt9nothrow_t(ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) #4
+declare void @_ZdaPvRKSt9nothrow_t(ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6marisa12scoped_arrayINS0_IcEEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !25
+  store ptr %1, ptr %4, align 8, !tbaa !70
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.marisa::scoped_array", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.marisa::scoped_array", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !70
+  store ptr %7, ptr %6, align 8, !tbaa !27
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK6marisa12scoped_arrayINS0_IcEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !25
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.marisa::scoped_array", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.marisa::scoped_array", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !27
   ret ptr %5
 }
 
@@ -2195,13 +2314,13 @@ define linkonce_odr noundef ptr @_ZNK6marisa12scoped_arrayINS0_IcEEE3getEv(ptr n
 define linkonce_odr void @_ZN6marisa12scoped_arrayIcE4swapERS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !70
+  store ptr %1, ptr %4, align 8, !tbaa !70
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.marisa::scoped_array.2", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.marisa::scoped_array.2", ptr %7, i32 0, i32 0
-  call void @_ZSt4swapIPcENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #7
+  %6 = getelementptr inbounds nuw %"class.marisa::scoped_array.2", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !70
+  %8 = getelementptr inbounds nuw %"class.marisa::scoped_array.2", ptr %7, i32 0, i32 0
+  call void @_ZSt4swapIPcENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #9
   ret void
 }
 
@@ -2209,37 +2328,37 @@ define linkonce_odr void @_ZN6marisa12scoped_arrayIcE4swapERS1_(ptr noundef nonn
 define linkonce_odr void @_ZN6marisa12scoped_arrayIcEC2EPc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !70
+  store ptr %1, ptr %4, align 8, !tbaa !33
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.marisa::scoped_array.2", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.marisa::scoped_array.2", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !33
+  store ptr %7, ptr %6, align 8, !tbaa !71
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6marisa12scoped_arrayINS_3KeyEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.marisa::scoped_array.1", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.marisa::scoped_array.1", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !43
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6marisa12scoped_arrayINS_3KeyEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.marisa::scoped_array.1", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.marisa::scoped_array.1", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !43
   %6 = icmp eq ptr %5, null
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %1
-  call void @_ZdaPv(ptr noundef %5) #8
+  call void @_ZdaPv(ptr noundef %5) #10
   br label %8
 
 8:                                                ; preds = %7, %1
@@ -2250,22 +2369,22 @@ define linkonce_odr void @_ZN6marisa12scoped_arrayINS_3KeyEED2Ev(ptr noundef non
 define linkonce_odr void @_ZN6marisa12scoped_arrayINS0_INS_3KeyEEEEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !42
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.marisa::scoped_array.0", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.marisa::scoped_array.0", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !42
+  store ptr %7, ptr %6, align 8, !tbaa !30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK6marisa12scoped_arrayINS0_INS_3KeyEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.marisa::scoped_array.0", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.marisa::scoped_array.0", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !30
   ret ptr %5
 }
 
@@ -2273,25 +2392,25 @@ define linkonce_odr noundef ptr @_ZNK6marisa12scoped_arrayINS0_INS_3KeyEEEE3getE
 define linkonce_odr void @_ZN6marisa12scoped_arrayINS_3KeyEE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !42
+  store ptr %1, ptr %4, align 8, !tbaa !42
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.marisa::scoped_array.1", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.marisa::scoped_array.1", ptr %7, i32 0, i32 0
-  call void @_ZSt4swapIPN6marisa3KeyEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #7
+  %6 = getelementptr inbounds nuw %"class.marisa::scoped_array.1", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !42
+  %8 = getelementptr inbounds nuw %"class.marisa::scoped_array.1", ptr %7, i32 0, i32 0
+  call void @_ZSt4swapIPN6marisa3KeyEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #9
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6marisa12scoped_arrayINS0_INS_3KeyEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.marisa::scoped_array.0", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.marisa::scoped_array.0", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !30
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %17, label %7
+  br i1 %6, label %19, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %5, i64 -8
@@ -2303,31 +2422,33 @@ define linkonce_odr void @_ZN6marisa12scoped_arrayINS0_INS_3KeyEEEED2Ev(ptr noun
 12:                                               ; preds = %12, %7
   %13 = phi ptr [ %10, %7 ], [ %14, %12 ]
   %14 = getelementptr inbounds %"class.marisa::scoped_array.1", ptr %13, i64 -1
-  call void @_ZN6marisa12scoped_arrayINS_3KeyEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #7
+  call void @_ZN6marisa12scoped_arrayINS_3KeyEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #9
   %15 = icmp eq ptr %14, %5
   br i1 %15, label %16, label %12
 
 16:                                               ; preds = %12, %7
-  call void @_ZdaPv(ptr noundef %8) #8
-  br label %17
+  %17 = mul i64 8, %9
+  %18 = add i64 %17, 8
+  call void @_ZdaPvm(ptr noundef %8, i64 noundef %18) #10
+  br label %19
 
-17:                                               ; preds = %16, %1
+19:                                               ; preds = %16, %1
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6marisa3KeyC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !31
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.marisa::Key", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.marisa::Key", ptr %3, i32 0, i32 1
-  store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds %"class.marisa::Key", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds nuw %"class.marisa::Key", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !41
+  %5 = getelementptr inbounds nuw %"class.marisa::Key", ptr %3, i32 0, i32 1
+  store i32 0, ptr %5, align 8, !tbaa !38
+  %6 = getelementptr inbounds nuw %"class.marisa::Key", ptr %3, i32 0, i32 2
   call void @llvm.memset.p0.i64(ptr align 4 %6, i8 0, i64 4, i1 false)
-  %7 = getelementptr inbounds %"class.marisa::Key", ptr %3, i32 0, i32 2
-  store i32 0, ptr %7, align 4
+  %7 = getelementptr inbounds nuw %"class.marisa::Key", ptr %3, i32 0, i32 2
+  store i32 0, ptr %7, align 4, !tbaa !35
   ret void
 }
 
@@ -2335,150 +2456,236 @@ define linkonce_odr void @_ZN6marisa3KeyC2Ev(ptr noundef nonnull align 8 derefer
 define linkonce_odr void @_ZN6marisa12scoped_arrayINS_3KeyEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !42
+  store ptr %1, ptr %4, align 8, !tbaa !31
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.marisa::scoped_array.1", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.marisa::scoped_array.1", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !31
+  store ptr %7, ptr %6, align 8, !tbaa !43
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK6marisa12scoped_arrayINS_3KeyEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.marisa::scoped_array.1", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.marisa::scoped_array.1", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !43
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !74
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
-  store ptr %4, ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !53
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6marisa9ExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !48
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN6marisa9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #7
-  call void @_ZdlPv(ptr noundef %3) #8
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #9
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 32) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK6marisa9Exception4whatEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !48
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.marisa::Exception", ptr %3, i32 0, i32 4
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.marisa::Exception", ptr %3, i32 0, i32 4
+  %5 = load ptr, ptr %4, align 8, !tbaa !60
   ret ptr %5
 }
 
-; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #4
+; Function Attrs: nounwind
+declare void @_ZNSt9exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #5
+declare void @_ZNSt9exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+; Function Attrs: nounwind
+declare noundef ptr @_ZNKSt9exception4whatEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) #4
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #7
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt4swapIPN6marisa12scoped_arrayIcEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat {
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdaPvm(ptr noundef, i64 noundef) #7
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt4swapIPN6marisa12scoped_arrayIcEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %5, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %3, align 8
-  store ptr %9, ptr %10, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %12, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !76
+  store ptr %1, ptr %4, align 8, !tbaa !76
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %6 = load ptr, ptr %3, align 8, !tbaa !76
+  %7 = load ptr, ptr %6, align 8, !tbaa !70
+  store ptr %7, ptr %5, align 8, !tbaa !70
+  %8 = load ptr, ptr %4, align 8, !tbaa !76
+  %9 = load ptr, ptr %8, align 8, !tbaa !70
+  %10 = load ptr, ptr %3, align 8, !tbaa !76
+  store ptr %9, ptr %10, align 8, !tbaa !70
+  %11 = load ptr, ptr %5, align 8, !tbaa !70
+  %12 = load ptr, ptr %4, align 8, !tbaa !76
+  store ptr %11, ptr %12, align 8, !tbaa !70
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt4swapIPN6marisa12scoped_arrayINS0_3KeyEEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS8_ESt18is_move_assignableIS8_EEE5valueEvE4typeERS8_SH_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt4swapIPN6marisa12scoped_arrayINS0_3KeyEEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS8_ESt18is_move_assignableIS8_EEE5valueEvE4typeERS8_SH_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %5, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %3, align 8
-  store ptr %9, ptr %10, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %12, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !78
+  store ptr %1, ptr %4, align 8, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %6 = load ptr, ptr %3, align 8, !tbaa !78
+  %7 = load ptr, ptr %6, align 8, !tbaa !42
+  store ptr %7, ptr %5, align 8, !tbaa !42
+  %8 = load ptr, ptr %4, align 8, !tbaa !78
+  %9 = load ptr, ptr %8, align 8, !tbaa !42
+  %10 = load ptr, ptr %3, align 8, !tbaa !78
+  store ptr %9, ptr %10, align 8, !tbaa !42
+  %11 = load ptr, ptr %5, align 8, !tbaa !42
+  %12 = load ptr, ptr %4, align 8, !tbaa !78
+  store ptr %11, ptr %12, align 8, !tbaa !42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt4swapIPN6marisa3KeyEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat {
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdaPv(ptr noundef) #7
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt4swapIPN6marisa3KeyEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %5, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %3, align 8
-  store ptr %9, ptr %10, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %12, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !80
+  store ptr %1, ptr %4, align 8, !tbaa !80
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %6 = load ptr, ptr %3, align 8, !tbaa !80
+  %7 = load ptr, ptr %6, align 8, !tbaa !31
+  store ptr %7, ptr %5, align 8, !tbaa !31
+  %8 = load ptr, ptr %4, align 8, !tbaa !80
+  %9 = load ptr, ptr %8, align 8, !tbaa !31
+  %10 = load ptr, ptr %3, align 8, !tbaa !80
+  store ptr %9, ptr %10, align 8, !tbaa !31
+  %11 = load ptr, ptr %5, align 8, !tbaa !31
+  %12 = load ptr, ptr %4, align 8, !tbaa !80
+  store ptr %11, ptr %12, align 8, !tbaa !31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
   ret void
 }
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nobuiltin nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind }
-attributes #8 = { builtin nounwind }
-attributes #9 = { builtin nounwind allocsize(0) }
-attributes #10 = { noreturn }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nobuiltin nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nounwind }
+attributes #10 = { builtin nounwind }
+attributes #11 = { builtin nounwind allocsize(0) }
+attributes #12 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN6marisa6KeysetE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !12, i64 8}
+!9 = !{!"_ZTSN6marisa6KeysetE", !10, i64 0, !12, i64 8, !12, i64 16, !10, i64 24, !12, i64 32, !12, i64 40, !13, i64 48, !12, i64 56, !12, i64 64, !15, i64 72, !12, i64 80, !12, i64 88, !12, i64 96}
+!10 = !{!"_ZTSN6marisa12scoped_arrayINS0_IcEEEE", !11, i64 0}
+!11 = !{!"p1 _ZTSN6marisa12scoped_arrayIcEE", !5, i64 0}
+!12 = !{!"long", !6, i64 0}
+!13 = !{!"_ZTSN6marisa12scoped_arrayINS0_INS_3KeyEEEEE", !14, i64 0}
+!14 = !{!"p1 _ZTSN6marisa12scoped_arrayINS_3KeyEEE", !5, i64 0}
+!15 = !{!"p1 omnipotent char", !5, i64 0}
+!16 = !{!9, !12, i64 16}
+!17 = !{!9, !12, i64 32}
+!18 = !{!9, !12, i64 40}
+!19 = !{!9, !12, i64 56}
+!20 = !{!9, !12, i64 64}
+!21 = !{!9, !15, i64 72}
+!22 = !{!9, !12, i64 80}
+!23 = !{!9, !12, i64 88}
+!24 = !{!9, !12, i64 96}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTSN6marisa12scoped_arrayINS0_IcEEEE", !5, i64 0}
+!27 = !{!10, !11, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTSN6marisa12scoped_arrayINS0_INS_3KeyEEEEE", !5, i64 0}
+!30 = !{!13, !14, i64 0}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTSN6marisa3KeyE", !5, i64 0}
+!33 = !{!15, !15, i64 0}
+!34 = !{!12, !12, i64 0}
+!35 = !{!6, !6, i64 0}
+!36 = distinct !{!36, !37}
+!37 = !{!"llvm.loop.mustprogress"}
+!38 = !{!39, !40, i64 8}
+!39 = !{!"_ZTSN6marisa3KeyE", !15, i64 0, !40, i64 8, !6, i64 12}
+!40 = !{!"int", !6, i64 0}
+!41 = !{!39, !15, i64 0}
+!42 = !{!14, !14, i64 0}
+!43 = !{!44, !32, i64 0}
+!44 = !{!"_ZTSN6marisa12scoped_arrayINS_3KeyEEE", !32, i64 0}
+!45 = distinct !{!45, !37}
+!46 = distinct !{!46, !37}
+!47 = distinct !{!47, !37}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 _ZTSN6marisa9ExceptionE", !5, i64 0}
+!50 = !{!40, !40, i64 0}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"_ZTS18marisa_error_code_", !6, i64 0}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"vtable pointer", !7, i64 0}
+!55 = !{!56, !15, i64 8}
+!56 = !{!"_ZTSN6marisa9ExceptionE", !57, i64 0, !15, i64 8, !40, i64 16, !52, i64 20, !15, i64 24}
+!57 = !{!"_ZTSSt9exception"}
+!58 = !{!56, !40, i64 16}
+!59 = !{!56, !52, i64 20}
+!60 = !{!56, !15, i64 24}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"float", !6, i64 0}
+!63 = distinct !{!63, !37}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"p1 long", !5, i64 0}
+!66 = !{!67, !67, i64 0}
+!67 = !{!"p2 omnipotent char", !68, i64 0}
+!68 = !{!"any p2 pointer", !5, i64 0}
+!69 = distinct !{!69, !37}
+!70 = !{!11, !11, i64 0}
+!71 = !{!72, !15, i64 0}
+!72 = !{!"_ZTSN6marisa12scoped_arrayIcEE", !15, i64 0}
+!73 = distinct !{!73, !37}
+!74 = !{!75, !75, i64 0}
+!75 = !{!"p1 _ZTSSt9exception", !5, i64 0}
+!76 = !{!77, !77, i64 0}
+!77 = !{!"p2 _ZTSN6marisa12scoped_arrayIcEE", !68, i64 0}
+!78 = !{!79, !79, i64 0}
+!79 = !{!"p2 _ZTSN6marisa12scoped_arrayINS_3KeyEEE", !68, i64 0}
+!80 = !{!81, !81, i64 0}
+!81 = !{!"p2 _ZTSN6marisa3KeyE", !68, i64 0}

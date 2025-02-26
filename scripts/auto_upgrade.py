@@ -114,6 +114,7 @@ supported_project = [
     "ncnn",
     "nghttp2",
     "ninja",
+    "opencc",
 ]
 
 modify_only = [
@@ -150,6 +151,7 @@ modify_only = [
     "libphonenumber",
     "libzmq",
     "nghttp2",
+    "opencc",
 ]
 
 

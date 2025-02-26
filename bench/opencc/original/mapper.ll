@@ -11,8 +11,6 @@ $__clang_call_terminate = comdat any
 
 $_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_ = comdat any
 
-$_ZN6marisa9ExceptionD2Ev = comdat any
-
 $_ZSt4swapIPKvENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_ = comdat any
 
 $_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_ = comdat any
@@ -27,18 +25,18 @@ $_ZN6marisa9ExceptionD0Ev = comdat any
 
 $_ZNK6marisa9Exception4whatEv = comdat any
 
-$_ZTSN6marisa9ExceptionE = comdat any
-
 $_ZTIN6marisa9ExceptionE = comdat any
+
+$_ZTSN6marisa9ExceptionE = comdat any
 
 $_ZTVN6marisa9ExceptionE = comdat any
 
 @.str = private unnamed_addr constant [142 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/opencc/OpenCC/deps/marisa-0.2.6/lib/marisa/grimoire/io/mapper.cc\00", align 1
 @.str.1 = private unnamed_addr constant [182 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/opencc/OpenCC/deps/marisa-0.2.6/lib/marisa/grimoire/io/mapper.cc:55: MARISA_NULL_ERROR: filename == NULL\00", align 1
+@_ZTIN6marisa9ExceptionE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6marisa9ExceptionE, ptr @_ZTISt9exception }, comdat, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN6marisa9ExceptionE = linkonce_odr constant [20 x i8] c"N6marisa9ExceptionE\00", comdat, align 1
 @_ZTISt9exception = external constant ptr
-@_ZTIN6marisa9ExceptionE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6marisa9ExceptionE, ptr @_ZTISt9exception }, comdat, align 8
 @.str.2 = private unnamed_addr constant [194 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/opencc/OpenCC/deps/marisa-0.2.6/lib/marisa/grimoire/io/mapper.cc:63: MARISA_NULL_ERROR: (ptr == NULL) && (size != 0)\00", align 1
 @.str.3 = private unnamed_addr constant [177 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/opencc/OpenCC/deps/marisa-0.2.6/lib/marisa/grimoire/io/mapper.cc:71: MARISA_STATE_ERROR: !is_open()\00", align 1
 @.str.4 = private unnamed_addr constant [177 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/opencc/OpenCC/deps/marisa-0.2.6/lib/marisa/grimoire/io/mapper.cc:72: MARISA_IO_ERROR: size > avail_\00", align 1
@@ -48,8 +46,8 @@ $_ZTVN6marisa9ExceptionE = comdat any
 @.str.8 = private unnamed_addr constant [203 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/opencc/OpenCC/deps/marisa-0.2.6/lib/marisa/grimoire/io/mapper.cc:142: MARISA_SIZE_ERROR: (UInt64)st.st_size > MARISA_SIZE_MAX\00", align 1
 @.str.9 = private unnamed_addr constant [174 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/opencc/OpenCC/deps/marisa-0.2.6/lib/marisa/grimoire/io/mapper.cc:146: MARISA_IO_ERROR: fd_ == -1\00", align 1
 @.str.10 = private unnamed_addr constant [186 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/opencc/OpenCC/deps/marisa-0.2.6/lib/marisa/grimoire/io/mapper.cc:149: MARISA_IO_ERROR: origin_ == MAP_FAILED\00", align 1
-@_ZTVN6marisa9ExceptionE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZN6marisa9ExceptionD2Ev, ptr @_ZN6marisa9ExceptionD0Ev, ptr @_ZNK6marisa9Exception4whatEv] }, comdat, align 8
-@_ZTVSt9exception = external unnamed_addr constant { [5 x ptr] }, align 8
+@_ZTVN6marisa9ExceptionE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZNSt9exceptionD2Ev, ptr @_ZN6marisa9ExceptionD0Ev, ptr @_ZNK6marisa9Exception4whatEv] }, comdat, align 8
+@_ZTVSt9exception = available_externally unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTISt9exception, ptr @_ZNSt9exceptionD1Ev, ptr @_ZNSt9exceptionD0Ev, ptr @_ZNKSt9exception4whatEv] }, align 8
 
 @_ZN6marisa8grimoire2io6MapperC1Ev = unnamed_addr alias void (ptr), ptr @_ZN6marisa8grimoire2io6MapperC2Ev
 @_ZN6marisa8grimoire2io6MapperD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6marisa8grimoire2io6MapperD2Ev
@@ -57,64 +55,62 @@ $_ZTVN6marisa9ExceptionE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6marisa8grimoire2io6MapperC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 1
-  %6 = inttoptr i64 -1 to ptr
-  store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 2
-  store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 3
-  store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 4
-  store i32 -1, ptr %9, align 8
+  %4 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !8
+  %5 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 1
+  store ptr inttoptr (i64 -1 to ptr), ptr %5, align 8, !tbaa !12
+  %6 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 2
+  store i64 0, ptr %6, align 8, !tbaa !13
+  %7 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 3
+  store i64 0, ptr %7, align 8, !tbaa !14
+  %8 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 4
+  store i32 -1, ptr %8, align 8, !tbaa !15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6marisa8grimoire2io6MapperD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
-  %6 = inttoptr i64 -1 to ptr
-  %7 = icmp ne ptr %5, %6
-  br i1 %7, label %8, label %14
+  %4 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !12
+  %6 = icmp ne ptr %5, inttoptr (i64 -1 to ptr)
+  br i1 %6, label %7, label %13
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 1
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 3
-  %12 = load i64, ptr %11, align 8
-  %13 = call i32 @munmap(ptr noundef %10, i64 noundef %12) #6
-  br label %14
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !12
+  %10 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 3
+  %11 = load i64, ptr %10, align 8, !tbaa !14
+  %12 = call i32 @munmap(ptr noundef %9, i64 noundef %11) #8
+  br label %13
 
-14:                                               ; preds = %8, %1
-  %15 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 4
-  %16 = load i32, ptr %15, align 8
-  %17 = icmp ne i32 %16, -1
-  br i1 %17, label %18, label %23
+13:                                               ; preds = %7, %1
+  %14 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 4
+  %15 = load i32, ptr %14, align 8, !tbaa !15
+  %16 = icmp ne i32 %15, -1
+  br i1 %16, label %17, label %22
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 4
-  %20 = load i32, ptr %19, align 8
-  %21 = invoke i32 @close(i32 noundef %20)
-          to label %22 unwind label %24
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 4
+  %19 = load i32, ptr %18, align 8, !tbaa !15
+  %20 = invoke i32 @close(i32 noundef %19)
+          to label %21 unwind label %23
 
-22:                                               ; preds = %18
-  br label %23
+21:                                               ; preds = %17
+  br label %22
 
-23:                                               ; preds = %22, %14
+22:                                               ; preds = %21, %13
   ret void
 
-24:                                               ; preds = %18
-  %25 = landingpad { ptr, i32 }
+23:                                               ; preds = %17
+  %24 = landingpad { ptr, i32 }
           catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #7
+  %25 = extractvalue { ptr, i32 } %24, 0
+  call void @__clang_call_terminate(ptr %25) #9
   unreachable
 }
 
@@ -125,10 +121,10 @@ declare i32 @close(i32 noundef) #2
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #3 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #6
-  call void @_ZSt9terminatev() #7
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #8
+  call void @_ZSt9terminatev() #9
   unreachable
 }
 
@@ -145,31 +141,32 @@ define void @_ZN6marisa8grimoire2io6Mapper4openEPKc(ptr noundef nonnull align 8 
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca %"class.marisa::grimoire::io::Mapper", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !16
   %10 = load ptr, ptr %3, align 8
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !16
   %12 = icmp eq ptr %11, null
   store i1 false, ptr %6, align 1
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %2
-  %14 = call ptr @__cxa_allocate_exception(i64 32) #6
+  %14 = call ptr @__cxa_allocate_exception(i64 32) #8
   store ptr %14, ptr %5, align 8
   store i1 true, ptr %6, align 1
   invoke void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef @.str, i32 noundef 55, i32 noundef 2, ptr noundef @.str.1)
           to label %15 unwind label %21
 
 15:                                               ; preds = %13
-  call void @__cxa_throw(ptr %14, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZN6marisa9ExceptionD2Ev) #8
+  call void @__cxa_throw(ptr %14, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZNSt9exceptionD2Ev) #10
   unreachable
 
 16:                                               ; No predecessors!
   br label %17
 
 17:                                               ; preds = %16, %2
+  call void @llvm.lifetime.start.p0(i64 40, ptr %9) #8
   call void @_ZN6marisa8grimoire2io6MapperC1Ev(ptr noundef nonnull align 8 dereferenceable(36) %9)
-  %18 = load ptr, ptr %4, align 8
+  %18 = load ptr, ptr %4, align 8, !tbaa !16
   invoke void @_ZN6marisa8grimoire2io6Mapper5open_EPKc(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef %18)
           to label %19 unwind label %29
 
@@ -178,7 +175,8 @@ define void @_ZN6marisa8grimoire2io6Mapper4openEPKc(ptr noundef nonnull align 8 
           to label %20 unwind label %29
 
 20:                                               ; preds = %19
-  call void @_ZN6marisa8grimoire2io6MapperD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %9) #6
+  call void @_ZN6marisa8grimoire2io6MapperD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %9) #8
+  call void @llvm.lifetime.end.p0(i64 40, ptr %9) #8
   ret void
 
 21:                                               ; preds = %13
@@ -193,7 +191,7 @@ define void @_ZN6marisa8grimoire2io6Mapper4openEPKc(ptr noundef nonnull align 8 
 
 26:                                               ; preds = %21
   %27 = load ptr, ptr %5, align 8
-  call void @__cxa_free_exception(ptr %27) #6
+  call void @__cxa_free_exception(ptr %27) #8
   br label %28
 
 28:                                               ; preds = %26, %21
@@ -206,7 +204,8 @@ define void @_ZN6marisa8grimoire2io6Mapper4openEPKc(ptr noundef nonnull align 8 
   store ptr %31, ptr %7, align 8
   %32 = extractvalue { ptr, i32 } %30, 1
   store i32 %32, ptr %8, align 4
-  call void @_ZN6marisa8grimoire2io6MapperD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %9) #6
+  call void @_ZN6marisa8grimoire2io6MapperD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %9) #8
+  call void @llvm.lifetime.end.p0(i64 40, ptr %9) #8
   br label %33
 
 33:                                               ; preds = %29, %28
@@ -226,42 +225,38 @@ define linkonce_odr void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store i32 %2, ptr %8, align 4
-  store i32 %3, ptr %9, align 4
-  store ptr %4, ptr %10, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !18
+  store ptr %1, ptr %7, align 8, !tbaa !16
+  store i32 %2, ptr %8, align 4, !tbaa !20
+  store i32 %3, ptr %9, align 4, !tbaa !21
+  store ptr %4, ptr %10, align 8, !tbaa !16
   %11 = load ptr, ptr %6, align 8
-  call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  %12 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i32 0, i32 0, i32 2
-  store ptr %12, ptr %11, align 8
-  %13 = getelementptr inbounds %"class.marisa::Exception", ptr %11, i32 0, i32 1
-  %14 = load ptr, ptr %7, align 8
-  store ptr %14, ptr %13, align 8
-  %15 = getelementptr inbounds %"class.marisa::Exception", ptr %11, i32 0, i32 2
-  %16 = load i32, ptr %8, align 4
-  store i32 %16, ptr %15, align 8
-  %17 = getelementptr inbounds %"class.marisa::Exception", ptr %11, i32 0, i32 3
-  %18 = load i32, ptr %9, align 4
-  store i32 %18, ptr %17, align 4
-  %19 = getelementptr inbounds %"class.marisa::Exception", ptr %11, i32 0, i32 4
-  %20 = load ptr, ptr %10, align 8
-  store ptr %20, ptr %19, align 8
+  call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #8
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i32 0, i32 0, i32 2), ptr %11, align 8, !tbaa !23
+  %12 = getelementptr inbounds nuw %"class.marisa::Exception", ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %7, align 8, !tbaa !16
+  store ptr %13, ptr %12, align 8, !tbaa !25
+  %14 = getelementptr inbounds nuw %"class.marisa::Exception", ptr %11, i32 0, i32 2
+  %15 = load i32, ptr %8, align 4, !tbaa !20
+  store i32 %15, ptr %14, align 8, !tbaa !28
+  %16 = getelementptr inbounds nuw %"class.marisa::Exception", ptr %11, i32 0, i32 3
+  %17 = load i32, ptr %9, align 4, !tbaa !21
+  store i32 %17, ptr %16, align 4, !tbaa !29
+  %18 = getelementptr inbounds nuw %"class.marisa::Exception", ptr %11, i32 0, i32 4
+  %19 = load ptr, ptr %10, align 8, !tbaa !16
+  store ptr %19, ptr %18, align 8, !tbaa !30
   ret void
 }
 
 declare void @__cxa_free_exception(ptr)
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6marisa9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  ret void
-}
+; Function Attrs: nounwind
+declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 declare void @__cxa_throw(ptr, ptr, ptr)
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6marisa8grimoire2io6Mapper5open_EPKc(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %1) #4 align 2 personality ptr @__gxx_personality_v0 {
@@ -278,192 +273,197 @@ define void @_ZN6marisa8grimoire2io6Mapper5open_EPKc(ptr noundef nonnull align 8
   %13 = alloca i1, align 1
   %14 = alloca ptr, align 8
   %15 = alloca i1, align 1
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !16
   %16 = load ptr, ptr %3, align 8
-  %17 = load ptr, ptr %4, align 8
-  %18 = call i32 @stat(ptr noundef %17, ptr noundef %5) #6
+  call void @llvm.lifetime.start.p0(i64 144, ptr %5) #8
+  %17 = load ptr, ptr %4, align 8, !tbaa !16
+  %18 = call i32 @stat(ptr noundef %17, ptr noundef %5) #8
   %19 = icmp ne i32 %18, 0
   store i1 false, ptr %7, align 1
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %2
-  %21 = call ptr @__cxa_allocate_exception(i64 32) #6
+  %21 = call ptr @__cxa_allocate_exception(i64 32) #8
   store ptr %21, ptr %6, align 8
   store i1 true, ptr %7, align 1
   invoke void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef @.str, i32 noundef 141, i32 noundef 9, ptr noundef @.str.7)
-          to label %22 unwind label %68
+          to label %22 unwind label %67
 
 22:                                               ; preds = %20
-  call void @__cxa_throw(ptr %21, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZN6marisa9ExceptionD2Ev) #8
+  call void @__cxa_throw(ptr %21, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZNSt9exceptionD2Ev) #10
   unreachable
 
 23:                                               ; No predecessors!
   br label %24
 
 24:                                               ; preds = %23, %2
-  %25 = getelementptr inbounds %struct.stat, ptr %5, i32 0, i32 8
-  %26 = load i64, ptr %25, align 8
+  %25 = getelementptr inbounds nuw %struct.stat, ptr %5, i32 0, i32 8
+  %26 = load i64, ptr %25, align 8, !tbaa !31
   %27 = icmp ugt i64 %26, -1
   store i1 false, ptr %11, align 1
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %24
-  %29 = call ptr @__cxa_allocate_exception(i64 32) #6
+  %29 = call ptr @__cxa_allocate_exception(i64 32) #8
   store ptr %29, ptr %10, align 8
   store i1 true, ptr %11, align 1
   invoke void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef @.str, i32 noundef 142, i32 noundef 7, ptr noundef @.str.8)
-          to label %30 unwind label %76
+          to label %30 unwind label %75
 
 30:                                               ; preds = %28
-  call void @__cxa_throw(ptr %29, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZN6marisa9ExceptionD2Ev) #8
+  call void @__cxa_throw(ptr %29, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZNSt9exceptionD2Ev) #10
   unreachable
 
 31:                                               ; No predecessors!
   br label %32
 
 32:                                               ; preds = %31, %24
-  %33 = getelementptr inbounds %struct.stat, ptr %5, i32 0, i32 8
-  %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 3
-  store i64 %34, ptr %35, align 8
-  %36 = load ptr, ptr %4, align 8
+  %33 = getelementptr inbounds nuw %struct.stat, ptr %5, i32 0, i32 8
+  %34 = load i64, ptr %33, align 8, !tbaa !31
+  %35 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 3
+  store i64 %34, ptr %35, align 8, !tbaa !14
+  %36 = load ptr, ptr %4, align 8, !tbaa !16
   %37 = call i32 (ptr, i32, ...) @open(ptr noundef %36, i32 noundef 0)
-  %38 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 4
-  store i32 %37, ptr %38, align 8
-  %39 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 4
-  %40 = load i32, ptr %39, align 8
+  %38 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 4
+  store i32 %37, ptr %38, align 8, !tbaa !15
+  %39 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 4
+  %40 = load i32, ptr %39, align 8, !tbaa !15
   %41 = icmp eq i32 %40, -1
   store i1 false, ptr %13, align 1
   br i1 %41, label %42, label %46
 
 42:                                               ; preds = %32
-  %43 = call ptr @__cxa_allocate_exception(i64 32) #6
+  %43 = call ptr @__cxa_allocate_exception(i64 32) #8
   store ptr %43, ptr %12, align 8
   store i1 true, ptr %13, align 1
   invoke void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef @.str, i32 noundef 146, i32 noundef 9, ptr noundef @.str.9)
-          to label %44 unwind label %84
+          to label %44 unwind label %83
 
 44:                                               ; preds = %42
-  call void @__cxa_throw(ptr %43, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZN6marisa9ExceptionD2Ev) #8
+  call void @__cxa_throw(ptr %43, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZNSt9exceptionD2Ev) #10
   unreachable
 
 45:                                               ; No predecessors!
   br label %46
 
 46:                                               ; preds = %45, %32
-  %47 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 3
-  %48 = load i64, ptr %47, align 8
-  %49 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 4
-  %50 = load i32, ptr %49, align 8
-  %51 = call ptr @mmap(ptr noundef null, i64 noundef %48, i32 noundef 1, i32 noundef 1, i32 noundef %50, i64 noundef 0) #6
-  %52 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 1
-  store ptr %51, ptr %52, align 8
-  %53 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 1
-  %54 = load ptr, ptr %53, align 8
-  %55 = inttoptr i64 -1 to ptr
-  %56 = icmp eq ptr %54, %55
+  %47 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 3
+  %48 = load i64, ptr %47, align 8, !tbaa !14
+  %49 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 4
+  %50 = load i32, ptr %49, align 8, !tbaa !15
+  %51 = call ptr @mmap(ptr noundef null, i64 noundef %48, i32 noundef 1, i32 noundef 1, i32 noundef %50, i64 noundef 0) #8
+  %52 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 1
+  store ptr %51, ptr %52, align 8, !tbaa !12
+  %53 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 1
+  %54 = load ptr, ptr %53, align 8, !tbaa !12
+  %55 = icmp eq ptr %54, inttoptr (i64 -1 to ptr)
   store i1 false, ptr %15, align 1
-  br i1 %56, label %57, label %61
+  br i1 %55, label %56, label %60
 
-57:                                               ; preds = %46
-  %58 = call ptr @__cxa_allocate_exception(i64 32) #6
-  store ptr %58, ptr %14, align 8
+56:                                               ; preds = %46
+  %57 = call ptr @__cxa_allocate_exception(i64 32) #8
+  store ptr %57, ptr %14, align 8
   store i1 true, ptr %15, align 1
-  invoke void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef @.str, i32 noundef 149, i32 noundef 9, ptr noundef @.str.10)
-          to label %59 unwind label %92
+  invoke void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef @.str, i32 noundef 149, i32 noundef 9, ptr noundef @.str.10)
+          to label %58 unwind label %91
 
-59:                                               ; preds = %57
-  call void @__cxa_throw(ptr %58, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZN6marisa9ExceptionD2Ev) #8
+58:                                               ; preds = %56
+  call void @__cxa_throw(ptr %57, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZNSt9exceptionD2Ev) #10
   unreachable
 
-60:                                               ; No predecessors!
-  br label %61
+59:                                               ; No predecessors!
+  br label %60
 
-61:                                               ; preds = %60, %46
-  %62 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 1
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 0
-  store ptr %63, ptr %64, align 8
-  %65 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 3
-  %66 = load i64, ptr %65, align 8
-  %67 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 2
-  store i64 %66, ptr %67, align 8
+60:                                               ; preds = %59, %46
+  %61 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 1
+  %62 = load ptr, ptr %61, align 8, !tbaa !12
+  %63 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 0
+  store ptr %62, ptr %63, align 8, !tbaa !8
+  %64 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 3
+  %65 = load i64, ptr %64, align 8, !tbaa !14
+  %66 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 2
+  store i64 %65, ptr %66, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 144, ptr %5) #8
   ret void
 
-68:                                               ; preds = %20
-  %69 = landingpad { ptr, i32 }
+67:                                               ; preds = %20
+  %68 = landingpad { ptr, i32 }
           cleanup
-  %70 = extractvalue { ptr, i32 } %69, 0
-  store ptr %70, ptr %8, align 8
-  %71 = extractvalue { ptr, i32 } %69, 1
-  store i32 %71, ptr %9, align 4
-  %72 = load i1, ptr %7, align 1
-  br i1 %72, label %73, label %75
+  %69 = extractvalue { ptr, i32 } %68, 0
+  store ptr %69, ptr %8, align 8
+  %70 = extractvalue { ptr, i32 } %68, 1
+  store i32 %70, ptr %9, align 4
+  %71 = load i1, ptr %7, align 1
+  br i1 %71, label %72, label %74
 
-73:                                               ; preds = %68
-  %74 = load ptr, ptr %6, align 8
-  call void @__cxa_free_exception(ptr %74) #6
-  br label %75
+72:                                               ; preds = %67
+  %73 = load ptr, ptr %6, align 8
+  call void @__cxa_free_exception(ptr %73) #8
+  br label %74
 
-75:                                               ; preds = %73, %68
-  br label %100
-
-76:                                               ; preds = %28
-  %77 = landingpad { ptr, i32 }
-          cleanup
-  %78 = extractvalue { ptr, i32 } %77, 0
-  store ptr %78, ptr %8, align 8
-  %79 = extractvalue { ptr, i32 } %77, 1
-  store i32 %79, ptr %9, align 4
-  %80 = load i1, ptr %11, align 1
-  br i1 %80, label %81, label %83
-
-81:                                               ; preds = %76
-  %82 = load ptr, ptr %10, align 8
-  call void @__cxa_free_exception(ptr %82) #6
-  br label %83
-
-83:                                               ; preds = %81, %76
-  br label %100
-
-84:                                               ; preds = %42
-  %85 = landingpad { ptr, i32 }
-          cleanup
-  %86 = extractvalue { ptr, i32 } %85, 0
-  store ptr %86, ptr %8, align 8
-  %87 = extractvalue { ptr, i32 } %85, 1
-  store i32 %87, ptr %9, align 4
-  %88 = load i1, ptr %13, align 1
-  br i1 %88, label %89, label %91
-
-89:                                               ; preds = %84
-  %90 = load ptr, ptr %12, align 8
-  call void @__cxa_free_exception(ptr %90) #6
-  br label %91
-
-91:                                               ; preds = %89, %84
-  br label %100
-
-92:                                               ; preds = %57
-  %93 = landingpad { ptr, i32 }
-          cleanup
-  %94 = extractvalue { ptr, i32 } %93, 0
-  store ptr %94, ptr %8, align 8
-  %95 = extractvalue { ptr, i32 } %93, 1
-  store i32 %95, ptr %9, align 4
-  %96 = load i1, ptr %15, align 1
-  br i1 %96, label %97, label %99
-
-97:                                               ; preds = %92
-  %98 = load ptr, ptr %14, align 8
-  call void @__cxa_free_exception(ptr %98) #6
+74:                                               ; preds = %72, %67
   br label %99
 
-99:                                               ; preds = %97, %92
+75:                                               ; preds = %28
+  %76 = landingpad { ptr, i32 }
+          cleanup
+  %77 = extractvalue { ptr, i32 } %76, 0
+  store ptr %77, ptr %8, align 8
+  %78 = extractvalue { ptr, i32 } %76, 1
+  store i32 %78, ptr %9, align 4
+  %79 = load i1, ptr %11, align 1
+  br i1 %79, label %80, label %82
+
+80:                                               ; preds = %75
+  %81 = load ptr, ptr %10, align 8
+  call void @__cxa_free_exception(ptr %81) #8
+  br label %82
+
+82:                                               ; preds = %80, %75
+  br label %99
+
+83:                                               ; preds = %42
+  %84 = landingpad { ptr, i32 }
+          cleanup
+  %85 = extractvalue { ptr, i32 } %84, 0
+  store ptr %85, ptr %8, align 8
+  %86 = extractvalue { ptr, i32 } %84, 1
+  store i32 %86, ptr %9, align 4
+  %87 = load i1, ptr %13, align 1
+  br i1 %87, label %88, label %90
+
+88:                                               ; preds = %83
+  %89 = load ptr, ptr %12, align 8
+  call void @__cxa_free_exception(ptr %89) #8
+  br label %90
+
+90:                                               ; preds = %88, %83
+  br label %99
+
+91:                                               ; preds = %56
+  %92 = landingpad { ptr, i32 }
+          cleanup
+  %93 = extractvalue { ptr, i32 } %92, 0
+  store ptr %93, ptr %8, align 8
+  %94 = extractvalue { ptr, i32 } %92, 1
+  store i32 %94, ptr %9, align 4
+  %95 = load i1, ptr %15, align 1
+  br i1 %95, label %96, label %98
+
+96:                                               ; preds = %91
+  %97 = load ptr, ptr %14, align 8
+  call void @__cxa_free_exception(ptr %97) #8
+  br label %98
+
+98:                                               ; preds = %96, %91
+  br label %99
+
+99:                                               ; preds = %98, %90, %82, %74
+  call void @llvm.lifetime.end.p0(i64 144, ptr %5) #8
   br label %100
 
-100:                                              ; preds = %99, %91, %83, %75
+100:                                              ; preds = %99
   %101 = load ptr, ptr %8, align 8
   %102 = load i32, ptr %9, align 4
   %103 = insertvalue { ptr, i32 } poison, ptr %101, 0
@@ -475,31 +475,34 @@ define void @_ZN6marisa8grimoire2io6Mapper5open_EPKc(ptr noundef nonnull align 8
 define void @_ZN6marisa8grimoire2io6Mapper4swapERS2_(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %7, i32 0, i32 0
-  call void @_ZSt4swapIPKvENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #6
-  %9 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %5, i32 0, i32 2
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %10, i32 0, i32 2
-  call void @_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %11) #6
-  %12 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %5, i32 0, i32 1
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %13, i32 0, i32 1
-  call void @_ZSt4swapIPvENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %14) #6
-  %15 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %5, i32 0, i32 3
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 3
-  call void @_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %17) #6
-  %18 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %5, i32 0, i32 4
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %19, i32 0, i32 4
-  call void @_ZSt4swapIiENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 4 dereferenceable(4) %20) #6
+  %6 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %7, i32 0, i32 0
+  call void @_ZSt4swapIPKvENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #8
+  %9 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %5, i32 0, i32 2
+  %10 = load ptr, ptr %4, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %10, i32 0, i32 2
+  call void @_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %11) #8
+  %12 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %5, i32 0, i32 1
+  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %13, i32 0, i32 1
+  call void @_ZSt4swapIPvENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %14) #8
+  %15 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %5, i32 0, i32 3
+  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %16, i32 0, i32 3
+  call void @_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %17) #8
+  %18 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %5, i32 0, i32 4
+  %19 = load ptr, ptr %4, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %19, i32 0, i32 4
+  call void @_ZSt4swapIiENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 4 dereferenceable(4) %20) #8
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6marisa8grimoire2io6Mapper4openEPKvm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %1, i64 noundef %2) #4 align 2 personality ptr @__gxx_personality_v0 {
@@ -511,38 +514,39 @@ define void @_ZN6marisa8grimoire2io6Mapper4openEPKvm(ptr noundef nonnull align 8
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   %11 = alloca %"class.marisa::grimoire::io::Mapper", align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !34
+  store i64 %2, ptr %6, align 8, !tbaa !35
   %12 = load ptr, ptr %4, align 8
-  %13 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %5, align 8, !tbaa !34
   %14 = icmp eq ptr %13, null
   store i1 false, ptr %8, align 1
   br i1 %14, label %15, label %22
 
 15:                                               ; preds = %3
-  %16 = load i64, ptr %6, align 8
+  %16 = load i64, ptr %6, align 8, !tbaa !35
   %17 = icmp ne i64 %16, 0
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %15
-  %19 = call ptr @__cxa_allocate_exception(i64 32) #6
+  %19 = call ptr @__cxa_allocate_exception(i64 32) #8
   store ptr %19, ptr %7, align 8
   store i1 true, ptr %8, align 1
   invoke void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef @.str, i32 noundef 63, i32 noundef 2, ptr noundef @.str.2)
           to label %20 unwind label %27
 
 20:                                               ; preds = %18
-  call void @__cxa_throw(ptr %19, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZN6marisa9ExceptionD2Ev) #8
+  call void @__cxa_throw(ptr %19, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZNSt9exceptionD2Ev) #10
   unreachable
 
 21:                                               ; No predecessors!
   br label %22
 
 22:                                               ; preds = %21, %15, %3
+  call void @llvm.lifetime.start.p0(i64 40, ptr %11) #8
   call void @_ZN6marisa8grimoire2io6MapperC1Ev(ptr noundef nonnull align 8 dereferenceable(36) %11)
-  %23 = load ptr, ptr %5, align 8
-  %24 = load i64, ptr %6, align 8
+  %23 = load ptr, ptr %5, align 8, !tbaa !34
+  %24 = load i64, ptr %6, align 8, !tbaa !35
   invoke void @_ZN6marisa8grimoire2io6Mapper5open_EPKvm(ptr noundef nonnull align 8 dereferenceable(36) %11, ptr noundef %23, i64 noundef %24)
           to label %25 unwind label %35
 
@@ -551,7 +555,8 @@ define void @_ZN6marisa8grimoire2io6Mapper4openEPKvm(ptr noundef nonnull align 8
           to label %26 unwind label %35
 
 26:                                               ; preds = %25
-  call void @_ZN6marisa8grimoire2io6MapperD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %11) #6
+  call void @_ZN6marisa8grimoire2io6MapperD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %11) #8
+  call void @llvm.lifetime.end.p0(i64 40, ptr %11) #8
   ret void
 
 27:                                               ; preds = %18
@@ -566,7 +571,7 @@ define void @_ZN6marisa8grimoire2io6Mapper4openEPKvm(ptr noundef nonnull align 8
 
 32:                                               ; preds = %27
   %33 = load ptr, ptr %7, align 8
-  call void @__cxa_free_exception(ptr %33) #6
+  call void @__cxa_free_exception(ptr %33) #8
   br label %34
 
 34:                                               ; preds = %32, %27
@@ -579,7 +584,8 @@ define void @_ZN6marisa8grimoire2io6Mapper4openEPKvm(ptr noundef nonnull align 8
   store ptr %37, ptr %9, align 8
   %38 = extractvalue { ptr, i32 } %36, 1
   store i32 %38, ptr %10, align 4
-  call void @_ZN6marisa8grimoire2io6MapperD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %11) #6
+  call void @_ZN6marisa8grimoire2io6MapperD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %11) #8
+  call void @llvm.lifetime.end.p0(i64 40, ptr %11) #8
   br label %39
 
 39:                                               ; preds = %35, %34
@@ -595,16 +601,16 @@ define void @_ZN6marisa8grimoire2io6Mapper5open_EPKvm(ptr noundef nonnull align 
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !34
+  store i64 %2, ptr %6, align 8, !tbaa !35
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %7, i32 0, i32 0
-  store ptr %8, ptr %9, align 8
-  %10 = load i64, ptr %6, align 8
-  %11 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %7, i32 0, i32 2
-  store i64 %10, ptr %11, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !34
+  %9 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %7, i32 0, i32 0
+  store ptr %8, ptr %9, align 8, !tbaa !8
+  %10 = load i64, ptr %6, align 8, !tbaa !35
+  %11 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %7, i32 0, i32 2
+  store i64 %10, ptr %11, align 8, !tbaa !13
   ret void
 }
 
@@ -618,51 +624,51 @@ define void @_ZN6marisa8grimoire2io6Mapper4seekEm(ptr noundef nonnull align 8 de
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca i1, align 1
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i64 %1, ptr %4, align 8, !tbaa !35
   %11 = load ptr, ptr %3, align 8
   %12 = call noundef zeroext i1 @_ZNK6marisa8grimoire2io6Mapper7is_openEv(ptr noundef nonnull align 8 dereferenceable(36) %11)
   store i1 false, ptr %6, align 1
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %2
-  %14 = call ptr @__cxa_allocate_exception(i64 32) #6
+  %14 = call ptr @__cxa_allocate_exception(i64 32) #8
   store ptr %14, ptr %5, align 8
   store i1 true, ptr %6, align 1
   invoke void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef @.str, i32 noundef 71, i32 noundef 1, ptr noundef @.str.3)
           to label %15 unwind label %29
 
 15:                                               ; preds = %13
-  call void @__cxa_throw(ptr %14, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZN6marisa9ExceptionD2Ev) #8
+  call void @__cxa_throw(ptr %14, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZNSt9exceptionD2Ev) #10
   unreachable
 
 16:                                               ; No predecessors!
   br label %17
 
 17:                                               ; preds = %16, %2
-  %18 = load i64, ptr %4, align 8
-  %19 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %11, i32 0, i32 2
-  %20 = load i64, ptr %19, align 8
+  %18 = load i64, ptr %4, align 8, !tbaa !35
+  %19 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %11, i32 0, i32 2
+  %20 = load i64, ptr %19, align 8, !tbaa !13
   %21 = icmp ugt i64 %18, %20
   store i1 false, ptr %10, align 1
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %17
-  %23 = call ptr @__cxa_allocate_exception(i64 32) #6
+  %23 = call ptr @__cxa_allocate_exception(i64 32) #8
   store ptr %23, ptr %9, align 8
   store i1 true, ptr %10, align 1
   invoke void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef @.str, i32 noundef 72, i32 noundef 9, ptr noundef @.str.4)
           to label %24 unwind label %37
 
 24:                                               ; preds = %22
-  call void @__cxa_throw(ptr %23, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZN6marisa9ExceptionD2Ev) #8
+  call void @__cxa_throw(ptr %23, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZNSt9exceptionD2Ev) #10
   unreachable
 
 25:                                               ; No predecessors!
   br label %26
 
 26:                                               ; preds = %25, %17
-  %27 = load i64, ptr %4, align 8
+  %27 = load i64, ptr %4, align 8, !tbaa !35
   %28 = call noundef ptr @_ZN6marisa8grimoire2io6Mapper8map_dataEm(ptr noundef nonnull align 8 dereferenceable(36) %11, i64 noundef %27)
   ret void
 
@@ -678,7 +684,7 @@ define void @_ZN6marisa8grimoire2io6Mapper4seekEm(ptr noundef nonnull align 8 de
 
 34:                                               ; preds = %29
   %35 = load ptr, ptr %5, align 8
-  call void @__cxa_free_exception(ptr %35) #6
+  call void @__cxa_free_exception(ptr %35) #8
   br label %36
 
 36:                                               ; preds = %34, %29
@@ -696,7 +702,7 @@ define void @_ZN6marisa8grimoire2io6Mapper4seekEm(ptr noundef nonnull align 8 de
 
 42:                                               ; preds = %37
   %43 = load ptr, ptr %9, align 8
-  call void @__cxa_free_exception(ptr %43) #6
+  call void @__cxa_free_exception(ptr %43) #8
   br label %44
 
 44:                                               ; preds = %42, %37
@@ -713,10 +719,10 @@ define void @_ZN6marisa8grimoire2io6Mapper4seekEm(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZNK6marisa8grimoire2io6Mapper7is_openEv(ptr noundef nonnull align 8 dereferenceable(36) %0) #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !8
   %6 = icmp ne ptr %5, null
   ret i1 %6
 }
@@ -732,64 +738,66 @@ define noundef ptr @_ZN6marisa8grimoire2io6Mapper8map_dataEm(ptr noundef nonnull
   %9 = alloca ptr, align 8
   %10 = alloca i1, align 1
   %11 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i64 %1, ptr %4, align 8, !tbaa !35
   %12 = load ptr, ptr %3, align 8
   %13 = call noundef zeroext i1 @_ZNK6marisa8grimoire2io6Mapper7is_openEv(ptr noundef nonnull align 8 dereferenceable(36) %12)
   store i1 false, ptr %6, align 1
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %2
-  %15 = call ptr @__cxa_allocate_exception(i64 32) #6
+  %15 = call ptr @__cxa_allocate_exception(i64 32) #8
   store ptr %15, ptr %5, align 8
   store i1 true, ptr %6, align 1
   invoke void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef @.str, i32 noundef 99, i32 noundef 1, ptr noundef @.str.5)
           to label %16 unwind label %39
 
 16:                                               ; preds = %14
-  call void @__cxa_throw(ptr %15, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZN6marisa9ExceptionD2Ev) #8
+  call void @__cxa_throw(ptr %15, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZNSt9exceptionD2Ev) #10
   unreachable
 
 17:                                               ; No predecessors!
   br label %18
 
 18:                                               ; preds = %17, %2
-  %19 = load i64, ptr %4, align 8
-  %20 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %12, i32 0, i32 2
-  %21 = load i64, ptr %20, align 8
+  %19 = load i64, ptr %4, align 8, !tbaa !35
+  %20 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %12, i32 0, i32 2
+  %21 = load i64, ptr %20, align 8, !tbaa !13
   %22 = icmp ugt i64 %19, %21
   store i1 false, ptr %10, align 1
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %18
-  %24 = call ptr @__cxa_allocate_exception(i64 32) #6
+  %24 = call ptr @__cxa_allocate_exception(i64 32) #8
   store ptr %24, ptr %9, align 8
   store i1 true, ptr %10, align 1
   invoke void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef @.str, i32 noundef 100, i32 noundef 9, ptr noundef @.str.6)
           to label %25 unwind label %47
 
 25:                                               ; preds = %23
-  call void @__cxa_throw(ptr %24, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZN6marisa9ExceptionD2Ev) #8
+  call void @__cxa_throw(ptr %24, ptr @_ZTIN6marisa9ExceptionE, ptr @_ZNSt9exceptionD2Ev) #10
   unreachable
 
 26:                                               ; No predecessors!
   br label %27
 
 27:                                               ; preds = %26, %18
-  %28 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %12, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr %11, align 8
-  %30 = load ptr, ptr %11, align 8
-  %31 = load i64, ptr %4, align 8
-  %32 = getelementptr inbounds i8, ptr %30, i64 %31
-  %33 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %12, i32 0, i32 0
-  store ptr %32, ptr %33, align 8
-  %34 = load i64, ptr %4, align 8
-  %35 = getelementptr inbounds %"class.marisa::grimoire::io::Mapper", ptr %12, i32 0, i32 2
-  %36 = load i64, ptr %35, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  %28 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %12, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8, !tbaa !8
+  store ptr %29, ptr %11, align 8, !tbaa !16
+  %30 = load ptr, ptr %11, align 8, !tbaa !16
+  %31 = load i64, ptr %4, align 8, !tbaa !35
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31
+  %33 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %12, i32 0, i32 0
+  store ptr %32, ptr %33, align 8, !tbaa !8
+  %34 = load i64, ptr %4, align 8, !tbaa !35
+  %35 = getelementptr inbounds nuw %"class.marisa::grimoire::io::Mapper", ptr %12, i32 0, i32 2
+  %36 = load i64, ptr %35, align 8, !tbaa !13
   %37 = sub i64 %36, %34
-  store i64 %37, ptr %35, align 8
-  %38 = load ptr, ptr %11, align 8
+  store i64 %37, ptr %35, align 8, !tbaa !13
+  %38 = load ptr, ptr %11, align 8, !tbaa !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
   ret ptr %38
 
 39:                                               ; preds = %14
@@ -804,7 +812,7 @@ define noundef ptr @_ZN6marisa8grimoire2io6Mapper8map_dataEm(ptr noundef nonnull
 
 44:                                               ; preds = %39
   %45 = load ptr, ptr %5, align 8
-  call void @__cxa_free_exception(ptr %45) #6
+  call void @__cxa_free_exception(ptr %45) #8
   br label %46
 
 46:                                               ; preds = %44, %39
@@ -822,7 +830,7 @@ define noundef ptr @_ZN6marisa8grimoire2io6Mapper8map_dataEm(ptr noundef nonnull
 
 52:                                               ; preds = %47
   %53 = load ptr, ptr %9, align 8
-  call void @__cxa_free_exception(ptr %53) #6
+  call void @__cxa_free_exception(ptr %53) #8
   br label %54
 
 54:                                               ; preds = %52, %47
@@ -842,14 +850,16 @@ define void @_ZN6marisa8grimoire2io6Mapper5clearEv(ptr noundef nonnull align 8 d
   %3 = alloca %"class.marisa::grimoire::io::Mapper", align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %6 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr %3) #8
   call void @_ZN6marisa8grimoire2io6MapperC1Ev(ptr noundef nonnull align 8 dereferenceable(36) %3)
   invoke void @_ZN6marisa8grimoire2io6Mapper4swapERS2_(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 8 dereferenceable(36) %6)
           to label %7 unwind label %8
 
 7:                                                ; preds = %1
-  call void @_ZN6marisa8grimoire2io6MapperD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #6
+  call void @_ZN6marisa8grimoire2io6MapperD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #8
+  call void @llvm.lifetime.end.p0(i64 40, ptr %3) #8
   ret void
 
 8:                                                ; preds = %1
@@ -859,7 +869,8 @@ define void @_ZN6marisa8grimoire2io6Mapper5clearEv(ptr noundef nonnull align 8 d
   store ptr %10, ptr %4, align 8
   %11 = extractvalue { ptr, i32 } %9, 1
   store i32 %11, ptr %5, align 4
-  call void @_ZN6marisa8grimoire2io6MapperD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #6
+  call void @_ZN6marisa8grimoire2io6MapperD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #8
+  call void @llvm.lifetime.end.p0(i64 40, ptr %3) #8
   br label %12
 
 12:                                               ; preds = %8
@@ -870,83 +881,91 @@ define void @_ZN6marisa8grimoire2io6Mapper5clearEv(ptr noundef nonnull align 8 d
   resume { ptr, i32 } %16
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt4swapIPKvENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt4swapIPKvENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #6 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %5, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %3, align 8
-  store ptr %9, ptr %10, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %12, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !36
+  store ptr %1, ptr %4, align 8, !tbaa !36
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %6 = load ptr, ptr %3, align 8, !tbaa !36
+  %7 = load ptr, ptr %6, align 8, !tbaa !34
+  store ptr %7, ptr %5, align 8, !tbaa !34
+  %8 = load ptr, ptr %4, align 8, !tbaa !36
+  %9 = load ptr, ptr %8, align 8, !tbaa !34
+  %10 = load ptr, ptr %3, align 8, !tbaa !36
+  store ptr %9, ptr %10, align 8, !tbaa !34
+  %11 = load ptr, ptr %5, align 8, !tbaa !34
+  %12 = load ptr, ptr %4, align 8, !tbaa !36
+  store ptr %11, ptr %12, align 8, !tbaa !34
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt4swapImENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #6 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load i64, ptr %6, align 8
-  store i64 %7, ptr %5, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load i64, ptr %8, align 8
-  %10 = load ptr, ptr %3, align 8
-  store i64 %9, ptr %10, align 8
-  %11 = load i64, ptr %5, align 8
-  %12 = load ptr, ptr %4, align 8
-  store i64 %11, ptr %12, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !38
+  store ptr %1, ptr %4, align 8, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %6 = load ptr, ptr %3, align 8, !tbaa !38
+  %7 = load i64, ptr %6, align 8, !tbaa !35
+  store i64 %7, ptr %5, align 8, !tbaa !35
+  %8 = load ptr, ptr %4, align 8, !tbaa !38
+  %9 = load i64, ptr %8, align 8, !tbaa !35
+  %10 = load ptr, ptr %3, align 8, !tbaa !38
+  store i64 %9, ptr %10, align 8, !tbaa !35
+  %11 = load i64, ptr %5, align 8, !tbaa !35
+  %12 = load ptr, ptr %4, align 8, !tbaa !38
+  store i64 %11, ptr %12, align 8, !tbaa !35
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt4swapIPvENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt4swapIPvENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #6 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %5, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %3, align 8
-  store ptr %9, ptr %10, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %12, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !36
+  store ptr %1, ptr %4, align 8, !tbaa !36
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %6 = load ptr, ptr %3, align 8, !tbaa !36
+  %7 = load ptr, ptr %6, align 8, !tbaa !34
+  store ptr %7, ptr %5, align 8, !tbaa !34
+  %8 = load ptr, ptr %4, align 8, !tbaa !36
+  %9 = load ptr, ptr %8, align 8, !tbaa !34
+  %10 = load ptr, ptr %3, align 8, !tbaa !36
+  store ptr %9, ptr %10, align 8, !tbaa !34
+  %11 = load ptr, ptr %5, align 8, !tbaa !34
+  %12 = load ptr, ptr %4, align 8, !tbaa !36
+  store ptr %11, ptr %12, align 8, !tbaa !34
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt4swapIiENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt4swapIiENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #6 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load i32, ptr %6, align 4
-  store i32 %7, ptr %5, align 4
-  %8 = load ptr, ptr %4, align 8
-  %9 = load i32, ptr %8, align 4
-  %10 = load ptr, ptr %3, align 8
-  store i32 %9, ptr %10, align 4
-  %11 = load i32, ptr %5, align 4
-  %12 = load ptr, ptr %4, align 8
-  store i32 %11, ptr %12, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !40
+  store ptr %1, ptr %4, align 8, !tbaa !40
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  %6 = load ptr, ptr %3, align 8, !tbaa !40
+  %7 = load i32, ptr %6, align 4, !tbaa !20
+  store i32 %7, ptr %5, align 4, !tbaa !20
+  %8 = load ptr, ptr %4, align 8, !tbaa !40
+  %9 = load i32, ptr %8, align 4, !tbaa !20
+  %10 = load ptr, ptr %3, align 8, !tbaa !40
+  store i32 %9, ptr %10, align 4, !tbaa !20
+  %11 = load i32, ptr %5, align 4, !tbaa !20
+  %12 = load ptr, ptr %4, align 8, !tbaa !40
+  store i32 %11, ptr %12, align 4, !tbaa !20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
   ret void
 }
 
@@ -961,53 +980,100 @@ declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 nounde
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
-  store ptr %4, ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6marisa9ExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN6marisa9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #6
-  call void @_ZdlPv(ptr noundef %3) #9
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #8
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 32) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK6marisa9Exception4whatEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.marisa::Exception", ptr %3, i32 0, i32 4
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.marisa::Exception", ptr %3, i32 0, i32 4
+  %5 = load ptr, ptr %4, align 8, !tbaa !30
   ret ptr %5
 }
 
-; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #5
+; Function Attrs: nounwind
+declare void @_ZNSt9exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
+declare void @_ZNSt9exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { noreturn nounwind }
-attributes #8 = { noreturn }
-attributes #9 = { builtin nounwind }
+; Function Attrs: nounwind
+declare noundef ptr @_ZNKSt9exception4whatEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #7
+
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind }
+attributes #9 = { noreturn nounwind }
+attributes #10 = { noreturn }
+attributes #11 = { builtin nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN6marisa8grimoire2io6MapperE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !5, i64 0}
+!9 = !{!"_ZTSN6marisa8grimoire2io6MapperE", !5, i64 0, !5, i64 8, !10, i64 16, !10, i64 24, !11, i64 32}
+!10 = !{!"long", !6, i64 0}
+!11 = !{!"int", !6, i64 0}
+!12 = !{!9, !5, i64 8}
+!13 = !{!9, !10, i64 16}
+!14 = !{!9, !10, i64 24}
+!15 = !{!9, !11, i64 32}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 omnipotent char", !5, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTSN6marisa9ExceptionE", !5, i64 0}
+!20 = !{!11, !11, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"_ZTS18marisa_error_code_", !6, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"vtable pointer", !7, i64 0}
+!25 = !{!26, !17, i64 8}
+!26 = !{!"_ZTSN6marisa9ExceptionE", !27, i64 0, !17, i64 8, !11, i64 16, !22, i64 20, !17, i64 24}
+!27 = !{!"_ZTSSt9exception"}
+!28 = !{!26, !11, i64 16}
+!29 = !{!26, !22, i64 20}
+!30 = !{!26, !17, i64 24}
+!31 = !{!32, !10, i64 48}
+!32 = !{!"_ZTS4stat", !10, i64 0, !10, i64 8, !10, i64 16, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !33, i64 72, !33, i64 88, !33, i64 104, !6, i64 120}
+!33 = !{!"_ZTS8timespec", !10, i64 0, !10, i64 8}
+!34 = !{!5, !5, i64 0}
+!35 = !{!10, !10, i64 0}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"any p2 pointer", !5, i64 0}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 long", !5, i64 0}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 int", !5, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTSSt9exception", !5, i64 0}
