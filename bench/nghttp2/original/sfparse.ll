@@ -1,3202 +1,4094 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%struct.sf_parser = type { ptr, ptr, i32 }
-%struct.sf_value = type { i32, i32, %union.anon }
-%union.anon = type { %struct.sf_decimal }
-%struct.sf_decimal = type { i64, i64 }
-%struct.sf_vec = type { ptr, i64 }
+%struct.sfparse_parser = type { ptr, ptr, i32 }
+%struct.sfparse_value = type { i32, i32, %union.anon }
+%union.anon = type { %struct.sfparse_decimal }
+%struct.sfparse_decimal = type { i64, i64 }
+%struct.sfparse_vec = type { ptr, i64 }
 
 @.str = private unnamed_addr constant [2 x i8] c"0\00", align 1
 @.str.1 = private unnamed_addr constant [107 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/nghttp2/nghttp2/lib/sfparse.c\00", align 1
-@__PRETTY_FUNCTION__.sf_parser_param = private unnamed_addr constant [55 x i8] c"int sf_parser_param(sf_parser *, sf_vec *, sf_value *)\00", align 1
-@__PRETTY_FUNCTION__.sf_parser_inner_list = private unnamed_addr constant [50 x i8] c"int sf_parser_inner_list(sf_parser *, sf_value *)\00", align 1
-@__PRETTY_FUNCTION__.sf_parser_dict = private unnamed_addr constant [54 x i8] c"int sf_parser_dict(sf_parser *, sf_vec *, sf_value *)\00", align 1
-@__PRETTY_FUNCTION__.sf_parser_list = private unnamed_addr constant [44 x i8] c"int sf_parser_list(sf_parser *, sf_value *)\00", align 1
-@__PRETTY_FUNCTION__.sf_parser_item = private unnamed_addr constant [44 x i8] c"int sf_parser_item(sf_parser *, sf_value *)\00", align 1
-@sf_base64decode.index_tbl = internal constant [256 x i32] [i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 62, i32 -1, i32 -1, i32 -1, i32 63, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 47, i32 48, i32 49, i32 50, i32 51, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1], align 16
-@.str.2 = private unnamed_addr constant [22 x i8] c"(src->len & 0x3) == 0\00", align 1
-@__PRETTY_FUNCTION__.sf_base64decode = private unnamed_addr constant [47 x i8] c"void sf_base64decode(sf_vec *, const sf_vec *)\00", align 1
-@.str.3 = private unnamed_addr constant [6 x i8] c"i > 2\00", align 1
-@.str.4 = private unnamed_addr constant [45 x i8] c"*p == '=' && *(p + 1) == '=' && p + 2 == end\00", align 1
-@.str.5 = private unnamed_addr constant [26 x i8] c"*p == '=' && p + 1 == end\00", align 1
-@.str.6 = private unnamed_addr constant [17 x i8] c"'\22' == *sfp->pos\00", align 1
-@__PRETTY_FUNCTION__.parser_string = private unnamed_addr constant [43 x i8] c"int parser_string(sf_parser *, sf_value *)\00", align 1
-@.str.7 = private unnamed_addr constant [17 x i8] c"!parser_eof(sfp)\00", align 1
-@__PRETTY_FUNCTION__.parser_number = private unnamed_addr constant [43 x i8] c"int parser_number(sf_parser *, sf_value *)\00", align 1
-@.str.8 = private unnamed_addr constant [17 x i8] c"'@' == *sfp->pos\00", align 1
-@__PRETTY_FUNCTION__.parser_date = private unnamed_addr constant [41 x i8] c"int parser_date(sf_parser *, sf_value *)\00", align 1
-@.str.9 = private unnamed_addr constant [17 x i8] c"':' == *sfp->pos\00", align 1
-@__PRETTY_FUNCTION__.parser_byteseq = private unnamed_addr constant [44 x i8] c"int parser_byteseq(sf_parser *, sf_value *)\00", align 1
-@.str.10 = private unnamed_addr constant [17 x i8] c"'?' == *sfp->pos\00", align 1
-@__PRETTY_FUNCTION__.parser_boolean = private unnamed_addr constant [44 x i8] c"int parser_boolean(sf_parser *, sf_value *)\00", align 1
-@__PRETTY_FUNCTION__.parser_skip_params = private unnamed_addr constant [36 x i8] c"int parser_skip_params(sf_parser *)\00", align 1
-@__PRETTY_FUNCTION__.parser_skip_inner_list = private unnamed_addr constant [40 x i8] c"int parser_skip_inner_list(sf_parser *)\00", align 1
+@__PRETTY_FUNCTION__.sfparse_parser_param = private unnamed_addr constant [75 x i8] c"int sfparse_parser_param(sfparse_parser *, sfparse_vec *, sfparse_value *)\00", align 1
+@__PRETTY_FUNCTION__.sfparse_parser_inner_list = private unnamed_addr constant [65 x i8] c"int sfparse_parser_inner_list(sfparse_parser *, sfparse_value *)\00", align 1
+@__PRETTY_FUNCTION__.sfparse_parser_dict = private unnamed_addr constant [74 x i8] c"int sfparse_parser_dict(sfparse_parser *, sfparse_vec *, sfparse_value *)\00", align 1
+@__PRETTY_FUNCTION__.sfparse_parser_list = private unnamed_addr constant [59 x i8] c"int sfparse_parser_list(sfparse_parser *, sfparse_value *)\00", align 1
+@__PRETTY_FUNCTION__.sfparse_parser_item = private unnamed_addr constant [59 x i8] c"int sfparse_parser_item(sfparse_parser *, sfparse_value *)\00", align 1
+@sfparse_base64decode.index_tbl = internal constant [256 x i32] [i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 62, i32 -1, i32 -1, i32 -1, i32 63, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 47, i32 48, i32 49, i32 50, i32 51, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1], align 16
+@.str.2 = private unnamed_addr constant [10 x i8] c"idx != -1\00", align 1
+@__PRETTY_FUNCTION__.sfparse_base64decode = private unnamed_addr constant [62 x i8] c"void sfparse_base64decode(sfparse_vec *, const sfparse_vec *)\00", align 1
+@.str.3 = private unnamed_addr constant [31 x i8] c"'=' == src->base[src->len - 1]\00", align 1
+@.str.4 = private unnamed_addr constant [17 x i8] c"'\22' == *sfp->pos\00", align 1
+@__PRETTY_FUNCTION__.parser_string = private unnamed_addr constant [53 x i8] c"int parser_string(sfparse_parser *, sfparse_value *)\00", align 1
+@.str.5 = private unnamed_addr constant [17 x i8] c"!parser_eof(sfp)\00", align 1
+@__PRETTY_FUNCTION__.parser_number = private unnamed_addr constant [53 x i8] c"int parser_number(sfparse_parser *, sfparse_value *)\00", align 1
+@.str.6 = private unnamed_addr constant [17 x i8] c"'@' == *sfp->pos\00", align 1
+@__PRETTY_FUNCTION__.parser_date = private unnamed_addr constant [51 x i8] c"int parser_date(sfparse_parser *, sfparse_value *)\00", align 1
+@.str.7 = private unnamed_addr constant [17 x i8] c"':' == *sfp->pos\00", align 1
+@__PRETTY_FUNCTION__.parser_byteseq = private unnamed_addr constant [54 x i8] c"int parser_byteseq(sfparse_parser *, sfparse_value *)\00", align 1
+@.str.8 = private unnamed_addr constant [17 x i8] c"'?' == *sfp->pos\00", align 1
+@__PRETTY_FUNCTION__.parser_boolean = private unnamed_addr constant [54 x i8] c"int parser_boolean(sfparse_parser *, sfparse_value *)\00", align 1
+@.str.9 = private unnamed_addr constant [17 x i8] c"'%' == *sfp->pos\00", align 1
+@__PRETTY_FUNCTION__.parser_dispstring = private unnamed_addr constant [57 x i8] c"int parser_dispstring(sfparse_parser *, sfparse_value *)\00", align 1
+@utf8d = internal constant [364 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\09\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\08\08\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\0A\03\03\03\03\03\03\03\03\03\03\03\03\04\03\03\0B\06\06\06\05\08\08\08\08\08\08\08\08\08\08\08\00\0C\18$<`T\0C\0C\0C0H\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\00\0C\0C\0C\0C\0C\00\0C\00\0C\0C\0C\18\0C\0C\0C\0C\0C\18\0C\18\0C\0C\0C\0C\0C\0C\0C\0C\0C\18\0C\0C\0C\0C\0C\18\0C\0C\0C\0C\0C\0C\0C\18\0C\0C\0C\0C\0C\0C\0C\0C\0C$\0C$\0C\0C\0C$\0C\0C\0C\0C\0C$\0C$\0C\0C\0C$\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C", align 16
+@__PRETTY_FUNCTION__.parser_skip_params = private unnamed_addr constant [41 x i8] c"int parser_skip_params(sfparse_parser *)\00", align 1
+@__PRETTY_FUNCTION__.parser_skip_inner_list = private unnamed_addr constant [45 x i8] c"int parser_skip_inner_list(sfparse_parser *)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @sf_parser_param(ptr noundef %sfp, ptr noundef %dest_key, ptr noundef %dest_value) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sfp.addr = alloca ptr, align 8
-  %dest_key.addr = alloca ptr, align 8
-  %dest_value.addr = alloca ptr, align 8
-  %rv = alloca i32, align 4
-  store ptr %sfp, ptr %sfp.addr, align 8
-  store ptr %dest_key, ptr %dest_key.addr, align 8
-  store ptr %dest_value, ptr %dest_value.addr, align 8
-  %0 = load ptr, ptr %sfp.addr, align 8
-  %state = getelementptr inbounds %struct.sf_parser, ptr %0, i32 0, i32 2
-  %1 = load i32, ptr %state, align 8
-  %and = and i32 %1, 3
-  switch i32 %and, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb1
-    i32 2, label %sw.bb2
+define hidden i32 @sfparse_parser_param(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  %10 = load ptr, ptr %5, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %10, i32 0, i32 2
+  %12 = load i32, ptr %11, align 8, !tbaa !12
+  %13 = and i32 %12, 3
+  switch i32 %13, label %24 [
+    i32 0, label %14
+    i32 1, label %22
+    i32 2, label %25
   ]
 
-sw.bb:                                            ; preds = %entry
-  %2 = load ptr, ptr %sfp.addr, align 8
-  %call = call i32 @parser_skip_inner_list(ptr noundef %2)
-  store i32 %call, ptr %rv, align 4
-  %3 = load i32, ptr %rv, align 4
-  %cmp = icmp ne i32 %3, 0
-  br i1 %cmp, label %if.then, label %if.end
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %5, align 8, !tbaa !3
+  %16 = call i32 @parser_skip_inner_list(ptr noundef %15)
+  store i32 %16, ptr %8, align 4, !tbaa !16
+  %17 = load i32, ptr %8, align 4, !tbaa !16
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %21
 
-if.then:                                          ; preds = %sw.bb
-  %4 = load i32, ptr %rv, align 4
-  store i32 %4, ptr %retval, align 4
-  br label %return
+19:                                               ; preds = %14
+  %20 = load i32, ptr %8, align 4, !tbaa !16
+  store i32 %20, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %91
 
-if.end:                                           ; preds = %sw.bb
-  br label %sw.bb1
+21:                                               ; preds = %14
+  br label %22
 
-sw.bb1:                                           ; preds = %if.end, %entry
-  %5 = load ptr, ptr %sfp.addr, align 8
-  call void @parser_set_op_state(ptr noundef %5, i32 noundef 2)
-  br label %sw.epilog
+22:                                               ; preds = %3, %21
+  %23 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @parser_set_op_state(ptr noundef %23, i32 noundef 2)
+  br label %25
 
-sw.bb2:                                           ; preds = %entry
-  br label %sw.epilog
-
-sw.default:                                       ; preds = %entry
-  call void @__assert_fail(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 643, ptr noundef @__PRETTY_FUNCTION__.sf_parser_param) #4
+24:                                               ; preds = %3
+  call void @__assert_fail(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 1226, ptr noundef @__PRETTY_FUNCTION__.sfparse_parser_param) #6
   unreachable
 
-sw.epilog:                                        ; preds = %sw.bb2, %sw.bb1
-  %6 = load ptr, ptr %sfp.addr, align 8
-  %call3 = call i32 @parser_eof(ptr noundef %6)
-  %tobool = icmp ne i32 %call3, 0
-  br i1 %tobool, label %if.then6, label %lor.lhs.false
+25:                                               ; preds = %3, %22
+  %26 = load ptr, ptr %5, align 8, !tbaa !3
+  %27 = call i32 @parser_eof(ptr noundef %26)
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %36, label %29
 
-lor.lhs.false:                                    ; preds = %sw.epilog
-  %7 = load ptr, ptr %sfp.addr, align 8
-  %pos = getelementptr inbounds %struct.sf_parser, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %pos, align 8
-  %9 = load i8, ptr %8, align 1
-  %conv = zext i8 %9 to i32
-  %cmp4 = icmp ne i32 %conv, 59
-  br i1 %cmp4, label %if.then6, label %if.end7
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %5, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8, !tbaa !17
+  %33 = load i8, ptr %32, align 1, !tbaa !18
+  %34 = zext i8 %33 to i32
+  %35 = icmp ne i32 %34, 59
+  br i1 %35, label %36, label %38
 
-if.then6:                                         ; preds = %lor.lhs.false, %sw.epilog
-  %10 = load ptr, ptr %sfp.addr, align 8
-  call void @parser_set_op_state(ptr noundef %10, i32 noundef 3)
-  store i32 -2, ptr %retval, align 4
-  br label %return
+36:                                               ; preds = %29, %25
+  %37 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @parser_set_op_state(ptr noundef %37, i32 noundef 3)
+  store i32 -2, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %91
 
-if.end7:                                          ; preds = %lor.lhs.false
-  %11 = load ptr, ptr %sfp.addr, align 8
-  %pos8 = getelementptr inbounds %struct.sf_parser, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %pos8, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %12, i32 1
-  store ptr %incdec.ptr, ptr %pos8, align 8
-  %13 = load ptr, ptr %sfp.addr, align 8
-  call void @parser_discard_sp(ptr noundef %13)
-  %14 = load ptr, ptr %sfp.addr, align 8
-  %call9 = call i32 @parser_eof(ptr noundef %14)
-  %tobool10 = icmp ne i32 %call9, 0
-  br i1 %tobool10, label %if.then11, label %if.end12
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %5, align 8, !tbaa !3
+  %40 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %39, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8, !tbaa !17
+  %42 = getelementptr inbounds nuw i8, ptr %41, i32 1
+  store ptr %42, ptr %40, align 8, !tbaa !17
+  %43 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @parser_discard_sp(ptr noundef %43)
+  %44 = load ptr, ptr %5, align 8, !tbaa !3
+  %45 = call i32 @parser_eof(ptr noundef %44)
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %47, label %48
 
-if.then11:                                        ; preds = %if.end7
-  store i32 -1, ptr %retval, align 4
-  br label %return
+47:                                               ; preds = %38
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %91
 
-if.end12:                                         ; preds = %if.end7
-  %15 = load ptr, ptr %sfp.addr, align 8
-  %16 = load ptr, ptr %dest_key.addr, align 8
-  %call13 = call i32 @parser_key(ptr noundef %15, ptr noundef %16)
-  store i32 %call13, ptr %rv, align 4
-  %17 = load i32, ptr %rv, align 4
-  %cmp14 = icmp ne i32 %17, 0
-  br i1 %cmp14, label %if.then16, label %if.end17
+48:                                               ; preds = %38
+  %49 = load ptr, ptr %5, align 8, !tbaa !3
+  %50 = load ptr, ptr %6, align 8, !tbaa !8
+  %51 = call i32 @parser_key(ptr noundef %49, ptr noundef %50)
+  store i32 %51, ptr %8, align 4, !tbaa !16
+  %52 = load i32, ptr %8, align 4, !tbaa !16
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %54, label %56
 
-if.then16:                                        ; preds = %if.end12
-  %18 = load i32, ptr %rv, align 4
-  store i32 %18, ptr %retval, align 4
-  br label %return
+54:                                               ; preds = %48
+  %55 = load i32, ptr %8, align 4, !tbaa !16
+  store i32 %55, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %91
 
-if.end17:                                         ; preds = %if.end12
-  %19 = load ptr, ptr %sfp.addr, align 8
-  %call18 = call i32 @parser_eof(ptr noundef %19)
-  %tobool19 = icmp ne i32 %call18, 0
-  br i1 %tobool19, label %if.then25, label %lor.lhs.false20
+56:                                               ; preds = %48
+  %57 = load ptr, ptr %5, align 8, !tbaa !3
+  %58 = call i32 @parser_eof(ptr noundef %57)
+  %59 = icmp ne i32 %58, 0
+  br i1 %59, label %67, label %60
 
-lor.lhs.false20:                                  ; preds = %if.end17
-  %20 = load ptr, ptr %sfp.addr, align 8
-  %pos21 = getelementptr inbounds %struct.sf_parser, ptr %20, i32 0, i32 0
-  %21 = load ptr, ptr %pos21, align 8
-  %22 = load i8, ptr %21, align 1
-  %conv22 = zext i8 %22 to i32
-  %cmp23 = icmp ne i32 %conv22, 61
-  br i1 %cmp23, label %if.then25, label %if.end29
+60:                                               ; preds = %56
+  %61 = load ptr, ptr %5, align 8, !tbaa !3
+  %62 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %61, i32 0, i32 0
+  %63 = load ptr, ptr %62, align 8, !tbaa !17
+  %64 = load i8, ptr %63, align 1, !tbaa !18
+  %65 = zext i8 %64 to i32
+  %66 = icmp ne i32 %65, 61
+  br i1 %66, label %67, label %78
 
-if.then25:                                        ; preds = %lor.lhs.false20, %if.end17
-  %23 = load ptr, ptr %dest_value.addr, align 8
-  %tobool26 = icmp ne ptr %23, null
-  br i1 %tobool26, label %if.then27, label %if.end28
+67:                                               ; preds = %60, %56
+  %68 = load ptr, ptr %7, align 8, !tbaa !10
+  %69 = icmp ne ptr %68, null
+  br i1 %69, label %70, label %77
 
-if.then27:                                        ; preds = %if.then25
-  %24 = load ptr, ptr %dest_value.addr, align 8
-  %type = getelementptr inbounds %struct.sf_value, ptr %24, i32 0, i32 0
-  store i32 0, ptr %type, align 8
-  %25 = load ptr, ptr %dest_value.addr, align 8
-  %flags = getelementptr inbounds %struct.sf_value, ptr %25, i32 0, i32 1
-  store i32 0, ptr %flags, align 4
-  %26 = load ptr, ptr %dest_value.addr, align 8
-  %27 = getelementptr inbounds %struct.sf_value, ptr %26, i32 0, i32 2
-  store i32 1, ptr %27, align 8
-  br label %if.end28
+70:                                               ; preds = %67
+  %71 = load ptr, ptr %7, align 8, !tbaa !10
+  %72 = getelementptr inbounds nuw %struct.sfparse_value, ptr %71, i32 0, i32 0
+  store i32 0, ptr %72, align 8, !tbaa !19
+  %73 = load ptr, ptr %7, align 8, !tbaa !10
+  %74 = getelementptr inbounds nuw %struct.sfparse_value, ptr %73, i32 0, i32 1
+  store i32 0, ptr %74, align 4, !tbaa !21
+  %75 = load ptr, ptr %7, align 8, !tbaa !10
+  %76 = getelementptr inbounds nuw %struct.sfparse_value, ptr %75, i32 0, i32 2
+  store i32 1, ptr %76, align 8, !tbaa !18
+  br label %77
 
-if.end28:                                         ; preds = %if.then27, %if.then25
-  store i32 0, ptr %retval, align 4
-  br label %return
+77:                                               ; preds = %70, %67
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %91
 
-if.end29:                                         ; preds = %lor.lhs.false20
-  %28 = load ptr, ptr %sfp.addr, align 8
-  %pos30 = getelementptr inbounds %struct.sf_parser, ptr %28, i32 0, i32 0
-  %29 = load ptr, ptr %pos30, align 8
-  %incdec.ptr31 = getelementptr inbounds i8, ptr %29, i32 1
-  store ptr %incdec.ptr31, ptr %pos30, align 8
-  %30 = load ptr, ptr %sfp.addr, align 8
-  %call32 = call i32 @parser_eof(ptr noundef %30)
-  %tobool33 = icmp ne i32 %call32, 0
-  br i1 %tobool33, label %if.then34, label %if.end35
+78:                                               ; preds = %60
+  %79 = load ptr, ptr %5, align 8, !tbaa !3
+  %80 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %79, i32 0, i32 0
+  %81 = load ptr, ptr %80, align 8, !tbaa !17
+  %82 = getelementptr inbounds nuw i8, ptr %81, i32 1
+  store ptr %82, ptr %80, align 8, !tbaa !17
+  %83 = load ptr, ptr %5, align 8, !tbaa !3
+  %84 = call i32 @parser_eof(ptr noundef %83)
+  %85 = icmp ne i32 %84, 0
+  br i1 %85, label %86, label %87
 
-if.then34:                                        ; preds = %if.end29
-  store i32 -1, ptr %retval, align 4
-  br label %return
+86:                                               ; preds = %78
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %91
 
-if.end35:                                         ; preds = %if.end29
-  %31 = load ptr, ptr %sfp.addr, align 8
-  %32 = load ptr, ptr %dest_value.addr, align 8
-  %call36 = call i32 @parser_bare_item(ptr noundef %31, ptr noundef %32)
-  store i32 %call36, ptr %retval, align 4
-  br label %return
+87:                                               ; preds = %78
+  %88 = load ptr, ptr %5, align 8, !tbaa !3
+  %89 = load ptr, ptr %7, align 8, !tbaa !10
+  %90 = call i32 @parser_bare_item(ptr noundef %88, ptr noundef %89)
+  store i32 %90, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %91
 
-return:                                           ; preds = %if.end35, %if.then34, %if.end28, %if.then16, %if.then11, %if.then6, %if.then
-  %33 = load i32, ptr %retval, align 4
-  ret i32 %33
+91:                                               ; preds = %87, %86, %77, %54, %47, %36, %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  %92 = load i32, ptr %4, align 4
+  ret i32 %92
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @parser_skip_inner_list(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #5
+  br label %6
+
+6:                                                ; preds = %14, %1
+  %7 = load ptr, ptr %3, align 8, !tbaa !3
+  %8 = call i32 @sfparse_parser_inner_list(ptr noundef %7, ptr noundef null)
+  store i32 %8, ptr %4, align 4, !tbaa !16
+  %9 = load i32, ptr %4, align 4, !tbaa !16
+  switch i32 %9, label %13 [
+    i32 0, label %14
+    i32 -2, label %10
+    i32 -1, label %11
+  ]
+
+10:                                               ; preds = %6
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %15
+
+11:                                               ; preds = %6
+  %12 = load i32, ptr %4, align 4, !tbaa !16
+  store i32 %12, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %15
+
+13:                                               ; preds = %6
+  call void @__assert_fail(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 1365, ptr noundef @__PRETTY_FUNCTION__.parser_skip_inner_list) #6
+  unreachable
+
+14:                                               ; preds = %6
+  br label %6
+
+15:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #5
+  %16 = load i32, ptr %2, align 4
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @parser_skip_inner_list(ptr noundef %sfp) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sfp.addr = alloca ptr, align 8
-  %rv = alloca i32, align 4
-  store ptr %sfp, ptr %sfp.addr, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %sw.epilog, %entry
-  %0 = load ptr, ptr %sfp.addr, align 8
-  %call = call i32 @sf_parser_inner_list(ptr noundef %0, ptr noundef null)
-  store i32 %call, ptr %rv, align 4
-  %1 = load i32, ptr %rv, align 4
-  switch i32 %1, label %sw.default [
-    i32 0, label %sw.bb
-    i32 -2, label %sw.bb1
-    i32 -1, label %sw.bb2
-  ]
-
-sw.bb:                                            ; preds = %for.cond
-  br label %sw.epilog
-
-sw.bb1:                                           ; preds = %for.cond
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-sw.bb2:                                           ; preds = %for.cond
-  %2 = load i32, ptr %rv, align 4
-  store i32 %2, ptr %retval, align 4
-  br label %return
-
-sw.default:                                       ; preds = %for.cond
-  call void @__assert_fail(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 782, ptr noundef @__PRETTY_FUNCTION__.parser_skip_inner_list) #4
-  unreachable
-
-sw.epilog:                                        ; preds = %sw.bb
-  br label %for.cond
-
-return:                                           ; preds = %sw.bb2, %sw.bb1
-  %3 = load i32, ptr %retval, align 4
-  ret i32 %3
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @parser_set_op_state(ptr noundef %sfp, i32 noundef %op) #0 {
-entry:
-  %sfp.addr = alloca ptr, align 8
-  %op.addr = alloca i32, align 4
-  store ptr %sfp, ptr %sfp.addr, align 8
-  store i32 %op, ptr %op.addr, align 4
-  %0 = load ptr, ptr %sfp.addr, align 8
-  %state = getelementptr inbounds %struct.sf_parser, ptr %0, i32 0, i32 2
-  %1 = load i32, ptr %state, align 8
-  %and = and i32 %1, -4
-  store i32 %and, ptr %state, align 8
-  %2 = load i32, ptr %op.addr, align 4
-  %3 = load ptr, ptr %sfp.addr, align 8
-  %state1 = getelementptr inbounds %struct.sf_parser, ptr %3, i32 0, i32 2
-  %4 = load i32, ptr %state1, align 8
-  %or = or i32 %4, %2
-  store i32 %or, ptr %state1, align 8
+define internal void @parser_set_op_state(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !16
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %5, i32 0, i32 2
+  %7 = load i32, ptr %6, align 8, !tbaa !12
+  %8 = and i32 %7, -4
+  store i32 %8, ptr %6, align 8, !tbaa !12
+  %9 = load i32, ptr %4, align 4, !tbaa !16
+  %10 = load ptr, ptr %3, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %10, i32 0, i32 2
+  %12 = load i32, ptr %11, align 8, !tbaa !12
+  %13 = or i32 %12, %9
+  store i32 %13, ptr %11, align 8, !tbaa !12
   ret void
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @parser_eof(ptr noundef %sfp) #0 {
-entry:
-  %sfp.addr = alloca ptr, align 8
-  store ptr %sfp, ptr %sfp.addr, align 8
-  %0 = load ptr, ptr %sfp.addr, align 8
-  %pos = getelementptr inbounds %struct.sf_parser, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %pos, align 8
-  %2 = load ptr, ptr %sfp.addr, align 8
-  %end = getelementptr inbounds %struct.sf_parser, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %end, align 8
-  %cmp = icmp eq ptr %1, %3
-  %conv = zext i1 %cmp to i32
-  ret i32 %conv
+define internal i32 @parser_eof(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !17
+  %6 = load ptr, ptr %2, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %6, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8, !tbaa !22
+  %9 = icmp eq ptr %5, %8
+  %10 = zext i1 %9 to i32
+  ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @parser_discard_sp(ptr noundef %sfp) #0 {
-entry:
-  %sfp.addr = alloca ptr, align 8
-  store ptr %sfp, ptr %sfp.addr, align 8
-  br label %for.cond
+define internal void @parser_discard_sp(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  br label %3
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load ptr, ptr %sfp.addr, align 8
-  %call = call i32 @parser_eof(ptr noundef %0)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %land.end, label %land.rhs
+3:                                                ; preds = %17, %1
+  %4 = load ptr, ptr %2, align 8, !tbaa !3
+  %5 = call i32 @parser_eof(ptr noundef %4)
+  %6 = icmp ne i32 %5, 0
+  br i1 %6, label %14, label %7
 
-land.rhs:                                         ; preds = %for.cond
-  %1 = load ptr, ptr %sfp.addr, align 8
-  %pos = getelementptr inbounds %struct.sf_parser, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %pos, align 8
-  %3 = load i8, ptr %2, align 1
-  %conv = zext i8 %3 to i32
-  %cmp = icmp eq i32 %conv, 32
-  br label %land.end
+7:                                                ; preds = %3
+  %8 = load ptr, ptr %2, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !17
+  %11 = load i8, ptr %10, align 1, !tbaa !18
+  %12 = zext i8 %11 to i32
+  %13 = icmp eq i32 %12, 32
+  br label %14
 
-land.end:                                         ; preds = %land.rhs, %for.cond
-  %4 = phi i1 [ false, %for.cond ], [ %cmp, %land.rhs ]
-  br i1 %4, label %for.body, label %for.end
+14:                                               ; preds = %7, %3
+  %15 = phi i1 [ false, %3 ], [ %13, %7 ]
+  br i1 %15, label %16, label %22
 
-for.body:                                         ; preds = %land.end
-  br label %for.inc
+16:                                               ; preds = %14
+  br label %17
 
-for.inc:                                          ; preds = %for.body
-  %5 = load ptr, ptr %sfp.addr, align 8
-  %pos2 = getelementptr inbounds %struct.sf_parser, ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %pos2, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %6, i32 1
-  store ptr %incdec.ptr, ptr %pos2, align 8
-  br label %for.cond, !llvm.loop !4
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %2, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !17
+  %21 = getelementptr inbounds nuw i8, ptr %20, i32 1
+  store ptr %21, ptr %19, align 8, !tbaa !17
+  br label %3, !llvm.loop !23
 
-for.end:                                          ; preds = %land.end
+22:                                               ; preds = %14
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @parser_key(ptr noundef %sfp, ptr noundef %dest) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sfp.addr = alloca ptr, align 8
-  %dest.addr = alloca ptr, align 8
-  %base = alloca ptr, align 8
-  store ptr %sfp, ptr %sfp.addr, align 8
-  store ptr %dest, ptr %dest.addr, align 8
-  %0 = load ptr, ptr %sfp.addr, align 8
-  %pos = getelementptr inbounds %struct.sf_parser, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %pos, align 8
-  %2 = load i8, ptr %1, align 1
-  %conv = zext i8 %2 to i32
-  switch i32 %conv, label %sw.default [
-    i32 42, label %sw.bb
-    i32 97, label %sw.bb
-    i32 98, label %sw.bb
-    i32 99, label %sw.bb
-    i32 100, label %sw.bb
-    i32 101, label %sw.bb
-    i32 102, label %sw.bb
-    i32 103, label %sw.bb
-    i32 104, label %sw.bb
-    i32 105, label %sw.bb
-    i32 106, label %sw.bb
-    i32 107, label %sw.bb
-    i32 108, label %sw.bb
-    i32 109, label %sw.bb
-    i32 110, label %sw.bb
-    i32 111, label %sw.bb
-    i32 112, label %sw.bb
-    i32 113, label %sw.bb
-    i32 114, label %sw.bb
-    i32 115, label %sw.bb
-    i32 116, label %sw.bb
-    i32 117, label %sw.bb
-    i32 118, label %sw.bb
-    i32 119, label %sw.bb
-    i32 120, label %sw.bb
-    i32 121, label %sw.bb
-    i32 122, label %sw.bb
+define internal i32 @parser_key(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !17
+  %11 = load i8, ptr %10, align 1, !tbaa !18
+  %12 = zext i8 %11 to i32
+  switch i32 %12, label %14 [
+    i32 42, label %13
+    i32 97, label %13
+    i32 98, label %13
+    i32 99, label %13
+    i32 100, label %13
+    i32 101, label %13
+    i32 102, label %13
+    i32 103, label %13
+    i32 104, label %13
+    i32 105, label %13
+    i32 106, label %13
+    i32 107, label %13
+    i32 108, label %13
+    i32 109, label %13
+    i32 110, label %13
+    i32 111, label %13
+    i32 112, label %13
+    i32 113, label %13
+    i32 114, label %13
+    i32 115, label %13
+    i32 116, label %13
+    i32 117, label %13
+    i32 118, label %13
+    i32 119, label %13
+    i32 120, label %13
+    i32 121, label %13
+    i32 122, label %13
   ]
 
-sw.bb:                                            ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry
-  br label %sw.epilog
+13:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2
+  br label %15
 
-sw.default:                                       ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
+14:                                               ; preds = %2
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %57
 
-sw.epilog:                                        ; preds = %sw.bb
-  %3 = load ptr, ptr %sfp.addr, align 8
-  %pos1 = getelementptr inbounds %struct.sf_parser, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %pos1, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %4, i32 1
-  store ptr %incdec.ptr, ptr %pos1, align 8
-  store ptr %4, ptr %base, align 8
-  br label %for.cond
+15:                                               ; preds = %13
+  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i32 1
+  store ptr %19, ptr %17, align 8, !tbaa !17
+  store ptr %18, ptr %6, align 8, !tbaa !25
+  br label %20
 
-for.cond:                                         ; preds = %for.inc, %sw.epilog
-  %5 = load ptr, ptr %sfp.addr, align 8
-  %call = call i32 @parser_eof(ptr noundef %5)
-  %tobool = icmp ne i32 %call, 0
-  %lnot = xor i1 %tobool, true
-  br i1 %lnot, label %for.body, label %for.end
+20:                                               ; preds = %33, %15
+  %21 = load ptr, ptr %4, align 8, !tbaa !3
+  %22 = call i32 @parser_eof(ptr noundef %21)
+  %23 = icmp ne i32 %22, 0
+  %24 = xor i1 %23, true
+  br i1 %24, label %25, label %38
 
-for.body:                                         ; preds = %for.cond
-  %6 = load ptr, ptr %sfp.addr, align 8
-  %pos2 = getelementptr inbounds %struct.sf_parser, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %pos2, align 8
-  %8 = load i8, ptr %7, align 1
-  %conv3 = zext i8 %8 to i32
-  switch i32 %conv3, label %sw.epilog5 [
-    i32 95, label %sw.bb4
-    i32 45, label %sw.bb4
-    i32 46, label %sw.bb4
-    i32 42, label %sw.bb4
-    i32 48, label %sw.bb4
-    i32 49, label %sw.bb4
-    i32 50, label %sw.bb4
-    i32 51, label %sw.bb4
-    i32 52, label %sw.bb4
-    i32 53, label %sw.bb4
-    i32 54, label %sw.bb4
-    i32 55, label %sw.bb4
-    i32 56, label %sw.bb4
-    i32 57, label %sw.bb4
-    i32 97, label %sw.bb4
-    i32 98, label %sw.bb4
-    i32 99, label %sw.bb4
-    i32 100, label %sw.bb4
-    i32 101, label %sw.bb4
-    i32 102, label %sw.bb4
-    i32 103, label %sw.bb4
-    i32 104, label %sw.bb4
-    i32 105, label %sw.bb4
-    i32 106, label %sw.bb4
-    i32 107, label %sw.bb4
-    i32 108, label %sw.bb4
-    i32 109, label %sw.bb4
-    i32 110, label %sw.bb4
-    i32 111, label %sw.bb4
-    i32 112, label %sw.bb4
-    i32 113, label %sw.bb4
-    i32 114, label %sw.bb4
-    i32 115, label %sw.bb4
-    i32 116, label %sw.bb4
-    i32 117, label %sw.bb4
-    i32 118, label %sw.bb4
-    i32 119, label %sw.bb4
-    i32 120, label %sw.bb4
-    i32 121, label %sw.bb4
-    i32 122, label %sw.bb4
+25:                                               ; preds = %20
+  %26 = load ptr, ptr %4, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !17
+  %29 = load i8, ptr %28, align 1, !tbaa !18
+  %30 = zext i8 %29 to i32
+  switch i32 %30, label %32 [
+    i32 95, label %31
+    i32 45, label %31
+    i32 46, label %31
+    i32 42, label %31
+    i32 48, label %31
+    i32 49, label %31
+    i32 50, label %31
+    i32 51, label %31
+    i32 52, label %31
+    i32 53, label %31
+    i32 54, label %31
+    i32 55, label %31
+    i32 56, label %31
+    i32 57, label %31
+    i32 97, label %31
+    i32 98, label %31
+    i32 99, label %31
+    i32 100, label %31
+    i32 101, label %31
+    i32 102, label %31
+    i32 103, label %31
+    i32 104, label %31
+    i32 105, label %31
+    i32 106, label %31
+    i32 107, label %31
+    i32 108, label %31
+    i32 109, label %31
+    i32 110, label %31
+    i32 111, label %31
+    i32 112, label %31
+    i32 113, label %31
+    i32 114, label %31
+    i32 115, label %31
+    i32 116, label %31
+    i32 117, label %31
+    i32 118, label %31
+    i32 119, label %31
+    i32 120, label %31
+    i32 121, label %31
+    i32 122, label %31
   ]
 
-sw.bb4:                                           ; preds = %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body
-  br label %for.inc
+31:                                               ; preds = %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25
+  br label %33
 
-sw.epilog5:                                       ; preds = %for.body
-  br label %for.end
+32:                                               ; preds = %25
+  br label %38
 
-for.inc:                                          ; preds = %sw.bb4
-  %9 = load ptr, ptr %sfp.addr, align 8
-  %pos6 = getelementptr inbounds %struct.sf_parser, ptr %9, i32 0, i32 0
-  %10 = load ptr, ptr %pos6, align 8
-  %incdec.ptr7 = getelementptr inbounds i8, ptr %10, i32 1
-  store ptr %incdec.ptr7, ptr %pos6, align 8
-  br label %for.cond, !llvm.loop !6
+33:                                               ; preds = %31
+  %34 = load ptr, ptr %4, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !17
+  %37 = getelementptr inbounds nuw i8, ptr %36, i32 1
+  store ptr %37, ptr %35, align 8, !tbaa !17
+  br label %20, !llvm.loop !26
 
-for.end:                                          ; preds = %sw.epilog5, %for.cond
-  %11 = load ptr, ptr %dest.addr, align 8
-  %tobool8 = icmp ne ptr %11, null
-  br i1 %tobool8, label %if.then, label %if.end
+38:                                               ; preds = %32, %20
+  %39 = load ptr, ptr %5, align 8, !tbaa !8
+  %40 = icmp ne ptr %39, null
+  br i1 %40, label %41, label %56
 
-if.then:                                          ; preds = %for.end
-  %12 = load ptr, ptr %base, align 8
-  %13 = load ptr, ptr %dest.addr, align 8
-  %base9 = getelementptr inbounds %struct.sf_vec, ptr %13, i32 0, i32 0
-  store ptr %12, ptr %base9, align 8
-  %14 = load ptr, ptr %sfp.addr, align 8
-  %pos10 = getelementptr inbounds %struct.sf_parser, ptr %14, i32 0, i32 0
-  %15 = load ptr, ptr %pos10, align 8
-  %16 = load ptr, ptr %dest.addr, align 8
-  %base11 = getelementptr inbounds %struct.sf_vec, ptr %16, i32 0, i32 0
-  %17 = load ptr, ptr %base11, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %15 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %17 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %18 = load ptr, ptr %dest.addr, align 8
-  %len = getelementptr inbounds %struct.sf_vec, ptr %18, i32 0, i32 1
-  store i64 %sub.ptr.sub, ptr %len, align 8
-  br label %if.end
+41:                                               ; preds = %38
+  %42 = load ptr, ptr %6, align 8, !tbaa !25
+  %43 = load ptr, ptr %5, align 8, !tbaa !8
+  %44 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %43, i32 0, i32 0
+  store ptr %42, ptr %44, align 8, !tbaa !27
+  %45 = load ptr, ptr %4, align 8, !tbaa !3
+  %46 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %45, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8, !tbaa !17
+  %48 = load ptr, ptr %5, align 8, !tbaa !8
+  %49 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %48, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8, !tbaa !27
+  %51 = ptrtoint ptr %47 to i64
+  %52 = ptrtoint ptr %50 to i64
+  %53 = sub i64 %51, %52
+  %54 = load ptr, ptr %5, align 8, !tbaa !8
+  %55 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %54, i32 0, i32 1
+  store i64 %53, ptr %55, align 8, !tbaa !30
+  br label %56
 
-if.end:                                           ; preds = %if.then, %for.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+56:                                               ; preds = %41, %38
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %57
 
-return:                                           ; preds = %if.end, %sw.default
-  %19 = load i32, ptr %retval, align 4
-  ret i32 %19
+57:                                               ; preds = %56, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %58 = load i32, ptr %3, align 4
+  ret i32 %58
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @parser_bare_item(ptr noundef %sfp, ptr noundef %dest) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sfp.addr = alloca ptr, align 8
-  %dest.addr = alloca ptr, align 8
-  store ptr %sfp, ptr %sfp.addr, align 8
-  store ptr %dest, ptr %dest.addr, align 8
-  %0 = load ptr, ptr %sfp.addr, align 8
-  %pos = getelementptr inbounds %struct.sf_parser, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %pos, align 8
-  %2 = load i8, ptr %1, align 1
-  %conv = zext i8 %2 to i32
-  switch i32 %conv, label %sw.default [
-    i32 34, label %sw.bb
-    i32 45, label %sw.bb1
-    i32 48, label %sw.bb1
-    i32 49, label %sw.bb1
-    i32 50, label %sw.bb1
-    i32 51, label %sw.bb1
-    i32 52, label %sw.bb1
-    i32 53, label %sw.bb1
-    i32 54, label %sw.bb1
-    i32 55, label %sw.bb1
-    i32 56, label %sw.bb1
-    i32 57, label %sw.bb1
-    i32 64, label %sw.bb3
-    i32 58, label %sw.bb5
-    i32 63, label %sw.bb7
-    i32 42, label %sw.bb9
-    i32 65, label %sw.bb9
-    i32 66, label %sw.bb9
-    i32 67, label %sw.bb9
-    i32 68, label %sw.bb9
-    i32 69, label %sw.bb9
-    i32 70, label %sw.bb9
-    i32 71, label %sw.bb9
-    i32 72, label %sw.bb9
-    i32 73, label %sw.bb9
-    i32 74, label %sw.bb9
-    i32 75, label %sw.bb9
-    i32 76, label %sw.bb9
-    i32 77, label %sw.bb9
-    i32 78, label %sw.bb9
-    i32 79, label %sw.bb9
-    i32 80, label %sw.bb9
-    i32 81, label %sw.bb9
-    i32 82, label %sw.bb9
-    i32 83, label %sw.bb9
-    i32 84, label %sw.bb9
-    i32 85, label %sw.bb9
-    i32 86, label %sw.bb9
-    i32 87, label %sw.bb9
-    i32 88, label %sw.bb9
-    i32 89, label %sw.bb9
-    i32 90, label %sw.bb9
-    i32 97, label %sw.bb9
-    i32 98, label %sw.bb9
-    i32 99, label %sw.bb9
-    i32 100, label %sw.bb9
-    i32 101, label %sw.bb9
-    i32 102, label %sw.bb9
-    i32 103, label %sw.bb9
-    i32 104, label %sw.bb9
-    i32 105, label %sw.bb9
-    i32 106, label %sw.bb9
-    i32 107, label %sw.bb9
-    i32 108, label %sw.bb9
-    i32 109, label %sw.bb9
-    i32 110, label %sw.bb9
-    i32 111, label %sw.bb9
-    i32 112, label %sw.bb9
-    i32 113, label %sw.bb9
-    i32 114, label %sw.bb9
-    i32 115, label %sw.bb9
-    i32 116, label %sw.bb9
-    i32 117, label %sw.bb9
-    i32 118, label %sw.bb9
-    i32 119, label %sw.bb9
-    i32 120, label %sw.bb9
-    i32 121, label %sw.bb9
-    i32 122, label %sw.bb9
+define internal i32 @parser_bare_item(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !17
+  %9 = load i8, ptr %8, align 1, !tbaa !18
+  %10 = zext i8 %9 to i32
+  switch i32 %10, label %39 [
+    i32 34, label %11
+    i32 45, label %15
+    i32 48, label %15
+    i32 49, label %15
+    i32 50, label %15
+    i32 51, label %15
+    i32 52, label %15
+    i32 53, label %15
+    i32 54, label %15
+    i32 55, label %15
+    i32 56, label %15
+    i32 57, label %15
+    i32 64, label %19
+    i32 58, label %23
+    i32 63, label %27
+    i32 42, label %31
+    i32 65, label %31
+    i32 66, label %31
+    i32 67, label %31
+    i32 68, label %31
+    i32 69, label %31
+    i32 70, label %31
+    i32 71, label %31
+    i32 72, label %31
+    i32 73, label %31
+    i32 74, label %31
+    i32 75, label %31
+    i32 76, label %31
+    i32 77, label %31
+    i32 78, label %31
+    i32 79, label %31
+    i32 80, label %31
+    i32 81, label %31
+    i32 82, label %31
+    i32 83, label %31
+    i32 84, label %31
+    i32 85, label %31
+    i32 86, label %31
+    i32 87, label %31
+    i32 88, label %31
+    i32 89, label %31
+    i32 90, label %31
+    i32 97, label %31
+    i32 98, label %31
+    i32 99, label %31
+    i32 100, label %31
+    i32 101, label %31
+    i32 102, label %31
+    i32 103, label %31
+    i32 104, label %31
+    i32 105, label %31
+    i32 106, label %31
+    i32 107, label %31
+    i32 108, label %31
+    i32 109, label %31
+    i32 110, label %31
+    i32 111, label %31
+    i32 112, label %31
+    i32 113, label %31
+    i32 114, label %31
+    i32 115, label %31
+    i32 116, label %31
+    i32 117, label %31
+    i32 118, label %31
+    i32 119, label %31
+    i32 120, label %31
+    i32 121, label %31
+    i32 122, label %31
+    i32 37, label %35
   ]
 
-sw.bb:                                            ; preds = %entry
-  %3 = load ptr, ptr %sfp.addr, align 8
-  %4 = load ptr, ptr %dest.addr, align 8
-  %call = call i32 @parser_string(ptr noundef %3, ptr noundef %4)
-  store i32 %call, ptr %retval, align 4
-  br label %return
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  %13 = load ptr, ptr %5, align 8, !tbaa !10
+  %14 = call i32 @parser_string(ptr noundef %12, ptr noundef %13)
+  store i32 %14, ptr %3, align 4
+  br label %40
 
-sw.bb1:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry
-  %5 = load ptr, ptr %sfp.addr, align 8
-  %6 = load ptr, ptr %dest.addr, align 8
-  %call2 = call i32 @parser_number(ptr noundef %5, ptr noundef %6)
-  store i32 %call2, ptr %retval, align 4
-  br label %return
+15:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2
+  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  %17 = load ptr, ptr %5, align 8, !tbaa !10
+  %18 = call i32 @parser_number(ptr noundef %16, ptr noundef %17)
+  store i32 %18, ptr %3, align 4
+  br label %40
 
-sw.bb3:                                           ; preds = %entry
-  %7 = load ptr, ptr %sfp.addr, align 8
-  %8 = load ptr, ptr %dest.addr, align 8
-  %call4 = call i32 @parser_date(ptr noundef %7, ptr noundef %8)
-  store i32 %call4, ptr %retval, align 4
-  br label %return
+19:                                               ; preds = %2
+  %20 = load ptr, ptr %4, align 8, !tbaa !3
+  %21 = load ptr, ptr %5, align 8, !tbaa !10
+  %22 = call i32 @parser_date(ptr noundef %20, ptr noundef %21)
+  store i32 %22, ptr %3, align 4
+  br label %40
 
-sw.bb5:                                           ; preds = %entry
-  %9 = load ptr, ptr %sfp.addr, align 8
-  %10 = load ptr, ptr %dest.addr, align 8
-  %call6 = call i32 @parser_byteseq(ptr noundef %9, ptr noundef %10)
-  store i32 %call6, ptr %retval, align 4
-  br label %return
+23:                                               ; preds = %2
+  %24 = load ptr, ptr %4, align 8, !tbaa !3
+  %25 = load ptr, ptr %5, align 8, !tbaa !10
+  %26 = call i32 @parser_byteseq(ptr noundef %24, ptr noundef %25)
+  store i32 %26, ptr %3, align 4
+  br label %40
 
-sw.bb7:                                           ; preds = %entry
-  %11 = load ptr, ptr %sfp.addr, align 8
-  %12 = load ptr, ptr %dest.addr, align 8
-  %call8 = call i32 @parser_boolean(ptr noundef %11, ptr noundef %12)
-  store i32 %call8, ptr %retval, align 4
-  br label %return
+27:                                               ; preds = %2
+  %28 = load ptr, ptr %4, align 8, !tbaa !3
+  %29 = load ptr, ptr %5, align 8, !tbaa !10
+  %30 = call i32 @parser_boolean(ptr noundef %28, ptr noundef %29)
+  store i32 %30, ptr %3, align 4
+  br label %40
 
-sw.bb9:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry
-  %13 = load ptr, ptr %sfp.addr, align 8
-  %14 = load ptr, ptr %dest.addr, align 8
-  %call10 = call i32 @parser_token(ptr noundef %13, ptr noundef %14)
-  store i32 %call10, ptr %retval, align 4
-  br label %return
+31:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2
+  %32 = load ptr, ptr %4, align 8, !tbaa !3
+  %33 = load ptr, ptr %5, align 8, !tbaa !10
+  %34 = call i32 @parser_token(ptr noundef %32, ptr noundef %33)
+  store i32 %34, ptr %3, align 4
+  br label %40
 
-sw.default:                                       ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
+35:                                               ; preds = %2
+  %36 = load ptr, ptr %4, align 8, !tbaa !3
+  %37 = load ptr, ptr %5, align 8, !tbaa !10
+  %38 = call i32 @parser_dispstring(ptr noundef %36, ptr noundef %37)
+  store i32 %38, ptr %3, align 4
+  br label %40
 
-return:                                           ; preds = %sw.default, %sw.bb9, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb1, %sw.bb
-  %15 = load i32, ptr %retval, align 4
-  ret i32 %15
+39:                                               ; preds = %2
+  store i32 -1, ptr %3, align 4
+  br label %40
+
+40:                                               ; preds = %39, %35, %31, %27, %23, %19, %15, %11
+  %41 = load i32, ptr %3, align 4
+  ret i32 %41
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
-define hidden i32 @sf_parser_inner_list(ptr noundef %sfp, ptr noundef %dest) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sfp.addr = alloca ptr, align 8
-  %dest.addr = alloca ptr, align 8
-  %rv = alloca i32, align 4
-  store ptr %sfp, ptr %sfp.addr, align 8
-  store ptr %dest, ptr %dest.addr, align 8
-  %0 = load ptr, ptr %sfp.addr, align 8
-  %state = getelementptr inbounds %struct.sf_parser, ptr %0, i32 0, i32 2
-  %1 = load i32, ptr %state, align 8
-  %and = and i32 %1, 3
-  switch i32 %and, label %sw.default16 [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb1
-    i32 3, label %sw.bb5
+define hidden i32 @sfparse_parser_inner_list(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %8, i32 0, i32 2
+  %10 = load i32, ptr %9, align 8, !tbaa !12
+  %11 = and i32 %10, 3
+  switch i32 %11, label %47 [
+    i32 0, label %12
+    i32 1, label %19
+    i32 3, label %27
   ]
 
-sw.bb:                                            ; preds = %entry
-  %2 = load ptr, ptr %sfp.addr, align 8
-  call void @parser_discard_sp(ptr noundef %2)
-  %3 = load ptr, ptr %sfp.addr, align 8
-  %call = call i32 @parser_eof(ptr noundef %3)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @parser_discard_sp(ptr noundef %13)
+  %14 = load ptr, ptr %4, align 8, !tbaa !3
+  %15 = call i32 @parser_eof(ptr noundef %14)
+  %16 = icmp ne i32 %15, 0
+  br i1 %16, label %17, label %18
 
-if.then:                                          ; preds = %sw.bb
-  store i32 -1, ptr %retval, align 4
-  br label %return
+17:                                               ; preds = %12
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %72
 
-if.end:                                           ; preds = %sw.bb
-  br label %sw.epilog17
+18:                                               ; preds = %12
+  br label %48
 
-sw.bb1:                                           ; preds = %entry
-  %4 = load ptr, ptr %sfp.addr, align 8
-  %call2 = call i32 @parser_skip_params(ptr noundef %4)
-  store i32 %call2, ptr %rv, align 4
-  %5 = load i32, ptr %rv, align 4
-  %cmp = icmp ne i32 %5, 0
-  br i1 %cmp, label %if.then3, label %if.end4
+19:                                               ; preds = %2
+  %20 = load ptr, ptr %4, align 8, !tbaa !3
+  %21 = call i32 @parser_skip_params(ptr noundef %20)
+  store i32 %21, ptr %6, align 4, !tbaa !16
+  %22 = load i32, ptr %6, align 4, !tbaa !16
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %26
 
-if.then3:                                         ; preds = %sw.bb1
-  %6 = load i32, ptr %rv, align 4
-  store i32 %6, ptr %retval, align 4
-  br label %return
+24:                                               ; preds = %19
+  %25 = load i32, ptr %6, align 4, !tbaa !16
+  store i32 %25, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %72
 
-if.end4:                                          ; preds = %sw.bb1
-  br label %sw.bb5
+26:                                               ; preds = %19
+  br label %27
 
-sw.bb5:                                           ; preds = %if.end4, %entry
-  %7 = load ptr, ptr %sfp.addr, align 8
-  %call6 = call i32 @parser_eof(ptr noundef %7)
-  %tobool7 = icmp ne i32 %call6, 0
-  br i1 %tobool7, label %if.then8, label %if.end9
+27:                                               ; preds = %2, %26
+  %28 = load ptr, ptr %4, align 8, !tbaa !3
+  %29 = call i32 @parser_eof(ptr noundef %28)
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %31, label %32
 
-if.then8:                                         ; preds = %sw.bb5
-  store i32 -1, ptr %retval, align 4
-  br label %return
+31:                                               ; preds = %27
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %72
 
-if.end9:                                          ; preds = %sw.bb5
-  %8 = load ptr, ptr %sfp.addr, align 8
-  %pos = getelementptr inbounds %struct.sf_parser, ptr %8, i32 0, i32 0
-  %9 = load ptr, ptr %pos, align 8
-  %10 = load i8, ptr %9, align 1
-  %conv = zext i8 %10 to i32
-  switch i32 %conv, label %sw.default [
-    i32 32, label %sw.bb10
-    i32 41, label %sw.bb15
+32:                                               ; preds = %27
+  %33 = load ptr, ptr %4, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8, !tbaa !17
+  %36 = load i8, ptr %35, align 1, !tbaa !18
+  %37 = zext i8 %36 to i32
+  switch i32 %37, label %45 [
+    i32 32, label %38
+    i32 41, label %46
   ]
 
-sw.bb10:                                          ; preds = %if.end9
-  %11 = load ptr, ptr %sfp.addr, align 8
-  call void @parser_discard_sp(ptr noundef %11)
-  %12 = load ptr, ptr %sfp.addr, align 8
-  %call11 = call i32 @parser_eof(ptr noundef %12)
-  %tobool12 = icmp ne i32 %call11, 0
-  br i1 %tobool12, label %if.then13, label %if.end14
+38:                                               ; preds = %32
+  %39 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @parser_discard_sp(ptr noundef %39)
+  %40 = load ptr, ptr %4, align 8, !tbaa !3
+  %41 = call i32 @parser_eof(ptr noundef %40)
+  %42 = icmp ne i32 %41, 0
+  br i1 %42, label %43, label %44
 
-if.then13:                                        ; preds = %sw.bb10
-  store i32 -1, ptr %retval, align 4
-  br label %return
+43:                                               ; preds = %38
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %72
 
-if.end14:                                         ; preds = %sw.bb10
-  br label %sw.epilog
+44:                                               ; preds = %38
+  br label %46
 
-sw.bb15:                                          ; preds = %if.end9
-  br label %sw.epilog
+45:                                               ; preds = %32
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %72
 
-sw.default:                                       ; preds = %if.end9
-  store i32 -1, ptr %retval, align 4
-  br label %return
+46:                                               ; preds = %32, %44
+  br label %48
 
-sw.epilog:                                        ; preds = %sw.bb15, %if.end14
-  br label %sw.epilog17
-
-sw.default16:                                     ; preds = %entry
-  call void @__assert_fail(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 746, ptr noundef @__PRETTY_FUNCTION__.sf_parser_inner_list) #4
+47:                                               ; preds = %2
+  call void @__assert_fail(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 1329, ptr noundef @__PRETTY_FUNCTION__.sfparse_parser_inner_list) #6
   unreachable
 
-sw.epilog17:                                      ; preds = %sw.epilog, %if.end
-  %13 = load ptr, ptr %sfp.addr, align 8
-  %pos18 = getelementptr inbounds %struct.sf_parser, ptr %13, i32 0, i32 0
-  %14 = load ptr, ptr %pos18, align 8
-  %15 = load i8, ptr %14, align 1
-  %conv19 = zext i8 %15 to i32
-  %cmp20 = icmp eq i32 %conv19, 41
-  br i1 %cmp20, label %if.then22, label %if.end24
+48:                                               ; preds = %46, %18
+  %49 = load ptr, ptr %4, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %49, i32 0, i32 0
+  %51 = load ptr, ptr %50, align 8, !tbaa !17
+  %52 = load i8, ptr %51, align 1, !tbaa !18
+  %53 = zext i8 %52 to i32
+  %54 = icmp eq i32 %53, 41
+  br i1 %54, label %55, label %62
 
-if.then22:                                        ; preds = %sw.epilog17
-  %16 = load ptr, ptr %sfp.addr, align 8
-  %pos23 = getelementptr inbounds %struct.sf_parser, ptr %16, i32 0, i32 0
-  %17 = load ptr, ptr %pos23, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %17, i32 1
-  store ptr %incdec.ptr, ptr %pos23, align 8
-  %18 = load ptr, ptr %sfp.addr, align 8
-  call void @parser_unset_inner_list_state(ptr noundef %18)
-  %19 = load ptr, ptr %sfp.addr, align 8
-  call void @parser_set_op_state(ptr noundef %19, i32 noundef 1)
-  store i32 -2, ptr %retval, align 4
-  br label %return
+55:                                               ; preds = %48
+  %56 = load ptr, ptr %4, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %56, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8, !tbaa !17
+  %59 = getelementptr inbounds nuw i8, ptr %58, i32 1
+  store ptr %59, ptr %57, align 8, !tbaa !17
+  %60 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @parser_unset_inner_list_state(ptr noundef %60)
+  %61 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @parser_set_op_state(ptr noundef %61, i32 noundef 1)
+  store i32 -2, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %72
 
-if.end24:                                         ; preds = %sw.epilog17
-  %20 = load ptr, ptr %sfp.addr, align 8
-  %21 = load ptr, ptr %dest.addr, align 8
-  %call25 = call i32 @parser_bare_item(ptr noundef %20, ptr noundef %21)
-  store i32 %call25, ptr %rv, align 4
-  %22 = load i32, ptr %rv, align 4
-  %cmp26 = icmp ne i32 %22, 0
-  br i1 %cmp26, label %if.then28, label %if.end29
+62:                                               ; preds = %48
+  %63 = load ptr, ptr %4, align 8, !tbaa !3
+  %64 = load ptr, ptr %5, align 8, !tbaa !10
+  %65 = call i32 @parser_bare_item(ptr noundef %63, ptr noundef %64)
+  store i32 %65, ptr %6, align 4, !tbaa !16
+  %66 = load i32, ptr %6, align 4, !tbaa !16
+  %67 = icmp ne i32 %66, 0
+  br i1 %67, label %68, label %70
 
-if.then28:                                        ; preds = %if.end24
-  %23 = load i32, ptr %rv, align 4
-  store i32 %23, ptr %retval, align 4
-  br label %return
+68:                                               ; preds = %62
+  %69 = load i32, ptr %6, align 4, !tbaa !16
+  store i32 %69, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %72
 
-if.end29:                                         ; preds = %if.end24
-  %24 = load ptr, ptr %sfp.addr, align 8
-  call void @parser_set_op_state(ptr noundef %24, i32 noundef 1)
-  store i32 0, ptr %retval, align 4
-  br label %return
+70:                                               ; preds = %62
+  %71 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @parser_set_op_state(ptr noundef %71, i32 noundef 1)
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %72
 
-return:                                           ; preds = %if.end29, %if.then28, %if.then22, %sw.default, %if.then13, %if.then8, %if.then3, %if.then
-  %25 = load i32, ptr %retval, align 4
-  ret i32 %25
+72:                                               ; preds = %70, %68, %55, %45, %43, %31, %24, %17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #5
+  %73 = load i32, ptr %3, align 4
+  ret i32 %73
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @parser_skip_params(ptr noundef %sfp) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sfp.addr = alloca ptr, align 8
-  %rv = alloca i32, align 4
-  store ptr %sfp, ptr %sfp.addr, align 8
-  br label %for.cond
+define internal i32 @parser_skip_params(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #5
+  br label %6
 
-for.cond:                                         ; preds = %sw.epilog, %entry
-  %0 = load ptr, ptr %sfp.addr, align 8
-  %call = call i32 @sf_parser_param(ptr noundef %0, ptr noundef null, ptr noundef null)
-  store i32 %call, ptr %rv, align 4
-  %1 = load i32, ptr %rv, align 4
-  switch i32 %1, label %sw.default [
-    i32 0, label %sw.bb
-    i32 -2, label %sw.bb1
-    i32 -1, label %sw.bb2
+6:                                                ; preds = %14, %1
+  %7 = load ptr, ptr %3, align 8, !tbaa !3
+  %8 = call i32 @sfparse_parser_param(ptr noundef %7, ptr noundef null, ptr noundef null)
+  store i32 %8, ptr %4, align 4, !tbaa !16
+  %9 = load i32, ptr %4, align 4, !tbaa !16
+  switch i32 %9, label %13 [
+    i32 0, label %14
+    i32 -2, label %10
+    i32 -1, label %11
   ]
 
-sw.bb:                                            ; preds = %for.cond
-  br label %sw.epilog
+10:                                               ; preds = %6
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %15
 
-sw.bb1:                                           ; preds = %for.cond
-  store i32 0, ptr %retval, align 4
-  br label %return
+11:                                               ; preds = %6
+  %12 = load i32, ptr %4, align 4, !tbaa !16
+  store i32 %12, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %15
 
-sw.bb2:                                           ; preds = %for.cond
-  %2 = load i32, ptr %rv, align 4
-  store i32 %2, ptr %retval, align 4
-  br label %return
-
-sw.default:                                       ; preds = %for.cond
-  call void @__assert_fail(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 697, ptr noundef @__PRETTY_FUNCTION__.parser_skip_params) #4
+13:                                               ; preds = %6
+  call void @__assert_fail(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 1280, ptr noundef @__PRETTY_FUNCTION__.parser_skip_params) #6
   unreachable
 
-sw.epilog:                                        ; preds = %sw.bb
-  br label %for.cond
+14:                                               ; preds = %6
+  br label %6
 
-return:                                           ; preds = %sw.bb2, %sw.bb1
-  %3 = load i32, ptr %retval, align 4
-  ret i32 %3
+15:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #5
+  %16 = load i32, ptr %2, align 4
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @parser_unset_inner_list_state(ptr noundef %sfp) #0 {
-entry:
-  %sfp.addr = alloca ptr, align 8
-  store ptr %sfp, ptr %sfp.addr, align 8
-  %0 = load ptr, ptr %sfp.addr, align 8
-  %state = getelementptr inbounds %struct.sf_parser, ptr %0, i32 0, i32 2
-  %1 = load i32, ptr %state, align 8
-  %and = and i32 %1, -5
-  store i32 %and, ptr %state, align 8
+define internal void @parser_unset_inner_list_state(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %3, i32 0, i32 2
+  %5 = load i32, ptr %4, align 8, !tbaa !12
+  %6 = and i32 %5, -5
+  store i32 %6, ptr %4, align 8, !tbaa !12
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @sf_parser_dict(ptr noundef %sfp, ptr noundef %dest_key, ptr noundef %dest_value) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sfp.addr = alloca ptr, align 8
-  %dest_key.addr = alloca ptr, align 8
-  %dest_value.addr = alloca ptr, align 8
-  %rv = alloca i32, align 4
-  store ptr %sfp, ptr %sfp.addr, align 8
-  store ptr %dest_key, ptr %dest_key.addr, align 8
-  store ptr %dest_value, ptr %dest_value.addr, align 8
-  %0 = load ptr, ptr %sfp.addr, align 8
-  %state = getelementptr inbounds %struct.sf_parser, ptr %0, i32 0, i32 2
-  %1 = load i32, ptr %state, align 8
-  switch i32 %1, label %sw.default [
-    i32 12, label %sw.bb
-    i32 9, label %sw.bb1
-    i32 11, label %sw.bb6
-    i32 0, label %sw.bb11
+define hidden i32 @sfparse_parser_dict(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  %10 = load ptr, ptr %5, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %10, i32 0, i32 2
+  %12 = load i32, ptr %11, align 8, !tbaa !12
+  switch i32 %12, label %44 [
+    i32 12, label %13
+    i32 9, label %21
+    i32 11, label %29
+    i32 0, label %37
   ]
 
-sw.bb:                                            ; preds = %entry
-  %2 = load ptr, ptr %sfp.addr, align 8
-  %call = call i32 @parser_skip_inner_list(ptr noundef %2)
-  store i32 %call, ptr %rv, align 4
-  %3 = load i32, ptr %rv, align 4
-  %cmp = icmp ne i32 %3, 0
-  br i1 %cmp, label %if.then, label %if.end
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %5, align 8, !tbaa !3
+  %15 = call i32 @parser_skip_inner_list(ptr noundef %14)
+  store i32 %15, ptr %8, align 4, !tbaa !16
+  %16 = load i32, ptr %8, align 4, !tbaa !16
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %20
 
-if.then:                                          ; preds = %sw.bb
-  %4 = load i32, ptr %rv, align 4
-  store i32 %4, ptr %retval, align 4
-  br label %return
+18:                                               ; preds = %13
+  %19 = load i32, ptr %8, align 4, !tbaa !16
+  store i32 %19, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %57
 
-if.end:                                           ; preds = %sw.bb
-  br label %sw.bb1
+20:                                               ; preds = %13
+  br label %21
 
-sw.bb1:                                           ; preds = %if.end, %entry
-  %5 = load ptr, ptr %sfp.addr, align 8
-  %call2 = call i32 @parser_skip_params(ptr noundef %5)
-  store i32 %call2, ptr %rv, align 4
-  %6 = load i32, ptr %rv, align 4
-  %cmp3 = icmp ne i32 %6, 0
-  br i1 %cmp3, label %if.then4, label %if.end5
+21:                                               ; preds = %3, %20
+  %22 = load ptr, ptr %5, align 8, !tbaa !3
+  %23 = call i32 @parser_skip_params(ptr noundef %22)
+  store i32 %23, ptr %8, align 4, !tbaa !16
+  %24 = load i32, ptr %8, align 4, !tbaa !16
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %26, label %28
 
-if.then4:                                         ; preds = %sw.bb1
-  %7 = load i32, ptr %rv, align 4
-  store i32 %7, ptr %retval, align 4
-  br label %return
+26:                                               ; preds = %21
+  %27 = load i32, ptr %8, align 4, !tbaa !16
+  store i32 %27, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %57
 
-if.end5:                                          ; preds = %sw.bb1
-  br label %sw.bb6
+28:                                               ; preds = %21
+  br label %29
 
-sw.bb6:                                           ; preds = %if.end5, %entry
-  %8 = load ptr, ptr %sfp.addr, align 8
-  %call7 = call i32 @parser_next_key_or_item(ptr noundef %8)
-  store i32 %call7, ptr %rv, align 4
-  %9 = load i32, ptr %rv, align 4
-  %cmp8 = icmp ne i32 %9, 0
-  br i1 %cmp8, label %if.then9, label %if.end10
+29:                                               ; preds = %3, %28
+  %30 = load ptr, ptr %5, align 8, !tbaa !3
+  %31 = call i32 @parser_next_key_or_item(ptr noundef %30)
+  store i32 %31, ptr %8, align 4, !tbaa !16
+  %32 = load i32, ptr %8, align 4, !tbaa !16
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %34, label %36
 
-if.then9:                                         ; preds = %sw.bb6
-  %10 = load i32, ptr %rv, align 4
-  store i32 %10, ptr %retval, align 4
-  br label %return
+34:                                               ; preds = %29
+  %35 = load i32, ptr %8, align 4, !tbaa !16
+  store i32 %35, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %57
 
-if.end10:                                         ; preds = %sw.bb6
-  br label %sw.epilog
+36:                                               ; preds = %29
+  br label %45
 
-sw.bb11:                                          ; preds = %entry
-  %11 = load ptr, ptr %sfp.addr, align 8
-  call void @parser_discard_sp(ptr noundef %11)
-  %12 = load ptr, ptr %sfp.addr, align 8
-  %call12 = call i32 @parser_eof(ptr noundef %12)
-  %tobool = icmp ne i32 %call12, 0
-  br i1 %tobool, label %if.then13, label %if.end14
+37:                                               ; preds = %3
+  %38 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @parser_discard_sp(ptr noundef %38)
+  %39 = load ptr, ptr %5, align 8, !tbaa !3
+  %40 = call i32 @parser_eof(ptr noundef %39)
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %42, label %43
 
-if.then13:                                        ; preds = %sw.bb11
-  store i32 -2, ptr %retval, align 4
-  br label %return
+42:                                               ; preds = %37
+  store i32 -2, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %57
 
-if.end14:                                         ; preds = %sw.bb11
-  br label %sw.epilog
+43:                                               ; preds = %37
+  br label %45
 
-sw.default:                                       ; preds = %entry
-  call void @__assert_fail(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 888, ptr noundef @__PRETTY_FUNCTION__.sf_parser_dict) #4
+44:                                               ; preds = %3
+  call void @__assert_fail(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 1472, ptr noundef @__PRETTY_FUNCTION__.sfparse_parser_dict) #6
   unreachable
 
-sw.epilog:                                        ; preds = %if.end14, %if.end10
-  %13 = load ptr, ptr %sfp.addr, align 8
-  %14 = load ptr, ptr %dest_key.addr, align 8
-  %call15 = call i32 @parser_key(ptr noundef %13, ptr noundef %14)
-  store i32 %call15, ptr %rv, align 4
-  %15 = load i32, ptr %rv, align 4
-  %cmp16 = icmp ne i32 %15, 0
-  br i1 %cmp16, label %if.then17, label %if.end18
+45:                                               ; preds = %43, %36
+  %46 = load ptr, ptr %5, align 8, !tbaa !3
+  %47 = load ptr, ptr %6, align 8, !tbaa !8
+  %48 = call i32 @parser_key(ptr noundef %46, ptr noundef %47)
+  store i32 %48, ptr %8, align 4, !tbaa !16
+  %49 = load i32, ptr %8, align 4, !tbaa !16
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %51, label %53
 
-if.then17:                                        ; preds = %sw.epilog
-  %16 = load i32, ptr %rv, align 4
-  store i32 %16, ptr %retval, align 4
-  br label %return
+51:                                               ; preds = %45
+  %52 = load i32, ptr %8, align 4, !tbaa !16
+  store i32 %52, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %57
 
-if.end18:                                         ; preds = %sw.epilog
-  %17 = load ptr, ptr %sfp.addr, align 8
-  %18 = load ptr, ptr %dest_value.addr, align 8
-  %call19 = call i32 @parser_dict_value(ptr noundef %17, ptr noundef %18)
-  store i32 %call19, ptr %retval, align 4
-  br label %return
+53:                                               ; preds = %45
+  %54 = load ptr, ptr %5, align 8, !tbaa !3
+  %55 = load ptr, ptr %7, align 8, !tbaa !10
+  %56 = call i32 @parser_dict_value(ptr noundef %54, ptr noundef %55)
+  store i32 %56, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %57
 
-return:                                           ; preds = %if.end18, %if.then17, %if.then13, %if.then9, %if.then4, %if.then
-  %19 = load i32, ptr %retval, align 4
-  ret i32 %19
+57:                                               ; preds = %53, %51, %42, %34, %26, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  %58 = load i32, ptr %4, align 4
+  ret i32 %58
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @parser_next_key_or_item(ptr noundef %sfp) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sfp.addr = alloca ptr, align 8
-  store ptr %sfp, ptr %sfp.addr, align 8
-  %0 = load ptr, ptr %sfp.addr, align 8
-  call void @parser_discard_ows(ptr noundef %0)
-  %1 = load ptr, ptr %sfp.addr, align 8
-  %call = call i32 @parser_eof(ptr noundef %1)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define internal i32 @parser_next_key_or_item(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %4 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @parser_discard_ows(ptr noundef %4)
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = call i32 @parser_eof(ptr noundef %5)
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %9
 
-if.then:                                          ; preds = %entry
-  store i32 -2, ptr %retval, align 4
-  br label %return
+8:                                                ; preds = %1
+  store i32 -2, ptr %2, align 4
+  br label %28
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %sfp.addr, align 8
-  %pos = getelementptr inbounds %struct.sf_parser, ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %pos, align 8
-  %4 = load i8, ptr %3, align 1
-  %conv = zext i8 %4 to i32
-  %cmp = icmp ne i32 %conv, 44
-  br i1 %cmp, label %if.then2, label %if.end3
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %3, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !17
+  %13 = load i8, ptr %12, align 1, !tbaa !18
+  %14 = zext i8 %13 to i32
+  %15 = icmp ne i32 %14, 44
+  br i1 %15, label %16, label %17
 
-if.then2:                                         ; preds = %if.end
-  store i32 -1, ptr %retval, align 4
-  br label %return
+16:                                               ; preds = %9
+  store i32 -1, ptr %2, align 4
+  br label %28
 
-if.end3:                                          ; preds = %if.end
-  %5 = load ptr, ptr %sfp.addr, align 8
-  %pos4 = getelementptr inbounds %struct.sf_parser, ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %pos4, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %6, i32 1
-  store ptr %incdec.ptr, ptr %pos4, align 8
-  %7 = load ptr, ptr %sfp.addr, align 8
-  call void @parser_discard_ows(ptr noundef %7)
-  %8 = load ptr, ptr %sfp.addr, align 8
-  %call5 = call i32 @parser_eof(ptr noundef %8)
-  %tobool6 = icmp ne i32 %call5, 0
-  br i1 %tobool6, label %if.then7, label %if.end8
+17:                                               ; preds = %9
+  %18 = load ptr, ptr %3, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !17
+  %21 = getelementptr inbounds nuw i8, ptr %20, i32 1
+  store ptr %21, ptr %19, align 8, !tbaa !17
+  %22 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @parser_discard_ows(ptr noundef %22)
+  %23 = load ptr, ptr %3, align 8, !tbaa !3
+  %24 = call i32 @parser_eof(ptr noundef %23)
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %26, label %27
 
-if.then7:                                         ; preds = %if.end3
-  store i32 -1, ptr %retval, align 4
-  br label %return
+26:                                               ; preds = %17
+  store i32 -1, ptr %2, align 4
+  br label %28
 
-if.end8:                                          ; preds = %if.end3
-  store i32 0, ptr %retval, align 4
-  br label %return
+27:                                               ; preds = %17
+  store i32 0, ptr %2, align 4
+  br label %28
 
-return:                                           ; preds = %if.end8, %if.then7, %if.then2, %if.then
-  %9 = load i32, ptr %retval, align 4
-  ret i32 %9
+28:                                               ; preds = %27, %26, %16, %8
+  %29 = load i32, ptr %2, align 4
+  ret i32 %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @parser_dict_value(ptr noundef %sfp, ptr noundef %dest) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sfp.addr = alloca ptr, align 8
-  %dest.addr = alloca ptr, align 8
-  %rv = alloca i32, align 4
-  store ptr %sfp, ptr %sfp.addr, align 8
-  store ptr %dest, ptr %dest.addr, align 8
-  %0 = load ptr, ptr %sfp.addr, align 8
-  %call = call i32 @parser_eof(ptr noundef %0)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %lor.lhs.false
+define internal i32 @parser_dict_value(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = call i32 @parser_eof(ptr noundef %8)
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %18, label %11
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %sfp.addr, align 8
-  %pos = getelementptr inbounds %struct.sf_parser, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %pos, align 8
-  %3 = load i8, ptr %2, align 1
-  %conv = zext i8 %3 to i32
-  %cmp = icmp ne i32 %conv, 61
-  br i1 %cmp, label %if.then, label %if.end4
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8, !tbaa !17
+  %15 = load i8, ptr %14, align 1, !tbaa !18
+  %16 = zext i8 %15 to i32
+  %17 = icmp ne i32 %16, 61
+  br i1 %17, label %18, label %31
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  %4 = load ptr, ptr %dest.addr, align 8
-  %tobool2 = icmp ne ptr %4, null
-  br i1 %tobool2, label %if.then3, label %if.end
+18:                                               ; preds = %11, %2
+  %19 = load ptr, ptr %5, align 8, !tbaa !10
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %21, label %28
 
-if.then3:                                         ; preds = %if.then
-  %5 = load ptr, ptr %dest.addr, align 8
-  %type = getelementptr inbounds %struct.sf_value, ptr %5, i32 0, i32 0
-  store i32 0, ptr %type, align 8
-  %6 = load ptr, ptr %dest.addr, align 8
-  %flags = getelementptr inbounds %struct.sf_value, ptr %6, i32 0, i32 1
-  store i32 0, ptr %flags, align 4
-  %7 = load ptr, ptr %dest.addr, align 8
-  %8 = getelementptr inbounds %struct.sf_value, ptr %7, i32 0, i32 2
-  store i32 1, ptr %8, align 8
-  br label %if.end
+21:                                               ; preds = %18
+  %22 = load ptr, ptr %5, align 8, !tbaa !10
+  %23 = getelementptr inbounds nuw %struct.sfparse_value, ptr %22, i32 0, i32 0
+  store i32 0, ptr %23, align 8, !tbaa !19
+  %24 = load ptr, ptr %5, align 8, !tbaa !10
+  %25 = getelementptr inbounds nuw %struct.sfparse_value, ptr %24, i32 0, i32 1
+  store i32 0, ptr %25, align 4, !tbaa !21
+  %26 = load ptr, ptr %5, align 8, !tbaa !10
+  %27 = getelementptr inbounds nuw %struct.sfparse_value, ptr %26, i32 0, i32 2
+  store i32 1, ptr %27, align 8, !tbaa !18
+  br label %28
 
-if.end:                                           ; preds = %if.then3, %if.then
-  %9 = load ptr, ptr %sfp.addr, align 8
-  %state = getelementptr inbounds %struct.sf_parser, ptr %9, i32 0, i32 2
-  store i32 9, ptr %state, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
+28:                                               ; preds = %21, %18
+  %29 = load ptr, ptr %4, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %29, i32 0, i32 2
+  store i32 9, ptr %30, align 8, !tbaa !12
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %73
 
-if.end4:                                          ; preds = %lor.lhs.false
-  %10 = load ptr, ptr %sfp.addr, align 8
-  %pos5 = getelementptr inbounds %struct.sf_parser, ptr %10, i32 0, i32 0
-  %11 = load ptr, ptr %pos5, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %11, i32 1
-  store ptr %incdec.ptr, ptr %pos5, align 8
-  %12 = load ptr, ptr %sfp.addr, align 8
-  %call6 = call i32 @parser_eof(ptr noundef %12)
-  %tobool7 = icmp ne i32 %call6, 0
-  br i1 %tobool7, label %if.then8, label %if.end9
+31:                                               ; preds = %11
+  %32 = load ptr, ptr %4, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8, !tbaa !17
+  %35 = getelementptr inbounds nuw i8, ptr %34, i32 1
+  store ptr %35, ptr %33, align 8, !tbaa !17
+  %36 = load ptr, ptr %4, align 8, !tbaa !3
+  %37 = call i32 @parser_eof(ptr noundef %36)
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %40
 
-if.then8:                                         ; preds = %if.end4
-  store i32 -1, ptr %retval, align 4
-  br label %return
+39:                                               ; preds = %31
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %73
 
-if.end9:                                          ; preds = %if.end4
-  %13 = load ptr, ptr %sfp.addr, align 8
-  %pos10 = getelementptr inbounds %struct.sf_parser, ptr %13, i32 0, i32 0
-  %14 = load ptr, ptr %pos10, align 8
-  %15 = load i8, ptr %14, align 1
-  %conv11 = zext i8 %15 to i32
-  %cmp12 = icmp eq i32 %conv11, 40
-  br i1 %cmp12, label %if.then14, label %if.end23
+40:                                               ; preds = %31
+  %41 = load ptr, ptr %4, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %41, i32 0, i32 0
+  %43 = load ptr, ptr %42, align 8, !tbaa !17
+  %44 = load i8, ptr %43, align 1, !tbaa !18
+  %45 = zext i8 %44 to i32
+  %46 = icmp eq i32 %45, 40
+  br i1 %46, label %47, label %62
 
-if.then14:                                        ; preds = %if.end9
-  %16 = load ptr, ptr %dest.addr, align 8
-  %tobool15 = icmp ne ptr %16, null
-  br i1 %tobool15, label %if.then16, label %if.end19
+47:                                               ; preds = %40
+  %48 = load ptr, ptr %5, align 8, !tbaa !10
+  %49 = icmp ne ptr %48, null
+  br i1 %49, label %50, label %55
 
-if.then16:                                        ; preds = %if.then14
-  %17 = load ptr, ptr %dest.addr, align 8
-  %type17 = getelementptr inbounds %struct.sf_value, ptr %17, i32 0, i32 0
-  store i32 6, ptr %type17, align 8
-  %18 = load ptr, ptr %dest.addr, align 8
-  %flags18 = getelementptr inbounds %struct.sf_value, ptr %18, i32 0, i32 1
-  store i32 0, ptr %flags18, align 4
-  br label %if.end19
+50:                                               ; preds = %47
+  %51 = load ptr, ptr %5, align 8, !tbaa !10
+  %52 = getelementptr inbounds nuw %struct.sfparse_value, ptr %51, i32 0, i32 0
+  store i32 6, ptr %52, align 8, !tbaa !19
+  %53 = load ptr, ptr %5, align 8, !tbaa !10
+  %54 = getelementptr inbounds nuw %struct.sfparse_value, ptr %53, i32 0, i32 1
+  store i32 0, ptr %54, align 4, !tbaa !21
+  br label %55
 
-if.end19:                                         ; preds = %if.then16, %if.then14
-  %19 = load ptr, ptr %sfp.addr, align 8
-  %pos20 = getelementptr inbounds %struct.sf_parser, ptr %19, i32 0, i32 0
-  %20 = load ptr, ptr %pos20, align 8
-  %incdec.ptr21 = getelementptr inbounds i8, ptr %20, i32 1
-  store ptr %incdec.ptr21, ptr %pos20, align 8
-  %21 = load ptr, ptr %sfp.addr, align 8
-  %state22 = getelementptr inbounds %struct.sf_parser, ptr %21, i32 0, i32 2
-  store i32 12, ptr %state22, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
+55:                                               ; preds = %50, %47
+  %56 = load ptr, ptr %4, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %56, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8, !tbaa !17
+  %59 = getelementptr inbounds nuw i8, ptr %58, i32 1
+  store ptr %59, ptr %57, align 8, !tbaa !17
+  %60 = load ptr, ptr %4, align 8, !tbaa !3
+  %61 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %60, i32 0, i32 2
+  store i32 12, ptr %61, align 8, !tbaa !12
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %73
 
-if.end23:                                         ; preds = %if.end9
-  %22 = load ptr, ptr %sfp.addr, align 8
-  %23 = load ptr, ptr %dest.addr, align 8
-  %call24 = call i32 @parser_bare_item(ptr noundef %22, ptr noundef %23)
-  store i32 %call24, ptr %rv, align 4
-  %24 = load i32, ptr %rv, align 4
-  %cmp25 = icmp ne i32 %24, 0
-  br i1 %cmp25, label %if.then27, label %if.end28
+62:                                               ; preds = %40
+  %63 = load ptr, ptr %4, align 8, !tbaa !3
+  %64 = load ptr, ptr %5, align 8, !tbaa !10
+  %65 = call i32 @parser_bare_item(ptr noundef %63, ptr noundef %64)
+  store i32 %65, ptr %6, align 4, !tbaa !16
+  %66 = load i32, ptr %6, align 4, !tbaa !16
+  %67 = icmp ne i32 %66, 0
+  br i1 %67, label %68, label %70
 
-if.then27:                                        ; preds = %if.end23
-  %25 = load i32, ptr %rv, align 4
-  store i32 %25, ptr %retval, align 4
-  br label %return
+68:                                               ; preds = %62
+  %69 = load i32, ptr %6, align 4, !tbaa !16
+  store i32 %69, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %73
 
-if.end28:                                         ; preds = %if.end23
-  %26 = load ptr, ptr %sfp.addr, align 8
-  %state29 = getelementptr inbounds %struct.sf_parser, ptr %26, i32 0, i32 2
-  store i32 9, ptr %state29, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
+70:                                               ; preds = %62
+  %71 = load ptr, ptr %4, align 8, !tbaa !3
+  %72 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %71, i32 0, i32 2
+  store i32 9, ptr %72, align 8, !tbaa !12
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %73
 
-return:                                           ; preds = %if.end28, %if.then27, %if.end19, %if.then8, %if.end
-  %27 = load i32, ptr %retval, align 4
-  ret i32 %27
+73:                                               ; preds = %70, %68, %55, %39, %28
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #5
+  %74 = load i32, ptr %3, align 4
+  ret i32 %74
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @sf_parser_list(ptr noundef %sfp, ptr noundef %dest) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sfp.addr = alloca ptr, align 8
-  %dest.addr = alloca ptr, align 8
-  %rv = alloca i32, align 4
-  store ptr %sfp, ptr %sfp.addr, align 8
-  store ptr %dest, ptr %dest.addr, align 8
-  %0 = load ptr, ptr %sfp.addr, align 8
-  %state = getelementptr inbounds %struct.sf_parser, ptr %0, i32 0, i32 2
-  %1 = load i32, ptr %state, align 8
-  switch i32 %1, label %sw.default [
-    i32 20, label %sw.bb
-    i32 17, label %sw.bb1
-    i32 19, label %sw.bb6
-    i32 0, label %sw.bb11
+define hidden i32 @sfparse_parser_list(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %8, i32 0, i32 2
+  %10 = load i32, ptr %9, align 8, !tbaa !12
+  switch i32 %10, label %42 [
+    i32 20, label %11
+    i32 17, label %19
+    i32 19, label %27
+    i32 0, label %35
   ]
 
-sw.bb:                                            ; preds = %entry
-  %2 = load ptr, ptr %sfp.addr, align 8
-  %call = call i32 @parser_skip_inner_list(ptr noundef %2)
-  store i32 %call, ptr %rv, align 4
-  %3 = load i32, ptr %rv, align 4
-  %cmp = icmp ne i32 %3, 0
-  br i1 %cmp, label %if.then, label %if.end
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  %13 = call i32 @parser_skip_inner_list(ptr noundef %12)
+  store i32 %13, ptr %6, align 4, !tbaa !16
+  %14 = load i32, ptr %6, align 4, !tbaa !16
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %16, label %18
 
-if.then:                                          ; preds = %sw.bb
-  %4 = load i32, ptr %rv, align 4
-  store i32 %4, ptr %retval, align 4
-  br label %return
+16:                                               ; preds = %11
+  %17 = load i32, ptr %6, align 4, !tbaa !16
+  store i32 %17, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %76
 
-if.end:                                           ; preds = %sw.bb
-  br label %sw.bb1
+18:                                               ; preds = %11
+  br label %19
 
-sw.bb1:                                           ; preds = %if.end, %entry
-  %5 = load ptr, ptr %sfp.addr, align 8
-  %call2 = call i32 @parser_skip_params(ptr noundef %5)
-  store i32 %call2, ptr %rv, align 4
-  %6 = load i32, ptr %rv, align 4
-  %cmp3 = icmp ne i32 %6, 0
-  br i1 %cmp3, label %if.then4, label %if.end5
+19:                                               ; preds = %2, %18
+  %20 = load ptr, ptr %4, align 8, !tbaa !3
+  %21 = call i32 @parser_skip_params(ptr noundef %20)
+  store i32 %21, ptr %6, align 4, !tbaa !16
+  %22 = load i32, ptr %6, align 4, !tbaa !16
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %26
 
-if.then4:                                         ; preds = %sw.bb1
-  %7 = load i32, ptr %rv, align 4
-  store i32 %7, ptr %retval, align 4
-  br label %return
+24:                                               ; preds = %19
+  %25 = load i32, ptr %6, align 4, !tbaa !16
+  store i32 %25, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %76
 
-if.end5:                                          ; preds = %sw.bb1
-  br label %sw.bb6
+26:                                               ; preds = %19
+  br label %27
 
-sw.bb6:                                           ; preds = %if.end5, %entry
-  %8 = load ptr, ptr %sfp.addr, align 8
-  %call7 = call i32 @parser_next_key_or_item(ptr noundef %8)
-  store i32 %call7, ptr %rv, align 4
-  %9 = load i32, ptr %rv, align 4
-  %cmp8 = icmp ne i32 %9, 0
-  br i1 %cmp8, label %if.then9, label %if.end10
+27:                                               ; preds = %2, %26
+  %28 = load ptr, ptr %4, align 8, !tbaa !3
+  %29 = call i32 @parser_next_key_or_item(ptr noundef %28)
+  store i32 %29, ptr %6, align 4, !tbaa !16
+  %30 = load i32, ptr %6, align 4, !tbaa !16
+  %31 = icmp ne i32 %30, 0
+  br i1 %31, label %32, label %34
 
-if.then9:                                         ; preds = %sw.bb6
-  %10 = load i32, ptr %rv, align 4
-  store i32 %10, ptr %retval, align 4
-  br label %return
+32:                                               ; preds = %27
+  %33 = load i32, ptr %6, align 4, !tbaa !16
+  store i32 %33, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %76
 
-if.end10:                                         ; preds = %sw.bb6
-  br label %sw.epilog
+34:                                               ; preds = %27
+  br label %43
 
-sw.bb11:                                          ; preds = %entry
-  %11 = load ptr, ptr %sfp.addr, align 8
-  call void @parser_discard_sp(ptr noundef %11)
-  %12 = load ptr, ptr %sfp.addr, align 8
-  %call12 = call i32 @parser_eof(ptr noundef %12)
-  %tobool = icmp ne i32 %call12, 0
-  br i1 %tobool, label %if.then13, label %if.end14
+35:                                               ; preds = %2
+  %36 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @parser_discard_sp(ptr noundef %36)
+  %37 = load ptr, ptr %4, align 8, !tbaa !3
+  %38 = call i32 @parser_eof(ptr noundef %37)
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %40, label %41
 
-if.then13:                                        ; preds = %sw.bb11
-  store i32 -2, ptr %retval, align 4
-  br label %return
+40:                                               ; preds = %35
+  store i32 -2, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %76
 
-if.end14:                                         ; preds = %sw.bb11
-  br label %sw.epilog
+41:                                               ; preds = %35
+  br label %43
 
-sw.default:                                       ; preds = %entry
-  call void @__assert_fail(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 934, ptr noundef @__PRETTY_FUNCTION__.sf_parser_list) #4
+42:                                               ; preds = %2
+  call void @__assert_fail(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 1518, ptr noundef @__PRETTY_FUNCTION__.sfparse_parser_list) #6
   unreachable
 
-sw.epilog:                                        ; preds = %if.end14, %if.end10
-  %13 = load ptr, ptr %sfp.addr, align 8
-  %pos = getelementptr inbounds %struct.sf_parser, ptr %13, i32 0, i32 0
-  %14 = load ptr, ptr %pos, align 8
-  %15 = load i8, ptr %14, align 1
-  %conv = zext i8 %15 to i32
-  %cmp15 = icmp eq i32 %conv, 40
-  br i1 %cmp15, label %if.then17, label %if.end23
+43:                                               ; preds = %41, %34
+  %44 = load ptr, ptr %4, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %44, i32 0, i32 0
+  %46 = load ptr, ptr %45, align 8, !tbaa !17
+  %47 = load i8, ptr %46, align 1, !tbaa !18
+  %48 = zext i8 %47 to i32
+  %49 = icmp eq i32 %48, 40
+  br i1 %49, label %50, label %65
 
-if.then17:                                        ; preds = %sw.epilog
-  %16 = load ptr, ptr %dest.addr, align 8
-  %tobool18 = icmp ne ptr %16, null
-  br i1 %tobool18, label %if.then19, label %if.end20
+50:                                               ; preds = %43
+  %51 = load ptr, ptr %5, align 8, !tbaa !10
+  %52 = icmp ne ptr %51, null
+  br i1 %52, label %53, label %58
 
-if.then19:                                        ; preds = %if.then17
-  %17 = load ptr, ptr %dest.addr, align 8
-  %type = getelementptr inbounds %struct.sf_value, ptr %17, i32 0, i32 0
-  store i32 6, ptr %type, align 8
-  %18 = load ptr, ptr %dest.addr, align 8
-  %flags = getelementptr inbounds %struct.sf_value, ptr %18, i32 0, i32 1
-  store i32 0, ptr %flags, align 4
-  br label %if.end20
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %5, align 8, !tbaa !10
+  %55 = getelementptr inbounds nuw %struct.sfparse_value, ptr %54, i32 0, i32 0
+  store i32 6, ptr %55, align 8, !tbaa !19
+  %56 = load ptr, ptr %5, align 8, !tbaa !10
+  %57 = getelementptr inbounds nuw %struct.sfparse_value, ptr %56, i32 0, i32 1
+  store i32 0, ptr %57, align 4, !tbaa !21
+  br label %58
 
-if.end20:                                         ; preds = %if.then19, %if.then17
-  %19 = load ptr, ptr %sfp.addr, align 8
-  %pos21 = getelementptr inbounds %struct.sf_parser, ptr %19, i32 0, i32 0
-  %20 = load ptr, ptr %pos21, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %20, i32 1
-  store ptr %incdec.ptr, ptr %pos21, align 8
-  %21 = load ptr, ptr %sfp.addr, align 8
-  %state22 = getelementptr inbounds %struct.sf_parser, ptr %21, i32 0, i32 2
-  store i32 20, ptr %state22, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
+58:                                               ; preds = %53, %50
+  %59 = load ptr, ptr %4, align 8, !tbaa !3
+  %60 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %59, i32 0, i32 0
+  %61 = load ptr, ptr %60, align 8, !tbaa !17
+  %62 = getelementptr inbounds nuw i8, ptr %61, i32 1
+  store ptr %62, ptr %60, align 8, !tbaa !17
+  %63 = load ptr, ptr %4, align 8, !tbaa !3
+  %64 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %63, i32 0, i32 2
+  store i32 20, ptr %64, align 8, !tbaa !12
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %76
 
-if.end23:                                         ; preds = %sw.epilog
-  %22 = load ptr, ptr %sfp.addr, align 8
-  %23 = load ptr, ptr %dest.addr, align 8
-  %call24 = call i32 @parser_bare_item(ptr noundef %22, ptr noundef %23)
-  store i32 %call24, ptr %rv, align 4
-  %24 = load i32, ptr %rv, align 4
-  %cmp25 = icmp ne i32 %24, 0
-  br i1 %cmp25, label %if.then27, label %if.end28
+65:                                               ; preds = %43
+  %66 = load ptr, ptr %4, align 8, !tbaa !3
+  %67 = load ptr, ptr %5, align 8, !tbaa !10
+  %68 = call i32 @parser_bare_item(ptr noundef %66, ptr noundef %67)
+  store i32 %68, ptr %6, align 4, !tbaa !16
+  %69 = load i32, ptr %6, align 4, !tbaa !16
+  %70 = icmp ne i32 %69, 0
+  br i1 %70, label %71, label %73
 
-if.then27:                                        ; preds = %if.end23
-  %25 = load i32, ptr %rv, align 4
-  store i32 %25, ptr %retval, align 4
-  br label %return
+71:                                               ; preds = %65
+  %72 = load i32, ptr %6, align 4, !tbaa !16
+  store i32 %72, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %76
 
-if.end28:                                         ; preds = %if.end23
-  %26 = load ptr, ptr %sfp.addr, align 8
-  %state29 = getelementptr inbounds %struct.sf_parser, ptr %26, i32 0, i32 2
-  store i32 17, ptr %state29, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
+73:                                               ; preds = %65
+  %74 = load ptr, ptr %4, align 8, !tbaa !3
+  %75 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %74, i32 0, i32 2
+  store i32 17, ptr %75, align 8, !tbaa !12
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %76
 
-return:                                           ; preds = %if.end28, %if.then27, %if.end20, %if.then13, %if.then9, %if.then4, %if.then
-  %27 = load i32, ptr %retval, align 4
-  ret i32 %27
+76:                                               ; preds = %73, %71, %58, %40, %32, %24, %16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #5
+  %77 = load i32, ptr %3, align 4
+  ret i32 %77
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @sf_parser_item(ptr noundef %sfp, ptr noundef %dest) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sfp.addr = alloca ptr, align 8
-  %dest.addr = alloca ptr, align 8
-  %rv = alloca i32, align 4
-  store ptr %sfp, ptr %sfp.addr, align 8
-  store ptr %dest, ptr %dest.addr, align 8
-  %0 = load ptr, ptr %sfp.addr, align 8
-  %state = getelementptr inbounds %struct.sf_parser, ptr %0, i32 0, i32 2
-  %1 = load i32, ptr %state, align 8
-  switch i32 %1, label %sw.default [
-    i32 0, label %sw.bb
-    i32 28, label %sw.bb1
-    i32 25, label %sw.bb5
-    i32 27, label %sw.bb10
+define hidden i32 @sfparse_parser_item(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %8, i32 0, i32 2
+  %10 = load i32, ptr %9, align 8, !tbaa !12
+  switch i32 %10, label %41 [
+    i32 0, label %11
+    i32 28, label %18
+    i32 25, label %26
+    i32 27, label %34
   ]
 
-sw.bb:                                            ; preds = %entry
-  %2 = load ptr, ptr %sfp.addr, align 8
-  call void @parser_discard_sp(ptr noundef %2)
-  %3 = load ptr, ptr %sfp.addr, align 8
-  %call = call i32 @parser_eof(ptr noundef %3)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @parser_discard_sp(ptr noundef %12)
+  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  %14 = call i32 @parser_eof(ptr noundef %13)
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %16, label %17
 
-if.then:                                          ; preds = %sw.bb
-  store i32 -1, ptr %retval, align 4
-  br label %return
+16:                                               ; preds = %11
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %75
 
-if.end:                                           ; preds = %sw.bb
-  br label %sw.epilog
+17:                                               ; preds = %11
+  br label %42
 
-sw.bb1:                                           ; preds = %entry
-  %4 = load ptr, ptr %sfp.addr, align 8
-  %call2 = call i32 @parser_skip_inner_list(ptr noundef %4)
-  store i32 %call2, ptr %rv, align 4
-  %5 = load i32, ptr %rv, align 4
-  %cmp = icmp ne i32 %5, 0
-  br i1 %cmp, label %if.then3, label %if.end4
+18:                                               ; preds = %2
+  %19 = load ptr, ptr %4, align 8, !tbaa !3
+  %20 = call i32 @parser_skip_inner_list(ptr noundef %19)
+  store i32 %20, ptr %6, align 4, !tbaa !16
+  %21 = load i32, ptr %6, align 4, !tbaa !16
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %23, label %25
 
-if.then3:                                         ; preds = %sw.bb1
-  %6 = load i32, ptr %rv, align 4
-  store i32 %6, ptr %retval, align 4
-  br label %return
+23:                                               ; preds = %18
+  %24 = load i32, ptr %6, align 4, !tbaa !16
+  store i32 %24, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %75
 
-if.end4:                                          ; preds = %sw.bb1
-  br label %sw.bb5
+25:                                               ; preds = %18
+  br label %26
 
-sw.bb5:                                           ; preds = %if.end4, %entry
-  %7 = load ptr, ptr %sfp.addr, align 8
-  %call6 = call i32 @parser_skip_params(ptr noundef %7)
-  store i32 %call6, ptr %rv, align 4
-  %8 = load i32, ptr %rv, align 4
-  %cmp7 = icmp ne i32 %8, 0
-  br i1 %cmp7, label %if.then8, label %if.end9
+26:                                               ; preds = %2, %25
+  %27 = load ptr, ptr %4, align 8, !tbaa !3
+  %28 = call i32 @parser_skip_params(ptr noundef %27)
+  store i32 %28, ptr %6, align 4, !tbaa !16
+  %29 = load i32, ptr %6, align 4, !tbaa !16
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %31, label %33
 
-if.then8:                                         ; preds = %sw.bb5
-  %9 = load i32, ptr %rv, align 4
-  store i32 %9, ptr %retval, align 4
-  br label %return
+31:                                               ; preds = %26
+  %32 = load i32, ptr %6, align 4, !tbaa !16
+  store i32 %32, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %75
 
-if.end9:                                          ; preds = %sw.bb5
-  br label %sw.bb10
+33:                                               ; preds = %26
+  br label %34
 
-sw.bb10:                                          ; preds = %if.end9, %entry
-  %10 = load ptr, ptr %sfp.addr, align 8
-  call void @parser_discard_sp(ptr noundef %10)
-  %11 = load ptr, ptr %sfp.addr, align 8
-  %call11 = call i32 @parser_eof(ptr noundef %11)
-  %tobool12 = icmp ne i32 %call11, 0
-  br i1 %tobool12, label %if.end14, label %if.then13
+34:                                               ; preds = %2, %33
+  %35 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @parser_discard_sp(ptr noundef %35)
+  %36 = load ptr, ptr %4, align 8, !tbaa !3
+  %37 = call i32 @parser_eof(ptr noundef %36)
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %40, label %39
 
-if.then13:                                        ; preds = %sw.bb10
-  store i32 -1, ptr %retval, align 4
-  br label %return
+39:                                               ; preds = %34
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %75
 
-if.end14:                                         ; preds = %sw.bb10
-  store i32 -2, ptr %retval, align 4
-  br label %return
+40:                                               ; preds = %34
+  store i32 -2, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %75
 
-sw.default:                                       ; preds = %entry
-  call void @__assert_fail(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 996, ptr noundef @__PRETTY_FUNCTION__.sf_parser_item) #4
+41:                                               ; preds = %2
+  call void @__assert_fail(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 1580, ptr noundef @__PRETTY_FUNCTION__.sfparse_parser_item) #6
   unreachable
 
-sw.epilog:                                        ; preds = %if.end
-  %12 = load ptr, ptr %sfp.addr, align 8
-  %pos = getelementptr inbounds %struct.sf_parser, ptr %12, i32 0, i32 0
-  %13 = load ptr, ptr %pos, align 8
-  %14 = load i8, ptr %13, align 1
-  %conv = zext i8 %14 to i32
-  %cmp15 = icmp eq i32 %conv, 40
-  br i1 %cmp15, label %if.then17, label %if.end23
+42:                                               ; preds = %17
+  %43 = load ptr, ptr %4, align 8, !tbaa !3
+  %44 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %43, i32 0, i32 0
+  %45 = load ptr, ptr %44, align 8, !tbaa !17
+  %46 = load i8, ptr %45, align 1, !tbaa !18
+  %47 = zext i8 %46 to i32
+  %48 = icmp eq i32 %47, 40
+  br i1 %48, label %49, label %64
 
-if.then17:                                        ; preds = %sw.epilog
-  %15 = load ptr, ptr %dest.addr, align 8
-  %tobool18 = icmp ne ptr %15, null
-  br i1 %tobool18, label %if.then19, label %if.end20
+49:                                               ; preds = %42
+  %50 = load ptr, ptr %5, align 8, !tbaa !10
+  %51 = icmp ne ptr %50, null
+  br i1 %51, label %52, label %57
 
-if.then19:                                        ; preds = %if.then17
-  %16 = load ptr, ptr %dest.addr, align 8
-  %type = getelementptr inbounds %struct.sf_value, ptr %16, i32 0, i32 0
-  store i32 6, ptr %type, align 8
-  %17 = load ptr, ptr %dest.addr, align 8
-  %flags = getelementptr inbounds %struct.sf_value, ptr %17, i32 0, i32 1
-  store i32 0, ptr %flags, align 4
-  br label %if.end20
+52:                                               ; preds = %49
+  %53 = load ptr, ptr %5, align 8, !tbaa !10
+  %54 = getelementptr inbounds nuw %struct.sfparse_value, ptr %53, i32 0, i32 0
+  store i32 6, ptr %54, align 8, !tbaa !19
+  %55 = load ptr, ptr %5, align 8, !tbaa !10
+  %56 = getelementptr inbounds nuw %struct.sfparse_value, ptr %55, i32 0, i32 1
+  store i32 0, ptr %56, align 4, !tbaa !21
+  br label %57
 
-if.end20:                                         ; preds = %if.then19, %if.then17
-  %18 = load ptr, ptr %sfp.addr, align 8
-  %pos21 = getelementptr inbounds %struct.sf_parser, ptr %18, i32 0, i32 0
-  %19 = load ptr, ptr %pos21, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %19, i32 1
-  store ptr %incdec.ptr, ptr %pos21, align 8
-  %20 = load ptr, ptr %sfp.addr, align 8
-  %state22 = getelementptr inbounds %struct.sf_parser, ptr %20, i32 0, i32 2
-  store i32 28, ptr %state22, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
+57:                                               ; preds = %52, %49
+  %58 = load ptr, ptr %4, align 8, !tbaa !3
+  %59 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %58, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8, !tbaa !17
+  %61 = getelementptr inbounds nuw i8, ptr %60, i32 1
+  store ptr %61, ptr %59, align 8, !tbaa !17
+  %62 = load ptr, ptr %4, align 8, !tbaa !3
+  %63 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %62, i32 0, i32 2
+  store i32 28, ptr %63, align 8, !tbaa !12
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %75
 
-if.end23:                                         ; preds = %sw.epilog
-  %21 = load ptr, ptr %sfp.addr, align 8
-  %22 = load ptr, ptr %dest.addr, align 8
-  %call24 = call i32 @parser_bare_item(ptr noundef %21, ptr noundef %22)
-  store i32 %call24, ptr %rv, align 4
-  %23 = load i32, ptr %rv, align 4
-  %cmp25 = icmp ne i32 %23, 0
-  br i1 %cmp25, label %if.then27, label %if.end28
+64:                                               ; preds = %42
+  %65 = load ptr, ptr %4, align 8, !tbaa !3
+  %66 = load ptr, ptr %5, align 8, !tbaa !10
+  %67 = call i32 @parser_bare_item(ptr noundef %65, ptr noundef %66)
+  store i32 %67, ptr %6, align 4, !tbaa !16
+  %68 = load i32, ptr %6, align 4, !tbaa !16
+  %69 = icmp ne i32 %68, 0
+  br i1 %69, label %70, label %72
 
-if.then27:                                        ; preds = %if.end23
-  %24 = load i32, ptr %rv, align 4
-  store i32 %24, ptr %retval, align 4
-  br label %return
+70:                                               ; preds = %64
+  %71 = load i32, ptr %6, align 4, !tbaa !16
+  store i32 %71, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %75
 
-if.end28:                                         ; preds = %if.end23
-  %25 = load ptr, ptr %sfp.addr, align 8
-  %state29 = getelementptr inbounds %struct.sf_parser, ptr %25, i32 0, i32 2
-  store i32 25, ptr %state29, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
+72:                                               ; preds = %64
+  %73 = load ptr, ptr %4, align 8, !tbaa !3
+  %74 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %73, i32 0, i32 2
+  store i32 25, ptr %74, align 8, !tbaa !12
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %75
 
-return:                                           ; preds = %if.end28, %if.then27, %if.end20, %if.end14, %if.then13, %if.then8, %if.then3, %if.then
-  %26 = load i32, ptr %retval, align 4
-  ret i32 %26
+75:                                               ; preds = %72, %70, %57, %40, %39, %31, %23, %16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #5
+  %76 = load i32, ptr %3, align 4
+  ret i32 %76
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @sf_parser_init(ptr noundef %sfp, ptr noundef %data, i64 noundef %datalen) #0 {
-entry:
-  %sfp.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %datalen.addr = alloca i64, align 8
-  store ptr %sfp, ptr %sfp.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store i64 %datalen, ptr %datalen.addr, align 8
-  %0 = load i64, ptr %datalen.addr, align 8
-  %cmp = icmp eq i64 %0, 0
-  br i1 %cmp, label %if.then, label %if.else
+define hidden void @sfparse_parser_init(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !25
+  store i64 %2, ptr %6, align 8, !tbaa !31
+  %7 = load i64, ptr %6, align 8, !tbaa !31
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %9, label %14
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %sfp.addr, align 8
-  %end = getelementptr inbounds %struct.sf_parser, ptr %1, i32 0, i32 1
-  store ptr null, ptr %end, align 8
-  %2 = load ptr, ptr %sfp.addr, align 8
-  %pos = getelementptr inbounds %struct.sf_parser, ptr %2, i32 0, i32 0
-  store ptr null, ptr %pos, align 8
-  br label %if.end
+9:                                                ; preds = %3
+  %10 = load ptr, ptr %4, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %10, i32 0, i32 1
+  store ptr null, ptr %11, align 8, !tbaa !22
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %12, i32 0, i32 0
+  store ptr null, ptr %13, align 8, !tbaa !17
+  br label %23
 
-if.else:                                          ; preds = %entry
-  %3 = load ptr, ptr %data.addr, align 8
-  %4 = load ptr, ptr %sfp.addr, align 8
-  %pos1 = getelementptr inbounds %struct.sf_parser, ptr %4, i32 0, i32 0
-  store ptr %3, ptr %pos1, align 8
-  %5 = load ptr, ptr %data.addr, align 8
-  %6 = load i64, ptr %datalen.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %5, i64 %6
-  %7 = load ptr, ptr %sfp.addr, align 8
-  %end2 = getelementptr inbounds %struct.sf_parser, ptr %7, i32 0, i32 1
-  store ptr %add.ptr, ptr %end2, align 8
-  br label %if.end
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %5, align 8, !tbaa !25
+  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %16, i32 0, i32 0
+  store ptr %15, ptr %17, align 8, !tbaa !17
+  %18 = load ptr, ptr %5, align 8, !tbaa !25
+  %19 = load i64, ptr %6, align 8, !tbaa !31
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
+  %21 = load ptr, ptr %4, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8, !tbaa !22
+  br label %23
 
-if.end:                                           ; preds = %if.else, %if.then
-  %8 = load ptr, ptr %sfp.addr, align 8
-  %state = getelementptr inbounds %struct.sf_parser, ptr %8, i32 0, i32 2
-  store i32 0, ptr %state, align 8
+23:                                               ; preds = %14, %9
+  %24 = load ptr, ptr %4, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %24, i32 0, i32 2
+  store i32 0, ptr %25, align 8, !tbaa !12
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @sf_unescape(ptr noundef %dest, ptr noundef %src) #0 {
-entry:
-  %dest.addr = alloca ptr, align 8
-  %src.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  %q = alloca ptr, align 8
-  %o = alloca ptr, align 8
-  %len = alloca i64, align 8
-  %slen = alloca i64, align 8
-  store ptr %dest, ptr %dest.addr, align 8
-  store ptr %src, ptr %src.addr, align 8
-  %0 = load ptr, ptr %src.addr, align 8
-  %len1 = getelementptr inbounds %struct.sf_vec, ptr %0, i32 0, i32 1
-  %1 = load i64, ptr %len1, align 8
-  %cmp = icmp eq i64 %1, 0
-  br i1 %cmp, label %if.then, label %if.end
+define hidden void @sfparse_unescape(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %11 = load ptr, ptr %4, align 8, !tbaa !8
+  %12 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %11, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8, !tbaa !30
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %15, label %18
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %dest.addr, align 8
-  %3 = load ptr, ptr %src.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %3, i64 16, i1 false)
-  br label %return
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %3, align 8, !tbaa !8
+  %17 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %16, i32 0, i32 1
+  store i64 0, ptr %17, align 8, !tbaa !30
+  store i32 1, ptr %10, align 4
+  br label %73
 
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %dest.addr, align 8
-  %base = getelementptr inbounds %struct.sf_vec, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %base, align 8
-  store ptr %5, ptr %o, align 8
-  %6 = load ptr, ptr %src.addr, align 8
-  %base2 = getelementptr inbounds %struct.sf_vec, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %base2, align 8
-  store ptr %7, ptr %p, align 8
-  %8 = load ptr, ptr %src.addr, align 8
-  %len3 = getelementptr inbounds %struct.sf_vec, ptr %8, i32 0, i32 1
-  %9 = load i64, ptr %len3, align 8
-  store i64 %9, ptr %len, align 8
-  br label %for.cond
+18:                                               ; preds = %2
+  %19 = load ptr, ptr %3, align 8, !tbaa !8
+  %20 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8, !tbaa !27
+  store ptr %21, ptr %7, align 8, !tbaa !25
+  %22 = load ptr, ptr %4, align 8, !tbaa !8
+  %23 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8, !tbaa !27
+  store ptr %24, ptr %5, align 8, !tbaa !25
+  %25 = load ptr, ptr %4, align 8, !tbaa !8
+  %26 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %25, i32 0, i32 1
+  %27 = load i64, ptr %26, align 8, !tbaa !30
+  store i64 %27, ptr %8, align 8, !tbaa !31
+  br label %28
 
-for.cond:                                         ; preds = %if.end10, %if.end
-  %10 = load ptr, ptr %p, align 8
-  %11 = load i64, ptr %len, align 8
-  %call = call ptr @memchr(ptr noundef %10, i32 noundef 92, i64 noundef %11) #5
-  store ptr %call, ptr %q, align 8
-  %12 = load ptr, ptr %q, align 8
-  %cmp4 = icmp eq ptr %12, null
-  br i1 %cmp4, label %if.then5, label %if.end10
+28:                                               ; preds = %50, %18
+  %29 = load ptr, ptr %5, align 8, !tbaa !25
+  %30 = load i64, ptr %8, align 8, !tbaa !31
+  %31 = call ptr @memchr(ptr noundef %29, i32 noundef 92, i64 noundef %30) #7
+  store ptr %31, ptr %6, align 8, !tbaa !25
+  %32 = load ptr, ptr %6, align 8, !tbaa !25
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %34, label %50
 
-if.then5:                                         ; preds = %for.cond
-  %13 = load i64, ptr %len, align 8
-  %14 = load ptr, ptr %src.addr, align 8
-  %len6 = getelementptr inbounds %struct.sf_vec, ptr %14, i32 0, i32 1
-  %15 = load i64, ptr %len6, align 8
-  %cmp7 = icmp eq i64 %13, %15
-  br i1 %cmp7, label %if.then8, label %if.end9
+34:                                               ; preds = %28
+  %35 = load ptr, ptr %7, align 8, !tbaa !25
+  %36 = load ptr, ptr %5, align 8, !tbaa !25
+  %37 = load i64, ptr %8, align 8, !tbaa !31
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr align 1 %36, i64 %37, i1 false)
+  %38 = load i64, ptr %8, align 8, !tbaa !31
+  %39 = load ptr, ptr %7, align 8, !tbaa !25
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %38
+  store ptr %40, ptr %7, align 8, !tbaa !25
+  %41 = load ptr, ptr %7, align 8, !tbaa !25
+  %42 = load ptr, ptr %3, align 8, !tbaa !8
+  %43 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8, !tbaa !27
+  %45 = ptrtoint ptr %41 to i64
+  %46 = ptrtoint ptr %44 to i64
+  %47 = sub i64 %45, %46
+  %48 = load ptr, ptr %3, align 8, !tbaa !8
+  %49 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %48, i32 0, i32 1
+  store i64 %47, ptr %49, align 8, !tbaa !30
+  store i32 1, ptr %10, align 4
+  br label %73
 
-if.then8:                                         ; preds = %if.then5
-  %16 = load ptr, ptr %dest.addr, align 8
-  %17 = load ptr, ptr %src.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %17, i64 16, i1 false)
-  br label %return
+50:                                               ; preds = %28
+  %51 = load ptr, ptr %6, align 8, !tbaa !25
+  %52 = load ptr, ptr %5, align 8, !tbaa !25
+  %53 = ptrtoint ptr %51 to i64
+  %54 = ptrtoint ptr %52 to i64
+  %55 = sub i64 %53, %54
+  store i64 %55, ptr %9, align 8, !tbaa !31
+  %56 = load ptr, ptr %7, align 8, !tbaa !25
+  %57 = load ptr, ptr %5, align 8, !tbaa !25
+  %58 = load i64, ptr %9, align 8, !tbaa !31
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %56, ptr align 1 %57, i64 %58, i1 false)
+  %59 = load i64, ptr %9, align 8, !tbaa !31
+  %60 = load ptr, ptr %7, align 8, !tbaa !25
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 %59
+  store ptr %61, ptr %7, align 8, !tbaa !25
+  %62 = load ptr, ptr %6, align 8, !tbaa !25
+  %63 = getelementptr inbounds i8, ptr %62, i64 1
+  store ptr %63, ptr %5, align 8, !tbaa !25
+  %64 = load ptr, ptr %5, align 8, !tbaa !25
+  %65 = getelementptr inbounds nuw i8, ptr %64, i32 1
+  store ptr %65, ptr %5, align 8, !tbaa !25
+  %66 = load i8, ptr %64, align 1, !tbaa !18
+  %67 = load ptr, ptr %7, align 8, !tbaa !25
+  %68 = getelementptr inbounds nuw i8, ptr %67, i32 1
+  store ptr %68, ptr %7, align 8, !tbaa !25
+  store i8 %66, ptr %67, align 1, !tbaa !18
+  %69 = load i64, ptr %9, align 8, !tbaa !31
+  %70 = add i64 %69, 2
+  %71 = load i64, ptr %8, align 8, !tbaa !31
+  %72 = sub i64 %71, %70
+  store i64 %72, ptr %8, align 8, !tbaa !31
+  br label %28
 
-if.end9:                                          ; preds = %if.then5
-  %18 = load ptr, ptr %o, align 8
-  %19 = load ptr, ptr %p, align 8
-  %20 = load i64, ptr %len, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 %19, i64 %20, i1 false)
-  %21 = load i64, ptr %len, align 8
-  %22 = load ptr, ptr %o, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %22, i64 %21
-  store ptr %add.ptr, ptr %o, align 8
-  br label %for.end
-
-if.end10:                                         ; preds = %for.cond
-  %23 = load ptr, ptr %q, align 8
-  %24 = load ptr, ptr %p, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %23 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %24 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  store i64 %sub.ptr.sub, ptr %slen, align 8
-  %25 = load ptr, ptr %o, align 8
-  %26 = load ptr, ptr %p, align 8
-  %27 = load i64, ptr %slen, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %26, i64 %27, i1 false)
-  %28 = load i64, ptr %slen, align 8
-  %29 = load ptr, ptr %o, align 8
-  %add.ptr11 = getelementptr inbounds i8, ptr %29, i64 %28
-  store ptr %add.ptr11, ptr %o, align 8
-  %30 = load ptr, ptr %q, align 8
-  %add.ptr12 = getelementptr inbounds i8, ptr %30, i64 1
-  store ptr %add.ptr12, ptr %p, align 8
-  %31 = load ptr, ptr %p, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %31, i32 1
-  store ptr %incdec.ptr, ptr %p, align 8
-  %32 = load i8, ptr %31, align 1
-  %33 = load ptr, ptr %o, align 8
-  %incdec.ptr13 = getelementptr inbounds i8, ptr %33, i32 1
-  store ptr %incdec.ptr13, ptr %o, align 8
-  store i8 %32, ptr %33, align 1
-  %34 = load i64, ptr %slen, align 8
-  %add = add i64 %34, 2
-  %35 = load i64, ptr %len, align 8
-  %sub = sub i64 %35, %add
-  store i64 %sub, ptr %len, align 8
-  br label %for.cond
-
-for.end:                                          ; preds = %if.end9
-  %36 = load ptr, ptr %o, align 8
-  %37 = load ptr, ptr %dest.addr, align 8
-  %base14 = getelementptr inbounds %struct.sf_vec, ptr %37, i32 0, i32 0
-  %38 = load ptr, ptr %base14, align 8
-  %sub.ptr.lhs.cast15 = ptrtoint ptr %36 to i64
-  %sub.ptr.rhs.cast16 = ptrtoint ptr %38 to i64
-  %sub.ptr.sub17 = sub i64 %sub.ptr.lhs.cast15, %sub.ptr.rhs.cast16
-  %39 = load ptr, ptr %dest.addr, align 8
-  %len18 = getelementptr inbounds %struct.sf_vec, ptr %39, i32 0, i32 1
-  store i64 %sub.ptr.sub17, ptr %len18, align 8
-  br label %return
-
-return:                                           ; preds = %for.end, %if.then8, %if.then
+73:                                               ; preds = %34, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
   ret void
 }
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) #3
 
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+
 ; Function Attrs: nounwind uwtable
-define hidden void @sf_base64decode(ptr noundef %dest, ptr noundef %src) #0 {
-entry:
-  %dest.addr = alloca ptr, align 8
-  %src.addr = alloca ptr, align 8
-  %o = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  %end = alloca ptr, align 8
-  %n = alloca i32, align 4
-  %i = alloca i64, align 8
-  %idx = alloca i32, align 4
-  store ptr %dest, ptr %dest.addr, align 8
-  store ptr %src, ptr %src.addr, align 8
-  %0 = load ptr, ptr %src.addr, align 8
-  %len = getelementptr inbounds %struct.sf_vec, ptr %0, i32 0, i32 1
-  %1 = load i64, ptr %len, align 8
-  %and = and i64 %1, 3
-  %cmp = icmp eq i64 %and, 0
-  br i1 %cmp, label %if.then, label %if.else
+define hidden void @sfparse_base64decode(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  %13 = load ptr, ptr %4, align 8, !tbaa !8
+  %14 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %13, i32 0, i32 1
+  %15 = load i64, ptr %14, align 8, !tbaa !30
+  %16 = icmp eq i64 %15, 0
+  br i1 %16, label %17, label %20
 
-if.then:                                          ; preds = %entry
-  br label %if.end
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %3, align 8, !tbaa !8
+  %19 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %18, i32 0, i32 1
+  store i64 0, ptr %19, align 8, !tbaa !30
+  store i32 1, ptr %12, align 4
+  br label %228
 
-if.else:                                          ; preds = %entry
-  call void @__assert_fail(ptr noundef @.str.2, ptr noundef @.str.1, i32 noundef 1099, ptr noundef @__PRETTY_FUNCTION__.sf_base64decode) #4
+20:                                               ; preds = %2
+  %21 = load ptr, ptr %3, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !27
+  store ptr %23, ptr %5, align 8, !tbaa !25
+  %24 = load ptr, ptr %4, align 8, !tbaa !8
+  %25 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %24, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8, !tbaa !27
+  store ptr %26, ptr %6, align 8, !tbaa !25
+  %27 = load ptr, ptr %4, align 8, !tbaa !8
+  %28 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %27, i32 0, i32 1
+  %29 = load i64, ptr %28, align 8, !tbaa !30
+  %30 = and i64 %29, 3
+  store i64 %30, ptr %10, align 8, !tbaa !31
+  %31 = load i64, ptr %10, align 8, !tbaa !31
+  %32 = icmp eq i64 %31, 0
+  br i1 %32, label %33, label %46
+
+33:                                               ; preds = %20
+  %34 = load ptr, ptr %4, align 8, !tbaa !8
+  %35 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !27
+  %37 = load ptr, ptr %4, align 8, !tbaa !8
+  %38 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %37, i32 0, i32 1
+  %39 = load i64, ptr %38, align 8, !tbaa !30
+  %40 = sub i64 %39, 1
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 %40
+  %42 = load i8, ptr %41, align 1, !tbaa !18
+  %43 = zext i8 %42 to i32
+  %44 = icmp eq i32 %43, 61
+  br i1 %44, label %45, label %46
+
+45:                                               ; preds = %33
+  store i64 4, ptr %10, align 8, !tbaa !31
+  br label %46
+
+46:                                               ; preds = %45, %33, %20
+  %47 = load ptr, ptr %4, align 8, !tbaa !8
+  %48 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %47, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8, !tbaa !27
+  %50 = load ptr, ptr %4, align 8, !tbaa !8
+  %51 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %50, i32 0, i32 1
+  %52 = load i64, ptr %51, align 8, !tbaa !30
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 %52
+  %54 = load i64, ptr %10, align 8, !tbaa !31
+  %55 = sub i64 0, %54
+  %56 = getelementptr inbounds i8, ptr %53, i64 %55
+  store ptr %56, ptr %7, align 8, !tbaa !25
+  br label %57
+
+57:                                               ; preds = %89, %46
+  %58 = load ptr, ptr %6, align 8, !tbaa !25
+  %59 = load ptr, ptr %7, align 8, !tbaa !25
+  %60 = icmp ne ptr %58, %59
+  br i1 %60, label %61, label %106
+
+61:                                               ; preds = %57
+  store i32 0, ptr %8, align 4, !tbaa !16
+  store i64 1, ptr %9, align 8, !tbaa !31
+  br label %62
+
+62:                                               ; preds = %84, %61
+  %63 = load i64, ptr %9, align 8, !tbaa !31
+  %64 = icmp ule i64 %63, 4
+  br i1 %64, label %65, label %89
+
+65:                                               ; preds = %62
+  %66 = load ptr, ptr %6, align 8, !tbaa !25
+  %67 = load i8, ptr %66, align 1, !tbaa !18
+  %68 = zext i8 %67 to i64
+  %69 = getelementptr inbounds nuw [256 x i32], ptr @sfparse_base64decode.index_tbl, i64 0, i64 %68
+  %70 = load i32, ptr %69, align 4, !tbaa !16
+  store i32 %70, ptr %11, align 4, !tbaa !16
+  %71 = load i32, ptr %11, align 4, !tbaa !16
+  %72 = icmp ne i32 %71, -1
+  br i1 %72, label %73, label %74
+
+73:                                               ; preds = %65
+  br label %75
+
+74:                                               ; preds = %65
+  call void @__assert_fail(ptr noundef @.str.2, ptr noundef @.str.1, i32 noundef 1697, ptr noundef @__PRETTY_FUNCTION__.sfparse_base64decode) #6
   unreachable
 
-if.end:                                           ; preds = %if.then
-  %2 = load ptr, ptr %src.addr, align 8
-  %len1 = getelementptr inbounds %struct.sf_vec, ptr %2, i32 0, i32 1
-  %3 = load i64, ptr %len1, align 8
-  %cmp2 = icmp eq i64 %3, 0
-  br i1 %cmp2, label %if.then3, label %if.end4
+75:                                               ; preds = %73
+  %76 = load i32, ptr %11, align 4, !tbaa !16
+  %77 = load i64, ptr %9, align 8, !tbaa !31
+  %78 = mul i64 %77, 6
+  %79 = sub i64 24, %78
+  %80 = trunc i64 %79 to i32
+  %81 = shl i32 %76, %80
+  %82 = load i32, ptr %8, align 4, !tbaa !16
+  %83 = add i32 %82, %81
+  store i32 %83, ptr %8, align 4, !tbaa !16
+  br label %84
 
-if.then3:                                         ; preds = %if.end
-  %4 = load ptr, ptr %dest.addr, align 8
-  %5 = load ptr, ptr %src.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %5, i64 16, i1 false)
-  br label %return
+84:                                               ; preds = %75
+  %85 = load i64, ptr %9, align 8, !tbaa !31
+  %86 = add i64 %85, 1
+  store i64 %86, ptr %9, align 8, !tbaa !31
+  %87 = load ptr, ptr %6, align 8, !tbaa !25
+  %88 = getelementptr inbounds nuw i8, ptr %87, i32 1
+  store ptr %88, ptr %6, align 8, !tbaa !25
+  br label %62, !llvm.loop !32
 
-if.end4:                                          ; preds = %if.end
-  %6 = load ptr, ptr %dest.addr, align 8
-  %base = getelementptr inbounds %struct.sf_vec, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %base, align 8
-  store ptr %7, ptr %o, align 8
-  %8 = load ptr, ptr %src.addr, align 8
-  %base5 = getelementptr inbounds %struct.sf_vec, ptr %8, i32 0, i32 0
-  %9 = load ptr, ptr %base5, align 8
-  store ptr %9, ptr %p, align 8
-  %10 = load ptr, ptr %src.addr, align 8
-  %base6 = getelementptr inbounds %struct.sf_vec, ptr %10, i32 0, i32 0
-  %11 = load ptr, ptr %base6, align 8
-  %12 = load ptr, ptr %src.addr, align 8
-  %len7 = getelementptr inbounds %struct.sf_vec, ptr %12, i32 0, i32 1
-  %13 = load i64, ptr %len7, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %11, i64 %13
-  store ptr %add.ptr, ptr %end, align 8
-  br label %for.cond
+89:                                               ; preds = %62
+  %90 = load i32, ptr %8, align 4, !tbaa !16
+  %91 = lshr i32 %90, 16
+  %92 = trunc i32 %91 to i8
+  %93 = load ptr, ptr %5, align 8, !tbaa !25
+  %94 = getelementptr inbounds nuw i8, ptr %93, i32 1
+  store ptr %94, ptr %5, align 8, !tbaa !25
+  store i8 %92, ptr %93, align 1, !tbaa !18
+  %95 = load i32, ptr %8, align 4, !tbaa !16
+  %96 = lshr i32 %95, 8
+  %97 = and i32 %96, 255
+  %98 = trunc i32 %97 to i8
+  %99 = load ptr, ptr %5, align 8, !tbaa !25
+  %100 = getelementptr inbounds nuw i8, ptr %99, i32 1
+  store ptr %100, ptr %5, align 8, !tbaa !25
+  store i8 %98, ptr %99, align 1, !tbaa !18
+  %101 = load i32, ptr %8, align 4, !tbaa !16
+  %102 = and i32 %101, 255
+  %103 = trunc i32 %102 to i8
+  %104 = load ptr, ptr %5, align 8, !tbaa !25
+  %105 = getelementptr inbounds nuw i8, ptr %104, i32 1
+  store ptr %105, ptr %5, align 8, !tbaa !25
+  store i8 %103, ptr %104, align 1, !tbaa !18
+  br label %57, !llvm.loop !33
 
-for.cond:                                         ; preds = %for.end, %if.end4
-  %14 = load ptr, ptr %p, align 8
-  %15 = load ptr, ptr %end, align 8
-  %cmp8 = icmp ne ptr %14, %15
-  br i1 %cmp8, label %for.body, label %for.end64
+106:                                              ; preds = %57
+  %107 = load i64, ptr %10, align 8, !tbaa !31
+  switch i64 %107, label %153 [
+    i64 0, label %108
+    i64 1, label %109
+    i64 3, label %110
+    i64 4, label %124
+  ]
 
-for.body:                                         ; preds = %for.cond
-  store i32 0, ptr %n, align 4
-  store i64 1, ptr %i, align 8
-  br label %for.cond9
+108:                                              ; preds = %106
+  br label %218
 
-for.cond9:                                        ; preds = %for.inc, %for.body
-  %16 = load i64, ptr %i, align 8
-  %cmp10 = icmp ule i64 %16, 4
-  br i1 %cmp10, label %for.body11, label %for.end
-
-for.body11:                                       ; preds = %for.cond9
-  %17 = load ptr, ptr %p, align 8
-  %18 = load i8, ptr %17, align 1
-  %idxprom = zext i8 %18 to i64
-  %arrayidx = getelementptr inbounds [256 x i32], ptr @sf_base64decode.index_tbl, i64 0, i64 %idxprom
-  %19 = load i32, ptr %arrayidx, align 4
-  store i32 %19, ptr %idx, align 4
-  %20 = load i32, ptr %idx, align 4
-  %cmp12 = icmp eq i32 %20, -1
-  br i1 %cmp12, label %if.then13, label %if.end52
-
-if.then13:                                        ; preds = %for.body11
-  %21 = load i64, ptr %i, align 8
-  %cmp14 = icmp ugt i64 %21, 2
-  br i1 %cmp14, label %if.then15, label %if.else16
-
-if.then15:                                        ; preds = %if.then13
-  br label %if.end17
-
-if.else16:                                        ; preds = %if.then13
-  call void @__assert_fail(ptr noundef @.str.3, ptr noundef @.str.1, i32 noundef 1118, ptr noundef @__PRETTY_FUNCTION__.sf_base64decode) #4
+109:                                              ; preds = %106
+  call void @__assert_fail(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 1711, ptr noundef @__PRETTY_FUNCTION__.sfparse_base64decode) #6
   unreachable
 
-if.end17:                                         ; preds = %if.then15
-  %22 = load i64, ptr %i, align 8
-  %cmp18 = icmp eq i64 %22, 3
-  br i1 %cmp18, label %if.then19, label %if.end34
+110:                                              ; preds = %106
+  %111 = load ptr, ptr %4, align 8, !tbaa !8
+  %112 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %111, i32 0, i32 0
+  %113 = load ptr, ptr %112, align 8, !tbaa !27
+  %114 = load ptr, ptr %4, align 8, !tbaa !8
+  %115 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %114, i32 0, i32 1
+  %116 = load i64, ptr %115, align 8, !tbaa !30
+  %117 = sub i64 %116, 1
+  %118 = getelementptr inbounds nuw i8, ptr %113, i64 %117
+  %119 = load i8, ptr %118, align 1, !tbaa !18
+  %120 = zext i8 %119 to i32
+  %121 = icmp eq i32 %120, 61
+  br i1 %121, label %122, label %123
 
-if.then19:                                        ; preds = %if.end17
-  %23 = load ptr, ptr %p, align 8
-  %24 = load i8, ptr %23, align 1
-  %conv = zext i8 %24 to i32
-  %cmp20 = icmp eq i32 %conv, 61
-  br i1 %cmp20, label %land.lhs.true, label %if.else31
+122:                                              ; preds = %110
+  store i64 2, ptr %10, align 8, !tbaa !31
+  br label %123
 
-land.lhs.true:                                    ; preds = %if.then19
-  %25 = load ptr, ptr %p, align 8
-  %add.ptr22 = getelementptr inbounds i8, ptr %25, i64 1
-  %26 = load i8, ptr %add.ptr22, align 1
-  %conv23 = zext i8 %26 to i32
-  %cmp24 = icmp eq i32 %conv23, 61
-  br i1 %cmp24, label %land.lhs.true26, label %if.else31
+123:                                              ; preds = %122, %110
+  br label %153
 
-land.lhs.true26:                                  ; preds = %land.lhs.true
-  %27 = load ptr, ptr %p, align 8
-  %add.ptr27 = getelementptr inbounds i8, ptr %27, i64 2
-  %28 = load ptr, ptr %end, align 8
-  %cmp28 = icmp eq ptr %add.ptr27, %28
-  br i1 %cmp28, label %if.then30, label %if.else31
+124:                                              ; preds = %106
+  %125 = load ptr, ptr %4, align 8, !tbaa !8
+  %126 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %125, i32 0, i32 0
+  %127 = load ptr, ptr %126, align 8, !tbaa !27
+  %128 = load ptr, ptr %4, align 8, !tbaa !8
+  %129 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %128, i32 0, i32 1
+  %130 = load i64, ptr %129, align 8, !tbaa !30
+  %131 = sub i64 %130, 1
+  %132 = getelementptr inbounds nuw i8, ptr %127, i64 %131
+  %133 = load i8, ptr %132, align 1, !tbaa !18
+  %134 = zext i8 %133 to i32
+  %135 = icmp eq i32 61, %134
+  br i1 %135, label %136, label %137
 
-if.then30:                                        ; preds = %land.lhs.true26
-  br label %if.end32
+136:                                              ; preds = %124
+  br label %138
 
-if.else31:                                        ; preds = %land.lhs.true26, %land.lhs.true, %if.then19
-  call void @__assert_fail(ptr noundef @.str.4, ptr noundef @.str.1, i32 noundef 1121, ptr noundef @__PRETTY_FUNCTION__.sf_base64decode) #4
+137:                                              ; preds = %124
+  call void @__assert_fail(ptr noundef @.str.3, ptr noundef @.str.1, i32 noundef 1720, ptr noundef @__PRETTY_FUNCTION__.sfparse_base64decode) #6
   unreachable
 
-if.end32:                                         ; preds = %if.then30
-  %29 = load i32, ptr %n, align 4
-  %shr = lshr i32 %29, 16
-  %conv33 = trunc i32 %shr to i8
-  %30 = load ptr, ptr %o, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %30, i32 1
-  store ptr %incdec.ptr, ptr %o, align 8
-  store i8 %conv33, ptr %30, align 1
-  br label %fin
+138:                                              ; preds = %136
+  %139 = load ptr, ptr %4, align 8, !tbaa !8
+  %140 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %139, i32 0, i32 0
+  %141 = load ptr, ptr %140, align 8, !tbaa !27
+  %142 = load ptr, ptr %4, align 8, !tbaa !8
+  %143 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %142, i32 0, i32 1
+  %144 = load i64, ptr %143, align 8, !tbaa !30
+  %145 = sub i64 %144, 2
+  %146 = getelementptr inbounds nuw i8, ptr %141, i64 %145
+  %147 = load i8, ptr %146, align 1, !tbaa !18
+  %148 = zext i8 %147 to i32
+  %149 = icmp eq i32 %148, 61
+  br i1 %149, label %150, label %151
 
-if.end34:                                         ; preds = %if.end17
-  %31 = load ptr, ptr %p, align 8
-  %32 = load i8, ptr %31, align 1
-  %conv35 = zext i8 %32 to i32
-  %cmp36 = icmp eq i32 %conv35, 61
-  br i1 %cmp36, label %land.lhs.true38, label %if.else43
+150:                                              ; preds = %138
+  store i64 2, ptr %10, align 8, !tbaa !31
+  br label %152
 
-land.lhs.true38:                                  ; preds = %if.end34
-  %33 = load ptr, ptr %p, align 8
-  %add.ptr39 = getelementptr inbounds i8, ptr %33, i64 1
-  %34 = load ptr, ptr %end, align 8
-  %cmp40 = icmp eq ptr %add.ptr39, %34
-  br i1 %cmp40, label %if.then42, label %if.else43
+151:                                              ; preds = %138
+  store i64 3, ptr %10, align 8, !tbaa !31
+  br label %152
 
-if.then42:                                        ; preds = %land.lhs.true38
-  br label %if.end44
+152:                                              ; preds = %151, %150
+  br label %153
 
-if.else43:                                        ; preds = %land.lhs.true38, %if.end34
-  call void @__assert_fail(ptr noundef @.str.5, ptr noundef @.str.1, i32 noundef 1128, ptr noundef @__PRETTY_FUNCTION__.sf_base64decode) #4
+153:                                              ; preds = %106, %152, %123
+  %154 = load i64, ptr %10, align 8, !tbaa !31
+  switch i64 %154, label %217 [
+    i64 2, label %155
+    i64 3, label %180
+  ]
+
+155:                                              ; preds = %153
+  %156 = load ptr, ptr %6, align 8, !tbaa !25
+  %157 = getelementptr inbounds nuw i8, ptr %156, i32 1
+  store ptr %157, ptr %6, align 8, !tbaa !25
+  %158 = load i8, ptr %156, align 1, !tbaa !18
+  %159 = zext i8 %158 to i64
+  %160 = getelementptr inbounds nuw [256 x i32], ptr @sfparse_base64decode.index_tbl, i64 0, i64 %159
+  %161 = load i32, ptr %160, align 4, !tbaa !16
+  %162 = shl i32 %161, 2
+  %163 = trunc i32 %162 to i8
+  %164 = load ptr, ptr %5, align 8, !tbaa !25
+  store i8 %163, ptr %164, align 1, !tbaa !18
+  %165 = load ptr, ptr %6, align 8, !tbaa !25
+  %166 = getelementptr inbounds nuw i8, ptr %165, i32 1
+  store ptr %166, ptr %6, align 8, !tbaa !25
+  %167 = load i8, ptr %165, align 1, !tbaa !18
+  %168 = zext i8 %167 to i64
+  %169 = getelementptr inbounds nuw [256 x i32], ptr @sfparse_base64decode.index_tbl, i64 0, i64 %168
+  %170 = load i32, ptr %169, align 4, !tbaa !16
+  %171 = ashr i32 %170, 4
+  %172 = trunc i32 %171 to i8
+  %173 = zext i8 %172 to i32
+  %174 = load ptr, ptr %5, align 8, !tbaa !25
+  %175 = getelementptr inbounds nuw i8, ptr %174, i32 1
+  store ptr %175, ptr %5, align 8, !tbaa !25
+  %176 = load i8, ptr %174, align 1, !tbaa !18
+  %177 = zext i8 %176 to i32
+  %178 = or i32 %177, %173
+  %179 = trunc i32 %178 to i8
+  store i8 %179, ptr %174, align 1, !tbaa !18
+  br label %217
+
+180:                                              ; preds = %153
+  %181 = load ptr, ptr %6, align 8, !tbaa !25
+  %182 = getelementptr inbounds nuw i8, ptr %181, i32 1
+  store ptr %182, ptr %6, align 8, !tbaa !25
+  %183 = load i8, ptr %181, align 1, !tbaa !18
+  %184 = zext i8 %183 to i64
+  %185 = getelementptr inbounds nuw [256 x i32], ptr @sfparse_base64decode.index_tbl, i64 0, i64 %184
+  %186 = load i32, ptr %185, align 4, !tbaa !16
+  %187 = shl i32 %186, 10
+  store i32 %187, ptr %8, align 4, !tbaa !16
+  %188 = load ptr, ptr %6, align 8, !tbaa !25
+  %189 = getelementptr inbounds nuw i8, ptr %188, i32 1
+  store ptr %189, ptr %6, align 8, !tbaa !25
+  %190 = load i8, ptr %188, align 1, !tbaa !18
+  %191 = zext i8 %190 to i64
+  %192 = getelementptr inbounds nuw [256 x i32], ptr @sfparse_base64decode.index_tbl, i64 0, i64 %191
+  %193 = load i32, ptr %192, align 4, !tbaa !16
+  %194 = shl i32 %193, 4
+  %195 = load i32, ptr %8, align 4, !tbaa !16
+  %196 = add i32 %195, %194
+  store i32 %196, ptr %8, align 4, !tbaa !16
+  %197 = load ptr, ptr %6, align 8, !tbaa !25
+  %198 = getelementptr inbounds nuw i8, ptr %197, i32 1
+  store ptr %198, ptr %6, align 8, !tbaa !25
+  %199 = load i8, ptr %197, align 1, !tbaa !18
+  %200 = zext i8 %199 to i64
+  %201 = getelementptr inbounds nuw [256 x i32], ptr @sfparse_base64decode.index_tbl, i64 0, i64 %200
+  %202 = load i32, ptr %201, align 4, !tbaa !16
+  %203 = ashr i32 %202, 2
+  %204 = load i32, ptr %8, align 4, !tbaa !16
+  %205 = add i32 %204, %203
+  store i32 %205, ptr %8, align 4, !tbaa !16
+  %206 = load i32, ptr %8, align 4, !tbaa !16
+  %207 = lshr i32 %206, 8
+  %208 = and i32 %207, 255
+  %209 = trunc i32 %208 to i8
+  %210 = load ptr, ptr %5, align 8, !tbaa !25
+  %211 = getelementptr inbounds nuw i8, ptr %210, i32 1
+  store ptr %211, ptr %5, align 8, !tbaa !25
+  store i8 %209, ptr %210, align 1, !tbaa !18
+  %212 = load i32, ptr %8, align 4, !tbaa !16
+  %213 = and i32 %212, 255
+  %214 = trunc i32 %213 to i8
+  %215 = load ptr, ptr %5, align 8, !tbaa !25
+  %216 = getelementptr inbounds nuw i8, ptr %215, i32 1
+  store ptr %216, ptr %5, align 8, !tbaa !25
+  store i8 %214, ptr %215, align 1, !tbaa !18
+  br label %217
+
+217:                                              ; preds = %153, %180, %155
+  br label %218
+
+218:                                              ; preds = %217, %108
+  %219 = load ptr, ptr %5, align 8, !tbaa !25
+  %220 = load ptr, ptr %3, align 8, !tbaa !8
+  %221 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %220, i32 0, i32 0
+  %222 = load ptr, ptr %221, align 8, !tbaa !27
+  %223 = ptrtoint ptr %219 to i64
+  %224 = ptrtoint ptr %222 to i64
+  %225 = sub i64 %223, %224
+  %226 = load ptr, ptr %3, align 8, !tbaa !8
+  %227 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %226, i32 0, i32 1
+  store i64 %225, ptr %227, align 8, !tbaa !30
+  store i32 0, ptr %12, align 4
+  br label %228
+
+228:                                              ; preds = %218, %17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  %229 = load i32, ptr %12, align 4
+  switch i32 %229, label %231 [
+    i32 0, label %230
+    i32 1, label %230
+  ]
+
+230:                                              ; preds = %228, %228
+  ret void
+
+231:                                              ; preds = %228
   unreachable
+}
 
-if.end44:                                         ; preds = %if.then42
-  %35 = load i32, ptr %n, align 4
-  %shr45 = lshr i32 %35, 16
-  %conv46 = trunc i32 %shr45 to i8
-  %36 = load ptr, ptr %o, align 8
-  %incdec.ptr47 = getelementptr inbounds i8, ptr %36, i32 1
-  store ptr %incdec.ptr47, ptr %o, align 8
-  store i8 %conv46, ptr %36, align 1
-  %37 = load i32, ptr %n, align 4
-  %shr48 = lshr i32 %37, 8
-  %and49 = and i32 %shr48, 255
-  %conv50 = trunc i32 %and49 to i8
-  %38 = load ptr, ptr %o, align 8
-  %incdec.ptr51 = getelementptr inbounds i8, ptr %38, i32 1
-  store ptr %incdec.ptr51, ptr %o, align 8
-  store i8 %conv50, ptr %38, align 1
-  br label %fin
+; Function Attrs: nounwind uwtable
+define hidden void @sfparse_pctdecode(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %11 = load ptr, ptr %4, align 8, !tbaa !8
+  %12 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %11, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8, !tbaa !30
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %15, label %18
 
-if.end52:                                         ; preds = %for.body11
-  %39 = load i32, ptr %idx, align 4
-  %40 = load i64, ptr %i, align 8
-  %mul = mul i64 %40, 6
-  %sub = sub i64 24, %mul
-  %sh_prom = trunc i64 %sub to i32
-  %shl = shl i32 %39, %sh_prom
-  %41 = load i32, ptr %n, align 4
-  %add = add i32 %41, %shl
-  store i32 %add, ptr %n, align 4
-  br label %for.inc
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %3, align 8, !tbaa !8
+  %17 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %16, i32 0, i32 1
+  store i64 0, ptr %17, align 8, !tbaa !30
+  store i32 1, ptr %10, align 4
+  br label %71
 
-for.inc:                                          ; preds = %if.end52
-  %42 = load i64, ptr %i, align 8
-  %inc = add i64 %42, 1
-  store i64 %inc, ptr %i, align 8
-  %43 = load ptr, ptr %p, align 8
-  %incdec.ptr53 = getelementptr inbounds i8, ptr %43, i32 1
-  store ptr %incdec.ptr53, ptr %p, align 8
-  br label %for.cond9, !llvm.loop !7
+18:                                               ; preds = %2
+  %19 = load ptr, ptr %3, align 8, !tbaa !8
+  %20 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8, !tbaa !27
+  store ptr %21, ptr %7, align 8, !tbaa !25
+  %22 = load ptr, ptr %4, align 8, !tbaa !8
+  %23 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8, !tbaa !27
+  store ptr %24, ptr %5, align 8, !tbaa !25
+  %25 = load ptr, ptr %4, align 8, !tbaa !8
+  %26 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %25, i32 0, i32 1
+  %27 = load i64, ptr %26, align 8, !tbaa !30
+  store i64 %27, ptr %8, align 8, !tbaa !31
+  br label %28
 
-for.end:                                          ; preds = %for.cond9
-  %44 = load i32, ptr %n, align 4
-  %shr54 = lshr i32 %44, 16
-  %conv55 = trunc i32 %shr54 to i8
-  %45 = load ptr, ptr %o, align 8
-  %incdec.ptr56 = getelementptr inbounds i8, ptr %45, i32 1
-  store ptr %incdec.ptr56, ptr %o, align 8
-  store i8 %conv55, ptr %45, align 1
-  %46 = load i32, ptr %n, align 4
-  %shr57 = lshr i32 %46, 8
-  %and58 = and i32 %shr57, 255
-  %conv59 = trunc i32 %and58 to i8
-  %47 = load ptr, ptr %o, align 8
-  %incdec.ptr60 = getelementptr inbounds i8, ptr %47, i32 1
-  store ptr %incdec.ptr60, ptr %o, align 8
-  store i8 %conv59, ptr %47, align 1
-  %48 = load i32, ptr %n, align 4
-  %and61 = and i32 %48, 255
-  %conv62 = trunc i32 %and61 to i8
-  %49 = load ptr, ptr %o, align 8
-  %incdec.ptr63 = getelementptr inbounds i8, ptr %49, i32 1
-  store ptr %incdec.ptr63, ptr %o, align 8
-  store i8 %conv62, ptr %49, align 1
-  br label %for.cond, !llvm.loop !8
+28:                                               ; preds = %50, %18
+  %29 = load ptr, ptr %5, align 8, !tbaa !25
+  %30 = load i64, ptr %8, align 8, !tbaa !31
+  %31 = call ptr @memchr(ptr noundef %29, i32 noundef 37, i64 noundef %30) #7
+  store ptr %31, ptr %6, align 8, !tbaa !25
+  %32 = load ptr, ptr %6, align 8, !tbaa !25
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %34, label %50
 
-for.end64:                                        ; preds = %for.cond
-  br label %fin
+34:                                               ; preds = %28
+  %35 = load ptr, ptr %7, align 8, !tbaa !25
+  %36 = load ptr, ptr %5, align 8, !tbaa !25
+  %37 = load i64, ptr %8, align 8, !tbaa !31
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr align 1 %36, i64 %37, i1 false)
+  %38 = load i64, ptr %8, align 8, !tbaa !31
+  %39 = load ptr, ptr %7, align 8, !tbaa !25
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %38
+  store ptr %40, ptr %7, align 8, !tbaa !25
+  %41 = load ptr, ptr %7, align 8, !tbaa !25
+  %42 = load ptr, ptr %3, align 8, !tbaa !8
+  %43 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8, !tbaa !27
+  %45 = ptrtoint ptr %41 to i64
+  %46 = ptrtoint ptr %44 to i64
+  %47 = sub i64 %45, %46
+  %48 = load ptr, ptr %3, align 8, !tbaa !8
+  %49 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %48, i32 0, i32 1
+  store i64 %47, ptr %49, align 8, !tbaa !30
+  store i32 1, ptr %10, align 4
+  br label %71
 
-fin:                                              ; preds = %for.end64, %if.end44, %if.end32
-  %50 = load ptr, ptr %o, align 8
-  %51 = load ptr, ptr %dest.addr, align 8
-  %base65 = getelementptr inbounds %struct.sf_vec, ptr %51, i32 0, i32 0
-  %52 = load ptr, ptr %base65, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %50 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %52 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %53 = load ptr, ptr %dest.addr, align 8
-  %len66 = getelementptr inbounds %struct.sf_vec, ptr %53, i32 0, i32 1
-  store i64 %sub.ptr.sub, ptr %len66, align 8
-  br label %return
+50:                                               ; preds = %28
+  %51 = load ptr, ptr %6, align 8, !tbaa !25
+  %52 = load ptr, ptr %5, align 8, !tbaa !25
+  %53 = ptrtoint ptr %51 to i64
+  %54 = ptrtoint ptr %52 to i64
+  %55 = sub i64 %53, %54
+  store i64 %55, ptr %9, align 8, !tbaa !31
+  %56 = load ptr, ptr %7, align 8, !tbaa !25
+  %57 = load ptr, ptr %5, align 8, !tbaa !25
+  %58 = load i64, ptr %9, align 8, !tbaa !31
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %56, ptr align 1 %57, i64 %58, i1 false)
+  %59 = load i64, ptr %9, align 8, !tbaa !31
+  %60 = load ptr, ptr %7, align 8, !tbaa !25
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 %59
+  store ptr %61, ptr %7, align 8, !tbaa !25
+  %62 = load ptr, ptr %6, align 8, !tbaa !25
+  %63 = getelementptr inbounds i8, ptr %62, i64 1
+  store ptr %63, ptr %5, align 8, !tbaa !25
+  %64 = load ptr, ptr %7, align 8, !tbaa !25
+  %65 = getelementptr inbounds nuw i8, ptr %64, i32 1
+  store ptr %65, ptr %7, align 8, !tbaa !25
+  %66 = call i32 @pctdecode(ptr noundef %64, ptr noundef %5)
+  %67 = load i64, ptr %9, align 8, !tbaa !31
+  %68 = add i64 %67, 3
+  %69 = load i64, ptr %8, align 8, !tbaa !31
+  %70 = sub i64 %69, %68
+  store i64 %70, ptr %8, align 8, !tbaa !31
+  br label %28
 
-return:                                           ; preds = %fin, %if.then3
+71:                                               ; preds = %34, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @parser_string(ptr noundef %sfp, ptr noundef %dest) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sfp.addr = alloca ptr, align 8
-  %dest.addr = alloca ptr, align 8
-  %base = alloca ptr, align 8
-  %flags = alloca i32, align 4
-  store ptr %sfp, ptr %sfp.addr, align 8
-  store ptr %dest, ptr %dest.addr, align 8
-  store i32 0, ptr %flags, align 4
-  %0 = load ptr, ptr %sfp.addr, align 8
-  %pos = getelementptr inbounds %struct.sf_parser, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %pos, align 8
-  %2 = load i8, ptr %1, align 1
-  %conv = zext i8 %2 to i32
-  %cmp = icmp eq i32 34, %conv
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  call void @__assert_fail(ptr noundef @.str.6, ptr noundef @.str.1, i32 noundef 380, ptr noundef @__PRETTY_FUNCTION__.parser_string) #4
-  unreachable
-
-if.end:                                           ; preds = %if.then
-  %3 = load ptr, ptr %sfp.addr, align 8
-  %pos2 = getelementptr inbounds %struct.sf_parser, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %pos2, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %4, i32 1
-  store ptr %incdec.ptr, ptr %pos2, align 8
-  store ptr %incdec.ptr, ptr %base, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end
-  %5 = load ptr, ptr %sfp.addr, align 8
-  %call = call i32 @parser_eof(ptr noundef %5)
-  %tobool = icmp ne i32 %call, 0
-  %lnot = xor i1 %tobool, true
-  br i1 %lnot, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %6 = load ptr, ptr %sfp.addr, align 8
-  %pos3 = getelementptr inbounds %struct.sf_parser, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %pos3, align 8
-  %8 = load i8, ptr %7, align 1
-  %conv4 = zext i8 %8 to i32
-  switch i32 %conv4, label %sw.default27 [
-    i32 32, label %sw.bb
-    i32 33, label %sw.bb
-    i32 35, label %sw.bb
-    i32 36, label %sw.bb
-    i32 37, label %sw.bb
-    i32 38, label %sw.bb
-    i32 39, label %sw.bb
-    i32 40, label %sw.bb
-    i32 41, label %sw.bb
-    i32 42, label %sw.bb
-    i32 43, label %sw.bb
-    i32 44, label %sw.bb
-    i32 45, label %sw.bb
-    i32 46, label %sw.bb
-    i32 47, label %sw.bb
-    i32 48, label %sw.bb
-    i32 49, label %sw.bb
-    i32 50, label %sw.bb
-    i32 51, label %sw.bb
-    i32 52, label %sw.bb
-    i32 53, label %sw.bb
-    i32 54, label %sw.bb
-    i32 55, label %sw.bb
-    i32 56, label %sw.bb
-    i32 57, label %sw.bb
-    i32 58, label %sw.bb
-    i32 59, label %sw.bb
-    i32 60, label %sw.bb
-    i32 61, label %sw.bb
-    i32 62, label %sw.bb
-    i32 63, label %sw.bb
-    i32 64, label %sw.bb
-    i32 65, label %sw.bb
-    i32 66, label %sw.bb
-    i32 67, label %sw.bb
-    i32 68, label %sw.bb
-    i32 69, label %sw.bb
-    i32 70, label %sw.bb
-    i32 71, label %sw.bb
-    i32 72, label %sw.bb
-    i32 73, label %sw.bb
-    i32 74, label %sw.bb
-    i32 75, label %sw.bb
-    i32 76, label %sw.bb
-    i32 77, label %sw.bb
-    i32 78, label %sw.bb
-    i32 79, label %sw.bb
-    i32 80, label %sw.bb
-    i32 81, label %sw.bb
-    i32 82, label %sw.bb
-    i32 83, label %sw.bb
-    i32 84, label %sw.bb
-    i32 85, label %sw.bb
-    i32 86, label %sw.bb
-    i32 87, label %sw.bb
-    i32 88, label %sw.bb
-    i32 89, label %sw.bb
-    i32 90, label %sw.bb
-    i32 91, label %sw.bb
-    i32 93, label %sw.bb
-    i32 94, label %sw.bb
-    i32 95, label %sw.bb
-    i32 96, label %sw.bb
-    i32 97, label %sw.bb
-    i32 98, label %sw.bb
-    i32 99, label %sw.bb
-    i32 100, label %sw.bb
-    i32 101, label %sw.bb
-    i32 102, label %sw.bb
-    i32 103, label %sw.bb
-    i32 104, label %sw.bb
-    i32 105, label %sw.bb
-    i32 106, label %sw.bb
-    i32 107, label %sw.bb
-    i32 108, label %sw.bb
-    i32 109, label %sw.bb
-    i32 110, label %sw.bb
-    i32 111, label %sw.bb
-    i32 112, label %sw.bb
-    i32 113, label %sw.bb
-    i32 114, label %sw.bb
-    i32 115, label %sw.bb
-    i32 116, label %sw.bb
-    i32 117, label %sw.bb
-    i32 118, label %sw.bb
-    i32 119, label %sw.bb
-    i32 120, label %sw.bb
-    i32 121, label %sw.bb
-    i32 122, label %sw.bb
-    i32 123, label %sw.bb
-    i32 124, label %sw.bb
-    i32 125, label %sw.bb
-    i32 126, label %sw.bb
-    i32 92, label %sw.bb5
-    i32 34, label %sw.bb15
+define internal i32 @pctdecode(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i8, align 1
+  %7 = alloca i8, align 1
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !25
+  store ptr %1, ptr %5, align 8, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #5
+  %9 = load ptr, ptr %5, align 8, !tbaa !34
+  %10 = load ptr, ptr %9, align 8, !tbaa !25
+  %11 = load i8, ptr %10, align 1, !tbaa !18
+  store i8 %11, ptr %7, align 1, !tbaa !18
+  %12 = load i8, ptr %7, align 1, !tbaa !18
+  %13 = zext i8 %12 to i32
+  switch i32 %13, label %27 [
+    i32 48, label %14
+    i32 49, label %14
+    i32 50, label %14
+    i32 51, label %14
+    i32 52, label %14
+    i32 53, label %14
+    i32 54, label %14
+    i32 55, label %14
+    i32 56, label %14
+    i32 57, label %14
+    i32 97, label %20
+    i32 98, label %20
+    i32 99, label %20
+    i32 100, label %20
+    i32 101, label %20
+    i32 102, label %20
   ]
 
-sw.bb:                                            ; preds = %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body
-  br label %sw.epilog28
+14:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2
+  %15 = load i8, ptr %7, align 1, !tbaa !18
+  %16 = zext i8 %15 to i32
+  %17 = sub nsw i32 %16, 48
+  %18 = shl i32 %17, 4
+  %19 = trunc i32 %18 to i8
+  store i8 %19, ptr %6, align 1, !tbaa !18
+  br label %28
 
-sw.bb5:                                           ; preds = %for.body
-  %9 = load ptr, ptr %sfp.addr, align 8
-  %pos6 = getelementptr inbounds %struct.sf_parser, ptr %9, i32 0, i32 0
-  %10 = load ptr, ptr %pos6, align 8
-  %incdec.ptr7 = getelementptr inbounds i8, ptr %10, i32 1
-  store ptr %incdec.ptr7, ptr %pos6, align 8
-  %11 = load ptr, ptr %sfp.addr, align 8
-  %call8 = call i32 @parser_eof(ptr noundef %11)
-  %tobool9 = icmp ne i32 %call8, 0
-  br i1 %tobool9, label %if.then10, label %if.end11
+20:                                               ; preds = %2, %2, %2, %2, %2, %2
+  %21 = load i8, ptr %7, align 1, !tbaa !18
+  %22 = zext i8 %21 to i32
+  %23 = sub nsw i32 %22, 97
+  %24 = add nsw i32 %23, 10
+  %25 = shl i32 %24, 4
+  %26 = trunc i32 %25 to i8
+  store i8 %26, ptr %6, align 1, !tbaa !18
+  br label %28
 
-if.then10:                                        ; preds = %sw.bb5
-  store i32 -1, ptr %retval, align 4
-  br label %return
+27:                                               ; preds = %2
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %63
 
-if.end11:                                         ; preds = %sw.bb5
-  %12 = load ptr, ptr %sfp.addr, align 8
-  %pos12 = getelementptr inbounds %struct.sf_parser, ptr %12, i32 0, i32 0
-  %13 = load ptr, ptr %pos12, align 8
-  %14 = load i8, ptr %13, align 1
-  %conv13 = zext i8 %14 to i32
-  switch i32 %conv13, label %sw.default [
-    i32 34, label %sw.bb14
-    i32 92, label %sw.bb14
+28:                                               ; preds = %20, %14
+  %29 = load ptr, ptr %5, align 8, !tbaa !34
+  %30 = load ptr, ptr %29, align 8, !tbaa !25
+  %31 = getelementptr inbounds nuw i8, ptr %30, i32 1
+  store ptr %31, ptr %29, align 8, !tbaa !25
+  %32 = load i8, ptr %31, align 1, !tbaa !18
+  store i8 %32, ptr %7, align 1, !tbaa !18
+  %33 = load i8, ptr %7, align 1, !tbaa !18
+  %34 = zext i8 %33 to i32
+  switch i32 %34, label %56 [
+    i32 48, label %35
+    i32 49, label %35
+    i32 50, label %35
+    i32 51, label %35
+    i32 52, label %35
+    i32 53, label %35
+    i32 54, label %35
+    i32 55, label %35
+    i32 56, label %35
+    i32 57, label %35
+    i32 97, label %45
+    i32 98, label %45
+    i32 99, label %45
+    i32 100, label %45
+    i32 101, label %45
+    i32 102, label %45
   ]
 
-sw.bb14:                                          ; preds = %if.end11, %if.end11
-  store i32 1, ptr %flags, align 4
-  br label %sw.epilog
+35:                                               ; preds = %28, %28, %28, %28, %28, %28, %28, %28, %28, %28
+  %36 = load i8, ptr %7, align 1, !tbaa !18
+  %37 = zext i8 %36 to i32
+  %38 = sub nsw i32 %37, 48
+  %39 = trunc i32 %38 to i8
+  %40 = zext i8 %39 to i32
+  %41 = load i8, ptr %6, align 1, !tbaa !18
+  %42 = zext i8 %41 to i32
+  %43 = or i32 %42, %40
+  %44 = trunc i32 %43 to i8
+  store i8 %44, ptr %6, align 1, !tbaa !18
+  br label %57
 
-sw.default:                                       ; preds = %if.end11
-  store i32 -1, ptr %retval, align 4
-  br label %return
+45:                                               ; preds = %28, %28, %28, %28, %28, %28
+  %46 = load i8, ptr %7, align 1, !tbaa !18
+  %47 = zext i8 %46 to i32
+  %48 = sub nsw i32 %47, 97
+  %49 = add nsw i32 %48, 10
+  %50 = trunc i32 %49 to i8
+  %51 = zext i8 %50 to i32
+  %52 = load i8, ptr %6, align 1, !tbaa !18
+  %53 = zext i8 %52 to i32
+  %54 = or i32 %53, %51
+  %55 = trunc i32 %54 to i8
+  store i8 %55, ptr %6, align 1, !tbaa !18
+  br label %57
 
-sw.epilog:                                        ; preds = %sw.bb14
-  br label %sw.epilog28
+56:                                               ; preds = %28
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %63
 
-sw.bb15:                                          ; preds = %for.body
-  %15 = load ptr, ptr %dest.addr, align 8
-  %tobool16 = icmp ne ptr %15, null
-  br i1 %tobool16, label %if.then17, label %if.end24
+57:                                               ; preds = %45, %35
+  %58 = load i8, ptr %6, align 1, !tbaa !18
+  %59 = load ptr, ptr %4, align 8, !tbaa !25
+  store i8 %58, ptr %59, align 1, !tbaa !18
+  %60 = load ptr, ptr %5, align 8, !tbaa !34
+  %61 = load ptr, ptr %60, align 8, !tbaa !25
+  %62 = getelementptr inbounds nuw i8, ptr %61, i32 1
+  store ptr %62, ptr %60, align 8, !tbaa !25
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %63
 
-if.then17:                                        ; preds = %sw.bb15
-  %16 = load ptr, ptr %dest.addr, align 8
-  %type = getelementptr inbounds %struct.sf_value, ptr %16, i32 0, i32 0
-  store i32 3, ptr %type, align 8
-  %17 = load i32, ptr %flags, align 4
-  %18 = load ptr, ptr %dest.addr, align 8
-  %flags18 = getelementptr inbounds %struct.sf_value, ptr %18, i32 0, i32 1
-  store i32 %17, ptr %flags18, align 4
-  %19 = load ptr, ptr %sfp.addr, align 8
-  %pos19 = getelementptr inbounds %struct.sf_parser, ptr %19, i32 0, i32 0
-  %20 = load ptr, ptr %pos19, align 8
-  %21 = load ptr, ptr %base, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %20 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %21 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %22 = load ptr, ptr %dest.addr, align 8
-  %23 = getelementptr inbounds %struct.sf_value, ptr %22, i32 0, i32 2
-  %len = getelementptr inbounds %struct.sf_vec, ptr %23, i32 0, i32 1
-  store i64 %sub.ptr.sub, ptr %len, align 8
-  %24 = load ptr, ptr %dest.addr, align 8
-  %25 = getelementptr inbounds %struct.sf_value, ptr %24, i32 0, i32 2
-  %len20 = getelementptr inbounds %struct.sf_vec, ptr %25, i32 0, i32 1
-  %26 = load i64, ptr %len20, align 8
-  %cmp21 = icmp eq i64 %26, 0
-  br i1 %cmp21, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %if.then17
-  br label %cond.end
-
-cond.false:                                       ; preds = %if.then17
-  %27 = load ptr, ptr %base, align 8
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ null, %cond.true ], [ %27, %cond.false ]
-  %28 = load ptr, ptr %dest.addr, align 8
-  %29 = getelementptr inbounds %struct.sf_value, ptr %28, i32 0, i32 2
-  %base23 = getelementptr inbounds %struct.sf_vec, ptr %29, i32 0, i32 0
-  store ptr %cond, ptr %base23, align 8
-  br label %if.end24
-
-if.end24:                                         ; preds = %cond.end, %sw.bb15
-  %30 = load ptr, ptr %sfp.addr, align 8
-  %pos25 = getelementptr inbounds %struct.sf_parser, ptr %30, i32 0, i32 0
-  %31 = load ptr, ptr %pos25, align 8
-  %incdec.ptr26 = getelementptr inbounds i8, ptr %31, i32 1
-  store ptr %incdec.ptr26, ptr %pos25, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-sw.default27:                                     ; preds = %for.body
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-sw.epilog28:                                      ; preds = %sw.epilog, %sw.bb
-  br label %for.inc
-
-for.inc:                                          ; preds = %sw.epilog28
-  %32 = load ptr, ptr %sfp.addr, align 8
-  %pos29 = getelementptr inbounds %struct.sf_parser, ptr %32, i32 0, i32 0
-  %33 = load ptr, ptr %pos29, align 8
-  %incdec.ptr30 = getelementptr inbounds i8, ptr %33, i32 1
-  store ptr %incdec.ptr30, ptr %pos29, align 8
-  br label %for.cond, !llvm.loop !9
-
-for.end:                                          ; preds = %for.cond
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %for.end, %sw.default27, %if.end24, %sw.default, %if.then10
-  %34 = load i32, ptr %retval, align 4
-  ret i32 %34
+63:                                               ; preds = %57, %56, %27
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #5
+  %64 = load i32, ptr %3, align 4
+  ret i32 %64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @parser_number(ptr noundef %sfp, ptr noundef %dest) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sfp.addr = alloca ptr, align 8
-  %dest.addr = alloca ptr, align 8
-  %sign = alloca i32, align 4
-  %value = alloca i64, align 8
-  %len = alloca i64, align 8
-  %fpos = alloca i64, align 8
-  store ptr %sfp, ptr %sfp.addr, align 8
-  store ptr %dest, ptr %dest.addr, align 8
-  store i32 1, ptr %sign, align 4
-  store i64 0, ptr %value, align 8
-  store i64 0, ptr %len, align 8
-  store i64 0, ptr %fpos, align 8
-  %0 = load ptr, ptr %sfp.addr, align 8
-  %pos = getelementptr inbounds %struct.sf_parser, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %pos, align 8
-  %2 = load i8, ptr %1, align 1
-  %conv = zext i8 %2 to i32
-  %cmp = icmp eq i32 %conv, 45
-  br i1 %cmp, label %if.then, label %if.end4
+define internal i32 @parser_string(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  store i32 0, ptr %7, align 4, !tbaa !16
+  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  %10 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !17
+  %12 = load i8, ptr %11, align 1, !tbaa !18
+  %13 = zext i8 %12 to i32
+  %14 = icmp eq i32 34, %13
+  br i1 %14, label %15, label %16
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %sfp.addr, align 8
-  %pos2 = getelementptr inbounds %struct.sf_parser, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %pos2, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %4, i32 1
-  store ptr %incdec.ptr, ptr %pos2, align 8
-  %5 = load ptr, ptr %sfp.addr, align 8
-  %call = call i32 @parser_eof(ptr noundef %5)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then3, label %if.end
+15:                                               ; preds = %2
+  br label %17
 
-if.then3:                                         ; preds = %if.then
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %if.then
-  store i32 -1, ptr %sign, align 4
-  br label %if.end4
-
-if.end4:                                          ; preds = %if.end, %entry
-  %6 = load ptr, ptr %sfp.addr, align 8
-  %call5 = call i32 @parser_eof(ptr noundef %6)
-  %tobool6 = icmp ne i32 %call5, 0
-  br i1 %tobool6, label %if.else, label %if.then7
-
-if.then7:                                         ; preds = %if.end4
-  br label %if.end8
-
-if.else:                                          ; preds = %if.end4
-  call void @__assert_fail(ptr noundef @.str.7, ptr noundef @.str.1, i32 noundef 259, ptr noundef @__PRETTY_FUNCTION__.parser_number) #4
+16:                                               ; preds = %2
+  call void @__assert_fail(ptr noundef @.str.4, ptr noundef @.str.1, i32 noundef 685, ptr noundef @__PRETTY_FUNCTION__.parser_string) #6
   unreachable
 
-if.end8:                                          ; preds = %if.then7
-  br label %for.cond
+17:                                               ; preds = %15
+  %18 = load ptr, ptr %4, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !17
+  %21 = getelementptr inbounds nuw i8, ptr %20, i32 1
+  store ptr %21, ptr %19, align 8, !tbaa !17
+  store ptr %21, ptr %6, align 8, !tbaa !25
+  br label %22
 
-for.cond:                                         ; preds = %for.inc, %if.end8
-  %7 = load ptr, ptr %sfp.addr, align 8
-  %call9 = call i32 @parser_eof(ptr noundef %7)
-  %tobool10 = icmp ne i32 %call9, 0
-  %lnot = xor i1 %tobool10, true
-  br i1 %lnot, label %for.body, label %for.end
+22:                                               ; preds = %55, %17
+  %23 = load ptr, ptr %4, align 8, !tbaa !3
+  %24 = call i32 @parser_eof(ptr noundef %23)
+  %25 = icmp ne i32 %24, 0
+  %26 = xor i1 %25, true
+  br i1 %26, label %27, label %60
 
-for.body:                                         ; preds = %for.cond
-  %8 = load ptr, ptr %sfp.addr, align 8
-  %pos11 = getelementptr inbounds %struct.sf_parser, ptr %8, i32 0, i32 0
-  %9 = load ptr, ptr %pos11, align 8
-  %10 = load i8, ptr %9, align 1
-  %conv12 = zext i8 %10 to i32
-  switch i32 %conv12, label %sw.epilog [
-    i32 48, label %sw.bb
-    i32 49, label %sw.bb
-    i32 50, label %sw.bb
-    i32 51, label %sw.bb
-    i32 52, label %sw.bb
-    i32 53, label %sw.bb
-    i32 54, label %sw.bb
-    i32 55, label %sw.bb
-    i32 56, label %sw.bb
-    i32 57, label %sw.bb
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %4, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8, !tbaa !17
+  %31 = load i8, ptr %30, align 1, !tbaa !18
+  %32 = zext i8 %31 to i32
+  switch i32 %32, label %53 [
+    i32 32, label %33
+    i32 33, label %33
+    i32 35, label %33
+    i32 36, label %33
+    i32 37, label %33
+    i32 38, label %33
+    i32 39, label %33
+    i32 40, label %33
+    i32 41, label %33
+    i32 42, label %33
+    i32 43, label %33
+    i32 44, label %33
+    i32 45, label %33
+    i32 46, label %33
+    i32 47, label %33
+    i32 48, label %33
+    i32 49, label %33
+    i32 50, label %33
+    i32 51, label %33
+    i32 52, label %33
+    i32 53, label %33
+    i32 54, label %33
+    i32 55, label %33
+    i32 56, label %33
+    i32 57, label %33
+    i32 58, label %33
+    i32 59, label %33
+    i32 60, label %33
+    i32 61, label %33
+    i32 62, label %33
+    i32 63, label %33
+    i32 64, label %33
+    i32 65, label %33
+    i32 66, label %33
+    i32 67, label %33
+    i32 68, label %33
+    i32 69, label %33
+    i32 70, label %33
+    i32 71, label %33
+    i32 72, label %33
+    i32 73, label %33
+    i32 74, label %33
+    i32 75, label %33
+    i32 76, label %33
+    i32 77, label %33
+    i32 78, label %33
+    i32 79, label %33
+    i32 80, label %33
+    i32 81, label %33
+    i32 82, label %33
+    i32 83, label %33
+    i32 84, label %33
+    i32 85, label %33
+    i32 86, label %33
+    i32 87, label %33
+    i32 88, label %33
+    i32 89, label %33
+    i32 90, label %33
+    i32 91, label %33
+    i32 93, label %33
+    i32 94, label %33
+    i32 95, label %33
+    i32 96, label %33
+    i32 97, label %33
+    i32 98, label %33
+    i32 99, label %33
+    i32 100, label %33
+    i32 101, label %33
+    i32 102, label %33
+    i32 103, label %33
+    i32 104, label %33
+    i32 105, label %33
+    i32 106, label %33
+    i32 107, label %33
+    i32 108, label %33
+    i32 109, label %33
+    i32 110, label %33
+    i32 111, label %33
+    i32 112, label %33
+    i32 113, label %33
+    i32 114, label %33
+    i32 115, label %33
+    i32 116, label %33
+    i32 117, label %33
+    i32 118, label %33
+    i32 119, label %33
+    i32 120, label %33
+    i32 121, label %33
+    i32 122, label %33
+    i32 123, label %33
+    i32 124, label %33
+    i32 125, label %33
+    i32 126, label %33
+    i32 92, label %34
+    i32 34, label %52
   ]
 
-sw.bb:                                            ; preds = %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body
-  %11 = load i64, ptr %len, align 8
-  %inc = add i64 %11, 1
-  store i64 %inc, ptr %len, align 8
-  %cmp13 = icmp ugt i64 %inc, 15
-  br i1 %cmp13, label %if.then15, label %if.end16
+33:                                               ; preds = %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27
+  br label %54
 
-if.then15:                                        ; preds = %sw.bb
-  store i32 -1, ptr %retval, align 4
-  br label %return
+34:                                               ; preds = %27
+  %35 = load ptr, ptr %4, align 8, !tbaa !3
+  %36 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %35, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8, !tbaa !17
+  %38 = getelementptr inbounds nuw i8, ptr %37, i32 1
+  store ptr %38, ptr %36, align 8, !tbaa !17
+  %39 = load ptr, ptr %4, align 8, !tbaa !3
+  %40 = call i32 @parser_eof(ptr noundef %39)
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %42, label %43
 
-if.end16:                                         ; preds = %sw.bb
-  %12 = load i64, ptr %value, align 8
-  %mul = mul nsw i64 %12, 10
-  store i64 %mul, ptr %value, align 8
-  %13 = load ptr, ptr %sfp.addr, align 8
-  %pos17 = getelementptr inbounds %struct.sf_parser, ptr %13, i32 0, i32 0
-  %14 = load ptr, ptr %pos17, align 8
-  %15 = load i8, ptr %14, align 1
-  %conv18 = zext i8 %15 to i32
-  %sub = sub nsw i32 %conv18, 48
-  %conv19 = sext i32 %sub to i64
-  %16 = load i64, ptr %value, align 8
-  %add = add nsw i64 %16, %conv19
-  store i64 %add, ptr %value, align 8
-  br label %for.inc
+42:                                               ; preds = %34
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %98
 
-sw.epilog:                                        ; preds = %for.body
-  br label %for.end
-
-for.inc:                                          ; preds = %if.end16
-  %17 = load ptr, ptr %sfp.addr, align 8
-  %pos20 = getelementptr inbounds %struct.sf_parser, ptr %17, i32 0, i32 0
-  %18 = load ptr, ptr %pos20, align 8
-  %incdec.ptr21 = getelementptr inbounds i8, ptr %18, i32 1
-  store ptr %incdec.ptr21, ptr %pos20, align 8
-  br label %for.cond, !llvm.loop !10
-
-for.end:                                          ; preds = %sw.epilog, %for.cond
-  %19 = load i64, ptr %len, align 8
-  %cmp22 = icmp eq i64 %19, 0
-  br i1 %cmp22, label %if.then24, label %if.end25
-
-if.then24:                                        ; preds = %for.end
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end25:                                         ; preds = %for.end
-  %20 = load ptr, ptr %sfp.addr, align 8
-  %call26 = call i32 @parser_eof(ptr noundef %20)
-  %tobool27 = icmp ne i32 %call26, 0
-  br i1 %tobool27, label %if.then32, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.end25
-  %21 = load ptr, ptr %sfp.addr, align 8
-  %pos28 = getelementptr inbounds %struct.sf_parser, ptr %21, i32 0, i32 0
-  %22 = load ptr, ptr %pos28, align 8
-  %23 = load i8, ptr %22, align 1
-  %conv29 = zext i8 %23 to i32
-  %cmp30 = icmp ne i32 %conv29, 46
-  br i1 %cmp30, label %if.then32, label %if.end38
-
-if.then32:                                        ; preds = %lor.lhs.false, %if.end25
-  %24 = load ptr, ptr %dest.addr, align 8
-  %tobool33 = icmp ne ptr %24, null
-  br i1 %tobool33, label %if.then34, label %if.end37
-
-if.then34:                                        ; preds = %if.then32
-  %25 = load ptr, ptr %dest.addr, align 8
-  %type = getelementptr inbounds %struct.sf_value, ptr %25, i32 0, i32 0
-  store i32 1, ptr %type, align 8
-  %26 = load ptr, ptr %dest.addr, align 8
-  %flags = getelementptr inbounds %struct.sf_value, ptr %26, i32 0, i32 1
-  store i32 0, ptr %flags, align 4
-  %27 = load i64, ptr %value, align 8
-  %28 = load i32, ptr %sign, align 4
-  %conv35 = sext i32 %28 to i64
-  %mul36 = mul nsw i64 %27, %conv35
-  %29 = load ptr, ptr %dest.addr, align 8
-  %30 = getelementptr inbounds %struct.sf_value, ptr %29, i32 0, i32 2
-  store i64 %mul36, ptr %30, align 8
-  br label %if.end37
-
-if.end37:                                         ; preds = %if.then34, %if.then32
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end38:                                         ; preds = %lor.lhs.false
-  %31 = load i64, ptr %len, align 8
-  %cmp39 = icmp ugt i64 %31, 12
-  br i1 %cmp39, label %if.then41, label %if.end42
-
-if.then41:                                        ; preds = %if.end38
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end42:                                         ; preds = %if.end38
-  %32 = load i64, ptr %len, align 8
-  store i64 %32, ptr %fpos, align 8
-  %33 = load ptr, ptr %sfp.addr, align 8
-  %pos43 = getelementptr inbounds %struct.sf_parser, ptr %33, i32 0, i32 0
-  %34 = load ptr, ptr %pos43, align 8
-  %incdec.ptr44 = getelementptr inbounds i8, ptr %34, i32 1
-  store ptr %incdec.ptr44, ptr %pos43, align 8
-  br label %for.cond45
-
-for.cond45:                                       ; preds = %for.inc65, %if.end42
-  %35 = load ptr, ptr %sfp.addr, align 8
-  %call46 = call i32 @parser_eof(ptr noundef %35)
-  %tobool47 = icmp ne i32 %call46, 0
-  %lnot48 = xor i1 %tobool47, true
-  br i1 %lnot48, label %for.body49, label %for.end68
-
-for.body49:                                       ; preds = %for.cond45
-  %36 = load ptr, ptr %sfp.addr, align 8
-  %pos50 = getelementptr inbounds %struct.sf_parser, ptr %36, i32 0, i32 0
-  %37 = load ptr, ptr %pos50, align 8
-  %38 = load i8, ptr %37, align 1
-  %conv51 = zext i8 %38 to i32
-  switch i32 %conv51, label %sw.epilog64 [
-    i32 48, label %sw.bb52
-    i32 49, label %sw.bb52
-    i32 50, label %sw.bb52
-    i32 51, label %sw.bb52
-    i32 52, label %sw.bb52
-    i32 53, label %sw.bb52
-    i32 54, label %sw.bb52
-    i32 55, label %sw.bb52
-    i32 56, label %sw.bb52
-    i32 57, label %sw.bb52
+43:                                               ; preds = %34
+  %44 = load ptr, ptr %4, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %44, i32 0, i32 0
+  %46 = load ptr, ptr %45, align 8, !tbaa !17
+  %47 = load i8, ptr %46, align 1, !tbaa !18
+  %48 = zext i8 %47 to i32
+  switch i32 %48, label %50 [
+    i32 34, label %49
+    i32 92, label %49
   ]
 
-sw.bb52:                                          ; preds = %for.body49, %for.body49, %for.body49, %for.body49, %for.body49, %for.body49, %for.body49, %for.body49, %for.body49, %for.body49
-  %39 = load i64, ptr %len, align 8
-  %inc53 = add i64 %39, 1
-  store i64 %inc53, ptr %len, align 8
-  %cmp54 = icmp ugt i64 %inc53, 15
-  br i1 %cmp54, label %if.then56, label %if.end57
+49:                                               ; preds = %43, %43
+  store i32 1, ptr %7, align 4, !tbaa !16
+  br label %51
 
-if.then56:                                        ; preds = %sw.bb52
-  store i32 -1, ptr %retval, align 4
-  br label %return
+50:                                               ; preds = %43
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %98
 
-if.end57:                                         ; preds = %sw.bb52
-  %40 = load i64, ptr %value, align 8
-  %mul58 = mul nsw i64 %40, 10
-  store i64 %mul58, ptr %value, align 8
-  %41 = load ptr, ptr %sfp.addr, align 8
-  %pos59 = getelementptr inbounds %struct.sf_parser, ptr %41, i32 0, i32 0
-  %42 = load ptr, ptr %pos59, align 8
-  %43 = load i8, ptr %42, align 1
-  %conv60 = zext i8 %43 to i32
-  %sub61 = sub nsw i32 %conv60, 48
-  %conv62 = sext i32 %sub61 to i64
-  %44 = load i64, ptr %value, align 8
-  %add63 = add nsw i64 %44, %conv62
-  store i64 %add63, ptr %value, align 8
-  br label %for.inc65
+51:                                               ; preds = %49
+  br label %54
 
-sw.epilog64:                                      ; preds = %for.body49
-  br label %for.end68
+52:                                               ; preds = %27
+  br label %61
 
-for.inc65:                                        ; preds = %if.end57
-  %45 = load ptr, ptr %sfp.addr, align 8
-  %pos66 = getelementptr inbounds %struct.sf_parser, ptr %45, i32 0, i32 0
-  %46 = load ptr, ptr %pos66, align 8
-  %incdec.ptr67 = getelementptr inbounds i8, ptr %46, i32 1
-  store ptr %incdec.ptr67, ptr %pos66, align 8
-  br label %for.cond45, !llvm.loop !11
+53:                                               ; preds = %27
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %98
 
-for.end68:                                        ; preds = %sw.epilog64, %for.cond45
-  %47 = load i64, ptr %fpos, align 8
-  %48 = load i64, ptr %len, align 8
-  %cmp69 = icmp eq i64 %47, %48
-  br i1 %cmp69, label %if.then75, label %lor.lhs.false71
+54:                                               ; preds = %51, %33
+  br label %55
 
-lor.lhs.false71:                                  ; preds = %for.end68
-  %49 = load i64, ptr %len, align 8
-  %50 = load i64, ptr %fpos, align 8
-  %sub72 = sub i64 %49, %50
-  %cmp73 = icmp ugt i64 %sub72, 3
-  br i1 %cmp73, label %if.then75, label %if.end76
+55:                                               ; preds = %54
+  %56 = load ptr, ptr %4, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %56, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8, !tbaa !17
+  %59 = getelementptr inbounds nuw i8, ptr %58, i32 1
+  store ptr %59, ptr %57, align 8, !tbaa !17
+  br label %22, !llvm.loop !37
 
-if.then75:                                        ; preds = %lor.lhs.false71, %for.end68
-  store i32 -1, ptr %retval, align 4
-  br label %return
+60:                                               ; preds = %22
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %98
 
-if.end76:                                         ; preds = %lor.lhs.false71
-  %51 = load ptr, ptr %dest.addr, align 8
-  %tobool77 = icmp ne ptr %51, null
-  br i1 %tobool77, label %if.then78, label %if.end90
+61:                                               ; preds = %52
+  %62 = load ptr, ptr %5, align 8, !tbaa !10
+  %63 = icmp ne ptr %62, null
+  br i1 %63, label %64, label %93
 
-if.then78:                                        ; preds = %if.end76
-  %52 = load ptr, ptr %dest.addr, align 8
-  %type79 = getelementptr inbounds %struct.sf_value, ptr %52, i32 0, i32 0
-  store i32 2, ptr %type79, align 8
-  %53 = load ptr, ptr %dest.addr, align 8
-  %flags80 = getelementptr inbounds %struct.sf_value, ptr %53, i32 0, i32 1
-  store i32 0, ptr %flags80, align 4
-  %54 = load i64, ptr %value, align 8
-  %55 = load i32, ptr %sign, align 4
-  %conv81 = sext i32 %55 to i64
-  %mul82 = mul nsw i64 %54, %conv81
-  %56 = load ptr, ptr %dest.addr, align 8
-  %57 = getelementptr inbounds %struct.sf_value, ptr %56, i32 0, i32 2
-  %numer = getelementptr inbounds %struct.sf_decimal, ptr %57, i32 0, i32 0
-  store i64 %mul82, ptr %numer, align 8
-  %58 = load i64, ptr %len, align 8
-  %59 = load i64, ptr %fpos, align 8
-  %sub83 = sub i64 %58, %59
-  switch i64 %sub83, label %sw.epilog89 [
-    i64 1, label %sw.bb84
-    i64 2, label %sw.bb85
-    i64 3, label %sw.bb87
-  ]
+64:                                               ; preds = %61
+  %65 = load ptr, ptr %5, align 8, !tbaa !10
+  %66 = getelementptr inbounds nuw %struct.sfparse_value, ptr %65, i32 0, i32 0
+  store i32 3, ptr %66, align 8, !tbaa !19
+  %67 = load i32, ptr %7, align 4, !tbaa !16
+  %68 = load ptr, ptr %5, align 8, !tbaa !10
+  %69 = getelementptr inbounds nuw %struct.sfparse_value, ptr %68, i32 0, i32 1
+  store i32 %67, ptr %69, align 4, !tbaa !21
+  %70 = load ptr, ptr %4, align 8, !tbaa !3
+  %71 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %70, i32 0, i32 0
+  %72 = load ptr, ptr %71, align 8, !tbaa !17
+  %73 = load ptr, ptr %6, align 8, !tbaa !25
+  %74 = ptrtoint ptr %72 to i64
+  %75 = ptrtoint ptr %73 to i64
+  %76 = sub i64 %74, %75
+  %77 = load ptr, ptr %5, align 8, !tbaa !10
+  %78 = getelementptr inbounds nuw %struct.sfparse_value, ptr %77, i32 0, i32 2
+  %79 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %78, i32 0, i32 1
+  store i64 %76, ptr %79, align 8, !tbaa !18
+  %80 = load ptr, ptr %5, align 8, !tbaa !10
+  %81 = getelementptr inbounds nuw %struct.sfparse_value, ptr %80, i32 0, i32 2
+  %82 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %81, i32 0, i32 1
+  %83 = load i64, ptr %82, align 8, !tbaa !18
+  %84 = icmp eq i64 %83, 0
+  br i1 %84, label %85, label %86
 
-sw.bb84:                                          ; preds = %if.then78
-  %60 = load ptr, ptr %dest.addr, align 8
-  %61 = getelementptr inbounds %struct.sf_value, ptr %60, i32 0, i32 2
-  %denom = getelementptr inbounds %struct.sf_decimal, ptr %61, i32 0, i32 1
-  store i64 10, ptr %denom, align 8
-  br label %sw.epilog89
+85:                                               ; preds = %64
+  br label %88
 
-sw.bb85:                                          ; preds = %if.then78
-  %62 = load ptr, ptr %dest.addr, align 8
-  %63 = getelementptr inbounds %struct.sf_value, ptr %62, i32 0, i32 2
-  %denom86 = getelementptr inbounds %struct.sf_decimal, ptr %63, i32 0, i32 1
-  store i64 100, ptr %denom86, align 8
-  br label %sw.epilog89
+86:                                               ; preds = %64
+  %87 = load ptr, ptr %6, align 8, !tbaa !25
+  br label %88
 
-sw.bb87:                                          ; preds = %if.then78
-  %64 = load ptr, ptr %dest.addr, align 8
-  %65 = getelementptr inbounds %struct.sf_value, ptr %64, i32 0, i32 2
-  %denom88 = getelementptr inbounds %struct.sf_decimal, ptr %65, i32 0, i32 1
-  store i64 1000, ptr %denom88, align 8
-  br label %sw.epilog89
+88:                                               ; preds = %86, %85
+  %89 = phi ptr [ null, %85 ], [ %87, %86 ]
+  %90 = load ptr, ptr %5, align 8, !tbaa !10
+  %91 = getelementptr inbounds nuw %struct.sfparse_value, ptr %90, i32 0, i32 2
+  %92 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %91, i32 0, i32 0
+  store ptr %89, ptr %92, align 8, !tbaa !18
+  br label %93
 
-sw.epilog89:                                      ; preds = %sw.bb87, %sw.bb85, %sw.bb84, %if.then78
-  br label %if.end90
+93:                                               ; preds = %88, %61
+  %94 = load ptr, ptr %4, align 8, !tbaa !3
+  %95 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %94, i32 0, i32 0
+  %96 = load ptr, ptr %95, align 8, !tbaa !17
+  %97 = getelementptr inbounds nuw i8, ptr %96, i32 1
+  store ptr %97, ptr %95, align 8, !tbaa !17
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %98
 
-if.end90:                                         ; preds = %sw.epilog89, %if.end76
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end90, %if.then75, %if.then56, %if.then41, %if.end37, %if.then24, %if.then15, %if.then3
-  %66 = load i32, ptr %retval, align 4
-  ret i32 %66
+98:                                               ; preds = %93, %60, %53, %50, %42
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %99 = load i32, ptr %3, align 4
+  ret i32 %99
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @parser_date(ptr noundef %sfp, ptr noundef %dest) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sfp.addr = alloca ptr, align 8
-  %dest.addr = alloca ptr, align 8
-  %rv = alloca i32, align 4
-  %val = alloca %struct.sf_value, align 8
-  store ptr %sfp, ptr %sfp.addr, align 8
-  store ptr %dest, ptr %dest.addr, align 8
-  %0 = load ptr, ptr %sfp.addr, align 8
-  %pos = getelementptr inbounds %struct.sf_parser, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %pos, align 8
-  %2 = load i8, ptr %1, align 1
-  %conv = zext i8 %2 to i32
-  %cmp = icmp eq i32 64, %conv
-  br i1 %cmp, label %if.then, label %if.else
+define internal i32 @parser_number(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #5
+  store i32 1, ptr %6, align 4, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  store i64 0, ptr %7, align 8, !tbaa !31
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  store i64 0, ptr %8, align 8, !tbaa !31
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  store i64 0, ptr %9, align 8, !tbaa !31
+  %11 = load ptr, ptr %4, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8, !tbaa !17
+  %14 = load i8, ptr %13, align 1, !tbaa !18
+  %15 = zext i8 %14 to i32
+  %16 = icmp eq i32 %15, 45
+  br i1 %16, label %17, label %27
 
-if.then:                                          ; preds = %entry
-  br label %if.end
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %4, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !17
+  %21 = getelementptr inbounds nuw i8, ptr %20, i32 1
+  store ptr %21, ptr %19, align 8, !tbaa !17
+  %22 = load ptr, ptr %4, align 8, !tbaa !3
+  %23 = call i32 @parser_eof(ptr noundef %22)
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %25, label %26
 
-if.else:                                          ; preds = %entry
-  call void @__assert_fail(ptr noundef @.str.8, ptr noundef @.str.1, i32 noundef 350, ptr noundef @__PRETTY_FUNCTION__.parser_date) #4
+25:                                               ; preds = %17
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %184
+
+26:                                               ; preds = %17
+  store i32 -1, ptr %6, align 4, !tbaa !16
+  br label %27
+
+27:                                               ; preds = %26, %2
+  %28 = load ptr, ptr %4, align 8, !tbaa !3
+  %29 = call i32 @parser_eof(ptr noundef %28)
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %32, label %31
+
+31:                                               ; preds = %27
+  br label %33
+
+32:                                               ; preds = %27
+  call void @__assert_fail(ptr noundef @.str.5, ptr noundef @.str.1, i32 noundef 533, ptr noundef @__PRETTY_FUNCTION__.parser_number) #6
   unreachable
 
-if.end:                                           ; preds = %if.then
-  %3 = load ptr, ptr %sfp.addr, align 8
-  %pos2 = getelementptr inbounds %struct.sf_parser, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %pos2, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %4, i32 1
-  store ptr %incdec.ptr, ptr %pos2, align 8
-  %5 = load ptr, ptr %sfp.addr, align 8
-  %call = call i32 @parser_eof(ptr noundef %5)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then3, label %if.end4
+33:                                               ; preds = %31
+  br label %34
 
-if.then3:                                         ; preds = %if.end
-  store i32 -1, ptr %retval, align 4
-  br label %return
+34:                                               ; preds = %63, %33
+  %35 = load ptr, ptr %4, align 8, !tbaa !3
+  %36 = call i32 @parser_eof(ptr noundef %35)
+  %37 = icmp ne i32 %36, 0
+  %38 = xor i1 %37, true
+  br i1 %38, label %39, label %68
 
-if.end4:                                          ; preds = %if.end
-  %6 = load ptr, ptr %sfp.addr, align 8
-  %call5 = call i32 @parser_number(ptr noundef %6, ptr noundef %val)
-  store i32 %call5, ptr %rv, align 4
-  %7 = load i32, ptr %rv, align 4
-  %cmp6 = icmp ne i32 %7, 0
-  br i1 %cmp6, label %if.then8, label %if.end9
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %4, align 8, !tbaa !3
+  %41 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %40, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8, !tbaa !17
+  %43 = load i8, ptr %42, align 1, !tbaa !18
+  %44 = zext i8 %43 to i32
+  switch i32 %44, label %62 [
+    i32 48, label %45
+    i32 49, label %45
+    i32 50, label %45
+    i32 51, label %45
+    i32 52, label %45
+    i32 53, label %45
+    i32 54, label %45
+    i32 55, label %45
+    i32 56, label %45
+    i32 57, label %45
+  ]
 
-if.then8:                                         ; preds = %if.end4
-  %8 = load i32, ptr %rv, align 4
-  store i32 %8, ptr %retval, align 4
-  br label %return
+45:                                               ; preds = %39, %39, %39, %39, %39, %39, %39, %39, %39, %39
+  %46 = load i64, ptr %8, align 8, !tbaa !31
+  %47 = add i64 %46, 1
+  store i64 %47, ptr %8, align 8, !tbaa !31
+  %48 = icmp ugt i64 %47, 15
+  br i1 %48, label %49, label %50
 
-if.end9:                                          ; preds = %if.end4
-  %type = getelementptr inbounds %struct.sf_value, ptr %val, i32 0, i32 0
-  %9 = load i32, ptr %type, align 8
-  %cmp10 = icmp ne i32 %9, 1
-  br i1 %cmp10, label %if.then12, label %if.end13
+49:                                               ; preds = %45
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %184
 
-if.then12:                                        ; preds = %if.end9
-  store i32 -1, ptr %retval, align 4
-  br label %return
+50:                                               ; preds = %45
+  %51 = load i64, ptr %7, align 8, !tbaa !31
+  %52 = mul nsw i64 %51, 10
+  store i64 %52, ptr %7, align 8, !tbaa !31
+  %53 = load ptr, ptr %4, align 8, !tbaa !3
+  %54 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %53, i32 0, i32 0
+  %55 = load ptr, ptr %54, align 8, !tbaa !17
+  %56 = load i8, ptr %55, align 1, !tbaa !18
+  %57 = zext i8 %56 to i32
+  %58 = sub nsw i32 %57, 48
+  %59 = sext i32 %58 to i64
+  %60 = load i64, ptr %7, align 8, !tbaa !31
+  %61 = add nsw i64 %60, %59
+  store i64 %61, ptr %7, align 8, !tbaa !31
+  br label %63
 
-if.end13:                                         ; preds = %if.end9
-  %10 = load ptr, ptr %dest.addr, align 8
-  %tobool14 = icmp ne ptr %10, null
-  br i1 %tobool14, label %if.then15, label %if.end17
+62:                                               ; preds = %39
+  br label %68
 
-if.then15:                                        ; preds = %if.end13
-  %11 = load ptr, ptr %dest.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %val, i64 24, i1 false)
-  %12 = load ptr, ptr %dest.addr, align 8
-  %type16 = getelementptr inbounds %struct.sf_value, ptr %12, i32 0, i32 0
-  store i32 7, ptr %type16, align 8
-  br label %if.end17
+63:                                               ; preds = %50
+  %64 = load ptr, ptr %4, align 8, !tbaa !3
+  %65 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %64, i32 0, i32 0
+  %66 = load ptr, ptr %65, align 8, !tbaa !17
+  %67 = getelementptr inbounds nuw i8, ptr %66, i32 1
+  store ptr %67, ptr %65, align 8, !tbaa !17
+  br label %34, !llvm.loop !38
 
-if.end17:                                         ; preds = %if.then15, %if.end13
-  store i32 0, ptr %retval, align 4
-  br label %return
+68:                                               ; preds = %62, %34
+  %69 = load i64, ptr %8, align 8, !tbaa !31
+  %70 = icmp eq i64 %69, 0
+  br i1 %70, label %71, label %72
 
-return:                                           ; preds = %if.end17, %if.then12, %if.then8, %if.then3
-  %13 = load i32, ptr %retval, align 4
-  ret i32 %13
+71:                                               ; preds = %68
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %184
+
+72:                                               ; preds = %68
+  %73 = load ptr, ptr %4, align 8, !tbaa !3
+  %74 = call i32 @parser_eof(ptr noundef %73)
+  %75 = icmp ne i32 %74, 0
+  br i1 %75, label %83, label %76
+
+76:                                               ; preds = %72
+  %77 = load ptr, ptr %4, align 8, !tbaa !3
+  %78 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %77, i32 0, i32 0
+  %79 = load ptr, ptr %78, align 8, !tbaa !17
+  %80 = load i8, ptr %79, align 1, !tbaa !18
+  %81 = zext i8 %80 to i32
+  %82 = icmp ne i32 %81, 46
+  br i1 %82, label %83, label %98
+
+83:                                               ; preds = %76, %72
+  %84 = load ptr, ptr %5, align 8, !tbaa !10
+  %85 = icmp ne ptr %84, null
+  br i1 %85, label %86, label %97
+
+86:                                               ; preds = %83
+  %87 = load ptr, ptr %5, align 8, !tbaa !10
+  %88 = getelementptr inbounds nuw %struct.sfparse_value, ptr %87, i32 0, i32 0
+  store i32 1, ptr %88, align 8, !tbaa !19
+  %89 = load ptr, ptr %5, align 8, !tbaa !10
+  %90 = getelementptr inbounds nuw %struct.sfparse_value, ptr %89, i32 0, i32 1
+  store i32 0, ptr %90, align 4, !tbaa !21
+  %91 = load i64, ptr %7, align 8, !tbaa !31
+  %92 = load i32, ptr %6, align 4, !tbaa !16
+  %93 = sext i32 %92 to i64
+  %94 = mul nsw i64 %91, %93
+  %95 = load ptr, ptr %5, align 8, !tbaa !10
+  %96 = getelementptr inbounds nuw %struct.sfparse_value, ptr %95, i32 0, i32 2
+  store i64 %94, ptr %96, align 8, !tbaa !18
+  br label %97
+
+97:                                               ; preds = %86, %83
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %184
+
+98:                                               ; preds = %76
+  %99 = load i64, ptr %8, align 8, !tbaa !31
+  %100 = icmp ugt i64 %99, 12
+  br i1 %100, label %101, label %102
+
+101:                                              ; preds = %98
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %184
+
+102:                                              ; preds = %98
+  %103 = load i64, ptr %8, align 8, !tbaa !31
+  store i64 %103, ptr %9, align 8, !tbaa !31
+  %104 = load ptr, ptr %4, align 8, !tbaa !3
+  %105 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %104, i32 0, i32 0
+  %106 = load ptr, ptr %105, align 8, !tbaa !17
+  %107 = getelementptr inbounds nuw i8, ptr %106, i32 1
+  store ptr %107, ptr %105, align 8, !tbaa !17
+  br label %108
+
+108:                                              ; preds = %137, %102
+  %109 = load ptr, ptr %4, align 8, !tbaa !3
+  %110 = call i32 @parser_eof(ptr noundef %109)
+  %111 = icmp ne i32 %110, 0
+  %112 = xor i1 %111, true
+  br i1 %112, label %113, label %142
+
+113:                                              ; preds = %108
+  %114 = load ptr, ptr %4, align 8, !tbaa !3
+  %115 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %114, i32 0, i32 0
+  %116 = load ptr, ptr %115, align 8, !tbaa !17
+  %117 = load i8, ptr %116, align 1, !tbaa !18
+  %118 = zext i8 %117 to i32
+  switch i32 %118, label %136 [
+    i32 48, label %119
+    i32 49, label %119
+    i32 50, label %119
+    i32 51, label %119
+    i32 52, label %119
+    i32 53, label %119
+    i32 54, label %119
+    i32 55, label %119
+    i32 56, label %119
+    i32 57, label %119
+  ]
+
+119:                                              ; preds = %113, %113, %113, %113, %113, %113, %113, %113, %113, %113
+  %120 = load i64, ptr %8, align 8, !tbaa !31
+  %121 = add i64 %120, 1
+  store i64 %121, ptr %8, align 8, !tbaa !31
+  %122 = icmp ugt i64 %121, 15
+  br i1 %122, label %123, label %124
+
+123:                                              ; preds = %119
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %184
+
+124:                                              ; preds = %119
+  %125 = load i64, ptr %7, align 8, !tbaa !31
+  %126 = mul nsw i64 %125, 10
+  store i64 %126, ptr %7, align 8, !tbaa !31
+  %127 = load ptr, ptr %4, align 8, !tbaa !3
+  %128 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %127, i32 0, i32 0
+  %129 = load ptr, ptr %128, align 8, !tbaa !17
+  %130 = load i8, ptr %129, align 1, !tbaa !18
+  %131 = zext i8 %130 to i32
+  %132 = sub nsw i32 %131, 48
+  %133 = sext i32 %132 to i64
+  %134 = load i64, ptr %7, align 8, !tbaa !31
+  %135 = add nsw i64 %134, %133
+  store i64 %135, ptr %7, align 8, !tbaa !31
+  br label %137
+
+136:                                              ; preds = %113
+  br label %142
+
+137:                                              ; preds = %124
+  %138 = load ptr, ptr %4, align 8, !tbaa !3
+  %139 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %138, i32 0, i32 0
+  %140 = load ptr, ptr %139, align 8, !tbaa !17
+  %141 = getelementptr inbounds nuw i8, ptr %140, i32 1
+  store ptr %141, ptr %139, align 8, !tbaa !17
+  br label %108, !llvm.loop !39
+
+142:                                              ; preds = %136, %108
+  %143 = load i64, ptr %9, align 8, !tbaa !31
+  %144 = load i64, ptr %8, align 8, !tbaa !31
+  %145 = icmp eq i64 %143, %144
+  br i1 %145, label %151, label %146
+
+146:                                              ; preds = %142
+  %147 = load i64, ptr %8, align 8, !tbaa !31
+  %148 = load i64, ptr %9, align 8, !tbaa !31
+  %149 = sub i64 %147, %148
+  %150 = icmp ugt i64 %149, 3
+  br i1 %150, label %151, label %152
+
+151:                                              ; preds = %146, %142
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %184
+
+152:                                              ; preds = %146
+  %153 = load ptr, ptr %5, align 8, !tbaa !10
+  %154 = icmp ne ptr %153, null
+  br i1 %154, label %155, label %183
+
+155:                                              ; preds = %152
+  %156 = load ptr, ptr %5, align 8, !tbaa !10
+  %157 = getelementptr inbounds nuw %struct.sfparse_value, ptr %156, i32 0, i32 0
+  store i32 2, ptr %157, align 8, !tbaa !19
+  %158 = load ptr, ptr %5, align 8, !tbaa !10
+  %159 = getelementptr inbounds nuw %struct.sfparse_value, ptr %158, i32 0, i32 1
+  store i32 0, ptr %159, align 4, !tbaa !21
+  %160 = load i64, ptr %7, align 8, !tbaa !31
+  %161 = load i32, ptr %6, align 4, !tbaa !16
+  %162 = sext i32 %161 to i64
+  %163 = mul nsw i64 %160, %162
+  %164 = load ptr, ptr %5, align 8, !tbaa !10
+  %165 = getelementptr inbounds nuw %struct.sfparse_value, ptr %164, i32 0, i32 2
+  %166 = getelementptr inbounds nuw %struct.sfparse_decimal, ptr %165, i32 0, i32 0
+  store i64 %163, ptr %166, align 8, !tbaa !18
+  %167 = load i64, ptr %8, align 8, !tbaa !31
+  %168 = load i64, ptr %9, align 8, !tbaa !31
+  %169 = sub i64 %167, %168
+  switch i64 %169, label %182 [
+    i64 1, label %170
+    i64 2, label %174
+    i64 3, label %178
+  ]
+
+170:                                              ; preds = %155
+  %171 = load ptr, ptr %5, align 8, !tbaa !10
+  %172 = getelementptr inbounds nuw %struct.sfparse_value, ptr %171, i32 0, i32 2
+  %173 = getelementptr inbounds nuw %struct.sfparse_decimal, ptr %172, i32 0, i32 1
+  store i64 10, ptr %173, align 8, !tbaa !18
+  br label %182
+
+174:                                              ; preds = %155
+  %175 = load ptr, ptr %5, align 8, !tbaa !10
+  %176 = getelementptr inbounds nuw %struct.sfparse_value, ptr %175, i32 0, i32 2
+  %177 = getelementptr inbounds nuw %struct.sfparse_decimal, ptr %176, i32 0, i32 1
+  store i64 100, ptr %177, align 8, !tbaa !18
+  br label %182
+
+178:                                              ; preds = %155
+  %179 = load ptr, ptr %5, align 8, !tbaa !10
+  %180 = getelementptr inbounds nuw %struct.sfparse_value, ptr %179, i32 0, i32 2
+  %181 = getelementptr inbounds nuw %struct.sfparse_decimal, ptr %180, i32 0, i32 1
+  store i64 1000, ptr %181, align 8, !tbaa !18
+  br label %182
+
+182:                                              ; preds = %155, %178, %174, %170
+  br label %183
+
+183:                                              ; preds = %182, %152
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %184
+
+184:                                              ; preds = %183, %151, %123, %101, %97, %71, %49, %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #5
+  %185 = load i32, ptr %3, align 4
+  ret i32 %185
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @parser_byteseq(ptr noundef %sfp, ptr noundef %dest) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sfp.addr = alloca ptr, align 8
-  %dest.addr = alloca ptr, align 8
-  %base = alloca ptr, align 8
-  store ptr %sfp, ptr %sfp.addr, align 8
-  store ptr %dest, ptr %dest.addr, align 8
-  %0 = load ptr, ptr %sfp.addr, align 8
-  %pos = getelementptr inbounds %struct.sf_parser, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %pos, align 8
-  %2 = load i8, ptr %1, align 1
-  %conv = zext i8 %2 to i32
-  %cmp = icmp eq i32 58, %conv
-  br i1 %cmp, label %if.then, label %if.else
+define internal i32 @parser_date(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %struct.sfparse_value, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #5
+  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  %10 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !17
+  %12 = load i8, ptr %11, align 1, !tbaa !18
+  %13 = zext i8 %12 to i32
+  %14 = icmp eq i32 64, %13
+  br i1 %14, label %15, label %16
 
-if.then:                                          ; preds = %entry
-  br label %if.end
+15:                                               ; preds = %2
+  br label %17
 
-if.else:                                          ; preds = %entry
-  call void @__assert_fail(ptr noundef @.str.9, ptr noundef @.str.1, i32 noundef 473, ptr noundef @__PRETTY_FUNCTION__.parser_byteseq) #4
+16:                                               ; preds = %2
+  call void @__assert_fail(ptr noundef @.str.6, ptr noundef @.str.1, i32 noundef 624, ptr noundef @__PRETTY_FUNCTION__.parser_date) #6
   unreachable
 
-if.end:                                           ; preds = %if.then
-  %3 = load ptr, ptr %sfp.addr, align 8
-  %pos2 = getelementptr inbounds %struct.sf_parser, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %pos2, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %4, i32 1
-  store ptr %incdec.ptr, ptr %pos2, align 8
-  store ptr %incdec.ptr, ptr %base, align 8
-  br label %for.cond
+17:                                               ; preds = %15
+  %18 = load ptr, ptr %4, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !17
+  %21 = getelementptr inbounds nuw i8, ptr %20, i32 1
+  store ptr %21, ptr %19, align 8, !tbaa !17
+  %22 = load ptr, ptr %4, align 8, !tbaa !3
+  %23 = call i32 @parser_eof(ptr noundef %22)
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %25, label %26
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %5 = load ptr, ptr %sfp.addr, align 8
-  %call = call i32 @parser_eof(ptr noundef %5)
-  %tobool = icmp ne i32 %call, 0
-  %lnot = xor i1 %tobool, true
-  br i1 %lnot, label %for.body, label %for.end
+25:                                               ; preds = %17
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %46
 
-for.body:                                         ; preds = %for.cond
-  %6 = load ptr, ptr %sfp.addr, align 8
-  %pos3 = getelementptr inbounds %struct.sf_parser, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %pos3, align 8
-  %8 = load i8, ptr %7, align 1
-  %conv4 = zext i8 %8 to i32
-  switch i32 %conv4, label %sw.default50 [
-    i32 43, label %sw.bb
-    i32 47, label %sw.bb
-    i32 48, label %sw.bb
-    i32 49, label %sw.bb
-    i32 50, label %sw.bb
-    i32 51, label %sw.bb
-    i32 52, label %sw.bb
-    i32 53, label %sw.bb
-    i32 54, label %sw.bb
-    i32 55, label %sw.bb
-    i32 56, label %sw.bb
-    i32 57, label %sw.bb
-    i32 65, label %sw.bb
-    i32 66, label %sw.bb
-    i32 67, label %sw.bb
-    i32 68, label %sw.bb
-    i32 69, label %sw.bb
-    i32 70, label %sw.bb
-    i32 71, label %sw.bb
-    i32 72, label %sw.bb
-    i32 73, label %sw.bb
-    i32 74, label %sw.bb
-    i32 75, label %sw.bb
-    i32 76, label %sw.bb
-    i32 77, label %sw.bb
-    i32 78, label %sw.bb
-    i32 79, label %sw.bb
-    i32 80, label %sw.bb
-    i32 81, label %sw.bb
-    i32 82, label %sw.bb
-    i32 83, label %sw.bb
-    i32 84, label %sw.bb
-    i32 85, label %sw.bb
-    i32 86, label %sw.bb
-    i32 87, label %sw.bb
-    i32 88, label %sw.bb
-    i32 89, label %sw.bb
-    i32 90, label %sw.bb
-    i32 97, label %sw.bb
-    i32 98, label %sw.bb
-    i32 99, label %sw.bb
-    i32 100, label %sw.bb
-    i32 101, label %sw.bb
-    i32 102, label %sw.bb
-    i32 103, label %sw.bb
-    i32 104, label %sw.bb
-    i32 105, label %sw.bb
-    i32 106, label %sw.bb
-    i32 107, label %sw.bb
-    i32 108, label %sw.bb
-    i32 109, label %sw.bb
-    i32 110, label %sw.bb
-    i32 111, label %sw.bb
-    i32 112, label %sw.bb
-    i32 113, label %sw.bb
-    i32 114, label %sw.bb
-    i32 115, label %sw.bb
-    i32 116, label %sw.bb
-    i32 117, label %sw.bb
-    i32 118, label %sw.bb
-    i32 119, label %sw.bb
-    i32 120, label %sw.bb
-    i32 121, label %sw.bb
-    i32 122, label %sw.bb
-    i32 61, label %sw.bb5
-    i32 58, label %sw.bb41
+26:                                               ; preds = %17
+  %27 = load ptr, ptr %4, align 8, !tbaa !3
+  %28 = call i32 @parser_number(ptr noundef %27, ptr noundef %7)
+  store i32 %28, ptr %6, align 4, !tbaa !16
+  %29 = load i32, ptr %6, align 4, !tbaa !16
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %31, label %33
+
+31:                                               ; preds = %26
+  %32 = load i32, ptr %6, align 4, !tbaa !16
+  store i32 %32, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %46
+
+33:                                               ; preds = %26
+  %34 = getelementptr inbounds nuw %struct.sfparse_value, ptr %7, i32 0, i32 0
+  %35 = load i32, ptr %34, align 8, !tbaa !19
+  %36 = icmp ne i32 %35, 1
+  br i1 %36, label %37, label %38
+
+37:                                               ; preds = %33
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %46
+
+38:                                               ; preds = %33
+  %39 = load ptr, ptr %5, align 8, !tbaa !10
+  %40 = icmp ne ptr %39, null
+  br i1 %40, label %41, label %45
+
+41:                                               ; preds = %38
+  %42 = load ptr, ptr %5, align 8, !tbaa !10
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %42, ptr align 8 %7, i64 24, i1 false), !tbaa.struct !40
+  %43 = load ptr, ptr %5, align 8, !tbaa !10
+  %44 = getelementptr inbounds nuw %struct.sfparse_value, ptr %43, i32 0, i32 0
+  store i32 7, ptr %44, align 8, !tbaa !19
+  br label %45
+
+45:                                               ; preds = %41, %38
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %46
+
+46:                                               ; preds = %45, %37, %31, %25
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #5
+  %47 = load i32, ptr %3, align 4
+  ret i32 %47
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @parser_byteseq(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !17
+  %11 = load i8, ptr %10, align 1, !tbaa !18
+  %12 = zext i8 %11 to i32
+  %13 = icmp eq i32 58, %12
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %2
+  br label %16
+
+15:                                               ; preds = %2
+  call void @__assert_fail(ptr noundef @.str.7, ptr noundef @.str.1, i32 noundef 911, ptr noundef @__PRETTY_FUNCTION__.parser_byteseq) #6
+  unreachable
+
+16:                                               ; preds = %14
+  %17 = load ptr, ptr %4, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !17
+  %20 = getelementptr inbounds nuw i8, ptr %19, i32 1
+  store ptr %20, ptr %18, align 8, !tbaa !17
+  store ptr %20, ptr %6, align 8, !tbaa !25
+  br label %21
+
+21:                                               ; preds = %96, %16
+  %22 = load ptr, ptr %4, align 8, !tbaa !3
+  %23 = call i32 @parser_eof(ptr noundef %22)
+  %24 = icmp ne i32 %23, 0
+  %25 = xor i1 %24, true
+  br i1 %25, label %26, label %101
+
+26:                                               ; preds = %21
+  %27 = load ptr, ptr %4, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8, !tbaa !17
+  %30 = load i8, ptr %29, align 1, !tbaa !18
+  %31 = zext i8 %30 to i32
+  switch i32 %31, label %95 [
+    i32 43, label %32
+    i32 47, label %32
+    i32 48, label %32
+    i32 49, label %32
+    i32 50, label %32
+    i32 51, label %32
+    i32 52, label %32
+    i32 53, label %32
+    i32 54, label %32
+    i32 55, label %32
+    i32 56, label %32
+    i32 57, label %32
+    i32 65, label %32
+    i32 66, label %32
+    i32 67, label %32
+    i32 68, label %32
+    i32 69, label %32
+    i32 70, label %32
+    i32 71, label %32
+    i32 72, label %32
+    i32 73, label %32
+    i32 74, label %32
+    i32 75, label %32
+    i32 76, label %32
+    i32 77, label %32
+    i32 78, label %32
+    i32 79, label %32
+    i32 80, label %32
+    i32 81, label %32
+    i32 82, label %32
+    i32 83, label %32
+    i32 84, label %32
+    i32 85, label %32
+    i32 86, label %32
+    i32 87, label %32
+    i32 88, label %32
+    i32 89, label %32
+    i32 90, label %32
+    i32 97, label %32
+    i32 98, label %32
+    i32 99, label %32
+    i32 100, label %32
+    i32 101, label %32
+    i32 102, label %32
+    i32 103, label %32
+    i32 104, label %32
+    i32 105, label %32
+    i32 106, label %32
+    i32 107, label %32
+    i32 108, label %32
+    i32 109, label %32
+    i32 110, label %32
+    i32 111, label %32
+    i32 112, label %32
+    i32 113, label %32
+    i32 114, label %32
+    i32 115, label %32
+    i32 116, label %32
+    i32 117, label %32
+    i32 118, label %32
+    i32 119, label %32
+    i32 120, label %32
+    i32 121, label %32
+    i32 122, label %32
+    i32 61, label %33
+    i32 58, label %83
   ]
 
-sw.bb:                                            ; preds = %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body
-  br label %for.inc
+32:                                               ; preds = %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26
+  br label %96
 
-sw.bb5:                                           ; preds = %for.body
-  %9 = load ptr, ptr %sfp.addr, align 8
-  %pos6 = getelementptr inbounds %struct.sf_parser, ptr %9, i32 0, i32 0
-  %10 = load ptr, ptr %pos6, align 8
-  %11 = load ptr, ptr %base, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %11 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %and = and i64 %sub.ptr.sub, 3
-  switch i64 %and, label %sw.epilog29 [
-    i64 0, label %sw.bb7
-    i64 1, label %sw.bb7
-    i64 2, label %sw.bb8
-    i64 3, label %sw.bb22
+33:                                               ; preds = %26
+  %34 = load ptr, ptr %4, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !17
+  %37 = load ptr, ptr %6, align 8, !tbaa !25
+  %38 = ptrtoint ptr %36 to i64
+  %39 = ptrtoint ptr %37 to i64
+  %40 = sub i64 %38, %39
+  %41 = and i64 %40, 3
+  switch i64 %41, label %70 [
+    i64 0, label %42
+    i64 1, label %42
+    i64 2, label %43
+    i64 3, label %65
   ]
 
-sw.bb7:                                           ; preds = %sw.bb5, %sw.bb5
-  store i32 -1, ptr %retval, align 4
-  br label %return
+42:                                               ; preds = %33, %33
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %138
 
-sw.bb8:                                           ; preds = %sw.bb5
-  %12 = load ptr, ptr %sfp.addr, align 8
-  %pos9 = getelementptr inbounds %struct.sf_parser, ptr %12, i32 0, i32 0
-  %13 = load ptr, ptr %pos9, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %13, i64 -1
-  %14 = load i8, ptr %add.ptr, align 1
-  %conv10 = zext i8 %14 to i32
-  switch i32 %conv10, label %sw.default [
-    i32 65, label %sw.bb11
-    i32 81, label %sw.bb11
-    i32 103, label %sw.bb11
-    i32 119, label %sw.bb11
+43:                                               ; preds = %33
+  %44 = load ptr, ptr %4, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %44, i32 0, i32 0
+  %46 = load ptr, ptr %45, align 8, !tbaa !17
+  %47 = getelementptr inbounds nuw i8, ptr %46, i32 1
+  store ptr %47, ptr %45, align 8, !tbaa !17
+  %48 = load ptr, ptr %4, align 8, !tbaa !3
+  %49 = call i32 @parser_eof(ptr noundef %48)
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %51, label %52
+
+51:                                               ; preds = %43
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %138
+
+52:                                               ; preds = %43
+  %53 = load ptr, ptr %4, align 8, !tbaa !3
+  %54 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %53, i32 0, i32 0
+  %55 = load ptr, ptr %54, align 8, !tbaa !17
+  %56 = load i8, ptr %55, align 1, !tbaa !18
+  %57 = zext i8 %56 to i32
+  %58 = icmp eq i32 %57, 61
+  br i1 %58, label %59, label %64
+
+59:                                               ; preds = %52
+  %60 = load ptr, ptr %4, align 8, !tbaa !3
+  %61 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %60, i32 0, i32 0
+  %62 = load ptr, ptr %61, align 8, !tbaa !17
+  %63 = getelementptr inbounds nuw i8, ptr %62, i32 1
+  store ptr %63, ptr %61, align 8, !tbaa !17
+  br label %64
+
+64:                                               ; preds = %59, %52
+  br label %70
+
+65:                                               ; preds = %33
+  %66 = load ptr, ptr %4, align 8, !tbaa !3
+  %67 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %66, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8, !tbaa !17
+  %69 = getelementptr inbounds nuw i8, ptr %68, i32 1
+  store ptr %69, ptr %67, align 8, !tbaa !17
+  br label %70
+
+70:                                               ; preds = %33, %65, %64
+  %71 = load ptr, ptr %4, align 8, !tbaa !3
+  %72 = call i32 @parser_eof(ptr noundef %71)
+  %73 = icmp ne i32 %72, 0
+  br i1 %73, label %81, label %74
+
+74:                                               ; preds = %70
+  %75 = load ptr, ptr %4, align 8, !tbaa !3
+  %76 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %75, i32 0, i32 0
+  %77 = load ptr, ptr %76, align 8, !tbaa !17
+  %78 = load i8, ptr %77, align 1, !tbaa !18
+  %79 = zext i8 %78 to i32
+  %80 = icmp ne i32 %79, 58
+  br i1 %80, label %81, label %82
+
+81:                                               ; preds = %74, %70
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %138
+
+82:                                               ; preds = %74
+  br label %102
+
+83:                                               ; preds = %26
+  %84 = load ptr, ptr %4, align 8, !tbaa !3
+  %85 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %84, i32 0, i32 0
+  %86 = load ptr, ptr %85, align 8, !tbaa !17
+  %87 = load ptr, ptr %6, align 8, !tbaa !25
+  %88 = ptrtoint ptr %86 to i64
+  %89 = ptrtoint ptr %87 to i64
+  %90 = sub i64 %88, %89
+  %91 = and i64 %90, 3
+  %92 = icmp eq i64 %91, 1
+  br i1 %92, label %93, label %94
+
+93:                                               ; preds = %83
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %138
+
+94:                                               ; preds = %83
+  br label %102
+
+95:                                               ; preds = %26
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %138
+
+96:                                               ; preds = %32
+  %97 = load ptr, ptr %4, align 8, !tbaa !3
+  %98 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %97, i32 0, i32 0
+  %99 = load ptr, ptr %98, align 8, !tbaa !17
+  %100 = getelementptr inbounds nuw i8, ptr %99, i32 1
+  store ptr %100, ptr %98, align 8, !tbaa !17
+  br label %21, !llvm.loop !41
+
+101:                                              ; preds = %21
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %138
+
+102:                                              ; preds = %94, %82
+  %103 = load ptr, ptr %5, align 8, !tbaa !10
+  %104 = icmp ne ptr %103, null
+  br i1 %104, label %105, label %133
+
+105:                                              ; preds = %102
+  %106 = load ptr, ptr %5, align 8, !tbaa !10
+  %107 = getelementptr inbounds nuw %struct.sfparse_value, ptr %106, i32 0, i32 0
+  store i32 5, ptr %107, align 8, !tbaa !19
+  %108 = load ptr, ptr %5, align 8, !tbaa !10
+  %109 = getelementptr inbounds nuw %struct.sfparse_value, ptr %108, i32 0, i32 1
+  store i32 0, ptr %109, align 4, !tbaa !21
+  %110 = load ptr, ptr %4, align 8, !tbaa !3
+  %111 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %110, i32 0, i32 0
+  %112 = load ptr, ptr %111, align 8, !tbaa !17
+  %113 = load ptr, ptr %6, align 8, !tbaa !25
+  %114 = ptrtoint ptr %112 to i64
+  %115 = ptrtoint ptr %113 to i64
+  %116 = sub i64 %114, %115
+  %117 = load ptr, ptr %5, align 8, !tbaa !10
+  %118 = getelementptr inbounds nuw %struct.sfparse_value, ptr %117, i32 0, i32 2
+  %119 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %118, i32 0, i32 1
+  store i64 %116, ptr %119, align 8, !tbaa !18
+  %120 = load ptr, ptr %5, align 8, !tbaa !10
+  %121 = getelementptr inbounds nuw %struct.sfparse_value, ptr %120, i32 0, i32 2
+  %122 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %121, i32 0, i32 1
+  %123 = load i64, ptr %122, align 8, !tbaa !18
+  %124 = icmp eq i64 %123, 0
+  br i1 %124, label %125, label %126
+
+125:                                              ; preds = %105
+  br label %128
+
+126:                                              ; preds = %105
+  %127 = load ptr, ptr %6, align 8, !tbaa !25
+  br label %128
+
+128:                                              ; preds = %126, %125
+  %129 = phi ptr [ null, %125 ], [ %127, %126 ]
+  %130 = load ptr, ptr %5, align 8, !tbaa !10
+  %131 = getelementptr inbounds nuw %struct.sfparse_value, ptr %130, i32 0, i32 2
+  %132 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %131, i32 0, i32 0
+  store ptr %129, ptr %132, align 8, !tbaa !18
+  br label %133
+
+133:                                              ; preds = %128, %102
+  %134 = load ptr, ptr %4, align 8, !tbaa !3
+  %135 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %134, i32 0, i32 0
+  %136 = load ptr, ptr %135, align 8, !tbaa !17
+  %137 = getelementptr inbounds nuw i8, ptr %136, i32 1
+  store ptr %137, ptr %135, align 8, !tbaa !17
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %138
+
+138:                                              ; preds = %133, %101, %95, %93, %81, %51, %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %139 = load i32, ptr %3, align 4
+  ret i32 %139
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @parser_boolean(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !17
+  %11 = load i8, ptr %10, align 1, !tbaa !18
+  %12 = zext i8 %11 to i32
+  %13 = icmp eq i32 63, %12
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %2
+  br label %16
+
+15:                                               ; preds = %2
+  call void @__assert_fail(ptr noundef @.str.8, ptr noundef @.str.1, i32 noundef 987, ptr noundef @__PRETTY_FUNCTION__.parser_boolean) #6
+  unreachable
+
+16:                                               ; preds = %14
+  %17 = load ptr, ptr %4, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !17
+  %20 = getelementptr inbounds nuw i8, ptr %19, i32 1
+  store ptr %20, ptr %18, align 8, !tbaa !17
+  %21 = load ptr, ptr %4, align 8, !tbaa !3
+  %22 = call i32 @parser_eof(ptr noundef %21)
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %25
+
+24:                                               ; preds = %16
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %50
+
+25:                                               ; preds = %16
+  %26 = load ptr, ptr %4, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !17
+  %29 = load i8, ptr %28, align 1, !tbaa !18
+  %30 = zext i8 %29 to i32
+  switch i32 %30, label %33 [
+    i32 48, label %31
+    i32 49, label %32
   ]
 
-sw.bb11:                                          ; preds = %sw.bb8, %sw.bb8, %sw.bb8, %sw.bb8
-  br label %sw.epilog
+31:                                               ; preds = %25
+  store i32 0, ptr %6, align 4, !tbaa !16
+  br label %34
 
-sw.default:                                       ; preds = %sw.bb8
-  store i32 -1, ptr %retval, align 4
-  br label %return
+32:                                               ; preds = %25
+  store i32 1, ptr %6, align 4, !tbaa !16
+  br label %34
 
-sw.epilog:                                        ; preds = %sw.bb11
-  %15 = load ptr, ptr %sfp.addr, align 8
-  %pos12 = getelementptr inbounds %struct.sf_parser, ptr %15, i32 0, i32 0
-  %16 = load ptr, ptr %pos12, align 8
-  %incdec.ptr13 = getelementptr inbounds i8, ptr %16, i32 1
-  store ptr %incdec.ptr13, ptr %pos12, align 8
-  %17 = load ptr, ptr %sfp.addr, align 8
-  %call14 = call i32 @parser_eof(ptr noundef %17)
-  %tobool15 = icmp ne i32 %call14, 0
-  br i1 %tobool15, label %if.then20, label %lor.lhs.false
+33:                                               ; preds = %25
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %50
 
-lor.lhs.false:                                    ; preds = %sw.epilog
-  %18 = load ptr, ptr %sfp.addr, align 8
-  %pos16 = getelementptr inbounds %struct.sf_parser, ptr %18, i32 0, i32 0
-  %19 = load ptr, ptr %pos16, align 8
-  %20 = load i8, ptr %19, align 1
-  %conv17 = zext i8 %20 to i32
-  %cmp18 = icmp ne i32 %conv17, 61
-  br i1 %cmp18, label %if.then20, label %if.end21
+34:                                               ; preds = %32, %31
+  %35 = load ptr, ptr %4, align 8, !tbaa !3
+  %36 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %35, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8, !tbaa !17
+  %38 = getelementptr inbounds nuw i8, ptr %37, i32 1
+  store ptr %38, ptr %36, align 8, !tbaa !17
+  %39 = load ptr, ptr %5, align 8, !tbaa !10
+  %40 = icmp ne ptr %39, null
+  br i1 %40, label %41, label %49
 
-if.then20:                                        ; preds = %lor.lhs.false, %sw.epilog
-  store i32 -1, ptr %retval, align 4
-  br label %return
+41:                                               ; preds = %34
+  %42 = load ptr, ptr %5, align 8, !tbaa !10
+  %43 = getelementptr inbounds nuw %struct.sfparse_value, ptr %42, i32 0, i32 0
+  store i32 0, ptr %43, align 8, !tbaa !19
+  %44 = load ptr, ptr %5, align 8, !tbaa !10
+  %45 = getelementptr inbounds nuw %struct.sfparse_value, ptr %44, i32 0, i32 1
+  store i32 0, ptr %45, align 4, !tbaa !21
+  %46 = load i32, ptr %6, align 4, !tbaa !16
+  %47 = load ptr, ptr %5, align 8, !tbaa !10
+  %48 = getelementptr inbounds nuw %struct.sfparse_value, ptr %47, i32 0, i32 2
+  store i32 %46, ptr %48, align 8, !tbaa !18
+  br label %49
 
-if.end21:                                         ; preds = %lor.lhs.false
-  br label %sw.epilog29
+49:                                               ; preds = %41, %34
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %50
 
-sw.bb22:                                          ; preds = %sw.bb5
-  %21 = load ptr, ptr %sfp.addr, align 8
-  %pos23 = getelementptr inbounds %struct.sf_parser, ptr %21, i32 0, i32 0
-  %22 = load ptr, ptr %pos23, align 8
-  %add.ptr24 = getelementptr inbounds i8, ptr %22, i64 -1
-  %23 = load i8, ptr %add.ptr24, align 1
-  %conv25 = zext i8 %23 to i32
-  switch i32 %conv25, label %sw.default27 [
-    i32 65, label %sw.bb26
-    i32 69, label %sw.bb26
-    i32 73, label %sw.bb26
-    i32 77, label %sw.bb26
-    i32 81, label %sw.bb26
-    i32 85, label %sw.bb26
-    i32 89, label %sw.bb26
-    i32 99, label %sw.bb26
-    i32 103, label %sw.bb26
-    i32 107, label %sw.bb26
-    i32 111, label %sw.bb26
-    i32 115, label %sw.bb26
-    i32 119, label %sw.bb26
-    i32 48, label %sw.bb26
-    i32 52, label %sw.bb26
-    i32 56, label %sw.bb26
-  ]
-
-sw.bb26:                                          ; preds = %sw.bb22, %sw.bb22, %sw.bb22, %sw.bb22, %sw.bb22, %sw.bb22, %sw.bb22, %sw.bb22, %sw.bb22, %sw.bb22, %sw.bb22, %sw.bb22, %sw.bb22, %sw.bb22, %sw.bb22, %sw.bb22
-  br label %sw.epilog28
-
-sw.default27:                                     ; preds = %sw.bb22
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-sw.epilog28:                                      ; preds = %sw.bb26
-  br label %sw.epilog29
-
-sw.epilog29:                                      ; preds = %sw.epilog28, %if.end21, %sw.bb5
-  %24 = load ptr, ptr %sfp.addr, align 8
-  %pos30 = getelementptr inbounds %struct.sf_parser, ptr %24, i32 0, i32 0
-  %25 = load ptr, ptr %pos30, align 8
-  %incdec.ptr31 = getelementptr inbounds i8, ptr %25, i32 1
-  store ptr %incdec.ptr31, ptr %pos30, align 8
-  %26 = load ptr, ptr %sfp.addr, align 8
-  %call32 = call i32 @parser_eof(ptr noundef %26)
-  %tobool33 = icmp ne i32 %call32, 0
-  br i1 %tobool33, label %if.then39, label %lor.lhs.false34
-
-lor.lhs.false34:                                  ; preds = %sw.epilog29
-  %27 = load ptr, ptr %sfp.addr, align 8
-  %pos35 = getelementptr inbounds %struct.sf_parser, ptr %27, i32 0, i32 0
-  %28 = load ptr, ptr %pos35, align 8
-  %29 = load i8, ptr %28, align 1
-  %conv36 = zext i8 %29 to i32
-  %cmp37 = icmp ne i32 %conv36, 58
-  br i1 %cmp37, label %if.then39, label %if.end40
-
-if.then39:                                        ; preds = %lor.lhs.false34, %sw.epilog29
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end40:                                         ; preds = %lor.lhs.false34
-  br label %fin
-
-sw.bb41:                                          ; preds = %for.body
-  %30 = load ptr, ptr %sfp.addr, align 8
-  %pos42 = getelementptr inbounds %struct.sf_parser, ptr %30, i32 0, i32 0
-  %31 = load ptr, ptr %pos42, align 8
-  %32 = load ptr, ptr %base, align 8
-  %sub.ptr.lhs.cast43 = ptrtoint ptr %31 to i64
-  %sub.ptr.rhs.cast44 = ptrtoint ptr %32 to i64
-  %sub.ptr.sub45 = sub i64 %sub.ptr.lhs.cast43, %sub.ptr.rhs.cast44
-  %and46 = and i64 %sub.ptr.sub45, 3
-  %tobool47 = icmp ne i64 %and46, 0
-  br i1 %tobool47, label %if.then48, label %if.end49
-
-if.then48:                                        ; preds = %sw.bb41
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end49:                                         ; preds = %sw.bb41
-  br label %fin
-
-sw.default50:                                     ; preds = %for.body
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-for.inc:                                          ; preds = %sw.bb
-  %33 = load ptr, ptr %sfp.addr, align 8
-  %pos51 = getelementptr inbounds %struct.sf_parser, ptr %33, i32 0, i32 0
-  %34 = load ptr, ptr %pos51, align 8
-  %incdec.ptr52 = getelementptr inbounds i8, ptr %34, i32 1
-  store ptr %incdec.ptr52, ptr %pos51, align 8
-  br label %for.cond, !llvm.loop !12
-
-for.end:                                          ; preds = %for.cond
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-fin:                                              ; preds = %if.end49, %if.end40
-  %35 = load ptr, ptr %dest.addr, align 8
-  %tobool53 = icmp ne ptr %35, null
-  br i1 %tobool53, label %if.then54, label %if.end63
-
-if.then54:                                        ; preds = %fin
-  %36 = load ptr, ptr %dest.addr, align 8
-  %type = getelementptr inbounds %struct.sf_value, ptr %36, i32 0, i32 0
-  store i32 5, ptr %type, align 8
-  %37 = load ptr, ptr %dest.addr, align 8
-  %flags = getelementptr inbounds %struct.sf_value, ptr %37, i32 0, i32 1
-  store i32 0, ptr %flags, align 4
-  %38 = load ptr, ptr %sfp.addr, align 8
-  %pos55 = getelementptr inbounds %struct.sf_parser, ptr %38, i32 0, i32 0
-  %39 = load ptr, ptr %pos55, align 8
-  %40 = load ptr, ptr %base, align 8
-  %sub.ptr.lhs.cast56 = ptrtoint ptr %39 to i64
-  %sub.ptr.rhs.cast57 = ptrtoint ptr %40 to i64
-  %sub.ptr.sub58 = sub i64 %sub.ptr.lhs.cast56, %sub.ptr.rhs.cast57
-  %41 = load ptr, ptr %dest.addr, align 8
-  %42 = getelementptr inbounds %struct.sf_value, ptr %41, i32 0, i32 2
-  %len = getelementptr inbounds %struct.sf_vec, ptr %42, i32 0, i32 1
-  store i64 %sub.ptr.sub58, ptr %len, align 8
-  %43 = load ptr, ptr %dest.addr, align 8
-  %44 = getelementptr inbounds %struct.sf_value, ptr %43, i32 0, i32 2
-  %len59 = getelementptr inbounds %struct.sf_vec, ptr %44, i32 0, i32 1
-  %45 = load i64, ptr %len59, align 8
-  %cmp60 = icmp eq i64 %45, 0
-  br i1 %cmp60, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %if.then54
-  br label %cond.end
-
-cond.false:                                       ; preds = %if.then54
-  %46 = load ptr, ptr %base, align 8
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ null, %cond.true ], [ %46, %cond.false ]
-  %47 = load ptr, ptr %dest.addr, align 8
-  %48 = getelementptr inbounds %struct.sf_value, ptr %47, i32 0, i32 2
-  %base62 = getelementptr inbounds %struct.sf_vec, ptr %48, i32 0, i32 0
-  store ptr %cond, ptr %base62, align 8
-  br label %if.end63
-
-if.end63:                                         ; preds = %cond.end, %fin
-  %49 = load ptr, ptr %sfp.addr, align 8
-  %pos64 = getelementptr inbounds %struct.sf_parser, ptr %49, i32 0, i32 0
-  %50 = load ptr, ptr %pos64, align 8
-  %incdec.ptr65 = getelementptr inbounds i8, ptr %50, i32 1
-  store ptr %incdec.ptr65, ptr %pos64, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end63, %for.end, %sw.default50, %if.then48, %if.then39, %sw.default27, %if.then20, %sw.default, %sw.bb7
-  %51 = load i32, ptr %retval, align 4
+50:                                               ; preds = %49, %33, %24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #5
+  %51 = load i32, ptr %3, align 4
   ret i32 %51
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @parser_boolean(ptr noundef %sfp, ptr noundef %dest) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sfp.addr = alloca ptr, align 8
-  %dest.addr = alloca ptr, align 8
-  %b = alloca i32, align 4
-  store ptr %sfp, ptr %sfp.addr, align 8
-  store ptr %dest, ptr %dest.addr, align 8
-  %0 = load ptr, ptr %sfp.addr, align 8
-  %pos = getelementptr inbounds %struct.sf_parser, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %pos, align 8
-  %2 = load i8, ptr %1, align 1
-  %conv = zext i8 %2 to i32
-  %cmp = icmp eq i32 63, %conv
-  br i1 %cmp, label %if.then, label %if.else
+define internal i32 @parser_token(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !17
+  %9 = getelementptr inbounds nuw i8, ptr %8, i32 1
+  store ptr %9, ptr %7, align 8, !tbaa !17
+  store ptr %8, ptr %5, align 8, !tbaa !25
+  br label %10
 
-if.then:                                          ; preds = %entry
-  br label %if.end
+10:                                               ; preds = %23, %2
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
+  %12 = call i32 @parser_eof(ptr noundef %11)
+  %13 = icmp ne i32 %12, 0
+  %14 = xor i1 %13, true
+  br i1 %14, label %15, label %28
 
-if.else:                                          ; preds = %entry
-  call void @__assert_fail(ptr noundef @.str.10, ptr noundef @.str.1, i32 noundef 570, ptr noundef @__PRETTY_FUNCTION__.parser_boolean) #4
-  unreachable
-
-if.end:                                           ; preds = %if.then
-  %3 = load ptr, ptr %sfp.addr, align 8
-  %pos2 = getelementptr inbounds %struct.sf_parser, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %pos2, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %4, i32 1
-  store ptr %incdec.ptr, ptr %pos2, align 8
-  %5 = load ptr, ptr %sfp.addr, align 8
-  %call = call i32 @parser_eof(ptr noundef %5)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then3, label %if.end4
-
-if.then3:                                         ; preds = %if.end
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end4:                                          ; preds = %if.end
-  %6 = load ptr, ptr %sfp.addr, align 8
-  %pos5 = getelementptr inbounds %struct.sf_parser, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %pos5, align 8
-  %8 = load i8, ptr %7, align 1
-  %conv6 = zext i8 %8 to i32
-  switch i32 %conv6, label %sw.default [
-    i32 48, label %sw.bb
-    i32 49, label %sw.bb7
+15:                                               ; preds = %10
+  %16 = load ptr, ptr %3, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !17
+  %19 = load i8, ptr %18, align 1, !tbaa !18
+  %20 = zext i8 %19 to i32
+  switch i32 %20, label %22 [
+    i32 33, label %21
+    i32 35, label %21
+    i32 36, label %21
+    i32 37, label %21
+    i32 38, label %21
+    i32 39, label %21
+    i32 42, label %21
+    i32 43, label %21
+    i32 45, label %21
+    i32 46, label %21
+    i32 47, label %21
+    i32 48, label %21
+    i32 49, label %21
+    i32 50, label %21
+    i32 51, label %21
+    i32 52, label %21
+    i32 53, label %21
+    i32 54, label %21
+    i32 55, label %21
+    i32 56, label %21
+    i32 57, label %21
+    i32 58, label %21
+    i32 65, label %21
+    i32 66, label %21
+    i32 67, label %21
+    i32 68, label %21
+    i32 69, label %21
+    i32 70, label %21
+    i32 71, label %21
+    i32 72, label %21
+    i32 73, label %21
+    i32 74, label %21
+    i32 75, label %21
+    i32 76, label %21
+    i32 77, label %21
+    i32 78, label %21
+    i32 79, label %21
+    i32 80, label %21
+    i32 81, label %21
+    i32 82, label %21
+    i32 83, label %21
+    i32 84, label %21
+    i32 85, label %21
+    i32 86, label %21
+    i32 87, label %21
+    i32 88, label %21
+    i32 89, label %21
+    i32 90, label %21
+    i32 94, label %21
+    i32 95, label %21
+    i32 96, label %21
+    i32 97, label %21
+    i32 98, label %21
+    i32 99, label %21
+    i32 100, label %21
+    i32 101, label %21
+    i32 102, label %21
+    i32 103, label %21
+    i32 104, label %21
+    i32 105, label %21
+    i32 106, label %21
+    i32 107, label %21
+    i32 108, label %21
+    i32 109, label %21
+    i32 110, label %21
+    i32 111, label %21
+    i32 112, label %21
+    i32 113, label %21
+    i32 114, label %21
+    i32 115, label %21
+    i32 116, label %21
+    i32 117, label %21
+    i32 118, label %21
+    i32 119, label %21
+    i32 120, label %21
+    i32 121, label %21
+    i32 122, label %21
+    i32 124, label %21
+    i32 126, label %21
   ]
 
-sw.bb:                                            ; preds = %if.end4
-  store i32 0, ptr %b, align 4
-  br label %sw.epilog
+21:                                               ; preds = %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15
+  br label %23
 
-sw.bb7:                                           ; preds = %if.end4
-  store i32 1, ptr %b, align 4
-  br label %sw.epilog
+22:                                               ; preds = %15
+  br label %28
 
-sw.default:                                       ; preds = %if.end4
-  store i32 -1, ptr %retval, align 4
-  br label %return
+23:                                               ; preds = %21
+  %24 = load ptr, ptr %3, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %24, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8, !tbaa !17
+  %27 = getelementptr inbounds nuw i8, ptr %26, i32 1
+  store ptr %27, ptr %25, align 8, !tbaa !17
+  br label %10, !llvm.loop !42
 
-sw.epilog:                                        ; preds = %sw.bb7, %sw.bb
-  %9 = load ptr, ptr %sfp.addr, align 8
-  %pos8 = getelementptr inbounds %struct.sf_parser, ptr %9, i32 0, i32 0
-  %10 = load ptr, ptr %pos8, align 8
-  %incdec.ptr9 = getelementptr inbounds i8, ptr %10, i32 1
-  store ptr %incdec.ptr9, ptr %pos8, align 8
-  %11 = load ptr, ptr %dest.addr, align 8
-  %tobool10 = icmp ne ptr %11, null
-  br i1 %tobool10, label %if.then11, label %if.end12
+28:                                               ; preds = %22, %10
+  %29 = load ptr, ptr %4, align 8, !tbaa !10
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %31, label %50
 
-if.then11:                                        ; preds = %sw.epilog
-  %12 = load ptr, ptr %dest.addr, align 8
-  %type = getelementptr inbounds %struct.sf_value, ptr %12, i32 0, i32 0
-  store i32 0, ptr %type, align 8
-  %13 = load ptr, ptr %dest.addr, align 8
-  %flags = getelementptr inbounds %struct.sf_value, ptr %13, i32 0, i32 1
-  store i32 0, ptr %flags, align 4
-  %14 = load i32, ptr %b, align 4
-  %15 = load ptr, ptr %dest.addr, align 8
-  %16 = getelementptr inbounds %struct.sf_value, ptr %15, i32 0, i32 2
-  store i32 %14, ptr %16, align 8
-  br label %if.end12
+31:                                               ; preds = %28
+  %32 = load ptr, ptr %4, align 8, !tbaa !10
+  %33 = getelementptr inbounds nuw %struct.sfparse_value, ptr %32, i32 0, i32 0
+  store i32 4, ptr %33, align 8, !tbaa !19
+  %34 = load ptr, ptr %4, align 8, !tbaa !10
+  %35 = getelementptr inbounds nuw %struct.sfparse_value, ptr %34, i32 0, i32 1
+  store i32 0, ptr %35, align 4, !tbaa !21
+  %36 = load ptr, ptr %5, align 8, !tbaa !25
+  %37 = load ptr, ptr %4, align 8, !tbaa !10
+  %38 = getelementptr inbounds nuw %struct.sfparse_value, ptr %37, i32 0, i32 2
+  %39 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %38, i32 0, i32 0
+  store ptr %36, ptr %39, align 8, !tbaa !18
+  %40 = load ptr, ptr %3, align 8, !tbaa !3
+  %41 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %40, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8, !tbaa !17
+  %43 = load ptr, ptr %5, align 8, !tbaa !25
+  %44 = ptrtoint ptr %42 to i64
+  %45 = ptrtoint ptr %43 to i64
+  %46 = sub i64 %44, %45
+  %47 = load ptr, ptr %4, align 8, !tbaa !10
+  %48 = getelementptr inbounds nuw %struct.sfparse_value, ptr %47, i32 0, i32 2
+  %49 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %48, i32 0, i32 1
+  store i64 %46, ptr %49, align 8, !tbaa !18
+  br label %50
 
-if.end12:                                         ; preds = %if.then11, %sw.epilog
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end12, %sw.default, %if.then3
-  %17 = load i32, ptr %retval, align 4
-  ret i32 %17
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @parser_token(ptr noundef %sfp, ptr noundef %dest) #0 {
-entry:
-  %sfp.addr = alloca ptr, align 8
-  %dest.addr = alloca ptr, align 8
-  %base = alloca ptr, align 8
-  store ptr %sfp, ptr %sfp.addr, align 8
-  store ptr %dest, ptr %dest.addr, align 8
-  %0 = load ptr, ptr %sfp.addr, align 8
-  %pos = getelementptr inbounds %struct.sf_parser, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %pos, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %1, i32 1
-  store ptr %incdec.ptr, ptr %pos, align 8
-  store ptr %1, ptr %base, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load ptr, ptr %sfp.addr, align 8
-  %call = call i32 @parser_eof(ptr noundef %2)
-  %tobool = icmp ne i32 %call, 0
-  %lnot = xor i1 %tobool, true
-  br i1 %lnot, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %sfp.addr, align 8
-  %pos1 = getelementptr inbounds %struct.sf_parser, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %pos1, align 8
-  %5 = load i8, ptr %4, align 1
-  %conv = zext i8 %5 to i32
-  switch i32 %conv, label %sw.epilog [
-    i32 33, label %sw.bb
-    i32 35, label %sw.bb
-    i32 36, label %sw.bb
-    i32 37, label %sw.bb
-    i32 38, label %sw.bb
-    i32 39, label %sw.bb
-    i32 42, label %sw.bb
-    i32 43, label %sw.bb
-    i32 45, label %sw.bb
-    i32 46, label %sw.bb
-    i32 94, label %sw.bb
-    i32 95, label %sw.bb
-    i32 96, label %sw.bb
-    i32 124, label %sw.bb
-    i32 126, label %sw.bb
-    i32 58, label %sw.bb
-    i32 47, label %sw.bb
-    i32 48, label %sw.bb
-    i32 49, label %sw.bb
-    i32 50, label %sw.bb
-    i32 51, label %sw.bb
-    i32 52, label %sw.bb
-    i32 53, label %sw.bb
-    i32 54, label %sw.bb
-    i32 55, label %sw.bb
-    i32 56, label %sw.bb
-    i32 57, label %sw.bb
-    i32 65, label %sw.bb
-    i32 66, label %sw.bb
-    i32 67, label %sw.bb
-    i32 68, label %sw.bb
-    i32 69, label %sw.bb
-    i32 70, label %sw.bb
-    i32 71, label %sw.bb
-    i32 72, label %sw.bb
-    i32 73, label %sw.bb
-    i32 74, label %sw.bb
-    i32 75, label %sw.bb
-    i32 76, label %sw.bb
-    i32 77, label %sw.bb
-    i32 78, label %sw.bb
-    i32 79, label %sw.bb
-    i32 80, label %sw.bb
-    i32 81, label %sw.bb
-    i32 82, label %sw.bb
-    i32 83, label %sw.bb
-    i32 84, label %sw.bb
-    i32 85, label %sw.bb
-    i32 86, label %sw.bb
-    i32 87, label %sw.bb
-    i32 88, label %sw.bb
-    i32 89, label %sw.bb
-    i32 90, label %sw.bb
-    i32 97, label %sw.bb
-    i32 98, label %sw.bb
-    i32 99, label %sw.bb
-    i32 100, label %sw.bb
-    i32 101, label %sw.bb
-    i32 102, label %sw.bb
-    i32 103, label %sw.bb
-    i32 104, label %sw.bb
-    i32 105, label %sw.bb
-    i32 106, label %sw.bb
-    i32 107, label %sw.bb
-    i32 108, label %sw.bb
-    i32 109, label %sw.bb
-    i32 110, label %sw.bb
-    i32 111, label %sw.bb
-    i32 112, label %sw.bb
-    i32 113, label %sw.bb
-    i32 114, label %sw.bb
-    i32 115, label %sw.bb
-    i32 116, label %sw.bb
-    i32 117, label %sw.bb
-    i32 118, label %sw.bb
-    i32 119, label %sw.bb
-    i32 120, label %sw.bb
-    i32 121, label %sw.bb
-    i32 122, label %sw.bb
-  ]
-
-sw.bb:                                            ; preds = %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body
-  br label %for.inc
-
-sw.epilog:                                        ; preds = %for.body
-  br label %for.end
-
-for.inc:                                          ; preds = %sw.bb
-  %6 = load ptr, ptr %sfp.addr, align 8
-  %pos2 = getelementptr inbounds %struct.sf_parser, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %pos2, align 8
-  %incdec.ptr3 = getelementptr inbounds i8, ptr %7, i32 1
-  store ptr %incdec.ptr3, ptr %pos2, align 8
-  br label %for.cond, !llvm.loop !13
-
-for.end:                                          ; preds = %sw.epilog, %for.cond
-  %8 = load ptr, ptr %dest.addr, align 8
-  %tobool4 = icmp ne ptr %8, null
-  br i1 %tobool4, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.end
-  %9 = load ptr, ptr %dest.addr, align 8
-  %type = getelementptr inbounds %struct.sf_value, ptr %9, i32 0, i32 0
-  store i32 4, ptr %type, align 8
-  %10 = load ptr, ptr %dest.addr, align 8
-  %flags = getelementptr inbounds %struct.sf_value, ptr %10, i32 0, i32 1
-  store i32 0, ptr %flags, align 4
-  %11 = load ptr, ptr %base, align 8
-  %12 = load ptr, ptr %dest.addr, align 8
-  %13 = getelementptr inbounds %struct.sf_value, ptr %12, i32 0, i32 2
-  %base5 = getelementptr inbounds %struct.sf_vec, ptr %13, i32 0, i32 0
-  store ptr %11, ptr %base5, align 8
-  %14 = load ptr, ptr %sfp.addr, align 8
-  %pos6 = getelementptr inbounds %struct.sf_parser, ptr %14, i32 0, i32 0
-  %15 = load ptr, ptr %pos6, align 8
-  %16 = load ptr, ptr %base, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %15 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %16 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %17 = load ptr, ptr %dest.addr, align 8
-  %18 = getelementptr inbounds %struct.sf_value, ptr %17, i32 0, i32 2
-  %len = getelementptr inbounds %struct.sf_vec, ptr %18, i32 0, i32 1
-  store i64 %sub.ptr.sub, ptr %len, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %for.end
+50:                                               ; preds = %31, %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @parser_discard_ows(ptr noundef %sfp) #0 {
-entry:
-  %sfp.addr = alloca ptr, align 8
-  store ptr %sfp, ptr %sfp.addr, align 8
-  br label %for.cond
+define internal i32 @parser_dispstring(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i8, align 1
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  store i32 0, ptr %8, align 4, !tbaa !16
+  %10 = load ptr, ptr %4, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !17
+  %13 = load i8, ptr %12, align 1, !tbaa !18
+  %14 = zext i8 %13 to i32
+  %15 = icmp eq i32 37, %14
+  br i1 %15, label %16, label %17
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load ptr, ptr %sfp.addr, align 8
-  %call = call i32 @parser_eof(ptr noundef %0)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %land.end, label %land.rhs
+16:                                               ; preds = %2
+  br label %18
 
-land.rhs:                                         ; preds = %for.cond
-  %1 = load ptr, ptr %sfp.addr, align 8
-  %pos = getelementptr inbounds %struct.sf_parser, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %pos, align 8
-  %3 = load i8, ptr %2, align 1
-  %call1 = call i32 @is_ws(i8 noundef zeroext %3)
-  %tobool2 = icmp ne i32 %call1, 0
-  br label %land.end
+17:                                               ; preds = %2
+  call void @__assert_fail(ptr noundef @.str.9, ptr noundef @.str.1, i32 noundef 1123, ptr noundef @__PRETTY_FUNCTION__.parser_dispstring) #6
+  unreachable
 
-land.end:                                         ; preds = %land.rhs, %for.cond
-  %4 = phi i1 [ false, %for.cond ], [ %tobool2, %land.rhs ]
-  br i1 %4, label %for.body, label %for.end
+18:                                               ; preds = %16
+  %19 = load ptr, ptr %4, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8, !tbaa !17
+  %22 = getelementptr inbounds nuw i8, ptr %21, i32 1
+  store ptr %22, ptr %20, align 8, !tbaa !17
+  %23 = load ptr, ptr %4, align 8, !tbaa !3
+  %24 = call i32 @parser_eof(ptr noundef %23)
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %33, label %26
 
-for.body:                                         ; preds = %land.end
-  br label %for.inc
+26:                                               ; preds = %18
+  %27 = load ptr, ptr %4, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8, !tbaa !17
+  %30 = load i8, ptr %29, align 1, !tbaa !18
+  %31 = zext i8 %30 to i32
+  %32 = icmp ne i32 %31, 34
+  br i1 %32, label %33, label %34
 
-for.inc:                                          ; preds = %for.body
-  %5 = load ptr, ptr %sfp.addr, align 8
-  %pos3 = getelementptr inbounds %struct.sf_parser, ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %pos3, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %6, i32 1
-  store ptr %incdec.ptr, ptr %pos3, align 8
-  br label %for.cond, !llvm.loop !14
+33:                                               ; preds = %26, %18
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %128
 
-for.end:                                          ; preds = %land.end
+34:                                               ; preds = %26
+  %35 = load ptr, ptr %4, align 8, !tbaa !3
+  %36 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %35, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8, !tbaa !17
+  %38 = getelementptr inbounds nuw i8, ptr %37, i32 1
+  store ptr %38, ptr %36, align 8, !tbaa !17
+  store ptr %38, ptr %6, align 8, !tbaa !25
+  br label %39
+
+39:                                               ; preds = %126, %34
+  %40 = load ptr, ptr %4, align 8, !tbaa !3
+  %41 = call i32 @parser_eof(ptr noundef %40)
+  %42 = icmp ne i32 %41, 0
+  %43 = xor i1 %42, true
+  br i1 %43, label %44, label %127
+
+44:                                               ; preds = %39
+  %45 = load ptr, ptr %4, align 8, !tbaa !3
+  %46 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %45, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8, !tbaa !17
+  %48 = load i8, ptr %47, align 1, !tbaa !18
+  %49 = zext i8 %48 to i32
+  switch i32 %49, label %117 [
+    i32 0, label %50
+    i32 1, label %50
+    i32 2, label %50
+    i32 3, label %50
+    i32 4, label %50
+    i32 5, label %50
+    i32 6, label %50
+    i32 7, label %50
+    i32 8, label %50
+    i32 9, label %50
+    i32 10, label %50
+    i32 11, label %50
+    i32 12, label %50
+    i32 13, label %50
+    i32 14, label %50
+    i32 15, label %50
+    i32 16, label %50
+    i32 17, label %50
+    i32 18, label %50
+    i32 19, label %50
+    i32 20, label %50
+    i32 21, label %50
+    i32 22, label %50
+    i32 23, label %50
+    i32 24, label %50
+    i32 25, label %50
+    i32 26, label %50
+    i32 27, label %50
+    i32 28, label %50
+    i32 29, label %50
+    i32 30, label %50
+    i32 31, label %50
+    i32 127, label %50
+    i32 128, label %50
+    i32 129, label %50
+    i32 130, label %50
+    i32 131, label %50
+    i32 132, label %50
+    i32 133, label %50
+    i32 134, label %50
+    i32 135, label %50
+    i32 136, label %50
+    i32 137, label %50
+    i32 138, label %50
+    i32 139, label %50
+    i32 140, label %50
+    i32 141, label %50
+    i32 142, label %50
+    i32 143, label %50
+    i32 144, label %50
+    i32 145, label %50
+    i32 146, label %50
+    i32 147, label %50
+    i32 148, label %50
+    i32 149, label %50
+    i32 150, label %50
+    i32 151, label %50
+    i32 152, label %50
+    i32 153, label %50
+    i32 154, label %50
+    i32 155, label %50
+    i32 156, label %50
+    i32 157, label %50
+    i32 158, label %50
+    i32 159, label %50
+    i32 160, label %50
+    i32 161, label %50
+    i32 162, label %50
+    i32 163, label %50
+    i32 164, label %50
+    i32 165, label %50
+    i32 166, label %50
+    i32 167, label %50
+    i32 168, label %50
+    i32 169, label %50
+    i32 170, label %50
+    i32 171, label %50
+    i32 172, label %50
+    i32 173, label %50
+    i32 174, label %50
+    i32 175, label %50
+    i32 176, label %50
+    i32 177, label %50
+    i32 178, label %50
+    i32 179, label %50
+    i32 180, label %50
+    i32 181, label %50
+    i32 182, label %50
+    i32 183, label %50
+    i32 184, label %50
+    i32 185, label %50
+    i32 186, label %50
+    i32 187, label %50
+    i32 188, label %50
+    i32 189, label %50
+    i32 190, label %50
+    i32 191, label %50
+    i32 192, label %50
+    i32 193, label %50
+    i32 194, label %50
+    i32 195, label %50
+    i32 196, label %50
+    i32 197, label %50
+    i32 198, label %50
+    i32 199, label %50
+    i32 200, label %50
+    i32 201, label %50
+    i32 202, label %50
+    i32 203, label %50
+    i32 204, label %50
+    i32 205, label %50
+    i32 206, label %50
+    i32 207, label %50
+    i32 208, label %50
+    i32 209, label %50
+    i32 210, label %50
+    i32 211, label %50
+    i32 212, label %50
+    i32 213, label %50
+    i32 214, label %50
+    i32 215, label %50
+    i32 216, label %50
+    i32 217, label %50
+    i32 218, label %50
+    i32 219, label %50
+    i32 220, label %50
+    i32 221, label %50
+    i32 222, label %50
+    i32 223, label %50
+    i32 224, label %50
+    i32 225, label %50
+    i32 226, label %50
+    i32 227, label %50
+    i32 228, label %50
+    i32 229, label %50
+    i32 230, label %50
+    i32 231, label %50
+    i32 232, label %50
+    i32 233, label %50
+    i32 234, label %50
+    i32 235, label %50
+    i32 236, label %50
+    i32 237, label %50
+    i32 238, label %50
+    i32 239, label %50
+    i32 240, label %50
+    i32 241, label %50
+    i32 242, label %50
+    i32 243, label %50
+    i32 244, label %50
+    i32 245, label %50
+    i32 246, label %50
+    i32 247, label %50
+    i32 248, label %50
+    i32 249, label %50
+    i32 250, label %50
+    i32 251, label %50
+    i32 252, label %50
+    i32 253, label %50
+    i32 254, label %50
+    i32 255, label %50
+    i32 37, label %51
+    i32 34, label %77
+  ]
+
+50:                                               ; preds = %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %128
+
+51:                                               ; preds = %44
+  %52 = load ptr, ptr %4, align 8, !tbaa !3
+  %53 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %52, i32 0, i32 0
+  %54 = load ptr, ptr %53, align 8, !tbaa !17
+  %55 = getelementptr inbounds nuw i8, ptr %54, i32 1
+  store ptr %55, ptr %53, align 8, !tbaa !17
+  %56 = load ptr, ptr %4, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %56, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8, !tbaa !17
+  %59 = getelementptr inbounds i8, ptr %58, i64 2
+  %60 = load ptr, ptr %4, align 8, !tbaa !3
+  %61 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %60, i32 0, i32 1
+  %62 = load ptr, ptr %61, align 8, !tbaa !22
+  %63 = icmp ugt ptr %59, %62
+  br i1 %63, label %64, label %65
+
+64:                                               ; preds = %51
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %128
+
+65:                                               ; preds = %51
+  %66 = load ptr, ptr %4, align 8, !tbaa !3
+  %67 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %66, i32 0, i32 0
+  %68 = call i32 @pctdecode(ptr noundef %7, ptr noundef %67)
+  %69 = icmp ne i32 %68, 0
+  br i1 %69, label %70, label %71
+
+70:                                               ; preds = %65
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %128
+
+71:                                               ; preds = %65
+  %72 = load i8, ptr %7, align 1, !tbaa !18
+  call void @utf8_decode(ptr noundef %8, i8 noundef zeroext %72)
+  %73 = load i32, ptr %8, align 4, !tbaa !16
+  %74 = icmp eq i32 %73, 12
+  br i1 %74, label %75, label %76
+
+75:                                               ; preds = %71
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %128
+
+76:                                               ; preds = %71
+  br label %126
+
+77:                                               ; preds = %44
+  %78 = load i32, ptr %8, align 4, !tbaa !16
+  %79 = icmp ne i32 %78, 0
+  br i1 %79, label %80, label %81
+
+80:                                               ; preds = %77
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %128
+
+81:                                               ; preds = %77
+  %82 = load ptr, ptr %5, align 8, !tbaa !10
+  %83 = icmp ne ptr %82, null
+  br i1 %83, label %84, label %112
+
+84:                                               ; preds = %81
+  %85 = load ptr, ptr %5, align 8, !tbaa !10
+  %86 = getelementptr inbounds nuw %struct.sfparse_value, ptr %85, i32 0, i32 0
+  store i32 8, ptr %86, align 8, !tbaa !19
+  %87 = load ptr, ptr %5, align 8, !tbaa !10
+  %88 = getelementptr inbounds nuw %struct.sfparse_value, ptr %87, i32 0, i32 1
+  store i32 0, ptr %88, align 4, !tbaa !21
+  %89 = load ptr, ptr %4, align 8, !tbaa !3
+  %90 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %89, i32 0, i32 0
+  %91 = load ptr, ptr %90, align 8, !tbaa !17
+  %92 = load ptr, ptr %6, align 8, !tbaa !25
+  %93 = ptrtoint ptr %91 to i64
+  %94 = ptrtoint ptr %92 to i64
+  %95 = sub i64 %93, %94
+  %96 = load ptr, ptr %5, align 8, !tbaa !10
+  %97 = getelementptr inbounds nuw %struct.sfparse_value, ptr %96, i32 0, i32 2
+  %98 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %97, i32 0, i32 1
+  store i64 %95, ptr %98, align 8, !tbaa !18
+  %99 = load ptr, ptr %5, align 8, !tbaa !10
+  %100 = getelementptr inbounds nuw %struct.sfparse_value, ptr %99, i32 0, i32 2
+  %101 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %100, i32 0, i32 1
+  %102 = load i64, ptr %101, align 8, !tbaa !18
+  %103 = icmp eq i64 %102, 0
+  br i1 %103, label %104, label %105
+
+104:                                              ; preds = %84
+  br label %107
+
+105:                                              ; preds = %84
+  %106 = load ptr, ptr %6, align 8, !tbaa !25
+  br label %107
+
+107:                                              ; preds = %105, %104
+  %108 = phi ptr [ null, %104 ], [ %106, %105 ]
+  %109 = load ptr, ptr %5, align 8, !tbaa !10
+  %110 = getelementptr inbounds nuw %struct.sfparse_value, ptr %109, i32 0, i32 2
+  %111 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %110, i32 0, i32 0
+  store ptr %108, ptr %111, align 8, !tbaa !18
+  br label %112
+
+112:                                              ; preds = %107, %81
+  %113 = load ptr, ptr %4, align 8, !tbaa !3
+  %114 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %113, i32 0, i32 0
+  %115 = load ptr, ptr %114, align 8, !tbaa !17
+  %116 = getelementptr inbounds nuw i8, ptr %115, i32 1
+  store ptr %116, ptr %114, align 8, !tbaa !17
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %128
+
+117:                                              ; preds = %44
+  %118 = load i32, ptr %8, align 4, !tbaa !16
+  %119 = icmp ne i32 %118, 0
+  br i1 %119, label %120, label %121
+
+120:                                              ; preds = %117
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %128
+
+121:                                              ; preds = %117
+  %122 = load ptr, ptr %4, align 8, !tbaa !3
+  %123 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %122, i32 0, i32 0
+  %124 = load ptr, ptr %123, align 8, !tbaa !17
+  %125 = getelementptr inbounds nuw i8, ptr %124, i32 1
+  store ptr %125, ptr %123, align 8, !tbaa !17
+  br label %126
+
+126:                                              ; preds = %121, %76
+  br label %39, !llvm.loop !43
+
+127:                                              ; preds = %39
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %128
+
+128:                                              ; preds = %127, %120, %112, %80, %75, %70, %64, %50, %33
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %129 = load i32, ptr %3, align 4
+  ret i32 %129
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @utf8_decode(ptr noundef %0, i8 noundef zeroext %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !44
+  store i8 %1, ptr %4, align 1, !tbaa !18
+  %5 = load ptr, ptr %3, align 8, !tbaa !44
+  %6 = load i32, ptr %5, align 4, !tbaa !16
+  %7 = add i32 256, %6
+  %8 = load i8, ptr %4, align 1, !tbaa !18
+  %9 = zext i8 %8 to i64
+  %10 = getelementptr inbounds nuw [364 x i8], ptr @utf8d, i64 0, i64 %9
+  %11 = load i8, ptr %10, align 1, !tbaa !18
+  %12 = zext i8 %11 to i32
+  %13 = add i32 %7, %12
+  %14 = zext i32 %13 to i64
+  %15 = getelementptr inbounds nuw [364 x i8], ptr @utf8d, i64 0, i64 %14
+  %16 = load i8, ptr %15, align 1, !tbaa !18
+  %17 = zext i8 %16 to i32
+  %18 = load ptr, ptr %3, align 8, !tbaa !44
+  store i32 %17, ptr %18, align 4, !tbaa !16
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @is_ws(i8 noundef zeroext %c) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %c.addr = alloca i8, align 1
-  store i8 %c, ptr %c.addr, align 1
-  %0 = load i8, ptr %c.addr, align 1
-  %conv = zext i8 %0 to i32
-  switch i32 %conv, label %sw.default [
-    i32 32, label %sw.bb
-    i32 9, label %sw.bb
-  ]
+define internal void @parser_discard_ows(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  br label %3
 
-sw.bb:                                            ; preds = %entry, %entry
-  store i32 1, ptr %retval, align 4
-  br label %return
+3:                                                ; preds = %17, %1
+  %4 = load ptr, ptr %2, align 8, !tbaa !3
+  %5 = call i32 @parser_eof(ptr noundef %4)
+  %6 = icmp ne i32 %5, 0
+  br i1 %6, label %14, label %7
 
-sw.default:                                       ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+7:                                                ; preds = %3
+  %8 = load ptr, ptr %2, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !17
+  %11 = load i8, ptr %10, align 1, !tbaa !18
+  %12 = call i32 @is_ws(i8 noundef zeroext %11)
+  %13 = icmp ne i32 %12, 0
+  br label %14
 
-return:                                           ; preds = %sw.default, %sw.bb
-  %1 = load i32, ptr %retval, align 4
-  ret i32 %1
+14:                                               ; preds = %7, %3
+  %15 = phi i1 [ false, %3 ], [ %13, %7 ]
+  br i1 %15, label %16, label %22
+
+16:                                               ; preds = %14
+  br label %17
+
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %2, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.sfparse_parser, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !17
+  %21 = getelementptr inbounds nuw i8, ptr %20, i32 1
+  store ptr %21, ptr %19, align 8, !tbaa !17
+  br label %3, !llvm.loop !46
+
+22:                                               ; preds = %14
+  ret void
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind }
-attributes #5 = { nounwind willreturn memory(read) }
+; Function Attrs: nounwind uwtable
+define internal i32 @is_ws(i8 noundef zeroext %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca i8, align 1
+  store i8 %0, ptr %3, align 1, !tbaa !18
+  %4 = load i8, ptr %3, align 1, !tbaa !18
+  %5 = zext i8 %4 to i32
+  switch i32 %5, label %7 [
+    i32 32, label %6
+    i32 9, label %6
+  ]
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+6:                                                ; preds = %1, %1
+  store i32 1, ptr %2, align 4
+  br label %8
+
+7:                                                ; preds = %1
+  store i32 0, ptr %2, align 4
+  br label %8
+
+8:                                                ; preds = %7, %6
+  %9 = load i32, ptr %2, align 4
+  ret i32 %9
+}
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind }
+attributes #6 = { noreturn nounwind }
+attributes #7 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS14sfparse_parser", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS11sfparse_vec", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTS13sfparse_value", !5, i64 0}
+!12 = !{!13, !15, i64 16}
+!13 = !{!"sfparse_parser", !14, i64 0, !14, i64 8, !15, i64 16}
+!14 = !{!"p1 omnipotent char", !5, i64 0}
+!15 = !{!"int", !6, i64 0}
+!16 = !{!15, !15, i64 0}
+!17 = !{!13, !14, i64 0}
+!18 = !{!6, !6, i64 0}
+!19 = !{!20, !15, i64 0}
+!20 = !{!"sfparse_value", !15, i64 0, !15, i64 4, !6, i64 8}
+!21 = !{!20, !15, i64 4}
+!22 = !{!13, !14, i64 8}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.mustprogress"}
+!25 = !{!14, !14, i64 0}
+!26 = distinct !{!26, !24}
+!27 = !{!28, !14, i64 0}
+!28 = !{!"sfparse_vec", !14, i64 0, !29, i64 8}
+!29 = !{!"long", !6, i64 0}
+!30 = !{!28, !29, i64 8}
+!31 = !{!29, !29, i64 0}
+!32 = distinct !{!32, !24}
+!33 = distinct !{!33, !24}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p2 omnipotent char", !36, i64 0}
+!36 = !{!"any p2 pointer", !5, i64 0}
+!37 = distinct !{!37, !24}
+!38 = distinct !{!38, !24}
+!39 = distinct !{!39, !24}
+!40 = !{i64 0, i64 4, !16, i64 4, i64 4, !16, i64 8, i64 16, !18}
+!41 = distinct !{!41, !24}
+!42 = distinct !{!42, !24}
+!43 = distinct !{!43, !24}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 int", !5, i64 0}
+!46 = distinct !{!46, !24}

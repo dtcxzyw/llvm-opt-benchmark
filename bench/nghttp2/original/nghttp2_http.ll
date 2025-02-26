@@ -1,15 +1,15 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.nghttp2_hd_nv = type { ptr, ptr, i32, i8 }
 %struct.nghttp2_rcbuf = type { ptr, ptr, ptr, i64, i32 }
-%struct.nghttp2_stream = type { %struct.nghttp2_pq_entry, %struct.nghttp2_pq, i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i16, i32, i8, i8, i8, i8, i8, i8 }
+%struct.nghttp2_stream = type { i32, %struct.nghttp2_pq_entry, i64, i64, i64, i64, ptr, ptr, ptr, i64, i32, i32, i32, i32, i32, i32, i32, i16, i32, i8, i8, i8, i8, i8, i8 }
 %struct.nghttp2_pq_entry = type { i64 }
-%struct.nghttp2_pq = type { ptr, ptr, i64, i64, ptr }
-%struct.nghttp2_session = type { %struct.nghttp2_map, %struct.nghttp2_stream, %struct.nghttp2_outbound_queue, %struct.nghttp2_outbound_queue, %struct.nghttp2_outbound_queue, [8 x %struct.anon], %struct.nghttp2_active_outbound_item, %struct.nghttp2_inbound_frame, %struct.nghttp2_hd_deflater, %struct.nghttp2_hd_inflater, %struct.nghttp2_session_callbacks, %struct.nghttp2_mem, ptr, ptr, ptr, ptr, ptr, ptr, %struct.nghttp2_ratelim, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, %struct.nghttp2_settings_storage, %struct.nghttp2_settings_storage, i32, i32, i32, i8, i8, i8, i8, i8, i8, i8, [32 x i8] }
-%struct.nghttp2_map = type { ptr, ptr, i64, i32, i32 }
+%struct.nghttp2_session = type { %struct.nghttp2_map, %struct.nghttp2_outbound_queue, %struct.nghttp2_outbound_queue, %struct.nghttp2_outbound_queue, [8 x %struct.anon], %struct.nghttp2_active_outbound_item, %struct.nghttp2_inbound_frame, %struct.nghttp2_hd_deflater, %struct.nghttp2_hd_inflater, %struct.nghttp2_session_callbacks, %struct.nghttp2_mem, ptr, ptr, %struct.nghttp2_ratelim, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, %struct.nghttp2_settings_storage, %struct.nghttp2_settings_storage, i32, i32, i32, i8, i8, i8, i8, i8, i8, [32 x i8] }
+%struct.nghttp2_map = type { ptr, ptr, i64, i64 }
 %struct.nghttp2_outbound_queue = type { ptr, ptr, i64 }
 %struct.anon = type { %struct.nghttp2_pq }
+%struct.nghttp2_pq = type { ptr, ptr, i64, i64, ptr }
 %struct.nghttp2_active_outbound_item = type { ptr, %struct.nghttp2_bufs, i32 }
 %struct.nghttp2_bufs = type { ptr, ptr, ptr, i64, i64, i64, i64, i64 }
 %struct.nghttp2_inbound_frame = type { %union.nghttp2_frame, %union.nghttp2_ext_frame_payload, ptr, %struct.nghttp2_buf, %struct.nghttp2_buf, ptr, i64, i64, i64, i64, i32, [32 x i8] }
@@ -26,18 +26,18 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.nghttp2_hd_map = type { [128 x ptr] }
 %struct.nghttp2_hd_inflater = type { %struct.nghttp2_hd_context, %struct.nghttp2_hd_huff_decode_context, %struct.nghttp2_buf, %struct.nghttp2_buf, ptr, ptr, ptr, ptr, i64, i64, i64, i64, i64, i32, i32, i8, i8, i8 }
 %struct.nghttp2_hd_huff_decode_context = type { i16 }
-%struct.nghttp2_session_callbacks = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.nghttp2_session_callbacks = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.nghttp2_mem = type { ptr, ptr, ptr, ptr, ptr }
 %struct.nghttp2_ratelim = type { i64, i64, i64, i64 }
 %struct.nghttp2_settings_storage = type { i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.nghttp2_extpri = type { i32, i32 }
 %struct.nghttp2_push_promise = type { %struct.nghttp2_frame_hd, i64, ptr, i64, i32, i8 }
 %struct.nghttp2_nv = type { ptr, ptr, i64, i64, i8 }
-%struct.sf_parser = type { ptr, ptr, i32 }
-%struct.sf_vec = type { ptr, i64 }
-%struct.sf_value = type { i32, i32, %union.anon }
-%union.anon = type { %struct.sf_decimal }
-%struct.sf_decimal = type { i64, i64 }
+%struct.sfparse_parser = type { ptr, ptr, i32 }
+%struct.sfparse_vec = type { ptr, i64 }
+%struct.sfparse_value = type { i32, i32, %union.anon }
+%union.anon = type { %struct.sfparse_decimal }
+%struct.sfparse_decimal = type { i64, i64 }
 
 @.str = private unnamed_addr constant [18 x i8] c"nv->name->len > 0\00", align 1
 @.str.1 = private unnamed_addr constant [112 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/nghttp2/nghttp2/lib/nghttp2_http.c\00", align 1
@@ -45,2601 +45,2836 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [7 x i8] c":metho\00", align 1
 @.str.3 = private unnamed_addr constant [8 x i8] c"CONNECT\00", align 1
 @.str.4 = private unnamed_addr constant [5 x i8] c"HEAD\00", align 1
-@.str.5 = private unnamed_addr constant [8 x i8] c"OPTIONS\00", align 1
-@.str.6 = private unnamed_addr constant [5 x i8] c"http\00", align 1
-@.str.7 = private unnamed_addr constant [6 x i8] c"https\00", align 1
-@.str.8 = private unnamed_addr constant [9 x i8] c"trailers\00", align 1
-@.str.9 = private unnamed_addr constant [2 x i8] c"0\00", align 1
+@VALID_AUTHORITY_CHARS = internal global <{ [127 x i8], [129 x i8] }> <{ [127 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\01\00\00\01\01\01\01\01\01\01\01\01\01\01\00\01\01\01\01\01\01\01\01\01\01\01\01\00\01\00\00\00\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\00\01\00\01\00\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\00\00\00\01", [129 x i8] zeroinitializer }>, align 16
+@.str.6 = private unnamed_addr constant [8 x i8] c"OPTIONS\00", align 1
+@.str.7 = private unnamed_addr constant [5 x i8] c"http\00", align 1
+@.str.8 = private unnamed_addr constant [6 x i8] c"https\00", align 1
+@.str.9 = private unnamed_addr constant [9 x i8] c"trailers\00", align 1
+@.str.10 = private unnamed_addr constant [2 x i8] c"0\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_http_on_header(ptr noundef %session, ptr noundef %stream, ptr noundef %frame, ptr noundef %nv, i32 noundef %trailer) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %session.addr = alloca ptr, align 8
-  %stream.addr = alloca ptr, align 8
-  %frame.addr = alloca ptr, align 8
-  %nv.addr = alloca ptr, align 8
-  %trailer.addr = alloca i32, align 4
-  %rv = alloca i32, align 4
-  %i = alloca i64, align 8
-  %c = alloca i8, align 1
-  store ptr %session, ptr %session.addr, align 8
-  store ptr %stream, ptr %stream.addr, align 8
-  store ptr %frame, ptr %frame.addr, align 8
-  store ptr %nv, ptr %nv.addr, align 8
-  store i32 %trailer, ptr %trailer.addr, align 4
-  %0 = load ptr, ptr %nv.addr, align 8
-  %name = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %name, align 8
-  %base = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %1, i32 0, i32 2
-  %2 = load ptr, ptr %base, align 8
-  %3 = load ptr, ptr %nv.addr, align 8
-  %name1 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %name1, align 8
-  %len = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %4, i32 0, i32 3
-  %5 = load i64, ptr %len, align 8
-  %call = call i32 @nghttp2_check_header_name(ptr noundef %2, i64 noundef %5)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.end25, label %if.then
+define hidden i32 @nghttp2_http_on_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i64, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i8, align 1
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store ptr %1, ptr %8, align 8, !tbaa !8
+  store ptr %2, ptr %9, align 8, !tbaa !10
+  store ptr %3, ptr %10, align 8, !tbaa !10
+  store i32 %4, ptr %11, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  %16 = load ptr, ptr %10, align 8, !tbaa !10
+  %17 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !13
+  %19 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %18, i32 0, i32 2
+  %20 = load ptr, ptr %19, align 8, !tbaa !16
+  %21 = load ptr, ptr %10, align 8, !tbaa !10
+  %22 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !13
+  %24 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %23, i32 0, i32 3
+  %25 = load i64, ptr %24, align 8, !tbaa !20
+  %26 = call i32 @nghttp2_check_header_name(ptr noundef %20, i64 noundef %25)
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %85, label %28
 
-if.then:                                          ; preds = %entry
-  %6 = load ptr, ptr %nv.addr, align 8
-  %name2 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %name2, align 8
-  %len3 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %7, i32 0, i32 3
-  %8 = load i64, ptr %len3, align 8
-  %cmp = icmp ugt i64 %8, 0
-  br i1 %cmp, label %land.lhs.true, label %if.end
+28:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  %29 = load ptr, ptr %10, align 8, !tbaa !10
+  %30 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %29, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8, !tbaa !13
+  %32 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %31, i32 0, i32 3
+  %33 = load i64, ptr %32, align 8, !tbaa !20
+  %34 = icmp ugt i64 %33, 0
+  br i1 %34, label %35, label %46
 
-land.lhs.true:                                    ; preds = %if.then
-  %9 = load ptr, ptr %nv.addr, align 8
-  %name4 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %9, i32 0, i32 0
-  %10 = load ptr, ptr %name4, align 8
-  %base5 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %10, i32 0, i32 2
-  %11 = load ptr, ptr %base5, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %11, i64 0
-  %12 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %12 to i32
-  %cmp6 = icmp eq i32 %conv, 58
-  br i1 %cmp6, label %if.then8, label %if.end
+35:                                               ; preds = %28
+  %36 = load ptr, ptr %10, align 8, !tbaa !10
+  %37 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8, !tbaa !13
+  %39 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %38, i32 0, i32 2
+  %40 = load ptr, ptr %39, align 8, !tbaa !16
+  %41 = getelementptr inbounds i8, ptr %40, i64 0
+  %42 = load i8, ptr %41, align 1, !tbaa !21
+  %43 = zext i8 %42 to i32
+  %44 = icmp eq i32 %43, 58
+  br i1 %44, label %45, label %46
 
-if.then8:                                         ; preds = %land.lhs.true
-  store i32 -531, ptr %retval, align 4
-  br label %return
+45:                                               ; preds = %35
+  store i32 -531, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %84
 
-if.end:                                           ; preds = %land.lhs.true, %if.then
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+46:                                               ; preds = %35, %28
+  store i64 0, ptr %13, align 8, !tbaa !22
+  br label %47
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %13 = load i64, ptr %i, align 8
-  %14 = load ptr, ptr %nv.addr, align 8
-  %name9 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %14, i32 0, i32 0
-  %15 = load ptr, ptr %name9, align 8
-  %len10 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %15, i32 0, i32 3
-  %16 = load i64, ptr %len10, align 8
-  %cmp11 = icmp ult i64 %13, %16
-  br i1 %cmp11, label %for.body, label %for.end
+47:                                               ; preds = %76, %46
+  %48 = load i64, ptr %13, align 8, !tbaa !22
+  %49 = load ptr, ptr %10, align 8, !tbaa !10
+  %50 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %49, i32 0, i32 0
+  %51 = load ptr, ptr %50, align 8, !tbaa !13
+  %52 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %51, i32 0, i32 3
+  %53 = load i64, ptr %52, align 8, !tbaa !20
+  %54 = icmp ult i64 %48, %53
+  br i1 %54, label %55, label %79
 
-for.body:                                         ; preds = %for.cond
-  %17 = load ptr, ptr %nv.addr, align 8
-  %name13 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %17, i32 0, i32 0
-  %18 = load ptr, ptr %name13, align 8
-  %base14 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %18, i32 0, i32 2
-  %19 = load ptr, ptr %base14, align 8
-  %20 = load i64, ptr %i, align 8
-  %arrayidx15 = getelementptr inbounds i8, ptr %19, i64 %20
-  %21 = load i8, ptr %arrayidx15, align 1
-  store i8 %21, ptr %c, align 1
-  %22 = load i8, ptr %c, align 1
-  %conv16 = zext i8 %22 to i32
-  %cmp17 = icmp sle i32 65, %conv16
-  br i1 %cmp17, label %land.lhs.true19, label %if.end24
+55:                                               ; preds = %47
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #6
+  %56 = load ptr, ptr %10, align 8, !tbaa !10
+  %57 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %56, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8, !tbaa !13
+  %59 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %58, i32 0, i32 2
+  %60 = load ptr, ptr %59, align 8, !tbaa !16
+  %61 = load i64, ptr %13, align 8, !tbaa !22
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 %61
+  %63 = load i8, ptr %62, align 1, !tbaa !21
+  store i8 %63, ptr %15, align 1, !tbaa !21
+  %64 = load i8, ptr %15, align 1, !tbaa !21
+  %65 = zext i8 %64 to i32
+  %66 = icmp sle i32 65, %65
+  br i1 %66, label %67, label %72
 
-land.lhs.true19:                                  ; preds = %for.body
-  %23 = load i8, ptr %c, align 1
-  %conv20 = zext i8 %23 to i32
-  %cmp21 = icmp sle i32 %conv20, 90
-  br i1 %cmp21, label %if.then23, label %if.end24
+67:                                               ; preds = %55
+  %68 = load i8, ptr %15, align 1, !tbaa !21
+  %69 = zext i8 %68 to i32
+  %70 = icmp sle i32 %69, 90
+  br i1 %70, label %71, label %72
 
-if.then23:                                        ; preds = %land.lhs.true19
-  store i32 -531, ptr %retval, align 4
-  br label %return
+71:                                               ; preds = %67
+  store i32 -531, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %73
 
-if.end24:                                         ; preds = %land.lhs.true19, %for.body
-  br label %for.inc
+72:                                               ; preds = %67, %55
+  store i32 0, ptr %14, align 4
+  br label %73
 
-for.inc:                                          ; preds = %if.end24
-  %24 = load i64, ptr %i, align 8
-  %inc = add i64 %24, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !4
-
-for.end:                                          ; preds = %for.cond
-  %25 = load ptr, ptr %stream.addr, align 8
-  %http_flags = getelementptr inbounds %struct.nghttp2_stream, ptr %25, i32 0, i32 28
-  %26 = load i32, ptr %http_flags, align 4
-  %or = or i32 %26, 64
-  store i32 %or, ptr %http_flags, align 4
-  store i32 -105, ptr %retval, align 4
-  br label %return
-
-if.end25:                                         ; preds = %entry
-  %27 = load ptr, ptr %nv.addr, align 8
-  %token = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %27, i32 0, i32 2
-  %28 = load i32, ptr %token, align 8
-  switch i32 %28, label %sw.default [
-    i32 1, label %sw.bb
-    i32 3, label %sw.bb30
-    i32 0, label %sw.bb36
-    i32 37, label %sw.bb36
-    i32 5, label %sw.bb64
-    i32 66, label %sw.bb70
+73:                                               ; preds = %72, %71
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #6
+  %74 = load i32, ptr %14, align 4
+  switch i32 %74, label %84 [
+    i32 0, label %75
   ]
 
-sw.bb:                                            ; preds = %if.end25
-  %29 = load ptr, ptr %nv.addr, align 8
-  %value = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %29, i32 0, i32 1
-  %30 = load ptr, ptr %value, align 8
-  %base26 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %30, i32 0, i32 2
-  %31 = load ptr, ptr %base26, align 8
-  %32 = load ptr, ptr %nv.addr, align 8
-  %value27 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %32, i32 0, i32 1
-  %33 = load ptr, ptr %value27, align 8
-  %len28 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %33, i32 0, i32 3
-  %34 = load i64, ptr %len28, align 8
-  %call29 = call i32 @nghttp2_check_method(ptr noundef %31, i64 noundef %34)
-  store i32 %call29, ptr %rv, align 4
-  br label %sw.epilog
+75:                                               ; preds = %73
+  br label %76
 
-sw.bb30:                                          ; preds = %if.end25
-  %35 = load ptr, ptr %nv.addr, align 8
-  %value31 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %35, i32 0, i32 1
-  %36 = load ptr, ptr %value31, align 8
-  %base32 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %36, i32 0, i32 2
-  %37 = load ptr, ptr %base32, align 8
-  %38 = load ptr, ptr %nv.addr, align 8
-  %value33 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %38, i32 0, i32 1
-  %39 = load ptr, ptr %value33, align 8
-  %len34 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %39, i32 0, i32 3
-  %40 = load i64, ptr %len34, align 8
-  %call35 = call i32 @nghttp2_check_path(ptr noundef %37, i64 noundef %40)
-  store i32 %call35, ptr %rv, align 4
-  br label %sw.epilog
+76:                                               ; preds = %75
+  %77 = load i64, ptr %13, align 8, !tbaa !22
+  %78 = add i64 %77, 1
+  store i64 %78, ptr %13, align 8, !tbaa !22
+  br label %47, !llvm.loop !23
 
-sw.bb36:                                          ; preds = %if.end25, %if.end25
-  %41 = load ptr, ptr %session.addr, align 8
-  %server = getelementptr inbounds %struct.nghttp2_session, ptr %41, i32 0, i32 53
-  %42 = load i8, ptr %server, align 4
-  %conv37 = zext i8 %42 to i32
-  %tobool38 = icmp ne i32 %conv37, 0
-  br i1 %tobool38, label %if.then42, label %lor.lhs.false
+79:                                               ; preds = %47
+  %80 = load ptr, ptr %8, align 8, !tbaa !8
+  %81 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %80, i32 0, i32 18
+  %82 = load i32, ptr %81, align 8, !tbaa !25
+  %83 = or i32 %82, 64
+  store i32 %83, ptr %81, align 8, !tbaa !25
+  store i32 -105, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %84
 
-lor.lhs.false:                                    ; preds = %sw.bb36
-  %43 = load ptr, ptr %frame.addr, align 8
-  %type = getelementptr inbounds %struct.nghttp2_frame_hd, ptr %43, i32 0, i32 2
-  %44 = load i8, ptr %type, align 4
-  %conv39 = zext i8 %44 to i32
-  %cmp40 = icmp eq i32 %conv39, 5
-  br i1 %cmp40, label %if.then42, label %if.else
+84:                                               ; preds = %79, %73, %45
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  br label %300
 
-if.then42:                                        ; preds = %lor.lhs.false, %sw.bb36
-  %45 = load ptr, ptr %nv.addr, align 8
-  %value43 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %45, i32 0, i32 1
-  %46 = load ptr, ptr %value43, align 8
-  %base44 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %46, i32 0, i32 2
-  %47 = load ptr, ptr %base44, align 8
-  %48 = load ptr, ptr %nv.addr, align 8
-  %value45 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %48, i32 0, i32 1
-  %49 = load ptr, ptr %value45, align 8
-  %len46 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %49, i32 0, i32 3
-  %50 = load i64, ptr %len46, align 8
-  %call47 = call i32 @nghttp2_check_authority(ptr noundef %47, i64 noundef %50)
-  store i32 %call47, ptr %rv, align 4
-  br label %if.end63
+85:                                               ; preds = %5
+  %86 = load ptr, ptr %10, align 8, !tbaa !10
+  %87 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %86, i32 0, i32 2
+  %88 = load i32, ptr %87, align 8, !tbaa !30
+  switch i32 %88, label %204 [
+    i32 1, label %89
+    i32 3, label %101
+    i32 0, label %113
+    i32 37, label %113
+    i32 5, label %170
+    i32 66, label %182
+  ]
 
-if.else:                                          ; preds = %lor.lhs.false
-  %51 = load ptr, ptr %stream.addr, align 8
-  %flags = getelementptr inbounds %struct.nghttp2_stream, ptr %51, i32 0, i32 29
-  %52 = load i8, ptr %flags, align 8
-  %conv48 = zext i8 %52 to i32
-  %and = and i32 %conv48, 64
-  %tobool49 = icmp ne i32 %and, 0
-  br i1 %tobool49, label %if.then50, label %if.else56
+89:                                               ; preds = %85
+  %90 = load ptr, ptr %10, align 8, !tbaa !10
+  %91 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %90, i32 0, i32 1
+  %92 = load ptr, ptr %91, align 8, !tbaa !31
+  %93 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %92, i32 0, i32 2
+  %94 = load ptr, ptr %93, align 8, !tbaa !16
+  %95 = load ptr, ptr %10, align 8, !tbaa !10
+  %96 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %95, i32 0, i32 1
+  %97 = load ptr, ptr %96, align 8, !tbaa !31
+  %98 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %97, i32 0, i32 3
+  %99 = load i64, ptr %98, align 8, !tbaa !20
+  %100 = call i32 @nghttp2_check_method(ptr noundef %94, i64 noundef %99)
+  store i32 %100, ptr %12, align 4, !tbaa !11
+  br label %236
 
-if.then50:                                        ; preds = %if.else
-  %53 = load ptr, ptr %nv.addr, align 8
-  %value51 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %53, i32 0, i32 1
-  %54 = load ptr, ptr %value51, align 8
-  %base52 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %54, i32 0, i32 2
-  %55 = load ptr, ptr %base52, align 8
-  %56 = load ptr, ptr %nv.addr, align 8
-  %value53 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %56, i32 0, i32 1
-  %57 = load ptr, ptr %value53, align 8
-  %len54 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %57, i32 0, i32 3
-  %58 = load i64, ptr %len54, align 8
-  %call55 = call i32 @nghttp2_check_header_value(ptr noundef %55, i64 noundef %58)
-  store i32 %call55, ptr %rv, align 4
-  br label %if.end62
+101:                                              ; preds = %85
+  %102 = load ptr, ptr %10, align 8, !tbaa !10
+  %103 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %102, i32 0, i32 1
+  %104 = load ptr, ptr %103, align 8, !tbaa !31
+  %105 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %104, i32 0, i32 2
+  %106 = load ptr, ptr %105, align 8, !tbaa !16
+  %107 = load ptr, ptr %10, align 8, !tbaa !10
+  %108 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %107, i32 0, i32 1
+  %109 = load ptr, ptr %108, align 8, !tbaa !31
+  %110 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %109, i32 0, i32 3
+  %111 = load i64, ptr %110, align 8, !tbaa !20
+  %112 = call i32 @nghttp2_check_path(ptr noundef %106, i64 noundef %111)
+  store i32 %112, ptr %12, align 4, !tbaa !11
+  br label %236
 
-if.else56:                                        ; preds = %if.else
-  %59 = load ptr, ptr %nv.addr, align 8
-  %value57 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %59, i32 0, i32 1
-  %60 = load ptr, ptr %value57, align 8
-  %base58 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %60, i32 0, i32 2
-  %61 = load ptr, ptr %base58, align 8
-  %62 = load ptr, ptr %nv.addr, align 8
-  %value59 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %62, i32 0, i32 1
-  %63 = load ptr, ptr %value59, align 8
-  %len60 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %63, i32 0, i32 3
-  %64 = load i64, ptr %len60, align 8
-  %call61 = call i32 @nghttp2_check_header_value_rfc9113(ptr noundef %61, i64 noundef %64)
-  store i32 %call61, ptr %rv, align 4
-  br label %if.end62
+113:                                              ; preds = %85, %85
+  %114 = load ptr, ptr %7, align 8, !tbaa !3
+  %115 = getelementptr inbounds nuw %struct.nghttp2_session, ptr %114, i32 0, i32 49
+  %116 = load i8, ptr %115, align 1, !tbaa !32
+  %117 = zext i8 %116 to i32
+  %118 = icmp ne i32 %117, 0
+  br i1 %118, label %125, label %119
 
-if.end62:                                         ; preds = %if.else56, %if.then50
-  br label %if.end63
+119:                                              ; preds = %113
+  %120 = load ptr, ptr %9, align 8, !tbaa !10
+  %121 = getelementptr inbounds nuw %struct.nghttp2_frame_hd, ptr %120, i32 0, i32 2
+  %122 = load i8, ptr %121, align 4, !tbaa !21
+  %123 = zext i8 %122 to i32
+  %124 = icmp eq i32 %123, 5
+  br i1 %124, label %125, label %137
 
-if.end63:                                         ; preds = %if.end62, %if.then42
-  br label %sw.epilog
+125:                                              ; preds = %119, %113
+  %126 = load ptr, ptr %10, align 8, !tbaa !10
+  %127 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %126, i32 0, i32 1
+  %128 = load ptr, ptr %127, align 8, !tbaa !31
+  %129 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %128, i32 0, i32 2
+  %130 = load ptr, ptr %129, align 8, !tbaa !16
+  %131 = load ptr, ptr %10, align 8, !tbaa !10
+  %132 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %131, i32 0, i32 1
+  %133 = load ptr, ptr %132, align 8, !tbaa !31
+  %134 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %133, i32 0, i32 3
+  %135 = load i64, ptr %134, align 8, !tbaa !20
+  %136 = call i32 @check_authority(ptr noundef %130, i64 noundef %135)
+  store i32 %136, ptr %12, align 4, !tbaa !11
+  br label %169
 
-sw.bb64:                                          ; preds = %if.end25
-  %65 = load ptr, ptr %nv.addr, align 8
-  %value65 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %65, i32 0, i32 1
-  %66 = load ptr, ptr %value65, align 8
-  %base66 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %66, i32 0, i32 2
-  %67 = load ptr, ptr %base66, align 8
-  %68 = load ptr, ptr %nv.addr, align 8
-  %value67 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %68, i32 0, i32 1
-  %69 = load ptr, ptr %value67, align 8
-  %len68 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %69, i32 0, i32 3
-  %70 = load i64, ptr %len68, align 8
-  %call69 = call i32 @check_scheme(ptr noundef %67, i64 noundef %70)
-  store i32 %call69, ptr %rv, align 4
-  br label %sw.epilog
+137:                                              ; preds = %119
+  %138 = load ptr, ptr %8, align 8, !tbaa !8
+  %139 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %138, i32 0, i32 19
+  %140 = load i8, ptr %139, align 4, !tbaa !55
+  %141 = zext i8 %140 to i32
+  %142 = and i32 %141, 64
+  %143 = icmp ne i32 %142, 0
+  br i1 %143, label %144, label %156
 
-sw.bb70:                                          ; preds = %if.end25
-  %71 = load ptr, ptr %stream.addr, align 8
-  %flags71 = getelementptr inbounds %struct.nghttp2_stream, ptr %71, i32 0, i32 29
-  %72 = load i8, ptr %flags71, align 8
-  %conv72 = zext i8 %72 to i32
-  %and73 = and i32 %conv72, 64
-  %tobool74 = icmp ne i32 %and73, 0
-  br i1 %tobool74, label %land.lhs.true75, label %if.end83
+144:                                              ; preds = %137
+  %145 = load ptr, ptr %10, align 8, !tbaa !10
+  %146 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %145, i32 0, i32 1
+  %147 = load ptr, ptr %146, align 8, !tbaa !31
+  %148 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %147, i32 0, i32 2
+  %149 = load ptr, ptr %148, align 8, !tbaa !16
+  %150 = load ptr, ptr %10, align 8, !tbaa !10
+  %151 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %150, i32 0, i32 1
+  %152 = load ptr, ptr %151, align 8, !tbaa !31
+  %153 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %152, i32 0, i32 3
+  %154 = load i64, ptr %153, align 8, !tbaa !20
+  %155 = call i32 @nghttp2_check_header_value(ptr noundef %149, i64 noundef %154)
+  store i32 %155, ptr %12, align 4, !tbaa !11
+  br label %168
 
-land.lhs.true75:                                  ; preds = %sw.bb70
-  %73 = load ptr, ptr %nv.addr, align 8
-  %value76 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %73, i32 0, i32 1
-  %74 = load ptr, ptr %value76, align 8
-  %base77 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %74, i32 0, i32 2
-  %75 = load ptr, ptr %base77, align 8
-  %76 = load ptr, ptr %nv.addr, align 8
-  %value78 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %76, i32 0, i32 1
-  %77 = load ptr, ptr %value78, align 8
-  %len79 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %77, i32 0, i32 3
-  %78 = load i64, ptr %len79, align 8
-  %call80 = call i32 @lws(ptr noundef %75, i64 noundef %78)
-  %tobool81 = icmp ne i32 %call80, 0
-  br i1 %tobool81, label %if.then82, label %if.end83
+156:                                              ; preds = %137
+  %157 = load ptr, ptr %10, align 8, !tbaa !10
+  %158 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %157, i32 0, i32 1
+  %159 = load ptr, ptr %158, align 8, !tbaa !31
+  %160 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %159, i32 0, i32 2
+  %161 = load ptr, ptr %160, align 8, !tbaa !16
+  %162 = load ptr, ptr %10, align 8, !tbaa !10
+  %163 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %162, i32 0, i32 1
+  %164 = load ptr, ptr %163, align 8, !tbaa !31
+  %165 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %164, i32 0, i32 3
+  %166 = load i64, ptr %165, align 8, !tbaa !20
+  %167 = call i32 @nghttp2_check_header_value_rfc9113(ptr noundef %161, i64 noundef %166)
+  store i32 %167, ptr %12, align 4, !tbaa !11
+  br label %168
 
-if.then82:                                        ; preds = %land.lhs.true75
-  store i32 0, ptr %rv, align 4
-  br label %sw.epilog
+168:                                              ; preds = %156, %144
+  br label %169
 
-if.end83:                                         ; preds = %land.lhs.true75, %sw.bb70
-  br label %sw.default
+169:                                              ; preds = %168, %125
+  br label %236
 
-sw.default:                                       ; preds = %if.end83, %if.end25
-  %79 = load ptr, ptr %stream.addr, align 8
-  %flags84 = getelementptr inbounds %struct.nghttp2_stream, ptr %79, i32 0, i32 29
-  %80 = load i8, ptr %flags84, align 8
-  %conv85 = zext i8 %80 to i32
-  %and86 = and i32 %conv85, 64
-  %tobool87 = icmp ne i32 %and86, 0
-  br i1 %tobool87, label %if.then88, label %if.else94
+170:                                              ; preds = %85
+  %171 = load ptr, ptr %10, align 8, !tbaa !10
+  %172 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %171, i32 0, i32 1
+  %173 = load ptr, ptr %172, align 8, !tbaa !31
+  %174 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %173, i32 0, i32 2
+  %175 = load ptr, ptr %174, align 8, !tbaa !16
+  %176 = load ptr, ptr %10, align 8, !tbaa !10
+  %177 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %176, i32 0, i32 1
+  %178 = load ptr, ptr %177, align 8, !tbaa !31
+  %179 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %178, i32 0, i32 3
+  %180 = load i64, ptr %179, align 8, !tbaa !20
+  %181 = call i32 @check_scheme(ptr noundef %175, i64 noundef %180)
+  store i32 %181, ptr %12, align 4, !tbaa !11
+  br label %236
 
-if.then88:                                        ; preds = %sw.default
-  %81 = load ptr, ptr %nv.addr, align 8
-  %value89 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %81, i32 0, i32 1
-  %82 = load ptr, ptr %value89, align 8
-  %base90 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %82, i32 0, i32 2
-  %83 = load ptr, ptr %base90, align 8
-  %84 = load ptr, ptr %nv.addr, align 8
-  %value91 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %84, i32 0, i32 1
-  %85 = load ptr, ptr %value91, align 8
-  %len92 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %85, i32 0, i32 3
-  %86 = load i64, ptr %len92, align 8
-  %call93 = call i32 @nghttp2_check_header_value(ptr noundef %83, i64 noundef %86)
-  store i32 %call93, ptr %rv, align 4
-  br label %if.end100
+182:                                              ; preds = %85
+  %183 = load ptr, ptr %8, align 8, !tbaa !8
+  %184 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %183, i32 0, i32 19
+  %185 = load i8, ptr %184, align 4, !tbaa !55
+  %186 = zext i8 %185 to i32
+  %187 = and i32 %186, 64
+  %188 = icmp ne i32 %187, 0
+  br i1 %188, label %189, label %203
 
-if.else94:                                        ; preds = %sw.default
-  %87 = load ptr, ptr %nv.addr, align 8
-  %value95 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %87, i32 0, i32 1
-  %88 = load ptr, ptr %value95, align 8
-  %base96 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %88, i32 0, i32 2
-  %89 = load ptr, ptr %base96, align 8
-  %90 = load ptr, ptr %nv.addr, align 8
-  %value97 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %90, i32 0, i32 1
-  %91 = load ptr, ptr %value97, align 8
-  %len98 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %91, i32 0, i32 3
-  %92 = load i64, ptr %len98, align 8
-  %call99 = call i32 @nghttp2_check_header_value_rfc9113(ptr noundef %89, i64 noundef %92)
-  store i32 %call99, ptr %rv, align 4
-  br label %if.end100
+189:                                              ; preds = %182
+  %190 = load ptr, ptr %10, align 8, !tbaa !10
+  %191 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %190, i32 0, i32 1
+  %192 = load ptr, ptr %191, align 8, !tbaa !31
+  %193 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %192, i32 0, i32 2
+  %194 = load ptr, ptr %193, align 8, !tbaa !16
+  %195 = load ptr, ptr %10, align 8, !tbaa !10
+  %196 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %195, i32 0, i32 1
+  %197 = load ptr, ptr %196, align 8, !tbaa !31
+  %198 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %197, i32 0, i32 3
+  %199 = load i64, ptr %198, align 8, !tbaa !20
+  %200 = call i32 @lws(ptr noundef %194, i64 noundef %199)
+  %201 = icmp ne i32 %200, 0
+  br i1 %201, label %202, label %203
 
-if.end100:                                        ; preds = %if.else94, %if.then88
-  br label %sw.epilog
+202:                                              ; preds = %189
+  store i32 0, ptr %12, align 4, !tbaa !11
+  br label %236
 
-sw.epilog:                                        ; preds = %if.end100, %if.then82, %sw.bb64, %if.end63, %sw.bb30, %sw.bb
-  %93 = load i32, ptr %rv, align 4
-  %cmp101 = icmp eq i32 %93, 0
-  br i1 %cmp101, label %if.then103, label %if.end121
+203:                                              ; preds = %189, %182
+  br label %204
 
-if.then103:                                       ; preds = %sw.epilog
-  %94 = load ptr, ptr %nv.addr, align 8
-  %name104 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %94, i32 0, i32 0
-  %95 = load ptr, ptr %name104, align 8
-  %len105 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %95, i32 0, i32 3
-  %96 = load i64, ptr %len105, align 8
-  %cmp106 = icmp ugt i64 %96, 0
-  br i1 %cmp106, label %if.then108, label %if.else109
+204:                                              ; preds = %85, %203
+  %205 = load ptr, ptr %8, align 8, !tbaa !8
+  %206 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %205, i32 0, i32 19
+  %207 = load i8, ptr %206, align 4, !tbaa !55
+  %208 = zext i8 %207 to i32
+  %209 = and i32 %208, 64
+  %210 = icmp ne i32 %209, 0
+  br i1 %210, label %211, label %223
 
-if.then108:                                       ; preds = %if.then103
-  br label %if.end110
+211:                                              ; preds = %204
+  %212 = load ptr, ptr %10, align 8, !tbaa !10
+  %213 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %212, i32 0, i32 1
+  %214 = load ptr, ptr %213, align 8, !tbaa !31
+  %215 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %214, i32 0, i32 2
+  %216 = load ptr, ptr %215, align 8, !tbaa !16
+  %217 = load ptr, ptr %10, align 8, !tbaa !10
+  %218 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %217, i32 0, i32 1
+  %219 = load ptr, ptr %218, align 8, !tbaa !31
+  %220 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %219, i32 0, i32 3
+  %221 = load i64, ptr %220, align 8, !tbaa !20
+  %222 = call i32 @nghttp2_check_header_value(ptr noundef %216, i64 noundef %221)
+  store i32 %222, ptr %12, align 4, !tbaa !11
+  br label %235
 
-if.else109:                                       ; preds = %if.then103
-  call void @__assert_fail(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 424, ptr noundef @__PRETTY_FUNCTION__.nghttp2_http_on_header) #5
+223:                                              ; preds = %204
+  %224 = load ptr, ptr %10, align 8, !tbaa !10
+  %225 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %224, i32 0, i32 1
+  %226 = load ptr, ptr %225, align 8, !tbaa !31
+  %227 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %226, i32 0, i32 2
+  %228 = load ptr, ptr %227, align 8, !tbaa !16
+  %229 = load ptr, ptr %10, align 8, !tbaa !10
+  %230 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %229, i32 0, i32 1
+  %231 = load ptr, ptr %230, align 8, !tbaa !31
+  %232 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %231, i32 0, i32 3
+  %233 = load i64, ptr %232, align 8, !tbaa !20
+  %234 = call i32 @nghttp2_check_header_value_rfc9113(ptr noundef %228, i64 noundef %233)
+  store i32 %234, ptr %12, align 4, !tbaa !11
+  br label %235
+
+235:                                              ; preds = %223, %211
+  br label %236
+
+236:                                              ; preds = %235, %202, %170, %169, %101, %89
+  %237 = load i32, ptr %12, align 4, !tbaa !11
+  %238 = icmp eq i32 %237, 0
+  br i1 %238, label %239, label %264
+
+239:                                              ; preds = %236
+  %240 = load ptr, ptr %10, align 8, !tbaa !10
+  %241 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %240, i32 0, i32 0
+  %242 = load ptr, ptr %241, align 8, !tbaa !13
+  %243 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %242, i32 0, i32 3
+  %244 = load i64, ptr %243, align 8, !tbaa !20
+  %245 = icmp ugt i64 %244, 0
+  br i1 %245, label %246, label %247
+
+246:                                              ; preds = %239
+  br label %248
+
+247:                                              ; preds = %239
+  call void @__assert_fail(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 501, ptr noundef @__PRETTY_FUNCTION__.nghttp2_http_on_header) #7
   unreachable
 
-if.end110:                                        ; preds = %if.then108
-  %97 = load ptr, ptr %nv.addr, align 8
-  %name111 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %97, i32 0, i32 0
-  %98 = load ptr, ptr %name111, align 8
-  %base112 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %98, i32 0, i32 2
-  %99 = load ptr, ptr %base112, align 8
-  %arrayidx113 = getelementptr inbounds i8, ptr %99, i64 0
-  %100 = load i8, ptr %arrayidx113, align 1
-  %conv114 = zext i8 %100 to i32
-  %cmp115 = icmp eq i32 %conv114, 58
-  br i1 %cmp115, label %if.then117, label %if.end118
+248:                                              ; preds = %246
+  %249 = load ptr, ptr %10, align 8, !tbaa !10
+  %250 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %249, i32 0, i32 0
+  %251 = load ptr, ptr %250, align 8, !tbaa !13
+  %252 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %251, i32 0, i32 2
+  %253 = load ptr, ptr %252, align 8, !tbaa !16
+  %254 = getelementptr inbounds i8, ptr %253, i64 0
+  %255 = load i8, ptr %254, align 1, !tbaa !21
+  %256 = zext i8 %255 to i32
+  %257 = icmp eq i32 %256, 58
+  br i1 %257, label %258, label %259
 
-if.then117:                                       ; preds = %if.end110
-  store i32 -531, ptr %retval, align 4
-  br label %return
+258:                                              ; preds = %248
+  store i32 -531, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %300
 
-if.end118:                                        ; preds = %if.end110
-  %101 = load ptr, ptr %stream.addr, align 8
-  %http_flags119 = getelementptr inbounds %struct.nghttp2_stream, ptr %101, i32 0, i32 28
-  %102 = load i32, ptr %http_flags119, align 4
-  %or120 = or i32 %102, 64
-  store i32 %or120, ptr %http_flags119, align 4
-  store i32 -105, ptr %retval, align 4
-  br label %return
+259:                                              ; preds = %248
+  %260 = load ptr, ptr %8, align 8, !tbaa !8
+  %261 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %260, i32 0, i32 18
+  %262 = load i32, ptr %261, align 8, !tbaa !25
+  %263 = or i32 %262, 64
+  store i32 %263, ptr %261, align 8, !tbaa !25
+  store i32 -105, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %300
 
-if.end121:                                        ; preds = %sw.epilog
-  %103 = load ptr, ptr %session.addr, align 8
-  %server122 = getelementptr inbounds %struct.nghttp2_session, ptr %103, i32 0, i32 53
-  %104 = load i8, ptr %server122, align 4
-  %conv123 = zext i8 %104 to i32
-  %tobool124 = icmp ne i32 %conv123, 0
-  br i1 %tobool124, label %if.then130, label %lor.lhs.false125
+264:                                              ; preds = %236
+  %265 = load ptr, ptr %7, align 8, !tbaa !3
+  %266 = getelementptr inbounds nuw %struct.nghttp2_session, ptr %265, i32 0, i32 49
+  %267 = load i8, ptr %266, align 1, !tbaa !32
+  %268 = zext i8 %267 to i32
+  %269 = icmp ne i32 %268, 0
+  br i1 %269, label %276, label %270
 
-lor.lhs.false125:                                 ; preds = %if.end121
-  %105 = load ptr, ptr %frame.addr, align 8
-  %type126 = getelementptr inbounds %struct.nghttp2_frame_hd, ptr %105, i32 0, i32 2
-  %106 = load i8, ptr %type126, align 4
-  %conv127 = zext i8 %106 to i32
-  %cmp128 = icmp eq i32 %conv127, 5
-  br i1 %cmp128, label %if.then130, label %if.end137
+270:                                              ; preds = %264
+  %271 = load ptr, ptr %9, align 8, !tbaa !10
+  %272 = getelementptr inbounds nuw %struct.nghttp2_frame_hd, ptr %271, i32 0, i32 2
+  %273 = load i8, ptr %272, align 4, !tbaa !21
+  %274 = zext i8 %273 to i32
+  %275 = icmp eq i32 %274, 5
+  br i1 %275, label %276, label %295
 
-if.then130:                                       ; preds = %lor.lhs.false125, %if.end121
-  %107 = load ptr, ptr %stream.addr, align 8
-  %108 = load ptr, ptr %nv.addr, align 8
-  %109 = load i32, ptr %trailer.addr, align 4
-  %110 = load ptr, ptr %session.addr, align 8
-  %server131 = getelementptr inbounds %struct.nghttp2_session, ptr %110, i32 0, i32 53
-  %111 = load i8, ptr %server131, align 4
-  %conv132 = zext i8 %111 to i32
-  %tobool133 = icmp ne i32 %conv132, 0
-  br i1 %tobool133, label %land.rhs, label %land.end
+276:                                              ; preds = %270, %264
+  %277 = load ptr, ptr %8, align 8, !tbaa !8
+  %278 = load ptr, ptr %10, align 8, !tbaa !10
+  %279 = load i32, ptr %11, align 4, !tbaa !11
+  %280 = load ptr, ptr %7, align 8, !tbaa !3
+  %281 = getelementptr inbounds nuw %struct.nghttp2_session, ptr %280, i32 0, i32 49
+  %282 = load i8, ptr %281, align 1, !tbaa !32
+  %283 = zext i8 %282 to i32
+  %284 = icmp ne i32 %283, 0
+  br i1 %284, label %285, label %291
 
-land.rhs:                                         ; preds = %if.then130
-  %112 = load ptr, ptr %session.addr, align 8
-  %pending_enable_connect_protocol = getelementptr inbounds %struct.nghttp2_session, ptr %112, i32 0, i32 50
-  %113 = load i8, ptr %pending_enable_connect_protocol, align 1
-  %conv134 = zext i8 %113 to i32
-  %tobool135 = icmp ne i32 %conv134, 0
-  br label %land.end
+285:                                              ; preds = %276
+  %286 = load ptr, ptr %7, align 8, !tbaa !3
+  %287 = getelementptr inbounds nuw %struct.nghttp2_session, ptr %286, i32 0, i32 47
+  %288 = load i8, ptr %287, align 1, !tbaa !56
+  %289 = zext i8 %288 to i32
+  %290 = icmp ne i32 %289, 0
+  br label %291
 
-land.end:                                         ; preds = %land.rhs, %if.then130
-  %114 = phi i1 [ false, %if.then130 ], [ %tobool135, %land.rhs ]
-  %land.ext = zext i1 %114 to i32
-  %call136 = call i32 @http_request_on_header(ptr noundef %107, ptr noundef %108, i32 noundef %109, i32 noundef %land.ext)
-  store i32 %call136, ptr %retval, align 4
-  br label %return
+291:                                              ; preds = %285, %276
+  %292 = phi i1 [ false, %276 ], [ %290, %285 ]
+  %293 = zext i1 %292 to i32
+  %294 = call i32 @http_request_on_header(ptr noundef %277, ptr noundef %278, i32 noundef %279, i32 noundef %293)
+  store i32 %294, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %300
 
-if.end137:                                        ; preds = %lor.lhs.false125
-  %115 = load ptr, ptr %stream.addr, align 8
-  %116 = load ptr, ptr %nv.addr, align 8
-  %117 = load i32, ptr %trailer.addr, align 4
-  %call138 = call i32 @http_response_on_header(ptr noundef %115, ptr noundef %116, i32 noundef %117)
-  store i32 %call138, ptr %retval, align 4
-  br label %return
+295:                                              ; preds = %270
+  %296 = load ptr, ptr %8, align 8, !tbaa !8
+  %297 = load ptr, ptr %10, align 8, !tbaa !10
+  %298 = load i32, ptr %11, align 4, !tbaa !11
+  %299 = call i32 @http_response_on_header(ptr noundef %296, ptr noundef %297, i32 noundef %298)
+  store i32 %299, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %300
 
-return:                                           ; preds = %if.end137, %land.end, %if.end118, %if.then117, %for.end, %if.then23, %if.then8
-  %118 = load i32, ptr %retval, align 4
-  ret i32 %118
+300:                                              ; preds = %295, %291, %259, %258, %84
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  %301 = load i32, ptr %6, align 4
+  ret i32 %301
 }
 
-declare i32 @nghttp2_check_header_name(ptr noundef, i64 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @nghttp2_check_method(ptr noundef, i64 noundef) #1
+declare i32 @nghttp2_check_header_name(ptr noundef, i64 noundef) #2
 
-declare i32 @nghttp2_check_path(ptr noundef, i64 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @nghttp2_check_authority(ptr noundef, i64 noundef) #1
+declare i32 @nghttp2_check_method(ptr noundef, i64 noundef) #2
 
-declare i32 @nghttp2_check_header_value(ptr noundef, i64 noundef) #1
-
-declare i32 @nghttp2_check_header_value_rfc9113(ptr noundef, i64 noundef) #1
+declare i32 @nghttp2_check_path(ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @check_scheme(ptr noundef %value, i64 noundef %len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %value.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  %last = alloca ptr, align 8
-  store ptr %value, ptr %value.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  %0 = load i64, ptr %len.addr, align 8
-  %cmp = icmp eq i64 %0, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @check_authority(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !57
+  store i64 %1, ptr %5, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %8 = load ptr, ptr %4, align 8, !tbaa !57
+  %9 = load i64, ptr %5, align 8, !tbaa !22
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  store ptr %10, ptr %6, align 8, !tbaa !57
+  br label %11
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+11:                                               ; preds = %24, %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !57
+  %13 = load ptr, ptr %6, align 8, !tbaa !57
+  %14 = icmp ne ptr %12, %13
+  br i1 %14, label %15, label %27
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %value.addr, align 8
-  %2 = load i8, ptr %1, align 1
-  %conv = zext i8 %2 to i32
-  %cmp1 = icmp sle i32 65, %conv
-  br i1 %cmp1, label %land.lhs.true, label %lor.lhs.false
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %4, align 8, !tbaa !57
+  %17 = load i8, ptr %16, align 1, !tbaa !21
+  %18 = zext i8 %17 to i64
+  %19 = getelementptr inbounds nuw [256 x i8], ptr @VALID_AUTHORITY_CHARS, i64 0, i64 %18
+  %20 = load i8, ptr %19, align 1, !tbaa !21
+  %21 = icmp ne i8 %20, 0
+  br i1 %21, label %23, label %22
 
-land.lhs.true:                                    ; preds = %if.end
-  %3 = load ptr, ptr %value.addr, align 8
-  %4 = load i8, ptr %3, align 1
-  %conv3 = zext i8 %4 to i32
-  %cmp4 = icmp sle i32 %conv3, 90
-  br i1 %cmp4, label %if.end14, label %lor.lhs.false
+22:                                               ; preds = %15
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %28
 
-lor.lhs.false:                                    ; preds = %land.lhs.true, %if.end
-  %5 = load ptr, ptr %value.addr, align 8
-  %6 = load i8, ptr %5, align 1
-  %conv6 = zext i8 %6 to i32
-  %cmp7 = icmp sle i32 97, %conv6
-  br i1 %cmp7, label %land.lhs.true9, label %if.then13
+23:                                               ; preds = %15
+  br label %24
 
-land.lhs.true9:                                   ; preds = %lor.lhs.false
-  %7 = load ptr, ptr %value.addr, align 8
-  %8 = load i8, ptr %7, align 1
-  %conv10 = zext i8 %8 to i32
-  %cmp11 = icmp sle i32 %conv10, 122
-  br i1 %cmp11, label %if.end14, label %if.then13
+24:                                               ; preds = %23
+  %25 = load ptr, ptr %4, align 8, !tbaa !57
+  %26 = getelementptr inbounds nuw i8, ptr %25, i32 1
+  store ptr %26, ptr %4, align 8, !tbaa !57
+  br label %11, !llvm.loop !58
 
-if.then13:                                        ; preds = %land.lhs.true9, %lor.lhs.false
-  store i32 0, ptr %retval, align 4
-  br label %return
+27:                                               ; preds = %11
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %28
 
-if.end14:                                         ; preds = %land.lhs.true9, %land.lhs.true
-  %9 = load ptr, ptr %value.addr, align 8
-  %10 = load i64, ptr %len.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %9, i64 %10
-  store ptr %add.ptr, ptr %last, align 8
-  %11 = load ptr, ptr %value.addr, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %11, i32 1
-  store ptr %incdec.ptr, ptr %value.addr, align 8
-  br label %for.cond
+28:                                               ; preds = %27, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  %29 = load i32, ptr %3, align 4
+  ret i32 %29
+}
 
-for.cond:                                         ; preds = %for.inc, %if.end14
-  %12 = load ptr, ptr %value.addr, align 8
-  %13 = load ptr, ptr %last, align 8
-  %cmp15 = icmp ne ptr %12, %13
-  br i1 %cmp15, label %for.body, label %for.end
+declare i32 @nghttp2_check_header_value(ptr noundef, i64 noundef) #2
 
-for.body:                                         ; preds = %for.cond
-  %14 = load ptr, ptr %value.addr, align 8
-  %15 = load i8, ptr %14, align 1
-  %conv17 = zext i8 %15 to i32
-  %cmp18 = icmp sle i32 65, %conv17
-  br i1 %cmp18, label %land.lhs.true20, label %lor.lhs.false24
+declare i32 @nghttp2_check_header_value_rfc9113(ptr noundef, i64 noundef) #2
 
-land.lhs.true20:                                  ; preds = %for.body
-  %16 = load ptr, ptr %value.addr, align 8
-  %17 = load i8, ptr %16, align 1
-  %conv21 = zext i8 %17 to i32
-  %cmp22 = icmp sle i32 %conv21, 90
-  br i1 %cmp22, label %if.end53, label %lor.lhs.false24
+; Function Attrs: nounwind uwtable
+define internal i32 @check_scheme(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !57
+  store i64 %1, ptr %5, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %8 = load i64, ptr %5, align 8, !tbaa !22
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %10, label %11
 
-lor.lhs.false24:                                  ; preds = %land.lhs.true20, %for.body
-  %18 = load ptr, ptr %value.addr, align 8
-  %19 = load i8, ptr %18, align 1
-  %conv25 = zext i8 %19 to i32
-  %cmp26 = icmp sle i32 97, %conv25
-  br i1 %cmp26, label %land.lhs.true28, label %lor.lhs.false32
+10:                                               ; preds = %2
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %93
 
-land.lhs.true28:                                  ; preds = %lor.lhs.false24
-  %20 = load ptr, ptr %value.addr, align 8
-  %21 = load i8, ptr %20, align 1
-  %conv29 = zext i8 %21 to i32
-  %cmp30 = icmp sle i32 %conv29, 122
-  br i1 %cmp30, label %if.end53, label %lor.lhs.false32
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !57
+  %13 = load i8, ptr %12, align 1, !tbaa !21
+  %14 = zext i8 %13 to i32
+  %15 = icmp sle i32 65, %14
+  br i1 %15, label %16, label %21
 
-lor.lhs.false32:                                  ; preds = %land.lhs.true28, %lor.lhs.false24
-  %22 = load ptr, ptr %value.addr, align 8
-  %23 = load i8, ptr %22, align 1
-  %conv33 = zext i8 %23 to i32
-  %cmp34 = icmp sle i32 48, %conv33
-  br i1 %cmp34, label %land.lhs.true36, label %lor.lhs.false40
+16:                                               ; preds = %11
+  %17 = load ptr, ptr %4, align 8, !tbaa !57
+  %18 = load i8, ptr %17, align 1, !tbaa !21
+  %19 = zext i8 %18 to i32
+  %20 = icmp sle i32 %19, 90
+  br i1 %20, label %32, label %21
 
-land.lhs.true36:                                  ; preds = %lor.lhs.false32
-  %24 = load ptr, ptr %value.addr, align 8
-  %25 = load i8, ptr %24, align 1
-  %conv37 = zext i8 %25 to i32
-  %cmp38 = icmp sle i32 %conv37, 57
-  br i1 %cmp38, label %if.end53, label %lor.lhs.false40
+21:                                               ; preds = %16, %11
+  %22 = load ptr, ptr %4, align 8, !tbaa !57
+  %23 = load i8, ptr %22, align 1, !tbaa !21
+  %24 = zext i8 %23 to i32
+  %25 = icmp sle i32 97, %24
+  br i1 %25, label %26, label %31
 
-lor.lhs.false40:                                  ; preds = %land.lhs.true36, %lor.lhs.false32
-  %26 = load ptr, ptr %value.addr, align 8
-  %27 = load i8, ptr %26, align 1
-  %conv41 = zext i8 %27 to i32
-  %cmp42 = icmp eq i32 %conv41, 43
-  br i1 %cmp42, label %if.end53, label %lor.lhs.false44
+26:                                               ; preds = %21
+  %27 = load ptr, ptr %4, align 8, !tbaa !57
+  %28 = load i8, ptr %27, align 1, !tbaa !21
+  %29 = zext i8 %28 to i32
+  %30 = icmp sle i32 %29, 122
+  br i1 %30, label %32, label %31
 
-lor.lhs.false44:                                  ; preds = %lor.lhs.false40
-  %28 = load ptr, ptr %value.addr, align 8
-  %29 = load i8, ptr %28, align 1
-  %conv45 = zext i8 %29 to i32
-  %cmp46 = icmp eq i32 %conv45, 45
-  br i1 %cmp46, label %if.end53, label %lor.lhs.false48
+31:                                               ; preds = %26, %21
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %93
 
-lor.lhs.false48:                                  ; preds = %lor.lhs.false44
-  %30 = load ptr, ptr %value.addr, align 8
-  %31 = load i8, ptr %30, align 1
-  %conv49 = zext i8 %31 to i32
-  %cmp50 = icmp eq i32 %conv49, 46
-  br i1 %cmp50, label %if.end53, label %if.then52
+32:                                               ; preds = %26, %16
+  %33 = load ptr, ptr %4, align 8, !tbaa !57
+  %34 = load i64, ptr %5, align 8, !tbaa !22
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
+  store ptr %35, ptr %6, align 8, !tbaa !57
+  %36 = load ptr, ptr %4, align 8, !tbaa !57
+  %37 = getelementptr inbounds nuw i8, ptr %36, i32 1
+  store ptr %37, ptr %4, align 8, !tbaa !57
+  br label %38
 
-if.then52:                                        ; preds = %lor.lhs.false48
-  store i32 0, ptr %retval, align 4
-  br label %return
+38:                                               ; preds = %89, %32
+  %39 = load ptr, ptr %4, align 8, !tbaa !57
+  %40 = load ptr, ptr %6, align 8, !tbaa !57
+  %41 = icmp ne ptr %39, %40
+  br i1 %41, label %42, label %92
 
-if.end53:                                         ; preds = %lor.lhs.false48, %lor.lhs.false44, %lor.lhs.false40, %land.lhs.true36, %land.lhs.true28, %land.lhs.true20
-  br label %for.inc
+42:                                               ; preds = %38
+  %43 = load ptr, ptr %4, align 8, !tbaa !57
+  %44 = load i8, ptr %43, align 1, !tbaa !21
+  %45 = zext i8 %44 to i32
+  %46 = icmp sle i32 65, %45
+  br i1 %46, label %47, label %52
 
-for.inc:                                          ; preds = %if.end53
-  %32 = load ptr, ptr %value.addr, align 8
-  %incdec.ptr54 = getelementptr inbounds i8, ptr %32, i32 1
-  store ptr %incdec.ptr54, ptr %value.addr, align 8
-  br label %for.cond, !llvm.loop !6
+47:                                               ; preds = %42
+  %48 = load ptr, ptr %4, align 8, !tbaa !57
+  %49 = load i8, ptr %48, align 1, !tbaa !21
+  %50 = zext i8 %49 to i32
+  %51 = icmp sle i32 %50, 90
+  br i1 %51, label %88, label %52
 
-for.end:                                          ; preds = %for.cond
-  store i32 1, ptr %retval, align 4
-  br label %return
+52:                                               ; preds = %47, %42
+  %53 = load ptr, ptr %4, align 8, !tbaa !57
+  %54 = load i8, ptr %53, align 1, !tbaa !21
+  %55 = zext i8 %54 to i32
+  %56 = icmp sle i32 97, %55
+  br i1 %56, label %57, label %62
 
-return:                                           ; preds = %for.end, %if.then52, %if.then13, %if.then
-  %33 = load i32, ptr %retval, align 4
+57:                                               ; preds = %52
+  %58 = load ptr, ptr %4, align 8, !tbaa !57
+  %59 = load i8, ptr %58, align 1, !tbaa !21
+  %60 = zext i8 %59 to i32
+  %61 = icmp sle i32 %60, 122
+  br i1 %61, label %88, label %62
+
+62:                                               ; preds = %57, %52
+  %63 = load ptr, ptr %4, align 8, !tbaa !57
+  %64 = load i8, ptr %63, align 1, !tbaa !21
+  %65 = zext i8 %64 to i32
+  %66 = icmp sle i32 48, %65
+  br i1 %66, label %67, label %72
+
+67:                                               ; preds = %62
+  %68 = load ptr, ptr %4, align 8, !tbaa !57
+  %69 = load i8, ptr %68, align 1, !tbaa !21
+  %70 = zext i8 %69 to i32
+  %71 = icmp sle i32 %70, 57
+  br i1 %71, label %88, label %72
+
+72:                                               ; preds = %67, %62
+  %73 = load ptr, ptr %4, align 8, !tbaa !57
+  %74 = load i8, ptr %73, align 1, !tbaa !21
+  %75 = zext i8 %74 to i32
+  %76 = icmp eq i32 %75, 43
+  br i1 %76, label %88, label %77
+
+77:                                               ; preds = %72
+  %78 = load ptr, ptr %4, align 8, !tbaa !57
+  %79 = load i8, ptr %78, align 1, !tbaa !21
+  %80 = zext i8 %79 to i32
+  %81 = icmp eq i32 %80, 45
+  br i1 %81, label %88, label %82
+
+82:                                               ; preds = %77
+  %83 = load ptr, ptr %4, align 8, !tbaa !57
+  %84 = load i8, ptr %83, align 1, !tbaa !21
+  %85 = zext i8 %84 to i32
+  %86 = icmp eq i32 %85, 46
+  br i1 %86, label %88, label %87
+
+87:                                               ; preds = %82
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %93
+
+88:                                               ; preds = %82, %77, %72, %67, %57, %47
+  br label %89
+
+89:                                               ; preds = %88
+  %90 = load ptr, ptr %4, align 8, !tbaa !57
+  %91 = getelementptr inbounds nuw i8, ptr %90, i32 1
+  store ptr %91, ptr %4, align 8, !tbaa !57
+  br label %38, !llvm.loop !59
+
+92:                                               ; preds = %38
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %93
+
+93:                                               ; preds = %92, %87, %31, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  %94 = load i32, ptr %3, align 4
+  ret i32 %94
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @lws(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !57
+  store i64 %1, ptr %5, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  store i64 0, ptr %6, align 8, !tbaa !22
+  br label %8
+
+8:                                                ; preds = %28, %2
+  %9 = load i64, ptr %6, align 8, !tbaa !22
+  %10 = load i64, ptr %5, align 8, !tbaa !22
+  %11 = icmp ult i64 %9, %10
+  br i1 %11, label %12, label %31
+
+12:                                               ; preds = %8
+  %13 = load ptr, ptr %4, align 8, !tbaa !57
+  %14 = load i64, ptr %6, align 8, !tbaa !22
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 %14
+  %16 = load i8, ptr %15, align 1, !tbaa !21
+  %17 = zext i8 %16 to i32
+  %18 = icmp ne i32 %17, 32
+  br i1 %18, label %19, label %27
+
+19:                                               ; preds = %12
+  %20 = load ptr, ptr %4, align 8, !tbaa !57
+  %21 = load i64, ptr %6, align 8, !tbaa !22
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
+  %23 = load i8, ptr %22, align 1, !tbaa !21
+  %24 = zext i8 %23 to i32
+  %25 = icmp ne i32 %24, 9
+  br i1 %25, label %26, label %27
+
+26:                                               ; preds = %19
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %32
+
+27:                                               ; preds = %19, %12
+  br label %28
+
+28:                                               ; preds = %27
+  %29 = load i64, ptr %6, align 8, !tbaa !22
+  %30 = add i64 %29, 1
+  store i64 %30, ptr %6, align 8, !tbaa !22
+  br label %8, !llvm.loop !60
+
+31:                                               ; preds = %8
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %32
+
+32:                                               ; preds = %31, %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  %33 = load i32, ptr %3, align 4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @lws(ptr noundef %s, i64 noundef %n) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %s.addr = alloca ptr, align 8
-  %n.addr = alloca i64, align 8
-  %i = alloca i64, align 8
-  store ptr %s, ptr %s.addr, align 8
-  store i64 %n, ptr %n.addr, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
-  %1 = load i64, ptr %n.addr, align 8
-  %cmp = icmp ult i64 %0, %1
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %s.addr, align 8
-  %3 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %2, i64 %3
-  %4 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %4 to i32
-  %cmp1 = icmp ne i32 %conv, 32
-  br i1 %cmp1, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %for.body
-  %5 = load ptr, ptr %s.addr, align 8
-  %6 = load i64, ptr %i, align 8
-  %arrayidx3 = getelementptr inbounds i8, ptr %5, i64 %6
-  %7 = load i8, ptr %arrayidx3, align 1
-  %conv4 = zext i8 %7 to i32
-  %cmp5 = icmp ne i32 %conv4, 9
-  br i1 %cmp5, label %if.then, label %if.end
-
-if.then:                                          ; preds = %land.lhs.true
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %land.lhs.true, %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end
-  %8 = load i64, ptr %i, align 8
-  %inc = add i64 %8, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !7
-
-for.end:                                          ; preds = %for.cond
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %for.end, %if.then
-  %9 = load i32, ptr %retval, align 4
-  ret i32 %9
-}
-
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @http_request_on_header(ptr noundef %stream, ptr noundef %nv, i32 noundef %trailer, i32 noundef %connect_protocol) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %stream.addr = alloca ptr, align 8
-  %nv.addr = alloca ptr, align 8
-  %trailer.addr = alloca i32, align 4
-  %connect_protocol.addr = alloca i32, align 4
-  %extpri = alloca %struct.nghttp2_extpri, align 4
-  store ptr %stream, ptr %stream.addr, align 8
-  store ptr %nv, ptr %nv.addr, align 8
-  store i32 %trailer, ptr %trailer.addr, align 4
-  store i32 %connect_protocol, ptr %connect_protocol.addr, align 4
-  %0 = load ptr, ptr %nv.addr, align 8
-  %name = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %name, align 8
-  %base = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %1, i32 0, i32 2
-  %2 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %2, i64 0
-  %3 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %3 to i32
-  %cmp = icmp eq i32 %conv, 58
-  br i1 %cmp, label %if.then, label %if.end4
+define internal i32 @http_request_on_header(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca %struct.nghttp2_extpri, align 4
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !8
+  store ptr %1, ptr %7, align 8, !tbaa !10
+  store i32 %2, ptr %8, align 4, !tbaa !11
+  store i32 %3, ptr %9, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %12 = load ptr, ptr %7, align 8, !tbaa !10
+  %13 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8, !tbaa !13
+  %15 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %14, i32 0, i32 2
+  %16 = load ptr, ptr %15, align 8, !tbaa !16
+  %17 = getelementptr inbounds i8, ptr %16, i64 0
+  %18 = load i8, ptr %17, align 1, !tbaa !21
+  %19 = zext i8 %18 to i32
+  %20 = icmp eq i32 %19, 58
+  br i1 %20, label %21, label %32
 
-if.then:                                          ; preds = %entry
-  %4 = load i32, ptr %trailer.addr, align 4
-  %tobool = icmp ne i32 %4, 0
-  br i1 %tobool, label %if.then3, label %lor.lhs.false
+21:                                               ; preds = %4
+  %22 = load i32, ptr %8, align 4, !tbaa !11
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %30, label %24
 
-lor.lhs.false:                                    ; preds = %if.then
-  %5 = load ptr, ptr %stream.addr, align 8
-  %http_flags = getelementptr inbounds %struct.nghttp2_stream, ptr %5, i32 0, i32 28
-  %6 = load i32, ptr %http_flags, align 4
-  %and = and i32 %6, 64
-  %tobool2 = icmp ne i32 %and, 0
-  br i1 %tobool2, label %if.then3, label %if.end
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %6, align 8, !tbaa !8
+  %26 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %25, i32 0, i32 18
+  %27 = load i32, ptr %26, align 8, !tbaa !25
+  %28 = and i32 %27, 64
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %31
 
-if.then3:                                         ; preds = %lor.lhs.false, %if.then
-  store i32 -531, ptr %retval, align 4
-  br label %return
+30:                                               ; preds = %24, %21
+  store i32 -531, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %383
 
-if.end:                                           ; preds = %lor.lhs.false
-  br label %if.end4
+31:                                               ; preds = %24
+  br label %32
 
-if.end4:                                          ; preds = %if.end, %entry
-  %7 = load ptr, ptr %nv.addr, align 8
-  %token = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %7, i32 0, i32 2
-  %8 = load i32, ptr %token, align 8
-  switch i32 %8, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb8
-    i32 3, label %sw.bb72
-    i32 5, label %sw.bb102
-    i32 66, label %sw.bb130
-    i32 37, label %sw.bb138
-    i32 27, label %sw.bb143
-    i32 62, label %sw.bb159
-    i32 63, label %sw.bb159
-    i32 64, label %sw.bb159
-    i32 56, label %sw.bb159
-    i32 65, label %sw.bb159
-    i32 61, label %sw.bb160
-    i32 67, label %sw.bb174
+32:                                               ; preds = %31, %4
+  %33 = load ptr, ptr %7, align 8, !tbaa !10
+  %34 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %33, i32 0, i32 2
+  %35 = load i32, ptr %34, align 8, !tbaa !30
+  switch i32 %35, label %355 [
+    i32 0, label %36
+    i32 1, label %43
+    i32 3, label %151
+    i32 5, label %196
+    i32 66, label %238
+    i32 37, label %249
+    i32 27, label %256
+    i32 62, label %282
+    i32 63, label %282
+    i32 64, label %282
+    i32 56, label %282
+    i32 65, label %282
+    i32 61, label %283
+    i32 67, label %305
   ]
 
-sw.bb:                                            ; preds = %if.end4
-  %9 = load ptr, ptr %stream.addr, align 8
-  %10 = load ptr, ptr %nv.addr, align 8
-  %call = call i32 @check_pseudo_header(ptr noundef %9, ptr noundef %10, i32 noundef 1)
-  %tobool5 = icmp ne i32 %call, 0
-  br i1 %tobool5, label %if.end7, label %if.then6
+36:                                               ; preds = %32
+  %37 = load ptr, ptr %6, align 8, !tbaa !8
+  %38 = load ptr, ptr %7, align 8, !tbaa !10
+  %39 = call i32 @check_pseudo_header(ptr noundef %37, ptr noundef %38, i32 noundef 1)
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %42, label %41
 
-if.then6:                                         ; preds = %sw.bb
-  store i32 -531, ptr %retval, align 4
-  br label %return
+41:                                               ; preds = %36
+  store i32 -531, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %383
 
-if.end7:                                          ; preds = %sw.bb
-  br label %sw.epilog216
+42:                                               ; preds = %36
+  br label %367
 
-sw.bb8:                                           ; preds = %if.end4
-  %11 = load ptr, ptr %stream.addr, align 8
-  %12 = load ptr, ptr %nv.addr, align 8
-  %call9 = call i32 @check_pseudo_header(ptr noundef %11, ptr noundef %12, i32 noundef 4)
-  %tobool10 = icmp ne i32 %call9, 0
-  br i1 %tobool10, label %if.end12, label %if.then11
+43:                                               ; preds = %32
+  %44 = load ptr, ptr %6, align 8, !tbaa !8
+  %45 = load ptr, ptr %7, align 8, !tbaa !10
+  %46 = call i32 @check_pseudo_header(ptr noundef %44, ptr noundef %45, i32 noundef 4)
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %49, label %48
 
-if.then11:                                        ; preds = %sw.bb8
-  store i32 -531, ptr %retval, align 4
-  br label %return
+48:                                               ; preds = %43
+  store i32 -531, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %383
 
-if.end12:                                         ; preds = %sw.bb8
-  %13 = load ptr, ptr %nv.addr, align 8
-  %value = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %13, i32 0, i32 1
-  %14 = load ptr, ptr %value, align 8
-  %len = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %14, i32 0, i32 3
-  %15 = load i64, ptr %len, align 8
-  switch i64 %15, label %sw.epilog71 [
-    i64 4, label %sw.bb13
-    i64 7, label %sw.bb28
+49:                                               ; preds = %43
+  %50 = load ptr, ptr %7, align 8, !tbaa !10
+  %51 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %50, i32 0, i32 1
+  %52 = load ptr, ptr %51, align 8, !tbaa !31
+  %53 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %52, i32 0, i32 3
+  %54 = load i64, ptr %53, align 8, !tbaa !20
+  switch i64 %54, label %150 [
+    i64 4, label %55
+    i64 7, label %81
   ]
 
-sw.bb13:                                          ; preds = %if.end12
-  %16 = load ptr, ptr %nv.addr, align 8
-  %value14 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %value14, align 8
-  %len15 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %17, i32 0, i32 3
-  %18 = load i64, ptr %len15, align 8
-  %cmp16 = icmp eq i64 4, %18
-  br i1 %cmp16, label %land.lhs.true, label %if.end27
+55:                                               ; preds = %49
+  %56 = load ptr, ptr %7, align 8, !tbaa !10
+  %57 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %56, i32 0, i32 1
+  %58 = load ptr, ptr %57, align 8, !tbaa !31
+  %59 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %58, i32 0, i32 3
+  %60 = load i64, ptr %59, align 8, !tbaa !20
+  %61 = icmp eq i64 4, %60
+  br i1 %61, label %62, label %80
 
-land.lhs.true:                                    ; preds = %sw.bb13
-  %19 = load ptr, ptr %nv.addr, align 8
-  %value18 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %19, i32 0, i32 1
-  %20 = load ptr, ptr %value18, align 8
-  %base19 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %20, i32 0, i32 2
-  %21 = load ptr, ptr %base19, align 8
-  %22 = load ptr, ptr %nv.addr, align 8
-  %value20 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %22, i32 0, i32 1
-  %23 = load ptr, ptr %value20, align 8
-  %len21 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %23, i32 0, i32 3
-  %24 = load i64, ptr %len21, align 8
-  %call22 = call i32 @memcmp(ptr noundef @.str.4, ptr noundef %21, i64 noundef %24) #6
-  %cmp23 = icmp eq i32 %call22, 0
-  br i1 %cmp23, label %if.then25, label %if.end27
+62:                                               ; preds = %55
+  %63 = load ptr, ptr %7, align 8, !tbaa !10
+  %64 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %63, i32 0, i32 1
+  %65 = load ptr, ptr %64, align 8, !tbaa !31
+  %66 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %65, i32 0, i32 2
+  %67 = load ptr, ptr %66, align 8, !tbaa !16
+  %68 = load ptr, ptr %7, align 8, !tbaa !10
+  %69 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %68, i32 0, i32 1
+  %70 = load ptr, ptr %69, align 8, !tbaa !31
+  %71 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %70, i32 0, i32 3
+  %72 = load i64, ptr %71, align 8, !tbaa !20
+  %73 = call i32 @memcmp(ptr noundef @.str.4, ptr noundef %67, i64 noundef %72) #8
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %75, label %80
 
-if.then25:                                        ; preds = %land.lhs.true
-  %25 = load ptr, ptr %stream.addr, align 8
-  %http_flags26 = getelementptr inbounds %struct.nghttp2_stream, ptr %25, i32 0, i32 28
-  %26 = load i32, ptr %http_flags26, align 4
-  %or = or i32 %26, 256
-  store i32 %or, ptr %http_flags26, align 4
-  br label %if.end27
+75:                                               ; preds = %62
+  %76 = load ptr, ptr %6, align 8, !tbaa !8
+  %77 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %76, i32 0, i32 18
+  %78 = load i32, ptr %77, align 8, !tbaa !25
+  %79 = or i32 %78, 256
+  store i32 %79, ptr %77, align 8, !tbaa !25
+  br label %80
 
-if.end27:                                         ; preds = %if.then25, %land.lhs.true, %sw.bb13
-  br label %sw.epilog71
+80:                                               ; preds = %75, %62, %55
+  br label %150
 
-sw.bb28:                                          ; preds = %if.end12
-  %27 = load ptr, ptr %nv.addr, align 8
-  %value29 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %27, i32 0, i32 1
-  %28 = load ptr, ptr %value29, align 8
-  %base30 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %28, i32 0, i32 2
-  %29 = load ptr, ptr %base30, align 8
-  %arrayidx31 = getelementptr inbounds i8, ptr %29, i64 6
-  %30 = load i8, ptr %arrayidx31, align 1
-  %conv32 = zext i8 %30 to i32
-  switch i32 %conv32, label %sw.epilog [
-    i32 84, label %sw.bb33
-    i32 83, label %sw.bb54
+81:                                               ; preds = %49
+  %82 = load ptr, ptr %7, align 8, !tbaa !10
+  %83 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %82, i32 0, i32 1
+  %84 = load ptr, ptr %83, align 8, !tbaa !31
+  %85 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %84, i32 0, i32 2
+  %86 = load ptr, ptr %85, align 8, !tbaa !16
+  %87 = getelementptr inbounds i8, ptr %86, i64 6
+  %88 = load i8, ptr %87, align 1, !tbaa !21
+  %89 = zext i8 %88 to i32
+  switch i32 %89, label %149 [
+    i32 84, label %90
+    i32 83, label %123
   ]
 
-sw.bb33:                                          ; preds = %sw.bb28
-  %31 = load ptr, ptr %nv.addr, align 8
-  %value34 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %31, i32 0, i32 1
-  %32 = load ptr, ptr %value34, align 8
-  %len35 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %32, i32 0, i32 3
-  %33 = load i64, ptr %len35, align 8
-  %cmp36 = icmp eq i64 7, %33
-  br i1 %cmp36, label %land.lhs.true38, label %if.end53
+90:                                               ; preds = %81
+  %91 = load ptr, ptr %7, align 8, !tbaa !10
+  %92 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %91, i32 0, i32 1
+  %93 = load ptr, ptr %92, align 8, !tbaa !31
+  %94 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %93, i32 0, i32 3
+  %95 = load i64, ptr %94, align 8, !tbaa !20
+  %96 = icmp eq i64 7, %95
+  br i1 %96, label %97, label %122
 
-land.lhs.true38:                                  ; preds = %sw.bb33
-  %34 = load ptr, ptr %nv.addr, align 8
-  %value39 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %34, i32 0, i32 1
-  %35 = load ptr, ptr %value39, align 8
-  %base40 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %35, i32 0, i32 2
-  %36 = load ptr, ptr %base40, align 8
-  %37 = load ptr, ptr %nv.addr, align 8
-  %value41 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %37, i32 0, i32 1
-  %38 = load ptr, ptr %value41, align 8
-  %len42 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %38, i32 0, i32 3
-  %39 = load i64, ptr %len42, align 8
-  %call43 = call i32 @memcmp(ptr noundef @.str.3, ptr noundef %36, i64 noundef %39) #6
-  %cmp44 = icmp eq i32 %call43, 0
-  br i1 %cmp44, label %if.then46, label %if.end53
+97:                                               ; preds = %90
+  %98 = load ptr, ptr %7, align 8, !tbaa !10
+  %99 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %98, i32 0, i32 1
+  %100 = load ptr, ptr %99, align 8, !tbaa !31
+  %101 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %100, i32 0, i32 2
+  %102 = load ptr, ptr %101, align 8, !tbaa !16
+  %103 = load ptr, ptr %7, align 8, !tbaa !10
+  %104 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %103, i32 0, i32 1
+  %105 = load ptr, ptr %104, align 8, !tbaa !31
+  %106 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %105, i32 0, i32 3
+  %107 = load i64, ptr %106, align 8, !tbaa !20
+  %108 = call i32 @memcmp(ptr noundef @.str.3, ptr noundef %102, i64 noundef %107) #8
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %110, label %122
 
-if.then46:                                        ; preds = %land.lhs.true38
-  %40 = load ptr, ptr %stream.addr, align 8
-  %stream_id = getelementptr inbounds %struct.nghttp2_stream, ptr %40, i32 0, i32 17
-  %41 = load i32, ptr %stream_id, align 8
-  %rem = srem i32 %41, 2
-  %cmp47 = icmp eq i32 %rem, 0
-  br i1 %cmp47, label %if.then49, label %if.end50
+110:                                              ; preds = %97
+  %111 = load ptr, ptr %6, align 8, !tbaa !8
+  %112 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %111, i32 0, i32 10
+  %113 = load i32, ptr %112, align 8, !tbaa !61
+  %114 = srem i32 %113, 2
+  %115 = icmp eq i32 %114, 0
+  br i1 %115, label %116, label %117
 
-if.then49:                                        ; preds = %if.then46
-  store i32 -531, ptr %retval, align 4
-  br label %return
+116:                                              ; preds = %110
+  store i32 -531, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %383
 
-if.end50:                                         ; preds = %if.then46
-  %42 = load ptr, ptr %stream.addr, align 8
-  %http_flags51 = getelementptr inbounds %struct.nghttp2_stream, ptr %42, i32 0, i32 28
-  %43 = load i32, ptr %http_flags51, align 4
-  %or52 = or i32 %43, 128
-  store i32 %or52, ptr %http_flags51, align 4
-  br label %if.end53
+117:                                              ; preds = %110
+  %118 = load ptr, ptr %6, align 8, !tbaa !8
+  %119 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %118, i32 0, i32 18
+  %120 = load i32, ptr %119, align 8, !tbaa !25
+  %121 = or i32 %120, 128
+  store i32 %121, ptr %119, align 8, !tbaa !25
+  br label %122
 
-if.end53:                                         ; preds = %if.end50, %land.lhs.true38, %sw.bb33
-  br label %sw.epilog
+122:                                              ; preds = %117, %97, %90
+  br label %149
 
-sw.bb54:                                          ; preds = %sw.bb28
-  %44 = load ptr, ptr %nv.addr, align 8
-  %value55 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %44, i32 0, i32 1
-  %45 = load ptr, ptr %value55, align 8
-  %len56 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %45, i32 0, i32 3
-  %46 = load i64, ptr %len56, align 8
-  %cmp57 = icmp eq i64 7, %46
-  br i1 %cmp57, label %land.lhs.true59, label %if.end70
+123:                                              ; preds = %81
+  %124 = load ptr, ptr %7, align 8, !tbaa !10
+  %125 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %124, i32 0, i32 1
+  %126 = load ptr, ptr %125, align 8, !tbaa !31
+  %127 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %126, i32 0, i32 3
+  %128 = load i64, ptr %127, align 8, !tbaa !20
+  %129 = icmp eq i64 7, %128
+  br i1 %129, label %130, label %148
 
-land.lhs.true59:                                  ; preds = %sw.bb54
-  %47 = load ptr, ptr %nv.addr, align 8
-  %value60 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %47, i32 0, i32 1
-  %48 = load ptr, ptr %value60, align 8
-  %base61 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %48, i32 0, i32 2
-  %49 = load ptr, ptr %base61, align 8
-  %50 = load ptr, ptr %nv.addr, align 8
-  %value62 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %50, i32 0, i32 1
-  %51 = load ptr, ptr %value62, align 8
-  %len63 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %51, i32 0, i32 3
-  %52 = load i64, ptr %len63, align 8
-  %call64 = call i32 @memcmp(ptr noundef @.str.5, ptr noundef %49, i64 noundef %52) #6
-  %cmp65 = icmp eq i32 %call64, 0
-  br i1 %cmp65, label %if.then67, label %if.end70
+130:                                              ; preds = %123
+  %131 = load ptr, ptr %7, align 8, !tbaa !10
+  %132 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %131, i32 0, i32 1
+  %133 = load ptr, ptr %132, align 8, !tbaa !31
+  %134 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %133, i32 0, i32 2
+  %135 = load ptr, ptr %134, align 8, !tbaa !16
+  %136 = load ptr, ptr %7, align 8, !tbaa !10
+  %137 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %136, i32 0, i32 1
+  %138 = load ptr, ptr %137, align 8, !tbaa !31
+  %139 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %138, i32 0, i32 3
+  %140 = load i64, ptr %139, align 8, !tbaa !20
+  %141 = call i32 @memcmp(ptr noundef @.str.6, ptr noundef %135, i64 noundef %140) #8
+  %142 = icmp eq i32 %141, 0
+  br i1 %142, label %143, label %148
 
-if.then67:                                        ; preds = %land.lhs.true59
-  %53 = load ptr, ptr %stream.addr, align 8
-  %http_flags68 = getelementptr inbounds %struct.nghttp2_stream, ptr %53, i32 0, i32 28
-  %54 = load i32, ptr %http_flags68, align 4
-  %or69 = or i32 %54, 512
-  store i32 %or69, ptr %http_flags68, align 4
-  br label %if.end70
+143:                                              ; preds = %130
+  %144 = load ptr, ptr %6, align 8, !tbaa !8
+  %145 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %144, i32 0, i32 18
+  %146 = load i32, ptr %145, align 8, !tbaa !25
+  %147 = or i32 %146, 512
+  store i32 %147, ptr %145, align 8, !tbaa !25
+  br label %148
 
-if.end70:                                         ; preds = %if.then67, %land.lhs.true59, %sw.bb54
-  br label %sw.epilog
+148:                                              ; preds = %143, %130, %123
+  br label %149
 
-sw.epilog:                                        ; preds = %if.end70, %if.end53, %sw.bb28
-  br label %sw.epilog71
+149:                                              ; preds = %81, %148, %122
+  br label %150
 
-sw.epilog71:                                      ; preds = %sw.epilog, %if.end27, %if.end12
-  br label %sw.epilog216
+150:                                              ; preds = %49, %149, %80
+  br label %367
 
-sw.bb72:                                          ; preds = %if.end4
-  %55 = load ptr, ptr %stream.addr, align 8
-  %56 = load ptr, ptr %nv.addr, align 8
-  %call73 = call i32 @check_pseudo_header(ptr noundef %55, ptr noundef %56, i32 noundef 2)
-  %tobool74 = icmp ne i32 %call73, 0
-  br i1 %tobool74, label %if.end76, label %if.then75
+151:                                              ; preds = %32
+  %152 = load ptr, ptr %6, align 8, !tbaa !8
+  %153 = load ptr, ptr %7, align 8, !tbaa !10
+  %154 = call i32 @check_pseudo_header(ptr noundef %152, ptr noundef %153, i32 noundef 2)
+  %155 = icmp ne i32 %154, 0
+  br i1 %155, label %157, label %156
 
-if.then75:                                        ; preds = %sw.bb72
-  store i32 -531, ptr %retval, align 4
-  br label %return
+156:                                              ; preds = %151
+  store i32 -531, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %383
 
-if.end76:                                         ; preds = %sw.bb72
-  %57 = load ptr, ptr %nv.addr, align 8
-  %value77 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %57, i32 0, i32 1
-  %58 = load ptr, ptr %value77, align 8
-  %base78 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %58, i32 0, i32 2
-  %59 = load ptr, ptr %base78, align 8
-  %arrayidx79 = getelementptr inbounds i8, ptr %59, i64 0
-  %60 = load i8, ptr %arrayidx79, align 1
-  %conv80 = zext i8 %60 to i32
-  %cmp81 = icmp eq i32 %conv80, 47
-  br i1 %cmp81, label %if.then83, label %if.else
+157:                                              ; preds = %151
+  %158 = load ptr, ptr %7, align 8, !tbaa !10
+  %159 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %158, i32 0, i32 1
+  %160 = load ptr, ptr %159, align 8, !tbaa !31
+  %161 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %160, i32 0, i32 2
+  %162 = load ptr, ptr %161, align 8, !tbaa !16
+  %163 = getelementptr inbounds i8, ptr %162, i64 0
+  %164 = load i8, ptr %163, align 1, !tbaa !21
+  %165 = zext i8 %164 to i32
+  %166 = icmp eq i32 %165, 47
+  br i1 %166, label %167, label %172
 
-if.then83:                                        ; preds = %if.end76
-  %61 = load ptr, ptr %stream.addr, align 8
-  %http_flags84 = getelementptr inbounds %struct.nghttp2_stream, ptr %61, i32 0, i32 28
-  %62 = load i32, ptr %http_flags84, align 4
-  %or85 = or i32 %62, 2048
-  store i32 %or85, ptr %http_flags84, align 4
-  br label %if.end101
+167:                                              ; preds = %157
+  %168 = load ptr, ptr %6, align 8, !tbaa !8
+  %169 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %168, i32 0, i32 18
+  %170 = load i32, ptr %169, align 8, !tbaa !25
+  %171 = or i32 %170, 2048
+  store i32 %171, ptr %169, align 8, !tbaa !25
+  br label %195
 
-if.else:                                          ; preds = %if.end76
-  %63 = load ptr, ptr %nv.addr, align 8
-  %value86 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %63, i32 0, i32 1
-  %64 = load ptr, ptr %value86, align 8
-  %len87 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %64, i32 0, i32 3
-  %65 = load i64, ptr %len87, align 8
-  %cmp88 = icmp eq i64 %65, 1
-  br i1 %cmp88, label %land.lhs.true90, label %if.end100
+172:                                              ; preds = %157
+  %173 = load ptr, ptr %7, align 8, !tbaa !10
+  %174 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %173, i32 0, i32 1
+  %175 = load ptr, ptr %174, align 8, !tbaa !31
+  %176 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %175, i32 0, i32 3
+  %177 = load i64, ptr %176, align 8, !tbaa !20
+  %178 = icmp eq i64 %177, 1
+  br i1 %178, label %179, label %194
 
-land.lhs.true90:                                  ; preds = %if.else
-  %66 = load ptr, ptr %nv.addr, align 8
-  %value91 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %66, i32 0, i32 1
-  %67 = load ptr, ptr %value91, align 8
-  %base92 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %67, i32 0, i32 2
-  %68 = load ptr, ptr %base92, align 8
-  %arrayidx93 = getelementptr inbounds i8, ptr %68, i64 0
-  %69 = load i8, ptr %arrayidx93, align 1
-  %conv94 = zext i8 %69 to i32
-  %cmp95 = icmp eq i32 %conv94, 42
-  br i1 %cmp95, label %if.then97, label %if.end100
+179:                                              ; preds = %172
+  %180 = load ptr, ptr %7, align 8, !tbaa !10
+  %181 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %180, i32 0, i32 1
+  %182 = load ptr, ptr %181, align 8, !tbaa !31
+  %183 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %182, i32 0, i32 2
+  %184 = load ptr, ptr %183, align 8, !tbaa !16
+  %185 = getelementptr inbounds i8, ptr %184, i64 0
+  %186 = load i8, ptr %185, align 1, !tbaa !21
+  %187 = zext i8 %186 to i32
+  %188 = icmp eq i32 %187, 42
+  br i1 %188, label %189, label %194
 
-if.then97:                                        ; preds = %land.lhs.true90
-  %70 = load ptr, ptr %stream.addr, align 8
-  %http_flags98 = getelementptr inbounds %struct.nghttp2_stream, ptr %70, i32 0, i32 28
-  %71 = load i32, ptr %http_flags98, align 4
-  %or99 = or i32 %71, 4096
-  store i32 %or99, ptr %http_flags98, align 4
-  br label %if.end100
+189:                                              ; preds = %179
+  %190 = load ptr, ptr %6, align 8, !tbaa !8
+  %191 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %190, i32 0, i32 18
+  %192 = load i32, ptr %191, align 8, !tbaa !25
+  %193 = or i32 %192, 4096
+  store i32 %193, ptr %191, align 8, !tbaa !25
+  br label %194
 
-if.end100:                                        ; preds = %if.then97, %land.lhs.true90, %if.else
-  br label %if.end101
+194:                                              ; preds = %189, %179, %172
+  br label %195
 
-if.end101:                                        ; preds = %if.end100, %if.then83
-  br label %sw.epilog216
+195:                                              ; preds = %194, %167
+  br label %367
 
-sw.bb102:                                         ; preds = %if.end4
-  %72 = load ptr, ptr %stream.addr, align 8
-  %73 = load ptr, ptr %nv.addr, align 8
-  %call103 = call i32 @check_pseudo_header(ptr noundef %72, ptr noundef %73, i32 noundef 8)
-  %tobool104 = icmp ne i32 %call103, 0
-  br i1 %tobool104, label %if.end106, label %if.then105
+196:                                              ; preds = %32
+  %197 = load ptr, ptr %6, align 8, !tbaa !8
+  %198 = load ptr, ptr %7, align 8, !tbaa !10
+  %199 = call i32 @check_pseudo_header(ptr noundef %197, ptr noundef %198, i32 noundef 8)
+  %200 = icmp ne i32 %199, 0
+  br i1 %200, label %202, label %201
 
-if.then105:                                       ; preds = %sw.bb102
-  store i32 -531, ptr %retval, align 4
-  br label %return
+201:                                              ; preds = %196
+  store i32 -531, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %383
 
-if.end106:                                        ; preds = %sw.bb102
-  %74 = load ptr, ptr %nv.addr, align 8
-  %value107 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %74, i32 0, i32 1
-  %75 = load ptr, ptr %value107, align 8
-  %len108 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %75, i32 0, i32 3
-  %76 = load i64, ptr %len108, align 8
-  %cmp109 = icmp eq i64 %76, 4
-  br i1 %cmp109, label %land.lhs.true111, label %lor.lhs.false116
+202:                                              ; preds = %196
+  %203 = load ptr, ptr %7, align 8, !tbaa !10
+  %204 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %203, i32 0, i32 1
+  %205 = load ptr, ptr %204, align 8, !tbaa !31
+  %206 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %205, i32 0, i32 3
+  %207 = load i64, ptr %206, align 8, !tbaa !20
+  %208 = icmp eq i64 %207, 4
+  br i1 %208, label %209, label %217
 
-land.lhs.true111:                                 ; preds = %if.end106
-  %77 = load ptr, ptr %nv.addr, align 8
-  %value112 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %77, i32 0, i32 1
-  %78 = load ptr, ptr %value112, align 8
-  %base113 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %78, i32 0, i32 2
-  %79 = load ptr, ptr %base113, align 8
-  %call114 = call i32 @memieq(ptr noundef @.str.6, ptr noundef %79, i64 noundef 4)
-  %tobool115 = icmp ne i32 %call114, 0
-  br i1 %tobool115, label %if.then126, label %lor.lhs.false116
+209:                                              ; preds = %202
+  %210 = load ptr, ptr %7, align 8, !tbaa !10
+  %211 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %210, i32 0, i32 1
+  %212 = load ptr, ptr %211, align 8, !tbaa !31
+  %213 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %212, i32 0, i32 2
+  %214 = load ptr, ptr %213, align 8, !tbaa !16
+  %215 = call i32 @memieq(ptr noundef @.str.7, ptr noundef %214, i64 noundef 4)
+  %216 = icmp ne i32 %215, 0
+  br i1 %216, label %232, label %217
 
-lor.lhs.false116:                                 ; preds = %land.lhs.true111, %if.end106
-  %80 = load ptr, ptr %nv.addr, align 8
-  %value117 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %80, i32 0, i32 1
-  %81 = load ptr, ptr %value117, align 8
-  %len118 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %81, i32 0, i32 3
-  %82 = load i64, ptr %len118, align 8
-  %cmp119 = icmp eq i64 %82, 5
-  br i1 %cmp119, label %land.lhs.true121, label %if.end129
+217:                                              ; preds = %209, %202
+  %218 = load ptr, ptr %7, align 8, !tbaa !10
+  %219 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %218, i32 0, i32 1
+  %220 = load ptr, ptr %219, align 8, !tbaa !31
+  %221 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %220, i32 0, i32 3
+  %222 = load i64, ptr %221, align 8, !tbaa !20
+  %223 = icmp eq i64 %222, 5
+  br i1 %223, label %224, label %237
 
-land.lhs.true121:                                 ; preds = %lor.lhs.false116
-  %83 = load ptr, ptr %nv.addr, align 8
-  %value122 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %83, i32 0, i32 1
-  %84 = load ptr, ptr %value122, align 8
-  %base123 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %84, i32 0, i32 2
-  %85 = load ptr, ptr %base123, align 8
-  %call124 = call i32 @memieq(ptr noundef @.str.7, ptr noundef %85, i64 noundef 5)
-  %tobool125 = icmp ne i32 %call124, 0
-  br i1 %tobool125, label %if.then126, label %if.end129
+224:                                              ; preds = %217
+  %225 = load ptr, ptr %7, align 8, !tbaa !10
+  %226 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %225, i32 0, i32 1
+  %227 = load ptr, ptr %226, align 8, !tbaa !31
+  %228 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %227, i32 0, i32 2
+  %229 = load ptr, ptr %228, align 8, !tbaa !16
+  %230 = call i32 @memieq(ptr noundef @.str.8, ptr noundef %229, i64 noundef 5)
+  %231 = icmp ne i32 %230, 0
+  br i1 %231, label %232, label %237
 
-if.then126:                                       ; preds = %land.lhs.true121, %land.lhs.true111
-  %86 = load ptr, ptr %stream.addr, align 8
-  %http_flags127 = getelementptr inbounds %struct.nghttp2_stream, ptr %86, i32 0, i32 28
-  %87 = load i32, ptr %http_flags127, align 4
-  %or128 = or i32 %87, 8192
-  store i32 %or128, ptr %http_flags127, align 4
-  br label %if.end129
+232:                                              ; preds = %224, %209
+  %233 = load ptr, ptr %6, align 8, !tbaa !8
+  %234 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %233, i32 0, i32 18
+  %235 = load i32, ptr %234, align 8, !tbaa !25
+  %236 = or i32 %235, 8192
+  store i32 %236, ptr %234, align 8, !tbaa !25
+  br label %237
 
-if.end129:                                        ; preds = %if.then126, %land.lhs.true121, %lor.lhs.false116
-  br label %sw.epilog216
+237:                                              ; preds = %232, %224, %217
+  br label %367
 
-sw.bb130:                                         ; preds = %if.end4
-  %88 = load i32, ptr %connect_protocol.addr, align 4
-  %tobool131 = icmp ne i32 %88, 0
-  br i1 %tobool131, label %if.end133, label %if.then132
+238:                                              ; preds = %32
+  %239 = load i32, ptr %9, align 4, !tbaa !11
+  %240 = icmp ne i32 %239, 0
+  br i1 %240, label %242, label %241
 
-if.then132:                                       ; preds = %sw.bb130
-  store i32 -531, ptr %retval, align 4
-  br label %return
+241:                                              ; preds = %238
+  store i32 -531, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %383
 
-if.end133:                                        ; preds = %sw.bb130
-  %89 = load ptr, ptr %stream.addr, align 8
-  %90 = load ptr, ptr %nv.addr, align 8
-  %call134 = call i32 @check_pseudo_header(ptr noundef %89, ptr noundef %90, i32 noundef 32768)
-  %tobool135 = icmp ne i32 %call134, 0
-  br i1 %tobool135, label %if.end137, label %if.then136
+242:                                              ; preds = %238
+  %243 = load ptr, ptr %6, align 8, !tbaa !8
+  %244 = load ptr, ptr %7, align 8, !tbaa !10
+  %245 = call i32 @check_pseudo_header(ptr noundef %243, ptr noundef %244, i32 noundef 32768)
+  %246 = icmp ne i32 %245, 0
+  br i1 %246, label %248, label %247
 
-if.then136:                                       ; preds = %if.end133
-  store i32 -531, ptr %retval, align 4
-  br label %return
+247:                                              ; preds = %242
+  store i32 -531, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %383
 
-if.end137:                                        ; preds = %if.end133
-  br label %sw.epilog216
+248:                                              ; preds = %242
+  br label %367
 
-sw.bb138:                                         ; preds = %if.end4
-  %91 = load ptr, ptr %stream.addr, align 8
-  %92 = load ptr, ptr %nv.addr, align 8
-  %call139 = call i32 @check_pseudo_header(ptr noundef %91, ptr noundef %92, i32 noundef 16)
-  %tobool140 = icmp ne i32 %call139, 0
-  br i1 %tobool140, label %if.end142, label %if.then141
+249:                                              ; preds = %32
+  %250 = load ptr, ptr %6, align 8, !tbaa !8
+  %251 = load ptr, ptr %7, align 8, !tbaa !10
+  %252 = call i32 @check_pseudo_header(ptr noundef %250, ptr noundef %251, i32 noundef 16)
+  %253 = icmp ne i32 %252, 0
+  br i1 %253, label %255, label %254
 
-if.then141:                                       ; preds = %sw.bb138
-  store i32 -531, ptr %retval, align 4
-  br label %return
+254:                                              ; preds = %249
+  store i32 -531, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %383
 
-if.end142:                                        ; preds = %sw.bb138
-  br label %sw.epilog216
+255:                                              ; preds = %249
+  br label %367
 
-sw.bb143:                                         ; preds = %if.end4
-  %93 = load ptr, ptr %stream.addr, align 8
-  %content_length = getelementptr inbounds %struct.nghttp2_stream, ptr %93, i32 0, i32 2
-  %94 = load i64, ptr %content_length, align 8
-  %cmp144 = icmp ne i64 %94, -1
-  br i1 %cmp144, label %if.then146, label %if.end147
+256:                                              ; preds = %32
+  %257 = load ptr, ptr %6, align 8, !tbaa !8
+  %258 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %257, i32 0, i32 2
+  %259 = load i64, ptr %258, align 8, !tbaa !62
+  %260 = icmp ne i64 %259, -1
+  br i1 %260, label %261, label %262
 
-if.then146:                                       ; preds = %sw.bb143
-  store i32 -531, ptr %retval, align 4
-  br label %return
+261:                                              ; preds = %256
+  store i32 -531, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %383
 
-if.end147:                                        ; preds = %sw.bb143
-  %95 = load ptr, ptr %nv.addr, align 8
-  %value148 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %95, i32 0, i32 1
-  %96 = load ptr, ptr %value148, align 8
-  %base149 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %96, i32 0, i32 2
-  %97 = load ptr, ptr %base149, align 8
-  %98 = load ptr, ptr %nv.addr, align 8
-  %value150 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %98, i32 0, i32 1
-  %99 = load ptr, ptr %value150, align 8
-  %len151 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %99, i32 0, i32 3
-  %100 = load i64, ptr %len151, align 8
-  %call152 = call i64 @parse_uint(ptr noundef %97, i64 noundef %100)
-  %101 = load ptr, ptr %stream.addr, align 8
-  %content_length153 = getelementptr inbounds %struct.nghttp2_stream, ptr %101, i32 0, i32 2
-  store i64 %call152, ptr %content_length153, align 8
-  %102 = load ptr, ptr %stream.addr, align 8
-  %content_length154 = getelementptr inbounds %struct.nghttp2_stream, ptr %102, i32 0, i32 2
-  %103 = load i64, ptr %content_length154, align 8
-  %cmp155 = icmp eq i64 %103, -1
-  br i1 %cmp155, label %if.then157, label %if.end158
+262:                                              ; preds = %256
+  %263 = load ptr, ptr %7, align 8, !tbaa !10
+  %264 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %263, i32 0, i32 1
+  %265 = load ptr, ptr %264, align 8, !tbaa !31
+  %266 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %265, i32 0, i32 2
+  %267 = load ptr, ptr %266, align 8, !tbaa !16
+  %268 = load ptr, ptr %7, align 8, !tbaa !10
+  %269 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %268, i32 0, i32 1
+  %270 = load ptr, ptr %269, align 8, !tbaa !31
+  %271 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %270, i32 0, i32 3
+  %272 = load i64, ptr %271, align 8, !tbaa !20
+  %273 = call i64 @parse_uint(ptr noundef %267, i64 noundef %272)
+  %274 = load ptr, ptr %6, align 8, !tbaa !8
+  %275 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %274, i32 0, i32 2
+  store i64 %273, ptr %275, align 8, !tbaa !62
+  %276 = load ptr, ptr %6, align 8, !tbaa !8
+  %277 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %276, i32 0, i32 2
+  %278 = load i64, ptr %277, align 8, !tbaa !62
+  %279 = icmp eq i64 %278, -1
+  br i1 %279, label %280, label %281
 
-if.then157:                                       ; preds = %if.end147
-  store i32 -531, ptr %retval, align 4
-  br label %return
+280:                                              ; preds = %262
+  store i32 -531, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %383
 
-if.end158:                                        ; preds = %if.end147
-  br label %sw.epilog216
+281:                                              ; preds = %262
+  br label %367
 
-sw.bb159:                                         ; preds = %if.end4, %if.end4, %if.end4, %if.end4, %if.end4
-  store i32 -531, ptr %retval, align 4
-  br label %return
+282:                                              ; preds = %32, %32, %32, %32, %32
+  store i32 -531, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %383
 
-sw.bb160:                                         ; preds = %if.end4
-  %104 = load ptr, ptr %nv.addr, align 8
-  %value161 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %104, i32 0, i32 1
-  %105 = load ptr, ptr %value161, align 8
-  %len162 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %105, i32 0, i32 3
-  %106 = load i64, ptr %len162, align 8
-  %cmp163 = icmp eq i64 8, %106
-  br i1 %cmp163, label %land.lhs.true165, label %if.then172
+283:                                              ; preds = %32
+  %284 = load ptr, ptr %7, align 8, !tbaa !10
+  %285 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %284, i32 0, i32 1
+  %286 = load ptr, ptr %285, align 8, !tbaa !31
+  %287 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %286, i32 0, i32 3
+  %288 = load i64, ptr %287, align 8, !tbaa !20
+  %289 = icmp eq i64 8, %288
+  br i1 %289, label %290, label %303
 
-land.lhs.true165:                                 ; preds = %sw.bb160
-  %107 = load ptr, ptr %nv.addr, align 8
-  %value166 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %107, i32 0, i32 1
-  %108 = load ptr, ptr %value166, align 8
-  %base167 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %108, i32 0, i32 2
-  %109 = load ptr, ptr %base167, align 8
-  %110 = load ptr, ptr %nv.addr, align 8
-  %value168 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %110, i32 0, i32 1
-  %111 = load ptr, ptr %value168, align 8
-  %len169 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %111, i32 0, i32 3
-  %112 = load i64, ptr %len169, align 8
-  %call170 = call i32 @memieq(ptr noundef @.str.8, ptr noundef %109, i64 noundef %112)
-  %tobool171 = icmp ne i32 %call170, 0
-  br i1 %tobool171, label %if.end173, label %if.then172
+290:                                              ; preds = %283
+  %291 = load ptr, ptr %7, align 8, !tbaa !10
+  %292 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %291, i32 0, i32 1
+  %293 = load ptr, ptr %292, align 8, !tbaa !31
+  %294 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %293, i32 0, i32 2
+  %295 = load ptr, ptr %294, align 8, !tbaa !16
+  %296 = load ptr, ptr %7, align 8, !tbaa !10
+  %297 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %296, i32 0, i32 1
+  %298 = load ptr, ptr %297, align 8, !tbaa !31
+  %299 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %298, i32 0, i32 3
+  %300 = load i64, ptr %299, align 8, !tbaa !20
+  %301 = call i32 @memieq(ptr noundef @.str.9, ptr noundef %295, i64 noundef %300)
+  %302 = icmp ne i32 %301, 0
+  br i1 %302, label %304, label %303
 
-if.then172:                                       ; preds = %land.lhs.true165, %sw.bb160
-  store i32 -531, ptr %retval, align 4
-  br label %return
+303:                                              ; preds = %290, %283
+  store i32 -531, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %383
 
-if.end173:                                        ; preds = %land.lhs.true165
-  br label %sw.epilog216
+304:                                              ; preds = %290
+  br label %367
 
-sw.bb174:                                         ; preds = %if.end4
-  %113 = load i32, ptr %trailer.addr, align 4
-  %tobool175 = icmp ne i32 %113, 0
-  br i1 %tobool175, label %if.end207, label %land.lhs.true176
+305:                                              ; preds = %32
+  %306 = load i32, ptr %8, align 4, !tbaa !11
+  %307 = icmp ne i32 %306, 0
+  br i1 %307, label %354, label %308
 
-land.lhs.true176:                                 ; preds = %sw.bb174
-  %114 = load ptr, ptr %stream.addr, align 8
-  %stream_id177 = getelementptr inbounds %struct.nghttp2_stream, ptr %114, i32 0, i32 17
-  %115 = load i32, ptr %stream_id177, align 8
-  %and178 = and i32 %115, 1
-  %tobool179 = icmp ne i32 %and178, 0
-  br i1 %tobool179, label %land.lhs.true180, label %if.end207
+308:                                              ; preds = %305
+  %309 = load ptr, ptr %6, align 8, !tbaa !8
+  %310 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %309, i32 0, i32 10
+  %311 = load i32, ptr %310, align 8, !tbaa !61
+  %312 = and i32 %311, 1
+  %313 = icmp ne i32 %312, 0
+  br i1 %313, label %314, label %354
 
-land.lhs.true180:                                 ; preds = %land.lhs.true176
-  %116 = load ptr, ptr %stream.addr, align 8
-  %flags = getelementptr inbounds %struct.nghttp2_stream, ptr %116, i32 0, i32 29
-  %117 = load i8, ptr %flags, align 8
-  %conv181 = zext i8 %117 to i32
-  %and182 = and i32 %conv181, 16
-  %tobool183 = icmp ne i32 %and182, 0
-  br i1 %tobool183, label %land.lhs.true184, label %if.end207
+314:                                              ; preds = %308
+  %315 = load ptr, ptr %6, align 8, !tbaa !8
+  %316 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %315, i32 0, i32 18
+  %317 = load i32, ptr %316, align 8, !tbaa !25
+  %318 = and i32 %317, 131072
+  %319 = icmp ne i32 %318, 0
+  br i1 %319, label %354, label %320
 
-land.lhs.true184:                                 ; preds = %land.lhs.true180
-  %118 = load ptr, ptr %stream.addr, align 8
-  %http_flags185 = getelementptr inbounds %struct.nghttp2_stream, ptr %118, i32 0, i32 28
-  %119 = load i32, ptr %http_flags185, align 4
-  %and186 = and i32 %119, 131072
-  %tobool187 = icmp ne i32 %and186, 0
-  br i1 %tobool187, label %if.end207, label %if.then188
+320:                                              ; preds = %314
+  %321 = load ptr, ptr %6, align 8, !tbaa !8
+  %322 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %321, i32 0, i32 24
+  %323 = load i8, ptr %322, align 1, !tbaa !63
+  call void @nghttp2_extpri_from_uint8(ptr noundef %10, i8 noundef zeroext %323)
+  %324 = load ptr, ptr %7, align 8, !tbaa !10
+  %325 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %324, i32 0, i32 1
+  %326 = load ptr, ptr %325, align 8, !tbaa !31
+  %327 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %326, i32 0, i32 2
+  %328 = load ptr, ptr %327, align 8, !tbaa !16
+  %329 = load ptr, ptr %7, align 8, !tbaa !10
+  %330 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %329, i32 0, i32 1
+  %331 = load ptr, ptr %330, align 8, !tbaa !31
+  %332 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %331, i32 0, i32 3
+  %333 = load i64, ptr %332, align 8, !tbaa !20
+  %334 = call i32 @nghttp2_http_parse_priority(ptr noundef %10, ptr noundef %328, i64 noundef %333)
+  %335 = icmp eq i32 %334, 0
+  br i1 %335, label %336, label %344
 
-if.then188:                                       ; preds = %land.lhs.true184
-  %120 = load ptr, ptr %stream.addr, align 8
-  %http_extpri = getelementptr inbounds %struct.nghttp2_stream, ptr %120, i32 0, i32 34
-  %121 = load i8, ptr %http_extpri, align 1
-  call void @nghttp2_extpri_from_uint8(ptr noundef %extpri, i8 noundef zeroext %121)
-  %122 = load ptr, ptr %nv.addr, align 8
-  %value189 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %122, i32 0, i32 1
-  %123 = load ptr, ptr %value189, align 8
-  %base190 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %123, i32 0, i32 2
-  %124 = load ptr, ptr %base190, align 8
-  %125 = load ptr, ptr %nv.addr, align 8
-  %value191 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %125, i32 0, i32 1
-  %126 = load ptr, ptr %value191, align 8
-  %len192 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %126, i32 0, i32 3
-  %127 = load i64, ptr %len192, align 8
-  %call193 = call i32 @nghttp2_http_parse_priority(ptr noundef %extpri, ptr noundef %124, i64 noundef %127)
-  %cmp194 = icmp eq i32 %call193, 0
-  br i1 %cmp194, label %if.then196, label %if.else201
+336:                                              ; preds = %320
+  %337 = call zeroext i8 @nghttp2_extpri_to_uint8(ptr noundef %10)
+  %338 = load ptr, ptr %6, align 8, !tbaa !8
+  %339 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %338, i32 0, i32 24
+  store i8 %337, ptr %339, align 1, !tbaa !63
+  %340 = load ptr, ptr %6, align 8, !tbaa !8
+  %341 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %340, i32 0, i32 18
+  %342 = load i32, ptr %341, align 8, !tbaa !25
+  %343 = or i32 %342, 65536
+  store i32 %343, ptr %341, align 8, !tbaa !25
+  br label %353
 
-if.then196:                                       ; preds = %if.then188
-  %call197 = call zeroext i8 @nghttp2_extpri_to_uint8(ptr noundef %extpri)
-  %128 = load ptr, ptr %stream.addr, align 8
-  %http_extpri198 = getelementptr inbounds %struct.nghttp2_stream, ptr %128, i32 0, i32 34
-  store i8 %call197, ptr %http_extpri198, align 1
-  %129 = load ptr, ptr %stream.addr, align 8
-  %http_flags199 = getelementptr inbounds %struct.nghttp2_stream, ptr %129, i32 0, i32 28
-  %130 = load i32, ptr %http_flags199, align 4
-  %or200 = or i32 %130, 65536
-  store i32 %or200, ptr %http_flags199, align 4
-  br label %if.end206
+344:                                              ; preds = %320
+  %345 = load ptr, ptr %6, align 8, !tbaa !8
+  %346 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %345, i32 0, i32 18
+  %347 = load i32, ptr %346, align 8, !tbaa !25
+  %348 = and i32 %347, -65537
+  store i32 %348, ptr %346, align 8, !tbaa !25
+  %349 = load ptr, ptr %6, align 8, !tbaa !8
+  %350 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %349, i32 0, i32 18
+  %351 = load i32, ptr %350, align 8, !tbaa !25
+  %352 = or i32 %351, 131072
+  store i32 %352, ptr %350, align 8, !tbaa !25
+  br label %353
 
-if.else201:                                       ; preds = %if.then188
-  %131 = load ptr, ptr %stream.addr, align 8
-  %http_flags202 = getelementptr inbounds %struct.nghttp2_stream, ptr %131, i32 0, i32 28
-  %132 = load i32, ptr %http_flags202, align 4
-  %and203 = and i32 %132, -65537
-  store i32 %and203, ptr %http_flags202, align 4
-  %133 = load ptr, ptr %stream.addr, align 8
-  %http_flags204 = getelementptr inbounds %struct.nghttp2_stream, ptr %133, i32 0, i32 28
-  %134 = load i32, ptr %http_flags204, align 4
-  %or205 = or i32 %134, 131072
-  store i32 %or205, ptr %http_flags204, align 4
-  br label %if.end206
+353:                                              ; preds = %344, %336
+  br label %354
 
-if.end206:                                        ; preds = %if.else201, %if.then196
-  br label %if.end207
+354:                                              ; preds = %353, %314, %308, %305
+  br label %367
 
-if.end207:                                        ; preds = %if.end206, %land.lhs.true184, %land.lhs.true180, %land.lhs.true176, %sw.bb174
-  br label %sw.epilog216
+355:                                              ; preds = %32
+  %356 = load ptr, ptr %7, align 8, !tbaa !10
+  %357 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %356, i32 0, i32 0
+  %358 = load ptr, ptr %357, align 8, !tbaa !13
+  %359 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %358, i32 0, i32 2
+  %360 = load ptr, ptr %359, align 8, !tbaa !16
+  %361 = getelementptr inbounds i8, ptr %360, i64 0
+  %362 = load i8, ptr %361, align 1, !tbaa !21
+  %363 = zext i8 %362 to i32
+  %364 = icmp eq i32 %363, 58
+  br i1 %364, label %365, label %366
 
-sw.default:                                       ; preds = %if.end4
-  %135 = load ptr, ptr %nv.addr, align 8
-  %name208 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %135, i32 0, i32 0
-  %136 = load ptr, ptr %name208, align 8
-  %base209 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %136, i32 0, i32 2
-  %137 = load ptr, ptr %base209, align 8
-  %arrayidx210 = getelementptr inbounds i8, ptr %137, i64 0
-  %138 = load i8, ptr %arrayidx210, align 1
-  %conv211 = zext i8 %138 to i32
-  %cmp212 = icmp eq i32 %conv211, 58
-  br i1 %cmp212, label %if.then214, label %if.end215
+365:                                              ; preds = %355
+  store i32 -531, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %383
 
-if.then214:                                       ; preds = %sw.default
-  store i32 -531, ptr %retval, align 4
-  br label %return
+366:                                              ; preds = %355
+  br label %367
 
-if.end215:                                        ; preds = %sw.default
-  br label %sw.epilog216
+367:                                              ; preds = %366, %354, %304, %281, %255, %248, %237, %195, %150, %42
+  %368 = load ptr, ptr %7, align 8, !tbaa !10
+  %369 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %368, i32 0, i32 0
+  %370 = load ptr, ptr %369, align 8, !tbaa !13
+  %371 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %370, i32 0, i32 2
+  %372 = load ptr, ptr %371, align 8, !tbaa !16
+  %373 = getelementptr inbounds i8, ptr %372, i64 0
+  %374 = load i8, ptr %373, align 1, !tbaa !21
+  %375 = zext i8 %374 to i32
+  %376 = icmp ne i32 %375, 58
+  br i1 %376, label %377, label %382
 
-sw.epilog216:                                     ; preds = %if.end215, %if.end207, %if.end173, %if.end158, %if.end142, %if.end137, %if.end129, %if.end101, %sw.epilog71, %if.end7
-  %139 = load ptr, ptr %nv.addr, align 8
-  %name217 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %139, i32 0, i32 0
-  %140 = load ptr, ptr %name217, align 8
-  %base218 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %140, i32 0, i32 2
-  %141 = load ptr, ptr %base218, align 8
-  %arrayidx219 = getelementptr inbounds i8, ptr %141, i64 0
-  %142 = load i8, ptr %arrayidx219, align 1
-  %conv220 = zext i8 %142 to i32
-  %cmp221 = icmp ne i32 %conv220, 58
-  br i1 %cmp221, label %if.then223, label %if.end226
+377:                                              ; preds = %367
+  %378 = load ptr, ptr %6, align 8, !tbaa !8
+  %379 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %378, i32 0, i32 18
+  %380 = load i32, ptr %379, align 8, !tbaa !25
+  %381 = or i32 %380, 64
+  store i32 %381, ptr %379, align 8, !tbaa !25
+  br label %382
 
-if.then223:                                       ; preds = %sw.epilog216
-  %143 = load ptr, ptr %stream.addr, align 8
-  %http_flags224 = getelementptr inbounds %struct.nghttp2_stream, ptr %143, i32 0, i32 28
-  %144 = load i32, ptr %http_flags224, align 4
-  %or225 = or i32 %144, 64
-  store i32 %or225, ptr %http_flags224, align 4
-  br label %if.end226
+382:                                              ; preds = %377, %367
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %383
 
-if.end226:                                        ; preds = %if.then223, %sw.epilog216
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end226, %if.then214, %if.then172, %sw.bb159, %if.then157, %if.then146, %if.then141, %if.then136, %if.then132, %if.then105, %if.then75, %if.then49, %if.then11, %if.then6, %if.then3
-  %145 = load i32, ptr %retval, align 4
-  ret i32 %145
+383:                                              ; preds = %382, %365, %303, %282, %280, %261, %254, %247, %241, %201, %156, %116, %48, %41, %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  %384 = load i32, ptr %5, align 4
+  ret i32 %384
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @http_response_on_header(ptr noundef %stream, ptr noundef %nv, i32 noundef %trailer) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %stream.addr = alloca ptr, align 8
-  %nv.addr = alloca ptr, align 8
-  %trailer.addr = alloca i32, align 4
-  store ptr %stream, ptr %stream.addr, align 8
-  store ptr %nv, ptr %nv.addr, align 8
-  store i32 %trailer, ptr %trailer.addr, align 4
-  %0 = load ptr, ptr %nv.addr, align 8
-  %name = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %name, align 8
-  %base = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %1, i32 0, i32 2
-  %2 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %2, i64 0
-  %3 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %3 to i32
-  %cmp = icmp eq i32 %conv, 58
-  br i1 %cmp, label %if.then, label %if.end4
+define internal i32 @http_response_on_header(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !10
+  store i32 %2, ptr %7, align 4, !tbaa !11
+  %8 = load ptr, ptr %6, align 8, !tbaa !10
+  %9 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !13
+  %11 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %10, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8, !tbaa !16
+  %13 = getelementptr inbounds i8, ptr %12, i64 0
+  %14 = load i8, ptr %13, align 1, !tbaa !21
+  %15 = zext i8 %14 to i32
+  %16 = icmp eq i32 %15, 58
+  br i1 %16, label %17, label %28
 
-if.then:                                          ; preds = %entry
-  %4 = load i32, ptr %trailer.addr, align 4
-  %tobool = icmp ne i32 %4, 0
-  br i1 %tobool, label %if.then3, label %lor.lhs.false
+17:                                               ; preds = %3
+  %18 = load i32, ptr %7, align 4, !tbaa !11
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %26, label %20
 
-lor.lhs.false:                                    ; preds = %if.then
-  %5 = load ptr, ptr %stream.addr, align 8
-  %http_flags = getelementptr inbounds %struct.nghttp2_stream, ptr %5, i32 0, i32 28
-  %6 = load i32, ptr %http_flags, align 4
-  %and = and i32 %6, 64
-  %tobool2 = icmp ne i32 %and, 0
-  br i1 %tobool2, label %if.then3, label %if.end
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %5, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %21, i32 0, i32 18
+  %23 = load i32, ptr %22, align 8, !tbaa !25
+  %24 = and i32 %23, 64
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %26, label %27
 
-if.then3:                                         ; preds = %lor.lhs.false, %if.then
-  store i32 -531, ptr %retval, align 4
-  br label %return
+26:                                               ; preds = %20, %17
+  store i32 -531, ptr %4, align 4
+  br label %209
 
-if.end:                                           ; preds = %lor.lhs.false
-  br label %if.end4
+27:                                               ; preds = %20
+  br label %28
 
-if.end4:                                          ; preds = %if.end, %entry
-  %7 = load ptr, ptr %nv.addr, align 8
-  %token = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %7, i32 0, i32 2
-  %8 = load i32, ptr %token, align 8
-  switch i32 %8, label %sw.default [
-    i32 7, label %sw.bb
-    i32 27, label %sw.bb29
-    i32 62, label %sw.bb86
-    i32 63, label %sw.bb86
-    i32 64, label %sw.bb86
-    i32 56, label %sw.bb86
-    i32 65, label %sw.bb86
-    i32 61, label %sw.bb87
+28:                                               ; preds = %27, %3
+  %29 = load ptr, ptr %6, align 8, !tbaa !10
+  %30 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %29, i32 0, i32 2
+  %31 = load i32, ptr %30, align 8, !tbaa !30
+  switch i32 %31, label %181 [
+    i32 7, label %32
+    i32 27, label %74
+    i32 62, label %158
+    i32 63, label %158
+    i32 64, label %158
+    i32 56, label %158
+    i32 65, label %158
+    i32 61, label %159
   ]
 
-sw.bb:                                            ; preds = %if.end4
-  %9 = load ptr, ptr %stream.addr, align 8
-  %10 = load ptr, ptr %nv.addr, align 8
-  %call = call i32 @check_pseudo_header(ptr noundef %9, ptr noundef %10, i32 noundef 32)
-  %tobool5 = icmp ne i32 %call, 0
-  br i1 %tobool5, label %if.end7, label %if.then6
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %5, align 8, !tbaa !8
+  %34 = load ptr, ptr %6, align 8, !tbaa !10
+  %35 = call i32 @check_pseudo_header(ptr noundef %33, ptr noundef %34, i32 noundef 32)
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %38, label %37
 
-if.then6:                                         ; preds = %sw.bb
-  store i32 -531, ptr %retval, align 4
-  br label %return
+37:                                               ; preds = %32
+  store i32 -531, ptr %4, align 4
+  br label %209
 
-if.end7:                                          ; preds = %sw.bb
-  %11 = load ptr, ptr %nv.addr, align 8
-  %value = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %value, align 8
-  %len = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %12, i32 0, i32 3
-  %13 = load i64, ptr %len, align 8
-  %cmp8 = icmp ne i64 %13, 3
-  br i1 %cmp8, label %if.then10, label %if.end11
+38:                                               ; preds = %32
+  %39 = load ptr, ptr %6, align 8, !tbaa !10
+  %40 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %39, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8, !tbaa !31
+  %42 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %41, i32 0, i32 3
+  %43 = load i64, ptr %42, align 8, !tbaa !20
+  %44 = icmp ne i64 %43, 3
+  br i1 %44, label %45, label %46
 
-if.then10:                                        ; preds = %if.end7
-  store i32 -531, ptr %retval, align 4
-  br label %return
+45:                                               ; preds = %38
+  store i32 -531, ptr %4, align 4
+  br label %209
 
-if.end11:                                         ; preds = %if.end7
-  %14 = load ptr, ptr %nv.addr, align 8
-  %value12 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %14, i32 0, i32 1
-  %15 = load ptr, ptr %value12, align 8
-  %base13 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %15, i32 0, i32 2
-  %16 = load ptr, ptr %base13, align 8
-  %17 = load ptr, ptr %nv.addr, align 8
-  %value14 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %17, i32 0, i32 1
-  %18 = load ptr, ptr %value14, align 8
-  %len15 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %18, i32 0, i32 3
-  %19 = load i64, ptr %len15, align 8
-  %call16 = call i64 @parse_uint(ptr noundef %16, i64 noundef %19)
-  %conv17 = trunc i64 %call16 to i16
-  %20 = load ptr, ptr %stream.addr, align 8
-  %status_code = getelementptr inbounds %struct.nghttp2_stream, ptr %20, i32 0, i32 27
-  store i16 %conv17, ptr %status_code, align 8
-  %21 = load ptr, ptr %stream.addr, align 8
-  %status_code18 = getelementptr inbounds %struct.nghttp2_stream, ptr %21, i32 0, i32 27
-  %22 = load i16, ptr %status_code18, align 8
-  %conv19 = sext i16 %22 to i32
-  %cmp20 = icmp eq i32 %conv19, -1
-  br i1 %cmp20, label %if.then27, label %lor.lhs.false22
+46:                                               ; preds = %38
+  %47 = load ptr, ptr %6, align 8, !tbaa !10
+  %48 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %47, i32 0, i32 1
+  %49 = load ptr, ptr %48, align 8, !tbaa !31
+  %50 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %49, i32 0, i32 2
+  %51 = load ptr, ptr %50, align 8, !tbaa !16
+  %52 = load ptr, ptr %6, align 8, !tbaa !10
+  %53 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %52, i32 0, i32 1
+  %54 = load ptr, ptr %53, align 8, !tbaa !31
+  %55 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %54, i32 0, i32 3
+  %56 = load i64, ptr %55, align 8, !tbaa !20
+  %57 = call i64 @parse_uint(ptr noundef %51, i64 noundef %56)
+  %58 = trunc i64 %57 to i16
+  %59 = load ptr, ptr %5, align 8, !tbaa !8
+  %60 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %59, i32 0, i32 17
+  store i16 %58, ptr %60, align 4, !tbaa !64
+  %61 = load ptr, ptr %5, align 8, !tbaa !8
+  %62 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %61, i32 0, i32 17
+  %63 = load i16, ptr %62, align 4, !tbaa !64
+  %64 = sext i16 %63 to i32
+  %65 = icmp eq i32 %64, -1
+  br i1 %65, label %72, label %66
 
-lor.lhs.false22:                                  ; preds = %if.end11
-  %23 = load ptr, ptr %stream.addr, align 8
-  %status_code23 = getelementptr inbounds %struct.nghttp2_stream, ptr %23, i32 0, i32 27
-  %24 = load i16, ptr %status_code23, align 8
-  %conv24 = sext i16 %24 to i32
-  %cmp25 = icmp eq i32 %conv24, 101
-  br i1 %cmp25, label %if.then27, label %if.end28
+66:                                               ; preds = %46
+  %67 = load ptr, ptr %5, align 8, !tbaa !8
+  %68 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %67, i32 0, i32 17
+  %69 = load i16, ptr %68, align 4, !tbaa !64
+  %70 = sext i16 %69 to i32
+  %71 = icmp eq i32 %70, 101
+  br i1 %71, label %72, label %73
 
-if.then27:                                        ; preds = %lor.lhs.false22, %if.end11
-  store i32 -531, ptr %retval, align 4
-  br label %return
+72:                                               ; preds = %66, %46
+  store i32 -531, ptr %4, align 4
+  br label %209
 
-if.end28:                                         ; preds = %lor.lhs.false22
-  br label %sw.epilog
+73:                                               ; preds = %66
+  br label %193
 
-sw.bb29:                                          ; preds = %if.end4
-  %25 = load ptr, ptr %stream.addr, align 8
-  %status_code30 = getelementptr inbounds %struct.nghttp2_stream, ptr %25, i32 0, i32 27
-  %26 = load i16, ptr %status_code30, align 8
-  %conv31 = sext i16 %26 to i32
-  %cmp32 = icmp eq i32 %conv31, 204
-  br i1 %cmp32, label %if.then34, label %if.end52
+74:                                               ; preds = %28
+  %75 = load ptr, ptr %5, align 8, !tbaa !8
+  %76 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %75, i32 0, i32 17
+  %77 = load i16, ptr %76, align 4, !tbaa !64
+  %78 = sext i16 %77 to i32
+  %79 = icmp eq i32 %78, 204
+  br i1 %79, label %80, label %110
 
-if.then34:                                        ; preds = %sw.bb29
-  %27 = load ptr, ptr %stream.addr, align 8
-  %content_length = getelementptr inbounds %struct.nghttp2_stream, ptr %27, i32 0, i32 2
-  %28 = load i64, ptr %content_length, align 8
-  %cmp35 = icmp ne i64 %28, -1
-  br i1 %cmp35, label %if.then37, label %if.end38
+80:                                               ; preds = %74
+  %81 = load ptr, ptr %5, align 8, !tbaa !8
+  %82 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %81, i32 0, i32 2
+  %83 = load i64, ptr %82, align 8, !tbaa !62
+  %84 = icmp ne i64 %83, -1
+  br i1 %84, label %85, label %86
 
-if.then37:                                        ; preds = %if.then34
-  store i32 -531, ptr %retval, align 4
-  br label %return
+85:                                               ; preds = %80
+  store i32 -531, ptr %4, align 4
+  br label %209
 
-if.end38:                                         ; preds = %if.then34
-  %29 = load ptr, ptr %nv.addr, align 8
-  %value39 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %29, i32 0, i32 1
-  %30 = load ptr, ptr %value39, align 8
-  %len40 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %30, i32 0, i32 3
-  %31 = load i64, ptr %len40, align 8
-  %cmp41 = icmp eq i64 1, %31
-  br i1 %cmp41, label %land.lhs.true, label %if.then49
+86:                                               ; preds = %80
+  %87 = load ptr, ptr %6, align 8, !tbaa !10
+  %88 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %87, i32 0, i32 1
+  %89 = load ptr, ptr %88, align 8, !tbaa !31
+  %90 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %89, i32 0, i32 3
+  %91 = load i64, ptr %90, align 8, !tbaa !20
+  %92 = icmp eq i64 1, %91
+  br i1 %92, label %93, label %106
 
-land.lhs.true:                                    ; preds = %if.end38
-  %32 = load ptr, ptr %nv.addr, align 8
-  %value43 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %32, i32 0, i32 1
-  %33 = load ptr, ptr %value43, align 8
-  %base44 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %33, i32 0, i32 2
-  %34 = load ptr, ptr %base44, align 8
-  %35 = load ptr, ptr %nv.addr, align 8
-  %value45 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %35, i32 0, i32 1
-  %36 = load ptr, ptr %value45, align 8
-  %len46 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %36, i32 0, i32 3
-  %37 = load i64, ptr %len46, align 8
-  %call47 = call i32 @memieq(ptr noundef @.str.9, ptr noundef %34, i64 noundef %37)
-  %tobool48 = icmp ne i32 %call47, 0
-  br i1 %tobool48, label %if.end50, label %if.then49
+93:                                               ; preds = %86
+  %94 = load ptr, ptr %6, align 8, !tbaa !10
+  %95 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %94, i32 0, i32 1
+  %96 = load ptr, ptr %95, align 8, !tbaa !31
+  %97 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %96, i32 0, i32 2
+  %98 = load ptr, ptr %97, align 8, !tbaa !16
+  %99 = load ptr, ptr %6, align 8, !tbaa !10
+  %100 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %99, i32 0, i32 1
+  %101 = load ptr, ptr %100, align 8, !tbaa !31
+  %102 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %101, i32 0, i32 3
+  %103 = load i64, ptr %102, align 8, !tbaa !20
+  %104 = call i32 @memieq(ptr noundef @.str.10, ptr noundef %98, i64 noundef %103)
+  %105 = icmp ne i32 %104, 0
+  br i1 %105, label %107, label %106
 
-if.then49:                                        ; preds = %land.lhs.true, %if.end38
-  store i32 -531, ptr %retval, align 4
-  br label %return
+106:                                              ; preds = %93, %86
+  store i32 -531, ptr %4, align 4
+  br label %209
 
-if.end50:                                         ; preds = %land.lhs.true
-  %38 = load ptr, ptr %stream.addr, align 8
-  %content_length51 = getelementptr inbounds %struct.nghttp2_stream, ptr %38, i32 0, i32 2
-  store i64 0, ptr %content_length51, align 8
-  store i32 -106, ptr %retval, align 4
-  br label %return
+107:                                              ; preds = %93
+  %108 = load ptr, ptr %5, align 8, !tbaa !8
+  %109 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %108, i32 0, i32 2
+  store i64 0, ptr %109, align 8, !tbaa !62
+  store i32 -106, ptr %4, align 4
+  br label %209
 
-if.end52:                                         ; preds = %sw.bb29
-  %39 = load ptr, ptr %stream.addr, align 8
-  %status_code53 = getelementptr inbounds %struct.nghttp2_stream, ptr %39, i32 0, i32 27
-  %40 = load i16, ptr %status_code53, align 8
-  %conv54 = sext i16 %40 to i32
-  %div = sdiv i32 %conv54, 100
-  %cmp55 = icmp eq i32 %div, 1
-  br i1 %cmp55, label %if.then57, label %if.end58
+110:                                              ; preds = %74
+  %111 = load ptr, ptr %5, align 8, !tbaa !8
+  %112 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %111, i32 0, i32 17
+  %113 = load i16, ptr %112, align 4, !tbaa !64
+  %114 = sext i16 %113 to i32
+  %115 = sdiv i32 %114, 100
+  %116 = icmp eq i32 %115, 1
+  br i1 %116, label %117, label %118
 
-if.then57:                                        ; preds = %if.end52
-  store i32 -531, ptr %retval, align 4
-  br label %return
+117:                                              ; preds = %110
+  store i32 -531, ptr %4, align 4
+  br label %209
 
-if.end58:                                         ; preds = %if.end52
-  %41 = load ptr, ptr %stream.addr, align 8
-  %status_code59 = getelementptr inbounds %struct.nghttp2_stream, ptr %41, i32 0, i32 27
-  %42 = load i16, ptr %status_code59, align 8
-  %conv60 = sext i16 %42 to i32
-  %div61 = sdiv i32 %conv60, 100
-  %cmp62 = icmp eq i32 %div61, 2
-  br i1 %cmp62, label %land.lhs.true64, label %if.end69
+118:                                              ; preds = %110
+  %119 = load ptr, ptr %5, align 8, !tbaa !8
+  %120 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %119, i32 0, i32 17
+  %121 = load i16, ptr %120, align 4, !tbaa !64
+  %122 = sext i16 %121 to i32
+  %123 = sdiv i32 %122, 100
+  %124 = icmp eq i32 %123, 2
+  br i1 %124, label %125, label %132
 
-land.lhs.true64:                                  ; preds = %if.end58
-  %43 = load ptr, ptr %stream.addr, align 8
-  %http_flags65 = getelementptr inbounds %struct.nghttp2_stream, ptr %43, i32 0, i32 28
-  %44 = load i32, ptr %http_flags65, align 4
-  %and66 = and i32 %44, 128
-  %tobool67 = icmp ne i32 %and66, 0
-  br i1 %tobool67, label %if.then68, label %if.end69
+125:                                              ; preds = %118
+  %126 = load ptr, ptr %5, align 8, !tbaa !8
+  %127 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %126, i32 0, i32 18
+  %128 = load i32, ptr %127, align 8, !tbaa !25
+  %129 = and i32 %128, 128
+  %130 = icmp ne i32 %129, 0
+  br i1 %130, label %131, label %132
 
-if.then68:                                        ; preds = %land.lhs.true64
-  store i32 -106, ptr %retval, align 4
-  br label %return
+131:                                              ; preds = %125
+  store i32 -106, ptr %4, align 4
+  br label %209
 
-if.end69:                                         ; preds = %land.lhs.true64, %if.end58
-  %45 = load ptr, ptr %stream.addr, align 8
-  %content_length70 = getelementptr inbounds %struct.nghttp2_stream, ptr %45, i32 0, i32 2
-  %46 = load i64, ptr %content_length70, align 8
-  %cmp71 = icmp ne i64 %46, -1
-  br i1 %cmp71, label %if.then73, label %if.end74
+132:                                              ; preds = %125, %118
+  %133 = load ptr, ptr %5, align 8, !tbaa !8
+  %134 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %133, i32 0, i32 2
+  %135 = load i64, ptr %134, align 8, !tbaa !62
+  %136 = icmp ne i64 %135, -1
+  br i1 %136, label %137, label %138
 
-if.then73:                                        ; preds = %if.end69
-  store i32 -531, ptr %retval, align 4
-  br label %return
+137:                                              ; preds = %132
+  store i32 -531, ptr %4, align 4
+  br label %209
 
-if.end74:                                         ; preds = %if.end69
-  %47 = load ptr, ptr %nv.addr, align 8
-  %value75 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %47, i32 0, i32 1
-  %48 = load ptr, ptr %value75, align 8
-  %base76 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %48, i32 0, i32 2
-  %49 = load ptr, ptr %base76, align 8
-  %50 = load ptr, ptr %nv.addr, align 8
-  %value77 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %50, i32 0, i32 1
-  %51 = load ptr, ptr %value77, align 8
-  %len78 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %51, i32 0, i32 3
-  %52 = load i64, ptr %len78, align 8
-  %call79 = call i64 @parse_uint(ptr noundef %49, i64 noundef %52)
-  %53 = load ptr, ptr %stream.addr, align 8
-  %content_length80 = getelementptr inbounds %struct.nghttp2_stream, ptr %53, i32 0, i32 2
-  store i64 %call79, ptr %content_length80, align 8
-  %54 = load ptr, ptr %stream.addr, align 8
-  %content_length81 = getelementptr inbounds %struct.nghttp2_stream, ptr %54, i32 0, i32 2
-  %55 = load i64, ptr %content_length81, align 8
-  %cmp82 = icmp eq i64 %55, -1
-  br i1 %cmp82, label %if.then84, label %if.end85
+138:                                              ; preds = %132
+  %139 = load ptr, ptr %6, align 8, !tbaa !10
+  %140 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %139, i32 0, i32 1
+  %141 = load ptr, ptr %140, align 8, !tbaa !31
+  %142 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %141, i32 0, i32 2
+  %143 = load ptr, ptr %142, align 8, !tbaa !16
+  %144 = load ptr, ptr %6, align 8, !tbaa !10
+  %145 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %144, i32 0, i32 1
+  %146 = load ptr, ptr %145, align 8, !tbaa !31
+  %147 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %146, i32 0, i32 3
+  %148 = load i64, ptr %147, align 8, !tbaa !20
+  %149 = call i64 @parse_uint(ptr noundef %143, i64 noundef %148)
+  %150 = load ptr, ptr %5, align 8, !tbaa !8
+  %151 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %150, i32 0, i32 2
+  store i64 %149, ptr %151, align 8, !tbaa !62
+  %152 = load ptr, ptr %5, align 8, !tbaa !8
+  %153 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %152, i32 0, i32 2
+  %154 = load i64, ptr %153, align 8, !tbaa !62
+  %155 = icmp eq i64 %154, -1
+  br i1 %155, label %156, label %157
 
-if.then84:                                        ; preds = %if.end74
-  store i32 -531, ptr %retval, align 4
-  br label %return
+156:                                              ; preds = %138
+  store i32 -531, ptr %4, align 4
+  br label %209
 
-if.end85:                                         ; preds = %if.end74
-  br label %sw.epilog
+157:                                              ; preds = %138
+  br label %193
 
-sw.bb86:                                          ; preds = %if.end4, %if.end4, %if.end4, %if.end4, %if.end4
-  store i32 -531, ptr %retval, align 4
-  br label %return
+158:                                              ; preds = %28, %28, %28, %28, %28
+  store i32 -531, ptr %4, align 4
+  br label %209
 
-sw.bb87:                                          ; preds = %if.end4
-  %56 = load ptr, ptr %nv.addr, align 8
-  %value88 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %56, i32 0, i32 1
-  %57 = load ptr, ptr %value88, align 8
-  %len89 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %57, i32 0, i32 3
-  %58 = load i64, ptr %len89, align 8
-  %cmp90 = icmp eq i64 8, %58
-  br i1 %cmp90, label %land.lhs.true92, label %if.then99
+159:                                              ; preds = %28
+  %160 = load ptr, ptr %6, align 8, !tbaa !10
+  %161 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %160, i32 0, i32 1
+  %162 = load ptr, ptr %161, align 8, !tbaa !31
+  %163 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %162, i32 0, i32 3
+  %164 = load i64, ptr %163, align 8, !tbaa !20
+  %165 = icmp eq i64 8, %164
+  br i1 %165, label %166, label %179
 
-land.lhs.true92:                                  ; preds = %sw.bb87
-  %59 = load ptr, ptr %nv.addr, align 8
-  %value93 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %59, i32 0, i32 1
-  %60 = load ptr, ptr %value93, align 8
-  %base94 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %60, i32 0, i32 2
-  %61 = load ptr, ptr %base94, align 8
-  %62 = load ptr, ptr %nv.addr, align 8
-  %value95 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %62, i32 0, i32 1
-  %63 = load ptr, ptr %value95, align 8
-  %len96 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %63, i32 0, i32 3
-  %64 = load i64, ptr %len96, align 8
-  %call97 = call i32 @memieq(ptr noundef @.str.8, ptr noundef %61, i64 noundef %64)
-  %tobool98 = icmp ne i32 %call97, 0
-  br i1 %tobool98, label %if.end100, label %if.then99
+166:                                              ; preds = %159
+  %167 = load ptr, ptr %6, align 8, !tbaa !10
+  %168 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %167, i32 0, i32 1
+  %169 = load ptr, ptr %168, align 8, !tbaa !31
+  %170 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %169, i32 0, i32 2
+  %171 = load ptr, ptr %170, align 8, !tbaa !16
+  %172 = load ptr, ptr %6, align 8, !tbaa !10
+  %173 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %172, i32 0, i32 1
+  %174 = load ptr, ptr %173, align 8, !tbaa !31
+  %175 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %174, i32 0, i32 3
+  %176 = load i64, ptr %175, align 8, !tbaa !20
+  %177 = call i32 @memieq(ptr noundef @.str.9, ptr noundef %171, i64 noundef %176)
+  %178 = icmp ne i32 %177, 0
+  br i1 %178, label %180, label %179
 
-if.then99:                                        ; preds = %land.lhs.true92, %sw.bb87
-  store i32 -531, ptr %retval, align 4
-  br label %return
+179:                                              ; preds = %166, %159
+  store i32 -531, ptr %4, align 4
+  br label %209
 
-if.end100:                                        ; preds = %land.lhs.true92
-  br label %sw.epilog
+180:                                              ; preds = %166
+  br label %193
 
-sw.default:                                       ; preds = %if.end4
-  %65 = load ptr, ptr %nv.addr, align 8
-  %name101 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %65, i32 0, i32 0
-  %66 = load ptr, ptr %name101, align 8
-  %base102 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %66, i32 0, i32 2
-  %67 = load ptr, ptr %base102, align 8
-  %arrayidx103 = getelementptr inbounds i8, ptr %67, i64 0
-  %68 = load i8, ptr %arrayidx103, align 1
-  %conv104 = zext i8 %68 to i32
-  %cmp105 = icmp eq i32 %conv104, 58
-  br i1 %cmp105, label %if.then107, label %if.end108
+181:                                              ; preds = %28
+  %182 = load ptr, ptr %6, align 8, !tbaa !10
+  %183 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %182, i32 0, i32 0
+  %184 = load ptr, ptr %183, align 8, !tbaa !13
+  %185 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %184, i32 0, i32 2
+  %186 = load ptr, ptr %185, align 8, !tbaa !16
+  %187 = getelementptr inbounds i8, ptr %186, i64 0
+  %188 = load i8, ptr %187, align 1, !tbaa !21
+  %189 = zext i8 %188 to i32
+  %190 = icmp eq i32 %189, 58
+  br i1 %190, label %191, label %192
 
-if.then107:                                       ; preds = %sw.default
-  store i32 -531, ptr %retval, align 4
-  br label %return
+191:                                              ; preds = %181
+  store i32 -531, ptr %4, align 4
+  br label %209
 
-if.end108:                                        ; preds = %sw.default
-  br label %sw.epilog
+192:                                              ; preds = %181
+  br label %193
 
-sw.epilog:                                        ; preds = %if.end108, %if.end100, %if.end85, %if.end28
-  %69 = load ptr, ptr %nv.addr, align 8
-  %name109 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %69, i32 0, i32 0
-  %70 = load ptr, ptr %name109, align 8
-  %base110 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %70, i32 0, i32 2
-  %71 = load ptr, ptr %base110, align 8
-  %arrayidx111 = getelementptr inbounds i8, ptr %71, i64 0
-  %72 = load i8, ptr %arrayidx111, align 1
-  %conv112 = zext i8 %72 to i32
-  %cmp113 = icmp ne i32 %conv112, 58
-  br i1 %cmp113, label %if.then115, label %if.end117
+193:                                              ; preds = %192, %180, %157, %73
+  %194 = load ptr, ptr %6, align 8, !tbaa !10
+  %195 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %194, i32 0, i32 0
+  %196 = load ptr, ptr %195, align 8, !tbaa !13
+  %197 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %196, i32 0, i32 2
+  %198 = load ptr, ptr %197, align 8, !tbaa !16
+  %199 = getelementptr inbounds i8, ptr %198, i64 0
+  %200 = load i8, ptr %199, align 1, !tbaa !21
+  %201 = zext i8 %200 to i32
+  %202 = icmp ne i32 %201, 58
+  br i1 %202, label %203, label %208
 
-if.then115:                                       ; preds = %sw.epilog
-  %73 = load ptr, ptr %stream.addr, align 8
-  %http_flags116 = getelementptr inbounds %struct.nghttp2_stream, ptr %73, i32 0, i32 28
-  %74 = load i32, ptr %http_flags116, align 4
-  %or = or i32 %74, 64
-  store i32 %or, ptr %http_flags116, align 4
-  br label %if.end117
+203:                                              ; preds = %193
+  %204 = load ptr, ptr %5, align 8, !tbaa !8
+  %205 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %204, i32 0, i32 18
+  %206 = load i32, ptr %205, align 8, !tbaa !25
+  %207 = or i32 %206, 64
+  store i32 %207, ptr %205, align 8, !tbaa !25
+  br label %208
 
-if.end117:                                        ; preds = %if.then115, %sw.epilog
-  store i32 0, ptr %retval, align 4
-  br label %return
+208:                                              ; preds = %203, %193
+  store i32 0, ptr %4, align 4
+  br label %209
 
-return:                                           ; preds = %if.end117, %if.then107, %if.then99, %sw.bb86, %if.then84, %if.then73, %if.then68, %if.then57, %if.end50, %if.then49, %if.then37, %if.then27, %if.then10, %if.then6, %if.then3
-  %75 = load i32, ptr %retval, align 4
-  ret i32 %75
+209:                                              ; preds = %208, %191, %179, %158, %156, %137, %131, %117, %107, %106, %85, %72, %45, %37, %26
+  %210 = load i32, ptr %4, align 4
+  ret i32 %210
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_http_on_request_headers(ptr noundef %stream, ptr noundef %frame) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %stream.addr = alloca ptr, align 8
-  %frame.addr = alloca ptr, align 8
-  store ptr %stream, ptr %stream.addr, align 8
-  store ptr %frame, ptr %frame.addr, align 8
-  %0 = load ptr, ptr %stream.addr, align 8
-  %http_flags = getelementptr inbounds %struct.nghttp2_stream, ptr %0, i32 0, i32 28
-  %1 = load i32, ptr %http_flags, align 4
-  %and = and i32 %1, 32768
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.else, label %land.lhs.true
+define hidden i32 @nghttp2_http_on_request_headers(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  %6 = load ptr, ptr %4, align 8, !tbaa !8
+  %7 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %6, i32 0, i32 18
+  %8 = load i32, ptr %7, align 8, !tbaa !25
+  %9 = and i32 %8, 32768
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %33, label %11
 
-land.lhs.true:                                    ; preds = %entry
-  %2 = load ptr, ptr %stream.addr, align 8
-  %http_flags1 = getelementptr inbounds %struct.nghttp2_stream, ptr %2, i32 0, i32 28
-  %3 = load i32, ptr %http_flags1, align 4
-  %and2 = and i32 %3, 128
-  %tobool3 = icmp ne i32 %and2, 0
-  br i1 %tobool3, label %if.then, label %if.else
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !8
+  %13 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %12, i32 0, i32 18
+  %14 = load i32, ptr %13, align 8, !tbaa !25
+  %15 = and i32 %14, 128
+  %16 = icmp ne i32 %15, 0
+  br i1 %16, label %17, label %33
 
-if.then:                                          ; preds = %land.lhs.true
-  %4 = load ptr, ptr %stream.addr, align 8
-  %http_flags4 = getelementptr inbounds %struct.nghttp2_stream, ptr %4, i32 0, i32 28
-  %5 = load i32, ptr %http_flags4, align 4
-  %and5 = and i32 %5, 10
-  %tobool6 = icmp ne i32 %and5, 0
-  br i1 %tobool6, label %if.then9, label %lor.lhs.false
+17:                                               ; preds = %11
+  %18 = load ptr, ptr %4, align 8, !tbaa !8
+  %19 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %18, i32 0, i32 18
+  %20 = load i32, ptr %19, align 8, !tbaa !25
+  %21 = and i32 %20, 10
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %29, label %23
 
-lor.lhs.false:                                    ; preds = %if.then
-  %6 = load ptr, ptr %stream.addr, align 8
-  %http_flags7 = getelementptr inbounds %struct.nghttp2_stream, ptr %6, i32 0, i32 28
-  %7 = load i32, ptr %http_flags7, align 4
-  %and8 = and i32 %7, 1
-  %cmp = icmp eq i32 %and8, 0
-  br i1 %cmp, label %if.then9, label %if.end
+23:                                               ; preds = %17
+  %24 = load ptr, ptr %4, align 8, !tbaa !8
+  %25 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %24, i32 0, i32 18
+  %26 = load i32, ptr %25, align 8, !tbaa !25
+  %27 = and i32 %26, 1
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %30
 
-if.then9:                                         ; preds = %lor.lhs.false, %if.then
-  store i32 -1, ptr %retval, align 4
-  br label %return
+29:                                               ; preds = %23, %17
+  store i32 -1, ptr %3, align 4
+  br label %85
 
-if.end:                                           ; preds = %lor.lhs.false
-  %8 = load ptr, ptr %stream.addr, align 8
-  %content_length = getelementptr inbounds %struct.nghttp2_stream, ptr %8, i32 0, i32 2
-  store i64 -1, ptr %content_length, align 8
-  br label %if.end35
+30:                                               ; preds = %23
+  %31 = load ptr, ptr %4, align 8, !tbaa !8
+  %32 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %31, i32 0, i32 2
+  store i64 -1, ptr %32, align 8, !tbaa !62
+  br label %71
 
-if.else:                                          ; preds = %land.lhs.true, %entry
-  %9 = load ptr, ptr %stream.addr, align 8
-  %http_flags10 = getelementptr inbounds %struct.nghttp2_stream, ptr %9, i32 0, i32 28
-  %10 = load i32, ptr %http_flags10, align 4
-  %and11 = and i32 %10, 14
-  %cmp12 = icmp ne i32 %and11, 14
-  br i1 %cmp12, label %if.then17, label %lor.lhs.false13
+33:                                               ; preds = %11, %2
+  %34 = load ptr, ptr %4, align 8, !tbaa !8
+  %35 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %34, i32 0, i32 18
+  %36 = load i32, ptr %35, align 8, !tbaa !25
+  %37 = and i32 %36, 14
+  %38 = icmp ne i32 %37, 14
+  br i1 %38, label %45, label %39
 
-lor.lhs.false13:                                  ; preds = %if.else
-  %11 = load ptr, ptr %stream.addr, align 8
-  %http_flags14 = getelementptr inbounds %struct.nghttp2_stream, ptr %11, i32 0, i32 28
-  %12 = load i32, ptr %http_flags14, align 4
-  %and15 = and i32 %12, 17
-  %cmp16 = icmp eq i32 %and15, 0
-  br i1 %cmp16, label %if.then17, label %if.end18
+39:                                               ; preds = %33
+  %40 = load ptr, ptr %4, align 8, !tbaa !8
+  %41 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %40, i32 0, i32 18
+  %42 = load i32, ptr %41, align 8, !tbaa !25
+  %43 = and i32 %42, 17
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %46
 
-if.then17:                                        ; preds = %lor.lhs.false13, %if.else
-  store i32 -1, ptr %retval, align 4
-  br label %return
+45:                                               ; preds = %39, %33
+  store i32 -1, ptr %3, align 4
+  br label %85
 
-if.end18:                                         ; preds = %lor.lhs.false13
-  %13 = load ptr, ptr %stream.addr, align 8
-  %http_flags19 = getelementptr inbounds %struct.nghttp2_stream, ptr %13, i32 0, i32 28
-  %14 = load i32, ptr %http_flags19, align 4
-  %and20 = and i32 %14, 32768
-  %tobool21 = icmp ne i32 %and20, 0
-  br i1 %tobool21, label %land.lhs.true22, label %if.end31
+46:                                               ; preds = %39
+  %47 = load ptr, ptr %4, align 8, !tbaa !8
+  %48 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %47, i32 0, i32 18
+  %49 = load i32, ptr %48, align 8, !tbaa !25
+  %50 = and i32 %49, 32768
+  %51 = icmp ne i32 %50, 0
+  br i1 %51, label %52, label %65
 
-land.lhs.true22:                                  ; preds = %if.end18
-  %15 = load ptr, ptr %stream.addr, align 8
-  %http_flags23 = getelementptr inbounds %struct.nghttp2_stream, ptr %15, i32 0, i32 28
-  %16 = load i32, ptr %http_flags23, align 4
-  %and24 = and i32 %16, 128
-  %cmp25 = icmp eq i32 %and24, 0
-  br i1 %cmp25, label %if.then30, label %lor.lhs.false26
+52:                                               ; preds = %46
+  %53 = load ptr, ptr %4, align 8, !tbaa !8
+  %54 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %53, i32 0, i32 18
+  %55 = load i32, ptr %54, align 8, !tbaa !25
+  %56 = and i32 %55, 128
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %64, label %58
 
-lor.lhs.false26:                                  ; preds = %land.lhs.true22
-  %17 = load ptr, ptr %stream.addr, align 8
-  %http_flags27 = getelementptr inbounds %struct.nghttp2_stream, ptr %17, i32 0, i32 28
-  %18 = load i32, ptr %http_flags27, align 4
-  %and28 = and i32 %18, 1
-  %cmp29 = icmp eq i32 %and28, 0
-  br i1 %cmp29, label %if.then30, label %if.end31
+58:                                               ; preds = %52
+  %59 = load ptr, ptr %4, align 8, !tbaa !8
+  %60 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %59, i32 0, i32 18
+  %61 = load i32, ptr %60, align 8, !tbaa !25
+  %62 = and i32 %61, 1
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %64, label %65
 
-if.then30:                                        ; preds = %lor.lhs.false26, %land.lhs.true22
-  store i32 -1, ptr %retval, align 4
-  br label %return
+64:                                               ; preds = %58, %52
+  store i32 -1, ptr %3, align 4
+  br label %85
 
-if.end31:                                         ; preds = %lor.lhs.false26, %if.end18
-  %19 = load ptr, ptr %stream.addr, align 8
-  %call = call i32 @check_path(ptr noundef %19)
-  %tobool32 = icmp ne i32 %call, 0
-  br i1 %tobool32, label %if.end34, label %if.then33
+65:                                               ; preds = %58, %46
+  %66 = load ptr, ptr %4, align 8, !tbaa !8
+  %67 = call i32 @check_path(ptr noundef %66)
+  %68 = icmp ne i32 %67, 0
+  br i1 %68, label %70, label %69
 
-if.then33:                                        ; preds = %if.end31
-  store i32 -1, ptr %retval, align 4
-  br label %return
+69:                                               ; preds = %65
+  store i32 -1, ptr %3, align 4
+  br label %85
 
-if.end34:                                         ; preds = %if.end31
-  br label %if.end35
+70:                                               ; preds = %65
+  br label %71
 
-if.end35:                                         ; preds = %if.end34, %if.end
-  %20 = load ptr, ptr %frame.addr, align 8
-  %type = getelementptr inbounds %struct.nghttp2_frame_hd, ptr %20, i32 0, i32 2
-  %21 = load i8, ptr %type, align 4
-  %conv = zext i8 %21 to i32
-  %cmp36 = icmp eq i32 %conv, 5
-  br i1 %cmp36, label %if.then38, label %if.end42
+71:                                               ; preds = %70, %30
+  %72 = load ptr, ptr %5, align 8, !tbaa !10
+  %73 = getelementptr inbounds nuw %struct.nghttp2_frame_hd, ptr %72, i32 0, i32 2
+  %74 = load i8, ptr %73, align 4, !tbaa !21
+  %75 = zext i8 %74 to i32
+  %76 = icmp eq i32 %75, 5
+  br i1 %76, label %77, label %84
 
-if.then38:                                        ; preds = %if.end35
-  %22 = load ptr, ptr %stream.addr, align 8
-  %http_flags39 = getelementptr inbounds %struct.nghttp2_stream, ptr %22, i32 0, i32 28
-  %23 = load i32, ptr %http_flags39, align 4
-  %and40 = and i32 %23, 1920
-  store i32 %and40, ptr %http_flags39, align 4
-  %24 = load ptr, ptr %stream.addr, align 8
-  %content_length41 = getelementptr inbounds %struct.nghttp2_stream, ptr %24, i32 0, i32 2
-  store i64 -1, ptr %content_length41, align 8
-  br label %if.end42
+77:                                               ; preds = %71
+  %78 = load ptr, ptr %4, align 8, !tbaa !8
+  %79 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %78, i32 0, i32 18
+  %80 = load i32, ptr %79, align 8, !tbaa !25
+  %81 = and i32 %80, 1920
+  store i32 %81, ptr %79, align 8, !tbaa !25
+  %82 = load ptr, ptr %4, align 8, !tbaa !8
+  %83 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %82, i32 0, i32 2
+  store i64 -1, ptr %83, align 8, !tbaa !62
+  br label %84
 
-if.end42:                                         ; preds = %if.then38, %if.end35
-  store i32 0, ptr %retval, align 4
-  br label %return
+84:                                               ; preds = %77, %71
+  store i32 0, ptr %3, align 4
+  br label %85
 
-return:                                           ; preds = %if.end42, %if.then33, %if.then30, %if.then17, %if.then9
-  %25 = load i32, ptr %retval, align 4
-  ret i32 %25
+85:                                               ; preds = %84, %69, %64, %45, %29
+  %86 = load i32, ptr %3, align 4
+  ret i32 %86
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @check_path(ptr noundef %stream) #0 {
-entry:
-  %stream.addr = alloca ptr, align 8
-  store ptr %stream, ptr %stream.addr, align 8
-  %0 = load ptr, ptr %stream.addr, align 8
-  %http_flags = getelementptr inbounds %struct.nghttp2_stream, ptr %0, i32 0, i32 28
-  %1 = load i32, ptr %http_flags, align 4
-  %and = and i32 %1, 8192
-  %cmp = icmp eq i32 %and, 0
-  br i1 %cmp, label %lor.end10, label %lor.rhs
+define internal i32 @check_path(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %3, i32 0, i32 18
+  %5 = load i32, ptr %4, align 8, !tbaa !25
+  %6 = and i32 %5, 8192
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %30, label %8
 
-lor.rhs:                                          ; preds = %entry
-  %2 = load ptr, ptr %stream.addr, align 8
-  %http_flags1 = getelementptr inbounds %struct.nghttp2_stream, ptr %2, i32 0, i32 28
-  %3 = load i32, ptr %http_flags1, align 4
-  %and2 = and i32 %3, 2048
-  %tobool = icmp ne i32 %and2, 0
-  br i1 %tobool, label %lor.end, label %lor.rhs3
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %2, align 8, !tbaa !8
+  %10 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %9, i32 0, i32 18
+  %11 = load i32, ptr %10, align 8, !tbaa !25
+  %12 = and i32 %11, 2048
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %28, label %14
 
-lor.rhs3:                                         ; preds = %lor.rhs
-  %4 = load ptr, ptr %stream.addr, align 8
-  %http_flags4 = getelementptr inbounds %struct.nghttp2_stream, ptr %4, i32 0, i32 28
-  %5 = load i32, ptr %http_flags4, align 4
-  %and5 = and i32 %5, 512
-  %tobool6 = icmp ne i32 %and5, 0
-  br i1 %tobool6, label %land.rhs, label %land.end
+14:                                               ; preds = %8
+  %15 = load ptr, ptr %2, align 8, !tbaa !8
+  %16 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %15, i32 0, i32 18
+  %17 = load i32, ptr %16, align 8, !tbaa !25
+  %18 = and i32 %17, 512
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %26
 
-land.rhs:                                         ; preds = %lor.rhs3
-  %6 = load ptr, ptr %stream.addr, align 8
-  %http_flags7 = getelementptr inbounds %struct.nghttp2_stream, ptr %6, i32 0, i32 28
-  %7 = load i32, ptr %http_flags7, align 4
-  %and8 = and i32 %7, 4096
-  %tobool9 = icmp ne i32 %and8, 0
-  br label %land.end
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %2, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %21, i32 0, i32 18
+  %23 = load i32, ptr %22, align 8, !tbaa !25
+  %24 = and i32 %23, 4096
+  %25 = icmp ne i32 %24, 0
+  br label %26
 
-land.end:                                         ; preds = %land.rhs, %lor.rhs3
-  %8 = phi i1 [ false, %lor.rhs3 ], [ %tobool9, %land.rhs ]
-  br label %lor.end
+26:                                               ; preds = %20, %14
+  %27 = phi i1 [ false, %14 ], [ %25, %20 ]
+  br label %28
 
-lor.end:                                          ; preds = %land.end, %lor.rhs
-  %9 = phi i1 [ true, %lor.rhs ], [ %8, %land.end ]
-  br label %lor.end10
+28:                                               ; preds = %26, %8
+  %29 = phi i1 [ true, %8 ], [ %27, %26 ]
+  br label %30
 
-lor.end10:                                        ; preds = %lor.end, %entry
-  %10 = phi i1 [ true, %entry ], [ %9, %lor.end ]
-  %lor.ext = zext i1 %10 to i32
-  ret i32 %lor.ext
+30:                                               ; preds = %28, %1
+  %31 = phi i1 [ true, %1 ], [ %29, %28 ]
+  %32 = zext i1 %31 to i32
+  ret i32 %32
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_http_on_response_headers(ptr noundef %stream) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %stream.addr = alloca ptr, align 8
-  store ptr %stream, ptr %stream.addr, align 8
-  %0 = load ptr, ptr %stream.addr, align 8
-  %http_flags = getelementptr inbounds %struct.nghttp2_stream, ptr %0, i32 0, i32 28
-  %1 = load i32, ptr %http_flags, align 4
-  %and = and i32 %1, 32
-  %cmp = icmp eq i32 %and, 0
-  br i1 %cmp, label %if.then, label %if.end
+define hidden i32 @nghttp2_http_on_response_headers(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  %4 = load ptr, ptr %3, align 8, !tbaa !8
+  %5 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %4, i32 0, i32 18
+  %6 = load i32, ptr %5, align 8, !tbaa !25
+  %7 = and i32 %6, 32
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %9, label %10
 
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
+9:                                                ; preds = %1
+  store i32 -1, ptr %2, align 4
+  br label %53
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %stream.addr, align 8
-  %status_code = getelementptr inbounds %struct.nghttp2_stream, ptr %2, i32 0, i32 27
-  %3 = load i16, ptr %status_code, align 8
-  %conv = sext i16 %3 to i32
-  %div = sdiv i32 %conv, 100
-  %cmp1 = icmp eq i32 %div, 1
-  br i1 %cmp1, label %if.then3, label %if.end8
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %3, align 8, !tbaa !8
+  %12 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %11, i32 0, i32 17
+  %13 = load i16, ptr %12, align 4, !tbaa !64
+  %14 = sext i16 %13 to i32
+  %15 = sdiv i32 %14, 100
+  %16 = icmp eq i32 %15, 1
+  br i1 %16, label %17, label %29
 
-if.then3:                                         ; preds = %if.end
-  %4 = load ptr, ptr %stream.addr, align 8
-  %http_flags4 = getelementptr inbounds %struct.nghttp2_stream, ptr %4, i32 0, i32 28
-  %5 = load i32, ptr %http_flags4, align 4
-  %and5 = and i32 %5, 1920
-  %or = or i32 %and5, 16384
-  %6 = load ptr, ptr %stream.addr, align 8
-  %http_flags6 = getelementptr inbounds %struct.nghttp2_stream, ptr %6, i32 0, i32 28
-  store i32 %or, ptr %http_flags6, align 4
-  %7 = load ptr, ptr %stream.addr, align 8
-  %content_length = getelementptr inbounds %struct.nghttp2_stream, ptr %7, i32 0, i32 2
-  store i64 -1, ptr %content_length, align 8
-  %8 = load ptr, ptr %stream.addr, align 8
-  %status_code7 = getelementptr inbounds %struct.nghttp2_stream, ptr %8, i32 0, i32 27
-  store i16 -1, ptr %status_code7, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
+17:                                               ; preds = %10
+  %18 = load ptr, ptr %3, align 8, !tbaa !8
+  %19 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %18, i32 0, i32 18
+  %20 = load i32, ptr %19, align 8, !tbaa !25
+  %21 = and i32 %20, 1920
+  %22 = or i32 %21, 16384
+  %23 = load ptr, ptr %3, align 8, !tbaa !8
+  %24 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %23, i32 0, i32 18
+  store i32 %22, ptr %24, align 8, !tbaa !25
+  %25 = load ptr, ptr %3, align 8, !tbaa !8
+  %26 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %25, i32 0, i32 2
+  store i64 -1, ptr %26, align 8, !tbaa !62
+  %27 = load ptr, ptr %3, align 8, !tbaa !8
+  %28 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %27, i32 0, i32 17
+  store i16 -1, ptr %28, align 4, !tbaa !64
+  store i32 0, ptr %2, align 4
+  br label %53
 
-if.end8:                                          ; preds = %if.end
-  %9 = load ptr, ptr %stream.addr, align 8
-  %http_flags9 = getelementptr inbounds %struct.nghttp2_stream, ptr %9, i32 0, i32 28
-  %10 = load i32, ptr %http_flags9, align 4
-  %and10 = and i32 %10, -16385
-  %11 = load ptr, ptr %stream.addr, align 8
-  %http_flags11 = getelementptr inbounds %struct.nghttp2_stream, ptr %11, i32 0, i32 28
-  store i32 %and10, ptr %http_flags11, align 4
-  %12 = load ptr, ptr %stream.addr, align 8
-  %call = call i32 @expect_response_body(ptr noundef %12)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.else, label %if.then12
+29:                                               ; preds = %10
+  %30 = load ptr, ptr %3, align 8, !tbaa !8
+  %31 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %30, i32 0, i32 18
+  %32 = load i32, ptr %31, align 8, !tbaa !25
+  %33 = and i32 %32, -16385
+  %34 = load ptr, ptr %3, align 8, !tbaa !8
+  %35 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %34, i32 0, i32 18
+  store i32 %33, ptr %35, align 8, !tbaa !25
+  %36 = load ptr, ptr %3, align 8, !tbaa !8
+  %37 = call i32 @expect_response_body(ptr noundef %36)
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %42, label %39
 
-if.then12:                                        ; preds = %if.end8
-  %13 = load ptr, ptr %stream.addr, align 8
-  %content_length13 = getelementptr inbounds %struct.nghttp2_stream, ptr %13, i32 0, i32 2
-  store i64 0, ptr %content_length13, align 8
-  br label %if.end20
+39:                                               ; preds = %29
+  %40 = load ptr, ptr %3, align 8, !tbaa !8
+  %41 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %40, i32 0, i32 2
+  store i64 0, ptr %41, align 8, !tbaa !62
+  br label %52
 
-if.else:                                          ; preds = %if.end8
-  %14 = load ptr, ptr %stream.addr, align 8
-  %http_flags14 = getelementptr inbounds %struct.nghttp2_stream, ptr %14, i32 0, i32 28
-  %15 = load i32, ptr %http_flags14, align 4
-  %and15 = and i32 %15, 1152
-  %tobool16 = icmp ne i32 %and15, 0
-  br i1 %tobool16, label %if.then17, label %if.end19
+42:                                               ; preds = %29
+  %43 = load ptr, ptr %3, align 8, !tbaa !8
+  %44 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %43, i32 0, i32 18
+  %45 = load i32, ptr %44, align 8, !tbaa !25
+  %46 = and i32 %45, 1152
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %51
 
-if.then17:                                        ; preds = %if.else
-  %16 = load ptr, ptr %stream.addr, align 8
-  %content_length18 = getelementptr inbounds %struct.nghttp2_stream, ptr %16, i32 0, i32 2
-  store i64 -1, ptr %content_length18, align 8
-  br label %if.end19
+48:                                               ; preds = %42
+  %49 = load ptr, ptr %3, align 8, !tbaa !8
+  %50 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %49, i32 0, i32 2
+  store i64 -1, ptr %50, align 8, !tbaa !62
+  br label %51
 
-if.end19:                                         ; preds = %if.then17, %if.else
-  br label %if.end20
+51:                                               ; preds = %48, %42
+  br label %52
 
-if.end20:                                         ; preds = %if.end19, %if.then12
-  store i32 0, ptr %retval, align 4
-  br label %return
+52:                                               ; preds = %51, %39
+  store i32 0, ptr %2, align 4
+  br label %53
 
-return:                                           ; preds = %if.end20, %if.then3, %if.then
-  %17 = load i32, ptr %retval, align 4
-  ret i32 %17
+53:                                               ; preds = %52, %17, %9
+  %54 = load i32, ptr %2, align 4
+  ret i32 %54
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @expect_response_body(ptr noundef %stream) #0 {
-entry:
-  %stream.addr = alloca ptr, align 8
-  store ptr %stream, ptr %stream.addr, align 8
-  %0 = load ptr, ptr %stream.addr, align 8
-  %http_flags = getelementptr inbounds %struct.nghttp2_stream, ptr %0, i32 0, i32 28
-  %1 = load i32, ptr %http_flags, align 4
-  %and = and i32 %1, 256
-  %cmp = icmp eq i32 %and, 0
-  br i1 %cmp, label %land.lhs.true, label %land.end
+define internal i32 @expect_response_body(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %3, i32 0, i32 18
+  %5 = load i32, ptr %4, align 8, !tbaa !25
+  %6 = and i32 %5, 256
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %8, label %27
 
-land.lhs.true:                                    ; preds = %entry
-  %2 = load ptr, ptr %stream.addr, align 8
-  %status_code = getelementptr inbounds %struct.nghttp2_stream, ptr %2, i32 0, i32 27
-  %3 = load i16, ptr %status_code, align 8
-  %conv = sext i16 %3 to i32
-  %div = sdiv i32 %conv, 100
-  %cmp1 = icmp ne i32 %div, 1
-  br i1 %cmp1, label %land.lhs.true3, label %land.end
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %2, align 8, !tbaa !8
+  %10 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %9, i32 0, i32 17
+  %11 = load i16, ptr %10, align 4, !tbaa !64
+  %12 = sext i16 %11 to i32
+  %13 = sdiv i32 %12, 100
+  %14 = icmp ne i32 %13, 1
+  br i1 %14, label %15, label %27
 
-land.lhs.true3:                                   ; preds = %land.lhs.true
-  %4 = load ptr, ptr %stream.addr, align 8
-  %status_code4 = getelementptr inbounds %struct.nghttp2_stream, ptr %4, i32 0, i32 27
-  %5 = load i16, ptr %status_code4, align 8
-  %conv5 = sext i16 %5 to i32
-  %cmp6 = icmp ne i32 %conv5, 304
-  br i1 %cmp6, label %land.rhs, label %land.end
+15:                                               ; preds = %8
+  %16 = load ptr, ptr %2, align 8, !tbaa !8
+  %17 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %16, i32 0, i32 17
+  %18 = load i16, ptr %17, align 4, !tbaa !64
+  %19 = sext i16 %18 to i32
+  %20 = icmp ne i32 %19, 304
+  br i1 %20, label %21, label %27
 
-land.rhs:                                         ; preds = %land.lhs.true3
-  %6 = load ptr, ptr %stream.addr, align 8
-  %status_code8 = getelementptr inbounds %struct.nghttp2_stream, ptr %6, i32 0, i32 27
-  %7 = load i16, ptr %status_code8, align 8
-  %conv9 = sext i16 %7 to i32
-  %cmp10 = icmp ne i32 %conv9, 204
-  br label %land.end
+21:                                               ; preds = %15
+  %22 = load ptr, ptr %2, align 8, !tbaa !8
+  %23 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %22, i32 0, i32 17
+  %24 = load i16, ptr %23, align 4, !tbaa !64
+  %25 = sext i16 %24 to i32
+  %26 = icmp ne i32 %25, 204
+  br label %27
 
-land.end:                                         ; preds = %land.rhs, %land.lhs.true3, %land.lhs.true, %entry
-  %8 = phi i1 [ false, %land.lhs.true3 ], [ false, %land.lhs.true ], [ false, %entry ], [ %cmp10, %land.rhs ]
-  %land.ext = zext i1 %8 to i32
-  ret i32 %land.ext
+27:                                               ; preds = %21, %15, %8, %1
+  %28 = phi i1 [ false, %15 ], [ false, %8 ], [ false, %1 ], [ %26, %21 ]
+  %29 = zext i1 %28 to i32
+  ret i32 %29
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_http_on_trailer_headers(ptr noundef %stream, ptr noundef %frame) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %stream.addr = alloca ptr, align 8
-  %frame.addr = alloca ptr, align 8
-  store ptr %stream, ptr %stream.addr, align 8
-  store ptr %frame, ptr %frame.addr, align 8
-  %0 = load ptr, ptr %frame.addr, align 8
-  %flags = getelementptr inbounds %struct.nghttp2_frame_hd, ptr %0, i32 0, i32 3
-  %1 = load i8, ptr %flags, align 1
-  %conv = zext i8 %1 to i32
-  %and = and i32 %conv, 1
-  %cmp = icmp eq i32 %and, 0
-  br i1 %cmp, label %if.then, label %if.end
+define hidden i32 @nghttp2_http_on_trailer_headers(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  %6 = load ptr, ptr %5, align 8, !tbaa !10
+  %7 = getelementptr inbounds nuw %struct.nghttp2_frame_hd, ptr %6, i32 0, i32 3
+  %8 = load i8, ptr %7, align 1, !tbaa !21
+  %9 = zext i8 %8 to i32
+  %10 = and i32 %9, 1
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %13
 
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
+12:                                               ; preds = %2
+  store i32 -1, ptr %3, align 4
+  br label %14
 
-if.end:                                           ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+13:                                               ; preds = %2
+  store i32 0, ptr %3, align 4
+  br label %14
 
-return:                                           ; preds = %if.end, %if.then
-  %2 = load i32, ptr %retval, align 4
-  ret i32 %2
+14:                                               ; preds = %13, %12
+  %15 = load i32, ptr %3, align 4
+  ret i32 %15
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_http_on_remote_end_stream(ptr noundef %stream) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %stream.addr = alloca ptr, align 8
-  store ptr %stream, ptr %stream.addr, align 8
-  %0 = load ptr, ptr %stream.addr, align 8
-  %http_flags = getelementptr inbounds %struct.nghttp2_stream, ptr %0, i32 0, i32 28
-  %1 = load i32, ptr %http_flags, align 4
-  %and = and i32 %1, 16384
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then, label %if.end
+define hidden i32 @nghttp2_http_on_remote_end_stream(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  %4 = load ptr, ptr %3, align 8, !tbaa !8
+  %5 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %4, i32 0, i32 18
+  %6 = load i32, ptr %5, align 8, !tbaa !25
+  %7 = and i32 %6, 16384
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %9, label %10
 
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
+9:                                                ; preds = %1
+  store i32 -1, ptr %2, align 4
+  br label %25
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %stream.addr, align 8
-  %content_length = getelementptr inbounds %struct.nghttp2_stream, ptr %2, i32 0, i32 2
-  %3 = load i64, ptr %content_length, align 8
-  %cmp = icmp ne i64 %3, -1
-  br i1 %cmp, label %land.lhs.true, label %if.end4
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %3, align 8, !tbaa !8
+  %12 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %11, i32 0, i32 2
+  %13 = load i64, ptr %12, align 8, !tbaa !62
+  %14 = icmp ne i64 %13, -1
+  br i1 %14, label %15, label %24
 
-land.lhs.true:                                    ; preds = %if.end
-  %4 = load ptr, ptr %stream.addr, align 8
-  %content_length1 = getelementptr inbounds %struct.nghttp2_stream, ptr %4, i32 0, i32 2
-  %5 = load i64, ptr %content_length1, align 8
-  %6 = load ptr, ptr %stream.addr, align 8
-  %recv_content_length = getelementptr inbounds %struct.nghttp2_stream, ptr %6, i32 0, i32 3
-  %7 = load i64, ptr %recv_content_length, align 8
-  %cmp2 = icmp ne i64 %5, %7
-  br i1 %cmp2, label %if.then3, label %if.end4
+15:                                               ; preds = %10
+  %16 = load ptr, ptr %3, align 8, !tbaa !8
+  %17 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %16, i32 0, i32 2
+  %18 = load i64, ptr %17, align 8, !tbaa !62
+  %19 = load ptr, ptr %3, align 8, !tbaa !8
+  %20 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %19, i32 0, i32 3
+  %21 = load i64, ptr %20, align 8, !tbaa !65
+  %22 = icmp ne i64 %18, %21
+  br i1 %22, label %23, label %24
 
-if.then3:                                         ; preds = %land.lhs.true
-  store i32 -1, ptr %retval, align 4
-  br label %return
+23:                                               ; preds = %15
+  store i32 -1, ptr %2, align 4
+  br label %25
 
-if.end4:                                          ; preds = %land.lhs.true, %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+24:                                               ; preds = %15, %10
+  store i32 0, ptr %2, align 4
+  br label %25
 
-return:                                           ; preds = %if.end4, %if.then3, %if.then
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+25:                                               ; preds = %24, %23, %9
+  %26 = load i32, ptr %2, align 4
+  ret i32 %26
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_http_on_data_chunk(ptr noundef %stream, i64 noundef %n) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %stream.addr = alloca ptr, align 8
-  %n.addr = alloca i64, align 8
-  store ptr %stream, ptr %stream.addr, align 8
-  store i64 %n, ptr %n.addr, align 8
-  %0 = load i64, ptr %n.addr, align 8
-  %1 = load ptr, ptr %stream.addr, align 8
-  %recv_content_length = getelementptr inbounds %struct.nghttp2_stream, ptr %1, i32 0, i32 3
-  %2 = load i64, ptr %recv_content_length, align 8
-  %add = add nsw i64 %2, %0
-  store i64 %add, ptr %recv_content_length, align 8
-  %3 = load ptr, ptr %stream.addr, align 8
-  %http_flags = getelementptr inbounds %struct.nghttp2_stream, ptr %3, i32 0, i32 28
-  %4 = load i32, ptr %http_flags, align 4
-  %and = and i32 %4, 16384
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then, label %lor.lhs.false
+define hidden i32 @nghttp2_http_on_data_chunk(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i64 %1, ptr %5, align 8, !tbaa !22
+  %6 = load i64, ptr %5, align 8, !tbaa !22
+  %7 = load ptr, ptr %4, align 8, !tbaa !8
+  %8 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %7, i32 0, i32 3
+  %9 = load i64, ptr %8, align 8, !tbaa !65
+  %10 = add nsw i64 %9, %6
+  store i64 %10, ptr %8, align 8, !tbaa !65
+  %11 = load ptr, ptr %4, align 8, !tbaa !8
+  %12 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %11, i32 0, i32 18
+  %13 = load i32, ptr %12, align 8, !tbaa !25
+  %14 = and i32 %13, 16384
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %29, label %16
 
-lor.lhs.false:                                    ; preds = %entry
-  %5 = load ptr, ptr %stream.addr, align 8
-  %content_length = getelementptr inbounds %struct.nghttp2_stream, ptr %5, i32 0, i32 2
-  %6 = load i64, ptr %content_length, align 8
-  %cmp = icmp ne i64 %6, -1
-  br i1 %cmp, label %land.lhs.true, label %if.end
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %4, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %17, i32 0, i32 2
+  %19 = load i64, ptr %18, align 8, !tbaa !62
+  %20 = icmp ne i64 %19, -1
+  br i1 %20, label %21, label %30
 
-land.lhs.true:                                    ; preds = %lor.lhs.false
-  %7 = load ptr, ptr %stream.addr, align 8
-  %recv_content_length1 = getelementptr inbounds %struct.nghttp2_stream, ptr %7, i32 0, i32 3
-  %8 = load i64, ptr %recv_content_length1, align 8
-  %9 = load ptr, ptr %stream.addr, align 8
-  %content_length2 = getelementptr inbounds %struct.nghttp2_stream, ptr %9, i32 0, i32 2
-  %10 = load i64, ptr %content_length2, align 8
-  %cmp3 = icmp sgt i64 %8, %10
-  br i1 %cmp3, label %if.then, label %if.end
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %4, align 8, !tbaa !8
+  %23 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %22, i32 0, i32 3
+  %24 = load i64, ptr %23, align 8, !tbaa !65
+  %25 = load ptr, ptr %4, align 8, !tbaa !8
+  %26 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %25, i32 0, i32 2
+  %27 = load i64, ptr %26, align 8, !tbaa !62
+  %28 = icmp sgt i64 %24, %27
+  br i1 %28, label %29, label %30
 
-if.then:                                          ; preds = %land.lhs.true, %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
+29:                                               ; preds = %21, %2
+  store i32 -1, ptr %3, align 4
+  br label %31
 
-if.end:                                           ; preds = %land.lhs.true, %lor.lhs.false
-  store i32 0, ptr %retval, align 4
-  br label %return
+30:                                               ; preds = %21, %16
+  store i32 0, ptr %3, align 4
+  br label %31
 
-return:                                           ; preds = %if.end, %if.then
-  %11 = load i32, ptr %retval, align 4
-  ret i32 %11
+31:                                               ; preds = %30, %29
+  %32 = load i32, ptr %3, align 4
+  ret i32 %32
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nghttp2_http_record_request_method(ptr noundef %stream, ptr noundef %frame) #0 {
-entry:
-  %stream.addr = alloca ptr, align 8
-  %frame.addr = alloca ptr, align 8
-  %nva = alloca ptr, align 8
-  %nvlen = alloca i64, align 8
-  %i = alloca i64, align 8
-  %nv = alloca ptr, align 8
-  store ptr %stream, ptr %stream.addr, align 8
-  store ptr %frame, ptr %frame.addr, align 8
-  %0 = load ptr, ptr %frame.addr, align 8
-  %type = getelementptr inbounds %struct.nghttp2_frame_hd, ptr %0, i32 0, i32 2
-  %1 = load i8, ptr %type, align 4
-  %conv = zext i8 %1 to i32
-  switch i32 %conv, label %sw.default [
-    i32 1, label %sw.bb
-    i32 5, label %sw.bb3
+define hidden void @nghttp2_http_record_request_method(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %10 = load ptr, ptr %4, align 8, !tbaa !10
+  %11 = getelementptr inbounds nuw %struct.nghttp2_frame_hd, ptr %10, i32 0, i32 2
+  %12 = load i8, ptr %11, align 4, !tbaa !21
+  %13 = zext i8 %12 to i32
+  switch i32 %13, label %28 [
+    i32 1, label %14
+    i32 5, label %21
   ]
 
-sw.bb:                                            ; preds = %entry
-  %2 = load ptr, ptr %frame.addr, align 8
-  %nva1 = getelementptr inbounds %struct.nghttp2_headers, ptr %2, i32 0, i32 3
-  %3 = load ptr, ptr %nva1, align 8
-  store ptr %3, ptr %nva, align 8
-  %4 = load ptr, ptr %frame.addr, align 8
-  %nvlen2 = getelementptr inbounds %struct.nghttp2_headers, ptr %4, i32 0, i32 4
-  %5 = load i64, ptr %nvlen2, align 8
-  store i64 %5, ptr %nvlen, align 8
-  br label %sw.epilog
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %4, align 8, !tbaa !10
+  %16 = getelementptr inbounds nuw %struct.nghttp2_headers, ptr %15, i32 0, i32 3
+  %17 = load ptr, ptr %16, align 8, !tbaa !21
+  store ptr %17, ptr %5, align 8, !tbaa !10
+  %18 = load ptr, ptr %4, align 8, !tbaa !10
+  %19 = getelementptr inbounds nuw %struct.nghttp2_headers, ptr %18, i32 0, i32 4
+  %20 = load i64, ptr %19, align 8, !tbaa !21
+  store i64 %20, ptr %6, align 8, !tbaa !22
+  br label %29
 
-sw.bb3:                                           ; preds = %entry
-  %6 = load ptr, ptr %frame.addr, align 8
-  %nva4 = getelementptr inbounds %struct.nghttp2_push_promise, ptr %6, i32 0, i32 2
-  %7 = load ptr, ptr %nva4, align 8
-  store ptr %7, ptr %nva, align 8
-  %8 = load ptr, ptr %frame.addr, align 8
-  %nvlen5 = getelementptr inbounds %struct.nghttp2_push_promise, ptr %8, i32 0, i32 3
-  %9 = load i64, ptr %nvlen5, align 8
-  store i64 %9, ptr %nvlen, align 8
-  br label %sw.epilog
+21:                                               ; preds = %2
+  %22 = load ptr, ptr %4, align 8, !tbaa !10
+  %23 = getelementptr inbounds nuw %struct.nghttp2_push_promise, ptr %22, i32 0, i32 2
+  %24 = load ptr, ptr %23, align 8, !tbaa !21
+  store ptr %24, ptr %5, align 8, !tbaa !10
+  %25 = load ptr, ptr %4, align 8, !tbaa !10
+  %26 = getelementptr inbounds nuw %struct.nghttp2_push_promise, ptr %25, i32 0, i32 3
+  %27 = load i64, ptr %26, align 8, !tbaa !21
+  store i64 %27, ptr %6, align 8, !tbaa !22
+  br label %29
 
-sw.default:                                       ; preds = %entry
-  br label %for.end
+28:                                               ; preds = %2
+  store i32 1, ptr %8, align 4
+  br label %106
 
-sw.epilog:                                        ; preds = %sw.bb3, %sw.bb
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+29:                                               ; preds = %21, %14
+  store i64 0, ptr %7, align 8, !tbaa !22
+  br label %30
 
-for.cond:                                         ; preds = %for.inc, %sw.epilog
-  %10 = load i64, ptr %i, align 8
-  %11 = load i64, ptr %nvlen, align 8
-  %cmp = icmp ult i64 %10, %11
-  br i1 %cmp, label %for.body, label %for.end
+30:                                               ; preds = %102, %29
+  %31 = load i64, ptr %7, align 8, !tbaa !22
+  %32 = load i64, ptr %6, align 8, !tbaa !22
+  %33 = icmp ult i64 %31, %32
+  br i1 %33, label %34, label %105
 
-for.body:                                         ; preds = %for.cond
-  %12 = load ptr, ptr %nva, align 8
-  %13 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds %struct.nghttp2_nv, ptr %12, i64 %13
-  store ptr %arrayidx, ptr %nv, align 8
-  %14 = load ptr, ptr %nv, align 8
-  %namelen = getelementptr inbounds %struct.nghttp2_nv, ptr %14, i32 0, i32 2
-  %15 = load i64, ptr %namelen, align 8
-  %cmp7 = icmp eq i64 %15, 7
-  br i1 %cmp7, label %land.lhs.true, label %if.then
+34:                                               ; preds = %30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %35 = load ptr, ptr %5, align 8, !tbaa !10
+  %36 = load i64, ptr %7, align 8, !tbaa !22
+  %37 = getelementptr inbounds nuw %struct.nghttp2_nv, ptr %35, i64 %36
+  store ptr %37, ptr %9, align 8, !tbaa !10
+  %38 = load ptr, ptr %9, align 8, !tbaa !10
+  %39 = getelementptr inbounds nuw %struct.nghttp2_nv, ptr %38, i32 0, i32 2
+  %40 = load i64, ptr %39, align 8, !tbaa !66
+  %41 = icmp eq i64 %40, 7
+  br i1 %41, label %42, label %60
 
-land.lhs.true:                                    ; preds = %for.body
-  %16 = load ptr, ptr %nv, align 8
-  %name = getelementptr inbounds %struct.nghttp2_nv, ptr %16, i32 0, i32 0
-  %17 = load ptr, ptr %name, align 8
-  %arrayidx9 = getelementptr inbounds i8, ptr %17, i64 6
-  %18 = load i8, ptr %arrayidx9, align 1
-  %conv10 = zext i8 %18 to i32
-  %cmp11 = icmp eq i32 %conv10, 100
-  br i1 %cmp11, label %land.lhs.true13, label %if.then
+42:                                               ; preds = %34
+  %43 = load ptr, ptr %9, align 8, !tbaa !10
+  %44 = getelementptr inbounds nuw %struct.nghttp2_nv, ptr %43, i32 0, i32 0
+  %45 = load ptr, ptr %44, align 8, !tbaa !68
+  %46 = getelementptr inbounds i8, ptr %45, i64 6
+  %47 = load i8, ptr %46, align 1, !tbaa !21
+  %48 = zext i8 %47 to i32
+  %49 = icmp eq i32 %48, 100
+  br i1 %49, label %50, label %60
 
-land.lhs.true13:                                  ; preds = %land.lhs.true
-  %19 = load ptr, ptr %nv, align 8
-  %name14 = getelementptr inbounds %struct.nghttp2_nv, ptr %19, i32 0, i32 0
-  %20 = load ptr, ptr %name14, align 8
-  %21 = load ptr, ptr %nv, align 8
-  %namelen15 = getelementptr inbounds %struct.nghttp2_nv, ptr %21, i32 0, i32 2
-  %22 = load i64, ptr %namelen15, align 8
-  %sub = sub i64 %22, 1
-  %call = call i32 @memcmp(ptr noundef @.str.2, ptr noundef %20, i64 noundef %sub) #6
-  %cmp16 = icmp eq i32 %call, 0
-  br i1 %cmp16, label %if.end, label %if.then
+50:                                               ; preds = %42
+  %51 = load ptr, ptr %9, align 8, !tbaa !10
+  %52 = getelementptr inbounds nuw %struct.nghttp2_nv, ptr %51, i32 0, i32 0
+  %53 = load ptr, ptr %52, align 8, !tbaa !68
+  %54 = load ptr, ptr %9, align 8, !tbaa !10
+  %55 = getelementptr inbounds nuw %struct.nghttp2_nv, ptr %54, i32 0, i32 2
+  %56 = load i64, ptr %55, align 8, !tbaa !66
+  %57 = sub i64 %56, 1
+  %58 = call i32 @memcmp(ptr noundef @.str.2, ptr noundef %53, i64 noundef %57) #8
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %61, label %60
 
-if.then:                                          ; preds = %land.lhs.true13, %land.lhs.true, %for.body
-  br label %for.inc
+60:                                               ; preds = %50, %42, %34
+  store i32 5, ptr %8, align 4
+  br label %100
 
-if.end:                                           ; preds = %land.lhs.true13
-  %23 = load ptr, ptr %nv, align 8
-  %valuelen = getelementptr inbounds %struct.nghttp2_nv, ptr %23, i32 0, i32 3
-  %24 = load i64, ptr %valuelen, align 8
-  %cmp18 = icmp eq i64 7, %24
-  br i1 %cmp18, label %land.lhs.true20, label %if.end26
+61:                                               ; preds = %50
+  %62 = load ptr, ptr %9, align 8, !tbaa !10
+  %63 = getelementptr inbounds nuw %struct.nghttp2_nv, ptr %62, i32 0, i32 3
+  %64 = load i64, ptr %63, align 8, !tbaa !69
+  %65 = icmp eq i64 7, %64
+  br i1 %65, label %66, label %80
 
-land.lhs.true20:                                  ; preds = %if.end
-  %25 = load ptr, ptr %nv, align 8
-  %value = getelementptr inbounds %struct.nghttp2_nv, ptr %25, i32 0, i32 1
-  %26 = load ptr, ptr %value, align 8
-  %27 = load ptr, ptr %nv, align 8
-  %valuelen21 = getelementptr inbounds %struct.nghttp2_nv, ptr %27, i32 0, i32 3
-  %28 = load i64, ptr %valuelen21, align 8
-  %call22 = call i32 @memcmp(ptr noundef @.str.3, ptr noundef %26, i64 noundef %28) #6
-  %cmp23 = icmp eq i32 %call22, 0
-  br i1 %cmp23, label %if.then25, label %if.end26
+66:                                               ; preds = %61
+  %67 = load ptr, ptr %9, align 8, !tbaa !10
+  %68 = getelementptr inbounds nuw %struct.nghttp2_nv, ptr %67, i32 0, i32 1
+  %69 = load ptr, ptr %68, align 8, !tbaa !70
+  %70 = load ptr, ptr %9, align 8, !tbaa !10
+  %71 = getelementptr inbounds nuw %struct.nghttp2_nv, ptr %70, i32 0, i32 3
+  %72 = load i64, ptr %71, align 8, !tbaa !69
+  %73 = call i32 @memcmp(ptr noundef @.str.3, ptr noundef %69, i64 noundef %72) #8
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %75, label %80
 
-if.then25:                                        ; preds = %land.lhs.true20
-  %29 = load ptr, ptr %stream.addr, align 8
-  %http_flags = getelementptr inbounds %struct.nghttp2_stream, ptr %29, i32 0, i32 28
-  %30 = load i32, ptr %http_flags, align 4
-  %or = or i32 %30, 128
-  store i32 %or, ptr %http_flags, align 4
-  br label %for.end
+75:                                               ; preds = %66
+  %76 = load ptr, ptr %3, align 8, !tbaa !8
+  %77 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %76, i32 0, i32 18
+  %78 = load i32, ptr %77, align 8, !tbaa !25
+  %79 = or i32 %78, 128
+  store i32 %79, ptr %77, align 8, !tbaa !25
+  store i32 1, ptr %8, align 4
+  br label %100
 
-if.end26:                                         ; preds = %land.lhs.true20, %if.end
-  %31 = load ptr, ptr %nv, align 8
-  %valuelen27 = getelementptr inbounds %struct.nghttp2_nv, ptr %31, i32 0, i32 3
-  %32 = load i64, ptr %valuelen27, align 8
-  %cmp28 = icmp eq i64 4, %32
-  br i1 %cmp28, label %land.lhs.true30, label %if.end39
+80:                                               ; preds = %66, %61
+  %81 = load ptr, ptr %9, align 8, !tbaa !10
+  %82 = getelementptr inbounds nuw %struct.nghttp2_nv, ptr %81, i32 0, i32 3
+  %83 = load i64, ptr %82, align 8, !tbaa !69
+  %84 = icmp eq i64 4, %83
+  br i1 %84, label %85, label %99
 
-land.lhs.true30:                                  ; preds = %if.end26
-  %33 = load ptr, ptr %nv, align 8
-  %value31 = getelementptr inbounds %struct.nghttp2_nv, ptr %33, i32 0, i32 1
-  %34 = load ptr, ptr %value31, align 8
-  %35 = load ptr, ptr %nv, align 8
-  %valuelen32 = getelementptr inbounds %struct.nghttp2_nv, ptr %35, i32 0, i32 3
-  %36 = load i64, ptr %valuelen32, align 8
-  %call33 = call i32 @memcmp(ptr noundef @.str.4, ptr noundef %34, i64 noundef %36) #6
-  %cmp34 = icmp eq i32 %call33, 0
-  br i1 %cmp34, label %if.then36, label %if.end39
+85:                                               ; preds = %80
+  %86 = load ptr, ptr %9, align 8, !tbaa !10
+  %87 = getelementptr inbounds nuw %struct.nghttp2_nv, ptr %86, i32 0, i32 1
+  %88 = load ptr, ptr %87, align 8, !tbaa !70
+  %89 = load ptr, ptr %9, align 8, !tbaa !10
+  %90 = getelementptr inbounds nuw %struct.nghttp2_nv, ptr %89, i32 0, i32 3
+  %91 = load i64, ptr %90, align 8, !tbaa !69
+  %92 = call i32 @memcmp(ptr noundef @.str.4, ptr noundef %88, i64 noundef %91) #8
+  %93 = icmp eq i32 %92, 0
+  br i1 %93, label %94, label %99
 
-if.then36:                                        ; preds = %land.lhs.true30
-  %37 = load ptr, ptr %stream.addr, align 8
-  %http_flags37 = getelementptr inbounds %struct.nghttp2_stream, ptr %37, i32 0, i32 28
-  %38 = load i32, ptr %http_flags37, align 4
-  %or38 = or i32 %38, 256
-  store i32 %or38, ptr %http_flags37, align 4
-  br label %for.end
+94:                                               ; preds = %85
+  %95 = load ptr, ptr %3, align 8, !tbaa !8
+  %96 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %95, i32 0, i32 18
+  %97 = load i32, ptr %96, align 8, !tbaa !25
+  %98 = or i32 %97, 256
+  store i32 %98, ptr %96, align 8, !tbaa !25
+  store i32 1, ptr %8, align 4
+  br label %100
 
-if.end39:                                         ; preds = %land.lhs.true30, %if.end26
-  br label %for.end
+99:                                               ; preds = %85, %80
+  store i32 1, ptr %8, align 4
+  br label %100
 
-for.inc:                                          ; preds = %if.then
-  %39 = load i64, ptr %i, align 8
-  %inc = add i64 %39, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !8
+100:                                              ; preds = %99, %94, %75, %60
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  %101 = load i32, ptr %8, align 4
+  switch i32 %101, label %106 [
+    i32 5, label %102
+  ]
 
-for.end:                                          ; preds = %if.end39, %if.then36, %if.then25, %for.cond, %sw.default
+102:                                              ; preds = %100
+  %103 = load i64, ptr %7, align 8, !tbaa !22
+  %104 = add i64 %103, 1
+  store i64 %104, ptr %7, align 8, !tbaa !22
+  br label %30, !llvm.loop !71
+
+105:                                              ; preds = %30
+  store i32 0, ptr %8, align 4
+  br label %106
+
+106:                                              ; preds = %105, %100, %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  %107 = load i32, ptr %8, align 4
+  switch i32 %107, label %109 [
+    i32 0, label %108
+    i32 1, label %108
+  ]
+
+108:                                              ; preds = %106, %106
   ret void
+
+109:                                              ; preds = %106
+  unreachable
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #3
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_http_parse_priority(ptr noundef %dest, ptr noundef %value, i64 noundef %valuelen) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %dest.addr = alloca ptr, align 8
-  %value.addr = alloca ptr, align 8
-  %valuelen.addr = alloca i64, align 8
-  %pri = alloca %struct.nghttp2_extpri, align 4
-  %sfp = alloca %struct.sf_parser, align 8
-  %key = alloca %struct.sf_vec, align 8
-  %val = alloca %struct.sf_value, align 8
-  %rv = alloca i32, align 4
-  store ptr %dest, ptr %dest.addr, align 8
-  store ptr %value, ptr %value.addr, align 8
-  store i64 %valuelen, ptr %valuelen.addr, align 8
-  %0 = load ptr, ptr %dest.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %pri, ptr align 4 %0, i64 8, i1 false)
-  %1 = load ptr, ptr %value.addr, align 8
-  %2 = load i64, ptr %valuelen.addr, align 8
-  call void @sf_parser_init(ptr noundef %sfp, ptr noundef %1, i64 noundef %2)
-  br label %for.cond
+define hidden i32 @nghttp2_http_parse_priority(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca %struct.nghttp2_extpri, align 4
+  %9 = alloca %struct.sfparse_parser, align 8
+  %10 = alloca %struct.sfparse_vec, align 8
+  %11 = alloca %struct.sfparse_value, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !72
+  store ptr %1, ptr %6, align 8, !tbaa !57
+  store i64 %2, ptr %7, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %14 = load ptr, ptr %5, align 8, !tbaa !72
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %8, ptr align 4 %14, i64 8, i1 false), !tbaa.struct !74
+  call void @llvm.lifetime.start.p0(i64 24, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 24, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  %15 = load ptr, ptr %6, align 8, !tbaa !57
+  %16 = load i64, ptr %7, align 8, !tbaa !22
+  call void @sfparse_parser_init(ptr noundef %9, ptr noundef %15, i64 noundef %16)
+  br label %17
 
-for.cond:                                         ; preds = %sw.epilog, %if.then5, %entry
-  %call = call i32 @sf_parser_dict(ptr noundef %sfp, ptr noundef %key, ptr noundef %val)
-  store i32 %call, ptr %rv, align 4
-  %3 = load i32, ptr %rv, align 4
-  %cmp = icmp ne i32 %3, 0
-  br i1 %cmp, label %if.then, label %if.end3
+17:                                               ; preds = %64, %30, %3
+  %18 = call i32 @sfparse_parser_dict(ptr noundef %9, ptr noundef %10, ptr noundef %11)
+  store i32 %18, ptr %12, align 4, !tbaa !11
+  %19 = load i32, ptr %12, align 4, !tbaa !11
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %26
 
-if.then:                                          ; preds = %for.cond
-  %4 = load i32, ptr %rv, align 4
-  %cmp1 = icmp eq i32 %4, -2
-  br i1 %cmp1, label %if.then2, label %if.end
+21:                                               ; preds = %17
+  %22 = load i32, ptr %12, align 4, !tbaa !11
+  %23 = icmp eq i32 %22, -2
+  br i1 %23, label %24, label %25
 
-if.then2:                                         ; preds = %if.then
-  br label %for.end
+24:                                               ; preds = %21
+  br label %65
 
-if.end:                                           ; preds = %if.then
-  store i32 -501, ptr %retval, align 4
-  br label %return
+25:                                               ; preds = %21
+  store i32 -501, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %67
 
-if.end3:                                          ; preds = %for.cond
-  %len = getelementptr inbounds %struct.sf_vec, ptr %key, i32 0, i32 1
-  %5 = load i64, ptr %len, align 8
-  %cmp4 = icmp ne i64 %5, 1
-  br i1 %cmp4, label %if.then5, label %if.end6
+26:                                               ; preds = %17
+  %27 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %10, i32 0, i32 1
+  %28 = load i64, ptr %27, align 8, !tbaa !75
+  %29 = icmp ne i64 %28, 1
+  br i1 %29, label %30, label %31
 
-if.then5:                                         ; preds = %if.end3
-  br label %for.cond
+30:                                               ; preds = %26
+  br label %17
 
-if.end6:                                          ; preds = %if.end3
-  %base = getelementptr inbounds %struct.sf_vec, ptr %key, i32 0, i32 0
-  %6 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %6, i64 0
-  %7 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %7 to i32
-  switch i32 %conv, label %sw.epilog [
-    i32 105, label %sw.bb
-    i32 117, label %sw.bb11
+31:                                               ; preds = %26
+  %32 = getelementptr inbounds nuw %struct.sfparse_vec, ptr %10, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !77
+  %34 = getelementptr inbounds i8, ptr %33, i64 0
+  %35 = load i8, ptr %34, align 1, !tbaa !21
+  %36 = zext i8 %35 to i32
+  switch i32 %36, label %64 [
+    i32 105, label %37
+    i32 117, label %46
   ]
 
-sw.bb:                                            ; preds = %if.end6
-  %type = getelementptr inbounds %struct.sf_value, ptr %val, i32 0, i32 0
-  %8 = load i32, ptr %type, align 8
-  %cmp7 = icmp ne i32 %8, 0
-  br i1 %cmp7, label %if.then9, label %if.end10
+37:                                               ; preds = %31
+  %38 = getelementptr inbounds nuw %struct.sfparse_value, ptr %11, i32 0, i32 0
+  %39 = load i32, ptr %38, align 8, !tbaa !78
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %41, label %42
 
-if.then9:                                         ; preds = %sw.bb
-  store i32 -501, ptr %retval, align 4
-  br label %return
+41:                                               ; preds = %37
+  store i32 -501, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %67
 
-if.end10:                                         ; preds = %sw.bb
-  %9 = getelementptr inbounds %struct.sf_value, ptr %val, i32 0, i32 2
-  %10 = load i32, ptr %9, align 8
-  %inc = getelementptr inbounds %struct.nghttp2_extpri, ptr %pri, i32 0, i32 1
-  store i32 %10, ptr %inc, align 4
-  br label %sw.epilog
+42:                                               ; preds = %37
+  %43 = getelementptr inbounds nuw %struct.sfparse_value, ptr %11, i32 0, i32 2
+  %44 = load i32, ptr %43, align 8, !tbaa !21
+  %45 = getelementptr inbounds nuw %struct.nghttp2_extpri, ptr %8, i32 0, i32 1
+  store i32 %44, ptr %45, align 4, !tbaa !80
+  br label %64
 
-sw.bb11:                                          ; preds = %if.end6
-  %type12 = getelementptr inbounds %struct.sf_value, ptr %val, i32 0, i32 0
-  %11 = load i32, ptr %type12, align 8
-  %cmp13 = icmp ne i32 %11, 1
-  br i1 %cmp13, label %if.then20, label %lor.lhs.false
+46:                                               ; preds = %31
+  %47 = getelementptr inbounds nuw %struct.sfparse_value, ptr %11, i32 0, i32 0
+  %48 = load i32, ptr %47, align 8, !tbaa !78
+  %49 = icmp ne i32 %48, 1
+  br i1 %49, label %58, label %50
 
-lor.lhs.false:                                    ; preds = %sw.bb11
-  %12 = getelementptr inbounds %struct.sf_value, ptr %val, i32 0, i32 2
-  %13 = load i64, ptr %12, align 8
-  %cmp15 = icmp slt i64 %13, 0
-  br i1 %cmp15, label %if.then20, label %lor.lhs.false17
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw %struct.sfparse_value, ptr %11, i32 0, i32 2
+  %52 = load i64, ptr %51, align 8, !tbaa !21
+  %53 = icmp slt i64 %52, 0
+  br i1 %53, label %58, label %54
 
-lor.lhs.false17:                                  ; preds = %lor.lhs.false
-  %14 = getelementptr inbounds %struct.sf_value, ptr %val, i32 0, i32 2
-  %15 = load i64, ptr %14, align 8
-  %cmp18 = icmp slt i64 7, %15
-  br i1 %cmp18, label %if.then20, label %if.end21
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds nuw %struct.sfparse_value, ptr %11, i32 0, i32 2
+  %56 = load i64, ptr %55, align 8, !tbaa !21
+  %57 = icmp slt i64 7, %56
+  br i1 %57, label %58, label %59
 
-if.then20:                                        ; preds = %lor.lhs.false17, %lor.lhs.false, %sw.bb11
-  store i32 -501, ptr %retval, align 4
-  br label %return
+58:                                               ; preds = %54, %50, %46
+  store i32 -501, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %67
 
-if.end21:                                         ; preds = %lor.lhs.false17
-  %16 = getelementptr inbounds %struct.sf_value, ptr %val, i32 0, i32 2
-  %17 = load i64, ptr %16, align 8
-  %conv22 = trunc i64 %17 to i32
-  %urgency = getelementptr inbounds %struct.nghttp2_extpri, ptr %pri, i32 0, i32 0
-  store i32 %conv22, ptr %urgency, align 4
-  br label %sw.epilog
+59:                                               ; preds = %54
+  %60 = getelementptr inbounds nuw %struct.sfparse_value, ptr %11, i32 0, i32 2
+  %61 = load i64, ptr %60, align 8, !tbaa !21
+  %62 = trunc i64 %61 to i32
+  %63 = getelementptr inbounds nuw %struct.nghttp2_extpri, ptr %8, i32 0, i32 0
+  store i32 %62, ptr %63, align 4, !tbaa !82
+  br label %64
 
-sw.epilog:                                        ; preds = %if.end21, %if.end10, %if.end6
-  br label %for.cond
+64:                                               ; preds = %31, %59, %42
+  br label %17
 
-for.end:                                          ; preds = %if.then2
-  %18 = load ptr, ptr %dest.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %18, ptr align 4 %pri, i64 8, i1 false)
-  store i32 0, ptr %retval, align 4
-  br label %return
+65:                                               ; preds = %24
+  %66 = load ptr, ptr %5, align 8, !tbaa !72
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %66, ptr align 4 %8, i64 8, i1 false), !tbaa.struct !74
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %67
 
-return:                                           ; preds = %for.end, %if.then20, %if.then9, %if.end
-  %19 = load i32, ptr %retval, align 4
-  ret i32 %19
+67:                                               ; preds = %65, %58, %41, %25
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 24, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  %68 = load i32, ptr %4, align 4
+  ret i32 %68
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare void @sf_parser_init(ptr noundef, ptr noundef, i64 noundef) #1
+declare void @sfparse_parser_init(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @sf_parser_dict(ptr noundef, ptr noundef, ptr noundef) #1
+declare i32 @sfparse_parser_dict(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @check_pseudo_header(ptr noundef %stream, ptr noundef %nv, i32 noundef %flag) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %stream.addr = alloca ptr, align 8
-  %nv.addr = alloca ptr, align 8
-  %flag.addr = alloca i32, align 4
-  store ptr %stream, ptr %stream.addr, align 8
-  store ptr %nv, ptr %nv.addr, align 8
-  store i32 %flag, ptr %flag.addr, align 4
-  %0 = load ptr, ptr %stream.addr, align 8
-  %http_flags = getelementptr inbounds %struct.nghttp2_stream, ptr %0, i32 0, i32 28
-  %1 = load i32, ptr %http_flags, align 4
-  %2 = load i32, ptr %flag.addr, align 4
-  %and = and i32 %1, %2
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then, label %lor.lhs.false
+define internal i32 @check_pseudo_header(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !10
+  store i32 %2, ptr %7, align 4, !tbaa !11
+  %8 = load ptr, ptr %5, align 8, !tbaa !8
+  %9 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %8, i32 0, i32 18
+  %10 = load i32, ptr %9, align 8, !tbaa !25
+  %11 = load i32, ptr %7, align 4, !tbaa !11
+  %12 = and i32 %10, %11
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %21, label %14
 
-lor.lhs.false:                                    ; preds = %entry
-  %3 = load ptr, ptr %nv.addr, align 8
-  %value = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %3, i32 0, i32 1
-  %4 = load ptr, ptr %value, align 8
-  %len = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %4, i32 0, i32 3
-  %5 = load i64, ptr %len, align 8
-  %cmp = icmp eq i64 %5, 0
-  br i1 %cmp, label %if.then, label %if.end
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %6, align 8, !tbaa !10
+  %16 = getelementptr inbounds nuw %struct.nghttp2_hd_nv, ptr %15, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8, !tbaa !31
+  %18 = getelementptr inbounds nuw %struct.nghttp2_rcbuf, ptr %17, i32 0, i32 3
+  %19 = load i64, ptr %18, align 8, !tbaa !20
+  %20 = icmp eq i64 %19, 0
+  br i1 %20, label %21, label %22
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+21:                                               ; preds = %14, %3
+  store i32 0, ptr %4, align 4
+  br label %30
 
-if.end:                                           ; preds = %lor.lhs.false
-  %6 = load ptr, ptr %stream.addr, align 8
-  %http_flags1 = getelementptr inbounds %struct.nghttp2_stream, ptr %6, i32 0, i32 28
-  %7 = load i32, ptr %http_flags1, align 4
-  %8 = load i32, ptr %flag.addr, align 4
-  %or = or i32 %7, %8
-  %9 = load ptr, ptr %stream.addr, align 8
-  %http_flags2 = getelementptr inbounds %struct.nghttp2_stream, ptr %9, i32 0, i32 28
-  store i32 %or, ptr %http_flags2, align 4
-  store i32 1, ptr %retval, align 4
-  br label %return
+22:                                               ; preds = %14
+  %23 = load ptr, ptr %5, align 8, !tbaa !8
+  %24 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %23, i32 0, i32 18
+  %25 = load i32, ptr %24, align 8, !tbaa !25
+  %26 = load i32, ptr %7, align 4, !tbaa !11
+  %27 = or i32 %25, %26
+  %28 = load ptr, ptr %5, align 8, !tbaa !8
+  %29 = getelementptr inbounds nuw %struct.nghttp2_stream, ptr %28, i32 0, i32 18
+  store i32 %27, ptr %29, align 8, !tbaa !25
+  store i32 1, ptr %4, align 4
+  br label %30
 
-return:                                           ; preds = %if.end, %if.then
-  %10 = load i32, ptr %retval, align 4
-  ret i32 %10
+30:                                               ; preds = %22, %21
+  %31 = load i32, ptr %4, align 4
+  ret i32 %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @memieq(ptr noundef %a, ptr noundef %b, i64 noundef %n) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %a.addr = alloca ptr, align 8
-  %b.addr = alloca ptr, align 8
-  %n.addr = alloca i64, align 8
-  %i = alloca i64, align 8
-  %aa = alloca ptr, align 8
-  %bb = alloca ptr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %b, ptr %b.addr, align 8
-  store i64 %n, ptr %n.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  store ptr %0, ptr %aa, align 8
-  %1 = load ptr, ptr %b.addr, align 8
-  store ptr %1, ptr %bb, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+define internal i32 @memieq(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !10
+  store ptr %1, ptr %6, align 8, !tbaa !10
+  store i64 %2, ptr %7, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %12 = load ptr, ptr %5, align 8, !tbaa !10
+  store ptr %12, ptr %9, align 8, !tbaa !57
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %13 = load ptr, ptr %6, align 8, !tbaa !10
+  store ptr %13, ptr %10, align 8, !tbaa !57
+  store i64 0, ptr %8, align 8, !tbaa !22
+  br label %14
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load i64, ptr %i, align 8
-  %3 = load i64, ptr %n.addr, align 8
-  %cmp = icmp ult i64 %2, %3
-  br i1 %cmp, label %for.body, label %for.end
+14:                                               ; preds = %34, %3
+  %15 = load i64, ptr %8, align 8, !tbaa !22
+  %16 = load i64, ptr %7, align 8, !tbaa !22
+  %17 = icmp ult i64 %15, %16
+  br i1 %17, label %18, label %37
 
-for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %aa, align 8
-  %5 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %4, i64 %5
-  %6 = load i8, ptr %arrayidx, align 1
-  %call = call zeroext i8 @downcase(i8 noundef zeroext %6)
-  %conv = zext i8 %call to i32
-  %7 = load ptr, ptr %bb, align 8
-  %8 = load i64, ptr %i, align 8
-  %arrayidx1 = getelementptr inbounds i8, ptr %7, i64 %8
-  %9 = load i8, ptr %arrayidx1, align 1
-  %call2 = call zeroext i8 @downcase(i8 noundef zeroext %9)
-  %conv3 = zext i8 %call2 to i32
-  %cmp4 = icmp ne i32 %conv, %conv3
-  br i1 %cmp4, label %if.then, label %if.end
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %9, align 8, !tbaa !57
+  %20 = load i64, ptr %8, align 8, !tbaa !22
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %20
+  %22 = load i8, ptr %21, align 1, !tbaa !21
+  %23 = call zeroext i8 @downcase(i8 noundef zeroext %22)
+  %24 = zext i8 %23 to i32
+  %25 = load ptr, ptr %10, align 8, !tbaa !57
+  %26 = load i64, ptr %8, align 8, !tbaa !22
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 %26
+  %28 = load i8, ptr %27, align 1, !tbaa !21
+  %29 = call zeroext i8 @downcase(i8 noundef zeroext %28)
+  %30 = zext i8 %29 to i32
+  %31 = icmp ne i32 %24, %30
+  br i1 %31, label %32, label %33
 
-if.then:                                          ; preds = %for.body
-  store i32 0, ptr %retval, align 4
-  br label %return
+32:                                               ; preds = %18
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %38
 
-if.end:                                           ; preds = %for.body
-  br label %for.inc
+33:                                               ; preds = %18
+  br label %34
 
-for.inc:                                          ; preds = %if.end
-  %10 = load i64, ptr %i, align 8
-  %inc = add i64 %10, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !9
+34:                                               ; preds = %33
+  %35 = load i64, ptr %8, align 8, !tbaa !22
+  %36 = add i64 %35, 1
+  store i64 %36, ptr %8, align 8, !tbaa !22
+  br label %14, !llvm.loop !83
 
-for.end:                                          ; preds = %for.cond
-  store i32 1, ptr %retval, align 4
-  br label %return
+37:                                               ; preds = %14
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %38
 
-return:                                           ; preds = %for.end, %if.then
-  %11 = load i32, ptr %retval, align 4
-  ret i32 %11
+38:                                               ; preds = %37, %32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  %39 = load i32, ptr %4, align 4
+  ret i32 %39
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @parse_uint(ptr noundef %s, i64 noundef %len) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %s.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  %n = alloca i64, align 8
-  %i = alloca i64, align 8
-  store ptr %s, ptr %s.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  store i64 0, ptr %n, align 8
-  %0 = load i64, ptr %len.addr, align 8
-  %cmp = icmp eq i64 %0, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal i64 @parse_uint(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !57
+  store i64 %1, ptr %5, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  store i64 0, ptr %6, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %9 = load i64, ptr %5, align 8, !tbaa !22
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %11, label %12
 
-if.then:                                          ; preds = %entry
-  store i64 -1, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %2
+  store i64 -1, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %65
 
-if.end:                                           ; preds = %entry
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+12:                                               ; preds = %2
+  store i64 0, ptr %7, align 8, !tbaa !22
+  br label %13
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %1 = load i64, ptr %i, align 8
-  %2 = load i64, ptr %len.addr, align 8
-  %cmp1 = icmp ult i64 %1, %2
-  br i1 %cmp1, label %for.body, label %for.end
+13:                                               ; preds = %60, %12
+  %14 = load i64, ptr %7, align 8, !tbaa !22
+  %15 = load i64, ptr %5, align 8, !tbaa !22
+  %16 = icmp ult i64 %14, %15
+  br i1 %16, label %17, label %63
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %s.addr, align 8
-  %4 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %3, i64 %4
-  %5 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %5 to i32
-  %cmp2 = icmp sle i32 48, %conv
-  br i1 %cmp2, label %land.lhs.true, label %if.end25
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %4, align 8, !tbaa !57
+  %19 = load i64, ptr %7, align 8, !tbaa !22
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
+  %21 = load i8, ptr %20, align 1, !tbaa !21
+  %22 = zext i8 %21 to i32
+  %23 = icmp sle i32 48, %22
+  br i1 %23, label %24, label %59
 
-land.lhs.true:                                    ; preds = %for.body
-  %6 = load ptr, ptr %s.addr, align 8
-  %7 = load i64, ptr %i, align 8
-  %arrayidx4 = getelementptr inbounds i8, ptr %6, i64 %7
-  %8 = load i8, ptr %arrayidx4, align 1
-  %conv5 = zext i8 %8 to i32
-  %cmp6 = icmp sle i32 %conv5, 57
-  br i1 %cmp6, label %if.then8, label %if.end25
+24:                                               ; preds = %17
+  %25 = load ptr, ptr %4, align 8, !tbaa !57
+  %26 = load i64, ptr %7, align 8, !tbaa !22
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 %26
+  %28 = load i8, ptr %27, align 1, !tbaa !21
+  %29 = zext i8 %28 to i32
+  %30 = icmp sle i32 %29, 57
+  br i1 %30, label %31, label %59
 
-if.then8:                                         ; preds = %land.lhs.true
-  %9 = load i64, ptr %n, align 8
-  %cmp9 = icmp sgt i64 %9, 922337203685477580
-  br i1 %cmp9, label %if.then11, label %if.end12
+31:                                               ; preds = %24
+  %32 = load i64, ptr %6, align 8, !tbaa !22
+  %33 = icmp sgt i64 %32, 922337203685477580
+  br i1 %33, label %34, label %35
 
-if.then11:                                        ; preds = %if.then8
-  store i64 -1, ptr %retval, align 8
-  br label %return
+34:                                               ; preds = %31
+  store i64 -1, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %65
 
-if.end12:                                         ; preds = %if.then8
-  %10 = load i64, ptr %n, align 8
-  %mul = mul nsw i64 %10, 10
-  store i64 %mul, ptr %n, align 8
-  %11 = load i64, ptr %n, align 8
-  %12 = load ptr, ptr %s.addr, align 8
-  %13 = load i64, ptr %i, align 8
-  %arrayidx13 = getelementptr inbounds i8, ptr %12, i64 %13
-  %14 = load i8, ptr %arrayidx13, align 1
-  %conv14 = zext i8 %14 to i32
-  %sub = sub nsw i32 %conv14, 48
-  %conv15 = sext i32 %sub to i64
-  %sub16 = sub nsw i64 9223372036854775807, %conv15
-  %cmp17 = icmp sgt i64 %11, %sub16
-  br i1 %cmp17, label %if.then19, label %if.end20
+35:                                               ; preds = %31
+  %36 = load i64, ptr %6, align 8, !tbaa !22
+  %37 = mul nsw i64 %36, 10
+  store i64 %37, ptr %6, align 8, !tbaa !22
+  %38 = load i64, ptr %6, align 8, !tbaa !22
+  %39 = load ptr, ptr %4, align 8, !tbaa !57
+  %40 = load i64, ptr %7, align 8, !tbaa !22
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 %40
+  %42 = load i8, ptr %41, align 1, !tbaa !21
+  %43 = zext i8 %42 to i32
+  %44 = sub nsw i32 %43, 48
+  %45 = sext i32 %44 to i64
+  %46 = sub nsw i64 9223372036854775807, %45
+  %47 = icmp sgt i64 %38, %46
+  br i1 %47, label %48, label %49
 
-if.then19:                                        ; preds = %if.end12
-  store i64 -1, ptr %retval, align 8
-  br label %return
+48:                                               ; preds = %35
+  store i64 -1, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %65
 
-if.end20:                                         ; preds = %if.end12
-  %15 = load ptr, ptr %s.addr, align 8
-  %16 = load i64, ptr %i, align 8
-  %arrayidx21 = getelementptr inbounds i8, ptr %15, i64 %16
-  %17 = load i8, ptr %arrayidx21, align 1
-  %conv22 = zext i8 %17 to i32
-  %sub23 = sub nsw i32 %conv22, 48
-  %conv24 = sext i32 %sub23 to i64
-  %18 = load i64, ptr %n, align 8
-  %add = add nsw i64 %18, %conv24
-  store i64 %add, ptr %n, align 8
-  br label %for.inc
+49:                                               ; preds = %35
+  %50 = load ptr, ptr %4, align 8, !tbaa !57
+  %51 = load i64, ptr %7, align 8, !tbaa !22
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 %51
+  %53 = load i8, ptr %52, align 1, !tbaa !21
+  %54 = zext i8 %53 to i32
+  %55 = sub nsw i32 %54, 48
+  %56 = sext i32 %55 to i64
+  %57 = load i64, ptr %6, align 8, !tbaa !22
+  %58 = add nsw i64 %57, %56
+  store i64 %58, ptr %6, align 8, !tbaa !22
+  br label %60
 
-if.end25:                                         ; preds = %land.lhs.true, %for.body
-  store i64 -1, ptr %retval, align 8
-  br label %return
+59:                                               ; preds = %24, %17
+  store i64 -1, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %65
 
-for.inc:                                          ; preds = %if.end20
-  %19 = load i64, ptr %i, align 8
-  %inc = add i64 %19, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !10
+60:                                               ; preds = %49
+  %61 = load i64, ptr %7, align 8, !tbaa !22
+  %62 = add i64 %61, 1
+  store i64 %62, ptr %7, align 8, !tbaa !22
+  br label %13, !llvm.loop !84
 
-for.end:                                          ; preds = %for.cond
-  %20 = load i64, ptr %n, align 8
-  store i64 %20, ptr %retval, align 8
-  br label %return
+63:                                               ; preds = %13
+  %64 = load i64, ptr %6, align 8, !tbaa !22
+  store i64 %64, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %65
 
-return:                                           ; preds = %for.end, %if.end25, %if.then19, %if.then11, %if.then
-  %21 = load i64, ptr %retval, align 8
-  ret i64 %21
+65:                                               ; preds = %63, %59, %48, %34, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  %66 = load i64, ptr %3, align 8
+  ret i64 %66
 }
 
-declare void @nghttp2_extpri_from_uint8(ptr noundef, i8 noundef zeroext) #1
+declare void @nghttp2_extpri_from_uint8(ptr noundef, i8 noundef zeroext) #2
 
-declare zeroext i8 @nghttp2_extpri_to_uint8(ptr noundef) #1
+declare zeroext i8 @nghttp2_extpri_to_uint8(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i8 @downcase(i8 noundef zeroext %c) #0 {
-entry:
-  %c.addr = alloca i8, align 1
-  store i8 %c, ptr %c.addr, align 1
-  %0 = load i8, ptr %c.addr, align 1
-  %conv = zext i8 %0 to i32
-  %cmp = icmp sle i32 65, %conv
-  br i1 %cmp, label %land.lhs.true, label %cond.false
+define internal zeroext i8 @downcase(i8 noundef zeroext %0) #0 {
+  %2 = alloca i8, align 1
+  store i8 %0, ptr %2, align 1, !tbaa !21
+  %3 = load i8, ptr %2, align 1, !tbaa !21
+  %4 = zext i8 %3 to i32
+  %5 = icmp sle i32 65, %4
+  br i1 %5, label %6, label %17
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i8, ptr %c.addr, align 1
-  %conv2 = zext i8 %1 to i32
-  %cmp3 = icmp sle i32 %conv2, 90
-  br i1 %cmp3, label %cond.true, label %cond.false
+6:                                                ; preds = %1
+  %7 = load i8, ptr %2, align 1, !tbaa !21
+  %8 = zext i8 %7 to i32
+  %9 = icmp sle i32 %8, 90
+  br i1 %9, label %10, label %17
 
-cond.true:                                        ; preds = %land.lhs.true
-  %2 = load i8, ptr %c.addr, align 1
-  %conv5 = zext i8 %2 to i32
-  %sub = sub nsw i32 %conv5, 65
-  %add = add nsw i32 %sub, 97
-  %conv6 = trunc i32 %add to i8
-  %conv7 = zext i8 %conv6 to i32
-  br label %cond.end
+10:                                               ; preds = %6
+  %11 = load i8, ptr %2, align 1, !tbaa !21
+  %12 = zext i8 %11 to i32
+  %13 = sub nsw i32 %12, 65
+  %14 = add nsw i32 %13, 97
+  %15 = trunc i32 %14 to i8
+  %16 = zext i8 %15 to i32
+  br label %20
 
-cond.false:                                       ; preds = %land.lhs.true, %entry
-  %3 = load i8, ptr %c.addr, align 1
-  %conv8 = zext i8 %3 to i32
-  br label %cond.end
+17:                                               ; preds = %6, %1
+  %18 = load i8, ptr %2, align 1, !tbaa !21
+  %19 = zext i8 %18 to i32
+  br label %20
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %conv7, %cond.true ], [ %conv8, %cond.false ]
-  %conv9 = trunc i32 %cond to i8
-  ret i8 %conv9
+20:                                               ; preds = %17, %10
+  %21 = phi i32 [ %16, %10 ], [ %19, %17 ]
+  %22 = trunc i32 %21 to i8
+  ret i8 %22
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { noreturn nounwind }
-attributes #6 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind }
+attributes #7 = { noreturn nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS15nghttp2_session", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS14nghttp2_stream", !5, i64 0}
+!10 = !{!5, !5, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !6, i64 0}
+!13 = !{!14, !15, i64 0}
+!14 = !{!"", !15, i64 0, !15, i64 8, !12, i64 16, !6, i64 20}
+!15 = !{!"p1 _ZTS13nghttp2_rcbuf", !5, i64 0}
+!16 = !{!17, !18, i64 16}
+!17 = !{!"nghttp2_rcbuf", !5, i64 0, !5, i64 8, !18, i64 16, !19, i64 24, !12, i64 32}
+!18 = !{!"p1 omnipotent char", !5, i64 0}
+!19 = !{!"long", !6, i64 0}
+!20 = !{!17, !19, i64 24}
+!21 = !{!6, !6, i64 0}
+!22 = !{!19, !19, i64 0}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.mustprogress"}
+!25 = !{!26, !12, i64 112}
+!26 = !{!"nghttp2_stream", !12, i64 0, !27, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !19, i64 40, !9, i64 48, !5, i64 56, !28, i64 64, !19, i64 72, !12, i64 80, !12, i64 84, !12, i64 88, !12, i64 92, !12, i64 96, !12, i64 100, !12, i64 104, !29, i64 108, !12, i64 112, !6, i64 116, !6, i64 117, !6, i64 118, !6, i64 119, !6, i64 120, !6, i64 121}
+!27 = !{!"", !19, i64 0}
+!28 = !{!"p1 _ZTS21nghttp2_outbound_item", !5, i64 0}
+!29 = !{!"short", !6, i64 0}
+!30 = !{!14, !12, i64 16}
+!31 = !{!14, !15, i64 8}
+!32 = !{!33, !6, i64 2675}
+!33 = !{!"nghttp2_session", !34, i64 0, !36, i64 32, !36, i64 56, !36, i64 80, !6, i64 104, !37, i64 424, !40, i64 504, !42, i64 768, !48, i64 1880, !50, i64 2120, !51, i64 2344, !5, i64 2384, !52, i64 2392, !53, i64 2400, !19, i64 2432, !19, i64 2440, !19, i64 2448, !19, i64 2456, !19, i64 2464, !19, i64 2472, !19, i64 2480, !19, i64 2488, !19, i64 2496, !19, i64 2504, !19, i64 2512, !19, i64 2520, !19, i64 2528, !19, i64 2536, !12, i64 2544, !12, i64 2548, !12, i64 2552, !12, i64 2556, !12, i64 2560, !12, i64 2564, !12, i64 2568, !12, i64 2572, !12, i64 2576, !12, i64 2580, !12, i64 2584, !12, i64 2588, !6, i64 2592, !54, i64 2596, !54, i64 2628, !12, i64 2660, !12, i64 2664, !12, i64 2668, !6, i64 2672, !6, i64 2673, !6, i64 2674, !6, i64 2675, !6, i64 2676, !6, i64 2677, !6, i64 2678}
+!34 = !{!"nghttp2_map", !35, i64 0, !5, i64 8, !19, i64 16, !19, i64 24}
+!35 = !{!"p1 _ZTS18nghttp2_map_bucket", !5, i64 0}
+!36 = !{!"", !28, i64 0, !28, i64 8, !19, i64 16}
+!37 = !{!"", !28, i64 0, !38, i64 8, !12, i64 72}
+!38 = !{!"", !39, i64 0, !39, i64 8, !5, i64 16, !19, i64 24, !19, i64 32, !19, i64 40, !19, i64 48, !19, i64 56}
+!39 = !{!"p1 _ZTS17nghttp2_buf_chain", !5, i64 0}
+!40 = !{!"", !6, i64 0, !6, i64 64, !5, i64 96, !41, i64 104, !41, i64 144, !18, i64 184, !19, i64 192, !19, i64 200, !19, i64 208, !19, i64 216, !12, i64 224, !6, i64 228}
+!41 = !{!"", !18, i64 0, !18, i64 8, !18, i64 16, !18, i64 24, !18, i64 32}
+!42 = !{!"nghttp2_hd_deflater", !43, i64 0, !47, i64 64, !19, i64 1088, !19, i64 1096, !6, i64 1104}
+!43 = !{!"", !44, i64 0, !5, i64 32, !19, i64 40, !19, i64 48, !12, i64 56, !6, i64 60}
+!44 = !{!"", !45, i64 0, !19, i64 8, !19, i64 16, !19, i64 24}
+!45 = !{!"p2 _ZTS16nghttp2_hd_entry", !46, i64 0}
+!46 = !{!"any p2 pointer", !5, i64 0}
+!47 = !{!"", !6, i64 0}
+!48 = !{!"nghttp2_hd_inflater", !43, i64 0, !49, i64 64, !41, i64 72, !41, i64 112, !15, i64 152, !15, i64 160, !15, i64 168, !15, i64 176, !19, i64 184, !19, i64 192, !19, i64 200, !19, i64 208, !19, i64 216, !12, i64 224, !12, i64 228, !6, i64 232, !6, i64 233, !6, i64 234}
+!49 = !{!"", !29, i64 0}
+!50 = !{!"nghttp2_session_callbacks", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !5, i64 144, !5, i64 152, !5, i64 160, !5, i64 168, !5, i64 176, !5, i64 184, !5, i64 192, !5, i64 200, !5, i64 208, !5, i64 216}
+!51 = !{!"", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32}
+!52 = !{!"p1 _ZTS25nghttp2_inflight_settings", !5, i64 0}
+!53 = !{!"nghttp2_ratelim", !19, i64 0, !19, i64 8, !19, i64 16, !19, i64 24}
+!54 = !{!"", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !12, i64 24, !12, i64 28}
+!55 = !{!26, !6, i64 116}
+!56 = !{!33, !6, i64 2673}
+!57 = !{!18, !18, i64 0}
+!58 = distinct !{!58, !24}
+!59 = distinct !{!59, !24}
+!60 = distinct !{!60, !24}
+!61 = !{!26, !12, i64 80}
+!62 = !{!26, !19, i64 16}
+!63 = !{!26, !6, i64 121}
+!64 = !{!26, !29, i64 108}
+!65 = !{!26, !19, i64 24}
+!66 = !{!67, !19, i64 16}
+!67 = !{!"", !18, i64 0, !18, i64 8, !19, i64 16, !19, i64 24, !6, i64 32}
+!68 = !{!67, !18, i64 0}
+!69 = !{!67, !19, i64 24}
+!70 = !{!67, !18, i64 8}
+!71 = distinct !{!71, !24}
+!72 = !{!73, !73, i64 0}
+!73 = !{!"p1 _ZTS14nghttp2_extpri", !5, i64 0}
+!74 = !{i64 0, i64 4, !11, i64 4, i64 4, !11}
+!75 = !{!76, !19, i64 8}
+!76 = !{!"sfparse_vec", !18, i64 0, !19, i64 8}
+!77 = !{!76, !18, i64 0}
+!78 = !{!79, !12, i64 0}
+!79 = !{!"sfparse_value", !12, i64 0, !12, i64 4, !6, i64 8}
+!80 = !{!81, !12, i64 4}
+!81 = !{!"nghttp2_extpri", !12, i64 0, !12, i64 4}
+!82 = !{!81, !12, i64 0}
+!83 = distinct !{!83, !24}
+!84 = distinct !{!84, !24}

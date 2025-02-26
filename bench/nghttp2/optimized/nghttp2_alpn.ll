@@ -1,144 +1,147 @@
 ; ModuleID = 'bench/nghttp2/original/nghttp2_alpn.ll'
 source_filename = "bench/nghttp2/original/nghttp2_alpn.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [4 x i8] c"\02h2\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"\08http/1.1\00", align 1
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define range(i32 -1, 2) i32 @nghttp2_select_next_protocol(ptr noundef writeonly captures(none) %out, ptr noundef writeonly captures(none) %outlen, ptr noundef %in, i32 noundef %inlen) local_unnamed_addr #0 {
-entry:
-  %cmp.not11.i = icmp ult i32 %inlen, 3
-  br i1 %cmp.not11.i, label %return, label %for.body.i
+define range(i32 -1, 2) i32 @nghttp2_select_next_protocol(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %.not18.i = icmp ult i32 %3, 3
+  br i1 %.not18.i, label %select_alpn.exit14.thread, label %.lr.ph.i
 
-for.body.i:                                       ; preds = %entry, %for.inc.i
-  %i.012.i = phi i32 [ %add12.i, %for.inc.i ], [ 0, %entry ]
-  %idxprom.i = zext i32 %i.012.i to i64
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %in, i64 %idxprom.i
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %arrayidx.i, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
-  %cmp1.i = icmp eq i32 %bcmp.i, 0
-  br i1 %cmp1.i, label %return.sink.split, label %for.inc.i
+.lr.ph.i:                                         ; preds = %4, %8
+  %.019.i = phi i32 [ %12, %8 ], [ 0, %4 ]
+  %5 = zext i32 %.019.i to i64
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %5
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %6, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
+  %7 = icmp eq i32 %bcmp.i, 0
+  br i1 %7, label %select_alpn.exit14.thread.sink.split, label %8
 
-for.inc.i:                                        ; preds = %for.body.i
-  %0 = load i8, ptr %arrayidx.i, align 1
-  %conv10.i = zext i8 %0 to i32
-  %add11.i = add i32 %i.012.i, 1
-  %add12.i = add i32 %add11.i, %conv10.i
-  %add.i = add i32 %add12.i, 3
-  %cmp.not.i = icmp ugt i32 %add.i, %inlen
-  br i1 %cmp.not.i, label %if.end, label %for.body.i, !llvm.loop !4
+8:                                                ; preds = %.lr.ph.i
+  %9 = load i8, ptr %6, align 1, !tbaa !3
+  %10 = zext i8 %9 to i32
+  %11 = add i32 %.019.i, 1
+  %12 = add i32 %11, %10
+  %13 = add i32 %12, 3
+  %.not.i = icmp ugt i32 %13, %3
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !6
 
-if.end:                                           ; preds = %for.inc.i
-  %cmp.not11.i5 = icmp ult i32 %inlen, 9
-  br i1 %cmp.not11.i5, label %return, label %for.body.i7
+.loopexit:                                        ; preds = %8
+  %.not18.i8 = icmp ult i32 %3, 9
+  br i1 %.not18.i8, label %select_alpn.exit14.thread, label %.lr.ph.i9
 
-for.body.i7:                                      ; preds = %if.end, %for.inc.i13
-  %i.012.i8 = phi i32 [ %add12.i16, %for.inc.i13 ], [ 0, %if.end ]
-  %idxprom.i9 = zext i32 %i.012.i8 to i64
-  %arrayidx.i10 = getelementptr inbounds nuw i8, ptr %in, i64 %idxprom.i9
-  %bcmp.i11 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %arrayidx.i10, ptr noundef nonnull dereferenceable(9) @.str.1, i64 9)
-  %cmp1.i12 = icmp eq i32 %bcmp.i11, 0
-  br i1 %cmp1.i12, label %return.sink.split, label %for.inc.i13
+.lr.ph.i9:                                        ; preds = %.loopexit, %17
+  %.019.i10 = phi i32 [ %21, %17 ], [ 0, %.loopexit ]
+  %14 = zext i32 %.019.i10 to i64
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 %14
+  %bcmp.i11 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %15, ptr noundef nonnull dereferenceable(9) @.str.1, i64 9)
+  %16 = icmp eq i32 %bcmp.i11, 0
+  br i1 %16, label %select_alpn.exit14.thread.sink.split, label %17
 
-for.inc.i13:                                      ; preds = %for.body.i7
-  %1 = load i8, ptr %arrayidx.i10, align 1
-  %conv10.i14 = zext i8 %1 to i32
-  %add11.i15 = add i32 %i.012.i8, 1
-  %add12.i16 = add i32 %add11.i15, %conv10.i14
-  %add.i17 = add i32 %add12.i16, 9
-  %cmp.not.i18 = icmp ugt i32 %add.i17, %inlen
-  br i1 %cmp.not.i18, label %return, label %for.body.i7, !llvm.loop !4
+17:                                               ; preds = %.lr.ph.i9
+  %18 = load i8, ptr %15, align 1, !tbaa !3
+  %19 = zext i8 %18 to i32
+  %20 = add i32 %.019.i10, 1
+  %21 = add i32 %20, %19
+  %22 = add i32 %21, 9
+  %.not.i12 = icmp ugt i32 %22, %3
+  br i1 %.not.i12, label %select_alpn.exit14.thread, label %.lr.ph.i9, !llvm.loop !6
 
-return.sink.split:                                ; preds = %for.body.i, %for.body.i7
-  %i.012.i8.lcssa.sink = phi i32 [ %i.012.i8, %for.body.i7 ], [ %i.012.i, %for.body.i ]
-  %arrayidx.i10.lcssa.sink = phi ptr [ %arrayidx.i10, %for.body.i7 ], [ %arrayidx.i, %for.body.i ]
-  %retval.0.ph = phi i32 [ 0, %for.body.i7 ], [ 1, %for.body.i ]
-  %add3.i21 = add i32 %i.012.i8.lcssa.sink, 1
-  %idxprom4.i22 = zext i32 %add3.i21 to i64
-  %arrayidx5.i23 = getelementptr inbounds nuw i8, ptr %in, i64 %idxprom4.i22
-  store ptr %arrayidx5.i23, ptr %out, align 8
-  %2 = load i8, ptr %arrayidx.i10.lcssa.sink, align 1
-  store i8 %2, ptr %outlen, align 1
-  br label %return
+select_alpn.exit14.thread.sink.split:             ; preds = %.lr.ph.i, %.lr.ph.i9
+  %.019.i10.lcssa.sink = phi i32 [ %.019.i10, %.lr.ph.i9 ], [ %.019.i, %.lr.ph.i ]
+  %.lcssa.sink = phi ptr [ %15, %.lr.ph.i9 ], [ %6, %.lr.ph.i ]
+  %.0.ph = phi i32 [ 0, %.lr.ph.i9 ], [ 1, %.lr.ph.i ]
+  %23 = add i32 %.019.i10.lcssa.sink, 1
+  %24 = zext i32 %23 to i64
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 %24
+  store ptr %25, ptr %0, align 8, !tbaa !8
+  %26 = load i8, ptr %.lcssa.sink, align 1, !tbaa !3
+  store i8 %26, ptr %1, align 1, !tbaa !3
+  br label %select_alpn.exit14.thread
 
-return:                                           ; preds = %for.inc.i13, %return.sink.split, %entry, %if.end
-  %retval.0 = phi i32 [ -1, %if.end ], [ -1, %entry ], [ %retval.0.ph, %return.sink.split ], [ -1, %for.inc.i13 ]
-  ret i32 %retval.0
+select_alpn.exit14.thread:                        ; preds = %17, %select_alpn.exit14.thread.sink.split, %4, %.loopexit
+  %.0 = phi i32 [ -1, %.loopexit ], [ -1, %4 ], [ %.0.ph, %select_alpn.exit14.thread.sink.split ], [ -1, %17 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define range(i32 -1, 2) i32 @nghttp2_select_alpn(ptr noundef writeonly captures(none) %out, ptr noundef writeonly captures(none) %outlen, ptr noundef %in, i32 noundef %inlen) local_unnamed_addr #0 {
-entry:
-  %cmp.not11.i = icmp ult i32 %inlen, 3
-  br i1 %cmp.not11.i, label %return, label %for.body.i
+define range(i32 -1, 2) i32 @nghttp2_select_alpn(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %.not18.i = icmp ult i32 %3, 3
+  br i1 %.not18.i, label %select_alpn.exit14.thread, label %.lr.ph.i
 
-for.body.i:                                       ; preds = %entry, %for.inc.i
-  %i.012.i = phi i32 [ %add12.i, %for.inc.i ], [ 0, %entry ]
-  %idxprom.i = zext i32 %i.012.i to i64
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %in, i64 %idxprom.i
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %arrayidx.i, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
-  %cmp1.i = icmp eq i32 %bcmp.i, 0
-  br i1 %cmp1.i, label %return.sink.split, label %for.inc.i
+.lr.ph.i:                                         ; preds = %4, %8
+  %.019.i = phi i32 [ %12, %8 ], [ 0, %4 ]
+  %5 = zext i32 %.019.i to i64
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %5
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %6, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
+  %7 = icmp eq i32 %bcmp.i, 0
+  br i1 %7, label %select_alpn.exit14.thread.sink.split, label %8
 
-for.inc.i:                                        ; preds = %for.body.i
-  %0 = load i8, ptr %arrayidx.i, align 1
-  %conv10.i = zext i8 %0 to i32
-  %add11.i = add i32 %i.012.i, 1
-  %add12.i = add i32 %add11.i, %conv10.i
-  %add.i = add i32 %add12.i, 3
-  %cmp.not.i = icmp ugt i32 %add.i, %inlen
-  br i1 %cmp.not.i, label %if.end, label %for.body.i, !llvm.loop !4
+8:                                                ; preds = %.lr.ph.i
+  %9 = load i8, ptr %6, align 1, !tbaa !3
+  %10 = zext i8 %9 to i32
+  %11 = add i32 %.019.i, 1
+  %12 = add i32 %11, %10
+  %13 = add i32 %12, 3
+  %.not.i = icmp ugt i32 %13, %3
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !6
 
-if.end:                                           ; preds = %for.inc.i
-  %cmp.not11.i5 = icmp ult i32 %inlen, 9
-  br i1 %cmp.not11.i5, label %return, label %for.body.i7
+.loopexit:                                        ; preds = %8
+  %.not18.i8 = icmp ult i32 %3, 9
+  br i1 %.not18.i8, label %select_alpn.exit14.thread, label %.lr.ph.i9
 
-for.body.i7:                                      ; preds = %if.end, %for.inc.i13
-  %i.012.i8 = phi i32 [ %add12.i16, %for.inc.i13 ], [ 0, %if.end ]
-  %idxprom.i9 = zext i32 %i.012.i8 to i64
-  %arrayidx.i10 = getelementptr inbounds nuw i8, ptr %in, i64 %idxprom.i9
-  %bcmp.i11 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %arrayidx.i10, ptr noundef nonnull dereferenceable(9) @.str.1, i64 9)
-  %cmp1.i12 = icmp eq i32 %bcmp.i11, 0
-  br i1 %cmp1.i12, label %return.sink.split, label %for.inc.i13
+.lr.ph.i9:                                        ; preds = %.loopexit, %17
+  %.019.i10 = phi i32 [ %21, %17 ], [ 0, %.loopexit ]
+  %14 = zext i32 %.019.i10 to i64
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 %14
+  %bcmp.i11 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %15, ptr noundef nonnull dereferenceable(9) @.str.1, i64 9)
+  %16 = icmp eq i32 %bcmp.i11, 0
+  br i1 %16, label %select_alpn.exit14.thread.sink.split, label %17
 
-for.inc.i13:                                      ; preds = %for.body.i7
-  %1 = load i8, ptr %arrayidx.i10, align 1
-  %conv10.i14 = zext i8 %1 to i32
-  %add11.i15 = add i32 %i.012.i8, 1
-  %add12.i16 = add i32 %add11.i15, %conv10.i14
-  %add.i17 = add i32 %add12.i16, 9
-  %cmp.not.i18 = icmp ugt i32 %add.i17, %inlen
-  br i1 %cmp.not.i18, label %return, label %for.body.i7, !llvm.loop !4
+17:                                               ; preds = %.lr.ph.i9
+  %18 = load i8, ptr %15, align 1, !tbaa !3
+  %19 = zext i8 %18 to i32
+  %20 = add i32 %.019.i10, 1
+  %21 = add i32 %20, %19
+  %22 = add i32 %21, 9
+  %.not.i12 = icmp ugt i32 %22, %3
+  br i1 %.not.i12, label %select_alpn.exit14.thread, label %.lr.ph.i9, !llvm.loop !6
 
-return.sink.split:                                ; preds = %for.body.i, %for.body.i7
-  %i.012.i8.lcssa.sink = phi i32 [ %i.012.i8, %for.body.i7 ], [ %i.012.i, %for.body.i ]
-  %arrayidx.i10.lcssa.sink = phi ptr [ %arrayidx.i10, %for.body.i7 ], [ %arrayidx.i, %for.body.i ]
-  %retval.0.ph = phi i32 [ 0, %for.body.i7 ], [ 1, %for.body.i ]
-  %add3.i21 = add i32 %i.012.i8.lcssa.sink, 1
-  %idxprom4.i22 = zext i32 %add3.i21 to i64
-  %arrayidx5.i23 = getelementptr inbounds nuw i8, ptr %in, i64 %idxprom4.i22
-  store ptr %arrayidx5.i23, ptr %out, align 8
-  %2 = load i8, ptr %arrayidx.i10.lcssa.sink, align 1
-  store i8 %2, ptr %outlen, align 1
-  br label %return
+select_alpn.exit14.thread.sink.split:             ; preds = %.lr.ph.i, %.lr.ph.i9
+  %.019.i10.lcssa.sink = phi i32 [ %.019.i10, %.lr.ph.i9 ], [ %.019.i, %.lr.ph.i ]
+  %.lcssa.sink = phi ptr [ %15, %.lr.ph.i9 ], [ %6, %.lr.ph.i ]
+  %.0.ph = phi i32 [ 0, %.lr.ph.i9 ], [ 1, %.lr.ph.i ]
+  %23 = add i32 %.019.i10.lcssa.sink, 1
+  %24 = zext i32 %23 to i64
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 %24
+  store ptr %25, ptr %0, align 8, !tbaa !8
+  %26 = load i8, ptr %.lcssa.sink, align 1, !tbaa !3
+  store i8 %26, ptr %1, align 1, !tbaa !3
+  br label %select_alpn.exit14.thread
 
-return:                                           ; preds = %for.inc.i13, %return.sink.split, %entry, %if.end
-  %retval.0 = phi i32 [ -1, %if.end ], [ -1, %entry ], [ %retval.0.ph, %return.sink.split ], [ -1, %for.inc.i13 ]
-  ret i32 %retval.0
+select_alpn.exit14.thread:                        ; preds = %17, %select_alpn.exit14.thread.sink.split, %4, %.loopexit
+  %.0 = phi i32 [ -1, %.loopexit ], [ -1, %4 ], [ %.0.ph, %select_alpn.exit14.thread.sink.split ], [ -1, %17 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #1
 
-attributes #0 = { nofree nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind willreturn memory(argmem: read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"omnipotent char", !5, i64 0}
+!5 = !{!"Simple C/C++ TBAA"}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !4, i64 0}

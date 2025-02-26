@@ -112,6 +112,7 @@ supported_project = [
     "msgpack",
     "nanobind",
     "ncnn",
+    "nghttp2",
 ]
 
 modify_only = [
@@ -147,6 +148,7 @@ modify_only = [
     "ipopt",
     "libphonenumber",
     "libzmq",
+    "nghttp2",
 ]
 
 

@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/nghttp2/original/nghttp2_hd_huffman.ll'
 source_filename = "bench/nghttp2/original/nghttp2_hd_huffman.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.nghttp2_huff_sym = type { i32, i32 }
 %struct.nghttp2_huff_decode = type { i16, i8 }
@@ -10,291 +10,309 @@ target triple = "x86_64-unknown-linux-gnu"
 @huff_decode_table = external local_unnamed_addr constant [0 x [16 x %struct.nghttp2_huff_decode]], align 2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden range(i64 0, 2305843009213693952) i64 @nghttp2_hd_huff_encode_count(ptr noundef readonly captures(none) %src, i64 noundef %len) local_unnamed_addr #0 {
-entry:
-  %cmp5.not = icmp eq i64 %len, 0
-  br i1 %cmp5.not, label %for.end, label %for.body
+define hidden range(i64 0, 2305843009213693952) i64 @nghttp2_hd_huff_encode_count(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-for.body:                                         ; preds = %entry, %for.body
-  %nbits.07 = phi i64 [ %add, %for.body ], [ 0, %entry ]
-  %i.06 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds i8, ptr %src, i64 %i.06
-  %0 = load i8, ptr %arrayidx, align 1
-  %idxprom = zext i8 %0 to i64
-  %arrayidx1 = getelementptr inbounds nuw [0 x %struct.nghttp2_huff_sym], ptr @huff_sym_table, i64 0, i64 %idxprom
-  %1 = load i32, ptr %arrayidx1, align 4
-  %conv = zext i32 %1 to i64
-  %add = add i64 %nbits.07, %conv
-  %inc = add nuw i64 %i.06, 1
-  %exitcond.not = icmp eq i64 %inc, %len
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !4
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.08 = phi i64 [ %9, %.lr.ph ], [ 0, %2 ]
+  %.067 = phi i64 [ %10, %.lr.ph ], [ 0, %2 ]
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.067
+  %4 = load i8, ptr %3, align 1, !tbaa !3
+  %5 = zext i8 %4 to i64
+  %6 = getelementptr inbounds nuw [0 x %struct.nghttp2_huff_sym], ptr @huff_sym_table, i64 0, i64 %5
+  %7 = load i32, ptr %6, align 4, !tbaa !6
+  %8 = zext i32 %7 to i64
+  %9 = add i64 %.08, %8
+  %10 = add nuw i64 %.067, 1
+  %exitcond.not = icmp eq i64 %10, %1
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
 
-for.end.loopexit:                                 ; preds = %for.body
-  %2 = add i64 %add, 7
-  %3 = lshr i64 %2, 3
-  br label %for.end
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %11 = add i64 %9, 7
+  %12 = lshr i64 %11, 3
+  br label %._crit_edge
 
-for.end:                                          ; preds = %for.end.loopexit, %entry
-  %nbits.0.lcssa = phi i64 [ 0, %entry ], [ %3, %for.end.loopexit ]
-  ret i64 %nbits.0.lcssa
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
+  %.0.lcssa = phi i64 [ 0, %2 ], [ %12, %._crit_edge.loopexit ]
+  ret i64 %.0.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_hd_huff_encode(ptr noundef %bufs, ptr noundef readonly %src, i64 noundef %srclen) local_unnamed_addr #1 {
-entry:
-  %add.ptr = getelementptr inbounds i8, ptr %src, i64 %srclen
-  %cur = getelementptr inbounds nuw i8, ptr %bufs, i64 8
-  %0 = load ptr, ptr %cur, align 8
-  %end1 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1 = load ptr, ptr %end1, align 8
-  %last = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2 = load ptr, ptr %last, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %2 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  br label %for.cond.outer
+define hidden i32 @nghttp2_hd_huff_encode(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 {
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !11
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %8 = load ptr, ptr %7, align 8, !tbaa !16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %10 = load ptr, ptr %9, align 8, !tbaa !20
+  %11 = ptrtoint ptr %8 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  br label %.outer
 
-for.cond.outer:                                   ; preds = %for.cond.outer.backedge, %entry
-  %src.addr.0.ph = phi ptr [ %src, %entry ], [ %incdec.ptr, %for.cond.outer.backedge ]
-  %code.0.ph = phi i64 [ 0, %entry ], [ %code.0.ph.be, %for.cond.outer.backedge ]
-  %nbits.0.ph = phi i64 [ 0, %entry ], [ %nbits.0.ph.be, %for.cond.outer.backedge ]
-  %avail.0.ph = phi i64 [ %sub.ptr.sub, %entry ], [ %avail.0.ph.be, %for.cond.outer.backedge ]
-  br label %for.cond
+.outer:                                           ; preds = %.outer.backedge, %3
+  %14 = phi ptr [ %6, %3 ], [ %.be, %.outer.backedge ]
+  %.047.ph = phi ptr [ %1, %3 ], [ %18, %.outer.backedge ]
+  %.044.ph = phi i64 [ 0, %3 ], [ %.044.ph.be, %.outer.backedge ]
+  %.042.ph = phi i64 [ 0, %3 ], [ %.042.ph.be, %.outer.backedge ]
+  %.0.ph = phi i64 [ %13, %3 ], [ %.0.ph.be, %.outer.backedge ]
+  br label %15
 
-for.cond:                                         ; preds = %for.cond.outer, %for.body
-  %src.addr.0 = phi ptr [ %incdec.ptr, %for.body ], [ %src.addr.0.ph, %for.cond.outer ]
-  %code.0 = phi i64 [ %or, %for.body ], [ %code.0.ph, %for.cond.outer ]
-  %nbits.0 = phi i64 [ %add, %for.body ], [ %nbits.0.ph, %for.cond.outer ]
-  %cmp.not = icmp eq ptr %src.addr.0, %add.ptr
-  br i1 %cmp.not, label %for.cond47.preheader, label %for.body
+15:                                               ; preds = %.outer, %17
+  %.047 = phi ptr [ %18, %17 ], [ %.047.ph, %.outer ]
+  %.044 = phi i64 [ %27, %17 ], [ %.044.ph, %.outer ]
+  %.042 = phi i64 [ %30, %17 ], [ %.042.ph, %.outer ]
+  %.not = icmp eq ptr %.047, %4
+  br i1 %.not, label %.preheader, label %17
 
-for.cond47.preheader:                             ; preds = %for.cond
-  %cmp4845 = icmp ugt i64 %nbits.0, 7
-  br i1 %cmp4845, label %for.body50, label %for.end60
+.preheader:                                       ; preds = %15
+  %16 = icmp ugt i64 %.042, 7
+  br i1 %16, label %.lr.ph74, label %._crit_edge75
 
-for.body:                                         ; preds = %for.cond
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %src.addr.0, i64 1
-  %3 = load i8, ptr %src.addr.0, align 1
-  %idxprom = zext i8 %3 to i64
-  %arrayidx = getelementptr inbounds nuw [0 x %struct.nghttp2_huff_sym], ptr @huff_sym_table, i64 0, i64 %idxprom
-  %code4 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
-  %4 = load i32, ptr %code4, align 4
-  %conv = zext i32 %4 to i64
-  %sub = sub i64 32, %nbits.0
-  %shl = shl i64 %conv, %sub
-  %or = or i64 %shl, %code.0
-  %5 = load i32, ptr %arrayidx, align 4
-  %conv6 = zext i32 %5 to i64
-  %add = add i64 %nbits.0, %conv6
-  %cmp7 = icmp ult i64 %add, 32
-  br i1 %cmp7, label %for.cond, label %if.end, !llvm.loop !6
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds nuw i8, ptr %.047, i64 1
+  %19 = load i8, ptr %.047, align 1, !tbaa !3
+  %20 = zext i8 %19 to i64
+  %21 = getelementptr inbounds nuw [0 x %struct.nghttp2_huff_sym], ptr @huff_sym_table, i64 0, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %23 = load i32, ptr %22, align 4, !tbaa !21
+  %24 = zext i32 %23 to i64
+  %25 = sub i64 32, %.042
+  %26 = shl i64 %24, %25
+  %27 = or i64 %26, %.044
+  %28 = load i32, ptr %21, align 4, !tbaa !6
+  %29 = zext i32 %28 to i64
+  %30 = add i64 %.042, %29
+  %31 = icmp ult i64 %30, 32
+  br i1 %31, label %15, label %32, !llvm.loop !22
 
-if.end:                                           ; preds = %for.body
-  %cmp9 = icmp ugt i64 %avail.0.ph, 3
-  br i1 %cmp9, label %if.then11, label %for.body27
+32:                                               ; preds = %17
+  %33 = icmp ugt i64 %.0.ph, 3
+  br i1 %33, label %34, label %.lr.ph
 
-if.then11:                                        ; preds = %if.end
-  %shr = lshr i64 %or, 32
-  %conv12 = trunc nuw i64 %shr to i32
-  %call = tail call i32 @htonl(i32 noundef %conv12) #7
-  %6 = load ptr, ptr %cur, align 8
-  %last15 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %7 = load ptr, ptr %last15, align 8
-  store i32 %call, ptr %7, align 1
-  %8 = load ptr, ptr %cur, align 8
-  %last18 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %9 = load ptr, ptr %last18, align 8
-  %add.ptr19 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store ptr %add.ptr19, ptr %last18, align 8
-  %sub20 = add i64 %avail.0.ph, -4
-  %shl21 = shl i64 %or, 32
-  %sub22 = add i64 %add, -32
-  br label %for.cond.outer.backedge
+34:                                               ; preds = %32
+  %35 = lshr i64 %27, 32
+  %36 = trunc nuw i64 %35 to i32
+  %37 = tail call noundef i32 @llvm.bswap.i32(i32 %36)
+  %38 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %39 = load ptr, ptr %38, align 8, !tbaa !20
+  store i32 %37, ptr %39, align 1
+  %40 = load ptr, ptr %5, align 8, !tbaa !11
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  %42 = load ptr, ptr %41, align 8, !tbaa !20
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
+  store ptr %43, ptr %41, align 8, !tbaa !20
+  %44 = add i64 %.0.ph, -4
+  %45 = shl i64 %27, 32
+  %46 = add i64 %30, -32
+  br label %.outer.backedge
 
-for.cond.outer.backedge:                          ; preds = %if.then11, %for.end
-  %code.0.ph.be = phi i64 [ %shl21, %if.then11 ], [ %shl35, %for.end ]
-  %nbits.0.ph.be = phi i64 [ %sub22, %if.then11 ], [ %sub36, %for.end ]
-  %avail.0.ph.be = phi i64 [ %sub20, %if.then11 ], [ %sub.ptr.sub45, %for.end ]
-  br label %for.cond.outer, !llvm.loop !6
+.outer.backedge:                                  ; preds = %34, %._crit_edge
+  %.be = phi ptr [ %.pre, %._crit_edge ], [ %40, %34 ]
+  %.044.ph.be = phi i64 [ %51, %._crit_edge ], [ %45, %34 ]
+  %.042.ph.be = phi i64 [ %52, %._crit_edge ], [ %46, %34 ]
+  %.0.ph.be = phi i64 [ %56, %._crit_edge ], [ %44, %34 ]
+  br label %.outer, !llvm.loop !22
 
-for.body27:                                       ; preds = %if.end, %if.end34
-  %nbits.143 = phi i64 [ %sub36, %if.end34 ], [ %add, %if.end ]
-  %code.142 = phi i64 [ %shl35, %if.end34 ], [ %or, %if.end ]
-  %shr28 = lshr i64 %code.142, 56
-  %conv29 = trunc nuw i64 %shr28 to i8
-  %call30 = tail call i32 @nghttp2_bufs_addb(ptr noundef %bufs, i8 noundef zeroext %conv29) #8
-  %cmp31.not = icmp eq i32 %call30, 0
-  br i1 %cmp31.not, label %if.end34, label %return
+.lr.ph:                                           ; preds = %32, %50
+  %.170 = phi i64 [ %52, %50 ], [ %30, %32 ]
+  %.14569 = phi i64 [ %51, %50 ], [ %27, %32 ]
+  %47 = lshr i64 %.14569, 56
+  %48 = trunc nuw i64 %47 to i8
+  %49 = tail call i32 @nghttp2_bufs_addb(ptr noundef %0, i8 noundef zeroext %48) #7
+  %.not56 = icmp eq i32 %49, 0
+  br i1 %.not56, label %50, label %.loopexit
 
-if.end34:                                         ; preds = %for.body27
-  %shl35 = shl i64 %code.142, 8
-  %sub36 = add i64 %nbits.143, -8
-  %cmp25 = icmp ugt i64 %sub36, 7
-  br i1 %cmp25, label %for.body27, label %for.end, !llvm.loop !7
+50:                                               ; preds = %.lr.ph
+  %51 = shl i64 %.14569, 8
+  %52 = add i64 %.170, -8
+  %53 = icmp ugt i64 %52, 7
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
-for.end:                                          ; preds = %if.end34
-  %10 = load ptr, ptr %cur, align 8
-  %end39 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %11 = load ptr, ptr %end39, align 8
-  %last42 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %12 = load ptr, ptr %last42, align 8
-  %sub.ptr.lhs.cast43 = ptrtoint ptr %11 to i64
-  %sub.ptr.rhs.cast44 = ptrtoint ptr %12 to i64
-  %sub.ptr.sub45 = sub i64 %sub.ptr.lhs.cast43, %sub.ptr.rhs.cast44
-  br label %for.cond.outer.backedge
+._crit_edge:                                      ; preds = %50
+  %.pre = load ptr, ptr %5, align 8, !tbaa !11
+  %.phi.trans.insert92 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
+  %.pre93 = load ptr, ptr %.phi.trans.insert92, align 8, !tbaa !20
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
+  %.pre91 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !16
+  %54 = ptrtoint ptr %.pre91 to i64
+  %55 = ptrtoint ptr %.pre93 to i64
+  %56 = sub i64 %54, %55
+  br label %.outer.backedge
 
-for.body50:                                       ; preds = %for.cond47.preheader, %if.end57
-  %nbits.247 = phi i64 [ %sub59, %if.end57 ], [ %nbits.0, %for.cond47.preheader ]
-  %code.246 = phi i64 [ %shl58, %if.end57 ], [ %code.0, %for.cond47.preheader ]
-  %shr51 = lshr i64 %code.246, 56
-  %conv52 = trunc nuw i64 %shr51 to i8
-  %call53 = tail call i32 @nghttp2_bufs_addb(ptr noundef %bufs, i8 noundef zeroext %conv52) #8
-  %cmp54.not = icmp eq i32 %call53, 0
-  br i1 %cmp54.not, label %if.end57, label %return
+.lr.ph74:                                         ; preds = %.preheader, %60
+  %.273 = phi i64 [ %62, %60 ], [ %.042, %.preheader ]
+  %.24672 = phi i64 [ %61, %60 ], [ %.044, %.preheader ]
+  %57 = lshr i64 %.24672, 56
+  %58 = trunc nuw i64 %57 to i8
+  %59 = tail call i32 @nghttp2_bufs_addb(ptr noundef %0, i8 noundef zeroext %58) #7
+  %.not55 = icmp eq i32 %59, 0
+  br i1 %.not55, label %60, label %.loopexit
 
-if.end57:                                         ; preds = %for.body50
-  %shl58 = shl i64 %code.246, 8
-  %sub59 = add i64 %nbits.247, -8
-  %cmp48 = icmp ugt i64 %sub59, 7
-  br i1 %cmp48, label %for.body50, label %for.end60, !llvm.loop !8
+60:                                               ; preds = %.lr.ph74
+  %61 = shl i64 %.24672, 8
+  %62 = add i64 %.273, -8
+  %63 = icmp ugt i64 %62, 7
+  br i1 %63, label %.lr.ph74, label %._crit_edge75, !llvm.loop !24
 
-for.end60:                                        ; preds = %if.end57, %for.cond47.preheader
-  %code.2.lcssa = phi i64 [ %code.0, %for.cond47.preheader ], [ %shl58, %if.end57 ]
-  %nbits.2.lcssa = phi i64 [ %nbits.0, %for.cond47.preheader ], [ %sub59, %if.end57 ]
-  %tobool.not = icmp eq i64 %nbits.2.lcssa, 0
-  br i1 %tobool.not, label %if.end75, label %if.then61
+._crit_edge75:                                    ; preds = %60, %.preheader
+  %.246.lcssa = phi i64 [ %.044, %.preheader ], [ %61, %60 ]
+  %.2.lcssa = phi i64 [ %.042, %.preheader ], [ %62, %60 ]
+  %.not53 = icmp eq i64 %.2.lcssa, 0
+  br i1 %.not53, label %73, label %64
 
-if.then61:                                        ; preds = %for.end60
-  %shr62 = lshr i64 %code.2.lcssa, 56
-  %conv63 = trunc nuw nsw i64 %shr62 to i16
-  %13 = trunc nuw i64 %nbits.2.lcssa to i16
-  %sh_prom = sub nuw nsw i16 8, %13
-  %notmask = shl nsw i16 -1, %sh_prom
-  %sub67 = xor i16 %notmask, -1
-  %or68 = or i16 %sub67, %conv63
-  %conv69 = trunc nuw i16 %or68 to i8
-  %call70 = tail call i32 @nghttp2_bufs_addb(ptr noundef %bufs, i8 noundef zeroext %conv69) #8
-  %cmp71.not = icmp eq i32 %call70, 0
-  br i1 %cmp71.not, label %if.end75, label %return
+64:                                               ; preds = %._crit_edge75
+  %65 = lshr i64 %.246.lcssa, 56
+  %66 = trunc nuw nsw i64 %65 to i16
+  %67 = trunc nuw i64 %.2.lcssa to i16
+  %68 = sub nuw nsw i16 8, %67
+  %notmask = shl nsw i16 -1, %68
+  %69 = xor i16 %notmask, -1
+  %70 = or i16 %69, %66
+  %71 = trunc nuw i16 %70 to i8
+  %72 = tail call i32 @nghttp2_bufs_addb(ptr noundef %0, i8 noundef zeroext %71) #7
+  %.not54 = icmp eq i32 %72, 0
+  br i1 %.not54, label %73, label %.loopexit
 
-if.end75:                                         ; preds = %if.then61, %for.end60
-  br label %return
+73:                                               ; preds = %64, %._crit_edge75
+  br label %.loopexit
 
-return:                                           ; preds = %for.body27, %for.body50, %if.then61, %if.end75
-  %retval.0 = phi i32 [ 0, %if.end75 ], [ %call70, %if.then61 ], [ %call53, %for.body50 ], [ %call30, %for.body27 ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph74, %64, %73
+  %.043 = phi i32 [ 0, %73 ], [ %72, %64 ], [ %59, %.lr.ph74 ], [ %49, %.lr.ph ]
+  ret i32 %.043
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @htonl(i32 noundef) local_unnamed_addr #2
-
-declare i32 @nghttp2_bufs_addb(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
+declare i32 @nghttp2_bufs_addb(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @nghttp2_hd_huff_decode_context_init(ptr noundef writeonly captures(none) initializes((0, 2)) %ctx) local_unnamed_addr #4 {
-entry:
-  store i16 16384, ptr %ctx, align 2
+define hidden void @nghttp2_hd_huff_decode_context_init(ptr noundef writeonly captures(none) initializes((0, 2)) %0) local_unnamed_addr #3 {
+  store i16 16384, ptr %0, align 2, !tbaa !25
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @nghttp2_hd_huff_decode(ptr noundef captures(none) %ctx, ptr noundef captures(none) %buf, ptr noundef readonly %src, i64 noundef %srclen, i32 noundef %final) local_unnamed_addr #5 {
-entry:
-  %add.ptr = getelementptr inbounds i8, ptr %src, i64 %srclen
-  %0 = load i16, ptr %ctx, align 2
-  %cmp.not14 = icmp eq i64 %srclen, 0
-  br i1 %cmp.not14, label %for.end, label %for.body.lr.ph
+define hidden i64 @nghttp2_hd_huff_decode(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #4 {
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %3
+  %7 = load i16, ptr %0, align 2, !tbaa !25
+  %.not27 = icmp samesign eq i64 %3, 0
+  br i1 %.not27, label %._crit_edge, label %.lr.ph
 
-for.body.lr.ph:                                   ; preds = %entry
-  %last = getelementptr inbounds nuw i8, ptr %buf, i64 24
-  br label %for.body
+.lr.ph:                                           ; preds = %5
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  br label %9
 
-for.body:                                         ; preds = %for.body.lr.ph, %if.end28
-  %1 = phi i16 [ %0, %for.body.lr.ph ], [ %8, %if.end28 ]
-  %src.addr.015 = phi ptr [ %src, %for.body.lr.ph ], [ %incdec.ptr, %if.end28 ]
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %src.addr.015, i64 1
-  %2 = load i8, ptr %src.addr.015, align 1
-  %3 = and i16 %1, 511
-  %idxprom = zext nneg i16 %3 to i64
-  %conv3 = zext i8 %2 to i32
-  %shr = lshr i32 %conv3, 4
-  %idxprom4 = zext nneg i32 %shr to i64
-  %arrayidx5 = getelementptr inbounds nuw [0 x [16 x %struct.nghttp2_huff_decode]], ptr @huff_decode_table, i64 0, i64 %idxprom, i64 %idxprom4
-  %4 = load i16, ptr %arrayidx5, align 2
-  %tobool.not = icmp sgt i16 %4, -1
-  br i1 %tobool.not, label %if.end, label %if.then
+9:                                                ; preds = %.lr.ph, %37
+  %10 = phi i16 [ %7, %.lr.ph ], [ %31, %37 ]
+  %.02228 = phi ptr [ %2, %.lr.ph ], [ %11, %37 ]
+  %11 = getelementptr inbounds nuw i8, ptr %.02228, i64 1
+  %12 = load i8, ptr %.02228, align 1, !tbaa !3
+  %13 = and i16 %10, 511
+  %14 = zext nneg i16 %13 to i64
+  %15 = zext i8 %12 to i32
+  %16 = lshr i32 %15, 4
+  %17 = zext nneg i32 %16 to i64
+  %18 = getelementptr inbounds nuw [0 x [16 x %struct.nghttp2_huff_decode]], ptr @huff_decode_table, i64 0, i64 %14, i64 %17
+  %19 = load i16, ptr %18, align 2, !tbaa !28
+  %.not25 = icmp sgt i16 %19, -1
+  br i1 %.not25, label %25, label %20
 
-if.then:                                          ; preds = %for.body
-  %sym9 = getelementptr inbounds nuw i8, ptr %arrayidx5, i64 2
-  %5 = load i8, ptr %sym9, align 2
-  %6 = load ptr, ptr %last, align 8
-  %incdec.ptr10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store ptr %incdec.ptr10, ptr %last, align 8
-  store i8 %5, ptr %6, align 1
-  br label %if.end
+20:                                               ; preds = %9
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 2
+  %22 = load i8, ptr %21, align 2, !tbaa !30
+  %23 = load ptr, ptr %8, align 8, !tbaa !31
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
+  store ptr %24, ptr %8, align 8, !tbaa !31
+  store i8 %22, ptr %23, align 1, !tbaa !3
+  br label %25
 
-if.end:                                           ; preds = %if.then, %for.body
-  %7 = and i16 %4, 511
-  %idxprom14 = zext nneg i16 %7 to i64
-  %and17 = and i32 %conv3, 15
-  %idxprom18 = zext nneg i32 %and17 to i64
-  %arrayidx19 = getelementptr inbounds nuw [0 x [16 x %struct.nghttp2_huff_decode]], ptr @huff_decode_table, i64 0, i64 %idxprom14, i64 %idxprom18
-  %8 = load i16, ptr %arrayidx19, align 2
-  %tobool23.not = icmp sgt i16 %8, -1
-  br i1 %tobool23.not, label %if.end28, label %if.then24
+25:                                               ; preds = %20, %9
+  %26 = and i16 %19, 511
+  %27 = zext nneg i16 %26 to i64
+  %28 = and i32 %15, 15
+  %29 = zext nneg i32 %28 to i64
+  %30 = getelementptr inbounds nuw [0 x [16 x %struct.nghttp2_huff_decode]], ptr @huff_decode_table, i64 0, i64 %27, i64 %29
+  %31 = load i16, ptr %30, align 2, !tbaa !28
+  %.not26 = icmp sgt i16 %31, -1
+  br i1 %.not26, label %37, label %32
 
-if.then24:                                        ; preds = %if.end
-  %sym25 = getelementptr inbounds nuw i8, ptr %arrayidx19, i64 2
-  %9 = load i8, ptr %sym25, align 2
-  %10 = load ptr, ptr %last, align 8
-  %incdec.ptr27 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  store ptr %incdec.ptr27, ptr %last, align 8
-  store i8 %9, ptr %10, align 1
-  br label %if.end28
+32:                                               ; preds = %25
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 2
+  %34 = load i8, ptr %33, align 2, !tbaa !30
+  %35 = load ptr, ptr %8, align 8, !tbaa !31
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
+  store ptr %36, ptr %8, align 8, !tbaa !31
+  store i8 %34, ptr %35, align 1, !tbaa !3
+  br label %37
 
-if.end28:                                         ; preds = %if.then24, %if.end
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !9
+37:                                               ; preds = %32, %25
+  %.not = icmp eq ptr %11, %6
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !32
 
-for.end:                                          ; preds = %if.end28, %entry
-  %11 = phi i16 [ %0, %entry ], [ %8, %if.end28 ]
-  store i16 %11, ptr %ctx, align 2
-  %tobool31.not = icmp ne i32 %final, 0
-  %12 = and i16 %11, 16384
-  %tobool35.not = icmp eq i16 %12, 0
-  %or.cond = select i1 %tobool31.not, i1 %tobool35.not, i1 false
-  %retval.0 = select i1 %or.cond, i64 -523, i64 %srclen
-  ret i64 %retval.0
+._crit_edge:                                      ; preds = %37, %5
+  %38 = phi i16 [ %7, %5 ], [ %31, %37 ]
+  store i16 %38, ptr %0, align 2, !tbaa !25
+  %.not23 = icmp ne i32 %4, 0
+  %39 = and i16 %38, 16384
+  %.not24 = icmp eq i16 %39, 0
+  %or.cond = select i1 %.not23, i1 %.not24, i1 false
+  %.0 = select i1 %or.cond, i64 -523, i64 %3
+  ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @nghttp2_hd_huff_decode_failure_state(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #6 {
-entry:
-  %0 = load i16, ptr %ctx, align 2
-  %cmp = icmp eq i16 %0, 256
-  %conv1 = zext i1 %cmp to i32
-  ret i32 %conv1
+define hidden range(i32 0, 2) i32 @nghttp2_hd_huff_decode_failure_state(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+  %2 = load i16, ptr %0, align 2, !tbaa !25
+  %3 = icmp eq i16 %2, 256
+  %4 = zext i1 %3 to i32
+  ret i32 %4
 }
 
-attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind willreturn memory(none) }
-attributes #8 = { nounwind }
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.bswap.i32(i32) #6
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"omnipotent char", !5, i64 0}
+!5 = !{!"Simple C/C++ TBAA"}
+!6 = !{!7, !8, i64 0}
+!7 = !{!"", !8, i64 0, !8, i64 4}
+!8 = !{!"int", !4, i64 0}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = !{!12, !13, i64 8}
+!12 = !{!"", !13, i64 0, !13, i64 8, !14, i64 16, !15, i64 24, !15, i64 32, !15, i64 40, !15, i64 48, !15, i64 56}
+!13 = !{!"p1 _ZTS17nghttp2_buf_chain", !14, i64 0}
+!14 = !{!"any pointer", !4, i64 0}
+!15 = !{!"long", !4, i64 0}
+!16 = !{!17, !19, i64 16}
+!17 = !{!"nghttp2_buf_chain", !13, i64 0, !18, i64 8}
+!18 = !{!"", !19, i64 0, !19, i64 8, !19, i64 16, !19, i64 24, !19, i64 32}
+!19 = !{!"p1 omnipotent char", !14, i64 0}
+!20 = !{!17, !19, i64 32}
+!21 = !{!7, !8, i64 4}
+!22 = distinct !{!22, !10}
+!23 = distinct !{!23, !10}
+!24 = distinct !{!24, !10}
+!25 = !{!26, !27, i64 0}
+!26 = !{!"", !27, i64 0}
+!27 = !{!"short", !4, i64 0}
+!28 = !{!29, !27, i64 0}
+!29 = !{!"", !27, i64 0, !4, i64 2}
+!30 = !{!29, !4, i64 2}
+!31 = !{!18, !19, i64 24}
+!32 = distinct !{!32, !10}

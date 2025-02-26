@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/nghttp2/original/nghttp2_queue.ll'
 source_filename = "bench/nghttp2/original/nghttp2_queue.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [6 x i8] c"front\00", align 1
 @.str.1 = private unnamed_addr constant [113 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/nghttp2/nghttp2/lib/nghttp2_queue.c\00", align 1
@@ -12,32 +12,30 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.nghttp2_queue_back = private unnamed_addr constant [42 x i8] c"void *nghttp2_queue_back(nghttp2_queue *)\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @nghttp2_queue_init(ptr noundef writeonly captures(none) initializes((0, 16)) %queue) local_unnamed_addr #0 {
-entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %queue, i8 0, i64 16, i1 false)
+define hidden void @nghttp2_queue_init(ptr noundef writeonly captures(none) initializes((0, 16)) %0) local_unnamed_addr #0 {
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nghttp2_queue_free(ptr noundef readonly %queue) local_unnamed_addr #1 {
-entry:
-  %tobool.not = icmp eq ptr %queue, null
-  br i1 %tobool.not, label %if.end, label %if.else
+define hidden void @nghttp2_queue_free(ptr noundef readonly %0) local_unnamed_addr #1 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.loopexit, label %2
 
-if.else:                                          ; preds = %entry
-  %0 = load ptr, ptr %queue, align 8
-  %tobool1.not4 = icmp eq ptr %0, null
-  br i1 %tobool1.not4, label %if.end, label %while.body
+2:                                                ; preds = %1
+  %3 = load ptr, ptr %0, align 8, !tbaa !3
+  %.not78 = icmp eq ptr %3, null
+  br i1 %.not78, label %.loopexit, label %.lr.ph
 
-while.body:                                       ; preds = %if.else, %while.body
-  %p.05 = phi ptr [ %1, %while.body ], [ %0, %if.else ]
-  %next2 = getelementptr inbounds nuw i8, ptr %p.05, i64 8
-  %1 = load ptr, ptr %next2, align 8
-  tail call void @free(ptr noundef nonnull %p.05) #8
-  %tobool1.not = icmp eq ptr %1, null
-  br i1 %tobool1.not, label %if.end, label %while.body, !llvm.loop !4
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.09 = phi ptr [ %5, %.lr.ph ], [ %3, %2 ]
+  %4 = getelementptr inbounds nuw i8, ptr %.09, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
+  tail call void @free(ptr noundef nonnull %.09) #8
+  %.not7 = icmp eq ptr %5, null
+  br i1 %.not7, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
-if.end:                                           ; preds = %while.body, %if.else, %entry
+.loopexit:                                        ; preds = %.lr.ph, %2, %1
   ret void
 }
 
@@ -45,66 +43,64 @@ if.end:                                           ; preds = %while.body, %if.els
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden range(i32 -901, 1) i32 @nghttp2_queue_push(ptr noundef captures(none) %queue, ptr noundef %data) local_unnamed_addr #3 {
-entry:
-  %call = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
-  %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %return, label %if.end
+define hidden range(i32 -901, 1) i32 @nghttp2_queue_push(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
+  %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %11, label %4
 
-if.end:                                           ; preds = %entry
-  store ptr %data, ptr %call, align 8
-  %next = getelementptr inbounds nuw i8, ptr %call, i64 8
-  store ptr null, ptr %next, align 8
-  %back = getelementptr inbounds nuw i8, ptr %queue, i64 8
-  %0 = load ptr, ptr %back, align 8
-  %tobool2.not = icmp eq ptr %0, null
-  br i1 %tobool2.not, label %if.else, label %if.then3
+4:                                                ; preds = %2
+  store ptr %1, ptr %3, align 8, !tbaa !13
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr null, ptr %5, align 8, !tbaa !9
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !14
+  %.not14 = icmp eq ptr %7, null
+  br i1 %.not14, label %10, label %8
 
-if.then3:                                         ; preds = %if.end
-  %next5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %call, ptr %next5, align 8
-  store ptr %call, ptr %back, align 8
-  br label %return
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %3, ptr %9, align 8, !tbaa !9
+  store ptr %3, ptr %6, align 8, !tbaa !14
+  br label %11
 
-if.else:                                          ; preds = %if.end
-  store ptr %call, ptr %back, align 8
-  store ptr %call, ptr %queue, align 8
-  br label %return
+10:                                               ; preds = %4
+  store ptr %3, ptr %6, align 8, !tbaa !14
+  store ptr %3, ptr %0, align 8, !tbaa !3
+  br label %11
 
-return:                                           ; preds = %if.then3, %if.else, %entry
-  %retval.0 = phi i32 [ -901, %entry ], [ 0, %if.else ], [ 0, %if.then3 ]
-  ret i32 %retval.0
+11:                                               ; preds = %8, %10, %2
+  %.0 = phi i32 [ -901, %2 ], [ 0, %10 ], [ 0, %8 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nghttp2_queue_pop(ptr noundef captures(none) %queue) local_unnamed_addr #1 {
-entry:
-  %0 = load ptr, ptr %queue, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.else, label %if.end
+define hidden void @nghttp2_queue_pop(ptr noundef captures(none) %0) local_unnamed_addr #1 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !3
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %3, label %4
 
-if.else:                                          ; preds = %entry
+3:                                                ; preds = %1
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 67, ptr noundef nonnull @__PRETTY_FUNCTION__.nghttp2_queue_pop) #10
   unreachable
 
-if.end:                                           ; preds = %entry
-  %next = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1 = load ptr, ptr %next, align 8
-  store ptr %1, ptr %queue, align 8
-  %back = getelementptr inbounds nuw i8, ptr %queue, i64 8
-  %2 = load ptr, ptr %back, align 8
-  %cmp = icmp eq ptr %0, %2
-  br i1 %cmp, label %if.then3, label %if.end5
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !9
+  store ptr %6, ptr %0, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !14
+  %9 = icmp eq ptr %2, %8
+  br i1 %9, label %10, label %11
 
-if.then3:                                         ; preds = %if.end
-  store ptr null, ptr %back, align 8
-  br label %if.end5
+10:                                               ; preds = %4
+  store ptr null, ptr %7, align 8, !tbaa !14
+  br label %11
 
-if.end5:                                          ; preds = %if.then3, %if.end
-  tail call void @free(ptr noundef nonnull %0) #8
+11:                                               ; preds = %10, %4
+  tail call void @free(ptr noundef nonnull %2) #8
   ret void
 }
 
@@ -112,67 +108,73 @@ if.end5:                                          ; preds = %if.then3, %if.end
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @nghttp2_queue_front(ptr noundef readonly captures(none) %queue) local_unnamed_addr #1 {
-entry:
-  %0 = load ptr, ptr %queue, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.else, label %if.end
+define hidden ptr @nghttp2_queue_front(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !3
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %3, label %4
 
-if.else:                                          ; preds = %entry
+3:                                                ; preds = %1
   tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 76, ptr noundef nonnull @__PRETTY_FUNCTION__.nghttp2_queue_front) #10
   unreachable
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %0, align 8
-  ret ptr %1
+4:                                                ; preds = %1
+  %5 = load ptr, ptr %2, align 8, !tbaa !13
+  ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @nghttp2_queue_back(ptr noundef readonly captures(none) %queue) local_unnamed_addr #1 {
-entry:
-  %back = getelementptr inbounds nuw i8, ptr %queue, i64 8
-  %0 = load ptr, ptr %back, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.else, label %if.end
+define hidden ptr @nghttp2_queue_back(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !14
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %4, label %5
 
-if.else:                                          ; preds = %entry
+4:                                                ; preds = %1
   tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 81, ptr noundef nonnull @__PRETTY_FUNCTION__.nghttp2_queue_back) #10
   unreachable
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %0, align 8
-  ret ptr %1
+5:                                                ; preds = %1
+  %6 = load ptr, ptr %3, align 8, !tbaa !13
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @nghttp2_queue_empty(ptr noundef readonly captures(none) %queue) local_unnamed_addr #6 {
-entry:
-  %0 = load ptr, ptr %queue, align 8
-  %cmp = icmp eq ptr %0, null
-  %conv = zext i1 %cmp to i32
-  ret i32 %conv
+define hidden range(i32 0, 2) i32 @nghttp2_queue_empty(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !3
+  %3 = icmp eq ptr %2, null
+  %4 = zext i1 %3 to i32
+  ret i32 %4
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind allocsize(0) }
 attributes #10 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"", !5, i64 0, !5, i64 8}
+!5 = !{!"p1 _ZTS18nghttp2_queue_cell", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !5, i64 8}
+!10 = !{!"nghttp2_queue_cell", !6, i64 0, !5, i64 8}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.mustprogress"}
+!13 = !{!10, !6, i64 0}
+!14 = !{!4, !5, i64 8}

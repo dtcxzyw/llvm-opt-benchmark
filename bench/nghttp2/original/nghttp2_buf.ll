@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.nghttp2_buf = type { ptr, ptr, ptr, ptr, ptr }
 %struct.nghttp2_bufs = type { ptr, ptr, ptr, i64, i64, i64, i64, i64 }
@@ -7,1814 +7,2026 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.nghttp2_vec = type { ptr, i64 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nghttp2_buf_init(ptr noundef %buf) #0 {
-entry:
-  %buf.addr = alloca ptr, align 8
-  store ptr %buf, ptr %buf.addr, align 8
-  %0 = load ptr, ptr %buf.addr, align 8
-  %begin = getelementptr inbounds %struct.nghttp2_buf, ptr %0, i32 0, i32 0
-  store ptr null, ptr %begin, align 8
-  %1 = load ptr, ptr %buf.addr, align 8
-  %end = getelementptr inbounds %struct.nghttp2_buf, ptr %1, i32 0, i32 1
-  store ptr null, ptr %end, align 8
-  %2 = load ptr, ptr %buf.addr, align 8
-  %pos = getelementptr inbounds %struct.nghttp2_buf, ptr %2, i32 0, i32 2
-  store ptr null, ptr %pos, align 8
-  %3 = load ptr, ptr %buf.addr, align 8
-  %last = getelementptr inbounds %struct.nghttp2_buf, ptr %3, i32 0, i32 3
-  store ptr null, ptr %last, align 8
-  %4 = load ptr, ptr %buf.addr, align 8
-  %mark = getelementptr inbounds %struct.nghttp2_buf, ptr %4, i32 0, i32 4
-  store ptr null, ptr %mark, align 8
+define hidden void @nghttp2_buf_init(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !7
+  %5 = load ptr, ptr %2, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %5, i32 0, i32 1
+  store ptr null, ptr %6, align 8, !tbaa !10
+  %7 = load ptr, ptr %2, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %7, i32 0, i32 2
+  store ptr null, ptr %8, align 8, !tbaa !11
+  %9 = load ptr, ptr %2, align 8, !tbaa !3
+  %10 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %9, i32 0, i32 3
+  store ptr null, ptr %10, align 8, !tbaa !12
+  %11 = load ptr, ptr %2, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %11, i32 0, i32 4
+  store ptr null, ptr %12, align 8, !tbaa !13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_buf_init2(ptr noundef %buf, i64 noundef %initial, ptr noundef %mem) #0 {
-entry:
-  %buf.addr = alloca ptr, align 8
-  %initial.addr = alloca i64, align 8
-  %mem.addr = alloca ptr, align 8
-  store ptr %buf, ptr %buf.addr, align 8
-  store i64 %initial, ptr %initial.addr, align 8
-  store ptr %mem, ptr %mem.addr, align 8
-  %0 = load ptr, ptr %buf.addr, align 8
-  call void @nghttp2_buf_init(ptr noundef %0)
-  %1 = load ptr, ptr %buf.addr, align 8
-  %2 = load i64, ptr %initial.addr, align 8
-  %3 = load ptr, ptr %mem.addr, align 8
-  %call = call i32 @nghttp2_buf_reserve(ptr noundef %1, i64 noundef %2, ptr noundef %3)
-  ret i32 %call
+define hidden i32 @nghttp2_buf_init2(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !14
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @nghttp2_buf_init(ptr noundef %7)
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = load i64, ptr %5, align 8, !tbaa !14
+  %10 = load ptr, ptr %6, align 8, !tbaa !3
+  %11 = call i32 @nghttp2_buf_reserve(ptr noundef %8, i64 noundef %9, ptr noundef %10)
+  ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_buf_reserve(ptr noundef %buf, i64 noundef %new_cap, ptr noundef %mem) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %buf.addr = alloca ptr, align 8
-  %new_cap.addr = alloca i64, align 8
-  %mem.addr = alloca ptr, align 8
-  %ptr = alloca ptr, align 8
-  %cap = alloca i64, align 8
-  store ptr %buf, ptr %buf.addr, align 8
-  store i64 %new_cap, ptr %new_cap.addr, align 8
-  store ptr %mem, ptr %mem.addr, align 8
-  %0 = load ptr, ptr %buf.addr, align 8
-  %end = getelementptr inbounds %struct.nghttp2_buf, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %end, align 8
-  %2 = load ptr, ptr %buf.addr, align 8
-  %begin = getelementptr inbounds %struct.nghttp2_buf, ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %begin, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  store i64 %sub.ptr.sub, ptr %cap, align 8
-  %4 = load i64, ptr %cap, align 8
-  %5 = load i64, ptr %new_cap.addr, align 8
-  %cmp = icmp uge i64 %4, %5
-  br i1 %cmp, label %if.then, label %if.end
+define hidden i32 @nghttp2_buf_reserve(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i64 %1, ptr %6, align 8, !tbaa !14
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  %11 = load ptr, ptr %5, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8, !tbaa !10
+  %14 = load ptr, ptr %5, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !7
+  %17 = ptrtoint ptr %13 to i64
+  %18 = ptrtoint ptr %16 to i64
+  %19 = sub i64 %17, %18
+  store i64 %19, ptr %9, align 8, !tbaa !14
+  %20 = load i64, ptr %9, align 8, !tbaa !14
+  %21 = load i64, ptr %6, align 8, !tbaa !14
+  %22 = icmp uge i64 %20, %21
+  br i1 %22, label %23, label %24
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+23:                                               ; preds = %3
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %86
 
-if.end:                                           ; preds = %entry
-  %6 = load i64, ptr %new_cap.addr, align 8
-  %7 = load i64, ptr %cap, align 8
-  %mul = mul i64 %7, 2
-  %cmp1 = icmp ugt i64 %6, %mul
-  br i1 %cmp1, label %cond.true, label %cond.false
+24:                                               ; preds = %3
+  %25 = load i64, ptr %6, align 8, !tbaa !14
+  %26 = load i64, ptr %9, align 8, !tbaa !14
+  %27 = mul i64 %26, 2
+  %28 = call i64 @nghttp2_max_size(i64 noundef %25, i64 noundef %27)
+  store i64 %28, ptr %6, align 8, !tbaa !14
+  %29 = load ptr, ptr %7, align 8, !tbaa !3
+  %30 = load ptr, ptr %5, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8, !tbaa !7
+  %33 = load i64, ptr %6, align 8, !tbaa !14
+  %34 = call ptr @nghttp2_mem_realloc(ptr noundef %29, ptr noundef %32, i64 noundef %33)
+  store ptr %34, ptr %8, align 8, !tbaa !16
+  %35 = load ptr, ptr %8, align 8, !tbaa !16
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %37, label %38
 
-cond.true:                                        ; preds = %if.end
-  %8 = load i64, ptr %new_cap.addr, align 8
-  br label %cond.end
+37:                                               ; preds = %24
+  store i32 -901, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %86
 
-cond.false:                                       ; preds = %if.end
-  %9 = load i64, ptr %cap, align 8
-  %mul2 = mul i64 %9, 2
-  br label %cond.end
+38:                                               ; preds = %24
+  %39 = load ptr, ptr %8, align 8, !tbaa !16
+  %40 = load ptr, ptr %5, align 8, !tbaa !3
+  %41 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %40, i32 0, i32 2
+  %42 = load ptr, ptr %41, align 8, !tbaa !11
+  %43 = load ptr, ptr %5, align 8, !tbaa !3
+  %44 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %43, i32 0, i32 0
+  %45 = load ptr, ptr %44, align 8, !tbaa !7
+  %46 = ptrtoint ptr %42 to i64
+  %47 = ptrtoint ptr %45 to i64
+  %48 = sub i64 %46, %47
+  %49 = getelementptr inbounds i8, ptr %39, i64 %48
+  %50 = load ptr, ptr %5, align 8, !tbaa !3
+  %51 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %50, i32 0, i32 2
+  store ptr %49, ptr %51, align 8, !tbaa !11
+  %52 = load ptr, ptr %8, align 8, !tbaa !16
+  %53 = load ptr, ptr %5, align 8, !tbaa !3
+  %54 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %53, i32 0, i32 3
+  %55 = load ptr, ptr %54, align 8, !tbaa !12
+  %56 = load ptr, ptr %5, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %56, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8, !tbaa !7
+  %59 = ptrtoint ptr %55 to i64
+  %60 = ptrtoint ptr %58 to i64
+  %61 = sub i64 %59, %60
+  %62 = getelementptr inbounds i8, ptr %52, i64 %61
+  %63 = load ptr, ptr %5, align 8, !tbaa !3
+  %64 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %63, i32 0, i32 3
+  store ptr %62, ptr %64, align 8, !tbaa !12
+  %65 = load ptr, ptr %8, align 8, !tbaa !16
+  %66 = load ptr, ptr %5, align 8, !tbaa !3
+  %67 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %66, i32 0, i32 4
+  %68 = load ptr, ptr %67, align 8, !tbaa !13
+  %69 = load ptr, ptr %5, align 8, !tbaa !3
+  %70 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %69, i32 0, i32 0
+  %71 = load ptr, ptr %70, align 8, !tbaa !7
+  %72 = ptrtoint ptr %68 to i64
+  %73 = ptrtoint ptr %71 to i64
+  %74 = sub i64 %72, %73
+  %75 = getelementptr inbounds i8, ptr %65, i64 %74
+  %76 = load ptr, ptr %5, align 8, !tbaa !3
+  %77 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %76, i32 0, i32 4
+  store ptr %75, ptr %77, align 8, !tbaa !13
+  %78 = load ptr, ptr %8, align 8, !tbaa !16
+  %79 = load ptr, ptr %5, align 8, !tbaa !3
+  %80 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %79, i32 0, i32 0
+  store ptr %78, ptr %80, align 8, !tbaa !7
+  %81 = load ptr, ptr %8, align 8, !tbaa !16
+  %82 = load i64, ptr %6, align 8, !tbaa !14
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 %82
+  %84 = load ptr, ptr %5, align 8, !tbaa !3
+  %85 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %84, i32 0, i32 1
+  store ptr %83, ptr %85, align 8, !tbaa !10
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %86
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %8, %cond.true ], [ %mul2, %cond.false ]
-  store i64 %cond, ptr %new_cap.addr, align 8
-  %10 = load ptr, ptr %mem.addr, align 8
-  %11 = load ptr, ptr %buf.addr, align 8
-  %begin3 = getelementptr inbounds %struct.nghttp2_buf, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %begin3, align 8
-  %13 = load i64, ptr %new_cap.addr, align 8
-  %call = call ptr @nghttp2_mem_realloc(ptr noundef %10, ptr noundef %12, i64 noundef %13)
-  store ptr %call, ptr %ptr, align 8
-  %14 = load ptr, ptr %ptr, align 8
-  %cmp4 = icmp eq ptr %14, null
-  br i1 %cmp4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %cond.end
-  store i32 -901, ptr %retval, align 4
-  br label %return
-
-if.end6:                                          ; preds = %cond.end
-  %15 = load ptr, ptr %ptr, align 8
-  %16 = load ptr, ptr %buf.addr, align 8
-  %pos = getelementptr inbounds %struct.nghttp2_buf, ptr %16, i32 0, i32 2
-  %17 = load ptr, ptr %pos, align 8
-  %18 = load ptr, ptr %buf.addr, align 8
-  %begin7 = getelementptr inbounds %struct.nghttp2_buf, ptr %18, i32 0, i32 0
-  %19 = load ptr, ptr %begin7, align 8
-  %sub.ptr.lhs.cast8 = ptrtoint ptr %17 to i64
-  %sub.ptr.rhs.cast9 = ptrtoint ptr %19 to i64
-  %sub.ptr.sub10 = sub i64 %sub.ptr.lhs.cast8, %sub.ptr.rhs.cast9
-  %add.ptr = getelementptr inbounds i8, ptr %15, i64 %sub.ptr.sub10
-  %20 = load ptr, ptr %buf.addr, align 8
-  %pos11 = getelementptr inbounds %struct.nghttp2_buf, ptr %20, i32 0, i32 2
-  store ptr %add.ptr, ptr %pos11, align 8
-  %21 = load ptr, ptr %ptr, align 8
-  %22 = load ptr, ptr %buf.addr, align 8
-  %last = getelementptr inbounds %struct.nghttp2_buf, ptr %22, i32 0, i32 3
-  %23 = load ptr, ptr %last, align 8
-  %24 = load ptr, ptr %buf.addr, align 8
-  %begin12 = getelementptr inbounds %struct.nghttp2_buf, ptr %24, i32 0, i32 0
-  %25 = load ptr, ptr %begin12, align 8
-  %sub.ptr.lhs.cast13 = ptrtoint ptr %23 to i64
-  %sub.ptr.rhs.cast14 = ptrtoint ptr %25 to i64
-  %sub.ptr.sub15 = sub i64 %sub.ptr.lhs.cast13, %sub.ptr.rhs.cast14
-  %add.ptr16 = getelementptr inbounds i8, ptr %21, i64 %sub.ptr.sub15
-  %26 = load ptr, ptr %buf.addr, align 8
-  %last17 = getelementptr inbounds %struct.nghttp2_buf, ptr %26, i32 0, i32 3
-  store ptr %add.ptr16, ptr %last17, align 8
-  %27 = load ptr, ptr %ptr, align 8
-  %28 = load ptr, ptr %buf.addr, align 8
-  %mark = getelementptr inbounds %struct.nghttp2_buf, ptr %28, i32 0, i32 4
-  %29 = load ptr, ptr %mark, align 8
-  %30 = load ptr, ptr %buf.addr, align 8
-  %begin18 = getelementptr inbounds %struct.nghttp2_buf, ptr %30, i32 0, i32 0
-  %31 = load ptr, ptr %begin18, align 8
-  %sub.ptr.lhs.cast19 = ptrtoint ptr %29 to i64
-  %sub.ptr.rhs.cast20 = ptrtoint ptr %31 to i64
-  %sub.ptr.sub21 = sub i64 %sub.ptr.lhs.cast19, %sub.ptr.rhs.cast20
-  %add.ptr22 = getelementptr inbounds i8, ptr %27, i64 %sub.ptr.sub21
-  %32 = load ptr, ptr %buf.addr, align 8
-  %mark23 = getelementptr inbounds %struct.nghttp2_buf, ptr %32, i32 0, i32 4
-  store ptr %add.ptr22, ptr %mark23, align 8
-  %33 = load ptr, ptr %ptr, align 8
-  %34 = load ptr, ptr %buf.addr, align 8
-  %begin24 = getelementptr inbounds %struct.nghttp2_buf, ptr %34, i32 0, i32 0
-  store ptr %33, ptr %begin24, align 8
-  %35 = load ptr, ptr %ptr, align 8
-  %36 = load i64, ptr %new_cap.addr, align 8
-  %add.ptr25 = getelementptr inbounds i8, ptr %35, i64 %36
-  %37 = load ptr, ptr %buf.addr, align 8
-  %end26 = getelementptr inbounds %struct.nghttp2_buf, ptr %37, i32 0, i32 1
-  store ptr %add.ptr25, ptr %end26, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end6, %if.then5, %if.then
-  %38 = load i32, ptr %retval, align 4
-  ret i32 %38
+86:                                               ; preds = %38, %37, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  %87 = load i32, ptr %4, align 4
+  ret i32 %87
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nghttp2_buf_free(ptr noundef %buf, ptr noundef %mem) #0 {
-entry:
-  %buf.addr = alloca ptr, align 8
-  %mem.addr = alloca ptr, align 8
-  store ptr %buf, ptr %buf.addr, align 8
-  store ptr %mem, ptr %mem.addr, align 8
-  %0 = load ptr, ptr %buf.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define hidden void @nghttp2_buf_free(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %7, label %8
 
-if.then:                                          ; preds = %entry
-  br label %return
+7:                                                ; preds = %2
+  br label %15
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %mem.addr, align 8
-  %2 = load ptr, ptr %buf.addr, align 8
-  %begin = getelementptr inbounds %struct.nghttp2_buf, ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %begin, align 8
-  call void @nghttp2_mem_free(ptr noundef %1, ptr noundef %3)
-  %4 = load ptr, ptr %buf.addr, align 8
-  %begin1 = getelementptr inbounds %struct.nghttp2_buf, ptr %4, i32 0, i32 0
-  store ptr null, ptr %begin1, align 8
-  br label %return
+8:                                                ; preds = %2
+  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  %10 = load ptr, ptr %3, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !7
+  call void @nghttp2_mem_free(ptr noundef %9, ptr noundef %12)
+  %13 = load ptr, ptr %3, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %13, i32 0, i32 0
+  store ptr null, ptr %14, align 8, !tbaa !7
+  br label %15
 
-return:                                           ; preds = %if.end, %if.then
+15:                                               ; preds = %8, %7
   ret void
 }
 
 declare void @nghttp2_mem_free(ptr noundef, ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @nghttp2_max_size(i64 noundef %0, i64 noundef %1) #3 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !14
+  store i64 %1, ptr %4, align 8, !tbaa !14
+  %5 = load i64, ptr %3, align 8, !tbaa !14
+  %6 = load i64, ptr %4, align 8, !tbaa !14
+  %7 = icmp ult i64 %5, %6
+  br i1 %7, label %8, label %10
+
+8:                                                ; preds = %2
+  %9 = load i64, ptr %4, align 8, !tbaa !14
+  br label %12
+
+10:                                               ; preds = %2
+  %11 = load i64, ptr %3, align 8, !tbaa !14
+  br label %12
+
+12:                                               ; preds = %10, %8
+  %13 = phi i64 [ %9, %8 ], [ %11, %10 ]
+  ret i64 %13
+}
+
 declare ptr @nghttp2_mem_realloc(ptr noundef, ptr noundef, i64 noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: nounwind uwtable
-define hidden void @nghttp2_buf_reset(ptr noundef %buf) #0 {
-entry:
-  %buf.addr = alloca ptr, align 8
-  store ptr %buf, ptr %buf.addr, align 8
-  %0 = load ptr, ptr %buf.addr, align 8
-  %begin = getelementptr inbounds %struct.nghttp2_buf, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %begin, align 8
-  %2 = load ptr, ptr %buf.addr, align 8
-  %mark = getelementptr inbounds %struct.nghttp2_buf, ptr %2, i32 0, i32 4
-  store ptr %1, ptr %mark, align 8
-  %3 = load ptr, ptr %buf.addr, align 8
-  %last = getelementptr inbounds %struct.nghttp2_buf, ptr %3, i32 0, i32 3
-  store ptr %1, ptr %last, align 8
-  %4 = load ptr, ptr %buf.addr, align 8
-  %pos = getelementptr inbounds %struct.nghttp2_buf, ptr %4, i32 0, i32 2
-  store ptr %1, ptr %pos, align 8
+define hidden void @nghttp2_buf_reset(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !7
+  %6 = load ptr, ptr %2, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %6, i32 0, i32 4
+  store ptr %5, ptr %7, align 8, !tbaa !13
+  %8 = load ptr, ptr %2, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %8, i32 0, i32 3
+  store ptr %5, ptr %9, align 8, !tbaa !12
+  %10 = load ptr, ptr %2, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %10, i32 0, i32 2
+  store ptr %5, ptr %11, align 8, !tbaa !11
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nghttp2_buf_wrap_init(ptr noundef %buf, ptr noundef %begin, i64 noundef %len) #0 {
-entry:
-  %buf.addr = alloca ptr, align 8
-  %begin.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  store ptr %buf, ptr %buf.addr, align 8
-  store ptr %begin, ptr %begin.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  %0 = load ptr, ptr %begin.addr, align 8
-  %1 = load ptr, ptr %buf.addr, align 8
-  %end = getelementptr inbounds %struct.nghttp2_buf, ptr %1, i32 0, i32 1
-  store ptr %0, ptr %end, align 8
-  %2 = load ptr, ptr %buf.addr, align 8
-  %mark = getelementptr inbounds %struct.nghttp2_buf, ptr %2, i32 0, i32 4
-  store ptr %0, ptr %mark, align 8
-  %3 = load ptr, ptr %buf.addr, align 8
-  %last = getelementptr inbounds %struct.nghttp2_buf, ptr %3, i32 0, i32 3
-  store ptr %0, ptr %last, align 8
-  %4 = load ptr, ptr %buf.addr, align 8
-  %pos = getelementptr inbounds %struct.nghttp2_buf, ptr %4, i32 0, i32 2
-  store ptr %0, ptr %pos, align 8
-  %5 = load ptr, ptr %buf.addr, align 8
-  %begin1 = getelementptr inbounds %struct.nghttp2_buf, ptr %5, i32 0, i32 0
-  store ptr %0, ptr %begin1, align 8
-  %6 = load i64, ptr %len.addr, align 8
-  %tobool = icmp ne i64 %6, 0
-  br i1 %tobool, label %if.then, label %if.end
+define hidden void @nghttp2_buf_wrap_init(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !16
+  store i64 %2, ptr %6, align 8, !tbaa !14
+  %7 = load ptr, ptr %5, align 8, !tbaa !16
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %8, i32 0, i32 1
+  store ptr %7, ptr %9, align 8, !tbaa !10
+  %10 = load ptr, ptr %4, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %10, i32 0, i32 4
+  store ptr %7, ptr %11, align 8, !tbaa !13
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %12, i32 0, i32 3
+  store ptr %7, ptr %13, align 8, !tbaa !12
+  %14 = load ptr, ptr %4, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %14, i32 0, i32 2
+  store ptr %7, ptr %15, align 8, !tbaa !11
+  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %16, i32 0, i32 0
+  store ptr %7, ptr %17, align 8, !tbaa !7
+  %18 = load i64, ptr %6, align 8, !tbaa !14
+  %19 = icmp ne i64 %18, 0
+  br i1 %19, label %20, label %26
 
-if.then:                                          ; preds = %entry
-  %7 = load i64, ptr %len.addr, align 8
-  %8 = load ptr, ptr %buf.addr, align 8
-  %end2 = getelementptr inbounds %struct.nghttp2_buf, ptr %8, i32 0, i32 1
-  %9 = load ptr, ptr %end2, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %9, i64 %7
-  store ptr %add.ptr, ptr %end2, align 8
-  br label %if.end
+20:                                               ; preds = %3
+  %21 = load i64, ptr %6, align 8, !tbaa !14
+  %22 = load ptr, ptr %4, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8, !tbaa !10
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %21
+  store ptr %25, ptr %23, align 8, !tbaa !10
+  br label %26
 
-if.end:                                           ; preds = %if.then, %entry
+26:                                               ; preds = %20, %3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_bufs_init(ptr noundef %bufs, i64 noundef %chunk_length, i64 noundef %max_chunk, ptr noundef %mem) #0 {
-entry:
-  %bufs.addr = alloca ptr, align 8
-  %chunk_length.addr = alloca i64, align 8
-  %max_chunk.addr = alloca i64, align 8
-  %mem.addr = alloca ptr, align 8
-  store ptr %bufs, ptr %bufs.addr, align 8
-  store i64 %chunk_length, ptr %chunk_length.addr, align 8
-  store i64 %max_chunk, ptr %max_chunk.addr, align 8
-  store ptr %mem, ptr %mem.addr, align 8
-  %0 = load ptr, ptr %bufs.addr, align 8
-  %1 = load i64, ptr %chunk_length.addr, align 8
-  %2 = load i64, ptr %max_chunk.addr, align 8
-  %3 = load ptr, ptr %mem.addr, align 8
-  %call = call i32 @nghttp2_bufs_init2(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef 0, ptr noundef %3)
-  ret i32 %call
+define hidden i32 @nghttp2_bufs_init(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i64 %1, ptr %6, align 8, !tbaa !14
+  store i64 %2, ptr %7, align 8, !tbaa !14
+  store ptr %3, ptr %8, align 8, !tbaa !3
+  %9 = load ptr, ptr %5, align 8, !tbaa !3
+  %10 = load i64, ptr %6, align 8, !tbaa !14
+  %11 = load i64, ptr %7, align 8, !tbaa !14
+  %12 = load ptr, ptr %8, align 8, !tbaa !3
+  %13 = call i32 @nghttp2_bufs_init2(ptr noundef %9, i64 noundef %10, i64 noundef %11, i64 noundef 0, ptr noundef %12)
+  ret i32 %13
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_bufs_init2(ptr noundef %bufs, i64 noundef %chunk_length, i64 noundef %max_chunk, i64 noundef %offset, ptr noundef %mem) #0 {
-entry:
-  %bufs.addr = alloca ptr, align 8
-  %chunk_length.addr = alloca i64, align 8
-  %max_chunk.addr = alloca i64, align 8
-  %offset.addr = alloca i64, align 8
-  %mem.addr = alloca ptr, align 8
-  store ptr %bufs, ptr %bufs.addr, align 8
-  store i64 %chunk_length, ptr %chunk_length.addr, align 8
-  store i64 %max_chunk, ptr %max_chunk.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  store ptr %mem, ptr %mem.addr, align 8
-  %0 = load ptr, ptr %bufs.addr, align 8
-  %1 = load i64, ptr %chunk_length.addr, align 8
-  %2 = load i64, ptr %max_chunk.addr, align 8
-  %3 = load i64, ptr %max_chunk.addr, align 8
-  %4 = load i64, ptr %offset.addr, align 8
-  %5 = load ptr, ptr %mem.addr, align 8
-  %call = call i32 @nghttp2_bufs_init3(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5)
-  ret i32 %call
+define hidden i32 @nghttp2_bufs_init2(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store i64 %1, ptr %7, align 8, !tbaa !14
+  store i64 %2, ptr %8, align 8, !tbaa !14
+  store i64 %3, ptr %9, align 8, !tbaa !14
+  store ptr %4, ptr %10, align 8, !tbaa !3
+  %11 = load ptr, ptr %6, align 8, !tbaa !3
+  %12 = load i64, ptr %7, align 8, !tbaa !14
+  %13 = load i64, ptr %8, align 8, !tbaa !14
+  %14 = load i64, ptr %8, align 8, !tbaa !14
+  %15 = load i64, ptr %9, align 8, !tbaa !14
+  %16 = load ptr, ptr %10, align 8, !tbaa !3
+  %17 = call i32 @nghttp2_bufs_init3(ptr noundef %11, i64 noundef %12, i64 noundef %13, i64 noundef %14, i64 noundef %15, ptr noundef %16)
+  ret i32 %17
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_bufs_init3(ptr noundef %bufs, i64 noundef %chunk_length, i64 noundef %max_chunk, i64 noundef %chunk_keep, i64 noundef %offset, ptr noundef %mem) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %bufs.addr = alloca ptr, align 8
-  %chunk_length.addr = alloca i64, align 8
-  %max_chunk.addr = alloca i64, align 8
-  %chunk_keep.addr = alloca i64, align 8
-  %offset.addr = alloca i64, align 8
-  %mem.addr = alloca ptr, align 8
-  %rv = alloca i32, align 4
-  %chain = alloca ptr, align 8
-  store ptr %bufs, ptr %bufs.addr, align 8
-  store i64 %chunk_length, ptr %chunk_length.addr, align 8
-  store i64 %max_chunk, ptr %max_chunk.addr, align 8
-  store i64 %chunk_keep, ptr %chunk_keep.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  store ptr %mem, ptr %mem.addr, align 8
-  %0 = load i64, ptr %chunk_keep.addr, align 8
-  %cmp = icmp eq i64 %0, 0
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define hidden i32 @nghttp2_bufs_init3(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !3
+  store i64 %1, ptr %9, align 8, !tbaa !14
+  store i64 %2, ptr %10, align 8, !tbaa !14
+  store i64 %3, ptr %11, align 8, !tbaa !14
+  store i64 %4, ptr %12, align 8, !tbaa !14
+  store ptr %5, ptr %13, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #4
+  %17 = load i64, ptr %11, align 8, !tbaa !14
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %27, label %19
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load i64, ptr %max_chunk.addr, align 8
-  %2 = load i64, ptr %chunk_keep.addr, align 8
-  %cmp1 = icmp ult i64 %1, %2
-  br i1 %cmp1, label %if.then, label %lor.lhs.false2
+19:                                               ; preds = %6
+  %20 = load i64, ptr %10, align 8, !tbaa !14
+  %21 = load i64, ptr %11, align 8, !tbaa !14
+  %22 = icmp ult i64 %20, %21
+  br i1 %22, label %27, label %23
 
-lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %3 = load i64, ptr %chunk_length.addr, align 8
-  %4 = load i64, ptr %offset.addr, align 8
-  %cmp3 = icmp ult i64 %3, %4
-  br i1 %cmp3, label %if.then, label %if.end
+23:                                               ; preds = %19
+  %24 = load i64, ptr %9, align 8, !tbaa !14
+  %25 = load i64, ptr %12, align 8, !tbaa !14
+  %26 = icmp ult i64 %24, %25
+  br i1 %26, label %27, label %28
 
-if.then:                                          ; preds = %lor.lhs.false2, %lor.lhs.false, %entry
-  store i32 -501, ptr %retval, align 4
-  br label %return
+27:                                               ; preds = %23, %19, %6
+  store i32 -501, ptr %7, align 4
+  store i32 1, ptr %16, align 4
+  br label %81
 
-if.end:                                           ; preds = %lor.lhs.false2
-  %5 = load i64, ptr %chunk_length.addr, align 8
-  %6 = load ptr, ptr %mem.addr, align 8
-  %call = call i32 @buf_chain_new(ptr noundef %chain, i64 noundef %5, ptr noundef %6)
-  store i32 %call, ptr %rv, align 4
-  %7 = load i32, ptr %rv, align 4
-  %cmp4 = icmp ne i32 %7, 0
-  br i1 %cmp4, label %if.then5, label %if.end6
+28:                                               ; preds = %23
+  %29 = load i64, ptr %9, align 8, !tbaa !14
+  %30 = load ptr, ptr %13, align 8, !tbaa !3
+  %31 = call i32 @buf_chain_new(ptr noundef %15, i64 noundef %29, ptr noundef %30)
+  store i32 %31, ptr %14, align 4, !tbaa !17
+  %32 = load i32, ptr %14, align 4, !tbaa !17
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %34, label %36
 
-if.then5:                                         ; preds = %if.end
-  %8 = load i32, ptr %rv, align 4
-  store i32 %8, ptr %retval, align 4
-  br label %return
+34:                                               ; preds = %28
+  %35 = load i32, ptr %14, align 4, !tbaa !17
+  store i32 %35, ptr %7, align 4
+  store i32 1, ptr %16, align 4
+  br label %81
 
-if.end6:                                          ; preds = %if.end
-  %9 = load ptr, ptr %mem.addr, align 8
-  %10 = load ptr, ptr %bufs.addr, align 8
-  %mem7 = getelementptr inbounds %struct.nghttp2_bufs, ptr %10, i32 0, i32 2
-  store ptr %9, ptr %mem7, align 8
-  %11 = load i64, ptr %offset.addr, align 8
-  %12 = load ptr, ptr %bufs.addr, align 8
-  %offset8 = getelementptr inbounds %struct.nghttp2_bufs, ptr %12, i32 0, i32 7
-  store i64 %11, ptr %offset8, align 8
-  %13 = load ptr, ptr %chain, align 8
-  %14 = load ptr, ptr %bufs.addr, align 8
-  %head = getelementptr inbounds %struct.nghttp2_bufs, ptr %14, i32 0, i32 0
-  store ptr %13, ptr %head, align 8
-  %15 = load ptr, ptr %bufs.addr, align 8
-  %head9 = getelementptr inbounds %struct.nghttp2_bufs, ptr %15, i32 0, i32 0
-  %16 = load ptr, ptr %head9, align 8
-  %17 = load ptr, ptr %bufs.addr, align 8
-  %cur = getelementptr inbounds %struct.nghttp2_bufs, ptr %17, i32 0, i32 1
-  store ptr %16, ptr %cur, align 8
-  br label %do.body
+36:                                               ; preds = %28
+  %37 = load ptr, ptr %13, align 8, !tbaa !3
+  %38 = load ptr, ptr %8, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %38, i32 0, i32 2
+  store ptr %37, ptr %39, align 8, !tbaa !19
+  %40 = load i64, ptr %12, align 8, !tbaa !14
+  %41 = load ptr, ptr %8, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %41, i32 0, i32 7
+  store i64 %40, ptr %42, align 8, !tbaa !22
+  %43 = load ptr, ptr %15, align 8, !tbaa !23
+  %44 = load ptr, ptr %8, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %44, i32 0, i32 0
+  store ptr %43, ptr %45, align 8, !tbaa !24
+  %46 = load ptr, ptr %8, align 8, !tbaa !3
+  %47 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %46, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8, !tbaa !24
+  %49 = load ptr, ptr %8, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %49, i32 0, i32 1
+  store ptr %48, ptr %50, align 8, !tbaa !25
+  br label %51
 
-do.body:                                          ; preds = %if.end6
-  %18 = load i64, ptr %offset.addr, align 8
-  %19 = load ptr, ptr %bufs.addr, align 8
-  %cur10 = getelementptr inbounds %struct.nghttp2_bufs, ptr %19, i32 0, i32 1
-  %20 = load ptr, ptr %cur10, align 8
-  %buf = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %20, i32 0, i32 1
-  %pos = getelementptr inbounds %struct.nghttp2_buf, ptr %buf, i32 0, i32 2
-  %21 = load ptr, ptr %pos, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %21, i64 %18
-  store ptr %add.ptr, ptr %pos, align 8
-  %22 = load i64, ptr %offset.addr, align 8
-  %23 = load ptr, ptr %bufs.addr, align 8
-  %cur11 = getelementptr inbounds %struct.nghttp2_bufs, ptr %23, i32 0, i32 1
-  %24 = load ptr, ptr %cur11, align 8
-  %buf12 = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %24, i32 0, i32 1
-  %last = getelementptr inbounds %struct.nghttp2_buf, ptr %buf12, i32 0, i32 3
-  %25 = load ptr, ptr %last, align 8
-  %add.ptr13 = getelementptr inbounds i8, ptr %25, i64 %22
-  store ptr %add.ptr13, ptr %last, align 8
-  br label %do.end
+51:                                               ; preds = %36
+  %52 = load i64, ptr %12, align 8, !tbaa !14
+  %53 = load ptr, ptr %8, align 8, !tbaa !3
+  %54 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %53, i32 0, i32 1
+  %55 = load ptr, ptr %54, align 8, !tbaa !25
+  %56 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %55, i32 0, i32 1
+  %57 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %56, i32 0, i32 2
+  %58 = load ptr, ptr %57, align 8, !tbaa !26
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 %52
+  store ptr %59, ptr %57, align 8, !tbaa !26
+  %60 = load i64, ptr %12, align 8, !tbaa !14
+  %61 = load ptr, ptr %8, align 8, !tbaa !3
+  %62 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %61, i32 0, i32 1
+  %63 = load ptr, ptr %62, align 8, !tbaa !25
+  %64 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %63, i32 0, i32 1
+  %65 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %64, i32 0, i32 3
+  %66 = load ptr, ptr %65, align 8, !tbaa !28
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %60
+  store ptr %67, ptr %65, align 8, !tbaa !28
+  br label %68
 
-do.end:                                           ; preds = %do.body
-  %26 = load i64, ptr %chunk_length.addr, align 8
-  %27 = load ptr, ptr %bufs.addr, align 8
-  %chunk_length14 = getelementptr inbounds %struct.nghttp2_bufs, ptr %27, i32 0, i32 3
-  store i64 %26, ptr %chunk_length14, align 8
-  %28 = load ptr, ptr %bufs.addr, align 8
-  %chunk_used = getelementptr inbounds %struct.nghttp2_bufs, ptr %28, i32 0, i32 5
-  store i64 1, ptr %chunk_used, align 8
-  %29 = load i64, ptr %max_chunk.addr, align 8
-  %30 = load ptr, ptr %bufs.addr, align 8
-  %max_chunk15 = getelementptr inbounds %struct.nghttp2_bufs, ptr %30, i32 0, i32 4
-  store i64 %29, ptr %max_chunk15, align 8
-  %31 = load i64, ptr %chunk_keep.addr, align 8
-  %32 = load ptr, ptr %bufs.addr, align 8
-  %chunk_keep16 = getelementptr inbounds %struct.nghttp2_bufs, ptr %32, i32 0, i32 6
-  store i64 %31, ptr %chunk_keep16, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
+68:                                               ; preds = %51
+  br label %69
 
-return:                                           ; preds = %do.end, %if.then5, %if.then
-  %33 = load i32, ptr %retval, align 4
-  ret i32 %33
+69:                                               ; preds = %68
+  %70 = load i64, ptr %9, align 8, !tbaa !14
+  %71 = load ptr, ptr %8, align 8, !tbaa !3
+  %72 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %71, i32 0, i32 3
+  store i64 %70, ptr %72, align 8, !tbaa !29
+  %73 = load ptr, ptr %8, align 8, !tbaa !3
+  %74 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %73, i32 0, i32 5
+  store i64 1, ptr %74, align 8, !tbaa !30
+  %75 = load i64, ptr %10, align 8, !tbaa !14
+  %76 = load ptr, ptr %8, align 8, !tbaa !3
+  %77 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %76, i32 0, i32 4
+  store i64 %75, ptr %77, align 8, !tbaa !31
+  %78 = load i64, ptr %11, align 8, !tbaa !14
+  %79 = load ptr, ptr %8, align 8, !tbaa !3
+  %80 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %79, i32 0, i32 6
+  store i64 %78, ptr %80, align 8, !tbaa !32
+  store i32 0, ptr %7, align 4
+  store i32 1, ptr %16, align 4
+  br label %81
+
+81:                                               ; preds = %69, %34, %27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  %82 = load i32, ptr %7, align 4
+  ret i32 %82
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @buf_chain_new(ptr noundef %chain, i64 noundef %chunk_length, ptr noundef %mem) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %chain.addr = alloca ptr, align 8
-  %chunk_length.addr = alloca i64, align 8
-  %mem.addr = alloca ptr, align 8
-  %rv = alloca i32, align 4
-  store ptr %chain, ptr %chain.addr, align 8
-  store i64 %chunk_length, ptr %chunk_length.addr, align 8
-  store ptr %mem, ptr %mem.addr, align 8
-  %0 = load ptr, ptr %mem.addr, align 8
-  %call = call ptr @nghttp2_mem_malloc(ptr noundef %0, i64 noundef 48)
-  %1 = load ptr, ptr %chain.addr, align 8
-  store ptr %call, ptr %1, align 8
-  %2 = load ptr, ptr %chain.addr, align 8
-  %3 = load ptr, ptr %2, align 8
-  %cmp = icmp eq ptr %3, null
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @buf_chain_new(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !33
+  store i64 %1, ptr %6, align 8, !tbaa !14
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  %10 = load ptr, ptr %7, align 8, !tbaa !3
+  %11 = call ptr @nghttp2_mem_malloc(ptr noundef %10, i64 noundef 48)
+  %12 = load ptr, ptr %5, align 8, !tbaa !33
+  store ptr %11, ptr %12, align 8, !tbaa !23
+  %13 = load ptr, ptr %5, align 8, !tbaa !33
+  %14 = load ptr, ptr %13, align 8, !tbaa !23
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %17
 
-if.then:                                          ; preds = %entry
-  store i32 -901, ptr %retval, align 4
-  br label %return
+16:                                               ; preds = %3
+  store i32 -901, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %34
 
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %chain.addr, align 8
-  %5 = load ptr, ptr %4, align 8
-  %next = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %5, i32 0, i32 0
-  store ptr null, ptr %next, align 8
-  %6 = load ptr, ptr %chain.addr, align 8
-  %7 = load ptr, ptr %6, align 8
-  %buf = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %7, i32 0, i32 1
-  %8 = load i64, ptr %chunk_length.addr, align 8
-  %9 = load ptr, ptr %mem.addr, align 8
-  %call1 = call i32 @nghttp2_buf_init2(ptr noundef %buf, i64 noundef %8, ptr noundef %9)
-  store i32 %call1, ptr %rv, align 4
-  %10 = load i32, ptr %rv, align 4
-  %cmp2 = icmp ne i32 %10, 0
-  br i1 %cmp2, label %if.then3, label %if.end4
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %5, align 8, !tbaa !33
+  %19 = load ptr, ptr %18, align 8, !tbaa !23
+  %20 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %19, i32 0, i32 0
+  store ptr null, ptr %20, align 8, !tbaa !36
+  %21 = load ptr, ptr %5, align 8, !tbaa !33
+  %22 = load ptr, ptr %21, align 8, !tbaa !23
+  %23 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %22, i32 0, i32 1
+  %24 = load i64, ptr %6, align 8, !tbaa !14
+  %25 = load ptr, ptr %7, align 8, !tbaa !3
+  %26 = call i32 @nghttp2_buf_init2(ptr noundef %23, i64 noundef %24, ptr noundef %25)
+  store i32 %26, ptr %8, align 4, !tbaa !17
+  %27 = load i32, ptr %8, align 4, !tbaa !17
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %33
 
-if.then3:                                         ; preds = %if.end
-  %11 = load ptr, ptr %mem.addr, align 8
-  %12 = load ptr, ptr %chain.addr, align 8
-  %13 = load ptr, ptr %12, align 8
-  call void @nghttp2_mem_free(ptr noundef %11, ptr noundef %13)
-  store i32 -901, ptr %retval, align 4
-  br label %return
+29:                                               ; preds = %17
+  %30 = load ptr, ptr %7, align 8, !tbaa !3
+  %31 = load ptr, ptr %5, align 8, !tbaa !33
+  %32 = load ptr, ptr %31, align 8, !tbaa !23
+  call void @nghttp2_mem_free(ptr noundef %30, ptr noundef %32)
+  store i32 -901, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %34
 
-if.end4:                                          ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+33:                                               ; preds = %17
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %34
 
-return:                                           ; preds = %if.end4, %if.then3, %if.then
-  %14 = load i32, ptr %retval, align 4
-  ret i32 %14
+34:                                               ; preds = %33, %29, %16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  %35 = load i32, ptr %4, align 4
+  ret i32 %35
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_bufs_realloc(ptr noundef %bufs, i64 noundef %chunk_length) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %bufs.addr = alloca ptr, align 8
-  %chunk_length.addr = alloca i64, align 8
-  %rv = alloca i32, align 4
-  %chain = alloca ptr, align 8
-  store ptr %bufs, ptr %bufs.addr, align 8
-  store i64 %chunk_length, ptr %chunk_length.addr, align 8
-  %0 = load i64, ptr %chunk_length.addr, align 8
-  %1 = load ptr, ptr %bufs.addr, align 8
-  %offset = getelementptr inbounds %struct.nghttp2_bufs, ptr %1, i32 0, i32 7
-  %2 = load i64, ptr %offset, align 8
-  %cmp = icmp ult i64 %0, %2
-  br i1 %cmp, label %if.then, label %if.end
+define hidden i32 @nghttp2_bufs_realloc(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  %9 = load i64, ptr %5, align 8, !tbaa !14
+  %10 = load ptr, ptr %4, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %10, i32 0, i32 7
+  %12 = load i64, ptr %11, align 8, !tbaa !22
+  %13 = icmp ult i64 %9, %12
+  br i1 %13, label %14, label %15
 
-if.then:                                          ; preds = %entry
-  store i32 -501, ptr %retval, align 4
-  br label %return
+14:                                               ; preds = %2
+  store i32 -501, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %63
 
-if.end:                                           ; preds = %entry
-  %3 = load i64, ptr %chunk_length.addr, align 8
-  %4 = load ptr, ptr %bufs.addr, align 8
-  %mem = getelementptr inbounds %struct.nghttp2_bufs, ptr %4, i32 0, i32 2
-  %5 = load ptr, ptr %mem, align 8
-  %call = call i32 @buf_chain_new(ptr noundef %chain, i64 noundef %3, ptr noundef %5)
-  store i32 %call, ptr %rv, align 4
-  %6 = load i32, ptr %rv, align 4
-  %cmp1 = icmp ne i32 %6, 0
-  br i1 %cmp1, label %if.then2, label %if.end3
+15:                                               ; preds = %2
+  %16 = load i64, ptr %5, align 8, !tbaa !14
+  %17 = load ptr, ptr %4, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %17, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8, !tbaa !19
+  %20 = call i32 @buf_chain_new(ptr noundef %7, i64 noundef %16, ptr noundef %19)
+  store i32 %20, ptr %6, align 4, !tbaa !17
+  %21 = load i32, ptr %6, align 4, !tbaa !17
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %23, label %25
 
-if.then2:                                         ; preds = %if.end
-  %7 = load i32, ptr %rv, align 4
-  store i32 %7, ptr %retval, align 4
-  br label %return
+23:                                               ; preds = %15
+  %24 = load i32, ptr %6, align 4, !tbaa !17
+  store i32 %24, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %63
 
-if.end3:                                          ; preds = %if.end
-  %8 = load ptr, ptr %bufs.addr, align 8
-  call void @nghttp2_bufs_free(ptr noundef %8)
-  %9 = load ptr, ptr %chain, align 8
-  %10 = load ptr, ptr %bufs.addr, align 8
-  %head = getelementptr inbounds %struct.nghttp2_bufs, ptr %10, i32 0, i32 0
-  store ptr %9, ptr %head, align 8
-  %11 = load ptr, ptr %bufs.addr, align 8
-  %head4 = getelementptr inbounds %struct.nghttp2_bufs, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %head4, align 8
-  %13 = load ptr, ptr %bufs.addr, align 8
-  %cur = getelementptr inbounds %struct.nghttp2_bufs, ptr %13, i32 0, i32 1
-  store ptr %12, ptr %cur, align 8
-  br label %do.body
+25:                                               ; preds = %15
+  %26 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @nghttp2_bufs_free(ptr noundef %26)
+  %27 = load ptr, ptr %7, align 8, !tbaa !23
+  %28 = load ptr, ptr %4, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %28, i32 0, i32 0
+  store ptr %27, ptr %29, align 8, !tbaa !24
+  %30 = load ptr, ptr %4, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8, !tbaa !24
+  %33 = load ptr, ptr %4, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %33, i32 0, i32 1
+  store ptr %32, ptr %34, align 8, !tbaa !25
+  br label %35
 
-do.body:                                          ; preds = %if.end3
-  %14 = load ptr, ptr %bufs.addr, align 8
-  %offset5 = getelementptr inbounds %struct.nghttp2_bufs, ptr %14, i32 0, i32 7
-  %15 = load i64, ptr %offset5, align 8
-  %16 = load ptr, ptr %bufs.addr, align 8
-  %cur6 = getelementptr inbounds %struct.nghttp2_bufs, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %cur6, align 8
-  %buf = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %17, i32 0, i32 1
-  %pos = getelementptr inbounds %struct.nghttp2_buf, ptr %buf, i32 0, i32 2
-  %18 = load ptr, ptr %pos, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %18, i64 %15
-  store ptr %add.ptr, ptr %pos, align 8
-  %19 = load ptr, ptr %bufs.addr, align 8
-  %offset7 = getelementptr inbounds %struct.nghttp2_bufs, ptr %19, i32 0, i32 7
-  %20 = load i64, ptr %offset7, align 8
-  %21 = load ptr, ptr %bufs.addr, align 8
-  %cur8 = getelementptr inbounds %struct.nghttp2_bufs, ptr %21, i32 0, i32 1
-  %22 = load ptr, ptr %cur8, align 8
-  %buf9 = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %22, i32 0, i32 1
-  %last = getelementptr inbounds %struct.nghttp2_buf, ptr %buf9, i32 0, i32 3
-  %23 = load ptr, ptr %last, align 8
-  %add.ptr10 = getelementptr inbounds i8, ptr %23, i64 %20
-  store ptr %add.ptr10, ptr %last, align 8
-  br label %do.end
+35:                                               ; preds = %25
+  %36 = load ptr, ptr %4, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %36, i32 0, i32 7
+  %38 = load i64, ptr %37, align 8, !tbaa !22
+  %39 = load ptr, ptr %4, align 8, !tbaa !3
+  %40 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %39, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8, !tbaa !25
+  %42 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %41, i32 0, i32 1
+  %43 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %42, i32 0, i32 2
+  %44 = load ptr, ptr %43, align 8, !tbaa !26
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 %38
+  store ptr %45, ptr %43, align 8, !tbaa !26
+  %46 = load ptr, ptr %4, align 8, !tbaa !3
+  %47 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %46, i32 0, i32 7
+  %48 = load i64, ptr %47, align 8, !tbaa !22
+  %49 = load ptr, ptr %4, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %49, i32 0, i32 1
+  %51 = load ptr, ptr %50, align 8, !tbaa !25
+  %52 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %51, i32 0, i32 1
+  %53 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %52, i32 0, i32 3
+  %54 = load ptr, ptr %53, align 8, !tbaa !28
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 %48
+  store ptr %55, ptr %53, align 8, !tbaa !28
+  br label %56
 
-do.end:                                           ; preds = %do.body
-  %24 = load i64, ptr %chunk_length.addr, align 8
-  %25 = load ptr, ptr %bufs.addr, align 8
-  %chunk_length11 = getelementptr inbounds %struct.nghttp2_bufs, ptr %25, i32 0, i32 3
-  store i64 %24, ptr %chunk_length11, align 8
-  %26 = load ptr, ptr %bufs.addr, align 8
-  %chunk_used = getelementptr inbounds %struct.nghttp2_bufs, ptr %26, i32 0, i32 5
-  store i64 1, ptr %chunk_used, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
+56:                                               ; preds = %35
+  br label %57
 
-return:                                           ; preds = %do.end, %if.then2, %if.then
-  %27 = load i32, ptr %retval, align 4
-  ret i32 %27
+57:                                               ; preds = %56
+  %58 = load i64, ptr %5, align 8, !tbaa !14
+  %59 = load ptr, ptr %4, align 8, !tbaa !3
+  %60 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %59, i32 0, i32 3
+  store i64 %58, ptr %60, align 8, !tbaa !29
+  %61 = load ptr, ptr %4, align 8, !tbaa !3
+  %62 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %61, i32 0, i32 5
+  store i64 1, ptr %62, align 8, !tbaa !30
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %63
+
+63:                                               ; preds = %57, %23, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  %64 = load i32, ptr %3, align 4
+  ret i32 %64
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nghttp2_bufs_free(ptr noundef %bufs) #0 {
-entry:
-  %bufs.addr = alloca ptr, align 8
-  %chain = alloca ptr, align 8
-  %next_chain = alloca ptr, align 8
-  store ptr %bufs, ptr %bufs.addr, align 8
-  %0 = load ptr, ptr %bufs.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define hidden void @nghttp2_bufs_free(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
+  %6 = load ptr, ptr %2, align 8, !tbaa !3
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %9
 
-if.then:                                          ; preds = %entry
-  br label %return
+8:                                                ; preds = %1
+  store i32 1, ptr %5, align 4
+  br label %28
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %bufs.addr, align 8
-  %head = getelementptr inbounds %struct.nghttp2_bufs, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %head, align 8
-  store ptr %2, ptr %chain, align 8
-  br label %for.cond
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %2, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !24
+  store ptr %12, ptr %3, align 8, !tbaa !23
+  br label %13
 
-for.cond:                                         ; preds = %for.body, %if.end
-  %3 = load ptr, ptr %chain, align 8
-  %tobool = icmp ne ptr %3, null
-  br i1 %tobool, label %for.body, label %for.end
+13:                                               ; preds = %16, %9
+  %14 = load ptr, ptr %3, align 8, !tbaa !23
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %25
 
-for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %chain, align 8
-  %next = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %next, align 8
-  store ptr %5, ptr %next_chain, align 8
-  %6 = load ptr, ptr %chain, align 8
-  %7 = load ptr, ptr %bufs.addr, align 8
-  %mem = getelementptr inbounds %struct.nghttp2_bufs, ptr %7, i32 0, i32 2
-  %8 = load ptr, ptr %mem, align 8
-  call void @buf_chain_del(ptr noundef %6, ptr noundef %8)
-  %9 = load ptr, ptr %next_chain, align 8
-  store ptr %9, ptr %chain, align 8
-  br label %for.cond, !llvm.loop !4
+16:                                               ; preds = %13
+  %17 = load ptr, ptr %3, align 8, !tbaa !23
+  %18 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !36
+  store ptr %19, ptr %4, align 8, !tbaa !23
+  %20 = load ptr, ptr %3, align 8, !tbaa !23
+  %21 = load ptr, ptr %2, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %21, i32 0, i32 2
+  %23 = load ptr, ptr %22, align 8, !tbaa !19
+  call void @buf_chain_del(ptr noundef %20, ptr noundef %23)
+  %24 = load ptr, ptr %4, align 8, !tbaa !23
+  store ptr %24, ptr %3, align 8, !tbaa !23
+  br label %13, !llvm.loop !37
 
-for.end:                                          ; preds = %for.cond
-  %10 = load ptr, ptr %bufs.addr, align 8
-  %head1 = getelementptr inbounds %struct.nghttp2_bufs, ptr %10, i32 0, i32 0
-  store ptr null, ptr %head1, align 8
-  br label %return
+25:                                               ; preds = %13
+  %26 = load ptr, ptr %2, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %26, i32 0, i32 0
+  store ptr null, ptr %27, align 8, !tbaa !24
+  store i32 0, ptr %5, align 4
+  br label %28
 
-return:                                           ; preds = %for.end, %if.then
+28:                                               ; preds = %25, %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #4
+  %29 = load i32, ptr %5, align 4
+  switch i32 %29, label %31 [
+    i32 0, label %30
+    i32 1, label %30
+  ]
+
+30:                                               ; preds = %28, %28
+  ret void
+
+31:                                               ; preds = %28
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @buf_chain_del(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !23
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !23
+  %6 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @nghttp2_buf_free(ptr noundef %6, ptr noundef %7)
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = load ptr, ptr %3, align 8, !tbaa !23
+  call void @nghttp2_mem_free(ptr noundef %8, ptr noundef %9)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @buf_chain_del(ptr noundef %chain, ptr noundef %mem) #0 {
-entry:
-  %chain.addr = alloca ptr, align 8
-  %mem.addr = alloca ptr, align 8
-  store ptr %chain, ptr %chain.addr, align 8
-  store ptr %mem, ptr %mem.addr, align 8
-  %0 = load ptr, ptr %chain.addr, align 8
-  %buf = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %mem.addr, align 8
-  call void @nghttp2_buf_free(ptr noundef %buf, ptr noundef %1)
-  %2 = load ptr, ptr %mem.addr, align 8
-  %3 = load ptr, ptr %chain.addr, align 8
-  call void @nghttp2_mem_free(ptr noundef %2, ptr noundef %3)
-  ret void
-}
+define hidden i32 @nghttp2_bufs_wrap_init(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !16
+  store i64 %2, ptr %8, align 8, !tbaa !14
+  store ptr %3, ptr %9, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  %12 = load ptr, ptr %9, align 8, !tbaa !3
+  %13 = call ptr @nghttp2_mem_malloc(ptr noundef %12, i64 noundef 48)
+  store ptr %13, ptr %10, align 8, !tbaa !23
+  %14 = load ptr, ptr %10, align 8, !tbaa !23
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %17
 
-; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_bufs_wrap_init(ptr noundef %bufs, ptr noundef %begin, i64 noundef %len, ptr noundef %mem) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %bufs.addr = alloca ptr, align 8
-  %begin.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  %mem.addr = alloca ptr, align 8
-  %chain = alloca ptr, align 8
-  store ptr %bufs, ptr %bufs.addr, align 8
-  store ptr %begin, ptr %begin.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  store ptr %mem, ptr %mem.addr, align 8
-  %0 = load ptr, ptr %mem.addr, align 8
-  %call = call ptr @nghttp2_mem_malloc(ptr noundef %0, i64 noundef 48)
-  store ptr %call, ptr %chain, align 8
-  %1 = load ptr, ptr %chain, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
+16:                                               ; preds = %4
+  store i32 -901, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %46
 
-if.then:                                          ; preds = %entry
-  store i32 -901, ptr %retval, align 4
-  br label %return
+17:                                               ; preds = %4
+  %18 = load ptr, ptr %10, align 8, !tbaa !23
+  %19 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %18, i32 0, i32 0
+  store ptr null, ptr %19, align 8, !tbaa !36
+  %20 = load ptr, ptr %10, align 8, !tbaa !23
+  %21 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %7, align 8, !tbaa !16
+  %23 = load i64, ptr %8, align 8, !tbaa !14
+  call void @nghttp2_buf_wrap_init(ptr noundef %21, ptr noundef %22, i64 noundef %23)
+  %24 = load ptr, ptr %9, align 8, !tbaa !3
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %25, i32 0, i32 2
+  store ptr %24, ptr %26, align 8, !tbaa !19
+  %27 = load ptr, ptr %6, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %27, i32 0, i32 7
+  store i64 0, ptr %28, align 8, !tbaa !22
+  %29 = load ptr, ptr %10, align 8, !tbaa !23
+  %30 = load ptr, ptr %6, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %30, i32 0, i32 0
+  store ptr %29, ptr %31, align 8, !tbaa !24
+  %32 = load ptr, ptr %6, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8, !tbaa !24
+  %35 = load ptr, ptr %6, align 8, !tbaa !3
+  %36 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %35, i32 0, i32 1
+  store ptr %34, ptr %36, align 8, !tbaa !25
+  %37 = load i64, ptr %8, align 8, !tbaa !14
+  %38 = load ptr, ptr %6, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %38, i32 0, i32 3
+  store i64 %37, ptr %39, align 8, !tbaa !29
+  %40 = load ptr, ptr %6, align 8, !tbaa !3
+  %41 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %40, i32 0, i32 5
+  store i64 1, ptr %41, align 8, !tbaa !30
+  %42 = load ptr, ptr %6, align 8, !tbaa !3
+  %43 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %42, i32 0, i32 4
+  store i64 1, ptr %43, align 8, !tbaa !31
+  %44 = load ptr, ptr %6, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %44, i32 0, i32 6
+  store i64 1, ptr %45, align 8, !tbaa !32
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %46
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %chain, align 8
-  %next = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %2, i32 0, i32 0
-  store ptr null, ptr %next, align 8
-  %3 = load ptr, ptr %chain, align 8
-  %buf = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %3, i32 0, i32 1
-  %4 = load ptr, ptr %begin.addr, align 8
-  %5 = load i64, ptr %len.addr, align 8
-  call void @nghttp2_buf_wrap_init(ptr noundef %buf, ptr noundef %4, i64 noundef %5)
-  %6 = load ptr, ptr %mem.addr, align 8
-  %7 = load ptr, ptr %bufs.addr, align 8
-  %mem1 = getelementptr inbounds %struct.nghttp2_bufs, ptr %7, i32 0, i32 2
-  store ptr %6, ptr %mem1, align 8
-  %8 = load ptr, ptr %bufs.addr, align 8
-  %offset = getelementptr inbounds %struct.nghttp2_bufs, ptr %8, i32 0, i32 7
-  store i64 0, ptr %offset, align 8
-  %9 = load ptr, ptr %chain, align 8
-  %10 = load ptr, ptr %bufs.addr, align 8
-  %head = getelementptr inbounds %struct.nghttp2_bufs, ptr %10, i32 0, i32 0
-  store ptr %9, ptr %head, align 8
-  %11 = load ptr, ptr %bufs.addr, align 8
-  %head2 = getelementptr inbounds %struct.nghttp2_bufs, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %head2, align 8
-  %13 = load ptr, ptr %bufs.addr, align 8
-  %cur = getelementptr inbounds %struct.nghttp2_bufs, ptr %13, i32 0, i32 1
-  store ptr %12, ptr %cur, align 8
-  %14 = load i64, ptr %len.addr, align 8
-  %15 = load ptr, ptr %bufs.addr, align 8
-  %chunk_length = getelementptr inbounds %struct.nghttp2_bufs, ptr %15, i32 0, i32 3
-  store i64 %14, ptr %chunk_length, align 8
-  %16 = load ptr, ptr %bufs.addr, align 8
-  %chunk_used = getelementptr inbounds %struct.nghttp2_bufs, ptr %16, i32 0, i32 5
-  store i64 1, ptr %chunk_used, align 8
-  %17 = load ptr, ptr %bufs.addr, align 8
-  %max_chunk = getelementptr inbounds %struct.nghttp2_bufs, ptr %17, i32 0, i32 4
-  store i64 1, ptr %max_chunk, align 8
-  %18 = load ptr, ptr %bufs.addr, align 8
-  %chunk_keep = getelementptr inbounds %struct.nghttp2_bufs, ptr %18, i32 0, i32 6
-  store i64 1, ptr %chunk_keep, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %19 = load i32, ptr %retval, align 4
-  ret i32 %19
+46:                                               ; preds = %17, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  %47 = load i32, ptr %5, align 4
+  ret i32 %47
 }
 
 declare ptr @nghttp2_mem_malloc(ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_bufs_wrap_init2(ptr noundef %bufs, ptr noundef %vec, i64 noundef %veclen, ptr noundef %mem) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %bufs.addr = alloca ptr, align 8
-  %vec.addr = alloca ptr, align 8
-  %veclen.addr = alloca i64, align 8
-  %mem.addr = alloca ptr, align 8
-  %i = alloca i64, align 8
-  %cur_chain = alloca ptr, align 8
-  %head_chain = alloca ptr, align 8
-  %dst_chain = alloca ptr, align 8
-  store ptr %bufs, ptr %bufs.addr, align 8
-  store ptr %vec, ptr %vec.addr, align 8
-  store i64 %veclen, ptr %veclen.addr, align 8
-  store ptr %mem, ptr %mem.addr, align 8
-  store i64 0, ptr %i, align 8
-  store ptr %head_chain, ptr %dst_chain, align 8
-  %0 = load i64, ptr %veclen.addr, align 8
-  %cmp = icmp eq i64 %0, 0
-  br i1 %cmp, label %if.then, label %if.end
+define hidden i32 @nghttp2_bufs_wrap_init2(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !3
+  store i64 %2, ptr %8, align 8, !tbaa !14
+  store ptr %3, ptr %9, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  store i64 0, ptr %10, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  store ptr %12, ptr %13, align 8, !tbaa !33
+  %15 = load i64, ptr %8, align 8, !tbaa !14
+  %16 = icmp eq i64 %15, 0
+  br i1 %16, label %17, label %21
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %bufs.addr, align 8
-  %2 = load ptr, ptr %mem.addr, align 8
-  %call = call i32 @nghttp2_bufs_wrap_init(ptr noundef %1, ptr noundef null, i64 noundef 0, ptr noundef %2)
-  store i32 %call, ptr %retval, align 4
-  br label %return
+17:                                               ; preds = %4
+  %18 = load ptr, ptr %6, align 8, !tbaa !3
+  %19 = load ptr, ptr %9, align 8, !tbaa !3
+  %20 = call i32 @nghttp2_bufs_wrap_init(ptr noundef %18, ptr noundef null, i64 noundef 0, ptr noundef %19)
+  store i32 %20, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %84
 
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %mem.addr, align 8
-  %4 = load i64, ptr %veclen.addr, align 8
-  %mul = mul i64 48, %4
-  %call1 = call ptr @nghttp2_mem_malloc(ptr noundef %3, i64 noundef %mul)
-  store ptr %call1, ptr %head_chain, align 8
-  %5 = load ptr, ptr %head_chain, align 8
-  %cmp2 = icmp eq ptr %5, null
-  br i1 %cmp2, label %if.then3, label %if.end4
+21:                                               ; preds = %4
+  %22 = load ptr, ptr %9, align 8, !tbaa !3
+  %23 = load i64, ptr %8, align 8, !tbaa !14
+  %24 = mul i64 48, %23
+  %25 = call ptr @nghttp2_mem_malloc(ptr noundef %22, i64 noundef %24)
+  store ptr %25, ptr %12, align 8, !tbaa !23
+  %26 = load ptr, ptr %12, align 8, !tbaa !23
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %29
 
-if.then3:                                         ; preds = %if.end
-  store i32 -901, ptr %retval, align 4
-  br label %return
+28:                                               ; preds = %21
+  store i32 -901, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %84
 
-if.end4:                                          ; preds = %if.end
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+29:                                               ; preds = %21
+  store i64 0, ptr %10, align 8, !tbaa !14
+  br label %30
 
-for.cond:                                         ; preds = %for.inc, %if.end4
-  %6 = load i64, ptr %i, align 8
-  %7 = load i64, ptr %veclen.addr, align 8
-  %cmp5 = icmp ult i64 %6, %7
-  br i1 %cmp5, label %for.body, label %for.end
+30:                                               ; preds = %56, %29
+  %31 = load i64, ptr %10, align 8, !tbaa !14
+  %32 = load i64, ptr %8, align 8, !tbaa !14
+  %33 = icmp ult i64 %31, %32
+  br i1 %33, label %34, label %59
 
-for.body:                                         ; preds = %for.cond
-  %8 = load ptr, ptr %head_chain, align 8
-  %9 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %8, i64 %9
-  store ptr %arrayidx, ptr %cur_chain, align 8
-  %10 = load ptr, ptr %cur_chain, align 8
-  %next = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %10, i32 0, i32 0
-  store ptr null, ptr %next, align 8
-  %11 = load ptr, ptr %cur_chain, align 8
-  %buf = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %vec.addr, align 8
-  %13 = load i64, ptr %i, align 8
-  %arrayidx6 = getelementptr inbounds %struct.nghttp2_vec, ptr %12, i64 %13
-  %base = getelementptr inbounds %struct.nghttp2_vec, ptr %arrayidx6, i32 0, i32 0
-  %14 = load ptr, ptr %base, align 8
-  %15 = load ptr, ptr %vec.addr, align 8
-  %16 = load i64, ptr %i, align 8
-  %arrayidx7 = getelementptr inbounds %struct.nghttp2_vec, ptr %15, i64 %16
-  %len = getelementptr inbounds %struct.nghttp2_vec, ptr %arrayidx7, i32 0, i32 1
-  %17 = load i64, ptr %len, align 8
-  call void @nghttp2_buf_wrap_init(ptr noundef %buf, ptr noundef %14, i64 noundef %17)
-  %18 = load ptr, ptr %cur_chain, align 8
-  %19 = load ptr, ptr %dst_chain, align 8
-  store ptr %18, ptr %19, align 8
-  %20 = load ptr, ptr %cur_chain, align 8
-  %next8 = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %20, i32 0, i32 0
-  store ptr %next8, ptr %dst_chain, align 8
-  br label %for.inc
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %12, align 8, !tbaa !23
+  %36 = load i64, ptr %10, align 8, !tbaa !14
+  %37 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %35, i64 %36
+  store ptr %37, ptr %11, align 8, !tbaa !23
+  %38 = load ptr, ptr %11, align 8, !tbaa !23
+  %39 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %38, i32 0, i32 0
+  store ptr null, ptr %39, align 8, !tbaa !36
+  %40 = load ptr, ptr %11, align 8, !tbaa !23
+  %41 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %40, i32 0, i32 1
+  %42 = load ptr, ptr %7, align 8, !tbaa !3
+  %43 = load i64, ptr %10, align 8, !tbaa !14
+  %44 = getelementptr inbounds nuw %struct.nghttp2_vec, ptr %42, i64 %43
+  %45 = getelementptr inbounds nuw %struct.nghttp2_vec, ptr %44, i32 0, i32 0
+  %46 = load ptr, ptr %45, align 8, !tbaa !39
+  %47 = load ptr, ptr %7, align 8, !tbaa !3
+  %48 = load i64, ptr %10, align 8, !tbaa !14
+  %49 = getelementptr inbounds nuw %struct.nghttp2_vec, ptr %47, i64 %48
+  %50 = getelementptr inbounds nuw %struct.nghttp2_vec, ptr %49, i32 0, i32 1
+  %51 = load i64, ptr %50, align 8, !tbaa !41
+  call void @nghttp2_buf_wrap_init(ptr noundef %41, ptr noundef %46, i64 noundef %51)
+  %52 = load ptr, ptr %11, align 8, !tbaa !23
+  %53 = load ptr, ptr %13, align 8, !tbaa !33
+  store ptr %52, ptr %53, align 8, !tbaa !23
+  %54 = load ptr, ptr %11, align 8, !tbaa !23
+  %55 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %54, i32 0, i32 0
+  store ptr %55, ptr %13, align 8, !tbaa !33
+  br label %56
 
-for.inc:                                          ; preds = %for.body
-  %21 = load i64, ptr %i, align 8
-  %inc = add i64 %21, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !6
+56:                                               ; preds = %34
+  %57 = load i64, ptr %10, align 8, !tbaa !14
+  %58 = add i64 %57, 1
+  store i64 %58, ptr %10, align 8, !tbaa !14
+  br label %30, !llvm.loop !42
 
-for.end:                                          ; preds = %for.cond
-  %22 = load ptr, ptr %mem.addr, align 8
-  %23 = load ptr, ptr %bufs.addr, align 8
-  %mem9 = getelementptr inbounds %struct.nghttp2_bufs, ptr %23, i32 0, i32 2
-  store ptr %22, ptr %mem9, align 8
-  %24 = load ptr, ptr %bufs.addr, align 8
-  %offset = getelementptr inbounds %struct.nghttp2_bufs, ptr %24, i32 0, i32 7
-  store i64 0, ptr %offset, align 8
-  %25 = load ptr, ptr %head_chain, align 8
-  %26 = load ptr, ptr %bufs.addr, align 8
-  %head = getelementptr inbounds %struct.nghttp2_bufs, ptr %26, i32 0, i32 0
-  store ptr %25, ptr %head, align 8
-  %27 = load ptr, ptr %bufs.addr, align 8
-  %head10 = getelementptr inbounds %struct.nghttp2_bufs, ptr %27, i32 0, i32 0
-  %28 = load ptr, ptr %head10, align 8
-  %29 = load ptr, ptr %bufs.addr, align 8
-  %cur = getelementptr inbounds %struct.nghttp2_bufs, ptr %29, i32 0, i32 1
-  store ptr %28, ptr %cur, align 8
-  %30 = load ptr, ptr %bufs.addr, align 8
-  %chunk_length = getelementptr inbounds %struct.nghttp2_bufs, ptr %30, i32 0, i32 3
-  store i64 0, ptr %chunk_length, align 8
-  %31 = load i64, ptr %veclen.addr, align 8
-  %32 = load ptr, ptr %bufs.addr, align 8
-  %chunk_used = getelementptr inbounds %struct.nghttp2_bufs, ptr %32, i32 0, i32 5
-  store i64 %31, ptr %chunk_used, align 8
-  %33 = load i64, ptr %veclen.addr, align 8
-  %34 = load ptr, ptr %bufs.addr, align 8
-  %max_chunk = getelementptr inbounds %struct.nghttp2_bufs, ptr %34, i32 0, i32 4
-  store i64 %33, ptr %max_chunk, align 8
-  %35 = load i64, ptr %veclen.addr, align 8
-  %36 = load ptr, ptr %bufs.addr, align 8
-  %chunk_keep = getelementptr inbounds %struct.nghttp2_bufs, ptr %36, i32 0, i32 6
-  store i64 %35, ptr %chunk_keep, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
+59:                                               ; preds = %30
+  %60 = load ptr, ptr %9, align 8, !tbaa !3
+  %61 = load ptr, ptr %6, align 8, !tbaa !3
+  %62 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %61, i32 0, i32 2
+  store ptr %60, ptr %62, align 8, !tbaa !19
+  %63 = load ptr, ptr %6, align 8, !tbaa !3
+  %64 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %63, i32 0, i32 7
+  store i64 0, ptr %64, align 8, !tbaa !22
+  %65 = load ptr, ptr %12, align 8, !tbaa !23
+  %66 = load ptr, ptr %6, align 8, !tbaa !3
+  %67 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %66, i32 0, i32 0
+  store ptr %65, ptr %67, align 8, !tbaa !24
+  %68 = load ptr, ptr %6, align 8, !tbaa !3
+  %69 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %68, i32 0, i32 0
+  %70 = load ptr, ptr %69, align 8, !tbaa !24
+  %71 = load ptr, ptr %6, align 8, !tbaa !3
+  %72 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %71, i32 0, i32 1
+  store ptr %70, ptr %72, align 8, !tbaa !25
+  %73 = load ptr, ptr %6, align 8, !tbaa !3
+  %74 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %73, i32 0, i32 3
+  store i64 0, ptr %74, align 8, !tbaa !29
+  %75 = load i64, ptr %8, align 8, !tbaa !14
+  %76 = load ptr, ptr %6, align 8, !tbaa !3
+  %77 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %76, i32 0, i32 5
+  store i64 %75, ptr %77, align 8, !tbaa !30
+  %78 = load i64, ptr %8, align 8, !tbaa !14
+  %79 = load ptr, ptr %6, align 8, !tbaa !3
+  %80 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %79, i32 0, i32 4
+  store i64 %78, ptr %80, align 8, !tbaa !31
+  %81 = load i64, ptr %8, align 8, !tbaa !14
+  %82 = load ptr, ptr %6, align 8, !tbaa !3
+  %83 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %82, i32 0, i32 6
+  store i64 %81, ptr %83, align 8, !tbaa !32
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %84
 
-return:                                           ; preds = %for.end, %if.then3, %if.then
-  %37 = load i32, ptr %retval, align 4
-  ret i32 %37
+84:                                               ; preds = %59, %28, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  %85 = load i32, ptr %5, align 4
+  ret i32 %85
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nghttp2_bufs_wrap_free(ptr noundef %bufs) #0 {
-entry:
-  %bufs.addr = alloca ptr, align 8
-  store ptr %bufs, ptr %bufs.addr, align 8
-  %0 = load ptr, ptr %bufs.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define hidden void @nghttp2_bufs_wrap_free(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %5, label %6
 
-if.then:                                          ; preds = %entry
-  br label %if.end3
+5:                                                ; preds = %1
+  br label %18
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %bufs.addr, align 8
-  %head = getelementptr inbounds %struct.nghttp2_bufs, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %head, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %if.then1, label %if.end3
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %2, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !24
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %18
 
-if.then1:                                         ; preds = %if.end
-  %3 = load ptr, ptr %bufs.addr, align 8
-  %mem = getelementptr inbounds %struct.nghttp2_bufs, ptr %3, i32 0, i32 2
-  %4 = load ptr, ptr %mem, align 8
-  %5 = load ptr, ptr %bufs.addr, align 8
-  %head2 = getelementptr inbounds %struct.nghttp2_bufs, ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %head2, align 8
-  call void @nghttp2_mem_free(ptr noundef %4, ptr noundef %6)
-  br label %if.end3
+11:                                               ; preds = %6
+  %12 = load ptr, ptr %2, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8, !tbaa !19
+  %15 = load ptr, ptr %2, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !24
+  call void @nghttp2_mem_free(ptr noundef %14, ptr noundef %17)
+  br label %18
 
-if.end3:                                          ; preds = %if.then1, %if.end, %if.then
+18:                                               ; preds = %5, %11, %6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nghttp2_bufs_seek_last_present(ptr noundef %bufs) #0 {
-entry:
-  %bufs.addr = alloca ptr, align 8
-  %ci = alloca ptr, align 8
-  store ptr %bufs, ptr %bufs.addr, align 8
-  %0 = load ptr, ptr %bufs.addr, align 8
-  %cur = getelementptr inbounds %struct.nghttp2_bufs, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %cur, align 8
-  store ptr %1, ptr %ci, align 8
-  br label %for.cond
+define hidden void @nghttp2_bufs_seek_last_present(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
+  %5 = load ptr, ptr %2, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8, !tbaa !25
+  store ptr %7, ptr %3, align 8, !tbaa !23
+  br label %8
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load ptr, ptr %ci, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %for.body, label %for.end
+8:                                                ; preds = %30, %1
+  %9 = load ptr, ptr %3, align 8, !tbaa !23
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %34
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %ci, align 8
-  %buf = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %3, i32 0, i32 1
-  %last = getelementptr inbounds %struct.nghttp2_buf, ptr %buf, i32 0, i32 3
-  %4 = load ptr, ptr %last, align 8
-  %5 = load ptr, ptr %ci, align 8
-  %buf1 = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %5, i32 0, i32 1
-  %pos = getelementptr inbounds %struct.nghttp2_buf, ptr %buf1, i32 0, i32 2
-  %6 = load ptr, ptr %pos, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %6 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %cmp = icmp eq i64 %sub.ptr.sub, 0
-  br i1 %cmp, label %if.then, label %if.else
+11:                                               ; preds = %8
+  %12 = load ptr, ptr %3, align 8, !tbaa !23
+  %13 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %12, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %13, i32 0, i32 3
+  %15 = load ptr, ptr %14, align 8, !tbaa !28
+  %16 = load ptr, ptr %3, align 8, !tbaa !23
+  %17 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %16, i32 0, i32 1
+  %18 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %17, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8, !tbaa !26
+  %20 = ptrtoint ptr %15 to i64
+  %21 = ptrtoint ptr %19 to i64
+  %22 = sub i64 %20, %21
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %24, label %25
 
-if.then:                                          ; preds = %for.body
-  br label %for.end
+24:                                               ; preds = %11
+  store i32 1, ptr %4, align 4
+  br label %35
 
-if.else:                                          ; preds = %for.body
-  %7 = load ptr, ptr %ci, align 8
-  %8 = load ptr, ptr %bufs.addr, align 8
-  %cur2 = getelementptr inbounds %struct.nghttp2_bufs, ptr %8, i32 0, i32 1
-  store ptr %7, ptr %cur2, align 8
-  br label %if.end
+25:                                               ; preds = %11
+  %26 = load ptr, ptr %3, align 8, !tbaa !23
+  %27 = load ptr, ptr %2, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %27, i32 0, i32 1
+  store ptr %26, ptr %28, align 8, !tbaa !25
+  br label %29
 
-if.end:                                           ; preds = %if.else
-  br label %for.inc
+29:                                               ; preds = %25
+  br label %30
 
-for.inc:                                          ; preds = %if.end
-  %9 = load ptr, ptr %ci, align 8
-  %next = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %9, i32 0, i32 0
-  %10 = load ptr, ptr %next, align 8
-  store ptr %10, ptr %ci, align 8
-  br label %for.cond, !llvm.loop !7
+30:                                               ; preds = %29
+  %31 = load ptr, ptr %3, align 8, !tbaa !23
+  %32 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !36
+  store ptr %33, ptr %3, align 8, !tbaa !23
+  br label %8, !llvm.loop !43
 
-for.end:                                          ; preds = %if.then, %for.cond
+34:                                               ; preds = %8
+  store i32 0, ptr %4, align 4
+  br label %35
+
+35:                                               ; preds = %34, %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #4
+  %36 = load i32, ptr %4, align 4
+  switch i32 %36, label %38 [
+    i32 0, label %37
+    i32 1, label %37
+  ]
+
+37:                                               ; preds = %35, %35
   ret void
+
+38:                                               ; preds = %35
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @nghttp2_bufs_len(ptr noundef %bufs) #0 {
-entry:
-  %bufs.addr = alloca ptr, align 8
-  %ci = alloca ptr, align 8
-  %len = alloca i64, align 8
-  store ptr %bufs, ptr %bufs.addr, align 8
-  store i64 0, ptr %len, align 8
-  %0 = load ptr, ptr %bufs.addr, align 8
-  %head = getelementptr inbounds %struct.nghttp2_bufs, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %head, align 8
-  store ptr %1, ptr %ci, align 8
-  br label %for.cond
+define hidden i64 @nghttp2_bufs_len(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
+  store i64 0, ptr %4, align 8, !tbaa !14
+  %5 = load ptr, ptr %2, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !24
+  store ptr %7, ptr %3, align 8, !tbaa !23
+  br label %8
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load ptr, ptr %ci, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %for.body, label %for.end
+8:                                                ; preds = %25, %1
+  %9 = load ptr, ptr %3, align 8, !tbaa !23
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %29
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %ci, align 8
-  %buf = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %3, i32 0, i32 1
-  %last = getelementptr inbounds %struct.nghttp2_buf, ptr %buf, i32 0, i32 3
-  %4 = load ptr, ptr %last, align 8
-  %5 = load ptr, ptr %ci, align 8
-  %buf1 = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %5, i32 0, i32 1
-  %pos = getelementptr inbounds %struct.nghttp2_buf, ptr %buf1, i32 0, i32 2
-  %6 = load ptr, ptr %pos, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %6 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %7 = load i64, ptr %len, align 8
-  %add = add i64 %7, %sub.ptr.sub
-  store i64 %add, ptr %len, align 8
-  br label %for.inc
+11:                                               ; preds = %8
+  %12 = load ptr, ptr %3, align 8, !tbaa !23
+  %13 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %12, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %13, i32 0, i32 3
+  %15 = load ptr, ptr %14, align 8, !tbaa !28
+  %16 = load ptr, ptr %3, align 8, !tbaa !23
+  %17 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %16, i32 0, i32 1
+  %18 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %17, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8, !tbaa !26
+  %20 = ptrtoint ptr %15 to i64
+  %21 = ptrtoint ptr %19 to i64
+  %22 = sub i64 %20, %21
+  %23 = load i64, ptr %4, align 8, !tbaa !14
+  %24 = add i64 %23, %22
+  store i64 %24, ptr %4, align 8, !tbaa !14
+  br label %25
 
-for.inc:                                          ; preds = %for.body
-  %8 = load ptr, ptr %ci, align 8
-  %next = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %8, i32 0, i32 0
-  %9 = load ptr, ptr %next, align 8
-  store ptr %9, ptr %ci, align 8
-  br label %for.cond, !llvm.loop !8
+25:                                               ; preds = %11
+  %26 = load ptr, ptr %3, align 8, !tbaa !23
+  %27 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !36
+  store ptr %28, ptr %3, align 8, !tbaa !23
+  br label %8, !llvm.loop !44
 
-for.end:                                          ; preds = %for.cond
-  %10 = load i64, ptr %len, align 8
-  ret i64 %10
+29:                                               ; preds = %8
+  %30 = load i64, ptr %4, align 8, !tbaa !14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #4
+  ret i64 %30
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_bufs_add(ptr noundef %bufs, ptr noundef %data, i64 noundef %len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %bufs.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  %rv = alloca i32, align 4
-  %nwrite = alloca i64, align 8
-  %buf = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  store ptr %bufs, ptr %bufs.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  %0 = load ptr, ptr %data.addr, align 8
-  store ptr %0, ptr %p, align 8
-  br label %while.cond
+define hidden i32 @nghttp2_bufs_add(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store i64 %2, ptr %7, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  %13 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %13, ptr %11, align 8, !tbaa !16
+  br label %14
 
-while.cond:                                       ; preds = %if.end10, %if.end, %entry
-  %1 = load i64, ptr %len.addr, align 8
-  %tobool = icmp ne i64 %1, 0
-  br i1 %tobool, label %while.body, label %while.end
+14:                                               ; preds = %43, %42, %3
+  %15 = load i64, ptr %7, align 8, !tbaa !14
+  %16 = icmp ne i64 %15, 0
+  br i1 %16, label %17, label %58
 
-while.body:                                       ; preds = %while.cond
-  %2 = load ptr, ptr %bufs.addr, align 8
-  %cur = getelementptr inbounds %struct.nghttp2_bufs, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %cur, align 8
-  %buf1 = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %3, i32 0, i32 1
-  store ptr %buf1, ptr %buf, align 8
-  %4 = load ptr, ptr %buf, align 8
-  %end = getelementptr inbounds %struct.nghttp2_buf, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %end, align 8
-  %6 = load ptr, ptr %buf, align 8
-  %last = getelementptr inbounds %struct.nghttp2_buf, ptr %6, i32 0, i32 3
-  %7 = load ptr, ptr %last, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %5 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %7 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %8 = load i64, ptr %len.addr, align 8
-  %cmp = icmp ult i64 %sub.ptr.sub, %8
-  br i1 %cmp, label %cond.true, label %cond.false
+17:                                               ; preds = %14
+  %18 = load ptr, ptr %5, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %18, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8, !tbaa !25
+  %21 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %20, i32 0, i32 1
+  store ptr %21, ptr %10, align 8, !tbaa !3
+  %22 = load ptr, ptr %10, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8, !tbaa !10
+  %25 = load ptr, ptr %10, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %25, i32 0, i32 3
+  %27 = load ptr, ptr %26, align 8, !tbaa !12
+  %28 = ptrtoint ptr %24 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = sub i64 %28, %29
+  %31 = load i64, ptr %7, align 8, !tbaa !14
+  %32 = call i64 @nghttp2_min_size(i64 noundef %30, i64 noundef %31)
+  store i64 %32, ptr %9, align 8, !tbaa !14
+  %33 = load i64, ptr %9, align 8, !tbaa !14
+  %34 = icmp eq i64 %33, 0
+  br i1 %34, label %35, label %43
 
-cond.true:                                        ; preds = %while.body
-  %9 = load ptr, ptr %buf, align 8
-  %end2 = getelementptr inbounds %struct.nghttp2_buf, ptr %9, i32 0, i32 1
-  %10 = load ptr, ptr %end2, align 8
-  %11 = load ptr, ptr %buf, align 8
-  %last3 = getelementptr inbounds %struct.nghttp2_buf, ptr %11, i32 0, i32 3
-  %12 = load ptr, ptr %last3, align 8
-  %sub.ptr.lhs.cast4 = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast5 = ptrtoint ptr %12 to i64
-  %sub.ptr.sub6 = sub i64 %sub.ptr.lhs.cast4, %sub.ptr.rhs.cast5
-  br label %cond.end
+35:                                               ; preds = %17
+  %36 = load ptr, ptr %5, align 8, !tbaa !3
+  %37 = call i32 @bufs_alloc_chain(ptr noundef %36)
+  store i32 %37, ptr %8, align 4, !tbaa !17
+  %38 = load i32, ptr %8, align 4, !tbaa !17
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %40, label %42
 
-cond.false:                                       ; preds = %while.body
-  %13 = load i64, ptr %len.addr, align 8
-  br label %cond.end
+40:                                               ; preds = %35
+  %41 = load i32, ptr %8, align 4, !tbaa !17
+  store i32 %41, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %59
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %sub.ptr.sub6, %cond.true ], [ %13, %cond.false ]
-  store i64 %cond, ptr %nwrite, align 8
-  %14 = load i64, ptr %nwrite, align 8
-  %cmp7 = icmp eq i64 %14, 0
-  br i1 %cmp7, label %if.then, label %if.end10
+42:                                               ; preds = %35
+  br label %14, !llvm.loop !45
 
-if.then:                                          ; preds = %cond.end
-  %15 = load ptr, ptr %bufs.addr, align 8
-  %call = call i32 @bufs_alloc_chain(ptr noundef %15)
-  store i32 %call, ptr %rv, align 4
-  %16 = load i32, ptr %rv, align 4
-  %cmp8 = icmp ne i32 %16, 0
-  br i1 %cmp8, label %if.then9, label %if.end
+43:                                               ; preds = %17
+  %44 = load ptr, ptr %10, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %44, i32 0, i32 3
+  %46 = load ptr, ptr %45, align 8, !tbaa !12
+  %47 = load ptr, ptr %11, align 8, !tbaa !16
+  %48 = load i64, ptr %9, align 8, !tbaa !14
+  %49 = call ptr @nghttp2_cpymem(ptr noundef %46, ptr noundef %47, i64 noundef %48)
+  %50 = load ptr, ptr %10, align 8, !tbaa !3
+  %51 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %50, i32 0, i32 3
+  store ptr %49, ptr %51, align 8, !tbaa !12
+  %52 = load i64, ptr %9, align 8, !tbaa !14
+  %53 = load ptr, ptr %11, align 8, !tbaa !16
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 %52
+  store ptr %54, ptr %11, align 8, !tbaa !16
+  %55 = load i64, ptr %9, align 8, !tbaa !14
+  %56 = load i64, ptr %7, align 8, !tbaa !14
+  %57 = sub i64 %56, %55
+  store i64 %57, ptr %7, align 8, !tbaa !14
+  br label %14, !llvm.loop !45
 
-if.then9:                                         ; preds = %if.then
-  %17 = load i32, ptr %rv, align 4
-  store i32 %17, ptr %retval, align 4
-  br label %return
+58:                                               ; preds = %14
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %59
 
-if.end:                                           ; preds = %if.then
-  br label %while.cond, !llvm.loop !9
+59:                                               ; preds = %58, %40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  %60 = load i32, ptr %4, align 4
+  ret i32 %60
+}
 
-if.end10:                                         ; preds = %cond.end
-  %18 = load ptr, ptr %buf, align 8
-  %last11 = getelementptr inbounds %struct.nghttp2_buf, ptr %18, i32 0, i32 3
-  %19 = load ptr, ptr %last11, align 8
-  %20 = load ptr, ptr %p, align 8
-  %21 = load i64, ptr %nwrite, align 8
-  %call12 = call ptr @nghttp2_cpymem(ptr noundef %19, ptr noundef %20, i64 noundef %21)
-  %22 = load ptr, ptr %buf, align 8
-  %last13 = getelementptr inbounds %struct.nghttp2_buf, ptr %22, i32 0, i32 3
-  store ptr %call12, ptr %last13, align 8
-  %23 = load i64, ptr %nwrite, align 8
-  %24 = load ptr, ptr %p, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %24, i64 %23
-  store ptr %add.ptr, ptr %p, align 8
-  %25 = load i64, ptr %nwrite, align 8
-  %26 = load i64, ptr %len.addr, align 8
-  %sub = sub i64 %26, %25
-  store i64 %sub, ptr %len.addr, align 8
-  br label %while.cond, !llvm.loop !9
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @nghttp2_min_size(i64 noundef %0, i64 noundef %1) #3 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !14
+  store i64 %1, ptr %4, align 8, !tbaa !14
+  %5 = load i64, ptr %3, align 8, !tbaa !14
+  %6 = load i64, ptr %4, align 8, !tbaa !14
+  %7 = icmp ult i64 %5, %6
+  br i1 %7, label %8, label %10
 
-while.end:                                        ; preds = %while.cond
-  store i32 0, ptr %retval, align 4
-  br label %return
+8:                                                ; preds = %2
+  %9 = load i64, ptr %3, align 8, !tbaa !14
+  br label %12
 
-return:                                           ; preds = %while.end, %if.then9
-  %27 = load i32, ptr %retval, align 4
-  ret i32 %27
+10:                                               ; preds = %2
+  %11 = load i64, ptr %4, align 8, !tbaa !14
+  br label %12
+
+12:                                               ; preds = %10, %8
+  %13 = phi i64 [ %9, %8 ], [ %11, %10 ]
+  ret i64 %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bufs_alloc_chain(ptr noundef %bufs) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %bufs.addr = alloca ptr, align 8
-  %rv = alloca i32, align 4
-  %chain = alloca ptr, align 8
-  store ptr %bufs, ptr %bufs.addr, align 8
-  %0 = load ptr, ptr %bufs.addr, align 8
-  %cur = getelementptr inbounds %struct.nghttp2_bufs, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %cur, align 8
-  %next = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %next, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %if.then, label %if.end
+define internal i32 @bufs_alloc_chain(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %7 = load ptr, ptr %3, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !25
+  %10 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !36
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %21
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %bufs.addr, align 8
-  %cur1 = getelementptr inbounds %struct.nghttp2_bufs, ptr %3, i32 0, i32 1
-  %4 = load ptr, ptr %cur1, align 8
-  %next2 = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %next2, align 8
-  %6 = load ptr, ptr %bufs.addr, align 8
-  %cur3 = getelementptr inbounds %struct.nghttp2_bufs, ptr %6, i32 0, i32 1
-  store ptr %5, ptr %cur3, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
+13:                                               ; preds = %1
+  %14 = load ptr, ptr %3, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %14, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8, !tbaa !25
+  %17 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !36
+  %19 = load ptr, ptr %3, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %19, i32 0, i32 1
+  store ptr %18, ptr %20, align 8, !tbaa !25
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %81
 
-if.end:                                           ; preds = %entry
-  %7 = load ptr, ptr %bufs.addr, align 8
-  %max_chunk = getelementptr inbounds %struct.nghttp2_bufs, ptr %7, i32 0, i32 4
-  %8 = load i64, ptr %max_chunk, align 8
-  %9 = load ptr, ptr %bufs.addr, align 8
-  %chunk_used = getelementptr inbounds %struct.nghttp2_bufs, ptr %9, i32 0, i32 5
-  %10 = load i64, ptr %chunk_used, align 8
-  %cmp = icmp eq i64 %8, %10
-  br i1 %cmp, label %if.then4, label %if.end5
+21:                                               ; preds = %1
+  %22 = load ptr, ptr %3, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %22, i32 0, i32 4
+  %24 = load i64, ptr %23, align 8, !tbaa !31
+  %25 = load ptr, ptr %3, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %25, i32 0, i32 5
+  %27 = load i64, ptr %26, align 8, !tbaa !30
+  %28 = icmp eq i64 %24, %27
+  br i1 %28, label %29, label %30
 
-if.then4:                                         ; preds = %if.end
-  store i32 -502, ptr %retval, align 4
-  br label %return
+29:                                               ; preds = %21
+  store i32 -502, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %81
 
-if.end5:                                          ; preds = %if.end
-  %11 = load ptr, ptr %bufs.addr, align 8
-  %chunk_length = getelementptr inbounds %struct.nghttp2_bufs, ptr %11, i32 0, i32 3
-  %12 = load i64, ptr %chunk_length, align 8
-  %13 = load ptr, ptr %bufs.addr, align 8
-  %mem = getelementptr inbounds %struct.nghttp2_bufs, ptr %13, i32 0, i32 2
-  %14 = load ptr, ptr %mem, align 8
-  %call = call i32 @buf_chain_new(ptr noundef %chain, i64 noundef %12, ptr noundef %14)
-  store i32 %call, ptr %rv, align 4
-  %15 = load i32, ptr %rv, align 4
-  %cmp6 = icmp ne i32 %15, 0
-  br i1 %cmp6, label %if.then7, label %if.end8
+30:                                               ; preds = %21
+  %31 = load ptr, ptr %3, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %31, i32 0, i32 3
+  %33 = load i64, ptr %32, align 8, !tbaa !29
+  %34 = load ptr, ptr %3, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %34, i32 0, i32 2
+  %36 = load ptr, ptr %35, align 8, !tbaa !19
+  %37 = call i32 @buf_chain_new(ptr noundef %5, i64 noundef %33, ptr noundef %36)
+  store i32 %37, ptr %4, align 4, !tbaa !17
+  %38 = load i32, ptr %4, align 4, !tbaa !17
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %40, label %42
 
-if.then7:                                         ; preds = %if.end5
-  %16 = load i32, ptr %rv, align 4
-  store i32 %16, ptr %retval, align 4
-  br label %return
+40:                                               ; preds = %30
+  %41 = load i32, ptr %4, align 4, !tbaa !17
+  store i32 %41, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %81
 
-if.end8:                                          ; preds = %if.end5
-  br label %do.body
+42:                                               ; preds = %30
+  br label %43
 
-do.body:                                          ; preds = %if.end8
-  br label %do.end
+43:                                               ; preds = %42
+  br label %44
 
-do.end:                                           ; preds = %do.body
-  %17 = load ptr, ptr %bufs.addr, align 8
-  %chunk_used9 = getelementptr inbounds %struct.nghttp2_bufs, ptr %17, i32 0, i32 5
-  %18 = load i64, ptr %chunk_used9, align 8
-  %inc = add i64 %18, 1
-  store i64 %inc, ptr %chunk_used9, align 8
-  %19 = load ptr, ptr %chain, align 8
-  %20 = load ptr, ptr %bufs.addr, align 8
-  %cur10 = getelementptr inbounds %struct.nghttp2_bufs, ptr %20, i32 0, i32 1
-  %21 = load ptr, ptr %cur10, align 8
-  %next11 = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %21, i32 0, i32 0
-  store ptr %19, ptr %next11, align 8
-  %22 = load ptr, ptr %chain, align 8
-  %23 = load ptr, ptr %bufs.addr, align 8
-  %cur12 = getelementptr inbounds %struct.nghttp2_bufs, ptr %23, i32 0, i32 1
-  store ptr %22, ptr %cur12, align 8
-  br label %do.body13
+44:                                               ; preds = %43
+  br label %45
 
-do.body13:                                        ; preds = %do.end
-  %24 = load ptr, ptr %bufs.addr, align 8
-  %offset = getelementptr inbounds %struct.nghttp2_bufs, ptr %24, i32 0, i32 7
-  %25 = load i64, ptr %offset, align 8
-  %26 = load ptr, ptr %bufs.addr, align 8
-  %cur14 = getelementptr inbounds %struct.nghttp2_bufs, ptr %26, i32 0, i32 1
-  %27 = load ptr, ptr %cur14, align 8
-  %buf = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %27, i32 0, i32 1
-  %pos = getelementptr inbounds %struct.nghttp2_buf, ptr %buf, i32 0, i32 2
-  %28 = load ptr, ptr %pos, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %28, i64 %25
-  store ptr %add.ptr, ptr %pos, align 8
-  %29 = load ptr, ptr %bufs.addr, align 8
-  %offset15 = getelementptr inbounds %struct.nghttp2_bufs, ptr %29, i32 0, i32 7
-  %30 = load i64, ptr %offset15, align 8
-  %31 = load ptr, ptr %bufs.addr, align 8
-  %cur16 = getelementptr inbounds %struct.nghttp2_bufs, ptr %31, i32 0, i32 1
-  %32 = load ptr, ptr %cur16, align 8
-  %buf17 = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %32, i32 0, i32 1
-  %last = getelementptr inbounds %struct.nghttp2_buf, ptr %buf17, i32 0, i32 3
-  %33 = load ptr, ptr %last, align 8
-  %add.ptr18 = getelementptr inbounds i8, ptr %33, i64 %30
-  store ptr %add.ptr18, ptr %last, align 8
-  br label %do.end19
+45:                                               ; preds = %44
+  %46 = load ptr, ptr %3, align 8, !tbaa !3
+  %47 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %46, i32 0, i32 5
+  %48 = load i64, ptr %47, align 8, !tbaa !30
+  %49 = add i64 %48, 1
+  store i64 %49, ptr %47, align 8, !tbaa !30
+  %50 = load ptr, ptr %5, align 8, !tbaa !23
+  %51 = load ptr, ptr %3, align 8, !tbaa !3
+  %52 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %51, i32 0, i32 1
+  %53 = load ptr, ptr %52, align 8, !tbaa !25
+  %54 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %53, i32 0, i32 0
+  store ptr %50, ptr %54, align 8, !tbaa !36
+  %55 = load ptr, ptr %5, align 8, !tbaa !23
+  %56 = load ptr, ptr %3, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %56, i32 0, i32 1
+  store ptr %55, ptr %57, align 8, !tbaa !25
+  br label %58
 
-do.end19:                                         ; preds = %do.body13
-  store i32 0, ptr %retval, align 4
-  br label %return
+58:                                               ; preds = %45
+  %59 = load ptr, ptr %3, align 8, !tbaa !3
+  %60 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %59, i32 0, i32 7
+  %61 = load i64, ptr %60, align 8, !tbaa !22
+  %62 = load ptr, ptr %3, align 8, !tbaa !3
+  %63 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %62, i32 0, i32 1
+  %64 = load ptr, ptr %63, align 8, !tbaa !25
+  %65 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %64, i32 0, i32 1
+  %66 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %65, i32 0, i32 2
+  %67 = load ptr, ptr %66, align 8, !tbaa !26
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 %61
+  store ptr %68, ptr %66, align 8, !tbaa !26
+  %69 = load ptr, ptr %3, align 8, !tbaa !3
+  %70 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %69, i32 0, i32 7
+  %71 = load i64, ptr %70, align 8, !tbaa !22
+  %72 = load ptr, ptr %3, align 8, !tbaa !3
+  %73 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %72, i32 0, i32 1
+  %74 = load ptr, ptr %73, align 8, !tbaa !25
+  %75 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %74, i32 0, i32 1
+  %76 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %75, i32 0, i32 3
+  %77 = load ptr, ptr %76, align 8, !tbaa !28
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 %71
+  store ptr %78, ptr %76, align 8, !tbaa !28
+  br label %79
 
-return:                                           ; preds = %do.end19, %if.then7, %if.then4, %if.then
-  %34 = load i32, ptr %retval, align 4
-  ret i32 %34
+79:                                               ; preds = %58
+  br label %80
+
+80:                                               ; preds = %79
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %81
+
+81:                                               ; preds = %80, %40, %29, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  %82 = load i32, ptr %2, align 4
+  ret i32 %82
 }
 
 declare ptr @nghttp2_cpymem(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_bufs_addb(ptr noundef %bufs, i8 noundef zeroext %b) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %bufs.addr = alloca ptr, align 8
-  %b.addr = alloca i8, align 1
-  %rv = alloca i32, align 4
-  store ptr %bufs, ptr %bufs.addr, align 8
-  store i8 %b, ptr %b.addr, align 1
-  %0 = load ptr, ptr %bufs.addr, align 8
-  %call = call i32 @bufs_ensure_addb(ptr noundef %0)
-  store i32 %call, ptr %rv, align 4
-  %1 = load i32, ptr %rv, align 4
-  %cmp = icmp ne i32 %1, 0
-  br i1 %cmp, label %if.then, label %if.end
+define hidden i32 @nghttp2_bufs_addb(ptr noundef %0, i8 noundef zeroext %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i8 %1, ptr %5, align 1, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = call i32 @bufs_ensure_addb(ptr noundef %8)
+  store i32 %9, ptr %6, align 4, !tbaa !17
+  %10 = load i32, ptr %6, align 4, !tbaa !17
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %14
 
-if.then:                                          ; preds = %entry
-  %2 = load i32, ptr %rv, align 4
-  store i32 %2, ptr %retval, align 4
-  br label %return
+12:                                               ; preds = %2
+  %13 = load i32, ptr %6, align 4, !tbaa !17
+  store i32 %13, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %23
 
-if.end:                                           ; preds = %entry
-  %3 = load i8, ptr %b.addr, align 1
-  %4 = load ptr, ptr %bufs.addr, align 8
-  %cur = getelementptr inbounds %struct.nghttp2_bufs, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %cur, align 8
-  %buf = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %5, i32 0, i32 1
-  %last = getelementptr inbounds %struct.nghttp2_buf, ptr %buf, i32 0, i32 3
-  %6 = load ptr, ptr %last, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %6, i32 1
-  store ptr %incdec.ptr, ptr %last, align 8
-  store i8 %3, ptr %6, align 1
-  store i32 0, ptr %retval, align 4
-  br label %return
+14:                                               ; preds = %2
+  %15 = load i8, ptr %5, align 1, !tbaa !46
+  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %16, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8, !tbaa !25
+  %19 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %18, i32 0, i32 1
+  %20 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %19, i32 0, i32 3
+  %21 = load ptr, ptr %20, align 8, !tbaa !28
+  %22 = getelementptr inbounds nuw i8, ptr %21, i32 1
+  store ptr %22, ptr %20, align 8, !tbaa !28
+  store i8 %15, ptr %21, align 1, !tbaa !46
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %23
 
-return:                                           ; preds = %if.end, %if.then
-  %7 = load i32, ptr %retval, align 4
-  ret i32 %7
+23:                                               ; preds = %14, %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  %24 = load i32, ptr %3, align 4
+  ret i32 %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bufs_ensure_addb(ptr noundef %bufs) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %bufs.addr = alloca ptr, align 8
-  %rv = alloca i32, align 4
-  %buf = alloca ptr, align 8
-  store ptr %bufs, ptr %bufs.addr, align 8
-  %0 = load ptr, ptr %bufs.addr, align 8
-  %cur = getelementptr inbounds %struct.nghttp2_bufs, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %cur, align 8
-  %buf1 = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %1, i32 0, i32 1
-  store ptr %buf1, ptr %buf, align 8
-  %2 = load ptr, ptr %buf, align 8
-  %end = getelementptr inbounds %struct.nghttp2_buf, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %end, align 8
-  %4 = load ptr, ptr %buf, align 8
-  %last = getelementptr inbounds %struct.nghttp2_buf, ptr %4, i32 0, i32 3
-  %5 = load ptr, ptr %last, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %3 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %5 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %cmp = icmp ugt i64 %sub.ptr.sub, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @bufs_ensure_addb(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %7 = load ptr, ptr %3, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !25
+  %10 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %9, i32 0, i32 1
+  store ptr %10, ptr %5, align 8, !tbaa !3
+  %11 = load ptr, ptr %5, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8, !tbaa !10
+  %14 = load ptr, ptr %5, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %14, i32 0, i32 3
+  %16 = load ptr, ptr %15, align 8, !tbaa !12
+  %17 = ptrtoint ptr %13 to i64
+  %18 = ptrtoint ptr %16 to i64
+  %19 = sub i64 %17, %18
+  %20 = icmp ugt i64 %19, 0
+  br i1 %20, label %21, label %22
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+21:                                               ; preds = %1
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %30
 
-if.end:                                           ; preds = %entry
-  %6 = load ptr, ptr %bufs.addr, align 8
-  %call = call i32 @bufs_alloc_chain(ptr noundef %6)
-  store i32 %call, ptr %rv, align 4
-  %7 = load i32, ptr %rv, align 4
-  %cmp2 = icmp ne i32 %7, 0
-  br i1 %cmp2, label %if.then3, label %if.end4
+22:                                               ; preds = %1
+  %23 = load ptr, ptr %3, align 8, !tbaa !3
+  %24 = call i32 @bufs_alloc_chain(ptr noundef %23)
+  store i32 %24, ptr %4, align 4, !tbaa !17
+  %25 = load i32, ptr %4, align 4, !tbaa !17
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %29
 
-if.then3:                                         ; preds = %if.end
-  %8 = load i32, ptr %rv, align 4
-  store i32 %8, ptr %retval, align 4
-  br label %return
+27:                                               ; preds = %22
+  %28 = load i32, ptr %4, align 4, !tbaa !17
+  store i32 %28, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %30
 
-if.end4:                                          ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+29:                                               ; preds = %22
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %30
 
-return:                                           ; preds = %if.end4, %if.then3, %if.then
-  %9 = load i32, ptr %retval, align 4
-  ret i32 %9
+30:                                               ; preds = %29, %27, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  %31 = load i32, ptr %2, align 4
+  ret i32 %31
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_bufs_addb_hold(ptr noundef %bufs, i8 noundef zeroext %b) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %bufs.addr = alloca ptr, align 8
-  %b.addr = alloca i8, align 1
-  %rv = alloca i32, align 4
-  store ptr %bufs, ptr %bufs.addr, align 8
-  store i8 %b, ptr %b.addr, align 1
-  %0 = load ptr, ptr %bufs.addr, align 8
-  %call = call i32 @bufs_ensure_addb(ptr noundef %0)
-  store i32 %call, ptr %rv, align 4
-  %1 = load i32, ptr %rv, align 4
-  %cmp = icmp ne i32 %1, 0
-  br i1 %cmp, label %if.then, label %if.end
+define hidden i32 @nghttp2_bufs_addb_hold(ptr noundef %0, i8 noundef zeroext %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i8 %1, ptr %5, align 1, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = call i32 @bufs_ensure_addb(ptr noundef %8)
+  store i32 %9, ptr %6, align 4, !tbaa !17
+  %10 = load i32, ptr %6, align 4, !tbaa !17
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %14
 
-if.then:                                          ; preds = %entry
-  %2 = load i32, ptr %rv, align 4
-  store i32 %2, ptr %retval, align 4
-  br label %return
+12:                                               ; preds = %2
+  %13 = load i32, ptr %6, align 4, !tbaa !17
+  store i32 %13, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %22
 
-if.end:                                           ; preds = %entry
-  %3 = load i8, ptr %b.addr, align 1
-  %4 = load ptr, ptr %bufs.addr, align 8
-  %cur = getelementptr inbounds %struct.nghttp2_bufs, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %cur, align 8
-  %buf = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %5, i32 0, i32 1
-  %last = getelementptr inbounds %struct.nghttp2_buf, ptr %buf, i32 0, i32 3
-  %6 = load ptr, ptr %last, align 8
-  store i8 %3, ptr %6, align 1
-  store i32 0, ptr %retval, align 4
-  br label %return
+14:                                               ; preds = %2
+  %15 = load i8, ptr %5, align 1, !tbaa !46
+  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %16, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8, !tbaa !25
+  %19 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %18, i32 0, i32 1
+  %20 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %19, i32 0, i32 3
+  %21 = load ptr, ptr %20, align 8, !tbaa !28
+  store i8 %15, ptr %21, align 1, !tbaa !46
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %22
 
-return:                                           ; preds = %if.end, %if.then
-  %7 = load i32, ptr %retval, align 4
-  ret i32 %7
+22:                                               ; preds = %14, %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  %23 = load i32, ptr %3, align 4
+  ret i32 %23
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_bufs_orb(ptr noundef %bufs, i8 noundef zeroext %b) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %bufs.addr = alloca ptr, align 8
-  %b.addr = alloca i8, align 1
-  %rv = alloca i32, align 4
-  store ptr %bufs, ptr %bufs.addr, align 8
-  store i8 %b, ptr %b.addr, align 1
-  %0 = load ptr, ptr %bufs.addr, align 8
-  %call = call i32 @bufs_ensure_addb(ptr noundef %0)
-  store i32 %call, ptr %rv, align 4
-  %1 = load i32, ptr %rv, align 4
-  %cmp = icmp ne i32 %1, 0
-  br i1 %cmp, label %if.then, label %if.end
+define hidden i32 @nghttp2_bufs_orb(ptr noundef %0, i8 noundef zeroext %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i8 %1, ptr %5, align 1, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = call i32 @bufs_ensure_addb(ptr noundef %8)
+  store i32 %9, ptr %6, align 4, !tbaa !17
+  %10 = load i32, ptr %6, align 4, !tbaa !17
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %14
 
-if.then:                                          ; preds = %entry
-  %2 = load i32, ptr %rv, align 4
-  store i32 %2, ptr %retval, align 4
-  br label %return
+12:                                               ; preds = %2
+  %13 = load i32, ptr %6, align 4, !tbaa !17
+  store i32 %13, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %28
 
-if.end:                                           ; preds = %entry
-  %3 = load i8, ptr %b.addr, align 1
-  %conv = zext i8 %3 to i32
-  %4 = load ptr, ptr %bufs.addr, align 8
-  %cur = getelementptr inbounds %struct.nghttp2_bufs, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %cur, align 8
-  %buf = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %5, i32 0, i32 1
-  %last = getelementptr inbounds %struct.nghttp2_buf, ptr %buf, i32 0, i32 3
-  %6 = load ptr, ptr %last, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %6, i32 1
-  store ptr %incdec.ptr, ptr %last, align 8
-  %7 = load i8, ptr %6, align 1
-  %conv1 = zext i8 %7 to i32
-  %or = or i32 %conv1, %conv
-  %conv2 = trunc i32 %or to i8
-  store i8 %conv2, ptr %6, align 1
-  store i32 0, ptr %retval, align 4
-  br label %return
+14:                                               ; preds = %2
+  %15 = load i8, ptr %5, align 1, !tbaa !46
+  %16 = zext i8 %15 to i32
+  %17 = load ptr, ptr %4, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %17, i32 0, i32 1
+  %19 = load ptr, ptr %18, align 8, !tbaa !25
+  %20 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %19, i32 0, i32 1
+  %21 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8, !tbaa !28
+  %23 = getelementptr inbounds nuw i8, ptr %22, i32 1
+  store ptr %23, ptr %21, align 8, !tbaa !28
+  %24 = load i8, ptr %22, align 1, !tbaa !46
+  %25 = zext i8 %24 to i32
+  %26 = or i32 %25, %16
+  %27 = trunc i32 %26 to i8
+  store i8 %27, ptr %22, align 1, !tbaa !46
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %28
 
-return:                                           ; preds = %if.end, %if.then
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+28:                                               ; preds = %14, %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  %29 = load i32, ptr %3, align 4
+  ret i32 %29
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_bufs_orb_hold(ptr noundef %bufs, i8 noundef zeroext %b) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %bufs.addr = alloca ptr, align 8
-  %b.addr = alloca i8, align 1
-  %rv = alloca i32, align 4
-  store ptr %bufs, ptr %bufs.addr, align 8
-  store i8 %b, ptr %b.addr, align 1
-  %0 = load ptr, ptr %bufs.addr, align 8
-  %call = call i32 @bufs_ensure_addb(ptr noundef %0)
-  store i32 %call, ptr %rv, align 4
-  %1 = load i32, ptr %rv, align 4
-  %cmp = icmp ne i32 %1, 0
-  br i1 %cmp, label %if.then, label %if.end
+define hidden i32 @nghttp2_bufs_orb_hold(ptr noundef %0, i8 noundef zeroext %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i8 %1, ptr %5, align 1, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = call i32 @bufs_ensure_addb(ptr noundef %8)
+  store i32 %9, ptr %6, align 4, !tbaa !17
+  %10 = load i32, ptr %6, align 4, !tbaa !17
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %14
 
-if.then:                                          ; preds = %entry
-  %2 = load i32, ptr %rv, align 4
-  store i32 %2, ptr %retval, align 4
-  br label %return
+12:                                               ; preds = %2
+  %13 = load i32, ptr %6, align 4, !tbaa !17
+  store i32 %13, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %27
 
-if.end:                                           ; preds = %entry
-  %3 = load i8, ptr %b.addr, align 1
-  %conv = zext i8 %3 to i32
-  %4 = load ptr, ptr %bufs.addr, align 8
-  %cur = getelementptr inbounds %struct.nghttp2_bufs, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %cur, align 8
-  %buf = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %5, i32 0, i32 1
-  %last = getelementptr inbounds %struct.nghttp2_buf, ptr %buf, i32 0, i32 3
-  %6 = load ptr, ptr %last, align 8
-  %7 = load i8, ptr %6, align 1
-  %conv1 = zext i8 %7 to i32
-  %or = or i32 %conv1, %conv
-  %conv2 = trunc i32 %or to i8
-  store i8 %conv2, ptr %6, align 1
-  store i32 0, ptr %retval, align 4
-  br label %return
+14:                                               ; preds = %2
+  %15 = load i8, ptr %5, align 1, !tbaa !46
+  %16 = zext i8 %15 to i32
+  %17 = load ptr, ptr %4, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %17, i32 0, i32 1
+  %19 = load ptr, ptr %18, align 8, !tbaa !25
+  %20 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %19, i32 0, i32 1
+  %21 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8, !tbaa !28
+  %23 = load i8, ptr %22, align 1, !tbaa !46
+  %24 = zext i8 %23 to i32
+  %25 = or i32 %24, %16
+  %26 = trunc i32 %25 to i8
+  store i8 %26, ptr %22, align 1, !tbaa !46
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %27
 
-return:                                           ; preds = %if.end, %if.then
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+27:                                               ; preds = %14, %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  %28 = load i32, ptr %3, align 4
+  ret i32 %28
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @nghttp2_bufs_remove(ptr noundef %bufs, ptr noundef %out) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %bufs.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  %len = alloca i64, align 8
-  %chain = alloca ptr, align 8
-  %buf = alloca ptr, align 8
-  %res = alloca ptr, align 8
-  %resbuf = alloca %struct.nghttp2_buf, align 8
-  store ptr %bufs, ptr %bufs.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store i64 0, ptr %len, align 8
-  %0 = load ptr, ptr %bufs.addr, align 8
-  %head = getelementptr inbounds %struct.nghttp2_bufs, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %head, align 8
-  store ptr %1, ptr %chain, align 8
-  br label %for.cond
+define hidden i64 @nghttp2_bufs_remove(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca %struct.nghttp2_buf, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !47
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 40, ptr %10) #4
+  store i64 0, ptr %6, align 8, !tbaa !14
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8, !tbaa !24
+  store ptr %14, ptr %7, align 8, !tbaa !23
+  br label %15
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load ptr, ptr %chain, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %for.body, label %for.end
+15:                                               ; preds = %32, %2
+  %16 = load ptr, ptr %7, align 8, !tbaa !23
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %36
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %chain, align 8
-  %buf1 = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %3, i32 0, i32 1
-  %last = getelementptr inbounds %struct.nghttp2_buf, ptr %buf1, i32 0, i32 3
-  %4 = load ptr, ptr %last, align 8
-  %5 = load ptr, ptr %chain, align 8
-  %buf2 = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %5, i32 0, i32 1
-  %pos = getelementptr inbounds %struct.nghttp2_buf, ptr %buf2, i32 0, i32 2
-  %6 = load ptr, ptr %pos, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %6 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %7 = load i64, ptr %len, align 8
-  %add = add i64 %7, %sub.ptr.sub
-  store i64 %add, ptr %len, align 8
-  br label %for.inc
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %7, align 8, !tbaa !23
+  %20 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %19, i32 0, i32 1
+  %21 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8, !tbaa !28
+  %23 = load ptr, ptr %7, align 8, !tbaa !23
+  %24 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %23, i32 0, i32 1
+  %25 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %24, i32 0, i32 2
+  %26 = load ptr, ptr %25, align 8, !tbaa !26
+  %27 = ptrtoint ptr %22 to i64
+  %28 = ptrtoint ptr %26 to i64
+  %29 = sub i64 %27, %28
+  %30 = load i64, ptr %6, align 8, !tbaa !14
+  %31 = add i64 %30, %29
+  store i64 %31, ptr %6, align 8, !tbaa !14
+  br label %32
 
-for.inc:                                          ; preds = %for.body
-  %8 = load ptr, ptr %chain, align 8
-  %next = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %8, i32 0, i32 0
-  %9 = load ptr, ptr %next, align 8
-  store ptr %9, ptr %chain, align 8
-  br label %for.cond, !llvm.loop !10
+32:                                               ; preds = %18
+  %33 = load ptr, ptr %7, align 8, !tbaa !23
+  %34 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8, !tbaa !36
+  store ptr %35, ptr %7, align 8, !tbaa !23
+  br label %15, !llvm.loop !49
 
-for.end:                                          ; preds = %for.cond
-  %10 = load i64, ptr %len, align 8
-  %cmp = icmp eq i64 %10, 0
-  br i1 %cmp, label %if.then, label %if.end
+36:                                               ; preds = %15
+  %37 = load i64, ptr %6, align 8, !tbaa !14
+  %38 = icmp eq i64 %37, 0
+  br i1 %38, label %39, label %40
 
-if.then:                                          ; preds = %for.end
-  store ptr null, ptr %res, align 8
-  store i64 0, ptr %retval, align 8
-  br label %return
+39:                                               ; preds = %36
+  store ptr null, ptr %9, align 8, !tbaa !16
+  store i64 0, ptr %3, align 8
+  store i32 1, ptr %11, align 4
+  br label %85
 
-if.end:                                           ; preds = %for.end
-  %11 = load ptr, ptr %bufs.addr, align 8
-  %mem = getelementptr inbounds %struct.nghttp2_bufs, ptr %11, i32 0, i32 2
-  %12 = load ptr, ptr %mem, align 8
-  %13 = load i64, ptr %len, align 8
-  %call = call ptr @nghttp2_mem_malloc(ptr noundef %12, i64 noundef %13)
-  store ptr %call, ptr %res, align 8
-  %14 = load ptr, ptr %res, align 8
-  %cmp3 = icmp eq ptr %14, null
-  br i1 %cmp3, label %if.then4, label %if.end5
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %4, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %41, i32 0, i32 2
+  %43 = load ptr, ptr %42, align 8, !tbaa !19
+  %44 = load i64, ptr %6, align 8, !tbaa !14
+  %45 = call ptr @nghttp2_mem_malloc(ptr noundef %43, i64 noundef %44)
+  store ptr %45, ptr %9, align 8, !tbaa !16
+  %46 = load ptr, ptr %9, align 8, !tbaa !16
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %48, label %49
 
-if.then4:                                         ; preds = %if.end
-  store i64 -901, ptr %retval, align 8
-  br label %return
+48:                                               ; preds = %40
+  store i64 -901, ptr %3, align 8
+  store i32 1, ptr %11, align 4
+  br label %85
 
-if.end5:                                          ; preds = %if.end
-  %15 = load ptr, ptr %res, align 8
-  %16 = load i64, ptr %len, align 8
-  call void @nghttp2_buf_wrap_init(ptr noundef %resbuf, ptr noundef %15, i64 noundef %16)
-  %17 = load ptr, ptr %bufs.addr, align 8
-  %head6 = getelementptr inbounds %struct.nghttp2_bufs, ptr %17, i32 0, i32 0
-  %18 = load ptr, ptr %head6, align 8
-  store ptr %18, ptr %chain, align 8
-  br label %for.cond7
+49:                                               ; preds = %40
+  %50 = load ptr, ptr %9, align 8, !tbaa !16
+  %51 = load i64, ptr %6, align 8, !tbaa !14
+  call void @nghttp2_buf_wrap_init(ptr noundef %10, ptr noundef %50, i64 noundef %51)
+  %52 = load ptr, ptr %4, align 8, !tbaa !3
+  %53 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %52, i32 0, i32 0
+  %54 = load ptr, ptr %53, align 8, !tbaa !24
+  store ptr %54, ptr %7, align 8, !tbaa !23
+  br label %55
 
-for.cond7:                                        ; preds = %for.inc20, %if.end5
-  %19 = load ptr, ptr %chain, align 8
-  %tobool8 = icmp ne ptr %19, null
-  br i1 %tobool8, label %for.body9, label %for.end22
+55:                                               ; preds = %77, %49
+  %56 = load ptr, ptr %7, align 8, !tbaa !23
+  %57 = icmp ne ptr %56, null
+  br i1 %57, label %58, label %81
 
-for.body9:                                        ; preds = %for.cond7
-  %20 = load ptr, ptr %chain, align 8
-  %buf10 = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %20, i32 0, i32 1
-  store ptr %buf10, ptr %buf, align 8
-  %last11 = getelementptr inbounds %struct.nghttp2_buf, ptr %resbuf, i32 0, i32 3
-  %21 = load ptr, ptr %last11, align 8
-  %22 = load ptr, ptr %buf, align 8
-  %pos12 = getelementptr inbounds %struct.nghttp2_buf, ptr %22, i32 0, i32 2
-  %23 = load ptr, ptr %pos12, align 8
-  %24 = load ptr, ptr %buf, align 8
-  %last13 = getelementptr inbounds %struct.nghttp2_buf, ptr %24, i32 0, i32 3
-  %25 = load ptr, ptr %last13, align 8
-  %26 = load ptr, ptr %buf, align 8
-  %pos14 = getelementptr inbounds %struct.nghttp2_buf, ptr %26, i32 0, i32 2
-  %27 = load ptr, ptr %pos14, align 8
-  %sub.ptr.lhs.cast15 = ptrtoint ptr %25 to i64
-  %sub.ptr.rhs.cast16 = ptrtoint ptr %27 to i64
-  %sub.ptr.sub17 = sub i64 %sub.ptr.lhs.cast15, %sub.ptr.rhs.cast16
-  %call18 = call ptr @nghttp2_cpymem(ptr noundef %21, ptr noundef %23, i64 noundef %sub.ptr.sub17)
-  %last19 = getelementptr inbounds %struct.nghttp2_buf, ptr %resbuf, i32 0, i32 3
-  store ptr %call18, ptr %last19, align 8
-  br label %for.inc20
+58:                                               ; preds = %55
+  %59 = load ptr, ptr %7, align 8, !tbaa !23
+  %60 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %59, i32 0, i32 1
+  store ptr %60, ptr %8, align 8, !tbaa !3
+  %61 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %10, i32 0, i32 3
+  %62 = load ptr, ptr %61, align 8, !tbaa !12
+  %63 = load ptr, ptr %8, align 8, !tbaa !3
+  %64 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %63, i32 0, i32 2
+  %65 = load ptr, ptr %64, align 8, !tbaa !11
+  %66 = load ptr, ptr %8, align 8, !tbaa !3
+  %67 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %66, i32 0, i32 3
+  %68 = load ptr, ptr %67, align 8, !tbaa !12
+  %69 = load ptr, ptr %8, align 8, !tbaa !3
+  %70 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %69, i32 0, i32 2
+  %71 = load ptr, ptr %70, align 8, !tbaa !11
+  %72 = ptrtoint ptr %68 to i64
+  %73 = ptrtoint ptr %71 to i64
+  %74 = sub i64 %72, %73
+  %75 = call ptr @nghttp2_cpymem(ptr noundef %62, ptr noundef %65, i64 noundef %74)
+  %76 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %10, i32 0, i32 3
+  store ptr %75, ptr %76, align 8, !tbaa !12
+  br label %77
 
-for.inc20:                                        ; preds = %for.body9
-  %28 = load ptr, ptr %chain, align 8
-  %next21 = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %28, i32 0, i32 0
-  %29 = load ptr, ptr %next21, align 8
-  store ptr %29, ptr %chain, align 8
-  br label %for.cond7, !llvm.loop !11
+77:                                               ; preds = %58
+  %78 = load ptr, ptr %7, align 8, !tbaa !23
+  %79 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %78, i32 0, i32 0
+  %80 = load ptr, ptr %79, align 8, !tbaa !36
+  store ptr %80, ptr %7, align 8, !tbaa !23
+  br label %55, !llvm.loop !50
 
-for.end22:                                        ; preds = %for.cond7
-  %30 = load ptr, ptr %res, align 8
-  %31 = load ptr, ptr %out.addr, align 8
-  store ptr %30, ptr %31, align 8
-  %32 = load i64, ptr %len, align 8
-  store i64 %32, ptr %retval, align 8
-  br label %return
+81:                                               ; preds = %55
+  %82 = load ptr, ptr %9, align 8, !tbaa !16
+  %83 = load ptr, ptr %5, align 8, !tbaa !47
+  store ptr %82, ptr %83, align 8, !tbaa !16
+  %84 = load i64, ptr %6, align 8, !tbaa !14
+  store i64 %84, ptr %3, align 8
+  store i32 1, ptr %11, align 4
+  br label %85
 
-return:                                           ; preds = %for.end22, %if.then4, %if.then
-  %33 = load i64, ptr %retval, align 8
-  ret i64 %33
+85:                                               ; preds = %81, %48, %39
+  call void @llvm.lifetime.end.p0(i64 40, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  %86 = load i64, ptr %3, align 8
+  ret i64 %86
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @nghttp2_bufs_remove_copy(ptr noundef %bufs, ptr noundef %out) #0 {
-entry:
-  %bufs.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  %len = alloca i64, align 8
-  %chain = alloca ptr, align 8
-  %buf = alloca ptr, align 8
-  %resbuf = alloca %struct.nghttp2_buf, align 8
-  store ptr %bufs, ptr %bufs.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  %0 = load ptr, ptr %bufs.addr, align 8
-  %call = call i64 @nghttp2_bufs_len(ptr noundef %0)
-  store i64 %call, ptr %len, align 8
-  %1 = load ptr, ptr %out.addr, align 8
-  %2 = load i64, ptr %len, align 8
-  call void @nghttp2_buf_wrap_init(ptr noundef %resbuf, ptr noundef %1, i64 noundef %2)
-  %3 = load ptr, ptr %bufs.addr, align 8
-  %head = getelementptr inbounds %struct.nghttp2_bufs, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %head, align 8
-  store ptr %4, ptr %chain, align 8
-  br label %for.cond
+define hidden i64 @nghttp2_bufs_remove_copy(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca %struct.nghttp2_buf, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 40, ptr %8) #4
+  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  %10 = call i64 @nghttp2_bufs_len(ptr noundef %9)
+  store i64 %10, ptr %5, align 8, !tbaa !14
+  %11 = load ptr, ptr %4, align 8, !tbaa !16
+  %12 = load i64, ptr %5, align 8, !tbaa !14
+  call void @nghttp2_buf_wrap_init(ptr noundef %8, ptr noundef %11, i64 noundef %12)
+  %13 = load ptr, ptr %3, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %13, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8, !tbaa !24
+  store ptr %15, ptr %6, align 8, !tbaa !23
+  br label %16
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %5 = load ptr, ptr %chain, align 8
-  %tobool = icmp ne ptr %5, null
-  br i1 %tobool, label %for.body, label %for.end
+16:                                               ; preds = %38, %2
+  %17 = load ptr, ptr %6, align 8, !tbaa !23
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %42
 
-for.body:                                         ; preds = %for.cond
-  %6 = load ptr, ptr %chain, align 8
-  %buf1 = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %6, i32 0, i32 1
-  store ptr %buf1, ptr %buf, align 8
-  %last = getelementptr inbounds %struct.nghttp2_buf, ptr %resbuf, i32 0, i32 3
-  %7 = load ptr, ptr %last, align 8
-  %8 = load ptr, ptr %buf, align 8
-  %pos = getelementptr inbounds %struct.nghttp2_buf, ptr %8, i32 0, i32 2
-  %9 = load ptr, ptr %pos, align 8
-  %10 = load ptr, ptr %buf, align 8
-  %last2 = getelementptr inbounds %struct.nghttp2_buf, ptr %10, i32 0, i32 3
-  %11 = load ptr, ptr %last2, align 8
-  %12 = load ptr, ptr %buf, align 8
-  %pos3 = getelementptr inbounds %struct.nghttp2_buf, ptr %12, i32 0, i32 2
-  %13 = load ptr, ptr %pos3, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %11 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %13 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call4 = call ptr @nghttp2_cpymem(ptr noundef %7, ptr noundef %9, i64 noundef %sub.ptr.sub)
-  %last5 = getelementptr inbounds %struct.nghttp2_buf, ptr %resbuf, i32 0, i32 3
-  store ptr %call4, ptr %last5, align 8
-  br label %for.inc
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %6, align 8, !tbaa !23
+  %21 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %20, i32 0, i32 1
+  store ptr %21, ptr %7, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %8, i32 0, i32 3
+  %23 = load ptr, ptr %22, align 8, !tbaa !12
+  %24 = load ptr, ptr %7, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %24, i32 0, i32 2
+  %26 = load ptr, ptr %25, align 8, !tbaa !11
+  %27 = load ptr, ptr %7, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %27, i32 0, i32 3
+  %29 = load ptr, ptr %28, align 8, !tbaa !12
+  %30 = load ptr, ptr %7, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %30, i32 0, i32 2
+  %32 = load ptr, ptr %31, align 8, !tbaa !11
+  %33 = ptrtoint ptr %29 to i64
+  %34 = ptrtoint ptr %32 to i64
+  %35 = sub i64 %33, %34
+  %36 = call ptr @nghttp2_cpymem(ptr noundef %23, ptr noundef %26, i64 noundef %35)
+  %37 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %8, i32 0, i32 3
+  store ptr %36, ptr %37, align 8, !tbaa !12
+  br label %38
 
-for.inc:                                          ; preds = %for.body
-  %14 = load ptr, ptr %chain, align 8
-  %next = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %14, i32 0, i32 0
-  %15 = load ptr, ptr %next, align 8
-  store ptr %15, ptr %chain, align 8
-  br label %for.cond, !llvm.loop !12
+38:                                               ; preds = %19
+  %39 = load ptr, ptr %6, align 8, !tbaa !23
+  %40 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %39, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8, !tbaa !36
+  store ptr %41, ptr %6, align 8, !tbaa !23
+  br label %16, !llvm.loop !51
 
-for.end:                                          ; preds = %for.cond
-  %16 = load i64, ptr %len, align 8
-  ret i64 %16
+42:                                               ; preds = %16
+  %43 = load i64, ptr %5, align 8, !tbaa !14
+  call void @llvm.lifetime.end.p0(i64 40, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
+  ret i64 %43
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nghttp2_bufs_reset(ptr noundef %bufs) #0 {
-entry:
-  %bufs.addr = alloca ptr, align 8
-  %chain = alloca ptr, align 8
-  %ci = alloca ptr, align 8
-  %k = alloca i64, align 8
-  store ptr %bufs, ptr %bufs.addr, align 8
-  %0 = load ptr, ptr %bufs.addr, align 8
-  %chunk_keep = getelementptr inbounds %struct.nghttp2_bufs, ptr %0, i32 0, i32 6
-  %1 = load i64, ptr %chunk_keep, align 8
-  store i64 %1, ptr %k, align 8
-  %2 = load ptr, ptr %bufs.addr, align 8
-  %head = getelementptr inbounds %struct.nghttp2_bufs, ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %head, align 8
-  store ptr %3, ptr %ci, align 8
-  br label %for.cond
+define hidden void @nghttp2_bufs_reset(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %6 = load ptr, ptr %2, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %6, i32 0, i32 6
+  %8 = load i64, ptr %7, align 8, !tbaa !32
+  store i64 %8, ptr %5, align 8, !tbaa !14
+  %9 = load ptr, ptr %2, align 8, !tbaa !3
+  %10 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !24
+  store ptr %11, ptr %4, align 8, !tbaa !23
+  br label %12
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %4 = load ptr, ptr %ci, align 8
-  %tobool = icmp ne ptr %4, null
-  br i1 %tobool, label %for.body, label %for.end
+12:                                               ; preds = %42, %1
+  %13 = load ptr, ptr %4, align 8, !tbaa !23
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %15, label %46
 
-for.body:                                         ; preds = %for.cond
-  %5 = load ptr, ptr %ci, align 8
-  %buf = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %5, i32 0, i32 1
-  call void @nghttp2_buf_reset(ptr noundef %buf)
-  br label %do.body
+15:                                               ; preds = %12
+  %16 = load ptr, ptr %4, align 8, !tbaa !23
+  %17 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %16, i32 0, i32 1
+  call void @nghttp2_buf_reset(ptr noundef %17)
+  br label %18
 
-do.body:                                          ; preds = %for.body
-  %6 = load ptr, ptr %bufs.addr, align 8
-  %offset = getelementptr inbounds %struct.nghttp2_bufs, ptr %6, i32 0, i32 7
-  %7 = load i64, ptr %offset, align 8
-  %8 = load ptr, ptr %ci, align 8
-  %buf1 = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %8, i32 0, i32 1
-  %pos = getelementptr inbounds %struct.nghttp2_buf, ptr %buf1, i32 0, i32 2
-  %9 = load ptr, ptr %pos, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %9, i64 %7
-  store ptr %add.ptr, ptr %pos, align 8
-  %10 = load ptr, ptr %bufs.addr, align 8
-  %offset2 = getelementptr inbounds %struct.nghttp2_bufs, ptr %10, i32 0, i32 7
-  %11 = load i64, ptr %offset2, align 8
-  %12 = load ptr, ptr %ci, align 8
-  %buf3 = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %12, i32 0, i32 1
-  %last = getelementptr inbounds %struct.nghttp2_buf, ptr %buf3, i32 0, i32 3
-  %13 = load ptr, ptr %last, align 8
-  %add.ptr4 = getelementptr inbounds i8, ptr %13, i64 %11
-  store ptr %add.ptr4, ptr %last, align 8
-  br label %do.end
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %2, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %19, i32 0, i32 7
+  %21 = load i64, ptr %20, align 8, !tbaa !22
+  %22 = load ptr, ptr %4, align 8, !tbaa !23
+  %23 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %22, i32 0, i32 1
+  %24 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %23, i32 0, i32 2
+  %25 = load ptr, ptr %24, align 8, !tbaa !26
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %21
+  store ptr %26, ptr %24, align 8, !tbaa !26
+  %27 = load ptr, ptr %2, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %27, i32 0, i32 7
+  %29 = load i64, ptr %28, align 8, !tbaa !22
+  %30 = load ptr, ptr %4, align 8, !tbaa !23
+  %31 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %30, i32 0, i32 1
+  %32 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %31, i32 0, i32 3
+  %33 = load ptr, ptr %32, align 8, !tbaa !28
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %29
+  store ptr %34, ptr %32, align 8, !tbaa !28
+  br label %35
 
-do.end:                                           ; preds = %do.body
-  %14 = load i64, ptr %k, align 8
-  %dec = add i64 %14, -1
-  store i64 %dec, ptr %k, align 8
-  %cmp = icmp eq i64 %dec, 0
-  br i1 %cmp, label %if.then, label %if.end
+35:                                               ; preds = %18
+  br label %36
 
-if.then:                                          ; preds = %do.end
-  br label %for.end
+36:                                               ; preds = %35
+  %37 = load i64, ptr %5, align 8, !tbaa !14
+  %38 = add i64 %37, -1
+  store i64 %38, ptr %5, align 8, !tbaa !14
+  %39 = icmp eq i64 %38, 0
+  br i1 %39, label %40, label %41
 
-if.end:                                           ; preds = %do.end
-  br label %for.inc
+40:                                               ; preds = %36
+  br label %46
 
-for.inc:                                          ; preds = %if.end
-  %15 = load ptr, ptr %ci, align 8
-  %next = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %15, i32 0, i32 0
-  %16 = load ptr, ptr %next, align 8
-  store ptr %16, ptr %ci, align 8
-  br label %for.cond, !llvm.loop !13
+41:                                               ; preds = %36
+  br label %42
 
-for.end:                                          ; preds = %if.then, %for.cond
-  %17 = load ptr, ptr %ci, align 8
-  %tobool5 = icmp ne ptr %17, null
-  br i1 %tobool5, label %if.then6, label %if.end15
+42:                                               ; preds = %41
+  %43 = load ptr, ptr %4, align 8, !tbaa !23
+  %44 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %43, i32 0, i32 0
+  %45 = load ptr, ptr %44, align 8, !tbaa !36
+  store ptr %45, ptr %4, align 8, !tbaa !23
+  br label %12, !llvm.loop !52
 
-if.then6:                                         ; preds = %for.end
-  %18 = load ptr, ptr %ci, align 8
-  %next7 = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %18, i32 0, i32 0
-  %19 = load ptr, ptr %next7, align 8
-  store ptr %19, ptr %chain, align 8
-  %20 = load ptr, ptr %ci, align 8
-  %next8 = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %20, i32 0, i32 0
-  store ptr null, ptr %next8, align 8
-  %21 = load ptr, ptr %chain, align 8
-  store ptr %21, ptr %ci, align 8
-  br label %for.cond9
+46:                                               ; preds = %40, %12
+  %47 = load ptr, ptr %4, align 8, !tbaa !23
+  %48 = icmp ne ptr %47, null
+  br i1 %48, label %49, label %74
 
-for.cond9:                                        ; preds = %for.body11, %if.then6
-  %22 = load ptr, ptr %ci, align 8
-  %tobool10 = icmp ne ptr %22, null
-  br i1 %tobool10, label %for.body11, label %for.end13
+49:                                               ; preds = %46
+  %50 = load ptr, ptr %4, align 8, !tbaa !23
+  %51 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %50, i32 0, i32 0
+  %52 = load ptr, ptr %51, align 8, !tbaa !36
+  store ptr %52, ptr %3, align 8, !tbaa !23
+  %53 = load ptr, ptr %4, align 8, !tbaa !23
+  %54 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %53, i32 0, i32 0
+  store ptr null, ptr %54, align 8, !tbaa !36
+  %55 = load ptr, ptr %3, align 8, !tbaa !23
+  store ptr %55, ptr %4, align 8, !tbaa !23
+  br label %56
 
-for.body11:                                       ; preds = %for.cond9
-  %23 = load ptr, ptr %ci, align 8
-  %next12 = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %23, i32 0, i32 0
-  %24 = load ptr, ptr %next12, align 8
-  store ptr %24, ptr %chain, align 8
-  %25 = load ptr, ptr %ci, align 8
-  %26 = load ptr, ptr %bufs.addr, align 8
-  %mem = getelementptr inbounds %struct.nghttp2_bufs, ptr %26, i32 0, i32 2
-  %27 = load ptr, ptr %mem, align 8
-  call void @buf_chain_del(ptr noundef %25, ptr noundef %27)
-  %28 = load ptr, ptr %chain, align 8
-  store ptr %28, ptr %ci, align 8
-  br label %for.cond9, !llvm.loop !14
+56:                                               ; preds = %59, %49
+  %57 = load ptr, ptr %4, align 8, !tbaa !23
+  %58 = icmp ne ptr %57, null
+  br i1 %58, label %59, label %68
 
-for.end13:                                        ; preds = %for.cond9
-  %29 = load ptr, ptr %bufs.addr, align 8
-  %chunk_keep14 = getelementptr inbounds %struct.nghttp2_bufs, ptr %29, i32 0, i32 6
-  %30 = load i64, ptr %chunk_keep14, align 8
-  %31 = load ptr, ptr %bufs.addr, align 8
-  %chunk_used = getelementptr inbounds %struct.nghttp2_bufs, ptr %31, i32 0, i32 5
-  store i64 %30, ptr %chunk_used, align 8
-  br label %if.end15
+59:                                               ; preds = %56
+  %60 = load ptr, ptr %4, align 8, !tbaa !23
+  %61 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %60, i32 0, i32 0
+  %62 = load ptr, ptr %61, align 8, !tbaa !36
+  store ptr %62, ptr %3, align 8, !tbaa !23
+  %63 = load ptr, ptr %4, align 8, !tbaa !23
+  %64 = load ptr, ptr %2, align 8, !tbaa !3
+  %65 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %64, i32 0, i32 2
+  %66 = load ptr, ptr %65, align 8, !tbaa !19
+  call void @buf_chain_del(ptr noundef %63, ptr noundef %66)
+  %67 = load ptr, ptr %3, align 8, !tbaa !23
+  store ptr %67, ptr %4, align 8, !tbaa !23
+  br label %56, !llvm.loop !53
 
-if.end15:                                         ; preds = %for.end13, %for.end
-  %32 = load ptr, ptr %bufs.addr, align 8
-  %head16 = getelementptr inbounds %struct.nghttp2_bufs, ptr %32, i32 0, i32 0
-  %33 = load ptr, ptr %head16, align 8
-  %34 = load ptr, ptr %bufs.addr, align 8
-  %cur = getelementptr inbounds %struct.nghttp2_bufs, ptr %34, i32 0, i32 1
-  store ptr %33, ptr %cur, align 8
+68:                                               ; preds = %56
+  %69 = load ptr, ptr %2, align 8, !tbaa !3
+  %70 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %69, i32 0, i32 6
+  %71 = load i64, ptr %70, align 8, !tbaa !32
+  %72 = load ptr, ptr %2, align 8, !tbaa !3
+  %73 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %72, i32 0, i32 5
+  store i64 %71, ptr %73, align 8, !tbaa !30
+  br label %74
+
+74:                                               ; preds = %68, %46
+  %75 = load ptr, ptr %2, align 8, !tbaa !3
+  %76 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %75, i32 0, i32 0
+  %77 = load ptr, ptr %76, align 8, !tbaa !24
+  %78 = load ptr, ptr %2, align 8, !tbaa !3
+  %79 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %78, i32 0, i32 1
+  store ptr %77, ptr %79, align 8, !tbaa !25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_bufs_advance(ptr noundef %bufs) #0 {
-entry:
-  %bufs.addr = alloca ptr, align 8
-  store ptr %bufs, ptr %bufs.addr, align 8
-  %0 = load ptr, ptr %bufs.addr, align 8
-  %call = call i32 @bufs_alloc_chain(ptr noundef %0)
-  ret i32 %call
+define hidden i32 @nghttp2_bufs_advance(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = call i32 @bufs_alloc_chain(ptr noundef %3)
+  ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_bufs_next_present(ptr noundef %bufs) #0 {
-entry:
-  %bufs.addr = alloca ptr, align 8
-  %chain = alloca ptr, align 8
-  store ptr %bufs, ptr %bufs.addr, align 8
-  %0 = load ptr, ptr %bufs.addr, align 8
-  %cur = getelementptr inbounds %struct.nghttp2_bufs, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %cur, align 8
-  %next = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %next, align 8
-  store ptr %2, ptr %chain, align 8
-  %3 = load ptr, ptr %chain, align 8
-  %tobool = icmp ne ptr %3, null
-  br i1 %tobool, label %land.rhs, label %land.end
+define hidden i32 @nghttp2_bufs_next_present(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
+  %4 = load ptr, ptr %2, align 8, !tbaa !3
+  %5 = getelementptr inbounds nuw %struct.nghttp2_bufs, ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8, !tbaa !25
+  %7 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !36
+  store ptr %8, ptr %3, align 8, !tbaa !23
+  %9 = load ptr, ptr %3, align 8, !tbaa !23
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %24
 
-land.rhs:                                         ; preds = %entry
-  %4 = load ptr, ptr %chain, align 8
-  %buf = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %4, i32 0, i32 1
-  %last = getelementptr inbounds %struct.nghttp2_buf, ptr %buf, i32 0, i32 3
-  %5 = load ptr, ptr %last, align 8
-  %6 = load ptr, ptr %chain, align 8
-  %buf1 = getelementptr inbounds %struct.nghttp2_buf_chain, ptr %6, i32 0, i32 1
-  %pos = getelementptr inbounds %struct.nghttp2_buf, ptr %buf1, i32 0, i32 2
-  %7 = load ptr, ptr %pos, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %5 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %7 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %tobool2 = icmp ne i64 %sub.ptr.sub, 0
-  br label %land.end
+11:                                               ; preds = %1
+  %12 = load ptr, ptr %3, align 8, !tbaa !23
+  %13 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %12, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %13, i32 0, i32 3
+  %15 = load ptr, ptr %14, align 8, !tbaa !28
+  %16 = load ptr, ptr %3, align 8, !tbaa !23
+  %17 = getelementptr inbounds nuw %struct.nghttp2_buf_chain, ptr %16, i32 0, i32 1
+  %18 = getelementptr inbounds nuw %struct.nghttp2_buf, ptr %17, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8, !tbaa !26
+  %20 = ptrtoint ptr %15 to i64
+  %21 = ptrtoint ptr %19 to i64
+  %22 = sub i64 %20, %21
+  %23 = icmp ne i64 %22, 0
+  br label %24
 
-land.end:                                         ; preds = %land.rhs, %entry
-  %8 = phi i1 [ false, %entry ], [ %tobool2, %land.rhs ]
-  %land.ext = zext i1 %8 to i32
-  ret i32 %land.ext
+24:                                               ; preds = %11, %1
+  %25 = phi i1 [ false, %1 ], [ %23, %11 ]
+  %26 = zext i1 %25 to i32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #4
+  ret i32 %26
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"any pointer", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !9, i64 0}
+!8 = !{!"", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32}
+!9 = !{!"p1 omnipotent char", !4, i64 0}
+!10 = !{!8, !9, i64 8}
+!11 = !{!8, !9, i64 16}
+!12 = !{!8, !9, i64 24}
+!13 = !{!8, !9, i64 32}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"long", !5, i64 0}
+!16 = !{!9, !9, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"int", !5, i64 0}
+!19 = !{!20, !4, i64 16}
+!20 = !{!"", !21, i64 0, !21, i64 8, !4, i64 16, !15, i64 24, !15, i64 32, !15, i64 40, !15, i64 48, !15, i64 56}
+!21 = !{!"p1 _ZTS17nghttp2_buf_chain", !4, i64 0}
+!22 = !{!20, !15, i64 56}
+!23 = !{!21, !21, i64 0}
+!24 = !{!20, !21, i64 0}
+!25 = !{!20, !21, i64 8}
+!26 = !{!27, !9, i64 24}
+!27 = !{!"nghttp2_buf_chain", !21, i64 0, !8, i64 8}
+!28 = !{!27, !9, i64 32}
+!29 = !{!20, !15, i64 24}
+!30 = !{!20, !15, i64 40}
+!31 = !{!20, !15, i64 32}
+!32 = !{!20, !15, i64 48}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p2 _ZTS17nghttp2_buf_chain", !35, i64 0}
+!35 = !{!"any p2 pointer", !4, i64 0}
+!36 = !{!27, !21, i64 0}
+!37 = distinct !{!37, !38}
+!38 = !{!"llvm.loop.mustprogress"}
+!39 = !{!40, !9, i64 0}
+!40 = !{!"", !9, i64 0, !15, i64 8}
+!41 = !{!40, !15, i64 8}
+!42 = distinct !{!42, !38}
+!43 = distinct !{!43, !38}
+!44 = distinct !{!44, !38}
+!45 = distinct !{!45, !38}
+!46 = !{!5, !5, i64 0}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p2 omnipotent char", !35, i64 0}
+!49 = distinct !{!49, !38}
+!50 = distinct !{!50, !38}
+!51 = distinct !{!51, !38}
+!52 = distinct !{!52, !38}
+!53 = distinct !{!53, !38}
