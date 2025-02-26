@@ -109,6 +109,7 @@ supported_project = [
     "meshoptimizer",
     "mixbox",
     "mold",
+    "msgpack",
 ]
 
 modify_only = [
@@ -154,14 +155,18 @@ def auto_upgrade(project, opt_exec):
 
     with open(f"bench/{project}/build.sh", "r") as f:
         content = f.read()
-        if "DUMP_PREFIX" not in content or '-fembed-bitcode=bitcode' in content or '-O0' in content:
+        if (
+            "DUMP_PREFIX" not in content
+            or "-fembed-bitcode=bitcode" in content
+            or "-O0" in content
+        ):
             print("Please update build.sh")
             return
 
         if "clang" in content and "clang-21" not in content:
             print("Please update build.sh to use the latest clang")
             return
-        
+
         if "clang++" in content and "clang++-21" not in content:
             print("Please update build.sh to use the latest clang++")
             return
@@ -179,7 +184,8 @@ def auto_upgrade(project, opt_exec):
                 ]
             )
             subprocess.check_call(
-                ["git", "submodule", "update", "--init", "--recursive"], cwd=f"bench/{project}/{git_dir}"
+                ["git", "submodule", "update", "--init", "--recursive"],
+                cwd=f"bench/{project}/{git_dir}",
             )
 
     subprocess.check_call(["bash", "build.sh"], cwd=f"bench/{project}")
