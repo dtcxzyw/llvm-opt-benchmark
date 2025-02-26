@@ -374,7 +374,7 @@ define internal fastcc ptr @__vga_tryget(ptr noundef nonnull %0, i32 noundef %1)
   %24 = xor i32 %23, -1
   %25 = and i32 %21, %24
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %108, label %27
+  br i1 %26, label %104, label %27
 
 27:                                               ; preds = %20
   %28 = and i32 %25, 3
@@ -384,10 +384,10 @@ define internal fastcc ptr @__vga_tryget(ptr noundef nonnull %0, i32 noundef %1)
   %32 = select i1 %29, i1 %31, i1 false
   br i1 %32, label %.preheader, label %.loopexit5
 
-.preheader:                                       ; preds = %27, %85
-  %33 = phi ptr [ %86, %85 ], [ %30, %27 ]
+.preheader:                                       ; preds = %27, %81
+  %33 = phi ptr [ %82, %81 ], [ %30, %27 ]
   %34 = icmp eq ptr %33, %0
-  br i1 %34, label %85, label %35
+  br i1 %34, label %81, label %35
 
 35:                                               ; preds = %.preheader
   %36 = load ptr, ptr %3, align 8
@@ -410,138 +410,134 @@ define internal fastcc ptr @__vga_tryget(ptr noundef nonnull %0, i32 noundef %1)
   %51 = load i32, ptr %50, align 4
   %52 = and i32 %51, %44
   %53 = icmp eq i32 %52, 0
-  br i1 %53, label %85, label %54
+  br i1 %53, label %81, label %54
 
 54:                                               ; preds = %49
   %55 = getelementptr inbounds nuw i8, ptr %33, i64 52
   %56 = load i8, ptr %55, align 4, !range !14, !noundef !15
   %57 = icmp eq i8 %56, 0
-  br i1 %57, label %58, label %68
+  br i1 %57, label %58, label %64
 
 58:                                               ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %60 = load i32, ptr %59, align 8
   %61 = and i32 %60, %52
-  %62 = icmp samesign ult i32 %61, 2
+  %62 = icmp eq i32 %61, 0
   %63 = select i1 %62, i32 0, i32 2
-  %64 = and i32 %61, 1
-  %65 = or disjoint i32 %63, %64
-  %66 = icmp eq i32 %65, 0
-  %67 = select i1 %66, i32 0, i32 2
-  br label %68
+  br label %64
 
-68:                                               ; preds = %58, %54
-  %69 = phi i32 [ 0, %54 ], [ %65, %58 ]
-  %70 = phi i32 [ 0, %54 ], [ %67, %58 ]
-  %71 = zext i1 %43 to i32
-  %72 = or disjoint i32 %70, %71
-  %73 = tail call i32 @pci_set_vga_state(ptr noundef %40, i1 noundef zeroext false, i32 noundef %69, i32 noundef %72) #14
-  %74 = xor i32 %52, -1
-  %75 = load i32, ptr %50, align 4
-  %76 = and i32 %75, %74
-  %77 = and i32 %69, 2
+64:                                               ; preds = %58, %54
+  %65 = phi i32 [ 0, %54 ], [ %61, %58 ]
+  %66 = phi i32 [ 0, %54 ], [ %63, %58 ]
+  %67 = zext i1 %43 to i32
+  %68 = or disjoint i32 %66, %67
+  %69 = tail call i32 @pci_set_vga_state(ptr noundef %40, i1 noundef zeroext false, i32 noundef %65, i32 noundef %68) #14
+  %70 = xor i32 %52, -1
+  %71 = load i32, ptr %50, align 4
+  %72 = and i32 %71, %70
+  %73 = and i32 %65, 2
+  %74 = icmp eq i32 %73, 0
+  %75 = and i32 %72, -9
+  %76 = select i1 %74, i32 %72, i32 %75
+  store i32 %76, ptr %50, align 4
+  %77 = and i32 %65, 1
   %78 = icmp eq i32 %77, 0
-  %79 = and i32 %76, -9
-  %80 = select i1 %78, i32 %76, i32 %79
+  br i1 %78, label %81, label %79
+
+79:                                               ; preds = %64
+  %80 = and i32 %76, -5
   store i32 %80, ptr %50, align 4
-  %81 = and i32 %69, 1
-  %82 = icmp eq i32 %81, 0
-  br i1 %82, label %85, label %83
+  br label %81
 
-83:                                               ; preds = %68
-  %84 = and i32 %80, -5
-  store i32 %84, ptr %50, align 4
-  br label %85
+81:                                               ; preds = %.preheader, %49, %79, %64
+  %82 = load ptr, ptr %33, align 8
+  %83 = icmp eq ptr %82, @vga_list
+  br i1 %83, label %.loopexit5, label %.preheader, !llvm.loop !16
 
-85:                                               ; preds = %.preheader, %49, %83, %68
-  %86 = load ptr, ptr %33, align 8
-  %87 = icmp eq ptr %86, @vga_list
-  br i1 %87, label %.loopexit5, label %.preheader, !llvm.loop !16
+.loopexit5:                                       ; preds = %81, %27
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %85 = load i8, ptr %84, align 4, !range !14, !noundef !15
+  %86 = icmp eq i8 %85, 0
+  br i1 %86, label %87, label %95
 
-.loopexit5:                                       ; preds = %85, %27
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %89 = load i8, ptr %88, align 4, !range !14, !noundef !15
-  %90 = icmp eq i8 %89, 0
-  br i1 %90, label %91, label %99
+87:                                               ; preds = %.loopexit5
+  %88 = and i32 %25, 10
+  %89 = icmp eq i32 %88, 0
+  %90 = select i1 %89, i32 0, i32 2
+  %91 = and i32 %25, 5
+  %92 = icmp ne i32 %91, 0
+  %93 = zext i1 %92 to i32
+  %94 = or disjoint i32 %90, %93
+  br label %95
 
-91:                                               ; preds = %.loopexit5
-  %92 = and i32 %25, 10
-  %93 = icmp eq i32 %92, 0
-  %94 = select i1 %93, i32 0, i32 2
-  %95 = and i32 %25, 5
-  %96 = icmp ne i32 %95, 0
-  %97 = zext i1 %96 to i32
-  %98 = or disjoint i32 %94, %97
-  br label %99
+95:                                               ; preds = %87, %.loopexit5
+  %96 = phi i32 [ 0, %.loopexit5 ], [ %94, %87 ]
+  %97 = phi i32 [ 0, %.loopexit5 ], [ 2, %87 ]
+  %98 = zext i1 %29 to i32
+  %99 = or disjoint i32 %97, %98
+  %100 = load ptr, ptr %3, align 8
+  %101 = tail call i32 @pci_set_vga_state(ptr noundef %100, i1 noundef zeroext true, i32 noundef %96, i32 noundef %99) #14
+  %102 = load i32, ptr %22, align 4
+  %103 = or i32 %102, %25
+  store i32 %103, ptr %22, align 4
+  br label %104
 
-99:                                               ; preds = %91, %.loopexit5
-  %100 = phi i32 [ 0, %.loopexit5 ], [ %98, %91 ]
-  %101 = phi i32 [ 0, %.loopexit5 ], [ 2, %91 ]
-  %102 = zext i1 %29 to i32
-  %103 = or disjoint i32 %101, %102
-  %104 = load ptr, ptr %3, align 8
-  %105 = tail call i32 @pci_set_vga_state(ptr noundef %104, i1 noundef zeroext true, i32 noundef %100, i32 noundef %103) #14
-  %106 = load i32, ptr %22, align 4
-  %107 = or i32 %106, %25
-  store i32 %107, ptr %22, align 4
-  br label %108
+104:                                              ; preds = %95, %20
+  %105 = and i32 %21, 3
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %107 = load i32, ptr %106, align 8
+  %108 = or i32 %107, %105
+  store i32 %108, ptr %106, align 8
+  %109 = and i32 %21, 1
+  %110 = icmp eq i32 %109, 0
+  br i1 %110, label %115, label %111
 
-108:                                              ; preds = %99, %20
-  %109 = and i32 %21, 3
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %111 = load i32, ptr %110, align 8
-  %112 = or i32 %111, %109
-  store i32 %112, ptr %110, align 8
-  %113 = and i32 %21, 1
-  %114 = icmp eq i32 %113, 0
-  br i1 %114, label %119, label %115
+111:                                              ; preds = %104
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %113 = load i32, ptr %112, align 4
+  %114 = add i32 %113, 1
+  store i32 %114, ptr %112, align 4
+  br label %115
 
-115:                                              ; preds = %108
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %117 = load i32, ptr %116, align 4
-  %118 = add i32 %117, 1
-  store i32 %118, ptr %116, align 4
-  br label %119
+115:                                              ; preds = %111, %104
+  %116 = and i32 %21, 2
+  %117 = icmp eq i32 %116, 0
+  br i1 %117, label %122, label %118
 
-119:                                              ; preds = %115, %108
-  %120 = and i32 %21, 2
-  %121 = icmp eq i32 %120, 0
-  br i1 %121, label %126, label %122
+118:                                              ; preds = %115
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %120 = load i32, ptr %119, align 8
+  %121 = add i32 %120, 1
+  store i32 %121, ptr %119, align 8
+  br label %122
 
-122:                                              ; preds = %119
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %124 = load i32, ptr %123, align 8
-  %125 = add i32 %124, 1
-  store i32 %125, ptr %123, align 8
-  br label %126
+122:                                              ; preds = %118, %115
+  %123 = and i32 %21, 4
+  %124 = icmp eq i32 %123, 0
+  br i1 %124, label %129, label %125
 
-126:                                              ; preds = %122, %119
-  %127 = and i32 %21, 4
-  %128 = icmp eq i32 %127, 0
-  br i1 %128, label %133, label %129
+125:                                              ; preds = %122
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %127 = load i32, ptr %126, align 4
+  %128 = add i32 %127, 1
+  store i32 %128, ptr %126, align 4
+  br label %129
 
-129:                                              ; preds = %126
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %131 = load i32, ptr %130, align 4
-  %132 = add i32 %131, 1
-  store i32 %132, ptr %130, align 4
-  br label %133
+129:                                              ; preds = %125, %122
+  %130 = and i32 %21, 8
+  %131 = icmp eq i32 %130, 0
+  br i1 %131, label %.loopexit, label %132
 
-133:                                              ; preds = %129, %126
-  %134 = and i32 %21, 8
-  %135 = icmp eq i32 %134, 0
-  br i1 %135, label %.loopexit, label %136
-
-136:                                              ; preds = %133
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %138 = load i32, ptr %137, align 8
-  %139 = add i32 %138, 1
-  store i32 %139, ptr %137, align 8
+132:                                              ; preds = %129
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %134 = load i32, ptr %133, align 8
+  %135 = add i32 %134, 1
+  store i32 %135, ptr %133, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %35, %136, %133
-  %140 = phi ptr [ null, %136 ], [ null, %133 ], [ %33, %35 ]
-  ret ptr %140
+.loopexit:                                        ; preds = %35, %132, %129
+  %136 = phi ptr [ null, %132 ], [ null, %129 ], [ %33, %35 ]
+  ret ptr %136
 }
 
 ; Function Attrs: null_pointer_is_valid

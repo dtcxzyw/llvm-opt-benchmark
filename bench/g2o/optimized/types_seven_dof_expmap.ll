@@ -7150,8 +7150,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i: ; preds
   %82 = lshr exact i64 %80, 3
   %83 = and i64 %82, 1
   %84 = sub nuw nsw i64 %76, %83
-  %.cmp.inv = icmp samesign ult i64 %84, 2
-  %85 = select i1 %.cmp.inv, i64 0, i64 2
+  %85 = and i64 %84, 2
   %86 = or disjoint i64 %85, %83
   %.not177 = icmp eq i64 %83, 0
   br i1 %.not177, label %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS6_INS_3RefINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS_11OuterStrideILin1EEEEELi3ELi1ELb1EEELin1ELi1ELb0EEEEENS5_INS_14CwiseNullaryOpINS0_18scalar_constant_opIdEENS8_IdLin1ELi1ELi0ELi3ELi1EEEEEEENS0_13div_assign_opIddEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.preheader

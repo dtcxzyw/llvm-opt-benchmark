@@ -82510,8 +82510,8 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h8
   br i1 %13, label %16, label %24
 
 14:                                               ; preds = %9
-  %15 = icmp samesign ult i64 %4, 4
-  %..i = select i1 %15, i64 4, i64 8
+  %15 = and i64 %4, 4
+  %..i = add nuw nsw i64 %15, 4
   br label %.thread
 
 16:                                               ; preds = %11
@@ -94385,8 +94385,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i.thread
 
 32:                                               ; preds = %27
@@ -94704,8 +94704,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %30, label %33, label %41
 
 31:                                               ; preds = %25
-  %32 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %32, i64 4, i64 8
+  %32 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %32, 4
   br label %.thread.i.i
 
 33:                                               ; preds = %28
@@ -95071,8 +95071,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i.thread
 
 32:                                               ; preds = %27
@@ -95390,8 +95390,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i
 
 32:                                               ; preds = %27
@@ -95717,8 +95717,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i.thread
 
 32:                                               ; preds = %27
@@ -96038,8 +96038,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %30, label %33, label %41
 
 31:                                               ; preds = %25
-  %32 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %32, i64 4, i64 8
+  %32 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %32, 4
   br label %.thread.i.i.thread
 
 33:                                               ; preds = %28
@@ -96386,8 +96386,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i.thread
 
 32:                                               ; preds = %27
@@ -96715,8 +96715,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %30, label %33, label %41
 
 31:                                               ; preds = %25
-  %32 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %32, i64 4, i64 8
+  %32 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %32, 4
   br label %.thread.i.i.thread
 
 33:                                               ; preds = %28
@@ -97058,8 +97058,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %30, label %33, label %41
 
 31:                                               ; preds = %25
-  %32 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %32, i64 4, i64 8
+  %32 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %32, 4
   br label %.thread.i.i
 
 33:                                               ; preds = %28
@@ -97397,8 +97397,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i.thread
 
 32:                                               ; preds = %27
@@ -97716,8 +97716,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i.thread
 
 32:                                               ; preds = %27
@@ -98049,8 +98049,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i
 
 32:                                               ; preds = %27
@@ -98370,8 +98370,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i
 
 32:                                               ; preds = %27
@@ -98696,8 +98696,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i.thread
 
 32:                                               ; preds = %27
@@ -99015,8 +99015,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i
 
 32:                                               ; preds = %27
@@ -99339,8 +99339,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %32, label %35, label %43
 
 33:                                               ; preds = %27
-  %34 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %34, i64 4, i64 8
+  %34 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %34, 4
   br label %.thread.i.i.thread
 
 35:                                               ; preds = %30
@@ -99743,8 +99743,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i
 
 32:                                               ; preds = %27
@@ -100070,8 +100070,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i.thread
 
 32:                                               ; preds = %27
@@ -100397,8 +100397,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i.thread
 
 32:                                               ; preds = %27
@@ -100716,8 +100716,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i.thread
 
 32:                                               ; preds = %27
@@ -101035,8 +101035,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i
 
 32:                                               ; preds = %27
@@ -101356,8 +101356,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i
 
 32:                                               ; preds = %27
@@ -101681,8 +101681,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i
 
 32:                                               ; preds = %27
@@ -102003,8 +102003,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %30, label %33, label %41
 
 31:                                               ; preds = %25
-  %32 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %32, i64 4, i64 8
+  %32 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %32, 4
   br label %.thread.i.i.thread
 
 33:                                               ; preds = %28
@@ -102346,8 +102346,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i.thread
 
 32:                                               ; preds = %27
@@ -102665,8 +102665,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i.thread
 
 32:                                               ; preds = %27
@@ -102991,8 +102991,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i
 
 32:                                               ; preds = %27
@@ -103312,8 +103312,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %30, label %33, label %41
 
 31:                                               ; preds = %25
-  %32 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %32, i64 4, i64 8
+  %32 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %32, 4
   br label %.thread.i.i
 
 33:                                               ; preds = %28
@@ -103677,8 +103677,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i.thread
 
 32:                                               ; preds = %27
@@ -104004,8 +104004,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i
 
 32:                                               ; preds = %27
@@ -104337,8 +104337,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %30, label %33, label %41
 
 31:                                               ; preds = %25
-  %32 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %32, i64 4, i64 8
+  %32 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %32, 4
   br label %.thread.i.i
 
 33:                                               ; preds = %28
@@ -104687,8 +104687,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i
 
 32:                                               ; preds = %27
@@ -105009,8 +105009,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %30, label %33, label %41
 
 31:                                               ; preds = %25
-  %32 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %32, i64 4, i64 8
+  %32 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %32, 4
   br label %.thread.i.i.thread
 
 33:                                               ; preds = %28
@@ -105343,8 +105343,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %30, label %33, label %41
 
 31:                                               ; preds = %25
-  %32 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %32, i64 4, i64 8
+  %32 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %32, 4
   br label %.thread.i.i
 
 33:                                               ; preds = %28
@@ -105693,8 +105693,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %30, label %33, label %41
 
 31:                                               ; preds = %25
-  %32 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %32, i64 4, i64 8
+  %32 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %32, 4
   br label %.thread.i.i
 
 33:                                               ; preds = %28
@@ -106043,8 +106043,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i
 
 32:                                               ; preds = %27
@@ -106364,8 +106364,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i.thread
 
 32:                                               ; preds = %27
@@ -106683,8 +106683,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i.thread
 
 32:                                               ; preds = %27
@@ -107022,8 +107022,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i.thread
 
 32:                                               ; preds = %27
@@ -107342,8 +107342,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %30, label %33, label %41
 
 31:                                               ; preds = %25
-  %32 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %32, i64 4, i64 8
+  %32 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %32, 4
   br label %.thread.i.i.thread
 
 33:                                               ; preds = %28
@@ -107675,8 +107675,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i
 
 32:                                               ; preds = %27
@@ -107997,8 +107997,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %30, label %33, label %41
 
 31:                                               ; preds = %25
-  %32 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %32, i64 4, i64 8
+  %32 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %32, 4
   br label %.thread.i.i.thread
 
 33:                                               ; preds = %28
@@ -108340,8 +108340,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i
 
 32:                                               ; preds = %27
@@ -108662,8 +108662,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %30, label %33, label %41
 
 31:                                               ; preds = %25
-  %32 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %32, i64 4, i64 8
+  %32 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %32, 4
   br label %.thread.i.i
 
 33:                                               ; preds = %28
@@ -109028,8 +109028,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %30, label %33, label %41
 
 31:                                               ; preds = %25
-  %32 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %32, i64 4, i64 8
+  %32 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %32, 4
   br label %.thread.i.i.thread
 
 33:                                               ; preds = %28
@@ -109371,8 +109371,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i.thread
 
 32:                                               ; preds = %27
@@ -109698,8 +109698,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i.thread
 
 32:                                               ; preds = %27
@@ -110023,8 +110023,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i.thread
 
 32:                                               ; preds = %27
@@ -110343,8 +110343,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %30, label %33, label %41
 
 31:                                               ; preds = %25
-  %32 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %32, i64 4, i64 8
+  %32 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %32, 4
   br label %.thread.i.i
 
 33:                                               ; preds = %28
@@ -110693,8 +110693,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i.thread
 
 32:                                               ; preds = %27
@@ -111020,8 +111020,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %30, label %33, label %41
 
 31:                                               ; preds = %25
-  %32 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %32, i64 4, i64 8
+  %32 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %32, 4
   br label %.thread.i.i.thread
 
 33:                                               ; preds = %28
@@ -111363,8 +111363,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i.thread
 
 32:                                               ; preds = %27
@@ -111682,8 +111682,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %30, label %33, label %41
 
 31:                                               ; preds = %25
-  %32 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %32, i64 4, i64 8
+  %32 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %32, 4
   br label %.thread.i.i.thread
 
 33:                                               ; preds = %28
@@ -112015,8 +112015,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i.thread
 
 32:                                               ; preds = %27
@@ -112342,8 +112342,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i.thread
 
 32:                                               ; preds = %27
@@ -112669,8 +112669,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i.thread
 
 32:                                               ; preds = %27
@@ -112996,8 +112996,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %32, label %40
 
 30:                                               ; preds = %24
-  %31 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %31, i64 4, i64 8
+  %31 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %31, 4
   br label %.thread.i.i.thread
 
 32:                                               ; preds = %27
@@ -113317,8 +113317,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %30, label %33, label %41
 
 31:                                               ; preds = %25
-  %32 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %32, i64 4, i64 8
+  %32 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %32, 4
   br label %.thread.i.i.thread
 
 33:                                               ; preds = %28
@@ -116822,8 +116822,8 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$16with_capacity_in1
   br i1 %9, label %12, label %20
 
 10:                                               ; preds = %5
-  %11 = icmp samesign ult i64 %1, 4
-  %..i.i = select i1 %11, i64 4, i64 8
+  %11 = and i64 %1, 4
+  %..i.i = add nuw nsw i64 %11, 4
   br label %.thread.i.thread
 
 12:                                               ; preds = %7
@@ -116923,8 +116923,8 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$16with_capacity_in1
   br i1 %9, label %12, label %20
 
 10:                                               ; preds = %5
-  %11 = icmp samesign ult i64 %1, 4
-  %..i.i = select i1 %11, i64 4, i64 8
+  %11 = and i64 %1, 4
+  %..i.i = add nuw nsw i64 %11, 4
   br label %.thread.i.thread
 
 12:                                               ; preds = %7
@@ -120762,8 +120762,8 @@ _ZN9hashbrown3raw13RawTableInner16drop_inner_table17h45a42c19564acf7cE.exit: ; p
   br i1 %31, label %34, label %_ZN9hashbrown3raw19capacity_to_buckets17h581d8b023b789d38E.exit
 
 32:                                               ; preds = %27
-  %33 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i = select i1 %33, i64 4, i64 8
+  %33 = and i64 %.0.sroa.speculated.i, 4
+  %..i = add nuw nsw i64 %33, 4
   br label %42
 
 34:                                               ; preds = %29
@@ -120798,8 +120798,8 @@ _ZN9hashbrown3raw19capacity_to_buckets17h581d8b023b789d38E.exit: ; preds = %29, 
   br i1 %28, label %51, label %53
 
 51:                                               ; preds = %49
-  %52 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i = select i1 %52, i64 4, i64 8
+  %52 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i = add nuw nsw i64 %52, 4
   br label %.thread.i
 
 53:                                               ; preds = %49
@@ -120910,8 +120910,8 @@ _ZN9hashbrown3raw13RawTableInner16drop_inner_table17h45a42c19564acf7cE.exit4: ; 
   br i1 %28, label %102, label %104
 
 102:                                              ; preds = %100
-  %103 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i.i = select i1 %103, i64 4, i64 8
+  %103 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i.i = add nuw nsw i64 %103, 4
   br label %.thread.i.i.i
 
 104:                                              ; preds = %100
@@ -121202,8 +121202,8 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$9shrink_to17h79ec0f
   br i1 %16, label %19, label %_ZN9hashbrown3raw19capacity_to_buckets17h581d8b023b789d38E.exit
 
 17:                                               ; preds = %12
-  %18 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i = select i1 %18, i64 4, i64 8
+  %18 = and i64 %.0.sroa.speculated.i, 4
+  %..i = add nuw nsw i64 %18, 4
   br label %27
 
 19:                                               ; preds = %14
@@ -121238,8 +121238,8 @@ _ZN9hashbrown3raw19capacity_to_buckets17h581d8b023b789d38E.exit: ; preds = %14, 
   br i1 %13, label %.thread.i.thread, label %.thread.i
 
 .thread.i.thread:                                 ; preds = %34
-  %36 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i = select i1 %36, i64 4, i64 8
+  %36 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i = add nuw nsw i64 %36, 4
   br label %44
 
 .thread.i:                                        ; preds = %34
@@ -121318,8 +121318,8 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h8f96523364c04977E.llv
   br i1 %13, label %67, label %.thread.i.i.i
 
 67:                                               ; preds = %65
-  %68 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i.i = select i1 %68, i64 4, i64 8
+  %68 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i.i = add nuw nsw i64 %68, 4
   br label %.thread.i.i.thread.i
 
 .thread.i.i.i:                                    ; preds = %65
@@ -121625,8 +121625,8 @@ _ZN9hashbrown3raw13RawTableInner16drop_inner_table17he9e42e115c5a8b3dE.exit: ; p
   br i1 %30, label %33, label %_ZN9hashbrown3raw19capacity_to_buckets17h581d8b023b789d38E.exit
 
 31:                                               ; preds = %26
-  %32 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i = select i1 %32, i64 4, i64 8
+  %32 = and i64 %.0.sroa.speculated.i, 4
+  %..i = add nuw nsw i64 %32, 4
   br label %41
 
 33:                                               ; preds = %28
@@ -121661,8 +121661,8 @@ _ZN9hashbrown3raw19capacity_to_buckets17h581d8b023b789d38E.exit: ; preds = %28, 
   br i1 %27, label %50, label %52
 
 50:                                               ; preds = %48
-  %51 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i = select i1 %51, i64 4, i64 8
+  %51 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i = add nuw nsw i64 %51, 4
   br label %.thread.i
 
 52:                                               ; preds = %48
@@ -121773,8 +121773,8 @@ _ZN9hashbrown3raw13RawTableInner16drop_inner_table17he9e42e115c5a8b3dE.exit4: ; 
   br i1 %27, label %101, label %103
 
 101:                                              ; preds = %99
-  %102 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i.i = select i1 %102, i64 4, i64 8
+  %102 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i.i = add nuw nsw i64 %102, 4
   br label %.thread.i.i.i
 
 103:                                              ; preds = %99
@@ -122072,8 +122072,8 @@ _ZN9hashbrown3raw13RawTableInner16drop_inner_table17hd1787ab04e608053E.exit: ; p
   br i1 %30, label %33, label %_ZN9hashbrown3raw19capacity_to_buckets17h581d8b023b789d38E.exit
 
 31:                                               ; preds = %26
-  %32 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i = select i1 %32, i64 4, i64 8
+  %32 = and i64 %.0.sroa.speculated.i, 4
+  %..i = add nuw nsw i64 %32, 4
   br label %41
 
 33:                                               ; preds = %28
@@ -122108,8 +122108,8 @@ _ZN9hashbrown3raw19capacity_to_buckets17h581d8b023b789d38E.exit: ; preds = %28, 
   br i1 %27, label %.thread.i.thread, label %.thread.i
 
 .thread.i.thread:                                 ; preds = %48
-  %50 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i = select i1 %50, i64 4, i64 8
+  %50 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i = add nuw nsw i64 %50, 4
   br label %58
 
 .thread.i:                                        ; preds = %48
@@ -122214,8 +122214,8 @@ _ZN9hashbrown3raw13RawTableInner16drop_inner_table17hd1787ab04e608053E.exit4: ; 
   br i1 %27, label %96, label %.thread.i.i.i
 
 96:                                               ; preds = %94
-  %97 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i.i = select i1 %97, i64 4, i64 8
+  %97 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i.i = add nuw nsw i64 %97, 4
   br label %.thread.i.i.thread.i
 
 .thread.i.i.i:                                    ; preds = %94

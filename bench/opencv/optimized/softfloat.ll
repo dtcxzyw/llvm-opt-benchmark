@@ -8381,25 +8381,25 @@ define internal fastcc void @_ZN2cvL20softfloat_addMagsF32Emm(ptr dead_on_unwind
   br i1 %.not70, label %_ZN2cvL24softfloat_roundPackToF32Eblm.exit, label %122
 
 16:                                               ; preds = %11
-  %17 = icmp samesign ugt i64 %1, 2147483647
-  %18 = or disjoint i64 %6, 16777216
-  %19 = add nuw nsw i64 %18, %9
-  %20 = and i64 %19, 1
-  %21 = icmp eq i64 %20, 0
-  %22 = icmp samesign ult i64 %5, 254
-  %or.cond = select i1 %21, i1 %22, i1 false
-  br i1 %or.cond, label %23, label %29
+  %17 = or disjoint i64 %6, 16777216
+  %18 = add nuw nsw i64 %17, %9
+  %19 = and i64 %18, 1
+  %20 = icmp eq i64 %19, 0
+  %21 = icmp samesign ult i64 %5, 254
+  %or.cond = select i1 %20, i1 %21, i1 false
+  br i1 %or.cond, label %22, label %28
 
-23:                                               ; preds = %16
-  %24 = select i1 %17, i64 2147483648, i64 0
-  %25 = shl nuw nsw i64 %5, 23
-  %26 = or disjoint i64 %25, %24
-  %27 = lshr exact i64 %19, 1
-  %28 = add nuw nsw i64 %26, %27
+22:                                               ; preds = %16
+  %23 = and i64 %1, 2147483648
+  %24 = shl nuw nsw i64 %5, 23
+  %25 = or disjoint i64 %24, %23
+  %26 = lshr exact i64 %18, 1
+  %27 = add nuw nsw i64 %25, %26
   br label %_ZN2cvL24softfloat_roundPackToF32Eblm.exit
 
-29:                                               ; preds = %16
-  %30 = shl nuw nsw i64 %19, 6
+28:                                               ; preds = %16
+  %29 = icmp samesign ugt i64 %1, 2147483647
+  %30 = shl nuw nsw i64 %18, 6
   br label %90
 
 31:                                               ; preds = %3
@@ -8502,10 +8502,10 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit75:     ; preds = %68, %78
   %89 = shl nuw nsw i64 %85, 1
   br label %90
 
-90:                                               ; preds = %83, %87, %29
-  %.059.in = phi i1 [ %32, %87 ], [ %32, %83 ], [ %17, %29 ]
-  %.058 = phi i64 [ %88, %87 ], [ %.1, %83 ], [ %5, %29 ]
-  %.0 = phi i64 [ %89, %87 ], [ %85, %83 ], [ %30, %29 ]
+90:                                               ; preds = %83, %87, %28
+  %.059.in = phi i1 [ %32, %87 ], [ %32, %83 ], [ %29, %28 ]
+  %.058 = phi i64 [ %88, %87 ], [ %.1, %83 ], [ %5, %28 ]
+  %.0 = phi i64 [ %89, %87 ], [ %85, %83 ], [ %30, %28 ]
   %91 = trunc i64 %.0 to i8
   %92 = icmp ugt i64 %.058, 252
   br i1 %92, label %93, label %112
@@ -8577,8 +8577,8 @@ _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit:     ; preds = %122, %128
   %.0.i76 = or i64 %.0.in.i, 4194304
   br label %_ZN2cvL24softfloat_roundPackToF32Eblm.exit
 
-_ZN2cvL24softfloat_roundPackToF32Eblm.exit:       ; preds = %12, %23, %39, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit, %14, %63, %112, %110
-  %storemerge.in = phi i64 [ %121, %112 ], [ %111, %110 ], [ %.0.i76, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit ], [ %40, %39 ], [ %28, %23 ], [ %13, %12 ], [ %1, %14 ], [ %1, %63 ]
+_ZN2cvL24softfloat_roundPackToF32Eblm.exit:       ; preds = %12, %22, %39, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit, %14, %63, %112, %110
+  %storemerge.in = phi i64 [ %121, %112 ], [ %111, %110 ], [ %.0.i76, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit ], [ %40, %39 ], [ %27, %22 ], [ %13, %12 ], [ %1, %14 ], [ %1, %63 ]
   %storemerge = trunc i64 %storemerge.in to i32
   store i32 %storemerge, ptr %0, align 4
   ret void
