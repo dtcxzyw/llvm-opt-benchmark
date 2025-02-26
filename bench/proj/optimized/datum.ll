@@ -1366,101 +1366,103 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj5datum5Datum15_isEquivalentToEP
 
 13:                                               ; preds = %11
   %14 = icmp eq i32 %2, 0
-  br i1 %14, label %15, label %60
+  br i1 %14, label %15, label %62
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load ptr, ptr %16, align 8
   %18 = load i8, ptr %17, align 8
-  %19 = trunc i8 %18 to i1
-  %20 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  %21 = load ptr, ptr %20, align 8
-  %22 = load i8, ptr %21, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  %20 = load ptr, ptr %19, align 8
+  %21 = load i8, ptr %20, align 8
+  %22 = xor i8 %21, %18
   %23 = trunc i8 %22 to i1
-  %24 = xor i1 %19, %23
-  br i1 %24, label %.thread, label %25
+  br i1 %23, label %.thread, label %24
 
-25:                                               ; preds = %15
-  %brmerge.demorgan = and i1 %19, %23
-  br i1 %brmerge.demorgan, label %26, label %30
+24:                                               ; preds = %15
+  %25 = and i8 %18, 1
+  %26 = and i8 %25, %21
+  %brmerge.demorgan.not = icmp eq i8 %26, 0
+  br i1 %brmerge.demorgan.not, label %31, label %27
 
-26:                                               ; preds = %25
-  %27 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %28 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %29 = tail call noundef zeroext i1 @_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %28) #28
-  br i1 %29, label %.thread, label %._crit_edge
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %30 = tail call noundef zeroext i1 @_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %29) #28
+  br i1 %30, label %.thread, label %._crit_edge
 
-._crit_edge:                                      ; preds = %26
+._crit_edge:                                      ; preds = %27
   %.pre = load ptr, ptr %16, align 8
-  %.pre37 = load ptr, ptr %20, align 8
-  br label %30
+  %.pre37 = load ptr, ptr %19, align 8
+  br label %31
 
-30:                                               ; preds = %._crit_edge, %25
-  %31 = phi ptr [ %.pre37, %._crit_edge ], [ %21, %25 ]
-  %32 = phi ptr [ %.pre, %._crit_edge ], [ %17, %25 ]
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 56
-  %34 = load i8, ptr %33, align 8
-  %35 = trunc i8 %34 to i1
-  %36 = getelementptr inbounds nuw i8, ptr %31, i64 56
+31:                                               ; preds = %._crit_edge, %24
+  %32 = phi ptr [ %.pre37, %._crit_edge ], [ %20, %24 ]
+  %33 = phi ptr [ %.pre, %._crit_edge ], [ %17, %24 ]
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 56
+  %35 = load i8, ptr %34, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %37 = load i8, ptr %36, align 8
-  %38 = trunc i8 %37 to i1
-  %39 = xor i1 %35, %38
+  %38 = xor i8 %37, %35
+  %39 = trunc i8 %38 to i1
   br i1 %39, label %.thread, label %40
 
-40:                                               ; preds = %30
-  %brmerge33.demorgan = and i1 %35, %38
-  br i1 %brmerge33.demorgan, label %41, label %.critedge.thread
+40:                                               ; preds = %31
+  %41 = and i8 %35, 1
+  %42 = and i8 %41, %37
+  %brmerge33.demorgan.not = icmp eq i8 %42, 0
+  br i1 %brmerge33.demorgan.not, label %.critedge.thread, label %43
 
-41:                                               ; preds = %40
-  %42 = getelementptr inbounds nuw i8, ptr %32, i64 64
-  call void @_ZNK5osgeo4proj6common8DateTime8toStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %42)
-  %43 = load ptr, ptr %20, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 64
-  invoke void @_ZNK5osgeo4proj6common8DateTime8toStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %44)
-          to label %.critedge unwind label %46
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds nuw i8, ptr %33, i64 64
+  call void @_ZNK5osgeo4proj6common8DateTime8toStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %44)
+  %45 = load ptr, ptr %19, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 64
+  invoke void @_ZNK5osgeo4proj6common8DateTime8toStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %46)
+          to label %.critedge unwind label %48
 
-.critedge:                                        ; preds = %41
-  %45 = call noundef zeroext i1 @_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6) #28
+.critedge:                                        ; preds = %43
+  %47 = call noundef zeroext i1 @_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
-  br i1 %45, label %.thread, label %.critedge..critedge.thread_crit_edge
+  br i1 %47, label %.thread, label %.critedge..critedge.thread_crit_edge
 
 .critedge..critedge.thread_crit_edge:             ; preds = %.critedge
   %.pre38 = load ptr, ptr %16, align 8
-  %.pre39 = load ptr, ptr %20, align 8
+  %.pre39 = load ptr, ptr %19, align 8
   br label %.critedge.thread
 
-46:                                               ; preds = %41
-  %47 = landingpad { ptr, i32 }
+48:                                               ; preds = %43
+  %49 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
-  resume { ptr, i32 } %47
+  resume { ptr, i32 } %49
 
 .critedge.thread:                                 ; preds = %.critedge..critedge.thread_crit_edge, %40
-  %48 = phi ptr [ %.pre39, %.critedge..critedge.thread_crit_edge ], [ %31, %40 ]
-  %49 = phi ptr [ %.pre38, %.critedge..critedge.thread_crit_edge ], [ %32, %40 ]
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 72
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp ne ptr %51, null
-  %53 = getelementptr inbounds nuw i8, ptr %48, i64 72
-  %54 = load ptr, ptr %53, align 8
-  %55 = icmp ne ptr %54, null
-  %56 = xor i1 %52, %55
-  br i1 %56, label %.thread, label %57
+  %50 = phi ptr [ %.pre39, %.critedge..critedge.thread_crit_edge ], [ %32, %40 ]
+  %51 = phi ptr [ %.pre38, %.critedge..critedge.thread_crit_edge ], [ %33, %40 ]
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 72
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp ne ptr %53, null
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 72
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp ne ptr %56, null
+  %58 = xor i1 %54, %57
+  br i1 %58, label %.thread, label %59
 
-57:                                               ; preds = %.critedge.thread
-  %brmerge36.demorgan = and i1 %52, %55
-  br i1 %brmerge36.demorgan, label %58, label %60
+59:                                               ; preds = %.critedge.thread
+  %brmerge36.demorgan = and i1 %54, %57
+  br i1 %brmerge36.demorgan, label %60, label %62
 
-58:                                               ; preds = %57
-  %59 = call noundef zeroext i1 @_ZNK5osgeo4proj6common16IdentifiedObject15_isEquivalentToEPKS2_NS0_4util11IComparable9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr noundef nonnull align 8 dereferenceable(40) %51, ptr noundef nonnull %54, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %3) #27
-  br i1 %59, label %.thread, label %60
+60:                                               ; preds = %59
+  %61 = call noundef zeroext i1 @_ZNK5osgeo4proj6common16IdentifiedObject15_isEquivalentToEPKS2_NS0_4util11IComparable9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull %56, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+  br i1 %61, label %.thread, label %62
 
-60:                                               ; preds = %57, %58, %13
+62:                                               ; preds = %59, %60, %13
   br label %.thread
 
-.thread:                                          ; preds = %4, %58, %.critedge.thread, %.critedge, %30, %26, %15, %8, %11, %60
-  %.023 = phi i1 [ true, %60 ], [ false, %11 ], [ false, %8 ], [ false, %15 ], [ false, %26 ], [ false, %30 ], [ false, %.critedge ], [ false, %.critedge.thread ], [ false, %58 ], [ false, %4 ]
+.thread:                                          ; preds = %4, %60, %.critedge.thread, %.critedge, %31, %27, %15, %8, %11, %62
+  %.023 = phi i1 [ true, %62 ], [ false, %11 ], [ false, %8 ], [ false, %15 ], [ false, %27 ], [ false, %31 ], [ false, %.critedge ], [ false, %.critedge.thread ], [ false, %60 ], [ false, %4 ]
   ret i1 %.023
 }
 
@@ -6363,27 +6365,28 @@ _ZNK5osgeo4proj5datum9Ellipsoid20computeSemiMinorAxisEv.exit52: ; preds = %.invo
   %166 = load ptr, ptr %75, align 8
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 88
   %168 = load i8, ptr %165, align 8
-  %169 = trunc i8 %168 to i1
-  %170 = load i8, ptr %167, align 8
+  %169 = load i8, ptr %167, align 8
+  %170 = xor i8 %169, %168
   %171 = trunc i8 %170 to i1
-  %172 = xor i1 %169, %171
-  br i1 %172, label %.thread, label %173
+  br i1 %171, label %.thread, label %172
 
-173:                                              ; preds = %163
-  %brmerge.demorgan = and i1 %169, %171
-  br i1 %brmerge.demorgan, label %174, label %178
+172:                                              ; preds = %163
+  %173 = and i8 %168, 1
+  %174 = and i8 %173, %169
+  %brmerge.demorgan.not = icmp eq i8 %174, 0
+  br i1 %brmerge.demorgan.not, label %179, label %175
 
-174:                                              ; preds = %173
-  %175 = getelementptr inbounds nuw i8, ptr %164, i64 96
-  %176 = getelementptr inbounds nuw i8, ptr %166, i64 96
-  %177 = call noundef zeroext i1 @_ZNK5osgeo4proj6common7Measure15_isEquivalentToERKS2_NS0_4util11IComparable9CriterionEd(ptr noundef nonnull align 8 dereferenceable(24) %175, ptr noundef nonnull align 8 dereferenceable(24) %176, i32 noundef %2, double noundef 1.000000e-10)
-  br i1 %177, label %178, label %.thread
+175:                                              ; preds = %172
+  %176 = getelementptr inbounds nuw i8, ptr %164, i64 96
+  %177 = getelementptr inbounds nuw i8, ptr %166, i64 96
+  %178 = call noundef zeroext i1 @_ZNK5osgeo4proj6common7Measure15_isEquivalentToERKS2_NS0_4util11IComparable9CriterionEd(ptr noundef nonnull align 8 dereferenceable(24) %176, ptr noundef nonnull align 8 dereferenceable(24) %177, i32 noundef %2, double noundef 1.000000e-10)
+  br i1 %178, label %179, label %.thread
 
-178:                                              ; preds = %173, %174
+179:                                              ; preds = %172, %175
   br label %.thread
 
-.thread:                                          ; preds = %4, %174, %163, %157, %112, %107, %102, %88, %.thread53, %23, %_ZNK5osgeo4proj5datum9Ellipsoid25computedInverseFlatteningEv.exit49, %8, %13, %178
-  %.0 = phi i1 [ true, %178 ], [ false, %13 ], [ false, %8 ], [ false, %23 ], [ %72, %_ZNK5osgeo4proj5datum9Ellipsoid25computedInverseFlatteningEv.exit49 ], [ false, %.thread53 ], [ false, %88 ], [ false, %102 ], [ false, %107 ], [ false, %112 ], [ false, %157 ], [ false, %163 ], [ false, %174 ], [ false, %4 ]
+.thread:                                          ; preds = %4, %175, %163, %157, %112, %107, %102, %88, %.thread53, %23, %_ZNK5osgeo4proj5datum9Ellipsoid25computedInverseFlatteningEv.exit49, %8, %13, %179
+  %.0 = phi i1 [ true, %179 ], [ false, %13 ], [ false, %8 ], [ false, %23 ], [ %72, %_ZNK5osgeo4proj5datum9Ellipsoid25computedInverseFlatteningEv.exit49 ], [ false, %.thread53 ], [ false, %88 ], [ false, %102 ], [ false, %107 ], [ false, %112 ], [ false, %157 ], [ false, %163 ], [ false, %175 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -13572,43 +13575,44 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj5datum22VerticalReferenceFrame3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %12, align 8
   %14 = load i8, ptr %13, align 8
-  %15 = trunc i8 %14 to i1
-  %16 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %17 = load ptr, ptr %16, align 8
-  %18 = load i8, ptr %17, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %16 = load ptr, ptr %15, align 8
+  %17 = load i8, ptr %16, align 8
+  %18 = xor i8 %17, %14
   %19 = trunc i8 %18 to i1
-  %20 = xor i1 %15, %19
-  br i1 %20, label %.thread, label %21
+  br i1 %19, label %.thread, label %20
 
-21:                                               ; preds = %11
-  %brmerge.demorgan = and i1 %15, %19
-  br i1 %brmerge.demorgan, label %22, label %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread11
+20:                                               ; preds = %11
+  %21 = and i8 %14, 1
+  %22 = and i8 %21, %17
+  %brmerge.demorgan.not = icmp eq i8 %22, 0
+  br i1 %brmerge.demorgan.not, label %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread11, label %23
 
-22:                                               ; preds = %21
-  %23 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %24 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %25 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #28
+23:                                               ; preds = %20
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %26 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #28
-  %27 = icmp eq i64 %25, %26
-  br i1 %27, label %28, label %.thread
+  %27 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #28
+  %28 = icmp eq i64 %26, %27
+  br i1 %28, label %29, label %.thread
 
-28:                                               ; preds = %22
-  %29 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #28
+29:                                               ; preds = %23
   %30 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #28
-  %31 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #28
-  %32 = icmp eq i64 %31, 0
-  br i1 %32, label %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread11, label %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit
+  %31 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #28
+  %32 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #28
+  %33 = icmp eq i64 %32, 0
+  br i1 %33, label %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread11, label %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit
 
-_ZNK5osgeo4proj4util8CodeListneERKS2_.exit:       ; preds = %28
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr %29, ptr %30, i64 %31)
+_ZNK5osgeo4proj4util8CodeListneERKS2_.exit:       ; preds = %29
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr %30, ptr %31, i64 %32)
   %.not = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %.not, label %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread11, label %.thread
 
-_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread11: ; preds = %21, %28, %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit
+_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread11: ; preds = %20, %29, %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit
   br label %.thread
 
-.thread:                                          ; preds = %22, %4, %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit, %11, %6, %9, %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread11
-  %.0 = phi i1 [ true, %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread11 ], [ false, %9 ], [ false, %6 ], [ false, %11 ], [ false, %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit ], [ false, %4 ], [ false, %22 ]
+.thread:                                          ; preds = %23, %4, %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit, %11, %6, %9, %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread11
+  %.0 = phi i1 [ true, %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread11 ], [ false, %9 ], [ false, %6 ], [ false, %11 ], [ false, %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit ], [ false, %4 ], [ false, %23 ]
   ret i1 %.0
 }
 

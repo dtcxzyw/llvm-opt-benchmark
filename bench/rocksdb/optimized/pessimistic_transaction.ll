@@ -6933,9 +6933,8 @@ invoke.cont15:                                    ; preds = %if.then10
   %5 = extractvalue { i64, i64 } %call16, 0
   %6 = extractvalue { i64, i64 } %call16, 1
   %tobool17 = trunc i64 %5 to i1
-  %7 = and i64 %5, 256
-  %.not = icmp eq i64 %7, 0
-  %8 = and i1 %.not, %tobool17
+  %7 = and i64 %5, 257
+  %8 = icmp eq i64 %7, 1
   %frombool23 = and i1 %exclusive, %8
   %9 = select i1 %tobool17, i64 %6, i64 72057594037927935
   br label %if.end27

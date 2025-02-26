@@ -2795,9 +2795,10 @@ _ZN4llvmltENS_9StringRefES0_.exit20.thread:       ; preds = %.thread.i.i19, %_ZN
   %17 = load i8, ptr %16, align 8, !tbaa !241, !range !75, !noundef !76
   %18 = trunc nuw i8 %17 to i1
   %.not.i = xor i1 %15, true
-  %19 = select i1 %15, i1 %18, i1 false
+  %19 = and i8 %17, %14
+  %.not44.i = icmp eq i8 %19, 0
   %.mux.i = select i1 %.not.i, i1 %18, i1 false
-  br i1 %19, label %20, label %_ZNSt15__tuple_compareISt5tupleIJN4llvm9StringRefES2_St8optionalINS1_7remarks14RemarkLocationEEEES7_Lm2ELm3EE6__lessERKS7_SA_.exit
+  br i1 %.not44.i, label %_ZNSt15__tuple_compareISt5tupleIJN4llvm9StringRefES2_St8optionalINS1_7remarks14RemarkLocationEEEES7_Lm2ELm3EE6__lessERKS7_SA_.exit, label %20
 
 20:                                               ; preds = %_ZN4llvmltENS_9StringRefES0_.exit20.thread
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16

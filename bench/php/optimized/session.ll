@@ -3290,19 +3290,19 @@ _php_find_ps_serializer.exit:                     ; preds = %.lr.ph.i
   %40 = xor i8 %39, 1
   store i8 %40, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 351), align 1, !tbaa !61
   %41 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 347), align 1, !tbaa !100, !range !67, !noundef !68
-  %42 = trunc nuw i8 %41 to i1
-  %43 = select i1 %42, i8 1, i8 %39
-  store i8 %43, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 350), align 2, !tbaa !101
-  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 8), align 8, !tbaa !116
-  %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #28
-  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 16), align 16, !tbaa !24
-  %.not43 = icmp eq ptr %46, null
-  br i1 %.not43, label %47, label %.thread82
+  %42 = or i8 %41, %39
+  store i8 %42, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 350), align 2, !tbaa !101
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 8), align 8, !tbaa !116
+  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #28
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 16), align 16, !tbaa !24
+  %.not43 = icmp eq ptr %45, null
+  br i1 %.not43, label %46, label %.thread82
 
-47:                                               ; preds = %38
-  br i1 %42, label %48, label %86
+46:                                               ; preds = %38
+  %47 = trunc nuw i8 %41 to i1
+  br i1 %47, label %48, label %86
 
-48:                                               ; preds = %47
+48:                                               ; preds = %46
   %49 = tail call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304), ptr noundef nonnull @.str.7, i64 noundef 7) #25
   %.not44 = icmp eq ptr %49, null
   br i1 %.not44, label %86, label %50
@@ -3329,7 +3329,7 @@ _php_find_ps_serializer.exit:                     ; preds = %.lr.ph.i
 60:                                               ; preds = %57
   %61 = load ptr, ptr %.030, align 8, !tbaa !65
   %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 8), align 8, !tbaa !116
-  %63 = tail call ptr @zend_hash_str_find(ptr noundef %61, ptr noundef %62, i64 noundef %45) #25
+  %63 = tail call ptr @zend_hash_str_find(ptr noundef %61, ptr noundef %62, i64 noundef %44) #25
   %.not45 = icmp eq ptr %63, null
   br i1 %.not45, label %86, label %64
 
@@ -3380,7 +3380,7 @@ ppid2sid.exit:                                    ; preds = %71, %zend_string_in
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 351), align 1, !tbaa !61
   br label %86
 
-86:                                               ; preds = %57, %60, %ppid2sid.exit, %48, %47
+86:                                               ; preds = %57, %60, %ppid2sid.exit, %48, %46
   %87 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 348), align 4, !tbaa !137, !range !67, !noundef !68
   %88 = trunc nuw i8 %87 to i1
   br i1 %88, label %157, label %89
@@ -3417,7 +3417,7 @@ ppid2sid.exit:                                    ; preds = %71, %zend_string_in
 103:                                              ; preds = %100
   %104 = load ptr, ptr %.1, align 8, !tbaa !65
   %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 8), align 8, !tbaa !116
-  %106 = tail call ptr @zend_hash_str_find(ptr noundef %104, ptr noundef %105, i64 noundef %45) #25
+  %106 = tail call ptr @zend_hash_str_find(ptr noundef %104, ptr noundef %105, i64 noundef %44) #25
   %.not48 = icmp eq ptr %106, null
   br i1 %.not48, label %108, label %107
 
@@ -3457,7 +3457,7 @@ ppid2sid.exit:                                    ; preds = %71, %zend_string_in
 121:                                              ; preds = %118
   %122 = load ptr, ptr %.2, align 8, !tbaa !65
   %123 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 8), align 8, !tbaa !116
-  %124 = tail call ptr @zend_hash_str_find(ptr noundef %122, ptr noundef %123, i64 noundef %45) #25
+  %124 = tail call ptr @zend_hash_str_find(ptr noundef %122, ptr noundef %123, i64 noundef %44) #25
   %.not51 = icmp eq ptr %124, null
   br i1 %.not51, label %126, label %125
 
@@ -3528,7 +3528,7 @@ ppid2sid.exit:                                    ; preds = %71, %zend_string_in
   br i1 %.not56, label %.thread80, label %.thread82
 
 .thread82:                                        ; preds = %38, %157
-  %158 = phi ptr [ %.pr78, %157 ], [ %46, %38 ]
+  %158 = phi ptr [ %.pr78, %157 ], [ %45, %38 ]
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 24
   %160 = tail call ptr @strpbrk(ptr noundef nonnull %159, ptr noundef nonnull @.str.16) #28
   %.not57 = icmp eq ptr %160, null

@@ -22711,20 +22711,18 @@ define hidden void @"_ZN3exr5block6reader15Reader$LT$R$GT$18read_from_buffered17
   %.sroa.497.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i8 %38, ptr %.sroa.497.0..sroa_idx.i.i, align 4, !noalias !4732
   %45 = icmp eq i8 %38, 2
-  %46 = lshr i32 %.sroa.5.032.ph.i.i.i, 12
-  %47 = lshr i32 %.sroa.5.032.ph.i.i.i, 11
-  br i1 %45, label %48, label %55
+  br i1 %45, label %46, label %55
 
-48:                                               ; preds = %36
+46:                                               ; preds = %36
+  %47 = lshr exact i32 %.sroa.667.sroa.0.sroa.8.0.insert.shift80.i.i, 16
+  %48 = lshr i32 %.sroa.5.032.ph.i.i.i, 12
   %49 = trunc i32 %39 to i1
-  br i1 %49, label %50, label %_ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i
+  %50 = or i32 %47, %48
+  %brmerge.not9.i.i.i = icmp ne i32 %50, 0
+  %or.cond.not.i.i = select i1 %49, i1 %brmerge.not9.i.i.i, i1 false
+  br i1 %or.cond.not.i.i, label %55, label %_ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i
 
-50:                                               ; preds = %48
-  %brmerge9.i156.i.i = or i32 %47, %46
-  %brmerge.i.i.i = trunc i32 %brmerge9.i156.i.i to i1
-  br i1 %brmerge.i.i.i, label %55, label %_ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i
-
-_ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i: ; preds = %50, %48
+_ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i: ; preds = %46
   call void @llvm.lifetime.start.p0(i64 4288, ptr nonnull %10), !noalias !4732
   invoke void @_ZN3exr4meta6header6Header8read_all17h7dfd89fdf9673848E(ptr noalias noundef nonnull sret({ i64, [535 x i64] }) align 8 captures(none) dereferenceable(4288) %10, ptr noalias noundef nonnull align 8 dereferenceable(48) %14, ptr noalias noundef nonnull readonly align 1 dereferenceable(5) %11, i1 noundef zeroext %16)
           to label %.noexc21 unwind label %105
@@ -22751,13 +22749,13 @@ _ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i: ; preds = %50,
   %.sroa.15.sroa.10.0.extract.trunc63.i = trunc nuw i64 %.sroa.15.sroa.10.0.extract.shift62.i to i24
   br label %55
 
-55:                                               ; preds = %54, %50, %36, %33, %.noexc20
-  %.sroa.15.sroa.10.0.i = phi i24 [ %.sroa.15.sroa.10.0.extract.trunc63.i, %54 ], [ -8388608, %33 ], [ %.sroa.8.i.sroa.5.0.copyload.i.i, %.noexc20 ], [ -8388608, %50 ], [ -8388608, %36 ]
-  %.sroa.15.sroa.9.0.i = phi i8 [ %.sroa.15.sroa.9.0.extract.trunc55.i, %54 ], [ 0, %33 ], [ %.sroa.8.i.sroa.0.0.copyload.i.i, %.noexc20 ], [ 0, %50 ], [ 0, %36 ]
-  %.sroa.15.sroa.0.0.i = phi i32 [ %.sroa.15.sroa.0.0.extract.trunc48.i, %54 ], [ 0, %33 ], [ %.sroa.5.0.copyload.i.i.i, %.noexc20 ], [ 0, %50 ], [ 0, %36 ]
-  %.sroa.23.0.i = phi i64 [ %.sroa.719.i.sroa.10.0.copyload86.i, %54 ], [ 26, %33 ], [ %.sroa.8.i.sroa.7.0.copyload.i.i, %.noexc20 ], [ 18, %50 ], [ 46, %36 ]
-  %.sroa.20.0.i = phi ptr [ %.sroa.719.i.sroa.8.0.copyload84.i, %54 ], [ @anon.485243c0b6e0c52e847d698bbee735f0.15, %33 ], [ %.sroa.8.i.sroa.6.0.copyload.i.i, %.noexc20 ], [ @anon.485243c0b6e0c52e847d698bbee735f0.16, %50 ], [ @anon.485243c0b6e0c52e847d698bbee735f0.17, %36 ]
-  %.sroa.829.0.i = phi i64 [ %.sroa.719.i.sroa.0.0.copyload80.i, %54 ], [ 1, %33 ], [ %.sroa.0.0.copyload.i.i.i, %.noexc20 ], [ 2, %50 ], [ 1, %36 ]
+55:                                               ; preds = %54, %46, %36, %33, %.noexc20
+  %.sroa.15.sroa.10.0.i = phi i24 [ %.sroa.15.sroa.10.0.extract.trunc63.i, %54 ], [ -8388608, %33 ], [ %.sroa.8.i.sroa.5.0.copyload.i.i, %.noexc20 ], [ -8388608, %46 ], [ -8388608, %36 ]
+  %.sroa.15.sroa.9.0.i = phi i8 [ %.sroa.15.sroa.9.0.extract.trunc55.i, %54 ], [ 0, %33 ], [ %.sroa.8.i.sroa.0.0.copyload.i.i, %.noexc20 ], [ 0, %46 ], [ 0, %36 ]
+  %.sroa.15.sroa.0.0.i = phi i32 [ %.sroa.15.sroa.0.0.extract.trunc48.i, %54 ], [ 0, %33 ], [ %.sroa.5.0.copyload.i.i.i, %.noexc20 ], [ 0, %46 ], [ 0, %36 ]
+  %.sroa.23.0.i = phi i64 [ %.sroa.719.i.sroa.10.0.copyload86.i, %54 ], [ 26, %33 ], [ %.sroa.8.i.sroa.7.0.copyload.i.i, %.noexc20 ], [ 18, %46 ], [ 46, %36 ]
+  %.sroa.20.0.i = phi ptr [ %.sroa.719.i.sroa.8.0.copyload84.i, %54 ], [ @anon.485243c0b6e0c52e847d698bbee735f0.15, %33 ], [ %.sroa.8.i.sroa.6.0.copyload.i.i, %.noexc20 ], [ @anon.485243c0b6e0c52e847d698bbee735f0.16, %46 ], [ @anon.485243c0b6e0c52e847d698bbee735f0.17, %36 ]
+  %.sroa.829.0.i = phi i64 [ %.sroa.719.i.sroa.0.0.copyload80.i, %54 ], [ 1, %33 ], [ %.sroa.0.0.copyload.i.i.i, %.noexc20 ], [ 2, %46 ], [ 1, %36 ]
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %11), !noalias !4732
   br label %68
 
@@ -23182,20 +23180,18 @@ define hidden void @"_ZN3exr5block6reader15Reader$LT$R$GT$18read_from_buffered17
   %.sroa.497.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i8 %37, ptr %.sroa.497.0..sroa_idx.i.i, align 4, !noalias !4808
   %44 = icmp eq i8 %37, 2
-  %45 = lshr i32 %.sroa.5.032.ph.i.i.i, 12
-  %46 = lshr i32 %.sroa.5.032.ph.i.i.i, 11
-  br i1 %44, label %47, label %54
+  br i1 %44, label %45, label %54
 
-47:                                               ; preds = %35
+45:                                               ; preds = %35
+  %46 = lshr exact i32 %.sroa.667.sroa.0.sroa.8.0.insert.shift80.i.i, 16
+  %47 = lshr i32 %.sroa.5.032.ph.i.i.i, 12
   %48 = trunc i32 %38 to i1
-  br i1 %48, label %49, label %_ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i
+  %49 = or i32 %46, %47
+  %brmerge.not9.i.i.i = icmp ne i32 %49, 0
+  %or.cond.not.i.i = select i1 %48, i1 %brmerge.not9.i.i.i, i1 false
+  br i1 %or.cond.not.i.i, label %54, label %_ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i
 
-49:                                               ; preds = %47
-  %brmerge9.i156.i.i = or i32 %46, %45
-  %brmerge.i.i.i = trunc i32 %brmerge9.i156.i.i to i1
-  br i1 %brmerge.i.i.i, label %54, label %_ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i
-
-_ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i: ; preds = %49, %47
+_ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i: ; preds = %45
   call void @llvm.lifetime.start.p0(i64 4288, ptr nonnull %9), !noalias !4808
   invoke void @_ZN3exr4meta6header6Header8read_all17hb2bb52394676cf53E(ptr noalias noundef nonnull sret({ i64, [535 x i64] }) align 8 captures(none) dereferenceable(4288) %9, ptr noalias noundef nonnull align 8 dereferenceable(72) %13, ptr noalias noundef nonnull readonly align 1 dereferenceable(5) %10, i1 noundef zeroext %15)
           to label %.noexc21 unwind label %104
@@ -23222,13 +23218,13 @@ _ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i: ; preds = %49,
   %.sroa.15.sroa.10.0.extract.trunc63.i = trunc nuw i64 %.sroa.15.sroa.10.0.extract.shift62.i to i24
   br label %54
 
-54:                                               ; preds = %53, %49, %35, %32, %.noexc20
-  %.sroa.15.sroa.10.0.i = phi i24 [ %.sroa.15.sroa.10.0.extract.trunc63.i, %53 ], [ -8388608, %32 ], [ %.sroa.8.i.sroa.5.0.copyload.i.i, %.noexc20 ], [ -8388608, %49 ], [ -8388608, %35 ]
-  %.sroa.15.sroa.9.0.i = phi i8 [ %.sroa.15.sroa.9.0.extract.trunc55.i, %53 ], [ 0, %32 ], [ %.sroa.8.i.sroa.0.0.copyload.i.i, %.noexc20 ], [ 0, %49 ], [ 0, %35 ]
-  %.sroa.15.sroa.0.0.i = phi i32 [ %.sroa.15.sroa.0.0.extract.trunc48.i, %53 ], [ 0, %32 ], [ %.sroa.5.0.copyload.i.i.i, %.noexc20 ], [ 0, %49 ], [ 0, %35 ]
-  %.sroa.23.0.i = phi i64 [ %.sroa.719.i.sroa.10.0.copyload86.i, %53 ], [ 26, %32 ], [ %.sroa.8.i.sroa.7.0.copyload.i.i, %.noexc20 ], [ 18, %49 ], [ 46, %35 ]
-  %.sroa.20.0.i = phi ptr [ %.sroa.719.i.sroa.8.0.copyload84.i, %53 ], [ @anon.485243c0b6e0c52e847d698bbee735f0.15, %32 ], [ %.sroa.8.i.sroa.6.0.copyload.i.i, %.noexc20 ], [ @anon.485243c0b6e0c52e847d698bbee735f0.16, %49 ], [ @anon.485243c0b6e0c52e847d698bbee735f0.17, %35 ]
-  %.sroa.829.0.i = phi i64 [ %.sroa.719.i.sroa.0.0.copyload80.i, %53 ], [ 1, %32 ], [ %.sroa.0.0.copyload.i.i.i, %.noexc20 ], [ 2, %49 ], [ 1, %35 ]
+54:                                               ; preds = %53, %45, %35, %32, %.noexc20
+  %.sroa.15.sroa.10.0.i = phi i24 [ %.sroa.15.sroa.10.0.extract.trunc63.i, %53 ], [ -8388608, %32 ], [ %.sroa.8.i.sroa.5.0.copyload.i.i, %.noexc20 ], [ -8388608, %45 ], [ -8388608, %35 ]
+  %.sroa.15.sroa.9.0.i = phi i8 [ %.sroa.15.sroa.9.0.extract.trunc55.i, %53 ], [ 0, %32 ], [ %.sroa.8.i.sroa.0.0.copyload.i.i, %.noexc20 ], [ 0, %45 ], [ 0, %35 ]
+  %.sroa.15.sroa.0.0.i = phi i32 [ %.sroa.15.sroa.0.0.extract.trunc48.i, %53 ], [ 0, %32 ], [ %.sroa.5.0.copyload.i.i.i, %.noexc20 ], [ 0, %45 ], [ 0, %35 ]
+  %.sroa.23.0.i = phi i64 [ %.sroa.719.i.sroa.10.0.copyload86.i, %53 ], [ 26, %32 ], [ %.sroa.8.i.sroa.7.0.copyload.i.i, %.noexc20 ], [ 18, %45 ], [ 46, %35 ]
+  %.sroa.20.0.i = phi ptr [ %.sroa.719.i.sroa.8.0.copyload84.i, %53 ], [ @anon.485243c0b6e0c52e847d698bbee735f0.15, %32 ], [ %.sroa.8.i.sroa.6.0.copyload.i.i, %.noexc20 ], [ @anon.485243c0b6e0c52e847d698bbee735f0.16, %45 ], [ @anon.485243c0b6e0c52e847d698bbee735f0.17, %35 ]
+  %.sroa.829.0.i = phi i64 [ %.sroa.719.i.sroa.0.0.copyload80.i, %53 ], [ 1, %32 ], [ %.sroa.0.0.copyload.i.i.i, %.noexc20 ], [ 2, %45 ], [ 1, %35 ]
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %10), !noalias !4808
   br label %67
 

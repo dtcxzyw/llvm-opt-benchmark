@@ -20671,14 +20671,13 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i2033:        ; preds = %_ZN4llvm12StringSwi
 _ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i2035: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i2033
   %488 = lshr i64 %485, 36
   %489 = trunc i64 %488 to i16
+  %.sroa.0.0.insert.insert.i.i2037 = or i16 %489, 256
   br label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit2038
 
 _ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit2038: ; preds = %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit2028, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i2033, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i2035
-  %.pre-phi = phi i16 [ %486, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit2028 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i2033 ], [ 256, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i2035 ]
-  %.sroa.380.187 = phi i16 [ %.sroa.380.186, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit2028 ], [ %.sroa.380.186, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i2033 ], [ %489, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i2035 ]
-  %490 = icmp ne i16 %.pre-phi, 0
-  %491 = trunc i16 %.sroa.380.187 to i1
-  %.0.i2039 = and i1 %490, %491
+  %.sroa.380.187 = phi i16 [ %.sroa.380.186, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit2028 ], [ %.sroa.0.0.insert.insert.i.i2037, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i2035 ], [ %.sroa.380.186, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i2033 ]
+  %490 = and i16 %.sroa.380.187, 257
+  %.0.i2039 = icmp eq i16 %490, 257
   ret i1 %.0.i2039
 }
 
@@ -21479,21 +21478,18 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i442.i.i:     ; preds = %155
   %bcmp.i.i.i443.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(35) %.sroa.0720.0733.i.i, ptr noundef nonnull dereferenceable(35) @.str.280, i64 35)
   %157 = icmp eq i32 %bcmp.i.i.i443.i.i, 0
   %spec.select1131.i.i = select i1 %157, i16 %.sroa.0.0.insert.ext.i.i445.i.i, i16 %.sroa.94.43.i.i
-  %.pre.i.i = and i16 %spec.select1131.i.i, 256
   br label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit447.i.i
 
 _ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit447.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i442.i.i, %155
-  %.pre-phi.i.i = phi i16 [ %.pre.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i442.i.i ], [ %156, %155 ]
-  %.sroa.94.44.i.i = phi i16 [ %spec.select1131.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i442.i.i ], [ %.sroa.94.43.i.i, %155 ]
-  %158 = icmp ne i16 %.pre-phi.i.i, 0
-  %159 = trunc i16 %.sroa.94.44.i.i to i1
-  %.0.i.i.i = and i1 %158, %159
-  %160 = zext i1 %.0.i.i.i to i32
+  %.sroa.94.44.i.i = phi i16 [ %.sroa.94.43.i.i, %155 ], [ %spec.select1131.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i442.i.i ]
+  %158 = and i16 %.sroa.94.44.i.i, 257
+  %.0.i.i.i = icmp eq i16 %158, 257
+  %159 = zext i1 %.0.i.i.i to i32
   br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_1clES2_Rb.exit"
 
 "_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_1clES2_Rb.exit": ; preds = %3, %6, %15, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit447.i.i
-  %161 = phi i32 [ 0, %3 ], [ %160, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit447.i.i ], [ 1, %6 ], [ 0, %15 ]
-  ret i32 %161
+  %160 = phi i32 [ 0, %3 ], [ %159, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit447.i.i ], [ 1, %6 ], [ 0, %15 ]
+  ret i32 %160
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -21808,15 +21804,13 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i84.i:        ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit87.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i84.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit79.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit79.thread.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i76.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i68.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i60.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i52.i, %.thread158.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i44.i
   %.sroa.2226.8.i = phi i16 [ %.sroa.2226.5.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit79.i ], [ 257, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i44.i ], [ 257, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i52.i ], [ 257, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i60.i ], [ 257, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i68.i ], [ 257, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i76.i ], [ 0, %.thread158.i ], [ %spec.select.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i84.i ], [ %.sroa.2226.5179.ph.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit79.thread.i ]
-  %78 = and i16 %.sroa.2226.8.i, 256
-  %79 = icmp ne i16 %78, 0
-  %80 = trunc i16 %.sroa.2226.8.i to i1
-  %.0.i88.i = and i1 %79, %80
-  %81 = zext i1 %.0.i88.i to i32
+  %78 = and i16 %.sroa.2226.8.i, 257
+  %.0.i88.i = icmp eq i16 %78, 257
+  %79 = zext i1 %.0.i88.i to i32
   br label %"_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit"
 
 "_ZZN5clang12Preprocessor18ExpandBuiltinMacroERNS_5TokenEENK3$_2clES2_Rb.exit": ; preds = %3, %6, %6, %14, %22, %30, %_ZN4llvm9StringRefC2EPKc.exit.i, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit87.i
-  %.0.i = phi i32 [ %53, %_ZN4llvm9StringRefC2EPKc.exit.i ], [ %37, %30 ], [ %29, %22 ], [ %21, %14 ], [ %81, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit87.i ], [ 0, %3 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 201802, %6 ], [ 201802, %6 ]
+  %.0.i = phi i32 [ %53, %_ZN4llvm9StringRefC2EPKc.exit.i ], [ %37, %30 ], [ %29, %22 ], [ %21, %14 ], [ %79, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit87.i ], [ 0, %3 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 201802, %6 ], [ 201802, %6 ]
   ret i32 %.0.i
 }
 

@@ -7073,100 +7073,97 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhE
   %invariant.gep117 = getelementptr inbounds nuw i16, ptr %122, i64 %128
   %invariant.gep119 = getelementptr inbounds nuw i16, ptr %122, i64 %128
   %invariant.gep121 = getelementptr inbounds nuw i16, ptr %122, i64 %127
-  %129 = add nsw i64 %wide.trip.count103, -1
-  %130 = trunc i64 %129 to i1
-  %131 = icmp ugt i64 %129, 1
-  %132 = or i1 %131, %130
-  br i1 %132, label %.ph.lver.orig, label %.ph
+  %.not131 = icmp eq i16 %115, 2
+  br i1 %.not131, label %.ph, label %.ph.lver.orig
 
 .ph.lver.orig:                                    ; preds = %.lver.check, %.ph.lver.orig
   %indvars.iv100.lver.orig = phi i64 [ %indvars.iv.next101.lver.orig, %.ph.lver.orig ], [ 0, %.lver.check ]
   %gep116.lver.orig = getelementptr inbounds nuw i16, ptr %invariant.gep115, i64 %indvars.iv100.lver.orig
-  %133 = load i16, ptr %gep116.lver.orig, align 2, !tbaa !86
-  %134 = zext i16 %133 to i32
+  %129 = load i16, ptr %gep116.lver.orig, align 2, !tbaa !86
+  %130 = zext i16 %129 to i32
   %indvars.iv.next101.lver.orig = add nuw nsw i64 %indvars.iv100.lver.orig, 1
   %gep118.lver.orig = getelementptr inbounds nuw i16, ptr %invariant.gep117, i64 %indvars.iv.next101.lver.orig
-  %135 = load i16, ptr %gep118.lver.orig, align 2, !tbaa !86
-  %136 = zext i16 %135 to i32
-  %137 = sub nsw i32 %134, %136
-  %138 = mul nsw i32 %137, %137
-  %139 = uitofp nneg i32 %138 to double
-  %140 = and i64 %indvars.iv100.lver.orig, 1
-  %141 = and i64 %indvars.iv100.lver.orig, 1
-  %142 = getelementptr inbounds nuw [2 x double], ptr %2, i64 0, i64 %141
-  %143 = load double, ptr %142, align 8, !tbaa !207
-  %144 = fadd reassoc nsz arcp contract afn double %143, %139
-  store double %144, ptr %142, align 8, !tbaa !207
+  %131 = load i16, ptr %gep118.lver.orig, align 2, !tbaa !86
+  %132 = zext i16 %131 to i32
+  %133 = sub nsw i32 %130, %132
+  %134 = mul nsw i32 %133, %133
+  %135 = uitofp nneg i32 %134 to double
+  %136 = and i64 %indvars.iv100.lver.orig, 1
+  %137 = and i64 %indvars.iv100.lver.orig, 1
+  %138 = getelementptr inbounds nuw [2 x double], ptr %2, i64 0, i64 %137
+  %139 = load double, ptr %138, align 8, !tbaa !207
+  %140 = fadd reassoc nsz arcp contract afn double %139, %135
+  store double %140, ptr %138, align 8, !tbaa !207
   %gep120.lver.orig = getelementptr inbounds nuw i16, ptr %invariant.gep119, i64 %indvars.iv100.lver.orig
-  %145 = load i16, ptr %gep120.lver.orig, align 2, !tbaa !86
-  %146 = zext i16 %145 to i32
+  %141 = load i16, ptr %gep120.lver.orig, align 2, !tbaa !86
+  %142 = zext i16 %141 to i32
   %gep122.lver.orig = getelementptr inbounds nuw i16, ptr %invariant.gep121, i64 %indvars.iv.next101.lver.orig
-  %147 = load i16, ptr %gep122.lver.orig, align 2, !tbaa !86
-  %148 = zext i16 %147 to i32
-  %149 = sub nsw i32 %146, %148
-  %150 = mul nsw i32 %149, %149
-  %151 = uitofp nneg i32 %150 to double
-  %152 = xor i64 %140, 1
-  %153 = getelementptr inbounds nuw [2 x double], ptr %2, i64 0, i64 %152
-  %154 = load double, ptr %153, align 8, !tbaa !207
-  %155 = fadd reassoc nsz arcp contract afn double %154, %151
-  store double %155, ptr %153, align 8, !tbaa !207
+  %143 = load i16, ptr %gep122.lver.orig, align 2, !tbaa !86
+  %144 = zext i16 %143 to i32
+  %145 = sub nsw i32 %142, %144
+  %146 = mul nsw i32 %145, %145
+  %147 = uitofp nneg i32 %146 to double
+  %148 = xor i64 %136, 1
+  %149 = getelementptr inbounds nuw [2 x double], ptr %2, i64 0, i64 %148
+  %150 = load double, ptr %149, align 8, !tbaa !207
+  %151 = fadd reassoc nsz arcp contract afn double %150, %147
+  store double %151, ptr %149, align 8, !tbaa !207
   %exitcond104.not.lver.orig = icmp eq i64 %indvars.iv.next101.lver.orig, %wide.trip.count103
   br i1 %exitcond104.not.lver.orig, label %._crit_edge76, label %.ph.lver.orig, !llvm.loop !208
 
 .ph:                                              ; preds = %.lver.check
   %scevgep = getelementptr inbounds nuw i8, ptr %2, i64 8
   %load_initial = load double, ptr %scevgep, align 8
-  br label %156
+  br label %152
 
-156:                                              ; preds = %.ph, %156
-  %store_forwarded = phi double [ %load_initial, %.ph ], [ %168, %156 ]
-  %indvars.iv100 = phi i64 [ 0, %.ph ], [ %indvars.iv.next101, %156 ]
+152:                                              ; preds = %.ph, %152
+  %store_forwarded = phi double [ %load_initial, %.ph ], [ %164, %152 ]
+  %indvars.iv100 = phi i64 [ 0, %.ph ], [ %indvars.iv.next101, %152 ]
   %gep116 = getelementptr inbounds nuw i16, ptr %invariant.gep115, i64 %indvars.iv100
-  %157 = load i16, ptr %gep116, align 2, !tbaa !86
-  %158 = zext i16 %157 to i32
+  %153 = load i16, ptr %gep116, align 2, !tbaa !86
+  %154 = zext i16 %153 to i32
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %gep118 = getelementptr inbounds nuw i16, ptr %invariant.gep117, i64 %indvars.iv.next101
-  %159 = load i16, ptr %gep118, align 2, !tbaa !86
-  %160 = zext i16 %159 to i32
-  %161 = sub nsw i32 %158, %160
-  %162 = mul nsw i32 %161, %161
-  %163 = uitofp nneg i32 %162 to double
-  %164 = and i64 %indvars.iv100, 1
-  %165 = and i64 %indvars.iv100, 1
-  %166 = getelementptr inbounds nuw [2 x double], ptr %2, i64 0, i64 %165
-  %167 = load double, ptr %166, align 8, !tbaa !207
-  %168 = fadd reassoc nsz arcp contract afn double %167, %163
-  store double %168, ptr %166, align 8, !tbaa !207
+  %155 = load i16, ptr %gep118, align 2, !tbaa !86
+  %156 = zext i16 %155 to i32
+  %157 = sub nsw i32 %154, %156
+  %158 = mul nsw i32 %157, %157
+  %159 = uitofp nneg i32 %158 to double
+  %160 = and i64 %indvars.iv100, 1
+  %161 = and i64 %indvars.iv100, 1
+  %162 = getelementptr inbounds nuw [2 x double], ptr %2, i64 0, i64 %161
+  %163 = load double, ptr %162, align 8, !tbaa !207
+  %164 = fadd reassoc nsz arcp contract afn double %163, %159
+  store double %164, ptr %162, align 8, !tbaa !207
   %gep120 = getelementptr inbounds nuw i16, ptr %invariant.gep119, i64 %indvars.iv100
-  %169 = load i16, ptr %gep120, align 2, !tbaa !86
-  %170 = zext i16 %169 to i32
+  %165 = load i16, ptr %gep120, align 2, !tbaa !86
+  %166 = zext i16 %165 to i32
   %gep122 = getelementptr inbounds nuw i16, ptr %invariant.gep121, i64 %indvars.iv.next101
-  %171 = load i16, ptr %gep122, align 2, !tbaa !86
-  %172 = zext i16 %171 to i32
-  %173 = sub nsw i32 %170, %172
-  %174 = mul nsw i32 %173, %173
-  %175 = uitofp nneg i32 %174 to double
-  %176 = xor i64 %164, 1
-  %177 = getelementptr inbounds nuw [2 x double], ptr %2, i64 0, i64 %176
-  %178 = fadd reassoc nsz arcp contract afn double %store_forwarded, %175
-  store double %178, ptr %177, align 8, !tbaa !207
+  %167 = load i16, ptr %gep122, align 2, !tbaa !86
+  %168 = zext i16 %167 to i32
+  %169 = sub nsw i32 %166, %168
+  %170 = mul nsw i32 %169, %169
+  %171 = uitofp nneg i32 %170 to double
+  %172 = xor i64 %160, 1
+  %173 = getelementptr inbounds nuw [2 x double], ptr %2, i64 0, i64 %172
+  %174 = fadd reassoc nsz arcp contract afn double %store_forwarded, %171
+  store double %174, ptr %173, align 8, !tbaa !207
   %exitcond104.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count103
-  br i1 %exitcond104.not, label %._crit_edge76, label %156, !llvm.loop !208
+  br i1 %exitcond104.not, label %._crit_edge76, label %152, !llvm.loop !208
 
-._crit_edge76:                                    ; preds = %156, %.ph.lver.orig
+._crit_edge76:                                    ; preds = %.ph.lver.orig, %152
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.pre = load double, ptr %.phi.trans.insert, align 8, !tbaa !207
   %.pre105 = load double, ptr %2, align 16, !tbaa !207
-  %179 = fcmp reassoc nsz arcp contract afn ogt double %.pre, %.pre105
-  br i1 %179, label %180, label %_ZNSt6vectorIhSaIhEED2Ev.exit55
+  %175 = fcmp reassoc nsz arcp contract afn ogt double %.pre, %.pre105
+  br i1 %175, label %176, label %_ZNSt6vectorIhSaIhEED2Ev.exit55
 
-180:                                              ; preds = %._crit_edge76
-  %181 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store i32 1263225675, ptr %181, align 8, !tbaa !209
+176:                                              ; preds = %._crit_edge76
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  store i32 1263225675, ptr %177, align 8, !tbaa !209
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit55
 
-_ZNSt6vectorIhSaIhEED2Ev.exit55:                  ; preds = %113, %._crit_edge76, %180, %._crit_edge72
+_ZNSt6vectorIhSaIhEED2Ev.exit55:                  ; preds = %113, %._crit_edge76, %176, %._crit_edge72
   tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %17) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #13
   ret void

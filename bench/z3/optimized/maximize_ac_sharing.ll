@@ -140,13 +140,11 @@ entry:
 _ZNK9func_decl14is_associativeEv.exit:            ; preds = %entry
   %m_left_assoc.i.i = getelementptr inbounds nuw i8, ptr %0, i64 17
   %bf.load.i.i = load i16, ptr %m_left_assoc.i.i, align 1
-  %bf.cast.i.i = trunc i16 %bf.load.i.i to i1
-  %1 = and i16 %bf.load.i.i, 2
-  %bf.cast4.i.i = icmp ne i16 %1, 0
-  %2 = and i1 %bf.cast4.i.i, %bf.cast.i.i
-  %cmp = icmp ugt i32 %num_args, 2
-  %or.cond48.not = and i1 %cmp, %2
-  br i1 %or.cond48.not, label %if.end4, label %return
+  %1 = and i16 %bf.load.i.i, 3
+  %2 = icmp ne i16 %1, 3
+  %cmp = icmp ult i32 %num_args, 3
+  %or.cond48 = or i1 %cmp, %2
+  br i1 %or.cond48, label %return, label %if.end4
 
 if.end4:                                          ; preds = %_ZNK9func_decl14is_associativeEv.exit
   %m_kinds = getelementptr inbounds nuw i8, ptr %this, i64 104

@@ -1272,46 +1272,45 @@ H5FD__core_get_default_config.exit:               ; preds = %45, %43, %41, %36
   %261 = getelementptr inbounds nuw i8, ptr %114, i64 224
   store ptr null, ptr %261, align 8, !tbaa !56
   %262 = load i8, ptr %129, align 8, !tbaa !18, !range !7, !noundef !8
-  %263 = trunc nuw i8 %262 to i1
-  %264 = trunc nuw i8 %256 to i1
-  %265 = icmp ne i64 %259, 0
-  %266 = select i1 %263, i1 %264, i1 false
-  %or.cond259 = select i1 %266, i1 %265, i1 false
-  br i1 %or.cond259, label %267, label %.thread253
+  %263 = icmp ne i64 %259, 0
+  %264 = and i8 %262, %256
+  %265 = icmp ne i8 %264, 0
+  %or.cond259 = select i1 %265, i1 %263, i1 false
+  br i1 %or.cond259, label %266, label %.thread253
 
-267:                                              ; preds = %.thread245
-  %268 = call ptr @H5SL_create(i32 noundef 1, ptr noundef null) #18
-  store ptr %268, ptr %261, align 8, !tbaa !56
-  %269 = icmp eq ptr %268, null
-  br i1 %269, label %.critedge228, label %.thread253
+266:                                              ; preds = %.thread245
+  %267 = call ptr @H5SL_create(i32 noundef 1, ptr noundef null) #18
+  store ptr %267, ptr %261, align 8, !tbaa !56
+  %268 = icmp eq ptr %267, null
+  br i1 %268, label %.critedge228, label %.thread253
 
-.critedge228:                                     ; preds = %267
-  %270 = load i64, ptr @H5E_SLIST_g, align 8, !tbaa !10
-  %271 = load i64, ptr @H5E_CANTCREATE_g, align 8, !tbaa !10
-  %272 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FD__core_open, i32 noundef 942, i64 noundef %270, i64 noundef %271, ptr noundef nonnull @.str.33) #18
+.critedge228:                                     ; preds = %266
+  %269 = load i64, ptr @H5E_SLIST_g, align 8, !tbaa !10
+  %270 = load i64, ptr @H5E_CANTCREATE_g, align 8, !tbaa !10
+  %271 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FD__core_open, i32 noundef 942, i64 noundef %269, i64 noundef %270, ptr noundef nonnull @.str.33) #18
   br label %.thread249
 
 .thread249:                                       ; preds = %143, %.critedge228, %183, %242, %191, %.thread, %223, %.thread232
-  %273 = load i32, ptr %121, align 4, !tbaa !30
-  %274 = icmp sgt i32 %273, -1
-  br i1 %274, label %275, label %277
+  %272 = load i32, ptr %121, align 4, !tbaa !30
+  %273 = icmp sgt i32 %272, -1
+  br i1 %273, label %274, label %276
 
-275:                                              ; preds = %.thread249
-  %276 = call i32 @close(i32 noundef %273) #18
-  br label %277
+274:                                              ; preds = %.thread249
+  %275 = call i32 @close(i32 noundef %272) #18
+  br label %276
 
-277:                                              ; preds = %275, %.thread249
-  %278 = getelementptr inbounds nuw i8, ptr %114, i64 80
-  %279 = load ptr, ptr %278, align 8, !tbaa !37
-  %280 = call ptr @H5MM_xfree(ptr noundef %279) #18
-  %281 = getelementptr inbounds nuw i8, ptr %114, i64 88
-  %282 = load ptr, ptr %281, align 8, !tbaa !50
-  %283 = call ptr @H5MM_xfree(ptr noundef %282) #18
-  %284 = call ptr @H5MM_xfree(ptr noundef nonnull %114) #18
+276:                                              ; preds = %274, %.thread249
+  %277 = getelementptr inbounds nuw i8, ptr %114, i64 80
+  %278 = load ptr, ptr %277, align 8, !tbaa !37
+  %279 = call ptr @H5MM_xfree(ptr noundef %278) #18
+  %280 = getelementptr inbounds nuw i8, ptr %114, i64 88
+  %281 = load ptr, ptr %280, align 8, !tbaa !50
+  %282 = call ptr @H5MM_xfree(ptr noundef %281) #18
+  %283 = call ptr @H5MM_xfree(ptr noundef nonnull %114) #18
   br label %.thread253
 
-.thread253:                                       ; preds = %267, %19, %85, %78, %65, %116, %106, %99, %56, %32, %25, %.thread245, %4, %277
-  %.0 = phi ptr [ null, %277 ], [ null, %4 ], [ %114, %.thread245 ], [ null, %19 ], [ null, %85 ], [ null, %78 ], [ null, %65 ], [ null, %116 ], [ null, %106 ], [ null, %99 ], [ null, %56 ], [ null, %32 ], [ null, %25 ], [ %114, %267 ]
+.thread253:                                       ; preds = %266, %19, %85, %78, %65, %116, %106, %99, %56, %32, %25, %.thread245, %4, %276
+  %.0 = phi ptr [ null, %276 ], [ null, %4 ], [ %114, %.thread245 ], [ null, %19 ], [ null, %85 ], [ null, %78 ], [ null, %65 ], [ null, %116 ], [ null, %106 ], [ null, %99 ], [ null, %56 ], [ null, %32 ], [ null, %25 ], [ %114, %266 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #18
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #18
   ret ptr %.0

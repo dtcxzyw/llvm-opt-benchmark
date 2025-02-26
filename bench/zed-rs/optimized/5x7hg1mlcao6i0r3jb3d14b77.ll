@@ -53480,35 +53480,33 @@ define hidden void @"_ZN5taffy8geometry13Size$LT$T$GT$7zip_map17h4916b6bf8b33ac7
   %7 = load i32, ptr %2, align 4, !range !80, !noundef !9
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %9 = load float, ptr %8, align 4
-  %trunc.i = trunc nuw i32 %4 to i1
-  %trunc11.i = trunc nuw i32 %7 to i1
-  %or.cond.i = select i1 %trunc.i, i1 %trunc11.i, i1 false
-  %10 = fcmp ole float %9, %6
-  %or.cond14.not.i = select i1 %or.cond.i, i1 %10, i1 false
+  %10 = and i32 %7, %4
+  %or.cond.not1.i = icmp ne i32 %10, 0
+  %11 = fcmp ole float %9, %6
+  %or.cond14.not.i = select i1 %or.cond.not1.i, i1 %11, i1 false
   %.sroa.07.0.i = zext i1 %or.cond14.not.i to i32
-  %.sroa.38.0.i = select i1 %or.cond.i, float %6, float undef
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i32, ptr %11, align 4, !range !80, !noundef !9
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %14 = load float, ptr %13, align 4
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %16 = load i32, ptr %15, align 4, !range !80, !noundef !9
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %18 = load float, ptr %17, align 4
-  %trunc.i10 = trunc nuw i32 %12 to i1
-  %trunc11.i11 = trunc nuw i32 %16 to i1
-  %or.cond.i12 = select i1 %trunc.i10, i1 %trunc11.i11, i1 false
-  %19 = fcmp ole float %18, %14
-  %or.cond14.not.i13 = select i1 %or.cond.i12, i1 %19, i1 false
-  %.sroa.07.0.i14 = zext i1 %or.cond14.not.i13 to i32
-  %.sroa.38.0.i15 = select i1 %or.cond.i12, float %14, float undef
+  %.sroa.38.0.i = select i1 %or.cond.not1.i, float %6, float undef
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = load i32, ptr %12, align 4, !range !80, !noundef !9
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %15 = load float, ptr %14, align 4
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %17 = load i32, ptr %16, align 4, !range !80, !noundef !9
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %19 = load float, ptr %18, align 4
+  %20 = and i32 %17, %13
+  %or.cond.not1.i10 = icmp ne i32 %20, 0
+  %21 = fcmp ole float %19, %15
+  %or.cond14.not.i11 = select i1 %or.cond.not1.i10, i1 %21, i1 false
+  %.sroa.07.0.i12 = zext i1 %or.cond14.not.i11 to i32
+  %.sroa.38.0.i13 = select i1 %or.cond.not1.i10, float %15, float undef
   store i32 %.sroa.07.0.i, ptr %0, align 4
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %.sroa.38.0.i, ptr %20, align 4
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.07.0.i14, ptr %21, align 4
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %.sroa.38.0.i15, ptr %22, align 4
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %.sroa.38.0.i, ptr %22, align 4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %.sroa.07.0.i12, ptr %23, align 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %.sroa.38.0.i13, ptr %24, align 4
   ret void
 }
 
@@ -53520,35 +53518,33 @@ define hidden void @"_ZN5taffy8geometry13Size$LT$T$GT$7zip_map17hc94b5371a77c7b6
   %7 = load i32, ptr %2, align 4, !range !80, !noundef !9
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %9 = load float, ptr %8, align 4
-  %trunc.i = trunc nuw i32 %4 to i1
-  %trunc11.i = trunc nuw i32 %7 to i1
-  %or.cond.i = select i1 %trunc.i, i1 %trunc11.i, i1 false
-  %10 = fcmp ole float %9, %6
-  %or.cond14.not.i = select i1 %or.cond.i, i1 %10, i1 false
+  %10 = and i32 %7, %4
+  %or.cond.not1.i = icmp ne i32 %10, 0
+  %11 = fcmp ole float %9, %6
+  %or.cond14.not.i = select i1 %or.cond.not1.i, i1 %11, i1 false
   %.sroa.07.0.i = zext i1 %or.cond14.not.i to i32
-  %.sroa.38.0.i = select i1 %or.cond.i, float %6, float undef
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i32, ptr %11, align 4, !range !80, !noundef !9
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %14 = load float, ptr %13, align 4
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %16 = load i32, ptr %15, align 4, !range !80, !noundef !9
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %18 = load float, ptr %17, align 4
-  %trunc.i10 = trunc nuw i32 %12 to i1
-  %trunc11.i11 = trunc nuw i32 %16 to i1
-  %or.cond.i12 = select i1 %trunc.i10, i1 %trunc11.i11, i1 false
-  %19 = fcmp ole float %18, %14
-  %or.cond14.not.i13 = select i1 %or.cond.i12, i1 %19, i1 false
-  %.sroa.07.0.i14 = zext i1 %or.cond14.not.i13 to i32
-  %.sroa.38.0.i15 = select i1 %or.cond.i12, float %14, float undef
+  %.sroa.38.0.i = select i1 %or.cond.not1.i, float %6, float undef
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = load i32, ptr %12, align 4, !range !80, !noundef !9
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %15 = load float, ptr %14, align 4
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %17 = load i32, ptr %16, align 4, !range !80, !noundef !9
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %19 = load float, ptr %18, align 4
+  %20 = and i32 %17, %13
+  %or.cond.not1.i10 = icmp ne i32 %20, 0
+  %21 = fcmp ole float %19, %15
+  %or.cond14.not.i11 = select i1 %or.cond.not1.i10, i1 %21, i1 false
+  %.sroa.07.0.i12 = zext i1 %or.cond14.not.i11 to i32
+  %.sroa.38.0.i13 = select i1 %or.cond.not1.i10, float %15, float undef
   store i32 %.sroa.07.0.i, ptr %0, align 4
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %.sroa.38.0.i, ptr %20, align 4
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.07.0.i14, ptr %21, align 4
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %.sroa.38.0.i15, ptr %22, align 4
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %.sroa.38.0.i, ptr %22, align 4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %.sroa.07.0.i12, ptr %23, align 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %.sroa.38.0.i13, ptr %24, align 4
   ret void
 }
 
