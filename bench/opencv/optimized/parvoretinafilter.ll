@@ -8,36 +8,34 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::bioinspired::ParvoRetinaFilter::Parallel_OPL_OnOffWaysComputing" = type { %"class.cv::ParallelLoopBody", ptr, ptr, ptr, ptr, ptr, ptr }
 %"class.cv::ParallelLoopBody" = type { ptr }
 
-$_ZN2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingD2Ev = comdat any
-
 $_ZN2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingD0Ev = comdat any
 
 $_ZNK2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingclERKNS_5RangeE = comdat any
 
-$_ZTSN2cv11bioinspired17BasicRetinaFilterE = comdat any
-
 $_ZTIN2cv11bioinspired17BasicRetinaFilterE = comdat any
+
+$_ZTSN2cv11bioinspired17BasicRetinaFilterE = comdat any
 
 $_ZTVN2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingE = comdat any
 
-$_ZTSN2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingE = comdat any
-
 $_ZTIN2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingE = comdat any
+
+$_ZTSN2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingE = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
 @_ZTVN2cv11bioinspired17ParvoRetinaFilterE = hidden unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN2cv11bioinspired17ParvoRetinaFilterE, ptr @_ZN2cv11bioinspired17ParvoRetinaFilterD2Ev, ptr @_ZN2cv11bioinspired17ParvoRetinaFilterD0Ev] }, align 8
+@_ZTIN2cv11bioinspired17ParvoRetinaFilterE = hidden constant { ptr, ptr, i32, i32, ptr, i64 } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv121__vmi_class_type_infoE, i64 2), ptr @_ZTSN2cv11bioinspired17ParvoRetinaFilterE, i32 0, i32 1, ptr @_ZTIN2cv11bioinspired17BasicRetinaFilterE, i64 2050 }, align 8
 @_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
 @_ZTSN2cv11bioinspired17ParvoRetinaFilterE = hidden constant [38 x i8] c"N2cv11bioinspired17ParvoRetinaFilterE\00", align 1
+@_ZTIN2cv11bioinspired17BasicRetinaFilterE = linkonce_odr hidden constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN2cv11bioinspired17BasicRetinaFilterE }, comdat, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTSN2cv11bioinspired17BasicRetinaFilterE = linkonce_odr hidden constant [38 x i8] c"N2cv11bioinspired17BasicRetinaFilterE\00", comdat, align 1
-@_ZTIN2cv11bioinspired17BasicRetinaFilterE = linkonce_odr hidden constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN2cv11bioinspired17BasicRetinaFilterE }, comdat, align 8
-@_ZTIN2cv11bioinspired17ParvoRetinaFilterE = hidden constant { ptr, ptr, i32, i32, ptr, i64 } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv121__vmi_class_type_infoE, i64 2), ptr @_ZTSN2cv11bioinspired17ParvoRetinaFilterE, i32 0, i32 1, ptr @_ZTIN2cv11bioinspired17BasicRetinaFilterE, i64 2050 }, align 8
-@_ZTVN2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingE = linkonce_odr hidden unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingE, ptr @_ZN2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingD2Ev, ptr @_ZN2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingD0Ev, ptr @_ZNK2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingclERKNS_5RangeE] }, comdat, align 8
+@_ZTVN2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingE = linkonce_odr hidden unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingE, ptr @_ZN2cv16ParallelLoopBodyD2Ev, ptr @_ZN2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingD0Ev, ptr @_ZNK2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingclERKNS_5RangeE] }, comdat, align 8
+@_ZTIN2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingE = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingE, ptr @_ZTIN2cv16ParallelLoopBodyE }, comdat, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingE = linkonce_odr hidden constant [71 x i8] c"N2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingE\00", comdat, align 1
 @_ZTIN2cv16ParallelLoopBodyE = external constant ptr
-@_ZTIN2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingE = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingE, ptr @_ZTIN2cv16ParallelLoopBodyE }, comdat, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_parvoretinafilter.cpp, ptr null }]
 
 @_ZN2cv11bioinspired17ParvoRetinaFilterC1Ejj = hidden unnamed_addr alias void (ptr, i32, i32), ptr @_ZN2cv11bioinspired17ParvoRetinaFilterC2Ejj
@@ -55,252 +53,251 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN2cv11bioinspired17ParvoRetinaFilterC2Ejj(ptr noundef nonnull align 8 dereferenceable(304) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN2cv11bioinspired17BasicRetinaFilterC2Ejjjb(ptr noundef nonnull align 8 dereferenceable(168) %4, i32 noundef %1, i32 noundef %2, i32 noundef 3, i1 noundef zeroext false)
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv11bioinspired17ParvoRetinaFilterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv11bioinspired17ParvoRetinaFilterE, i64 16), ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %6 = mul i32 %2, %1
   %7 = zext i32 %6 to i64
-  store i64 %7, ptr %5, align 8
+  store i64 %7, ptr %5, align 8, !tbaa !6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %9 = shl nuw nsw i64 %7, 2
-  %10 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #11
-          to label %11 unwind label %69
+  %10 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #12
+          to label %11 unwind label %68
 
 11:                                               ; preds = %3
-  store ptr %10, ptr %8, align 8
+  store ptr %10, ptr %8, align 8, !tbaa !12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %10, i8 0, i64 %9, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i64 %7, ptr %12, align 8
+  store i64 %7, ptr %12, align 8, !tbaa !6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #11
-          to label %15 unwind label %71
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #12
+          to label %15 unwind label %70
 
 15:                                               ; preds = %11
-  store ptr %14, ptr %13, align 8
+  store ptr %14, ptr %13, align 8, !tbaa !12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %14, i8 0, i64 %9, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store i64 %7, ptr %16, align 8
+  store i64 %7, ptr %16, align 8, !tbaa !6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #11
-          to label %19 unwind label %73
+  %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #12
+          to label %19 unwind label %72
 
 19:                                               ; preds = %15
-  store ptr %18, ptr %17, align 8
+  store ptr %18, ptr %17, align 8, !tbaa !12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %18, i8 0, i64 %9, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store i64 %7, ptr %20, align 8
+  store i64 %7, ptr %20, align 8, !tbaa !6
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #11
-          to label %23 unwind label %75
+  %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #12
+          to label %23 unwind label %74
 
 23:                                               ; preds = %19
-  store ptr %22, ptr %21, align 8
+  store ptr %22, ptr %21, align 8, !tbaa !12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %22, i8 0, i64 %9, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 %7, ptr %24, align 8
+  store i64 %7, ptr %24, align 8, !tbaa !6
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %26 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #11
-          to label %27 unwind label %77
+  %26 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #12
+          to label %27 unwind label %76
 
 27:                                               ; preds = %23
-  store ptr %26, ptr %25, align 8
+  store ptr %26, ptr %25, align 8, !tbaa !12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %26, i8 0, i64 %9, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i64 %7, ptr %28, align 8
+  store i64 %7, ptr %28, align 8, !tbaa !6
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %30 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #11
-          to label %31 unwind label %79
+  %30 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #12
+          to label %31 unwind label %78
 
 31:                                               ; preds = %27
-  store ptr %30, ptr %29, align 8
+  store ptr %30, ptr %29, align 8, !tbaa !12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %30, i8 0, i64 %9, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store i64 %7, ptr %32, align 8
-  %33 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #11
-          to label %34 unwind label %81
+  store i64 %7, ptr %32, align 8, !tbaa !6
+  %33 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #12
+          to label %34 unwind label %80
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store ptr %33, ptr %35, align 8
+  store ptr %33, ptr %35, align 8, !tbaa !12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %33, i8 0, i64 %9, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store ptr %36, ptr %37, align 8
+  store ptr %36, ptr %37, align 8, !tbaa !13
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store ptr %4, ptr %38, align 8
+  store ptr %4, ptr %38, align 8, !tbaa !21
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %40 = load i64, ptr %39, align 8
+  %40 = load i64, ptr %39, align 8, !tbaa !6
   %.not3.i.i.i.i.i.i = icmp eq i64 %40, 0
   br i1 %.not3.i.i.i.i.i.i, label %_ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i.i, label %.lr.ph.i.i.i.preheader.i.i.i
 
 .lr.ph.i.i.i.preheader.i.i.i:                     ; preds = %34
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %42 = load ptr, ptr %41, align 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !12
   %43 = shl nuw i64 %40, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %42, i8 0, i64 %43, i1 false), !alias.scope !4
+  tail call void @llvm.memset.p0.i64(ptr align 4 %42, i8 0, i64 %43, i1 false), !tbaa !22, !alias.scope !23
   br label %_ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i.i
 
 _ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i.i: ; preds = %.lr.ph.i.i.i.preheader.i.i.i, %34
-  %44 = load i64, ptr %36, align 8
+  %44 = load i64, ptr %36, align 8, !tbaa !6
   %.not3.i.i.i.i.i = icmp eq i64 %44, 0
   br i1 %.not3.i.i.i.i.i, label %_ZN2cv11bioinspired17BasicRetinaFilter15clearAllBuffersEv.exit.i, label %.lr.ph.i.i.preheader.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i.i
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %46 = load ptr, ptr %45, align 8
+  %46 = load ptr, ptr %45, align 8, !tbaa !12
   %47 = shl nuw i64 %44, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %46, i8 0, i64 %47, i1 false), !alias.scope !7
+  tail call void @llvm.memset.p0.i64(ptr align 4 %46, i8 0, i64 %47, i1 false), !tbaa !22, !alias.scope !26
   br label %_ZN2cv11bioinspired17BasicRetinaFilter15clearAllBuffersEv.exit.i
 
 _ZN2cv11bioinspired17BasicRetinaFilter15clearAllBuffersEv.exit.i: ; preds = %.lr.ph.i.i.preheader.i.i.i, %_ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i.i
-  %48 = load i64, ptr %5, align 8
+  %48 = load i64, ptr %5, align 8, !tbaa !6
   %.not3.i.i.i = icmp eq i64 %48, 0
   br i1 %.not3.i.i.i, label %_ZNSt8valarrayIfEaSERKf.exit.i, label %.lr.ph.i.i.preheader.i
 
 .lr.ph.i.i.preheader.i:                           ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter15clearAllBuffersEv.exit.i
-  %49 = load ptr, ptr %8, align 8
+  %49 = load ptr, ptr %8, align 8, !tbaa !12
   %50 = shl nuw i64 %48, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %49, i8 0, i64 %50, i1 false), !alias.scope !10
+  tail call void @llvm.memset.p0.i64(ptr align 4 %49, i8 0, i64 %50, i1 false), !tbaa !22, !alias.scope !29
   br label %_ZNSt8valarrayIfEaSERKf.exit.i
 
 _ZNSt8valarrayIfEaSERKf.exit.i:                   ; preds = %.lr.ph.i.i.preheader.i, %_ZN2cv11bioinspired17BasicRetinaFilter15clearAllBuffersEv.exit.i
-  %51 = load i64, ptr %12, align 8
+  %51 = load i64, ptr %12, align 8, !tbaa !6
   %.not3.i.i1.i = icmp eq i64 %51, 0
   br i1 %.not3.i.i1.i, label %_ZNSt8valarrayIfEaSERKf.exit6.i, label %.lr.ph.i.i2.preheader.i
 
 .lr.ph.i.i2.preheader.i:                          ; preds = %_ZNSt8valarrayIfEaSERKf.exit.i
-  %52 = load ptr, ptr %13, align 8
+  %52 = load ptr, ptr %13, align 8, !tbaa !12
   %53 = shl nuw i64 %51, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %52, i8 0, i64 %53, i1 false), !alias.scope !13
+  tail call void @llvm.memset.p0.i64(ptr align 4 %52, i8 0, i64 %53, i1 false), !tbaa !22, !alias.scope !32
   br label %_ZNSt8valarrayIfEaSERKf.exit6.i
 
 _ZNSt8valarrayIfEaSERKf.exit6.i:                  ; preds = %.lr.ph.i.i2.preheader.i, %_ZNSt8valarrayIfEaSERKf.exit.i
-  %54 = load i64, ptr %16, align 8
+  %54 = load i64, ptr %16, align 8, !tbaa !6
   %.not3.i.i7.i = icmp eq i64 %54, 0
   br i1 %.not3.i.i7.i, label %_ZNSt8valarrayIfEaSERKf.exit12.i, label %.lr.ph.i.i8.preheader.i
 
 .lr.ph.i.i8.preheader.i:                          ; preds = %_ZNSt8valarrayIfEaSERKf.exit6.i
-  %55 = load ptr, ptr %17, align 8
+  %55 = load ptr, ptr %17, align 8, !tbaa !12
   %56 = shl nuw i64 %54, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %55, i8 0, i64 %56, i1 false), !alias.scope !16
+  tail call void @llvm.memset.p0.i64(ptr align 4 %55, i8 0, i64 %56, i1 false), !tbaa !22, !alias.scope !35
   br label %_ZNSt8valarrayIfEaSERKf.exit12.i
 
 _ZNSt8valarrayIfEaSERKf.exit12.i:                 ; preds = %.lr.ph.i.i8.preheader.i, %_ZNSt8valarrayIfEaSERKf.exit6.i
-  %57 = load i64, ptr %20, align 8
+  %57 = load i64, ptr %20, align 8, !tbaa !6
   %.not3.i.i13.i = icmp eq i64 %57, 0
   br i1 %.not3.i.i13.i, label %_ZNSt8valarrayIfEaSERKf.exit18.i, label %.lr.ph.i.i14.preheader.i
 
 .lr.ph.i.i14.preheader.i:                         ; preds = %_ZNSt8valarrayIfEaSERKf.exit12.i
-  %58 = load ptr, ptr %21, align 8
+  %58 = load ptr, ptr %21, align 8, !tbaa !12
   %59 = shl nuw i64 %57, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %58, i8 0, i64 %59, i1 false), !alias.scope !19
+  tail call void @llvm.memset.p0.i64(ptr align 4 %58, i8 0, i64 %59, i1 false), !tbaa !22, !alias.scope !38
   br label %_ZNSt8valarrayIfEaSERKf.exit18.i
 
 _ZNSt8valarrayIfEaSERKf.exit18.i:                 ; preds = %.lr.ph.i.i14.preheader.i, %_ZNSt8valarrayIfEaSERKf.exit12.i
-  %60 = load i64, ptr %24, align 8
+  %60 = load i64, ptr %24, align 8, !tbaa !6
   %.not3.i.i19.i = icmp eq i64 %60, 0
   br i1 %.not3.i.i19.i, label %_ZNSt8valarrayIfEaSERKf.exit24.i, label %.lr.ph.i.i20.preheader.i
 
 .lr.ph.i.i20.preheader.i:                         ; preds = %_ZNSt8valarrayIfEaSERKf.exit18.i
-  %61 = load ptr, ptr %25, align 8
+  %61 = load ptr, ptr %25, align 8, !tbaa !12
   %62 = shl nuw i64 %60, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %61, i8 0, i64 %62, i1 false), !alias.scope !22
+  tail call void @llvm.memset.p0.i64(ptr align 4 %61, i8 0, i64 %62, i1 false), !tbaa !22, !alias.scope !41
   br label %_ZNSt8valarrayIfEaSERKf.exit24.i
 
 _ZNSt8valarrayIfEaSERKf.exit24.i:                 ; preds = %.lr.ph.i.i20.preheader.i, %_ZNSt8valarrayIfEaSERKf.exit18.i
-  %63 = load i64, ptr %28, align 8
+  %63 = load i64, ptr %28, align 8, !tbaa !6
   %.not3.i.i25.i = icmp eq i64 %63, 0
   br i1 %.not3.i.i25.i, label %_ZNSt8valarrayIfEaSERKf.exit30.i, label %.lr.ph.i.i26.preheader.i
 
 .lr.ph.i.i26.preheader.i:                         ; preds = %_ZNSt8valarrayIfEaSERKf.exit24.i
-  %64 = load ptr, ptr %29, align 8
+  %64 = load ptr, ptr %29, align 8, !tbaa !12
   %65 = shl nuw i64 %63, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %64, i8 0, i64 %65, i1 false), !alias.scope !25
+  tail call void @llvm.memset.p0.i64(ptr align 4 %64, i8 0, i64 %65, i1 false), !tbaa !22, !alias.scope !44
   br label %_ZNSt8valarrayIfEaSERKf.exit30.i
 
 _ZNSt8valarrayIfEaSERKf.exit30.i:                 ; preds = %.lr.ph.i.i26.preheader.i, %_ZNSt8valarrayIfEaSERKf.exit24.i
-  %66 = load i64, ptr %32, align 8
+  %66 = load i64, ptr %32, align 8, !tbaa !6
   %.not3.i.i31.i = icmp eq i64 %66, 0
   br i1 %.not3.i.i31.i, label %_ZN2cv11bioinspired17ParvoRetinaFilter15clearAllBuffersEv.exit, label %.lr.ph.i.i32.preheader.i
 
 .lr.ph.i.i32.preheader.i:                         ; preds = %_ZNSt8valarrayIfEaSERKf.exit30.i
-  %67 = load ptr, ptr %35, align 8
-  %68 = shl nuw i64 %66, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %67, i8 0, i64 %68, i1 false), !alias.scope !28
+  %67 = shl nuw i64 %66, 2
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %33, i8 0, i64 %67, i1 false), !tbaa !22, !alias.scope !47
   br label %_ZN2cv11bioinspired17ParvoRetinaFilter15clearAllBuffersEv.exit
 
 _ZN2cv11bioinspired17ParvoRetinaFilter15clearAllBuffersEv.exit: ; preds = %.lr.ph.i.i32.preheader.i, %_ZNSt8valarrayIfEaSERKf.exit30.i
   ret void
 
-69:                                               ; preds = %3
-  %70 = landingpad { ptr, i32 }
+68:                                               ; preds = %3
+  %69 = landingpad { ptr, i32 }
           cleanup
-  br label %94
+  br label %93
 
-71:                                               ; preds = %11
-  %72 = landingpad { ptr, i32 }
+70:                                               ; preds = %11
+  %71 = landingpad { ptr, i32 }
           cleanup
-  br label %92
+  br label %91
 
-73:                                               ; preds = %15
-  %74 = landingpad { ptr, i32 }
+72:                                               ; preds = %15
+  %73 = landingpad { ptr, i32 }
           cleanup
-  br label %90
+  br label %89
 
-75:                                               ; preds = %19
-  %76 = landingpad { ptr, i32 }
+74:                                               ; preds = %19
+  %75 = landingpad { ptr, i32 }
           cleanup
-  br label %88
+  br label %87
 
-77:                                               ; preds = %23
-  %78 = landingpad { ptr, i32 }
+76:                                               ; preds = %23
+  %77 = landingpad { ptr, i32 }
           cleanup
-  br label %86
+  br label %85
 
-79:                                               ; preds = %27
-  %80 = landingpad { ptr, i32 }
+78:                                               ; preds = %27
+  %79 = landingpad { ptr, i32 }
           cleanup
-  br label %84
+  br label %83
 
-81:                                               ; preds = %31
-  %82 = landingpad { ptr, i32 }
+80:                                               ; preds = %31
+  %81 = landingpad { ptr, i32 }
           cleanup
-  %83 = load ptr, ptr %29, align 8
-  tail call void @_ZdlPv(ptr noundef %83) #12
-  br label %84
+  %82 = load ptr, ptr %29, align 8, !tbaa !12
+  tail call void @_ZdlPv(ptr noundef %82) #13
+  br label %83
 
-84:                                               ; preds = %81, %79
-  %.pn.pn = phi { ptr, i32 } [ %82, %81 ], [ %80, %79 ]
-  %85 = load ptr, ptr %25, align 8
-  tail call void @_ZdlPv(ptr noundef %85) #12
-  br label %86
+83:                                               ; preds = %80, %78
+  %.pn.pn = phi { ptr, i32 } [ %81, %80 ], [ %79, %78 ]
+  %84 = load ptr, ptr %25, align 8, !tbaa !12
+  tail call void @_ZdlPv(ptr noundef %84) #13
+  br label %85
 
-86:                                               ; preds = %84, %77
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %84 ], [ %78, %77 ]
-  %87 = load ptr, ptr %21, align 8
-  tail call void @_ZdlPv(ptr noundef %87) #12
-  br label %88
+85:                                               ; preds = %83, %76
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %83 ], [ %77, %76 ]
+  %86 = load ptr, ptr %21, align 8, !tbaa !12
+  tail call void @_ZdlPv(ptr noundef %86) #13
+  br label %87
 
-88:                                               ; preds = %86, %75
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %86 ], [ %76, %75 ]
-  %89 = load ptr, ptr %17, align 8
-  tail call void @_ZdlPv(ptr noundef %89) #12
-  br label %90
+87:                                               ; preds = %85, %74
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %85 ], [ %75, %74 ]
+  %88 = load ptr, ptr %17, align 8, !tbaa !12
+  tail call void @_ZdlPv(ptr noundef %88) #13
+  br label %89
 
-90:                                               ; preds = %88, %73
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %88 ], [ %74, %73 ]
-  %91 = load ptr, ptr %13, align 8
-  tail call void @_ZdlPv(ptr noundef %91) #12
-  br label %92
+89:                                               ; preds = %87, %72
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %87 ], [ %73, %72 ]
+  %90 = load ptr, ptr %13, align 8, !tbaa !12
+  tail call void @_ZdlPv(ptr noundef %90) #13
+  br label %91
 
-92:                                               ; preds = %90, %71
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %90 ], [ %72, %71 ]
-  %93 = load ptr, ptr %8, align 8
-  tail call void @_ZdlPv(ptr noundef %93) #12
-  br label %94
+91:                                               ; preds = %89, %70
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %89 ], [ %71, %70 ]
+  %92 = load ptr, ptr %8, align 8, !tbaa !12
+  tail call void @_ZdlPv(ptr noundef %92) #13
+  br label %93
 
-94:                                               ; preds = %92, %69
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %92 ], [ %70, %69 ]
-  tail call void @_ZN2cv11bioinspired17BasicRetinaFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #12
+93:                                               ; preds = %91, %68
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %91 ], [ %69, %68 ]
+  tail call void @_ZN2cv11bioinspired17BasicRetinaFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #13
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -311,119 +308,119 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN2cv11bioinspired17ParvoRetinaFilter15clearAllBuffersEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i64, ptr %2, align 8
+  %3 = load i64, ptr %2, align 8, !tbaa !6
   %.not3.i.i.i.i.i = icmp eq i64 %3, 0
   br i1 %.not3.i.i.i.i.i, label %_ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i, label %.lr.ph.i.i.i.preheader.i.i
 
 .lr.ph.i.i.i.preheader.i.i:                       ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !12
   %6 = shl nuw i64 %3, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 %6, i1 false), !alias.scope !31
+  tail call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 %6, i1 false), !tbaa !22, !alias.scope !50
   br label %_ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i
 
 _ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i: ; preds = %.lr.ph.i.i.i.preheader.i.i, %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %8 = load i64, ptr %7, align 8
+  %8 = load i64, ptr %7, align 8, !tbaa !6
   %.not3.i.i.i.i = icmp eq i64 %8, 0
   br i1 %.not3.i.i.i.i, label %_ZN2cv11bioinspired17BasicRetinaFilter15clearAllBuffersEv.exit, label %.lr.ph.i.i.preheader.i.i
 
 .lr.ph.i.i.preheader.i.i:                         ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !12
   %11 = shl nuw i64 %8, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %10, i8 0, i64 %11, i1 false), !alias.scope !34
+  tail call void @llvm.memset.p0.i64(ptr align 4 %10, i8 0, i64 %11, i1 false), !tbaa !22, !alias.scope !53
   br label %_ZN2cv11bioinspired17BasicRetinaFilter15clearAllBuffersEv.exit
 
 _ZN2cv11bioinspired17BasicRetinaFilter15clearAllBuffersEv.exit: ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i, %.lr.ph.i.i.preheader.i.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %13 = load i64, ptr %12, align 8
+  %13 = load i64, ptr %12, align 8, !tbaa !6
   %.not3.i.i = icmp eq i64 %13, 0
   br i1 %.not3.i.i, label %_ZNSt8valarrayIfEaSERKf.exit, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter15clearAllBuffersEv.exit
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %15 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !12
   %16 = shl nuw i64 %13, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %15, i8 0, i64 %16, i1 false), !alias.scope !37
+  tail call void @llvm.memset.p0.i64(ptr align 4 %15, i8 0, i64 %16, i1 false), !tbaa !22, !alias.scope !56
   br label %_ZNSt8valarrayIfEaSERKf.exit
 
 _ZNSt8valarrayIfEaSERKf.exit:                     ; preds = %.lr.ph.i.i.preheader, %_ZN2cv11bioinspired17BasicRetinaFilter15clearAllBuffersEv.exit
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %18 = load i64, ptr %17, align 8
+  %18 = load i64, ptr %17, align 8, !tbaa !6
   %.not3.i.i1 = icmp eq i64 %18, 0
   br i1 %.not3.i.i1, label %_ZNSt8valarrayIfEaSERKf.exit6, label %.lr.ph.i.i2.preheader
 
 .lr.ph.i.i2.preheader:                            ; preds = %_ZNSt8valarrayIfEaSERKf.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %20 = load ptr, ptr %19, align 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !12
   %21 = shl nuw i64 %18, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %21, i1 false), !alias.scope !40
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %21, i1 false), !tbaa !22, !alias.scope !59
   br label %_ZNSt8valarrayIfEaSERKf.exit6
 
 _ZNSt8valarrayIfEaSERKf.exit6:                    ; preds = %.lr.ph.i.i2.preheader, %_ZNSt8valarrayIfEaSERKf.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %23 = load i64, ptr %22, align 8
+  %23 = load i64, ptr %22, align 8, !tbaa !6
   %.not3.i.i7 = icmp eq i64 %23, 0
   br i1 %.not3.i.i7, label %_ZNSt8valarrayIfEaSERKf.exit12, label %.lr.ph.i.i8.preheader
 
 .lr.ph.i.i8.preheader:                            ; preds = %_ZNSt8valarrayIfEaSERKf.exit6
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %25 = load ptr, ptr %24, align 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !12
   %26 = shl nuw i64 %23, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %25, i8 0, i64 %26, i1 false), !alias.scope !43
+  tail call void @llvm.memset.p0.i64(ptr align 4 %25, i8 0, i64 %26, i1 false), !tbaa !22, !alias.scope !62
   br label %_ZNSt8valarrayIfEaSERKf.exit12
 
 _ZNSt8valarrayIfEaSERKf.exit12:                   ; preds = %.lr.ph.i.i8.preheader, %_ZNSt8valarrayIfEaSERKf.exit6
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %28 = load i64, ptr %27, align 8
+  %28 = load i64, ptr %27, align 8, !tbaa !6
   %.not3.i.i13 = icmp eq i64 %28, 0
   br i1 %.not3.i.i13, label %_ZNSt8valarrayIfEaSERKf.exit18, label %.lr.ph.i.i14.preheader
 
 .lr.ph.i.i14.preheader:                           ; preds = %_ZNSt8valarrayIfEaSERKf.exit12
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %30 = load ptr, ptr %29, align 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !12
   %31 = shl nuw i64 %28, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %30, i8 0, i64 %31, i1 false), !alias.scope !46
+  tail call void @llvm.memset.p0.i64(ptr align 4 %30, i8 0, i64 %31, i1 false), !tbaa !22, !alias.scope !65
   br label %_ZNSt8valarrayIfEaSERKf.exit18
 
 _ZNSt8valarrayIfEaSERKf.exit18:                   ; preds = %.lr.ph.i.i14.preheader, %_ZNSt8valarrayIfEaSERKf.exit12
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %33 = load i64, ptr %32, align 8
+  %33 = load i64, ptr %32, align 8, !tbaa !6
   %.not3.i.i19 = icmp eq i64 %33, 0
   br i1 %.not3.i.i19, label %_ZNSt8valarrayIfEaSERKf.exit24, label %.lr.ph.i.i20.preheader
 
 .lr.ph.i.i20.preheader:                           ; preds = %_ZNSt8valarrayIfEaSERKf.exit18
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %35 = load ptr, ptr %34, align 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !12
   %36 = shl nuw i64 %33, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %35, i8 0, i64 %36, i1 false), !alias.scope !49
+  tail call void @llvm.memset.p0.i64(ptr align 4 %35, i8 0, i64 %36, i1 false), !tbaa !22, !alias.scope !68
   br label %_ZNSt8valarrayIfEaSERKf.exit24
 
 _ZNSt8valarrayIfEaSERKf.exit24:                   ; preds = %.lr.ph.i.i20.preheader, %_ZNSt8valarrayIfEaSERKf.exit18
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %38 = load i64, ptr %37, align 8
+  %38 = load i64, ptr %37, align 8, !tbaa !6
   %.not3.i.i25 = icmp eq i64 %38, 0
   br i1 %.not3.i.i25, label %_ZNSt8valarrayIfEaSERKf.exit30, label %.lr.ph.i.i26.preheader
 
 .lr.ph.i.i26.preheader:                           ; preds = %_ZNSt8valarrayIfEaSERKf.exit24
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %40 = load ptr, ptr %39, align 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !12
   %41 = shl nuw i64 %38, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %40, i8 0, i64 %41, i1 false), !alias.scope !52
+  tail call void @llvm.memset.p0.i64(ptr align 4 %40, i8 0, i64 %41, i1 false), !tbaa !22, !alias.scope !71
   br label %_ZNSt8valarrayIfEaSERKf.exit30
 
 _ZNSt8valarrayIfEaSERKf.exit30:                   ; preds = %.lr.ph.i.i26.preheader, %_ZNSt8valarrayIfEaSERKf.exit24
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %43 = load i64, ptr %42, align 8
+  %43 = load i64, ptr %42, align 8, !tbaa !6
   %.not3.i.i31 = icmp eq i64 %43, 0
   br i1 %.not3.i.i31, label %_ZNSt8valarrayIfEaSERKf.exit36, label %.lr.ph.i.i32.preheader
 
 .lr.ph.i.i32.preheader:                           ; preds = %_ZNSt8valarrayIfEaSERKf.exit30
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %45 = load ptr, ptr %44, align 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !12
   %46 = shl nuw i64 %43, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %45, i8 0, i64 %46, i1 false), !alias.scope !55
+  tail call void @llvm.memset.p0.i64(ptr align 4 %45, i8 0, i64 %46, i1 false), !tbaa !22, !alias.scope !74
   br label %_ZNSt8valarrayIfEaSERKf.exit36
 
 _ZNSt8valarrayIfEaSERKf.exit36:                   ; preds = %.lr.ph.i.i32.preheader, %_ZNSt8valarrayIfEaSERKf.exit30
@@ -435,65 +432,71 @@ declare void @_ZN2cv11bioinspired17BasicRetinaFilterD2Ev(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN2cv11bioinspired17ParvoRetinaFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(304) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv11bioinspired17ParvoRetinaFilterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv11bioinspired17ParvoRetinaFilterE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %3 = load ptr, ptr %2, align 8
-  tail call void @_ZdlPv(ptr noundef %3) #12
+  %3 = load ptr, ptr %2, align 8, !tbaa !12
+  tail call void @_ZdlPv(ptr noundef %3) #13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %5 = load ptr, ptr %4, align 8
-  tail call void @_ZdlPv(ptr noundef %5) #12
+  %5 = load ptr, ptr %4, align 8, !tbaa !12
+  tail call void @_ZdlPv(ptr noundef %5) #13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %7 = load ptr, ptr %6, align 8
-  tail call void @_ZdlPv(ptr noundef %7) #12
+  %7 = load ptr, ptr %6, align 8, !tbaa !12
+  tail call void @_ZdlPv(ptr noundef %7) #13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %9 = load ptr, ptr %8, align 8
-  tail call void @_ZdlPv(ptr noundef %9) #12
+  %9 = load ptr, ptr %8, align 8, !tbaa !12
+  tail call void @_ZdlPv(ptr noundef %9) #13
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %11 = load ptr, ptr %10, align 8
-  tail call void @_ZdlPv(ptr noundef %11) #12
+  %11 = load ptr, ptr %10, align 8, !tbaa !12
+  tail call void @_ZdlPv(ptr noundef %11) #13
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %13 = load ptr, ptr %12, align 8
-  tail call void @_ZdlPv(ptr noundef %13) #12
+  %13 = load ptr, ptr %12, align 8, !tbaa !12
+  tail call void @_ZdlPv(ptr noundef %13) #13
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %15 = load ptr, ptr %14, align 8
-  tail call void @_ZdlPv(ptr noundef %15) #12
+  %15 = load ptr, ptr %14, align 8, !tbaa !12
+  tail call void @_ZdlPv(ptr noundef %15) #13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN2cv11bioinspired17BasicRetinaFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %16) #12
+  tail call void @_ZN2cv11bioinspired17BasicRetinaFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %16) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN2cv11bioinspired17ParvoRetinaFilterD0Ev(ptr noundef nonnull align 8 dereferenceable(304) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv11bioinspired17ParvoRetinaFilterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv11bioinspired17ParvoRetinaFilterE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %3 = load ptr, ptr %2, align 8
-  tail call void @_ZdlPv(ptr noundef %3) #12
+  %3 = load ptr, ptr %2, align 8, !tbaa !12
+  tail call void @_ZdlPv(ptr noundef %3) #13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %5 = load ptr, ptr %4, align 8
-  tail call void @_ZdlPv(ptr noundef %5) #12
+  %5 = load ptr, ptr %4, align 8, !tbaa !12
+  tail call void @_ZdlPv(ptr noundef %5) #13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %7 = load ptr, ptr %6, align 8
-  tail call void @_ZdlPv(ptr noundef %7) #12
+  %7 = load ptr, ptr %6, align 8, !tbaa !12
+  tail call void @_ZdlPv(ptr noundef %7) #13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %9 = load ptr, ptr %8, align 8
-  tail call void @_ZdlPv(ptr noundef %9) #12
+  %9 = load ptr, ptr %8, align 8, !tbaa !12
+  tail call void @_ZdlPv(ptr noundef %9) #13
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %11 = load ptr, ptr %10, align 8
-  tail call void @_ZdlPv(ptr noundef %11) #12
+  %11 = load ptr, ptr %10, align 8, !tbaa !12
+  tail call void @_ZdlPv(ptr noundef %11) #13
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %13 = load ptr, ptr %12, align 8
-  tail call void @_ZdlPv(ptr noundef %13) #12
+  %13 = load ptr, ptr %12, align 8, !tbaa !12
+  tail call void @_ZdlPv(ptr noundef %13) #13
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %15 = load ptr, ptr %14, align 8
-  tail call void @_ZdlPv(ptr noundef %15) #12
+  %15 = load ptr, ptr %14, align 8, !tbaa !12
+  tail call void @_ZdlPv(ptr noundef %15) #13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN2cv11bioinspired17BasicRetinaFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %16) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #13
+  tail call void @_ZN2cv11bioinspired17BasicRetinaFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %16) #13
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #14
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv11bioinspired17ParvoRetinaFilter6resizeEjj(ptr noundef nonnull align 8 dereferenceable(304) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
@@ -503,17 +506,17 @@ define hidden void @_ZN2cv11bioinspired17ParvoRetinaFilter6resizeEjj(ptr noundef
   %6 = mul i32 %2, %1
   %7 = zext i32 %6 to i64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %9 = load i64, ptr %5, align 8
+  %9 = load i64, ptr %5, align 8, !tbaa !6
   %.not.i = icmp eq i64 %9, %7
-  %.pre.i = load ptr, ptr %8, align 8
+  %.pre.i = load ptr, ptr %8, align 8, !tbaa !12
   br i1 %.not.i, label %13, label %10
 
 10:                                               ; preds = %3
-  tail call void @_ZdlPv(ptr noundef %.pre.i) #12
-  store i64 %7, ptr %5, align 8
+  tail call void @_ZdlPv(ptr noundef %.pre.i) #13
+  store i64 %7, ptr %5, align 8, !tbaa !6
   %11 = shl nuw nsw i64 %7, 2
-  %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #11
-  store ptr %12, ptr %8, align 8
+  %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #12
+  store ptr %12, ptr %8, align 8, !tbaa !12
   br label %13
 
 13:                                               ; preds = %10, %3
@@ -523,23 +526,23 @@ define hidden void @_ZN2cv11bioinspired17ParvoRetinaFilter6resizeEjj(ptr noundef
 
 .lr.ph.i.i.i.preheader:                           ; preds = %13
   %15 = shl nuw nsw i64 %7, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %14, i8 0, i64 %15, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %14, i8 0, i64 %15, i1 false), !tbaa !22
   br label %_ZNSt8valarrayIfE6resizeEmf.exit
 
 _ZNSt8valarrayIfE6resizeEmf.exit:                 ; preds = %.lr.ph.i.i.i.preheader, %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %18 = load i64, ptr %16, align 8
+  %18 = load i64, ptr %16, align 8, !tbaa !6
   %.not.i16 = icmp eq i64 %18, %7
-  %.pre.i17 = load ptr, ptr %17, align 8
+  %.pre.i17 = load ptr, ptr %17, align 8, !tbaa !12
   br i1 %.not.i16, label %22, label %19
 
 19:                                               ; preds = %_ZNSt8valarrayIfE6resizeEmf.exit
-  tail call void @_ZdlPv(ptr noundef %.pre.i17) #12
-  store i64 %7, ptr %16, align 8
+  tail call void @_ZdlPv(ptr noundef %.pre.i17) #13
+  store i64 %7, ptr %16, align 8, !tbaa !6
   %20 = shl nuw nsw i64 %7, 2
-  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #11
-  store ptr %21, ptr %17, align 8
+  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #12
+  store ptr %21, ptr %17, align 8, !tbaa !12
   br label %22
 
 22:                                               ; preds = %19, %_ZNSt8valarrayIfE6resizeEmf.exit
@@ -548,23 +551,23 @@ _ZNSt8valarrayIfE6resizeEmf.exit:                 ; preds = %.lr.ph.i.i.i.prehea
 
 .lr.ph.i.i.i19.preheader:                         ; preds = %22
   %24 = shl nuw nsw i64 %7, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %23, i8 0, i64 %24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %23, i8 0, i64 %24, i1 false), !tbaa !22
   br label %_ZNSt8valarrayIfE6resizeEmf.exit22
 
 _ZNSt8valarrayIfE6resizeEmf.exit22:               ; preds = %.lr.ph.i.i.i19.preheader, %22
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %27 = load i64, ptr %25, align 8
+  %27 = load i64, ptr %25, align 8, !tbaa !6
   %.not.i23 = icmp eq i64 %27, %7
-  %.pre.i24 = load ptr, ptr %26, align 8
+  %.pre.i24 = load ptr, ptr %26, align 8, !tbaa !12
   br i1 %.not.i23, label %31, label %28
 
 28:                                               ; preds = %_ZNSt8valarrayIfE6resizeEmf.exit22
-  tail call void @_ZdlPv(ptr noundef %.pre.i24) #12
-  store i64 %7, ptr %25, align 8
+  tail call void @_ZdlPv(ptr noundef %.pre.i24) #13
+  store i64 %7, ptr %25, align 8, !tbaa !6
   %29 = shl nuw nsw i64 %7, 2
-  %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #11
-  store ptr %30, ptr %26, align 8
+  %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #12
+  store ptr %30, ptr %26, align 8, !tbaa !12
   br label %31
 
 31:                                               ; preds = %28, %_ZNSt8valarrayIfE6resizeEmf.exit22
@@ -573,23 +576,23 @@ _ZNSt8valarrayIfE6resizeEmf.exit22:               ; preds = %.lr.ph.i.i.i19.preh
 
 .lr.ph.i.i.i26.preheader:                         ; preds = %31
   %33 = shl nuw nsw i64 %7, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %32, i8 0, i64 %33, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %32, i8 0, i64 %33, i1 false), !tbaa !22
   br label %_ZNSt8valarrayIfE6resizeEmf.exit29
 
 _ZNSt8valarrayIfE6resizeEmf.exit29:               ; preds = %.lr.ph.i.i.i26.preheader, %31
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %36 = load i64, ptr %34, align 8
+  %36 = load i64, ptr %34, align 8, !tbaa !6
   %.not.i30 = icmp eq i64 %36, %7
-  %.pre.i31 = load ptr, ptr %35, align 8
+  %.pre.i31 = load ptr, ptr %35, align 8, !tbaa !12
   br i1 %.not.i30, label %40, label %37
 
 37:                                               ; preds = %_ZNSt8valarrayIfE6resizeEmf.exit29
-  tail call void @_ZdlPv(ptr noundef %.pre.i31) #12
-  store i64 %7, ptr %34, align 8
+  tail call void @_ZdlPv(ptr noundef %.pre.i31) #13
+  store i64 %7, ptr %34, align 8, !tbaa !6
   %38 = shl nuw nsw i64 %7, 2
-  %39 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %38) #11
-  store ptr %39, ptr %35, align 8
+  %39 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %38) #12
+  store ptr %39, ptr %35, align 8, !tbaa !12
   br label %40
 
 40:                                               ; preds = %37, %_ZNSt8valarrayIfE6resizeEmf.exit29
@@ -598,23 +601,23 @@ _ZNSt8valarrayIfE6resizeEmf.exit29:               ; preds = %.lr.ph.i.i.i26.preh
 
 .lr.ph.i.i.i33.preheader:                         ; preds = %40
   %42 = shl nuw nsw i64 %7, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %41, i8 0, i64 %42, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %41, i8 0, i64 %42, i1 false), !tbaa !22
   br label %_ZNSt8valarrayIfE6resizeEmf.exit36
 
 _ZNSt8valarrayIfE6resizeEmf.exit36:               ; preds = %.lr.ph.i.i.i33.preheader, %40
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %45 = load i64, ptr %43, align 8
+  %45 = load i64, ptr %43, align 8, !tbaa !6
   %.not.i37 = icmp eq i64 %45, %7
-  %.pre.i38 = load ptr, ptr %44, align 8
+  %.pre.i38 = load ptr, ptr %44, align 8, !tbaa !12
   br i1 %.not.i37, label %49, label %46
 
 46:                                               ; preds = %_ZNSt8valarrayIfE6resizeEmf.exit36
-  tail call void @_ZdlPv(ptr noundef %.pre.i38) #12
-  store i64 %7, ptr %43, align 8
+  tail call void @_ZdlPv(ptr noundef %.pre.i38) #13
+  store i64 %7, ptr %43, align 8, !tbaa !6
   %47 = shl nuw nsw i64 %7, 2
-  %48 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %47) #11
-  store ptr %48, ptr %44, align 8
+  %48 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %47) #12
+  store ptr %48, ptr %44, align 8, !tbaa !12
   br label %49
 
 49:                                               ; preds = %46, %_ZNSt8valarrayIfE6resizeEmf.exit36
@@ -623,23 +626,23 @@ _ZNSt8valarrayIfE6resizeEmf.exit36:               ; preds = %.lr.ph.i.i.i33.preh
 
 .lr.ph.i.i.i40.preheader:                         ; preds = %49
   %51 = shl nuw nsw i64 %7, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %50, i8 0, i64 %51, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %50, i8 0, i64 %51, i1 false), !tbaa !22
   br label %_ZNSt8valarrayIfE6resizeEmf.exit43
 
 _ZNSt8valarrayIfE6resizeEmf.exit43:               ; preds = %.lr.ph.i.i.i40.preheader, %49
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %54 = load i64, ptr %52, align 8
+  %54 = load i64, ptr %52, align 8, !tbaa !6
   %.not.i44 = icmp eq i64 %54, %7
-  %.pre.i45 = load ptr, ptr %53, align 8
+  %.pre.i45 = load ptr, ptr %53, align 8, !tbaa !12
   br i1 %.not.i44, label %58, label %55
 
 55:                                               ; preds = %_ZNSt8valarrayIfE6resizeEmf.exit43
-  tail call void @_ZdlPv(ptr noundef %.pre.i45) #12
-  store i64 %7, ptr %52, align 8
+  tail call void @_ZdlPv(ptr noundef %.pre.i45) #13
+  store i64 %7, ptr %52, align 8, !tbaa !6
   %56 = shl nuw nsw i64 %7, 2
-  %57 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %56) #11
-  store ptr %57, ptr %53, align 8
+  %57 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %56) #12
+  store ptr %57, ptr %53, align 8, !tbaa !12
   br label %58
 
 58:                                               ; preds = %55, %_ZNSt8valarrayIfE6resizeEmf.exit43
@@ -648,23 +651,23 @@ _ZNSt8valarrayIfE6resizeEmf.exit43:               ; preds = %.lr.ph.i.i.i40.preh
 
 .lr.ph.i.i.i47.preheader:                         ; preds = %58
   %60 = shl nuw nsw i64 %7, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %59, i8 0, i64 %60, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %59, i8 0, i64 %60, i1 false), !tbaa !22
   br label %_ZNSt8valarrayIfE6resizeEmf.exit50
 
 _ZNSt8valarrayIfE6resizeEmf.exit50:               ; preds = %.lr.ph.i.i.i47.preheader, %58
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %63 = load i64, ptr %61, align 8
+  %63 = load i64, ptr %61, align 8, !tbaa !6
   %.not.i51 = icmp eq i64 %63, %7
-  %.pre.i52 = load ptr, ptr %62, align 8
+  %.pre.i52 = load ptr, ptr %62, align 8, !tbaa !12
   br i1 %.not.i51, label %67, label %64
 
 64:                                               ; preds = %_ZNSt8valarrayIfE6resizeEmf.exit50
-  tail call void @_ZdlPv(ptr noundef %.pre.i52) #12
-  store i64 %7, ptr %61, align 8
+  tail call void @_ZdlPv(ptr noundef %.pre.i52) #13
+  store i64 %7, ptr %61, align 8, !tbaa !6
   %65 = shl nuw nsw i64 %7, 2
-  %66 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %65) #11
-  store ptr %66, ptr %62, align 8
+  %66 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %65) #12
+  store ptr %66, ptr %62, align 8, !tbaa !12
   br label %67
 
 67:                                               ; preds = %64, %_ZNSt8valarrayIfE6resizeEmf.exit50
@@ -673,114 +676,113 @@ _ZNSt8valarrayIfE6resizeEmf.exit50:               ; preds = %.lr.ph.i.i.i47.preh
 
 .lr.ph.i.i.i54.preheader:                         ; preds = %67
   %69 = shl nuw nsw i64 %7, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %68, i8 0, i64 %69, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %68, i8 0, i64 %69, i1 false), !tbaa !22
   br label %_ZNSt8valarrayIfE6resizeEmf.exit57
 
 _ZNSt8valarrayIfE6resizeEmf.exit57:               ; preds = %.lr.ph.i.i.i54.preheader, %67
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store ptr %70, ptr %71, align 8
+  store ptr %70, ptr %71, align 8, !tbaa !13
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store ptr %4, ptr %72, align 8
+  store ptr %4, ptr %72, align 8, !tbaa !21
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %74 = load i64, ptr %73, align 8
+  %74 = load i64, ptr %73, align 8, !tbaa !6
   %.not3.i.i.i.i.i.i = icmp eq i64 %74, 0
   br i1 %.not3.i.i.i.i.i.i, label %_ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i.i, label %.lr.ph.i.i.i.preheader.i.i.i
 
 .lr.ph.i.i.i.preheader.i.i.i:                     ; preds = %_ZNSt8valarrayIfE6resizeEmf.exit57
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %76 = load ptr, ptr %75, align 8
+  %76 = load ptr, ptr %75, align 8, !tbaa !12
   %77 = shl nuw i64 %74, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %76, i8 0, i64 %77, i1 false), !alias.scope !58
+  tail call void @llvm.memset.p0.i64(ptr align 4 %76, i8 0, i64 %77, i1 false), !tbaa !22, !alias.scope !77
   br label %_ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i.i
 
 _ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i.i: ; preds = %.lr.ph.i.i.i.preheader.i.i.i, %_ZNSt8valarrayIfE6resizeEmf.exit57
-  %78 = load i64, ptr %70, align 8
+  %78 = load i64, ptr %70, align 8, !tbaa !6
   %.not3.i.i.i.i.i = icmp eq i64 %78, 0
   br i1 %.not3.i.i.i.i.i, label %_ZN2cv11bioinspired17BasicRetinaFilter15clearAllBuffersEv.exit.i, label %.lr.ph.i.i.preheader.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i.i
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %80 = load ptr, ptr %79, align 8
+  %80 = load ptr, ptr %79, align 8, !tbaa !12
   %81 = shl nuw i64 %78, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %80, i8 0, i64 %81, i1 false), !alias.scope !61
+  tail call void @llvm.memset.p0.i64(ptr align 4 %80, i8 0, i64 %81, i1 false), !tbaa !22, !alias.scope !80
   br label %_ZN2cv11bioinspired17BasicRetinaFilter15clearAllBuffersEv.exit.i
 
 _ZN2cv11bioinspired17BasicRetinaFilter15clearAllBuffersEv.exit.i: ; preds = %.lr.ph.i.i.preheader.i.i.i, %_ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i.i
-  %82 = load i64, ptr %5, align 8
+  %82 = load i64, ptr %5, align 8, !tbaa !6
   %.not3.i.i.i = icmp eq i64 %82, 0
   br i1 %.not3.i.i.i, label %_ZNSt8valarrayIfEaSERKf.exit.i, label %.lr.ph.i.i.preheader.i
 
 .lr.ph.i.i.preheader.i:                           ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter15clearAllBuffersEv.exit.i
-  %83 = load ptr, ptr %8, align 8
+  %83 = load ptr, ptr %8, align 8, !tbaa !12
   %84 = shl nuw i64 %82, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %83, i8 0, i64 %84, i1 false), !alias.scope !64
+  tail call void @llvm.memset.p0.i64(ptr align 4 %83, i8 0, i64 %84, i1 false), !tbaa !22, !alias.scope !83
   br label %_ZNSt8valarrayIfEaSERKf.exit.i
 
 _ZNSt8valarrayIfEaSERKf.exit.i:                   ; preds = %.lr.ph.i.i.preheader.i, %_ZN2cv11bioinspired17BasicRetinaFilter15clearAllBuffersEv.exit.i
-  %85 = load i64, ptr %16, align 8
+  %85 = load i64, ptr %16, align 8, !tbaa !6
   %.not3.i.i1.i = icmp eq i64 %85, 0
   br i1 %.not3.i.i1.i, label %_ZNSt8valarrayIfEaSERKf.exit6.i, label %.lr.ph.i.i2.preheader.i
 
 .lr.ph.i.i2.preheader.i:                          ; preds = %_ZNSt8valarrayIfEaSERKf.exit.i
-  %86 = load ptr, ptr %17, align 8
+  %86 = load ptr, ptr %17, align 8, !tbaa !12
   %87 = shl nuw i64 %85, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %86, i8 0, i64 %87, i1 false), !alias.scope !67
+  tail call void @llvm.memset.p0.i64(ptr align 4 %86, i8 0, i64 %87, i1 false), !tbaa !22, !alias.scope !86
   br label %_ZNSt8valarrayIfEaSERKf.exit6.i
 
 _ZNSt8valarrayIfEaSERKf.exit6.i:                  ; preds = %.lr.ph.i.i2.preheader.i, %_ZNSt8valarrayIfEaSERKf.exit.i
-  %88 = load i64, ptr %25, align 8
+  %88 = load i64, ptr %25, align 8, !tbaa !6
   %.not3.i.i7.i = icmp eq i64 %88, 0
   br i1 %.not3.i.i7.i, label %_ZNSt8valarrayIfEaSERKf.exit12.i, label %.lr.ph.i.i8.preheader.i
 
 .lr.ph.i.i8.preheader.i:                          ; preds = %_ZNSt8valarrayIfEaSERKf.exit6.i
-  %89 = load ptr, ptr %26, align 8
+  %89 = load ptr, ptr %26, align 8, !tbaa !12
   %90 = shl nuw i64 %88, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %89, i8 0, i64 %90, i1 false), !alias.scope !70
+  tail call void @llvm.memset.p0.i64(ptr align 4 %89, i8 0, i64 %90, i1 false), !tbaa !22, !alias.scope !89
   br label %_ZNSt8valarrayIfEaSERKf.exit12.i
 
 _ZNSt8valarrayIfEaSERKf.exit12.i:                 ; preds = %.lr.ph.i.i8.preheader.i, %_ZNSt8valarrayIfEaSERKf.exit6.i
-  %91 = load i64, ptr %34, align 8
+  %91 = load i64, ptr %34, align 8, !tbaa !6
   %.not3.i.i13.i = icmp eq i64 %91, 0
   br i1 %.not3.i.i13.i, label %_ZNSt8valarrayIfEaSERKf.exit18.i, label %.lr.ph.i.i14.preheader.i
 
 .lr.ph.i.i14.preheader.i:                         ; preds = %_ZNSt8valarrayIfEaSERKf.exit12.i
-  %92 = load ptr, ptr %35, align 8
+  %92 = load ptr, ptr %35, align 8, !tbaa !12
   %93 = shl nuw i64 %91, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %92, i8 0, i64 %93, i1 false), !alias.scope !73
+  tail call void @llvm.memset.p0.i64(ptr align 4 %92, i8 0, i64 %93, i1 false), !tbaa !22, !alias.scope !92
   br label %_ZNSt8valarrayIfEaSERKf.exit18.i
 
 _ZNSt8valarrayIfEaSERKf.exit18.i:                 ; preds = %.lr.ph.i.i14.preheader.i, %_ZNSt8valarrayIfEaSERKf.exit12.i
-  %94 = load i64, ptr %43, align 8
+  %94 = load i64, ptr %43, align 8, !tbaa !6
   %.not3.i.i19.i = icmp eq i64 %94, 0
   br i1 %.not3.i.i19.i, label %_ZNSt8valarrayIfEaSERKf.exit24.i, label %.lr.ph.i.i20.preheader.i
 
 .lr.ph.i.i20.preheader.i:                         ; preds = %_ZNSt8valarrayIfEaSERKf.exit18.i
-  %95 = load ptr, ptr %44, align 8
+  %95 = load ptr, ptr %44, align 8, !tbaa !12
   %96 = shl nuw i64 %94, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %95, i8 0, i64 %96, i1 false), !alias.scope !76
+  tail call void @llvm.memset.p0.i64(ptr align 4 %95, i8 0, i64 %96, i1 false), !tbaa !22, !alias.scope !95
   br label %_ZNSt8valarrayIfEaSERKf.exit24.i
 
 _ZNSt8valarrayIfEaSERKf.exit24.i:                 ; preds = %.lr.ph.i.i20.preheader.i, %_ZNSt8valarrayIfEaSERKf.exit18.i
-  %97 = load i64, ptr %52, align 8
+  %97 = load i64, ptr %52, align 8, !tbaa !6
   %.not3.i.i25.i = icmp eq i64 %97, 0
   br i1 %.not3.i.i25.i, label %_ZNSt8valarrayIfEaSERKf.exit30.i, label %.lr.ph.i.i26.preheader.i
 
 .lr.ph.i.i26.preheader.i:                         ; preds = %_ZNSt8valarrayIfEaSERKf.exit24.i
-  %98 = load ptr, ptr %53, align 8
+  %98 = load ptr, ptr %53, align 8, !tbaa !12
   %99 = shl nuw i64 %97, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %98, i8 0, i64 %99, i1 false), !alias.scope !79
+  tail call void @llvm.memset.p0.i64(ptr align 4 %98, i8 0, i64 %99, i1 false), !tbaa !22, !alias.scope !98
   br label %_ZNSt8valarrayIfEaSERKf.exit30.i
 
 _ZNSt8valarrayIfEaSERKf.exit30.i:                 ; preds = %.lr.ph.i.i26.preheader.i, %_ZNSt8valarrayIfEaSERKf.exit24.i
-  %100 = load i64, ptr %61, align 8
+  %100 = load i64, ptr %61, align 8, !tbaa !6
   %.not3.i.i31.i = icmp eq i64 %100, 0
   br i1 %.not3.i.i31.i, label %_ZN2cv11bioinspired17ParvoRetinaFilter15clearAllBuffersEv.exit, label %.lr.ph.i.i32.preheader.i
 
 .lr.ph.i.i32.preheader.i:                         ; preds = %_ZNSt8valarrayIfEaSERKf.exit30.i
-  %101 = load ptr, ptr %62, align 8
-  %102 = shl nuw i64 %100, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %101, i8 0, i64 %102, i1 false), !alias.scope !82
+  %101 = shl nuw i64 %100, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %68, i8 0, i64 %101, i1 false), !tbaa !22, !alias.scope !101
   br label %_ZN2cv11bioinspired17ParvoRetinaFilter15clearAllBuffersEv.exit
 
 _ZN2cv11bioinspired17ParvoRetinaFilter15clearAllBuffersEv.exit: ; preds = %_ZNSt8valarrayIfEaSERKf.exit30.i, %.lr.ph.i.i32.preheader.i
@@ -806,116 +808,120 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11bioinspir
   %5 = alloca %"class.cv::bioinspired::ParvoRetinaFilter::Parallel_OPL_OnOffWaysComputing", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !12
   tail call void @_ZN2cv11bioinspired17BasicRetinaFilter23_spatiotemporalLPfilterEPKfPfj(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef %8, ptr noundef nonnull %10, i32 noundef 0)
-  %11 = load ptr, ptr %9, align 8
+  %11 = load ptr, ptr %9, align 8, !tbaa !12
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !12
   tail call void @_ZN2cv11bioinspired17BasicRetinaFilter23_spatiotemporalLPfilterEPKfPfj(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull %11, ptr noundef nonnull %13, i32 noundef 1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %15 = load i64, ptr %14, align 8
+  %15 = load i64, ptr %14, align 8, !tbaa !104
   %16 = trunc i64 %15 to i32
-  store i32 0, ptr %4, align 4
+  store i32 0, ptr %4, align 4, !tbaa !105
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %16, ptr %17, align 4
-  %18 = load ptr, ptr %9, align 8
-  %19 = load ptr, ptr %12, align 8
+  store i32 %16, ptr %17, align 4, !tbaa !107
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #13
+  %18 = load ptr, ptr %9, align 8, !tbaa !12
+  %19 = load ptr, ptr %12, align 8, !tbaa !12
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %21 = load ptr, ptr %20, align 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !12
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %23 = load ptr, ptr %22, align 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !12
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %25 = load ptr, ptr %24, align 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !12
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %27 = load ptr, ptr %26, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingE, i64 16), ptr %5, align 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !12
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingE, i64 16), ptr %5, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %18, ptr %28, align 8
+  store ptr %18, ptr %28, align 8, !tbaa !108
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %19, ptr %29, align 8
+  store ptr %19, ptr %29, align 8, !tbaa !111
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %21, ptr %30, align 8
+  store ptr %21, ptr %30, align 8, !tbaa !112
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %23, ptr %31, align 8
+  store ptr %23, ptr %31, align 8, !tbaa !113
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr %25, ptr %32, align 8
+  store ptr %25, ptr %32, align 8, !tbaa !114
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr %27, ptr %33, align 8
+  store ptr %27, ptr %33, align 8, !tbaa !115
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, double noundef -1.000000e+00)
           to label %_ZN2cv11bioinspired17ParvoRetinaFilter23_OPL_OnOffWaysComputingEv.exit unwind label %34
 
 34:                                               ; preds = %3
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #12
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #13
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   resume { ptr, i32 } %35
 
 _ZN2cv11bioinspired17ParvoRetinaFilter23_OPL_OnOffWaysComputingEv.exit: ; preds = %3
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
-  br i1 %2, label %36, label %.loopexit
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #13
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  br i1 %2, label %36, label %_ZN2cv11bioinspired17ParvoRetinaFilter23_OPL_OnOffWaysComputingEv.exit..loopexit_crit_edge
+
+_ZN2cv11bioinspired17ParvoRetinaFilter23_OPL_OnOffWaysComputingEv.exit..loopexit_crit_edge: ; preds = %_ZN2cv11bioinspired17ParvoRetinaFilter23_OPL_OnOffWaysComputingEv.exit
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !21
+  br label %.loopexit
 
 36:                                               ; preds = %_ZN2cv11bioinspired17ParvoRetinaFilter23_OPL_OnOffWaysComputingEv.exit
-  %37 = load ptr, ptr %20, align 8
+  %37 = load ptr, ptr %20, align 8, !tbaa !12
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %39 = load ptr, ptr %38, align 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !13
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load ptr, ptr %40, align 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !12
   call void @_ZN2cv11bioinspired17BasicRetinaFilter23_spatiotemporalLPfilterEPKfPfj(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull %37, ptr noundef nonnull %41, i32 noundef 2)
-  %42 = load ptr, ptr %24, align 8
-  %43 = load ptr, ptr %38, align 8
+  %42 = load ptr, ptr %24, align 8, !tbaa !12
+  %43 = load ptr, ptr %38, align 8, !tbaa !13
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %45 = load ptr, ptr %44, align 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !12
   call void @_ZN2cv11bioinspired17BasicRetinaFilter25_localLuminanceAdaptationEPfPKf(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull %42, ptr noundef nonnull %45)
-  %46 = load ptr, ptr %22, align 8
+  %46 = load ptr, ptr %22, align 8, !tbaa !12
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %48 = load ptr, ptr %47, align 8
+  %48 = load ptr, ptr %47, align 8, !tbaa !12
   call void @_ZN2cv11bioinspired17BasicRetinaFilter23_spatiotemporalLPfilterEPKfPfj(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull %46, ptr noundef nonnull %48, i32 noundef 2)
-  %49 = load ptr, ptr %26, align 8
-  %50 = load ptr, ptr %47, align 8
+  %49 = load ptr, ptr %26, align 8, !tbaa !12
+  %50 = load ptr, ptr %47, align 8, !tbaa !12
   call void @_ZN2cv11bioinspired17BasicRetinaFilter25_localLuminanceAdaptationEPfPKf(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull %49, ptr noundef nonnull %50)
-  %51 = load i64, ptr %14, align 8
-  %52 = and i64 %51, 4294967295
-  %.not = icmp eq i64 %52, 0
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %52 = load ptr, ptr %51, align 8, !tbaa !21
+  %53 = load i64, ptr %14, align 8, !tbaa !104
+  %54 = trunc i64 %53 to i32
+  %.not = icmp eq i32 %54, 0
   br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %36
-  %53 = load ptr, ptr %26, align 8
-  %54 = load ptr, ptr %24, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %58 = load ptr, ptr %57, align 8
+  %55 = load ptr, ptr %26, align 8, !tbaa !12
+  %56 = load ptr, ptr %24, align 8, !tbaa !12
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %58 = load ptr, ptr %57, align 8, !tbaa !12
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.013 = phi i32 [ %65, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.0712 = phi ptr [ %61, %.lr.ph ], [ %53, %.lr.ph.preheader ]
-  %.0811 = phi ptr [ %59, %.lr.ph ], [ %54, %.lr.ph.preheader ]
+  %.0712 = phi ptr [ %61, %.lr.ph ], [ %55, %.lr.ph.preheader ]
+  %.0811 = phi ptr [ %59, %.lr.ph ], [ %56, %.lr.ph.preheader ]
   %.0910 = phi ptr [ %64, %.lr.ph ], [ %58, %.lr.ph.preheader ]
   %59 = getelementptr inbounds nuw i8, ptr %.0811, i64 4
-  %60 = load float, ptr %.0811, align 4
+  %60 = load float, ptr %.0811, align 4, !tbaa !22
   %61 = getelementptr inbounds nuw i8, ptr %.0712, i64 4
-  %62 = load float, ptr %.0712, align 4
+  %62 = load float, ptr %.0712, align 4, !tbaa !22
   %63 = fsub float %60, %62
   %64 = getelementptr inbounds nuw i8, ptr %.0910, i64 4
-  store float %63, ptr %.0910, align 4
+  store float %63, ptr %.0910, align 4, !tbaa !22
   %65 = add nuw i32 %.013, 1
-  %66 = load i64, ptr %14, align 8
-  %67 = trunc i64 %66 to i32
-  %68 = icmp ult i32 %65, %67
-  br i1 %68, label %.lr.ph, label %.loopexit, !llvm.loop !85
+  %exitcond.not = icmp eq i32 %65, %54
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !116
 
-.loopexit:                                        ; preds = %.lr.ph, %36, %_ZN2cv11bioinspired17ParvoRetinaFilter23_OPL_OnOffWaysComputingEv.exit
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  ret ptr %71
+.loopexit:                                        ; preds = %.lr.ph, %_ZN2cv11bioinspired17ParvoRetinaFilter23_OPL_OnOffWaysComputingEv.exit..loopexit_crit_edge, %36
+  %66 = phi ptr [ %.pre, %_ZN2cv11bioinspired17ParvoRetinaFilter23_OPL_OnOffWaysComputingEv.exit..loopexit_crit_edge ], [ %52, %36 ], [ %52, %.lr.ph ]
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  ret ptr %67
 }
 
 declare void @_ZN2cv11bioinspired17BasicRetinaFilter23_spatiotemporalLPfilterEPKfPfj(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
@@ -924,48 +930,54 @@ declare void @_ZN2cv11bioinspired17BasicRetinaFilter23_spatiotemporalLPfilterEPK
 define hidden void @_ZN2cv11bioinspired17ParvoRetinaFilter23_OPL_OnOffWaysComputingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::Range", align 4
   %3 = alloca %"class.cv::bioinspired::ParvoRetinaFilter::Parallel_OPL_OnOffWaysComputing", align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %5 = load i64, ptr %4, align 8
+  %5 = load i64, ptr %4, align 8, !tbaa !104
   %6 = trunc i64 %5 to i32
-  store i32 0, ptr %2, align 4
+  store i32 0, ptr %2, align 4, !tbaa !105
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %6, ptr %7, align 4
+  store i32 %6, ptr %7, align 4, !tbaa !107
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !12
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !12
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %15 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %17 = load ptr, ptr %16, align 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %19 = load ptr, ptr %18, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingE, i64 16), ptr %3, align 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !12
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingE, i64 16), ptr %3, align 8, !tbaa !3
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %9, ptr %20, align 8
+  store ptr %9, ptr %20, align 8, !tbaa !108
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %11, ptr %21, align 8
+  store ptr %11, ptr %21, align 8, !tbaa !111
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %13, ptr %22, align 8
+  store ptr %13, ptr %22, align 8, !tbaa !112
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %15, ptr %23, align 8
+  store ptr %15, ptr %23, align 8, !tbaa !113
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr %17, ptr %24, align 8
+  store ptr %17, ptr %24, align 8, !tbaa !114
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr %19, ptr %25, align 8
+  store ptr %19, ptr %25, align 8, !tbaa !115
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, double noundef -1.000000e+00)
           to label %26 unwind label %27
 
 26:                                               ; preds = %1
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #12
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #13
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #13
   ret void
 
 27:                                               ; preds = %1
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #12
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #13
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #13
   resume { ptr, i32 } %28
 }
 
@@ -973,48 +985,48 @@ declare void @_ZN2cv11bioinspired17BasicRetinaFilter25_localLuminanceAdaptationE
 
 declare void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), double noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
-  ret void
-}
+; Function Attrs: nounwind
+declare void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #13
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #8 comdat align 2 {
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #13
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingclERKNS_5RangeE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) unnamed_addr #5 comdat align 2 {
-  %3 = load i32, ptr %1, align 4
+  %3 = load i32, ptr %1, align 4, !tbaa !105
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !107
   %.not27 = icmp eq i32 %3, %5
   br i1 %.not27, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !115
   %8 = sext i32 %3 to i64
   %9 = getelementptr inbounds float, ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !114
   %12 = getelementptr inbounds float, ptr %11, i64 %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !113
   %15 = getelementptr inbounds float, ptr %14, i64 %8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load ptr, ptr %16, align 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !112
   %18 = getelementptr inbounds float, ptr %17, i64 %8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !111
   %21 = getelementptr inbounds float, ptr %20, i64 %8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %23 = load ptr, ptr %22, align 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !108
   %24 = getelementptr inbounds float, ptr %23, i64 %8
   br label %.lr.ph
+
+._crit_edge:                                      ; preds = %.lr.ph, %2
+  ret void
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.034 = phi ptr [ %25, %.lr.ph ], [ %24, %.lr.ph.preheader ]
@@ -1025,156 +1037,175 @@ define linkonce_odr hidden void @_ZNK2cv11bioinspired17ParvoRetinaFilter31Parall
   %.02529 = phi ptr [ %37, %.lr.ph ], [ %15, %.lr.ph.preheader ]
   %.02628 = phi ptr [ %33, %.lr.ph ], [ %18, %.lr.ph.preheader ]
   %25 = getelementptr inbounds nuw i8, ptr %.034, i64 4
-  %26 = load float, ptr %.034, align 4
+  %26 = load float, ptr %.034, align 4, !tbaa !22
   %27 = getelementptr inbounds nuw i8, ptr %.02133, i64 4
-  %28 = load float, ptr %.02133, align 4
+  %28 = load float, ptr %.02133, align 4, !tbaa !22
   %29 = fsub float %26, %28
   %30 = fcmp ogt float %29, 0.000000e+00
   %31 = uitofp i1 %30 to float
   %32 = fmul float %29, %31
   %33 = getelementptr inbounds nuw i8, ptr %.02628, i64 4
-  store float %32, ptr %.02628, align 4
+  store float %32, ptr %.02628, align 4, !tbaa !22
   %34 = getelementptr inbounds nuw i8, ptr %.02430, i64 4
-  store float %32, ptr %.02430, align 4
+  store float %32, ptr %.02430, align 4, !tbaa !22
   %35 = fadd float %31, -1.000000e+00
   %36 = fmul float %29, %35
   %37 = getelementptr inbounds nuw i8, ptr %.02529, i64 4
-  store float %36, ptr %.02529, align 4
+  store float %36, ptr %.02529, align 4, !tbaa !22
   %38 = getelementptr inbounds nuw i8, ptr %.02331, i64 4
-  store float %36, ptr %.02331, align 4
+  store float %36, ptr %.02331, align 4, !tbaa !22
   %39 = add nsw i32 %.02232, 1
-  %40 = load i32, ptr %4, align 4
-  %.not = icmp eq i32 %39, %40
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !87
-
-._crit_edge:                                      ; preds = %.lr.ph, %2
-  ret void
+  %.not = icmp eq i32 %39, %5
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !118
 }
-
-; Function Attrs: nounwind
-declare void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_parvoretinafilter.cpp() #9 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_parvoretinafilter.cpp() #11 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #12
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #13
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
-
-attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { allocsize(0) }
-attributes #12 = { nounwind }
-attributes #13 = { builtin nounwind }
+attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #12 = { allocsize(0) }
+attributes #13 = { nounwind }
+attributes #14 = { builtin nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!6 = distinct !{!6, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!9 = distinct !{!9, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!12 = distinct !{!12, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!15 = distinct !{!15, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!18 = distinct !{!18, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!21 = distinct !{!21, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!24 = distinct !{!24, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!27 = distinct !{!27, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!30 = distinct !{!30, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!33 = distinct !{!33, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!36 = distinct !{!36, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!39 = distinct !{!39, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!42 = distinct !{!42, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!45 = distinct !{!45, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!48 = distinct !{!48, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!51 = distinct !{!51, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!54 = distinct !{!54, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!57 = distinct !{!57, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!60 = distinct !{!60, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!63 = distinct !{!63, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!66 = distinct !{!66, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!69 = distinct !{!69, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!72 = distinct !{!72, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!73 = !{!74}
-!74 = distinct !{!74, !75, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!75 = distinct !{!75, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!78 = distinct !{!78, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!79 = !{!80}
-!80 = distinct !{!80, !81, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!81 = distinct !{!81, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
-!84 = distinct !{!84, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
-!85 = distinct !{!85, !86}
-!86 = !{!"llvm.loop.mustprogress"}
-!87 = distinct !{!87, !86}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"vtable pointer", !5, i64 0}
+!5 = !{!"Simple C++ TBAA"}
+!6 = !{!7, !8, i64 0}
+!7 = !{!"_ZTSSt8valarrayIfE", !8, i64 0, !10, i64 8}
+!8 = !{!"long", !9, i64 0}
+!9 = !{!"omnipotent char", !5, i64 0}
+!10 = !{!"p1 float", !11, i64 0}
+!11 = !{!"any pointer", !9, i64 0}
+!12 = !{!7, !10, i64 8}
+!13 = !{!14, !19, i64 288}
+!14 = !{!"_ZTSN2cv11bioinspired17ParvoRetinaFilterE", !15, i64 8, !7, i64 176, !7, i64 192, !7, i64 208, !7, i64 224, !7, i64 240, !7, i64 256, !7, i64 272, !19, i64 288, !20, i64 296}
+!15 = !{!"_ZTSN2cv11bioinspired17BasicRetinaFilterE", !16, i64 0, !7, i64 64, !17, i64 80, !17, i64 84, !7, i64 88, !7, i64 104, !7, i64 120, !18, i64 136, !18, i64 140, !18, i64 144, !18, i64 148, !18, i64 152, !18, i64 156, !18, i64 160, !18, i64 164}
+!16 = !{!"_ZTSN2cv11bioinspired14TemplateBufferIfEE", !7, i64 8, !8, i64 24, !8, i64 32, !8, i64 40, !8, i64 48, !8, i64 56}
+!17 = !{!"int", !9, i64 0}
+!18 = !{!"float", !9, i64 0}
+!19 = !{!"p1 _ZTSSt8valarrayIfE", !11, i64 0}
+!20 = !{!"p1 _ZTSN2cv11bioinspired14TemplateBufferIfEE", !11, i64 0}
+!21 = !{!14, !20, i64 296}
+!22 = !{!18, !18, i64 0}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!25 = distinct !{!25, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!28 = distinct !{!28, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!31 = distinct !{!31, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!34 = distinct !{!34, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!37 = distinct !{!37, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!40 = distinct !{!40, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!41 = !{!42}
+!42 = distinct !{!42, !43, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!43 = distinct !{!43, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!46 = distinct !{!46, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!49 = distinct !{!49, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!50 = !{!51}
+!51 = distinct !{!51, !52, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!52 = distinct !{!52, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!55 = distinct !{!55, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!56 = !{!57}
+!57 = distinct !{!57, !58, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!58 = distinct !{!58, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!59 = !{!60}
+!60 = distinct !{!60, !61, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!61 = distinct !{!61, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!62 = !{!63}
+!63 = distinct !{!63, !64, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!64 = distinct !{!64, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!65 = !{!66}
+!66 = distinct !{!66, !67, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!67 = distinct !{!67, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!68 = !{!69}
+!69 = distinct !{!69, !70, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!70 = distinct !{!70, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!71 = !{!72}
+!72 = distinct !{!72, !73, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!73 = distinct !{!73, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!76 = distinct !{!76, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!77 = !{!78}
+!78 = distinct !{!78, !79, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!79 = distinct !{!79, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!80 = !{!81}
+!81 = distinct !{!81, !82, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!82 = distinct !{!82, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!83 = !{!84}
+!84 = distinct !{!84, !85, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!85 = distinct !{!85, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!86 = !{!87}
+!87 = distinct !{!87, !88, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!88 = distinct !{!88, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!89 = !{!90}
+!90 = distinct !{!90, !91, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!91 = distinct !{!91, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!92 = !{!93}
+!93 = distinct !{!93, !94, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!94 = distinct !{!94, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!95 = !{!96}
+!96 = distinct !{!96, !97, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!97 = distinct !{!97, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!98 = !{!99}
+!99 = distinct !{!99, !100, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!100 = distinct !{!100, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!101 = !{!102}
+!102 = distinct !{!102, !103, !"_ZSt15__valarray_fillIfEvPT_mRKS0_: argument 0"}
+!103 = distinct !{!103, !"_ZSt15__valarray_fillIfEvPT_mRKS0_"}
+!104 = !{!16, !8, i64 48}
+!105 = !{!106, !17, i64 0}
+!106 = !{!"_ZTSN2cv5RangeE", !17, i64 0, !17, i64 4}
+!107 = !{!106, !17, i64 4}
+!108 = !{!109, !10, i64 8}
+!109 = !{!"_ZTSN2cv11bioinspired17ParvoRetinaFilter31Parallel_OPL_OnOffWaysComputingE", !110, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48}
+!110 = !{!"_ZTSN2cv16ParallelLoopBodyE"}
+!111 = !{!109, !10, i64 16}
+!112 = !{!109, !10, i64 24}
+!113 = !{!109, !10, i64 32}
+!114 = !{!109, !10, i64 40}
+!115 = !{!109, !10, i64 48}
+!116 = distinct !{!116, !117}
+!117 = !{!"llvm.loop.mustprogress"}
+!118 = distinct !{!118, !117}

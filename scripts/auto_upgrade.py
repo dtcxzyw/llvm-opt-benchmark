@@ -116,6 +116,7 @@ supported_project = [
     "ninja",
     "opencc",
     "ocio",
+    "opencv",
 ]
 
 modify_only = [

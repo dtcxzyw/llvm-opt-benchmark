@@ -38,6 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.cv::Ptr.6" = type { %"class.std::shared_ptr.7" }
 %"class.std::shared_ptr.7" = type { %"class.std::__shared_ptr.8" }
 %"class.std::__shared_ptr.8" = type { ptr, %"class.std::__shared_count" }
+%struct._Guard = type { ptr }
 %"class.std::allocator.10" = type { i8 }
 %"struct.std::_Sp_alloc_shared_tag" = type { ptr }
 %"class.std::allocator.11" = type { i8 }
@@ -59,8 +60,6 @@ $_ZN2cv4Mat_IfE6createEii = comdat any
 $_ZN2cv7Scalar_IdE3allEd = comdat any
 
 $_ZN2cv11_InputArrayC2IdLi4ELi1EEERKNS_4MatxIT_XT0_EXT1_EEE = comdat any
-
-$_ZN2cv11_InputArrayD2Ev = comdat any
 
 $_ZN2cv6bgsegm12QuantizationIhE5applyEPKviiddi = comdat any
 
@@ -120,7 +119,7 @@ $_ZN2cv11_InputArrayC2ERKNS_3MatE = comdat any
 
 $_ZN2cv12_OutputArrayC2ERNS_3MatE = comdat any
 
-$_ZN2cv12_OutputArrayD2Ev = comdat any
+$_ZN2cv11_InputArrayD2Ev = comdat any
 
 $_ZN2cv6bgsegm12GMG_LoopBodyD2Ev = comdat any
 
@@ -132,11 +131,9 @@ $_ZN2cv4Mat_IfE7releaseEv = comdat any
 
 $_ZN2cv3PtrINS_6bgsegm23BackgroundSubtractorGMGEEC2INS1_27BackgroundSubtractorGMGImplEEEONS0_IT_EE = comdat any
 
-$_ZN2cv3PtrINS_6bgsegm27BackgroundSubtractorGMGImplEED2Ev = comdat any
-
 $_ZNK2cv3PtrINS_6bgsegm23BackgroundSubtractorGMGEEptEv = comdat any
 
-$_ZN2cv3PtrINS_6bgsegm23BackgroundSubtractorGMGEED2Ev = comdat any
+$_ZNSt12__shared_ptrIN2cv6bgsegm23BackgroundSubtractorGMGELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZN2cv6bgsegm27BackgroundSubtractorGMGImplD2Ev = comdat any
 
@@ -204,10 +201,6 @@ $_ZN2cv4Mat_IiEC2ERKS1_ = comdat any
 
 $_ZN2cv4Mat_IfEC2ERKS1_ = comdat any
 
-$_ZN2cv4Mat_IiED2Ev = comdat any
-
-$_ZN2cv4Mat_IhED2Ev = comdat any
-
 $_ZN2cv4Mat_IhEaSERKNS_3MatE = comdat any
 
 $_ZN2cv4Mat_IhE7releaseEv = comdat any
@@ -224,29 +217,61 @@ $_ZN2cv11_InputArrayC2Ev = comdat any
 
 $_ZN2cv11_InputArray4initEiPKv = comdat any
 
-$_ZN2cv4Mat_IfED2Ev = comdat any
-
-$_ZNSt12__shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
-
 $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv = comdat any
+
+$_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii = comdat any
 
 $__clang_call_terminate = comdat any
 
 $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv = comdat any
 
+$_ZN9__gnu_cxx20__is_single_threadedEv = comdat any
+
+$_ZN9__gnu_cxx25__exchange_and_add_singleEPii = comdat any
+
+$_ZN9__gnu_cxx18__exchange_and_addEPVii = comdat any
+
 $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv = comdat any
-
-$_ZNSt10shared_ptrIN2cv6bgsegm23BackgroundSubtractorGMGEED2Ev = comdat any
-
-$_ZNSt12__shared_ptrIN2cv6bgsegm23BackgroundSubtractorGMGELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_ = comdat any
 
 $_ZNK2cv8FileNodecvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv = comdat any
 
 $_ZNSt11char_traitsIcE7compareEPKcS2_m = comdat any
+
+$_ZNSt15__new_allocatorIcEC2Ev = comdat any
+
+$_ZNSt15__new_allocatorIcED2Ev = comdat any
+
+$_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_ = comdat any
+
+$_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm = comdat any
+
+$_ZNSt15__new_allocatorIcE10deallocateEPcm = comdat any
+
+$_ZNSt11char_traitsIcE6lengthEPKc = comdat any
+
+$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
+
+$_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc = comdat any
+
+$_ZNSt15__new_allocatorIcEC2ERKS0_ = comdat any
+
+$_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_ = comdat any
+
+$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_ = comdat any
+
+$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev = comdat any
+
+$_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag = comdat any
+
+$_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_ = comdat any
+
+$_ZNSt11char_traitsIcE6assignERcRKc = comdat any
+
+$_ZNSt11char_traitsIcE4copyEPcPKcm = comdat any
 
 $_ZN2cv11_InputArray4initEiPKvNS_5Size_IiEE = comdat any
 
@@ -260,7 +285,7 @@ $_ZSt11make_sharedIN2cv6bgsegm27BackgroundSubtractorGMGImplEJEESt10shared_ptrINS
 
 $_ZN2cv3PtrINS_6bgsegm27BackgroundSubtractorGMGImplEEC2EOSt10shared_ptrIS2_E = comdat any
 
-$_ZNSt10shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplEED2Ev = comdat any
+$_ZNSt12__shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZNSt10shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplEEC2ISaIvEJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_ = comdat any
 
@@ -284,7 +309,7 @@ $_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN
 
 $_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev = comdat any
 
-$_ZNSaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev = comdat any
+$_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev = comdat any
 
 $_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEC2Ev = comdat any
 
@@ -304,7 +329,7 @@ $_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN
 
 $_ZNSt16allocator_traitsISaIvEE9constructIN2cv6bgsegm27BackgroundSubtractorGMGImplEJEEEvRS0_PT_DpOT0_ = comdat any
 
-$_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
+$_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
@@ -313,8 +338,6 @@ $_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN
 $_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv = comdat any
 
 $_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info = comdat any
-
-$_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
@@ -334,15 +357,11 @@ $_ZN2cv4Mat_IfEC2Ev = comdat any
 
 $_ZN2cv20BackgroundSubtractorC2Ev = comdat any
 
-$_ZN2cv6bgsegm23BackgroundSubtractorGMGD2Ev = comdat any
-
 $_ZN2cv6bgsegm23BackgroundSubtractorGMGD0Ev = comdat any
 
 $_ZNK2cv9Algorithm5writeERNS_11FileStorageE = comdat any
 
 $_ZN2cv9Algorithm4readERKNS_8FileNodeE = comdat any
-
-$_ZN2cv20BackgroundSubtractorD2Ev = comdat any
 
 $_ZN2cv20BackgroundSubtractorD0Ev = comdat any
 
@@ -368,8 +387,6 @@ $_ZNSt16allocator_traitsISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundS
 
 $_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEE10deallocateEPS7_m = comdat any
 
-$_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev = comdat any
-
 $_ZNSt10shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplEEC2EOS3_ = comdat any
 
 $_ZNSt12__shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplELN9__gnu_cxx12_Lock_policyE2EEC2EOS5_ = comdat any
@@ -384,27 +401,27 @@ $_ZNSt12__shared_ptrIN2cv6bgsegm23BackgroundSubtractorGMGELN9__gnu_cxx12_Lock_po
 
 $_ZNKSt12__shared_ptrIN2cv6bgsegm23BackgroundSubtractorGMGELN9__gnu_cxx12_Lock_policyE2EE3getEv = comdat any
 
-$_ZTSN2cv6bgsegm23BackgroundSubtractorGMGE = comdat any
+$_ZTIN2cv6bgsegm23BackgroundSubtractorGMGE = comdat any
 
-$_ZTSN2cv20BackgroundSubtractorE = comdat any
+$_ZTSN2cv6bgsegm23BackgroundSubtractorGMGE = comdat any
 
 $_ZTIN2cv20BackgroundSubtractorE = comdat any
 
-$_ZTIN2cv6bgsegm23BackgroundSubtractorGMGE = comdat any
+$_ZTSN2cv20BackgroundSubtractorE = comdat any
 
 $_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
+$_ZTISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
 $_ZTSSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
-$_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
-$_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
-$_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+$_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
@@ -412,9 +429,9 @@ $_ZTVN2cv6bgsegm23BackgroundSubtractorGMGE = comdat any
 
 $_ZTVN2cv20BackgroundSubtractorE = comdat any
 
-$_ZTSSt19_Sp_make_shared_tag = comdat any
-
 $_ZTISt19_Sp_make_shared_tag = comdat any
+
+$_ZTSSt19_Sp_make_shared_tag = comdat any
 
 $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 
@@ -443,19 +460,19 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @.str.16 = private unnamed_addr constant [49 x i8] c"newLearningRate >= 0.0 && newLearningRate <= 1.0\00", align 1
 @__func__._ZN2cv6bgsegm27BackgroundSubtractorGMGImpl5applyERKNS_11_InputArrayERKNS_12_OutputArrayEd = private unnamed_addr constant [6 x i8] c"apply\00", align 1
 @_ZTVN2cv6bgsegm27BackgroundSubtractorGMGImplE = hidden unnamed_addr constant { [32 x ptr] } { [32 x ptr] [ptr null, ptr @_ZTIN2cv6bgsegm27BackgroundSubtractorGMGImplE, ptr @_ZN2cv6bgsegm27BackgroundSubtractorGMGImplD2Ev, ptr @_ZN2cv6bgsegm27BackgroundSubtractorGMGImplD0Ev, ptr @_ZN2cv9Algorithm5clearEv, ptr @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl5writeERNS_11FileStorageE, ptr @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl4readERKNS_8FileNodeE, ptr @_ZNK2cv9Algorithm5emptyEv, ptr @_ZNK2cv9Algorithm4saveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZNK2cv9Algorithm14getDefaultNameB5cxx11Ev, ptr @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl5applyERKNS_11_InputArrayERKNS_12_OutputArrayEd, ptr @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl18getBackgroundImageERKNS_12_OutputArrayE, ptr @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl14getMaxFeaturesEv, ptr @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl14setMaxFeaturesEi, ptr @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl22getDefaultLearningRateEv, ptr @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl22setDefaultLearningRateEd, ptr @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl12getNumFramesEv, ptr @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl12setNumFramesEi, ptr @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl21getQuantizationLevelsEv, ptr @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl21setQuantizationLevelsEi, ptr @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl18getBackgroundPriorEv, ptr @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl18setBackgroundPriorEd, ptr @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl18getSmoothingRadiusEv, ptr @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl18setSmoothingRadiusEi, ptr @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl20getDecisionThresholdEv, ptr @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl20setDecisionThresholdEd, ptr @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl24getUpdateBackgroundModelEv, ptr @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl24setUpdateBackgroundModelEb, ptr @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl9getMinValEv, ptr @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl9setMinValEd, ptr @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl9getMaxValEv, ptr @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl9setMaxValEd] }, align 8
+@_ZTIN2cv6bgsegm27BackgroundSubtractorGMGImplE = hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN2cv6bgsegm27BackgroundSubtractorGMGImplE, ptr @_ZTIN2cv6bgsegm23BackgroundSubtractorGMGE }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN2cv6bgsegm27BackgroundSubtractorGMGImplE = hidden constant [42 x i8] c"N2cv6bgsegm27BackgroundSubtractorGMGImplE\00", align 1
+@_ZTIN2cv6bgsegm23BackgroundSubtractorGMGE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN2cv6bgsegm23BackgroundSubtractorGMGE, ptr @_ZTIN2cv20BackgroundSubtractorE }, comdat, align 8
 @_ZTSN2cv6bgsegm23BackgroundSubtractorGMGE = linkonce_odr constant [38 x i8] c"N2cv6bgsegm23BackgroundSubtractorGMGE\00", comdat, align 1
+@_ZTIN2cv20BackgroundSubtractorE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN2cv20BackgroundSubtractorE, ptr @_ZTIN2cv9AlgorithmE }, comdat, align 8
 @_ZTSN2cv20BackgroundSubtractorE = linkonce_odr constant [28 x i8] c"N2cv20BackgroundSubtractorE\00", comdat, align 1
 @_ZTIN2cv9AlgorithmE = external constant ptr
-@_ZTIN2cv20BackgroundSubtractorE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN2cv20BackgroundSubtractorE, ptr @_ZTIN2cv9AlgorithmE }, comdat, align 8
-@_ZTIN2cv6bgsegm23BackgroundSubtractorGMGE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN2cv6bgsegm23BackgroundSubtractorGMGE, ptr @_ZTIN2cv20BackgroundSubtractorE }, comdat, align 8
-@_ZTIN2cv6bgsegm27BackgroundSubtractorGMGImplE = hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN2cv6bgsegm27BackgroundSubtractorGMGImplE, ptr @_ZTIN2cv6bgsegm23BackgroundSubtractorGMGE }, align 8
 @_ZTVN2cv6bgsegm12GMG_LoopBodyE = hidden unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN2cv6bgsegm12GMG_LoopBodyE, ptr @_ZN2cv6bgsegm12GMG_LoopBodyD2Ev, ptr @_ZN2cv6bgsegm12GMG_LoopBodyD0Ev, ptr @_ZNK2cv6bgsegm12GMG_LoopBodyclERKNS_5RangeE] }, align 8
+@_ZTIN2cv6bgsegm12GMG_LoopBodyE = hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN2cv6bgsegm12GMG_LoopBodyE, ptr @_ZTIN2cv16ParallelLoopBodyE }, align 8
 @_ZTSN2cv6bgsegm12GMG_LoopBodyE = hidden constant [27 x i8] c"N2cv6bgsegm12GMG_LoopBodyE\00", align 1
 @_ZTIN2cv16ParallelLoopBodyE = external constant ptr
-@_ZTIN2cv6bgsegm12GMG_LoopBodyE = hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN2cv6bgsegm12GMG_LoopBodyE, ptr @_ZTIN2cv16ParallelLoopBodyE }, align 8
-@_ZTVN2cv16ParallelLoopBodyE = external unnamed_addr constant { [5 x ptr] }, align 8
+@_ZTVN2cv16ParallelLoopBodyE = available_externally unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN2cv16ParallelLoopBodyE, ptr @_ZN2cv16ParallelLoopBodyD1Ev, ptr @_ZN2cv16ParallelLoopBodyD0Ev, ptr @__cxa_pure_virtual] }, align 8
 @.str.17 = private unnamed_addr constant [53 x i8] c"DataType<_Tp>::channels == m.channels() || m.empty()\00", align 1
 @__func__._ZN2cv4Mat_IhEaSERKNS_3MatE = private unnamed_addr constant [10 x i8] c"operator=\00", align 1
 @.str.18 = private unnamed_addr constant [137 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/opencv/opencv/modules/core/include/opencv2/core/mat.inl.hpp\00", align 1
@@ -474,20 +491,21 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @.str.29 = private unnamed_addr constant [141 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/opencv/opencv/modules/core/include/opencv2/core/persistence.hpp\00", align 1
 @.str.30 = private unnamed_addr constant [28 x i8] c"(String)fn[\22name\22] == name_\00", align 1
 @__func__._ZN2cv6bgsegm27BackgroundSubtractorGMGImpl4readERKNS_8FileNodeE = private unnamed_addr constant [5 x i8] c"read\00", align 1
-@_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr hidden unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
+@.str.31 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
+@_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr hidden unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
+@_ZTISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTSSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr hidden constant [105 x i8] c"St23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [52 x i8] c"St16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [47 x i8] c"St11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
-@_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
-@_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
-@_ZTISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @__cxa_pure_virtual, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @__cxa_pure_virtual] }, comdat, align 8
-@.str.31 = private unnamed_addr constant [25 x i8] c"BackgroundSubtractor.GMG\00", align 1
-@_ZTVN2cv6bgsegm23BackgroundSubtractorGMGE = linkonce_odr unnamed_addr constant { [32 x ptr] } { [32 x ptr] [ptr null, ptr @_ZTIN2cv6bgsegm23BackgroundSubtractorGMGE, ptr @_ZN2cv6bgsegm23BackgroundSubtractorGMGD2Ev, ptr @_ZN2cv6bgsegm23BackgroundSubtractorGMGD0Ev, ptr @_ZN2cv9Algorithm5clearEv, ptr @_ZNK2cv9Algorithm5writeERNS_11FileStorageE, ptr @_ZN2cv9Algorithm4readERKNS_8FileNodeE, ptr @_ZNK2cv9Algorithm5emptyEv, ptr @_ZNK2cv9Algorithm4saveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZNK2cv9Algorithm14getDefaultNameB5cxx11Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, comdat, align 8
-@_ZTVN2cv20BackgroundSubtractorE = linkonce_odr unnamed_addr constant { [12 x ptr] } { [12 x ptr] [ptr null, ptr @_ZTIN2cv20BackgroundSubtractorE, ptr @_ZN2cv20BackgroundSubtractorD2Ev, ptr @_ZN2cv20BackgroundSubtractorD0Ev, ptr @_ZN2cv9Algorithm5clearEv, ptr @_ZNK2cv9Algorithm5writeERNS_11FileStorageE, ptr @_ZN2cv9Algorithm4readERKNS_8FileNodeE, ptr @_ZNK2cv9Algorithm5emptyEv, ptr @_ZNK2cv9Algorithm4saveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZNK2cv9Algorithm14getDefaultNameB5cxx11Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, comdat, align 8
-@_ZTSSt19_Sp_make_shared_tag = linkonce_odr constant [24 x i8] c"St19_Sp_make_shared_tag\00", comdat, align 1
+@.str.32 = private unnamed_addr constant [25 x i8] c"BackgroundSubtractor.GMG\00", align 1
+@_ZTVN2cv6bgsegm23BackgroundSubtractorGMGE = linkonce_odr unnamed_addr constant { [32 x ptr] } { [32 x ptr] [ptr null, ptr @_ZTIN2cv6bgsegm23BackgroundSubtractorGMGE, ptr @_ZN2cv9AlgorithmD2Ev, ptr @_ZN2cv6bgsegm23BackgroundSubtractorGMGD0Ev, ptr @_ZN2cv9Algorithm5clearEv, ptr @_ZNK2cv9Algorithm5writeERNS_11FileStorageE, ptr @_ZN2cv9Algorithm4readERKNS_8FileNodeE, ptr @_ZNK2cv9Algorithm5emptyEv, ptr @_ZNK2cv9Algorithm4saveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZNK2cv9Algorithm14getDefaultNameB5cxx11Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, comdat, align 8
+@_ZTVN2cv20BackgroundSubtractorE = linkonce_odr unnamed_addr constant { [12 x ptr] } { [12 x ptr] [ptr null, ptr @_ZTIN2cv20BackgroundSubtractorE, ptr @_ZN2cv9AlgorithmD2Ev, ptr @_ZN2cv20BackgroundSubtractorD0Ev, ptr @_ZN2cv9Algorithm5clearEv, ptr @_ZNK2cv9Algorithm5writeERNS_11FileStorageE, ptr @_ZN2cv9Algorithm4readERKNS_8FileNodeE, ptr @_ZNK2cv9Algorithm5emptyEv, ptr @_ZNK2cv9Algorithm4saveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZNK2cv9Algorithm14getDefaultNameB5cxx11Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, comdat, align 8
 @_ZTISt19_Sp_make_shared_tag = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSSt19_Sp_make_shared_tag }, comdat, align 8
+@_ZTSSt19_Sp_make_shared_tag = linkonce_odr constant [24 x i8] c"St19_Sp_make_shared_tag\00", comdat, align 1
 @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = linkonce_odr constant [16 x i8] zeroinitializer, comdat, align 8
 
 ; Function Attrs: mustprogress uwtable
@@ -514,15 +532,15 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5S
   %24 = alloca %"class.cv::_InputArray", align 8
   %25 = alloca %"class.cv::Scalar_", align 8
   store i64 %1, ptr %5, align 4
-  store ptr %0, ptr %6, align 8
-  store double %2, ptr %7, align 8
-  store double %3, ptr %8, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store double %2, ptr %7, align 8, !tbaa !8
+  store double %3, ptr %8, align 8, !tbaa !8
   %26 = load ptr, ptr %6, align 8
   br label %27
 
 27:                                               ; preds = %4
-  %28 = load double, ptr %7, align 8
-  %29 = load double, ptr %8, align 8
+  %28 = load double, ptr %7, align 8, !tbaa !8
+  %29 = load double, ptr %8, align 8, !tbaa !8
   %30 = fcmp olt double %28, %29
   br i1 %30, label %31, label %32
 
@@ -530,12 +548,14 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5S
   br label %44
 
 32:                                               ; preds = %27
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #11
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @.str, ptr noundef nonnull align 1 dereferenceable(1) %10)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %9) #18
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #18
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #18
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @.str, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %33 unwind label %35
 
 33:                                               ; preds = %32
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @__func__._ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5Size_IiEEdd, ptr noundef @.str.1, i32 noundef 204) #12
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @__func__._ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5Size_IiEEdd, ptr noundef @.str.1, i32 noundef 204) #19
           to label %34 unwind label %39
 
 34:                                               ; preds = %33
@@ -557,11 +577,13 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5S
   store ptr %41, ptr %11, align 8
   %42 = extractvalue { ptr, i32 } %40, 1
   store i32 %42, ptr %12, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #18
   br label %43
 
 43:                                               ; preds = %39, %35
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #11
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #18
+  call void @llvm.lifetime.end.p0(i64 32, ptr %9) #18
   br label %181
 
 44:                                               ; preds = %31
@@ -571,8 +593,8 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5S
   br label %46
 
 46:                                               ; preds = %45
-  %47 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 1
-  %48 = load i32, ptr %47, align 8
+  %47 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 1
+  %48 = load i32, ptr %47, align 8, !tbaa !10
   %49 = icmp sgt i32 %48, 0
   br i1 %49, label %50, label %51
 
@@ -580,12 +602,14 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5S
   br label %63
 
 51:                                               ; preds = %46
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #11
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %14)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %13) #18
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #18
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #18
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %14)
           to label %52 unwind label %54
 
 52:                                               ; preds = %51
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef @__func__._ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5Size_IiEEdd, ptr noundef @.str.1, i32 noundef 205) #12
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef @__func__._ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5Size_IiEEdd, ptr noundef @.str.1, i32 noundef 205) #19
           to label %53 unwind label %58
 
 53:                                               ; preds = %52
@@ -607,11 +631,13 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5S
   store ptr %60, ptr %11, align 8
   %61 = extractvalue { ptr, i32 } %59, 1
   store i32 %61, ptr %12, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #18
   br label %62
 
 62:                                               ; preds = %58, %54
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #11
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #18
+  call void @llvm.lifetime.end.p0(i64 32, ptr %13) #18
   br label %181
 
 63:                                               ; preds = %50
@@ -621,14 +647,14 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5S
   br label %65
 
 65:                                               ; preds = %64
-  %66 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 2
-  %67 = load double, ptr %66, align 8
+  %66 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 2
+  %67 = load double, ptr %66, align 8, !tbaa !31
   %68 = fcmp oge double %67, 0.000000e+00
   br i1 %68, label %69, label %74
 
 69:                                               ; preds = %65
-  %70 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 2
-  %71 = load double, ptr %70, align 8
+  %70 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 2
+  %71 = load double, ptr %70, align 8, !tbaa !31
   %72 = fcmp ole double %71, 1.000000e+00
   br i1 %72, label %73, label %74
 
@@ -636,12 +662,14 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5S
   br label %86
 
 74:                                               ; preds = %69, %65
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #11
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %16)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %15) #18
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #18
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #18
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %16)
           to label %75 unwind label %77
 
 75:                                               ; preds = %74
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef @__func__._ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5Size_IiEEdd, ptr noundef @.str.1, i32 noundef 206) #12
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef @__func__._ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5Size_IiEEdd, ptr noundef @.str.1, i32 noundef 206) #19
           to label %76 unwind label %81
 
 76:                                               ; preds = %75
@@ -663,11 +691,13 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5S
   store ptr %83, ptr %11, align 8
   %84 = extractvalue { ptr, i32 } %82, 1
   store i32 %84, ptr %12, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #18
   br label %85
 
 85:                                               ; preds = %81, %77
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #11
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #18
+  call void @llvm.lifetime.end.p0(i64 32, ptr %15) #18
   br label %181
 
 86:                                               ; preds = %73
@@ -677,8 +707,8 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5S
   br label %88
 
 88:                                               ; preds = %87
-  %89 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 3
-  %90 = load i32, ptr %89, align 8
+  %89 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 3
+  %90 = load i32, ptr %89, align 8, !tbaa !32
   %91 = icmp sge i32 %90, 1
   br i1 %91, label %92, label %93
 
@@ -686,12 +716,14 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5S
   br label %105
 
 93:                                               ; preds = %88
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #11
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %18)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %17) #18
+  call void @llvm.lifetime.start.p0(i64 1, ptr %18) #18
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #18
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %18)
           to label %94 unwind label %96
 
 94:                                               ; preds = %93
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef @__func__._ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5Size_IiEEdd, ptr noundef @.str.1, i32 noundef 207) #12
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef @__func__._ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5Size_IiEEdd, ptr noundef @.str.1, i32 noundef 207) #19
           to label %95 unwind label %100
 
 95:                                               ; preds = %94
@@ -713,11 +745,13 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5S
   store ptr %102, ptr %11, align 8
   %103 = extractvalue { ptr, i32 } %101, 1
   store i32 %103, ptr %12, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #18
   br label %104
 
 104:                                              ; preds = %100, %96
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #11
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %18) #18
+  call void @llvm.lifetime.end.p0(i64 32, ptr %17) #18
   br label %181
 
 105:                                              ; preds = %92
@@ -727,14 +761,14 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5S
   br label %107
 
 107:                                              ; preds = %106
-  %108 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 4
-  %109 = load i32, ptr %108, align 4
+  %108 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 4
+  %109 = load i32, ptr %108, align 4, !tbaa !33
   %110 = icmp sge i32 %109, 1
   br i1 %110, label %111, label %116
 
 111:                                              ; preds = %107
-  %112 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 4
-  %113 = load i32, ptr %112, align 4
+  %112 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 4
+  %113 = load i32, ptr %112, align 4, !tbaa !33
   %114 = icmp sle i32 %113, 255
   br i1 %114, label %115, label %116
 
@@ -742,12 +776,14 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5S
   br label %128
 
 116:                                              ; preds = %111, %107
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #11
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %20)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %19) #18
+  call void @llvm.lifetime.start.p0(i64 1, ptr %20) #18
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #18
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %20)
           to label %117 unwind label %119
 
 117:                                              ; preds = %116
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef @__func__._ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5Size_IiEEdd, ptr noundef @.str.1, i32 noundef 208) #12
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef @__func__._ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5Size_IiEEdd, ptr noundef @.str.1, i32 noundef 208) #19
           to label %118 unwind label %123
 
 118:                                              ; preds = %117
@@ -769,11 +805,13 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5S
   store ptr %125, ptr %11, align 8
   %126 = extractvalue { ptr, i32 } %124, 1
   store i32 %126, ptr %12, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #18
   br label %127
 
 127:                                              ; preds = %123, %119
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #11
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %20) #18
+  call void @llvm.lifetime.end.p0(i64 32, ptr %19) #18
   br label %181
 
 128:                                              ; preds = %115
@@ -783,14 +821,14 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5S
   br label %130
 
 130:                                              ; preds = %129
-  %131 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 5
-  %132 = load double, ptr %131, align 8
+  %131 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 5
+  %132 = load double, ptr %131, align 8, !tbaa !34
   %133 = fcmp oge double %132, 0.000000e+00
   br i1 %133, label %134, label %139
 
 134:                                              ; preds = %130
-  %135 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 5
-  %136 = load double, ptr %135, align 8
+  %135 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 5
+  %136 = load double, ptr %135, align 8, !tbaa !34
   %137 = fcmp ole double %136, 1.000000e+00
   br i1 %137, label %138, label %139
 
@@ -798,12 +836,14 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5S
   br label %151
 
 139:                                              ; preds = %134, %130
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #11
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %22)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %21) #18
+  call void @llvm.lifetime.start.p0(i64 1, ptr %22) #18
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #18
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %22)
           to label %140 unwind label %142
 
 140:                                              ; preds = %139
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef @__func__._ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5Size_IiEEdd, ptr noundef @.str.1, i32 noundef 209) #12
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef @__func__._ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5Size_IiEEdd, ptr noundef @.str.1, i32 noundef 209) #19
           to label %141 unwind label %146
 
 141:                                              ; preds = %140
@@ -825,45 +865,49 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5S
   store ptr %148, ptr %11, align 8
   %149 = extractvalue { ptr, i32 } %147, 1
   store i32 %149, ptr %12, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #18
   br label %150
 
 150:                                              ; preds = %146, %142
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #11
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %22) #18
+  call void @llvm.lifetime.end.p0(i64 32, ptr %21) #18
   br label %181
 
 151:                                              ; preds = %138
   br label %152
 
 152:                                              ; preds = %151
-  %153 = load double, ptr %7, align 8
-  %154 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 10
-  store double %153, ptr %154, align 8
-  %155 = load double, ptr %8, align 8
-  %156 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 9
-  store double %155, ptr %156, align 8
-  %157 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 11
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %157, ptr align 4 %5, i64 8, i1 false)
-  %158 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 12
-  store i32 0, ptr %158, align 8
-  %159 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 14
-  %160 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 11
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %23, ptr align 8 %160, i64 8, i1 false)
+  %153 = load double, ptr %7, align 8, !tbaa !8
+  %154 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 10
+  store double %153, ptr %154, align 8, !tbaa !35
+  %155 = load double, ptr %8, align 8, !tbaa !8
+  %156 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 9
+  store double %155, ptr %156, align 8, !tbaa !36
+  %157 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %157, ptr align 4 %5, i64 8, i1 false), !tbaa.struct !37
+  %158 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 12
+  store i32 0, ptr %158, align 8, !tbaa !39
+  %159 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 14
+  %160 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %23, ptr align 8 %160, i64 8, i1 false), !tbaa.struct !37
   %161 = load i64, ptr %23, align 4
   call void @_ZN2cv4Mat_IiE6createENS_5Size_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %159, i64 %161)
-  %162 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 15
-  %163 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 11
+  %162 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 15
+  %163 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 11
   %164 = call noundef i32 @_ZNK2cv5Size_IiE4areaEv(ptr noundef nonnull align 4 dereferenceable(8) %163)
-  %165 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 1
-  %166 = load i32, ptr %165, align 8
+  %165 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 1
+  %166 = load i32, ptr %165, align 8, !tbaa !10
   call void @_ZN2cv4Mat_IiE6createEii(ptr noundef nonnull align 8 dereferenceable(96) %162, i32 noundef %164, i32 noundef %166)
-  %167 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 16
-  %168 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 11
+  %167 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 16
+  %168 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 11
   %169 = call noundef i32 @_ZNK2cv5Size_IiE4areaEv(ptr noundef nonnull align 4 dereferenceable(8) %168)
-  %170 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 1
-  %171 = load i32, ptr %170, align 8
+  %170 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 1
+  %171 = load i32, ptr %170, align 8, !tbaa !10
   call void @_ZN2cv4Mat_IfE6createEii(ptr noundef nonnull align 8 dereferenceable(96) %167, i32 noundef %169, i32 noundef %171)
-  %172 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 14
+  %172 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %26, i32 0, i32 14
+  call void @llvm.lifetime.start.p0(i64 24, ptr %24) #18
+  call void @llvm.lifetime.start.p0(i64 32, ptr %25) #18
   call void @_ZN2cv7Scalar_IdE3allEd(ptr dead_on_unwind writable sret(%"class.cv::Scalar_") align 8 %25, double noundef 0.000000e+00)
   call void @_ZN2cv11_InputArrayC2IdLi4ELi1EEERKNS_4MatxIT_XT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(32) %25)
   %173 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
@@ -874,7 +918,9 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5S
           to label %176 unwind label %177
 
 176:                                              ; preds = %174
-  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #11
+  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #18
+  call void @llvm.lifetime.end.p0(i64 32, ptr %25) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr %24) #18
   ret void
 
 177:                                              ; preds = %174, %152
@@ -884,7 +930,9 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5S
   store ptr %179, ptr %11, align 8
   %180 = extractvalue { ptr, i32 } %178, 1
   store i32 %180, ptr %12, align 4
-  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #11
+  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #18
+  call void @llvm.lifetime.end.p0(i64 32, ptr %25) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr %24) #18
   br label %181
 
 181:                                              ; preds = %177, %150, %127, %104, %85, %62, %43
@@ -898,123 +946,220 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5S
 ; Function Attrs: noreturn
 declare void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind
-declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #3 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !40
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !42
+  store ptr %1, ptr %5, align 8, !tbaa !44
+  store ptr %2, ptr %6, align 8, !tbaa !40
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %10, i32 0, i32 0
+  %12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10)
+  %13 = load ptr, ptr %6, align 8, !tbaa !40
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+  %14 = load ptr, ptr %5, align 8, !tbaa !44
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %22
+
+16:                                               ; preds = %3
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef @.str.31) #19
+          to label %17 unwind label %18
+
+17:                                               ; preds = %16
+  unreachable
+
+18:                                               ; preds = %16
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %7, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %8, align 4
+  br label %35
+
+22:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #18
+  %23 = load ptr, ptr %5, align 8, !tbaa !44
+  %24 = load ptr, ptr %5, align 8, !tbaa !44
+  %25 = invoke noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %24)
+          to label %26 unwind label %31
+
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %25
+  store ptr %27, ptr %9, align 8, !tbaa !44
+  %28 = load ptr, ptr %5, align 8, !tbaa !44
+  %29 = load ptr, ptr %9, align 8, !tbaa !44
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %28, ptr noundef %29)
+          to label %30 unwind label %31
+
+30:                                               ; preds = %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #18
+  ret void
+
+31:                                               ; preds = %26, %22
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %7, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #18
+  br label %35
+
+35:                                               ; preds = %31, %18
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #18
+  br label %36
+
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %7, align 8
+  %38 = load i32, ptr %8, align 4
+  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
+  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
+  resume { ptr, i32 } %40
+}
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %4 unwind label %6
 
-; Function Attrs: nounwind
-declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
+  ret void
+
+6:                                                ; preds = %1
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #20
+  unreachable
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2cv4Mat_IiE6createENS_5Size_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 %1) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN2cv4Mat_IiE6createENS_5Size_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 %1) #5 comdat align 2 {
   %3 = alloca %"class.cv::Size_", align 4
   %4 = alloca ptr, align 8
   %5 = alloca %"class.cv::Size_", align 4
   store i64 %1, ptr %3, align 4
-  store ptr %0, ptr %4, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !45
   %6 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %5, ptr align 4 %3, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %5, ptr align 4 %3, i64 8, i1 false), !tbaa.struct !37
   %7 = load i64, ptr %5, align 4
   call void @_ZN2cv3Mat6createENS_5Size_IiEEi(ptr noundef nonnull align 8 dereferenceable(96) %6, i64 %7, i32 noundef 4)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2cv4Mat_IiE6createEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, i32 noundef %2) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN2cv4Mat_IiE6createEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, i32 noundef %2) #5 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !45
+  store i32 %1, ptr %5, align 4, !tbaa !38
+  store i32 %2, ptr %6, align 4, !tbaa !38
   %7 = load ptr, ptr %4, align 8
-  %8 = load i32, ptr %5, align 4
-  %9 = load i32, ptr %6, align 4
+  %8 = load i32, ptr %5, align 4, !tbaa !38
+  %9 = load i32, ptr %6, align 4, !tbaa !38
   call void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96) %7, i32 noundef %8, i32 noundef %9, i32 noundef 4)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZNK2cv5Size_IiE4areaEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNK2cv5Size_IiE4areaEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #6 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !47
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %"class.cv::Size_", ptr %4, i32 0, i32 0
-  %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds %"class.cv::Size_", ptr %4, i32 0, i32 1
-  %8 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #18
+  %5 = getelementptr inbounds nuw %"class.cv::Size_", ptr %4, i32 0, i32 0
+  %6 = load i32, ptr %5, align 4, !tbaa !49
+  %7 = getelementptr inbounds nuw %"class.cv::Size_", ptr %4, i32 0, i32 1
+  %8 = load i32, ptr %7, align 4, !tbaa !50
   %9 = mul nsw i32 %6, %8
-  store i32 %9, ptr %3, align 4
-  %10 = load i32, ptr %3, align 4
+  store i32 %9, ptr %3, align 4, !tbaa !38
+  %10 = load i32, ptr %3, align 4, !tbaa !38
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #18
   ret i32 %10
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2cv4Mat_IfE6createEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, i32 noundef %2) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN2cv4Mat_IfE6createEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, i32 noundef %2) #5 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !51
+  store i32 %1, ptr %5, align 4, !tbaa !38
+  store i32 %2, ptr %6, align 4, !tbaa !38
   %7 = load ptr, ptr %4, align 8
-  %8 = load i32, ptr %5, align 4
-  %9 = load i32, ptr %6, align 4
+  %8 = load i32, ptr %5, align 4, !tbaa !38
+  %9 = load i32, ptr %6, align 4, !tbaa !38
   call void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96) %7, i32 noundef %8, i32 noundef %9, i32 noundef 5)
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3Mat5setToERKNS_11_InputArrayES3_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #3
+declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3Mat5setToERKNS_11_InputArrayES3_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #7
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2cv7Scalar_IdE3allEd(ptr dead_on_unwind noalias writable sret(%"class.cv::Scalar_") align 8 %0, double noundef %1) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN2cv7Scalar_IdE3allEd(ptr dead_on_unwind noalias writable sret(%"class.cv::Scalar_") align 8 %0, double noundef %1) #5 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca double, align 8
   store ptr %0, ptr %3, align 8
-  store double %1, ptr %4, align 8
-  %5 = load double, ptr %4, align 8
-  %6 = load double, ptr %4, align 8
-  %7 = load double, ptr %4, align 8
-  %8 = load double, ptr %4, align 8
+  store double %1, ptr %4, align 8, !tbaa !8
+  %5 = load double, ptr %4, align 8, !tbaa !8
+  %6 = load double, ptr %4, align 8, !tbaa !8
+  %7 = load double, ptr %4, align 8, !tbaa !8
+  %8 = load double, ptr %4, align 8, !tbaa !8
   call void @_ZN2cv7Scalar_IdEC2Edddd(ptr noundef nonnull align 8 dereferenceable(32) %0, double noundef %5, double noundef %6, double noundef %7, double noundef %8)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2cv11_InputArrayC2IdLi4ELi1EEERKNS_4MatxIT_XT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN2cv11_InputArrayC2IdLi4ELi1EEERKNS_4MatxIT_XT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.cv::Size_", align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !53
+  store ptr %1, ptr %4, align 8, !tbaa !55
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %"class.cv::_InputArray", ptr %6, i32 0, i32 2
+  %7 = getelementptr inbounds nuw %"class.cv::_InputArray", ptr %6, i32 0, i32 2
   call void @_ZN2cv5Size_IiEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %7)
-  %8 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %4, align 8, !tbaa !55
   call void @_ZN2cv5Size_IiEC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %5, i32 noundef 1, i32 noundef 4)
   %9 = load i64, ptr %5, align 4
   call void @_ZN2cv11_InputArray4initEiPKvNS_5Size_IiEE(ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef -1056833530, ptr noundef %8, i64 %9)
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv() #3
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  ret void
-}
+declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv() #7
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK2cv6bgsegm12GMG_LoopBodyclERKNS_5RangeE(ptr noundef nonnull align 8 dereferenceable(556) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -1028,337 +1173,392 @@ define hidden void @_ZNK2cv6bgsegm12GMG_LoopBodyclERKNS_5RangeE(ptr noundef nonn
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  %13 = alloca ptr, align 8
+  %13 = alloca i32, align 4
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
-  %16 = alloca i32, align 4
+  %16 = alloca ptr, align 8
   %17 = alloca i32, align 4
-  %18 = alloca ptr, align 8
+  %18 = alloca i32, align 4
   %19 = alloca ptr, align 8
-  %20 = alloca i32, align 4
-  %21 = alloca i8, align 1
-  %22 = alloca double, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca i32, align 4
+  %22 = alloca i8, align 1
   %23 = alloca double, align 8
-  %24 = alloca i32, align 4
-  %25 = alloca i8, align 1
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %26, i32 0, i32 1
-  %28 = call noundef i32 @_ZNK2cv3Mat5depthEv(ptr noundef nonnull align 8 dereferenceable(96) %27)
-  %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds [7 x ptr], ptr @_ZZNK2cv6bgsegm12GMG_LoopBodyclERKNS_5RangeEE5funcs, i64 0, i64 %29
-  %31 = load ptr, ptr %30, align 8
-  store ptr %31, ptr %5, align 8
-  br label %32
+  %24 = alloca double, align 8
+  %25 = alloca i32, align 4
+  %26 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !57
+  store ptr %1, ptr %4, align 8, !tbaa !59
+  %27 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #18
+  %28 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %27, i32 0, i32 1
+  %29 = call noundef i32 @_ZNK2cv3Mat5depthEv(ptr noundef nonnull align 8 dereferenceable(96) %28)
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds [7 x ptr], ptr @_ZZNK2cv6bgsegm12GMG_LoopBodyclERKNS_5RangeEE5funcs, i64 0, i64 %30
+  %32 = load ptr, ptr %31, align 8, !tbaa !61
+  store ptr %32, ptr %5, align 8, !tbaa !61
+  br label %33
 
-32:                                               ; preds = %2
-  %33 = load ptr, ptr %5, align 8
-  %34 = icmp ne ptr %33, null
-  br i1 %34, label %35, label %36
+33:                                               ; preds = %2
+  %34 = load ptr, ptr %5, align 8, !tbaa !61
+  %35 = icmp ne ptr %34, null
+  br i1 %35, label %36, label %37
 
-35:                                               ; preds = %32
-  br label %48
-
-36:                                               ; preds = %32
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #11
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %37 unwind label %39
-
-37:                                               ; preds = %36
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef @__func__._ZNK2cv6bgsegm12GMG_LoopBodyclERKNS_5RangeE, ptr noundef @.str.1, i32 noundef 363) #12
-          to label %38 unwind label %43
-
-38:                                               ; preds = %37
-  unreachable
-
-39:                                               ; preds = %36
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %8, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %9, align 4
-  br label %47
-
-43:                                               ; preds = %37
-  %44 = landingpad { ptr, i32 }
-          cleanup
-  %45 = extractvalue { ptr, i32 } %44, 0
-  store ptr %45, ptr %8, align 8
-  %46 = extractvalue { ptr, i32 } %44, 1
-  store i32 %46, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #11
-  br label %47
-
-47:                                               ; preds = %43, %39
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #11
-  br label %226
-
-48:                                               ; preds = %35
+36:                                               ; preds = %33
   br label %49
 
-49:                                               ; preds = %48
-  %50 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %26, i32 0, i32 1
-  %51 = call noundef i32 @_ZNK2cv3Mat8channelsEv(ptr noundef nonnull align 8 dereferenceable(96) %50)
-  store i32 %51, ptr %10, align 4
-  %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds %"class.cv::Range", ptr %52, i32 0, i32 0
-  %54 = load i32, ptr %53, align 4
-  store i32 %54, ptr %11, align 4
-  %55 = load i32, ptr %11, align 4
-  %56 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %26, i32 0, i32 1
-  %57 = getelementptr inbounds %"class.cv::Mat", ptr %56, i32 0, i32 3
-  %58 = load i32, ptr %57, align 4
-  %59 = mul nsw i32 %55, %58
-  store i32 %59, ptr %12, align 4
-  br label %60
+37:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(i64 32, ptr %6) #18
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #18
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %38 unwind label %40
 
-60:                                               ; preds = %222, %49
-  %61 = load i32, ptr %11, align 4
-  %62 = load ptr, ptr %4, align 8
-  %63 = getelementptr inbounds %"class.cv::Range", ptr %62, i32 0, i32 1
-  %64 = load i32, ptr %63, align 4
-  %65 = icmp slt i32 %61, %64
-  br i1 %65, label %66, label %225
+38:                                               ; preds = %37
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef @__func__._ZNK2cv6bgsegm12GMG_LoopBodyclERKNS_5RangeE, ptr noundef @.str.1, i32 noundef 363) #19
+          to label %39 unwind label %44
 
-66:                                               ; preds = %60
-  %67 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %26, i32 0, i32 1
-  %68 = load i32, ptr %11, align 4
-  %69 = call noundef ptr @_ZNK2cv3Mat3ptrEi(ptr noundef nonnull align 8 dereferenceable(96) %67, i32 noundef %68)
-  store ptr %69, ptr %13, align 8
-  %70 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %26, i32 0, i32 3
-  %71 = load i32, ptr %11, align 4
-  %72 = call noundef ptr @_ZN2cv4Mat_IiEixEi(ptr noundef nonnull align 8 dereferenceable(96) %70, i32 noundef %71)
-  store ptr %72, ptr %14, align 8
-  %73 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %26, i32 0, i32 2
-  %74 = load i32, ptr %11, align 4
-  %75 = call noundef ptr @_ZN2cv4Mat_IhEixEi(ptr noundef nonnull align 8 dereferenceable(96) %73, i32 noundef %74)
-  store ptr %75, ptr %15, align 8
-  store i32 0, ptr %16, align 4
-  br label %76
+39:                                               ; preds = %38
+  unreachable
 
-76:                                               ; preds = %216, %66
-  %77 = load i32, ptr %16, align 4
-  %78 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %26, i32 0, i32 1
-  %79 = getelementptr inbounds %"class.cv::Mat", ptr %78, i32 0, i32 3
-  %80 = load i32, ptr %79, align 4
-  %81 = icmp slt i32 %77, %80
-  br i1 %81, label %82, label %221
+40:                                               ; preds = %37
+  %41 = landingpad { ptr, i32 }
+          cleanup
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %8, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %9, align 4
+  br label %48
 
-82:                                               ; preds = %76
-  %83 = load ptr, ptr %14, align 8
-  %84 = load i32, ptr %16, align 4
-  %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds i32, ptr %83, i64 %85
-  %87 = load i32, ptr %86, align 4
-  store i32 %87, ptr %17, align 4
-  %88 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %26, i32 0, i32 4
-  %89 = load i32, ptr %12, align 4
-  %90 = call noundef ptr @_ZN2cv4Mat_IiEixEi(ptr noundef nonnull align 8 dereferenceable(96) %88, i32 noundef %89)
-  store ptr %90, ptr %18, align 8
-  %91 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %26, i32 0, i32 5
-  %92 = load i32, ptr %12, align 4
-  %93 = call noundef ptr @_ZN2cv4Mat_IfEixEi(ptr noundef nonnull align 8 dereferenceable(96) %91, i32 noundef %92)
-  store ptr %93, ptr %19, align 8
-  %94 = load ptr, ptr %5, align 8
-  %95 = load ptr, ptr %13, align 8
-  %96 = load i32, ptr %16, align 4
-  %97 = load i32, ptr %10, align 4
-  %98 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %26, i32 0, i32 16
-  %99 = load double, ptr %98, align 8
-  %100 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %26, i32 0, i32 15
-  %101 = load double, ptr %100, align 8
-  %102 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %26, i32 0, i32 10
-  %103 = load i32, ptr %102, align 4
-  %104 = call noundef i32 %94(ptr noundef %95, i32 noundef %96, i32 noundef %97, double noundef %99, double noundef %101, i32 noundef %103)
-  store i32 %104, ptr %20, align 4
-  store i8 0, ptr %21, align 1
-  %105 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %26, i32 0, i32 17
-  %106 = load i32, ptr %105, align 8
-  %107 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %26, i32 0, i32 9
-  %108 = load i32, ptr %107, align 8
-  %109 = icmp sge i32 %106, %108
-  br i1 %109, label %110, label %183
+44:                                               ; preds = %38
+  %45 = landingpad { ptr, i32 }
+          cleanup
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %8, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %9, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
+  br label %48
 
-110:                                              ; preds = %82
-  %111 = load i32, ptr %20, align 4
-  %112 = load ptr, ptr %18, align 8
-  %113 = load ptr, ptr %19, align 8
-  %114 = load i32, ptr %17, align 4
-  %115 = call noundef float @_ZN2cv6bgsegmL11findFeatureEiPKiPKfi(i32 noundef %111, ptr noundef %112, ptr noundef %113, i32 noundef %114)
-  %116 = fpext float %115 to double
-  store double %116, ptr %22, align 8
-  %117 = load double, ptr %22, align 8
-  %118 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %26, i32 0, i32 11
-  %119 = load double, ptr %118, align 8
-  %120 = fmul double %117, %119
-  %121 = load double, ptr %22, align 8
-  %122 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %26, i32 0, i32 11
-  %123 = load double, ptr %122, align 8
-  %124 = load double, ptr %22, align 8
-  %125 = fsub double 1.000000e+00, %124
-  %126 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %26, i32 0, i32 11
-  %127 = load double, ptr %126, align 8
-  %128 = fsub double 1.000000e+00, %127
-  %129 = fmul double %125, %128
-  %130 = call double @llvm.fmuladd.f64(double %121, double %123, double %129)
-  %131 = fdiv double %120, %130
-  store double %131, ptr %23, align 8
-  %132 = load double, ptr %23, align 8
-  %133 = fsub double 1.000000e+00, %132
-  %134 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %26, i32 0, i32 12
-  %135 = load double, ptr %134, align 8
-  %136 = fcmp ogt double %133, %135
-  %137 = zext i1 %136 to i8
-  store i8 %137, ptr %21, align 1
-  %138 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %26, i32 0, i32 13
-  %139 = load i8, ptr %138, align 8
-  %140 = trunc i8 %139 to i1
-  br i1 %140, label %141, label %182
+48:                                               ; preds = %44, %40
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #18
+  call void @llvm.lifetime.end.p0(i64 32, ptr %6) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #18
+  br label %231
 
-141:                                              ; preds = %110
-  store i32 0, ptr %24, align 4
-  br label %142
+49:                                               ; preds = %36
+  br label %50
 
-142:                                              ; preds = %157, %141
-  %143 = load i32, ptr %24, align 4
-  %144 = load i32, ptr %17, align 4
-  %145 = icmp slt i32 %143, %144
-  br i1 %145, label %146, label %160
+50:                                               ; preds = %49
+  br label %51
 
-146:                                              ; preds = %142
-  %147 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %26, i32 0, i32 8
-  %148 = load double, ptr %147, align 8
-  %149 = fsub double 1.000000e+00, %148
-  %150 = fptrunc double %149 to float
-  %151 = load ptr, ptr %19, align 8
-  %152 = load i32, ptr %24, align 4
-  %153 = sext i32 %152 to i64
-  %154 = getelementptr inbounds float, ptr %151, i64 %153
-  %155 = load float, ptr %154, align 4
-  %156 = fmul float %155, %150
-  store float %156, ptr %154, align 4
-  br label %157
+51:                                               ; preds = %50
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #18
+  %52 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %27, i32 0, i32 1
+  %53 = call noundef i32 @_ZNK2cv3Mat8channelsEv(ptr noundef nonnull align 8 dereferenceable(96) %52)
+  store i32 %53, ptr %10, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #18
+  %54 = load ptr, ptr %4, align 8, !tbaa !59
+  %55 = getelementptr inbounds nuw %"class.cv::Range", ptr %54, i32 0, i32 0
+  %56 = load i32, ptr %55, align 4, !tbaa !62
+  store i32 %56, ptr %11, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #18
+  %57 = load i32, ptr %11, align 4, !tbaa !38
+  %58 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %27, i32 0, i32 1
+  %59 = getelementptr inbounds nuw %"class.cv::Mat", ptr %58, i32 0, i32 3
+  %60 = load i32, ptr %59, align 4, !tbaa !64
+  %61 = mul nsw i32 %57, %60
+  store i32 %61, ptr %12, align 4, !tbaa !38
+  br label %62
 
-157:                                              ; preds = %146
-  %158 = load i32, ptr %24, align 4
-  %159 = add nsw i32 %158, 1
-  store i32 %159, ptr %24, align 4
-  br label %142, !llvm.loop !4
+62:                                               ; preds = %227, %51
+  %63 = load i32, ptr %11, align 4, !tbaa !38
+  %64 = load ptr, ptr %4, align 8, !tbaa !59
+  %65 = getelementptr inbounds nuw %"class.cv::Range", ptr %64, i32 0, i32 1
+  %66 = load i32, ptr %65, align 4, !tbaa !68
+  %67 = icmp slt i32 %63, %66
+  br i1 %67, label %69, label %68
 
-160:                                              ; preds = %142
-  %161 = load i32, ptr %20, align 4
-  %162 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %26, i32 0, i32 8
-  %163 = load double, ptr %162, align 8
-  %164 = fptrunc double %163 to float
-  %165 = load ptr, ptr %18, align 8
-  %166 = load ptr, ptr %19, align 8
-  %167 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %26, i32 0, i32 6
-  %168 = load i32, ptr %167, align 8
-  %169 = call noundef zeroext i1 @_ZN2cv6bgsegmL13insertFeatureEifPiPfRii(i32 noundef %161, float noundef %164, ptr noundef %165, ptr noundef %166, ptr noundef nonnull align 4 dereferenceable(4) %17, i32 noundef %168)
-  %170 = zext i1 %169 to i8
-  store i8 %170, ptr %25, align 1
-  %171 = load i8, ptr %25, align 1
-  %172 = trunc i8 %171 to i1
-  br i1 %172, label %173, label %181
+68:                                               ; preds = %62
+  store i32 4, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #18
+  br label %230
 
-173:                                              ; preds = %160
-  %174 = load ptr, ptr %19, align 8
-  %175 = load i32, ptr %17, align 4
-  call void @_ZN2cv6bgsegmL18normalizeHistogramEPfi(ptr noundef %174, i32 noundef %175)
-  %176 = load i32, ptr %17, align 4
-  %177 = load ptr, ptr %14, align 8
-  %178 = load i32, ptr %16, align 4
-  %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds i32, ptr %177, i64 %179
-  store i32 %176, ptr %180, align 4
-  br label %181
+69:                                               ; preds = %62
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #18
+  %70 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %27, i32 0, i32 1
+  %71 = load i32, ptr %11, align 4, !tbaa !38
+  %72 = call noundef ptr @_ZNK2cv3Mat3ptrEi(ptr noundef nonnull align 8 dereferenceable(96) %70, i32 noundef %71)
+  store ptr %72, ptr %14, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #18
+  %73 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %27, i32 0, i32 3
+  %74 = load i32, ptr %11, align 4, !tbaa !38
+  %75 = call noundef ptr @_ZN2cv4Mat_IiEixEi(ptr noundef nonnull align 8 dereferenceable(96) %73, i32 noundef %74)
+  store ptr %75, ptr %15, align 8, !tbaa !69
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #18
+  %76 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %27, i32 0, i32 2
+  %77 = load i32, ptr %11, align 4, !tbaa !38
+  %78 = call noundef ptr @_ZN2cv4Mat_IhEixEi(ptr noundef nonnull align 8 dereferenceable(96) %76, i32 noundef %77)
+  store ptr %78, ptr %16, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #18
+  store i32 0, ptr %17, align 4, !tbaa !38
+  br label %79
 
-181:                                              ; preds = %173, %160
-  br label %182
+79:                                               ; preds = %221, %69
+  %80 = load i32, ptr %17, align 4, !tbaa !38
+  %81 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %27, i32 0, i32 1
+  %82 = getelementptr inbounds nuw %"class.cv::Mat", ptr %81, i32 0, i32 3
+  %83 = load i32, ptr %82, align 4, !tbaa !64
+  %84 = icmp slt i32 %80, %83
+  br i1 %84, label %86, label %85
 
-182:                                              ; preds = %181, %110
-  br label %205
+85:                                               ; preds = %79
+  store i32 7, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #18
+  br label %226
 
-183:                                              ; preds = %82
-  %184 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %26, i32 0, i32 13
-  %185 = load i8, ptr %184, align 8
-  %186 = trunc i8 %185 to i1
-  br i1 %186, label %187, label %204
+86:                                               ; preds = %79
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #18
+  %87 = load ptr, ptr %15, align 8, !tbaa !69
+  %88 = load i32, ptr %17, align 4, !tbaa !38
+  %89 = sext i32 %88 to i64
+  %90 = getelementptr inbounds i32, ptr %87, i64 %89
+  %91 = load i32, ptr %90, align 4, !tbaa !38
+  store i32 %91, ptr %18, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #18
+  %92 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %27, i32 0, i32 4
+  %93 = load i32, ptr %12, align 4, !tbaa !38
+  %94 = call noundef ptr @_ZN2cv4Mat_IiEixEi(ptr noundef nonnull align 8 dereferenceable(96) %92, i32 noundef %93)
+  store ptr %94, ptr %19, align 8, !tbaa !69
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #18
+  %95 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %27, i32 0, i32 5
+  %96 = load i32, ptr %12, align 4, !tbaa !38
+  %97 = call noundef ptr @_ZN2cv4Mat_IfEixEi(ptr noundef nonnull align 8 dereferenceable(96) %95, i32 noundef %96)
+  store ptr %97, ptr %20, align 8, !tbaa !70
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #18
+  %98 = load ptr, ptr %5, align 8, !tbaa !61
+  %99 = load ptr, ptr %14, align 8, !tbaa !44
+  %100 = load i32, ptr %17, align 4, !tbaa !38
+  %101 = load i32, ptr %10, align 4, !tbaa !38
+  %102 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %27, i32 0, i32 16
+  %103 = load double, ptr %102, align 8, !tbaa !72
+  %104 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %27, i32 0, i32 15
+  %105 = load double, ptr %104, align 8, !tbaa !73
+  %106 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %27, i32 0, i32 10
+  %107 = load i32, ptr %106, align 4, !tbaa !74
+  %108 = call noundef i32 %98(ptr noundef %99, i32 noundef %100, i32 noundef %101, double noundef %103, double noundef %105, i32 noundef %107)
+  store i32 %108, ptr %21, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 1, ptr %22) #18
+  store i8 0, ptr %22, align 1, !tbaa !75
+  %109 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %27, i32 0, i32 17
+  %110 = load i32, ptr %109, align 8, !tbaa !76
+  %111 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %27, i32 0, i32 9
+  %112 = load i32, ptr %111, align 8, !tbaa !77
+  %113 = icmp sge i32 %110, %112
+  br i1 %113, label %114, label %188
 
-187:                                              ; preds = %183
-  %188 = load i32, ptr %20, align 4
-  %189 = load ptr, ptr %18, align 8
-  %190 = load ptr, ptr %19, align 8
-  %191 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %26, i32 0, i32 6
-  %192 = load i32, ptr %191, align 8
-  %193 = call noundef zeroext i1 @_ZN2cv6bgsegmL13insertFeatureEifPiPfRii(i32 noundef %188, float noundef 1.000000e+00, ptr noundef %189, ptr noundef %190, ptr noundef nonnull align 4 dereferenceable(4) %17, i32 noundef %192)
-  %194 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %26, i32 0, i32 17
-  %195 = load i32, ptr %194, align 8
-  %196 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %26, i32 0, i32 9
-  %197 = load i32, ptr %196, align 8
-  %198 = sub nsw i32 %197, 1
-  %199 = icmp eq i32 %195, %198
-  br i1 %199, label %200, label %203
+114:                                              ; preds = %86
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #18
+  %115 = load i32, ptr %21, align 4, !tbaa !38
+  %116 = load ptr, ptr %19, align 8, !tbaa !69
+  %117 = load ptr, ptr %20, align 8, !tbaa !70
+  %118 = load i32, ptr %18, align 4, !tbaa !38
+  %119 = call noundef float @_ZN2cv6bgsegmL11findFeatureEiPKiPKfi(i32 noundef %115, ptr noundef %116, ptr noundef %117, i32 noundef %118)
+  %120 = fpext float %119 to double
+  store double %120, ptr %23, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #18
+  %121 = load double, ptr %23, align 8, !tbaa !8
+  %122 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %27, i32 0, i32 11
+  %123 = load double, ptr %122, align 8, !tbaa !78
+  %124 = fmul double %121, %123
+  %125 = load double, ptr %23, align 8, !tbaa !8
+  %126 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %27, i32 0, i32 11
+  %127 = load double, ptr %126, align 8, !tbaa !78
+  %128 = load double, ptr %23, align 8, !tbaa !8
+  %129 = fsub double 1.000000e+00, %128
+  %130 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %27, i32 0, i32 11
+  %131 = load double, ptr %130, align 8, !tbaa !78
+  %132 = fsub double 1.000000e+00, %131
+  %133 = fmul double %129, %132
+  %134 = call double @llvm.fmuladd.f64(double %125, double %127, double %133)
+  %135 = fdiv double %124, %134
+  store double %135, ptr %24, align 8, !tbaa !8
+  %136 = load double, ptr %24, align 8, !tbaa !8
+  %137 = fsub double 1.000000e+00, %136
+  %138 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %27, i32 0, i32 12
+  %139 = load double, ptr %138, align 8, !tbaa !79
+  %140 = fcmp ogt double %137, %139
+  %141 = zext i1 %140 to i8
+  store i8 %141, ptr %22, align 1, !tbaa !75
+  %142 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %27, i32 0, i32 13
+  %143 = load i8, ptr %142, align 8, !tbaa !80, !range !81, !noundef !82
+  %144 = trunc i8 %143 to i1
+  br i1 %144, label %145, label %187
 
-200:                                              ; preds = %187
-  %201 = load ptr, ptr %19, align 8
-  %202 = load i32, ptr %17, align 4
-  call void @_ZN2cv6bgsegmL18normalizeHistogramEPfi(ptr noundef %201, i32 noundef %202)
-  br label %203
+145:                                              ; preds = %114
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #18
+  store i32 0, ptr %25, align 4, !tbaa !38
+  br label %146
 
-203:                                              ; preds = %200, %187
-  br label %204
+146:                                              ; preds = %162, %145
+  %147 = load i32, ptr %25, align 4, !tbaa !38
+  %148 = load i32, ptr %18, align 4, !tbaa !38
+  %149 = icmp slt i32 %147, %148
+  br i1 %149, label %151, label %150
 
-204:                                              ; preds = %203, %183
-  br label %205
+150:                                              ; preds = %146
+  store i32 10, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #18
+  br label %165
 
-205:                                              ; preds = %204, %182
-  %206 = load i8, ptr %21, align 1
-  %207 = trunc i8 %206 to i1
-  %208 = zext i1 %207 to i8
-  %209 = sext i8 %208 to i32
-  %210 = sub nsw i32 0, %209
-  %211 = trunc i32 %210 to i8
-  %212 = load ptr, ptr %15, align 8
-  %213 = load i32, ptr %16, align 4
-  %214 = sext i32 %213 to i64
-  %215 = getelementptr inbounds i8, ptr %212, i64 %214
-  store i8 %211, ptr %215, align 1
-  br label %216
+151:                                              ; preds = %146
+  %152 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %27, i32 0, i32 8
+  %153 = load double, ptr %152, align 8, !tbaa !83
+  %154 = fsub double 1.000000e+00, %153
+  %155 = fptrunc double %154 to float
+  %156 = load ptr, ptr %20, align 8, !tbaa !70
+  %157 = load i32, ptr %25, align 4, !tbaa !38
+  %158 = sext i32 %157 to i64
+  %159 = getelementptr inbounds float, ptr %156, i64 %158
+  %160 = load float, ptr %159, align 4, !tbaa !84
+  %161 = fmul float %160, %155
+  store float %161, ptr %159, align 4, !tbaa !84
+  br label %162
 
-216:                                              ; preds = %205
-  %217 = load i32, ptr %16, align 4
-  %218 = add nsw i32 %217, 1
-  store i32 %218, ptr %16, align 4
-  %219 = load i32, ptr %12, align 4
-  %220 = add nsw i32 %219, 1
-  store i32 %220, ptr %12, align 4
-  br label %76, !llvm.loop !6
+162:                                              ; preds = %151
+  %163 = load i32, ptr %25, align 4, !tbaa !38
+  %164 = add nsw i32 %163, 1
+  store i32 %164, ptr %25, align 4, !tbaa !38
+  br label %146, !llvm.loop !86
 
-221:                                              ; preds = %76
-  br label %222
+165:                                              ; preds = %150
+  call void @llvm.lifetime.start.p0(i64 1, ptr %26) #18
+  %166 = load i32, ptr %21, align 4, !tbaa !38
+  %167 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %27, i32 0, i32 8
+  %168 = load double, ptr %167, align 8, !tbaa !83
+  %169 = fptrunc double %168 to float
+  %170 = load ptr, ptr %19, align 8, !tbaa !69
+  %171 = load ptr, ptr %20, align 8, !tbaa !70
+  %172 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %27, i32 0, i32 6
+  %173 = load i32, ptr %172, align 8, !tbaa !88
+  %174 = call noundef zeroext i1 @_ZN2cv6bgsegmL13insertFeatureEifPiPfRii(i32 noundef %166, float noundef %169, ptr noundef %170, ptr noundef %171, ptr noundef nonnull align 4 dereferenceable(4) %18, i32 noundef %173)
+  %175 = zext i1 %174 to i8
+  store i8 %175, ptr %26, align 1, !tbaa !75
+  %176 = load i8, ptr %26, align 1, !tbaa !75, !range !81, !noundef !82
+  %177 = trunc i8 %176 to i1
+  br i1 %177, label %178, label %186
 
-222:                                              ; preds = %221
-  %223 = load i32, ptr %11, align 4
-  %224 = add nsw i32 %223, 1
-  store i32 %224, ptr %11, align 4
-  br label %60, !llvm.loop !7
+178:                                              ; preds = %165
+  %179 = load ptr, ptr %20, align 8, !tbaa !70
+  %180 = load i32, ptr %18, align 4, !tbaa !38
+  call void @_ZN2cv6bgsegmL18normalizeHistogramEPfi(ptr noundef %179, i32 noundef %180)
+  %181 = load i32, ptr %18, align 4, !tbaa !38
+  %182 = load ptr, ptr %15, align 8, !tbaa !69
+  %183 = load i32, ptr %17, align 4, !tbaa !38
+  %184 = sext i32 %183 to i64
+  %185 = getelementptr inbounds i32, ptr %182, i64 %184
+  store i32 %181, ptr %185, align 4, !tbaa !38
+  br label %186
 
-225:                                              ; preds = %60
+186:                                              ; preds = %178, %165
+  call void @llvm.lifetime.end.p0(i64 1, ptr %26) #18
+  br label %187
+
+187:                                              ; preds = %186, %114
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #18
+  br label %210
+
+188:                                              ; preds = %86
+  %189 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %27, i32 0, i32 13
+  %190 = load i8, ptr %189, align 8, !tbaa !80, !range !81, !noundef !82
+  %191 = trunc i8 %190 to i1
+  br i1 %191, label %192, label %209
+
+192:                                              ; preds = %188
+  %193 = load i32, ptr %21, align 4, !tbaa !38
+  %194 = load ptr, ptr %19, align 8, !tbaa !69
+  %195 = load ptr, ptr %20, align 8, !tbaa !70
+  %196 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %27, i32 0, i32 6
+  %197 = load i32, ptr %196, align 8, !tbaa !88
+  %198 = call noundef zeroext i1 @_ZN2cv6bgsegmL13insertFeatureEifPiPfRii(i32 noundef %193, float noundef 1.000000e+00, ptr noundef %194, ptr noundef %195, ptr noundef nonnull align 4 dereferenceable(4) %18, i32 noundef %197)
+  %199 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %27, i32 0, i32 17
+  %200 = load i32, ptr %199, align 8, !tbaa !76
+  %201 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %27, i32 0, i32 9
+  %202 = load i32, ptr %201, align 8, !tbaa !77
+  %203 = sub nsw i32 %202, 1
+  %204 = icmp eq i32 %200, %203
+  br i1 %204, label %205, label %208
+
+205:                                              ; preds = %192
+  %206 = load ptr, ptr %20, align 8, !tbaa !70
+  %207 = load i32, ptr %18, align 4, !tbaa !38
+  call void @_ZN2cv6bgsegmL18normalizeHistogramEPfi(ptr noundef %206, i32 noundef %207)
+  br label %208
+
+208:                                              ; preds = %205, %192
+  br label %209
+
+209:                                              ; preds = %208, %188
+  br label %210
+
+210:                                              ; preds = %209, %187
+  %211 = load i8, ptr %22, align 1, !tbaa !75, !range !81, !noundef !82
+  %212 = trunc i8 %211 to i1
+  %213 = zext i1 %212 to i8
+  %214 = sext i8 %213 to i32
+  %215 = sub nsw i32 0, %214
+  %216 = trunc i32 %215 to i8
+  %217 = load ptr, ptr %16, align 8, !tbaa !44
+  %218 = load i32, ptr %17, align 4, !tbaa !38
+  %219 = sext i32 %218 to i64
+  %220 = getelementptr inbounds i8, ptr %217, i64 %219
+  store i8 %216, ptr %220, align 1, !tbaa !89
+  call void @llvm.lifetime.end.p0(i64 1, ptr %22) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #18
+  br label %221
+
+221:                                              ; preds = %210
+  %222 = load i32, ptr %17, align 4, !tbaa !38
+  %223 = add nsw i32 %222, 1
+  store i32 %223, ptr %17, align 4, !tbaa !38
+  %224 = load i32, ptr %12, align 4, !tbaa !38
+  %225 = add nsw i32 %224, 1
+  store i32 %225, ptr %12, align 4, !tbaa !38
+  br label %79, !llvm.loop !90
+
+226:                                              ; preds = %85
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #18
+  br label %227
+
+227:                                              ; preds = %226
+  %228 = load i32, ptr %11, align 4, !tbaa !38
+  %229 = add nsw i32 %228, 1
+  store i32 %229, ptr %11, align 4, !tbaa !38
+  br label %62, !llvm.loop !91
+
+230:                                              ; preds = %68
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #18
   ret void
 
-226:                                              ; preds = %47
-  %227 = load ptr, ptr %8, align 8
-  %228 = load i32, ptr %9, align 4
-  %229 = insertvalue { ptr, i32 } poison, ptr %227, 0
-  %230 = insertvalue { ptr, i32 } %229, i32 %228, 1
-  resume { ptr, i32 } %230
+231:                                              ; preds = %48
+  %232 = load ptr, ptr %8, align 8
+  %233 = load i32, ptr %9, align 4
+  %234 = insertvalue { ptr, i32 } poison, ptr %232, 0
+  %235 = insertvalue { ptr, i32 } %234, i32 %233, 1
+  resume { ptr, i32 } %235
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZN2cv6bgsegm12QuantizationIhE5applyEPKviiddi(ptr noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, double noundef %4, i32 noundef %5) #5 comdat align 2 {
+define linkonce_odr hidden noundef i32 @_ZN2cv6bgsegm12QuantizationIhE5applyEPKviiddi(ptr noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, double noundef %4, i32 noundef %5) #3 comdat align 2 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -1369,73 +1569,84 @@ define linkonce_odr hidden noundef i32 @_ZN2cv6bgsegm12QuantizationIhE5applyEPKv
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
-  store ptr %0, ptr %7, align 8
-  store i32 %1, ptr %8, align 4
-  store i32 %2, ptr %9, align 4
-  store double %3, ptr %10, align 8
-  store double %4, ptr %11, align 8
-  store i32 %5, ptr %12, align 4
-  %17 = load ptr, ptr %7, align 8
-  store ptr %17, ptr %13, align 8
-  %18 = load i32, ptr %8, align 4
-  %19 = load i32, ptr %9, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !61
+  store i32 %1, ptr %8, align 4, !tbaa !38
+  store i32 %2, ptr %9, align 4, !tbaa !38
+  store double %3, ptr %10, align 8, !tbaa !8
+  store double %4, ptr %11, align 8, !tbaa !8
+  store i32 %5, ptr %12, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #18
+  %17 = load ptr, ptr %7, align 8, !tbaa !61
+  store ptr %17, ptr %13, align 8, !tbaa !44
+  %18 = load i32, ptr %8, align 4, !tbaa !38
+  %19 = load i32, ptr %9, align 4, !tbaa !38
   %20 = mul nsw i32 %18, %19
-  %21 = load ptr, ptr %13, align 8
+  %21 = load ptr, ptr %13, align 8, !tbaa !44
   %22 = sext i32 %20 to i64
   %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  store ptr %23, ptr %13, align 8
-  store i32 0, ptr %14, align 4
-  store i32 0, ptr %15, align 4
-  store i32 0, ptr %16, align 4
+  store ptr %23, ptr %13, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #18
+  store i32 0, ptr %14, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #18
+  store i32 0, ptr %15, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #18
+  store i32 0, ptr %16, align 4, !tbaa !38
   br label %24
 
-24:                                               ; preds = %47, %6
-  %25 = load i32, ptr %15, align 4
-  %26 = load i32, ptr %9, align 4
+24:                                               ; preds = %48, %6
+  %25 = load i32, ptr %15, align 4, !tbaa !38
+  %26 = load i32, ptr %9, align 4, !tbaa !38
   %27 = icmp slt i32 %25, %26
-  br i1 %27, label %28, label %54
+  br i1 %27, label %29, label %28
 
 28:                                               ; preds = %24
-  %29 = load ptr, ptr %13, align 8
-  %30 = load i8, ptr %29, align 1
-  %31 = zext i8 %30 to i32
-  %32 = sitofp i32 %31 to double
-  %33 = load double, ptr %10, align 8
-  %34 = fsub double %32, %33
-  %35 = load i32, ptr %12, align 4
-  %36 = sitofp i32 %35 to double
-  %37 = fmul double %34, %36
-  %38 = load double, ptr %11, align 8
-  %39 = load double, ptr %10, align 8
-  %40 = fsub double %38, %39
-  %41 = fdiv double %37, %40
-  %42 = fptosi double %41 to i32
-  %43 = load i32, ptr %16, align 4
-  %44 = shl i32 %42, %43
-  %45 = load i32, ptr %14, align 4
-  %46 = or i32 %45, %44
-  store i32 %46, ptr %14, align 4
-  br label %47
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #18
+  br label %55
 
-47:                                               ; preds = %28
-  %48 = load i32, ptr %15, align 4
-  %49 = add nsw i32 %48, 1
-  store i32 %49, ptr %15, align 4
-  %50 = load ptr, ptr %13, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i32 1
-  store ptr %51, ptr %13, align 8
-  %52 = load i32, ptr %16, align 4
-  %53 = add nsw i32 %52, 8
-  store i32 %53, ptr %16, align 4
-  br label %24, !llvm.loop !8
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %13, align 8, !tbaa !44
+  %31 = load i8, ptr %30, align 1, !tbaa !89
+  %32 = zext i8 %31 to i32
+  %33 = sitofp i32 %32 to double
+  %34 = load double, ptr %10, align 8, !tbaa !8
+  %35 = fsub double %33, %34
+  %36 = load i32, ptr %12, align 4, !tbaa !38
+  %37 = sitofp i32 %36 to double
+  %38 = fmul double %35, %37
+  %39 = load double, ptr %11, align 8, !tbaa !8
+  %40 = load double, ptr %10, align 8, !tbaa !8
+  %41 = fsub double %39, %40
+  %42 = fdiv double %38, %41
+  %43 = fptosi double %42 to i32
+  %44 = load i32, ptr %16, align 4, !tbaa !38
+  %45 = shl i32 %43, %44
+  %46 = load i32, ptr %14, align 4, !tbaa !38
+  %47 = or i32 %46, %45
+  store i32 %47, ptr %14, align 4, !tbaa !38
+  br label %48
 
-54:                                               ; preds = %24
-  %55 = load i32, ptr %14, align 4
-  ret i32 %55
+48:                                               ; preds = %29
+  %49 = load i32, ptr %15, align 4, !tbaa !38
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr %15, align 4, !tbaa !38
+  %51 = load ptr, ptr %13, align 8, !tbaa !44
+  %52 = getelementptr inbounds nuw i8, ptr %51, i32 1
+  store ptr %52, ptr %13, align 8, !tbaa !44
+  %53 = load i32, ptr %16, align 4, !tbaa !38
+  %54 = add nsw i32 %53, 8
+  store i32 %54, ptr %16, align 4, !tbaa !38
+  br label %24, !llvm.loop !92
+
+55:                                               ; preds = %28
+  %56 = load i32, ptr %14, align 4, !tbaa !38
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #18
+  ret i32 %56
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZN2cv6bgsegm12QuantizationIaE5applyEPKviiddi(ptr noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, double noundef %4, i32 noundef %5) #5 comdat align 2 {
+define linkonce_odr hidden noundef i32 @_ZN2cv6bgsegm12QuantizationIaE5applyEPKviiddi(ptr noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, double noundef %4, i32 noundef %5) #3 comdat align 2 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -1446,73 +1657,84 @@ define linkonce_odr hidden noundef i32 @_ZN2cv6bgsegm12QuantizationIaE5applyEPKv
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
-  store ptr %0, ptr %7, align 8
-  store i32 %1, ptr %8, align 4
-  store i32 %2, ptr %9, align 4
-  store double %3, ptr %10, align 8
-  store double %4, ptr %11, align 8
-  store i32 %5, ptr %12, align 4
-  %17 = load ptr, ptr %7, align 8
-  store ptr %17, ptr %13, align 8
-  %18 = load i32, ptr %8, align 4
-  %19 = load i32, ptr %9, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !61
+  store i32 %1, ptr %8, align 4, !tbaa !38
+  store i32 %2, ptr %9, align 4, !tbaa !38
+  store double %3, ptr %10, align 8, !tbaa !8
+  store double %4, ptr %11, align 8, !tbaa !8
+  store i32 %5, ptr %12, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #18
+  %17 = load ptr, ptr %7, align 8, !tbaa !61
+  store ptr %17, ptr %13, align 8, !tbaa !44
+  %18 = load i32, ptr %8, align 4, !tbaa !38
+  %19 = load i32, ptr %9, align 4, !tbaa !38
   %20 = mul nsw i32 %18, %19
-  %21 = load ptr, ptr %13, align 8
+  %21 = load ptr, ptr %13, align 8, !tbaa !44
   %22 = sext i32 %20 to i64
   %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  store ptr %23, ptr %13, align 8
-  store i32 0, ptr %14, align 4
-  store i32 0, ptr %15, align 4
-  store i32 0, ptr %16, align 4
+  store ptr %23, ptr %13, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #18
+  store i32 0, ptr %14, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #18
+  store i32 0, ptr %15, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #18
+  store i32 0, ptr %16, align 4, !tbaa !38
   br label %24
 
-24:                                               ; preds = %47, %6
-  %25 = load i32, ptr %15, align 4
-  %26 = load i32, ptr %9, align 4
+24:                                               ; preds = %48, %6
+  %25 = load i32, ptr %15, align 4, !tbaa !38
+  %26 = load i32, ptr %9, align 4, !tbaa !38
   %27 = icmp slt i32 %25, %26
-  br i1 %27, label %28, label %54
+  br i1 %27, label %29, label %28
 
 28:                                               ; preds = %24
-  %29 = load ptr, ptr %13, align 8
-  %30 = load i8, ptr %29, align 1
-  %31 = sext i8 %30 to i32
-  %32 = sitofp i32 %31 to double
-  %33 = load double, ptr %10, align 8
-  %34 = fsub double %32, %33
-  %35 = load i32, ptr %12, align 4
-  %36 = sitofp i32 %35 to double
-  %37 = fmul double %34, %36
-  %38 = load double, ptr %11, align 8
-  %39 = load double, ptr %10, align 8
-  %40 = fsub double %38, %39
-  %41 = fdiv double %37, %40
-  %42 = fptosi double %41 to i32
-  %43 = load i32, ptr %16, align 4
-  %44 = shl i32 %42, %43
-  %45 = load i32, ptr %14, align 4
-  %46 = or i32 %45, %44
-  store i32 %46, ptr %14, align 4
-  br label %47
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #18
+  br label %55
 
-47:                                               ; preds = %28
-  %48 = load i32, ptr %15, align 4
-  %49 = add nsw i32 %48, 1
-  store i32 %49, ptr %15, align 4
-  %50 = load ptr, ptr %13, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i32 1
-  store ptr %51, ptr %13, align 8
-  %52 = load i32, ptr %16, align 4
-  %53 = add nsw i32 %52, 8
-  store i32 %53, ptr %16, align 4
-  br label %24, !llvm.loop !9
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %13, align 8, !tbaa !44
+  %31 = load i8, ptr %30, align 1, !tbaa !89
+  %32 = sext i8 %31 to i32
+  %33 = sitofp i32 %32 to double
+  %34 = load double, ptr %10, align 8, !tbaa !8
+  %35 = fsub double %33, %34
+  %36 = load i32, ptr %12, align 4, !tbaa !38
+  %37 = sitofp i32 %36 to double
+  %38 = fmul double %35, %37
+  %39 = load double, ptr %11, align 8, !tbaa !8
+  %40 = load double, ptr %10, align 8, !tbaa !8
+  %41 = fsub double %39, %40
+  %42 = fdiv double %38, %41
+  %43 = fptosi double %42 to i32
+  %44 = load i32, ptr %16, align 4, !tbaa !38
+  %45 = shl i32 %43, %44
+  %46 = load i32, ptr %14, align 4, !tbaa !38
+  %47 = or i32 %46, %45
+  store i32 %47, ptr %14, align 4, !tbaa !38
+  br label %48
 
-54:                                               ; preds = %24
-  %55 = load i32, ptr %14, align 4
-  ret i32 %55
+48:                                               ; preds = %29
+  %49 = load i32, ptr %15, align 4, !tbaa !38
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr %15, align 4, !tbaa !38
+  %51 = load ptr, ptr %13, align 8, !tbaa !44
+  %52 = getelementptr inbounds nuw i8, ptr %51, i32 1
+  store ptr %52, ptr %13, align 8, !tbaa !44
+  %53 = load i32, ptr %16, align 4, !tbaa !38
+  %54 = add nsw i32 %53, 8
+  store i32 %54, ptr %16, align 4, !tbaa !38
+  br label %24, !llvm.loop !93
+
+55:                                               ; preds = %28
+  %56 = load i32, ptr %14, align 4, !tbaa !38
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #18
+  ret i32 %56
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZN2cv6bgsegm12QuantizationItE5applyEPKviiddi(ptr noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, double noundef %4, i32 noundef %5) #5 comdat align 2 {
+define linkonce_odr hidden noundef i32 @_ZN2cv6bgsegm12QuantizationItE5applyEPKviiddi(ptr noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, double noundef %4, i32 noundef %5) #3 comdat align 2 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -1523,73 +1745,84 @@ define linkonce_odr hidden noundef i32 @_ZN2cv6bgsegm12QuantizationItE5applyEPKv
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
-  store ptr %0, ptr %7, align 8
-  store i32 %1, ptr %8, align 4
-  store i32 %2, ptr %9, align 4
-  store double %3, ptr %10, align 8
-  store double %4, ptr %11, align 8
-  store i32 %5, ptr %12, align 4
-  %17 = load ptr, ptr %7, align 8
-  store ptr %17, ptr %13, align 8
-  %18 = load i32, ptr %8, align 4
-  %19 = load i32, ptr %9, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !61
+  store i32 %1, ptr %8, align 4, !tbaa !38
+  store i32 %2, ptr %9, align 4, !tbaa !38
+  store double %3, ptr %10, align 8, !tbaa !8
+  store double %4, ptr %11, align 8, !tbaa !8
+  store i32 %5, ptr %12, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #18
+  %17 = load ptr, ptr %7, align 8, !tbaa !61
+  store ptr %17, ptr %13, align 8, !tbaa !94
+  %18 = load i32, ptr %8, align 4, !tbaa !38
+  %19 = load i32, ptr %9, align 4, !tbaa !38
   %20 = mul nsw i32 %18, %19
-  %21 = load ptr, ptr %13, align 8
+  %21 = load ptr, ptr %13, align 8, !tbaa !94
   %22 = sext i32 %20 to i64
   %23 = getelementptr inbounds i16, ptr %21, i64 %22
-  store ptr %23, ptr %13, align 8
-  store i32 0, ptr %14, align 4
-  store i32 0, ptr %15, align 4
-  store i32 0, ptr %16, align 4
+  store ptr %23, ptr %13, align 8, !tbaa !94
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #18
+  store i32 0, ptr %14, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #18
+  store i32 0, ptr %15, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #18
+  store i32 0, ptr %16, align 4, !tbaa !38
   br label %24
 
-24:                                               ; preds = %47, %6
-  %25 = load i32, ptr %15, align 4
-  %26 = load i32, ptr %9, align 4
+24:                                               ; preds = %48, %6
+  %25 = load i32, ptr %15, align 4, !tbaa !38
+  %26 = load i32, ptr %9, align 4, !tbaa !38
   %27 = icmp slt i32 %25, %26
-  br i1 %27, label %28, label %54
+  br i1 %27, label %29, label %28
 
 28:                                               ; preds = %24
-  %29 = load ptr, ptr %13, align 8
-  %30 = load i16, ptr %29, align 2
-  %31 = zext i16 %30 to i32
-  %32 = sitofp i32 %31 to double
-  %33 = load double, ptr %10, align 8
-  %34 = fsub double %32, %33
-  %35 = load i32, ptr %12, align 4
-  %36 = sitofp i32 %35 to double
-  %37 = fmul double %34, %36
-  %38 = load double, ptr %11, align 8
-  %39 = load double, ptr %10, align 8
-  %40 = fsub double %38, %39
-  %41 = fdiv double %37, %40
-  %42 = fptosi double %41 to i32
-  %43 = load i32, ptr %16, align 4
-  %44 = shl i32 %42, %43
-  %45 = load i32, ptr %14, align 4
-  %46 = or i32 %45, %44
-  store i32 %46, ptr %14, align 4
-  br label %47
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #18
+  br label %55
 
-47:                                               ; preds = %28
-  %48 = load i32, ptr %15, align 4
-  %49 = add nsw i32 %48, 1
-  store i32 %49, ptr %15, align 4
-  %50 = load ptr, ptr %13, align 8
-  %51 = getelementptr inbounds i16, ptr %50, i32 1
-  store ptr %51, ptr %13, align 8
-  %52 = load i32, ptr %16, align 4
-  %53 = add nsw i32 %52, 8
-  store i32 %53, ptr %16, align 4
-  br label %24, !llvm.loop !10
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %13, align 8, !tbaa !94
+  %31 = load i16, ptr %30, align 2, !tbaa !96
+  %32 = zext i16 %31 to i32
+  %33 = sitofp i32 %32 to double
+  %34 = load double, ptr %10, align 8, !tbaa !8
+  %35 = fsub double %33, %34
+  %36 = load i32, ptr %12, align 4, !tbaa !38
+  %37 = sitofp i32 %36 to double
+  %38 = fmul double %35, %37
+  %39 = load double, ptr %11, align 8, !tbaa !8
+  %40 = load double, ptr %10, align 8, !tbaa !8
+  %41 = fsub double %39, %40
+  %42 = fdiv double %38, %41
+  %43 = fptosi double %42 to i32
+  %44 = load i32, ptr %16, align 4, !tbaa !38
+  %45 = shl i32 %43, %44
+  %46 = load i32, ptr %14, align 4, !tbaa !38
+  %47 = or i32 %46, %45
+  store i32 %47, ptr %14, align 4, !tbaa !38
+  br label %48
 
-54:                                               ; preds = %24
-  %55 = load i32, ptr %14, align 4
-  ret i32 %55
+48:                                               ; preds = %29
+  %49 = load i32, ptr %15, align 4, !tbaa !38
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr %15, align 4, !tbaa !38
+  %51 = load ptr, ptr %13, align 8, !tbaa !94
+  %52 = getelementptr inbounds nuw i16, ptr %51, i32 1
+  store ptr %52, ptr %13, align 8, !tbaa !94
+  %53 = load i32, ptr %16, align 4, !tbaa !38
+  %54 = add nsw i32 %53, 8
+  store i32 %54, ptr %16, align 4, !tbaa !38
+  br label %24, !llvm.loop !98
+
+55:                                               ; preds = %28
+  %56 = load i32, ptr %14, align 4, !tbaa !38
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #18
+  ret i32 %56
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZN2cv6bgsegm12QuantizationIsE5applyEPKviiddi(ptr noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, double noundef %4, i32 noundef %5) #5 comdat align 2 {
+define linkonce_odr hidden noundef i32 @_ZN2cv6bgsegm12QuantizationIsE5applyEPKviiddi(ptr noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, double noundef %4, i32 noundef %5) #3 comdat align 2 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -1600,73 +1833,84 @@ define linkonce_odr hidden noundef i32 @_ZN2cv6bgsegm12QuantizationIsE5applyEPKv
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
-  store ptr %0, ptr %7, align 8
-  store i32 %1, ptr %8, align 4
-  store i32 %2, ptr %9, align 4
-  store double %3, ptr %10, align 8
-  store double %4, ptr %11, align 8
-  store i32 %5, ptr %12, align 4
-  %17 = load ptr, ptr %7, align 8
-  store ptr %17, ptr %13, align 8
-  %18 = load i32, ptr %8, align 4
-  %19 = load i32, ptr %9, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !61
+  store i32 %1, ptr %8, align 4, !tbaa !38
+  store i32 %2, ptr %9, align 4, !tbaa !38
+  store double %3, ptr %10, align 8, !tbaa !8
+  store double %4, ptr %11, align 8, !tbaa !8
+  store i32 %5, ptr %12, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #18
+  %17 = load ptr, ptr %7, align 8, !tbaa !61
+  store ptr %17, ptr %13, align 8, !tbaa !94
+  %18 = load i32, ptr %8, align 4, !tbaa !38
+  %19 = load i32, ptr %9, align 4, !tbaa !38
   %20 = mul nsw i32 %18, %19
-  %21 = load ptr, ptr %13, align 8
+  %21 = load ptr, ptr %13, align 8, !tbaa !94
   %22 = sext i32 %20 to i64
   %23 = getelementptr inbounds i16, ptr %21, i64 %22
-  store ptr %23, ptr %13, align 8
-  store i32 0, ptr %14, align 4
-  store i32 0, ptr %15, align 4
-  store i32 0, ptr %16, align 4
+  store ptr %23, ptr %13, align 8, !tbaa !94
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #18
+  store i32 0, ptr %14, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #18
+  store i32 0, ptr %15, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #18
+  store i32 0, ptr %16, align 4, !tbaa !38
   br label %24
 
-24:                                               ; preds = %47, %6
-  %25 = load i32, ptr %15, align 4
-  %26 = load i32, ptr %9, align 4
+24:                                               ; preds = %48, %6
+  %25 = load i32, ptr %15, align 4, !tbaa !38
+  %26 = load i32, ptr %9, align 4, !tbaa !38
   %27 = icmp slt i32 %25, %26
-  br i1 %27, label %28, label %54
+  br i1 %27, label %29, label %28
 
 28:                                               ; preds = %24
-  %29 = load ptr, ptr %13, align 8
-  %30 = load i16, ptr %29, align 2
-  %31 = sext i16 %30 to i32
-  %32 = sitofp i32 %31 to double
-  %33 = load double, ptr %10, align 8
-  %34 = fsub double %32, %33
-  %35 = load i32, ptr %12, align 4
-  %36 = sitofp i32 %35 to double
-  %37 = fmul double %34, %36
-  %38 = load double, ptr %11, align 8
-  %39 = load double, ptr %10, align 8
-  %40 = fsub double %38, %39
-  %41 = fdiv double %37, %40
-  %42 = fptosi double %41 to i32
-  %43 = load i32, ptr %16, align 4
-  %44 = shl i32 %42, %43
-  %45 = load i32, ptr %14, align 4
-  %46 = or i32 %45, %44
-  store i32 %46, ptr %14, align 4
-  br label %47
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #18
+  br label %55
 
-47:                                               ; preds = %28
-  %48 = load i32, ptr %15, align 4
-  %49 = add nsw i32 %48, 1
-  store i32 %49, ptr %15, align 4
-  %50 = load ptr, ptr %13, align 8
-  %51 = getelementptr inbounds i16, ptr %50, i32 1
-  store ptr %51, ptr %13, align 8
-  %52 = load i32, ptr %16, align 4
-  %53 = add nsw i32 %52, 8
-  store i32 %53, ptr %16, align 4
-  br label %24, !llvm.loop !11
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %13, align 8, !tbaa !94
+  %31 = load i16, ptr %30, align 2, !tbaa !96
+  %32 = sext i16 %31 to i32
+  %33 = sitofp i32 %32 to double
+  %34 = load double, ptr %10, align 8, !tbaa !8
+  %35 = fsub double %33, %34
+  %36 = load i32, ptr %12, align 4, !tbaa !38
+  %37 = sitofp i32 %36 to double
+  %38 = fmul double %35, %37
+  %39 = load double, ptr %11, align 8, !tbaa !8
+  %40 = load double, ptr %10, align 8, !tbaa !8
+  %41 = fsub double %39, %40
+  %42 = fdiv double %38, %41
+  %43 = fptosi double %42 to i32
+  %44 = load i32, ptr %16, align 4, !tbaa !38
+  %45 = shl i32 %43, %44
+  %46 = load i32, ptr %14, align 4, !tbaa !38
+  %47 = or i32 %46, %45
+  store i32 %47, ptr %14, align 4, !tbaa !38
+  br label %48
 
-54:                                               ; preds = %24
-  %55 = load i32, ptr %14, align 4
-  ret i32 %55
+48:                                               ; preds = %29
+  %49 = load i32, ptr %15, align 4, !tbaa !38
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr %15, align 4, !tbaa !38
+  %51 = load ptr, ptr %13, align 8, !tbaa !94
+  %52 = getelementptr inbounds nuw i16, ptr %51, i32 1
+  store ptr %52, ptr %13, align 8, !tbaa !94
+  %53 = load i32, ptr %16, align 4, !tbaa !38
+  %54 = add nsw i32 %53, 8
+  store i32 %54, ptr %16, align 4, !tbaa !38
+  br label %24, !llvm.loop !99
+
+55:                                               ; preds = %28
+  %56 = load i32, ptr %14, align 4, !tbaa !38
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #18
+  ret i32 %56
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZN2cv6bgsegm12QuantizationIiE5applyEPKviiddi(ptr noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, double noundef %4, i32 noundef %5) #5 comdat align 2 {
+define linkonce_odr hidden noundef i32 @_ZN2cv6bgsegm12QuantizationIiE5applyEPKviiddi(ptr noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, double noundef %4, i32 noundef %5) #3 comdat align 2 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -1677,72 +1921,83 @@ define linkonce_odr hidden noundef i32 @_ZN2cv6bgsegm12QuantizationIiE5applyEPKv
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
-  store ptr %0, ptr %7, align 8
-  store i32 %1, ptr %8, align 4
-  store i32 %2, ptr %9, align 4
-  store double %3, ptr %10, align 8
-  store double %4, ptr %11, align 8
-  store i32 %5, ptr %12, align 4
-  %17 = load ptr, ptr %7, align 8
-  store ptr %17, ptr %13, align 8
-  %18 = load i32, ptr %8, align 4
-  %19 = load i32, ptr %9, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !61
+  store i32 %1, ptr %8, align 4, !tbaa !38
+  store i32 %2, ptr %9, align 4, !tbaa !38
+  store double %3, ptr %10, align 8, !tbaa !8
+  store double %4, ptr %11, align 8, !tbaa !8
+  store i32 %5, ptr %12, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #18
+  %17 = load ptr, ptr %7, align 8, !tbaa !61
+  store ptr %17, ptr %13, align 8, !tbaa !69
+  %18 = load i32, ptr %8, align 4, !tbaa !38
+  %19 = load i32, ptr %9, align 4, !tbaa !38
   %20 = mul nsw i32 %18, %19
-  %21 = load ptr, ptr %13, align 8
+  %21 = load ptr, ptr %13, align 8, !tbaa !69
   %22 = sext i32 %20 to i64
   %23 = getelementptr inbounds i32, ptr %21, i64 %22
-  store ptr %23, ptr %13, align 8
-  store i32 0, ptr %14, align 4
-  store i32 0, ptr %15, align 4
-  store i32 0, ptr %16, align 4
+  store ptr %23, ptr %13, align 8, !tbaa !69
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #18
+  store i32 0, ptr %14, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #18
+  store i32 0, ptr %15, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #18
+  store i32 0, ptr %16, align 4, !tbaa !38
   br label %24
 
-24:                                               ; preds = %46, %6
-  %25 = load i32, ptr %15, align 4
-  %26 = load i32, ptr %9, align 4
+24:                                               ; preds = %47, %6
+  %25 = load i32, ptr %15, align 4, !tbaa !38
+  %26 = load i32, ptr %9, align 4, !tbaa !38
   %27 = icmp slt i32 %25, %26
-  br i1 %27, label %28, label %53
+  br i1 %27, label %29, label %28
 
 28:                                               ; preds = %24
-  %29 = load ptr, ptr %13, align 8
-  %30 = load i32, ptr %29, align 4
-  %31 = sitofp i32 %30 to double
-  %32 = load double, ptr %10, align 8
-  %33 = fsub double %31, %32
-  %34 = load i32, ptr %12, align 4
-  %35 = sitofp i32 %34 to double
-  %36 = fmul double %33, %35
-  %37 = load double, ptr %11, align 8
-  %38 = load double, ptr %10, align 8
-  %39 = fsub double %37, %38
-  %40 = fdiv double %36, %39
-  %41 = fptosi double %40 to i32
-  %42 = load i32, ptr %16, align 4
-  %43 = shl i32 %41, %42
-  %44 = load i32, ptr %14, align 4
-  %45 = or i32 %44, %43
-  store i32 %45, ptr %14, align 4
-  br label %46
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #18
+  br label %54
 
-46:                                               ; preds = %28
-  %47 = load i32, ptr %15, align 4
-  %48 = add nsw i32 %47, 1
-  store i32 %48, ptr %15, align 4
-  %49 = load ptr, ptr %13, align 8
-  %50 = getelementptr inbounds i32, ptr %49, i32 1
-  store ptr %50, ptr %13, align 8
-  %51 = load i32, ptr %16, align 4
-  %52 = add nsw i32 %51, 8
-  store i32 %52, ptr %16, align 4
-  br label %24, !llvm.loop !12
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %13, align 8, !tbaa !69
+  %31 = load i32, ptr %30, align 4, !tbaa !38
+  %32 = sitofp i32 %31 to double
+  %33 = load double, ptr %10, align 8, !tbaa !8
+  %34 = fsub double %32, %33
+  %35 = load i32, ptr %12, align 4, !tbaa !38
+  %36 = sitofp i32 %35 to double
+  %37 = fmul double %34, %36
+  %38 = load double, ptr %11, align 8, !tbaa !8
+  %39 = load double, ptr %10, align 8, !tbaa !8
+  %40 = fsub double %38, %39
+  %41 = fdiv double %37, %40
+  %42 = fptosi double %41 to i32
+  %43 = load i32, ptr %16, align 4, !tbaa !38
+  %44 = shl i32 %42, %43
+  %45 = load i32, ptr %14, align 4, !tbaa !38
+  %46 = or i32 %45, %44
+  store i32 %46, ptr %14, align 4, !tbaa !38
+  br label %47
 
-53:                                               ; preds = %24
-  %54 = load i32, ptr %14, align 4
-  ret i32 %54
+47:                                               ; preds = %29
+  %48 = load i32, ptr %15, align 4, !tbaa !38
+  %49 = add nsw i32 %48, 1
+  store i32 %49, ptr %15, align 4, !tbaa !38
+  %50 = load ptr, ptr %13, align 8, !tbaa !69
+  %51 = getelementptr inbounds nuw i32, ptr %50, i32 1
+  store ptr %51, ptr %13, align 8, !tbaa !69
+  %52 = load i32, ptr %16, align 4, !tbaa !38
+  %53 = add nsw i32 %52, 8
+  store i32 %53, ptr %16, align 4, !tbaa !38
+  br label %24, !llvm.loop !100
+
+54:                                               ; preds = %28
+  %55 = load i32, ptr %14, align 4, !tbaa !38
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #18
+  ret i32 %55
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZN2cv6bgsegm12QuantizationIfE5applyEPKviiddi(ptr noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, double noundef %4, i32 noundef %5) #5 comdat align 2 {
+define linkonce_odr hidden noundef i32 @_ZN2cv6bgsegm12QuantizationIfE5applyEPKviiddi(ptr noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, double noundef %4, i32 noundef %5) #3 comdat align 2 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -1753,72 +2008,83 @@ define linkonce_odr hidden noundef i32 @_ZN2cv6bgsegm12QuantizationIfE5applyEPKv
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
-  store ptr %0, ptr %7, align 8
-  store i32 %1, ptr %8, align 4
-  store i32 %2, ptr %9, align 4
-  store double %3, ptr %10, align 8
-  store double %4, ptr %11, align 8
-  store i32 %5, ptr %12, align 4
-  %17 = load ptr, ptr %7, align 8
-  store ptr %17, ptr %13, align 8
-  %18 = load i32, ptr %8, align 4
-  %19 = load i32, ptr %9, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !61
+  store i32 %1, ptr %8, align 4, !tbaa !38
+  store i32 %2, ptr %9, align 4, !tbaa !38
+  store double %3, ptr %10, align 8, !tbaa !8
+  store double %4, ptr %11, align 8, !tbaa !8
+  store i32 %5, ptr %12, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #18
+  %17 = load ptr, ptr %7, align 8, !tbaa !61
+  store ptr %17, ptr %13, align 8, !tbaa !70
+  %18 = load i32, ptr %8, align 4, !tbaa !38
+  %19 = load i32, ptr %9, align 4, !tbaa !38
   %20 = mul nsw i32 %18, %19
-  %21 = load ptr, ptr %13, align 8
+  %21 = load ptr, ptr %13, align 8, !tbaa !70
   %22 = sext i32 %20 to i64
   %23 = getelementptr inbounds float, ptr %21, i64 %22
-  store ptr %23, ptr %13, align 8
-  store i32 0, ptr %14, align 4
-  store i32 0, ptr %15, align 4
-  store i32 0, ptr %16, align 4
+  store ptr %23, ptr %13, align 8, !tbaa !70
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #18
+  store i32 0, ptr %14, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #18
+  store i32 0, ptr %15, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #18
+  store i32 0, ptr %16, align 4, !tbaa !38
   br label %24
 
-24:                                               ; preds = %46, %6
-  %25 = load i32, ptr %15, align 4
-  %26 = load i32, ptr %9, align 4
+24:                                               ; preds = %47, %6
+  %25 = load i32, ptr %15, align 4, !tbaa !38
+  %26 = load i32, ptr %9, align 4, !tbaa !38
   %27 = icmp slt i32 %25, %26
-  br i1 %27, label %28, label %53
+  br i1 %27, label %29, label %28
 
 28:                                               ; preds = %24
-  %29 = load ptr, ptr %13, align 8
-  %30 = load float, ptr %29, align 4
-  %31 = fpext float %30 to double
-  %32 = load double, ptr %10, align 8
-  %33 = fsub double %31, %32
-  %34 = load i32, ptr %12, align 4
-  %35 = sitofp i32 %34 to double
-  %36 = fmul double %33, %35
-  %37 = load double, ptr %11, align 8
-  %38 = load double, ptr %10, align 8
-  %39 = fsub double %37, %38
-  %40 = fdiv double %36, %39
-  %41 = fptosi double %40 to i32
-  %42 = load i32, ptr %16, align 4
-  %43 = shl i32 %41, %42
-  %44 = load i32, ptr %14, align 4
-  %45 = or i32 %44, %43
-  store i32 %45, ptr %14, align 4
-  br label %46
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #18
+  br label %54
 
-46:                                               ; preds = %28
-  %47 = load i32, ptr %15, align 4
-  %48 = add nsw i32 %47, 1
-  store i32 %48, ptr %15, align 4
-  %49 = load ptr, ptr %13, align 8
-  %50 = getelementptr inbounds float, ptr %49, i32 1
-  store ptr %50, ptr %13, align 8
-  %51 = load i32, ptr %16, align 4
-  %52 = add nsw i32 %51, 8
-  store i32 %52, ptr %16, align 4
-  br label %24, !llvm.loop !13
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %13, align 8, !tbaa !70
+  %31 = load float, ptr %30, align 4, !tbaa !84
+  %32 = fpext float %31 to double
+  %33 = load double, ptr %10, align 8, !tbaa !8
+  %34 = fsub double %32, %33
+  %35 = load i32, ptr %12, align 4, !tbaa !38
+  %36 = sitofp i32 %35 to double
+  %37 = fmul double %34, %36
+  %38 = load double, ptr %11, align 8, !tbaa !8
+  %39 = load double, ptr %10, align 8, !tbaa !8
+  %40 = fsub double %38, %39
+  %41 = fdiv double %37, %40
+  %42 = fptosi double %41 to i32
+  %43 = load i32, ptr %16, align 4, !tbaa !38
+  %44 = shl i32 %42, %43
+  %45 = load i32, ptr %14, align 4, !tbaa !38
+  %46 = or i32 %45, %44
+  store i32 %46, ptr %14, align 4, !tbaa !38
+  br label %47
 
-53:                                               ; preds = %24
-  %54 = load i32, ptr %14, align 4
-  ret i32 %54
+47:                                               ; preds = %29
+  %48 = load i32, ptr %15, align 4, !tbaa !38
+  %49 = add nsw i32 %48, 1
+  store i32 %49, ptr %15, align 4, !tbaa !38
+  %50 = load ptr, ptr %13, align 8, !tbaa !70
+  %51 = getelementptr inbounds nuw float, ptr %50, i32 1
+  store ptr %51, ptr %13, align 8, !tbaa !70
+  %52 = load i32, ptr %16, align 4, !tbaa !38
+  %53 = add nsw i32 %52, 8
+  store i32 %53, ptr %16, align 4, !tbaa !38
+  br label %24, !llvm.loop !101
+
+54:                                               ; preds = %28
+  %55 = load i32, ptr %14, align 4, !tbaa !38
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #18
+  ret i32 %55
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZN2cv6bgsegm12QuantizationIdE5applyEPKviiddi(ptr noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, double noundef %4, i32 noundef %5) #5 comdat align 2 {
+define linkonce_odr hidden noundef i32 @_ZN2cv6bgsegm12QuantizationIdE5applyEPKviiddi(ptr noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, double noundef %4, i32 noundef %5) #3 comdat align 2 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -1829,240 +2095,269 @@ define linkonce_odr hidden noundef i32 @_ZN2cv6bgsegm12QuantizationIdE5applyEPKv
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
-  store ptr %0, ptr %7, align 8
-  store i32 %1, ptr %8, align 4
-  store i32 %2, ptr %9, align 4
-  store double %3, ptr %10, align 8
-  store double %4, ptr %11, align 8
-  store i32 %5, ptr %12, align 4
-  %17 = load ptr, ptr %7, align 8
-  store ptr %17, ptr %13, align 8
-  %18 = load i32, ptr %8, align 4
-  %19 = load i32, ptr %9, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !61
+  store i32 %1, ptr %8, align 4, !tbaa !38
+  store i32 %2, ptr %9, align 4, !tbaa !38
+  store double %3, ptr %10, align 8, !tbaa !8
+  store double %4, ptr %11, align 8, !tbaa !8
+  store i32 %5, ptr %12, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #18
+  %17 = load ptr, ptr %7, align 8, !tbaa !61
+  store ptr %17, ptr %13, align 8, !tbaa !102
+  %18 = load i32, ptr %8, align 4, !tbaa !38
+  %19 = load i32, ptr %9, align 4, !tbaa !38
   %20 = mul nsw i32 %18, %19
-  %21 = load ptr, ptr %13, align 8
+  %21 = load ptr, ptr %13, align 8, !tbaa !102
   %22 = sext i32 %20 to i64
   %23 = getelementptr inbounds double, ptr %21, i64 %22
-  store ptr %23, ptr %13, align 8
-  store i32 0, ptr %14, align 4
-  store i32 0, ptr %15, align 4
-  store i32 0, ptr %16, align 4
+  store ptr %23, ptr %13, align 8, !tbaa !102
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #18
+  store i32 0, ptr %14, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #18
+  store i32 0, ptr %15, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #18
+  store i32 0, ptr %16, align 4, !tbaa !38
   br label %24
 
-24:                                               ; preds = %45, %6
-  %25 = load i32, ptr %15, align 4
-  %26 = load i32, ptr %9, align 4
+24:                                               ; preds = %46, %6
+  %25 = load i32, ptr %15, align 4, !tbaa !38
+  %26 = load i32, ptr %9, align 4, !tbaa !38
   %27 = icmp slt i32 %25, %26
-  br i1 %27, label %28, label %52
+  br i1 %27, label %29, label %28
 
 28:                                               ; preds = %24
-  %29 = load ptr, ptr %13, align 8
-  %30 = load double, ptr %29, align 8
-  %31 = load double, ptr %10, align 8
-  %32 = fsub double %30, %31
-  %33 = load i32, ptr %12, align 4
-  %34 = sitofp i32 %33 to double
-  %35 = fmul double %32, %34
-  %36 = load double, ptr %11, align 8
-  %37 = load double, ptr %10, align 8
-  %38 = fsub double %36, %37
-  %39 = fdiv double %35, %38
-  %40 = fptosi double %39 to i32
-  %41 = load i32, ptr %16, align 4
-  %42 = shl i32 %40, %41
-  %43 = load i32, ptr %14, align 4
-  %44 = or i32 %43, %42
-  store i32 %44, ptr %14, align 4
-  br label %45
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #18
+  br label %53
 
-45:                                               ; preds = %28
-  %46 = load i32, ptr %15, align 4
-  %47 = add nsw i32 %46, 1
-  store i32 %47, ptr %15, align 4
-  %48 = load ptr, ptr %13, align 8
-  %49 = getelementptr inbounds double, ptr %48, i32 1
-  store ptr %49, ptr %13, align 8
-  %50 = load i32, ptr %16, align 4
-  %51 = add nsw i32 %50, 8
-  store i32 %51, ptr %16, align 4
-  br label %24, !llvm.loop !14
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %13, align 8, !tbaa !102
+  %31 = load double, ptr %30, align 8, !tbaa !8
+  %32 = load double, ptr %10, align 8, !tbaa !8
+  %33 = fsub double %31, %32
+  %34 = load i32, ptr %12, align 4, !tbaa !38
+  %35 = sitofp i32 %34 to double
+  %36 = fmul double %33, %35
+  %37 = load double, ptr %11, align 8, !tbaa !8
+  %38 = load double, ptr %10, align 8, !tbaa !8
+  %39 = fsub double %37, %38
+  %40 = fdiv double %36, %39
+  %41 = fptosi double %40 to i32
+  %42 = load i32, ptr %16, align 4, !tbaa !38
+  %43 = shl i32 %41, %42
+  %44 = load i32, ptr %14, align 4, !tbaa !38
+  %45 = or i32 %44, %43
+  store i32 %45, ptr %14, align 4, !tbaa !38
+  br label %46
 
-52:                                               ; preds = %24
-  %53 = load i32, ptr %14, align 4
-  ret i32 %53
+46:                                               ; preds = %29
+  %47 = load i32, ptr %15, align 4, !tbaa !38
+  %48 = add nsw i32 %47, 1
+  store i32 %48, ptr %15, align 4, !tbaa !38
+  %49 = load ptr, ptr %13, align 8, !tbaa !102
+  %50 = getelementptr inbounds nuw double, ptr %49, i32 1
+  store ptr %50, ptr %13, align 8, !tbaa !102
+  %51 = load i32, ptr %16, align 4, !tbaa !38
+  %52 = add nsw i32 %51, 8
+  store i32 %52, ptr %16, align 4, !tbaa !38
+  br label %24, !llvm.loop !104
+
+53:                                               ; preds = %28
+  %54 = load i32, ptr %14, align 4, !tbaa !38
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #18
+  ret i32 %54
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZNK2cv3Mat5depthEv(ptr noundef nonnull align 8 dereferenceable(96) %0) #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNK2cv3Mat5depthEv(ptr noundef nonnull align 8 dereferenceable(96) %0) #6 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !105
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::Mat", ptr %3, i32 0, i32 0
-  %5 = load i32, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.cv::Mat", ptr %3, i32 0, i32 0
+  %5 = load i32, ptr %4, align 8, !tbaa !107
   %6 = and i32 %5, 7
   ret i32 %6
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZNK2cv3Mat8channelsEv(ptr noundef nonnull align 8 dereferenceable(96) %0) #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNK2cv3Mat8channelsEv(ptr noundef nonnull align 8 dereferenceable(96) %0) #6 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !105
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::Mat", ptr %3, i32 0, i32 0
-  %5 = load i32, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.cv::Mat", ptr %3, i32 0, i32 0
+  %5 = load i32, ptr %4, align 8, !tbaa !107
   %6 = and i32 %5, 4088
   %7 = ashr i32 %6, 3
   %8 = add nsw i32 %7, 1
   ret i32 %8
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK2cv3Mat3ptrEi(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1) #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK2cv3Mat3ptrEi(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1) #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !105
+  store i32 %1, ptr %4, align 4, !tbaa !38
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.cv::Mat", ptr %5, i32 0, i32 4
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %"class.cv::Mat", ptr %5, i32 0, i32 11
-  %9 = getelementptr inbounds %"struct.cv::MatStep", ptr %8, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
+  %6 = getelementptr inbounds nuw %"class.cv::Mat", ptr %5, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8, !tbaa !108
+  %8 = getelementptr inbounds nuw %"class.cv::Mat", ptr %5, i32 0, i32 11
+  %9 = getelementptr inbounds nuw %"struct.cv::MatStep", ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !109
   %11 = getelementptr inbounds i64, ptr %10, i64 0
-  %12 = load i64, ptr %11, align 8
-  %13 = load i32, ptr %4, align 4
+  %12 = load i64, ptr %11, align 8, !tbaa !110
+  %13 = load i32, ptr %4, align 4, !tbaa !38
   %14 = sext i32 %13 to i64
   %15 = mul i64 %12, %14
-  %16 = getelementptr inbounds i8, ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 %15
   ret ptr %16
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZN2cv4Mat_IiEixEi(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1) #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN2cv4Mat_IiEixEi(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1) #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !45
+  store i32 %1, ptr %4, align 4, !tbaa !38
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.cv::Mat", ptr %5, i32 0, i32 4
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  %6 = getelementptr inbounds nuw %"class.cv::Mat", ptr %5, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8, !tbaa !108
+  %8 = load i32, ptr %4, align 4, !tbaa !38
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds %"class.cv::Mat", ptr %5, i32 0, i32 11
-  %11 = getelementptr inbounds %"struct.cv::MatStep", ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
+  %10 = getelementptr inbounds nuw %"class.cv::Mat", ptr %5, i32 0, i32 11
+  %11 = getelementptr inbounds nuw %"struct.cv::MatStep", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !109
   %13 = getelementptr inbounds i64, ptr %12, i64 0
-  %14 = load i64, ptr %13, align 8
+  %14 = load i64, ptr %13, align 8, !tbaa !110
   %15 = mul i64 %9, %14
-  %16 = getelementptr inbounds i8, ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 %15
   ret ptr %16
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZN2cv4Mat_IhEixEi(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1) #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN2cv4Mat_IhEixEi(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1) #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !111
+  store i32 %1, ptr %4, align 4, !tbaa !38
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.cv::Mat", ptr %5, i32 0, i32 4
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  %6 = getelementptr inbounds nuw %"class.cv::Mat", ptr %5, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8, !tbaa !108
+  %8 = load i32, ptr %4, align 4, !tbaa !38
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds %"class.cv::Mat", ptr %5, i32 0, i32 11
-  %11 = getelementptr inbounds %"struct.cv::MatStep", ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
+  %10 = getelementptr inbounds nuw %"class.cv::Mat", ptr %5, i32 0, i32 11
+  %11 = getelementptr inbounds nuw %"struct.cv::MatStep", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !109
   %13 = getelementptr inbounds i64, ptr %12, i64 0
-  %14 = load i64, ptr %13, align 8
+  %14 = load i64, ptr %13, align 8, !tbaa !110
   %15 = mul i64 %9, %14
-  %16 = getelementptr inbounds i8, ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 %15
   ret ptr %16
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZN2cv4Mat_IfEixEi(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1) #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN2cv4Mat_IfEixEi(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1) #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !51
+  store i32 %1, ptr %4, align 4, !tbaa !38
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.cv::Mat", ptr %5, i32 0, i32 4
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  %6 = getelementptr inbounds nuw %"class.cv::Mat", ptr %5, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8, !tbaa !108
+  %8 = load i32, ptr %4, align 4, !tbaa !38
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds %"class.cv::Mat", ptr %5, i32 0, i32 11
-  %11 = getelementptr inbounds %"struct.cv::MatStep", ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
+  %10 = getelementptr inbounds nuw %"class.cv::Mat", ptr %5, i32 0, i32 11
+  %11 = getelementptr inbounds nuw %"struct.cv::MatStep", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !109
   %13 = getelementptr inbounds i64, ptr %12, i64 0
-  %14 = load i64, ptr %13, align 8
+  %14 = load i64, ptr %13, align 8, !tbaa !110
   %15 = mul i64 %9, %14
-  %16 = getelementptr inbounds i8, ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 %15
   ret ptr %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef float @_ZN2cv6bgsegmL11findFeatureEiPKiPKfi(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #5 {
+define internal noundef float @_ZN2cv6bgsegmL11findFeatureEiPKiPKfi(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #3 {
   %5 = alloca float, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  store i32 %0, ptr %6, align 4
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i32 %3, ptr %9, align 4
-  store i32 0, ptr %10, align 4
-  br label %11
+  %11 = alloca i32, align 4
+  store i32 %0, ptr %6, align 4, !tbaa !38
+  store ptr %1, ptr %7, align 8, !tbaa !69
+  store ptr %2, ptr %8, align 8, !tbaa !70
+  store i32 %3, ptr %9, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #18
+  store i32 0, ptr %10, align 4, !tbaa !38
+  br label %12
 
-11:                                               ; preds = %30, %4
-  %12 = load i32, ptr %10, align 4
-  %13 = load i32, ptr %9, align 4
-  %14 = icmp slt i32 %12, %13
-  br i1 %14, label %15, label %33
+12:                                               ; preds = %32, %4
+  %13 = load i32, ptr %10, align 4, !tbaa !38
+  %14 = load i32, ptr %9, align 4, !tbaa !38
+  %15 = icmp slt i32 %13, %14
+  br i1 %15, label %17, label %16
 
-15:                                               ; preds = %11
-  %16 = load i32, ptr %6, align 4
-  %17 = load ptr, ptr %7, align 8
-  %18 = load i32, ptr %10, align 4
-  %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds i32, ptr %17, i64 %19
-  %21 = load i32, ptr %20, align 4
-  %22 = icmp eq i32 %16, %21
-  br i1 %22, label %23, label %29
+16:                                               ; preds = %12
+  store i32 2, ptr %11, align 4
+  br label %35
 
-23:                                               ; preds = %15
-  %24 = load ptr, ptr %8, align 8
-  %25 = load i32, ptr %10, align 4
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds float, ptr %24, i64 %26
-  %28 = load float, ptr %27, align 4
-  store float %28, ptr %5, align 4
-  br label %34
+17:                                               ; preds = %12
+  %18 = load i32, ptr %6, align 4, !tbaa !38
+  %19 = load ptr, ptr %7, align 8, !tbaa !69
+  %20 = load i32, ptr %10, align 4, !tbaa !38
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds i32, ptr %19, i64 %21
+  %23 = load i32, ptr %22, align 4, !tbaa !38
+  %24 = icmp eq i32 %18, %23
+  br i1 %24, label %25, label %31
 
-29:                                               ; preds = %15
-  br label %30
+25:                                               ; preds = %17
+  %26 = load ptr, ptr %8, align 8, !tbaa !70
+  %27 = load i32, ptr %10, align 4, !tbaa !38
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds float, ptr %26, i64 %28
+  %30 = load float, ptr %29, align 4, !tbaa !84
+  store float %30, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %35
 
-30:                                               ; preds = %29
-  %31 = load i32, ptr %10, align 4
-  %32 = add nsw i32 %31, 1
-  store i32 %32, ptr %10, align 4
-  br label %11, !llvm.loop !15
+31:                                               ; preds = %17
+  br label %32
 
-33:                                               ; preds = %11
+32:                                               ; preds = %31
+  %33 = load i32, ptr %10, align 4, !tbaa !38
+  %34 = add nsw i32 %33, 1
+  store i32 %34, ptr %10, align 4, !tbaa !38
+  br label %12, !llvm.loop !113
+
+35:                                               ; preds = %25, %16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #18
+  %36 = load i32, ptr %11, align 4
+  switch i32 %36, label %40 [
+    i32 2, label %37
+    i32 1, label %38
+  ]
+
+37:                                               ; preds = %35
   store float 0.000000e+00, ptr %5, align 4
-  br label %34
+  br label %38
 
-34:                                               ; preds = %33, %23
-  %35 = load float, ptr %5, align 4
-  ret float %35
+38:                                               ; preds = %37, %35
+  %39 = load float, ptr %5, align 4
+  ret float %39
+
+40:                                               ; preds = %35
+  unreachable
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #6
+declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN2cv6bgsegmL13insertFeatureEifPiPfRii(i32 noundef %0, float noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %5) #5 {
+define internal noundef zeroext i1 @_ZN2cv6bgsegmL13insertFeatureEifPiPfRii(i32 noundef %0, float noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %5) #3 {
   %7 = alloca i1, align 1
   %8 = alloca i32, align 4
   %9 = alloca float, align 4
@@ -2072,227 +2367,254 @@ define internal noundef zeroext i1 @_ZN2cv6bgsegmL13insertFeatureEifPiPfRii(i32 
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
-  store i32 %0, ptr %8, align 4
-  store float %1, ptr %9, align 4
-  store ptr %2, ptr %10, align 8
-  store ptr %3, ptr %11, align 8
-  store ptr %4, ptr %12, align 8
-  store i32 %5, ptr %13, align 4
-  store i32 -1, ptr %14, align 4
-  store i32 0, ptr %15, align 4
-  br label %16
+  %16 = alloca i32, align 4
+  store i32 %0, ptr %8, align 4, !tbaa !38
+  store float %1, ptr %9, align 4, !tbaa !84
+  store ptr %2, ptr %10, align 8, !tbaa !69
+  store ptr %3, ptr %11, align 8, !tbaa !70
+  store ptr %4, ptr %12, align 8, !tbaa !69
+  store i32 %5, ptr %13, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #18
+  store i32 -1, ptr %14, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #18
+  store i32 0, ptr %15, align 4, !tbaa !38
+  br label %17
 
-16:                                               ; preds = %39, %6
-  %17 = load i32, ptr %15, align 4
-  %18 = load ptr, ptr %12, align 8
-  %19 = load i32, ptr %18, align 4
-  %20 = icmp slt i32 %17, %19
-  br i1 %20, label %21, label %42
+17:                                               ; preds = %41, %6
+  %18 = load i32, ptr %15, align 4, !tbaa !38
+  %19 = load ptr, ptr %12, align 8, !tbaa !69
+  %20 = load i32, ptr %19, align 4, !tbaa !38
+  %21 = icmp slt i32 %18, %20
+  br i1 %21, label %23, label %22
 
-21:                                               ; preds = %16
-  %22 = load i32, ptr %8, align 4
-  %23 = load ptr, ptr %10, align 8
-  %24 = load i32, ptr %15, align 4
-  %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds i32, ptr %23, i64 %25
-  %27 = load i32, ptr %26, align 4
-  %28 = icmp eq i32 %22, %27
-  br i1 %28, label %29, label %38
+22:                                               ; preds = %17
+  store i32 2, ptr %16, align 4
+  br label %44
 
-29:                                               ; preds = %21
-  %30 = load ptr, ptr %11, align 8
-  %31 = load i32, ptr %15, align 4
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds float, ptr %30, i64 %32
-  %34 = load float, ptr %33, align 4
-  %35 = load float, ptr %9, align 4
-  %36 = fadd float %35, %34
-  store float %36, ptr %9, align 4
-  %37 = load i32, ptr %15, align 4
-  store i32 %37, ptr %14, align 4
-  br label %42
+23:                                               ; preds = %17
+  %24 = load i32, ptr %8, align 4, !tbaa !38
+  %25 = load ptr, ptr %10, align 8, !tbaa !69
+  %26 = load i32, ptr %15, align 4, !tbaa !38
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds i32, ptr %25, i64 %27
+  %29 = load i32, ptr %28, align 4, !tbaa !38
+  %30 = icmp eq i32 %24, %29
+  br i1 %30, label %31, label %40
 
-38:                                               ; preds = %21
-  br label %39
+31:                                               ; preds = %23
+  %32 = load ptr, ptr %11, align 8, !tbaa !70
+  %33 = load i32, ptr %15, align 4, !tbaa !38
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds float, ptr %32, i64 %34
+  %36 = load float, ptr %35, align 4, !tbaa !84
+  %37 = load float, ptr %9, align 4, !tbaa !84
+  %38 = fadd float %37, %36
+  store float %38, ptr %9, align 4, !tbaa !84
+  %39 = load i32, ptr %15, align 4, !tbaa !38
+  store i32 %39, ptr %14, align 4, !tbaa !38
+  store i32 2, ptr %16, align 4
+  br label %44
 
-39:                                               ; preds = %38
-  %40 = load i32, ptr %15, align 4
-  %41 = add nsw i32 %40, 1
-  store i32 %41, ptr %15, align 4
-  br label %16, !llvm.loop !16
+40:                                               ; preds = %23
+  br label %41
 
-42:                                               ; preds = %29, %16
-  %43 = load i32, ptr %14, align 4
-  %44 = icmp sge i32 %43, 0
-  br i1 %44, label %45, label %64
+41:                                               ; preds = %40
+  %42 = load i32, ptr %15, align 4, !tbaa !38
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %15, align 4, !tbaa !38
+  br label %17, !llvm.loop !114
 
-45:                                               ; preds = %42
-  %46 = load ptr, ptr %10, align 8
-  %47 = getelementptr inbounds i32, ptr %46, i64 1
-  %48 = load ptr, ptr %10, align 8
-  %49 = load i32, ptr %14, align 4
-  %50 = sext i32 %49 to i64
-  %51 = mul i64 %50, 4
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %47, ptr align 4 %48, i64 %51, i1 false)
-  %52 = load ptr, ptr %11, align 8
-  %53 = getelementptr inbounds float, ptr %52, i64 1
-  %54 = load ptr, ptr %11, align 8
-  %55 = load i32, ptr %14, align 4
-  %56 = sext i32 %55 to i64
-  %57 = mul i64 %56, 4
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %53, ptr align 4 %54, i64 %57, i1 false)
-  %58 = load i32, ptr %8, align 4
-  %59 = load ptr, ptr %10, align 8
-  %60 = getelementptr inbounds i32, ptr %59, i64 0
-  store i32 %58, ptr %60, align 4
-  %61 = load float, ptr %9, align 4
-  %62 = load ptr, ptr %11, align 8
-  %63 = getelementptr inbounds float, ptr %62, i64 0
-  store float %61, ptr %63, align 4
-  br label %109
+44:                                               ; preds = %31, %22
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #18
+  br label %45
 
-64:                                               ; preds = %42
-  %65 = load ptr, ptr %12, align 8
-  %66 = load i32, ptr %65, align 4
-  %67 = load i32, ptr %13, align 4
-  %68 = icmp eq i32 %66, %67
-  br i1 %68, label %69, label %92
+45:                                               ; preds = %44
+  %46 = load i32, ptr %14, align 4, !tbaa !38
+  %47 = icmp sge i32 %46, 0
+  br i1 %47, label %48, label %67
 
-69:                                               ; preds = %64
-  %70 = load ptr, ptr %10, align 8
-  %71 = getelementptr inbounds i32, ptr %70, i64 1
-  %72 = load ptr, ptr %10, align 8
-  %73 = load ptr, ptr %12, align 8
-  %74 = load i32, ptr %73, align 4
-  %75 = sub nsw i32 %74, 1
-  %76 = sext i32 %75 to i64
-  %77 = mul i64 %76, 4
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %71, ptr align 4 %72, i64 %77, i1 false)
-  %78 = load ptr, ptr %11, align 8
-  %79 = getelementptr inbounds float, ptr %78, i64 1
-  %80 = load ptr, ptr %11, align 8
-  %81 = load ptr, ptr %12, align 8
-  %82 = load i32, ptr %81, align 4
-  %83 = sub nsw i32 %82, 1
-  %84 = sext i32 %83 to i64
-  %85 = mul i64 %84, 4
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %79, ptr align 4 %80, i64 %85, i1 false)
-  %86 = load i32, ptr %8, align 4
-  %87 = load ptr, ptr %10, align 8
-  %88 = getelementptr inbounds i32, ptr %87, i64 0
-  store i32 %86, ptr %88, align 4
-  %89 = load float, ptr %9, align 4
-  %90 = load ptr, ptr %11, align 8
-  %91 = getelementptr inbounds float, ptr %90, i64 0
-  store float %89, ptr %91, align 4
-  br label %108
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %10, align 8, !tbaa !69
+  %50 = getelementptr inbounds i32, ptr %49, i64 1
+  %51 = load ptr, ptr %10, align 8, !tbaa !69
+  %52 = load i32, ptr %14, align 4, !tbaa !38
+  %53 = sext i32 %52 to i64
+  %54 = mul i64 %53, 4
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %50, ptr align 4 %51, i64 %54, i1 false)
+  %55 = load ptr, ptr %11, align 8, !tbaa !70
+  %56 = getelementptr inbounds float, ptr %55, i64 1
+  %57 = load ptr, ptr %11, align 8, !tbaa !70
+  %58 = load i32, ptr %14, align 4, !tbaa !38
+  %59 = sext i32 %58 to i64
+  %60 = mul i64 %59, 4
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %56, ptr align 4 %57, i64 %60, i1 false)
+  %61 = load i32, ptr %8, align 4, !tbaa !38
+  %62 = load ptr, ptr %10, align 8, !tbaa !69
+  %63 = getelementptr inbounds i32, ptr %62, i64 0
+  store i32 %61, ptr %63, align 4, !tbaa !38
+  %64 = load float, ptr %9, align 4, !tbaa !84
+  %65 = load ptr, ptr %11, align 8, !tbaa !70
+  %66 = getelementptr inbounds float, ptr %65, i64 0
+  store float %64, ptr %66, align 4, !tbaa !84
+  br label %112
 
-92:                                               ; preds = %64
-  %93 = load i32, ptr %8, align 4
-  %94 = load ptr, ptr %10, align 8
-  %95 = load ptr, ptr %12, align 8
-  %96 = load i32, ptr %95, align 4
-  %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds i32, ptr %94, i64 %97
-  store i32 %93, ptr %98, align 4
-  %99 = load float, ptr %9, align 4
-  %100 = load ptr, ptr %11, align 8
-  %101 = load ptr, ptr %12, align 8
-  %102 = load i32, ptr %101, align 4
-  %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds float, ptr %100, i64 %103
-  store float %99, ptr %104, align 4
-  %105 = load ptr, ptr %12, align 8
-  %106 = load i32, ptr %105, align 4
-  %107 = add nsw i32 %106, 1
-  store i32 %107, ptr %105, align 4
+67:                                               ; preds = %45
+  %68 = load ptr, ptr %12, align 8, !tbaa !69
+  %69 = load i32, ptr %68, align 4, !tbaa !38
+  %70 = load i32, ptr %13, align 4, !tbaa !38
+  %71 = icmp eq i32 %69, %70
+  br i1 %71, label %72, label %95
+
+72:                                               ; preds = %67
+  %73 = load ptr, ptr %10, align 8, !tbaa !69
+  %74 = getelementptr inbounds i32, ptr %73, i64 1
+  %75 = load ptr, ptr %10, align 8, !tbaa !69
+  %76 = load ptr, ptr %12, align 8, !tbaa !69
+  %77 = load i32, ptr %76, align 4, !tbaa !38
+  %78 = sub nsw i32 %77, 1
+  %79 = sext i32 %78 to i64
+  %80 = mul i64 %79, 4
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %74, ptr align 4 %75, i64 %80, i1 false)
+  %81 = load ptr, ptr %11, align 8, !tbaa !70
+  %82 = getelementptr inbounds float, ptr %81, i64 1
+  %83 = load ptr, ptr %11, align 8, !tbaa !70
+  %84 = load ptr, ptr %12, align 8, !tbaa !69
+  %85 = load i32, ptr %84, align 4, !tbaa !38
+  %86 = sub nsw i32 %85, 1
+  %87 = sext i32 %86 to i64
+  %88 = mul i64 %87, 4
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %82, ptr align 4 %83, i64 %88, i1 false)
+  %89 = load i32, ptr %8, align 4, !tbaa !38
+  %90 = load ptr, ptr %10, align 8, !tbaa !69
+  %91 = getelementptr inbounds i32, ptr %90, i64 0
+  store i32 %89, ptr %91, align 4, !tbaa !38
+  %92 = load float, ptr %9, align 4, !tbaa !84
+  %93 = load ptr, ptr %11, align 8, !tbaa !70
+  %94 = getelementptr inbounds float, ptr %93, i64 0
+  store float %92, ptr %94, align 4, !tbaa !84
+  br label %111
+
+95:                                               ; preds = %67
+  %96 = load i32, ptr %8, align 4, !tbaa !38
+  %97 = load ptr, ptr %10, align 8, !tbaa !69
+  %98 = load ptr, ptr %12, align 8, !tbaa !69
+  %99 = load i32, ptr %98, align 4, !tbaa !38
+  %100 = sext i32 %99 to i64
+  %101 = getelementptr inbounds i32, ptr %97, i64 %100
+  store i32 %96, ptr %101, align 4, !tbaa !38
+  %102 = load float, ptr %9, align 4, !tbaa !84
+  %103 = load ptr, ptr %11, align 8, !tbaa !70
+  %104 = load ptr, ptr %12, align 8, !tbaa !69
+  %105 = load i32, ptr %104, align 4, !tbaa !38
+  %106 = sext i32 %105 to i64
+  %107 = getelementptr inbounds float, ptr %103, i64 %106
+  store float %102, ptr %107, align 4, !tbaa !84
+  %108 = load ptr, ptr %12, align 8, !tbaa !69
+  %109 = load i32, ptr %108, align 4, !tbaa !38
+  %110 = add nsw i32 %109, 1
+  store i32 %110, ptr %108, align 4, !tbaa !38
   store i1 true, ptr %7, align 1
-  br label %110
+  store i32 1, ptr %16, align 4
+  br label %113
 
-108:                                              ; preds = %69
-  br label %109
+111:                                              ; preds = %72
+  br label %112
 
-109:                                              ; preds = %108, %45
+112:                                              ; preds = %111, %48
   store i1 false, ptr %7, align 1
-  br label %110
+  store i32 1, ptr %16, align 4
+  br label %113
 
-110:                                              ; preds = %109, %92
-  %111 = load i1, ptr %7, align 1
-  ret i1 %111
+113:                                              ; preds = %112, %95
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #18
+  %114 = load i1, ptr %7, align 1
+  ret i1 %114
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN2cv6bgsegmL18normalizeHistogramEPfi(ptr noundef %0, i32 noundef %1) #5 {
+define internal void @_ZN2cv6bgsegmL18normalizeHistogramEPfi(ptr noundef %0, i32 noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca float, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  store float 0.000000e+00, ptr %5, align 4
-  store i32 0, ptr %6, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !70
+  store i32 %1, ptr %4, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #18
+  store float 0.000000e+00, ptr %5, align 4, !tbaa !84
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #18
+  store i32 0, ptr %6, align 4, !tbaa !38
   br label %8
 
-8:                                                ; preds = %20, %2
-  %9 = load i32, ptr %6, align 4
-  %10 = load i32, ptr %4, align 4
+8:                                                ; preds = %21, %2
+  %9 = load i32, ptr %6, align 4, !tbaa !38
+  %10 = load i32, ptr %4, align 4, !tbaa !38
   %11 = icmp slt i32 %9, %10
-  br i1 %11, label %12, label %23
+  br i1 %11, label %13, label %12
 
 12:                                               ; preds = %8
-  %13 = load ptr, ptr %3, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds float, ptr %13, i64 %15
-  %17 = load float, ptr %16, align 4
-  %18 = load float, ptr %5, align 4
-  %19 = fadd float %18, %17
-  store float %19, ptr %5, align 4
-  br label %20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #18
+  br label %24
 
-20:                                               ; preds = %12
-  %21 = load i32, ptr %6, align 4
-  %22 = add nsw i32 %21, 1
-  store i32 %22, ptr %6, align 4
-  br label %8, !llvm.loop !17
+13:                                               ; preds = %8
+  %14 = load ptr, ptr %3, align 8, !tbaa !70
+  %15 = load i32, ptr %6, align 4, !tbaa !38
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr inbounds float, ptr %14, i64 %16
+  %18 = load float, ptr %17, align 4, !tbaa !84
+  %19 = load float, ptr %5, align 4, !tbaa !84
+  %20 = fadd float %19, %18
+  store float %20, ptr %5, align 4, !tbaa !84
+  br label %21
 
-23:                                               ; preds = %8
-  %24 = load float, ptr %5, align 4
-  %25 = fcmp une float %24, 0.000000e+00
-  br i1 %25, label %26, label %43
+21:                                               ; preds = %13
+  %22 = load i32, ptr %6, align 4, !tbaa !38
+  %23 = add nsw i32 %22, 1
+  store i32 %23, ptr %6, align 4, !tbaa !38
+  br label %8, !llvm.loop !115
 
-26:                                               ; preds = %23
-  store i32 0, ptr %7, align 4
-  br label %27
+24:                                               ; preds = %12
+  %25 = load float, ptr %5, align 4, !tbaa !84
+  %26 = fcmp une float %25, 0.000000e+00
+  br i1 %26, label %27, label %45
 
-27:                                               ; preds = %39, %26
-  %28 = load i32, ptr %7, align 4
-  %29 = load i32, ptr %4, align 4
-  %30 = icmp slt i32 %28, %29
-  br i1 %30, label %31, label %42
+27:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #18
+  store i32 0, ptr %7, align 4, !tbaa !38
+  br label %28
 
-31:                                               ; preds = %27
-  %32 = load float, ptr %5, align 4
-  %33 = load ptr, ptr %3, align 8
-  %34 = load i32, ptr %7, align 4
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds float, ptr %33, i64 %35
-  %37 = load float, ptr %36, align 4
-  %38 = fdiv float %37, %32
-  store float %38, ptr %36, align 4
-  br label %39
+28:                                               ; preds = %41, %27
+  %29 = load i32, ptr %7, align 4, !tbaa !38
+  %30 = load i32, ptr %4, align 4, !tbaa !38
+  %31 = icmp slt i32 %29, %30
+  br i1 %31, label %33, label %32
 
-39:                                               ; preds = %31
-  %40 = load i32, ptr %7, align 4
-  %41 = add nsw i32 %40, 1
-  store i32 %41, ptr %7, align 4
-  br label %27, !llvm.loop !18
+32:                                               ; preds = %28
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #18
+  br label %44
 
-42:                                               ; preds = %27
-  br label %43
+33:                                               ; preds = %28
+  %34 = load float, ptr %5, align 4, !tbaa !84
+  %35 = load ptr, ptr %3, align 8, !tbaa !70
+  %36 = load i32, ptr %7, align 4, !tbaa !38
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds float, ptr %35, i64 %37
+  %39 = load float, ptr %38, align 4, !tbaa !84
+  %40 = fdiv float %39, %34
+  store float %40, ptr %38, align 4, !tbaa !84
+  br label %41
 
-43:                                               ; preds = %42, %23
+41:                                               ; preds = %33
+  %42 = load i32, ptr %7, align 4, !tbaa !38
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %7, align 4, !tbaa !38
+  br label %28, !llvm.loop !116
+
+44:                                               ; preds = %32
+  br label %45
+
+45:                                               ; preds = %44, %24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #18
   ret void
 }
 
@@ -2318,70 +2640,72 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl5applyERKNS_11_Inp
   %22 = alloca %"class.cv::Range", align 4
   %23 = alloca %"class.cv::_InputArray", align 8
   %24 = alloca %"class.cv::_OutputArray", align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store double %3, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !53
+  store ptr %2, ptr %7, align 8, !tbaa !117
+  store double %3, ptr %8, align 8, !tbaa !8
   %25 = load ptr, ptr %5, align 8
-  %26 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 96, ptr %9) #18
+  %26 = load ptr, ptr %6, align 8, !tbaa !53
   call void @_ZNK2cv11_InputArray6getMatEi(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %26, i32 noundef -1)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #18
   %27 = invoke noundef i32 @_ZNK2cv3Mat5depthEv(ptr noundef nonnull align 8 dereferenceable(96) %9)
           to label %28 unwind label %51
 
 28:                                               ; preds = %4
-  store i32 %27, ptr %10, align 4
+  store i32 %27, ptr %10, align 4, !tbaa !38
   br label %29
 
 29:                                               ; preds = %28
-  %30 = load i32, ptr %10, align 4
+  %30 = load i32, ptr %10, align 4, !tbaa !38
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %50, label %32
 
 32:                                               ; preds = %29
-  %33 = load i32, ptr %10, align 4
+  %33 = load i32, ptr %10, align 4, !tbaa !38
   %34 = icmp eq i32 %33, 1
   br i1 %34, label %50, label %35
 
 35:                                               ; preds = %32
-  %36 = load i32, ptr %10, align 4
+  %36 = load i32, ptr %10, align 4, !tbaa !38
   %37 = icmp eq i32 %36, 2
   br i1 %37, label %50, label %38
 
 38:                                               ; preds = %35
-  %39 = load i32, ptr %10, align 4
+  %39 = load i32, ptr %10, align 4, !tbaa !38
   %40 = icmp eq i32 %39, 3
   br i1 %40, label %50, label %41
 
 41:                                               ; preds = %38
-  %42 = load i32, ptr %10, align 4
+  %42 = load i32, ptr %10, align 4, !tbaa !38
   %43 = icmp eq i32 %42, 4
   br i1 %43, label %50, label %44
 
 44:                                               ; preds = %41
-  %45 = load i32, ptr %10, align 4
+  %45 = load i32, ptr %10, align 4, !tbaa !38
   %46 = icmp eq i32 %45, 5
   br i1 %46, label %50, label %47
 
 47:                                               ; preds = %44
-  %48 = load i32, ptr %10, align 4
+  %48 = load i32, ptr %10, align 4, !tbaa !38
   %49 = icmp eq i32 %48, 6
   br i1 %49, label %50, label %55
 
 50:                                               ; preds = %47, %44, %41, %38, %35, %32, %29
   br label %58
 
-51:                                               ; preds = %189, %185, %180, %177, %115, %112, %80, %78, %73, %68, %66, %61, %55, %4
+51:                                               ; preds = %193, %80, %78, %73, %68, %66, %61, %55, %4
   %52 = landingpad { ptr, i32 }
           cleanup
   %53 = extractvalue { ptr, i32 } %52, 0
   store ptr %53, ptr %11, align 8
   %54 = extractvalue { ptr, i32 } %52, 1
   store i32 %54, ptr %12, align 4
-  br label %257
+  br label %275
 
 55:                                               ; preds = %47
-  %56 = load i32, ptr %10, align 4
-  invoke void @_ZN2cv6detail21check_failed_MatDepthEiRKNS0_12CheckContextE(i32 noundef %56, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv6bgsegm27BackgroundSubtractorGMGImpl5applyERKNS_11_InputArrayERKNS_12_OutputArrayEdE15__cv_check__433) #12
+  %56 = load i32, ptr %10, align 4, !tbaa !38
+  invoke void @_ZN2cv6detail21check_failed_MatDepthEiRKNS0_12CheckContextE(i32 noundef %56, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv6bgsegm27BackgroundSubtractorGMGImpl5applyERKNS_11_InputArrayERKNS_12_OutputArrayEdE15__cv_check__433) #19
           to label %57 unwind label %51
 
 57:                                               ; preds = %55
@@ -2412,7 +2736,7 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl5applyERKNS_11_Inp
           to label %68 unwind label %51
 
 68:                                               ; preds = %66
-  invoke void @_ZN2cv6detail17check_failed_autoEiiRKNS0_12CheckContextE(i32 noundef %67, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv6bgsegm27BackgroundSubtractorGMGImpl5applyERKNS_11_InputArrayERKNS_12_OutputArrayEdE15__cv_check__434) #12
+  invoke void @_ZN2cv6detail17check_failed_autoEiiRKNS0_12CheckContextE(i32 noundef %67, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv6bgsegm27BackgroundSubtractorGMGImpl5applyERKNS_11_InputArrayERKNS_12_OutputArrayEdE15__cv_check__434) #19
           to label %69 unwind label %51
 
 69:                                               ; preds = %68
@@ -2443,7 +2767,7 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl5applyERKNS_11_Inp
           to label %80 unwind label %51
 
 80:                                               ; preds = %78
-  invoke void @_ZN2cv6detail17check_failed_autoEiiRKNS0_12CheckContextE(i32 noundef %79, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv6bgsegm27BackgroundSubtractorGMGImpl5applyERKNS_11_InputArrayERKNS_12_OutputArrayEdE15__cv_check__435) #12
+  invoke void @_ZN2cv6detail17check_failed_autoEiiRKNS0_12CheckContextE(i32 noundef %79, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv6bgsegm27BackgroundSubtractorGMGImpl5applyERKNS_11_InputArrayERKNS_12_OutputArrayEdE15__cv_check__435) #19
           to label %81 unwind label %51
 
 81:                                               ; preds = %80
@@ -2456,7 +2780,7 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl5applyERKNS_11_Inp
   br label %84
 
 84:                                               ; preds = %83
-  %85 = load double, ptr %8, align 8
+  %85 = load double, ptr %8, align 8, !tbaa !8
   %86 = fcmp une double %85, -1.000000e+00
   br i1 %86, label %87, label %112
 
@@ -2464,12 +2788,12 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl5applyERKNS_11_Inp
   br label %88
 
 88:                                               ; preds = %87
-  %89 = load double, ptr %8, align 8
+  %89 = load double, ptr %8, align 8, !tbaa !8
   %90 = fcmp oge double %89, 0.000000e+00
   br i1 %90, label %91, label %95
 
 91:                                               ; preds = %88
-  %92 = load double, ptr %8, align 8
+  %92 = load double, ptr %8, align 8, !tbaa !8
   %93 = fcmp ole double %92, 1.000000e+00
   br i1 %93, label %94, label %95
 
@@ -2477,12 +2801,14 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl5applyERKNS_11_Inp
   br label %107
 
 95:                                               ; preds = %91, %88
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #11
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef @.str.16, ptr noundef nonnull align 1 dereferenceable(1) %14)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %13) #18
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #18
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #18
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef @.str.16, ptr noundef nonnull align 1 dereferenceable(1) %14)
           to label %96 unwind label %98
 
 96:                                               ; preds = %95
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef @__func__._ZN2cv6bgsegm27BackgroundSubtractorGMGImpl5applyERKNS_11_InputArrayERKNS_12_OutputArrayEd, ptr noundef @.str.1, i32 noundef 439) #12
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef @__func__._ZN2cv6bgsegm27BackgroundSubtractorGMGImpl5applyERKNS_11_InputArrayERKNS_12_OutputArrayEd, ptr noundef @.str.1, i32 noundef 439) #19
           to label %97 unwind label %102
 
 97:                                               ; preds = %96
@@ -2504,12 +2830,14 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl5applyERKNS_11_Inp
   store ptr %104, ptr %11, align 8
   %105 = extractvalue { ptr, i32 } %103, 1
   store i32 %105, ptr %12, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #18
   br label %106
 
 106:                                              ; preds = %102, %98
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #11
-  br label %257
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #18
+  call void @llvm.lifetime.end.p0(i64 32, ptr %13) #18
+  br label %275
 
 107:                                              ; preds = %94
   br label %108
@@ -2518,328 +2846,398 @@ define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl5applyERKNS_11_Inp
   br label %109
 
 109:                                              ; preds = %108
-  %110 = load double, ptr %8, align 8
-  %111 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 2
-  store double %110, ptr %111, align 8
+  %110 = load double, ptr %8, align 8, !tbaa !8
+  %111 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 2
+  store double %110, ptr %111, align 8, !tbaa !31
   br label %112
 
 112:                                              ; preds = %109, %84
-  %113 = getelementptr inbounds %"class.cv::Mat", ptr %9, i32 0, i32 10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #18
+  %113 = getelementptr inbounds nuw %"class.cv::Mat", ptr %9, i32 0, i32 10
   %114 = invoke i64 @_ZNK2cv7MatSizeclEv(ptr noundef nonnull align 8 dereferenceable(8) %113)
-          to label %115 unwind label %51
+          to label %115 unwind label %139
 
 115:                                              ; preds = %112
   store i64 %114, ptr %15, align 4
-  %116 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 11
+  %116 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 11
   %117 = invoke noundef zeroext i1 @_ZN2cvneIiEEbRKNS_5Size_IT_EES5_(ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(8) %116)
-          to label %118 unwind label %51
+          to label %118 unwind label %139
 
 118:                                              ; preds = %115
-  br i1 %117, label %119, label %185
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #18
+  br i1 %117, label %119, label %193
 
 119:                                              ; preds = %118
-  %120 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 10
-  %121 = load double, ptr %120, align 8
-  store double %121, ptr %16, align 8
-  %122 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 9
-  %123 = load double, ptr %122, align 8
-  store double %123, ptr %17, align 8
-  %124 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 10
-  %125 = load double, ptr %124, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #18
+  %120 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 10
+  %121 = load double, ptr %120, align 8, !tbaa !35
+  store double %121, ptr %16, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #18
+  %122 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 9
+  %123 = load double, ptr %122, align 8, !tbaa !36
+  store double %123, ptr %17, align 8, !tbaa !8
+  %124 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 10
+  %125 = load double, ptr %124, align 8, !tbaa !35
   %126 = fcmp oeq double %125, 0.000000e+00
-  br i1 %126, label %127, label %177
+  br i1 %126, label %127, label %181
 
 127:                                              ; preds = %119
-  %128 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 9
-  %129 = load double, ptr %128, align 8
+  %128 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 9
+  %129 = load double, ptr %128, align 8, !tbaa !36
   %130 = fcmp oeq double %129, 0.000000e+00
-  br i1 %130, label %131, label %177
+  br i1 %130, label %131, label %181
 
 131:                                              ; preds = %127
-  %132 = load i32, ptr %10, align 4
+  %132 = load i32, ptr %10, align 4, !tbaa !38
   %133 = icmp eq i32 %132, 0
-  br i1 %133, label %134, label %139
+  br i1 %133, label %134, label %143
 
 134:                                              ; preds = %131
-  %135 = call noundef zeroext i8 @_ZNSt14numeric_limitsIhE3minEv() #11
+  %135 = call noundef zeroext i8 @_ZNSt14numeric_limitsIhE3minEv() #18
   %136 = uitofp i8 %135 to double
-  store double %136, ptr %16, align 8
-  %137 = call noundef zeroext i8 @_ZNSt14numeric_limitsIhE3maxEv() #11
+  store double %136, ptr %16, align 8, !tbaa !8
+  %137 = call noundef zeroext i8 @_ZNSt14numeric_limitsIhE3maxEv() #18
   %138 = uitofp i8 %137 to double
-  store double %138, ptr %17, align 8
-  br label %176
+  store double %138, ptr %17, align 8, !tbaa !8
+  br label %180
 
-139:                                              ; preds = %131
-  %140 = load i32, ptr %10, align 4
-  %141 = icmp eq i32 %140, 1
-  br i1 %141, label %142, label %147
+139:                                              ; preds = %115, %112
+  %140 = landingpad { ptr, i32 }
+          cleanup
+  %141 = extractvalue { ptr, i32 } %140, 0
+  store ptr %141, ptr %11, align 8
+  %142 = extractvalue { ptr, i32 } %140, 1
+  store i32 %142, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #18
+  br label %275
 
-142:                                              ; preds = %139
-  %143 = call noundef signext i8 @_ZNSt14numeric_limitsIaE3minEv() #11
-  %144 = sitofp i8 %143 to double
-  store double %144, ptr %16, align 8
-  %145 = call noundef signext i8 @_ZNSt14numeric_limitsIaE3maxEv() #11
-  %146 = sitofp i8 %145 to double
-  store double %146, ptr %17, align 8
-  br label %175
+143:                                              ; preds = %131
+  %144 = load i32, ptr %10, align 4, !tbaa !38
+  %145 = icmp eq i32 %144, 1
+  br i1 %145, label %146, label %151
 
-147:                                              ; preds = %139
-  %148 = load i32, ptr %10, align 4
-  %149 = icmp eq i32 %148, 2
-  br i1 %149, label %150, label %155
+146:                                              ; preds = %143
+  %147 = call noundef signext i8 @_ZNSt14numeric_limitsIaE3minEv() #18
+  %148 = sitofp i8 %147 to double
+  store double %148, ptr %16, align 8, !tbaa !8
+  %149 = call noundef signext i8 @_ZNSt14numeric_limitsIaE3maxEv() #18
+  %150 = sitofp i8 %149 to double
+  store double %150, ptr %17, align 8, !tbaa !8
+  br label %179
 
-150:                                              ; preds = %147
-  %151 = call noundef zeroext i16 @_ZNSt14numeric_limitsItE3minEv() #11
-  %152 = uitofp i16 %151 to double
-  store double %152, ptr %16, align 8
-  %153 = call noundef zeroext i16 @_ZNSt14numeric_limitsItE3maxEv() #11
-  %154 = uitofp i16 %153 to double
-  store double %154, ptr %17, align 8
-  br label %174
+151:                                              ; preds = %143
+  %152 = load i32, ptr %10, align 4, !tbaa !38
+  %153 = icmp eq i32 %152, 2
+  br i1 %153, label %154, label %159
 
-155:                                              ; preds = %147
-  %156 = load i32, ptr %10, align 4
-  %157 = icmp eq i32 %156, 3
-  br i1 %157, label %158, label %163
+154:                                              ; preds = %151
+  %155 = call noundef zeroext i16 @_ZNSt14numeric_limitsItE3minEv() #18
+  %156 = uitofp i16 %155 to double
+  store double %156, ptr %16, align 8, !tbaa !8
+  %157 = call noundef zeroext i16 @_ZNSt14numeric_limitsItE3maxEv() #18
+  %158 = uitofp i16 %157 to double
+  store double %158, ptr %17, align 8, !tbaa !8
+  br label %178
 
-158:                                              ; preds = %155
-  %159 = call noundef signext i16 @_ZNSt14numeric_limitsIsE3minEv() #11
-  %160 = sitofp i16 %159 to double
-  store double %160, ptr %16, align 8
-  %161 = call noundef signext i16 @_ZNSt14numeric_limitsIsE3maxEv() #11
-  %162 = sitofp i16 %161 to double
-  store double %162, ptr %17, align 8
-  br label %173
+159:                                              ; preds = %151
+  %160 = load i32, ptr %10, align 4, !tbaa !38
+  %161 = icmp eq i32 %160, 3
+  br i1 %161, label %162, label %167
 
-163:                                              ; preds = %155
-  %164 = load i32, ptr %10, align 4
-  %165 = icmp eq i32 %164, 4
-  br i1 %165, label %166, label %171
-
-166:                                              ; preds = %163
-  %167 = call noundef i32 @_ZNSt14numeric_limitsIiE3minEv() #11
-  %168 = sitofp i32 %167 to double
-  store double %168, ptr %16, align 8
-  %169 = call noundef i32 @_ZNSt14numeric_limitsIiE3maxEv() #11
-  %170 = sitofp i32 %169 to double
-  store double %170, ptr %17, align 8
-  br label %172
-
-171:                                              ; preds = %163
-  store double 0.000000e+00, ptr %16, align 8
-  store double 1.000000e+00, ptr %17, align 8
-  br label %172
-
-172:                                              ; preds = %171, %166
-  br label %173
-
-173:                                              ; preds = %172, %158
-  br label %174
-
-174:                                              ; preds = %173, %150
-  br label %175
-
-175:                                              ; preds = %174, %142
-  br label %176
-
-176:                                              ; preds = %175, %134
+162:                                              ; preds = %159
+  %163 = call noundef signext i16 @_ZNSt14numeric_limitsIsE3minEv() #18
+  %164 = sitofp i16 %163 to double
+  store double %164, ptr %16, align 8, !tbaa !8
+  %165 = call noundef signext i16 @_ZNSt14numeric_limitsIsE3maxEv() #18
+  %166 = sitofp i16 %165 to double
+  store double %166, ptr %17, align 8, !tbaa !8
   br label %177
 
-177:                                              ; preds = %176, %127, %119
-  %178 = getelementptr inbounds %"class.cv::Mat", ptr %9, i32 0, i32 10
-  %179 = invoke i64 @_ZNK2cv7MatSizeclEv(ptr noundef nonnull align 8 dereferenceable(8) %178)
-          to label %180 unwind label %51
+167:                                              ; preds = %159
+  %168 = load i32, ptr %10, align 4, !tbaa !38
+  %169 = icmp eq i32 %168, 4
+  br i1 %169, label %170, label %175
 
-180:                                              ; preds = %177
-  store i64 %179, ptr %18, align 4
-  %181 = load double, ptr %16, align 8
-  %182 = load double, ptr %17, align 8
-  %183 = load i64, ptr %18, align 4
-  invoke void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5Size_IiEEdd(ptr noundef nonnull align 8 dereferenceable(408) %25, i64 %183, double noundef %181, double noundef %182)
-          to label %184 unwind label %51
+170:                                              ; preds = %167
+  %171 = call noundef i32 @_ZNSt14numeric_limitsIiE3minEv() #18
+  %172 = sitofp i32 %171 to double
+  store double %172, ptr %16, align 8, !tbaa !8
+  %173 = call noundef i32 @_ZNSt14numeric_limitsIiE3maxEv() #18
+  %174 = sitofp i32 %173 to double
+  store double %174, ptr %17, align 8, !tbaa !8
+  br label %176
 
-184:                                              ; preds = %180
-  br label %185
+175:                                              ; preds = %167
+  store double 0.000000e+00, ptr %16, align 8, !tbaa !8
+  store double 1.000000e+00, ptr %17, align 8, !tbaa !8
+  br label %176
 
-185:                                              ; preds = %184, %118
-  %186 = load ptr, ptr %7, align 8
-  %187 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 11
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %19, ptr align 8 %187, i64 8, i1 false)
-  %188 = load i64, ptr %19, align 4
-  invoke void @_ZNK2cv12_OutputArray6createENS_5Size_IiEEiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24) %186, i64 %188, i32 noundef 0, i32 noundef -1, i1 noundef zeroext false, i32 noundef 0)
-          to label %189 unwind label %51
+176:                                              ; preds = %175, %170
+  br label %177
 
-189:                                              ; preds = %185
-  %190 = load ptr, ptr %7, align 8
-  invoke void @_ZNK2cv11_InputArray6getMatEi(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %20, ptr noundef nonnull align 8 dereferenceable(24) %190, i32 noundef -1)
-          to label %191 unwind label %51
+177:                                              ; preds = %176, %162
+  br label %178
 
-191:                                              ; preds = %189
-  %192 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 14
-  %193 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 15
-  %194 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 16
-  %195 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 1
-  %196 = load i32, ptr %195, align 8
-  %197 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 2
-  %198 = load double, ptr %197, align 8
-  %199 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 3
-  %200 = load i32, ptr %199, align 8
-  %201 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 4
-  %202 = load i32, ptr %201, align 4
-  %203 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 5
-  %204 = load double, ptr %203, align 8
-  %205 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 6
-  %206 = load double, ptr %205, align 8
-  %207 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 9
-  %208 = load double, ptr %207, align 8
-  %209 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 10
-  %210 = load double, ptr %209, align 8
-  %211 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 12
-  %212 = load i32, ptr %211, align 8
-  %213 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 8
-  %214 = load i8, ptr %213, align 4
-  %215 = trunc i8 %214 to i1
-  invoke void @_ZN2cv6bgsegm12GMG_LoopBodyC2ERKNS_3MatES4_RKNS_4Mat_IiEES8_RKNS5_IfEEidiiddddib(ptr noundef nonnull align 8 dereferenceable(556) %21, ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(96) %20, ptr noundef nonnull align 8 dereferenceable(96) %192, ptr noundef nonnull align 8 dereferenceable(96) %193, ptr noundef nonnull align 8 dereferenceable(96) %194, i32 noundef %196, double noundef %198, i32 noundef %200, i32 noundef %202, double noundef %204, double noundef %206, double noundef %208, double noundef %210, i32 noundef %212, i1 noundef zeroext %215)
-          to label %216 unwind label %234
+178:                                              ; preds = %177, %154
+  br label %179
 
-216:                                              ; preds = %191
-  %217 = getelementptr inbounds %"class.cv::Mat", ptr %9, i32 0, i32 2
-  %218 = load i32, ptr %217, align 8
-  invoke void @_ZN2cv5RangeC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %22, i32 noundef 0, i32 noundef %218)
-          to label %219 unwind label %238
+179:                                              ; preds = %178, %146
+  br label %180
 
-219:                                              ; preds = %216
-  %220 = invoke noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96) %9)
-          to label %221 unwind label %238
+180:                                              ; preds = %179, %134
+  br label %181
 
-221:                                              ; preds = %219
-  %222 = uitofp i64 %220 to double
-  %223 = fdiv double %222, 6.553600e+04
-  invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %21, double noundef %223)
-          to label %224 unwind label %238
+181:                                              ; preds = %180, %127, %119
+  %182 = getelementptr inbounds nuw %"class.cv::Mat", ptr %9, i32 0, i32 10
+  %183 = invoke i64 @_ZNK2cv7MatSizeclEv(ptr noundef nonnull align 8 dereferenceable(8) %182)
+          to label %184 unwind label %189
 
-224:                                              ; preds = %221
-  %225 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 7
-  %226 = load i32, ptr %225, align 8
-  %227 = icmp sgt i32 %226, 0
-  br i1 %227, label %228, label %251
+184:                                              ; preds = %181
+  store i64 %183, ptr %18, align 4
+  %185 = load double, ptr %16, align 8, !tbaa !8
+  %186 = load double, ptr %17, align 8, !tbaa !8
+  %187 = load i64, ptr %18, align 4
+  invoke void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5Size_IiEEdd(ptr noundef nonnull align 8 dereferenceable(408) %25, i64 %187, double noundef %185, double noundef %186)
+          to label %188 unwind label %189
 
-228:                                              ; preds = %224
+188:                                              ; preds = %184
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #18
+  br label %193
+
+189:                                              ; preds = %184, %181
+  %190 = landingpad { ptr, i32 }
+          cleanup
+  %191 = extractvalue { ptr, i32 } %190, 0
+  store ptr %191, ptr %11, align 8
+  %192 = extractvalue { ptr, i32 } %190, 1
+  store i32 %192, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #18
+  br label %275
+
+193:                                              ; preds = %188, %118
+  %194 = load ptr, ptr %7, align 8, !tbaa !117
+  %195 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %19, ptr align 8 %195, i64 8, i1 false), !tbaa.struct !37
+  %196 = load i64, ptr %19, align 4
+  invoke void @_ZNK2cv12_OutputArray6createENS_5Size_IiEEiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24) %194, i64 %196, i32 noundef 0, i32 noundef -1, i1 noundef zeroext false, i32 noundef 0)
+          to label %197 unwind label %51
+
+197:                                              ; preds = %193
+  call void @llvm.lifetime.start.p0(i64 96, ptr %20) #18
+  %198 = load ptr, ptr %7, align 8, !tbaa !117
+  invoke void @_ZNK2cv11_InputArray6getMatEi(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %20, ptr noundef nonnull align 8 dereferenceable(24) %198, i32 noundef -1)
+          to label %199 unwind label %242
+
+199:                                              ; preds = %197
+  call void @llvm.lifetime.start.p0(i64 560, ptr %21) #18
+  %200 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 14
+  %201 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 15
+  %202 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 16
+  %203 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 1
+  %204 = load i32, ptr %203, align 8, !tbaa !10
+  %205 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 2
+  %206 = load double, ptr %205, align 8, !tbaa !31
+  %207 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 3
+  %208 = load i32, ptr %207, align 8, !tbaa !32
+  %209 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 4
+  %210 = load i32, ptr %209, align 4, !tbaa !33
+  %211 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 5
+  %212 = load double, ptr %211, align 8, !tbaa !34
+  %213 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 6
+  %214 = load double, ptr %213, align 8, !tbaa !119
+  %215 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 9
+  %216 = load double, ptr %215, align 8, !tbaa !36
+  %217 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 10
+  %218 = load double, ptr %217, align 8, !tbaa !35
+  %219 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 12
+  %220 = load i32, ptr %219, align 8, !tbaa !39
+  %221 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 8
+  %222 = load i8, ptr %221, align 4, !tbaa !120, !range !81, !noundef !82
+  %223 = trunc i8 %222 to i1
+  invoke void @_ZN2cv6bgsegm12GMG_LoopBodyC2ERKNS_3MatES4_RKNS_4Mat_IiEES8_RKNS5_IfEEidiiddddib(ptr noundef nonnull align 8 dereferenceable(556) %21, ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(96) %20, ptr noundef nonnull align 8 dereferenceable(96) %200, ptr noundef nonnull align 8 dereferenceable(96) %201, ptr noundef nonnull align 8 dereferenceable(96) %202, i32 noundef %204, double noundef %206, i32 noundef %208, i32 noundef %210, double noundef %212, double noundef %214, double noundef %216, double noundef %218, i32 noundef %220, i1 noundef zeroext %223)
+          to label %224 unwind label %246
+
+224:                                              ; preds = %199
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #18
+  %225 = getelementptr inbounds nuw %"class.cv::Mat", ptr %9, i32 0, i32 2
+  %226 = load i32, ptr %225, align 8, !tbaa !121
+  invoke void @_ZN2cv5RangeC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %22, i32 noundef 0, i32 noundef %226)
+          to label %227 unwind label %250
+
+227:                                              ; preds = %224
+  %228 = invoke noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96) %9)
+          to label %229 unwind label %250
+
+229:                                              ; preds = %227
+  %230 = uitofp i64 %228 to double
+  %231 = fdiv double %230, 6.553600e+04
+  invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %21, double noundef %231)
+          to label %232 unwind label %250
+
+232:                                              ; preds = %229
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #18
+  %233 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 7
+  %234 = load i32, ptr %233, align 8, !tbaa !122
+  %235 = icmp sgt i32 %234, 0
+  br i1 %235, label %236, label %268
+
+236:                                              ; preds = %232
+  call void @llvm.lifetime.start.p0(i64 24, ptr %23) #18
   invoke void @_ZN2cv11_InputArrayC2ERKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(96) %20)
-          to label %229 unwind label %238
+          to label %237 unwind label %254
 
-229:                                              ; preds = %228
+237:                                              ; preds = %236
+  call void @llvm.lifetime.start.p0(i64 24, ptr %24) #18
   invoke void @_ZN2cv12_OutputArrayC2ERNS_3MatE(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(96) %20)
-          to label %230 unwind label %242
+          to label %238 unwind label %258
 
-230:                                              ; preds = %229
-  %231 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 7
-  %232 = load i32, ptr %231, align 8
-  invoke void @_ZN2cv10medianBlurERKNS_11_InputArrayERKNS_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %24, i32 noundef %232)
-          to label %233 unwind label %246
+238:                                              ; preds = %237
+  %239 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 7
+  %240 = load i32, ptr %239, align 8, !tbaa !122
+  invoke void @_ZN2cv10medianBlurERKNS_11_InputArrayERKNS_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %24, i32 noundef %240)
+          to label %241 unwind label %262
 
-233:                                              ; preds = %230
-  call void @_ZN2cv12_OutputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #11
-  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #11
-  br label %251
+241:                                              ; preds = %238
+  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr %24) #18
+  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr %23) #18
+  br label %268
 
-234:                                              ; preds = %191
-  %235 = landingpad { ptr, i32 }
-          cleanup
-  %236 = extractvalue { ptr, i32 } %235, 0
-  store ptr %236, ptr %11, align 8
-  %237 = extractvalue { ptr, i32 } %235, 1
-  store i32 %237, ptr %12, align 4
-  br label %256
-
-238:                                              ; preds = %228, %221, %219, %216
-  %239 = landingpad { ptr, i32 }
-          cleanup
-  %240 = extractvalue { ptr, i32 } %239, 0
-  store ptr %240, ptr %11, align 8
-  %241 = extractvalue { ptr, i32 } %239, 1
-  store i32 %241, ptr %12, align 4
-  br label %255
-
-242:                                              ; preds = %229
+242:                                              ; preds = %197
   %243 = landingpad { ptr, i32 }
           cleanup
   %244 = extractvalue { ptr, i32 } %243, 0
   store ptr %244, ptr %11, align 8
   %245 = extractvalue { ptr, i32 } %243, 1
   store i32 %245, ptr %12, align 4
-  br label %250
+  br label %274
 
-246:                                              ; preds = %230
+246:                                              ; preds = %199
   %247 = landingpad { ptr, i32 }
           cleanup
   %248 = extractvalue { ptr, i32 } %247, 0
   store ptr %248, ptr %11, align 8
   %249 = extractvalue { ptr, i32 } %247, 1
   store i32 %249, ptr %12, align 4
-  call void @_ZN2cv12_OutputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #11
-  br label %250
+  br label %273
 
-250:                                              ; preds = %246, %242
-  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #11
-  br label %255
+250:                                              ; preds = %229, %227, %224
+  %251 = landingpad { ptr, i32 }
+          cleanup
+  %252 = extractvalue { ptr, i32 } %251, 0
+  store ptr %252, ptr %11, align 8
+  %253 = extractvalue { ptr, i32 } %251, 1
+  store i32 %253, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #18
+  br label %272
 
-251:                                              ; preds = %233, %224
-  %252 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 12
-  %253 = load i32, ptr %252, align 8
-  %254 = add nsw i32 %253, 1
-  store i32 %254, ptr %252, align 8
-  call void @_ZN2cv6bgsegm12GMG_LoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(556) %21) #11
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #11
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #11
+254:                                              ; preds = %236
+  %255 = landingpad { ptr, i32 }
+          cleanup
+  %256 = extractvalue { ptr, i32 } %255, 0
+  store ptr %256, ptr %11, align 8
+  %257 = extractvalue { ptr, i32 } %255, 1
+  store i32 %257, ptr %12, align 4
+  br label %267
+
+258:                                              ; preds = %237
+  %259 = landingpad { ptr, i32 }
+          cleanup
+  %260 = extractvalue { ptr, i32 } %259, 0
+  store ptr %260, ptr %11, align 8
+  %261 = extractvalue { ptr, i32 } %259, 1
+  store i32 %261, ptr %12, align 4
+  br label %266
+
+262:                                              ; preds = %238
+  %263 = landingpad { ptr, i32 }
+          cleanup
+  %264 = extractvalue { ptr, i32 } %263, 0
+  store ptr %264, ptr %11, align 8
+  %265 = extractvalue { ptr, i32 } %263, 1
+  store i32 %265, ptr %12, align 4
+  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #18
+  br label %266
+
+266:                                              ; preds = %262, %258
+  call void @llvm.lifetime.end.p0(i64 24, ptr %24) #18
+  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #18
+  br label %267
+
+267:                                              ; preds = %266, %254
+  call void @llvm.lifetime.end.p0(i64 24, ptr %23) #18
+  br label %272
+
+268:                                              ; preds = %241, %232
+  %269 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %25, i32 0, i32 12
+  %270 = load i32, ptr %269, align 8, !tbaa !39
+  %271 = add nsw i32 %270, 1
+  store i32 %271, ptr %269, align 8, !tbaa !39
+  call void @_ZN2cv6bgsegm12GMG_LoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(556) %21) #18
+  call void @llvm.lifetime.end.p0(i64 560, ptr %21) #18
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #18
+  call void @llvm.lifetime.end.p0(i64 96, ptr %20) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #18
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #18
+  call void @llvm.lifetime.end.p0(i64 96, ptr %9) #18
   ret void
 
-255:                                              ; preds = %250, %238
-  call void @_ZN2cv6bgsegm12GMG_LoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(556) %21) #11
-  br label %256
+272:                                              ; preds = %267, %250
+  call void @_ZN2cv6bgsegm12GMG_LoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(556) %21) #18
+  br label %273
 
-256:                                              ; preds = %255, %234
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #11
-  br label %257
+273:                                              ; preds = %272, %246
+  call void @llvm.lifetime.end.p0(i64 560, ptr %21) #18
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #18
+  br label %274
 
-257:                                              ; preds = %256, %106, %51
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #11
-  br label %258
+274:                                              ; preds = %273, %242
+  call void @llvm.lifetime.end.p0(i64 96, ptr %20) #18
+  br label %275
 
-258:                                              ; preds = %257
-  %259 = load ptr, ptr %11, align 8
-  %260 = load i32, ptr %12, align 4
-  %261 = insertvalue { ptr, i32 } poison, ptr %259, 0
-  %262 = insertvalue { ptr, i32 } %261, i32 %260, 1
-  resume { ptr, i32 } %262
+275:                                              ; preds = %274, %189, %139, %106, %51
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #18
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #18
+  call void @llvm.lifetime.end.p0(i64 96, ptr %9) #18
+  br label %276
+
+276:                                              ; preds = %275
+  %277 = load ptr, ptr %11, align 8
+  %278 = load i32, ptr %12, align 4
+  %279 = insertvalue { ptr, i32 } poison, ptr %277, 0
+  %280 = insertvalue { ptr, i32 } %279, i32 %278, 1
+  resume { ptr, i32 } %280
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK2cv11_InputArray6getMatEi(ptr dead_on_unwind noalias writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZNK2cv11_InputArray6getMatEi(ptr dead_on_unwind noalias writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) #5 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
+  store ptr %1, ptr %5, align 8, !tbaa !53
+  store i32 %2, ptr %6, align 4, !tbaa !38
   %7 = load ptr, ptr %5, align 8
   %8 = call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %7)
   %9 = icmp eq i32 %8, 65536
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %3
-  %11 = load i32, ptr %6, align 4
+  %11 = load i32, ptr %6, align 4, !tbaa !38
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds %"class.cv::_InputArray", ptr %7, i32 0, i32 1
-  %15 = load ptr, ptr %14, align 8
+  %14 = getelementptr inbounds nuw %"class.cv::_InputArray", ptr %7, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8, !tbaa !123
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %15)
   br label %18
 
 16:                                               ; preds = %10, %3
-  %17 = load i32, ptr %6, align 4
+  %17 = load i32, ptr %6, align 4, !tbaa !38
   call void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %17)
   br label %18
 
@@ -2853,89 +3251,89 @@ declare void @_ZN2cv6detail21check_failed_MatDepthEiRKNS0_12CheckContextE(i32 no
 ; Function Attrs: noreturn
 declare void @_ZN2cv6detail17check_failed_autoEiiRKNS0_12CheckContextE(i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(48)) #1
 
-; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN2cvneIiEEbRKNS_5Size_IT_EES5_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) #0 {
+; Function Attrs: inlinehint mustprogress uwtable
+define internal noundef zeroext i1 @_ZN2cvneIiEEbRKNS_5Size_IT_EES5_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) #5 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !47
+  store ptr %1, ptr %4, align 8, !tbaa !47
+  %5 = load ptr, ptr %3, align 8, !tbaa !47
+  %6 = load ptr, ptr %4, align 8, !tbaa !47
   %7 = call noundef zeroext i1 @_ZN2cveqIiEEbRKNS_5Size_IT_EES5_(ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(8) %6)
   %8 = xor i1 %7, true
   ret i1 %8
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden i64 @_ZNK2cv7MatSizeclEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden i64 @_ZNK2cv7MatSizeclEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
   %2 = alloca %"class.cv::Size_", align 4
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !125
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.cv::MatSize", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
+  %5 = getelementptr inbounds nuw %"struct.cv::MatSize", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !127
   %7 = getelementptr inbounds i32, ptr %6, i64 1
-  %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds %"struct.cv::MatSize", ptr %4, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
+  %8 = load i32, ptr %7, align 4, !tbaa !38
+  %9 = getelementptr inbounds nuw %"struct.cv::MatSize", ptr %4, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !127
   %11 = getelementptr inbounds i32, ptr %10, i64 0
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 4, !tbaa !38
   call void @_ZN2cv5Size_IiEC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef %8, i32 noundef %12)
   %13 = load i64, ptr %2, align 4
   ret i64 %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i8 @_ZNSt14numeric_limitsIhE3minEv() #5 comdat align 2 {
+define linkonce_odr hidden noundef zeroext i8 @_ZNSt14numeric_limitsIhE3minEv() #3 comdat align 2 {
   ret i8 0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i8 @_ZNSt14numeric_limitsIhE3maxEv() #5 comdat align 2 {
+define linkonce_odr hidden noundef zeroext i8 @_ZNSt14numeric_limitsIhE3maxEv() #3 comdat align 2 {
   ret i8 -1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef signext i8 @_ZNSt14numeric_limitsIaE3minEv() #5 comdat align 2 {
+define linkonce_odr hidden noundef signext i8 @_ZNSt14numeric_limitsIaE3minEv() #3 comdat align 2 {
   ret i8 -128
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef signext i8 @_ZNSt14numeric_limitsIaE3maxEv() #5 comdat align 2 {
+define linkonce_odr hidden noundef signext i8 @_ZNSt14numeric_limitsIaE3maxEv() #3 comdat align 2 {
   ret i8 127
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i16 @_ZNSt14numeric_limitsItE3minEv() #5 comdat align 2 {
+define linkonce_odr hidden noundef zeroext i16 @_ZNSt14numeric_limitsItE3minEv() #3 comdat align 2 {
   ret i16 0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i16 @_ZNSt14numeric_limitsItE3maxEv() #5 comdat align 2 {
+define linkonce_odr hidden noundef zeroext i16 @_ZNSt14numeric_limitsItE3maxEv() #3 comdat align 2 {
   ret i16 -1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef signext i16 @_ZNSt14numeric_limitsIsE3minEv() #5 comdat align 2 {
+define linkonce_odr hidden noundef signext i16 @_ZNSt14numeric_limitsIsE3minEv() #3 comdat align 2 {
   ret i16 -32768
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef signext i16 @_ZNSt14numeric_limitsIsE3maxEv() #5 comdat align 2 {
+define linkonce_odr hidden noundef signext i16 @_ZNSt14numeric_limitsIsE3maxEv() #3 comdat align 2 {
   ret i16 32767
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZNSt14numeric_limitsIiE3minEv() #5 comdat align 2 {
+define linkonce_odr hidden noundef i32 @_ZNSt14numeric_limitsIiE3minEv() #3 comdat align 2 {
   ret i32 -2147483648
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZNSt14numeric_limitsIiE3maxEv() #5 comdat align 2 {
+define linkonce_odr hidden noundef i32 @_ZNSt14numeric_limitsIiE3maxEv() #3 comdat align 2 {
   ret i32 2147483647
 }
 
-declare void @_ZNK2cv12_OutputArray6createENS_5Size_IiEEiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24), i64, i32 noundef, i32 noundef, i1 noundef zeroext, i32 noundef) #3
+declare void @_ZNK2cv12_OutputArray6createENS_5Size_IiEEiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24), i64, i32 noundef, i32 noundef, i1 noundef zeroext, i32 noundef) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv6bgsegm12GMG_LoopBodyC2ERKNS_3MatES4_RKNS_4Mat_IiEES8_RKNS5_IfEEidiiddddib(ptr noundef nonnull align 8 dereferenceable(556) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(96) %5, i32 noundef %6, double noundef %7, i32 noundef %8, i32 noundef %9, double noundef %10, double noundef %11, double noundef %12, double noundef %13, i32 noundef %14, i1 noundef zeroext %15) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2957,88 +3355,88 @@ define linkonce_odr hidden void @_ZN2cv6bgsegm12GMG_LoopBodyC2ERKNS_3MatES4_RKNS
   %32 = alloca i8, align 1
   %33 = alloca ptr, align 8
   %34 = alloca i32, align 4
-  store ptr %0, ptr %17, align 8
-  store ptr %1, ptr %18, align 8
-  store ptr %2, ptr %19, align 8
-  store ptr %3, ptr %20, align 8
-  store ptr %4, ptr %21, align 8
-  store ptr %5, ptr %22, align 8
-  store i32 %6, ptr %23, align 4
-  store double %7, ptr %24, align 8
-  store i32 %8, ptr %25, align 4
-  store i32 %9, ptr %26, align 4
-  store double %10, ptr %27, align 8
-  store double %11, ptr %28, align 8
-  store double %12, ptr %29, align 8
-  store double %13, ptr %30, align 8
-  store i32 %14, ptr %31, align 4
+  store ptr %0, ptr %17, align 8, !tbaa !57
+  store ptr %1, ptr %18, align 8, !tbaa !105
+  store ptr %2, ptr %19, align 8, !tbaa !105
+  store ptr %3, ptr %20, align 8, !tbaa !45
+  store ptr %4, ptr %21, align 8, !tbaa !45
+  store ptr %5, ptr %22, align 8, !tbaa !51
+  store i32 %6, ptr %23, align 4, !tbaa !38
+  store double %7, ptr %24, align 8, !tbaa !8
+  store i32 %8, ptr %25, align 4, !tbaa !38
+  store i32 %9, ptr %26, align 4, !tbaa !38
+  store double %10, ptr %27, align 8, !tbaa !8
+  store double %11, ptr %28, align 8, !tbaa !8
+  store double %12, ptr %29, align 8, !tbaa !8
+  store double %13, ptr %30, align 8, !tbaa !8
+  store i32 %14, ptr %31, align 4, !tbaa !38
   %35 = zext i1 %15 to i8
-  store i8 %35, ptr %32, align 1
+  store i8 %35, ptr %32, align 1, !tbaa !75
   %36 = load ptr, ptr %17, align 8
-  call void @_ZN2cv16ParallelLoopBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %36) #11
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN2cv6bgsegm12GMG_LoopBodyE, i32 0, i32 0, i32 2), ptr %36, align 8
-  %37 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %36, i32 0, i32 1
-  %38 = load ptr, ptr %18, align 8
+  call void @_ZN2cv16ParallelLoopBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %36) #18
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN2cv6bgsegm12GMG_LoopBodyE, i32 0, i32 0, i32 2), ptr %36, align 8, !tbaa !128
+  %37 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %36, i32 0, i32 1
+  %38 = load ptr, ptr %18, align 8, !tbaa !105
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %37, ptr noundef nonnull align 8 dereferenceable(96) %38)
           to label %39 unwind label %74
 
 39:                                               ; preds = %16
-  %40 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %36, i32 0, i32 2
-  %41 = load ptr, ptr %19, align 8
+  %40 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %36, i32 0, i32 2
+  %41 = load ptr, ptr %19, align 8, !tbaa !105
   invoke void @_ZN2cv4Mat_IhEC2ERKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %40, ptr noundef nonnull align 8 dereferenceable(96) %41)
           to label %42 unwind label %78
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %36, i32 0, i32 3
-  %44 = load ptr, ptr %20, align 8
+  %43 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %36, i32 0, i32 3
+  %44 = load ptr, ptr %20, align 8, !tbaa !45
   invoke void @_ZN2cv4Mat_IiEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(96) %43, ptr noundef nonnull align 8 dereferenceable(96) %44)
           to label %45 unwind label %82
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %36, i32 0, i32 4
-  %47 = load ptr, ptr %21, align 8
+  %46 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %36, i32 0, i32 4
+  %47 = load ptr, ptr %21, align 8, !tbaa !45
   invoke void @_ZN2cv4Mat_IiEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(96) %46, ptr noundef nonnull align 8 dereferenceable(96) %47)
           to label %48 unwind label %86
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %36, i32 0, i32 5
-  %50 = load ptr, ptr %22, align 8
+  %49 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %36, i32 0, i32 5
+  %50 = load ptr, ptr %22, align 8, !tbaa !51
   invoke void @_ZN2cv4Mat_IfEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(96) %49, ptr noundef nonnull align 8 dereferenceable(96) %50)
           to label %51 unwind label %90
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %36, i32 0, i32 6
-  %53 = load i32, ptr %23, align 4
-  store i32 %53, ptr %52, align 8
-  %54 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %36, i32 0, i32 8
-  %55 = load double, ptr %24, align 8
-  store double %55, ptr %54, align 8
-  %56 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %36, i32 0, i32 9
-  %57 = load i32, ptr %25, align 4
-  store i32 %57, ptr %56, align 8
-  %58 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %36, i32 0, i32 10
-  %59 = load i32, ptr %26, align 4
-  store i32 %59, ptr %58, align 4
-  %60 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %36, i32 0, i32 11
-  %61 = load double, ptr %27, align 8
-  store double %61, ptr %60, align 8
-  %62 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %36, i32 0, i32 12
-  %63 = load double, ptr %28, align 8
-  store double %63, ptr %62, align 8
-  %64 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %36, i32 0, i32 13
-  %65 = load i8, ptr %32, align 1
+  %52 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %36, i32 0, i32 6
+  %53 = load i32, ptr %23, align 4, !tbaa !38
+  store i32 %53, ptr %52, align 8, !tbaa !88
+  %54 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %36, i32 0, i32 8
+  %55 = load double, ptr %24, align 8, !tbaa !8
+  store double %55, ptr %54, align 8, !tbaa !83
+  %56 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %36, i32 0, i32 9
+  %57 = load i32, ptr %25, align 4, !tbaa !38
+  store i32 %57, ptr %56, align 8, !tbaa !77
+  %58 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %36, i32 0, i32 10
+  %59 = load i32, ptr %26, align 4, !tbaa !38
+  store i32 %59, ptr %58, align 4, !tbaa !74
+  %60 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %36, i32 0, i32 11
+  %61 = load double, ptr %27, align 8, !tbaa !8
+  store double %61, ptr %60, align 8, !tbaa !78
+  %62 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %36, i32 0, i32 12
+  %63 = load double, ptr %28, align 8, !tbaa !8
+  store double %63, ptr %62, align 8, !tbaa !79
+  %64 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %36, i32 0, i32 13
+  %65 = load i8, ptr %32, align 1, !tbaa !75, !range !81, !noundef !82
   %66 = trunc i8 %65 to i1
   %67 = zext i1 %66 to i8
-  store i8 %67, ptr %64, align 8
-  %68 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %36, i32 0, i32 15
-  %69 = load double, ptr %29, align 8
-  store double %69, ptr %68, align 8
-  %70 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %36, i32 0, i32 16
-  %71 = load double, ptr %30, align 8
-  store double %71, ptr %70, align 8
-  %72 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %36, i32 0, i32 17
-  %73 = load i32, ptr %31, align 4
-  store i32 %73, ptr %72, align 8
+  store i8 %67, ptr %64, align 8, !tbaa !80
+  %68 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %36, i32 0, i32 15
+  %69 = load double, ptr %29, align 8, !tbaa !8
+  store double %69, ptr %68, align 8, !tbaa !73
+  %70 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %36, i32 0, i32 16
+  %71 = load double, ptr %30, align 8, !tbaa !8
+  store double %71, ptr %70, align 8, !tbaa !72
+  %72 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %36, i32 0, i32 17
+  %73 = load i32, ptr %31, align 4, !tbaa !38
+  store i32 %73, ptr %72, align 8, !tbaa !76
   ret void
 
 74:                                               ; preds = %16
@@ -3084,23 +3482,23 @@ define linkonce_odr hidden void @_ZN2cv6bgsegm12GMG_LoopBodyC2ERKNS_3MatES4_RKNS
   store ptr %92, ptr %33, align 8
   %93 = extractvalue { ptr, i32 } %91, 1
   store i32 %93, ptr %34, align 4
-  call void @_ZN2cv4Mat_IiED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %46) #11
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %46) #18
   br label %94
 
 94:                                               ; preds = %90, %86
-  call void @_ZN2cv4Mat_IiED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %43) #11
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %43) #18
   br label %95
 
 95:                                               ; preds = %94, %82
-  call void @_ZN2cv4Mat_IhED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %40) #11
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %40) #18
   br label %96
 
 96:                                               ; preds = %95, %78
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %37) #11
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %37) #18
   br label %97
 
 97:                                               ; preds = %96, %74
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %36) #11
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %36) #18
   br label %98
 
 98:                                               ; preds = %97
@@ -3111,146 +3509,146 @@ define linkonce_odr hidden void @_ZN2cv6bgsegm12GMG_LoopBodyC2ERKNS_3MatES4_RKNS
   resume { ptr, i32 } %102
 }
 
-declare void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), double noundef) #3
+declare void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), double noundef) #7
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv5RangeC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv5RangeC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #6 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !59
+  store i32 %1, ptr %5, align 4, !tbaa !38
+  store i32 %2, ptr %6, align 4, !tbaa !38
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.cv::Range", ptr %7, i32 0, i32 0
-  %9 = load i32, ptr %5, align 4
-  store i32 %9, ptr %8, align 4
-  %10 = getelementptr inbounds %"class.cv::Range", ptr %7, i32 0, i32 1
-  %11 = load i32, ptr %6, align 4
-  store i32 %11, ptr %10, align 4
+  %8 = getelementptr inbounds nuw %"class.cv::Range", ptr %7, i32 0, i32 0
+  %9 = load i32, ptr %5, align 4, !tbaa !38
+  store i32 %9, ptr %8, align 4, !tbaa !62
+  %10 = getelementptr inbounds nuw %"class.cv::Range", ptr %7, i32 0, i32 1
+  %11 = load i32, ptr %6, align 4, !tbaa !38
+  store i32 %11, ptr %10, align 4, !tbaa !68
   ret void
 }
 
-declare noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96)) #3
+declare noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96)) #7
 
-declare void @_ZN2cv10medianBlurERKNS_11_InputArrayERKNS_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) #3
+declare void @_ZN2cv10medianBlurERKNS_11_InputArrayERKNS_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) #7
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2cv11_InputArrayC2ERKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN2cv11_InputArrayC2ERKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #5 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !53
+  store ptr %1, ptr %4, align 8, !tbaa !105
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.cv::_InputArray", ptr %5, i32 0, i32 2
+  %6 = getelementptr inbounds nuw %"class.cv::_InputArray", ptr %5, i32 0, i32 2
   call void @_ZN2cv5Size_IiEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %6)
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !105
   call void @_ZN2cv11_InputArray4initEiPKv(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 16842752, ptr noundef %7)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2cv12_OutputArrayC2ERNS_3MatE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN2cv12_OutputArrayC2ERNS_3MatE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #5 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !117
+  store ptr %1, ptr %4, align 8, !tbaa !105
   %5 = load ptr, ptr %3, align 8
   call void @_ZN2cv11_InputArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !105
   call void @_ZN2cv11_InputArray4initEiPKv(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 33619968, ptr noundef %6)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv12_OutputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !53
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv6bgsegm12GMG_LoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(556) %0) unnamed_addr #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv6bgsegm12GMG_LoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(556) %0) unnamed_addr #6 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !57
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN2cv6bgsegm12GMG_LoopBodyE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %3, i32 0, i32 5
-  call void @_ZN2cv4Mat_IfED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #11
-  %5 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %3, i32 0, i32 4
-  call void @_ZN2cv4Mat_IiED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #11
-  %6 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %3, i32 0, i32 3
-  call void @_ZN2cv4Mat_IiED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #11
-  %7 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %3, i32 0, i32 2
-  call void @_ZN2cv4Mat_IhED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #11
-  %8 = getelementptr inbounds %"class.cv::bgsegm::GMG_LoopBody", ptr %3, i32 0, i32 1
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #11
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN2cv6bgsegm12GMG_LoopBodyE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !128
+  %4 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %3, i32 0, i32 5
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #18
+  %5 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %3, i32 0, i32 4
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #18
+  %6 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %3, i32 0, i32 3
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #18
+  %7 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %3, i32 0, i32 2
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #18
+  %8 = getelementptr inbounds nuw %"class.cv::bgsegm::GMG_LoopBody", ptr %3, i32 0, i32 1
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #18
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #18
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #2
+declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl7releaseEv(ptr noundef nonnull align 8 dereferenceable(408) %0) #0 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.cv::Size_", align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #18
   call void @_ZN2cv5Size_IiEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %3)
-  %5 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %4, i32 0, i32 11
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 4 %3, i64 8, i1 false)
-  %6 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %4, i32 0, i32 14
+  %5 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %4, i32 0, i32 11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 4 %3, i64 8, i1 false), !tbaa.struct !37
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #18
+  %6 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %4, i32 0, i32 14
   call void @_ZN2cv4Mat_IiE7releaseEv(ptr noundef nonnull align 8 dereferenceable(96) %6)
-  %7 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %4, i32 0, i32 15
+  %7 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %4, i32 0, i32 15
   call void @_ZN2cv4Mat_IiE7releaseEv(ptr noundef nonnull align 8 dereferenceable(96) %7)
-  %8 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %4, i32 0, i32 16
+  %8 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %4, i32 0, i32 16
   call void @_ZN2cv4Mat_IfE7releaseEv(ptr noundef nonnull align 8 dereferenceable(96) %8)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv5Size_IiEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv5Size_IiEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !47
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::Size_", ptr %3, i32 0, i32 0
-  store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds %"class.cv::Size_", ptr %3, i32 0, i32 1
-  store i32 0, ptr %5, align 4
+  %4 = getelementptr inbounds nuw %"class.cv::Size_", ptr %3, i32 0, i32 0
+  store i32 0, ptr %4, align 4, !tbaa !49
+  %5 = getelementptr inbounds nuw %"class.cv::Size_", ptr %3, i32 0, i32 1
+  store i32 0, ptr %5, align 4, !tbaa !50
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2cv4Mat_IiE7releaseEv(ptr noundef nonnull align 8 dereferenceable(96) %0) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN2cv4Mat_IiE7releaseEv(ptr noundef nonnull align 8 dereferenceable(96) %0) #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !45
   %3 = load ptr, ptr %2, align 8
   call void @_ZN2cv3Mat7releaseEv(ptr noundef nonnull align 8 dereferenceable(96) %3)
-  %4 = getelementptr inbounds %"class.cv::Mat", ptr %3, i32 0, i32 0
-  %5 = load i32, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.cv::Mat", ptr %3, i32 0, i32 0
+  %5 = load i32, ptr %4, align 8, !tbaa !107
   %6 = and i32 %5, -4096
   %7 = add nsw i32 %6, 4
-  %8 = getelementptr inbounds %"class.cv::Mat", ptr %3, i32 0, i32 0
-  store i32 %7, ptr %8, align 8
+  %8 = getelementptr inbounds nuw %"class.cv::Mat", ptr %3, i32 0, i32 0
+  store i32 %7, ptr %8, align 8, !tbaa !107
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2cv4Mat_IfE7releaseEv(ptr noundef nonnull align 8 dereferenceable(96) %0) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN2cv4Mat_IfE7releaseEv(ptr noundef nonnull align 8 dereferenceable(96) %0) #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !51
   %3 = load ptr, ptr %2, align 8
   call void @_ZN2cv3Mat7releaseEv(ptr noundef nonnull align 8 dereferenceable(96) %3)
-  %4 = getelementptr inbounds %"class.cv::Mat", ptr %3, i32 0, i32 0
-  %5 = load i32, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.cv::Mat", ptr %3, i32 0, i32 0
+  %5 = load i32, ptr %4, align 8, !tbaa !107
   %6 = and i32 %5, -4096
   %7 = add nsw i32 %6, 5
-  %8 = getelementptr inbounds %"class.cv::Mat", ptr %3, i32 0, i32 0
-  store i32 %7, ptr %8, align 8
+  %8 = getelementptr inbounds nuw %"class.cv::Mat", ptr %3, i32 0, i32 0
+  store i32 %7, ptr %8, align 8, !tbaa !107
   ret void
 }
 
@@ -3264,24 +3662,26 @@ define void @_ZN2cv6bgsegm29createBackgroundSubtractorGMGEid(ptr dead_on_unwind 
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store double %2, ptr %6, align 8
+  store i32 %1, ptr %5, align 4, !tbaa !38
+  store double %2, ptr %6, align 8, !tbaa !8
   store i1 false, ptr %7, align 1
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #18
   call void @_ZN2cvL7makePtrINS_6bgsegm27BackgroundSubtractorGMGImplEJEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind writable sret(%"struct.cv::Ptr.2") align 8 %8)
-  call void @_ZN2cv3PtrINS_6bgsegm23BackgroundSubtractorGMGEEC2INS1_27BackgroundSubtractorGMGImplEEEONS0_IT_EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %8) #11
-  call void @_ZN2cv3PtrINS_6bgsegm27BackgroundSubtractorGMGImplEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #11
-  %11 = call noundef ptr @_ZNK2cv3PtrINS_6bgsegm23BackgroundSubtractorGMGEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
-  %12 = load i32, ptr %5, align 4
-  %13 = load ptr, ptr %11, align 8
+  call void @_ZN2cv3PtrINS_6bgsegm23BackgroundSubtractorGMGEEC2INS1_27BackgroundSubtractorGMGImplEEEONS0_IT_EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %8) #18
+  call void @_ZNSt12__shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #18
+  %11 = call noundef ptr @_ZNK2cv3PtrINS_6bgsegm23BackgroundSubtractorGMGEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  %12 = load i32, ptr %5, align 4, !tbaa !38
+  %13 = load ptr, ptr %11, align 8, !tbaa !128
   %14 = getelementptr inbounds ptr, ptr %13, i64 15
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef %12)
           to label %16 unwind label %24
 
 16:                                               ; preds = %3
-  %17 = call noundef ptr @_ZNK2cv3PtrINS_6bgsegm23BackgroundSubtractorGMGEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
-  %18 = load double, ptr %6, align 8
-  %19 = load ptr, ptr %17, align 8
+  %17 = call noundef ptr @_ZNK2cv3PtrINS_6bgsegm23BackgroundSubtractorGMGEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  %18 = load double, ptr %6, align 8, !tbaa !8
+  %19 = load ptr, ptr %17, align 8, !tbaa !128
   %20 = getelementptr inbounds ptr, ptr %19, i64 23
   %21 = load ptr, ptr %20, align 8
   invoke void %21(ptr noundef nonnull align 8 dereferenceable(8) %17, double noundef %18)
@@ -3299,11 +3699,11 @@ define void @_ZN2cv6bgsegm29createBackgroundSubtractorGMGEid(ptr dead_on_unwind 
   store ptr %26, ptr %9, align 8
   %27 = extractvalue { ptr, i32 } %25, 1
   store i32 %27, ptr %10, align 4
-  call void @_ZN2cv3PtrINS_6bgsegm23BackgroundSubtractorGMGEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
+  call void @_ZNSt12__shared_ptrIN2cv6bgsegm23BackgroundSubtractorGMGELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %30
 
 28:                                               ; preds = %22
-  call void @_ZN2cv3PtrINS_6bgsegm23BackgroundSubtractorGMGEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
+  call void @_ZNSt12__shared_ptrIN2cv6bgsegm23BackgroundSubtractorGMGELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %29
 
 29:                                               ; preds = %28, %22
@@ -3317,87 +3717,81 @@ define void @_ZN2cv6bgsegm29createBackgroundSubtractorGMGEid(ptr dead_on_unwind 
   resume { ptr, i32 } %34
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL7makePtrINS_6bgsegm27BackgroundSubtractorGMGImplEJEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr.2") align 8 %0) #0 {
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @_ZN2cvL7makePtrINS_6bgsegm27BackgroundSubtractorGMGImplEJEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr.2") align 8 %0) #5 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.std::shared_ptr.3", align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %3) #18
   call void @_ZSt11make_sharedIN2cv6bgsegm27BackgroundSubtractorGMGImplEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.3") align 8 %3)
-  call void @_ZN2cv3PtrINS_6bgsegm27BackgroundSubtractorGMGImplEEC2EOSt10shared_ptrIS2_E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %3) #11
-  call void @_ZNSt10shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
+  call void @_ZN2cv3PtrINS_6bgsegm27BackgroundSubtractorGMGImplEEC2EOSt10shared_ptrIS2_E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %3) #18
+  call void @_ZNSt12__shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
+  call void @llvm.lifetime.end.p0(i64 16, ptr %3) #18
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv3PtrINS_6bgsegm23BackgroundSubtractorGMGEEC2INS1_27BackgroundSubtractorGMGImplEEEONS0_IT_EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv3PtrINS_6bgsegm23BackgroundSubtractorGMGEEC2INS1_27BackgroundSubtractorGMGImplEEEONS0_IT_EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !130
+  store ptr %1, ptr %4, align 8, !tbaa !132
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt10shared_ptrIN2cv6bgsegm23BackgroundSubtractorGMGEEC2INS1_27BackgroundSubtractorGMGImplEvEEOS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #11
+  %6 = load ptr, ptr %4, align 8, !tbaa !132
+  call void @_ZNSt10shared_ptrIN2cv6bgsegm23BackgroundSubtractorGMGEEC2INS1_27BackgroundSubtractorGMGImplEvEEOS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv3PtrINS_6bgsegm27BackgroundSubtractorGMGImplEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNK2cv3PtrINS_6bgsegm23BackgroundSubtractorGMGEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !130
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt10shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK2cv3PtrINS_6bgsegm23BackgroundSubtractorGMGEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #5 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNKSt12__shared_ptrIN2cv6bgsegm23BackgroundSubtractorGMGELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
+  %4 = call noundef ptr @_ZNKSt12__shared_ptrIN2cv6bgsegm23BackgroundSubtractorGMGELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv3PtrINS_6bgsegm23BackgroundSubtractorGMGEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv6bgsegm23BackgroundSubtractorGMGELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !134
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt10shared_ptrIN2cv6bgsegm23BackgroundSubtractorGMGEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
+  %4 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %3, i32 0, i32 1
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImplD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImplD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %3, i32 0, i32 16
-  call void @_ZN2cv4Mat_IfED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #11
-  %5 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %3, i32 0, i32 15
-  call void @_ZN2cv4Mat_IiED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #11
-  %6 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %3, i32 0, i32 14
-  call void @_ZN2cv4Mat_IiED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #11
-  %7 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %3, i32 0, i32 13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #11
-  call void @_ZN2cv6bgsegm23BackgroundSubtractorGMGD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  %4 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %3, i32 0, i32 16
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #18
+  %5 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %3, i32 0, i32 15
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #18
+  %6 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %3, i32 0, i32 14
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #18
+  %7 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %3, i32 0, i32 13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
+  call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImplD0Ev(ptr noundef nonnull align 8 dereferenceable(408) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImplD0Ev(ptr noundef nonnull align 8 dereferenceable(408) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImplD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %3) #11
-  call void @_ZdlPv(ptr noundef %3) #13
+  call void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImplD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %3) #18
+  call void @_ZdlPv(ptr noundef %3) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv9Algorithm5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZN2cv9Algorithm5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !136
   ret void
 }
 
@@ -3406,41 +3800,43 @@ define linkonce_odr hidden void @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl5wri
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !138
   %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !138
   %8 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsERNS_11FileStorageEPKc(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef @.str.19)
-  %9 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %6, i32 0, i32 13
+  %9 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %6, i32 0, i32 13
   %10 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsERNS_11FileStorageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   %11 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsERNS_11FileStorageEPKc(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef @.str.20)
-  %12 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %6, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %6, i32 0, i32 1
   %13 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIiEERNS_11FileStorageES2_RKT_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
   %14 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsERNS_11FileStorageEPKc(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef @.str.21)
-  %15 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %6, i32 0, i32 2
+  %15 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %6, i32 0, i32 2
   %16 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIdEERNS_11FileStorageES2_RKT_(ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
   %17 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsERNS_11FileStorageEPKc(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef @.str.22)
-  %18 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %6, i32 0, i32 3
+  %18 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %6, i32 0, i32 3
   %19 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIiEERNS_11FileStorageES2_RKT_(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
   %20 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsERNS_11FileStorageEPKc(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef @.str.23)
-  %21 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %6, i32 0, i32 4
+  %21 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %6, i32 0, i32 4
   %22 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIiEERNS_11FileStorageES2_RKT_(ptr noundef nonnull align 8 dereferenceable(64) %20, ptr noundef nonnull align 4 dereferenceable(4) %21)
   %23 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsERNS_11FileStorageEPKc(ptr noundef nonnull align 8 dereferenceable(64) %22, ptr noundef @.str.24)
-  %24 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %6, i32 0, i32 5
+  %24 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %6, i32 0, i32 5
   %25 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIdEERNS_11FileStorageES2_RKT_(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(8) %24)
   %26 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsERNS_11FileStorageEPKc(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef @.str.25)
-  %27 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %6, i32 0, i32 6
+  %27 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %6, i32 0, i32 6
   %28 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIdEERNS_11FileStorageES2_RKT_(ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef nonnull align 8 dereferenceable(8) %27)
   %29 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsERNS_11FileStorageEPKc(ptr noundef nonnull align 8 dereferenceable(64) %28, ptr noundef @.str.26)
-  %30 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %6, i32 0, i32 7
+  %30 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %6, i32 0, i32 7
   %31 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIiEERNS_11FileStorageES2_RKT_(ptr noundef nonnull align 8 dereferenceable(64) %29, ptr noundef nonnull align 4 dereferenceable(4) %30)
   %32 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsERNS_11FileStorageEPKc(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef @.str.27)
-  %33 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %6, i32 0, i32 8
-  %34 = load i8, ptr %33, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #18
+  %33 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %6, i32 0, i32 8
+  %34 = load i8, ptr %33, align 4, !tbaa !120, !range !81, !noundef !82
   %35 = trunc i8 %34 to i1
   %36 = zext i1 %35 to i32
-  store i32 %36, ptr %5, align 4
+  store i32 %36, ptr %5, align 4, !tbaa !38
   %37 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIiEERNS_11FileStorageES2_RKT_(ptr noundef nonnull align 8 dereferenceable(64) %32, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #18
   ret void
 }
 
@@ -3463,32 +3859,38 @@ define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl4read
   %17 = alloca %"class.cv::FileNode", align 8
   %18 = alloca %"class.cv::FileNode", align 8
   %19 = alloca %"class.cv::Size_", align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !140
   %20 = load ptr, ptr %3, align 8
   br label %21
 
 21:                                               ; preds = %2
-  %22 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %5) #18
+  call void @llvm.lifetime.start.p0(i64 24, ptr %6) #18
+  %22 = load ptr, ptr %4, align 8, !tbaa !140
   call void @_ZNK2cv8FileNodeixEPKc(ptr dead_on_unwind writable sret(%"class.cv::FileNode") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef @.str.19)
   call void @_ZNK2cv8FileNodecvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
-  %23 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %20, i32 0, i32 13
-  %24 = call noundef zeroext i1 @_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %23) #11
+  %23 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %20, i32 0, i32 13
+  %24 = call noundef zeroext i1 @_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %23) #18
   %25 = xor i1 %24, true
   %26 = xor i1 %25, true
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr %6) #18
+  call void @llvm.lifetime.end.p0(i64 32, ptr %5) #18
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %21
   br label %40
 
 28:                                               ; preds = %21
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #11
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @.str.30, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %7) #18
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #18
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #18
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @.str.30, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %29 unwind label %31
 
 29:                                               ; preds = %28
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @__func__._ZN2cv6bgsegm27BackgroundSubtractorGMGImpl4readERKNS_8FileNodeE, ptr noundef @.str.1, i32 noundef 157) #12
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @__func__._ZN2cv6bgsegm27BackgroundSubtractorGMGImpl4readERKNS_8FileNodeE, ptr noundef @.str.1, i32 noundef 157) #19
           to label %30 unwind label %35
 
 30:                                               ; preds = %29
@@ -3510,66 +3912,86 @@ define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl4read
   store ptr %37, ptr %9, align 8
   %38 = extractvalue { ptr, i32 } %36, 1
   store i32 %38, ptr %10, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   br label %39
 
 39:                                               ; preds = %35, %31
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #11
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #18
+  call void @llvm.lifetime.end.p0(i64 32, ptr %7) #18
   br label %71
 
 40:                                               ; preds = %27
   br label %41
 
 41:                                               ; preds = %40
-  %42 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %11) #18
+  %42 = load ptr, ptr %4, align 8, !tbaa !140
   call void @_ZNK2cv8FileNodeixEPKc(ptr dead_on_unwind writable sret(%"class.cv::FileNode") align 8 %11, ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef @.str.20)
   %43 = call noundef i32 @_ZNK2cv8FileNodecviEv(ptr noundef nonnull align 8 dereferenceable(24) %11)
-  %44 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %20, i32 0, i32 1
-  store i32 %43, ptr %44, align 8
-  %45 = load ptr, ptr %4, align 8
+  %44 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %20, i32 0, i32 1
+  store i32 %43, ptr %44, align 8, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 24, ptr %11) #18
+  call void @llvm.lifetime.start.p0(i64 24, ptr %12) #18
+  %45 = load ptr, ptr %4, align 8, !tbaa !140
   call void @_ZNK2cv8FileNodeixEPKc(ptr dead_on_unwind writable sret(%"class.cv::FileNode") align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef @.str.21)
   %46 = call noundef double @_ZNK2cv8FileNodecvdEv(ptr noundef nonnull align 8 dereferenceable(24) %12)
-  %47 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %20, i32 0, i32 2
-  store double %46, ptr %47, align 8
-  %48 = load ptr, ptr %4, align 8
+  %47 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %20, i32 0, i32 2
+  store double %46, ptr %47, align 8, !tbaa !31
+  call void @llvm.lifetime.end.p0(i64 24, ptr %12) #18
+  call void @llvm.lifetime.start.p0(i64 24, ptr %13) #18
+  %48 = load ptr, ptr %4, align 8, !tbaa !140
   call void @_ZNK2cv8FileNodeixEPKc(ptr dead_on_unwind writable sret(%"class.cv::FileNode") align 8 %13, ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef @.str.22)
   %49 = call noundef i32 @_ZNK2cv8FileNodecviEv(ptr noundef nonnull align 8 dereferenceable(24) %13)
-  %50 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %20, i32 0, i32 3
-  store i32 %49, ptr %50, align 8
-  %51 = load ptr, ptr %4, align 8
+  %50 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %20, i32 0, i32 3
+  store i32 %49, ptr %50, align 8, !tbaa !32
+  call void @llvm.lifetime.end.p0(i64 24, ptr %13) #18
+  call void @llvm.lifetime.start.p0(i64 24, ptr %14) #18
+  %51 = load ptr, ptr %4, align 8, !tbaa !140
   call void @_ZNK2cv8FileNodeixEPKc(ptr dead_on_unwind writable sret(%"class.cv::FileNode") align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef @.str.23)
   %52 = call noundef i32 @_ZNK2cv8FileNodecviEv(ptr noundef nonnull align 8 dereferenceable(24) %14)
-  %53 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %20, i32 0, i32 4
-  store i32 %52, ptr %53, align 4
-  %54 = load ptr, ptr %4, align 8
+  %53 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %20, i32 0, i32 4
+  store i32 %52, ptr %53, align 4, !tbaa !33
+  call void @llvm.lifetime.end.p0(i64 24, ptr %14) #18
+  call void @llvm.lifetime.start.p0(i64 24, ptr %15) #18
+  %54 = load ptr, ptr %4, align 8, !tbaa !140
   call void @_ZNK2cv8FileNodeixEPKc(ptr dead_on_unwind writable sret(%"class.cv::FileNode") align 8 %15, ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef @.str.24)
   %55 = call noundef double @_ZNK2cv8FileNodecvdEv(ptr noundef nonnull align 8 dereferenceable(24) %15)
-  %56 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %20, i32 0, i32 5
-  store double %55, ptr %56, align 8
-  %57 = load ptr, ptr %4, align 8
+  %56 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %20, i32 0, i32 5
+  store double %55, ptr %56, align 8, !tbaa !34
+  call void @llvm.lifetime.end.p0(i64 24, ptr %15) #18
+  call void @llvm.lifetime.start.p0(i64 24, ptr %16) #18
+  %57 = load ptr, ptr %4, align 8, !tbaa !140
   call void @_ZNK2cv8FileNodeixEPKc(ptr dead_on_unwind writable sret(%"class.cv::FileNode") align 8 %16, ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef @.str.26)
   %58 = call noundef i32 @_ZNK2cv8FileNodecviEv(ptr noundef nonnull align 8 dereferenceable(24) %16)
-  %59 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %20, i32 0, i32 7
-  store i32 %58, ptr %59, align 8
-  %60 = load ptr, ptr %4, align 8
+  %59 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %20, i32 0, i32 7
+  store i32 %58, ptr %59, align 8, !tbaa !122
+  call void @llvm.lifetime.end.p0(i64 24, ptr %16) #18
+  call void @llvm.lifetime.start.p0(i64 24, ptr %17) #18
+  %60 = load ptr, ptr %4, align 8, !tbaa !140
   call void @_ZNK2cv8FileNodeixEPKc(ptr dead_on_unwind writable sret(%"class.cv::FileNode") align 8 %17, ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef @.str.25)
   %61 = call noundef double @_ZNK2cv8FileNodecvdEv(ptr noundef nonnull align 8 dereferenceable(24) %17)
-  %62 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %20, i32 0, i32 6
-  store double %61, ptr %62, align 8
-  %63 = load ptr, ptr %4, align 8
+  %62 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %20, i32 0, i32 6
+  store double %61, ptr %62, align 8, !tbaa !119
+  call void @llvm.lifetime.end.p0(i64 24, ptr %17) #18
+  call void @llvm.lifetime.start.p0(i64 24, ptr %18) #18
+  %63 = load ptr, ptr %4, align 8, !tbaa !140
   call void @_ZNK2cv8FileNodeixEPKc(ptr dead_on_unwind writable sret(%"class.cv::FileNode") align 8 %18, ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef @.str.27)
   %64 = call noundef i32 @_ZNK2cv8FileNodecviEv(ptr noundef nonnull align 8 dereferenceable(24) %18)
   %65 = icmp ne i32 %64, 0
-  %66 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %20, i32 0, i32 8
+  %66 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %20, i32 0, i32 8
   %67 = zext i1 %65 to i8
-  store i8 %67, ptr %66, align 4
-  %68 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %20, i32 0, i32 9
-  store double 0.000000e+00, ptr %68, align 8
-  %69 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %20, i32 0, i32 10
-  store double 0.000000e+00, ptr %69, align 8
+  store i8 %67, ptr %66, align 4, !tbaa !120
+  call void @llvm.lifetime.end.p0(i64 24, ptr %18) #18
+  %68 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %20, i32 0, i32 9
+  store double 0.000000e+00, ptr %68, align 8, !tbaa !36
+  %69 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %20, i32 0, i32 10
+  store double 0.000000e+00, ptr %69, align 8, !tbaa !35
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #18
   call void @_ZN2cv5Size_IiEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %19)
-  %70 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %20, i32 0, i32 11
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %70, ptr align 4 %19, i64 8, i1 false)
+  %70 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %20, i32 0, i32 11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %70, ptr align 4 %19, i64 8, i1 false), !tbaa.struct !37
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #18
   ret void
 
 71:                                               ; preds = %39
@@ -3581,324 +4003,324 @@ define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl4read
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv9Algorithm5emptyEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv9Algorithm5emptyEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !136
   ret i1 false
 }
 
-declare void @_ZNK2cv9Algorithm4saveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
+declare void @_ZNK2cv9Algorithm4saveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #7
 
-declare void @_ZNK2cv9Algorithm14getDefaultNameB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
+declare void @_ZNK2cv9Algorithm14getDefaultNameB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl18getBackgroundImageERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !117
+  %5 = load ptr, ptr %4, align 8, !tbaa !117
   call void @_ZNK2cv12_OutputArray7releaseEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl14getMaxFeaturesEv(ptr noundef nonnull align 8 dereferenceable(408) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden noundef i32 @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl14getMaxFeaturesEv(ptr noundef nonnull align 8 dereferenceable(408) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 8, !tbaa !10
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl14setMaxFeaturesEi(ptr noundef nonnull align 8 dereferenceable(408) %0, i32 noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl14setMaxFeaturesEi(ptr noundef nonnull align 8 dereferenceable(408) %0, i32 noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !38
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
-  %7 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 1
-  store i32 %6, ptr %7, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !38
+  %7 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 1
+  store i32 %6, ptr %7, align 8, !tbaa !10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef double @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl22getDefaultLearningRateEv(ptr noundef nonnull align 8 dereferenceable(408) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden noundef double @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl22getDefaultLearningRateEv(ptr noundef nonnull align 8 dereferenceable(408) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %3, i32 0, i32 2
-  %5 = load double, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %3, i32 0, i32 2
+  %5 = load double, ptr %4, align 8, !tbaa !31
   ret double %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl22setDefaultLearningRateEd(ptr noundef nonnull align 8 dereferenceable(408) %0, double noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl22setDefaultLearningRateEd(ptr noundef nonnull align 8 dereferenceable(408) %0, double noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca double, align 8
-  store ptr %0, ptr %3, align 8
-  store double %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store double %1, ptr %4, align 8, !tbaa !8
   %5 = load ptr, ptr %3, align 8
-  %6 = load double, ptr %4, align 8
-  %7 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 2
-  store double %6, ptr %7, align 8
+  %6 = load double, ptr %4, align 8, !tbaa !8
+  %7 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 2
+  store double %6, ptr %7, align 8, !tbaa !31
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl12getNumFramesEv(ptr noundef nonnull align 8 dereferenceable(408) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden noundef i32 @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl12getNumFramesEv(ptr noundef nonnull align 8 dereferenceable(408) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %3, i32 0, i32 3
-  %5 = load i32, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %3, i32 0, i32 3
+  %5 = load i32, ptr %4, align 8, !tbaa !32
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl12setNumFramesEi(ptr noundef nonnull align 8 dereferenceable(408) %0, i32 noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl12setNumFramesEi(ptr noundef nonnull align 8 dereferenceable(408) %0, i32 noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !38
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
-  %7 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 3
-  store i32 %6, ptr %7, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !38
+  %7 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 3
+  store i32 %6, ptr %7, align 8, !tbaa !32
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl21getQuantizationLevelsEv(ptr noundef nonnull align 8 dereferenceable(408) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden noundef i32 @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl21getQuantizationLevelsEv(ptr noundef nonnull align 8 dereferenceable(408) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %3, i32 0, i32 4
-  %5 = load i32, ptr %4, align 4
+  %4 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %3, i32 0, i32 4
+  %5 = load i32, ptr %4, align 4, !tbaa !33
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl21setQuantizationLevelsEi(ptr noundef nonnull align 8 dereferenceable(408) %0, i32 noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl21setQuantizationLevelsEi(ptr noundef nonnull align 8 dereferenceable(408) %0, i32 noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !38
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
-  %7 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 4
-  store i32 %6, ptr %7, align 4
+  %6 = load i32, ptr %4, align 4, !tbaa !38
+  %7 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 4
+  store i32 %6, ptr %7, align 4, !tbaa !33
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef double @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl18getBackgroundPriorEv(ptr noundef nonnull align 8 dereferenceable(408) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden noundef double @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl18getBackgroundPriorEv(ptr noundef nonnull align 8 dereferenceable(408) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %3, i32 0, i32 5
-  %5 = load double, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %3, i32 0, i32 5
+  %5 = load double, ptr %4, align 8, !tbaa !34
   ret double %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl18setBackgroundPriorEd(ptr noundef nonnull align 8 dereferenceable(408) %0, double noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl18setBackgroundPriorEd(ptr noundef nonnull align 8 dereferenceable(408) %0, double noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca double, align 8
-  store ptr %0, ptr %3, align 8
-  store double %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store double %1, ptr %4, align 8, !tbaa !8
   %5 = load ptr, ptr %3, align 8
-  %6 = load double, ptr %4, align 8
-  %7 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 5
-  store double %6, ptr %7, align 8
+  %6 = load double, ptr %4, align 8, !tbaa !8
+  %7 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 5
+  store double %6, ptr %7, align 8, !tbaa !34
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl18getSmoothingRadiusEv(ptr noundef nonnull align 8 dereferenceable(408) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden noundef i32 @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl18getSmoothingRadiusEv(ptr noundef nonnull align 8 dereferenceable(408) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %3, i32 0, i32 7
-  %5 = load i32, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %3, i32 0, i32 7
+  %5 = load i32, ptr %4, align 8, !tbaa !122
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl18setSmoothingRadiusEi(ptr noundef nonnull align 8 dereferenceable(408) %0, i32 noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl18setSmoothingRadiusEi(ptr noundef nonnull align 8 dereferenceable(408) %0, i32 noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !38
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
-  %7 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 7
-  store i32 %6, ptr %7, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !38
+  %7 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 7
+  store i32 %6, ptr %7, align 8, !tbaa !122
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef double @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl20getDecisionThresholdEv(ptr noundef nonnull align 8 dereferenceable(408) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden noundef double @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl20getDecisionThresholdEv(ptr noundef nonnull align 8 dereferenceable(408) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %3, i32 0, i32 6
-  %5 = load double, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %3, i32 0, i32 6
+  %5 = load double, ptr %4, align 8, !tbaa !119
   ret double %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl20setDecisionThresholdEd(ptr noundef nonnull align 8 dereferenceable(408) %0, double noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl20setDecisionThresholdEd(ptr noundef nonnull align 8 dereferenceable(408) %0, double noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca double, align 8
-  store ptr %0, ptr %3, align 8
-  store double %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store double %1, ptr %4, align 8, !tbaa !8
   %5 = load ptr, ptr %3, align 8
-  %6 = load double, ptr %4, align 8
-  %7 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 6
-  store double %6, ptr %7, align 8
+  %6 = load double, ptr %4, align 8, !tbaa !8
+  %7 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 6
+  store double %6, ptr %7, align 8, !tbaa !119
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl24getUpdateBackgroundModelEv(ptr noundef nonnull align 8 dereferenceable(408) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl24getUpdateBackgroundModelEv(ptr noundef nonnull align 8 dereferenceable(408) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %3, i32 0, i32 8
-  %5 = load i8, ptr %4, align 4
+  %4 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %3, i32 0, i32 8
+  %5 = load i8, ptr %4, align 4, !tbaa !120, !range !81, !noundef !82
   %6 = trunc i8 %5 to i1
   ret i1 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl24setUpdateBackgroundModelEb(ptr noundef nonnull align 8 dereferenceable(408) %0, i1 noundef zeroext %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl24setUpdateBackgroundModelEb(ptr noundef nonnull align 8 dereferenceable(408) %0, i1 noundef zeroext %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
   %5 = zext i1 %1 to i8
-  store i8 %5, ptr %4, align 1
+  store i8 %5, ptr %4, align 1, !tbaa !75
   %6 = load ptr, ptr %3, align 8
-  %7 = load i8, ptr %4, align 1
+  %7 = load i8, ptr %4, align 1, !tbaa !75, !range !81, !noundef !82
   %8 = trunc i8 %7 to i1
-  %9 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %6, i32 0, i32 8
+  %9 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %6, i32 0, i32 8
   %10 = zext i1 %8 to i8
-  store i8 %10, ptr %9, align 4
+  store i8 %10, ptr %9, align 4, !tbaa !120
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef double @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl9getMinValEv(ptr noundef nonnull align 8 dereferenceable(408) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden noundef double @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl9getMinValEv(ptr noundef nonnull align 8 dereferenceable(408) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %3, i32 0, i32 10
-  %5 = load double, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %3, i32 0, i32 10
+  %5 = load double, ptr %4, align 8, !tbaa !35
   ret double %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl9setMinValEd(ptr noundef nonnull align 8 dereferenceable(408) %0, double noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl9setMinValEd(ptr noundef nonnull align 8 dereferenceable(408) %0, double noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca double, align 8
-  store ptr %0, ptr %3, align 8
-  store double %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store double %1, ptr %4, align 8, !tbaa !8
   %5 = load ptr, ptr %3, align 8
-  %6 = load double, ptr %4, align 8
-  %7 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 10
-  store double %6, ptr %7, align 8
+  %6 = load double, ptr %4, align 8, !tbaa !8
+  %7 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 10
+  store double %6, ptr %7, align 8, !tbaa !35
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef double @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl9getMaxValEv(ptr noundef nonnull align 8 dereferenceable(408) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden noundef double @_ZNK2cv6bgsegm27BackgroundSubtractorGMGImpl9getMaxValEv(ptr noundef nonnull align 8 dereferenceable(408) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %3, i32 0, i32 9
-  %5 = load double, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %3, i32 0, i32 9
+  %5 = load double, ptr %4, align 8, !tbaa !36
   ret double %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl9setMaxValEd(ptr noundef nonnull align 8 dereferenceable(408) %0, double noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl9setMaxValEd(ptr noundef nonnull align 8 dereferenceable(408) %0, double noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca double, align 8
-  store ptr %0, ptr %3, align 8
-  store double %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store double %1, ptr %4, align 8, !tbaa !8
   %5 = load ptr, ptr %3, align 8
-  %6 = load double, ptr %4, align 8
-  %7 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 9
-  store double %6, ptr %7, align 8
+  %6 = load double, ptr %4, align 8, !tbaa !8
+  %7 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 9
+  store double %6, ptr %7, align 8, !tbaa !36
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv6bgsegm12GMG_LoopBodyD0Ev(ptr noundef nonnull align 8 dereferenceable(556) %0) unnamed_addr #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv6bgsegm12GMG_LoopBodyD0Ev(ptr noundef nonnull align 8 dereferenceable(556) %0) unnamed_addr #6 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !57
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN2cv6bgsegm12GMG_LoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(556) %3) #11
-  call void @_ZdlPv(ptr noundef %3) #13
+  call void @_ZN2cv6bgsegm12GMG_LoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(556) %3) #18
+  call void @_ZdlPv(ptr noundef %3) #21
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
-declare noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24)) #3
+declare noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24)) #7
 
-declare void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #3
+declare void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #7
 
-declare void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8, ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) #3
+declare void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8, ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) #7
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv5Size_IiEC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv5Size_IiEC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #6 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !47
+  store i32 %1, ptr %5, align 4, !tbaa !38
+  store i32 %2, ptr %6, align 4, !tbaa !38
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.cv::Size_", ptr %7, i32 0, i32 0
-  %9 = load i32, ptr %5, align 4
-  store i32 %9, ptr %8, align 4
-  %10 = getelementptr inbounds %"class.cv::Size_", ptr %7, i32 0, i32 1
-  %11 = load i32, ptr %6, align 4
-  store i32 %11, ptr %10, align 4
+  %8 = getelementptr inbounds nuw %"class.cv::Size_", ptr %7, i32 0, i32 0
+  %9 = load i32, ptr %5, align 4, !tbaa !38
+  store i32 %9, ptr %8, align 4, !tbaa !49
+  %10 = getelementptr inbounds nuw %"class.cv::Size_", ptr %7, i32 0, i32 1
+  %11 = load i32, ptr %6, align 4, !tbaa !38
+  store i32 %11, ptr %10, align 4, !tbaa !50
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv16ParallelLoopBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv16ParallelLoopBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !142
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN2cv16ParallelLoopBodyE, i32 0, i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN2cv16ParallelLoopBodyE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !128
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2cv4Mat_IhEC2ERKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN2cv4Mat_IhEC2ERKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !111
+  store ptr %1, ptr %4, align 8, !tbaa !105
   %7 = load ptr, ptr %3, align 8
-  call void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #11
-  %8 = getelementptr inbounds %"class.cv::Mat", ptr %7, i32 0, i32 0
-  %9 = load i32, ptr %8, align 8
+  call void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #18
+  %8 = getelementptr inbounds nuw %"class.cv::Mat", ptr %7, i32 0, i32 0
+  %9 = load i32, ptr %8, align 8, !tbaa !107
   %10 = and i32 %9, -4096
   %11 = add nsw i32 %10, 0
-  %12 = getelementptr inbounds %"class.cv::Mat", ptr %7, i32 0, i32 0
-  store i32 %11, ptr %12, align 8
-  %13 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds nuw %"class.cv::Mat", ptr %7, i32 0, i32 0
+  store i32 %11, ptr %12, align 8, !tbaa !107
+  %13 = load ptr, ptr %4, align 8, !tbaa !105
   %14 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv4Mat_IhEaSERKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(96) %13)
           to label %15 unwind label %16
 
@@ -3912,7 +4334,7 @@ define linkonce_odr hidden void @_ZN2cv4Mat_IhEC2ERKNS_3MatE(ptr noundef nonnull
   store ptr %18, ptr %5, align 8
   %19 = extractvalue { ptr, i32 } %17, 1
   store i32 %19, ptr %6, align 4
-  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #11
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #18
   br label %20
 
 20:                                               ; preds = %16
@@ -3923,56 +4345,46 @@ define linkonce_odr hidden void @_ZN2cv4Mat_IhEC2ERKNS_3MatE(ptr noundef nonnull
   resume { ptr, i32 } %24
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2cv4Mat_IiEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN2cv4Mat_IiEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #5 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !45
+  store ptr %1, ptr %4, align 8, !tbaa !45
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !45
   call void @_ZN2cv3MatC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %6)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2cv4Mat_IfEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN2cv4Mat_IfEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #5 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !51
+  store ptr %1, ptr %4, align 8, !tbaa !51
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !51
   call void @_ZN2cv3MatC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %6)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv4Mat_IiED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #11
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv4Mat_IhED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #11
-  ret void
-}
+; Function Attrs: nounwind
+declare void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #9
 
 ; Function Attrs: nounwind
-declare void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
+declare void @_ZN2cv16ParallelLoopBodyD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #9
 
 ; Function Attrs: nounwind
-declare void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #2
+declare void @_ZN2cv16ParallelLoopBodyD0Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #9
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv4Mat_IhEaSERKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+declare void @__cxa_pure_virtual() unnamed_addr
+
+; Function Attrs: nounwind
+declare void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #9
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv4Mat_IhEaSERKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -3982,10 +4394,10 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = alloca %"class.cv::_OutputArray", align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !111
+  store ptr %1, ptr %5, align 8, !tbaa !105
   %12 = load ptr, ptr %4, align 8
-  %13 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %5, align 8, !tbaa !105
   %14 = call noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %13)
   br i1 %14, label %15, label %16
 
@@ -3995,35 +4407,37 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2
   br label %69
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr %5, align 8
+  %17 = load ptr, ptr %5, align 8, !tbaa !105
   %18 = call noundef i32 @_ZNK2cv3Mat4typeEv(ptr noundef nonnull align 8 dereferenceable(96) %17)
   %19 = icmp eq i32 0, %18
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %16
-  %21 = load ptr, ptr %5, align 8
+  %21 = load ptr, ptr %5, align 8, !tbaa !105
   %22 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull align 8 dereferenceable(96) %21)
   store ptr %12, ptr %3, align 8
   br label %69
 
 23:                                               ; preds = %16
-  %24 = load ptr, ptr %5, align 8
+  %24 = load ptr, ptr %5, align 8, !tbaa !105
   %25 = call noundef i32 @_ZNK2cv3Mat5depthEv(ptr noundef nonnull align 8 dereferenceable(96) %24)
   %26 = icmp eq i32 0, %25
   br i1 %26, label %27, label %38
 
 27:                                               ; preds = %23
-  %28 = load ptr, ptr %5, align 8
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %"class.cv::Mat", ptr %29, i32 0, i32 1
-  %31 = load i32, ptr %30, align 4
+  call void @llvm.lifetime.start.p0(i64 96, ptr %6) #18
+  %28 = load ptr, ptr %5, align 8, !tbaa !105
+  %29 = load ptr, ptr %5, align 8, !tbaa !105
+  %30 = getelementptr inbounds nuw %"class.cv::Mat", ptr %29, i32 0, i32 1
+  %31 = load i32, ptr %30, align 4, !tbaa !144
   call void @_ZNK2cv3Mat7reshapeEiiPKi(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %6, ptr noundef nonnull align 8 dereferenceable(96) %28, i32 noundef 1, i32 noundef %31, ptr noundef null)
   %32 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv4Mat_IhEaSEONS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull align 8 dereferenceable(96) %6)
           to label %33 unwind label %34
 
 33:                                               ; preds = %27
   store ptr %32, ptr %3, align 8
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #11
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #18
+  call void @llvm.lifetime.end.p0(i64 96, ptr %6) #18
   br label %69
 
 34:                                               ; preds = %27
@@ -4033,20 +4447,21 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2
   store ptr %36, ptr %7, align 8
   %37 = extractvalue { ptr, i32 } %35, 1
   store i32 %37, ptr %8, align 4
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #11
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #18
+  call void @llvm.lifetime.end.p0(i64 96, ptr %6) #18
   br label %71
 
 38:                                               ; preds = %23
   br label %39
 
 39:                                               ; preds = %38
-  %40 = load ptr, ptr %5, align 8
+  %40 = load ptr, ptr %5, align 8, !tbaa !105
   %41 = call noundef i32 @_ZNK2cv3Mat8channelsEv(ptr noundef nonnull align 8 dereferenceable(96) %40)
   %42 = icmp eq i32 1, %41
   br i1 %42, label %46, label %43
 
 43:                                               ; preds = %39
-  %44 = load ptr, ptr %5, align 8
+  %44 = load ptr, ptr %5, align 8, !tbaa !105
   %45 = call noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %44)
   br i1 %45, label %46, label %47
 
@@ -4054,12 +4469,14 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2
   br label %59
 
 47:                                               ; preds = %43
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #11
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @.str.17, ptr noundef nonnull align 1 dereferenceable(1) %10)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %9) #18
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #18
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #18
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @.str.17, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %48 unwind label %50
 
 48:                                               ; preds = %47
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @__func__._ZN2cv4Mat_IhEaSERKNS_3MatE, ptr noundef @.str.18, i32 noundef 1442) #12
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @__func__._ZN2cv4Mat_IhEaSERKNS_3MatE, ptr noundef @.str.18, i32 noundef 1442) #19
           to label %49 unwind label %54
 
 49:                                               ; preds = %48
@@ -4081,18 +4498,21 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2
   store ptr %56, ptr %7, align 8
   %57 = extractvalue { ptr, i32 } %55, 1
   store i32 %57, ptr %8, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #18
   br label %58
 
 58:                                               ; preds = %54, %50
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #11
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #18
+  call void @llvm.lifetime.end.p0(i64 32, ptr %9) #18
   br label %71
 
 59:                                               ; preds = %46
   br label %60
 
 60:                                               ; preds = %59
-  %61 = load ptr, ptr %5, align 8
+  %61 = load ptr, ptr %5, align 8, !tbaa !105
+  call void @llvm.lifetime.start.p0(i64 24, ptr %11) #18
   call void @_ZN2cv12_OutputArrayC2IhEERNS_4Mat_IT_EE(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(96) %12)
   %62 = invoke noundef i32 @_ZNK2cv4Mat_IhE4typeEv(ptr noundef nonnull align 8 dereferenceable(96) %12)
           to label %63 unwind label %65
@@ -4102,7 +4522,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2
           to label %64 unwind label %65
 
 64:                                               ; preds = %63
-  call void @_ZN2cv12_OutputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #11
+  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr %11) #18
   store ptr %12, ptr %3, align 8
   br label %69
 
@@ -4113,7 +4534,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2
   store ptr %67, ptr %7, align 8
   %68 = extractvalue { ptr, i32 } %66, 1
   store i32 %68, ptr %8, align 4
-  call void @_ZN2cv12_OutputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #11
+  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr %11) #18
   br label %71
 
 69:                                               ; preds = %64, %33, %20, %15
@@ -4128,43 +4550,40 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2
   resume { ptr, i32 } %75
 }
 
-; Function Attrs: nounwind
-declare void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #2
+declare noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96)) #7
 
-declare noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96)) #3
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2cv4Mat_IhE7releaseEv(ptr noundef nonnull align 8 dereferenceable(96) %0) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN2cv4Mat_IhE7releaseEv(ptr noundef nonnull align 8 dereferenceable(96) %0) #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !111
   %3 = load ptr, ptr %2, align 8
   call void @_ZN2cv3Mat7releaseEv(ptr noundef nonnull align 8 dereferenceable(96) %3)
-  %4 = getelementptr inbounds %"class.cv::Mat", ptr %3, i32 0, i32 0
-  %5 = load i32, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.cv::Mat", ptr %3, i32 0, i32 0
+  %5 = load i32, ptr %4, align 8, !tbaa !107
   %6 = and i32 %5, -4096
   %7 = add nsw i32 %6, 0
-  %8 = getelementptr inbounds %"class.cv::Mat", ptr %3, i32 0, i32 0
-  store i32 %7, ptr %8, align 8
+  %8 = getelementptr inbounds nuw %"class.cv::Mat", ptr %3, i32 0, i32 0
+  store i32 %7, ptr %8, align 8, !tbaa !107
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZNK2cv3Mat4typeEv(ptr noundef nonnull align 8 dereferenceable(96) %0) #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNK2cv3Mat4typeEv(ptr noundef nonnull align 8 dereferenceable(96) %0) #6 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !105
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::Mat", ptr %3, i32 0, i32 0
-  %5 = load i32, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.cv::Mat", ptr %3, i32 0, i32 0
+  %5 = load i32, ptr %4, align 8, !tbaa !107
   %6 = and i32 %5, 4095
   ret i32 %6
 }
 
-declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) #3
+declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) #7
 
-declare void @_ZNK2cv3Mat7reshapeEiiPKi(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8, ptr noundef nonnull align 8 dereferenceable(96), i32 noundef, i32 noundef, ptr noundef) #3
+declare void @_ZNK2cv3Mat7reshapeEiiPKi(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8, ptr noundef nonnull align 8 dereferenceable(96), i32 noundef, i32 noundef, ptr noundef) #7
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv4Mat_IhEaSEONS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv4Mat_IhEaSEONS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -4172,10 +4591,10 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca %"class.cv::_OutputArray", align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !111
+  store ptr %1, ptr %5, align 8, !tbaa !105
   %10 = load ptr, ptr %4, align 8
-  %11 = load ptr, ptr %5, align 8
+  %11 = load ptr, ptr %5, align 8, !tbaa !105
   %12 = call noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %11)
   br i1 %12, label %13, label %14
 
@@ -4185,34 +4604,36 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2
   br label %45
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr %5, align 8
+  %15 = load ptr, ptr %5, align 8, !tbaa !105
   %16 = call noundef i32 @_ZNK2cv3Mat4typeEv(ptr noundef nonnull align 8 dereferenceable(96) %15)
   %17 = icmp eq i32 0, %16
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %14
-  %19 = load ptr, ptr %5, align 8
+  %19 = load ptr, ptr %5, align 8, !tbaa !105
   %20 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %19)
   store ptr %10, ptr %3, align 8
   br label %45
 
 21:                                               ; preds = %14
-  %22 = load ptr, ptr %5, align 8
+  %22 = load ptr, ptr %5, align 8, !tbaa !105
   %23 = call noundef i32 @_ZNK2cv3Mat5depthEv(ptr noundef nonnull align 8 dereferenceable(96) %22)
   %24 = icmp eq i32 0, %23
   br i1 %24, label %25, label %36
 
 25:                                               ; preds = %21
-  %26 = load ptr, ptr %5, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %"class.cv::Mat", ptr %27, i32 0, i32 1
-  %29 = load i32, ptr %28, align 4
+  call void @llvm.lifetime.start.p0(i64 96, ptr %6) #18
+  %26 = load ptr, ptr %5, align 8, !tbaa !105
+  %27 = load ptr, ptr %5, align 8, !tbaa !105
+  %28 = getelementptr inbounds nuw %"class.cv::Mat", ptr %27, i32 0, i32 1
+  %29 = load i32, ptr %28, align 4, !tbaa !144
   call void @_ZNK2cv3Mat7reshapeEiiPKi(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %6, ptr noundef nonnull align 8 dereferenceable(96) %26, i32 noundef 1, i32 noundef %29, ptr noundef null)
   %30 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %6)
           to label %31 unwind label %32
 
 31:                                               ; preds = %25
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #11
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #18
+  call void @llvm.lifetime.end.p0(i64 96, ptr %6) #18
   store ptr %10, ptr %3, align 8
   br label %45
 
@@ -4223,11 +4644,13 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2
   store ptr %34, ptr %7, align 8
   %35 = extractvalue { ptr, i32 } %33, 1
   store i32 %35, ptr %8, align 4
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #11
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #18
+  call void @llvm.lifetime.end.p0(i64 96, ptr %6) #18
   br label %47
 
 36:                                               ; preds = %21
-  %37 = load ptr, ptr %5, align 8
+  %37 = load ptr, ptr %5, align 8, !tbaa !105
+  call void @llvm.lifetime.start.p0(i64 24, ptr %9) #18
   call void @_ZN2cv12_OutputArrayC2IhEERNS_4Mat_IT_EE(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(96) %10)
   %38 = invoke noundef i32 @_ZNK2cv4Mat_IhE4typeEv(ptr noundef nonnull align 8 dereferenceable(96) %10)
           to label %39 unwind label %41
@@ -4237,7 +4660,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2
           to label %40 unwind label %41
 
 40:                                               ; preds = %39
-  call void @_ZN2cv12_OutputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
+  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #18
   store ptr %10, ptr %3, align 8
   br label %45
 
@@ -4248,7 +4672,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2
   store ptr %43, ptr %7, align 8
   %44 = extractvalue { ptr, i32 } %42, 1
   store i32 %44, ptr %8, align 4
-  call void @_ZN2cv12_OutputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
+  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #18
   br label %47
 
 45:                                               ; preds = %40, %31, %18, %13
@@ -4263,19 +4688,19 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2
   resume { ptr, i32 } %51
 }
 
-declare void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, double noundef, double noundef) #3
+declare void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, double noundef, double noundef) #7
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2cv12_OutputArrayC2IhEERNS_4Mat_IT_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN2cv12_OutputArrayC2IhEERNS_4Mat_IT_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !117
+  store ptr %1, ptr %4, align 8, !tbaa !111
   %7 = load ptr, ptr %3, align 8
   call void @_ZN2cv11_InputArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7)
-  %8 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %4, align 8, !tbaa !111
   invoke void @_ZN2cv11_InputArray4initEiPKv(ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef -2113863680, ptr noundef %8)
           to label %9 unwind label %10
 
@@ -4289,7 +4714,7 @@ define linkonce_odr hidden void @_ZN2cv12_OutputArrayC2IhEERNS_4Mat_IT_EE(ptr no
   store ptr %12, ptr %5, align 8
   %13 = extractvalue { ptr, i32 } %11, 1
   store i32 %13, ptr %6, align 4
-  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #11
+  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #18
   br label %14
 
 14:                                               ; preds = %10
@@ -4300,207 +4725,213 @@ define linkonce_odr hidden void @_ZN2cv12_OutputArrayC2IhEERNS_4Mat_IT_EE(ptr no
   resume { ptr, i32 } %18
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZNK2cv4Mat_IhE4typeEv(ptr noundef nonnull align 8 dereferenceable(96) %0) #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNK2cv4Mat_IhE4typeEv(ptr noundef nonnull align 8 dereferenceable(96) %0) #6 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !111
   ret i32 0
 }
 
-declare void @_ZN2cv3Mat7releaseEv(ptr noundef nonnull align 8 dereferenceable(96)) #3
+declare void @_ZN2cv3Mat7releaseEv(ptr noundef nonnull align 8 dereferenceable(96)) #7
 
-declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) #3
+declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) #7
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2cv11_InputArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN2cv11_InputArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !53
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::_InputArray", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds nuw %"class.cv::_InputArray", ptr %3, i32 0, i32 2
   call void @_ZN2cv5Size_IiEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %4)
   call void @_ZN2cv11_InputArray4initEiPKv(ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef 0, ptr noundef null)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv11_InputArray4initEiPKv(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef %2) #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv11_InputArray4initEiPKv(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef %2) #6 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !53
+  store i32 %1, ptr %5, align 4, !tbaa !38
+  store ptr %2, ptr %6, align 8, !tbaa !61
   %7 = load ptr, ptr %4, align 8
-  %8 = load i32, ptr %5, align 4
-  %9 = getelementptr inbounds %"class.cv::_InputArray", ptr %7, i32 0, i32 0
-  store i32 %8, ptr %9, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds %"class.cv::_InputArray", ptr %7, i32 0, i32 1
-  store ptr %10, ptr %11, align 8
+  %8 = load i32, ptr %5, align 4, !tbaa !38
+  %9 = getelementptr inbounds nuw %"class.cv::_InputArray", ptr %7, i32 0, i32 0
+  store i32 %8, ptr %9, align 8, !tbaa !145
+  %10 = load ptr, ptr %6, align 8, !tbaa !61
+  %11 = getelementptr inbounds nuw %"class.cv::_InputArray", ptr %7, i32 0, i32 1
+  store ptr %10, ptr %11, align 8, !tbaa !123
   ret void
 }
 
-declare void @_ZN2cv3MatC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #3
+declare void @_ZN2cv3MatC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #7
+
+; Function Attrs: nounwind
+declare void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv4Mat_IfED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !146
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #11
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::__shared_ptr.4", ptr %3, i32 0, i32 1
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::__shared_count", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !148
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.std::__shared_count", ptr %3, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #11
+  %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !148
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #18
   br label %10
 
 10:                                               ; preds = %7, %1
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  %4 = alloca i32, align 4
-  %5 = alloca i32, align 4
-  %6 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  %4 = alloca i8, align 1
+  %5 = alloca i8, align 1
+  %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = alloca i32, align 4
-  %9 = alloca i32, align 4
-  %10 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
   %11 = alloca i32, align 4
-  %12 = alloca ptr, align 8
-  %13 = alloca i8, align 1
-  %14 = alloca i8, align 1
-  %15 = alloca i8, align 1
-  %16 = alloca i32, align 4
-  %17 = alloca i32, align 4
-  %18 = alloca i64, align 8
-  %19 = alloca ptr, align 8
-  %20 = alloca i64, align 8
-  store ptr %0, ptr %12, align 8
-  %21 = load ptr, ptr %12, align 8
-  store i8 1, ptr %13, align 1
-  store i8 1, ptr %14, align 1
-  store i8 1, ptr %15, align 1
-  store i32 32, ptr %16, align 4
-  store i32 32, ptr %17, align 4
-  store i64 4294967297, ptr %18, align 8
-  %22 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %21, i32 0, i32 1
-  store ptr %22, ptr %19, align 8
-  %23 = load ptr, ptr %19, align 8
-  %24 = load atomic i64, ptr %23 acquire, align 8
-  store i64 %24, ptr %20, align 8
-  %25 = load i64, ptr %20, align 8
-  %26 = icmp eq i64 %25, 4294967297
-  br i1 %26, label %27, label %36
+  store ptr %0, ptr %2, align 8, !tbaa !151
+  %12 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #18
+  store i8 1, ptr %3, align 1, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 1, ptr %4) #18
+  store i8 1, ptr %4, align 1, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #18
+  store i8 1, ptr %5, align 1, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #18
+  store i32 32, ptr %6, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #18
+  store i32 32, ptr %7, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #18
+  store i64 4294967297, ptr %8, align 8, !tbaa !152
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #18
+  %13 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %12, i32 0, i32 1
+  store ptr %13, ptr %9, align 8, !tbaa !154
+  %14 = load ptr, ptr %9, align 8, !tbaa !154
+  %15 = load atomic i64, ptr %14 acquire, align 8
+  store i64 %15, ptr %10, align 8
+  %16 = load i64, ptr %10, align 8, !tbaa !152
+  %17 = icmp eq i64 %16, 4294967297
+  br i1 %17, label %18, label %27
+
+18:                                               ; preds = %1
+  %19 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %12, i32 0, i32 1
+  store i32 0, ptr %19, align 8, !tbaa !156
+  %20 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %12, i32 0, i32 2
+  store i32 0, ptr %20, align 4, !tbaa !158
+  %21 = load ptr, ptr %12, align 8, !tbaa !128
+  %22 = getelementptr inbounds ptr, ptr %21, i64 2
+  %23 = load ptr, ptr %22, align 8
+  call void %23(ptr noundef nonnull align 8 dereferenceable(16) %12) #18
+  %24 = load ptr, ptr %12, align 8, !tbaa !128
+  %25 = getelementptr inbounds ptr, ptr %24, i64 3
+  %26 = load ptr, ptr %25, align 8
+  call void %26(ptr noundef nonnull align 8 dereferenceable(16) %12) #18
+  store i32 1, ptr %11, align 4
+  br label %35
 
 27:                                               ; preds = %1
-  %28 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %21, i32 0, i32 1
-  store i32 0, ptr %28, align 8
-  %29 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %21, i32 0, i32 2
-  store i32 0, ptr %29, align 4
-  %30 = load ptr, ptr %21, align 8
-  %31 = getelementptr inbounds ptr, ptr %30, i64 2
-  %32 = load ptr, ptr %31, align 8
-  call void %32(ptr noundef nonnull align 8 dereferenceable(16) %21) #11
-  %33 = load ptr, ptr %21, align 8
-  %34 = getelementptr inbounds ptr, ptr %33, i64 3
-  %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(16) %21) #11
-  br label %63
+  %28 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %12, i32 0, i32 1
+  %29 = invoke noundef i32 @_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii(ptr noundef %28, i32 noundef -1)
+          to label %30 unwind label %41
 
-36:                                               ; preds = %1
-  %37 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %21, i32 0, i32 1
-  store ptr %37, ptr %10, align 8
-  store i32 -1, ptr %11, align 4
-  %38 = load i8, ptr @__libc_single_threaded, align 1
-  %39 = icmp ne i8 %38, 0
-  br i1 %39, label %40, label %50
+30:                                               ; preds = %27
+  %31 = icmp eq i32 %29, 1
+  %32 = call i1 @llvm.expect.i1(i1 %31, i1 false)
+  br i1 %32, label %33, label %34
 
-40:                                               ; preds = %36
-  %41 = load ptr, ptr %10, align 8
-  %42 = load i32, ptr %11, align 4
-  store ptr %41, ptr %6, align 8
-  store i32 %42, ptr %7, align 4
-  %43 = load ptr, ptr %6, align 8
-  %44 = load i32, ptr %43, align 4
-  store i32 %44, ptr %8, align 4
-  %45 = load i32, ptr %7, align 4
-  %46 = load ptr, ptr %6, align 8
-  %47 = load i32, ptr %46, align 4
-  %48 = add nsw i32 %47, %45
-  store i32 %48, ptr %46, align 4
-  %49 = load i32, ptr %8, align 4
-  store i32 %49, ptr %9, align 4
-  br label %58
+33:                                               ; preds = %30
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #18
+  store i32 1, ptr %11, align 4
+  br label %35
 
-50:                                               ; preds = %36
-  %51 = load ptr, ptr %10, align 8
-  %52 = load i32, ptr %11, align 4
-  store ptr %51, ptr %2, align 8
-  store i32 %52, ptr %3, align 4
-  %53 = load ptr, ptr %2, align 8
-  %54 = load i32, ptr %3, align 4
-  store i32 %54, ptr %4, align 4
-  %55 = load i32, ptr %4, align 4
-  %56 = atomicrmw volatile add ptr %53, i32 %55 acq_rel, align 4
-  store i32 %56, ptr %5, align 4
-  %57 = load i32, ptr %5, align 4
-  store i32 %57, ptr %9, align 4
-  br label %58
+34:                                               ; preds = %30
+  store i32 0, ptr %11, align 4
+  br label %35
 
-58:                                               ; preds = %50, %40
-  %59 = load i32, ptr %9, align 4
-  br label %60
+35:                                               ; preds = %34, %33, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #18
+  %36 = load i32, ptr %11, align 4
+  switch i32 %36, label %38 [
+    i32 0, label %37
+  ]
 
-60:                                               ; preds = %58
-  %61 = icmp eq i32 %59, 1
-  br i1 %61, label %62, label %63
+37:                                               ; preds = %35
+  store i32 0, ptr %11, align 4
+  br label %38
 
-62:                                               ; preds = %60
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #11
-  br label %63
+38:                                               ; preds = %37, %35
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %4) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #18
+  %39 = load i32, ptr %11, align 4
+  switch i32 %39, label %44 [
+    i32 0, label %40
+    i32 1, label %40
+  ]
 
-63:                                               ; preds = %62, %60, %27
+40:                                               ; preds = %38, %38
   ret void
 
-64:                                               ; No predecessors!
-  %65 = landingpad { ptr, i32 }
+41:                                               ; preds = %27
+  %42 = landingpad { ptr, i32 }
           catch ptr null
-  %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #14
+  %43 = extractvalue { ptr, i32 } %42, 0
+  call void @__clang_call_terminate(ptr %43) #20
+  unreachable
+
+44:                                               ; preds = %38
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #11
-  call void @_ZSt9terminatev() #14
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr noundef i32 @_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii(ptr noundef %0, i32 noundef %1) #10 comdat {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !69
+  store i32 %1, ptr %5, align 4, !tbaa !38
+  %6 = call noundef zeroext i1 @_ZN9__gnu_cxx20__is_single_threadedEv() #18
+  br i1 %6, label %7, label %11
+
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %4, align 8, !tbaa !69
+  %9 = load i32, ptr %5, align 4, !tbaa !38
+  %10 = call noundef i32 @_ZN9__gnu_cxx25__exchange_and_add_singleEPii(ptr noundef %8, i32 noundef %9)
+  store i32 %10, ptr %3, align 4
+  br label %15
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !69
+  %13 = load i32, ptr %5, align 4, !tbaa !38
+  %14 = call noundef i32 @_ZN9__gnu_cxx18__exchange_and_addEPVii(ptr noundef %12, i32 noundef %13)
+  store i32 %14, ptr %3, align 4
+  br label %15
+
+15:                                               ; preds = %11, %7
+  %16 = load i32, ptr %3, align 4
+  ret i32 %16
+}
+
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #11 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #18
+  call void @_ZSt9terminatev() #20
   unreachable
 }
 
@@ -4508,126 +4939,104 @@ declare ptr @__cxa_begin_catch(ptr)
 
 declare void @_ZSt9terminatev()
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #5 comdat align 2 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i1 @llvm.expect.i1(i1, i1) #12
+
+; Function Attrs: mustprogress noinline nounwind uwtable
+define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #13 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !151
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxx20__is_single_threadedEv() #14 comdat {
+  %1 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
+  %2 = icmp ne i8 %1, 0
+  ret i1 %2
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZN9__gnu_cxx25__exchange_and_add_singleEPii(ptr noundef %0, i32 noundef %1) #14 comdat {
+  %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  %8 = alloca i32, align 4
-  %9 = alloca i32, align 4
-  %10 = alloca ptr, align 8
-  %11 = alloca i32, align 4
-  %12 = alloca ptr, align 8
-  store ptr %0, ptr %12, align 8
-  %13 = load ptr, ptr %12, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !69
+  store i32 %1, ptr %4, align 4, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #18
+  %6 = load ptr, ptr %3, align 8, !tbaa !69
+  %7 = load i32, ptr %6, align 4, !tbaa !38
+  store i32 %7, ptr %5, align 4, !tbaa !38
+  %8 = load i32, ptr %4, align 4, !tbaa !38
+  %9 = load ptr, ptr %3, align 8, !tbaa !69
+  %10 = load i32, ptr %9, align 4, !tbaa !38
+  %11 = add nsw i32 %10, %8
+  store i32 %11, ptr %9, align 4, !tbaa !38
+  %12 = load i32, ptr %5, align 4, !tbaa !38
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #18
+  ret i32 %12
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZN9__gnu_cxx18__exchange_and_addEPVii(ptr noundef %0, i32 noundef %1) #14 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !69
+  store i32 %1, ptr %4, align 4, !tbaa !38
+  %7 = load ptr, ptr %3, align 8, !tbaa !69
+  %8 = load i32, ptr %4, align 4, !tbaa !38
+  store i32 %8, ptr %5, align 4, !tbaa !38
+  %9 = load i32, ptr %5, align 4
+  %10 = atomicrmw volatile add ptr %7, i32 %9 acq_rel, align 4
+  store i32 %10, ptr %6, align 4
+  %11 = load i32, ptr %6, align 4, !tbaa !38
+  ret i32 %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !151
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !128
+  %5 = getelementptr inbounds ptr, ptr %4, i64 2
+  %6 = load ptr, ptr %5, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
+  %7 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  %8 = invoke noundef i32 @_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii(ptr noundef %7, i32 noundef -1)
+          to label %9 unwind label %16
+
+9:                                                ; preds = %1
+  %10 = icmp eq i32 %8, 1
+  br i1 %10, label %11, label %15
+
+11:                                               ; preds = %9
+  %12 = load ptr, ptr %3, align 8, !tbaa !128
+  %13 = getelementptr inbounds ptr, ptr %12, i64 3
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds ptr, ptr %14, i64 2
-  %16 = load ptr, ptr %15, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(16) %13) #11
-  %17 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %13, i32 0, i32 2
-  store ptr %17, ptr %10, align 8
-  store i32 -1, ptr %11, align 4
-  %18 = load i8, ptr @__libc_single_threaded, align 1
-  %19 = icmp ne i8 %18, 0
-  br i1 %19, label %20, label %30
+  call void %14(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
+  br label %15
 
-20:                                               ; preds = %1
-  %21 = load ptr, ptr %10, align 8
-  %22 = load i32, ptr %11, align 4
-  store ptr %21, ptr %6, align 8
-  store i32 %22, ptr %7, align 4
-  %23 = load ptr, ptr %6, align 8
-  %24 = load i32, ptr %23, align 4
-  store i32 %24, ptr %8, align 4
-  %25 = load i32, ptr %7, align 4
-  %26 = load ptr, ptr %6, align 8
-  %27 = load i32, ptr %26, align 4
-  %28 = add nsw i32 %27, %25
-  store i32 %28, ptr %26, align 4
-  %29 = load i32, ptr %8, align 4
-  store i32 %29, ptr %9, align 4
-  br label %38
-
-30:                                               ; preds = %1
-  %31 = load ptr, ptr %10, align 8
-  %32 = load i32, ptr %11, align 4
-  store ptr %31, ptr %2, align 8
-  store i32 %32, ptr %3, align 4
-  %33 = load ptr, ptr %2, align 8
-  %34 = load i32, ptr %3, align 4
-  store i32 %34, ptr %4, align 4
-  %35 = load i32, ptr %4, align 4
-  %36 = atomicrmw volatile add ptr %33, i32 %35 acq_rel, align 4
-  store i32 %36, ptr %5, align 4
-  %37 = load i32, ptr %5, align 4
-  store i32 %37, ptr %9, align 4
-  br label %38
-
-38:                                               ; preds = %30, %20
-  %39 = load i32, ptr %9, align 4
-  br label %40
-
-40:                                               ; preds = %38
-  %41 = icmp eq i32 %39, 1
-  br i1 %41, label %42, label %46
-
-42:                                               ; preds = %40
-  %43 = load ptr, ptr %13, align 8
-  %44 = getelementptr inbounds ptr, ptr %43, i64 3
-  %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(16) %13) #11
-  br label %46
-
-46:                                               ; preds = %42, %40
+15:                                               ; preds = %11, %9
   ret void
 
-47:                                               ; No predecessors!
-  %48 = landingpad { ptr, i32 }
+16:                                               ; preds = %1
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #14
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #20
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10shared_ptrIN2cv6bgsegm23BackgroundSubtractorGMGEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt12__shared_ptrIN2cv6bgsegm23BackgroundSubtractorGMGELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv6bgsegm23BackgroundSubtractorGMGELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::__shared_ptr", ptr %3, i32 0, i32 1
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
-  ret void
-}
-
-; Function Attrs: nounwind
-declare void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
-
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #8
+declare void @_ZdlPv(ptr noundef) #15
 
-; Function Attrs: mustprogress uwtable
-define internal noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIiEERNS_11FileStorageES2_RKT_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #0 personality ptr @__gxx_personality_v0 {
+; Function Attrs: inlinehint mustprogress uwtable
+define internal noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIiEERNS_11FileStorageES2_RKT_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -4635,34 +5044,36 @@ define internal noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIiEERNS
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = load ptr, ptr %10, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !138
+  store ptr %1, ptr %5, align 8, !tbaa !69
+  %10 = load ptr, ptr %4, align 8, !tbaa !138
+  %11 = load ptr, ptr %10, align 8, !tbaa !128
   %12 = getelementptr inbounds ptr, ptr %11, i64 3
   %13 = load ptr, ptr %12, align 8
   %14 = call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %10)
   br i1 %14, label %17, label %15
 
 15:                                               ; preds = %2
-  %16 = load ptr, ptr %4, align 8
+  %16 = load ptr, ptr %4, align 8, !tbaa !138
   store ptr %16, ptr %3, align 8
   br label %50
 
 17:                                               ; preds = %2
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %"class.cv::FileStorage", ptr %18, i32 0, i32 1
-  %20 = load i32, ptr %19, align 8
+  %18 = load ptr, ptr %4, align 8, !tbaa !138
+  %19 = getelementptr inbounds nuw %"class.cv::FileStorage", ptr %18, i32 0, i32 1
+  %20 = load i32, ptr %19, align 8, !tbaa !159
   %21 = icmp eq i32 %20, 6
   br i1 %21, label %22, label %34
 
 22:                                               ; preds = %17
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #11
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef @.str.28, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %6) #18
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #18
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef @.str.28, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %23 unwind label %25
 
 23:                                               ; preds = %22
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef @__func__._ZN2cvlsIiEERNS_11FileStorageES2_RKT_, ptr noundef @.str.29, i32 noundef 1201) #12
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef @__func__._ZN2cvlsIiEERNS_11FileStorageES2_RKT_, ptr noundef @.str.29, i32 noundef 1165) #19
           to label %24 unwind label %29
 
 24:                                               ; preds = %23
@@ -4684,35 +5095,37 @@ define internal noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIiEERNS
   store ptr %31, ptr %8, align 8
   %32 = extractvalue { ptr, i32 } %30, 1
   store i32 %32, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   br label %33
 
 33:                                               ; preds = %29, %25
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #11
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #18
+  call void @llvm.lifetime.end.p0(i64 32, ptr %6) #18
   br label %52
 
 34:                                               ; preds = %17
-  %35 = load ptr, ptr %4, align 8
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %"class.cv::FileStorage", ptr %36, i32 0, i32 2
-  %38 = load ptr, ptr %5, align 8
-  %39 = load i32, ptr %38, align 4
+  %35 = load ptr, ptr %4, align 8, !tbaa !138
+  %36 = load ptr, ptr %4, align 8, !tbaa !138
+  %37 = getelementptr inbounds nuw %"class.cv::FileStorage", ptr %36, i32 0, i32 2
+  %38 = load ptr, ptr %5, align 8, !tbaa !69
+  %39 = load i32, ptr %38, align 4, !tbaa !38
   call void @_ZN2cv5writeERNS_11FileStorageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(64) %35, ptr noundef nonnull align 8 dereferenceable(32) %37, i32 noundef %39)
-  %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds %"class.cv::FileStorage", ptr %40, i32 0, i32 1
-  %42 = load i32, ptr %41, align 8
+  %40 = load ptr, ptr %4, align 8, !tbaa !138
+  %41 = getelementptr inbounds nuw %"class.cv::FileStorage", ptr %40, i32 0, i32 1
+  %42 = load i32, ptr %41, align 8, !tbaa !159
   %43 = and i32 %42, 4
   %44 = icmp ne i32 %43, 0
   br i1 %44, label %45, label %48
 
 45:                                               ; preds = %34
-  %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds %"class.cv::FileStorage", ptr %46, i32 0, i32 1
-  store i32 6, ptr %47, align 8
+  %46 = load ptr, ptr %4, align 8, !tbaa !138
+  %47 = getelementptr inbounds nuw %"class.cv::FileStorage", ptr %46, i32 0, i32 1
+  store i32 6, ptr %47, align 8, !tbaa !159
   br label %48
 
 48:                                               ; preds = %45, %34
-  %49 = load ptr, ptr %4, align 8
+  %49 = load ptr, ptr %4, align 8, !tbaa !138
   store ptr %49, ptr %3, align 8
   br label %50
 
@@ -4728,20 +5141,22 @@ define internal noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIiEERNS
   resume { ptr, i32 } %56
 }
 
-; Function Attrs: mustprogress uwtable
-define internal noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsERNS_11FileStorageEPKc(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) #0 personality ptr @__gxx_personality_v0 {
+; Function Attrs: inlinehint mustprogress uwtable
+define internal noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsERNS_11FileStorageEPKc(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = load ptr, ptr %4, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #11
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  store ptr %0, ptr %3, align 8, !tbaa !138
+  store ptr %1, ptr %4, align 8, !tbaa !44
+  %9 = load ptr, ptr %3, align 8, !tbaa !138
+  call void @llvm.lifetime.start.p0(i64 32, ptr %5) #18
+  %10 = load ptr, ptr %4, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #18
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #18
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %11 unwind label %14
 
 11:                                               ; preds = %2
@@ -4749,8 +5164,10 @@ define internal noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsERNS_11
           to label %13 unwind label %18
 
 13:                                               ; preds = %11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #18
+  call void @llvm.lifetime.end.p0(i64 32, ptr %5) #18
   ret ptr %12
 
 14:                                               ; preds = %2
@@ -4769,11 +5186,13 @@ define internal noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsERNS_11
   store ptr %20, ptr %7, align 8
   %21 = extractvalue { ptr, i32 } %19, 1
   store i32 %21, ptr %8, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   br label %22
 
 22:                                               ; preds = %18, %14
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #11
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #18
+  call void @llvm.lifetime.end.p0(i64 32, ptr %5) #18
   br label %23
 
 23:                                               ; preds = %22
@@ -4784,8 +5203,8 @@ define internal noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsERNS_11
   resume { ptr, i32 } %27
 }
 
-; Function Attrs: mustprogress uwtable
-define internal noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIdEERNS_11FileStorageES2_RKT_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 personality ptr @__gxx_personality_v0 {
+; Function Attrs: inlinehint mustprogress uwtable
+define internal noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIdEERNS_11FileStorageES2_RKT_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -4793,34 +5212,36 @@ define internal noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIdEERNS
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = load ptr, ptr %10, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !138
+  store ptr %1, ptr %5, align 8, !tbaa !102
+  %10 = load ptr, ptr %4, align 8, !tbaa !138
+  %11 = load ptr, ptr %10, align 8, !tbaa !128
   %12 = getelementptr inbounds ptr, ptr %11, i64 3
   %13 = load ptr, ptr %12, align 8
   %14 = call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %10)
   br i1 %14, label %17, label %15
 
 15:                                               ; preds = %2
-  %16 = load ptr, ptr %4, align 8
+  %16 = load ptr, ptr %4, align 8, !tbaa !138
   store ptr %16, ptr %3, align 8
   br label %50
 
 17:                                               ; preds = %2
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %"class.cv::FileStorage", ptr %18, i32 0, i32 1
-  %20 = load i32, ptr %19, align 8
+  %18 = load ptr, ptr %4, align 8, !tbaa !138
+  %19 = getelementptr inbounds nuw %"class.cv::FileStorage", ptr %18, i32 0, i32 1
+  %20 = load i32, ptr %19, align 8, !tbaa !159
   %21 = icmp eq i32 %20, 6
   br i1 %21, label %22, label %34
 
 22:                                               ; preds = %17
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #11
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef @.str.28, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %6) #18
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #18
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef @.str.28, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %23 unwind label %25
 
 23:                                               ; preds = %22
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef @__func__._ZN2cvlsIiEERNS_11FileStorageES2_RKT_, ptr noundef @.str.29, i32 noundef 1201) #12
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef @__func__._ZN2cvlsIiEERNS_11FileStorageES2_RKT_, ptr noundef @.str.29, i32 noundef 1165) #19
           to label %24 unwind label %29
 
 24:                                               ; preds = %23
@@ -4842,35 +5263,37 @@ define internal noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIdEERNS
   store ptr %31, ptr %8, align 8
   %32 = extractvalue { ptr, i32 } %30, 1
   store i32 %32, ptr %9, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   br label %33
 
 33:                                               ; preds = %29, %25
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #11
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #18
+  call void @llvm.lifetime.end.p0(i64 32, ptr %6) #18
   br label %52
 
 34:                                               ; preds = %17
-  %35 = load ptr, ptr %4, align 8
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %"class.cv::FileStorage", ptr %36, i32 0, i32 2
-  %38 = load ptr, ptr %5, align 8
-  %39 = load double, ptr %38, align 8
+  %35 = load ptr, ptr %4, align 8, !tbaa !138
+  %36 = load ptr, ptr %4, align 8, !tbaa !138
+  %37 = getelementptr inbounds nuw %"class.cv::FileStorage", ptr %36, i32 0, i32 2
+  %38 = load ptr, ptr %5, align 8, !tbaa !102
+  %39 = load double, ptr %38, align 8, !tbaa !8
   call void @_ZN2cv5writeERNS_11FileStorageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEd(ptr noundef nonnull align 8 dereferenceable(64) %35, ptr noundef nonnull align 8 dereferenceable(32) %37, double noundef %39)
-  %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds %"class.cv::FileStorage", ptr %40, i32 0, i32 1
-  %42 = load i32, ptr %41, align 8
+  %40 = load ptr, ptr %4, align 8, !tbaa !138
+  %41 = getelementptr inbounds nuw %"class.cv::FileStorage", ptr %40, i32 0, i32 1
+  %42 = load i32, ptr %41, align 8, !tbaa !159
   %43 = and i32 %42, 4
   %44 = icmp ne i32 %43, 0
   br i1 %44, label %45, label %48
 
 45:                                               ; preds = %34
-  %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds %"class.cv::FileStorage", ptr %46, i32 0, i32 1
-  store i32 6, ptr %47, align 8
+  %46 = load ptr, ptr %4, align 8, !tbaa !138
+  %47 = getelementptr inbounds nuw %"class.cv::FileStorage", ptr %46, i32 0, i32 1
+  store i32 6, ptr %47, align 8, !tbaa !159
   br label %48
 
 48:                                               ; preds = %45, %34
-  %49 = load ptr, ptr %4, align 8
+  %49 = load ptr, ptr %4, align 8, !tbaa !138
   store ptr %49, ptr %3, align 8
   br label %50
 
@@ -4886,32 +5309,32 @@ define internal noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIdEERNS
   resume { ptr, i32 } %56
 }
 
-declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsERNS_11FileStorageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(32)) #3
+declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsERNS_11FileStorageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(32)) #7
 
-declare void @_ZN2cv5writeERNS_11FileStorageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) #3
+declare void @_ZN2cv5writeERNS_11FileStorageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) #7
 
-declare void @_ZN2cv5writeERNS_11FileStorageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEd(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(32), double noundef) #3
+declare void @_ZN2cv5writeERNS_11FileStorageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEd(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(32), double noundef) #7
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #5 comdat personality ptr @__gxx_personality_v0 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #6 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
-  %7 = load ptr, ptr %4, align 8
-  %8 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #11
+  store ptr %0, ptr %3, align 8, !tbaa !42
+  store ptr %1, ptr %4, align 8, !tbaa !42
+  %5 = load ptr, ptr %3, align 8, !tbaa !42
+  %6 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
+  %7 = load ptr, ptr %4, align 8, !tbaa !42
+  %8 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   %9 = icmp eq i64 %6, %8
   br i1 %9, label %10, label %21
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %3, align 8
-  %12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #11
-  %13 = load ptr, ptr %4, align 8
-  %14 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #11
-  %15 = load ptr, ptr %3, align 8
-  %16 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #11
+  %11 = load ptr, ptr %3, align 8, !tbaa !42
+  %12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #18
+  %13 = load ptr, ptr %4, align 8, !tbaa !42
+  %14 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #18
+  %15 = load ptr, ptr %3, align 8, !tbaa !42
+  %16 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #18
   %17 = invoke noundef i32 @_ZNSt11char_traitsIcE7compareEPKcS2_m(ptr noundef %12, ptr noundef %14, i64 noundef %16)
           to label %18 unwind label %23
 
@@ -4928,40 +5351,47 @@ define linkonce_odr noundef zeroext i1 @_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #14
+  call void @__clang_call_terminate(ptr %25) #20
   unreachable
 }
 
-declare void @_ZNK2cv8FileNodeixEPKc(ptr dead_on_unwind writable sret(%"class.cv::FileNode") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) #3
+declare void @_ZNK2cv8FileNodeixEPKc(ptr dead_on_unwind writable sret(%"class.cv::FileNode") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) #7
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK2cv8FileNodecvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZNK2cv8FileNodecvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #5 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !140
   %5 = load ptr, ptr %4, align 8
   call void @_ZNK2cv8FileNode6stringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
   ret void
 }
 
-declare noundef i32 @_ZNK2cv8FileNodecviEv(ptr noundef nonnull align 8 dereferenceable(24)) #3
+declare noundef i32 @_ZNK2cv8FileNodecviEv(ptr noundef nonnull align 8 dereferenceable(24)) #7
 
-declare noundef double @_ZNK2cv8FileNodecvdEv(ptr noundef nonnull align 8 dereferenceable(24)) #3
-
-; Function Attrs: nounwind
-declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) #2
+declare noundef double @_ZNK2cv8FileNodecvdEv(ptr noundef nonnull align 8 dereferenceable(24)) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZNSt11char_traitsIcE7compareEPKcS2_m(ptr noundef %0, ptr noundef %1, i64 noundef %2) #5 comdat align 2 {
+define available_externally noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #3 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !165
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNSt11char_traitsIcE7compareEPKcS2_m(ptr noundef %0, ptr noundef %1, i64 noundef %2) #3 comdat align 2 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  %8 = load i64, ptr %7, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !44
+  store ptr %1, ptr %6, align 8, !tbaa !44
+  store i64 %2, ptr %7, align 8, !tbaa !110
+  %8 = load i64, ptr %7, align 8, !tbaa !110
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %10, label %11
 
@@ -4970,10 +5400,10 @@ define linkonce_odr hidden noundef i32 @_ZNSt11char_traitsIcE7compareEPKcS2_m(pt
   br label %16
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr %5, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = load i64, ptr %7, align 8
-  %15 = call i32 @memcmp(ptr noundef %12, ptr noundef %13, i64 noundef %14) #11
+  %12 = load ptr, ptr %5, align 8, !tbaa !44
+  %13 = load ptr, ptr %6, align 8, !tbaa !44
+  %14 = load i64, ptr %7, align 8, !tbaa !110
+  %15 = call i32 @memcmp(ptr noundef %12, ptr noundef %13, i64 noundef %14) #18
   store i32 %15, ptr %4, align 4
   br label %16
 
@@ -4982,138 +5412,724 @@ define linkonce_odr hidden noundef i32 @_ZNSt11char_traitsIcE7compareEPKcS2_m(pt
   ret i32 %17
 }
 
-; Function Attrs: nounwind
-declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #2
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8
+  %4 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %5 unwind label %6
+
+5:                                                ; preds = %1
+  ret ptr %4
+
+6:                                                ; preds = %1
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #20
+  unreachable
+}
 
 ; Function Attrs: nounwind
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #2
-
-declare void @_ZNK2cv8FileNode6stringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(24)) #3
-
-declare void @_ZNK2cv12_OutputArray7releaseEv(ptr noundef nonnull align 8 dereferenceable(24)) #3
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv11_InputArray4initEiPKvNS_5Size_IiEE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef %2, i64 %3) #5 comdat align 2 {
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #3 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !166
+  ret ptr %6
+}
+
+declare void @_ZNK2cv8FileNode6stringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(24)) #7
+
+declare void @_ZNK2cv12_OutputArray7releaseEv(ptr noundef nonnull align 8 dereferenceable(24)) #7
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !167
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  br i1 %4, label %8, label %5
+
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %7 = load i64, ptr %6, align 8, !tbaa !89
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %7) #18
+  br label %8
+
+8:                                                ; preds = %5, %1
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !167
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !42
+  %4 = load ptr, ptr %3, align 8
+  %5 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %7 = icmp eq ptr %5, %6
+  br i1 %7, label %8, label %14
+
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8, !tbaa !165
+  %11 = icmp ugt i64 %10, 15
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %8
+  unreachable
+
+13:                                               ; preds = %8
+  store i1 true, ptr %2, align 1
+  br label %15
+
+14:                                               ; preds = %1
+  store i1 false, ptr %2, align 1
+  br label %15
+
+15:                                               ; preds = %14, %13
+  %16 = load i1, ptr %2, align 1
+  ret i1 %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #3 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !42
+  store i64 %1, ptr %4, align 8, !tbaa !110
+  %7 = load ptr, ptr %3, align 8
+  %8 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
+          to label %9 unwind label %14
+
+9:                                                ; preds = %2
+  %10 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
+  %11 = load i64, ptr %4, align 8, !tbaa !110
+  %12 = add i64 %11, 1
+  invoke void @_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef %10, i64 noundef %12)
+          to label %13 unwind label %14
+
+13:                                               ; preds = %9
+  ret void
+
+14:                                               ; preds = %9, %2
+  %15 = landingpad { ptr, i32 }
+          filter [0 x ptr] zeroinitializer
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  call void @__cxa_call_unexpected(ptr %19) #19
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #3 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %6 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_(ptr noundef nonnull align 1 dereferenceable(1) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8, !tbaa !44
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !40
+  store ptr %1, ptr %5, align 8, !tbaa !44
+  store i64 %2, ptr %6, align 8, !tbaa !110
+  %7 = load ptr, ptr %4, align 8, !tbaa !40
+  %8 = load ptr, ptr %5, align 8, !tbaa !44
+  %9 = load i64, ptr %6, align 8, !tbaa !110
+  call void @_ZNSt15__new_allocatorIcE10deallocateEPcm(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #3 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+declare void @__cxa_call_unexpected(ptr)
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIcE10deallocateEPcm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !167
+  store ptr %1, ptr %5, align 8, !tbaa !44
+  store i64 %2, ptr %6, align 8, !tbaa !110
+  %7 = load ptr, ptr %5, align 8, !tbaa !44
+  call void @_ZdlPv(ptr noundef %7) #21
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #3 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %6 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #3 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !169
+  store ptr %1, ptr %5, align 8, !tbaa !44
+  store ptr %2, ptr %6, align 8, !tbaa !40
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !40
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #18
+  %9 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %5, align 8, !tbaa !44
+  store ptr %10, ptr %9, align 8, !tbaa !171
+  ret void
+}
+
+; Function Attrs: noreturn
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8, !tbaa !44
+  %4 = call i64 @strlen(ptr noundef %3) #18
+  ret i64 %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca %struct._Guard, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !42
+  store ptr %1, ptr %5, align 8, !tbaa !44
+  store ptr %2, ptr %6, align 8, !tbaa !44
+  %11 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #18
+  %12 = load ptr, ptr %5, align 8, !tbaa !44
+  %13 = load ptr, ptr %6, align 8, !tbaa !44
+  %14 = call noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %12, ptr noundef %13)
+  store i64 %14, ptr %7, align 8, !tbaa !110
+  %15 = load i64, ptr %7, align 8, !tbaa !110
+  %16 = icmp ugt i64 %15, 15
+  br i1 %16, label %17, label %20
+
+17:                                               ; preds = %3
+  %18 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %18)
+  %19 = load i64, ptr %7, align 8, !tbaa !110
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %19)
+  br label %22
+
+20:                                               ; preds = %3
+  %21 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #18
+  br label %22
+
+22:                                               ; preds = %20, %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #18
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %11)
+  %23 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %24 = load ptr, ptr %5, align 8, !tbaa !44
+  %25 = load ptr, ptr %6, align 8, !tbaa !44
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %23, ptr noundef %24, ptr noundef %25) #18
+  %26 = getelementptr inbounds nuw %struct._Guard, ptr %8, i32 0, i32 0
+  store ptr null, ptr %26, align 8, !tbaa !172
+  %27 = load i64, ptr %7, align 8, !tbaa !110
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %27)
+          to label %28 unwind label %29
+
+28:                                               ; preds = %22
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #18
+  ret void
+
+29:                                               ; preds = %22
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %9, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %10, align 4
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #18
+  br label %33
+
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %9, align 8
+  %35 = load i32, ptr %10, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc(ptr noundef nonnull align 1 dereferenceable(1) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8, !tbaa !44
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #3 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !40
+  store ptr %1, ptr %4, align 8, !tbaa !40
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !40
+  call void @_ZNSt15__new_allocatorIcEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #18
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIcEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !167
+  store ptr %1, ptr %4, align 8, !tbaa !167
+  ret void
+}
+
+; Function Attrs: nounwind
+declare i64 @strlen(ptr noundef) #9
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %0, ptr noundef %1) #5 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !44
+  store ptr %1, ptr %4, align 8, !tbaa !44
+  %5 = load ptr, ptr %3, align 8, !tbaa !44
+  %6 = load ptr, ptr %4, align 8, !tbaa !44
+  call void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %7 = call noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %5, ptr noundef %6)
+  ret i64 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #3 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !42
+  store ptr %1, ptr %4, align 8, !tbaa !44
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !44
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  store ptr %6, ptr %8, align 8, !tbaa !166
+  ret void
+}
+
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) #7
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #3 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !42
+  store i64 %1, ptr %4, align 8, !tbaa !110
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !110
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 2
+  store i64 %6, ptr %7, align 8, !tbaa !89
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !174
+  store ptr %1, ptr %4, align 8, !tbaa !42
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct._Guard, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !42
+  store ptr %7, ptr %6, align 8, !tbaa !172
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !44
+  store ptr %1, ptr %5, align 8, !tbaa !44
+  store ptr %2, ptr %6, align 8, !tbaa !44
+  %7 = load ptr, ptr %4, align 8, !tbaa !44
+  %8 = load ptr, ptr %5, align 8, !tbaa !44
+  %9 = load ptr, ptr %6, align 8, !tbaa !44
+  %10 = load ptr, ptr %5, align 8, !tbaa !44
+  %11 = ptrtoint ptr %9 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %7, ptr noundef %8, i64 noundef %13)
+          to label %14 unwind label %15
+
+14:                                               ; preds = %3
+  ret void
+
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          catch ptr null
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #20
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !42
+  store i64 %1, ptr %4, align 8, !tbaa !110
+  %6 = load ptr, ptr %3, align 8
+  %7 = load i64, ptr %4, align 8, !tbaa !110
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %7)
+  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %9 = load i64, ptr %4, align 8, !tbaa !110
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #18
+  store i8 0, ptr %5, align 1, !tbaa !89
+  call void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #18
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !174
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct._Guard, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !172
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %11
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %struct._Guard, ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !172
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %10 unwind label %12
+
+10:                                               ; preds = %7
+  br label %11
+
+11:                                               ; preds = %10, %1
+  ret void
+
+12:                                               ; preds = %7
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #20
+  unreachable
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1) #6 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !44
+  store ptr %1, ptr %4, align 8, !tbaa !44
+  %5 = load ptr, ptr %4, align 8, !tbaa !44
+  %6 = load ptr, ptr %3, align 8, !tbaa !44
+  %7 = ptrtoint ptr %5 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = sub i64 %7, %8
+  ret i64 %9
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #6 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !176
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !44
+  store ptr %1, ptr %5, align 8, !tbaa !44
+  store i64 %2, ptr %6, align 8, !tbaa !110
+  %7 = load i64, ptr %6, align 8, !tbaa !110
+  %8 = icmp eq i64 %7, 1
+  br i1 %8, label %9, label %12
+
+9:                                                ; preds = %3
+  %10 = load ptr, ptr %4, align 8, !tbaa !44
+  %11 = load ptr, ptr %5, align 8, !tbaa !44
+  call void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #18
+  br label %17
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %4, align 8, !tbaa !44
+  %14 = load ptr, ptr %5, align 8, !tbaa !44
+  %15 = load i64, ptr %6, align 8, !tbaa !110
+  %16 = call noundef ptr @_ZNSt11char_traitsIcE4copyEPcPKcm(ptr noundef %13, ptr noundef %14, i64 noundef %15)
+  br label %17
+
+17:                                               ; preds = %12, %9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !44
+  store ptr %1, ptr %4, align 8, !tbaa !44
+  %5 = load ptr, ptr %4, align 8, !tbaa !44
+  %6 = load i8, ptr %5, align 1, !tbaa !89
+  %7 = load ptr, ptr %3, align 8, !tbaa !44
+  store i8 %6, ptr %7, align 1, !tbaa !89
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt11char_traitsIcE4copyEPcPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !44
+  store ptr %1, ptr %6, align 8, !tbaa !44
+  store i64 %2, ptr %7, align 8, !tbaa !110
+  %8 = load i64, ptr %7, align 8, !tbaa !110
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %10, label %12
+
+10:                                               ; preds = %3
+  %11 = load ptr, ptr %5, align 8, !tbaa !44
+  store ptr %11, ptr %4, align 8
+  br label %16
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %5, align 8, !tbaa !44
+  %14 = load ptr, ptr %6, align 8, !tbaa !44
+  %15 = load i64, ptr %7, align 8, !tbaa !110
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %14, i64 %15, i1 false)
+  store ptr %13, ptr %4, align 8
+  br label %16
+
+16:                                               ; preds = %12, %10
+  %17 = load ptr, ptr %4, align 8
+  ret ptr %17
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #3 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !42
+  store i64 %1, ptr %4, align 8, !tbaa !110
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !110
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 1
+  store i64 %6, ptr %7, align 8, !tbaa !165
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv11_InputArray4initEiPKvNS_5Size_IiEE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef %2, i64 %3) #6 comdat align 2 {
   %5 = alloca %"class.cv::Size_", align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   store i64 %3, ptr %5, align 4
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store ptr %2, ptr %8, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !53
+  store i32 %1, ptr %7, align 4, !tbaa !38
+  store ptr %2, ptr %8, align 8, !tbaa !61
   %9 = load ptr, ptr %6, align 8
-  %10 = load i32, ptr %7, align 4
-  %11 = getelementptr inbounds %"class.cv::_InputArray", ptr %9, i32 0, i32 0
-  store i32 %10, ptr %11, align 8
-  %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds %"class.cv::_InputArray", ptr %9, i32 0, i32 1
-  store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds %"class.cv::_InputArray", ptr %9, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 4 %5, i64 8, i1 false)
+  %10 = load i32, ptr %7, align 4, !tbaa !38
+  %11 = getelementptr inbounds nuw %"class.cv::_InputArray", ptr %9, i32 0, i32 0
+  store i32 %10, ptr %11, align 8, !tbaa !145
+  %12 = load ptr, ptr %8, align 8, !tbaa !61
+  %13 = getelementptr inbounds nuw %"class.cv::_InputArray", ptr %9, i32 0, i32 1
+  store ptr %12, ptr %13, align 8, !tbaa !123
+  %14 = getelementptr inbounds nuw %"class.cv::_InputArray", ptr %9, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 4 %5, i64 8, i1 false), !tbaa.struct !37
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2cv7Scalar_IdEC2Edddd(ptr noundef nonnull align 8 dereferenceable(32) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN2cv7Scalar_IdEC2Edddd(ptr noundef nonnull align 8 dereferenceable(32) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4) unnamed_addr #5 comdat align 2 {
   %6 = alloca ptr, align 8
   %7 = alloca double, align 8
   %8 = alloca double, align 8
   %9 = alloca double, align 8
   %10 = alloca double, align 8
-  store ptr %0, ptr %6, align 8
-  store double %1, ptr %7, align 8
-  store double %2, ptr %8, align 8
-  store double %3, ptr %9, align 8
-  store double %4, ptr %10, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !179
+  store double %1, ptr %7, align 8, !tbaa !8
+  store double %2, ptr %8, align 8, !tbaa !8
+  store double %3, ptr %9, align 8, !tbaa !8
+  store double %4, ptr %10, align 8, !tbaa !8
   %11 = load ptr, ptr %6, align 8
   call void @_ZN2cv3VecIdLi4EEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11)
-  %12 = load double, ptr %7, align 8
-  %13 = getelementptr inbounds %"class.cv::Matx", ptr %11, i32 0, i32 0
+  %12 = load double, ptr %7, align 8, !tbaa !8
+  %13 = getelementptr inbounds nuw %"class.cv::Matx", ptr %11, i32 0, i32 0
   %14 = getelementptr inbounds [4 x double], ptr %13, i64 0, i64 0
-  store double %12, ptr %14, align 8
-  %15 = load double, ptr %8, align 8
-  %16 = getelementptr inbounds %"class.cv::Matx", ptr %11, i32 0, i32 0
+  store double %12, ptr %14, align 8, !tbaa !8
+  %15 = load double, ptr %8, align 8, !tbaa !8
+  %16 = getelementptr inbounds nuw %"class.cv::Matx", ptr %11, i32 0, i32 0
   %17 = getelementptr inbounds [4 x double], ptr %16, i64 0, i64 1
-  store double %15, ptr %17, align 8
-  %18 = load double, ptr %9, align 8
-  %19 = getelementptr inbounds %"class.cv::Matx", ptr %11, i32 0, i32 0
+  store double %15, ptr %17, align 8, !tbaa !8
+  %18 = load double, ptr %9, align 8, !tbaa !8
+  %19 = getelementptr inbounds nuw %"class.cv::Matx", ptr %11, i32 0, i32 0
   %20 = getelementptr inbounds [4 x double], ptr %19, i64 0, i64 2
-  store double %18, ptr %20, align 8
-  %21 = load double, ptr %10, align 8
-  %22 = getelementptr inbounds %"class.cv::Matx", ptr %11, i32 0, i32 0
+  store double %18, ptr %20, align 8, !tbaa !8
+  %21 = load double, ptr %10, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw %"class.cv::Matx", ptr %11, i32 0, i32 0
   %23 = getelementptr inbounds [4 x double], ptr %22, i64 0, i64 3
-  store double %21, ptr %23, align 8
+  store double %21, ptr %23, align 8, !tbaa !8
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2cv3VecIdLi4EEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN2cv3VecIdLi4EEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !181
   %3 = load ptr, ptr %2, align 8
   call void @_ZN2cv4MatxIdLi4ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv4MatxIdLi4ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv4MatxIdLi4ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !55
   %4 = load ptr, ptr %2, align 8
-  store i32 0, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #18
+  store i32 0, ptr %3, align 4, !tbaa !38
   br label %5
 
-5:                                                ; preds = %13, %1
-  %6 = load i32, ptr %3, align 4
+5:                                                ; preds = %14, %1
+  %6 = load i32, ptr %3, align 4, !tbaa !38
   %7 = icmp slt i32 %6, 4
-  br i1 %7, label %8, label %16
+  br i1 %7, label %9, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds %"class.cv::Matx", ptr %4, i32 0, i32 0
-  %10 = load i32, ptr %3, align 4
-  %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [4 x double], ptr %9, i64 0, i64 %11
-  store double 0.000000e+00, ptr %12, align 8
-  br label %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #18
+  br label %17
 
-13:                                               ; preds = %8
-  %14 = load i32, ptr %3, align 4
-  %15 = add nsw i32 %14, 1
-  store i32 %15, ptr %3, align 4
-  br label %5, !llvm.loop !19
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds nuw %"class.cv::Matx", ptr %4, i32 0, i32 0
+  %11 = load i32, ptr %3, align 4, !tbaa !38
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %12
+  store double 0.000000e+00, ptr %13, align 8, !tbaa !8
+  br label %14
 
-16:                                               ; preds = %5
+14:                                               ; preds = %9
+  %15 = load i32, ptr %3, align 4, !tbaa !38
+  %16 = add nsw i32 %15, 1
+  store i32 %16, ptr %3, align 4, !tbaa !38
+  br label %5, !llvm.loop !183
+
+17:                                               ; preds = %8
   ret void
 }
 
-declare void @_ZN2cv3Mat6createENS_5Size_IiEEi(ptr noundef nonnull align 8 dereferenceable(96), i64, i32 noundef) #3
+declare void @_ZN2cv3Mat6createENS_5Size_IiEEi(ptr noundef nonnull align 8 dereferenceable(96), i64, i32 noundef) #7
 
-declare void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96), i32 noundef, i32 noundef, i32 noundef) #3
+declare void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96), i32 noundef, i32 noundef, i32 noundef) #7
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN2cveqIiEEbRKNS_5Size_IT_EES5_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) #5 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef zeroext i1 @_ZN2cveqIiEEbRKNS_5Size_IT_EES5_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) #6 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.cv::Size_", ptr %5, i32 0, i32 0
-  %7 = load i32, ptr %6, align 4
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.cv::Size_", ptr %8, i32 0, i32 0
-  %10 = load i32, ptr %9, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !47
+  store ptr %1, ptr %4, align 8, !tbaa !47
+  %5 = load ptr, ptr %3, align 8, !tbaa !47
+  %6 = getelementptr inbounds nuw %"class.cv::Size_", ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %6, align 4, !tbaa !49
+  %8 = load ptr, ptr %4, align 8, !tbaa !47
+  %9 = getelementptr inbounds nuw %"class.cv::Size_", ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %9, align 4, !tbaa !49
   %11 = icmp eq i32 %7, %10
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %"class.cv::Size_", ptr %13, i32 0, i32 1
-  %15 = load i32, ptr %14, align 4
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %"class.cv::Size_", ptr %16, i32 0, i32 1
-  %18 = load i32, ptr %17, align 4
+  %13 = load ptr, ptr %3, align 8, !tbaa !47
+  %14 = getelementptr inbounds nuw %"class.cv::Size_", ptr %13, i32 0, i32 1
+  %15 = load i32, ptr %14, align 4, !tbaa !50
+  %16 = load ptr, ptr %4, align 8, !tbaa !47
+  %17 = getelementptr inbounds nuw %"class.cv::Size_", ptr %16, i32 0, i32 1
+  %18 = load i32, ptr %17, align 4, !tbaa !50
   %19 = icmp eq i32 %15, %18
   br label %20
 
@@ -5122,38 +6138,41 @@ define internal noundef zeroext i1 @_ZN2cveqIiEEbRKNS_5Size_IT_EES5_(ptr noundef
   ret i1 %21
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZSt11make_sharedIN2cv6bgsegm27BackgroundSubtractorGMGImplEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.3") align 8 %0) #0 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZSt11make_sharedIN2cv6bgsegm27BackgroundSubtractorGMGImplEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.3") align 8 %0) #5 comdat {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.std::allocator.10", align 1
   %4 = alloca %"struct.std::_Sp_alloc_shared_tag", align 8
   store ptr %0, ptr %2, align 8
-  %5 = getelementptr inbounds %"struct.std::_Sp_alloc_shared_tag", ptr %4, i32 0, i32 0
-  store ptr %3, ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.std::_Sp_alloc_shared_tag", ptr %4, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #18
+  %5 = getelementptr inbounds nuw %"struct.std::_Sp_alloc_shared_tag", ptr %4, i32 0, i32 0
+  store ptr %3, ptr %5, align 8, !tbaa !184
+  %6 = getelementptr inbounds nuw %"struct.std::_Sp_alloc_shared_tag", ptr %4, i32 0, i32 0
   %7 = load ptr, ptr %6, align 8
   call void @_ZNSt10shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplEEC2ISaIvEJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %7)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #18
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv3PtrINS_6bgsegm27BackgroundSubtractorGMGImplEEC2EOSt10shared_ptrIS2_E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv3PtrINS_6bgsegm27BackgroundSubtractorGMGImplEEC2EOSt10shared_ptrIS2_E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !132
+  store ptr %1, ptr %4, align 8, !tbaa !186
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt10shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #11
+  %6 = load ptr, ptr %4, align 8, !tbaa !186
+  call void @_ZNSt10shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !188
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt12__shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
+  %4 = getelementptr inbounds nuw %"class.std::__shared_ptr.4", ptr %3, i32 0, i32 1
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
   ret void
 }
 
@@ -5162,12 +6181,12 @@ define linkonce_odr hidden void @_ZNSt10shared_ptrIN2cv6bgsegm27BackgroundSubtra
   %3 = alloca %"struct.std::_Sp_alloc_shared_tag", align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"struct.std::_Sp_alloc_shared_tag", align 8
-  %6 = getelementptr inbounds %"struct.std::_Sp_alloc_shared_tag", ptr %3, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Sp_alloc_shared_tag", ptr %3, i32 0, i32 0
   store ptr %1, ptr %6, align 8
-  store ptr %0, ptr %4, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !186
   %7 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %3, i64 8, i1 false)
-  %8 = getelementptr inbounds %"struct.std::_Sp_alloc_shared_tag", ptr %5, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %3, i64 8, i1 false), !tbaa.struct !190
+  %8 = getelementptr inbounds nuw %"struct.std::_Sp_alloc_shared_tag", ptr %5, i32 0, i32 0
   %9 = load ptr, ptr %8, align 8
   call void @_ZNSt12__shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplELN9__gnu_cxx12_Lock_policyE2EEC2ISaIvEJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr %9)
   ret void
@@ -5178,21 +6197,21 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv6bgsegm27BackgroundSubt
   %3 = alloca %"struct.std::_Sp_alloc_shared_tag", align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"struct.std::_Sp_alloc_shared_tag", align 8
-  %6 = getelementptr inbounds %"struct.std::_Sp_alloc_shared_tag", ptr %3, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Sp_alloc_shared_tag", ptr %3, i32 0, i32 0
   store ptr %1, ptr %6, align 8
-  store ptr %0, ptr %4, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !188
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.std::__shared_ptr.4", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::__shared_ptr.4", ptr %7, i32 0, i32 1
-  %10 = getelementptr inbounds %"class.std::__shared_ptr.4", ptr %7, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %3, i64 8, i1 false)
-  %11 = getelementptr inbounds %"struct.std::_Sp_alloc_shared_tag", ptr %5, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"class.std::__shared_ptr.4", ptr %7, i32 0, i32 0
+  store ptr null, ptr %8, align 8, !tbaa !191
+  %9 = getelementptr inbounds nuw %"class.std::__shared_ptr.4", ptr %7, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %"class.std::__shared_ptr.4", ptr %7, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %3, i64 8, i1 false), !tbaa.struct !190
+  %11 = getelementptr inbounds nuw %"struct.std::_Sp_alloc_shared_tag", ptr %5, i32 0, i32 0
   %12 = load ptr, ptr %11, align 8
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvEJEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr %12)
-  %13 = getelementptr inbounds %"class.std::__shared_ptr.4", ptr %7, i32 0, i32 0
-  %14 = load ptr, ptr %13, align 8
-  call void @_ZNSt12__shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withIS2_S2_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %14) #11
+  %13 = getelementptr inbounds nuw %"class.std::__shared_ptr.4", ptr %7, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8, !tbaa !191
+  call void @_ZNSt12__shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withIS2_S2_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %14) #18
   ret void
 }
 
@@ -5207,39 +6226,47 @@ define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_polic
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
-  %13 = getelementptr inbounds %"struct.std::_Sp_alloc_shared_tag", ptr %4, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"struct.std::_Sp_alloc_shared_tag", ptr %4, i32 0, i32 0
   store ptr %2, ptr %13, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !146
+  store ptr %1, ptr %6, align 8, !tbaa !193
   %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds %"struct.std::_Sp_alloc_shared_tag", ptr %4, i32 0, i32 0
-  %16 = load ptr, ptr %15, align 8
-  call void @_ZNSaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEC2IvEERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %16) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #18
+  %15 = getelementptr inbounds nuw %"struct.std::_Sp_alloc_shared_tag", ptr %4, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !195
+  call void @_ZNSaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEC2IvEERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %16) #18
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #18
   invoke void @_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_(ptr dead_on_unwind writable sret(%"struct.std::__allocated_ptr") align 8 %8, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %17 unwind label %28
 
 17:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #18
   %18 = invoke noundef ptr @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %19 unwind label %32
 
 19:                                               ; preds = %17
-  store ptr %18, ptr %11, align 8
-  %20 = load ptr, ptr %11, align 8
+  store ptr %18, ptr %11, align 8, !tbaa !197
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #18
+  %20 = load ptr, ptr %11, align 8, !tbaa !197
   invoke void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEC2IJEEES3_DpOT_(ptr noundef nonnull align 8 dereferenceable(424) %20)
-          to label %21 unwind label %32
+          to label %21 unwind label %36
 
 21:                                               ; preds = %19
-  store ptr %20, ptr %12, align 8
-  %22 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEEaSEDn(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr null) #11
-  %23 = load ptr, ptr %12, align 8
-  %24 = getelementptr inbounds %"class.std::__shared_count", ptr %14, i32 0, i32 0
-  store ptr %23, ptr %24, align 8
-  %25 = load ptr, ptr %12, align 8
-  %26 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(424) %25) #11
-  %27 = load ptr, ptr %6, align 8
-  store ptr %26, ptr %27, align 8
-  call void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #11
-  call void @_ZNSaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #11
+  store ptr %20, ptr %12, align 8, !tbaa !197
+  %22 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEEaSEDn(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr null) #18
+  %23 = load ptr, ptr %12, align 8, !tbaa !197
+  %24 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %14, i32 0, i32 0
+  store ptr %23, ptr %24, align 8, !tbaa !148
+  %25 = load ptr, ptr %12, align 8, !tbaa !197
+  %26 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(424) %25) #18
+  %27 = load ptr, ptr %6, align 8, !tbaa !193
+  store ptr %26, ptr %27, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #18
+  call void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #18
+  call void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #18
   ret void
 
 28:                                               ; preds = %3
@@ -5249,47 +6276,63 @@ define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_polic
   store ptr %30, ptr %9, align 8
   %31 = extractvalue { ptr, i32 } %29, 1
   store i32 %31, ptr %10, align 4
-  br label %36
+  br label %41
 
-32:                                               ; preds = %19, %17
+32:                                               ; preds = %17
   %33 = landingpad { ptr, i32 }
           cleanup
   %34 = extractvalue { ptr, i32 } %33, 0
   store ptr %34, ptr %9, align 8
   %35 = extractvalue { ptr, i32 } %33, 1
   store i32 %35, ptr %10, align 4
-  call void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #11
-  br label %36
+  br label %40
 
-36:                                               ; preds = %32, %28
-  call void @_ZNSaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #11
-  br label %37
+36:                                               ; preds = %19
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %9, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #18
+  br label %40
 
-37:                                               ; preds = %36
-  %38 = load ptr, ptr %9, align 8
-  %39 = load i32, ptr %10, align 4
-  %40 = insertvalue { ptr, i32 } poison, ptr %38, 0
-  %41 = insertvalue { ptr, i32 } %40, i32 %39, 1
-  resume { ptr, i32 } %41
+40:                                               ; preds = %36, %32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #18
+  call void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
+  br label %41
+
+41:                                               ; preds = %40, %28
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #18
+  call void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #18
+  br label %42
+
+42:                                               ; preds = %41
+  %43 = load ptr, ptr %9, align 8
+  %44 = load i32, ptr %10, align 4
+  %45 = insertvalue { ptr, i32 } poison, ptr %43, 0
+  %46 = insertvalue { ptr, i32 } %45, i32 %44, 1
+  resume { ptr, i32 } %46
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withIS2_S2_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withIS2_S2_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !188
+  store ptr %1, ptr %4, align 8, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEC2IvEERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEC2IvEERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !199
+  store ptr %1, ptr %4, align 8, !tbaa !184
   %5 = load ptr, ptr %3, align 8
-  call void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #11
+  call void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   ret void
 }
 
@@ -5298,22 +6341,22 @@ define linkonce_odr hidden void @_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !199
+  %5 = load ptr, ptr %4, align 8, !tbaa !199
+  %6 = load ptr, ptr %4, align 8, !tbaa !199
   %7 = call noundef ptr @_ZNSt16allocator_traitsISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERS8_m(ptr noundef nonnull align 1 dereferenceable(1) %6, i64 noundef 1)
-  call void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEEC2ERS8_PS7_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %7) #11
+  call void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEEC2ERS8_PS7_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %7) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #5 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !201
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::__allocated_ptr", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt12__to_addressISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEPT_S9_(ptr noundef %5) #11
+  %4 = getelementptr inbounds nuw %"struct.std::__allocated_ptr", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !203
+  %6 = call noundef ptr @_ZSt12__to_addressISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEPT_S9_(ptr noundef %5) #18
   ret ptr %6
 }
 
@@ -5323,13 +6366,13 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27Bac
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !197
   %6 = load ptr, ptr %3, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #11
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %6, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(408) %7) #11
-  %8 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(424) %6) #11
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %6, align 8, !tbaa !128
+  %7 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr_inplace", ptr %6, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(408) %7) #18
+  %8 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(424) %6) #18
   invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN2cv6bgsegm27BackgroundSubtractorGMGImplEJEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %8)
           to label %9 unwind label %10
 
@@ -5343,7 +6386,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27Bac
   store ptr %12, ptr %4, align 8
   %13 = extractvalue { ptr, i32 } %11, 1
   store i32 %13, ptr %5, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #11
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
   br label %14
 
 14:                                               ; preds = %10
@@ -5355,43 +6398,43 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27Bac
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEEaSEDn(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1) #5 comdat align 2 {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEEaSEDn(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1) #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !201
+  store ptr %1, ptr %4, align 8, !tbaa !205
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.std::__allocated_ptr", ptr %5, i32 0, i32 1
-  store ptr null, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::__allocated_ptr", ptr %5, i32 0, i32 1
+  store ptr null, ptr %6, align 8, !tbaa !203
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(424) %0) #5 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(424) %0) #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !197
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %3, i32 0, i32 1
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace<cv::bgsegm::BackgroundSubtractorGMGImpl, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl", ptr %4, i32 0, i32 0
-  %6 = call noundef ptr @_ZN9__gnu_cxx16__aligned_bufferIN2cv6bgsegm27BackgroundSubtractorGMGImplEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(408) %5) #11
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr_inplace", ptr %3, i32 0, i32 1
+  %5 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr_inplace<cv::bgsegm::BackgroundSubtractorGMGImpl, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl", ptr %4, i32 0, i32 0
+  %6 = call noundef ptr @_ZN9__gnu_cxx16__aligned_bufferIN2cv6bgsegm27BackgroundSubtractorGMGImplEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(408) %5) #18
   ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !201
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::__allocated_ptr", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__allocated_ptr", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !203
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"struct.std::__allocated_ptr", ptr %3, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.std::__allocated_ptr", ptr %3, i32 0, i32 1
-  %11 = load ptr, ptr %10, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::__allocated_ptr", ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !207
+  %10 = getelementptr inbounds nuw %"struct.std::__allocated_ptr", ptr %3, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8, !tbaa !203
   invoke void @_ZNSt16allocator_traitsISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEE10deallocateERS8_PS7_m(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef %11, i64 noundef 1)
           to label %12 unwind label %14
 
@@ -5405,23 +6448,21 @@ define linkonce_odr hidden void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_i
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  call void @__clang_call_terminate(ptr %16) #20
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !208
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !208
   ret void
 }
 
@@ -5429,29 +6470,29 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inpl
 define linkonce_odr hidden noundef ptr @_ZNSt16allocator_traitsISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERS8_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !199
+  store i64 %1, ptr %4, align 8, !tbaa !110
+  %5 = load ptr, ptr %3, align 8, !tbaa !199
+  %6 = load i64, ptr %4, align 8, !tbaa !110
   %7 = call noundef ptr @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
   ret ptr %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEEC2ERS8_PS7_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef %2) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEEC2ERS8_PS7_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !201
+  store ptr %1, ptr %5, align 8, !tbaa !199
+  store ptr %2, ptr %6, align 8, !tbaa !197
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"struct.std::__allocated_ptr", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.std::__allocated_ptr", ptr %7, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::__allocated_ptr", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8, !tbaa !199
+  store ptr %9, ptr %8, align 8, !tbaa !207
+  %10 = getelementptr inbounds nuw %"struct.std::__allocated_ptr", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8, !tbaa !197
+  store ptr %11, ptr %10, align 8, !tbaa !203
   ret void
 }
 
@@ -5460,41 +6501,47 @@ define linkonce_odr hidden noundef ptr @_ZNSt15__new_allocatorISt23_Sp_counted_p
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !208
+  store i64 %1, ptr %5, align 8, !tbaa !110
+  store ptr %2, ptr %6, align 8, !tbaa !61
   %7 = load ptr, ptr %4, align 8
-  %8 = load i64, ptr %5, align 8
-  %9 = call noundef i64 @_ZNKSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #11
+  %8 = load i64, ptr %5, align 8, !tbaa !110
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
   %10 = icmp ugt i64 %8, %9
-  br i1 %10, label %11, label %16
+  %11 = zext i1 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %19
 
-11:                                               ; preds = %3
-  %12 = load i64, ptr %5, align 8
-  %13 = icmp ugt i64 %12, 43506471871956489
-  br i1 %13, label %14, label %15
+14:                                               ; preds = %3
+  %15 = load i64, ptr %5, align 8, !tbaa !110
+  %16 = icmp ugt i64 %15, 43506471871956489
+  br i1 %16, label %17, label %18
 
-14:                                               ; preds = %11
-  call void @_ZSt28__throw_bad_array_new_lengthv() #12
+17:                                               ; preds = %14
+  call void @_ZSt28__throw_bad_array_new_lengthv() #19
   unreachable
 
-15:                                               ; preds = %11
-  call void @_ZSt17__throw_bad_allocv() #12
+18:                                               ; preds = %14
+  call void @_ZSt17__throw_bad_allocv() #19
   unreachable
 
-16:                                               ; preds = %3
-  %17 = load i64, ptr %5, align 8
-  %18 = mul i64 %17, 424
-  %19 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #15
-  ret ptr %19
+19:                                               ; preds = %3
+  %20 = load i64, ptr %5, align 8, !tbaa !110
+  %21 = mul i64 %20, 424
+  %22 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #22
+  ret ptr %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
+define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !208
   ret i64 21753235935978244
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #12
 
 ; Function Attrs: noreturn
 declare void @_ZSt28__throw_bad_array_new_lengthv() #1
@@ -5503,34 +6550,34 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() #1
 declare void @_ZSt17__throw_bad_allocv() #1
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #9
+declare noundef nonnull ptr @_Znwm(i64 noundef) #16
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZSt12__to_addressISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEPT_S9_(ptr noundef %0) #5 comdat {
+define linkonce_odr hidden noundef ptr @_ZSt12__to_addressISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEPT_S9_(ptr noundef %0) #3 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !197
+  %3 = load ptr, ptr %2, align 8, !tbaa !197
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !151
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !128
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %4, align 8, !tbaa !156
+  %5 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %5, align 4, !tbaa !158
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(408) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(408) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::allocator.10", align 1
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !210
   %4 = load ptr, ptr %3, align 8
   invoke void @_ZNSt14_Sp_ebo_helperILi0ESaIvELb1EEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %5 unwind label %6
@@ -5542,7 +6589,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27Bac
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #14
+  call void @__clang_call_terminate(ptr %8) #20
   unreachable
 }
 
@@ -5550,126 +6597,124 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27Bac
 define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIvEE9constructIN2cv6bgsegm27BackgroundSubtractorGMGImplEJEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !184
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %4, align 8, !tbaa !3
   call void @_ZSt10_ConstructIN2cv6bgsegm27BackgroundSubtractorGMGImplEJEEvPT_DpOT0_(ptr noundef %5)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(424) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !151
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(424) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(424) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !197
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(424) %3) #11
-  call void @_ZdlPv(ptr noundef %3) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(424) %3) #18
+  call void @_ZdlPv(ptr noundef %3) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(424) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(424) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !197
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %3, i32 0, i32 1
-  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE5_Impl8_M_allocEv(ptr noundef nonnull align 8 dereferenceable(408) %4) #11
-  %6 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(424) %3) #11
-  call void @_ZNSt16allocator_traitsISaIvEE7destroyIN2cv6bgsegm27BackgroundSubtractorGMGImplEEEvRS0_PT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #11
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr_inplace", ptr %3, i32 0, i32 1
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE5_Impl8_M_allocEv(ptr noundef nonnull align 8 dereferenceable(408) %4) #18
+  %6 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(424) %3) #18
+  call void @_ZNSt16allocator_traitsISaIvEE7destroyIN2cv6bgsegm27BackgroundSubtractorGMGImplEEEvRS0_PT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(424) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(424) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.std::allocator.11", align 1
   %4 = alloca %"struct.std::__allocated_ptr", align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !197
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %5, i32 0, i32 1
-  %7 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE5_Impl8_M_allocEv(ptr noundef nonnull align 8 dereferenceable(408) %6) #11
-  call void @_ZNSaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEC2IvEERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %7) #11
-  call void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEEC2ERS8_PS7_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %5) #11
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(424) %5) #11
-  call void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #11
-  call void @_ZNSaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #18
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr_inplace", ptr %5, i32 0, i32 1
+  %7 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE5_Impl8_M_allocEv(ptr noundef nonnull align 8 dereferenceable(408) %6) #18
+  call void @_ZNSaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEC2IvEERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %7) #18
+  call void @llvm.lifetime.start.p0(i64 16, ptr %4) #18
+  call void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEEC2ERS8_PS7_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %5) #18
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(424) %5) #18
+  call void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #18
+  call void @llvm.lifetime.end.p0(i64 16, ptr %4) #18
+  call void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(424) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(424) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(424) %7) #11
-  store ptr %8, ptr %6, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt19_Sp_make_shared_tag5_S_tiEv() #11
-  %11 = icmp eq ptr %9, %10
-  br i1 %11, label %15, label %12
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !197
+  store ptr %1, ptr %5, align 8, !tbaa !212
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #18
+  %9 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(424) %8) #18
+  store ptr %9, ptr %6, align 8, !tbaa !3
+  %10 = load ptr, ptr %5, align 8, !tbaa !212
+  %11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt19_Sp_make_shared_tag5_S_tiEv() #18
+  %12 = icmp eq ptr %10, %11
+  br i1 %12, label %16, label %13
 
-12:                                               ; preds = %2
-  %13 = load ptr, ptr %5, align 8
-  %14 = call noundef zeroext i1 @_ZNKSt9type_infoeqERKS_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) @_ZTISt19_Sp_make_shared_tag) #11
-  br i1 %14, label %15, label %17
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %5, align 8, !tbaa !212
+  %15 = call noundef zeroext i1 @_ZNKSt9type_infoeqERKS_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) @_ZTISt19_Sp_make_shared_tag) #18
+  br i1 %15, label %16, label %18
 
-15:                                               ; preds = %12, %2
-  %16 = load ptr, ptr %6, align 8
-  store ptr %16, ptr %3, align 8
-  br label %18
+16:                                               ; preds = %13, %2
+  %17 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %17, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %19
 
-17:                                               ; preds = %12
+18:                                               ; preds = %13
   store ptr null, ptr %3, align 8
-  br label %18
+  store i32 1, ptr %7, align 4
+  br label %19
 
-18:                                               ; preds = %17, %15
-  %19 = load ptr, ptr %3, align 8
-  ret ptr %19
+19:                                               ; preds = %18, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #18
+  %20 = load ptr, ptr %3, align 8
+  ret ptr %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  call void @llvm.trap() #14
+  store ptr %0, ptr %2, align 8, !tbaa !151
+  call void @llvm.trap() #20
   unreachable
 }
 
-declare void @__cxa_pure_virtual() unnamed_addr
-
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !151
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %3, align 8, !tbaa !128
   %7 = getelementptr inbounds ptr, ptr %6, i64 1
   %8 = load ptr, ptr %7, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
+  call void %8(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   br label %9
 
 9:                                                ; preds = %5, %1
@@ -5677,22 +6722,22 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #10
+declare void @llvm.trap() #17
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt14_Sp_ebo_helperILi0ESaIvELb1EEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt14_Sp_ebo_helperILi0ESaIvELb1EEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !214
+  store ptr %1, ptr %4, align 8, !tbaa !184
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZSt10_ConstructIN2cv6bgsegm27BackgroundSubtractorGMGImplEJEEvPT_DpOT0_(ptr noundef %0) #0 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZSt10_ConstructIN2cv6bgsegm27BackgroundSubtractorGMGImplEJEEvPT_DpOT0_(ptr noundef %0) #5 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
   call void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImplC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %3)
   ret void
 }
@@ -5702,45 +6747,45 @@ define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImplC2Ev(
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %5 = load ptr, ptr %2, align 8
   call void @_ZN2cv6bgsegm23BackgroundSubtractorGMGC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store ptr getelementptr inbounds inrange(-16, 240) ({ [32 x ptr] }, ptr @_ZTVN2cv6bgsegm27BackgroundSubtractorGMGImplE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 11
+  store ptr getelementptr inbounds inrange(-16, 240) ({ [32 x ptr] }, ptr @_ZTVN2cv6bgsegm27BackgroundSubtractorGMGImplE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !128
+  %6 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 11
   invoke void @_ZN2cv5Size_IiEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %6)
           to label %7 unwind label %25
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #11
-  %9 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 14
-  call void @_ZN2cv4Mat_IiEC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #11
-  %10 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 15
-  call void @_ZN2cv4Mat_IiEC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #11
-  %11 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 16
-  call void @_ZN2cv4Mat_IfEC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #11
-  %12 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 1
-  store i32 64, ptr %12, align 8
-  %13 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 2
-  store double 2.500000e-02, ptr %13, align 8
-  %14 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 3
-  store i32 120, ptr %14, align 8
-  %15 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 4
-  store i32 16, ptr %15, align 4
-  %16 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 5
-  store double 8.000000e-01, ptr %16, align 8
-  %17 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 6
-  store double 8.000000e-01, ptr %17, align 8
-  %18 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 7
-  store i32 7, ptr %18, align 8
-  %19 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 8
-  store i8 1, ptr %19, align 4
-  %20 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 9
-  store double 0.000000e+00, ptr %20, align 8
-  %21 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 10
-  store double 0.000000e+00, ptr %21, align 8
-  %22 = getelementptr inbounds %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 13
-  %23 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef @.str.31)
+  %8 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
+  %9 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 14
+  call void @_ZN2cv4Mat_IiEC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #18
+  %10 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 15
+  call void @_ZN2cv4Mat_IiEC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #18
+  %11 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 16
+  call void @_ZN2cv4Mat_IfEC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #18
+  %12 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 1
+  store i32 64, ptr %12, align 8, !tbaa !10
+  %13 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 2
+  store double 2.500000e-02, ptr %13, align 8, !tbaa !31
+  %14 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 3
+  store i32 120, ptr %14, align 8, !tbaa !32
+  %15 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 4
+  store i32 16, ptr %15, align 4, !tbaa !33
+  %16 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 5
+  store double 8.000000e-01, ptr %16, align 8, !tbaa !34
+  %17 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 6
+  store double 8.000000e-01, ptr %17, align 8, !tbaa !119
+  %18 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 7
+  store i32 7, ptr %18, align 8, !tbaa !122
+  %19 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 8
+  store i8 1, ptr %19, align 4, !tbaa !120
+  %20 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 9
+  store double 0.000000e+00, ptr %20, align 8, !tbaa !36
+  %21 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 10
+  store double 0.000000e+00, ptr %21, align 8, !tbaa !35
+  %22 = getelementptr inbounds nuw %"class.cv::bgsegm::BackgroundSubtractorGMGImpl", ptr %5, i32 0, i32 13
+  %23 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef @.str.32)
           to label %24 unwind label %29
 
 24:                                               ; preds = %7
@@ -5762,14 +6807,14 @@ define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImplC2Ev(
   store ptr %31, ptr %3, align 8
   %32 = extractvalue { ptr, i32 } %30, 1
   store i32 %32, ptr %4, align 4
-  call void @_ZN2cv4Mat_IfED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #11
-  call void @_ZN2cv4Mat_IiED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #11
-  call void @_ZN2cv4Mat_IiED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #11
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #18
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #18
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
   br label %33
 
 33:                                               ; preds = %29, %25
-  call void @_ZN2cv6bgsegm23BackgroundSubtractorGMGD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
+  call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
   br label %34
 
 34:                                               ; preds = %33
@@ -5780,122 +6825,179 @@ define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImplC2Ev(
   resume { ptr, i32 } %38
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2cv6bgsegm23BackgroundSubtractorGMGC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN2cv6bgsegm23BackgroundSubtractorGMGC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !216
   %3 = load ptr, ptr %2, align 8
   call void @_ZN2cv20BackgroundSubtractorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds inrange(-16, 240) ({ [32 x ptr] }, ptr @_ZTVN2cv6bgsegm23BackgroundSubtractorGMGE, i32 0, i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 240) ({ [32 x ptr] }, ptr @_ZTVN2cv6bgsegm23BackgroundSubtractorGMGE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !128
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.std::allocator", align 1
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %4 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i32 0, i32 0
+  %6 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #18
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcOS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %7 unwind label %10
+
+7:                                                ; preds = %1
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #18
+  %8 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 0)
+          to label %9 unwind label %10
+
+9:                                                ; preds = %7
+  ret void
+
+10:                                               ; preds = %7, %1
+  %11 = landingpad { ptr, i32 }
+          catch ptr null
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #20
+  unreachable
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv4Mat_IiEC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !45
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #18
+  %4 = getelementptr inbounds nuw %"class.cv::Mat", ptr %3, i32 0, i32 0
+  %5 = load i32, ptr %4, align 8, !tbaa !107
+  %6 = and i32 %5, -4096
+  %7 = add nsw i32 %6, 4
+  %8 = getelementptr inbounds nuw %"class.cv::Mat", ptr %3, i32 0, i32 0
+  store i32 %7, ptr %8, align 8, !tbaa !107
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv4Mat_IfEC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !51
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #18
+  %4 = getelementptr inbounds nuw %"class.cv::Mat", ptr %3, i32 0, i32 0
+  %5 = load i32, ptr %4, align 8, !tbaa !107
+  %6 = and i32 %5, -4096
+  %7 = add nsw i32 %6, 5
+  %8 = getelementptr inbounds nuw %"class.cv::Mat", ptr %3, i32 0, i32 0
+  store i32 %7, ptr %8, align 8, !tbaa !107
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !42
+  store ptr %1, ptr %4, align 8, !tbaa !44
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !44
+  %7 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %6)
+  ret ptr %7
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN2cv20BackgroundSubtractorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !218
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds inrange(-16, 80) ({ [12 x ptr] }, ptr @_ZTVN2cv20BackgroundSubtractorE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !128
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #9
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv6bgsegm23BackgroundSubtractorGMGD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !216
+  call void @llvm.trap() #20
+  unreachable
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv4Mat_IiEC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #11
-  %4 = getelementptr inbounds %"class.cv::Mat", ptr %3, i32 0, i32 0
-  %5 = load i32, ptr %4, align 8
-  %6 = and i32 %5, -4096
-  %7 = add nsw i32 %6, 4
-  %8 = getelementptr inbounds %"class.cv::Mat", ptr %3, i32 0, i32 0
-  store i32 %7, ptr %8, align 8
+define linkonce_odr hidden void @_ZNK2cv9Algorithm5writeERNS_11FileStorageE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !136
+  store ptr %1, ptr %4, align 8, !tbaa !138
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv4Mat_IfEC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #11
-  %4 = getelementptr inbounds %"class.cv::Mat", ptr %3, i32 0, i32 0
-  %5 = load i32, ptr %4, align 8
-  %6 = and i32 %5, -4096
-  %7 = add nsw i32 %6, 5
-  %8 = getelementptr inbounds %"class.cv::Mat", ptr %3, i32 0, i32 0
-  store i32 %7, ptr %8, align 8
+define linkonce_odr hidden void @_ZN2cv9Algorithm4readERKNS_8FileNodeE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !136
+  store ptr %1, ptr %4, align 8, !tbaa !140
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) #3
+declare void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #7
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv20BackgroundSubtractorD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !218
+  call void @llvm.trap() #20
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #3 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !169
+  store ptr %1, ptr %5, align 8, !tbaa !44
+  store ptr %2, ptr %6, align 8, !tbaa !40
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !40
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #18
+  %9 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %5, align 8, !tbaa !44
+  store ptr %10, ptr %9, align 8, !tbaa !171
+  ret void
+}
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2cv20BackgroundSubtractorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds inrange(-16, 80) ({ [12 x ptr] }, ptr @_ZTVN2cv20BackgroundSubtractorE, i32 0, i32 0, i32 2), ptr %3, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv6bgsegm23BackgroundSubtractorGMGD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN2cv20BackgroundSubtractorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv6bgsegm23BackgroundSubtractorGMGD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  call void @llvm.trap() #14
-  unreachable
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNK2cv9Algorithm5writeERNS_11FileStorageE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #5 comdat align 2 {
+define available_externally noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  ret void
+  store ptr %0, ptr %3, align 8, !tbaa !42
+  store ptr %1, ptr %4, align 8, !tbaa !44
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
+  %7 = load ptr, ptr %4, align 8, !tbaa !44
+  %8 = load ptr, ptr %4, align 8, !tbaa !44
+  %9 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %8)
+  %10 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0, i64 noundef %6, ptr noundef %7, i64 noundef %9)
+  ret ptr %10
 }
 
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) #7
+
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv9Algorithm4readERKNS_8FileNodeE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIvEE7destroyIN2cv6bgsegm27BackgroundSubtractorGMGImplEEEvRS0_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  ret void
-}
-
-declare void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv20BackgroundSubtractorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv20BackgroundSubtractorD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  call void @llvm.trap() #14
-  unreachable
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIvEE7destroyIN2cv6bgsegm27BackgroundSubtractorGMGImplEEEvRS0_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !184
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %4, align 8, !tbaa !3
   invoke void @_ZSt8_DestroyIN2cv6bgsegm27BackgroundSubtractorGMGImplEEvPT_(ptr noundef %5)
           to label %6 unwind label %7
 
@@ -5906,14 +7008,14 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIvEE7destroyIN2cv6bgs
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #14
+  call void @__clang_call_terminate(ptr %9) #20
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE5_Impl8_M_allocEv(ptr noundef nonnull align 8 dereferenceable(408) %0) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE5_Impl8_M_allocEv(ptr noundef nonnull align 8 dereferenceable(408) %0) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !210
   %3 = load ptr, ptr %2, align 8
   %4 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt14_Sp_ebo_helperILi0ESaIvELb1EE6_S_getERS1_(ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %5 unwind label %6
@@ -5925,45 +7027,45 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #14
+  call void @__clang_call_terminate(ptr %8) #20
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZSt8_DestroyIN2cv6bgsegm27BackgroundSubtractorGMGImplEEvPT_(ptr noundef %0) #5 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZSt8_DestroyIN2cv6bgsegm27BackgroundSubtractorGMGImplEEvPT_(ptr noundef %0) #6 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImplD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %3) #11
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  call void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImplD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %3) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt14_Sp_ebo_helperILi0ESaIvELb1EE6_S_getERS1_(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt14_Sp_ebo_helperILi0ESaIvELb1EE6_S_getERS1_(ptr noundef nonnull align 1 dereferenceable(1) %0) #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !214
+  %3 = load ptr, ptr %2, align 8, !tbaa !214
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt19_Sp_make_shared_tag5_S_tiEv() #5 comdat align 2 {
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt19_Sp_make_shared_tag5_S_tiEv() #3 comdat align 2 {
   ret ptr @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNKSt9type_infoeqERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNKSt9type_infoeqERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #6 comdat align 2 {
   %3 = alloca i1, align 1
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !212
+  store ptr %1, ptr %5, align 8, !tbaa !212
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"class.std::type_info", ptr %6, i32 0, i32 1
-  %8 = load ptr, ptr %7, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %"class.std::type_info", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %10, align 8
+  %7 = getelementptr inbounds nuw %"class.std::type_info", ptr %6, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8, !tbaa !220
+  %9 = load ptr, ptr %5, align 8, !tbaa !212
+  %10 = getelementptr inbounds nuw %"class.std::type_info", ptr %9, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8, !tbaa !220
   %12 = icmp eq ptr %8, %11
   br i1 %12, label %13, label %14
 
@@ -5972,20 +7074,20 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNKSt9type_infoeqERKS_(ptr nound
   br label %30
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds %"class.std::type_info", ptr %6, i32 0, i32 1
-  %16 = load ptr, ptr %15, align 8
+  %15 = getelementptr inbounds nuw %"class.std::type_info", ptr %6, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8, !tbaa !220
   %17 = getelementptr inbounds i8, ptr %16, i64 0
-  %18 = load i8, ptr %17, align 1
+  %18 = load i8, ptr %17, align 1, !tbaa !89
   %19 = sext i8 %18 to i32
   %20 = icmp ne i32 %19, 42
   br i1 %20, label %21, label %28
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds %"class.std::type_info", ptr %6, i32 0, i32 1
-  %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr %5, align 8
-  %25 = call noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) %24) #11
-  %26 = call i32 @strcmp(ptr noundef %23, ptr noundef %25) #11
+  %22 = getelementptr inbounds nuw %"class.std::type_info", ptr %6, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8, !tbaa !220
+  %24 = load ptr, ptr %5, align 8, !tbaa !212
+  %25 = call noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) %24) #18
+  %26 = call i32 @strcmp(ptr noundef %23, ptr noundef %25) #18
   %27 = icmp eq i32 %26, 0
   br label %28
 
@@ -6000,30 +7102,30 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNKSt9type_infoeqERKS_(ptr nound
 }
 
 ; Function Attrs: nounwind
-declare i32 @strcmp(ptr noundef, ptr noundef) #2
+declare i32 @strcmp(ptr noundef, ptr noundef) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #5 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !212
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::type_info", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::type_info", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !220
   %6 = getelementptr inbounds i8, ptr %5, i64 0
-  %7 = load i8, ptr %6, align 1
+  %7 = load i8, ptr %6, align 1, !tbaa !89
   %8 = sext i8 %7 to i32
   %9 = icmp eq i32 %8, 42
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds %"class.std::type_info", ptr %3, i32 0, i32 1
-  %12 = load ptr, ptr %11, align 8
+  %11 = getelementptr inbounds nuw %"class.std::type_info", ptr %3, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8, !tbaa !220
   %13 = getelementptr inbounds i8, ptr %12, i64 1
   br label %17
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds %"class.std::type_info", ptr %3, i32 0, i32 1
-  %16 = load ptr, ptr %15, align 8
+  %15 = getelementptr inbounds nuw %"class.std::type_info", ptr %3, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8, !tbaa !220
   br label %17
 
 17:                                               ; preds = %14, %10
@@ -6032,20 +7134,20 @@ define linkonce_odr hidden noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZN9__gnu_cxx16__aligned_bufferIN2cv6bgsegm27BackgroundSubtractorGMGImplEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(408) %0) #5 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZN9__gnu_cxx16__aligned_bufferIN2cv6bgsegm27BackgroundSubtractorGMGImplEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(408) %0) #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !222
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZN9__gnu_cxx16__aligned_bufferIN2cv6bgsegm27BackgroundSubtractorGMGImplEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(408) %3) #11
+  %4 = call noundef ptr @_ZN9__gnu_cxx16__aligned_bufferIN2cv6bgsegm27BackgroundSubtractorGMGImplEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(408) %3) #18
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZN9__gnu_cxx16__aligned_bufferIN2cv6bgsegm27BackgroundSubtractorGMGImplEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(408) %0) #5 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZN9__gnu_cxx16__aligned_bufferIN2cv6bgsegm27BackgroundSubtractorGMGImplEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(408) %0) #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !222
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.__gnu_cxx::__aligned_buffer", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.__gnu_cxx::__aligned_buffer", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
@@ -6054,187 +7156,397 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaISt23_Sp_counted_ptr_
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !199
+  store ptr %1, ptr %5, align 8, !tbaa !197
+  store i64 %2, ptr %6, align 8, !tbaa !110
+  %7 = load ptr, ptr %4, align 8, !tbaa !199
+  %8 = load ptr, ptr %5, align 8, !tbaa !197
+  %9 = load i64, ptr %6, align 8, !tbaa !110
   call void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEE10deallocateEPS7_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEE10deallocateEPS7_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEE10deallocateEPS7_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #3 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  call void @_ZdlPv(ptr noundef %7) #13
+  store ptr %0, ptr %4, align 8, !tbaa !208
+  store ptr %1, ptr %5, align 8, !tbaa !197
+  store i64 %2, ptr %6, align 8, !tbaa !110
+  %7 = load ptr, ptr %5, align 8, !tbaa !197
+  call void @_ZdlPv(ptr noundef %7) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #5 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt10shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !186
+  store ptr %1, ptr %4, align 8, !tbaa !186
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt12__shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplELN9__gnu_cxx12_Lock_policyE2EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #11
+  %6 = load ptr, ptr %4, align 8, !tbaa !186
+  call void @_ZNSt12__shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplELN9__gnu_cxx12_Lock_policyE2EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplELN9__gnu_cxx12_Lock_policyE2EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplELN9__gnu_cxx12_Lock_policyE2EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !188
+  store ptr %1, ptr %4, align 8, !tbaa !188
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.std::__shared_ptr.4", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.std::__shared_ptr.4", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %6, align 8
-  %10 = getelementptr inbounds %"class.std::__shared_ptr.4", ptr %5, i32 0, i32 1
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #11
-  %11 = getelementptr inbounds %"class.std::__shared_ptr.4", ptr %5, i32 0, i32 1
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %"class.std::__shared_ptr.4", ptr %12, i32 0, i32 1
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE7_M_swapERS2_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %13) #11
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"class.std::__shared_ptr.4", ptr %14, i32 0, i32 0
-  store ptr null, ptr %15, align 8
+  %6 = getelementptr inbounds nuw %"class.std::__shared_ptr.4", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !188
+  %8 = getelementptr inbounds nuw %"class.std::__shared_ptr.4", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !191
+  store ptr %9, ptr %6, align 8, !tbaa !191
+  %10 = getelementptr inbounds nuw %"class.std::__shared_ptr.4", ptr %5, i32 0, i32 1
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #18
+  %11 = getelementptr inbounds nuw %"class.std::__shared_ptr.4", ptr %5, i32 0, i32 1
+  %12 = load ptr, ptr %4, align 8, !tbaa !188
+  %13 = getelementptr inbounds nuw %"class.std::__shared_ptr.4", ptr %12, i32 0, i32 1
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE7_M_swapERS2_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %13) #18
+  %14 = load ptr, ptr %4, align 8, !tbaa !188
+  %15 = getelementptr inbounds nuw %"class.std::__shared_ptr.4", ptr %14, i32 0, i32 0
+  store ptr null, ptr %15, align 8, !tbaa !191
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !146
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::__shared_count", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !148
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE7_M_swapERS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE7_M_swapERS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !146
+  store ptr %1, ptr %4, align 8, !tbaa !146
   %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %5, align 8
-  %10 = getelementptr inbounds %"class.std::__shared_count", ptr %6, i32 0, i32 0
-  %11 = load ptr, ptr %10, align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %"class.std::__shared_count", ptr %12, i32 0, i32 0
-  store ptr %11, ptr %13, align 8
-  %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds %"class.std::__shared_count", ptr %6, i32 0, i32 0
-  store ptr %14, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #18
+  %7 = load ptr, ptr %4, align 8, !tbaa !146
+  %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !148
+  store ptr %9, ptr %5, align 8, !tbaa !151
+  %10 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %6, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !148
+  %12 = load ptr, ptr %4, align 8, !tbaa !146
+  %13 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %12, i32 0, i32 0
+  store ptr %11, ptr %13, align 8, !tbaa !148
+  %14 = load ptr, ptr %5, align 8, !tbaa !151
+  %15 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %6, i32 0, i32 0
+  store ptr %14, ptr %15, align 8, !tbaa !148
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10shared_ptrIN2cv6bgsegm23BackgroundSubtractorGMGEEC2INS1_27BackgroundSubtractorGMGImplEvEEOS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt10shared_ptrIN2cv6bgsegm23BackgroundSubtractorGMGEEC2INS1_27BackgroundSubtractorGMGImplEvEEOS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !224
+  store ptr %1, ptr %4, align 8, !tbaa !186
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt12__shared_ptrIN2cv6bgsegm23BackgroundSubtractorGMGELN9__gnu_cxx12_Lock_policyE2EEC2INS1_27BackgroundSubtractorGMGImplEvEEOS_IT_LS4_2EE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #11
+  %6 = load ptr, ptr %4, align 8, !tbaa !186
+  call void @_ZNSt12__shared_ptrIN2cv6bgsegm23BackgroundSubtractorGMGELN9__gnu_cxx12_Lock_policyE2EEC2INS1_27BackgroundSubtractorGMGImplEvEEOS_IT_LS4_2EE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv6bgsegm23BackgroundSubtractorGMGELN9__gnu_cxx12_Lock_policyE2EEC2INS1_27BackgroundSubtractorGMGImplEvEEOS_IT_LS4_2EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv6bgsegm23BackgroundSubtractorGMGELN9__gnu_cxx12_Lock_policyE2EEC2INS1_27BackgroundSubtractorGMGImplEvEEOS_IT_LS4_2EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !134
+  store ptr %1, ptr %4, align 8, !tbaa !188
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.std::__shared_ptr", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.std::__shared_ptr.4", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %6, align 8
-  %10 = getelementptr inbounds %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #11
-  %11 = getelementptr inbounds %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %"class.std::__shared_ptr.4", ptr %12, i32 0, i32 1
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE7_M_swapERS2_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %13) #11
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"class.std::__shared_ptr.4", ptr %14, i32 0, i32 0
-  store ptr null, ptr %15, align 8
+  %6 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !188
+  %8 = getelementptr inbounds nuw %"class.std::__shared_ptr.4", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !191
+  store ptr %9, ptr %6, align 8, !tbaa !226
+  %10 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #18
+  %11 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
+  %12 = load ptr, ptr %4, align 8, !tbaa !188
+  %13 = getelementptr inbounds nuw %"class.std::__shared_ptr.4", ptr %12, i32 0, i32 1
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE7_M_swapERS2_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %13) #18
+  %14 = load ptr, ptr %4, align 8, !tbaa !188
+  %15 = getelementptr inbounds nuw %"class.std::__shared_ptr.4", ptr %14, i32 0, i32 0
+  store ptr null, ptr %15, align 8, !tbaa !191
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNKSt12__shared_ptrIN2cv6bgsegm23BackgroundSubtractorGMGELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #5 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNKSt12__shared_ptrIN2cv6bgsegm23BackgroundSubtractorGMGELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !134
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::__shared_ptr", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !226
   ret ptr %5
 }
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #1 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #10 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn }
-attributes #13 = { builtin nounwind }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { builtin allocsize(0) }
+attributes #5 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #10 = { alwaysinline mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #11 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #13 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #14 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #15 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #16 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #17 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #18 = { nounwind }
+attributes #19 = { noreturn }
+attributes #20 = { noreturn nounwind }
+attributes #21 = { builtin nounwind }
+attributes #22 = { builtin allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN2cv6bgsegm27BackgroundSubtractorGMGImplE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"double", !6, i64 0}
+!10 = !{!11, !15, i64 8}
+!11 = !{!"_ZTSN2cv6bgsegm27BackgroundSubtractorGMGImplE", !12, i64 0, !15, i64 8, !9, i64 16, !15, i64 24, !15, i64 28, !9, i64 32, !9, i64 40, !15, i64 48, !16, i64 52, !9, i64 56, !9, i64 64, !17, i64 72, !15, i64 80, !18, i64 88, !22, i64 120, !22, i64 216, !30, i64 312}
+!12 = !{!"_ZTSN2cv6bgsegm23BackgroundSubtractorGMGE", !13, i64 0}
+!13 = !{!"_ZTSN2cv20BackgroundSubtractorE", !14, i64 0}
+!14 = !{!"_ZTSN2cv9AlgorithmE"}
+!15 = !{!"int", !6, i64 0}
+!16 = !{!"bool", !6, i64 0}
+!17 = !{!"_ZTSN2cv5Size_IiEE", !15, i64 0, !15, i64 4}
+!18 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !19, i64 0, !21, i64 8, !6, i64 16}
+!19 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !20, i64 0}
+!20 = !{!"p1 omnipotent char", !5, i64 0}
+!21 = !{!"long", !6, i64 0}
+!22 = !{!"_ZTSN2cv4Mat_IiEE", !23, i64 0}
+!23 = !{!"_ZTSN2cv3MatE", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !20, i64 16, !20, i64 24, !20, i64 32, !20, i64 40, !24, i64 48, !25, i64 56, !26, i64 64, !28, i64 72}
+!24 = !{!"p1 _ZTSN2cv12MatAllocatorE", !5, i64 0}
+!25 = !{!"p1 _ZTSN2cv8UMatDataE", !5, i64 0}
+!26 = !{!"_ZTSN2cv7MatSizeE", !27, i64 0}
+!27 = !{!"p1 int", !5, i64 0}
+!28 = !{!"_ZTSN2cv7MatStepE", !29, i64 0, !6, i64 8}
+!29 = !{!"p1 long", !5, i64 0}
+!30 = !{!"_ZTSN2cv4Mat_IfEE", !23, i64 0}
+!31 = !{!11, !9, i64 16}
+!32 = !{!11, !15, i64 24}
+!33 = !{!11, !15, i64 28}
+!34 = !{!11, !9, i64 32}
+!35 = !{!11, !9, i64 64}
+!36 = !{!11, !9, i64 56}
+!37 = !{i64 0, i64 4, !38, i64 4, i64 4, !38}
+!38 = !{!15, !15, i64 0}
+!39 = !{!11, !15, i64 80}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTSSaIcE", !5, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !5, i64 0}
+!44 = !{!20, !20, i64 0}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"p1 _ZTSN2cv4Mat_IiEE", !5, i64 0}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTSN2cv5Size_IiEE", !5, i64 0}
+!49 = !{!17, !15, i64 0}
+!50 = !{!17, !15, i64 4}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"p1 _ZTSN2cv4Mat_IfEE", !5, i64 0}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p1 _ZTSN2cv11_InputArrayE", !5, i64 0}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"p1 _ZTSN2cv4MatxIdLi4ELi1EEE", !5, i64 0}
+!57 = !{!58, !58, i64 0}
+!58 = !{!"p1 _ZTSN2cv6bgsegm12GMG_LoopBodyE", !5, i64 0}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"p1 _ZTSN2cv5RangeE", !5, i64 0}
+!61 = !{!5, !5, i64 0}
+!62 = !{!63, !15, i64 0}
+!63 = !{!"_ZTSN2cv5RangeE", !15, i64 0, !15, i64 4}
+!64 = !{!65, !15, i64 20}
+!65 = !{!"_ZTSN2cv6bgsegm12GMG_LoopBodyE", !66, i64 0, !23, i64 8, !67, i64 104, !22, i64 200, !22, i64 296, !30, i64 392, !15, i64 488, !9, i64 496, !15, i64 504, !15, i64 508, !9, i64 512, !9, i64 520, !16, i64 528, !9, i64 536, !9, i64 544, !15, i64 552}
+!66 = !{!"_ZTSN2cv16ParallelLoopBodyE"}
+!67 = !{!"_ZTSN2cv4Mat_IhEE", !23, i64 0}
+!68 = !{!63, !15, i64 4}
+!69 = !{!27, !27, i64 0}
+!70 = !{!71, !71, i64 0}
+!71 = !{!"p1 float", !5, i64 0}
+!72 = !{!65, !9, i64 544}
+!73 = !{!65, !9, i64 536}
+!74 = !{!65, !15, i64 508}
+!75 = !{!16, !16, i64 0}
+!76 = !{!65, !15, i64 552}
+!77 = !{!65, !15, i64 504}
+!78 = !{!65, !9, i64 512}
+!79 = !{!65, !9, i64 520}
+!80 = !{!65, !16, i64 528}
+!81 = !{i8 0, i8 2}
+!82 = !{}
+!83 = !{!65, !9, i64 496}
+!84 = !{!85, !85, i64 0}
+!85 = !{!"float", !6, i64 0}
+!86 = distinct !{!86, !87}
+!87 = !{!"llvm.loop.mustprogress"}
+!88 = !{!65, !15, i64 488}
+!89 = !{!6, !6, i64 0}
+!90 = distinct !{!90, !87}
+!91 = distinct !{!91, !87}
+!92 = distinct !{!92, !87}
+!93 = distinct !{!93, !87}
+!94 = !{!95, !95, i64 0}
+!95 = !{!"p1 short", !5, i64 0}
+!96 = !{!97, !97, i64 0}
+!97 = !{!"short", !6, i64 0}
+!98 = distinct !{!98, !87}
+!99 = distinct !{!99, !87}
+!100 = distinct !{!100, !87}
+!101 = distinct !{!101, !87}
+!102 = !{!103, !103, i64 0}
+!103 = !{!"p1 double", !5, i64 0}
+!104 = distinct !{!104, !87}
+!105 = !{!106, !106, i64 0}
+!106 = !{!"p1 _ZTSN2cv3MatE", !5, i64 0}
+!107 = !{!23, !15, i64 0}
+!108 = !{!23, !20, i64 16}
+!109 = !{!23, !29, i64 72}
+!110 = !{!21, !21, i64 0}
+!111 = !{!112, !112, i64 0}
+!112 = !{!"p1 _ZTSN2cv4Mat_IhEE", !5, i64 0}
+!113 = distinct !{!113, !87}
+!114 = distinct !{!114, !87}
+!115 = distinct !{!115, !87}
+!116 = distinct !{!116, !87}
+!117 = !{!118, !118, i64 0}
+!118 = !{!"p1 _ZTSN2cv12_OutputArrayE", !5, i64 0}
+!119 = !{!11, !9, i64 40}
+!120 = !{!11, !16, i64 52}
+!121 = !{!23, !15, i64 8}
+!122 = !{!11, !15, i64 48}
+!123 = !{!124, !5, i64 8}
+!124 = !{!"_ZTSN2cv11_InputArrayE", !15, i64 0, !5, i64 8, !17, i64 16}
+!125 = !{!126, !126, i64 0}
+!126 = !{!"p1 _ZTSN2cv7MatSizeE", !5, i64 0}
+!127 = !{!26, !27, i64 0}
+!128 = !{!129, !129, i64 0}
+!129 = !{!"vtable pointer", !7, i64 0}
+!130 = !{!131, !131, i64 0}
+!131 = !{!"p1 _ZTSN2cv3PtrINS_6bgsegm23BackgroundSubtractorGMGEEE", !5, i64 0}
+!132 = !{!133, !133, i64 0}
+!133 = !{!"p1 _ZTSN2cv3PtrINS_6bgsegm27BackgroundSubtractorGMGImplEEE", !5, i64 0}
+!134 = !{!135, !135, i64 0}
+!135 = !{!"p1 _ZTSSt12__shared_ptrIN2cv6bgsegm23BackgroundSubtractorGMGELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!136 = !{!137, !137, i64 0}
+!137 = !{!"p1 _ZTSN2cv9AlgorithmE", !5, i64 0}
+!138 = !{!139, !139, i64 0}
+!139 = !{!"p1 _ZTSN2cv11FileStorageE", !5, i64 0}
+!140 = !{!141, !141, i64 0}
+!141 = !{!"p1 _ZTSN2cv8FileNodeE", !5, i64 0}
+!142 = !{!143, !143, i64 0}
+!143 = !{!"p1 _ZTSN2cv16ParallelLoopBodyE", !5, i64 0}
+!144 = !{!23, !15, i64 4}
+!145 = !{!124, !15, i64 0}
+!146 = !{!147, !147, i64 0}
+!147 = !{!"p1 _ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!148 = !{!149, !150, i64 0}
+!149 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !150, i64 0}
+!150 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!151 = !{!150, !150, i64 0}
+!152 = !{!153, !153, i64 0}
+!153 = !{!"long long", !6, i64 0}
+!154 = !{!155, !155, i64 0}
+!155 = !{!"p1 long long", !5, i64 0}
+!156 = !{!157, !15, i64 8}
+!157 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !15, i64 8, !15, i64 12}
+!158 = !{!157, !15, i64 12}
+!159 = !{!160, !15, i64 8}
+!160 = !{!"_ZTSN2cv11FileStorageE", !15, i64 8, !18, i64 16, !161, i64 48}
+!161 = !{!"_ZTSN2cv3PtrINS_11FileStorage4ImplEEE", !162, i64 0}
+!162 = !{!"_ZTSSt10shared_ptrIN2cv11FileStorage4ImplEE", !163, i64 0}
+!163 = !{!"_ZTSSt12__shared_ptrIN2cv11FileStorage4ImplELN9__gnu_cxx12_Lock_policyE2EE", !164, i64 0, !149, i64 8}
+!164 = !{!"p1 _ZTSN2cv11FileStorage4ImplE", !5, i64 0}
+!165 = !{!18, !21, i64 8}
+!166 = !{!18, !20, i64 0}
+!167 = !{!168, !168, i64 0}
+!168 = !{!"p1 _ZTSSt15__new_allocatorIcE", !5, i64 0}
+!169 = !{!170, !170, i64 0}
+!170 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !5, i64 0}
+!171 = !{!19, !20, i64 0}
+!172 = !{!173, !43, i64 0}
+!173 = !{!"_ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagE6_Guard", !43, i64 0}
+!174 = !{!175, !175, i64 0}
+!175 = !{!"p1 _ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagE6_Guard", !5, i64 0}
+!176 = !{!177, !177, i64 0}
+!177 = !{!"p2 omnipotent char", !178, i64 0}
+!178 = !{!"any p2 pointer", !5, i64 0}
+!179 = !{!180, !180, i64 0}
+!180 = !{!"p1 _ZTSN2cv7Scalar_IdEE", !5, i64 0}
+!181 = !{!182, !182, i64 0}
+!182 = !{!"p1 _ZTSN2cv3VecIdLi4EEE", !5, i64 0}
+!183 = distinct !{!183, !87}
+!184 = !{!185, !185, i64 0}
+!185 = !{!"p1 _ZTSSaIvE", !5, i64 0}
+!186 = !{!187, !187, i64 0}
+!187 = !{!"p1 _ZTSSt10shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplEE", !5, i64 0}
+!188 = !{!189, !189, i64 0}
+!189 = !{!"p1 _ZTSSt12__shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!190 = !{i64 0, i64 8, !184}
+!191 = !{!192, !4, i64 0}
+!192 = !{!"_ZTSSt12__shared_ptrIN2cv6bgsegm27BackgroundSubtractorGMGImplELN9__gnu_cxx12_Lock_policyE2EE", !4, i64 0, !149, i64 8}
+!193 = !{!194, !194, i64 0}
+!194 = !{!"p2 _ZTSN2cv6bgsegm27BackgroundSubtractorGMGImplE", !178, i64 0}
+!195 = !{!196, !185, i64 0}
+!196 = !{!"_ZTSSt20_Sp_alloc_shared_tagISaIvEE", !185, i64 0}
+!197 = !{!198, !198, i64 0}
+!198 = !{!"p1 _ZTSSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!199 = !{!200, !200, i64 0}
+!200 = !{!"p1 _ZTSSaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEE", !5, i64 0}
+!201 = !{!202, !202, i64 0}
+!202 = !{!"p1 _ZTSSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEE", !5, i64 0}
+!203 = !{!204, !198, i64 8}
+!204 = !{!"_ZTSSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEE", !200, i64 0, !198, i64 8}
+!205 = !{!206, !206, i64 0}
+!206 = !{!"std::nullptr_t", !6, i64 0}
+!207 = !{!204, !200, i64 0}
+!208 = !{!209, !209, i64 0}
+!209 = !{!"p1 _ZTSSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EEE", !5, i64 0}
+!210 = !{!211, !211, i64 0}
+!211 = !{!"p1 _ZTSNSt23_Sp_counted_ptr_inplaceIN2cv6bgsegm27BackgroundSubtractorGMGImplESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplE", !5, i64 0}
+!212 = !{!213, !213, i64 0}
+!213 = !{!"p1 _ZTSSt9type_info", !5, i64 0}
+!214 = !{!215, !215, i64 0}
+!215 = !{!"p1 _ZTSSt14_Sp_ebo_helperILi0ESaIvELb1EE", !5, i64 0}
+!216 = !{!217, !217, i64 0}
+!217 = !{!"p1 _ZTSN2cv6bgsegm23BackgroundSubtractorGMGE", !5, i64 0}
+!218 = !{!219, !219, i64 0}
+!219 = !{!"p1 _ZTSN2cv20BackgroundSubtractorE", !5, i64 0}
+!220 = !{!221, !20, i64 8}
+!221 = !{!"_ZTSSt9type_info", !20, i64 8}
+!222 = !{!223, !223, i64 0}
+!223 = !{!"p1 _ZTSN9__gnu_cxx16__aligned_bufferIN2cv6bgsegm27BackgroundSubtractorGMGImplEEE", !5, i64 0}
+!224 = !{!225, !225, i64 0}
+!225 = !{!"p1 _ZTSSt10shared_ptrIN2cv6bgsegm23BackgroundSubtractorGMGEE", !5, i64 0}
+!226 = !{!227, !217, i64 0}
+!227 = !{!"_ZTSSt12__shared_ptrIN2cv6bgsegm23BackgroundSubtractorGMGELN9__gnu_cxx12_Lock_policyE2EE", !217, i64 0, !149, i64 8}

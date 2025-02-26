@@ -97,8 +97,6 @@ $_ZN2cv7Scalar_IdE3allEd = comdat any
 
 $_ZN2cv12_OutputArrayC2ERNS_3MatE = comdat any
 
-$_ZN2cv12_OutputArrayD2Ev = comdat any
-
 $_ZNK2cv3Mat4typeEv = comdat any
 
 $_ZN2cv11_InputArrayC2ERKNS_3MatE = comdat any
@@ -129,8 +127,6 @@ $_ZNSaIiEC2Ev = comdat any
 
 $_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_ = comdat any
 
-$_ZNSaIiED2Ev = comdat any
-
 $_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE4sizeEv = comdat any
 
 $_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEixEm = comdat any
@@ -140,8 +136,6 @@ $_ZNSt6vectorIiSaIiEEixEm = comdat any
 $_ZNSt6vectorIiSaIiEED2Ev = comdat any
 
 $_ZN2cv3PtrINS_16phase_unwrapping24HistogramPhaseUnwrappingEEC2INS1_29HistogramPhaseUnwrapping_ImplEEEONS0_IT_EE = comdat any
-
-$_ZN2cv3PtrINS_16phase_unwrapping29HistogramPhaseUnwrapping_ImplEED2Ev = comdat any
 
 $_ZN2cv16phase_unwrapping24HistogramPhaseUnwrappingD1Ev = comdat any
 
@@ -201,29 +195,25 @@ $_ZN2cv11_InputArray4initEiPKv = comdat any
 
 $_ZN2cv5Size_IiEC2Ev = comdat any
 
-$_ZNSt12__shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
-
 $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv = comdat any
+
+$_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii = comdat any
 
 $__clang_call_terminate = comdat any
 
 $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv = comdat any
 
+$_ZN9__gnu_cxx20__is_single_threadedEv = comdat any
+
+$_ZN9__gnu_cxx25__exchange_and_add_singleEPii = comdat any
+
+$_ZN9__gnu_cxx18__exchange_and_addEPVii = comdat any
+
 $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv = comdat any
 
-$_ZTv0_n24_N2cv16phase_unwrapping24HistogramPhaseUnwrappingD1Ev = comdat any
-
-$_ZTv0_n24_N2cv16phase_unwrapping24HistogramPhaseUnwrappingD0Ev = comdat any
-
-$_ZTv0_n24_N2cv16phase_unwrapping15PhaseUnwrappingD1Ev = comdat any
-
-$_ZTv0_n24_N2cv16phase_unwrapping15PhaseUnwrappingD0Ev = comdat any
-
 $_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplD2Ev = comdat any
-
-$_ZTv0_n24_N2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplD1Ev = comdat any
 
 $_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9HistogramD2Ev = comdat any
 
@@ -243,21 +233,13 @@ $_ZSt8_DestroyIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramB
 
 $_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE13_M_deallocateEPS3_m = comdat any
 
-$_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE12_Vector_implD2Ev = comdat any
+$_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEED2Ev = comdat any
 
 $_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEE10deallocateERS4_PS3_m = comdat any
 
 $_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEE10deallocateEPS3_m = comdat any
 
-$_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEED2Ev = comdat any
-
-$_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEED2Ev = comdat any
-
-$_ZTv0_n24_N2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplD0Ev = comdat any
-
 $_ZNSt15__new_allocatorIiEC2Ev = comdat any
-
-$_ZNSt15__new_allocatorIiED2Ev = comdat any
 
 $_ZN2cv7Scalar_IdEC2Edddd = comdat any
 
@@ -277,15 +259,11 @@ $_ZNSt12_Destroy_auxILb1EE9__destroyIPN2cv16phase_unwrapping29HistogramPhaseUnwr
 
 $_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE13_M_deallocateEPS3_m = comdat any
 
-$_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE12_Vector_implD2Ev = comdat any
+$_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEED2Ev = comdat any
 
 $_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEEE10deallocateERS4_PS3_m = comdat any
 
 $_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEE10deallocateEPS3_m = comdat any
-
-$_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEED2Ev = comdat any
-
-$_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEED2Ev = comdat any
 
 $_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES3_EvT_S5_RSaIT0_E = comdat any
 
@@ -299,13 +277,9 @@ $_ZNSt12_Destroy_auxILb1EE9__destroyIPN2cv16phase_unwrapping29HistogramPhaseUnwr
 
 $_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE13_M_deallocateEPS3_m = comdat any
 
-$_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE12_Vector_implD2Ev = comdat any
-
 $_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEE10deallocateERS4_PS3_m = comdat any
 
 $_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEE10deallocateEPS3_m = comdat any
-
-$_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEED2Ev = comdat any
 
 $_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_ = comdat any
 
@@ -371,7 +345,7 @@ $_ZN9__gnu_cxx14__alloc_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrappi
 
 $_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEC2EmRKS4_ = comdat any
 
-$_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEED2Ev = comdat any
+$_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEED2Ev = comdat any
 
 $_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS5_SaIS5_EEEEPS5_S5_ET0_T_SE_SD_RSaIT1_E = comdat any
 
@@ -575,7 +549,7 @@ $_ZNSt12_Vector_baseIiSaIiEE12_Vector_implC2ERKS0_ = comdat any
 
 $_ZNSt12_Vector_baseIiSaIiEE17_M_create_storageEm = comdat any
 
-$_ZNSt12_Vector_baseIiSaIiEE12_Vector_implD2Ev = comdat any
+$_ZNSt15__new_allocatorIiED2Ev = comdat any
 
 $_ZNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataC2Ev = comdat any
 
@@ -621,7 +595,7 @@ $_ZSt11make_sharedIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEJRKNS1_
 
 $_ZN2cv3PtrINS_16phase_unwrapping29HistogramPhaseUnwrapping_ImplEEC2EOSt10shared_ptrIS2_E = comdat any
 
-$_ZNSt10shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEED2Ev = comdat any
+$_ZNSt12__shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZNSt10shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEEC2ISaIvEJRKNS1_24HistogramPhaseUnwrapping6ParamsEEEESt20_Sp_alloc_shared_tagIT_EDpOT0_ = comdat any
 
@@ -645,7 +619,7 @@ $_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping
 
 $_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev = comdat any
 
-$_ZNSaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev = comdat any
+$_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev = comdat any
 
 $_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEC2Ev = comdat any
 
@@ -665,7 +639,7 @@ $_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping
 
 $_ZNSt16allocator_traitsISaIvEE9constructIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEJRKNS4_24HistogramPhaseUnwrapping6ParamsEEEEvRS0_PT_DpOT0_ = comdat any
 
-$_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
+$_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
@@ -674,8 +648,6 @@ $_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping
 $_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv = comdat any
 
 $_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info = comdat any
-
-$_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
@@ -707,8 +679,6 @@ $_ZNSt16allocator_traitsISaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29
 
 $_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEE10deallocateEPS7_m = comdat any
 
-$_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev = comdat any
-
 $_ZNSt10shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEEC2EOS3_ = comdat any
 
 $_ZNSt12__shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplELN9__gnu_cxx12_Lock_policyE2EEC2EOS5_ = comdat any
@@ -721,33 +691,33 @@ $_ZNSt10shared_ptrIN2cv16phase_unwrapping24HistogramPhaseUnwrappingEEC2INS1_29Hi
 
 $_ZNSt12__shared_ptrIN2cv16phase_unwrapping24HistogramPhaseUnwrappingELN9__gnu_cxx12_Lock_policyE2EEC2INS1_29HistogramPhaseUnwrapping_ImplEvEEOS_IT_LS4_2EE = comdat any
 
-$_ZTSN2cv16phase_unwrapping24HistogramPhaseUnwrappingE = comdat any
+$_ZTIN2cv16phase_unwrapping24HistogramPhaseUnwrappingE = comdat any
 
-$_ZTSN2cv16phase_unwrapping15PhaseUnwrappingE = comdat any
+$_ZTSN2cv16phase_unwrapping24HistogramPhaseUnwrappingE = comdat any
 
 $_ZTIN2cv16phase_unwrapping15PhaseUnwrappingE = comdat any
 
-$_ZTIN2cv16phase_unwrapping24HistogramPhaseUnwrappingE = comdat any
+$_ZTSN2cv16phase_unwrapping15PhaseUnwrappingE = comdat any
 
 $_ZTVSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
+$_ZTISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
 $_ZTSSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
-$_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
-$_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
-$_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+$_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTSSt19_Sp_make_shared_tag = comdat any
-
 $_ZTISt19_Sp_make_shared_tag = comdat any
+
+$_ZTSSt19_Sp_make_shared_tag = comdat any
 
 $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 
@@ -763,30 +733,30 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @.str.5 = private unnamed_addr constant [12 x i8] c"mask.type()\00", align 1
 @.str.6 = private unnamed_addr constant [8 x i8] c"CV_8UC1\00", align 1
 @_ZTCN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplE0_NS0_24HistogramPhaseUnwrappingE = unnamed_addr constant { [20 x ptr] } { [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @_ZTIN2cv16phase_unwrapping24HistogramPhaseUnwrappingE, ptr @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrappingD1Ev, ptr @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrappingD0Ev, ptr @_ZN2cv9Algorithm5clearEv, ptr @_ZNK2cv9Algorithm5writeERNS_11FileStorageE, ptr @_ZN2cv9Algorithm4readERKNS_8FileNodeE, ptr @_ZNK2cv9Algorithm5emptyEv, ptr @_ZNK2cv9Algorithm4saveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZNK2cv9Algorithm14getDefaultNameB5cxx11Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
+@_ZTIN2cv16phase_unwrapping24HistogramPhaseUnwrappingE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN2cv16phase_unwrapping24HistogramPhaseUnwrappingE, ptr @_ZTIN2cv16phase_unwrapping15PhaseUnwrappingE }, comdat, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN2cv16phase_unwrapping24HistogramPhaseUnwrappingE = linkonce_odr constant [50 x i8] c"N2cv16phase_unwrapping24HistogramPhaseUnwrappingE\00", comdat, align 1
+@_ZTIN2cv16phase_unwrapping15PhaseUnwrappingE = linkonce_odr constant { ptr, ptr, i32, i32, ptr, i64 } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv121__vmi_class_type_infoE, i64 2), ptr @_ZTSN2cv16phase_unwrapping15PhaseUnwrappingE, i32 0, i32 1, ptr @_ZTIN2cv9AlgorithmE, i64 -20477 }, comdat, align 8
 @_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
 @_ZTSN2cv16phase_unwrapping15PhaseUnwrappingE = linkonce_odr constant [41 x i8] c"N2cv16phase_unwrapping15PhaseUnwrappingE\00", comdat, align 1
 @_ZTIN2cv9AlgorithmE = external constant ptr
-@_ZTIN2cv16phase_unwrapping15PhaseUnwrappingE = linkonce_odr constant { ptr, ptr, i32, i32, ptr, i64 } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv121__vmi_class_type_infoE, i64 2), ptr @_ZTSN2cv16phase_unwrapping15PhaseUnwrappingE, i32 0, i32 1, ptr @_ZTIN2cv9AlgorithmE, i64 -20477 }, comdat, align 8
-@_ZTIN2cv16phase_unwrapping24HistogramPhaseUnwrappingE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN2cv16phase_unwrapping24HistogramPhaseUnwrappingE, ptr @_ZTIN2cv16phase_unwrapping15PhaseUnwrappingE }, comdat, align 8
 @_ZTCN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplE0_NS0_15PhaseUnwrappingE = unnamed_addr constant { [19 x ptr] } { [19 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @_ZTIN2cv16phase_unwrapping15PhaseUnwrappingE, ptr @_ZN2cv16phase_unwrapping15PhaseUnwrappingD1Ev, ptr @_ZN2cv16phase_unwrapping15PhaseUnwrappingD0Ev, ptr @_ZN2cv9Algorithm5clearEv, ptr @_ZNK2cv9Algorithm5writeERNS_11FileStorageE, ptr @_ZN2cv9Algorithm4readERKNS_8FileNodeE, ptr @_ZNK2cv9Algorithm5emptyEv, ptr @_ZNK2cv9Algorithm4saveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZNK2cv9Algorithm14getDefaultNameB5cxx11Ev, ptr @__cxa_pure_virtual] }, align 8
-@_ZTSN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplE = constant [55 x i8] c"N2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplE\00", align 1
 @_ZTIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplE, ptr @_ZTIN2cv16phase_unwrapping24HistogramPhaseUnwrappingE }, align 8
+@_ZTSN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplE = constant [55 x i8] c"N2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplE\00", align 1
 @__libc_single_threaded = external global i8, align 1
 @.str.7 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @.str.8 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
-@_ZTVSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
+@_ZTVSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
+@_ZTISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTSSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [118 x i8] c"St23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [52 x i8] c"St16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [47 x i8] c"St11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
-@_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
-@_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
-@_ZTISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @__cxa_pure_virtual, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @__cxa_pure_virtual] }, comdat, align 8
-@_ZTSSt19_Sp_make_shared_tag = linkonce_odr constant [24 x i8] c"St19_Sp_make_shared_tag\00", comdat, align 1
 @_ZTISt19_Sp_make_shared_tag = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSSt19_Sp_make_shared_tag }, comdat, align 8
+@_ZTSSt19_Sp_make_shared_tag = linkonce_odr constant [24 x i8] c"St19_Sp_make_shared_tag\00", comdat, align 1
 @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = linkonce_odr constant [16 x i8] zeroinitializer, comdat, align 8
 
 @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrapping6ParamsC1Ev = unnamed_addr alias void (ptr), ptr @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrapping6ParamsC2Ev
@@ -801,18 +771,18 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrapping6ParamsC2Ev(ptr noundef nonnull align 4 dereferenceable(20) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %3, i32 0, i32 0
-  store i32 800, ptr %4, align 4
-  %5 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %3, i32 0, i32 1
-  store i32 600, ptr %5, align 4
-  %6 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %3, i32 0, i32 2
-  store float 0x403D9BDB20000000, ptr %6, align 4
-  %7 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %3, i32 0, i32 3
-  store i32 10, ptr %7, align 4
-  %8 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %3, i32 0, i32 4
-  store i32 5, ptr %8, align 4
+  %4 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %3, i32 0, i32 0
+  store i32 800, ptr %4, align 4, !tbaa !8
+  %5 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %3, i32 0, i32 1
+  store i32 600, ptr %5, align 4, !tbaa !12
+  %6 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %3, i32 0, i32 2
+  store float 0x403D9BDB20000000, ptr %6, align 4, !tbaa !13
+  %7 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %3, i32 0, i32 3
+  store i32 10, ptr %7, align 4, !tbaa !14
+  %8 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %3, i32 0, i32 4
+  store i32 5, ptr %8, align 4, !tbaa !15
   ret void
 }
 
@@ -823,28 +793,28 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplC2ERKNS0_24H
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !16
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  store ptr %2, ptr %6, align 8, !tbaa !3
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %5, align 8
   %11 = getelementptr inbounds ptr, ptr %10, i64 1
-  call void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrappingC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %11) #12
+  call void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrappingC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %11) #18
   %12 = load ptr, ptr %10, align 8
-  store ptr %12, ptr %9, align 8
+  store ptr %12, ptr %9, align 8, !tbaa !20
   %13 = getelementptr inbounds ptr, ptr %10, i64 5
   %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %9, align 8
+  %15 = load ptr, ptr %9, align 8, !tbaa !20
   %16 = getelementptr i8, ptr %15, i64 -80
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %9, i64 %17
-  store ptr %14, ptr %18, align 8
-  %19 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %9, i32 0, i32 1
-  %20 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 4 %20, i64 20, i1 false)
-  %21 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %9, i32 0, i32 2
-  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #12
-  %22 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %9, i32 0, i32 3
+  store ptr %14, ptr %18, align 8, !tbaa !20
+  %19 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %9, i32 0, i32 1
+  %20 = load ptr, ptr %6, align 8, !tbaa !3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 4 %20, i64 20, i1 false), !tbaa.struct !22
+  %21 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %9, i32 0, i32 2
+  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #18
+  %22 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %9, i32 0, i32 3
   invoke void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9HistogramC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %22)
           to label %23 unwind label %24
 
@@ -858,9 +828,9 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplC2ERKNS0_24H
   store ptr %26, ptr %7, align 8
   %27 = extractvalue { ptr, i32 } %25, 1
   store i32 %27, ptr %8, align 4
-  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #12
+  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #18
   %28 = getelementptr inbounds ptr, ptr %10, i64 1
-  call void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrappingD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %28) #12
+  call void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrappingD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %28) #18
   br label %29
 
 29:                                               ; preds = %24
@@ -871,37 +841,37 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplC2ERKNS0_24H
   resume { ptr, i32 } %33
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrappingC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrappingC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !25
+  store ptr %1, ptr %4, align 8, !tbaa !18
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds ptr, ptr %6, i64 1
-  call void @_ZN2cv16phase_unwrapping15PhaseUnwrappingC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %7) #12
+  call void @_ZN2cv16phase_unwrapping15PhaseUnwrappingC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %7) #18
   %8 = load ptr, ptr %6, align 8
-  store ptr %8, ptr %5, align 8
+  store ptr %8, ptr %5, align 8, !tbaa !20
   %9 = getelementptr inbounds ptr, ptr %6, i64 3
   %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr %5, align 8
+  %11 = load ptr, ptr %5, align 8, !tbaa !20
   %12 = getelementptr i8, ptr %11, i64 -80
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 %13
-  store ptr %10, ptr %14, align 8
+  store ptr %10, ptr %14, align 8, !tbaa !20
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !27
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
   ret void
 }
 
@@ -910,40 +880,40 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !27
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !29
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !32
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
   invoke void @_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelES3_EvT_S5_RSaIT0_E(ptr noundef %6, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %11 unwind label %12
 
 11:                                               ; preds = %1
-  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
   ret void
 
 12:                                               ; preds = %1
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #13
+  call void @__clang_call_terminate(ptr %14) #19
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrappingD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrappingD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !25
+  store ptr %1, ptr %4, align 8, !tbaa !18
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds ptr, ptr %6, i64 1
-  call void @_ZN2cv16phase_unwrapping15PhaseUnwrappingD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %7) #12
+  call void @_ZN2cv16phase_unwrapping15PhaseUnwrappingD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %7) #18
   ret void
 }
 
@@ -953,19 +923,19 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplC1ERKNS0_24H
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store ptr %1, ptr %4, align 8, !tbaa !3
   %7 = load ptr, ptr %3, align 8
   call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  call void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrappingC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef getelementptr inbounds ([6 x ptr], ptr @_ZTTN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplE, i64 0, i64 1)) #12
-  store ptr getelementptr inbounds inrange(-80, 80) ({ [20 x ptr] }, ptr @_ZTVN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplE, i32 0, i32 0, i32 10), ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-80, 80) ({ [20 x ptr] }, ptr @_ZTVN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplE, i32 0, i32 0, i32 10), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 4 %9, i64 20, i1 false)
-  %10 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %7, i32 0, i32 2
-  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #12
-  %11 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %7, i32 0, i32 3
+  call void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrappingC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef getelementptr inbounds ([6 x ptr], ptr @_ZTTN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplE, i64 0, i64 1)) #18
+  store ptr getelementptr inbounds inrange(-80, 80) ({ [20 x ptr] }, ptr @_ZTVN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplE, i32 0, i32 0, i32 10), ptr %7, align 8, !tbaa !20
+  store ptr getelementptr inbounds inrange(-80, 80) ({ [20 x ptr] }, ptr @_ZTVN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplE, i32 0, i32 0, i32 10), ptr %7, align 8, !tbaa !20
+  %8 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 4 %9, i64 20, i1 false), !tbaa.struct !22
+  %10 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %7, i32 0, i32 2
+  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
+  %11 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %7, i32 0, i32 3
   invoke void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9HistogramC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %11)
           to label %12 unwind label %13
 
@@ -979,9 +949,9 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplC1ERKNS0_24H
   store ptr %15, ptr %5, align 8
   %16 = extractvalue { ptr, i32 } %14, 1
   store i32 %16, ptr %6, align 4
-  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #12
-  call void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrappingD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef getelementptr inbounds ([6 x ptr], ptr @_ZTTN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplE, i64 0, i64 1)) #12
-  call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
+  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
+  call void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrappingD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef getelementptr inbounds ([6 x ptr], ptr @_ZTTN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplE, i64 0, i64 1)) #18
+  call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #18
   br label %17
 
 17:                                               ; preds = %13
@@ -992,15 +962,15 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplC1ERKNS0_24H
   resume { ptr, i32 } %21
 }
 
-declare void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
+declare void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
+declare void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelC2Ev(ptr noundef nonnull align 4 dereferenceable(29) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
   ret void
 }
 
@@ -1012,68 +982,68 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelC2Efib
   %10 = alloca i8, align 1
   %11 = alloca float, align 4
   %12 = alloca i32, align 4
-  store ptr %0, ptr %7, align 8
-  store float %1, ptr %8, align 4
-  store i32 %2, ptr %9, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !33
+  store float %1, ptr %8, align 4, !tbaa !24
+  store i32 %2, ptr %9, align 4, !tbaa !23
   %13 = zext i1 %3 to i8
-  store i8 %13, ptr %10, align 1
-  store float %4, ptr %11, align 4
-  store i32 %5, ptr %12, align 4
+  store i8 %13, ptr %10, align 1, !tbaa !34
+  store float %4, ptr %11, align 4, !tbaa !24
+  store i32 %5, ptr %12, align 4, !tbaa !23
   %14 = load ptr, ptr %7, align 8
-  %15 = load float, ptr %8, align 4
-  %16 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %14, i32 0, i32 0
-  store float %15, ptr %16, align 4
-  %17 = load i32, ptr %9, align 4
-  %18 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %14, i32 0, i32 1
-  store i32 %17, ptr %18, align 4
-  %19 = load i8, ptr %10, align 1
+  %15 = load float, ptr %8, align 4, !tbaa !24
+  %16 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %14, i32 0, i32 0
+  store float %15, ptr %16, align 4, !tbaa !36
+  %17 = load i32, ptr %9, align 4, !tbaa !23
+  %18 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %14, i32 0, i32 1
+  store i32 %17, ptr %18, align 4, !tbaa !38
+  %19 = load i8, ptr %10, align 1, !tbaa !34, !range !39, !noundef !40
   %20 = trunc i8 %19 to i1
-  %21 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %14, i32 0, i32 2
+  %21 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %14, i32 0, i32 2
   %22 = zext i1 %20 to i8
-  store i8 %22, ptr %21, align 4
-  %23 = load float, ptr %11, align 4
-  %24 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %14, i32 0, i32 4
-  store float %23, ptr %24, align 4
-  %25 = load i32, ptr %12, align 4
-  %26 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %14, i32 0, i32 5
-  store i32 %25, ptr %26, align 4
-  %27 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %14, i32 0, i32 6
-  store i32 1, ptr %27, align 4
-  %28 = load i32, ptr %9, align 4
-  %29 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %14, i32 0, i32 7
-  store i32 %28, ptr %29, align 4
-  %30 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %14, i32 0, i32 8
-  store i8 1, ptr %30, align 4
+  store i8 %22, ptr %21, align 4, !tbaa !41
+  %23 = load float, ptr %11, align 4, !tbaa !24
+  %24 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %14, i32 0, i32 4
+  store float %23, ptr %24, align 4, !tbaa !42
+  %25 = load i32, ptr %12, align 4, !tbaa !23
+  %26 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %14, i32 0, i32 5
+  store i32 %25, ptr %26, align 4, !tbaa !43
+  %27 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %14, i32 0, i32 6
+  store i32 1, ptr %27, align 4, !tbaa !44
+  %28 = load i32, ptr %9, align 4, !tbaa !23
+  %29 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %14, i32 0, i32 7
+  store i32 %28, ptr %29, align 4, !tbaa !45
+  %30 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %14, i32 0, i32 8
+  store i8 1, ptr %30, align 4, !tbaa !46
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel13getPhaseValueEv(ptr noundef nonnull align 4 dereferenceable(29) %0) #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %3, i32 0, i32 0
-  %5 = load float, ptr %4, align 4
+  %4 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %3, i32 0, i32 0
+  %5 = load float, ptr %4, align 4, !tbaa !36
   ret float %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel8getIndexEv(ptr noundef nonnull align 4 dereferenceable(29) %0) #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 4
+  %4 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !38
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel11getValidityEv(ptr noundef nonnull align 4 dereferenceable(29) %0) #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %3, i32 0, i32 2
-  %5 = load i8, ptr %4, align 4
+  %4 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %3, i32 0, i32 2
+  %5 = load i8, ptr %4, align 4, !tbaa !41, !range !39, !noundef !40
   %6 = trunc i8 %5 to i1
   ret i1 %6
 }
@@ -1081,50 +1051,50 @@ define noundef zeroext i1 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Im
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21getInverseReliabilityEv(ptr noundef nonnull align 4 dereferenceable(29) %0) #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %3, i32 0, i32 4
-  %5 = load float, ptr %4, align 4
+  %4 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %3, i32 0, i32 4
+  %5 = load float, ptr %4, align 4, !tbaa !42
   ret float %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(29) %0) #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %3, i32 0, i32 5
-  %5 = load i32, ptr %4, align 4
+  %4 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %3, i32 0, i32 5
+  %5 = load i32, ptr %4, align 4, !tbaa !43
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21getNbrOfPixelsInGroupEv(ptr noundef nonnull align 4 dereferenceable(29) %0) #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %3, i32 0, i32 6
-  %5 = load i32, ptr %4, align 4
+  %4 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %3, i32 0, i32 6
+  %5 = load i32, ptr %4, align 4, !tbaa !44
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10getGroupIdEv(ptr noundef nonnull align 4 dereferenceable(29) %0) #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %3, i32 0, i32 7
-  %5 = load i32, ptr %4, align 4
+  %4 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %3, i32 0, i32 7
+  %5 = load i32, ptr %4, align 4, !tbaa !45
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel19getSinglePixelGroupEv(ptr noundef nonnull align 4 dereferenceable(29) %0) #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %3, i32 0, i32 8
-  %5 = load i8, ptr %4, align 4
+  %4 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %3, i32 0, i32 8
+  %5 = load i8, ptr %4, align 4, !tbaa !46, !range !39, !noundef !40
   %6 = trunc i8 %5 to i1
   ret i1 %6
 }
@@ -1133,12 +1103,12 @@ define noundef zeroext i1 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Im
 define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12setIncrementEi(ptr noundef nonnull align 4 dereferenceable(29) %0, i32 noundef %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !33
+  store i32 %1, ptr %4, align 4, !tbaa !23
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
-  %7 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %5, i32 0, i32 5
-  store i32 %6, ptr %7, align 4
+  %6 = load i32, ptr %4, align 4, !tbaa !23
+  %7 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %5, i32 0, i32 5
+  store i32 %6, ptr %7, align 4, !tbaa !43
   ret void
 }
 
@@ -1146,14 +1116,14 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12setI
 define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel15changeIncrementEi(ptr noundef nonnull align 4 dereferenceable(29) %0, i32 noundef %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !33
+  store i32 %1, ptr %4, align 4, !tbaa !23
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
-  %7 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %5, i32 0, i32 5
-  %8 = load i32, ptr %7, align 4
+  %6 = load i32, ptr %4, align 4, !tbaa !23
+  %7 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %5, i32 0, i32 5
+  %8 = load i32, ptr %7, align 4, !tbaa !43
   %9 = add nsw i32 %8, %6
-  store i32 %9, ptr %7, align 4
+  store i32 %9, ptr %7, align 4, !tbaa !43
   ret void
 }
 
@@ -1161,12 +1131,12 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel15chan
 define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21setNbrOfPixelsInGroupEi(ptr noundef nonnull align 4 dereferenceable(29) %0, i32 noundef %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !33
+  store i32 %1, ptr %4, align 4, !tbaa !23
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
-  %7 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %5, i32 0, i32 6
-  store i32 %6, ptr %7, align 4
+  %6 = load i32, ptr %4, align 4, !tbaa !23
+  %7 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %5, i32 0, i32 6
+  store i32 %6, ptr %7, align 4, !tbaa !44
   ret void
 }
 
@@ -1174,12 +1144,12 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21setN
 define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10setGroupIdEi(ptr noundef nonnull align 4 dereferenceable(29) %0, i32 noundef %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !33
+  store i32 %1, ptr %4, align 4, !tbaa !23
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
-  %7 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %5, i32 0, i32 7
-  store i32 %6, ptr %7, align 4
+  %6 = load i32, ptr %4, align 4, !tbaa !23
+  %7 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %5, i32 0, i32 7
+  store i32 %6, ptr %7, align 4, !tbaa !45
   ret void
 }
 
@@ -1187,22 +1157,22 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10setG
 define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel19setSinglePixelGroupEb(ptr noundef nonnull align 4 dereferenceable(29) %0, i1 noundef zeroext %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !33
   %5 = zext i1 %1 to i8
-  store i8 %5, ptr %4, align 1
+  store i8 %5, ptr %4, align 1, !tbaa !34
   %6 = load ptr, ptr %3, align 8
-  %7 = load i8, ptr %4, align 1
+  %7 = load i8, ptr %4, align 1, !tbaa !34, !range !39, !noundef !40
   %8 = trunc i8 %7 to i1
-  %9 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %6, i32 0, i32 8
+  %9 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %6, i32 0, i32 8
   %10 = zext i1 %8 to i8
-  store i8 %10, ptr %9, align 4
+  store i8 %10, ptr %9, align 4, !tbaa !46
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !47
   ret void
 }
 
@@ -1212,69 +1182,69 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeC2Eiii(
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store i32 %3, ptr %8, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !47
+  store i32 %1, ptr %6, align 4, !tbaa !23
+  store i32 %2, ptr %7, align 4, !tbaa !23
+  store i32 %3, ptr %8, align 4, !tbaa !23
   %9 = load ptr, ptr %5, align 8
-  %10 = load i32, ptr %6, align 4
-  %11 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %9, i32 0, i32 0
-  store i32 %10, ptr %11, align 4
-  %12 = load i32, ptr %7, align 4
-  %13 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %9, i32 0, i32 1
-  store i32 %12, ptr %13, align 4
-  %14 = load i32, ptr %8, align 4
-  %15 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %9, i32 0, i32 2
-  store i32 %14, ptr %15, align 4
+  %10 = load i32, ptr %6, align 4, !tbaa !23
+  %11 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %9, i32 0, i32 0
+  store i32 %10, ptr %11, align 4, !tbaa !49
+  %12 = load i32, ptr %7, align 4, !tbaa !23
+  %13 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %9, i32 0, i32 1
+  store i32 %12, ptr %13, align 4, !tbaa !51
+  %14 = load i32, ptr %8, align 4, !tbaa !23
+  %15 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %9, i32 0, i32 2
+  store i32 %14, ptr %15, align 4, !tbaa !52
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4Edge11getPixOneIdEv(ptr noundef nonnull align 4 dereferenceable(12) %0) #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !47
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %3, i32 0, i32 0
-  %5 = load i32, ptr %4, align 4
+  %4 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %3, i32 0, i32 0
+  %5 = load i32, ptr %4, align 4, !tbaa !49
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4Edge11getPixTwoIdEv(ptr noundef nonnull align 4 dereferenceable(12) %0) #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !47
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 4
+  %4 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !51
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4Edge12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(12) %0) #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !47
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %3, i32 0, i32 2
-  %5 = load i32, ptr %4, align 4
+  %4 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %3, i32 0, i32 2
+  %5 = load i32, ptr %4, align 4, !tbaa !52
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !53
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
+  %4 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !55
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
   ret void
 }
 
@@ -1283,18 +1253,18 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramB
   %4 = alloca ptr, align 8
   %5 = alloca float, align 4
   %6 = alloca float, align 4
-  store ptr %0, ptr %4, align 8
-  store float %1, ptr %5, align 4
-  store float %2, ptr %6, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !53
+  store float %1, ptr %5, align 4, !tbaa !24
+  store float %2, ptr %6, align 4, !tbaa !24
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %7, i32 0, i32 2
-  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #12
-  %9 = load float, ptr %5, align 4
-  %10 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %7, i32 0, i32 0
-  store float %9, ptr %10, align 8
-  %11 = load float, ptr %6, align 4
-  %12 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %7, i32 0, i32 1
-  store float %11, ptr %12, align 4
+  %8 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %7, i32 0, i32 2
+  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #18
+  %9 = load float, ptr %5, align 4, !tbaa !24
+  %10 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %7, i32 0, i32 0
+  store float %9, ptr %10, align 8, !tbaa !57
+  %11 = load float, ptr %6, align 4, !tbaa !24
+  %12 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %7, i32 0, i32 1
+  store float %11, ptr %12, align 4, !tbaa !63
   ret void
 }
 
@@ -1303,14 +1273,14 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramB
   %4 = alloca %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", align 4
   %5 = alloca { i64, i32 }, align 4
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds { i64, i32 }, ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw { i64, i32 }, ptr %5, i32 0, i32 0
   store i64 %1, ptr %7, align 4
-  %8 = getelementptr inbounds { i64, i32 }, ptr %5, i32 0, i32 1
+  %8 = getelementptr inbounds nuw { i64, i32 }, ptr %5, i32 0, i32 1
   store i32 %2, ptr %8, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %4, ptr align 4 %5, i64 12, i1 false)
-  store ptr %0, ptr %6, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !53
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %9, i32 0, i32 2
+  %10 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %9, i32 0, i32 2
   call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 4 dereferenceable(12) %4)
   ret void
 }
@@ -1320,38 +1290,38 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramP
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !55
+  store ptr %1, ptr %4, align 8, !tbaa !47
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %6, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %6, i32 0, i32 0
-  %11 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %10, i32 0, i32 2
-  %12 = load ptr, ptr %11, align 8
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !64
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %6, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %10, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8, !tbaa !65
   %13 = icmp ne ptr %9, %12
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %6, i32 0, i32 0
-  %16 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %6, i32 0, i32 0
-  %17 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %16, i32 0, i32 1
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %4, align 8
-  call void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %18, ptr noundef nonnull align 4 dereferenceable(12) %19) #12
-  %20 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %6, i32 0, i32 0
-  %21 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %22, i32 1
-  store ptr %23, ptr %21, align 8
+  %15 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %6, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %6, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %16, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8, !tbaa !64
+  %19 = load ptr, ptr %4, align 8, !tbaa !47
+  call void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %18, ptr noundef nonnull align 4 dereferenceable(12) %19) #18
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %6, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8, !tbaa !64
+  %23 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %22, i32 1
+  store ptr %23, ptr %21, align 8, !tbaa !64
   br label %30
 
 24:                                               ; preds = %2
-  %25 = call ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
-  %26 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  %25 = call ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #18
+  %26 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
   store ptr %25, ptr %26, align 8
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  %27 = load ptr, ptr %4, align 8, !tbaa !47
+  %28 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
   %29 = load ptr, ptr %28, align 8
   call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %29, ptr noundef nonnull align 4 dereferenceable(12) %27)
   br label %30
@@ -1365,9 +1335,9 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramB
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !53
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %5, i32 0, i32 2
+  %6 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %5, i32 0, i32 2
   call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6)
   ret void
 }
@@ -1381,42 +1351,44 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramP
   %7 = alloca i32, align 4
   %8 = alloca %"class.__gnu_cxx::__normal_iterator.26", align 8
   %9 = alloca %"class.__gnu_cxx::__normal_iterator.26", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !55
+  store ptr %1, ptr %4, align 8, !tbaa !55
   %10 = load ptr, ptr %3, align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #12
-  %13 = load ptr, ptr %4, align 8
-  %14 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #12
+  %11 = load ptr, ptr %4, align 8, !tbaa !55
+  %12 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #18
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #18
+  %13 = load ptr, ptr %4, align 8, !tbaa !55
+  %14 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #18
   call void @_ZN9__gnu_cxx14__alloc_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEES4_E17_S_select_on_copyERKS5_(ptr dead_on_unwind writable sret(%"class.std::allocator.7") align 1 %5, ptr noundef nonnull align 1 dereferenceable(1) %14)
   invoke void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEC2EmRKS4_(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %15 unwind label %34
 
 15:                                               ; preds = %2
-  call void @_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
-  %16 = load ptr, ptr %4, align 8
-  %17 = call ptr @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #12
-  %18 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %8, i32 0, i32 0
+  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #18
+  %16 = load ptr, ptr %4, align 8, !tbaa !55
+  %17 = call ptr @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #18
+  %18 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %8, i32 0, i32 0
   store ptr %17, ptr %18, align 8
-  %19 = load ptr, ptr %4, align 8
-  %20 = call ptr @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #12
-  %21 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %9, i32 0, i32 0
+  %19 = load ptr, ptr %4, align 8, !tbaa !55
+  %20 = call ptr @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #18
+  %21 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %9, i32 0, i32 0
   store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %10, i32 0, i32 0
-  %23 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #12
-  %26 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %8, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %10, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8, !tbaa !66
+  %25 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
+  %26 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %8, i32 0, i32 0
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %9, i32 0, i32 0
+  %28 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %9, i32 0, i32 0
   %29 = load ptr, ptr %28, align 8
   %30 = invoke noundef ptr @_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS5_SaIS5_EEEEPS5_S5_ET0_T_SE_SD_RSaIT1_E(ptr %27, ptr %29, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %25)
           to label %31 unwind label %38
 
 31:                                               ; preds = %15
-  %32 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %10, i32 0, i32 0
-  %33 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %32, i32 0, i32 1
-  store ptr %30, ptr %33, align 8
+  %32 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %10, i32 0, i32 0
+  %33 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %32, i32 0, i32 1
+  store ptr %30, ptr %33, align 8, !tbaa !64
   ret void
 
 34:                                               ; preds = %2
@@ -1426,7 +1398,8 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramP
   store ptr %36, ptr %6, align 8
   %37 = extractvalue { ptr, i32 } %35, 1
   store i32 %37, ptr %7, align 4
-  call void @_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
+  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #18
   br label %42
 
 38:                                               ; preds = %15
@@ -1436,7 +1409,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramP
   store ptr %40, ptr %6, align 8
   %41 = extractvalue { ptr, i32 } %39, 1
   store i32 %41, ptr %7, align 4
-  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #12
+  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
   br label %42
 
 42:                                               ; preds = %38, %34
@@ -1450,19 +1423,19 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramP
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9HistogramC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !67
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %3, i32 0, i32 0
-  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
+  %4 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %3, i32 0, i32 0
+  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !69
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
   ret void
 }
 
@@ -1478,214 +1451,232 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram10
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", align 8
-  store ptr %0, ptr %5, align 8
-  store float %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store i32 %3, ptr %8, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !67
+  store float %1, ptr %6, align 4, !tbaa !24
+  store i32 %2, ptr %7, align 4, !tbaa !23
+  store i32 %3, ptr %8, align 4, !tbaa !23
   %15 = load ptr, ptr %5, align 8
-  %16 = load float, ptr %6, align 4
-  %17 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 1
-  store float %16, ptr %17, align 8
-  %18 = load i32, ptr %7, align 4
-  %19 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 4
-  store i32 %18, ptr %19, align 4
-  %20 = load i32, ptr %8, align 4
-  %21 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 5
-  store i32 %20, ptr %21, align 8
-  %22 = load i32, ptr %7, align 4
-  %23 = load i32, ptr %8, align 4
+  %16 = load float, ptr %6, align 4, !tbaa !24
+  %17 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 1
+  store float %16, ptr %17, align 8, !tbaa !71
+  %18 = load i32, ptr %7, align 4, !tbaa !23
+  %19 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 4
+  store i32 %18, ptr %19, align 4, !tbaa !77
+  %20 = load i32, ptr %8, align 4, !tbaa !23
+  %21 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 5
+  store i32 %20, ptr %21, align 8, !tbaa !78
+  %22 = load i32, ptr %7, align 4, !tbaa !23
+  %23 = load i32, ptr %8, align 4, !tbaa !23
   %24 = add nsw i32 %22, %23
-  %25 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 6
-  store i32 %24, ptr %25, align 4
-  %26 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 1
-  %27 = load float, ptr %26, align 8
-  %28 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 4
-  %29 = load i32, ptr %28, align 4
+  %25 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 6
+  store i32 %24, ptr %25, align 4, !tbaa !79
+  %26 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 1
+  %27 = load float, ptr %26, align 8, !tbaa !71
+  %28 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 4
+  %29 = load i32, ptr %28, align 4, !tbaa !77
   %30 = sitofp i32 %29 to float
   %31 = fdiv float %27, %30
-  %32 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 2
-  store float %31, ptr %32, align 4
-  %33 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 1
-  %34 = load float, ptr %33, align 8
+  %32 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 2
+  store float %31, ptr %32, align 4, !tbaa !80
+  %33 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 1
+  %34 = load float, ptr %33, align 8, !tbaa !71
   %35 = fpext float %34 to double
   %36 = fsub double 0x4073BD3CC9BE45DE, %35
   %37 = fptrunc double %36 to float
-  %38 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 5
-  %39 = load i32, ptr %38, align 8
+  %38 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 5
+  %39 = load i32, ptr %38, align 8, !tbaa !78
   %40 = sitofp i32 %39 to float
   %41 = fdiv float %37, %40
-  %42 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 3
-  store float %41, ptr %42, align 8
-  store i32 0, ptr %9, align 4
+  %42 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 3
+  store float %41, ptr %42, align 8, !tbaa !81
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #18
+  store i32 0, ptr %9, align 4, !tbaa !23
   br label %43
 
-43:                                               ; preds = %61, %4
-  %44 = load i32, ptr %9, align 4
-  %45 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 4
-  %46 = load i32, ptr %45, align 4
+43:                                               ; preds = %62, %4
+  %44 = load i32, ptr %9, align 4, !tbaa !23
+  %45 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 4
+  %46 = load i32, ptr %45, align 4, !tbaa !77
   %47 = icmp slt i32 %44, %46
-  br i1 %47, label %48, label %68
+  br i1 %47, label %49, label %48
 
 48:                                               ; preds = %43
-  %49 = load i32, ptr %9, align 4
-  %50 = sitofp i32 %49 to float
-  %51 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 2
-  %52 = load float, ptr %51, align 4
-  %53 = fmul float %50, %52
-  %54 = load i32, ptr %9, align 4
-  %55 = add nsw i32 %54, 1
-  %56 = sitofp i32 %55 to float
-  %57 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 2
-  %58 = load float, ptr %57, align 4
-  %59 = fmul float %56, %58
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinC1Eff(ptr noundef nonnull align 8 dereferenceable(32) %10, float noundef %53, float noundef %59)
-  invoke void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram6addBinENS1_12HistogramBinE(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %10)
-          to label %60 unwind label %64
-
-60:                                               ; preds = %48
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #12
-  br label %61
-
-61:                                               ; preds = %60
-  %62 = load i32, ptr %9, align 4
-  %63 = add nsw i32 %62, 1
-  store i32 %63, ptr %9, align 4
-  br label %43, !llvm.loop !4
-
-64:                                               ; preds = %48
-  %65 = landingpad { ptr, i32 }
-          cleanup
-  %66 = extractvalue { ptr, i32 } %65, 0
-  store ptr %66, ptr %11, align 8
-  %67 = extractvalue { ptr, i32 } %65, 1
-  store i32 %67, ptr %12, align 4
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #12
-  br label %99
-
-68:                                               ; preds = %43
-  store i32 0, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #18
   br label %69
 
-69:                                               ; preds = %91, %68
-  %70 = load i32, ptr %13, align 4
-  %71 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 5
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp slt i32 %70, %72
-  br i1 %73, label %74, label %98
+49:                                               ; preds = %43
+  %50 = load i32, ptr %9, align 4, !tbaa !23
+  %51 = sitofp i32 %50 to float
+  %52 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 2
+  %53 = load float, ptr %52, align 4, !tbaa !80
+  %54 = fmul float %51, %53
+  %55 = load i32, ptr %9, align 4, !tbaa !23
+  %56 = add nsw i32 %55, 1
+  %57 = sitofp i32 %56 to float
+  %58 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 2
+  %59 = load float, ptr %58, align 4, !tbaa !80
+  %60 = fmul float %57, %59
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinC1Eff(ptr noundef nonnull align 8 dereferenceable(32) %10, float noundef %54, float noundef %60)
+  invoke void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram6addBinENS1_12HistogramBinE(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %10)
+          to label %61 unwind label %65
 
-74:                                               ; preds = %69
-  %75 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 1
-  %76 = load float, ptr %75, align 8
-  %77 = load i32, ptr %13, align 4
-  %78 = sitofp i32 %77 to float
-  %79 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 3
-  %80 = load float, ptr %79, align 8
-  %81 = call float @llvm.fmuladd.f32(float %78, float %80, float %76)
-  %82 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 1
-  %83 = load float, ptr %82, align 8
-  %84 = load i32, ptr %13, align 4
-  %85 = add nsw i32 %84, 1
-  %86 = sitofp i32 %85 to float
-  %87 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 3
-  %88 = load float, ptr %87, align 8
-  %89 = call float @llvm.fmuladd.f32(float %86, float %88, float %83)
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinC1Eff(ptr noundef nonnull align 8 dereferenceable(32) %14, float noundef %81, float noundef %89)
-  invoke void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram6addBinENS1_12HistogramBinE(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %14)
-          to label %90 unwind label %94
+61:                                               ; preds = %49
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
+  br label %62
 
-90:                                               ; preds = %74
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #12
-  br label %91
+62:                                               ; preds = %61
+  %63 = load i32, ptr %9, align 4, !tbaa !23
+  %64 = add nsw i32 %63, 1
+  store i32 %64, ptr %9, align 4, !tbaa !23
+  br label %43, !llvm.loop !82
 
-91:                                               ; preds = %90
-  %92 = load i32, ptr %13, align 4
-  %93 = add nsw i32 %92, 1
-  store i32 %93, ptr %13, align 4
-  br label %69, !llvm.loop !6
-
-94:                                               ; preds = %74
-  %95 = landingpad { ptr, i32 }
+65:                                               ; preds = %49
+  %66 = landingpad { ptr, i32 }
           cleanup
-  %96 = extractvalue { ptr, i32 } %95, 0
-  store ptr %96, ptr %11, align 8
-  %97 = extractvalue { ptr, i32 } %95, 1
-  store i32 %97, ptr %12, align 4
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #12
-  br label %99
+  %67 = extractvalue { ptr, i32 } %66, 0
+  store ptr %67, ptr %11, align 8
+  %68 = extractvalue { ptr, i32 } %66, 1
+  store i32 %68, ptr %12, align 4
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #18
+  br label %101
 
-98:                                               ; preds = %69
+69:                                               ; preds = %48
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #18
+  store i32 0, ptr %13, align 4, !tbaa !23
+  br label %70
+
+70:                                               ; preds = %93, %69
+  %71 = load i32, ptr %13, align 4, !tbaa !23
+  %72 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 5
+  %73 = load i32, ptr %72, align 8, !tbaa !78
+  %74 = icmp slt i32 %71, %73
+  br i1 %74, label %76, label %75
+
+75:                                               ; preds = %70
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #18
+  br label %100
+
+76:                                               ; preds = %70
+  %77 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 1
+  %78 = load float, ptr %77, align 8, !tbaa !71
+  %79 = load i32, ptr %13, align 4, !tbaa !23
+  %80 = sitofp i32 %79 to float
+  %81 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 3
+  %82 = load float, ptr %81, align 8, !tbaa !81
+  %83 = call float @llvm.fmuladd.f32(float %80, float %82, float %78)
+  %84 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 1
+  %85 = load float, ptr %84, align 8, !tbaa !71
+  %86 = load i32, ptr %13, align 4, !tbaa !23
+  %87 = add nsw i32 %86, 1
+  %88 = sitofp i32 %87 to float
+  %89 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %15, i32 0, i32 3
+  %90 = load float, ptr %89, align 8, !tbaa !81
+  %91 = call float @llvm.fmuladd.f32(float %88, float %90, float %85)
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinC1Eff(ptr noundef nonnull align 8 dereferenceable(32) %14, float noundef %83, float noundef %91)
+  invoke void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram6addBinENS1_12HistogramBinE(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %14)
+          to label %92 unwind label %96
+
+92:                                               ; preds = %76
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #18
+  br label %93
+
+93:                                               ; preds = %92
+  %94 = load i32, ptr %13, align 4, !tbaa !23
+  %95 = add nsw i32 %94, 1
+  store i32 %95, ptr %13, align 4, !tbaa !23
+  br label %70, !llvm.loop !84
+
+96:                                               ; preds = %76
+  %97 = landingpad { ptr, i32 }
+          cleanup
+  %98 = extractvalue { ptr, i32 } %97, 0
+  store ptr %98, ptr %11, align 8
+  %99 = extractvalue { ptr, i32 } %97, 1
+  store i32 %99, ptr %12, align 4
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #18
+  br label %101
+
+100:                                              ; preds = %75
   ret void
 
-99:                                               ; preds = %94, %64
-  %100 = load ptr, ptr %11, align 8
-  %101 = load i32, ptr %12, align 4
-  %102 = insertvalue { ptr, i32 } poison, ptr %100, 0
-  %103 = insertvalue { ptr, i32 } %102, i32 %101, 1
-  resume { ptr, i32 } %103
+101:                                              ; preds = %96, %65
+  %102 = load ptr, ptr %11, align 8
+  %103 = load i32, ptr %12, align 4
+  %104 = insertvalue { ptr, i32 } poison, ptr %102, 0
+  %105 = insertvalue { ptr, i32 } %104, i32 %103, 1
+  resume { ptr, i32 } %105
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram6addBinENS1_12HistogramBinE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) #1 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !67
+  store ptr %1, ptr %4, align 8, !tbaa !53
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %5, i32 0, i32 0
   call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !53
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
+  %4 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #5
+declare float @llvm.fmuladd.f32(float, float, float) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !69
+  store ptr %1, ptr %4, align 8, !tbaa !53
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %6, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %6, i32 0, i32 0
-  %11 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %10, i32 0, i32 2
-  %12 = load ptr, ptr %11, align 8
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !85
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %6, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %10, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8, !tbaa !86
   %13 = icmp ne ptr %9, %12
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %6, i32 0, i32 0
-  %16 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %6, i32 0, i32 0
-  %17 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %16, i32 0, i32 1
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %6, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %6, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %16, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8, !tbaa !85
+  %19 = load ptr, ptr %4, align 8, !tbaa !53
   call void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(32) %19)
-  %20 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %6, i32 0, i32 0
-  %21 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %22, i32 1
-  store ptr %23, ptr %21, align 8
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %6, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8, !tbaa !85
+  %23 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %22, i32 1
+  store ptr %23, ptr %21, align 8, !tbaa !85
   br label %30
 
 24:                                               ; preds = %2
-  %25 = call ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
-  %26 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %5, i32 0, i32 0
+  %25 = call ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #18
+  %26 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %5, i32 0, i32 0
   store ptr %25, ptr %26, align 8
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %5, i32 0, i32 0
+  %27 = load ptr, ptr %4, align 8, !tbaa !53
+  %28 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %5, i32 0, i32 0
   %29 = load ptr, ptr %28, align 8
   call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %29, ptr noundef nonnull align 8 dereferenceable(32) %27)
   br label %30
@@ -1702,23 +1693,23 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram12
   %8 = alloca i32, align 4
   %9 = alloca %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", align 4
   %10 = alloca { i64, i32 }, align 4
-  %11 = getelementptr inbounds { i64, i32 }, ptr %6, i32 0, i32 0
+  %11 = getelementptr inbounds nuw { i64, i32 }, ptr %6, i32 0, i32 0
   store i64 %1, ptr %11, align 4
-  %12 = getelementptr inbounds { i64, i32 }, ptr %6, i32 0, i32 1
+  %12 = getelementptr inbounds nuw { i64, i32 }, ptr %6, i32 0, i32 1
   store i32 %2, ptr %12, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %5, ptr align 4 %6, i64 12, i1 false)
-  store ptr %0, ptr %7, align 8
-  store i32 %3, ptr %8, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !67
+  store i32 %3, ptr %8, align 4, !tbaa !23
   %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %13, i32 0, i32 0
-  %15 = load i32, ptr %8, align 4
+  %14 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %13, i32 0, i32 0
+  %15 = load i32, ptr %8, align 4, !tbaa !23
   %16 = sext i32 %15 to i64
-  %17 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %16) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %9, ptr align 4 %5, i64 12, i1 false)
+  %17 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %16) #18
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %9, ptr align 4 %5, i64 12, i1 false), !tbaa.struct !87
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %10, ptr align 4 %9, i64 12, i1 false)
-  %18 = getelementptr inbounds { i64, i32 }, ptr %10, i32 0, i32 0
+  %18 = getelementptr inbounds nuw { i64, i32 }, ptr %10, i32 0, i32 0
   %19 = load i64, ptr %18, align 4
-  %20 = getelementptr inbounds { i64, i32 }, ptr %10, i32 0, i32 1
+  %20 = getelementptr inbounds nuw { i64, i32 }, ptr %10, i32 0, i32 1
   %21 = load i32, ptr %20, align 4
   call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBin7addEdgeENS1_4EdgeE(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 %19, i32 %21)
   ret void
@@ -1728,54 +1719,54 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram12
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !69
+  store i64 %1, ptr %4, align 8, !tbaa !88
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %5, i32 0, i32 0
-  %7 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  %9 = load i64, ptr %4, align 8
-  %10 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %8, i64 %9
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !90
+  %9 = load i64, ptr %4, align 8, !tbaa !88
+  %10 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %8, i64 %9
   ret ptr %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram9getThreshEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !67
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %3, i32 0, i32 1
-  %5 = load float, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %3, i32 0, i32 1
+  %5 = load float, ptr %4, align 8, !tbaa !71
   ret float %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram13getSmallWidthEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !67
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %3, i32 0, i32 2
-  %5 = load float, ptr %4, align 4
+  %4 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %3, i32 0, i32 2
+  %5 = load float, ptr %4, align 4, !tbaa !80
   ret float %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram13getLargeWidthEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !67
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %3, i32 0, i32 3
-  %5 = load float, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %3, i32 0, i32 3
+  %5 = load float, ptr %4, align 8, !tbaa !81
   ret float %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram12getNbrOfBinsEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !67
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %3, i32 0, i32 6
-  %5 = load i32, ptr %4, align 4
+  %4 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %3, i32 0, i32 6
+  %5 = load i32, ptr %4, align 4, !tbaa !79
   ret i32 %5
 }
 
@@ -1789,21 +1780,23 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram15
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
+  store ptr %1, ptr %5, align 8, !tbaa !67
+  store i32 %2, ptr %6, align 4, !tbaa !23
   %11 = load ptr, ptr %5, align 8
   store i1 false, ptr %7, align 1
-  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
-  %12 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %11, i32 0, i32 0
-  %13 = load i32, ptr %6, align 4
+  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
+  call void @llvm.lifetime.start.p0(i64 24, ptr %8) #18
+  %12 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %11, i32 0, i32 0
+  %13 = load i32, ptr %6, align 4, !tbaa !23
   %14 = sext i32 %13 to i64
-  %15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %14) #12
+  %15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %14) #18
   invoke void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBin8getEdgesEv(ptr dead_on_unwind writable sret(%"class.std::vector.5") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %15)
           to label %16 unwind label %19
 
 16:                                               ; preds = %3
-  %17 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8) #12
-  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #12
+  %17 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8) #18
+  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr %8) #18
   store i1 true, ptr %7, align 1
   %18 = load i1, ptr %7, align 1
   br i1 %18, label %24, label %23
@@ -1815,11 +1808,12 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram15
   store ptr %21, ptr %9, align 8
   %22 = extractvalue { ptr, i32 } %20, 1
   store i32 %22, ptr %10, align 4
-  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
+  call void @llvm.lifetime.end.p0(i64 24, ptr %8) #18
+  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   br label %25
 
 23:                                               ; preds = %16
-  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
+  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   br label %24
 
 24:                                               ; preds = %23, %16
@@ -1838,39 +1832,41 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i8, align 1
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !55
+  store ptr %1, ptr %4, align 8, !tbaa !55
   %6 = load ptr, ptr %3, align 8
-  store i8 1, ptr %5, align 1
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE14_M_move_assignEOS5_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #18
+  store i8 1, ptr %5, align 1, !tbaa !34
+  %7 = load ptr, ptr %4, align 8, !tbaa !55
+  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE14_M_move_assignEOS5_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #18
   ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !55
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !66
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !64
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
   invoke void @_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES3_EvT_S5_RSaIT0_E(ptr noundef %6, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %11 unwind label %12
 
 11:                                               ; preds = %1
-  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
   ret void
 
 12:                                               ; preds = %1
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #13
+  call void @__clang_call_terminate(ptr %14) #19
   unreachable
 }
 
@@ -1891,262 +1887,334 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl14unwrapPhas
   %17 = alloca %"class.cv::_OutputArray", align 8
   %18 = alloca %"class.cv::_InputArray", align 8
   %19 = alloca %"class.cv::_InputArray", align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !16
+  store ptr %1, ptr %6, align 8, !tbaa !91
+  store ptr %2, ptr %7, align 8, !tbaa !93
+  store ptr %3, ptr %8, align 8, !tbaa !91
   %20 = load ptr, ptr %5, align 8
-  %21 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #18
+  %21 = load ptr, ptr %6, align 8, !tbaa !91
   %22 = call noundef ptr @_ZNK2cv11_InputArray6getObjEv(ptr noundef nonnull align 8 dereferenceable(24) %21)
-  store ptr %22, ptr %9, align 8
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #12
-  %23 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %20, i32 0, i32 1
-  %24 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %23, i32 0, i32 1
-  %25 = load i32, ptr %24, align 4
-  store i32 %25, ptr %11, align 4
-  %26 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %20, i32 0, i32 1
-  %27 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %26, i32 0, i32 0
-  %28 = load i32, ptr %27, align 8
-  store i32 %28, ptr %12, align 4
-  %29 = load ptr, ptr %8, align 8
+  store ptr %22, ptr %9, align 8, !tbaa !95
+  call void @llvm.lifetime.start.p0(i64 96, ptr %10) #18
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #18
+  %23 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %20, i32 0, i32 1
+  %24 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %23, i32 0, i32 1
+  %25 = load i32, ptr %24, align 4, !tbaa !97
+  store i32 %25, ptr %11, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #18
+  %26 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %20, i32 0, i32 1
+  %27 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %26, i32 0, i32 0
+  %28 = load i32, ptr %27, align 8, !tbaa !104
+  store i32 %28, ptr %12, align 4, !tbaa !23
+  %29 = load ptr, ptr %8, align 8, !tbaa !91
   %30 = invoke noundef zeroext i1 @_ZNK2cv11_InputArray5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %29)
           to label %31 unwind label %39
 
 31:                                               ; preds = %4
-  br i1 %30, label %32, label %43
+  br i1 %30, label %32, label %47
 
 32:                                               ; preds = %31
-  %33 = load i32, ptr %11, align 4
-  %34 = load i32, ptr %12, align 4
+  %33 = load i32, ptr %11, align 4, !tbaa !23
+  %34 = load i32, ptr %12, align 4, !tbaa !23
   invoke void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96) %10, i32 noundef %33, i32 noundef %34, i32 noundef 0)
           to label %35 unwind label %39
 
 35:                                               ; preds = %32
+  call void @llvm.lifetime.start.p0(i64 32, ptr %15) #18
   invoke void @_ZN2cv7Scalar_IdE3allEd(ptr dead_on_unwind writable sret(%"class.cv::Scalar_") align 8 %15, double noundef 2.550000e+02)
-          to label %36 unwind label %39
+          to label %36 unwind label %43
 
 36:                                               ; preds = %35
   %37 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(32) %15)
-          to label %38 unwind label %39
+          to label %38 unwind label %43
 
 38:                                               ; preds = %36
-  br label %54
+  call void @llvm.lifetime.end.p0(i64 32, ptr %15) #18
+  br label %68
 
-39:                                               ; preds = %86, %85, %84, %80, %76, %74, %69, %64, %61, %55, %46, %43, %36, %35, %32, %4
+39:                                               ; preds = %100, %99, %98, %90, %88, %83, %78, %75, %69, %32, %4
   %40 = landingpad { ptr, i32 }
           cleanup
   %41 = extractvalue { ptr, i32 } %40, 0
   store ptr %41, ptr %13, align 8
   %42 = extractvalue { ptr, i32 } %40, 1
   store i32 %42, ptr %14, align 4
-  br label %98
+  br label %117
 
-43:                                               ; preds = %31
-  %44 = load ptr, ptr %8, align 8
-  %45 = invoke noundef ptr @_ZNK2cv11_InputArray6getObjEv(ptr noundef nonnull align 8 dereferenceable(24) %44)
-          to label %46 unwind label %39
-
-46:                                               ; preds = %43
-  store ptr %45, ptr %16, align 8
-  %47 = load ptr, ptr %16, align 8
-  invoke void @_ZN2cv12_OutputArrayC2ERNS_3MatE(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(96) %10)
-          to label %48 unwind label %39
-
-48:                                               ; preds = %46
-  invoke void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(96) %47, ptr noundef nonnull align 8 dereferenceable(24) %17)
-          to label %49 unwind label %50
-
-49:                                               ; preds = %48
-  call void @_ZN2cv12_OutputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #12
-  br label %54
-
-50:                                               ; preds = %48
-  %51 = landingpad { ptr, i32 }
+43:                                               ; preds = %36, %35
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %52 = extractvalue { ptr, i32 } %51, 0
-  store ptr %52, ptr %13, align 8
-  %53 = extractvalue { ptr, i32 } %51, 1
-  store i32 %53, ptr %14, align 4
-  call void @_ZN2cv12_OutputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #12
-  br label %98
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %13, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %15) #18
+  br label %117
 
-54:                                               ; preds = %49, %38
-  br label %55
+47:                                               ; preds = %31
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #18
+  %48 = load ptr, ptr %8, align 8, !tbaa !91
+  %49 = invoke noundef ptr @_ZNK2cv11_InputArray6getObjEv(ptr noundef nonnull align 8 dereferenceable(24) %48)
+          to label %50 unwind label %54
 
-55:                                               ; preds = %54
-  %56 = load ptr, ptr %9, align 8
-  %57 = invoke noundef i32 @_ZNK2cv3Mat4typeEv(ptr noundef nonnull align 8 dereferenceable(96) %56)
-          to label %58 unwind label %39
+50:                                               ; preds = %47
+  store ptr %49, ptr %16, align 8, !tbaa !95
+  %51 = load ptr, ptr %16, align 8, !tbaa !95
+  call void @llvm.lifetime.start.p0(i64 24, ptr %17) #18
+  invoke void @_ZN2cv12_OutputArrayC2ERNS_3MatE(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(96) %10)
+          to label %52 unwind label %58
 
-58:                                               ; preds = %55
-  %59 = icmp eq i32 %57, 5
-  br i1 %59, label %60, label %61
+52:                                               ; preds = %50
+  invoke void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(96) %51, ptr noundef nonnull align 8 dereferenceable(24) %17)
+          to label %53 unwind label %62
 
-60:                                               ; preds = %58
-  br label %66
-
-61:                                               ; preds = %58
-  %62 = load ptr, ptr %9, align 8
-  %63 = invoke noundef i32 @_ZNK2cv3Mat4typeEv(ptr noundef nonnull align 8 dereferenceable(96) %62)
-          to label %64 unwind label %39
-
-64:                                               ; preds = %61
-  invoke void @_ZN2cv6detail20check_failed_MatTypeEiiRKNS0_12CheckContextE(i32 noundef %63, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl14unwrapPhaseMapERKNS_11_InputArrayERKNS_12_OutputArrayES4_E15__cv_check__405) #14
-          to label %65 unwind label %39
-
-65:                                               ; preds = %64
-  unreachable
-
-66:                                               ; preds = %60
-  br label %67
-
-67:                                               ; preds = %66
+53:                                               ; preds = %52
+  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr %17) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #18
   br label %68
 
-68:                                               ; preds = %67
+54:                                               ; preds = %47
+  %55 = landingpad { ptr, i32 }
+          cleanup
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %13, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %14, align 4
+  br label %67
+
+58:                                               ; preds = %50
+  %59 = landingpad { ptr, i32 }
+          cleanup
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %13, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %14, align 4
+  br label %66
+
+62:                                               ; preds = %52
+  %63 = landingpad { ptr, i32 }
+          cleanup
+  %64 = extractvalue { ptr, i32 } %63, 0
+  store ptr %64, ptr %13, align 8
+  %65 = extractvalue { ptr, i32 } %63, 1
+  store i32 %65, ptr %14, align 4
+  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #18
+  br label %66
+
+66:                                               ; preds = %62, %58
+  call void @llvm.lifetime.end.p0(i64 24, ptr %17) #18
+  br label %67
+
+67:                                               ; preds = %66, %54
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #18
+  br label %117
+
+68:                                               ; preds = %53, %38
   br label %69
 
 69:                                               ; preds = %68
-  %70 = invoke noundef i32 @_ZNK2cv3Mat4typeEv(ptr noundef nonnull align 8 dereferenceable(96) %10)
-          to label %71 unwind label %39
+  %70 = load ptr, ptr %9, align 8, !tbaa !95
+  %71 = invoke noundef i32 @_ZNK2cv3Mat4typeEv(ptr noundef nonnull align 8 dereferenceable(96) %70)
+          to label %72 unwind label %39
 
-71:                                               ; preds = %69
-  %72 = icmp eq i32 %70, 0
-  br i1 %72, label %73, label %74
+72:                                               ; preds = %69
+  %73 = icmp eq i32 %71, 5
+  br i1 %73, label %74, label %75
 
-73:                                               ; preds = %71
-  br label %78
-
-74:                                               ; preds = %71
-  %75 = invoke noundef i32 @_ZNK2cv3Mat4typeEv(ptr noundef nonnull align 8 dereferenceable(96) %10)
-          to label %76 unwind label %39
-
-76:                                               ; preds = %74
-  invoke void @_ZN2cv6detail20check_failed_MatTypeEiiRKNS0_12CheckContextE(i32 noundef %75, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl14unwrapPhaseMapERKNS_11_InputArrayERKNS_12_OutputArrayES4_E15__cv_check__406) #14
-          to label %77 unwind label %39
-
-77:                                               ; preds = %76
-  unreachable
-
-78:                                               ; preds = %73
-  br label %79
-
-79:                                               ; preds = %78
+74:                                               ; preds = %72
   br label %80
 
-80:                                               ; preds = %79
-  %81 = load ptr, ptr %9, align 8
-  invoke void @_ZN2cv11_InputArrayC2ERKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(96) %81)
-          to label %82 unwind label %39
+75:                                               ; preds = %72
+  %76 = load ptr, ptr %9, align 8, !tbaa !95
+  %77 = invoke noundef i32 @_ZNK2cv3Mat4typeEv(ptr noundef nonnull align 8 dereferenceable(96) %76)
+          to label %78 unwind label %39
 
-82:                                               ; preds = %80
-  invoke void @_ZN2cv11_InputArrayC2ERKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(96) %10)
-          to label %83 unwind label %89
+78:                                               ; preds = %75
+  invoke void @_ZN2cv6detail20check_failed_MatTypeEiiRKNS0_12CheckContextE(i32 noundef %77, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl14unwrapPhaseMapERKNS_11_InputArrayERKNS_12_OutputArrayES4_E15__cv_check__405) #20
+          to label %79 unwind label %39
+
+79:                                               ; preds = %78
+  unreachable
+
+80:                                               ; preds = %74
+  br label %81
+
+81:                                               ; preds = %80
+  br label %82
+
+82:                                               ; preds = %81
+  br label %83
 
 83:                                               ; preds = %82
-  invoke void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl24computePixelsReliabilityERKNS_11_InputArrayES4_(ptr noundef nonnull align 8 dereferenceable(104) %20, ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %19)
-          to label %84 unwind label %93
-
-84:                                               ; preds = %83
-  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #12
-  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #12
-  invoke void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl41computeEdgesReliabilityAndCreateHistogramEv(ptr noundef nonnull align 8 dereferenceable(104) %20)
+  %84 = invoke noundef i32 @_ZNK2cv3Mat4typeEv(ptr noundef nonnull align 8 dereferenceable(96) %10)
           to label %85 unwind label %39
 
-85:                                               ; preds = %84
-  invoke void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl15unwrapHistogramEv(ptr noundef nonnull align 8 dereferenceable(104) %20)
-          to label %86 unwind label %39
+85:                                               ; preds = %83
+  %86 = icmp eq i32 %84, 0
+  br i1 %86, label %87, label %88
 
-86:                                               ; preds = %85
-  %87 = load ptr, ptr %7, align 8
-  invoke void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12addIncrementERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(104) %20, ptr noundef nonnull align 8 dereferenceable(24) %87)
-          to label %88 unwind label %39
+87:                                               ; preds = %85
+  br label %92
 
-88:                                               ; preds = %86
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #12
-  ret void
+88:                                               ; preds = %85
+  %89 = invoke noundef i32 @_ZNK2cv3Mat4typeEv(ptr noundef nonnull align 8 dereferenceable(96) %10)
+          to label %90 unwind label %39
 
-89:                                               ; preds = %82
-  %90 = landingpad { ptr, i32 }
-          cleanup
-  %91 = extractvalue { ptr, i32 } %90, 0
-  store ptr %91, ptr %13, align 8
-  %92 = extractvalue { ptr, i32 } %90, 1
-  store i32 %92, ptr %14, align 4
-  br label %97
+90:                                               ; preds = %88
+  invoke void @_ZN2cv6detail20check_failed_MatTypeEiiRKNS0_12CheckContextE(i32 noundef %89, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl14unwrapPhaseMapERKNS_11_InputArrayERKNS_12_OutputArrayES4_E15__cv_check__406) #20
+          to label %91 unwind label %39
 
-93:                                               ; preds = %83
-  %94 = landingpad { ptr, i32 }
-          cleanup
-  %95 = extractvalue { ptr, i32 } %94, 0
-  store ptr %95, ptr %13, align 8
-  %96 = extractvalue { ptr, i32 } %94, 1
-  store i32 %96, ptr %14, align 4
-  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #12
-  br label %97
+91:                                               ; preds = %90
+  unreachable
 
-97:                                               ; preds = %93, %89
-  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #12
-  br label %98
+92:                                               ; preds = %87
+  br label %93
 
-98:                                               ; preds = %97, %50, %39
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #12
-  br label %99
+93:                                               ; preds = %92
+  br label %94
+
+94:                                               ; preds = %93
+  call void @llvm.lifetime.start.p0(i64 24, ptr %18) #18
+  %95 = load ptr, ptr %9, align 8, !tbaa !95
+  invoke void @_ZN2cv11_InputArrayC2ERKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(96) %95)
+          to label %96 unwind label %103
+
+96:                                               ; preds = %94
+  call void @llvm.lifetime.start.p0(i64 24, ptr %19) #18
+  invoke void @_ZN2cv11_InputArrayC2ERKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(96) %10)
+          to label %97 unwind label %107
+
+97:                                               ; preds = %96
+  invoke void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl24computePixelsReliabilityERKNS_11_InputArrayES4_(ptr noundef nonnull align 8 dereferenceable(104) %20, ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %19)
+          to label %98 unwind label %111
+
+98:                                               ; preds = %97
+  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr %19) #18
+  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr %18) #18
+  invoke void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl41computeEdgesReliabilityAndCreateHistogramEv(ptr noundef nonnull align 8 dereferenceable(104) %20)
+          to label %99 unwind label %39
 
 99:                                               ; preds = %98
-  %100 = load ptr, ptr %13, align 8
-  %101 = load i32, ptr %14, align 4
-  %102 = insertvalue { ptr, i32 } poison, ptr %100, 0
-  %103 = insertvalue { ptr, i32 } %102, i32 %101, 1
-  resume { ptr, i32 } %103
+  invoke void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl15unwrapHistogramEv(ptr noundef nonnull align 8 dereferenceable(104) %20)
+          to label %100 unwind label %39
+
+100:                                              ; preds = %99
+  %101 = load ptr, ptr %7, align 8, !tbaa !93
+  invoke void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12addIncrementERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(104) %20, ptr noundef nonnull align 8 dereferenceable(24) %101)
+          to label %102 unwind label %39
+
+102:                                              ; preds = %100
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #18
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #18
+  call void @llvm.lifetime.end.p0(i64 96, ptr %10) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #18
+  ret void
+
+103:                                              ; preds = %94
+  %104 = landingpad { ptr, i32 }
+          cleanup
+  %105 = extractvalue { ptr, i32 } %104, 0
+  store ptr %105, ptr %13, align 8
+  %106 = extractvalue { ptr, i32 } %104, 1
+  store i32 %106, ptr %14, align 4
+  br label %116
+
+107:                                              ; preds = %96
+  %108 = landingpad { ptr, i32 }
+          cleanup
+  %109 = extractvalue { ptr, i32 } %108, 0
+  store ptr %109, ptr %13, align 8
+  %110 = extractvalue { ptr, i32 } %108, 1
+  store i32 %110, ptr %14, align 4
+  br label %115
+
+111:                                              ; preds = %97
+  %112 = landingpad { ptr, i32 }
+          cleanup
+  %113 = extractvalue { ptr, i32 } %112, 0
+  store ptr %113, ptr %13, align 8
+  %114 = extractvalue { ptr, i32 } %112, 1
+  store i32 %114, ptr %14, align 4
+  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #18
+  br label %115
+
+115:                                              ; preds = %111, %107
+  call void @llvm.lifetime.end.p0(i64 24, ptr %19) #18
+  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #18
+  br label %116
+
+116:                                              ; preds = %115, %103
+  call void @llvm.lifetime.end.p0(i64 24, ptr %18) #18
+  br label %117
+
+117:                                              ; preds = %116, %67, %43, %39
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #18
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #18
+  call void @llvm.lifetime.end.p0(i64 96, ptr %10) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #18
+  br label %118
+
+118:                                              ; preds = %117
+  %119 = load ptr, ptr %13, align 8
+  %120 = load i32, ptr %14, align 4
+  %121 = insertvalue { ptr, i32 } poison, ptr %119, 0
+  %122 = insertvalue { ptr, i32 } %121, i32 %120, 1
+  resume { ptr, i32 } %122
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK2cv11_InputArray6getObjEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK2cv11_InputArray6getObjEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !91
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::_InputArray", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.cv::_InputArray", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !105
   ret ptr %5
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #4
+declare void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #5
 
-declare noundef zeroext i1 @_ZNK2cv11_InputArray5emptyEv(ptr noundef nonnull align 8 dereferenceable(24)) #3
+declare noundef zeroext i1 @_ZNK2cv11_InputArray5emptyEv(ptr noundef nonnull align 8 dereferenceable(24)) #4
 
-declare void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96), i32 noundef, i32 noundef, i32 noundef) #3
+declare void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96), i32 noundef, i32 noundef, i32 noundef) #4
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2cv7Scalar_IdE3allEd(ptr dead_on_unwind noalias writable sret(%"class.cv::Scalar_") align 8 %0, double noundef %1) #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN2cv7Scalar_IdE3allEd(ptr dead_on_unwind noalias writable sret(%"class.cv::Scalar_") align 8 %0, double noundef %1) #8 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca double, align 8
   store ptr %0, ptr %3, align 8
-  store double %1, ptr %4, align 8
-  %5 = load double, ptr %4, align 8
-  %6 = load double, ptr %4, align 8
-  %7 = load double, ptr %4, align 8
-  %8 = load double, ptr %4, align 8
+  store double %1, ptr %4, align 8, !tbaa !108
+  %5 = load double, ptr %4, align 8, !tbaa !108
+  %6 = load double, ptr %4, align 8, !tbaa !108
+  %7 = load double, ptr %4, align 8, !tbaa !108
+  %8 = load double, ptr %4, align 8, !tbaa !108
   call void @_ZN2cv7Scalar_IdEC2Edddd(ptr noundef nonnull align 8 dereferenceable(32) %0, double noundef %5, double noundef %6, double noundef %7, double noundef %8)
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(32)) #3
+declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(32)) #4
 
-declare void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(24)) #3
+declare void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(24)) #4
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2cv12_OutputArrayC2ERNS_3MatE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN2cv12_OutputArrayC2ERNS_3MatE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !93
+  store ptr %1, ptr %4, align 8, !tbaa !95
   %7 = load ptr, ptr %3, align 8
   call void @_ZN2cv11_InputArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7)
-  %8 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %4, align 8, !tbaa !95
   invoke void @_ZN2cv11_InputArray4initEiPKv(ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef 33619968, ptr noundef %8)
           to label %9 unwind label %10
 
@@ -2160,7 +2228,7 @@ define linkonce_odr hidden void @_ZN2cv12_OutputArrayC2ERNS_3MatE(ptr noundef no
   store ptr %12, ptr %5, align 8
   %13 = extractvalue { ptr, i32 } %11, 1
   store i32 %13, ptr %6, align 4
-  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
+  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #18
   br label %14
 
 14:                                               ; preds = %10
@@ -2171,28 +2239,19 @@ define linkonce_odr hidden void @_ZN2cv12_OutputArrayC2ERNS_3MatE(ptr noundef no
   resume { ptr, i32 } %18
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv12_OutputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNK2cv3Mat4typeEv(ptr noundef nonnull align 8 dereferenceable(96) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !95
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZNK2cv3Mat4typeEv(ptr noundef nonnull align 8 dereferenceable(96) %0) #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::Mat", ptr %3, i32 0, i32 0
-  %5 = load i32, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.cv::Mat", ptr %3, i32 0, i32 0
+  %5 = load i32, ptr %4, align 8, !tbaa !110
   %6 = and i32 %5, 4095
   ret i32 %6
 }
 
 ; Function Attrs: noreturn
-declare void @_ZN2cv6detail20check_failed_MatTypeEiiRKNS0_12CheckContextE(i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(48)) #6
+declare void @_ZN2cv6detail20check_failed_MatTypeEiiRKNS0_12CheckContextE(i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(48)) #9
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl24computePixelsReliabilityERKNS_11_InputArrayES4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -2220,8 +2279,8 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl24computePix
   %25 = alloca %"class.cv::Point_", align 4
   %26 = alloca i32, align 4
   %27 = alloca i32, align 4
-  %28 = alloca %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", align 4
-  %29 = alloca %"class.cv::Point_", align 4
+  %28 = alloca i32, align 4
+  %29 = alloca %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", align 4
   %30 = alloca %"class.cv::Point_", align 4
   %31 = alloca %"class.cv::Point_", align 4
   %32 = alloca %"class.cv::Point_", align 4
@@ -2229,544 +2288,683 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl24computePix
   %34 = alloca %"class.cv::Point_", align 4
   %35 = alloca %"class.cv::Point_", align 4
   %36 = alloca %"class.cv::Point_", align 4
-  %37 = alloca %"class.cv::Mat", align 8
-  %38 = alloca %"class.cv::Rect_", align 4
-  %39 = alloca %"class.cv::Scalar_", align 8
-  %40 = alloca %"class.cv::_InputArray", align 8
-  %41 = alloca ptr, align 8
-  %42 = alloca i32, align 4
-  %43 = alloca %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", align 4
+  %37 = alloca %"class.cv::Point_", align 4
+  %38 = alloca %"class.cv::Mat", align 8
+  %39 = alloca %"class.cv::Rect_", align 4
+  %40 = alloca %"class.cv::Scalar_", align 8
+  %41 = alloca %"class.cv::_InputArray", align 8
+  %42 = alloca ptr, align 8
+  %43 = alloca i32, align 4
   %44 = alloca %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", align 4
   %45 = alloca %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %46, i32 0, i32 1
-  %48 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %47, i32 0, i32 1
-  %49 = load i32, ptr %48, align 4
-  store i32 %49, ptr %7, align 4
-  %50 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %46, i32 0, i32 1
-  %51 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %50, i32 0, i32 0
-  %52 = load i32, ptr %51, align 8
-  store i32 %52, ptr %8, align 4
-  %53 = load ptr, ptr %5, align 8
-  %54 = call noundef ptr @_ZNK2cv11_InputArray6getObjEv(ptr noundef nonnull align 8 dereferenceable(24) %53)
-  store ptr %54, ptr %9, align 8
-  %55 = load ptr, ptr %6, align 8
-  %56 = call noundef ptr @_ZNK2cv11_InputArray6getObjEv(ptr noundef nonnull align 8 dereferenceable(24) %55)
-  store ptr %56, ptr %10, align 8
+  %46 = alloca %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", align 4
+  store ptr %0, ptr %4, align 8, !tbaa !16
+  store ptr %1, ptr %5, align 8, !tbaa !91
+  store ptr %2, ptr %6, align 8, !tbaa !91
+  %47 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #18
+  %48 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %47, i32 0, i32 1
+  %49 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %48, i32 0, i32 1
+  %50 = load i32, ptr %49, align 4, !tbaa !97
+  store i32 %50, ptr %7, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #18
+  %51 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %47, i32 0, i32 1
+  %52 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %51, i32 0, i32 0
+  %53 = load i32, ptr %52, align 8, !tbaa !104
+  store i32 %53, ptr %8, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #18
+  %54 = load ptr, ptr %5, align 8, !tbaa !91
+  %55 = call noundef ptr @_ZNK2cv11_InputArray6getObjEv(ptr noundef nonnull align 8 dereferenceable(24) %54)
+  store ptr %55, ptr %9, align 8, !tbaa !95
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #18
+  %56 = load ptr, ptr %6, align 8, !tbaa !91
+  %57 = call noundef ptr @_ZNK2cv11_InputArray6getObjEv(ptr noundef nonnull align 8 dereferenceable(24) %56)
+  store ptr %57, ptr %10, align 8, !tbaa !95
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #18
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #18
   call void @_ZN2cv6Point_IiEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %18)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #18
   call void @_ZN2cv6Point_IiEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %19)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #18
   call void @_ZN2cv6Point_IiEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %20)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #18
   call void @_ZN2cv6Point_IiEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %21)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #18
   call void @_ZN2cv6Point_IiEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %22)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #18
   call void @_ZN2cv6Point_IiEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %23)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #18
   call void @_ZN2cv6Point_IiEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %24)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #18
   call void @_ZN2cv6Point_IiEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %25)
-  store i32 0, ptr %26, align 4
-  br label %57
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #18
+  store i32 0, ptr %26, align 4, !tbaa !23
+  br label %58
 
-57:                                               ; preds = %359, %3
-  %58 = load i32, ptr %26, align 4
-  %59 = load i32, ptr %7, align 4
-  %60 = icmp slt i32 %58, %59
-  br i1 %60, label %61, label %362
+58:                                               ; preds = %375, %3
+  %59 = load i32, ptr %26, align 4, !tbaa !23
+  %60 = load i32, ptr %7, align 4, !tbaa !23
+  %61 = icmp slt i32 %59, %60
+  br i1 %61, label %63, label %62
 
-61:                                               ; preds = %57
-  store i32 0, ptr %27, align 4
-  br label %62
+62:                                               ; preds = %58
+  store i32 2, ptr %27, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #18
+  br label %378
 
-62:                                               ; preds = %355, %61
-  %63 = load i32, ptr %27, align 4
-  %64 = load i32, ptr %8, align 4
-  %65 = icmp slt i32 %63, %64
-  br i1 %65, label %66, label %358
+63:                                               ; preds = %58
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #18
+  store i32 0, ptr %28, align 4, !tbaa !23
+  br label %64
 
-66:                                               ; preds = %62
-  %67 = load ptr, ptr %10, align 8
-  %68 = load i32, ptr %26, align 4
-  %69 = load i32, ptr %27, align 4
-  %70 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN2cv3Mat2atIhEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %67, i32 noundef %68, i32 noundef %69)
-  %71 = load i8, ptr %70, align 1
-  %72 = zext i8 %71 to i32
-  %73 = icmp ne i32 %72, 0
-  br i1 %73, label %74, label %339
+64:                                               ; preds = %371, %63
+  %65 = load i32, ptr %28, align 4, !tbaa !23
+  %66 = load i32, ptr %8, align 4, !tbaa !23
+  %67 = icmp slt i32 %65, %66
+  br i1 %67, label %69, label %68
 
-74:                                               ; preds = %66
-  %75 = load i32, ptr %26, align 4
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %90, label %77
+68:                                               ; preds = %64
+  store i32 5, ptr %27, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #18
+  br label %374
 
-77:                                               ; preds = %74
-  %78 = load i32, ptr %26, align 4
-  %79 = load i32, ptr %7, align 4
-  %80 = sub nsw i32 %79, 1
-  %81 = icmp eq i32 %78, %80
-  br i1 %81, label %90, label %82
+69:                                               ; preds = %64
+  %70 = load ptr, ptr %10, align 8, !tbaa !95
+  %71 = load i32, ptr %26, align 4, !tbaa !23
+  %72 = load i32, ptr %28, align 4, !tbaa !23
+  %73 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN2cv3Mat2atIhEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %70, i32 noundef %71, i32 noundef %72)
+  %74 = load i8, ptr %73, align 1, !tbaa !119
+  %75 = zext i8 %74 to i32
+  %76 = icmp ne i32 %75, 0
+  br i1 %76, label %77, label %355
 
-82:                                               ; preds = %77
-  %83 = load i32, ptr %27, align 4
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %90, label %85
+77:                                               ; preds = %69
+  %78 = load i32, ptr %26, align 4, !tbaa !23
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %93, label %80
 
-85:                                               ; preds = %82
-  %86 = load i32, ptr %27, align 4
-  %87 = load i32, ptr %8, align 4
-  %88 = sub nsw i32 %87, 1
-  %89 = icmp eq i32 %86, %88
-  br i1 %89, label %90, label %105
+80:                                               ; preds = %77
+  %81 = load i32, ptr %26, align 4, !tbaa !23
+  %82 = load i32, ptr %7, align 4, !tbaa !23
+  %83 = sub nsw i32 %82, 1
+  %84 = icmp eq i32 %81, %83
+  br i1 %84, label %93, label %85
 
-90:                                               ; preds = %85, %82, %77, %74
-  %91 = load i32, ptr %26, align 4
-  %92 = load i32, ptr %8, align 4
-  %93 = mul nsw i32 %91, %92
-  %94 = load i32, ptr %27, align 4
-  %95 = add nsw i32 %93, %94
-  store i32 %95, ptr %11, align 4
-  store i8 1, ptr %12, align 1
-  %96 = load ptr, ptr %9, align 8
-  %97 = load i32, ptr %26, align 4
-  %98 = load i32, ptr %27, align 4
-  %99 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %96, i32 noundef %97, i32 noundef %98)
-  %100 = load float, ptr %99, align 4
-  %101 = load i32, ptr %11, align 4
-  %102 = load i8, ptr %12, align 1
-  %103 = trunc i8 %102 to i1
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelC1Efibfi(ptr noundef nonnull align 4 dereferenceable(29) %28, float noundef %100, i32 noundef %101, i1 noundef zeroext %103, float noundef 0x4063BD3CC0000000, i32 noundef 0)
-  %104 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %46, i32 0, i32 2
-  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %104, ptr noundef nonnull align 4 dereferenceable(29) %28)
-  br label %338
+85:                                               ; preds = %80
+  %86 = load i32, ptr %28, align 4, !tbaa !23
+  %87 = icmp eq i32 %86, 0
+  br i1 %87, label %93, label %88
 
-105:                                              ; preds = %85
-  %106 = load i32, ptr %27, align 4
-  %107 = sub nsw i32 %106, 1
-  %108 = load i32, ptr %26, align 4
-  %109 = sub nsw i32 %108, 1
-  call void @_ZN2cv6Point_IiEC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %29, i32 noundef %107, i32 noundef %109)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %18, ptr align 4 %29, i64 8, i1 false)
-  %110 = load i32, ptr %27, align 4
-  %111 = load i32, ptr %26, align 4
+88:                                               ; preds = %85
+  %89 = load i32, ptr %28, align 4, !tbaa !23
+  %90 = load i32, ptr %8, align 4, !tbaa !23
+  %91 = sub nsw i32 %90, 1
+  %92 = icmp eq i32 %89, %91
+  br i1 %92, label %93, label %108
+
+93:                                               ; preds = %88, %85, %80, %77
+  %94 = load i32, ptr %26, align 4, !tbaa !23
+  %95 = load i32, ptr %8, align 4, !tbaa !23
+  %96 = mul nsw i32 %94, %95
+  %97 = load i32, ptr %28, align 4, !tbaa !23
+  %98 = add nsw i32 %96, %97
+  store i32 %98, ptr %11, align 4, !tbaa !23
+  store i8 1, ptr %12, align 1, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 32, ptr %29) #18
+  %99 = load ptr, ptr %9, align 8, !tbaa !95
+  %100 = load i32, ptr %26, align 4, !tbaa !23
+  %101 = load i32, ptr %28, align 4, !tbaa !23
+  %102 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %99, i32 noundef %100, i32 noundef %101)
+  %103 = load float, ptr %102, align 4, !tbaa !24
+  %104 = load i32, ptr %11, align 4, !tbaa !23
+  %105 = load i8, ptr %12, align 1, !tbaa !34, !range !39, !noundef !40
+  %106 = trunc i8 %105 to i1
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelC1Efibfi(ptr noundef nonnull align 4 dereferenceable(29) %29, float noundef %103, i32 noundef %104, i1 noundef zeroext %106, float noundef 0x4063BD3CC0000000, i32 noundef 0)
+  %107 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %47, i32 0, i32 2
+  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %107, ptr noundef nonnull align 4 dereferenceable(29) %29)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %29) #18
+  br label %354
+
+108:                                              ; preds = %88
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #18
+  %109 = load i32, ptr %28, align 4, !tbaa !23
+  %110 = sub nsw i32 %109, 1
+  %111 = load i32, ptr %26, align 4, !tbaa !23
   %112 = sub nsw i32 %111, 1
   call void @_ZN2cv6Point_IiEC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %30, i32 noundef %110, i32 noundef %112)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %19, ptr align 4 %30, i64 8, i1 false)
-  %113 = load i32, ptr %27, align 4
-  %114 = add nsw i32 %113, 1
-  %115 = load i32, ptr %26, align 4
-  %116 = sub nsw i32 %115, 1
-  call void @_ZN2cv6Point_IiEC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %31, i32 noundef %114, i32 noundef %116)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %20, ptr align 4 %31, i64 8, i1 false)
-  %117 = load i32, ptr %27, align 4
-  %118 = sub nsw i32 %117, 1
-  %119 = load i32, ptr %26, align 4
-  call void @_ZN2cv6Point_IiEC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %32, i32 noundef %118, i32 noundef %119)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %21, ptr align 4 %32, i64 8, i1 false)
-  %120 = load i32, ptr %27, align 4
-  %121 = add nsw i32 %120, 1
-  %122 = load i32, ptr %26, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %18, ptr align 4 %30, i64 8, i1 false), !tbaa.struct !120
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #18
+  %113 = load i32, ptr %28, align 4, !tbaa !23
+  %114 = load i32, ptr %26, align 4, !tbaa !23
+  %115 = sub nsw i32 %114, 1
+  call void @_ZN2cv6Point_IiEC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %31, i32 noundef %113, i32 noundef %115)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %19, ptr align 4 %31, i64 8, i1 false), !tbaa.struct !120
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #18
+  %116 = load i32, ptr %28, align 4, !tbaa !23
+  %117 = add nsw i32 %116, 1
+  %118 = load i32, ptr %26, align 4, !tbaa !23
+  %119 = sub nsw i32 %118, 1
+  call void @_ZN2cv6Point_IiEC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %32, i32 noundef %117, i32 noundef %119)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %20, ptr align 4 %32, i64 8, i1 false), !tbaa.struct !120
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #18
+  %120 = load i32, ptr %28, align 4, !tbaa !23
+  %121 = sub nsw i32 %120, 1
+  %122 = load i32, ptr %26, align 4, !tbaa !23
   call void @_ZN2cv6Point_IiEC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %33, i32 noundef %121, i32 noundef %122)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %22, ptr align 4 %33, i64 8, i1 false)
-  %123 = load i32, ptr %27, align 4
-  %124 = sub nsw i32 %123, 1
-  %125 = load i32, ptr %26, align 4
-  %126 = add nsw i32 %125, 1
-  call void @_ZN2cv6Point_IiEC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %34, i32 noundef %124, i32 noundef %126)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %23, ptr align 4 %34, i64 8, i1 false)
-  %127 = load i32, ptr %27, align 4
-  %128 = load i32, ptr %26, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %21, ptr align 4 %33, i64 8, i1 false), !tbaa.struct !120
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #18
+  %123 = load i32, ptr %28, align 4, !tbaa !23
+  %124 = add nsw i32 %123, 1
+  %125 = load i32, ptr %26, align 4, !tbaa !23
+  call void @_ZN2cv6Point_IiEC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %34, i32 noundef %124, i32 noundef %125)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %22, ptr align 4 %34, i64 8, i1 false), !tbaa.struct !120
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #18
+  %126 = load i32, ptr %28, align 4, !tbaa !23
+  %127 = sub nsw i32 %126, 1
+  %128 = load i32, ptr %26, align 4, !tbaa !23
   %129 = add nsw i32 %128, 1
   call void @_ZN2cv6Point_IiEC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %35, i32 noundef %127, i32 noundef %129)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %24, ptr align 4 %35, i64 8, i1 false)
-  %130 = load i32, ptr %27, align 4
-  %131 = add nsw i32 %130, 1
-  %132 = load i32, ptr %26, align 4
-  %133 = add nsw i32 %132, 1
-  call void @_ZN2cv6Point_IiEC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %36, i32 noundef %131, i32 noundef %133)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %25, ptr align 4 %36, i64 8, i1 false)
-  %134 = load ptr, ptr %10, align 8
-  %135 = load i32, ptr %27, align 4
-  %136 = sub nsw i32 %135, 1
-  %137 = load i32, ptr %26, align 4
-  %138 = sub nsw i32 %137, 1
-  call void @_ZN2cv5Rect_IiEC2Eiiii(ptr noundef nonnull align 4 dereferenceable(16) %38, i32 noundef %136, i32 noundef %138, i32 noundef 3, i32 noundef 3)
-  call void @_ZNK2cv3MatclERKNS_5Rect_IiEE(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %37, ptr noundef nonnull align 8 dereferenceable(96) %134, ptr noundef nonnull align 4 dereferenceable(16) %38)
-  invoke void @_ZN2cv11_InputArrayC2ERKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(96) %37)
-          to label %139 unwind label %165
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %23, ptr align 4 %35, i64 8, i1 false), !tbaa.struct !120
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %36) #18
+  %130 = load i32, ptr %28, align 4, !tbaa !23
+  %131 = load i32, ptr %26, align 4, !tbaa !23
+  %132 = add nsw i32 %131, 1
+  call void @_ZN2cv6Point_IiEC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %36, i32 noundef %130, i32 noundef %132)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %24, ptr align 4 %36, i64 8, i1 false), !tbaa.struct !120
+  call void @llvm.lifetime.end.p0(i64 8, ptr %36) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %37) #18
+  %133 = load i32, ptr %28, align 4, !tbaa !23
+  %134 = add nsw i32 %133, 1
+  %135 = load i32, ptr %26, align 4, !tbaa !23
+  %136 = add nsw i32 %135, 1
+  call void @_ZN2cv6Point_IiEC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %37, i32 noundef %134, i32 noundef %136)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %25, ptr align 4 %37, i64 8, i1 false), !tbaa.struct !120
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #18
+  call void @llvm.lifetime.start.p0(i64 96, ptr %38) #18
+  %137 = load ptr, ptr %10, align 8, !tbaa !95
+  call void @llvm.lifetime.start.p0(i64 16, ptr %39) #18
+  %138 = load i32, ptr %28, align 4, !tbaa !23
+  %139 = sub nsw i32 %138, 1
+  %140 = load i32, ptr %26, align 4, !tbaa !23
+  %141 = sub nsw i32 %140, 1
+  call void @_ZN2cv5Rect_IiEC2Eiiii(ptr noundef nonnull align 4 dereferenceable(16) %39, i32 noundef %139, i32 noundef %141, i32 noundef 3, i32 noundef 3)
+  call void @_ZNK2cv3MatclERKNS_5Rect_IiEE(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %38, ptr noundef nonnull align 8 dereferenceable(96) %137, ptr noundef nonnull align 4 dereferenceable(16) %39)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %39) #18
+  call void @llvm.lifetime.start.p0(i64 32, ptr %40) #18
+  call void @llvm.lifetime.start.p0(i64 24, ptr %41) #18
+  invoke void @_ZN2cv11_InputArrayC2ERKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(96) %38)
+          to label %142 unwind label %168
 
-139:                                              ; preds = %105
-  %140 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
-          to label %141 unwind label %169
-
-141:                                              ; preds = %139
-  invoke void @_ZN2cv4meanERKNS_11_InputArrayES2_(ptr dead_on_unwind writable sret(%"class.cv::Scalar_") align 8 %39, ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %140)
-          to label %142 unwind label %169
-
-142:                                              ; preds = %141
-  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #12
-  %143 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3VecIdLi4EEixEi(ptr noundef nonnull align 8 dereferenceable(32) %39, i32 noundef 0)
-          to label %144 unwind label %165
+142:                                              ; preds = %108
+  %143 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
+          to label %144 unwind label %172
 
 144:                                              ; preds = %142
-  %145 = load double, ptr %143, align 8
-  %146 = fcmp une double %145, 2.550000e+02
-  br i1 %146, label %147, label %173
+  invoke void @_ZN2cv4meanERKNS_11_InputArrayES2_(ptr dead_on_unwind writable sret(%"class.cv::Scalar_") align 8 %40, ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %143)
+          to label %145 unwind label %172
 
-147:                                              ; preds = %144
-  %148 = load i32, ptr %26, align 4
-  %149 = load i32, ptr %8, align 4
-  %150 = mul nsw i32 %148, %149
-  %151 = load i32, ptr %27, align 4
-  %152 = add nsw i32 %150, %151
-  store i32 %152, ptr %11, align 4
-  store i8 1, ptr %12, align 1
-  %153 = load ptr, ptr %9, align 8
-  %154 = load i32, ptr %26, align 4
-  %155 = load i32, ptr %27, align 4
-  %156 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %153, i32 noundef %154, i32 noundef %155)
-          to label %157 unwind label %165
+145:                                              ; preds = %144
+  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr %41) #18
+  %146 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3VecIdLi4EEixEi(ptr noundef nonnull align 8 dereferenceable(32) %40, i32 noundef 0)
+          to label %147 unwind label %177
 
-157:                                              ; preds = %147
-  %158 = load float, ptr %156, align 4
-  %159 = load i32, ptr %11, align 4
-  %160 = load i8, ptr %12, align 1
-  %161 = trunc i8 %160 to i1
-  invoke void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelC1Efibfi(ptr noundef nonnull align 4 dereferenceable(29) %43, float noundef %158, i32 noundef %159, i1 noundef zeroext %161, float noundef 0x4063BD3CC0000000, i32 noundef 0)
-          to label %162 unwind label %165
+147:                                              ; preds = %145
+  %148 = load double, ptr %146, align 8, !tbaa !108
+  %149 = fcmp une double %148, 2.550000e+02
+  br i1 %149, label %150, label %185
 
-162:                                              ; preds = %157
-  %163 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %46, i32 0, i32 2
-  invoke void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %163, ptr noundef nonnull align 4 dereferenceable(29) %43)
-          to label %164 unwind label %165
+150:                                              ; preds = %147
+  %151 = load i32, ptr %26, align 4, !tbaa !23
+  %152 = load i32, ptr %8, align 4, !tbaa !23
+  %153 = mul nsw i32 %151, %152
+  %154 = load i32, ptr %28, align 4, !tbaa !23
+  %155 = add nsw i32 %153, %154
+  store i32 %155, ptr %11, align 4, !tbaa !23
+  store i8 1, ptr %12, align 1, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 32, ptr %44) #18
+  %156 = load ptr, ptr %9, align 8, !tbaa !95
+  %157 = load i32, ptr %26, align 4, !tbaa !23
+  %158 = load i32, ptr %28, align 4, !tbaa !23
+  %159 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %156, i32 noundef %157, i32 noundef %158)
+          to label %160 unwind label %181
 
-164:                                              ; preds = %162
-  br label %336
+160:                                              ; preds = %150
+  %161 = load float, ptr %159, align 4, !tbaa !24
+  %162 = load i32, ptr %11, align 4, !tbaa !23
+  %163 = load i8, ptr %12, align 1, !tbaa !34, !range !39, !noundef !40
+  %164 = trunc i8 %163 to i1
+  invoke void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelC1Efibfi(ptr noundef nonnull align 4 dereferenceable(29) %44, float noundef %161, i32 noundef %162, i1 noundef zeroext %164, float noundef 0x4063BD3CC0000000, i32 noundef 0)
+          to label %165 unwind label %181
 
-165:                                              ; preds = %333, %327, %304, %301, %293, %288, %285, %279, %271, %268, %260, %255, %252, %246, %238, %235, %227, %222, %219, %213, %205, %202, %194, %189, %186, %180, %173, %162, %157, %147, %142, %105
-  %166 = landingpad { ptr, i32 }
+165:                                              ; preds = %160
+  %166 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %47, i32 0, i32 2
+  invoke void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %166, ptr noundef nonnull align 4 dereferenceable(29) %44)
+          to label %167 unwind label %181
+
+167:                                              ; preds = %165
+  call void @llvm.lifetime.end.p0(i64 32, ptr %44) #18
+  br label %352
+
+168:                                              ; preds = %108
+  %169 = landingpad { ptr, i32 }
           cleanup
-  %167 = extractvalue { ptr, i32 } %166, 0
-  store ptr %167, ptr %41, align 8
-  %168 = extractvalue { ptr, i32 } %166, 1
-  store i32 %168, ptr %42, align 4
-  br label %337
+  %170 = extractvalue { ptr, i32 } %169, 0
+  store ptr %170, ptr %42, align 8
+  %171 = extractvalue { ptr, i32 } %169, 1
+  store i32 %171, ptr %43, align 4
+  br label %176
 
-169:                                              ; preds = %141, %139
-  %170 = landingpad { ptr, i32 }
+172:                                              ; preds = %144, %142
+  %173 = landingpad { ptr, i32 }
           cleanup
-  %171 = extractvalue { ptr, i32 } %170, 0
-  store ptr %171, ptr %41, align 8
-  %172 = extractvalue { ptr, i32 } %170, 1
-  store i32 %172, ptr %42, align 4
-  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #12
-  br label %337
+  %174 = extractvalue { ptr, i32 } %173, 0
+  store ptr %174, ptr %42, align 8
+  %175 = extractvalue { ptr, i32 } %173, 1
+  store i32 %175, ptr %43, align 4
+  call void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #18
+  br label %176
 
-173:                                              ; preds = %144
-  %174 = load ptr, ptr %9, align 8
-  %175 = getelementptr inbounds %"class.cv::Point_", ptr %21, i32 0, i32 1
-  %176 = load i32, ptr %175, align 4
-  %177 = getelementptr inbounds %"class.cv::Point_", ptr %21, i32 0, i32 0
-  %178 = load i32, ptr %177, align 4
-  %179 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %174, i32 noundef %176, i32 noundef %178)
-          to label %180 unwind label %165
+176:                                              ; preds = %172, %168
+  call void @llvm.lifetime.end.p0(i64 24, ptr %41) #18
+  br label %353
 
-180:                                              ; preds = %173
-  %181 = load float, ptr %179, align 4
-  %182 = load ptr, ptr %9, align 8
-  %183 = load i32, ptr %26, align 4
-  %184 = load i32, ptr %27, align 4
-  %185 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %182, i32 noundef %183, i32 noundef %184)
-          to label %186 unwind label %165
+177:                                              ; preds = %313, %305, %300, %297, %291, %283, %280, %272, %267, %264, %258, %250, %247, %239, %234, %231, %225, %217, %214, %206, %201, %198, %192, %185, %145
+  %178 = landingpad { ptr, i32 }
+          cleanup
+  %179 = extractvalue { ptr, i32 } %178, 0
+  store ptr %179, ptr %42, align 8
+  %180 = extractvalue { ptr, i32 } %178, 1
+  store i32 %180, ptr %43, align 4
+  br label %353
 
-186:                                              ; preds = %180
-  %187 = load float, ptr %185, align 4
-  %188 = invoke noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4wrapEff(ptr noundef nonnull align 8 dereferenceable(104) %46, float noundef %181, float noundef %187)
-          to label %189 unwind label %165
+181:                                              ; preds = %165, %160, %150
+  %182 = landingpad { ptr, i32 }
+          cleanup
+  %183 = extractvalue { ptr, i32 } %182, 0
+  store ptr %183, ptr %42, align 8
+  %184 = extractvalue { ptr, i32 } %182, 1
+  store i32 %184, ptr %43, align 4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %44) #18
+  br label %353
 
-189:                                              ; preds = %186
-  %190 = load ptr, ptr %9, align 8
-  %191 = load i32, ptr %26, align 4
-  %192 = load i32, ptr %27, align 4
-  %193 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %190, i32 noundef %191, i32 noundef %192)
-          to label %194 unwind label %165
+185:                                              ; preds = %147
+  %186 = load ptr, ptr %9, align 8, !tbaa !95
+  %187 = getelementptr inbounds nuw %"class.cv::Point_", ptr %21, i32 0, i32 1
+  %188 = load i32, ptr %187, align 4, !tbaa !121
+  %189 = getelementptr inbounds nuw %"class.cv::Point_", ptr %21, i32 0, i32 0
+  %190 = load i32, ptr %189, align 4, !tbaa !123
+  %191 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %186, i32 noundef %188, i32 noundef %190)
+          to label %192 unwind label %177
 
-194:                                              ; preds = %189
-  %195 = load float, ptr %193, align 4
-  %196 = load ptr, ptr %9, align 8
-  %197 = getelementptr inbounds %"class.cv::Point_", ptr %22, i32 0, i32 1
-  %198 = load i32, ptr %197, align 4
-  %199 = getelementptr inbounds %"class.cv::Point_", ptr %22, i32 0, i32 0
-  %200 = load i32, ptr %199, align 4
-  %201 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %196, i32 noundef %198, i32 noundef %200)
-          to label %202 unwind label %165
+192:                                              ; preds = %185
+  %193 = load float, ptr %191, align 4, !tbaa !24
+  %194 = load ptr, ptr %9, align 8, !tbaa !95
+  %195 = load i32, ptr %26, align 4, !tbaa !23
+  %196 = load i32, ptr %28, align 4, !tbaa !23
+  %197 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %194, i32 noundef %195, i32 noundef %196)
+          to label %198 unwind label %177
 
-202:                                              ; preds = %194
-  %203 = load float, ptr %201, align 4
-  %204 = invoke noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4wrapEff(ptr noundef nonnull align 8 dereferenceable(104) %46, float noundef %195, float noundef %203)
-          to label %205 unwind label %165
+198:                                              ; preds = %192
+  %199 = load float, ptr %197, align 4, !tbaa !24
+  %200 = invoke noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4wrapEff(ptr noundef nonnull align 8 dereferenceable(104) %47, float noundef %193, float noundef %199)
+          to label %201 unwind label %177
 
-205:                                              ; preds = %202
-  %206 = fsub float %188, %204
-  store float %206, ptr %13, align 4
-  %207 = load ptr, ptr %9, align 8
-  %208 = getelementptr inbounds %"class.cv::Point_", ptr %19, i32 0, i32 1
-  %209 = load i32, ptr %208, align 4
-  %210 = getelementptr inbounds %"class.cv::Point_", ptr %19, i32 0, i32 0
-  %211 = load i32, ptr %210, align 4
-  %212 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %207, i32 noundef %209, i32 noundef %211)
-          to label %213 unwind label %165
+201:                                              ; preds = %198
+  %202 = load ptr, ptr %9, align 8, !tbaa !95
+  %203 = load i32, ptr %26, align 4, !tbaa !23
+  %204 = load i32, ptr %28, align 4, !tbaa !23
+  %205 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %202, i32 noundef %203, i32 noundef %204)
+          to label %206 unwind label %177
 
-213:                                              ; preds = %205
-  %214 = load float, ptr %212, align 4
-  %215 = load ptr, ptr %9, align 8
-  %216 = load i32, ptr %26, align 4
-  %217 = load i32, ptr %27, align 4
-  %218 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %215, i32 noundef %216, i32 noundef %217)
-          to label %219 unwind label %165
+206:                                              ; preds = %201
+  %207 = load float, ptr %205, align 4, !tbaa !24
+  %208 = load ptr, ptr %9, align 8, !tbaa !95
+  %209 = getelementptr inbounds nuw %"class.cv::Point_", ptr %22, i32 0, i32 1
+  %210 = load i32, ptr %209, align 4, !tbaa !121
+  %211 = getelementptr inbounds nuw %"class.cv::Point_", ptr %22, i32 0, i32 0
+  %212 = load i32, ptr %211, align 4, !tbaa !123
+  %213 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %208, i32 noundef %210, i32 noundef %212)
+          to label %214 unwind label %177
 
-219:                                              ; preds = %213
-  %220 = load float, ptr %218, align 4
-  %221 = invoke noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4wrapEff(ptr noundef nonnull align 8 dereferenceable(104) %46, float noundef %214, float noundef %220)
-          to label %222 unwind label %165
+214:                                              ; preds = %206
+  %215 = load float, ptr %213, align 4, !tbaa !24
+  %216 = invoke noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4wrapEff(ptr noundef nonnull align 8 dereferenceable(104) %47, float noundef %207, float noundef %215)
+          to label %217 unwind label %177
 
-222:                                              ; preds = %219
-  %223 = load ptr, ptr %9, align 8
-  %224 = load i32, ptr %26, align 4
-  %225 = load i32, ptr %27, align 4
-  %226 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %223, i32 noundef %224, i32 noundef %225)
-          to label %227 unwind label %165
+217:                                              ; preds = %214
+  %218 = fsub float %200, %216
+  store float %218, ptr %13, align 4, !tbaa !24
+  %219 = load ptr, ptr %9, align 8, !tbaa !95
+  %220 = getelementptr inbounds nuw %"class.cv::Point_", ptr %19, i32 0, i32 1
+  %221 = load i32, ptr %220, align 4, !tbaa !121
+  %222 = getelementptr inbounds nuw %"class.cv::Point_", ptr %19, i32 0, i32 0
+  %223 = load i32, ptr %222, align 4, !tbaa !123
+  %224 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %219, i32 noundef %221, i32 noundef %223)
+          to label %225 unwind label %177
 
-227:                                              ; preds = %222
-  %228 = load float, ptr %226, align 4
-  %229 = load ptr, ptr %9, align 8
-  %230 = getelementptr inbounds %"class.cv::Point_", ptr %24, i32 0, i32 1
-  %231 = load i32, ptr %230, align 4
-  %232 = getelementptr inbounds %"class.cv::Point_", ptr %24, i32 0, i32 0
-  %233 = load i32, ptr %232, align 4
-  %234 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %229, i32 noundef %231, i32 noundef %233)
-          to label %235 unwind label %165
+225:                                              ; preds = %217
+  %226 = load float, ptr %224, align 4, !tbaa !24
+  %227 = load ptr, ptr %9, align 8, !tbaa !95
+  %228 = load i32, ptr %26, align 4, !tbaa !23
+  %229 = load i32, ptr %28, align 4, !tbaa !23
+  %230 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %227, i32 noundef %228, i32 noundef %229)
+          to label %231 unwind label %177
 
-235:                                              ; preds = %227
-  %236 = load float, ptr %234, align 4
-  %237 = invoke noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4wrapEff(ptr noundef nonnull align 8 dereferenceable(104) %46, float noundef %228, float noundef %236)
-          to label %238 unwind label %165
+231:                                              ; preds = %225
+  %232 = load float, ptr %230, align 4, !tbaa !24
+  %233 = invoke noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4wrapEff(ptr noundef nonnull align 8 dereferenceable(104) %47, float noundef %226, float noundef %232)
+          to label %234 unwind label %177
 
-238:                                              ; preds = %235
-  %239 = fsub float %221, %237
-  store float %239, ptr %14, align 4
-  %240 = load ptr, ptr %9, align 8
-  %241 = getelementptr inbounds %"class.cv::Point_", ptr %18, i32 0, i32 1
-  %242 = load i32, ptr %241, align 4
-  %243 = getelementptr inbounds %"class.cv::Point_", ptr %18, i32 0, i32 0
-  %244 = load i32, ptr %243, align 4
-  %245 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %240, i32 noundef %242, i32 noundef %244)
-          to label %246 unwind label %165
+234:                                              ; preds = %231
+  %235 = load ptr, ptr %9, align 8, !tbaa !95
+  %236 = load i32, ptr %26, align 4, !tbaa !23
+  %237 = load i32, ptr %28, align 4, !tbaa !23
+  %238 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %235, i32 noundef %236, i32 noundef %237)
+          to label %239 unwind label %177
 
-246:                                              ; preds = %238
-  %247 = load float, ptr %245, align 4
-  %248 = load ptr, ptr %9, align 8
-  %249 = load i32, ptr %26, align 4
-  %250 = load i32, ptr %27, align 4
-  %251 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %248, i32 noundef %249, i32 noundef %250)
-          to label %252 unwind label %165
+239:                                              ; preds = %234
+  %240 = load float, ptr %238, align 4, !tbaa !24
+  %241 = load ptr, ptr %9, align 8, !tbaa !95
+  %242 = getelementptr inbounds nuw %"class.cv::Point_", ptr %24, i32 0, i32 1
+  %243 = load i32, ptr %242, align 4, !tbaa !121
+  %244 = getelementptr inbounds nuw %"class.cv::Point_", ptr %24, i32 0, i32 0
+  %245 = load i32, ptr %244, align 4, !tbaa !123
+  %246 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %241, i32 noundef %243, i32 noundef %245)
+          to label %247 unwind label %177
 
-252:                                              ; preds = %246
-  %253 = load float, ptr %251, align 4
-  %254 = invoke noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4wrapEff(ptr noundef nonnull align 8 dereferenceable(104) %46, float noundef %247, float noundef %253)
-          to label %255 unwind label %165
+247:                                              ; preds = %239
+  %248 = load float, ptr %246, align 4, !tbaa !24
+  %249 = invoke noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4wrapEff(ptr noundef nonnull align 8 dereferenceable(104) %47, float noundef %240, float noundef %248)
+          to label %250 unwind label %177
 
-255:                                              ; preds = %252
-  %256 = load ptr, ptr %9, align 8
-  %257 = load i32, ptr %26, align 4
-  %258 = load i32, ptr %27, align 4
-  %259 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %256, i32 noundef %257, i32 noundef %258)
-          to label %260 unwind label %165
+250:                                              ; preds = %247
+  %251 = fsub float %233, %249
+  store float %251, ptr %14, align 4, !tbaa !24
+  %252 = load ptr, ptr %9, align 8, !tbaa !95
+  %253 = getelementptr inbounds nuw %"class.cv::Point_", ptr %18, i32 0, i32 1
+  %254 = load i32, ptr %253, align 4, !tbaa !121
+  %255 = getelementptr inbounds nuw %"class.cv::Point_", ptr %18, i32 0, i32 0
+  %256 = load i32, ptr %255, align 4, !tbaa !123
+  %257 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %252, i32 noundef %254, i32 noundef %256)
+          to label %258 unwind label %177
 
-260:                                              ; preds = %255
-  %261 = load float, ptr %259, align 4
-  %262 = load ptr, ptr %9, align 8
-  %263 = getelementptr inbounds %"class.cv::Point_", ptr %25, i32 0, i32 1
-  %264 = load i32, ptr %263, align 4
-  %265 = getelementptr inbounds %"class.cv::Point_", ptr %25, i32 0, i32 0
-  %266 = load i32, ptr %265, align 4
-  %267 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %262, i32 noundef %264, i32 noundef %266)
-          to label %268 unwind label %165
+258:                                              ; preds = %250
+  %259 = load float, ptr %257, align 4, !tbaa !24
+  %260 = load ptr, ptr %9, align 8, !tbaa !95
+  %261 = load i32, ptr %26, align 4, !tbaa !23
+  %262 = load i32, ptr %28, align 4, !tbaa !23
+  %263 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %260, i32 noundef %261, i32 noundef %262)
+          to label %264 unwind label %177
 
-268:                                              ; preds = %260
-  %269 = load float, ptr %267, align 4
-  %270 = invoke noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4wrapEff(ptr noundef nonnull align 8 dereferenceable(104) %46, float noundef %261, float noundef %269)
-          to label %271 unwind label %165
+264:                                              ; preds = %258
+  %265 = load float, ptr %263, align 4, !tbaa !24
+  %266 = invoke noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4wrapEff(ptr noundef nonnull align 8 dereferenceable(104) %47, float noundef %259, float noundef %265)
+          to label %267 unwind label %177
 
-271:                                              ; preds = %268
-  %272 = fsub float %254, %270
-  store float %272, ptr %15, align 4
-  %273 = load ptr, ptr %9, align 8
-  %274 = getelementptr inbounds %"class.cv::Point_", ptr %20, i32 0, i32 1
-  %275 = load i32, ptr %274, align 4
-  %276 = getelementptr inbounds %"class.cv::Point_", ptr %20, i32 0, i32 0
-  %277 = load i32, ptr %276, align 4
-  %278 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %273, i32 noundef %275, i32 noundef %277)
-          to label %279 unwind label %165
+267:                                              ; preds = %264
+  %268 = load ptr, ptr %9, align 8, !tbaa !95
+  %269 = load i32, ptr %26, align 4, !tbaa !23
+  %270 = load i32, ptr %28, align 4, !tbaa !23
+  %271 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %268, i32 noundef %269, i32 noundef %270)
+          to label %272 unwind label %177
 
-279:                                              ; preds = %271
-  %280 = load float, ptr %278, align 4
-  %281 = load ptr, ptr %9, align 8
-  %282 = load i32, ptr %26, align 4
-  %283 = load i32, ptr %27, align 4
-  %284 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %281, i32 noundef %282, i32 noundef %283)
-          to label %285 unwind label %165
+272:                                              ; preds = %267
+  %273 = load float, ptr %271, align 4, !tbaa !24
+  %274 = load ptr, ptr %9, align 8, !tbaa !95
+  %275 = getelementptr inbounds nuw %"class.cv::Point_", ptr %25, i32 0, i32 1
+  %276 = load i32, ptr %275, align 4, !tbaa !121
+  %277 = getelementptr inbounds nuw %"class.cv::Point_", ptr %25, i32 0, i32 0
+  %278 = load i32, ptr %277, align 4, !tbaa !123
+  %279 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %274, i32 noundef %276, i32 noundef %278)
+          to label %280 unwind label %177
 
-285:                                              ; preds = %279
-  %286 = load float, ptr %284, align 4
-  %287 = invoke noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4wrapEff(ptr noundef nonnull align 8 dereferenceable(104) %46, float noundef %280, float noundef %286)
-          to label %288 unwind label %165
+280:                                              ; preds = %272
+  %281 = load float, ptr %279, align 4, !tbaa !24
+  %282 = invoke noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4wrapEff(ptr noundef nonnull align 8 dereferenceable(104) %47, float noundef %273, float noundef %281)
+          to label %283 unwind label %177
 
-288:                                              ; preds = %285
-  %289 = load ptr, ptr %9, align 8
-  %290 = load i32, ptr %26, align 4
-  %291 = load i32, ptr %27, align 4
-  %292 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %289, i32 noundef %290, i32 noundef %291)
-          to label %293 unwind label %165
+283:                                              ; preds = %280
+  %284 = fsub float %266, %282
+  store float %284, ptr %15, align 4, !tbaa !24
+  %285 = load ptr, ptr %9, align 8, !tbaa !95
+  %286 = getelementptr inbounds nuw %"class.cv::Point_", ptr %20, i32 0, i32 1
+  %287 = load i32, ptr %286, align 4, !tbaa !121
+  %288 = getelementptr inbounds nuw %"class.cv::Point_", ptr %20, i32 0, i32 0
+  %289 = load i32, ptr %288, align 4, !tbaa !123
+  %290 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %285, i32 noundef %287, i32 noundef %289)
+          to label %291 unwind label %177
 
-293:                                              ; preds = %288
-  %294 = load float, ptr %292, align 4
-  %295 = load ptr, ptr %9, align 8
-  %296 = getelementptr inbounds %"class.cv::Point_", ptr %23, i32 0, i32 1
-  %297 = load i32, ptr %296, align 4
-  %298 = getelementptr inbounds %"class.cv::Point_", ptr %23, i32 0, i32 0
-  %299 = load i32, ptr %298, align 4
-  %300 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %295, i32 noundef %297, i32 noundef %299)
-          to label %301 unwind label %165
+291:                                              ; preds = %283
+  %292 = load float, ptr %290, align 4, !tbaa !24
+  %293 = load ptr, ptr %9, align 8, !tbaa !95
+  %294 = load i32, ptr %26, align 4, !tbaa !23
+  %295 = load i32, ptr %28, align 4, !tbaa !23
+  %296 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %293, i32 noundef %294, i32 noundef %295)
+          to label %297 unwind label %177
 
-301:                                              ; preds = %293
-  %302 = load float, ptr %300, align 4
-  %303 = invoke noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4wrapEff(ptr noundef nonnull align 8 dereferenceable(104) %46, float noundef %294, float noundef %302)
-          to label %304 unwind label %165
+297:                                              ; preds = %291
+  %298 = load float, ptr %296, align 4, !tbaa !24
+  %299 = invoke noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4wrapEff(ptr noundef nonnull align 8 dereferenceable(104) %47, float noundef %292, float noundef %298)
+          to label %300 unwind label %177
 
-304:                                              ; preds = %301
-  %305 = fsub float %287, %303
-  store float %305, ptr %16, align 4
-  %306 = load float, ptr %13, align 4
-  %307 = load float, ptr %13, align 4
-  %308 = load float, ptr %14, align 4
-  %309 = load float, ptr %14, align 4
-  %310 = fmul float %308, %309
-  %311 = call float @llvm.fmuladd.f32(float %306, float %307, float %310)
-  %312 = load float, ptr %15, align 4
-  %313 = load float, ptr %15, align 4
-  %314 = call float @llvm.fmuladd.f32(float %312, float %313, float %311)
-  %315 = load float, ptr %16, align 4
-  %316 = load float, ptr %16, align 4
-  %317 = call float @llvm.fmuladd.f32(float %315, float %316, float %314)
-  store float %317, ptr %17, align 4
-  %318 = load i32, ptr %26, align 4
-  %319 = load i32, ptr %8, align 4
-  %320 = mul nsw i32 %318, %319
-  %321 = load i32, ptr %27, align 4
-  %322 = add nsw i32 %320, %321
-  store i32 %322, ptr %11, align 4
-  store i8 1, ptr %12, align 1
-  %323 = load ptr, ptr %9, align 8
-  %324 = load i32, ptr %26, align 4
-  %325 = load i32, ptr %27, align 4
-  %326 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %323, i32 noundef %324, i32 noundef %325)
-          to label %327 unwind label %165
+300:                                              ; preds = %297
+  %301 = load ptr, ptr %9, align 8, !tbaa !95
+  %302 = load i32, ptr %26, align 4, !tbaa !23
+  %303 = load i32, ptr %28, align 4, !tbaa !23
+  %304 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %301, i32 noundef %302, i32 noundef %303)
+          to label %305 unwind label %177
 
-327:                                              ; preds = %304
-  %328 = load float, ptr %326, align 4
-  %329 = load i32, ptr %11, align 4
-  %330 = load i8, ptr %12, align 1
-  %331 = trunc i8 %330 to i1
-  %332 = load float, ptr %17, align 4
-  invoke void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelC1Efibfi(ptr noundef nonnull align 4 dereferenceable(29) %44, float noundef %328, i32 noundef %329, i1 noundef zeroext %331, float noundef %332, i32 noundef 0)
-          to label %333 unwind label %165
+305:                                              ; preds = %300
+  %306 = load float, ptr %304, align 4, !tbaa !24
+  %307 = load ptr, ptr %9, align 8, !tbaa !95
+  %308 = getelementptr inbounds nuw %"class.cv::Point_", ptr %23, i32 0, i32 1
+  %309 = load i32, ptr %308, align 4, !tbaa !121
+  %310 = getelementptr inbounds nuw %"class.cv::Point_", ptr %23, i32 0, i32 0
+  %311 = load i32, ptr %310, align 4, !tbaa !123
+  %312 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %307, i32 noundef %309, i32 noundef %311)
+          to label %313 unwind label %177
 
-333:                                              ; preds = %327
-  %334 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %46, i32 0, i32 2
-  invoke void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %334, ptr noundef nonnull align 4 dereferenceable(29) %44)
-          to label %335 unwind label %165
+313:                                              ; preds = %305
+  %314 = load float, ptr %312, align 4, !tbaa !24
+  %315 = invoke noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4wrapEff(ptr noundef nonnull align 8 dereferenceable(104) %47, float noundef %306, float noundef %314)
+          to label %316 unwind label %177
 
-335:                                              ; preds = %333
-  br label %336
+316:                                              ; preds = %313
+  %317 = fsub float %299, %315
+  store float %317, ptr %16, align 4, !tbaa !24
+  %318 = load float, ptr %13, align 4, !tbaa !24
+  %319 = load float, ptr %13, align 4, !tbaa !24
+  %320 = load float, ptr %14, align 4, !tbaa !24
+  %321 = load float, ptr %14, align 4, !tbaa !24
+  %322 = fmul float %320, %321
+  %323 = call float @llvm.fmuladd.f32(float %318, float %319, float %322)
+  %324 = load float, ptr %15, align 4, !tbaa !24
+  %325 = load float, ptr %15, align 4, !tbaa !24
+  %326 = call float @llvm.fmuladd.f32(float %324, float %325, float %323)
+  %327 = load float, ptr %16, align 4, !tbaa !24
+  %328 = load float, ptr %16, align 4, !tbaa !24
+  %329 = call float @llvm.fmuladd.f32(float %327, float %328, float %326)
+  store float %329, ptr %17, align 4, !tbaa !24
+  %330 = load i32, ptr %26, align 4, !tbaa !23
+  %331 = load i32, ptr %8, align 4, !tbaa !23
+  %332 = mul nsw i32 %330, %331
+  %333 = load i32, ptr %28, align 4, !tbaa !23
+  %334 = add nsw i32 %332, %333
+  store i32 %334, ptr %11, align 4, !tbaa !23
+  store i8 1, ptr %12, align 1, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 32, ptr %45) #18
+  %335 = load ptr, ptr %9, align 8, !tbaa !95
+  %336 = load i32, ptr %26, align 4, !tbaa !23
+  %337 = load i32, ptr %28, align 4, !tbaa !23
+  %338 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %335, i32 noundef %336, i32 noundef %337)
+          to label %339 unwind label %348
 
-336:                                              ; preds = %335, %164
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %37) #12
-  br label %338
+339:                                              ; preds = %316
+  %340 = load float, ptr %338, align 4, !tbaa !24
+  %341 = load i32, ptr %11, align 4, !tbaa !23
+  %342 = load i8, ptr %12, align 1, !tbaa !34, !range !39, !noundef !40
+  %343 = trunc i8 %342 to i1
+  %344 = load float, ptr %17, align 4, !tbaa !24
+  invoke void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelC1Efibfi(ptr noundef nonnull align 4 dereferenceable(29) %45, float noundef %340, i32 noundef %341, i1 noundef zeroext %343, float noundef %344, i32 noundef 0)
+          to label %345 unwind label %348
 
-337:                                              ; preds = %169, %165
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %37) #12
-  br label %363
+345:                                              ; preds = %339
+  %346 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %47, i32 0, i32 2
+  invoke void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %346, ptr noundef nonnull align 4 dereferenceable(29) %45)
+          to label %347 unwind label %348
 
-338:                                              ; preds = %336, %90
+347:                                              ; preds = %345
+  call void @llvm.lifetime.end.p0(i64 32, ptr %45) #18
+  br label %352
+
+348:                                              ; preds = %345, %339, %316
+  %349 = landingpad { ptr, i32 }
+          cleanup
+  %350 = extractvalue { ptr, i32 } %349, 0
+  store ptr %350, ptr %42, align 8
+  %351 = extractvalue { ptr, i32 } %349, 1
+  store i32 %351, ptr %43, align 4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %45) #18
+  br label %353
+
+352:                                              ; preds = %347, %167
+  call void @llvm.lifetime.end.p0(i64 32, ptr %40) #18
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #18
+  call void @llvm.lifetime.end.p0(i64 96, ptr %38) #18
   br label %354
 
-339:                                              ; preds = %66
-  %340 = load i32, ptr %26, align 4
-  %341 = load i32, ptr %8, align 4
-  %342 = mul nsw i32 %340, %341
-  %343 = load i32, ptr %27, align 4
-  %344 = add nsw i32 %342, %343
-  store i32 %344, ptr %11, align 4
-  store i8 0, ptr %12, align 1
-  %345 = load ptr, ptr %9, align 8
-  %346 = load i32, ptr %26, align 4
-  %347 = load i32, ptr %27, align 4
-  %348 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %345, i32 noundef %346, i32 noundef %347)
-  %349 = load float, ptr %348, align 4
-  %350 = load i32, ptr %11, align 4
-  %351 = load i8, ptr %12, align 1
-  %352 = trunc i8 %351 to i1
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelC1Efibfi(ptr noundef nonnull align 4 dereferenceable(29) %45, float noundef %349, i32 noundef %350, i1 noundef zeroext %352, float noundef 0x4063BD3CC0000000, i32 noundef 0)
-  %353 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %46, i32 0, i32 2
-  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %353, ptr noundef nonnull align 4 dereferenceable(29) %45)
-  br label %354
+353:                                              ; preds = %348, %181, %177, %176
+  call void @llvm.lifetime.end.p0(i64 32, ptr %40) #18
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #18
+  call void @llvm.lifetime.end.p0(i64 96, ptr %38) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #18
+  br label %379
 
-354:                                              ; preds = %339, %338
-  br label %355
+354:                                              ; preds = %352, %93
+  br label %370
 
-355:                                              ; preds = %354
-  %356 = load i32, ptr %27, align 4
-  %357 = add nsw i32 %356, 1
-  store i32 %357, ptr %27, align 4
-  br label %62, !llvm.loop !7
+355:                                              ; preds = %69
+  %356 = load i32, ptr %26, align 4, !tbaa !23
+  %357 = load i32, ptr %8, align 4, !tbaa !23
+  %358 = mul nsw i32 %356, %357
+  %359 = load i32, ptr %28, align 4, !tbaa !23
+  %360 = add nsw i32 %358, %359
+  store i32 %360, ptr %11, align 4, !tbaa !23
+  store i8 0, ptr %12, align 1, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 32, ptr %46) #18
+  %361 = load ptr, ptr %9, align 8, !tbaa !95
+  %362 = load i32, ptr %26, align 4, !tbaa !23
+  %363 = load i32, ptr %28, align 4, !tbaa !23
+  %364 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %361, i32 noundef %362, i32 noundef %363)
+  %365 = load float, ptr %364, align 4, !tbaa !24
+  %366 = load i32, ptr %11, align 4, !tbaa !23
+  %367 = load i8, ptr %12, align 1, !tbaa !34, !range !39, !noundef !40
+  %368 = trunc i8 %367 to i1
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelC1Efibfi(ptr noundef nonnull align 4 dereferenceable(29) %46, float noundef %365, i32 noundef %366, i1 noundef zeroext %368, float noundef 0x4063BD3CC0000000, i32 noundef 0)
+  %369 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %47, i32 0, i32 2
+  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %369, ptr noundef nonnull align 4 dereferenceable(29) %46)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %46) #18
+  br label %370
 
-358:                                              ; preds = %62
-  br label %359
+370:                                              ; preds = %355, %354
+  br label %371
 
-359:                                              ; preds = %358
-  %360 = load i32, ptr %26, align 4
-  %361 = add nsw i32 %360, 1
-  store i32 %361, ptr %26, align 4
-  br label %57, !llvm.loop !8
+371:                                              ; preds = %370
+  %372 = load i32, ptr %28, align 4, !tbaa !23
+  %373 = add nsw i32 %372, 1
+  store i32 %373, ptr %28, align 4, !tbaa !23
+  br label %64, !llvm.loop !124
 
-362:                                              ; preds = %57
+374:                                              ; preds = %68
+  br label %375
+
+375:                                              ; preds = %374
+  %376 = load i32, ptr %26, align 4, !tbaa !23
+  %377 = add nsw i32 %376, 1
+  store i32 %377, ptr %26, align 4, !tbaa !23
+  br label %58, !llvm.loop !125
+
+378:                                              ; preds = %62
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #18
   ret void
 
-363:                                              ; preds = %337
-  %364 = load ptr, ptr %41, align 8
-  %365 = load i32, ptr %42, align 4
-  %366 = insertvalue { ptr, i32 } poison, ptr %364, 0
-  %367 = insertvalue { ptr, i32 } %366, i32 %365, 1
-  resume { ptr, i32 } %367
+379:                                              ; preds = %353
+  %380 = load ptr, ptr %42, align 8
+  %381 = load i32, ptr %43, align 4
+  %382 = insertvalue { ptr, i32 } poison, ptr %380, 0
+  %383 = insertvalue { ptr, i32 } %382, i32 %381, 1
+  resume { ptr, i32 } %383
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2cv11_InputArrayC2ERKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN2cv11_InputArrayC2ERKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #8 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !91
+  store ptr %1, ptr %4, align 8, !tbaa !95
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.cv::_InputArray", ptr %5, i32 0, i32 2
+  %6 = getelementptr inbounds nuw %"class.cv::_InputArray", ptr %5, i32 0, i32 2
   call void @_ZN2cv5Size_IiEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %6)
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !95
   call void @_ZN2cv11_InputArray4initEiPKv(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 16842752, ptr noundef %7)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv11_InputArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !91
   ret void
 }
 
@@ -2781,190 +2979,209 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl41computeEdg
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 3
-  %13 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
-  %14 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %13, i32 0, i32 2
-  %15 = load float, ptr %14, align 8
-  %16 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
-  %17 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %16, i32 0, i32 3
-  %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
-  %20 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %19, i32 0, i32 4
-  %21 = load i32, ptr %20, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #18
+  %12 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 3
+  %13 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %13, i32 0, i32 2
+  %15 = load float, ptr %14, align 8, !tbaa !126
+  %16 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
+  %17 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %16, i32 0, i32 3
+  %18 = load i32, ptr %17, align 4, !tbaa !127
+  %19 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
+  %20 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %19, i32 0, i32 4
+  %21 = load i32, ptr %20, align 8, !tbaa !128
   call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram10createBinsEfii(ptr noundef nonnull align 8 dereferenceable(48) %12, float noundef %15, i32 noundef %18, i32 noundef %21)
-  %22 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 2
-  %23 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %22) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #18
+  %22 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 2
+  %23 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %22) #18
   %24 = trunc i64 %23 to i32
-  store i32 %24, ptr %5, align 4
-  store i32 0, ptr %6, align 4
+  store i32 %24, ptr %5, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #18
+  store i32 0, ptr %6, align 4, !tbaa !23
   br label %25
 
-25:                                               ; preds = %142, %1
-  %26 = load i32, ptr %6, align 4
-  %27 = load i32, ptr %5, align 4
+25:                                               ; preds = %143, %1
+  %26 = load i32, ptr %6, align 4, !tbaa !23
+  %27 = load i32, ptr %5, align 4, !tbaa !23
   %28 = icmp slt i32 %26, %27
-  br i1 %28, label %29, label %145
+  br i1 %28, label %30, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 2
-  %31 = load i32, ptr %6, align 4
-  %32 = sext i32 %31 to i64
-  %33 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %30, i64 noundef %32) #12
-  %34 = call noundef zeroext i1 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel11getValidityEv(ptr noundef nonnull align 4 dereferenceable(29) %33)
-  br i1 %34, label %35, label %141
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #18
+  br label %146
 
-35:                                               ; preds = %29
-  %36 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 2
-  %37 = load i32, ptr %6, align 4
-  %38 = sext i32 %37 to i64
-  %39 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %36, i64 noundef %38) #12
-  %40 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel8getIndexEv(ptr noundef nonnull align 4 dereferenceable(29) %39)
-  %41 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
-  %42 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %41, i32 0, i32 0
-  %43 = load i32, ptr %42, align 8
-  %44 = sdiv i32 %40, %43
-  store i32 %44, ptr %3, align 4
-  %45 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 2
-  %46 = load i32, ptr %6, align 4
-  %47 = sext i32 %46 to i64
-  %48 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %45, i64 noundef %47) #12
-  %49 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel8getIndexEv(ptr noundef nonnull align 4 dereferenceable(29) %48)
-  %50 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
-  %51 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %50, i32 0, i32 0
-  %52 = load i32, ptr %51, align 8
-  %53 = srem i32 %49, %52
-  store i32 %53, ptr %4, align 4
-  %54 = load i32, ptr %3, align 4
-  %55 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
-  %56 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %55, i32 0, i32 1
-  %57 = load i32, ptr %56, align 4
-  %58 = sub nsw i32 %57, 1
-  %59 = icmp ne i32 %54, %58
-  br i1 %59, label %60, label %88
+30:                                               ; preds = %25
+  %31 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 2
+  %32 = load i32, ptr %6, align 4, !tbaa !23
+  %33 = sext i32 %32 to i64
+  %34 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %31, i64 noundef %33) #18
+  %35 = call noundef zeroext i1 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel11getValidityEv(ptr noundef nonnull align 4 dereferenceable(29) %34)
+  br i1 %35, label %36, label %142
 
-60:                                               ; preds = %35
-  %61 = load i32, ptr %4, align 4
-  %62 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
-  %63 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %62, i32 0, i32 0
-  %64 = load i32, ptr %63, align 8
-  %65 = sub nsw i32 %64, 1
-  %66 = icmp ne i32 %61, %65
-  br i1 %66, label %67, label %88
+36:                                               ; preds = %30
+  %37 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 2
+  %38 = load i32, ptr %6, align 4, !tbaa !23
+  %39 = sext i32 %38 to i64
+  %40 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %39) #18
+  %41 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel8getIndexEv(ptr noundef nonnull align 4 dereferenceable(29) %40)
+  %42 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
+  %43 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %42, i32 0, i32 0
+  %44 = load i32, ptr %43, align 8, !tbaa !104
+  %45 = sdiv i32 %41, %44
+  store i32 %45, ptr %3, align 4, !tbaa !23
+  %46 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 2
+  %47 = load i32, ptr %6, align 4, !tbaa !23
+  %48 = sext i32 %47 to i64
+  %49 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %46, i64 noundef %48) #18
+  %50 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel8getIndexEv(ptr noundef nonnull align 4 dereferenceable(29) %49)
+  %51 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
+  %52 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %51, i32 0, i32 0
+  %53 = load i32, ptr %52, align 8, !tbaa !104
+  %54 = srem i32 %50, %53
+  store i32 %54, ptr %4, align 4, !tbaa !23
+  %55 = load i32, ptr %3, align 4, !tbaa !23
+  %56 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
+  %57 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %56, i32 0, i32 1
+  %58 = load i32, ptr %57, align 4, !tbaa !97
+  %59 = sub nsw i32 %58, 1
+  %60 = icmp ne i32 %55, %59
+  br i1 %60, label %61, label %89
 
-67:                                               ; preds = %60
-  %68 = load i32, ptr %3, align 4
-  %69 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
-  %70 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %69, i32 0, i32 0
-  %71 = load i32, ptr %70, align 8
-  %72 = mul nsw i32 %68, %71
-  %73 = load i32, ptr %4, align 4
-  %74 = add nsw i32 %72, %73
-  %75 = add nsw i32 %74, 1
-  store i32 %75, ptr %7, align 4
-  %76 = load i32, ptr %3, align 4
-  %77 = add nsw i32 %76, 1
-  %78 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
-  %79 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %78, i32 0, i32 0
-  %80 = load i32, ptr %79, align 8
-  %81 = mul nsw i32 %77, %80
-  %82 = load i32, ptr %4, align 4
-  %83 = add nsw i32 %81, %82
-  store i32 %83, ptr %8, align 4
-  %84 = load i32, ptr %6, align 4
-  %85 = load i32, ptr %7, align 4
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl17createAndSortEdgeEii(ptr noundef nonnull align 8 dereferenceable(104) %11, i32 noundef %84, i32 noundef %85)
-  %86 = load i32, ptr %6, align 4
-  %87 = load i32, ptr %8, align 4
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl17createAndSortEdgeEii(ptr noundef nonnull align 8 dereferenceable(104) %11, i32 noundef %86, i32 noundef %87)
-  br label %140
+61:                                               ; preds = %36
+  %62 = load i32, ptr %4, align 4, !tbaa !23
+  %63 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
+  %64 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %63, i32 0, i32 0
+  %65 = load i32, ptr %64, align 8, !tbaa !104
+  %66 = sub nsw i32 %65, 1
+  %67 = icmp ne i32 %62, %66
+  br i1 %67, label %68, label %89
 
-88:                                               ; preds = %60, %35
-  %89 = load i32, ptr %3, align 4
-  %90 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
-  %91 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %90, i32 0, i32 1
-  %92 = load i32, ptr %91, align 4
-  %93 = sub nsw i32 %92, 1
-  %94 = icmp ne i32 %89, %93
-  br i1 %94, label %95, label %113
-
-95:                                               ; preds = %88
-  %96 = load i32, ptr %4, align 4
-  %97 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
-  %98 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %97, i32 0, i32 0
-  %99 = load i32, ptr %98, align 8
-  %100 = sub nsw i32 %99, 1
-  %101 = icmp eq i32 %96, %100
-  br i1 %101, label %102, label %113
-
-102:                                              ; preds = %95
-  %103 = load i32, ptr %3, align 4
-  %104 = add nsw i32 %103, 1
-  %105 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
-  %106 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %105, i32 0, i32 0
-  %107 = load i32, ptr %106, align 8
-  %108 = mul nsw i32 %104, %107
-  %109 = load i32, ptr %4, align 4
-  %110 = add nsw i32 %108, %109
-  store i32 %110, ptr %9, align 4
-  %111 = load i32, ptr %6, align 4
-  %112 = load i32, ptr %9, align 4
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl17createAndSortEdgeEii(ptr noundef nonnull align 8 dereferenceable(104) %11, i32 noundef %111, i32 noundef %112)
-  br label %139
-
-113:                                              ; preds = %95, %88
-  %114 = load i32, ptr %3, align 4
-  %115 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
-  %116 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %115, i32 0, i32 1
-  %117 = load i32, ptr %116, align 4
-  %118 = sub nsw i32 %117, 1
-  %119 = icmp eq i32 %114, %118
-  br i1 %119, label %120, label %138
-
-120:                                              ; preds = %113
-  %121 = load i32, ptr %4, align 4
-  %122 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
-  %123 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %122, i32 0, i32 0
-  %124 = load i32, ptr %123, align 8
-  %125 = sub nsw i32 %124, 1
-  %126 = icmp ne i32 %121, %125
-  br i1 %126, label %127, label %138
-
-127:                                              ; preds = %120
-  %128 = load i32, ptr %3, align 4
-  %129 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
-  %130 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %129, i32 0, i32 0
-  %131 = load i32, ptr %130, align 8
-  %132 = mul nsw i32 %128, %131
-  %133 = load i32, ptr %4, align 4
-  %134 = add nsw i32 %132, %133
-  %135 = add nsw i32 %134, 1
-  store i32 %135, ptr %10, align 4
-  %136 = load i32, ptr %6, align 4
-  %137 = load i32, ptr %10, align 4
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl17createAndSortEdgeEii(ptr noundef nonnull align 8 dereferenceable(104) %11, i32 noundef %136, i32 noundef %137)
-  br label %138
-
-138:                                              ; preds = %127, %120, %113
-  br label %139
-
-139:                                              ; preds = %138, %102
-  br label %140
-
-140:                                              ; preds = %139, %67
+68:                                               ; preds = %61
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #18
+  %69 = load i32, ptr %3, align 4, !tbaa !23
+  %70 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
+  %71 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %70, i32 0, i32 0
+  %72 = load i32, ptr %71, align 8, !tbaa !104
+  %73 = mul nsw i32 %69, %72
+  %74 = load i32, ptr %4, align 4, !tbaa !23
+  %75 = add nsw i32 %73, %74
+  %76 = add nsw i32 %75, 1
+  store i32 %76, ptr %7, align 4, !tbaa !23
+  %77 = load i32, ptr %3, align 4, !tbaa !23
+  %78 = add nsw i32 %77, 1
+  %79 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
+  %80 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %79, i32 0, i32 0
+  %81 = load i32, ptr %80, align 8, !tbaa !104
+  %82 = mul nsw i32 %78, %81
+  %83 = load i32, ptr %4, align 4, !tbaa !23
+  %84 = add nsw i32 %82, %83
+  store i32 %84, ptr %8, align 4, !tbaa !23
+  %85 = load i32, ptr %6, align 4, !tbaa !23
+  %86 = load i32, ptr %7, align 4, !tbaa !23
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl17createAndSortEdgeEii(ptr noundef nonnull align 8 dereferenceable(104) %11, i32 noundef %85, i32 noundef %86)
+  %87 = load i32, ptr %6, align 4, !tbaa !23
+  %88 = load i32, ptr %8, align 4, !tbaa !23
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl17createAndSortEdgeEii(ptr noundef nonnull align 8 dereferenceable(104) %11, i32 noundef %87, i32 noundef %88)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #18
   br label %141
 
-141:                                              ; preds = %140, %29
+89:                                               ; preds = %61, %36
+  %90 = load i32, ptr %3, align 4, !tbaa !23
+  %91 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
+  %92 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %91, i32 0, i32 1
+  %93 = load i32, ptr %92, align 4, !tbaa !97
+  %94 = sub nsw i32 %93, 1
+  %95 = icmp ne i32 %90, %94
+  br i1 %95, label %96, label %114
+
+96:                                               ; preds = %89
+  %97 = load i32, ptr %4, align 4, !tbaa !23
+  %98 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
+  %99 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %98, i32 0, i32 0
+  %100 = load i32, ptr %99, align 8, !tbaa !104
+  %101 = sub nsw i32 %100, 1
+  %102 = icmp eq i32 %97, %101
+  br i1 %102, label %103, label %114
+
+103:                                              ; preds = %96
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #18
+  %104 = load i32, ptr %3, align 4, !tbaa !23
+  %105 = add nsw i32 %104, 1
+  %106 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
+  %107 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %106, i32 0, i32 0
+  %108 = load i32, ptr %107, align 8, !tbaa !104
+  %109 = mul nsw i32 %105, %108
+  %110 = load i32, ptr %4, align 4, !tbaa !23
+  %111 = add nsw i32 %109, %110
+  store i32 %111, ptr %9, align 4, !tbaa !23
+  %112 = load i32, ptr %6, align 4, !tbaa !23
+  %113 = load i32, ptr %9, align 4, !tbaa !23
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl17createAndSortEdgeEii(ptr noundef nonnull align 8 dereferenceable(104) %11, i32 noundef %112, i32 noundef %113)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #18
+  br label %140
+
+114:                                              ; preds = %96, %89
+  %115 = load i32, ptr %3, align 4, !tbaa !23
+  %116 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
+  %117 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %116, i32 0, i32 1
+  %118 = load i32, ptr %117, align 4, !tbaa !97
+  %119 = sub nsw i32 %118, 1
+  %120 = icmp eq i32 %115, %119
+  br i1 %120, label %121, label %139
+
+121:                                              ; preds = %114
+  %122 = load i32, ptr %4, align 4, !tbaa !23
+  %123 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
+  %124 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %123, i32 0, i32 0
+  %125 = load i32, ptr %124, align 8, !tbaa !104
+  %126 = sub nsw i32 %125, 1
+  %127 = icmp ne i32 %122, %126
+  br i1 %127, label %128, label %139
+
+128:                                              ; preds = %121
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #18
+  %129 = load i32, ptr %3, align 4, !tbaa !23
+  %130 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
+  %131 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %130, i32 0, i32 0
+  %132 = load i32, ptr %131, align 8, !tbaa !104
+  %133 = mul nsw i32 %129, %132
+  %134 = load i32, ptr %4, align 4, !tbaa !23
+  %135 = add nsw i32 %133, %134
+  %136 = add nsw i32 %135, 1
+  store i32 %136, ptr %10, align 4, !tbaa !23
+  %137 = load i32, ptr %6, align 4, !tbaa !23
+  %138 = load i32, ptr %10, align 4, !tbaa !23
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl17createAndSortEdgeEii(ptr noundef nonnull align 8 dereferenceable(104) %11, i32 noundef %137, i32 noundef %138)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #18
+  br label %139
+
+139:                                              ; preds = %128, %121, %114
+  br label %140
+
+140:                                              ; preds = %139, %103
+  br label %141
+
+141:                                              ; preds = %140, %68
   br label %142
 
-142:                                              ; preds = %141
-  %143 = load i32, ptr %6, align 4
-  %144 = add nsw i32 %143, 1
-  store i32 %144, ptr %6, align 4
-  br label %25, !llvm.loop !9
+142:                                              ; preds = %141, %30
+  br label %143
 
-145:                                              ; preds = %25
+143:                                              ; preds = %142
+  %144 = load i32, ptr %6, align 4, !tbaa !23
+  %145 = add nsw i32 %144, 1
+  store i32 %145, ptr %6, align 4, !tbaa !23
+  br label %25, !llvm.loop !129
+
+146:                                              ; preds = %29
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #18
   ret void
 }
 
@@ -2979,14 +3196,14 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl15unwrapHist
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  %11 = alloca %"class.std::vector.5", align 8
-  %12 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca %"class.std::vector.5", align 8
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
-  %16 = alloca float, align 4
+  %16 = alloca i32, align 4
   %17 = alloca float, align 4
-  %18 = alloca i32, align 4
+  %18 = alloca float, align 4
   %19 = alloca i32, align 4
   %20 = alloca i32, align 4
   %21 = alloca i32, align 4
@@ -3000,9 +3217,9 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl15unwrapHist
   %29 = alloca i32, align 4
   %30 = alloca i32, align 4
   %31 = alloca i32, align 4
-  %32 = alloca float, align 4
+  %32 = alloca i32, align 4
   %33 = alloca float, align 4
-  %34 = alloca i32, align 4
+  %34 = alloca float, align 4
   %35 = alloca i32, align 4
   %36 = alloca i32, align 4
   %37 = alloca i32, align 4
@@ -3012,685 +3229,790 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl15unwrapHist
   %41 = alloca i32, align 4
   %42 = alloca i32, align 4
   %43 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %44 = load ptr, ptr %2, align 8
-  %45 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %46 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %45) #12
-  %47 = trunc i64 %46 to i32
-  store i32 %47, ptr %3, align 4
-  %48 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 3
-  %49 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram12getNbrOfBinsEv(ptr noundef nonnull align 8 dereferenceable(48) %48)
-  store i32 %49, ptr %4, align 4
-  %50 = load i32, ptr %3, align 4
-  %51 = sext i32 %50 to i64
-  store i32 0, ptr %6, align 4
-  call void @_ZNSaIiEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #12
-  invoke void @_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %51, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %52 unwind label %131
+  %44 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %45 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #18
+  %46 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %47 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %46) #18
+  %48 = trunc i64 %47 to i32
+  store i32 %48, ptr %3, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #18
+  %49 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 3
+  %50 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram12getNbrOfBinsEv(ptr noundef nonnull align 8 dereferenceable(48) %49)
+  store i32 %50, ptr %4, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #18
+  %51 = load i32, ptr %3, align 4, !tbaa !23
+  %52 = sext i32 %51 to i64
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #18
+  store i32 0, ptr %6, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #18
+  call void @_ZNSaIiEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
+  invoke void @_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %52, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %53 unwind label %59
 
-52:                                               ; preds = %1
-  call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #12
-  store i32 0, ptr %10, align 4
-  br label %53
+53:                                               ; preds = %1
+  call void @_ZNSt15__new_allocatorIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #18
+  store i32 0, ptr %10, align 4, !tbaa !23
+  br label %54
 
-53:                                               ; preds = %524, %52
-  %54 = load i32, ptr %10, align 4
-  %55 = load i32, ptr %4, align 4
-  %56 = icmp slt i32 %54, %55
-  br i1 %56, label %57, label %527
+54:                                               ; preds = %529, %53
+  %55 = load i32, ptr %10, align 4, !tbaa !23
+  %56 = load i32, ptr %4, align 4, !tbaa !23
+  %57 = icmp slt i32 %55, %56
+  br i1 %57, label %63, label %58
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 3
-  %59 = load i32, ptr %10, align 4
-  invoke void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram15getEdgesFromBinEi(ptr dead_on_unwind writable sret(%"class.std::vector.5") align 8 %11, ptr noundef nonnull align 8 dereferenceable(48) %58, i32 noundef %59)
-          to label %60 unwind label %135
+58:                                               ; preds = %54
+  store i32 2, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #18
+  br label %532
 
-60:                                               ; preds = %57
-  %61 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #12
-  %62 = trunc i64 %61 to i32
-  store i32 %62, ptr %12, align 4
-  store i32 0, ptr %13, align 4
-  br label %63
+59:                                               ; preds = %1
+  %60 = landingpad { ptr, i32 }
+          cleanup
+  %61 = extractvalue { ptr, i32 } %60, 0
+  store ptr %61, ptr %8, align 8
+  %62 = extractvalue { ptr, i32 } %60, 1
+  store i32 %62, ptr %9, align 4
+  call void @_ZNSt15__new_allocatorIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #18
+  br label %533
 
-63:                                               ; preds = %520, %60
-  %64 = load i32, ptr %13, align 4
-  %65 = load i32, ptr %12, align 4
-  %66 = icmp slt i32 %64, %65
-  br i1 %66, label %67, label %523
+63:                                               ; preds = %54
+  call void @llvm.lifetime.start.p0(i64 24, ptr %12) #18
+  %64 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 3
+  %65 = load i32, ptr %10, align 4, !tbaa !23
+  invoke void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram15getEdgesFromBinEi(ptr dead_on_unwind writable sret(%"class.std::vector.5") align 8 %12, ptr noundef nonnull align 8 dereferenceable(48) %64, i32 noundef %65)
+          to label %66 unwind label %74
 
-67:                                               ; preds = %63
-  %68 = load i32, ptr %13, align 4
-  %69 = sext i32 %68 to i64
-  %70 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %69) #12
-  %71 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4Edge11getPixOneIdEv(ptr noundef nonnull align 4 dereferenceable(12) %70)
-  store i32 %71, ptr %14, align 4
-  %72 = load i32, ptr %13, align 4
-  %73 = sext i32 %72 to i64
-  %74 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %73) #12
-  %75 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4Edge11getPixTwoIdEv(ptr noundef nonnull align 4 dereferenceable(12) %74)
-  store i32 %75, ptr %15, align 4
-  %76 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %77 = load i32, ptr %14, align 4
-  %78 = sext i32 %77 to i64
-  %79 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %76, i64 noundef %78) #12
-  %80 = call noundef zeroext i1 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel19getSinglePixelGroupEv(ptr noundef nonnull align 4 dereferenceable(29) %79)
-  br i1 %80, label %81, label %186
+66:                                               ; preds = %63
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #18
+  %67 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
+  %68 = trunc i64 %67 to i32
+  store i32 %68, ptr %13, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #18
+  store i32 0, ptr %14, align 4, !tbaa !23
+  br label %69
 
-81:                                               ; preds = %67
-  %82 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %83 = load i32, ptr %15, align 4
+69:                                               ; preds = %525, %66
+  %70 = load i32, ptr %14, align 4, !tbaa !23
+  %71 = load i32, ptr %13, align 4, !tbaa !23
+  %72 = icmp slt i32 %70, %71
+  br i1 %72, label %78, label %73
+
+73:                                               ; preds = %69
+  store i32 5, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #18
+  br label %528
+
+74:                                               ; preds = %63
+  %75 = landingpad { ptr, i32 }
+          cleanup
+  %76 = extractvalue { ptr, i32 } %75, 0
+  store ptr %76, ptr %8, align 8
+  %77 = extractvalue { ptr, i32 } %75, 1
+  store i32 %77, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %12) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #18
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #18
+  br label %533
+
+78:                                               ; preds = %69
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #18
+  %79 = load i32, ptr %14, align 4, !tbaa !23
+  %80 = sext i32 %79 to i64
+  %81 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %80) #18
+  %82 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4Edge11getPixOneIdEv(ptr noundef nonnull align 4 dereferenceable(12) %81)
+  store i32 %82, ptr %15, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #18
+  %83 = load i32, ptr %14, align 4, !tbaa !23
   %84 = sext i32 %83 to i64
-  %85 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %82, i64 noundef %84) #12
-  %86 = call noundef zeroext i1 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel19getSinglePixelGroupEv(ptr noundef nonnull align 4 dereferenceable(29) %85)
-  br i1 %86, label %87, label %186
+  %85 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %84) #18
+  %86 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4Edge11getPixTwoIdEv(ptr noundef nonnull align 4 dereferenceable(12) %85)
+  store i32 %86, ptr %16, align 4, !tbaa !23
+  %87 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %88 = load i32, ptr %15, align 4, !tbaa !23
+  %89 = sext i32 %88 to i64
+  %90 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %87, i64 noundef %89) #18
+  %91 = call noundef zeroext i1 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel19getSinglePixelGroupEv(ptr noundef nonnull align 4 dereferenceable(29) %90)
+  br i1 %91, label %92, label %189
 
-87:                                               ; preds = %81
-  %88 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %89 = load i32, ptr %14, align 4
-  %90 = sext i32 %89 to i64
-  %91 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %88, i64 noundef %90) #12
-  %92 = call noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21getInverseReliabilityEv(ptr noundef nonnull align 4 dereferenceable(29) %91)
-  store float %92, ptr %16, align 4
-  %93 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %94 = load i32, ptr %15, align 4
+92:                                               ; preds = %78
+  %93 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %94 = load i32, ptr %16, align 4, !tbaa !23
   %95 = sext i32 %94 to i64
-  %96 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %93, i64 noundef %95) #12
-  %97 = call noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21getInverseReliabilityEv(ptr noundef nonnull align 4 dereferenceable(29) %96)
-  store float %97, ptr %17, align 4
-  %98 = load float, ptr %16, align 4
-  %99 = load float, ptr %17, align 4
-  %100 = fcmp ogt float %98, %99
-  br i1 %100, label %101, label %139
+  %96 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %93, i64 noundef %95) #18
+  %97 = call noundef zeroext i1 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel19getSinglePixelGroupEv(ptr noundef nonnull align 4 dereferenceable(29) %96)
+  br i1 %97, label %98, label %189
 
-101:                                              ; preds = %87
-  %102 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %103 = load i32, ptr %15, align 4
-  %104 = sext i32 %103 to i64
-  %105 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %102, i64 noundef %104) #12
-  %106 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10getGroupIdEv(ptr noundef nonnull align 4 dereferenceable(29) %105)
-  store i32 %106, ptr %18, align 4
-  %107 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %108 = load i32, ptr %15, align 4
-  %109 = sext i32 %108 to i64
-  %110 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %107, i64 noundef %109) #12
-  %111 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(29) %110)
-  %112 = load i32, ptr %13, align 4
-  %113 = sext i32 %112 to i64
-  %114 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %113) #12
-  %115 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4Edge12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(12) %114)
-  %116 = add nsw i32 %111, %115
-  store i32 %116, ptr %19, align 4
-  %117 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %118 = load i32, ptr %14, align 4
-  %119 = sext i32 %118 to i64
-  %120 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %117, i64 noundef %119) #12
-  %121 = load i32, ptr %18, align 4
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10setGroupIdEi(ptr noundef nonnull align 4 dereferenceable(29) %120, i32 noundef %121)
-  %122 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %123 = load i32, ptr %14, align 4
+98:                                               ; preds = %92
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #18
+  %99 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %100 = load i32, ptr %15, align 4, !tbaa !23
+  %101 = sext i32 %100 to i64
+  %102 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %99, i64 noundef %101) #18
+  %103 = call noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21getInverseReliabilityEv(ptr noundef nonnull align 4 dereferenceable(29) %102)
+  store float %103, ptr %17, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #18
+  %104 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %105 = load i32, ptr %16, align 4, !tbaa !23
+  %106 = sext i32 %105 to i64
+  %107 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %104, i64 noundef %106) #18
+  %108 = call noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21getInverseReliabilityEv(ptr noundef nonnull align 4 dereferenceable(29) %107)
+  store float %108, ptr %18, align 4, !tbaa !24
+  %109 = load float, ptr %17, align 4, !tbaa !24
+  %110 = load float, ptr %18, align 4, !tbaa !24
+  %111 = fcmp ogt float %109, %110
+  br i1 %111, label %112, label %142
+
+112:                                              ; preds = %98
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #18
+  %113 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %114 = load i32, ptr %16, align 4, !tbaa !23
+  %115 = sext i32 %114 to i64
+  %116 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %113, i64 noundef %115) #18
+  %117 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10getGroupIdEv(ptr noundef nonnull align 4 dereferenceable(29) %116)
+  store i32 %117, ptr %19, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #18
+  %118 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %119 = load i32, ptr %16, align 4, !tbaa !23
+  %120 = sext i32 %119 to i64
+  %121 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %118, i64 noundef %120) #18
+  %122 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(29) %121)
+  %123 = load i32, ptr %14, align 4, !tbaa !23
   %124 = sext i32 %123 to i64
-  %125 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %122, i64 noundef %124) #12
-  %126 = load i32, ptr %19, align 4
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12setIncrementEi(ptr noundef nonnull align 4 dereferenceable(29) %125, i32 noundef %126)
-  %127 = load i32, ptr %14, align 4
-  %128 = load i32, ptr %18, align 4
-  %129 = sext i32 %128 to i64
-  %130 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %129) #12
-  store i32 %127, ptr %130, align 4
-  br label %169
+  %125 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %124) #18
+  %126 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4Edge12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(12) %125)
+  %127 = add nsw i32 %122, %126
+  store i32 %127, ptr %20, align 4, !tbaa !23
+  %128 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %129 = load i32, ptr %15, align 4, !tbaa !23
+  %130 = sext i32 %129 to i64
+  %131 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %128, i64 noundef %130) #18
+  %132 = load i32, ptr %19, align 4, !tbaa !23
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10setGroupIdEi(ptr noundef nonnull align 4 dereferenceable(29) %131, i32 noundef %132)
+  %133 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %134 = load i32, ptr %15, align 4, !tbaa !23
+  %135 = sext i32 %134 to i64
+  %136 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %133, i64 noundef %135) #18
+  %137 = load i32, ptr %20, align 4, !tbaa !23
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12setIncrementEi(ptr noundef nonnull align 4 dereferenceable(29) %136, i32 noundef %137)
+  %138 = load i32, ptr %15, align 4, !tbaa !23
+  %139 = load i32, ptr %19, align 4, !tbaa !23
+  %140 = sext i32 %139 to i64
+  %141 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %140) #18
+  store i32 %138, ptr %141, align 4, !tbaa !23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #18
+  br label %172
 
-131:                                              ; preds = %1
-  %132 = landingpad { ptr, i32 }
-          cleanup
-  %133 = extractvalue { ptr, i32 } %132, 0
-  store ptr %133, ptr %8, align 8
-  %134 = extractvalue { ptr, i32 } %132, 1
-  store i32 %134, ptr %9, align 4
-  call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #12
-  br label %528
+142:                                              ; preds = %98
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #18
+  %143 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %144 = load i32, ptr %15, align 4, !tbaa !23
+  %145 = sext i32 %144 to i64
+  %146 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %143, i64 noundef %145) #18
+  %147 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10getGroupIdEv(ptr noundef nonnull align 4 dereferenceable(29) %146)
+  store i32 %147, ptr %21, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #18
+  %148 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %149 = load i32, ptr %15, align 4, !tbaa !23
+  %150 = sext i32 %149 to i64
+  %151 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %148, i64 noundef %150) #18
+  %152 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(29) %151)
+  %153 = load i32, ptr %14, align 4, !tbaa !23
+  %154 = sext i32 %153 to i64
+  %155 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %154) #18
+  %156 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4Edge12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(12) %155)
+  %157 = sub nsw i32 %152, %156
+  store i32 %157, ptr %22, align 4, !tbaa !23
+  %158 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %159 = load i32, ptr %16, align 4, !tbaa !23
+  %160 = sext i32 %159 to i64
+  %161 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %158, i64 noundef %160) #18
+  %162 = load i32, ptr %21, align 4, !tbaa !23
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10setGroupIdEi(ptr noundef nonnull align 4 dereferenceable(29) %161, i32 noundef %162)
+  %163 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %164 = load i32, ptr %16, align 4, !tbaa !23
+  %165 = sext i32 %164 to i64
+  %166 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %163, i64 noundef %165) #18
+  %167 = load i32, ptr %22, align 4, !tbaa !23
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12setIncrementEi(ptr noundef nonnull align 4 dereferenceable(29) %166, i32 noundef %167)
+  %168 = load i32, ptr %16, align 4, !tbaa !23
+  %169 = load i32, ptr %21, align 4, !tbaa !23
+  %170 = sext i32 %169 to i64
+  %171 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %170) #18
+  store i32 %168, ptr %171, align 4, !tbaa !23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #18
+  br label %172
 
-135:                                              ; preds = %57
-  %136 = landingpad { ptr, i32 }
-          cleanup
-  %137 = extractvalue { ptr, i32 } %136, 0
-  store ptr %137, ptr %8, align 8
-  %138 = extractvalue { ptr, i32 } %136, 1
-  store i32 %138, ptr %9, align 4
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
-  br label %528
-
-139:                                              ; preds = %87
-  %140 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %141 = load i32, ptr %14, align 4
-  %142 = sext i32 %141 to i64
-  %143 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %140, i64 noundef %142) #12
-  %144 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10getGroupIdEv(ptr noundef nonnull align 4 dereferenceable(29) %143)
-  store i32 %144, ptr %20, align 4
-  %145 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %146 = load i32, ptr %14, align 4
-  %147 = sext i32 %146 to i64
-  %148 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %145, i64 noundef %147) #12
-  %149 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(29) %148)
-  %150 = load i32, ptr %13, align 4
-  %151 = sext i32 %150 to i64
-  %152 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %151) #12
-  %153 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4Edge12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(12) %152)
-  %154 = sub nsw i32 %149, %153
-  store i32 %154, ptr %21, align 4
-  %155 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %156 = load i32, ptr %15, align 4
-  %157 = sext i32 %156 to i64
-  %158 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %155, i64 noundef %157) #12
-  %159 = load i32, ptr %20, align 4
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10setGroupIdEi(ptr noundef nonnull align 4 dereferenceable(29) %158, i32 noundef %159)
-  %160 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %161 = load i32, ptr %15, align 4
-  %162 = sext i32 %161 to i64
-  %163 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %160, i64 noundef %162) #12
-  %164 = load i32, ptr %21, align 4
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12setIncrementEi(ptr noundef nonnull align 4 dereferenceable(29) %163, i32 noundef %164)
-  %165 = load i32, ptr %15, align 4
-  %166 = load i32, ptr %20, align 4
-  %167 = sext i32 %166 to i64
-  %168 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %167) #12
-  store i32 %165, ptr %168, align 4
-  br label %169
-
-169:                                              ; preds = %139, %101
-  %170 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %171 = load i32, ptr %14, align 4
-  %172 = sext i32 %171 to i64
-  %173 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %170, i64 noundef %172) #12
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21setNbrOfPixelsInGroupEi(ptr noundef nonnull align 4 dereferenceable(29) %173, i32 noundef 2)
-  %174 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %175 = load i32, ptr %15, align 4
-  %176 = sext i32 %175 to i64
-  %177 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %174, i64 noundef %176) #12
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21setNbrOfPixelsInGroupEi(ptr noundef nonnull align 4 dereferenceable(29) %177, i32 noundef 2)
-  %178 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %179 = load i32, ptr %14, align 4
-  %180 = sext i32 %179 to i64
-  %181 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %178, i64 noundef %180) #12
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel19setSinglePixelGroupEb(ptr noundef nonnull align 4 dereferenceable(29) %181, i1 noundef zeroext false)
-  %182 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %183 = load i32, ptr %15, align 4
-  %184 = sext i32 %183 to i64
-  %185 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %182, i64 noundef %184) #12
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel19setSinglePixelGroupEb(ptr noundef nonnull align 4 dereferenceable(29) %185, i1 noundef zeroext false)
-  br label %519
-
-186:                                              ; preds = %81, %67
-  %187 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %188 = load i32, ptr %14, align 4
-  %189 = sext i32 %188 to i64
-  %190 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %187, i64 noundef %189) #12
-  %191 = call noundef zeroext i1 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel19getSinglePixelGroupEv(ptr noundef nonnull align 4 dereferenceable(29) %190)
-  br i1 %191, label %192, label %252
-
-192:                                              ; preds = %186
-  %193 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %194 = load i32, ptr %15, align 4
-  %195 = sext i32 %194 to i64
-  %196 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %193, i64 noundef %195) #12
-  %197 = call noundef zeroext i1 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel19getSinglePixelGroupEv(ptr noundef nonnull align 4 dereferenceable(29) %196)
-  br i1 %197, label %252, label %198
-
-198:                                              ; preds = %192
-  %199 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %200 = load i32, ptr %15, align 4
-  %201 = sext i32 %200 to i64
-  %202 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %199, i64 noundef %201) #12
-  %203 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10getGroupIdEv(ptr noundef nonnull align 4 dereferenceable(29) %202)
-  store i32 %203, ptr %22, align 4
-  %204 = load i32, ptr %22, align 4
-  %205 = sext i32 %204 to i64
-  %206 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %205) #12
-  %207 = load i32, ptr %206, align 4
-  store i32 %207, ptr %23, align 4
-  %208 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %209 = load i32, ptr %23, align 4
-  %210 = sext i32 %209 to i64
-  %211 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %208, i64 noundef %210) #12
-  %212 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21getNbrOfPixelsInGroupEv(ptr noundef nonnull align 4 dereferenceable(29) %211)
-  %213 = add nsw i32 %212, 1
-  store i32 %213, ptr %24, align 4
-  %214 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %215 = load i32, ptr %15, align 4
-  %216 = sext i32 %215 to i64
-  %217 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %214, i64 noundef %216) #12
-  %218 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(29) %217)
-  %219 = load i32, ptr %13, align 4
-  %220 = sext i32 %219 to i64
-  %221 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %220) #12
-  %222 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4Edge12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(12) %221)
-  %223 = add nsw i32 %218, %222
-  store i32 %223, ptr %25, align 4
-  %224 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %225 = load i32, ptr %14, align 4
-  %226 = sext i32 %225 to i64
-  %227 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %224, i64 noundef %226) #12
-  %228 = load i32, ptr %22, align 4
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10setGroupIdEi(ptr noundef nonnull align 4 dereferenceable(29) %227, i32 noundef %228)
-  %229 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %230 = load i32, ptr %14, align 4
-  %231 = sext i32 %230 to i64
-  %232 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %229, i64 noundef %231) #12
-  %233 = load i32, ptr %24, align 4
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21setNbrOfPixelsInGroupEi(ptr noundef nonnull align 4 dereferenceable(29) %232, i32 noundef %233)
-  %234 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %235 = load i32, ptr %15, align 4
-  %236 = sext i32 %235 to i64
-  %237 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %234, i64 noundef %236) #12
-  %238 = load i32, ptr %24, align 4
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21setNbrOfPixelsInGroupEi(ptr noundef nonnull align 4 dereferenceable(29) %237, i32 noundef %238)
-  %239 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %240 = load i32, ptr %14, align 4
-  %241 = sext i32 %240 to i64
-  %242 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %239, i64 noundef %241) #12
-  %243 = load i32, ptr %25, align 4
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12setIncrementEi(ptr noundef nonnull align 4 dereferenceable(29) %242, i32 noundef %243)
-  %244 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %245 = load i32, ptr %14, align 4
-  %246 = sext i32 %245 to i64
-  %247 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %244, i64 noundef %246) #12
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel19setSinglePixelGroupEb(ptr noundef nonnull align 4 dereferenceable(29) %247, i1 noundef zeroext false)
-  %248 = load i32, ptr %14, align 4
-  %249 = load i32, ptr %22, align 4
-  %250 = sext i32 %249 to i64
-  %251 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %250) #12
-  store i32 %248, ptr %251, align 4
-  br label %518
-
-252:                                              ; preds = %192, %186
-  %253 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %254 = load i32, ptr %14, align 4
-  %255 = sext i32 %254 to i64
-  %256 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %253, i64 noundef %255) #12
-  %257 = call noundef zeroext i1 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel19getSinglePixelGroupEv(ptr noundef nonnull align 4 dereferenceable(29) %256)
-  br i1 %257, label %318, label %258
-
-258:                                              ; preds = %252
-  %259 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %260 = load i32, ptr %15, align 4
-  %261 = sext i32 %260 to i64
-  %262 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %259, i64 noundef %261) #12
-  %263 = call noundef zeroext i1 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel19getSinglePixelGroupEv(ptr noundef nonnull align 4 dereferenceable(29) %262)
-  br i1 %263, label %264, label %318
-
-264:                                              ; preds = %258
-  %265 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %266 = load i32, ptr %14, align 4
-  %267 = sext i32 %266 to i64
-  %268 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %265, i64 noundef %267) #12
-  %269 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10getGroupIdEv(ptr noundef nonnull align 4 dereferenceable(29) %268)
-  store i32 %269, ptr %26, align 4
-  %270 = load i32, ptr %26, align 4
-  %271 = sext i32 %270 to i64
-  %272 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %271) #12
-  %273 = load i32, ptr %272, align 4
-  store i32 %273, ptr %27, align 4
-  %274 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %275 = load i32, ptr %27, align 4
-  %276 = sext i32 %275 to i64
-  %277 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %274, i64 noundef %276) #12
-  %278 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21getNbrOfPixelsInGroupEv(ptr noundef nonnull align 4 dereferenceable(29) %277)
-  %279 = add nsw i32 %278, 1
-  store i32 %279, ptr %28, align 4
-  %280 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %281 = load i32, ptr %14, align 4
-  %282 = sext i32 %281 to i64
-  %283 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %280, i64 noundef %282) #12
-  %284 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(29) %283)
-  %285 = load i32, ptr %13, align 4
-  %286 = sext i32 %285 to i64
-  %287 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %286) #12
-  %288 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4Edge12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(12) %287)
-  %289 = sub nsw i32 %284, %288
-  store i32 %289, ptr %29, align 4
-  %290 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %291 = load i32, ptr %15, align 4
-  %292 = sext i32 %291 to i64
-  %293 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %290, i64 noundef %292) #12
-  %294 = load i32, ptr %26, align 4
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10setGroupIdEi(ptr noundef nonnull align 4 dereferenceable(29) %293, i32 noundef %294)
-  %295 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %296 = load i32, ptr %15, align 4
-  %297 = sext i32 %296 to i64
-  %298 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %295, i64 noundef %297) #12
-  %299 = load i32, ptr %28, align 4
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21setNbrOfPixelsInGroupEi(ptr noundef nonnull align 4 dereferenceable(29) %298, i32 noundef %299)
-  %300 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %301 = load i32, ptr %14, align 4
-  %302 = sext i32 %301 to i64
-  %303 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %300, i64 noundef %302) #12
-  %304 = load i32, ptr %28, align 4
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21setNbrOfPixelsInGroupEi(ptr noundef nonnull align 4 dereferenceable(29) %303, i32 noundef %304)
-  %305 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %306 = load i32, ptr %15, align 4
-  %307 = sext i32 %306 to i64
-  %308 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %305, i64 noundef %307) #12
-  %309 = load i32, ptr %29, align 4
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12setIncrementEi(ptr noundef nonnull align 4 dereferenceable(29) %308, i32 noundef %309)
-  %310 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %311 = load i32, ptr %15, align 4
-  %312 = sext i32 %311 to i64
-  %313 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %310, i64 noundef %312) #12
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel19setSinglePixelGroupEb(ptr noundef nonnull align 4 dereferenceable(29) %313, i1 noundef zeroext false)
-  %314 = load i32, ptr %15, align 4
-  %315 = load i32, ptr %26, align 4
-  %316 = sext i32 %315 to i64
-  %317 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %316) #12
-  store i32 %314, ptr %317, align 4
-  br label %517
-
-318:                                              ; preds = %258, %252
-  %319 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %320 = load i32, ptr %14, align 4
-  %321 = sext i32 %320 to i64
-  %322 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %319, i64 noundef %321) #12
-  %323 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10getGroupIdEv(ptr noundef nonnull align 4 dereferenceable(29) %322)
-  %324 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %325 = load i32, ptr %15, align 4
-  %326 = sext i32 %325 to i64
-  %327 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %324, i64 noundef %326) #12
-  %328 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10getGroupIdEv(ptr noundef nonnull align 4 dereferenceable(29) %327)
-  %329 = icmp ne i32 %323, %328
-  br i1 %329, label %330, label %516
-
-330:                                              ; preds = %318
-  %331 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %332 = load i32, ptr %14, align 4
-  %333 = sext i32 %332 to i64
-  %334 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %331, i64 noundef %333) #12
-  %335 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10getGroupIdEv(ptr noundef nonnull align 4 dereferenceable(29) %334)
-  store i32 %335, ptr %30, align 4
-  %336 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %337 = load i32, ptr %15, align 4
-  %338 = sext i32 %337 to i64
-  %339 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %336, i64 noundef %338) #12
-  %340 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10getGroupIdEv(ptr noundef nonnull align 4 dereferenceable(29) %339)
-  store i32 %340, ptr %31, align 4
-  %341 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %342 = load i32, ptr %14, align 4
-  %343 = sext i32 %342 to i64
-  %344 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %341, i64 noundef %343) #12
-  %345 = call noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21getInverseReliabilityEv(ptr noundef nonnull align 4 dereferenceable(29) %344)
-  store float %345, ptr %32, align 4
-  %346 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %347 = load i32, ptr %15, align 4
-  %348 = sext i32 %347 to i64
-  %349 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %346, i64 noundef %348) #12
-  %350 = call noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21getInverseReliabilityEv(ptr noundef nonnull align 4 dereferenceable(29) %349)
-  store float %350, ptr %33, align 4
-  %351 = load i32, ptr %30, align 4
-  %352 = sext i32 %351 to i64
-  %353 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %352) #12
-  %354 = load i32, ptr %353, align 4
-  store i32 %354, ptr %34, align 4
-  %355 = load i32, ptr %31, align 4
-  %356 = sext i32 %355 to i64
-  %357 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %356) #12
-  %358 = load i32, ptr %357, align 4
-  store i32 %358, ptr %35, align 4
-  %359 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %360 = load i32, ptr %34, align 4
-  %361 = sext i32 %360 to i64
-  %362 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %359, i64 noundef %361) #12
-  %363 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21getNbrOfPixelsInGroupEv(ptr noundef nonnull align 4 dereferenceable(29) %362)
-  store i32 %363, ptr %36, align 4
-  %364 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %365 = load i32, ptr %35, align 4
-  %366 = sext i32 %365 to i64
-  %367 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %364, i64 noundef %366) #12
-  %368 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21getNbrOfPixelsInGroupEv(ptr noundef nonnull align 4 dereferenceable(29) %367)
-  store i32 %368, ptr %37, align 4
-  %369 = load i32, ptr %36, align 4
-  %370 = load i32, ptr %37, align 4
-  %371 = add nsw i32 %369, %370
-  store i32 %371, ptr %38, align 4
-  %372 = load i32, ptr %36, align 4
-  %373 = load i32, ptr %37, align 4
-  %374 = icmp slt i32 %372, %373
-  br i1 %374, label %383, label %375
-
-375:                                              ; preds = %330
-  %376 = load i32, ptr %36, align 4
-  %377 = load i32, ptr %37, align 4
-  %378 = icmp eq i32 %376, %377
-  br i1 %378, label %379, label %442
-
-379:                                              ; preds = %375
-  %380 = load float, ptr %32, align 4
-  %381 = load float, ptr %33, align 4
-  %382 = fcmp oge float %380, %381
-  br i1 %382, label %383, label %442
-
-383:                                              ; preds = %379, %330
-  %384 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %385 = load i32, ptr %15, align 4
-  %386 = sext i32 %385 to i64
-  %387 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %384, i64 noundef %386) #12
-  %388 = load i32, ptr %38, align 4
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21setNbrOfPixelsInGroupEi(ptr noundef nonnull align 4 dereferenceable(29) %387, i32 noundef %388)
-  %389 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %390 = load i32, ptr %14, align 4
-  %391 = sext i32 %390 to i64
-  %392 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %389, i64 noundef %391) #12
-  %393 = load i32, ptr %38, align 4
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21setNbrOfPixelsInGroupEi(ptr noundef nonnull align 4 dereferenceable(29) %392, i32 noundef %393)
-  %394 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %395 = load i32, ptr %15, align 4
-  %396 = sext i32 %395 to i64
-  %397 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %394, i64 noundef %396) #12
-  %398 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(29) %397)
-  %399 = load i32, ptr %13, align 4
-  %400 = sext i32 %399 to i64
-  %401 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %400) #12
-  %402 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4Edge12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(12) %401)
-  %403 = add nsw i32 %398, %402
-  %404 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %405 = load i32, ptr %14, align 4
-  %406 = sext i32 %405 to i64
-  %407 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %404, i64 noundef %406) #12
-  %408 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(29) %407)
-  %409 = sub nsw i32 %403, %408
-  store i32 %409, ptr %39, align 4
-  %410 = load i32, ptr %14, align 4
-  %411 = load i32, ptr %31, align 4
-  %412 = sext i32 %411 to i64
-  %413 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %412) #12
-  store i32 %410, ptr %413, align 4
-  store i32 0, ptr %40, align 4
-  br label %414
-
-414:                                              ; preds = %438, %383
-  %415 = load i32, ptr %40, align 4
-  %416 = load i32, ptr %3, align 4
-  %417 = icmp slt i32 %415, %416
-  br i1 %417, label %418, label %441
-
-418:                                              ; preds = %414
-  %419 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %420 = load i32, ptr %40, align 4
-  %421 = sext i32 %420 to i64
-  %422 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %419, i64 noundef %421) #12
-  %423 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10getGroupIdEv(ptr noundef nonnull align 4 dereferenceable(29) %422)
-  %424 = load i32, ptr %30, align 4
-  %425 = icmp eq i32 %423, %424
-  br i1 %425, label %426, label %437
-
-426:                                              ; preds = %418
-  %427 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %428 = load i32, ptr %40, align 4
-  %429 = sext i32 %428 to i64
-  %430 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %427, i64 noundef %429) #12
-  %431 = load i32, ptr %31, align 4
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10setGroupIdEi(ptr noundef nonnull align 4 dereferenceable(29) %430, i32 noundef %431)
-  %432 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %433 = load i32, ptr %40, align 4
-  %434 = sext i32 %433 to i64
-  %435 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %432, i64 noundef %434) #12
-  %436 = load i32, ptr %39, align 4
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel15changeIncrementEi(ptr noundef nonnull align 4 dereferenceable(29) %435, i32 noundef %436)
-  br label %437
-
-437:                                              ; preds = %426, %418
-  br label %438
-
-438:                                              ; preds = %437
-  %439 = load i32, ptr %40, align 4
-  %440 = add nsw i32 %439, 1
-  store i32 %440, ptr %40, align 4
-  br label %414, !llvm.loop !10
-
-441:                                              ; preds = %414
-  br label %515
-
-442:                                              ; preds = %379, %375
-  %443 = load i32, ptr %36, align 4
-  %444 = load i32, ptr %37, align 4
-  %445 = icmp sgt i32 %443, %444
-  br i1 %445, label %454, label %446
-
-446:                                              ; preds = %442
-  %447 = load i32, ptr %36, align 4
-  %448 = load i32, ptr %37, align 4
-  %449 = icmp eq i32 %447, %448
-  br i1 %449, label %450, label %514
-
-450:                                              ; preds = %446
-  %451 = load float, ptr %33, align 4
-  %452 = load float, ptr %32, align 4
-  %453 = fcmp ogt float %451, %452
-  br i1 %453, label %454, label %514
-
-454:                                              ; preds = %450, %442
-  %455 = load i32, ptr %31, align 4
-  store i32 %455, ptr %41, align 4
-  %456 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %457 = load i32, ptr %14, align 4
-  %458 = sext i32 %457 to i64
-  %459 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %456, i64 noundef %458) #12
-  %460 = load i32, ptr %38, align 4
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21setNbrOfPixelsInGroupEi(ptr noundef nonnull align 4 dereferenceable(29) %459, i32 noundef %460)
-  %461 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %462 = load i32, ptr %15, align 4
-  %463 = sext i32 %462 to i64
-  %464 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %461, i64 noundef %463) #12
-  %465 = load i32, ptr %38, align 4
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21setNbrOfPixelsInGroupEi(ptr noundef nonnull align 4 dereferenceable(29) %464, i32 noundef %465)
-  %466 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %467 = load i32, ptr %14, align 4
-  %468 = sext i32 %467 to i64
-  %469 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %466, i64 noundef %468) #12
-  %470 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(29) %469)
-  %471 = load i32, ptr %13, align 4
-  %472 = sext i32 %471 to i64
-  %473 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %472) #12
-  %474 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4Edge12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(12) %473)
-  %475 = sub nsw i32 %470, %474
-  %476 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %477 = load i32, ptr %15, align 4
-  %478 = sext i32 %477 to i64
-  %479 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %476, i64 noundef %478) #12
-  %480 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(29) %479)
-  %481 = sub nsw i32 %475, %480
-  store i32 %481, ptr %42, align 4
-  %482 = load i32, ptr %15, align 4
-  %483 = load i32, ptr %30, align 4
-  %484 = sext i32 %483 to i64
-  %485 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %484) #12
-  store i32 %482, ptr %485, align 4
-  store i32 0, ptr %43, align 4
-  br label %486
-
-486:                                              ; preds = %510, %454
-  %487 = load i32, ptr %43, align 4
-  %488 = load i32, ptr %3, align 4
-  %489 = icmp slt i32 %487, %488
-  br i1 %489, label %490, label %513
-
-490:                                              ; preds = %486
-  %491 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %492 = load i32, ptr %43, align 4
-  %493 = sext i32 %492 to i64
-  %494 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %491, i64 noundef %493) #12
-  %495 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10getGroupIdEv(ptr noundef nonnull align 4 dereferenceable(29) %494)
-  %496 = load i32, ptr %41, align 4
-  %497 = icmp eq i32 %495, %496
-  br i1 %497, label %498, label %509
-
-498:                                              ; preds = %490
-  %499 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %500 = load i32, ptr %43, align 4
-  %501 = sext i32 %500 to i64
-  %502 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %499, i64 noundef %501) #12
-  %503 = load i32, ptr %30, align 4
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10setGroupIdEi(ptr noundef nonnull align 4 dereferenceable(29) %502, i32 noundef %503)
-  %504 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %44, i32 0, i32 2
-  %505 = load i32, ptr %43, align 4
-  %506 = sext i32 %505 to i64
-  %507 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %504, i64 noundef %506) #12
-  %508 = load i32, ptr %42, align 4
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel15changeIncrementEi(ptr noundef nonnull align 4 dereferenceable(29) %507, i32 noundef %508)
-  br label %509
-
-509:                                              ; preds = %498, %490
-  br label %510
-
-510:                                              ; preds = %509
-  %511 = load i32, ptr %43, align 4
-  %512 = add nsw i32 %511, 1
-  store i32 %512, ptr %43, align 4
-  br label %486, !llvm.loop !11
-
-513:                                              ; preds = %486
-  br label %514
-
-514:                                              ; preds = %513, %450, %446
-  br label %515
-
-515:                                              ; preds = %514, %441
-  br label %516
-
-516:                                              ; preds = %515, %318
-  br label %517
-
-517:                                              ; preds = %516, %264
-  br label %518
-
-518:                                              ; preds = %517, %198
-  br label %519
-
-519:                                              ; preds = %518, %169
-  br label %520
-
-520:                                              ; preds = %519
-  %521 = load i32, ptr %13, align 4
-  %522 = add nsw i32 %521, 1
-  store i32 %522, ptr %13, align 4
-  br label %63, !llvm.loop !12
-
-523:                                              ; preds = %63
-  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #12
+172:                                              ; preds = %142, %112
+  %173 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %174 = load i32, ptr %15, align 4, !tbaa !23
+  %175 = sext i32 %174 to i64
+  %176 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %173, i64 noundef %175) #18
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21setNbrOfPixelsInGroupEi(ptr noundef nonnull align 4 dereferenceable(29) %176, i32 noundef 2)
+  %177 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %178 = load i32, ptr %16, align 4, !tbaa !23
+  %179 = sext i32 %178 to i64
+  %180 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %177, i64 noundef %179) #18
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21setNbrOfPixelsInGroupEi(ptr noundef nonnull align 4 dereferenceable(29) %180, i32 noundef 2)
+  %181 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %182 = load i32, ptr %15, align 4, !tbaa !23
+  %183 = sext i32 %182 to i64
+  %184 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %181, i64 noundef %183) #18
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel19setSinglePixelGroupEb(ptr noundef nonnull align 4 dereferenceable(29) %184, i1 noundef zeroext false)
+  %185 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %186 = load i32, ptr %16, align 4, !tbaa !23
+  %187 = sext i32 %186 to i64
+  %188 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %185, i64 noundef %187) #18
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel19setSinglePixelGroupEb(ptr noundef nonnull align 4 dereferenceable(29) %188, i1 noundef zeroext false)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #18
   br label %524
 
-524:                                              ; preds = %523
-  %525 = load i32, ptr %10, align 4
-  %526 = add nsw i32 %525, 1
-  store i32 %526, ptr %10, align 4
-  br label %53, !llvm.loop !13
+189:                                              ; preds = %92, %78
+  %190 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %191 = load i32, ptr %15, align 4, !tbaa !23
+  %192 = sext i32 %191 to i64
+  %193 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %190, i64 noundef %192) #18
+  %194 = call noundef zeroext i1 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel19getSinglePixelGroupEv(ptr noundef nonnull align 4 dereferenceable(29) %193)
+  br i1 %194, label %195, label %255
 
-527:                                              ; preds = %53
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
+195:                                              ; preds = %189
+  %196 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %197 = load i32, ptr %16, align 4, !tbaa !23
+  %198 = sext i32 %197 to i64
+  %199 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %196, i64 noundef %198) #18
+  %200 = call noundef zeroext i1 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel19getSinglePixelGroupEv(ptr noundef nonnull align 4 dereferenceable(29) %199)
+  br i1 %200, label %255, label %201
+
+201:                                              ; preds = %195
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #18
+  %202 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %203 = load i32, ptr %16, align 4, !tbaa !23
+  %204 = sext i32 %203 to i64
+  %205 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %202, i64 noundef %204) #18
+  %206 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10getGroupIdEv(ptr noundef nonnull align 4 dereferenceable(29) %205)
+  store i32 %206, ptr %23, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #18
+  %207 = load i32, ptr %23, align 4, !tbaa !23
+  %208 = sext i32 %207 to i64
+  %209 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %208) #18
+  %210 = load i32, ptr %209, align 4, !tbaa !23
+  store i32 %210, ptr %24, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #18
+  %211 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %212 = load i32, ptr %24, align 4, !tbaa !23
+  %213 = sext i32 %212 to i64
+  %214 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %211, i64 noundef %213) #18
+  %215 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21getNbrOfPixelsInGroupEv(ptr noundef nonnull align 4 dereferenceable(29) %214)
+  %216 = add nsw i32 %215, 1
+  store i32 %216, ptr %25, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #18
+  %217 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %218 = load i32, ptr %16, align 4, !tbaa !23
+  %219 = sext i32 %218 to i64
+  %220 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %217, i64 noundef %219) #18
+  %221 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(29) %220)
+  %222 = load i32, ptr %14, align 4, !tbaa !23
+  %223 = sext i32 %222 to i64
+  %224 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %223) #18
+  %225 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4Edge12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(12) %224)
+  %226 = add nsw i32 %221, %225
+  store i32 %226, ptr %26, align 4, !tbaa !23
+  %227 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %228 = load i32, ptr %15, align 4, !tbaa !23
+  %229 = sext i32 %228 to i64
+  %230 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %227, i64 noundef %229) #18
+  %231 = load i32, ptr %23, align 4, !tbaa !23
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10setGroupIdEi(ptr noundef nonnull align 4 dereferenceable(29) %230, i32 noundef %231)
+  %232 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %233 = load i32, ptr %15, align 4, !tbaa !23
+  %234 = sext i32 %233 to i64
+  %235 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %232, i64 noundef %234) #18
+  %236 = load i32, ptr %25, align 4, !tbaa !23
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21setNbrOfPixelsInGroupEi(ptr noundef nonnull align 4 dereferenceable(29) %235, i32 noundef %236)
+  %237 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %238 = load i32, ptr %16, align 4, !tbaa !23
+  %239 = sext i32 %238 to i64
+  %240 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %237, i64 noundef %239) #18
+  %241 = load i32, ptr %25, align 4, !tbaa !23
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21setNbrOfPixelsInGroupEi(ptr noundef nonnull align 4 dereferenceable(29) %240, i32 noundef %241)
+  %242 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %243 = load i32, ptr %15, align 4, !tbaa !23
+  %244 = sext i32 %243 to i64
+  %245 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %242, i64 noundef %244) #18
+  %246 = load i32, ptr %26, align 4, !tbaa !23
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12setIncrementEi(ptr noundef nonnull align 4 dereferenceable(29) %245, i32 noundef %246)
+  %247 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %248 = load i32, ptr %15, align 4, !tbaa !23
+  %249 = sext i32 %248 to i64
+  %250 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %247, i64 noundef %249) #18
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel19setSinglePixelGroupEb(ptr noundef nonnull align 4 dereferenceable(29) %250, i1 noundef zeroext false)
+  %251 = load i32, ptr %15, align 4, !tbaa !23
+  %252 = load i32, ptr %23, align 4, !tbaa !23
+  %253 = sext i32 %252 to i64
+  %254 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %253) #18
+  store i32 %251, ptr %254, align 4, !tbaa !23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #18
+  br label %523
+
+255:                                              ; preds = %195, %189
+  %256 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %257 = load i32, ptr %15, align 4, !tbaa !23
+  %258 = sext i32 %257 to i64
+  %259 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %256, i64 noundef %258) #18
+  %260 = call noundef zeroext i1 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel19getSinglePixelGroupEv(ptr noundef nonnull align 4 dereferenceable(29) %259)
+  br i1 %260, label %321, label %261
+
+261:                                              ; preds = %255
+  %262 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %263 = load i32, ptr %16, align 4, !tbaa !23
+  %264 = sext i32 %263 to i64
+  %265 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %262, i64 noundef %264) #18
+  %266 = call noundef zeroext i1 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel19getSinglePixelGroupEv(ptr noundef nonnull align 4 dereferenceable(29) %265)
+  br i1 %266, label %267, label %321
+
+267:                                              ; preds = %261
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #18
+  %268 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %269 = load i32, ptr %15, align 4, !tbaa !23
+  %270 = sext i32 %269 to i64
+  %271 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %268, i64 noundef %270) #18
+  %272 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10getGroupIdEv(ptr noundef nonnull align 4 dereferenceable(29) %271)
+  store i32 %272, ptr %27, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #18
+  %273 = load i32, ptr %27, align 4, !tbaa !23
+  %274 = sext i32 %273 to i64
+  %275 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %274) #18
+  %276 = load i32, ptr %275, align 4, !tbaa !23
+  store i32 %276, ptr %28, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %29) #18
+  %277 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %278 = load i32, ptr %28, align 4, !tbaa !23
+  %279 = sext i32 %278 to i64
+  %280 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %277, i64 noundef %279) #18
+  %281 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21getNbrOfPixelsInGroupEv(ptr noundef nonnull align 4 dereferenceable(29) %280)
+  %282 = add nsw i32 %281, 1
+  store i32 %282, ptr %29, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #18
+  %283 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %284 = load i32, ptr %15, align 4, !tbaa !23
+  %285 = sext i32 %284 to i64
+  %286 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %283, i64 noundef %285) #18
+  %287 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(29) %286)
+  %288 = load i32, ptr %14, align 4, !tbaa !23
+  %289 = sext i32 %288 to i64
+  %290 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %289) #18
+  %291 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4Edge12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(12) %290)
+  %292 = sub nsw i32 %287, %291
+  store i32 %292, ptr %30, align 4, !tbaa !23
+  %293 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %294 = load i32, ptr %16, align 4, !tbaa !23
+  %295 = sext i32 %294 to i64
+  %296 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %293, i64 noundef %295) #18
+  %297 = load i32, ptr %27, align 4, !tbaa !23
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10setGroupIdEi(ptr noundef nonnull align 4 dereferenceable(29) %296, i32 noundef %297)
+  %298 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %299 = load i32, ptr %16, align 4, !tbaa !23
+  %300 = sext i32 %299 to i64
+  %301 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %298, i64 noundef %300) #18
+  %302 = load i32, ptr %29, align 4, !tbaa !23
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21setNbrOfPixelsInGroupEi(ptr noundef nonnull align 4 dereferenceable(29) %301, i32 noundef %302)
+  %303 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %304 = load i32, ptr %15, align 4, !tbaa !23
+  %305 = sext i32 %304 to i64
+  %306 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %303, i64 noundef %305) #18
+  %307 = load i32, ptr %29, align 4, !tbaa !23
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21setNbrOfPixelsInGroupEi(ptr noundef nonnull align 4 dereferenceable(29) %306, i32 noundef %307)
+  %308 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %309 = load i32, ptr %16, align 4, !tbaa !23
+  %310 = sext i32 %309 to i64
+  %311 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %308, i64 noundef %310) #18
+  %312 = load i32, ptr %30, align 4, !tbaa !23
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12setIncrementEi(ptr noundef nonnull align 4 dereferenceable(29) %311, i32 noundef %312)
+  %313 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %314 = load i32, ptr %16, align 4, !tbaa !23
+  %315 = sext i32 %314 to i64
+  %316 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %313, i64 noundef %315) #18
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel19setSinglePixelGroupEb(ptr noundef nonnull align 4 dereferenceable(29) %316, i1 noundef zeroext false)
+  %317 = load i32, ptr %16, align 4, !tbaa !23
+  %318 = load i32, ptr %27, align 4, !tbaa !23
+  %319 = sext i32 %318 to i64
+  %320 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %319) #18
+  store i32 %317, ptr %320, align 4, !tbaa !23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %29) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #18
+  br label %522
+
+321:                                              ; preds = %261, %255
+  %322 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %323 = load i32, ptr %15, align 4, !tbaa !23
+  %324 = sext i32 %323 to i64
+  %325 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %322, i64 noundef %324) #18
+  %326 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10getGroupIdEv(ptr noundef nonnull align 4 dereferenceable(29) %325)
+  %327 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %328 = load i32, ptr %16, align 4, !tbaa !23
+  %329 = sext i32 %328 to i64
+  %330 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %327, i64 noundef %329) #18
+  %331 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10getGroupIdEv(ptr noundef nonnull align 4 dereferenceable(29) %330)
+  %332 = icmp ne i32 %326, %331
+  br i1 %332, label %333, label %521
+
+333:                                              ; preds = %321
+  call void @llvm.lifetime.start.p0(i64 4, ptr %31) #18
+  %334 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %335 = load i32, ptr %15, align 4, !tbaa !23
+  %336 = sext i32 %335 to i64
+  %337 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %334, i64 noundef %336) #18
+  %338 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10getGroupIdEv(ptr noundef nonnull align 4 dereferenceable(29) %337)
+  store i32 %338, ptr %31, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %32) #18
+  %339 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %340 = load i32, ptr %16, align 4, !tbaa !23
+  %341 = sext i32 %340 to i64
+  %342 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %339, i64 noundef %341) #18
+  %343 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10getGroupIdEv(ptr noundef nonnull align 4 dereferenceable(29) %342)
+  store i32 %343, ptr %32, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %33) #18
+  %344 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %345 = load i32, ptr %15, align 4, !tbaa !23
+  %346 = sext i32 %345 to i64
+  %347 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %344, i64 noundef %346) #18
+  %348 = call noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21getInverseReliabilityEv(ptr noundef nonnull align 4 dereferenceable(29) %347)
+  store float %348, ptr %33, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %34) #18
+  %349 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %350 = load i32, ptr %16, align 4, !tbaa !23
+  %351 = sext i32 %350 to i64
+  %352 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %349, i64 noundef %351) #18
+  %353 = call noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21getInverseReliabilityEv(ptr noundef nonnull align 4 dereferenceable(29) %352)
+  store float %353, ptr %34, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %35) #18
+  %354 = load i32, ptr %31, align 4, !tbaa !23
+  %355 = sext i32 %354 to i64
+  %356 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %355) #18
+  %357 = load i32, ptr %356, align 4, !tbaa !23
+  store i32 %357, ptr %35, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %36) #18
+  %358 = load i32, ptr %32, align 4, !tbaa !23
+  %359 = sext i32 %358 to i64
+  %360 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %359) #18
+  %361 = load i32, ptr %360, align 4, !tbaa !23
+  store i32 %361, ptr %36, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %37) #18
+  %362 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %363 = load i32, ptr %35, align 4, !tbaa !23
+  %364 = sext i32 %363 to i64
+  %365 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %362, i64 noundef %364) #18
+  %366 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21getNbrOfPixelsInGroupEv(ptr noundef nonnull align 4 dereferenceable(29) %365)
+  store i32 %366, ptr %37, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %38) #18
+  %367 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %368 = load i32, ptr %36, align 4, !tbaa !23
+  %369 = sext i32 %368 to i64
+  %370 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %367, i64 noundef %369) #18
+  %371 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21getNbrOfPixelsInGroupEv(ptr noundef nonnull align 4 dereferenceable(29) %370)
+  store i32 %371, ptr %38, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %39) #18
+  %372 = load i32, ptr %37, align 4, !tbaa !23
+  %373 = load i32, ptr %38, align 4, !tbaa !23
+  %374 = add nsw i32 %372, %373
+  store i32 %374, ptr %39, align 4, !tbaa !23
+  %375 = load i32, ptr %37, align 4, !tbaa !23
+  %376 = load i32, ptr %38, align 4, !tbaa !23
+  %377 = icmp slt i32 %375, %376
+  br i1 %377, label %386, label %378
+
+378:                                              ; preds = %333
+  %379 = load i32, ptr %37, align 4, !tbaa !23
+  %380 = load i32, ptr %38, align 4, !tbaa !23
+  %381 = icmp eq i32 %379, %380
+  br i1 %381, label %382, label %446
+
+382:                                              ; preds = %378
+  %383 = load float, ptr %33, align 4, !tbaa !24
+  %384 = load float, ptr %34, align 4, !tbaa !24
+  %385 = fcmp oge float %383, %384
+  br i1 %385, label %386, label %446
+
+386:                                              ; preds = %382, %333
+  %387 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %388 = load i32, ptr %16, align 4, !tbaa !23
+  %389 = sext i32 %388 to i64
+  %390 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %387, i64 noundef %389) #18
+  %391 = load i32, ptr %39, align 4, !tbaa !23
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21setNbrOfPixelsInGroupEi(ptr noundef nonnull align 4 dereferenceable(29) %390, i32 noundef %391)
+  %392 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %393 = load i32, ptr %15, align 4, !tbaa !23
+  %394 = sext i32 %393 to i64
+  %395 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %392, i64 noundef %394) #18
+  %396 = load i32, ptr %39, align 4, !tbaa !23
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21setNbrOfPixelsInGroupEi(ptr noundef nonnull align 4 dereferenceable(29) %395, i32 noundef %396)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %40) #18
+  %397 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %398 = load i32, ptr %16, align 4, !tbaa !23
+  %399 = sext i32 %398 to i64
+  %400 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %397, i64 noundef %399) #18
+  %401 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(29) %400)
+  %402 = load i32, ptr %14, align 4, !tbaa !23
+  %403 = sext i32 %402 to i64
+  %404 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %403) #18
+  %405 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4Edge12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(12) %404)
+  %406 = add nsw i32 %401, %405
+  %407 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %408 = load i32, ptr %15, align 4, !tbaa !23
+  %409 = sext i32 %408 to i64
+  %410 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %407, i64 noundef %409) #18
+  %411 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(29) %410)
+  %412 = sub nsw i32 %406, %411
+  store i32 %412, ptr %40, align 4, !tbaa !23
+  %413 = load i32, ptr %15, align 4, !tbaa !23
+  %414 = load i32, ptr %32, align 4, !tbaa !23
+  %415 = sext i32 %414 to i64
+  %416 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %415) #18
+  store i32 %413, ptr %416, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %41) #18
+  store i32 0, ptr %41, align 4, !tbaa !23
+  br label %417
+
+417:                                              ; preds = %442, %386
+  %418 = load i32, ptr %41, align 4, !tbaa !23
+  %419 = load i32, ptr %3, align 4, !tbaa !23
+  %420 = icmp slt i32 %418, %419
+  br i1 %420, label %422, label %421
+
+421:                                              ; preds = %417
+  store i32 8, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %41) #18
+  br label %445
+
+422:                                              ; preds = %417
+  %423 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %424 = load i32, ptr %41, align 4, !tbaa !23
+  %425 = sext i32 %424 to i64
+  %426 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %423, i64 noundef %425) #18
+  %427 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10getGroupIdEv(ptr noundef nonnull align 4 dereferenceable(29) %426)
+  %428 = load i32, ptr %31, align 4, !tbaa !23
+  %429 = icmp eq i32 %427, %428
+  br i1 %429, label %430, label %441
+
+430:                                              ; preds = %422
+  %431 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %432 = load i32, ptr %41, align 4, !tbaa !23
+  %433 = sext i32 %432 to i64
+  %434 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %431, i64 noundef %433) #18
+  %435 = load i32, ptr %32, align 4, !tbaa !23
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10setGroupIdEi(ptr noundef nonnull align 4 dereferenceable(29) %434, i32 noundef %435)
+  %436 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %437 = load i32, ptr %41, align 4, !tbaa !23
+  %438 = sext i32 %437 to i64
+  %439 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %436, i64 noundef %438) #18
+  %440 = load i32, ptr %40, align 4, !tbaa !23
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel15changeIncrementEi(ptr noundef nonnull align 4 dereferenceable(29) %439, i32 noundef %440)
+  br label %441
+
+441:                                              ; preds = %430, %422
+  br label %442
+
+442:                                              ; preds = %441
+  %443 = load i32, ptr %41, align 4, !tbaa !23
+  %444 = add nsw i32 %443, 1
+  store i32 %444, ptr %41, align 4, !tbaa !23
+  br label %417, !llvm.loop !130
+
+445:                                              ; preds = %421
+  call void @llvm.lifetime.end.p0(i64 4, ptr %40) #18
+  br label %520
+
+446:                                              ; preds = %382, %378
+  %447 = load i32, ptr %37, align 4, !tbaa !23
+  %448 = load i32, ptr %38, align 4, !tbaa !23
+  %449 = icmp sgt i32 %447, %448
+  br i1 %449, label %458, label %450
+
+450:                                              ; preds = %446
+  %451 = load i32, ptr %37, align 4, !tbaa !23
+  %452 = load i32, ptr %38, align 4, !tbaa !23
+  %453 = icmp eq i32 %451, %452
+  br i1 %453, label %454, label %519
+
+454:                                              ; preds = %450
+  %455 = load float, ptr %34, align 4, !tbaa !24
+  %456 = load float, ptr %33, align 4, !tbaa !24
+  %457 = fcmp ogt float %455, %456
+  br i1 %457, label %458, label %519
+
+458:                                              ; preds = %454, %446
+  call void @llvm.lifetime.start.p0(i64 4, ptr %42) #18
+  %459 = load i32, ptr %32, align 4, !tbaa !23
+  store i32 %459, ptr %42, align 4, !tbaa !23
+  %460 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %461 = load i32, ptr %15, align 4, !tbaa !23
+  %462 = sext i32 %461 to i64
+  %463 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %460, i64 noundef %462) #18
+  %464 = load i32, ptr %39, align 4, !tbaa !23
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21setNbrOfPixelsInGroupEi(ptr noundef nonnull align 4 dereferenceable(29) %463, i32 noundef %464)
+  %465 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %466 = load i32, ptr %16, align 4, !tbaa !23
+  %467 = sext i32 %466 to i64
+  %468 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %465, i64 noundef %467) #18
+  %469 = load i32, ptr %39, align 4, !tbaa !23
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21setNbrOfPixelsInGroupEi(ptr noundef nonnull align 4 dereferenceable(29) %468, i32 noundef %469)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %43) #18
+  %470 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %471 = load i32, ptr %15, align 4, !tbaa !23
+  %472 = sext i32 %471 to i64
+  %473 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %470, i64 noundef %472) #18
+  %474 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(29) %473)
+  %475 = load i32, ptr %14, align 4, !tbaa !23
+  %476 = sext i32 %475 to i64
+  %477 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %476) #18
+  %478 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4Edge12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(12) %477)
+  %479 = sub nsw i32 %474, %478
+  %480 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %481 = load i32, ptr %16, align 4, !tbaa !23
+  %482 = sext i32 %481 to i64
+  %483 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %480, i64 noundef %482) #18
+  %484 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(29) %483)
+  %485 = sub nsw i32 %479, %484
+  store i32 %485, ptr %43, align 4, !tbaa !23
+  %486 = load i32, ptr %16, align 4, !tbaa !23
+  %487 = load i32, ptr %31, align 4, !tbaa !23
+  %488 = sext i32 %487 to i64
+  %489 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %488) #18
+  store i32 %486, ptr %489, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %44) #18
+  store i32 0, ptr %44, align 4, !tbaa !23
+  br label %490
+
+490:                                              ; preds = %515, %458
+  %491 = load i32, ptr %44, align 4, !tbaa !23
+  %492 = load i32, ptr %3, align 4, !tbaa !23
+  %493 = icmp slt i32 %491, %492
+  br i1 %493, label %495, label %494
+
+494:                                              ; preds = %490
+  store i32 11, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %44) #18
+  br label %518
+
+495:                                              ; preds = %490
+  %496 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %497 = load i32, ptr %44, align 4, !tbaa !23
+  %498 = sext i32 %497 to i64
+  %499 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %496, i64 noundef %498) #18
+  %500 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10getGroupIdEv(ptr noundef nonnull align 4 dereferenceable(29) %499)
+  %501 = load i32, ptr %42, align 4, !tbaa !23
+  %502 = icmp eq i32 %500, %501
+  br i1 %502, label %503, label %514
+
+503:                                              ; preds = %495
+  %504 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %505 = load i32, ptr %44, align 4, !tbaa !23
+  %506 = sext i32 %505 to i64
+  %507 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %504, i64 noundef %506) #18
+  %508 = load i32, ptr %31, align 4, !tbaa !23
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10setGroupIdEi(ptr noundef nonnull align 4 dereferenceable(29) %507, i32 noundef %508)
+  %509 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %45, i32 0, i32 2
+  %510 = load i32, ptr %44, align 4, !tbaa !23
+  %511 = sext i32 %510 to i64
+  %512 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %509, i64 noundef %511) #18
+  %513 = load i32, ptr %43, align 4, !tbaa !23
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel15changeIncrementEi(ptr noundef nonnull align 4 dereferenceable(29) %512, i32 noundef %513)
+  br label %514
+
+514:                                              ; preds = %503, %495
+  br label %515
+
+515:                                              ; preds = %514
+  %516 = load i32, ptr %44, align 4, !tbaa !23
+  %517 = add nsw i32 %516, 1
+  store i32 %517, ptr %44, align 4, !tbaa !23
+  br label %490, !llvm.loop !131
+
+518:                                              ; preds = %494
+  call void @llvm.lifetime.end.p0(i64 4, ptr %43) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %42) #18
+  br label %519
+
+519:                                              ; preds = %518, %454, %450
+  br label %520
+
+520:                                              ; preds = %519, %445
+  call void @llvm.lifetime.end.p0(i64 4, ptr %39) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %38) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %37) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %36) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %35) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %34) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %33) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %32) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %31) #18
+  br label %521
+
+521:                                              ; preds = %520, %321
+  br label %522
+
+522:                                              ; preds = %521, %267
+  br label %523
+
+523:                                              ; preds = %522, %201
+  br label %524
+
+524:                                              ; preds = %523, %172
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #18
+  br label %525
+
+525:                                              ; preds = %524
+  %526 = load i32, ptr %14, align 4, !tbaa !23
+  %527 = add nsw i32 %526, 1
+  store i32 %527, ptr %14, align 4, !tbaa !23
+  br label %69, !llvm.loop !132
+
+528:                                              ; preds = %73
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #18
+  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr %12) #18
+  br label %529
+
+529:                                              ; preds = %528
+  %530 = load i32, ptr %10, align 4, !tbaa !23
+  %531 = add nsw i32 %530, 1
+  store i32 %531, ptr %10, align 4, !tbaa !23
+  br label %54, !llvm.loop !133
+
+532:                                              ; preds = %58
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #18
   ret void
 
-528:                                              ; preds = %135, %131
-  %529 = load ptr, ptr %8, align 8
-  %530 = load i32, ptr %9, align 4
-  %531 = insertvalue { ptr, i32 } poison, ptr %529, 0
-  %532 = insertvalue { ptr, i32 } %531, i32 %530, 1
-  resume { ptr, i32 } %532
+533:                                              ; preds = %74, %59
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #18
+  br label %534
+
+534:                                              ; preds = %533
+  %535 = load ptr, ptr %8, align 8
+  %536 = load i32, ptr %9, align 4
+  %537 = insertvalue { ptr, i32 } poison, ptr %535, 0
+  %538 = insertvalue { ptr, i32 } %537, i32 %536, 1
+  resume { ptr, i32 } %538
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3705,173 +4027,192 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12addIncreme
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store ptr %1, ptr %4, align 8, !tbaa !93
   %13 = load ptr, ptr %3, align 8
-  %14 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #18
+  %14 = load ptr, ptr %4, align 8, !tbaa !93
   %15 = call noundef ptr @_ZNK2cv11_InputArray6getObjEv(ptr noundef nonnull align 8 dereferenceable(24) %14)
-  store ptr %15, ptr %5, align 8
-  %16 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %13, i32 0, i32 1
-  %17 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %16, i32 0, i32 1
-  %18 = load i32, ptr %17, align 4
-  store i32 %18, ptr %6, align 4
-  %19 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %13, i32 0, i32 1
-  %20 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %19, i32 0, i32 0
-  %21 = load i32, ptr %20, align 8
-  store i32 %21, ptr %7, align 4
-  %22 = load ptr, ptr %5, align 8
+  store ptr %15, ptr %5, align 8, !tbaa !95
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #18
+  %16 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %13, i32 0, i32 1
+  %17 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %16, i32 0, i32 1
+  %18 = load i32, ptr %17, align 4, !tbaa !97
+  store i32 %18, ptr %6, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #18
+  %19 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %13, i32 0, i32 1
+  %20 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %19, i32 0, i32 0
+  %21 = load i32, ptr %20, align 8, !tbaa !104
+  store i32 %21, ptr %7, align 4, !tbaa !23
+  %22 = load ptr, ptr %5, align 8, !tbaa !95
   %23 = call noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %22)
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %2
-  %25 = load ptr, ptr %5, align 8
-  %26 = load i32, ptr %6, align 4
-  %27 = load i32, ptr %7, align 4
+  %25 = load ptr, ptr %5, align 8, !tbaa !95
+  %26 = load i32, ptr %6, align 4, !tbaa !23
+  %27 = load i32, ptr %7, align 4, !tbaa !23
   call void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96) %25, i32 noundef %26, i32 noundef %27, i32 noundef 5)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %8) #18
   call void @_ZN2cv7Scalar_IdE3allEd(ptr dead_on_unwind writable sret(%"class.cv::Scalar_") align 8 %8, double noundef 0.000000e+00)
-  %28 = load ptr, ptr %5, align 8
+  %28 = load ptr, ptr %5, align 8, !tbaa !95
   %29 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96) %28, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %8) #18
   br label %30
 
 30:                                               ; preds = %24, %2
-  %31 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %13, i32 0, i32 2
-  %32 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %31) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #18
+  %31 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %13, i32 0, i32 2
+  %32 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %31) #18
   %33 = trunc i64 %32 to i32
-  store i32 %33, ptr %9, align 4
-  store i32 0, ptr %10, align 4
+  store i32 %33, ptr %9, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #18
+  store i32 0, ptr %10, align 4, !tbaa !23
   br label %34
 
-34:                                               ; preds = %82, %30
-  %35 = load i32, ptr %10, align 4
-  %36 = load i32, ptr %9, align 4
+34:                                               ; preds = %83, %30
+  %35 = load i32, ptr %10, align 4, !tbaa !23
+  %36 = load i32, ptr %9, align 4, !tbaa !23
   %37 = icmp slt i32 %35, %36
-  br i1 %37, label %38, label %85
+  br i1 %37, label %39, label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %13, i32 0, i32 2
-  %40 = load i32, ptr %10, align 4
-  %41 = sext i32 %40 to i64
-  %42 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %41) #12
-  %43 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel8getIndexEv(ptr noundef nonnull align 4 dereferenceable(29) %42)
-  %44 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %13, i32 0, i32 1
-  %45 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %44, i32 0, i32 0
-  %46 = load i32, ptr %45, align 8
-  %47 = sdiv i32 %43, %46
-  store i32 %47, ptr %11, align 4
-  %48 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %13, i32 0, i32 2
-  %49 = load i32, ptr %10, align 4
-  %50 = sext i32 %49 to i64
-  %51 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %48, i64 noundef %50) #12
-  %52 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel8getIndexEv(ptr noundef nonnull align 4 dereferenceable(29) %51)
-  %53 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %13, i32 0, i32 1
-  %54 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %53, i32 0, i32 0
-  %55 = load i32, ptr %54, align 8
-  %56 = srem i32 %52, %55
-  store i32 %56, ptr %12, align 4
-  %57 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %13, i32 0, i32 2
-  %58 = load i32, ptr %10, align 4
-  %59 = sext i32 %58 to i64
-  %60 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %57, i64 noundef %59) #12
-  %61 = call noundef zeroext i1 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel11getValidityEv(ptr noundef nonnull align 4 dereferenceable(29) %60)
-  br i1 %61, label %62, label %81
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #18
+  br label %86
 
-62:                                               ; preds = %38
-  %63 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %13, i32 0, i32 2
-  %64 = load i32, ptr %10, align 4
-  %65 = sext i32 %64 to i64
-  %66 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %63, i64 noundef %65) #12
-  %67 = call noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel13getPhaseValueEv(ptr noundef nonnull align 4 dereferenceable(29) %66)
-  %68 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %13, i32 0, i32 2
-  %69 = load i32, ptr %10, align 4
-  %70 = sext i32 %69 to i64
-  %71 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %68, i64 noundef %70) #12
-  %72 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(29) %71)
-  %73 = sitofp i32 %72 to double
-  %74 = fmul double 0x401921FB54442D18, %73
-  %75 = fptrunc double %74 to float
-  %76 = fadd float %67, %75
-  %77 = load ptr, ptr %5, align 8
-  %78 = load i32, ptr %11, align 4
-  %79 = load i32, ptr %12, align 4
-  %80 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %77, i32 noundef %78, i32 noundef %79)
-  store float %76, ptr %80, align 4
-  br label %81
+39:                                               ; preds = %34
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #18
+  %40 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %13, i32 0, i32 2
+  %41 = load i32, ptr %10, align 4, !tbaa !23
+  %42 = sext i32 %41 to i64
+  %43 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %40, i64 noundef %42) #18
+  %44 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel8getIndexEv(ptr noundef nonnull align 4 dereferenceable(29) %43)
+  %45 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %13, i32 0, i32 1
+  %46 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %45, i32 0, i32 0
+  %47 = load i32, ptr %46, align 8, !tbaa !104
+  %48 = sdiv i32 %44, %47
+  store i32 %48, ptr %11, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #18
+  %49 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %13, i32 0, i32 2
+  %50 = load i32, ptr %10, align 4, !tbaa !23
+  %51 = sext i32 %50 to i64
+  %52 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %49, i64 noundef %51) #18
+  %53 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel8getIndexEv(ptr noundef nonnull align 4 dereferenceable(29) %52)
+  %54 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %13, i32 0, i32 1
+  %55 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %54, i32 0, i32 0
+  %56 = load i32, ptr %55, align 8, !tbaa !104
+  %57 = srem i32 %53, %56
+  store i32 %57, ptr %12, align 4, !tbaa !23
+  %58 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %13, i32 0, i32 2
+  %59 = load i32, ptr %10, align 4, !tbaa !23
+  %60 = sext i32 %59 to i64
+  %61 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %58, i64 noundef %60) #18
+  %62 = call noundef zeroext i1 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel11getValidityEv(ptr noundef nonnull align 4 dereferenceable(29) %61)
+  br i1 %62, label %63, label %82
 
-81:                                               ; preds = %62, %38
+63:                                               ; preds = %39
+  %64 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %13, i32 0, i32 2
+  %65 = load i32, ptr %10, align 4, !tbaa !23
+  %66 = sext i32 %65 to i64
+  %67 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %64, i64 noundef %66) #18
+  %68 = call noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel13getPhaseValueEv(ptr noundef nonnull align 4 dereferenceable(29) %67)
+  %69 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %13, i32 0, i32 2
+  %70 = load i32, ptr %10, align 4, !tbaa !23
+  %71 = sext i32 %70 to i64
+  %72 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %69, i64 noundef %71) #18
+  %73 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12getIncrementEv(ptr noundef nonnull align 4 dereferenceable(29) %72)
+  %74 = sitofp i32 %73 to double
+  %75 = fmul double 0x401921FB54442D18, %74
+  %76 = fptrunc double %75 to float
+  %77 = fadd float %68, %76
+  %78 = load ptr, ptr %5, align 8, !tbaa !95
+  %79 = load i32, ptr %11, align 4, !tbaa !23
+  %80 = load i32, ptr %12, align 4, !tbaa !23
+  %81 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %78, i32 noundef %79, i32 noundef %80)
+  store float %77, ptr %81, align 4, !tbaa !24
   br label %82
 
-82:                                               ; preds = %81
-  %83 = load i32, ptr %10, align 4
-  %84 = add nsw i32 %83, 1
-  store i32 %84, ptr %10, align 4
-  br label %34, !llvm.loop !14
+82:                                               ; preds = %63, %39
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #18
+  br label %83
 
-85:                                               ; preds = %34
+83:                                               ; preds = %82
+  %84 = load i32, ptr %10, align 4, !tbaa !23
+  %85 = add nsw i32 %84, 1
+  store i32 %85, ptr %10, align 4, !tbaa !23
+  br label %34, !llvm.loop !134
+
+86:                                               ; preds = %38
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #18
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #4
+declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #5
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv6Point_IiEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv6Point_IiEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !135
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::Point_", ptr %3, i32 0, i32 0
-  store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds %"class.cv::Point_", ptr %3, i32 0, i32 1
-  store i32 0, ptr %5, align 4
+  %4 = getelementptr inbounds nuw %"class.cv::Point_", ptr %3, i32 0, i32 0
+  store i32 0, ptr %4, align 4, !tbaa !123
+  %5 = getelementptr inbounds nuw %"class.cv::Point_", ptr %3, i32 0, i32 1
+  store i32 0, ptr %5, align 4, !tbaa !121
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN2cv3Mat2atIhEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, i32 noundef %2) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN2cv3Mat2atIhEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, i32 noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !95
+  store i32 %1, ptr %5, align 4, !tbaa !23
+  store i32 %2, ptr %6, align 4, !tbaa !23
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.cv::Mat", ptr %7, i32 0, i32 4
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.cv::Mat", ptr %7, i32 0, i32 11
-  %11 = getelementptr inbounds %"struct.cv::MatStep", ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
+  %8 = getelementptr inbounds nuw %"class.cv::Mat", ptr %7, i32 0, i32 4
+  %9 = load ptr, ptr %8, align 8, !tbaa !137
+  %10 = getelementptr inbounds nuw %"class.cv::Mat", ptr %7, i32 0, i32 11
+  %11 = getelementptr inbounds nuw %"struct.cv::MatStep", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !138
   %13 = getelementptr inbounds i64, ptr %12, i64 0
-  %14 = load i64, ptr %13, align 8
-  %15 = load i32, ptr %5, align 4
+  %14 = load i64, ptr %13, align 8, !tbaa !88
+  %15 = load i32, ptr %5, align 4, !tbaa !23
   %16 = sext i32 %15 to i64
   %17 = mul i64 %14, %16
-  %18 = getelementptr inbounds i8, ptr %9, i64 %17
-  %19 = load i32, ptr %6, align 4
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 %17
+  %19 = load i32, ptr %6, align 4, !tbaa !23
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i8, ptr %18, i64 %20
   ret ptr %21
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, i32 noundef %2) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, i32 noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !95
+  store i32 %1, ptr %5, align 4, !tbaa !23
+  store i32 %2, ptr %6, align 4, !tbaa !23
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.cv::Mat", ptr %7, i32 0, i32 4
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.cv::Mat", ptr %7, i32 0, i32 11
-  %11 = getelementptr inbounds %"struct.cv::MatStep", ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
+  %8 = getelementptr inbounds nuw %"class.cv::Mat", ptr %7, i32 0, i32 4
+  %9 = load ptr, ptr %8, align 8, !tbaa !137
+  %10 = getelementptr inbounds nuw %"class.cv::Mat", ptr %7, i32 0, i32 11
+  %11 = getelementptr inbounds nuw %"struct.cv::MatStep", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !138
   %13 = getelementptr inbounds i64, ptr %12, i64 0
-  %14 = load i64, ptr %13, align 8
-  %15 = load i32, ptr %5, align 4
+  %14 = load i64, ptr %13, align 8, !tbaa !88
+  %15 = load i32, ptr %5, align 4, !tbaa !23
   %16 = sext i32 %15 to i64
   %17 = mul i64 %14, %16
-  %18 = getelementptr inbounds i8, ptr %9, i64 %17
-  %19 = load i32, ptr %6, align 4
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 %17
+  %19 = load i32, ptr %6, align 4, !tbaa !23
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds float, ptr %18, i64 %20
   ret ptr %21
@@ -3882,38 +4223,38 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramP
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.__gnu_cxx::__normal_iterator.28", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !27
+  store ptr %1, ptr %4, align 8, !tbaa !33
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
-  %11 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %10, i32 0, i32 2
-  %12 = load ptr, ptr %11, align 8
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !32
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %10, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8, !tbaa !139
   %13 = icmp ne ptr %9, %12
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
-  %16 = getelementptr inbounds %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
-  %17 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %16, i32 0, i32 1
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %4, align 8
-  call void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %18, ptr noundef nonnull align 4 dereferenceable(29) %19) #12
-  %20 = getelementptr inbounds %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
-  %21 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %22, i32 1
-  store ptr %23, ptr %21, align 8
+  %15 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %16, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8, !tbaa !32
+  %19 = load ptr, ptr %4, align 8, !tbaa !33
+  call void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %18, ptr noundef nonnull align 4 dereferenceable(29) %19) #18
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8, !tbaa !32
+  %23 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %22, i32 1
+  store ptr %23, ptr %21, align 8, !tbaa !32
   br label %30
 
 24:                                               ; preds = %2
-  %25 = call ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
-  %26 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.28", ptr %5, i32 0, i32 0
+  %25 = call ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #18
+  %26 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.28", ptr %5, i32 0, i32 0
   store ptr %25, ptr %26, align 8
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.28", ptr %5, i32 0, i32 0
+  %27 = load ptr, ptr %4, align 8, !tbaa !33
+  %28 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.28", ptr %5, i32 0, i32 0
   %29 = load ptr, ptr %28, align 8
   call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %29, ptr noundef nonnull align 4 dereferenceable(29) %27)
   br label %30
@@ -3922,79 +4263,79 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramP
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv6Point_IiEC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv6Point_IiEC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !135
+  store i32 %1, ptr %5, align 4, !tbaa !23
+  store i32 %2, ptr %6, align 4, !tbaa !23
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.cv::Point_", ptr %7, i32 0, i32 0
-  %9 = load i32, ptr %5, align 4
-  store i32 %9, ptr %8, align 4
-  %10 = getelementptr inbounds %"class.cv::Point_", ptr %7, i32 0, i32 1
-  %11 = load i32, ptr %6, align 4
-  store i32 %11, ptr %10, align 4
+  %8 = getelementptr inbounds nuw %"class.cv::Point_", ptr %7, i32 0, i32 0
+  %9 = load i32, ptr %5, align 4, !tbaa !23
+  store i32 %9, ptr %8, align 4, !tbaa !123
+  %10 = getelementptr inbounds nuw %"class.cv::Point_", ptr %7, i32 0, i32 1
+  %11 = load i32, ptr %6, align 4, !tbaa !23
+  store i32 %11, ptr %10, align 4, !tbaa !121
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK2cv3MatclERKNS_5Rect_IiEE(ptr dead_on_unwind noalias writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 4 dereferenceable(16) %2) #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZNK2cv3MatclERKNS_5Rect_IiEE(ptr dead_on_unwind noalias writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 4 dereferenceable(16) %2) #8 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !95
+  store ptr %2, ptr %6, align 8, !tbaa !140
   %7 = load ptr, ptr %5, align 8
-  %8 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !140
   call void @_ZN2cv3MatC1ERKS0_RKNS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 4 dereferenceable(16) %8)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv5Rect_IiEC2Eiiii(ptr noundef nonnull align 4 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv5Rect_IiEC2Eiiii(ptr noundef nonnull align 4 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 comdat align 2 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store i32 %2, ptr %8, align 4
-  store i32 %3, ptr %9, align 4
-  store i32 %4, ptr %10, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !140
+  store i32 %1, ptr %7, align 4, !tbaa !23
+  store i32 %2, ptr %8, align 4, !tbaa !23
+  store i32 %3, ptr %9, align 4, !tbaa !23
+  store i32 %4, ptr %10, align 4, !tbaa !23
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %"class.cv::Rect_", ptr %11, i32 0, i32 0
-  %13 = load i32, ptr %7, align 4
-  store i32 %13, ptr %12, align 4
-  %14 = getelementptr inbounds %"class.cv::Rect_", ptr %11, i32 0, i32 1
-  %15 = load i32, ptr %8, align 4
-  store i32 %15, ptr %14, align 4
-  %16 = getelementptr inbounds %"class.cv::Rect_", ptr %11, i32 0, i32 2
-  %17 = load i32, ptr %9, align 4
-  store i32 %17, ptr %16, align 4
-  %18 = getelementptr inbounds %"class.cv::Rect_", ptr %11, i32 0, i32 3
-  %19 = load i32, ptr %10, align 4
-  store i32 %19, ptr %18, align 4
+  %12 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %11, i32 0, i32 0
+  %13 = load i32, ptr %7, align 4, !tbaa !23
+  store i32 %13, ptr %12, align 4, !tbaa !142
+  %14 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %11, i32 0, i32 1
+  %15 = load i32, ptr %8, align 4, !tbaa !23
+  store i32 %15, ptr %14, align 4, !tbaa !144
+  %16 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %11, i32 0, i32 2
+  %17 = load i32, ptr %9, align 4, !tbaa !23
+  store i32 %17, ptr %16, align 4, !tbaa !145
+  %18 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %11, i32 0, i32 3
+  %19 = load i32, ptr %10, align 4, !tbaa !23
+  store i32 %19, ptr %18, align 4, !tbaa !146
   ret void
 }
 
-declare void @_ZN2cv4meanERKNS_11_InputArrayES2_(ptr dead_on_unwind writable sret(%"class.cv::Scalar_") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #3
+declare void @_ZN2cv4meanERKNS_11_InputArrayES2_(ptr dead_on_unwind writable sret(%"class.cv::Scalar_") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #4
 
-declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv() #3
+declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv() #4
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3VecIdLi4EEixEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3VecIdLi4EEixEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !147
+  store i32 %1, ptr %4, align 4, !tbaa !23
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.cv::Matx", ptr %5, i32 0, i32 0
-  %7 = load i32, ptr %4, align 4
+  %6 = getelementptr inbounds nuw %"class.cv::Matx", ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %4, align 4, !tbaa !23
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds [4 x double], ptr %6, i64 0, i64 %8
   ret ptr %9
@@ -4008,64 +4349,70 @@ define noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4wr
   %7 = alloca float, align 4
   %8 = alloca float, align 4
   %9 = alloca float, align 4
-  store ptr %0, ptr %4, align 8
-  store float %1, ptr %5, align 4
-  store float %2, ptr %6, align 4
-  %10 = load float, ptr %5, align 4
-  %11 = load float, ptr %6, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !16
+  store float %1, ptr %5, align 4, !tbaa !24
+  store float %2, ptr %6, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #18
+  %10 = load float, ptr %5, align 4, !tbaa !24
+  %11 = load float, ptr %6, align 4, !tbaa !24
   %12 = fsub float %10, %11
-  store float %12, ptr %8, align 4
-  store float 0x400921FB60000000, ptr %9, align 4
-  %13 = load float, ptr %8, align 4
-  %14 = load float, ptr %9, align 4
+  store float %12, ptr %8, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #18
+  store float 0x400921FB60000000, ptr %9, align 4, !tbaa !24
+  %13 = load float, ptr %8, align 4, !tbaa !24
+  %14 = load float, ptr %9, align 4, !tbaa !24
   %15 = fcmp ogt float %13, %14
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %3
-  %17 = load float, ptr %8, align 4
-  %18 = load float, ptr %9, align 4
+  %17 = load float, ptr %8, align 4, !tbaa !24
+  %18 = load float, ptr %9, align 4, !tbaa !24
   %19 = call float @llvm.fmuladd.f32(float -2.000000e+00, float %18, float %17)
-  store float %19, ptr %7, align 4
+  store float %19, ptr %7, align 4, !tbaa !24
   br label %32
 
 20:                                               ; preds = %3
-  %21 = load float, ptr %8, align 4
-  %22 = load float, ptr %9, align 4
+  %21 = load float, ptr %8, align 4, !tbaa !24
+  %22 = load float, ptr %9, align 4, !tbaa !24
   %23 = fneg float %22
   %24 = fcmp olt float %21, %23
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %20
-  %26 = load float, ptr %8, align 4
-  %27 = load float, ptr %9, align 4
+  %26 = load float, ptr %8, align 4, !tbaa !24
+  %27 = load float, ptr %9, align 4, !tbaa !24
   %28 = call float @llvm.fmuladd.f32(float 2.000000e+00, float %27, float %26)
-  store float %28, ptr %7, align 4
+  store float %28, ptr %7, align 4, !tbaa !24
   br label %31
 
 29:                                               ; preds = %20
-  %30 = load float, ptr %8, align 4
-  store float %30, ptr %7, align 4
+  %30 = load float, ptr %8, align 4, !tbaa !24
+  store float %30, ptr %7, align 4, !tbaa !24
   br label %31
 
 31:                                               ; preds = %29, %25
   br label %32
 
 32:                                               ; preds = %31, %16
-  %33 = load float, ptr %7, align 4
+  %33 = load float, ptr %7, align 4, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #18
   ret float %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !27
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %4, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8, !tbaa !32
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !29
   %10 = ptrtoint ptr %6 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -4077,14 +4424,14 @@ define linkonce_odr hidden noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29Hi
 define linkonce_odr hidden noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !27
+  store i64 %1, ptr %4, align 8, !tbaa !88
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
-  %7 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  %9 = load i64, ptr %4, align 8
-  %10 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %8, i64 %9
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !29
+  %9 = load i64, ptr %4, align 8, !tbaa !88
+  %10 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %8, i64 %9
   ret ptr %10
 }
 
@@ -4102,91 +4449,97 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl17createAndS
   %13 = alloca i32, align 4
   %14 = alloca %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", align 4
   %15 = alloca { i64, i32 }, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !16
+  store i32 %1, ptr %5, align 4, !tbaa !23
+  store i32 %2, ptr %6, align 4, !tbaa !23
   %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %16, i32 0, i32 2
-  %18 = load i32, ptr %6, align 4
+  %17 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %16, i32 0, i32 2
+  %18 = load i32, ptr %6, align 4, !tbaa !23
   %19 = sext i32 %18 to i64
-  %20 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %19) #12
+  %20 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %19) #18
   %21 = call noundef zeroext i1 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel11getValidityEv(ptr noundef nonnull align 4 dereferenceable(29) %20)
   br i1 %21, label %22, label %94
 
 22:                                               ; preds = %3
-  %23 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %16, i32 0, i32 2
-  %24 = load i32, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #18
+  %23 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %16, i32 0, i32 2
+  %24 = load i32, ptr %5, align 4, !tbaa !23
   %25 = sext i32 %24 to i64
-  %26 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %25) #12
+  %26 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %25) #18
   %27 = call noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21getInverseReliabilityEv(ptr noundef nonnull align 4 dereferenceable(29) %26)
-  %28 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %16, i32 0, i32 2
-  %29 = load i32, ptr %6, align 4
+  %28 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %16, i32 0, i32 2
+  %29 = load i32, ptr %6, align 4, !tbaa !23
   %30 = sext i32 %29 to i64
-  %31 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %28, i64 noundef %30) #12
+  %31 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %28, i64 noundef %30) #18
   %32 = call noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21getInverseReliabilityEv(ptr noundef nonnull align 4 dereferenceable(29) %31)
   %33 = fadd float %27, %32
-  store float %33, ptr %7, align 4
-  %34 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %16, i32 0, i32 2
-  %35 = load i32, ptr %6, align 4
+  store float %33, ptr %7, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #18
+  %34 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %16, i32 0, i32 2
+  %35 = load i32, ptr %6, align 4, !tbaa !23
   %36 = sext i32 %35 to i64
-  %37 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %34, i64 noundef %36) #12
+  %37 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %34, i64 noundef %36) #18
   %38 = call noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel13getPhaseValueEv(ptr noundef nonnull align 4 dereferenceable(29) %37)
-  %39 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %16, i32 0, i32 2
-  %40 = load i32, ptr %5, align 4
+  %39 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %16, i32 0, i32 2
+  %40 = load i32, ptr %5, align 4, !tbaa !23
   %41 = sext i32 %40 to i64
-  %42 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %41) #12
+  %42 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %41) #18
   %43 = call noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel13getPhaseValueEv(ptr noundef nonnull align 4 dereferenceable(29) %42)
   %44 = call noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl7findIncEff(ptr noundef nonnull align 8 dereferenceable(104) %16, float noundef %38, float noundef %43)
-  store i32 %44, ptr %8, align 4
-  %45 = load i32, ptr %5, align 4
-  %46 = load i32, ptr %6, align 4
-  %47 = load i32, ptr %8, align 4
+  store i32 %44, ptr %8, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 12, ptr %9) #18
+  %45 = load i32, ptr %5, align 4, !tbaa !23
+  %46 = load i32, ptr %6, align 4, !tbaa !23
+  %47 = load i32, ptr %8, align 4, !tbaa !23
   call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeC1Eiii(ptr noundef nonnull align 4 dereferenceable(12) %9, i32 noundef %45, i32 noundef %46, i32 noundef %47)
-  %48 = load float, ptr %7, align 4
-  %49 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %16, i32 0, i32 3
+  %48 = load float, ptr %7, align 4, !tbaa !24
+  %49 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %16, i32 0, i32 3
   %50 = call noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram9getThreshEv(ptr noundef nonnull align 8 dereferenceable(48) %49)
   %51 = fcmp olt float %48, %50
   br i1 %51, label %52, label %71
 
 52:                                               ; preds = %22
-  %53 = load float, ptr %7, align 4
-  %54 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %16, i32 0, i32 3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #18
+  %53 = load float, ptr %7, align 4, !tbaa !24
+  %54 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %16, i32 0, i32 3
   %55 = call noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram13getSmallWidthEv(ptr noundef nonnull align 8 dereferenceable(48) %54)
   %56 = fdiv float %53, %55
   %57 = fpext float %56 to double
   %58 = call double @llvm.ceil.f64(double %57)
   %59 = fsub double %58, 1.000000e+00
   %60 = fptosi double %59 to i32
-  store i32 %60, ptr %10, align 4
-  %61 = load i32, ptr %10, align 4
+  store i32 %60, ptr %10, align 4, !tbaa !23
+  %61 = load i32, ptr %10, align 4, !tbaa !23
   %62 = icmp eq i32 %61, -1
   br i1 %62, label %63, label %64
 
 63:                                               ; preds = %52
-  store i32 0, ptr %10, align 4
+  store i32 0, ptr %10, align 4, !tbaa !23
   br label %64
 
 64:                                               ; preds = %63, %52
-  %65 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %16, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %11, ptr align 4 %9, i64 12, i1 false)
-  %66 = load i32, ptr %10, align 4
+  %65 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %16, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %11, ptr align 4 %9, i64 12, i1 false), !tbaa.struct !87
+  %66 = load i32, ptr %10, align 4, !tbaa !23
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %12, ptr align 4 %11, i64 12, i1 false)
-  %67 = getelementptr inbounds { i64, i32 }, ptr %12, i32 0, i32 0
+  %67 = getelementptr inbounds nuw { i64, i32 }, ptr %12, i32 0, i32 0
   %68 = load i64, ptr %67, align 4
-  %69 = getelementptr inbounds { i64, i32 }, ptr %12, i32 0, i32 1
+  %69 = getelementptr inbounds nuw { i64, i32 }, ptr %12, i32 0, i32 1
   %70 = load i32, ptr %69, align 4
   call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram12addEdgeInBinENS1_4EdgeEi(ptr noundef nonnull align 8 dereferenceable(48) %65, i64 %68, i32 %70, i32 noundef %66)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #18
   br label %93
 
 71:                                               ; preds = %22
-  %72 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %16, i32 0, i32 1
-  %73 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %72, i32 0, i32 3
-  %74 = load i32, ptr %73, align 4
-  %75 = load float, ptr %7, align 4
-  %76 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %16, i32 0, i32 3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #18
+  %72 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %16, i32 0, i32 1
+  %73 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %72, i32 0, i32 3
+  %74 = load i32, ptr %73, align 4, !tbaa !127
+  %75 = load float, ptr %7, align 4, !tbaa !24
+  %76 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %16, i32 0, i32 3
   %77 = call noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram9getThreshEv(ptr noundef nonnull align 8 dereferenceable(48) %76)
   %78 = fsub float %75, %77
-  %79 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %16, i32 0, i32 3
+  %79 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %16, i32 0, i32 3
   %80 = call noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram13getLargeWidthEv(ptr noundef nonnull align 8 dereferenceable(48) %79)
   %81 = fdiv float %78, %80
   %82 = fpext float %81 to double
@@ -4194,19 +4547,23 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl17createAndS
   %84 = fsub double %83, 1.000000e+00
   %85 = fptosi double %84 to i32
   %86 = add nsw i32 %74, %85
-  store i32 %86, ptr %13, align 4
-  %87 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %16, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %14, ptr align 4 %9, i64 12, i1 false)
-  %88 = load i32, ptr %13, align 4
+  store i32 %86, ptr %13, align 4, !tbaa !23
+  %87 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %16, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %14, ptr align 4 %9, i64 12, i1 false), !tbaa.struct !87
+  %88 = load i32, ptr %13, align 4, !tbaa !23
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %15, ptr align 4 %14, i64 12, i1 false)
-  %89 = getelementptr inbounds { i64, i32 }, ptr %15, i32 0, i32 0
+  %89 = getelementptr inbounds nuw { i64, i32 }, ptr %15, i32 0, i32 0
   %90 = load i64, ptr %89, align 4
-  %91 = getelementptr inbounds { i64, i32 }, ptr %15, i32 0, i32 1
+  %91 = getelementptr inbounds nuw { i64, i32 }, ptr %15, i32 0, i32 1
   %92 = load i32, ptr %91, align 4
   call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram12addEdgeInBinENS1_4EdgeEi(ptr noundef nonnull align 8 dereferenceable(48) %87, i64 %90, i32 %92, i32 noundef %88)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #18
   br label %93
 
 93:                                               ; preds = %71, %64
+  call void @llvm.lifetime.end.p0(i64 12, ptr %9) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #18
   br label %94
 
 94:                                               ; preds = %93, %3
@@ -4221,55 +4578,61 @@ define noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl7find
   %7 = alloca float, align 4
   %8 = alloca i32, align 4
   %9 = alloca float, align 4
-  store ptr %0, ptr %4, align 8
-  store float %1, ptr %5, align 4
-  store float %2, ptr %6, align 4
-  %10 = load float, ptr %6, align 4
-  %11 = load float, ptr %5, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !16
+  store float %1, ptr %5, align 4, !tbaa !24
+  store float %2, ptr %6, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #18
+  %10 = load float, ptr %6, align 4, !tbaa !24
+  %11 = load float, ptr %5, align 4, !tbaa !24
   %12 = fsub float %10, %11
-  store float %12, ptr %7, align 4
-  store float 0x400921FB60000000, ptr %9, align 4
-  %13 = load float, ptr %7, align 4
-  %14 = load float, ptr %9, align 4
+  store float %12, ptr %7, align 4, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #18
+  store float 0x400921FB60000000, ptr %9, align 4, !tbaa !24
+  %13 = load float, ptr %7, align 4, !tbaa !24
+  %14 = load float, ptr %9, align 4, !tbaa !24
   %15 = fcmp ogt float %13, %14
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %3
-  store i32 -1, ptr %8, align 4
+  store i32 -1, ptr %8, align 4, !tbaa !23
   br label %25
 
 17:                                               ; preds = %3
-  %18 = load float, ptr %7, align 4
-  %19 = load float, ptr %9, align 4
+  %18 = load float, ptr %7, align 4, !tbaa !24
+  %19 = load float, ptr %9, align 4, !tbaa !24
   %20 = fneg float %19
   %21 = fcmp olt float %18, %20
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %17
-  store i32 1, ptr %8, align 4
+  store i32 1, ptr %8, align 4, !tbaa !23
   br label %24
 
 23:                                               ; preds = %17
-  store i32 0, ptr %8, align 4
+  store i32 0, ptr %8, align 4, !tbaa !23
   br label %24
 
 24:                                               ; preds = %23, %22
   br label %25
 
 25:                                               ; preds = %24, %16
-  %26 = load i32, ptr %8, align 4
+  %26 = load i32, ptr %8, align 4, !tbaa !23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #18
   ret i32 %26
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.ceil.f64(double) #5
+declare double @llvm.ceil.f64(double) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSaIiEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !149
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorIiEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  call void @_ZNSt15__new_allocatorIiEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
   ret void
 }
 
@@ -4281,18 +4644,18 @@ define linkonce_odr hidden void @_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_(ptr noundef no
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store i64 %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !151
+  store i64 %1, ptr %6, align 8, !tbaa !88
+  store ptr %2, ptr %7, align 8, !tbaa !153
+  store ptr %3, ptr %8, align 8, !tbaa !149
   %11 = load ptr, ptr %5, align 8
-  %12 = load i64, ptr %6, align 8
-  %13 = load ptr, ptr %8, align 8
+  %12 = load i64, ptr %6, align 8, !tbaa !88
+  %13 = load ptr, ptr %8, align 8, !tbaa !149
   %14 = call noundef i64 @_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_(i64 noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
-  %15 = load ptr, ptr %8, align 8
+  %15 = load ptr, ptr %8, align 8, !tbaa !149
   call void @_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %15)
-  %16 = load i64, ptr %6, align 8
-  %17 = load ptr, ptr %7, align 8
+  %16 = load i64, ptr %6, align 8, !tbaa !88
+  %17 = load ptr, ptr %7, align 8, !tbaa !153
   invoke void @_ZNSt6vectorIiSaIiEE18_M_fill_initializeEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %17)
           to label %18 unwind label %19
 
@@ -4306,7 +4669,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_(ptr noundef no
   store ptr %21, ptr %9, align 8
   %22 = extractvalue { ptr, i32 } %20, 1
   store i32 %22, ptr %10, align 4
-  call void @_ZNSt12_Vector_baseIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #12
+  call void @_ZNSt12_Vector_baseIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #18
   br label %23
 
 23:                                               ; preds = %19
@@ -4318,25 +4681,16 @@ define linkonce_odr hidden void @_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !55
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %4, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8, !tbaa !64
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !66
   %10 = ptrtoint ptr %6 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -4348,14 +4702,14 @@ define linkonce_odr hidden noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29Hi
 define linkonce_odr hidden noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !55
+  store i64 %1, ptr %4, align 8, !tbaa !88
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %5, i32 0, i32 0
-  %7 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  %9 = load i64, ptr %4, align 8
-  %10 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %8, i64 %9
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !66
+  %9 = load i64, ptr %4, align 8, !tbaa !88
+  %10 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %8, i64 %9
   ret ptr %10
 }
 
@@ -4363,45 +4717,45 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(12) ptr @_ZNS
 define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !151
+  store i64 %1, ptr %4, align 8, !tbaa !88
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base.11", ptr %5, i32 0, i32 0
-  %7 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  %9 = load i64, ptr %4, align 8
-  %10 = getelementptr inbounds i32, ptr %8, i64 %9
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base.11", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !154
+  %9 = load i64, ptr %4, align 8, !tbaa !88
+  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %9
   ret ptr %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !151
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.11", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.11", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIiSaIiEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.11", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !154
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.11", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !156
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIiSaIiEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
   invoke void @_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E(ptr noundef %6, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %11 unwind label %12
 
 11:                                               ; preds = %1
-  call void @_ZNSt12_Vector_baseIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  call void @_ZNSt12_Vector_baseIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
   ret void
 
 12:                                               ; preds = %1
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #13
+  call void @__clang_call_terminate(ptr %14) #19
   unreachable
 }
 
-declare noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96)) #3
+declare noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96)) #4
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl24getInverseReliabilityMapERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 {
@@ -4413,86 +4767,107 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl24getInverse
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
-  %13 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %12, i32 0, i32 1
-  %14 = load i32, ptr %13, align 4
-  store i32 %14, ptr %5, align 4
-  %15 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 1
-  %16 = getelementptr inbounds %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %15, i32 0, i32 0
-  %17 = load i32, ptr %16, align 8
-  store i32 %17, ptr %6, align 4
-  %18 = load ptr, ptr %4, align 8
-  %19 = call noundef ptr @_ZNK2cv11_InputArray6getObjEv(ptr noundef nonnull align 8 dereferenceable(24) %18)
-  store ptr %19, ptr %7, align 8
-  %20 = load ptr, ptr %7, align 8
-  %21 = call noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %20)
-  br i1 %21, label %22, label %26
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store ptr %1, ptr %4, align 8, !tbaa !93
+  %12 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #18
+  %13 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %12, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %13, i32 0, i32 1
+  %15 = load i32, ptr %14, align 4, !tbaa !97
+  store i32 %15, ptr %5, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #18
+  %16 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %12, i32 0, i32 1
+  %17 = getelementptr inbounds nuw %"struct.cv::phase_unwrapping::HistogramPhaseUnwrapping::Params", ptr %16, i32 0, i32 0
+  %18 = load i32, ptr %17, align 8, !tbaa !104
+  store i32 %18, ptr %6, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #18
+  %19 = load ptr, ptr %4, align 8, !tbaa !93
+  %20 = call noundef ptr @_ZNK2cv11_InputArray6getObjEv(ptr noundef nonnull align 8 dereferenceable(24) %19)
+  store ptr %20, ptr %7, align 8, !tbaa !95
+  %21 = load ptr, ptr %7, align 8, !tbaa !95
+  %22 = call noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %21)
+  br i1 %22, label %23, label %27
 
-22:                                               ; preds = %2
-  %23 = load ptr, ptr %7, align 8
-  %24 = load i32, ptr %5, align 4
-  %25 = load i32, ptr %6, align 4
-  call void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %24, i32 noundef %25, i32 noundef 5)
-  br label %26
-
-26:                                               ; preds = %22, %2
-  store i32 0, ptr %8, align 4
+23:                                               ; preds = %2
+  %24 = load ptr, ptr %7, align 8, !tbaa !95
+  %25 = load i32, ptr %5, align 4, !tbaa !23
+  %26 = load i32, ptr %6, align 4, !tbaa !23
+  call void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96) %24, i32 noundef %25, i32 noundef %26, i32 noundef 5)
   br label %27
 
-27:                                               ; preds = %55, %26
-  %28 = load i32, ptr %8, align 4
-  %29 = load i32, ptr %5, align 4
-  %30 = icmp slt i32 %28, %29
-  br i1 %30, label %31, label %58
+27:                                               ; preds = %23, %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #18
+  store i32 0, ptr %8, align 4, !tbaa !23
+  br label %28
 
-31:                                               ; preds = %27
-  store i32 0, ptr %9, align 4
-  br label %32
+28:                                               ; preds = %58, %27
+  %29 = load i32, ptr %8, align 4, !tbaa !23
+  %30 = load i32, ptr %5, align 4, !tbaa !23
+  %31 = icmp slt i32 %29, %30
+  br i1 %31, label %33, label %32
 
-32:                                               ; preds = %51, %31
-  %33 = load i32, ptr %9, align 4
-  %34 = load i32, ptr %6, align 4
-  %35 = icmp slt i32 %33, %34
-  br i1 %35, label %36, label %54
+32:                                               ; preds = %28
+  store i32 2, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #18
+  br label %61
 
-36:                                               ; preds = %32
-  %37 = load i32, ptr %8, align 4
-  %38 = load i32, ptr %6, align 4
-  %39 = mul nsw i32 %37, %38
-  %40 = load i32, ptr %9, align 4
-  %41 = add nsw i32 %39, %40
-  store i32 %41, ptr %10, align 4
-  %42 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %11, i32 0, i32 2
-  %43 = load i32, ptr %10, align 4
-  %44 = sext i32 %43 to i64
-  %45 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %42, i64 noundef %44) #12
-  %46 = call noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21getInverseReliabilityEv(ptr noundef nonnull align 4 dereferenceable(29) %45)
-  %47 = load ptr, ptr %7, align 8
-  %48 = load i32, ptr %8, align 4
-  %49 = load i32, ptr %9, align 4
-  %50 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %47, i32 noundef %48, i32 noundef %49)
-  store float %46, ptr %50, align 4
-  br label %51
+33:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #18
+  store i32 0, ptr %10, align 4, !tbaa !23
+  br label %34
 
-51:                                               ; preds = %36
-  %52 = load i32, ptr %9, align 4
-  %53 = add nsw i32 %52, 1
-  store i32 %53, ptr %9, align 4
-  br label %32, !llvm.loop !15
+34:                                               ; preds = %54, %33
+  %35 = load i32, ptr %10, align 4, !tbaa !23
+  %36 = load i32, ptr %6, align 4, !tbaa !23
+  %37 = icmp slt i32 %35, %36
+  br i1 %37, label %39, label %38
 
-54:                                               ; preds = %32
-  br label %55
+38:                                               ; preds = %34
+  store i32 5, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #18
+  br label %57
 
-55:                                               ; preds = %54
-  %56 = load i32, ptr %8, align 4
-  %57 = add nsw i32 %56, 1
-  store i32 %57, ptr %8, align 4
-  br label %27, !llvm.loop !16
+39:                                               ; preds = %34
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #18
+  %40 = load i32, ptr %8, align 4, !tbaa !23
+  %41 = load i32, ptr %6, align 4, !tbaa !23
+  %42 = mul nsw i32 %40, %41
+  %43 = load i32, ptr %10, align 4, !tbaa !23
+  %44 = add nsw i32 %42, %43
+  store i32 %44, ptr %11, align 4, !tbaa !23
+  %45 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %12, i32 0, i32 2
+  %46 = load i32, ptr %11, align 4, !tbaa !23
+  %47 = sext i32 %46 to i64
+  %48 = call noundef nonnull align 4 dereferenceable(29) ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %45, i64 noundef %47) #18
+  %49 = call noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21getInverseReliabilityEv(ptr noundef nonnull align 4 dereferenceable(29) %48)
+  %50 = load ptr, ptr %7, align 8, !tbaa !95
+  %51 = load i32, ptr %8, align 4, !tbaa !23
+  %52 = load i32, ptr %10, align 4, !tbaa !23
+  %53 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv3Mat2atIfEERT_ii(ptr noundef nonnull align 8 dereferenceable(96) %50, i32 noundef %51, i32 noundef %52)
+  store float %49, ptr %53, align 4, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #18
+  br label %54
 
-58:                                               ; preds = %27
+54:                                               ; preds = %39
+  %55 = load i32, ptr %10, align 4, !tbaa !23
+  %56 = add nsw i32 %55, 1
+  store i32 %56, ptr %10, align 4, !tbaa !23
+  br label %34, !llvm.loop !157
+
+57:                                               ; preds = %38
+  br label %58
+
+58:                                               ; preds = %57
+  %59 = load i32, ptr %8, align 4, !tbaa !23
+  %60 = add nsw i32 %59, 1
+  store i32 %60, ptr %8, align 4, !tbaa !23
+  br label %28, !llvm.loop !158
+
+61:                                               ; preds = %32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #18
   ret void
 }
 
@@ -4502,69 +4877,64 @@ define void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrapping6createERKNS1_6Pa
   %4 = alloca ptr, align 8
   %5 = alloca %"struct.cv::Ptr.15", align 8
   store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #18
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
   call void @_ZN2cvL7makePtrINS_16phase_unwrapping29HistogramPhaseUnwrapping_ImplEJNS1_24HistogramPhaseUnwrapping6ParamsEEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind writable sret(%"struct.cv::Ptr.15") align 8 %5, ptr noundef nonnull align 4 dereferenceable(20) %6)
-  call void @_ZN2cv3PtrINS_16phase_unwrapping24HistogramPhaseUnwrappingEEC2INS1_29HistogramPhaseUnwrapping_ImplEEEONS0_IT_EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %5) #12
-  call void @_ZN2cv3PtrINS_16phase_unwrapping29HistogramPhaseUnwrapping_ImplEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #12
+  call void @_ZN2cv3PtrINS_16phase_unwrapping24HistogramPhaseUnwrappingEEC2INS1_29HistogramPhaseUnwrapping_ImplEEEONS0_IT_EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %5) #18
+  call void @_ZNSt12__shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #18
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL7makePtrINS_16phase_unwrapping29HistogramPhaseUnwrapping_ImplEJNS1_24HistogramPhaseUnwrapping6ParamsEEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr.15") align 8 %0, ptr noundef nonnull align 4 dereferenceable(20) %1) #1 {
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @_ZN2cvL7makePtrINS_16phase_unwrapping29HistogramPhaseUnwrapping_ImplEJNS1_24HistogramPhaseUnwrapping6ParamsEEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr.15") align 8 %0, ptr noundef nonnull align 4 dereferenceable(20) %1) #8 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::shared_ptr.16", align 8
   store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #18
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
   call void @_ZSt11make_sharedIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEJRKNS1_24HistogramPhaseUnwrapping6ParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.16") align 8 %5, ptr noundef nonnull align 4 dereferenceable(20) %6)
-  call void @_ZN2cv3PtrINS_16phase_unwrapping29HistogramPhaseUnwrapping_ImplEEC2EOSt10shared_ptrIS2_E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %5) #12
-  call void @_ZNSt10shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #12
+  call void @_ZN2cv3PtrINS_16phase_unwrapping29HistogramPhaseUnwrapping_ImplEEC2EOSt10shared_ptrIS2_E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %5) #18
+  call void @_ZNSt12__shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #18
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv3PtrINS_16phase_unwrapping24HistogramPhaseUnwrappingEEC2INS1_29HistogramPhaseUnwrapping_ImplEEEONS0_IT_EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv3PtrINS_16phase_unwrapping24HistogramPhaseUnwrappingEEC2INS1_29HistogramPhaseUnwrapping_ImplEEEONS0_IT_EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !159
+  store ptr %1, ptr %4, align 8, !tbaa !161
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt10shared_ptrIN2cv16phase_unwrapping24HistogramPhaseUnwrappingEEC2INS1_29HistogramPhaseUnwrapping_ImplEvEEOS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #12
+  %6 = load ptr, ptr %4, align 8, !tbaa !161
+  call void @_ZNSt10shared_ptrIN2cv16phase_unwrapping24HistogramPhaseUnwrappingEEC2INS1_29HistogramPhaseUnwrapping_ImplEvEEOS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #18
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv3PtrINS_16phase_unwrapping29HistogramPhaseUnwrapping_ImplEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrappingD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt10shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrappingD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  call void @llvm.trap() #13
+  store ptr %0, ptr %2, align 8, !tbaa !25
+  call void @llvm.trap() #19
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrappingD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrappingD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  call void @llvm.trap() #13
+  store ptr %0, ptr %2, align 8, !tbaa !25
+  call void @llvm.trap() #19
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv9Algorithm5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !163
   ret void
 }
 
@@ -4572,8 +4942,8 @@ define linkonce_odr hidden void @_ZN2cv9Algorithm5clearEv(ptr noundef nonnull al
 define linkonce_odr hidden void @_ZNK2cv9Algorithm5writeERNS_11FileStorageE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !163
+  store ptr %1, ptr %4, align 8, !tbaa !165
   ret void
 }
 
@@ -4581,418 +4951,430 @@ define linkonce_odr hidden void @_ZNK2cv9Algorithm5writeERNS_11FileStorageE(ptr 
 define linkonce_odr hidden void @_ZN2cv9Algorithm4readERKNS_8FileNodeE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !163
+  store ptr %1, ptr %4, align 8, !tbaa !167
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv9Algorithm5emptyEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !163
   ret i1 false
 }
 
-declare void @_ZNK2cv9Algorithm4saveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
+declare void @_ZNK2cv9Algorithm4saveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
-declare void @_ZNK2cv9Algorithm14getDefaultNameB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
+declare void @_ZNK2cv9Algorithm14getDefaultNameB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv16phase_unwrapping15PhaseUnwrappingD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv16phase_unwrapping15PhaseUnwrappingD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  call void @llvm.trap() #13
+  store ptr %0, ptr %2, align 8, !tbaa !169
+  call void @llvm.trap() #19
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv16phase_unwrapping15PhaseUnwrappingD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv16phase_unwrapping15PhaseUnwrappingD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  call void @llvm.trap() #13
+  store ptr %0, ptr %2, align 8, !tbaa !169
+  call void @llvm.trap() #19
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef @_ZTTN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplE) #12
-  call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef @_ZTTN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplE) #18
+  call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %3) #12
-  call void @_ZdlPv(ptr noundef %3) #15
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %3) #18
+  call void @_ZdlPv(ptr noundef %3) #21
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv16phase_unwrapping15PhaseUnwrappingC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv16phase_unwrapping15PhaseUnwrappingC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !169
+  store ptr %1, ptr %4, align 8, !tbaa !18
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %5, align 8
+  store ptr %7, ptr %5, align 8, !tbaa !20
   %8 = getelementptr inbounds ptr, ptr %6, i64 1
   %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %5, align 8, !tbaa !20
   %11 = getelementptr i8, ptr %10, i64 -80
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 %12
-  store ptr %9, ptr %13, align 8
+  store ptr %9, ptr %13, align 8, !tbaa !20
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !171
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !173
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
-  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  call void @_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !175
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !177
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %3, i32 0, i32 1
-  store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %3, i32 0, i32 2
-  store ptr null, ptr %6, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !29
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8, !tbaa !32
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %3, i32 0, i32 2
+  store ptr null, ptr %6, align 8, !tbaa !139
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !179
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv16phase_unwrapping15PhaseUnwrappingD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv16phase_unwrapping15PhaseUnwrappingD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !169
+  store ptr %1, ptr %4, align 8, !tbaa !18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !181
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %3, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %3, i32 0, i32 0
+  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !183
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
-  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  call void @_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !185
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !187
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !189
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
+  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !191
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
-  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  call void @_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !193
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !195
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %3, i32 0, i32 1
-  store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %3, i32 0, i32 2
-  store ptr null, ptr %6, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !90
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8, !tbaa !85
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %3, i32 0, i32 2
+  store ptr null, ptr %6, align 8, !tbaa !86
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !197
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2cv11_InputArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN2cv11_InputArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #8 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !91
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::_InputArray", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds nuw %"class.cv::_InputArray", ptr %3, i32 0, i32 2
   call void @_ZN2cv5Size_IiEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %4)
   call void @_ZN2cv11_InputArray4initEiPKv(ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef 0, ptr noundef null)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv11_InputArray4initEiPKv(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef %2) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv11_InputArray4initEiPKv(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !91
+  store i32 %1, ptr %5, align 4, !tbaa !23
+  store ptr %2, ptr %6, align 8, !tbaa !199
   %7 = load ptr, ptr %4, align 8
-  %8 = load i32, ptr %5, align 4
-  %9 = getelementptr inbounds %"class.cv::_InputArray", ptr %7, i32 0, i32 0
-  store i32 %8, ptr %9, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds %"class.cv::_InputArray", ptr %7, i32 0, i32 1
-  store ptr %10, ptr %11, align 8
+  %8 = load i32, ptr %5, align 4, !tbaa !23
+  %9 = getelementptr inbounds nuw %"class.cv::_InputArray", ptr %7, i32 0, i32 0
+  store i32 %8, ptr %9, align 8, !tbaa !200
+  %10 = load ptr, ptr %6, align 8, !tbaa !199
+  %11 = getelementptr inbounds nuw %"class.cv::_InputArray", ptr %7, i32 0, i32 1
+  store ptr %10, ptr %11, align 8, !tbaa !105
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv5Size_IiEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv5Size_IiEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !201
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::Size_", ptr %3, i32 0, i32 0
-  store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds %"class.cv::Size_", ptr %3, i32 0, i32 1
-  store i32 0, ptr %5, align 4
+  %4 = getelementptr inbounds nuw %"class.cv::Size_", ptr %3, i32 0, i32 0
+  store i32 0, ptr %4, align 4, !tbaa !203
+  %5 = getelementptr inbounds nuw %"class.cv::Size_", ptr %3, i32 0, i32 1
+  store i32 0, ptr %5, align 4, !tbaa !204
   ret void
 }
 
-declare void @_ZN2cv3MatC1ERKS0_RKNS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 4 dereferenceable(16)) unnamed_addr #3
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::__shared_ptr.17", ptr %3, i32 0, i32 1
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
-  ret void
-}
+declare void @_ZN2cv3MatC1ERKS0_RKNS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 4 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !205
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::__shared_count", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !207
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.std::__shared_count", ptr %3, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #12
+  %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !207
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #18
   br label %10
 
 10:                                               ; preds = %7, %1
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  %4 = alloca i32, align 4
-  %5 = alloca i32, align 4
-  %6 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  %4 = alloca i8, align 1
+  %5 = alloca i8, align 1
+  %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = alloca i32, align 4
-  %9 = alloca i32, align 4
-  %10 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
   %11 = alloca i32, align 4
-  %12 = alloca ptr, align 8
-  %13 = alloca i8, align 1
-  %14 = alloca i8, align 1
-  %15 = alloca i8, align 1
-  %16 = alloca i32, align 4
-  %17 = alloca i32, align 4
-  %18 = alloca i64, align 8
-  %19 = alloca ptr, align 8
-  %20 = alloca i64, align 8
-  store ptr %0, ptr %12, align 8
-  %21 = load ptr, ptr %12, align 8
-  store i8 1, ptr %13, align 1
-  store i8 1, ptr %14, align 1
-  store i8 1, ptr %15, align 1
-  store i32 32, ptr %16, align 4
-  store i32 32, ptr %17, align 4
-  store i64 4294967297, ptr %18, align 8
-  %22 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %21, i32 0, i32 1
-  store ptr %22, ptr %19, align 8
-  %23 = load ptr, ptr %19, align 8
-  %24 = load atomic i64, ptr %23 acquire, align 8
-  store i64 %24, ptr %20, align 8
-  %25 = load i64, ptr %20, align 8
-  %26 = icmp eq i64 %25, 4294967297
-  br i1 %26, label %27, label %36
+  store ptr %0, ptr %2, align 8, !tbaa !210
+  %12 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #18
+  store i8 1, ptr %3, align 1, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 1, ptr %4) #18
+  store i8 1, ptr %4, align 1, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #18
+  store i8 1, ptr %5, align 1, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #18
+  store i32 32, ptr %6, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #18
+  store i32 32, ptr %7, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #18
+  store i64 4294967297, ptr %8, align 8, !tbaa !211
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #18
+  %13 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %12, i32 0, i32 1
+  store ptr %13, ptr %9, align 8, !tbaa !213
+  %14 = load ptr, ptr %9, align 8, !tbaa !213
+  %15 = load atomic i64, ptr %14 acquire, align 8
+  store i64 %15, ptr %10, align 8
+  %16 = load i64, ptr %10, align 8, !tbaa !211
+  %17 = icmp eq i64 %16, 4294967297
+  br i1 %17, label %18, label %27
+
+18:                                               ; preds = %1
+  %19 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %12, i32 0, i32 1
+  store i32 0, ptr %19, align 8, !tbaa !215
+  %20 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %12, i32 0, i32 2
+  store i32 0, ptr %20, align 4, !tbaa !217
+  %21 = load ptr, ptr %12, align 8, !tbaa !20
+  %22 = getelementptr inbounds ptr, ptr %21, i64 2
+  %23 = load ptr, ptr %22, align 8
+  call void %23(ptr noundef nonnull align 8 dereferenceable(16) %12) #18
+  %24 = load ptr, ptr %12, align 8, !tbaa !20
+  %25 = getelementptr inbounds ptr, ptr %24, i64 3
+  %26 = load ptr, ptr %25, align 8
+  call void %26(ptr noundef nonnull align 8 dereferenceable(16) %12) #18
+  store i32 1, ptr %11, align 4
+  br label %35
 
 27:                                               ; preds = %1
-  %28 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %21, i32 0, i32 1
-  store i32 0, ptr %28, align 8
-  %29 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %21, i32 0, i32 2
-  store i32 0, ptr %29, align 4
-  %30 = load ptr, ptr %21, align 8
-  %31 = getelementptr inbounds ptr, ptr %30, i64 2
-  %32 = load ptr, ptr %31, align 8
-  call void %32(ptr noundef nonnull align 8 dereferenceable(16) %21) #12
-  %33 = load ptr, ptr %21, align 8
-  %34 = getelementptr inbounds ptr, ptr %33, i64 3
-  %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(16) %21) #12
-  br label %63
+  %28 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %12, i32 0, i32 1
+  %29 = invoke noundef i32 @_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii(ptr noundef %28, i32 noundef -1)
+          to label %30 unwind label %41
 
-36:                                               ; preds = %1
-  %37 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %21, i32 0, i32 1
-  store ptr %37, ptr %10, align 8
-  store i32 -1, ptr %11, align 4
-  %38 = load i8, ptr @__libc_single_threaded, align 1
-  %39 = icmp ne i8 %38, 0
-  br i1 %39, label %40, label %50
+30:                                               ; preds = %27
+  %31 = icmp eq i32 %29, 1
+  %32 = call i1 @llvm.expect.i1(i1 %31, i1 false)
+  br i1 %32, label %33, label %34
 
-40:                                               ; preds = %36
-  %41 = load ptr, ptr %10, align 8
-  %42 = load i32, ptr %11, align 4
-  store ptr %41, ptr %6, align 8
-  store i32 %42, ptr %7, align 4
-  %43 = load ptr, ptr %6, align 8
-  %44 = load i32, ptr %43, align 4
-  store i32 %44, ptr %8, align 4
-  %45 = load i32, ptr %7, align 4
-  %46 = load ptr, ptr %6, align 8
-  %47 = load i32, ptr %46, align 4
-  %48 = add nsw i32 %47, %45
-  store i32 %48, ptr %46, align 4
-  %49 = load i32, ptr %8, align 4
-  store i32 %49, ptr %9, align 4
-  br label %58
+33:                                               ; preds = %30
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #18
+  store i32 1, ptr %11, align 4
+  br label %35
 
-50:                                               ; preds = %36
-  %51 = load ptr, ptr %10, align 8
-  %52 = load i32, ptr %11, align 4
-  store ptr %51, ptr %2, align 8
-  store i32 %52, ptr %3, align 4
-  %53 = load ptr, ptr %2, align 8
-  %54 = load i32, ptr %3, align 4
-  store i32 %54, ptr %4, align 4
-  %55 = load i32, ptr %4, align 4
-  %56 = atomicrmw volatile add ptr %53, i32 %55 acq_rel, align 4
-  store i32 %56, ptr %5, align 4
-  %57 = load i32, ptr %5, align 4
-  store i32 %57, ptr %9, align 4
-  br label %58
+34:                                               ; preds = %30
+  store i32 0, ptr %11, align 4
+  br label %35
 
-58:                                               ; preds = %50, %40
-  %59 = load i32, ptr %9, align 4
-  br label %60
+35:                                               ; preds = %34, %33, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #18
+  %36 = load i32, ptr %11, align 4
+  switch i32 %36, label %38 [
+    i32 0, label %37
+  ]
 
-60:                                               ; preds = %58
-  %61 = icmp eq i32 %59, 1
-  br i1 %61, label %62, label %63
+37:                                               ; preds = %35
+  store i32 0, ptr %11, align 4
+  br label %38
 
-62:                                               ; preds = %60
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #12
-  br label %63
+38:                                               ; preds = %37, %35
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %4) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #18
+  %39 = load i32, ptr %11, align 4
+  switch i32 %39, label %44 [
+    i32 0, label %40
+    i32 1, label %40
+  ]
 
-63:                                               ; preds = %62, %60, %27
+40:                                               ; preds = %38, %38
   ret void
 
-64:                                               ; No predecessors!
-  %65 = landingpad { ptr, i32 }
+41:                                               ; preds = %27
+  %42 = landingpad { ptr, i32 }
           catch ptr null
-  %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #13
+  %43 = extractvalue { ptr, i32 } %42, 0
+  call void @__clang_call_terminate(ptr %43) #19
+  unreachable
+
+44:                                               ; preds = %38
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #12
-  call void @_ZSt9terminatev() #13
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr noundef i32 @_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii(ptr noundef %0, i32 noundef %1) #10 comdat {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !153
+  store i32 %1, ptr %5, align 4, !tbaa !23
+  %6 = call noundef zeroext i1 @_ZN9__gnu_cxx20__is_single_threadedEv() #18
+  br i1 %6, label %7, label %11
+
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %4, align 8, !tbaa !153
+  %9 = load i32, ptr %5, align 4, !tbaa !23
+  %10 = call noundef i32 @_ZN9__gnu_cxx25__exchange_and_add_singleEPii(ptr noundef %8, i32 noundef %9)
+  store i32 %10, ptr %3, align 4
+  br label %15
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !153
+  %13 = load i32, ptr %5, align 4, !tbaa !23
+  %14 = call noundef i32 @_ZN9__gnu_cxx18__exchange_and_addEPVii(ptr noundef %12, i32 noundef %13)
+  store i32 %14, ptr %3, align 4
+  br label %15
+
+15:                                               ; preds = %11, %7
+  %16 = load i32, ptr %3, align 4
+  ret i32 %16
+}
+
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #11 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #18
+  call void @_ZSt9terminatev() #19
   unreachable
 }
 
@@ -5000,240 +5382,175 @@ declare ptr @__cxa_begin_catch(ptr)
 
 declare void @_ZSt9terminatev()
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i1 @llvm.expect.i1(i1, i1) #12
+
+; Function Attrs: mustprogress noinline nounwind uwtable
+define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #13 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !210
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxx20__is_single_threadedEv() #14 comdat {
+  %1 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !119
+  %2 = icmp ne i8 %1, 0
+  ret i1 %2
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZN9__gnu_cxx25__exchange_and_add_singleEPii(ptr noundef %0, i32 noundef %1) #14 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !153
+  store i32 %1, ptr %4, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #18
+  %6 = load ptr, ptr %3, align 8, !tbaa !153
+  %7 = load i32, ptr %6, align 4, !tbaa !23
+  store i32 %7, ptr %5, align 4, !tbaa !23
+  %8 = load i32, ptr %4, align 4, !tbaa !23
+  %9 = load ptr, ptr %3, align 8, !tbaa !153
+  %10 = load i32, ptr %9, align 4, !tbaa !23
+  %11 = add nsw i32 %10, %8
+  store i32 %11, ptr %9, align 4, !tbaa !23
+  %12 = load i32, ptr %5, align 4, !tbaa !23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #18
+  ret i32 %12
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZN9__gnu_cxx18__exchange_and_addEPVii(ptr noundef %0, i32 noundef %1) #14 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !153
+  store i32 %1, ptr %4, align 4, !tbaa !23
+  %7 = load ptr, ptr %3, align 8, !tbaa !153
+  %8 = load i32, ptr %4, align 4, !tbaa !23
+  store i32 %8, ptr %5, align 4, !tbaa !23
+  %9 = load i32, ptr %5, align 4
+  %10 = atomicrmw volatile add ptr %7, i32 %9 acq_rel, align 4
+  store i32 %10, ptr %6, align 4
+  %11 = load i32, ptr %6, align 4, !tbaa !23
+  ret i32 %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  %4 = alloca i32, align 4
-  %5 = alloca i32, align 4
-  %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  %8 = alloca i32, align 4
-  %9 = alloca i32, align 4
-  %10 = alloca ptr, align 8
-  %11 = alloca i32, align 4
-  %12 = alloca ptr, align 8
-  store ptr %0, ptr %12, align 8
-  %13 = load ptr, ptr %12, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !210
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !20
+  %5 = getelementptr inbounds ptr, ptr %4, i64 2
+  %6 = load ptr, ptr %5, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
+  %7 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  %8 = invoke noundef i32 @_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii(ptr noundef %7, i32 noundef -1)
+          to label %9 unwind label %16
+
+9:                                                ; preds = %1
+  %10 = icmp eq i32 %8, 1
+  br i1 %10, label %11, label %15
+
+11:                                               ; preds = %9
+  %12 = load ptr, ptr %3, align 8, !tbaa !20
+  %13 = getelementptr inbounds ptr, ptr %12, i64 3
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds ptr, ptr %14, i64 2
-  %16 = load ptr, ptr %15, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(16) %13) #12
-  %17 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %13, i32 0, i32 2
-  store ptr %17, ptr %10, align 8
-  store i32 -1, ptr %11, align 4
-  %18 = load i8, ptr @__libc_single_threaded, align 1
-  %19 = icmp ne i8 %18, 0
-  br i1 %19, label %20, label %30
+  call void %14(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
+  br label %15
 
-20:                                               ; preds = %1
-  %21 = load ptr, ptr %10, align 8
-  %22 = load i32, ptr %11, align 4
-  store ptr %21, ptr %6, align 8
-  store i32 %22, ptr %7, align 4
-  %23 = load ptr, ptr %6, align 8
-  %24 = load i32, ptr %23, align 4
-  store i32 %24, ptr %8, align 4
-  %25 = load i32, ptr %7, align 4
-  %26 = load ptr, ptr %6, align 8
-  %27 = load i32, ptr %26, align 4
-  %28 = add nsw i32 %27, %25
-  store i32 %28, ptr %26, align 4
-  %29 = load i32, ptr %8, align 4
-  store i32 %29, ptr %9, align 4
-  br label %38
-
-30:                                               ; preds = %1
-  %31 = load ptr, ptr %10, align 8
-  %32 = load i32, ptr %11, align 4
-  store ptr %31, ptr %2, align 8
-  store i32 %32, ptr %3, align 4
-  %33 = load ptr, ptr %2, align 8
-  %34 = load i32, ptr %3, align 4
-  store i32 %34, ptr %4, align 4
-  %35 = load i32, ptr %4, align 4
-  %36 = atomicrmw volatile add ptr %33, i32 %35 acq_rel, align 4
-  store i32 %36, ptr %5, align 4
-  %37 = load i32, ptr %5, align 4
-  store i32 %37, ptr %9, align 4
-  br label %38
-
-38:                                               ; preds = %30, %20
-  %39 = load i32, ptr %9, align 4
-  br label %40
-
-40:                                               ; preds = %38
-  %41 = icmp eq i32 %39, 1
-  br i1 %41, label %42, label %46
-
-42:                                               ; preds = %40
-  %43 = load ptr, ptr %13, align 8
-  %44 = getelementptr inbounds ptr, ptr %43, i64 3
-  %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(16) %13) #12
-  br label %46
-
-46:                                               ; preds = %42, %40
+15:                                               ; preds = %11, %9
   ret void
 
-47:                                               ; No predecessors!
-  %48 = landingpad { ptr, i32 }
+16:                                               ; preds = %1
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #13
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #19
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #8
-
-; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZTv0_n24_N2cv16phase_unwrapping24HistogramPhaseUnwrappingD1Ev(ptr noundef %0) unnamed_addr #9 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 -24
-  %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 %6
-  tail call void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrappingD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZTv0_n24_N2cv16phase_unwrapping24HistogramPhaseUnwrappingD0Ev(ptr noundef %0) unnamed_addr #9 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 -24
-  %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 %6
-  tail call void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrappingD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZTv0_n24_N2cv16phase_unwrapping15PhaseUnwrappingD1Ev(ptr noundef %0) unnamed_addr #9 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 -24
-  %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 %6
-  tail call void @_ZN2cv16phase_unwrapping15PhaseUnwrappingD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZTv0_n24_N2cv16phase_unwrapping15PhaseUnwrappingD0Ev(ptr noundef %0) unnamed_addr #9 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 -24
-  %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 %6
-  tail call void @_ZN2cv16phase_unwrapping15PhaseUnwrappingD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
-  ret void
-}
+declare void @llvm.trap() #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store ptr %1, ptr %4, align 8, !tbaa !18
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %5, align 8
+  store ptr %7, ptr %5, align 8, !tbaa !20
   %8 = getelementptr inbounds ptr, ptr %6, i64 5
   %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %5, align 8, !tbaa !20
   %11 = getelementptr i8, ptr %10, i64 -80
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 %12
-  store ptr %9, ptr %13, align 8
-  %14 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %5, i32 0, i32 3
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9HistogramD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #12
-  %15 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %5, i32 0, i32 2
-  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #12
+  store ptr %9, ptr %13, align 8, !tbaa !20
+  %14 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %5, i32 0, i32 3
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9HistogramD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #18
+  %15 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl", ptr %5, i32 0, i32 2
+  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #18
   %16 = getelementptr inbounds ptr, ptr %6, i64 1
-  call void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrappingD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %16) #12
+  call void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrappingD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %16) #18
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZTv0_n24_N2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplD1Ev(ptr noundef %0) unnamed_addr #9 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9HistogramD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !67
   %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 -24
-  %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 %6
-  tail call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %7) #12
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9HistogramD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %3, i32 0, i32 0
-  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
+  %4 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Histogram", ptr %3, i32 0, i32 0
+  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !69
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !90
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !85
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
   invoke void @_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES3_EvT_S5_RSaIT0_E(ptr noundef %6, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %11 unwind label %12
 
 11:                                               ; preds = %1
-  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
   ret void
 
 12:                                               ; preds = %1
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #13
+  call void @__clang_call_terminate(ptr %14) #19
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES3_EvT_S5_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES3_EvT_S5_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #8 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !53
+  store ptr %1, ptr %5, align 8, !tbaa !53
+  store ptr %2, ptr %6, align 8, !tbaa !193
+  %7 = load ptr, ptr %4, align 8, !tbaa !53
+  %8 = load ptr, ptr %5, align 8, !tbaa !53
   call void @_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEvT_S5_(ptr noundef %7, ptr noundef %8)
   ret void
 }
@@ -5241,26 +5558,26 @@ define linkonce_odr void @_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseU
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !189
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !189
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %7, i32 0, i32 2
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
-  %11 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !90
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %7, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8, !tbaa !86
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !90
   %13 = ptrtoint ptr %9 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
@@ -5269,26 +5586,26 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29His
           to label %17 unwind label %19
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #12
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
+  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #18
   ret void
 
 19:                                               ; preds = %1
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #13
+  call void @__clang_call_terminate(ptr %21) #19
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEvT_S5_(ptr noundef %0, ptr noundef %1) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEvT_S5_(ptr noundef %0, ptr noundef %1) #8 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !53
+  store ptr %1, ptr %4, align 8, !tbaa !53
+  %5 = load ptr, ptr %3, align 8, !tbaa !53
+  %6 = load ptr, ptr %4, align 8, !tbaa !53
   call void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEEvT_S7_(ptr noundef %5, ptr noundef %6)
   ret void
 }
@@ -5297,37 +5614,37 @@ define linkonce_odr void @_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseU
 define linkonce_odr hidden void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEEvT_S7_(ptr noundef %0, ptr noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !53
+  store ptr %1, ptr %4, align 8, !tbaa !53
   br label %5
 
 5:                                                ; preds = %11, %2
-  %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8, !tbaa !53
+  %7 = load ptr, ptr %4, align 8, !tbaa !53
   %8 = icmp ne ptr %6, %7
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr %3, align 8
+  %10 = load ptr, ptr %3, align 8, !tbaa !53
   call void @_ZSt8_DestroyIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEvPT_(ptr noundef %10)
   br label %11
 
 11:                                               ; preds = %9
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %12, i32 1
-  store ptr %13, ptr %3, align 8
-  br label %5, !llvm.loop !17
+  %12 = load ptr, ptr %3, align 8, !tbaa !53
+  %13 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %12, i32 1
+  store ptr %13, ptr %3, align 8, !tbaa !53
+  br label %5, !llvm.loop !218
 
 14:                                               ; preds = %5
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt8_DestroyIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEvPT_(ptr noundef %0) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt8_DestroyIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEvPT_(ptr noundef %0) #2 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
+  store ptr %0, ptr %2, align 8, !tbaa !53
+  %3 = load ptr, ptr %2, align 8, !tbaa !53
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   ret void
 }
 
@@ -5336,18 +5653,18 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29His
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !189
+  store ptr %1, ptr %5, align 8, !tbaa !53
+  store i64 %2, ptr %6, align 8, !tbaa !88
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !53
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %7, i32 0, i32 0
-  %12 = load ptr, ptr %5, align 8
-  %13 = load i64, ptr %6, align 8
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8, !tbaa !53
+  %13 = load i64, ptr %6, align 8, !tbaa !88
   call void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEE10deallocateERS4_PS3_m(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13)
   br label %14
 
@@ -5356,11 +5673,9 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29His
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  store ptr %0, ptr %2, align 8, !tbaa !197
   ret void
 }
 
@@ -5369,12 +5684,12 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrappi
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !193
+  store ptr %1, ptr %5, align 8, !tbaa !53
+  store i64 %2, ptr %6, align 8, !tbaa !88
+  %7 = load ptr, ptr %4, align 8, !tbaa !193
+  %8 = load ptr, ptr %5, align 8, !tbaa !53
+  %9 = load i64, ptr %6, align 8, !tbaa !88
   call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEE10deallocateEPS3_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
   ret void
 }
@@ -5384,144 +5699,113 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  call void @_ZdlPv(ptr noundef %7) #15
+  store ptr %0, ptr %4, align 8, !tbaa !197
+  store ptr %1, ptr %5, align 8, !tbaa !53
+  store i64 %2, ptr %6, align 8, !tbaa !88
+  %7 = load ptr, ptr %5, align 8, !tbaa !53
+  call void @_ZdlPv(ptr noundef %7) #21
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #10
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZTv0_n24_N2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplD0Ev(ptr noundef %0) unnamed_addr #9 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 -24
-  %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 %6
-  tail call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %7) #12
-  ret void
-}
+declare void @_ZdlPv(ptr noundef) #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15__new_allocatorIiEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !219
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__new_allocatorIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2cv7Scalar_IdEC2Edddd(ptr noundef nonnull align 8 dereferenceable(32) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN2cv7Scalar_IdEC2Edddd(ptr noundef nonnull align 8 dereferenceable(32) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4) unnamed_addr #8 comdat align 2 {
   %6 = alloca ptr, align 8
   %7 = alloca double, align 8
   %8 = alloca double, align 8
   %9 = alloca double, align 8
   %10 = alloca double, align 8
-  store ptr %0, ptr %6, align 8
-  store double %1, ptr %7, align 8
-  store double %2, ptr %8, align 8
-  store double %3, ptr %9, align 8
-  store double %4, ptr %10, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !221
+  store double %1, ptr %7, align 8, !tbaa !108
+  store double %2, ptr %8, align 8, !tbaa !108
+  store double %3, ptr %9, align 8, !tbaa !108
+  store double %4, ptr %10, align 8, !tbaa !108
   %11 = load ptr, ptr %6, align 8
   call void @_ZN2cv3VecIdLi4EEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11)
-  %12 = load double, ptr %7, align 8
-  %13 = getelementptr inbounds %"class.cv::Matx", ptr %11, i32 0, i32 0
+  %12 = load double, ptr %7, align 8, !tbaa !108
+  %13 = getelementptr inbounds nuw %"class.cv::Matx", ptr %11, i32 0, i32 0
   %14 = getelementptr inbounds [4 x double], ptr %13, i64 0, i64 0
-  store double %12, ptr %14, align 8
-  %15 = load double, ptr %8, align 8
-  %16 = getelementptr inbounds %"class.cv::Matx", ptr %11, i32 0, i32 0
+  store double %12, ptr %14, align 8, !tbaa !108
+  %15 = load double, ptr %8, align 8, !tbaa !108
+  %16 = getelementptr inbounds nuw %"class.cv::Matx", ptr %11, i32 0, i32 0
   %17 = getelementptr inbounds [4 x double], ptr %16, i64 0, i64 1
-  store double %15, ptr %17, align 8
-  %18 = load double, ptr %9, align 8
-  %19 = getelementptr inbounds %"class.cv::Matx", ptr %11, i32 0, i32 0
+  store double %15, ptr %17, align 8, !tbaa !108
+  %18 = load double, ptr %9, align 8, !tbaa !108
+  %19 = getelementptr inbounds nuw %"class.cv::Matx", ptr %11, i32 0, i32 0
   %20 = getelementptr inbounds [4 x double], ptr %19, i64 0, i64 2
-  store double %18, ptr %20, align 8
-  %21 = load double, ptr %10, align 8
-  %22 = getelementptr inbounds %"class.cv::Matx", ptr %11, i32 0, i32 0
+  store double %18, ptr %20, align 8, !tbaa !108
+  %21 = load double, ptr %10, align 8, !tbaa !108
+  %22 = getelementptr inbounds nuw %"class.cv::Matx", ptr %11, i32 0, i32 0
   %23 = getelementptr inbounds [4 x double], ptr %22, i64 0, i64 3
-  store double %21, ptr %23, align 8
+  store double %21, ptr %23, align 8, !tbaa !108
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2cv3VecIdLi4EEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN2cv3VecIdLi4EEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #8 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !147
   %3 = load ptr, ptr %2, align 8
   call void @_ZN2cv4MatxIdLi4ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv4MatxIdLi4ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv4MatxIdLi4ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !223
   %4 = load ptr, ptr %2, align 8
-  store i32 0, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #18
+  store i32 0, ptr %3, align 4, !tbaa !23
   br label %5
 
-5:                                                ; preds = %13, %1
-  %6 = load i32, ptr %3, align 4
+5:                                                ; preds = %14, %1
+  %6 = load i32, ptr %3, align 4, !tbaa !23
   %7 = icmp slt i32 %6, 4
-  br i1 %7, label %8, label %16
+  br i1 %7, label %9, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds %"class.cv::Matx", ptr %4, i32 0, i32 0
-  %10 = load i32, ptr %3, align 4
-  %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [4 x double], ptr %9, i64 0, i64 %11
-  store double 0.000000e+00, ptr %12, align 8
-  br label %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #18
+  br label %17
 
-13:                                               ; preds = %8
-  %14 = load i32, ptr %3, align 4
-  %15 = add nsw i32 %14, 1
-  store i32 %15, ptr %3, align 4
-  br label %5, !llvm.loop !18
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds nuw %"class.cv::Matx", ptr %4, i32 0, i32 0
+  %11 = load i32, ptr %3, align 4, !tbaa !23
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %12
+  store double 0.000000e+00, ptr %13, align 8, !tbaa !108
+  br label %14
 
-16:                                               ; preds = %5
+14:                                               ; preds = %9
+  %15 = load i32, ptr %3, align 4, !tbaa !23
+  %16 = add nsw i32 %15, 1
+  store i32 %16, ptr %3, align 4, !tbaa !23
+  br label %5, !llvm.loop !225
+
+17:                                               ; preds = %8
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelES3_EvT_S5_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelES3_EvT_S5_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #8 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !33
+  store ptr %1, ptr %5, align 8, !tbaa !33
+  store ptr %2, ptr %6, align 8, !tbaa !175
+  %7 = load ptr, ptr %4, align 8, !tbaa !33
+  %8 = load ptr, ptr %5, align 8, !tbaa !33
   call void @_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEEvT_S5_(ptr noundef %7, ptr noundef %8)
   ret void
 }
@@ -5529,26 +5813,26 @@ define linkonce_odr void @_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseU
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !171
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !171
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %7, i32 0, i32 2
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  %11 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !29
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %7, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8, !tbaa !139
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !29
   %13 = ptrtoint ptr %9 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
@@ -5557,26 +5841,26 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29His
           to label %17 unwind label %19
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #12
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #18
   ret void
 
 19:                                               ; preds = %1
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #13
+  call void @__clang_call_terminate(ptr %21) #19
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEEvT_S5_(ptr noundef %0, ptr noundef %1) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEEvT_S5_(ptr noundef %0, ptr noundef %1) #8 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !33
+  store ptr %1, ptr %4, align 8, !tbaa !33
+  %5 = load ptr, ptr %3, align 8, !tbaa !33
+  %6 = load ptr, ptr %4, align 8, !tbaa !33
   call void @_ZNSt12_Destroy_auxILb1EE9__destroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEEEvT_S7_(ptr noundef %5, ptr noundef %6)
   ret void
 }
@@ -5585,8 +5869,8 @@ define linkonce_odr void @_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseU
 define linkonce_odr hidden void @_ZNSt12_Destroy_auxILb1EE9__destroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEEEvT_S7_(ptr noundef %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !33
+  store ptr %1, ptr %4, align 8, !tbaa !33
   ret void
 }
 
@@ -5595,18 +5879,18 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29His
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !171
+  store ptr %1, ptr %5, align 8, !tbaa !33
+  store i64 %2, ptr %6, align 8, !tbaa !88
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !33
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds %"struct.std::_Vector_base", ptr %7, i32 0, i32 0
-  %12 = load ptr, ptr %5, align 8
-  %13 = load i64, ptr %6, align 8
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8, !tbaa !33
+  %13 = load i64, ptr %6, align 8, !tbaa !88
   call void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEEE10deallocateERS4_PS3_m(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13)
   br label %14
 
@@ -5615,11 +5899,9 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29His
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  store ptr %0, ptr %2, align 8, !tbaa !179
   ret void
 }
 
@@ -5628,12 +5910,12 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrappi
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !175
+  store ptr %1, ptr %5, align 8, !tbaa !33
+  store i64 %2, ptr %6, align 8, !tbaa !88
+  %7 = load ptr, ptr %4, align 8, !tbaa !175
+  %8 = load ptr, ptr %5, align 8, !tbaa !33
+  %9 = load i64, ptr %6, align 8, !tbaa !88
   call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEE10deallocateEPS3_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
   ret void
 }
@@ -5643,40 +5925,24 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  call void @_ZdlPv(ptr noundef %7) #15
+  store ptr %0, ptr %4, align 8, !tbaa !179
+  store ptr %1, ptr %5, align 8, !tbaa !33
+  store i64 %2, ptr %6, align 8, !tbaa !88
+  %7 = load ptr, ptr %5, align 8, !tbaa !33
+  call void @_ZdlPv(ptr noundef %7) #21
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES3_EvT_S5_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES3_EvT_S5_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #8 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !47
+  store ptr %1, ptr %5, align 8, !tbaa !47
+  store ptr %2, ptr %6, align 8, !tbaa !185
+  %7 = load ptr, ptr %4, align 8, !tbaa !47
+  %8 = load ptr, ptr %5, align 8, !tbaa !47
   call void @_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEvT_S5_(ptr noundef %7, ptr noundef %8)
   ret void
 }
@@ -5684,26 +5950,26 @@ define linkonce_odr void @_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseU
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !181
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !181
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %7, i32 0, i32 2
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %3, i32 0, i32 0
-  %11 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !66
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %7, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8, !tbaa !65
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !66
   %13 = ptrtoint ptr %9 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
@@ -5712,26 +5978,26 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29His
           to label %17 unwind label %19
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %3, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #12
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %3, i32 0, i32 0
+  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #18
   ret void
 
 19:                                               ; preds = %1
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #13
+  call void @__clang_call_terminate(ptr %21) #19
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEvT_S5_(ptr noundef %0, ptr noundef %1) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEvT_S5_(ptr noundef %0, ptr noundef %1) #8 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !47
+  store ptr %1, ptr %4, align 8, !tbaa !47
+  %5 = load ptr, ptr %3, align 8, !tbaa !47
+  %6 = load ptr, ptr %4, align 8, !tbaa !47
   call void @_ZNSt12_Destroy_auxILb1EE9__destroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEEvT_S7_(ptr noundef %5, ptr noundef %6)
   ret void
 }
@@ -5740,8 +6006,8 @@ define linkonce_odr void @_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseU
 define linkonce_odr hidden void @_ZNSt12_Destroy_auxILb1EE9__destroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEEvT_S7_(ptr noundef %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !47
+  store ptr %1, ptr %4, align 8, !tbaa !47
   ret void
 }
 
@@ -5750,31 +6016,22 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29His
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !181
+  store ptr %1, ptr %5, align 8, !tbaa !47
+  store i64 %2, ptr %6, align 8, !tbaa !88
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !47
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %7, i32 0, i32 0
-  %12 = load ptr, ptr %5, align 8
-  %13 = load i64, ptr %6, align 8
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8, !tbaa !47
+  %13 = load i64, ptr %6, align 8, !tbaa !88
   call void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEE10deallocateERS4_PS3_m(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13)
   br label %14
 
 14:                                               ; preds = %10, %3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
   ret void
 }
 
@@ -5783,12 +6040,12 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrappi
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !185
+  store ptr %1, ptr %5, align 8, !tbaa !47
+  store i64 %2, ptr %6, align 8, !tbaa !88
+  %7 = load ptr, ptr %4, align 8, !tbaa !185
+  %8 = load ptr, ptr %5, align 8, !tbaa !47
+  %9 = load i64, ptr %6, align 8, !tbaa !88
   call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEE10deallocateEPS3_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
   ret void
 }
@@ -5798,18 +6055,11 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  call void @_ZdlPv(ptr noundef %7) #15
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !187
+  store ptr %1, ptr %5, align 8, !tbaa !47
+  store i64 %2, ptr %6, align 8, !tbaa !88
+  %7 = load ptr, ptr %5, align 8, !tbaa !47
+  call void @_ZdlPv(ptr noundef %7) #21
   ret void
 }
 
@@ -5818,13 +6068,13 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrappi
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
-  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEE9constructIS3_JRKS3_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(12) %9) #12
+  store ptr %0, ptr %4, align 8, !tbaa !185
+  store ptr %1, ptr %5, align 8, !tbaa !47
+  store ptr %2, ptr %6, align 8, !tbaa !47
+  %7 = load ptr, ptr %4, align 8, !tbaa !185
+  %8 = load ptr, ptr %5, align 8, !tbaa !47
+  %9 = load ptr, ptr %6, align 8, !tbaa !47
+  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEE9constructIS3_JRKS3_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(12) %9) #18
   ret void
 }
 
@@ -5840,79 +6090,93 @@ define linkonce_odr void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnw
   %11 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
   store ptr %1, ptr %14, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !55
+  store ptr %2, ptr %6, align 8, !tbaa !47
   %15 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #18
   %16 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef 1, ptr noundef @.str.7)
-  store i64 %16, ptr %7, align 8
-  %17 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %15, i32 0, i32 0
-  %18 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %17, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr %8, align 8
-  %20 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %15, i32 0, i32 0
-  %21 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %9, align 8
-  %23 = call ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #12
-  %24 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %11, i32 0, i32 0
+  store i64 %16, ptr %7, align 8, !tbaa !88
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #18
+  %17 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %15, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !66
+  store ptr %19, ptr %8, align 8, !tbaa !47
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #18
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %15, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8, !tbaa !64
+  store ptr %22, ptr %9, align 8, !tbaa !47
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #18
+  %23 = call ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #18
+  %24 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %11, i32 0, i32 0
   store ptr %23, ptr %24, align 8
-  %25 = call noundef i64 @_ZN9__gnu_cxxmiIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSC_SF_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %11) #12
-  store i64 %25, ptr %10, align 8
-  %26 = load i64, ptr %7, align 8
+  %25 = call noundef i64 @_ZN9__gnu_cxxmiIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSC_SF_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %11) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #18
+  store i64 %25, ptr %10, align 8, !tbaa !88
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #18
+  %26 = load i64, ptr %7, align 8, !tbaa !88
   %27 = call noundef ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %26)
-  store ptr %27, ptr %12, align 8
-  %28 = load ptr, ptr %12, align 8
-  store ptr %28, ptr %13, align 8
-  %29 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %15, i32 0, i32 0
-  %30 = load ptr, ptr %12, align 8
-  %31 = load i64, ptr %10, align 8
-  %32 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %30, i64 %31
-  %33 = load ptr, ptr %6, align 8
-  call void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef %32, ptr noundef nonnull align 4 dereferenceable(12) %33) #12
-  store ptr null, ptr %13, align 8
-  %34 = load ptr, ptr %8, align 8
-  %35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %12, align 8
-  %38 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #12
-  %39 = call noundef ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_(ptr noundef %34, ptr noundef %36, ptr noundef %37, ptr noundef nonnull align 1 dereferenceable(1) %38) #12
-  store ptr %39, ptr %13, align 8
-  %40 = load ptr, ptr %13, align 8
-  %41 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %40, i32 1
-  store ptr %41, ptr %13, align 8
-  %42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %9, align 8
-  %45 = load ptr, ptr %13, align 8
-  %46 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #12
-  %47 = call noundef ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_(ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef nonnull align 1 dereferenceable(1) %46) #12
-  store ptr %47, ptr %13, align 8
-  %48 = load ptr, ptr %8, align 8
-  %49 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %15, i32 0, i32 0
-  %50 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %49, i32 0, i32 2
-  %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr %8, align 8
+  store ptr %27, ptr %12, align 8, !tbaa !47
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #18
+  %28 = load ptr, ptr %12, align 8, !tbaa !47
+  store ptr %28, ptr %13, align 8, !tbaa !47
+  %29 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %15, i32 0, i32 0
+  %30 = load ptr, ptr %12, align 8, !tbaa !47
+  %31 = load i64, ptr %10, align 8, !tbaa !88
+  %32 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %30, i64 %31
+  %33 = load ptr, ptr %6, align 8, !tbaa !47
+  call void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef %32, ptr noundef nonnull align 4 dereferenceable(12) %33) #18
+  store ptr null, ptr %13, align 8, !tbaa !47
+  %34 = load ptr, ptr %8, align 8, !tbaa !47
+  %35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
+  %36 = load ptr, ptr %35, align 8, !tbaa !47
+  %37 = load ptr, ptr %12, align 8, !tbaa !47
+  %38 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #18
+  %39 = call noundef ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_(ptr noundef %34, ptr noundef %36, ptr noundef %37, ptr noundef nonnull align 1 dereferenceable(1) %38) #18
+  store ptr %39, ptr %13, align 8, !tbaa !47
+  %40 = load ptr, ptr %13, align 8, !tbaa !47
+  %41 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %40, i32 1
+  store ptr %41, ptr %13, align 8, !tbaa !47
+  %42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
+  %43 = load ptr, ptr %42, align 8, !tbaa !47
+  %44 = load ptr, ptr %9, align 8, !tbaa !47
+  %45 = load ptr, ptr %13, align 8, !tbaa !47
+  %46 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #18
+  %47 = call noundef ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_(ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef nonnull align 1 dereferenceable(1) %46) #18
+  store ptr %47, ptr %13, align 8, !tbaa !47
+  %48 = load ptr, ptr %8, align 8, !tbaa !47
+  %49 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %15, i32 0, i32 0
+  %50 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %49, i32 0, i32 2
+  %51 = load ptr, ptr %50, align 8, !tbaa !65
+  %52 = load ptr, ptr %8, align 8, !tbaa !47
   %53 = ptrtoint ptr %51 to i64
   %54 = ptrtoint ptr %52 to i64
   %55 = sub i64 %53, %54
   %56 = sdiv exact i64 %55, 12
   call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE13_M_deallocateEPS3_m(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef %48, i64 noundef %56)
-  %57 = load ptr, ptr %12, align 8
-  %58 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %15, i32 0, i32 0
-  %59 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %58, i32 0, i32 0
-  store ptr %57, ptr %59, align 8
-  %60 = load ptr, ptr %13, align 8
-  %61 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %15, i32 0, i32 0
-  %62 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %61, i32 0, i32 1
-  store ptr %60, ptr %62, align 8
-  %63 = load ptr, ptr %12, align 8
-  %64 = load i64, ptr %7, align 8
-  %65 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %63, i64 %64
-  %66 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %15, i32 0, i32 0
-  %67 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %66, i32 0, i32 2
-  store ptr %65, ptr %67, align 8
+  %57 = load ptr, ptr %12, align 8, !tbaa !47
+  %58 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %15, i32 0, i32 0
+  %59 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %58, i32 0, i32 0
+  store ptr %57, ptr %59, align 8, !tbaa !66
+  %60 = load ptr, ptr %13, align 8, !tbaa !47
+  %61 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %15, i32 0, i32 0
+  %62 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %61, i32 0, i32 1
+  store ptr %60, ptr %62, align 8, !tbaa !64
+  %63 = load ptr, ptr %12, align 8, !tbaa !47
+  %64 = load i64, ptr %7, align 8, !tbaa !88
+  %65 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %63, i64 %64
+  %66 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %15, i32 0, i32 0
+  %67 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %66, i32 0, i32 2
+  store ptr %65, ptr %67, align 8, !tbaa !65
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #18
   ret void
 }
 
@@ -5920,12 +6184,12 @@ define linkonce_odr void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnw
 define linkonce_odr hidden ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !55
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %5, i32 0, i32 1
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #12
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #18
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -5935,12 +6199,12 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %8, i64 12, i1 false)
+  store ptr %0, ptr %4, align 8, !tbaa !187
+  store ptr %1, ptr %5, align 8, !tbaa !47
+  store ptr %2, ptr %6, align 8, !tbaa !47
+  %7 = load ptr, ptr %5, align 8, !tbaa !47
+  %8 = load ptr, ptr %6, align 8, !tbaa !47
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %8, i64 12, i1 false), !tbaa.struct !87
   ret void
 }
 
@@ -5951,66 +6215,70 @@ define linkonce_odr hidden noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29Hi
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !55
+  store i64 %1, ptr %5, align 8, !tbaa !88
+  store ptr %2, ptr %6, align 8, !tbaa !226
   %9 = load ptr, ptr %4, align 8
-  %10 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
-  %11 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  %10 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
+  %11 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
   %12 = sub i64 %10, %11
-  %13 = load i64, ptr %5, align 8
+  %13 = load i64, ptr %5, align 8, !tbaa !88
   %14 = icmp ult i64 %12, %13
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr %6, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #14
+  %16 = load ptr, ptr %6, align 8, !tbaa !226
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #20
   unreachable
 
 17:                                               ; preds = %3
-  %18 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
-  %19 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
-  store i64 %19, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #18
+  %18 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #18
+  %19 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
+  store i64 %19, ptr %8, align 8, !tbaa !88
   %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %21 = load i64, ptr %20, align 8
+  %21 = load i64, ptr %20, align 8, !tbaa !88
   %22 = add i64 %18, %21
-  store i64 %22, ptr %7, align 8
-  %23 = load i64, ptr %7, align 8
-  %24 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #18
+  store i64 %22, ptr %7, align 8, !tbaa !88
+  %23 = load i64, ptr %7, align 8, !tbaa !88
+  %24 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
   %25 = icmp ult i64 %23, %24
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %17
-  %27 = load i64, ptr %7, align 8
-  %28 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  %27 = load i64, ptr %7, align 8, !tbaa !88
+  %28 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
   %29 = icmp ugt i64 %27, %28
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %26, %17
-  %31 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  %31 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
   br label %34
 
 32:                                               ; preds = %26
-  %33 = load i64, ptr %7, align 8
+  %33 = load i64, ptr %7, align 8, !tbaa !88
   br label %34
 
 34:                                               ; preds = %32, %30
   %35 = phi i64 [ %31, %30 ], [ %33, %32 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #18
   ret i64 %35
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZN9__gnu_cxxmiIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSC_SF_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN9__gnu_cxxmiIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSC_SF_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #12
-  %10 = load ptr, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !227
+  store ptr %1, ptr %4, align 8, !tbaa !227
+  %5 = load ptr, ptr %3, align 8, !tbaa !227
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
+  %7 = load ptr, ptr %6, align 8, !tbaa !47
+  %8 = load ptr, ptr %4, align 8, !tbaa !227
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #18
+  %10 = load ptr, ptr %9, align 8, !tbaa !47
   %11 = ptrtoint ptr %7 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
@@ -6022,12 +6290,12 @@ define linkonce_odr noundef i64 @_ZN9__gnu_cxxmiIPN2cv16phase_unwrapping29Histog
 define linkonce_odr hidden ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !55
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %5, i32 0, i32 0
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #12
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #18
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -6036,16 +6304,16 @@ define linkonce_odr hidden ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPh
 define linkonce_odr hidden noundef ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !181
+  store i64 %1, ptr %4, align 8, !tbaa !88
   %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !88
   %7 = icmp ne i64 %6, 0
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %5, i32 0, i32 0
-  %10 = load i64, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %5, i32 0, i32 0
+  %10 = load i64, ptr %4, align 8, !tbaa !88
   %11 = call noundef ptr @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEE8allocateERS4_m(ptr noundef nonnull align 1 dereferenceable(1) %9, i64 noundef %10)
   br label %13
 
@@ -6063,61 +6331,61 @@ define linkonce_odr hidden noundef ptr @_ZNSt6vectorIN2cv16phase_unwrapping29His
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = load ptr, ptr %7, align 8
-  %12 = load ptr, ptr %8, align 8
-  %13 = call noundef ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE14_S_do_relocateEPS3_S6_S6_RS4_St17integral_constantIbLb1EE(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12) #12
+  store ptr %0, ptr %5, align 8, !tbaa !47
+  store ptr %1, ptr %6, align 8, !tbaa !47
+  store ptr %2, ptr %7, align 8, !tbaa !47
+  store ptr %3, ptr %8, align 8, !tbaa !185
+  %9 = load ptr, ptr %5, align 8, !tbaa !47
+  %10 = load ptr, ptr %6, align 8, !tbaa !47
+  %11 = load ptr, ptr %7, align 8, !tbaa !47
+  %12 = load ptr, ptr %8, align 8, !tbaa !185
+  %13 = call noundef ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE14_S_do_relocateEPS3_S6_S6_RS4_St17integral_constantIbLb1EE(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12) #18
   ret ptr %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !227
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !55
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
-  %5 = call noundef i64 @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE11_S_max_sizeERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %4) #12
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
+  %5 = call noundef i64 @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE11_S_max_sizeERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %4) #18
   ret i64 %5
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #6
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #9
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = load i64, ptr %6, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %8, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !229
+  store ptr %1, ptr %5, align 8, !tbaa !229
+  %6 = load ptr, ptr %4, align 8, !tbaa !229
+  %7 = load i64, ptr %6, align 8, !tbaa !88
+  %8 = load ptr, ptr %5, align 8, !tbaa !229
+  %9 = load i64, ptr %8, align 8, !tbaa !88
   %10 = icmp ult i64 %7, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %5, align 8
+  %12 = load ptr, ptr %5, align 8, !tbaa !229
   store ptr %12, ptr %3, align 8
   br label %15
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %4, align 8, !tbaa !229
   store ptr %14, ptr %3, align 8
   br label %15
 
@@ -6131,65 +6399,69 @@ define linkonce_odr hidden noundef i64 @_ZNSt6vectorIN2cv16phase_unwrapping29His
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %2, align 8
-  store i64 768614336404564650, ptr %3, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = call noundef i64 @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEE8max_sizeERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
-  store i64 %6, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !185
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #18
+  store i64 768614336404564650, ptr %3, align 8, !tbaa !88
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #18
+  %5 = load ptr, ptr %2, align 8, !tbaa !185
+  %6 = call noundef i64 @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEE8max_sizeERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  store i64 %6, ptr %4, align 8, !tbaa !88
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %8 unwind label %10
 
 8:                                                ; preds = %1
-  %9 = load i64, ptr %7, align 8
+  %9 = load i64, ptr %7, align 8, !tbaa !88
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #18
   ret i64 %9
 
 10:                                               ; preds = %1
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #13
+  call void @__clang_call_terminate(ptr %12) #19
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !181
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEE8max_sizeERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  store ptr %0, ptr %2, align 8, !tbaa !185
+  %3 = load ptr, ptr %2, align 8, !tbaa !185
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
   ret i64 %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %6 = load ptr, ptr %5, align 8
-  %7 = load i64, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load i64, ptr %8, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !229
+  store ptr %1, ptr %5, align 8, !tbaa !229
+  %6 = load ptr, ptr %5, align 8, !tbaa !229
+  %7 = load i64, ptr %6, align 8, !tbaa !88
+  %8 = load ptr, ptr %4, align 8, !tbaa !229
+  %9 = load i64, ptr %8, align 8, !tbaa !88
   %10 = icmp ult i64 %7, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %5, align 8
+  %12 = load ptr, ptr %5, align 8, !tbaa !229
   store ptr %12, ptr %3, align 8
   br label %15
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %4, align 8, !tbaa !229
   store ptr %14, ptr %3, align 8
   br label %15
 
@@ -6201,16 +6473,16 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImER
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !187
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !187
   ret i64 768614336404564650
 }
 
@@ -6218,13 +6490,13 @@ define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorIN2cv16phase_unwr
 define linkonce_odr hidden void @_ZN9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !227
+  store ptr %1, ptr %4, align 8, !tbaa !230
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !230
+  %8 = load ptr, ptr %7, align 8, !tbaa !47
+  store ptr %8, ptr %6, align 8, !tbaa !232
   ret void
 }
 
@@ -6232,10 +6504,10 @@ define linkonce_odr hidden void @_ZN9__gnu_cxx17__normal_iteratorIPN2cv16phase_u
 define linkonce_odr hidden noundef ptr @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEE8allocateERS4_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !185
+  store i64 %1, ptr %4, align 8, !tbaa !88
+  %5 = load ptr, ptr %3, align 8, !tbaa !185
+  %6 = load i64, ptr %4, align 8, !tbaa !88
   %7 = call noundef ptr @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
   ret ptr %7
 }
@@ -6245,43 +6517,49 @@ define linkonce_odr hidden noundef ptr @_ZNSt15__new_allocatorIN2cv16phase_unwra
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !187
+  store i64 %1, ptr %5, align 8, !tbaa !88
+  store ptr %2, ptr %6, align 8, !tbaa !199
   %7 = load ptr, ptr %4, align 8
-  %8 = load i64, ptr %5, align 8
-  %9 = call noundef i64 @_ZNKSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #12
+  %8 = load i64, ptr %5, align 8, !tbaa !88
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
   %10 = icmp ugt i64 %8, %9
-  br i1 %10, label %11, label %16
+  %11 = zext i1 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %19
 
-11:                                               ; preds = %3
-  %12 = load i64, ptr %5, align 8
-  %13 = icmp ugt i64 %12, 1537228672809129301
-  br i1 %13, label %14, label %15
+14:                                               ; preds = %3
+  %15 = load i64, ptr %5, align 8, !tbaa !88
+  %16 = icmp ugt i64 %15, 1537228672809129301
+  br i1 %16, label %17, label %18
 
-14:                                               ; preds = %11
-  call void @_ZSt28__throw_bad_array_new_lengthv() #14
+17:                                               ; preds = %14
+  call void @_ZSt28__throw_bad_array_new_lengthv() #20
   unreachable
 
-15:                                               ; preds = %11
-  call void @_ZSt17__throw_bad_allocv() #14
+18:                                               ; preds = %14
+  call void @_ZSt17__throw_bad_allocv() #20
   unreachable
 
-16:                                               ; preds = %3
-  %17 = load i64, ptr %5, align 8
-  %18 = mul i64 %17, 12
-  %19 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #16
-  ret ptr %19
+19:                                               ; preds = %3
+  %20 = load i64, ptr %5, align 8, !tbaa !88
+  %21 = mul i64 %20, 12
+  %22 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #22
+  ret ptr %22
 }
 
-; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #6
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #12
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #6
+declare void @_ZSt28__throw_bad_array_new_lengthv() #9
+
+; Function Attrs: noreturn
+declare void @_ZSt17__throw_bad_allocv() #9
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #11
+declare noundef nonnull ptr @_Znwm(i64 noundef) #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE14_S_do_relocateEPS3_S6_S6_RS4_St17integral_constantIbLb1EE(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #0 comdat align 2 {
@@ -6289,104 +6567,106 @@ define linkonce_odr hidden noundef ptr @_ZNSt6vectorIN2cv16phase_unwrapping29His
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = load ptr, ptr %7, align 8
-  %12 = load ptr, ptr %8, align 8
-  %13 = call noundef ptr @_ZSt12__relocate_aIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12) #12
+  store ptr %0, ptr %5, align 8, !tbaa !47
+  store ptr %1, ptr %6, align 8, !tbaa !47
+  store ptr %2, ptr %7, align 8, !tbaa !47
+  store ptr %3, ptr %8, align 8, !tbaa !185
+  %9 = load ptr, ptr %5, align 8, !tbaa !47
+  %10 = load ptr, ptr %6, align 8, !tbaa !47
+  %11 = load ptr, ptr %7, align 8, !tbaa !47
+  %12 = load ptr, ptr %8, align 8, !tbaa !185
+  %13 = call noundef ptr @_ZSt12__relocate_aIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12) #18
   ret ptr %13
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt12__relocate_aIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__relocate_aIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #2 comdat {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = call noundef ptr @_ZSt12__niter_baseIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEET_S5_(ptr noundef %9) #12
-  %11 = load ptr, ptr %6, align 8
-  %12 = call noundef ptr @_ZSt12__niter_baseIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEET_S5_(ptr noundef %11) #12
-  %13 = load ptr, ptr %7, align 8
-  %14 = call noundef ptr @_ZSt12__niter_baseIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEET_S5_(ptr noundef %13) #12
-  %15 = load ptr, ptr %8, align 8
-  %16 = call noundef ptr @_ZSt14__relocate_a_1IPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %10, ptr noundef %12, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %15) #12
+  store ptr %0, ptr %5, align 8, !tbaa !47
+  store ptr %1, ptr %6, align 8, !tbaa !47
+  store ptr %2, ptr %7, align 8, !tbaa !47
+  store ptr %3, ptr %8, align 8, !tbaa !185
+  %9 = load ptr, ptr %5, align 8, !tbaa !47
+  %10 = call noundef ptr @_ZSt12__niter_baseIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEET_S5_(ptr noundef %9) #18
+  %11 = load ptr, ptr %6, align 8, !tbaa !47
+  %12 = call noundef ptr @_ZSt12__niter_baseIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEET_S5_(ptr noundef %11) #18
+  %13 = load ptr, ptr %7, align 8, !tbaa !47
+  %14 = call noundef ptr @_ZSt12__niter_baseIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEET_S5_(ptr noundef %13) #18
+  %15 = load ptr, ptr %8, align 8, !tbaa !185
+  %16 = call noundef ptr @_ZSt14__relocate_a_1IPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %10, ptr noundef %12, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %15) #18
   ret ptr %16
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt14__relocate_a_1IPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt14__relocate_a_1IPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #2 comdat {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %10 = load ptr, ptr %7, align 8
-  store ptr %10, ptr %9, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !47
+  store ptr %1, ptr %6, align 8, !tbaa !47
+  store ptr %2, ptr %7, align 8, !tbaa !47
+  store ptr %3, ptr %8, align 8, !tbaa !185
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #18
+  %10 = load ptr, ptr %7, align 8, !tbaa !47
+  store ptr %10, ptr %9, align 8, !tbaa !47
   br label %11
 
 11:                                               ; preds = %19, %4
-  %12 = load ptr, ptr %5, align 8
-  %13 = load ptr, ptr %6, align 8
+  %12 = load ptr, ptr %5, align 8, !tbaa !47
+  %13 = load ptr, ptr %6, align 8, !tbaa !47
   %14 = icmp ne ptr %12, %13
   br i1 %14, label %15, label %24
 
 15:                                               ; preds = %11
-  %16 = load ptr, ptr %9, align 8
-  %17 = load ptr, ptr %5, align 8
-  %18 = load ptr, ptr %8, align 8
-  call void @_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES3_SaIS3_EEvPT_PT0_RT1_(ptr noundef %16, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %18) #12
+  %16 = load ptr, ptr %9, align 8, !tbaa !47
+  %17 = load ptr, ptr %5, align 8, !tbaa !47
+  %18 = load ptr, ptr %8, align 8, !tbaa !185
+  call void @_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES3_SaIS3_EEvPT_PT0_RT1_(ptr noundef %16, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %18) #18
   br label %19
 
 19:                                               ; preds = %15
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %20, i32 1
-  store ptr %21, ptr %5, align 8
-  %22 = load ptr, ptr %9, align 8
-  %23 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %22, i32 1
-  store ptr %23, ptr %9, align 8
-  br label %11, !llvm.loop !19
+  %20 = load ptr, ptr %5, align 8, !tbaa !47
+  %21 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %20, i32 1
+  store ptr %21, ptr %5, align 8, !tbaa !47
+  %22 = load ptr, ptr %9, align 8, !tbaa !47
+  %23 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %22, i32 1
+  store ptr %23, ptr %9, align 8, !tbaa !47
+  br label %11, !llvm.loop !234
 
 24:                                               ; preds = %11
-  %25 = load ptr, ptr %9, align 8
+  %25 = load ptr, ptr %9, align 8, !tbaa !47
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #18
   ret ptr %25
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt12__niter_baseIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEET_S5_(ptr noundef %0) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__niter_baseIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEET_S5_(ptr noundef %0) #2 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8, !tbaa !47
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES3_SaIS3_EEvPT_PT0_RT1_(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES3_SaIS3_EEvPT_PT0_RT1_(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #2 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %5, align 8
-  call void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(12) %9) #12
-  %10 = load ptr, ptr %6, align 8
-  %11 = load ptr, ptr %5, align 8
-  call void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %11) #12
+  store ptr %0, ptr %4, align 8, !tbaa !47
+  store ptr %1, ptr %5, align 8, !tbaa !47
+  store ptr %2, ptr %6, align 8, !tbaa !185
+  %7 = load ptr, ptr %6, align 8, !tbaa !185
+  %8 = load ptr, ptr %4, align 8, !tbaa !47
+  %9 = load ptr, ptr %5, align 8, !tbaa !47
+  call void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(12) %9) #18
+  %10 = load ptr, ptr %6, align 8, !tbaa !185
+  %11 = load ptr, ptr %5, align 8, !tbaa !47
+  call void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %11) #18
   ret void
 }
 
@@ -6395,13 +6675,13 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrappi
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
-  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEE9constructIS3_JS3_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(12) %9) #12
+  store ptr %0, ptr %4, align 8, !tbaa !185
+  store ptr %1, ptr %5, align 8, !tbaa !47
+  store ptr %2, ptr %6, align 8, !tbaa !47
+  %7 = load ptr, ptr %4, align 8, !tbaa !185
+  %8 = load ptr, ptr %5, align 8, !tbaa !47
+  %9 = load ptr, ptr %6, align 8, !tbaa !47
+  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEE9constructIS3_JS3_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(12) %9) #18
   ret void
 }
 
@@ -6409,11 +6689,11 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrappi
 define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEE7destroyIS3_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #12
+  store ptr %0, ptr %3, align 8, !tbaa !185
+  store ptr %1, ptr %4, align 8, !tbaa !47
+  %5 = load ptr, ptr %3, align 8, !tbaa !185
+  %6 = load ptr, ptr %4, align 8, !tbaa !47
+  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEE7destroyIS3_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #18
   ret void
 }
 
@@ -6422,12 +6702,12 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %8, i64 12, i1 false)
+  store ptr %0, ptr %4, align 8, !tbaa !187
+  store ptr %1, ptr %5, align 8, !tbaa !47
+  store ptr %2, ptr %6, align 8, !tbaa !47
+  %7 = load ptr, ptr %5, align 8, !tbaa !47
+  %8 = load ptr, ptr %6, align 8, !tbaa !47
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %8, i64 12, i1 false), !tbaa.struct !87
   ret void
 }
 
@@ -6435,8 +6715,8 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29
 define linkonce_odr hidden void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEE7destroyIS3_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !187
+  store ptr %1, ptr %4, align 8, !tbaa !47
   ret void
 }
 
@@ -6445,8 +6725,8 @@ define linkonce_odr hidden void @_ZN9__gnu_cxx14__alloc_traitsISaIN2cv16phase_un
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !185
+  %5 = load ptr, ptr %4, align 8, !tbaa !185
   call void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEE37select_on_container_copy_constructionERKS4_(ptr dead_on_unwind writable sret(%"class.std::allocator.7") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %5)
   ret void
 }
@@ -6458,14 +6738,14 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29His
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !181
+  store i64 %1, ptr %5, align 8, !tbaa !88
+  store ptr %2, ptr %6, align 8, !tbaa !185
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %9, i32 0, i32 0
-  %11 = load ptr, ptr %6, align 8
-  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE12_Vector_implC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #12
-  %12 = load i64, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8, !tbaa !185
+  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE12_Vector_implC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #18
+  %12 = load i64, ptr %5, align 8, !tbaa !88
   invoke void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_M_create_storageEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %12)
           to label %13 unwind label %14
 
@@ -6479,7 +6759,7 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29His
   store ptr %16, ptr %7, align 8
   %17 = extractvalue { ptr, i32 } %15, 1
   store i32 %17, ptr %8, align 4
-  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #12
+  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
   br label %18
 
 18:                                               ; preds = %14
@@ -6491,34 +6771,32 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29His
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  store ptr %0, ptr %2, align 8, !tbaa !187
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS5_SaIS5_EEEEPS5_S5_ET0_T_SE_SD_RSaIT1_E(ptr %0, ptr %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS5_SaIS5_EEEEPS5_S5_ET0_T_SE_SD_RSaIT1_E(ptr %0, ptr %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #8 comdat {
   %5 = alloca %"class.__gnu_cxx::__normal_iterator.26", align 8
   %6 = alloca %"class.__gnu_cxx::__normal_iterator.26", align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %"class.__gnu_cxx::__normal_iterator.26", align 8
   %10 = alloca %"class.__gnu_cxx::__normal_iterator.26", align 8
-  %11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %5, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %5, i32 0, i32 0
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %6, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %6, i32 0, i32 0
   store ptr %1, ptr %12, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %5, i64 8, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %6, i64 8, i1 false)
-  %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %9, i32 0, i32 0
+  store ptr %2, ptr %7, align 8, !tbaa !47
+  store ptr %3, ptr %8, align 8, !tbaa !185
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !235
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !235
+  %13 = load ptr, ptr %7, align 8, !tbaa !47
+  %14 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %9, i32 0, i32 0
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %10, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %10, i32 0, i32 0
   %17 = load ptr, ptr %16, align 8
   %18 = call noundef ptr @_ZSt18uninitialized_copyIN9__gnu_cxx17__normal_iteratorIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS5_SaIS5_EEEEPS5_ET0_T_SE_SD_(ptr %15, ptr %17, ptr noundef %13)
   ret ptr %18
@@ -6528,12 +6806,12 @@ define linkonce_odr noundef ptr @_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__nor
 define linkonce_odr hidden ptr @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator.26", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !55
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %5, i32 0, i32 0
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #12
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #18
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -6542,12 +6820,12 @@ define linkonce_odr hidden ptr @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramP
 define linkonce_odr hidden ptr @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator.26", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !55
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %5, i32 0, i32 1
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #12
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #18
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -6557,9 +6835,9 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrappi
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  call void @_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEC2ERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %5) #12
+  store ptr %1, ptr %4, align 8, !tbaa !185
+  %5 = load ptr, ptr %4, align 8, !tbaa !185
+  call void @_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEC2ERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   ret void
 }
 
@@ -6567,11 +6845,11 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrappi
 define linkonce_odr hidden void @_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEC2ERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !185
+  store ptr %1, ptr %4, align 8, !tbaa !185
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEC2ERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #12
+  %6 = load ptr, ptr %4, align 8, !tbaa !185
+  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEC2ERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #18
   ret void
 }
 
@@ -6579,8 +6857,8 @@ define linkonce_odr hidden void @_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnw
 define linkonce_odr hidden void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEC2ERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !187
+  store ptr %1, ptr %4, align 8, !tbaa !187
   ret void
 }
 
@@ -6588,12 +6866,12 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE12_Vector_implC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !183
+  store ptr %1, ptr %4, align 8, !tbaa !185
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEC2ERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #12
-  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
+  %6 = load ptr, ptr %4, align 8, !tbaa !185
+  call void @_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEC2ERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #18
+  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #18
   ret void
 }
 
@@ -6601,33 +6879,33 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29His
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_M_create_storageEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !181
+  store i64 %1, ptr %4, align 8, !tbaa !88
   %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !88
   %7 = call noundef ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %6)
-  %8 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %5, i32 0, i32 0
-  %9 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %8, i32 0, i32 0
-  store ptr %7, ptr %9, align 8
-  %10 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %5, i32 0, i32 0
-  %11 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %5, i32 0, i32 0
-  %14 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %13, i32 0, i32 1
-  store ptr %12, ptr %14, align 8
-  %15 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %5, i32 0, i32 0
-  %16 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %15, i32 0, i32 0
-  %17 = load ptr, ptr %16, align 8
-  %18 = load i64, ptr %4, align 8
-  %19 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %17, i64 %18
-  %20 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %5, i32 0, i32 0
-  %21 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %20, i32 0, i32 2
-  store ptr %19, ptr %21, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %5, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %8, i32 0, i32 0
+  store ptr %7, ptr %9, align 8, !tbaa !66
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %5, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !66
+  %13 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %5, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %13, i32 0, i32 1
+  store ptr %12, ptr %14, align 8, !tbaa !64
+  %15 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %5, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !66
+  %18 = load i64, ptr %4, align 8, !tbaa !88
+  %19 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %17, i64 %18
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %5, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %20, i32 0, i32 2
+  store ptr %19, ptr %21, align 8, !tbaa !65
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt18uninitialized_copyIN9__gnu_cxx17__normal_iteratorIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS5_SaIS5_EEEEPS5_ET0_T_SE_SD_(ptr %0, ptr %1, ptr noundef %2) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt18uninitialized_copyIN9__gnu_cxx17__normal_iteratorIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS5_SaIS5_EEEEPS5_ET0_T_SE_SD_(ptr %0, ptr %1, ptr noundef %2) #8 comdat {
   %4 = alloca %"class.__gnu_cxx::__normal_iterator.26", align 8
   %5 = alloca %"class.__gnu_cxx::__normal_iterator.26", align 8
   %6 = alloca ptr, align 8
@@ -6635,21 +6913,25 @@ define linkonce_odr noundef ptr @_ZSt18uninitialized_copyIN9__gnu_cxx17__normal_
   %8 = alloca i8, align 1
   %9 = alloca %"class.__gnu_cxx::__normal_iterator.26", align 8
   %10 = alloca %"class.__gnu_cxx::__normal_iterator.26", align 8
-  %11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %4, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %4, i32 0, i32 0
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %5, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %5, i32 0, i32 0
   store ptr %1, ptr %12, align 8
-  store ptr %2, ptr %6, align 8
-  store i8 0, ptr %7, align 1
-  store i8 0, ptr %8, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %4, i64 8, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %5, i64 8, i1 false)
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %9, i32 0, i32 0
+  store ptr %2, ptr %6, align 8, !tbaa !47
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #18
+  store i8 0, ptr %7, align 1, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #18
+  store i8 0, ptr %8, align 1, !tbaa !34
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %4, i64 8, i1 false), !tbaa.struct !235
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !235
+  %13 = load ptr, ptr %6, align 8, !tbaa !47
+  %14 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %9, i32 0, i32 0
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %10, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %10, i32 0, i32 0
   %17 = load ptr, ptr %16, align 8
   %18 = call noundef ptr @_ZNSt20__uninitialized_copyILb0EE13__uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS7_SaIS7_EEEEPS7_EET0_T_SG_SF_(ptr %15, ptr %17, ptr noundef %13)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #18
   ret ptr %18
 }
 
@@ -6660,17 +6942,17 @@ define linkonce_odr hidden noundef ptr @_ZNSt20__uninitialized_copyILb0EE13__uni
   %6 = alloca ptr, align 8
   %7 = alloca %"class.__gnu_cxx::__normal_iterator.26", align 8
   %8 = alloca %"class.__gnu_cxx::__normal_iterator.26", align 8
-  %9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %4, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %4, i32 0, i32 0
   store ptr %0, ptr %9, align 8
-  %10 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %5, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %5, i32 0, i32 0
   store ptr %1, ptr %10, align 8
-  store ptr %2, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %5, i64 8, i1 false)
-  %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %7, i32 0, i32 0
+  store ptr %2, ptr %6, align 8, !tbaa !47
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false), !tbaa.struct !235
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !235
+  %11 = load ptr, ptr %6, align 8, !tbaa !47
+  %12 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %7, i32 0, i32 0
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %8, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %8, i32 0, i32 0
   %15 = load ptr, ptr %14, align 8
   %16 = call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS5_SaIS5_EEEEPS5_ET0_T_SE_SD_(ptr %13, ptr %15, ptr noundef %11)
   ret ptr %16
@@ -6684,22 +6966,23 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %4, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %4, i32 0, i32 0
   store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %5, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %5, i32 0, i32 0
   store ptr %1, ptr %11, align 8
-  store ptr %2, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  store ptr %12, ptr %7, align 8
+  store ptr %2, ptr %6, align 8, !tbaa !47
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #18
+  %12 = load ptr, ptr %6, align 8, !tbaa !47
+  store ptr %12, ptr %7, align 8, !tbaa !47
   br label %13
 
 13:                                               ; preds = %19, %3
-  %14 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEEEbRKNS_17__normal_iteratorIT_T0_EESF_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #12
+  %14 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEEEbRKNS_17__normal_iteratorIT_T0_EESF_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #18
   br i1 %14, label %15, label %33
 
 15:                                               ; preds = %13
-  %16 = load ptr, ptr %7, align 8
-  %17 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
+  %16 = load ptr, ptr %7, align 8, !tbaa !47
+  %17 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
   invoke void @_ZSt10_ConstructIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEJRKS3_EEvPT_DpOT0_(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(12) %17)
           to label %18 unwind label %23
 
@@ -6707,11 +6990,11 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
   br label %19
 
 19:                                               ; preds = %18
-  %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
-  %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %21, i32 1
-  store ptr %22, ptr %7, align 8
-  br label %13, !llvm.loop !20
+  %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
+  %21 = load ptr, ptr %7, align 8, !tbaa !47
+  %22 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %21, i32 1
+  store ptr %22, ptr %7, align 8, !tbaa !47
+  br label %13, !llvm.loop !236
 
 23:                                               ; preds = %15
   %24 = landingpad { ptr, i32 }
@@ -6724,18 +7007,19 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
 
 27:                                               ; preds = %23
   %28 = load ptr, ptr %8, align 8
-  %29 = call ptr @__cxa_begin_catch(ptr %28) #12
-  %30 = load ptr, ptr %6, align 8
-  %31 = load ptr, ptr %7, align 8
+  %29 = call ptr @__cxa_begin_catch(ptr %28) #18
+  %30 = load ptr, ptr %6, align 8, !tbaa !47
+  %31 = load ptr, ptr %7, align 8, !tbaa !47
   invoke void @_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEvT_S5_(ptr noundef %30, ptr noundef %31)
           to label %32 unwind label %35
 
 32:                                               ; preds = %27
-  invoke void @__cxa_rethrow() #14
+  invoke void @__cxa_rethrow() #20
           to label %49 unwind label %35
 
 33:                                               ; preds = %13
-  %34 = load ptr, ptr %7, align 8
+  %34 = load ptr, ptr %7, align 8, !tbaa !47
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #18
   ret ptr %34
 
 35:                                               ; preds = %32, %27
@@ -6749,10 +7033,10 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
           to label %39 unwind label %46
 
 39:                                               ; preds = %35
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #18
   br label %41
 
 40:                                               ; No predecessors!
-  call void @llvm.trap()
   unreachable
 
 41:                                               ; preds = %39
@@ -6766,60 +7050,60 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
   %47 = landingpad { ptr, i32 }
           catch ptr null
   %48 = extractvalue { ptr, i32 } %47, 0
-  call void @__clang_call_terminate(ptr %48) #13
+  call void @__clang_call_terminate(ptr %48) #19
   unreachable
 
 49:                                               ; preds = %32
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxneIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEEEbRKNS_17__normal_iteratorIT_T0_EESF_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxneIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEEEbRKNS_17__normal_iteratorIT_T0_EESF_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #12
-  %10 = load ptr, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !237
+  store ptr %1, ptr %4, align 8, !tbaa !237
+  %5 = load ptr, ptr %3, align 8, !tbaa !237
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
+  %7 = load ptr, ptr %6, align 8, !tbaa !47
+  %8 = load ptr, ptr %4, align 8, !tbaa !237
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #18
+  %10 = load ptr, ptr %9, align 8, !tbaa !47
   %11 = icmp ne ptr %7, %10
   ret i1 %11
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt10_ConstructIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEJRKS3_EEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt10_ConstructIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEJRKS3_EEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1) #2 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %5, ptr align 4 %6, i64 12, i1 false)
+  store ptr %0, ptr %3, align 8, !tbaa !47
+  store ptr %1, ptr %4, align 8, !tbaa !47
+  %5 = load ptr, ptr %3, align 8, !tbaa !47
+  %6 = load ptr, ptr %4, align 8, !tbaa !47
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %5, ptr align 4 %6, i64 12, i1 false), !tbaa.struct !87
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 4 dereferenceable(12) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !237
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !239
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !237
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %5, i32 1
-  store ptr %6, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !239
+  %6 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", ptr %5, i32 1
+  store ptr %6, ptr %4, align 8, !tbaa !239
   ret ptr %3
 }
 
@@ -6830,9 +7114,9 @@ declare void @__cxa_end_catch()
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !237
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
@@ -6840,13 +7124,13 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9
 define linkonce_odr hidden void @_ZN9__gnu_cxx17__normal_iteratorIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !237
+  store ptr %1, ptr %4, align 8, !tbaa !230
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.26", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.26", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !230
+  %8 = load ptr, ptr %7, align 8, !tbaa !47
+  store ptr %8, ptr %6, align 8, !tbaa !239
   ret void
 }
 
@@ -6855,12 +7139,12 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrappi
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !193
+  store ptr %1, ptr %5, align 8, !tbaa !53
+  store ptr %2, ptr %6, align 8, !tbaa !53
+  %7 = load ptr, ptr %4, align 8, !tbaa !193
+  %8 = load ptr, ptr %5, align 8, !tbaa !53
+  %9 = load ptr, ptr %6, align 8, !tbaa !53
   call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEE9constructIS3_JRKS3_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   ret void
 }
@@ -6879,58 +7163,66 @@ define linkonce_odr void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnw
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
   %15 = alloca i32, align 4
-  %16 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %4, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %4, i32 0, i32 0
   store ptr %1, ptr %16, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !69
+  store ptr %2, ptr %6, align 8, !tbaa !53
   %17 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #18
   %18 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef 1, ptr noundef @.str.7)
-  store i64 %18, ptr %7, align 8
-  %19 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %17, i32 0, i32 0
-  %20 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %19, i32 0, i32 0
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr %8, align 8
-  %22 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %17, i32 0, i32 0
-  %23 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %22, i32 0, i32 1
-  %24 = load ptr, ptr %23, align 8
-  store ptr %24, ptr %9, align 8
-  %25 = call ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #12
-  %26 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %11, i32 0, i32 0
+  store i64 %18, ptr %7, align 8, !tbaa !88
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #18
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %17, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8, !tbaa !90
+  store ptr %21, ptr %8, align 8, !tbaa !53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #18
+  %22 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %17, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8, !tbaa !85
+  store ptr %24, ptr %9, align 8, !tbaa !53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #18
+  %25 = call ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #18
+  %26 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %11, i32 0, i32 0
   store ptr %25, ptr %26, align 8
-  %27 = call noundef i64 @_ZN9__gnu_cxxmiIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESt6vectorIS4_SaIS4_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSC_SF_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %11) #12
-  store i64 %27, ptr %10, align 8
-  %28 = load i64, ptr %7, align 8
+  %27 = call noundef i64 @_ZN9__gnu_cxxmiIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESt6vectorIS4_SaIS4_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSC_SF_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %11) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #18
+  store i64 %27, ptr %10, align 8, !tbaa !88
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #18
+  %28 = load i64, ptr %7, align 8, !tbaa !88
   %29 = call noundef ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %28)
-  store ptr %29, ptr %12, align 8
-  %30 = load ptr, ptr %12, align 8
-  store ptr %30, ptr %13, align 8
-  %31 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %17, i32 0, i32 0
-  %32 = load ptr, ptr %12, align 8
-  %33 = load i64, ptr %10, align 8
-  %34 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %32, i64 %33
-  %35 = load ptr, ptr %6, align 8
+  store ptr %29, ptr %12, align 8, !tbaa !53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #18
+  %30 = load ptr, ptr %12, align 8, !tbaa !53
+  store ptr %30, ptr %13, align 8, !tbaa !53
+  %31 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %17, i32 0, i32 0
+  %32 = load ptr, ptr %12, align 8, !tbaa !53
+  %33 = load i64, ptr %10, align 8, !tbaa !88
+  %34 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %32, i64 %33
+  %35 = load ptr, ptr %6, align 8, !tbaa !53
   invoke void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %31, ptr noundef %34, ptr noundef nonnull align 8 dereferenceable(32) %35)
           to label %36 unwind label %51
 
 36:                                               ; preds = %3
-  store ptr null, ptr %13, align 8
-  %37 = load ptr, ptr %8, align 8
-  %38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
-  %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %12, align 8
-  %41 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #12
-  %42 = call noundef ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_(ptr noundef %37, ptr noundef %39, ptr noundef %40, ptr noundef nonnull align 1 dereferenceable(1) %41) #12
-  store ptr %42, ptr %13, align 8
-  %43 = load ptr, ptr %13, align 8
-  %44 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %43, i32 1
-  store ptr %44, ptr %13, align 8
-  %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
-  %46 = load ptr, ptr %45, align 8
-  %47 = load ptr, ptr %9, align 8
-  %48 = load ptr, ptr %13, align 8
-  %49 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #12
-  %50 = call noundef ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_(ptr noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef nonnull align 1 dereferenceable(1) %49) #12
-  store ptr %50, ptr %13, align 8
+  store ptr null, ptr %13, align 8, !tbaa !53
+  %37 = load ptr, ptr %8, align 8, !tbaa !53
+  %38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
+  %39 = load ptr, ptr %38, align 8, !tbaa !53
+  %40 = load ptr, ptr %12, align 8, !tbaa !53
+  %41 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #18
+  %42 = call noundef ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_(ptr noundef %37, ptr noundef %39, ptr noundef %40, ptr noundef nonnull align 1 dereferenceable(1) %41) #18
+  store ptr %42, ptr %13, align 8, !tbaa !53
+  %43 = load ptr, ptr %13, align 8, !tbaa !53
+  %44 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %43, i32 1
+  store ptr %44, ptr %13, align 8, !tbaa !53
+  %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
+  %46 = load ptr, ptr %45, align 8, !tbaa !53
+  %47 = load ptr, ptr %9, align 8, !tbaa !53
+  %48 = load ptr, ptr %13, align 8, !tbaa !53
+  %49 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #18
+  %50 = call noundef ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_(ptr noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef nonnull align 1 dereferenceable(1) %49) #18
+  store ptr %50, ptr %13, align 8, !tbaa !53
   br label %79
 
 51:                                               ; preds = %3
@@ -6944,23 +7236,23 @@ define linkonce_odr void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnw
 
 55:                                               ; preds = %51
   %56 = load ptr, ptr %14, align 8
-  %57 = call ptr @__cxa_begin_catch(ptr %56) #12
-  %58 = load ptr, ptr %13, align 8
+  %57 = call ptr @__cxa_begin_catch(ptr %56) #18
+  %58 = load ptr, ptr %13, align 8, !tbaa !53
   %59 = icmp ne ptr %58, null
   br i1 %59, label %65, label %60
 
 60:                                               ; preds = %55
-  %61 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %17, i32 0, i32 0
-  %62 = load ptr, ptr %12, align 8
-  %63 = load i64, ptr %10, align 8
-  %64 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %62, i64 %63
-  call void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %61, ptr noundef %64) #12
+  %61 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %17, i32 0, i32 0
+  %62 = load ptr, ptr %12, align 8, !tbaa !53
+  %63 = load i64, ptr %10, align 8, !tbaa !88
+  %64 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %62, i64 %63
+  call void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %61, ptr noundef %64) #18
   br label %74
 
 65:                                               ; preds = %55
-  %66 = load ptr, ptr %12, align 8
-  %67 = load ptr, ptr %13, align 8
-  %68 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #12
+  %66 = load ptr, ptr %12, align 8, !tbaa !53
+  %67 = load ptr, ptr %13, align 8, !tbaa !53
+  %68 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #18
   invoke void @_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES3_EvT_S5_RSaIT0_E(ptr noundef %66, ptr noundef %67, ptr noundef nonnull align 1 dereferenceable(1) %68)
           to label %69 unwind label %70
 
@@ -6978,43 +7270,55 @@ define linkonce_odr void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnw
           to label %78 unwind label %105
 
 74:                                               ; preds = %69, %60
-  %75 = load ptr, ptr %12, align 8
-  %76 = load i64, ptr %7, align 8
+  %75 = load ptr, ptr %12, align 8, !tbaa !53
+  %76 = load i64, ptr %7, align 8, !tbaa !88
   invoke void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE13_M_deallocateEPS3_m(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef %75, i64 noundef %76)
           to label %77 unwind label %70
 
 77:                                               ; preds = %74
-  invoke void @__cxa_rethrow() #14
+  invoke void @__cxa_rethrow() #20
           to label %108 unwind label %70
 
 78:                                               ; preds = %70
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #18
   br label %100
 
 79:                                               ; preds = %36
-  %80 = load ptr, ptr %8, align 8
-  %81 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %17, i32 0, i32 0
-  %82 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %81, i32 0, i32 2
-  %83 = load ptr, ptr %82, align 8
-  %84 = load ptr, ptr %8, align 8
+  %80 = load ptr, ptr %8, align 8, !tbaa !53
+  %81 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %17, i32 0, i32 0
+  %82 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %81, i32 0, i32 2
+  %83 = load ptr, ptr %82, align 8, !tbaa !86
+  %84 = load ptr, ptr %8, align 8, !tbaa !53
   %85 = ptrtoint ptr %83 to i64
   %86 = ptrtoint ptr %84 to i64
   %87 = sub i64 %85, %86
   %88 = sdiv exact i64 %87, 32
   call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE13_M_deallocateEPS3_m(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef %80, i64 noundef %88)
-  %89 = load ptr, ptr %12, align 8
-  %90 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %17, i32 0, i32 0
-  %91 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %90, i32 0, i32 0
-  store ptr %89, ptr %91, align 8
-  %92 = load ptr, ptr %13, align 8
-  %93 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %17, i32 0, i32 0
-  %94 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %93, i32 0, i32 1
-  store ptr %92, ptr %94, align 8
-  %95 = load ptr, ptr %12, align 8
-  %96 = load i64, ptr %7, align 8
-  %97 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %95, i64 %96
-  %98 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %17, i32 0, i32 0
-  %99 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %98, i32 0, i32 2
-  store ptr %97, ptr %99, align 8
+  %89 = load ptr, ptr %12, align 8, !tbaa !53
+  %90 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %17, i32 0, i32 0
+  %91 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %90, i32 0, i32 0
+  store ptr %89, ptr %91, align 8, !tbaa !90
+  %92 = load ptr, ptr %13, align 8, !tbaa !53
+  %93 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %17, i32 0, i32 0
+  %94 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %93, i32 0, i32 1
+  store ptr %92, ptr %94, align 8, !tbaa !85
+  %95 = load ptr, ptr %12, align 8, !tbaa !53
+  %96 = load i64, ptr %7, align 8, !tbaa !88
+  %97 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %95, i64 %96
+  %98 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %17, i32 0, i32 0
+  %99 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %98, i32 0, i32 2
+  store ptr %97, ptr %99, align 8, !tbaa !86
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #18
   ret void
 
 100:                                              ; preds = %78
@@ -7028,7 +7332,7 @@ define linkonce_odr void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnw
   %106 = landingpad { ptr, i32 }
           catch ptr null
   %107 = extractvalue { ptr, i32 } %106, 0
-  call void @__clang_call_terminate(ptr %107) #13
+  call void @__clang_call_terminate(ptr %107) #19
   unreachable
 
 108:                                              ; preds = %77
@@ -7039,12 +7343,12 @@ define linkonce_odr void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnw
 define linkonce_odr hidden ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !69
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %5, i32 0, i32 1
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #12
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #18
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -7054,29 +7358,29 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !197
+  store ptr %1, ptr %5, align 8, !tbaa !53
+  store ptr %2, ptr %6, align 8, !tbaa !53
+  %7 = load ptr, ptr %5, align 8, !tbaa !53
+  %8 = load ptr, ptr %6, align 8, !tbaa !53
   call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #8 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !53
+  store ptr %1, ptr %4, align 8, !tbaa !53
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %7, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %7, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %8, i64 8, i1 false)
-  %9 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %5, i32 0, i32 2
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %10, i32 0, i32 2
+  %9 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %5, i32 0, i32 2
+  %10 = load ptr, ptr %4, align 8, !tbaa !53
+  %11 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %10, i32 0, i32 2
   call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %11)
   ret void
 }
@@ -7088,66 +7392,70 @@ define linkonce_odr hidden noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29Hi
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !69
+  store i64 %1, ptr %5, align 8, !tbaa !88
+  store ptr %2, ptr %6, align 8, !tbaa !226
   %9 = load ptr, ptr %4, align 8
-  %10 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
-  %11 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  %10 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
+  %11 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
   %12 = sub i64 %10, %11
-  %13 = load i64, ptr %5, align 8
+  %13 = load i64, ptr %5, align 8, !tbaa !88
   %14 = icmp ult i64 %12, %13
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr %6, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #14
+  %16 = load ptr, ptr %6, align 8, !tbaa !226
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #20
   unreachable
 
 17:                                               ; preds = %3
-  %18 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
-  %19 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
-  store i64 %19, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #18
+  %18 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #18
+  %19 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
+  store i64 %19, ptr %8, align 8, !tbaa !88
   %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %21 = load i64, ptr %20, align 8
+  %21 = load i64, ptr %20, align 8, !tbaa !88
   %22 = add i64 %18, %21
-  store i64 %22, ptr %7, align 8
-  %23 = load i64, ptr %7, align 8
-  %24 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #18
+  store i64 %22, ptr %7, align 8, !tbaa !88
+  %23 = load i64, ptr %7, align 8, !tbaa !88
+  %24 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
   %25 = icmp ult i64 %23, %24
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %17
-  %27 = load i64, ptr %7, align 8
-  %28 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  %27 = load i64, ptr %7, align 8, !tbaa !88
+  %28 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
   %29 = icmp ugt i64 %27, %28
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %26, %17
-  %31 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  %31 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
   br label %34
 
 32:                                               ; preds = %26
-  %33 = load i64, ptr %7, align 8
+  %33 = load i64, ptr %7, align 8, !tbaa !88
   br label %34
 
 34:                                               ; preds = %32, %30
   %35 = phi i64 [ %31, %30 ], [ %33, %32 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #18
   ret i64 %35
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZN9__gnu_cxxmiIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESt6vectorIS4_SaIS4_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSC_SF_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN9__gnu_cxxmiIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESt6vectorIS4_SaIS4_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSC_SF_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #12
-  %10 = load ptr, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !241
+  store ptr %1, ptr %4, align 8, !tbaa !241
+  %5 = load ptr, ptr %3, align 8, !tbaa !241
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
+  %7 = load ptr, ptr %6, align 8, !tbaa !53
+  %8 = load ptr, ptr %4, align 8, !tbaa !241
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #18
+  %10 = load ptr, ptr %9, align 8, !tbaa !53
   %11 = ptrtoint ptr %7 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
@@ -7159,12 +7467,12 @@ define linkonce_odr noundef i64 @_ZN9__gnu_cxxmiIPN2cv16phase_unwrapping29Histog
 define linkonce_odr hidden ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator.27", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !69
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %5, i32 0, i32 0
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #12
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #18
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -7173,16 +7481,16 @@ define linkonce_odr hidden ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPh
 define linkonce_odr hidden noundef ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !189
+  store i64 %1, ptr %4, align 8, !tbaa !88
   %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !88
   %7 = icmp ne i64 %6, 0
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %5, i32 0, i32 0
-  %10 = load i64, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %5, i32 0, i32 0
+  %10 = load i64, ptr %4, align 8, !tbaa !88
   %11 = call noundef ptr @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEE8allocateERS4_m(ptr noundef nonnull align 1 dereferenceable(1) %9, i64 noundef %10)
   br label %13
 
@@ -7200,24 +7508,24 @@ define linkonce_odr hidden noundef ptr @_ZNSt6vectorIN2cv16phase_unwrapping29His
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = load ptr, ptr %7, align 8
-  %12 = load ptr, ptr %8, align 8
-  %13 = call noundef ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE14_S_do_relocateEPS3_S6_S6_RS4_St17integral_constantIbLb1EE(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12) #12
+  store ptr %0, ptr %5, align 8, !tbaa !53
+  store ptr %1, ptr %6, align 8, !tbaa !53
+  store ptr %2, ptr %7, align 8, !tbaa !53
+  store ptr %3, ptr %8, align 8, !tbaa !193
+  %9 = load ptr, ptr %5, align 8, !tbaa !53
+  %10 = load ptr, ptr %6, align 8, !tbaa !53
+  %11 = load ptr, ptr %7, align 8, !tbaa !53
+  %12 = load ptr, ptr %8, align 8, !tbaa !193
+  %13 = call noundef ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE14_S_do_relocateEPS3_S6_S6_RS4_St17integral_constantIbLb1EE(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12) #18
   ret ptr %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !241
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
@@ -7225,35 +7533,35 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9
 define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEE7destroyIS3_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #12
+  store ptr %0, ptr %3, align 8, !tbaa !193
+  store ptr %1, ptr %4, align 8, !tbaa !53
+  %5 = load ptr, ptr %3, align 8, !tbaa !193
+  %6 = load ptr, ptr %4, align 8, !tbaa !53
+  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEE7destroyIS3_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !69
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
-  %5 = call noundef i64 @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE11_S_max_sizeERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %4) #12
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
+  %5 = call noundef i64 @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE11_S_max_sizeERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %4) #18
   ret i64 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !69
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %4, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8, !tbaa !85
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin>>::_Vector_impl_data", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !90
   %10 = ptrtoint ptr %6 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -7266,47 +7574,51 @@ define linkonce_odr hidden noundef i64 @_ZNSt6vectorIN2cv16phase_unwrapping29His
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %2, align 8
-  store i64 288230376151711743, ptr %3, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = call noundef i64 @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEE8max_sizeERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
-  store i64 %6, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !193
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #18
+  store i64 288230376151711743, ptr %3, align 8, !tbaa !88
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #18
+  %5 = load ptr, ptr %2, align 8, !tbaa !193
+  %6 = call noundef i64 @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEE8max_sizeERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  store i64 %6, ptr %4, align 8, !tbaa !88
   %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %8 = load i64, ptr %7, align 8
+  %8 = load i64, ptr %7, align 8, !tbaa !88
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #18
   ret i64 %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !189
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.1", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEE8max_sizeERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  store ptr %0, ptr %2, align 8, !tbaa !193
+  %3 = load ptr, ptr %2, align 8, !tbaa !193
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !197
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !197
   ret i64 288230376151711743
 }
 
@@ -7314,13 +7626,13 @@ define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorIN2cv16phase_unwr
 define linkonce_odr hidden void @_ZN9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !241
+  store ptr %1, ptr %4, align 8, !tbaa !243
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.27", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.27", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !243
+  %8 = load ptr, ptr %7, align 8, !tbaa !53
+  store ptr %8, ptr %6, align 8, !tbaa !245
   ret void
 }
 
@@ -7328,10 +7640,10 @@ define linkonce_odr hidden void @_ZN9__gnu_cxx17__normal_iteratorIPN2cv16phase_u
 define linkonce_odr hidden noundef ptr @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEE8allocateERS4_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !193
+  store i64 %1, ptr %4, align 8, !tbaa !88
+  %5 = load ptr, ptr %3, align 8, !tbaa !193
+  %6 = load i64, ptr %4, align 8, !tbaa !88
   %7 = call noundef ptr @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
   ret ptr %7
 }
@@ -7341,33 +7653,36 @@ define linkonce_odr hidden noundef ptr @_ZNSt15__new_allocatorIN2cv16phase_unwra
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !197
+  store i64 %1, ptr %5, align 8, !tbaa !88
+  store ptr %2, ptr %6, align 8, !tbaa !199
   %7 = load ptr, ptr %4, align 8
-  %8 = load i64, ptr %5, align 8
-  %9 = call noundef i64 @_ZNKSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #12
+  %8 = load i64, ptr %5, align 8, !tbaa !88
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
   %10 = icmp ugt i64 %8, %9
-  br i1 %10, label %11, label %16
+  %11 = zext i1 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %19
 
-11:                                               ; preds = %3
-  %12 = load i64, ptr %5, align 8
-  %13 = icmp ugt i64 %12, 576460752303423487
-  br i1 %13, label %14, label %15
+14:                                               ; preds = %3
+  %15 = load i64, ptr %5, align 8, !tbaa !88
+  %16 = icmp ugt i64 %15, 576460752303423487
+  br i1 %16, label %17, label %18
 
-14:                                               ; preds = %11
-  call void @_ZSt28__throw_bad_array_new_lengthv() #14
+17:                                               ; preds = %14
+  call void @_ZSt28__throw_bad_array_new_lengthv() #20
   unreachable
 
-15:                                               ; preds = %11
-  call void @_ZSt17__throw_bad_allocv() #14
+18:                                               ; preds = %14
+  call void @_ZSt17__throw_bad_allocv() #20
   unreachable
 
-16:                                               ; preds = %3
-  %17 = load i64, ptr %5, align 8
-  %18 = mul i64 %17, 32
-  %19 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #16
-  ret ptr %19
+19:                                               ; preds = %3
+  %20 = load i64, ptr %5, align 8, !tbaa !88
+  %21 = mul i64 %20, 32
+  %22 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #22
+  ret ptr %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7376,104 +7691,106 @@ define linkonce_odr hidden noundef ptr @_ZNSt6vectorIN2cv16phase_unwrapping29His
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = load ptr, ptr %7, align 8
-  %12 = load ptr, ptr %8, align 8
-  %13 = call noundef ptr @_ZSt12__relocate_aIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12) #12
+  store ptr %0, ptr %5, align 8, !tbaa !53
+  store ptr %1, ptr %6, align 8, !tbaa !53
+  store ptr %2, ptr %7, align 8, !tbaa !53
+  store ptr %3, ptr %8, align 8, !tbaa !193
+  %9 = load ptr, ptr %5, align 8, !tbaa !53
+  %10 = load ptr, ptr %6, align 8, !tbaa !53
+  %11 = load ptr, ptr %7, align 8, !tbaa !53
+  %12 = load ptr, ptr %8, align 8, !tbaa !193
+  %13 = call noundef ptr @_ZSt12__relocate_aIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12) #18
   ret ptr %13
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt12__relocate_aIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__relocate_aIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #2 comdat {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = call noundef ptr @_ZSt12__niter_baseIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEET_S5_(ptr noundef %9) #12
-  %11 = load ptr, ptr %6, align 8
-  %12 = call noundef ptr @_ZSt12__niter_baseIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEET_S5_(ptr noundef %11) #12
-  %13 = load ptr, ptr %7, align 8
-  %14 = call noundef ptr @_ZSt12__niter_baseIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEET_S5_(ptr noundef %13) #12
-  %15 = load ptr, ptr %8, align 8
-  %16 = call noundef ptr @_ZSt14__relocate_a_1IPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %10, ptr noundef %12, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %15) #12
+  store ptr %0, ptr %5, align 8, !tbaa !53
+  store ptr %1, ptr %6, align 8, !tbaa !53
+  store ptr %2, ptr %7, align 8, !tbaa !53
+  store ptr %3, ptr %8, align 8, !tbaa !193
+  %9 = load ptr, ptr %5, align 8, !tbaa !53
+  %10 = call noundef ptr @_ZSt12__niter_baseIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEET_S5_(ptr noundef %9) #18
+  %11 = load ptr, ptr %6, align 8, !tbaa !53
+  %12 = call noundef ptr @_ZSt12__niter_baseIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEET_S5_(ptr noundef %11) #18
+  %13 = load ptr, ptr %7, align 8, !tbaa !53
+  %14 = call noundef ptr @_ZSt12__niter_baseIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEET_S5_(ptr noundef %13) #18
+  %15 = load ptr, ptr %8, align 8, !tbaa !193
+  %16 = call noundef ptr @_ZSt14__relocate_a_1IPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %10, ptr noundef %12, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %15) #18
   ret ptr %16
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt14__relocate_a_1IPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt14__relocate_a_1IPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #2 comdat {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %10 = load ptr, ptr %7, align 8
-  store ptr %10, ptr %9, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !53
+  store ptr %1, ptr %6, align 8, !tbaa !53
+  store ptr %2, ptr %7, align 8, !tbaa !53
+  store ptr %3, ptr %8, align 8, !tbaa !193
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #18
+  %10 = load ptr, ptr %7, align 8, !tbaa !53
+  store ptr %10, ptr %9, align 8, !tbaa !53
   br label %11
 
 11:                                               ; preds = %19, %4
-  %12 = load ptr, ptr %5, align 8
-  %13 = load ptr, ptr %6, align 8
+  %12 = load ptr, ptr %5, align 8, !tbaa !53
+  %13 = load ptr, ptr %6, align 8, !tbaa !53
   %14 = icmp ne ptr %12, %13
   br i1 %14, label %15, label %24
 
 15:                                               ; preds = %11
-  %16 = load ptr, ptr %9, align 8
-  %17 = load ptr, ptr %5, align 8
-  %18 = load ptr, ptr %8, align 8
-  call void @_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES3_SaIS3_EEvPT_PT0_RT1_(ptr noundef %16, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %18) #12
+  %16 = load ptr, ptr %9, align 8, !tbaa !53
+  %17 = load ptr, ptr %5, align 8, !tbaa !53
+  %18 = load ptr, ptr %8, align 8, !tbaa !193
+  call void @_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES3_SaIS3_EEvPT_PT0_RT1_(ptr noundef %16, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %18) #18
   br label %19
 
 19:                                               ; preds = %15
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %20, i32 1
-  store ptr %21, ptr %5, align 8
-  %22 = load ptr, ptr %9, align 8
-  %23 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %22, i32 1
-  store ptr %23, ptr %9, align 8
-  br label %11, !llvm.loop !21
+  %20 = load ptr, ptr %5, align 8, !tbaa !53
+  %21 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %20, i32 1
+  store ptr %21, ptr %5, align 8, !tbaa !53
+  %22 = load ptr, ptr %9, align 8, !tbaa !53
+  %23 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %22, i32 1
+  store ptr %23, ptr %9, align 8, !tbaa !53
+  br label %11, !llvm.loop !247
 
 24:                                               ; preds = %11
-  %25 = load ptr, ptr %9, align 8
+  %25 = load ptr, ptr %9, align 8, !tbaa !53
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #18
   ret ptr %25
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt12__niter_baseIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEET_S5_(ptr noundef %0) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__niter_baseIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEET_S5_(ptr noundef %0) #2 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !53
+  %3 = load ptr, ptr %2, align 8, !tbaa !53
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES3_SaIS3_EEvPT_PT0_RT1_(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES3_SaIS3_EEvPT_PT0_RT1_(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #2 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %5, align 8
-  call void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #12
-  %10 = load ptr, ptr %6, align 8
-  %11 = load ptr, ptr %5, align 8
-  call void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %11) #12
+  store ptr %0, ptr %4, align 8, !tbaa !53
+  store ptr %1, ptr %5, align 8, !tbaa !53
+  store ptr %2, ptr %6, align 8, !tbaa !193
+  %7 = load ptr, ptr %6, align 8, !tbaa !193
+  %8 = load ptr, ptr %4, align 8, !tbaa !53
+  %9 = load ptr, ptr %5, align 8, !tbaa !53
+  call void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #18
+  %10 = load ptr, ptr %6, align 8, !tbaa !193
+  %11 = load ptr, ptr %5, align 8, !tbaa !53
+  call void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %11) #18
   ret void
 }
 
@@ -7482,13 +7799,13 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrappi
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
-  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEE9constructIS3_JS3_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #12
+  store ptr %0, ptr %4, align 8, !tbaa !193
+  store ptr %1, ptr %5, align 8, !tbaa !53
+  store ptr %2, ptr %6, align 8, !tbaa !53
+  %7 = load ptr, ptr %4, align 8, !tbaa !193
+  %8 = load ptr, ptr %5, align 8, !tbaa !53
+  %9 = load ptr, ptr %6, align 8, !tbaa !53
+  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEE9constructIS3_JS3_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #18
   ret void
 }
 
@@ -7497,30 +7814,30 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load ptr, ptr %6, align 8
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinC2EOS2_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #12
+  store ptr %0, ptr %4, align 8, !tbaa !197
+  store ptr %1, ptr %5, align 8, !tbaa !53
+  store ptr %2, ptr %6, align 8, !tbaa !53
+  %7 = load ptr, ptr %5, align 8, !tbaa !53
+  %8 = load ptr, ptr %6, align 8, !tbaa !53
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinC2EOS2_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #18
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinC2EOS2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinC2EOS2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !53
+  store ptr %1, ptr %4, align 8, !tbaa !53
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %7, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %7, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %8, i64 8, i1 false)
-  %9 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %5, i32 0, i32 2
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %10, i32 0, i32 2
-  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %11) #12
+  %9 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %5, i32 0, i32 2
+  %10 = load ptr, ptr %4, align 8, !tbaa !53
+  %11 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %10, i32 0, i32 2
+  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %11) #18
   ret void
 }
 
@@ -7528,11 +7845,11 @@ define linkonce_odr hidden void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapp
 define linkonce_odr hidden void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !55
+  store ptr %1, ptr %4, align 8, !tbaa !55
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #12
+  %6 = load ptr, ptr %4, align 8, !tbaa !55
+  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #18
   ret void
 }
 
@@ -7540,13 +7857,13 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramP
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !181
+  store ptr %1, ptr %4, align 8, !tbaa !181
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %7, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE12_Vector_implC2EOS6_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8) #12
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !181
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %7, i32 0, i32 0
+  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE12_Vector_implC2EOS6_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8) #18
   ret void
 }
 
@@ -7554,13 +7871,13 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29His
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE12_Vector_implC2EOS6_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !183
+  store ptr %1, ptr %4, align 8, !tbaa !183
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEC2ERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #12
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_Vector_impl_dataC2EOS6_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %7) #12
+  %6 = load ptr, ptr %4, align 8, !tbaa !183
+  call void @_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEC2ERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #18
+  %7 = load ptr, ptr %4, align 8, !tbaa !183
+  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_Vector_impl_dataC2EOS6_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %7) #18
   ret void
 }
 
@@ -7568,33 +7885,33 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29His
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_Vector_impl_dataC2EOS6_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !248
+  store ptr %1, ptr %4, align 8, !tbaa !248
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %6, align 8
-  %10 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %5, i32 0, i32 1
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %10, align 8
-  %14 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %5, i32 0, i32 2
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %15, i32 0, i32 2
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %14, align 8
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %18, i32 0, i32 2
-  store ptr null, ptr %19, align 8
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %20, i32 0, i32 1
-  store ptr null, ptr %21, align 8
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %22, i32 0, i32 0
-  store ptr null, ptr %23, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !248
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !66
+  store ptr %9, ptr %6, align 8, !tbaa !66
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8, !tbaa !248
+  %12 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8, !tbaa !64
+  store ptr %13, ptr %10, align 8, !tbaa !64
+  %14 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %5, i32 0, i32 2
+  %15 = load ptr, ptr %4, align 8, !tbaa !248
+  %16 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %15, i32 0, i32 2
+  %17 = load ptr, ptr %16, align 8, !tbaa !65
+  store ptr %17, ptr %14, align 8, !tbaa !65
+  %18 = load ptr, ptr %4, align 8, !tbaa !248
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %18, i32 0, i32 2
+  store ptr null, ptr %19, align 8, !tbaa !65
+  %20 = load ptr, ptr %4, align 8, !tbaa !248
+  %21 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %20, i32 0, i32 1
+  store ptr null, ptr %21, align 8, !tbaa !64
+  %22 = load ptr, ptr %4, align 8, !tbaa !248
+  %23 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %22, i32 0, i32 0
+  store ptr null, ptr %23, align 8, !tbaa !66
   ret void
 }
 
@@ -7602,10 +7919,10 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29His
 define linkonce_odr hidden void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEE7destroyIS3_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
+  store ptr %0, ptr %3, align 8, !tbaa !197
+  store ptr %1, ptr %4, align 8, !tbaa !53
+  %5 = load ptr, ptr %4, align 8, !tbaa !53
+  call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   ret void
 }
 
@@ -7615,35 +7932,39 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramP
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::vector.5", align 8
   %6 = alloca %"class.std::allocator.7", align 1
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !55
+  store ptr %1, ptr %4, align 8, !tbaa !55
   %7 = load ptr, ptr %3, align 8
-  call void @_ZNKSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE13get_allocatorEv(ptr dead_on_unwind writable sret(%"class.std::allocator.7") align 1 %6, ptr noundef nonnull align 8 dereferenceable(24) %7) #12
-  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #12
-  call void @_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #12
-  %8 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %9, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_Vector_impl_data12_M_swap_dataERS6_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %10) #12
-  %11 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %5, i32 0, i32 0
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %12, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_Vector_impl_data12_M_swap_dataERS6_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %13) #12
-  %14 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
-  %15 = load ptr, ptr %4, align 8
-  %16 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #12
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #18
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #18
+  call void @_ZNKSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE13get_allocatorEv(ptr dead_on_unwind writable sret(%"class.std::allocator.7") align 1 %6, ptr noundef nonnull align 8 dereferenceable(24) %7) #18
+  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #18
+  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #18
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %4, align 8, !tbaa !55
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %9, i32 0, i32 0
+  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_Vector_impl_data12_M_swap_dataERS6_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %10) #18
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %5, i32 0, i32 0
+  %12 = load ptr, ptr %4, align 8, !tbaa !55
+  %13 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %12, i32 0, i32 0
+  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_Vector_impl_data12_M_swap_dataERS6_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %13) #18
+  %14 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #18
+  %15 = load ptr, ptr %4, align 8, !tbaa !55
+  %16 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #18
   invoke void @_ZSt15__alloc_on_moveISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEEvRT_S6_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 1 dereferenceable(1) %16)
           to label %17 unwind label %18
 
 17:                                               ; preds = %2
-  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
+  call void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #18
   ret void
 
 18:                                               ; preds = %2
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #13
+  call void @__clang_call_terminate(ptr %20) #19
   unreachable
 }
 
@@ -7652,10 +7973,10 @@ define linkonce_odr hidden void @_ZNKSt12_Vector_baseIN2cv16phase_unwrapping29Hi
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !181
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
-  call void @_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEC2ERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %6) #12
+  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #18
+  call void @_ZNSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEC2ERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %6) #18
   ret void
 }
 
@@ -7663,11 +7984,11 @@ define linkonce_odr hidden void @_ZNKSt12_Vector_baseIN2cv16phase_unwrapping29Hi
 define linkonce_odr hidden void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !55
+  store ptr %1, ptr %4, align 8, !tbaa !185
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #12
+  %6 = load ptr, ptr %4, align 8, !tbaa !185
+  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #18
   ret void
 }
 
@@ -7676,26 +7997,28 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29His
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !248
+  store ptr %1, ptr %4, align 8, !tbaa !248
   %6 = load ptr, ptr %3, align 8
-  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
-  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_Vector_impl_data12_M_copy_dataERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #12
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_Vector_impl_data12_M_copy_dataERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) #12
-  %8 = load ptr, ptr %4, align 8
-  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_Vector_impl_data12_M_copy_dataERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %5) #12
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #18
+  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #18
+  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_Vector_impl_data12_M_copy_dataERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #18
+  %7 = load ptr, ptr %4, align 8, !tbaa !248
+  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_Vector_impl_data12_M_copy_dataERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) #18
+  %8 = load ptr, ptr %4, align 8, !tbaa !248
+  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_Vector_impl_data12_M_copy_dataERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %5) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #18
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZSt15__alloc_on_moveISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEEvRT_S6_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZSt15__alloc_on_moveISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEEvRT_S6_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #8 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !185
+  store ptr %1, ptr %4, align 8, !tbaa !185
+  %5 = load ptr, ptr %3, align 8, !tbaa !185
+  %6 = load ptr, ptr %4, align 8, !tbaa !185
   call void @_ZSt18__do_alloc_on_moveISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEEvRT_S6_St17integral_constantIbLb1EE(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
   ret void
 }
@@ -7704,26 +8027,26 @@ define linkonce_odr void @_ZSt15__alloc_on_moveISaIN2cv16phase_unwrapping29Histo
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !181
+  store ptr %1, ptr %4, align 8, !tbaa !185
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base.6", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE12_Vector_implC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #12
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base.6", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !185
+  call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE12_Vector_implC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !248
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %3, i32 0, i32 1
-  store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %3, i32 0, i32 2
-  store ptr null, ptr %6, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !66
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8, !tbaa !64
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %3, i32 0, i32 2
+  store ptr null, ptr %6, align 8, !tbaa !65
   ret void
 }
 
@@ -7731,33 +8054,33 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29His
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_Vector_impl_data12_M_copy_dataERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !248
+  store ptr %1, ptr %4, align 8, !tbaa !248
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %5, i32 0, i32 0
-  store ptr %8, ptr %9, align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %10, i32 0, i32 1
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %5, i32 0, i32 1
-  store ptr %12, ptr %13, align 8
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %14, i32 0, i32 2
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %5, i32 0, i32 2
-  store ptr %16, ptr %17, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !248
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !66
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  store ptr %8, ptr %9, align 8, !tbaa !66
+  %10 = load ptr, ptr %4, align 8, !tbaa !248
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %10, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8, !tbaa !64
+  %13 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  store ptr %12, ptr %13, align 8, !tbaa !64
+  %14 = load ptr, ptr %4, align 8, !tbaa !248
+  %15 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %14, i32 0, i32 2
+  %16 = load ptr, ptr %15, align 8, !tbaa !65
+  %17 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge>>::_Vector_impl_data", ptr %5, i32 0, i32 2
+  store ptr %16, ptr %17, align 8, !tbaa !65
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt18__do_alloc_on_moveISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEEvRT_S6_St17integral_constantIbLb1EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt18__do_alloc_on_moveISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEEEvRT_S6_St17integral_constantIbLb1EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #2 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !185
+  store ptr %1, ptr %4, align 8, !tbaa !185
   ret void
 }
 
@@ -7766,13 +8089,13 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrappi
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
-  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEE9constructIS3_JRKS3_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(29) %9) #12
+  store ptr %0, ptr %4, align 8, !tbaa !175
+  store ptr %1, ptr %5, align 8, !tbaa !33
+  store ptr %2, ptr %6, align 8, !tbaa !33
+  %7 = load ptr, ptr %4, align 8, !tbaa !175
+  %8 = load ptr, ptr %5, align 8, !tbaa !33
+  %9 = load ptr, ptr %6, align 8, !tbaa !33
+  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEE9constructIS3_JRKS3_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(29) %9) #18
   ret void
 }
 
@@ -7788,79 +8111,93 @@ define linkonce_odr void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnw
   %11 = alloca %"class.__gnu_cxx::__normal_iterator.28", align 8
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.28", ptr %4, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.28", ptr %4, i32 0, i32 0
   store ptr %1, ptr %14, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !27
+  store ptr %2, ptr %6, align 8, !tbaa !33
   %15 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #18
   %16 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef 1, ptr noundef @.str.7)
-  store i64 %16, ptr %7, align 8
-  %17 = getelementptr inbounds %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
-  %18 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %17, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr %8, align 8
-  %20 = getelementptr inbounds %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
-  %21 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %9, align 8
-  %23 = call ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #12
-  %24 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.28", ptr %11, i32 0, i32 0
+  store i64 %16, ptr %7, align 8, !tbaa !88
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #18
+  %17 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !29
+  store ptr %19, ptr %8, align 8, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #18
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8, !tbaa !32
+  store ptr %22, ptr %9, align 8, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #18
+  %23 = call ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #18
+  %24 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.28", ptr %11, i32 0, i32 0
   store ptr %23, ptr %24, align 8
-  %25 = call noundef i64 @_ZN9__gnu_cxxmiIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESt6vectorIS4_SaIS4_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSC_SF_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %11) #12
-  store i64 %25, ptr %10, align 8
-  %26 = load i64, ptr %7, align 8
+  %25 = call noundef i64 @_ZN9__gnu_cxxmiIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESt6vectorIS4_SaIS4_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSC_SF_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %11) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #18
+  store i64 %25, ptr %10, align 8, !tbaa !88
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #18
+  %26 = load i64, ptr %7, align 8, !tbaa !88
   %27 = call noundef ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %26)
-  store ptr %27, ptr %12, align 8
-  %28 = load ptr, ptr %12, align 8
-  store ptr %28, ptr %13, align 8
-  %29 = getelementptr inbounds %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
-  %30 = load ptr, ptr %12, align 8
-  %31 = load i64, ptr %10, align 8
-  %32 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %30, i64 %31
-  %33 = load ptr, ptr %6, align 8
-  call void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef %32, ptr noundef nonnull align 4 dereferenceable(29) %33) #12
-  store ptr null, ptr %13, align 8
-  %34 = load ptr, ptr %8, align 8
-  %35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %12, align 8
-  %38 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #12
-  %39 = call noundef ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_(ptr noundef %34, ptr noundef %36, ptr noundef %37, ptr noundef nonnull align 1 dereferenceable(1) %38) #12
-  store ptr %39, ptr %13, align 8
-  %40 = load ptr, ptr %13, align 8
-  %41 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %40, i32 1
-  store ptr %41, ptr %13, align 8
-  %42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %9, align 8
-  %45 = load ptr, ptr %13, align 8
-  %46 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #12
-  %47 = call noundef ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_(ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef nonnull align 1 dereferenceable(1) %46) #12
-  store ptr %47, ptr %13, align 8
-  %48 = load ptr, ptr %8, align 8
-  %49 = getelementptr inbounds %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
-  %50 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %49, i32 0, i32 2
-  %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr %8, align 8
+  store ptr %27, ptr %12, align 8, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #18
+  %28 = load ptr, ptr %12, align 8, !tbaa !33
+  store ptr %28, ptr %13, align 8, !tbaa !33
+  %29 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
+  %30 = load ptr, ptr %12, align 8, !tbaa !33
+  %31 = load i64, ptr %10, align 8, !tbaa !88
+  %32 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %30, i64 %31
+  %33 = load ptr, ptr %6, align 8, !tbaa !33
+  call void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef %32, ptr noundef nonnull align 4 dereferenceable(29) %33) #18
+  store ptr null, ptr %13, align 8, !tbaa !33
+  %34 = load ptr, ptr %8, align 8, !tbaa !33
+  %35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
+  %36 = load ptr, ptr %35, align 8, !tbaa !33
+  %37 = load ptr, ptr %12, align 8, !tbaa !33
+  %38 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #18
+  %39 = call noundef ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_(ptr noundef %34, ptr noundef %36, ptr noundef %37, ptr noundef nonnull align 1 dereferenceable(1) %38) #18
+  store ptr %39, ptr %13, align 8, !tbaa !33
+  %40 = load ptr, ptr %13, align 8, !tbaa !33
+  %41 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %40, i32 1
+  store ptr %41, ptr %13, align 8, !tbaa !33
+  %42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
+  %43 = load ptr, ptr %42, align 8, !tbaa !33
+  %44 = load ptr, ptr %9, align 8, !tbaa !33
+  %45 = load ptr, ptr %13, align 8, !tbaa !33
+  %46 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #18
+  %47 = call noundef ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_(ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef nonnull align 1 dereferenceable(1) %46) #18
+  store ptr %47, ptr %13, align 8, !tbaa !33
+  %48 = load ptr, ptr %8, align 8, !tbaa !33
+  %49 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
+  %50 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %49, i32 0, i32 2
+  %51 = load ptr, ptr %50, align 8, !tbaa !139
+  %52 = load ptr, ptr %8, align 8, !tbaa !33
   %53 = ptrtoint ptr %51 to i64
   %54 = ptrtoint ptr %52 to i64
   %55 = sub i64 %53, %54
   %56 = sdiv exact i64 %55, 32
   call void @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE13_M_deallocateEPS3_m(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef %48, i64 noundef %56)
-  %57 = load ptr, ptr %12, align 8
-  %58 = getelementptr inbounds %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
-  %59 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %58, i32 0, i32 0
-  store ptr %57, ptr %59, align 8
-  %60 = load ptr, ptr %13, align 8
-  %61 = getelementptr inbounds %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
-  %62 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %61, i32 0, i32 1
-  store ptr %60, ptr %62, align 8
-  %63 = load ptr, ptr %12, align 8
-  %64 = load i64, ptr %7, align 8
-  %65 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %63, i64 %64
-  %66 = getelementptr inbounds %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
-  %67 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %66, i32 0, i32 2
-  store ptr %65, ptr %67, align 8
+  %57 = load ptr, ptr %12, align 8, !tbaa !33
+  %58 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
+  %59 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %58, i32 0, i32 0
+  store ptr %57, ptr %59, align 8, !tbaa !29
+  %60 = load ptr, ptr %13, align 8, !tbaa !33
+  %61 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
+  %62 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %61, i32 0, i32 1
+  store ptr %60, ptr %62, align 8, !tbaa !32
+  %63 = load ptr, ptr %12, align 8, !tbaa !33
+  %64 = load i64, ptr %7, align 8, !tbaa !88
+  %65 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %63, i64 %64
+  %66 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
+  %67 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %66, i32 0, i32 2
+  store ptr %65, ptr %67, align 8, !tbaa !139
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #18
   ret void
 }
 
@@ -7868,12 +8205,12 @@ define linkonce_odr void @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnw
 define linkonce_odr hidden ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator.28", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !27
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %5, i32 0, i32 1
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #12
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.28", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #18
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.28", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -7883,12 +8220,12 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %8, i64 32, i1 false)
+  store ptr %0, ptr %4, align 8, !tbaa !179
+  store ptr %1, ptr %5, align 8, !tbaa !33
+  store ptr %2, ptr %6, align 8, !tbaa !33
+  %7 = load ptr, ptr %5, align 8, !tbaa !33
+  %8 = load ptr, ptr %6, align 8, !tbaa !33
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %8, i64 32, i1 false), !tbaa.struct !250
   ret void
 }
 
@@ -7899,66 +8236,70 @@ define linkonce_odr hidden noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29Hi
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !27
+  store i64 %1, ptr %5, align 8, !tbaa !88
+  store ptr %2, ptr %6, align 8, !tbaa !226
   %9 = load ptr, ptr %4, align 8
-  %10 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
-  %11 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  %10 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
+  %11 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
   %12 = sub i64 %10, %11
-  %13 = load i64, ptr %5, align 8
+  %13 = load i64, ptr %5, align 8, !tbaa !88
   %14 = icmp ult i64 %12, %13
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr %6, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #14
+  %16 = load ptr, ptr %6, align 8, !tbaa !226
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #20
   unreachable
 
 17:                                               ; preds = %3
-  %18 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
-  %19 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
-  store i64 %19, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #18
+  %18 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #18
+  %19 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
+  store i64 %19, ptr %8, align 8, !tbaa !88
   %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %21 = load i64, ptr %20, align 8
+  %21 = load i64, ptr %20, align 8, !tbaa !88
   %22 = add i64 %18, %21
-  store i64 %22, ptr %7, align 8
-  %23 = load i64, ptr %7, align 8
-  %24 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #18
+  store i64 %22, ptr %7, align 8, !tbaa !88
+  %23 = load i64, ptr %7, align 8, !tbaa !88
+  %24 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
   %25 = icmp ult i64 %23, %24
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %17
-  %27 = load i64, ptr %7, align 8
-  %28 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  %27 = load i64, ptr %7, align 8, !tbaa !88
+  %28 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
   %29 = icmp ugt i64 %27, %28
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %26, %17
-  %31 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  %31 = call noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
   br label %34
 
 32:                                               ; preds = %26
-  %33 = load i64, ptr %7, align 8
+  %33 = load i64, ptr %7, align 8, !tbaa !88
   br label %34
 
 34:                                               ; preds = %32, %30
   %35 = phi i64 [ %31, %30 ], [ %33, %32 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #18
   ret i64 %35
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZN9__gnu_cxxmiIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESt6vectorIS4_SaIS4_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSC_SF_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN9__gnu_cxxmiIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESt6vectorIS4_SaIS4_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSC_SF_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #12
-  %10 = load ptr, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !251
+  store ptr %1, ptr %4, align 8, !tbaa !251
+  %5 = load ptr, ptr %3, align 8, !tbaa !251
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
+  %7 = load ptr, ptr %6, align 8, !tbaa !33
+  %8 = load ptr, ptr %4, align 8, !tbaa !251
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #18
+  %10 = load ptr, ptr %9, align 8, !tbaa !33
   %11 = ptrtoint ptr %7 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
@@ -7970,12 +8311,12 @@ define linkonce_odr noundef i64 @_ZN9__gnu_cxxmiIPN2cv16phase_unwrapping29Histog
 define linkonce_odr hidden ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator.28", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !27
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %5, i32 0, i32 0
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #12
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.28", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel, std::allocator<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #18
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.28", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -7984,16 +8325,16 @@ define linkonce_odr hidden ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPh
 define linkonce_odr hidden noundef ptr @_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !171
+  store i64 %1, ptr %4, align 8, !tbaa !88
   %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !88
   %7 = icmp ne i64 %6, 0
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
-  %10 = load i64, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %10 = load i64, ptr %4, align 8, !tbaa !88
   %11 = call noundef ptr @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEEE8allocateERS4_m(ptr noundef nonnull align 1 dereferenceable(1) %9, i64 noundef %10)
   br label %13
 
@@ -8011,34 +8352,34 @@ define linkonce_odr hidden noundef ptr @_ZNSt6vectorIN2cv16phase_unwrapping29His
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = load ptr, ptr %7, align 8
-  %12 = load ptr, ptr %8, align 8
-  %13 = call noundef ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE14_S_do_relocateEPS3_S6_S6_RS4_St17integral_constantIbLb1EE(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12) #12
+  store ptr %0, ptr %5, align 8, !tbaa !33
+  store ptr %1, ptr %6, align 8, !tbaa !33
+  store ptr %2, ptr %7, align 8, !tbaa !33
+  store ptr %3, ptr %8, align 8, !tbaa !175
+  %9 = load ptr, ptr %5, align 8, !tbaa !33
+  %10 = load ptr, ptr %6, align 8, !tbaa !33
+  %11 = load ptr, ptr %7, align 8, !tbaa !33
+  %12 = load ptr, ptr %8, align 8, !tbaa !175
+  %13 = call noundef ptr @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE14_S_do_relocateEPS3_S6_S6_RS4_St17integral_constantIbLb1EE(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12) #18
   ret ptr %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !251
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.28", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.28", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !27
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
-  %5 = call noundef i64 @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE11_S_max_sizeERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %4) #12
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
+  %5 = call noundef i64 @_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE11_S_max_sizeERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %4) #18
   ret i64 %5
 }
 
@@ -8047,47 +8388,51 @@ define linkonce_odr hidden noundef i64 @_ZNSt6vectorIN2cv16phase_unwrapping29His
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %2, align 8
-  store i64 288230376151711743, ptr %3, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = call noundef i64 @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEEE8max_sizeERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
-  store i64 %6, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !175
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #18
+  store i64 288230376151711743, ptr %3, align 8, !tbaa !88
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #18
+  %5 = load ptr, ptr %2, align 8, !tbaa !175
+  %6 = call noundef i64 @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEEE8max_sizeERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  store i64 %6, ptr %4, align 8, !tbaa !88
   %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %8 = load i64, ptr %7, align 8
+  %8 = load i64, ptr %7, align 8, !tbaa !88
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #18
   ret i64 %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !171
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEEE8max_sizeERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  store ptr %0, ptr %2, align 8, !tbaa !175
+  %3 = load ptr, ptr %2, align 8, !tbaa !175
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !179
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !179
   ret i64 288230376151711743
 }
 
@@ -8095,13 +8440,13 @@ define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorIN2cv16phase_unwr
 define linkonce_odr hidden void @_ZN9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !251
+  store ptr %1, ptr %4, align 8, !tbaa !253
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.28", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.28", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !253
+  %8 = load ptr, ptr %7, align 8, !tbaa !33
+  store ptr %8, ptr %6, align 8, !tbaa !255
   ret void
 }
 
@@ -8109,10 +8454,10 @@ define linkonce_odr hidden void @_ZN9__gnu_cxx17__normal_iteratorIPN2cv16phase_u
 define linkonce_odr hidden noundef ptr @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEEE8allocateERS4_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !175
+  store i64 %1, ptr %4, align 8, !tbaa !88
+  %5 = load ptr, ptr %3, align 8, !tbaa !175
+  %6 = load i64, ptr %4, align 8, !tbaa !88
   %7 = call noundef ptr @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
   ret ptr %7
 }
@@ -8122,33 +8467,36 @@ define linkonce_odr hidden noundef ptr @_ZNSt15__new_allocatorIN2cv16phase_unwra
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !179
+  store i64 %1, ptr %5, align 8, !tbaa !88
+  store ptr %2, ptr %6, align 8, !tbaa !199
   %7 = load ptr, ptr %4, align 8
-  %8 = load i64, ptr %5, align 8
-  %9 = call noundef i64 @_ZNKSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #12
+  %8 = load i64, ptr %5, align 8, !tbaa !88
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
   %10 = icmp ugt i64 %8, %9
-  br i1 %10, label %11, label %16
+  %11 = zext i1 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %19
 
-11:                                               ; preds = %3
-  %12 = load i64, ptr %5, align 8
-  %13 = icmp ugt i64 %12, 576460752303423487
-  br i1 %13, label %14, label %15
+14:                                               ; preds = %3
+  %15 = load i64, ptr %5, align 8, !tbaa !88
+  %16 = icmp ugt i64 %15, 576460752303423487
+  br i1 %16, label %17, label %18
 
-14:                                               ; preds = %11
-  call void @_ZSt28__throw_bad_array_new_lengthv() #14
+17:                                               ; preds = %14
+  call void @_ZSt28__throw_bad_array_new_lengthv() #20
   unreachable
 
-15:                                               ; preds = %11
-  call void @_ZSt17__throw_bad_allocv() #14
+18:                                               ; preds = %14
+  call void @_ZSt17__throw_bad_allocv() #20
   unreachable
 
-16:                                               ; preds = %3
-  %17 = load i64, ptr %5, align 8
-  %18 = mul i64 %17, 32
-  %19 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #16
-  ret ptr %19
+19:                                               ; preds = %3
+  %20 = load i64, ptr %5, align 8, !tbaa !88
+  %21 = mul i64 %20, 32
+  %22 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #22
+  ret ptr %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8157,104 +8505,106 @@ define linkonce_odr hidden noundef ptr @_ZNSt6vectorIN2cv16phase_unwrapping29His
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = load ptr, ptr %7, align 8
-  %12 = load ptr, ptr %8, align 8
-  %13 = call noundef ptr @_ZSt12__relocate_aIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12) #12
+  store ptr %0, ptr %5, align 8, !tbaa !33
+  store ptr %1, ptr %6, align 8, !tbaa !33
+  store ptr %2, ptr %7, align 8, !tbaa !33
+  store ptr %3, ptr %8, align 8, !tbaa !175
+  %9 = load ptr, ptr %5, align 8, !tbaa !33
+  %10 = load ptr, ptr %6, align 8, !tbaa !33
+  %11 = load ptr, ptr %7, align 8, !tbaa !33
+  %12 = load ptr, ptr %8, align 8, !tbaa !175
+  %13 = call noundef ptr @_ZSt12__relocate_aIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12) #18
   ret ptr %13
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt12__relocate_aIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__relocate_aIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #2 comdat {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = call noundef ptr @_ZSt12__niter_baseIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEET_S5_(ptr noundef %9) #12
-  %11 = load ptr, ptr %6, align 8
-  %12 = call noundef ptr @_ZSt12__niter_baseIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEET_S5_(ptr noundef %11) #12
-  %13 = load ptr, ptr %7, align 8
-  %14 = call noundef ptr @_ZSt12__niter_baseIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEET_S5_(ptr noundef %13) #12
-  %15 = load ptr, ptr %8, align 8
-  %16 = call noundef ptr @_ZSt14__relocate_a_1IPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %10, ptr noundef %12, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %15) #12
+  store ptr %0, ptr %5, align 8, !tbaa !33
+  store ptr %1, ptr %6, align 8, !tbaa !33
+  store ptr %2, ptr %7, align 8, !tbaa !33
+  store ptr %3, ptr %8, align 8, !tbaa !175
+  %9 = load ptr, ptr %5, align 8, !tbaa !33
+  %10 = call noundef ptr @_ZSt12__niter_baseIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEET_S5_(ptr noundef %9) #18
+  %11 = load ptr, ptr %6, align 8, !tbaa !33
+  %12 = call noundef ptr @_ZSt12__niter_baseIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEET_S5_(ptr noundef %11) #18
+  %13 = load ptr, ptr %7, align 8, !tbaa !33
+  %14 = call noundef ptr @_ZSt12__niter_baseIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEET_S5_(ptr noundef %13) #18
+  %15 = load ptr, ptr %8, align 8, !tbaa !175
+  %16 = call noundef ptr @_ZSt14__relocate_a_1IPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %10, ptr noundef %12, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %15) #18
   ret ptr %16
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt14__relocate_a_1IPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt14__relocate_a_1IPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #2 comdat {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %10 = load ptr, ptr %7, align 8
-  store ptr %10, ptr %9, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !33
+  store ptr %1, ptr %6, align 8, !tbaa !33
+  store ptr %2, ptr %7, align 8, !tbaa !33
+  store ptr %3, ptr %8, align 8, !tbaa !175
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #18
+  %10 = load ptr, ptr %7, align 8, !tbaa !33
+  store ptr %10, ptr %9, align 8, !tbaa !33
   br label %11
 
 11:                                               ; preds = %19, %4
-  %12 = load ptr, ptr %5, align 8
-  %13 = load ptr, ptr %6, align 8
+  %12 = load ptr, ptr %5, align 8, !tbaa !33
+  %13 = load ptr, ptr %6, align 8, !tbaa !33
   %14 = icmp ne ptr %12, %13
   br i1 %14, label %15, label %24
 
 15:                                               ; preds = %11
-  %16 = load ptr, ptr %9, align 8
-  %17 = load ptr, ptr %5, align 8
-  %18 = load ptr, ptr %8, align 8
-  call void @_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelES3_SaIS3_EEvPT_PT0_RT1_(ptr noundef %16, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %18) #12
+  %16 = load ptr, ptr %9, align 8, !tbaa !33
+  %17 = load ptr, ptr %5, align 8, !tbaa !33
+  %18 = load ptr, ptr %8, align 8, !tbaa !175
+  call void @_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelES3_SaIS3_EEvPT_PT0_RT1_(ptr noundef %16, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %18) #18
   br label %19
 
 19:                                               ; preds = %15
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %20, i32 1
-  store ptr %21, ptr %5, align 8
-  %22 = load ptr, ptr %9, align 8
-  %23 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %22, i32 1
-  store ptr %23, ptr %9, align 8
-  br label %11, !llvm.loop !22
+  %20 = load ptr, ptr %5, align 8, !tbaa !33
+  %21 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %20, i32 1
+  store ptr %21, ptr %5, align 8, !tbaa !33
+  %22 = load ptr, ptr %9, align 8, !tbaa !33
+  %23 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %22, i32 1
+  store ptr %23, ptr %9, align 8, !tbaa !33
+  br label %11, !llvm.loop !257
 
 24:                                               ; preds = %11
-  %25 = load ptr, ptr %9, align 8
+  %25 = load ptr, ptr %9, align 8, !tbaa !33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #18
   ret ptr %25
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt12__niter_baseIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEET_S5_(ptr noundef %0) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__niter_baseIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEET_S5_(ptr noundef %0) #2 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8, !tbaa !33
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelES3_SaIS3_EEvPT_PT0_RT1_(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelES3_SaIS3_EEvPT_PT0_RT1_(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #2 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %5, align 8
-  call void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(29) %9) #12
-  %10 = load ptr, ptr %6, align 8
-  %11 = load ptr, ptr %5, align 8
-  call void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %11) #12
+  store ptr %0, ptr %4, align 8, !tbaa !33
+  store ptr %1, ptr %5, align 8, !tbaa !33
+  store ptr %2, ptr %6, align 8, !tbaa !175
+  %7 = load ptr, ptr %6, align 8, !tbaa !175
+  %8 = load ptr, ptr %4, align 8, !tbaa !33
+  %9 = load ptr, ptr %5, align 8, !tbaa !33
+  call void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(29) %9) #18
+  %10 = load ptr, ptr %6, align 8, !tbaa !175
+  %11 = load ptr, ptr %5, align 8, !tbaa !33
+  call void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %11) #18
   ret void
 }
 
@@ -8263,13 +8613,13 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrappi
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
-  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEE9constructIS3_JS3_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(29) %9) #12
+  store ptr %0, ptr %4, align 8, !tbaa !175
+  store ptr %1, ptr %5, align 8, !tbaa !33
+  store ptr %2, ptr %6, align 8, !tbaa !33
+  %7 = load ptr, ptr %4, align 8, !tbaa !175
+  %8 = load ptr, ptr %5, align 8, !tbaa !33
+  %9 = load ptr, ptr %6, align 8, !tbaa !33
+  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEE9constructIS3_JS3_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(29) %9) #18
   ret void
 }
 
@@ -8277,11 +8627,11 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrappi
 define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEE7destroyIS3_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #12
+  store ptr %0, ptr %3, align 8, !tbaa !175
+  store ptr %1, ptr %4, align 8, !tbaa !33
+  %5 = load ptr, ptr %3, align 8, !tbaa !175
+  %6 = load ptr, ptr %4, align 8, !tbaa !33
+  call void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEE7destroyIS3_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #18
   ret void
 }
 
@@ -8290,12 +8640,12 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %8, i64 32, i1 false)
+  store ptr %0, ptr %4, align 8, !tbaa !179
+  store ptr %1, ptr %5, align 8, !tbaa !33
+  store ptr %2, ptr %6, align 8, !tbaa !33
+  %7 = load ptr, ptr %5, align 8, !tbaa !33
+  %8 = load ptr, ptr %6, align 8, !tbaa !33
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %8, i64 32, i1 false), !tbaa.struct !250
   ret void
 }
 
@@ -8303,8 +8653,8 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29
 define linkonce_odr hidden void @_ZNSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEE7destroyIS3_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !179
+  store ptr %1, ptr %4, align 8, !tbaa !33
   ret void
 }
 
@@ -8313,22 +8663,24 @@ define linkonce_odr hidden noundef i64 @_ZNSt6vectorIiSaIiEE17_S_check_init_lenE
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::allocator.12", align 1
-  store i64 %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load i64, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSaIiEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %7) #12
-  %8 = call noundef i64 @_ZNSt6vectorIiSaIiEE11_S_max_sizeERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
+  store i64 %0, ptr %3, align 8, !tbaa !88
+  store ptr %1, ptr %4, align 8, !tbaa !149
+  %6 = load i64, ptr %3, align 8, !tbaa !88
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #18
+  %7 = load ptr, ptr %4, align 8, !tbaa !149
+  call void @_ZNSaIiEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %7) #18
+  %8 = call noundef i64 @_ZNSt6vectorIiSaIiEE11_S_max_sizeERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   %9 = icmp ugt i64 %6, %8
-  call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
+  call void @_ZNSt15__new_allocatorIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #18
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str.8) #14
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str.8) #20
   unreachable
 
 11:                                               ; preds = %2
-  %12 = load i64, ptr %3, align 8
+  %12 = load i64, ptr %3, align 8, !tbaa !88
   ret i64 %12
 }
 
@@ -8339,14 +8691,14 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_(ptr nounde
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !258
+  store i64 %1, ptr %5, align 8, !tbaa !88
+  store ptr %2, ptr %6, align 8, !tbaa !149
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %"struct.std::_Vector_base.11", ptr %9, i32 0, i32 0
-  %11 = load ptr, ptr %6, align 8
-  call void @_ZNSt12_Vector_baseIiSaIiEE12_Vector_implC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #12
-  %12 = load i64, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base.11", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8, !tbaa !149
+  call void @_ZNSt12_Vector_baseIiSaIiEE12_Vector_implC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #18
+  %12 = load i64, ptr %5, align 8, !tbaa !88
   invoke void @_ZNSt12_Vector_baseIiSaIiEE17_M_create_storageEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %12)
           to label %13 unwind label %14
 
@@ -8360,7 +8712,7 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_(ptr nounde
   store ptr %16, ptr %7, align 8
   %17 = extractvalue { ptr, i32 } %15, 1
   store i32 %17, ptr %8, align 4
-  call void @_ZNSt12_Vector_baseIiSaIiEE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #12
+  call void @_ZNSt15__new_allocatorIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
   br label %18
 
 18:                                               ; preds = %14
@@ -8376,37 +8728,37 @@ define linkonce_odr hidden void @_ZNSt6vectorIiSaIiEE18_M_fill_initializeEmRKi(p
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !151
+  store i64 %1, ptr %5, align 8, !tbaa !88
+  store ptr %2, ptr %6, align 8, !tbaa !153
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"struct.std::_Vector_base.11", ptr %7, i32 0, i32 0
-  %9 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %8, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
-  %11 = load i64, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIiSaIiEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base.11", ptr %7, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !154
+  %11 = load i64, ptr %5, align 8, !tbaa !88
+  %12 = load ptr, ptr %6, align 8, !tbaa !153
+  %13 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIiSaIiEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #18
   %14 = call noundef ptr @_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E(ptr noundef %10, i64 noundef %11, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
-  %15 = getelementptr inbounds %"struct.std::_Vector_base.11", ptr %7, i32 0, i32 0
-  %16 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %15, i32 0, i32 1
-  store ptr %14, ptr %16, align 8
+  %15 = getelementptr inbounds nuw %"struct.std::_Vector_base.11", ptr %7, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %15, i32 0, i32 1
+  store ptr %14, ptr %16, align 8, !tbaa !156
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !258
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.11", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.11", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %7, i32 0, i32 2
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.std::_Vector_base.11", ptr %3, i32 0, i32 0
-  %11 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.11", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !154
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.11", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %7, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8, !tbaa !260
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base.11", ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !154
   %13 = ptrtoint ptr %9 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
@@ -8415,15 +8767,15 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIiSaIiEED2Ev(ptr noundef non
           to label %17 unwind label %19
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds %"struct.std::_Vector_base.11", ptr %3, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseIiSaIiEE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #12
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base.11", ptr %3, i32 0, i32 0
+  call void @_ZNSt15__new_allocatorIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #18
   ret void
 
 19:                                               ; preds = %1
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #13
+  call void @__clang_call_terminate(ptr %21) #19
   unreachable
 }
 
@@ -8432,13 +8784,17 @@ define linkonce_odr hidden noundef i64 @_ZNSt6vectorIiSaIiEE11_S_max_sizeERKS0_(
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %2, align 8
-  store i64 2305843009213693951, ptr %3, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = call noundef i64 @_ZNSt16allocator_traitsISaIiEE8max_sizeERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
-  store i64 %6, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !149
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #18
+  store i64 2305843009213693951, ptr %3, align 8, !tbaa !88
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #18
+  %5 = load ptr, ptr %2, align 8, !tbaa !149
+  %6 = call noundef i64 @_ZNSt16allocator_traitsISaIiEE8max_sizeERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  store i64 %6, ptr %4, align 8, !tbaa !88
   %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %8 = load i64, ptr %7, align 8
+  %8 = load i64, ptr %7, align 8, !tbaa !88
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #18
   ret i64 %8
 }
 
@@ -8446,36 +8802,36 @@ define linkonce_odr hidden noundef i64 @_ZNSt6vectorIiSaIiEE11_S_max_sizeERKS0_(
 define linkonce_odr hidden void @_ZNSaIiEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !149
+  store ptr %1, ptr %4, align 8, !tbaa !149
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt15__new_allocatorIiEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #12
+  %6 = load ptr, ptr %4, align 8, !tbaa !149
+  call void @_ZNSt15__new_allocatorIiEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNSt16allocator_traitsISaIiEE8max_sizeERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef i64 @_ZNKSt15__new_allocatorIiE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  store ptr %0, ptr %2, align 8, !tbaa !149
+  %3 = load ptr, ptr %2, align 8, !tbaa !149
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIiE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorIiE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !219
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef i64 @_ZNKSt15__new_allocatorIiE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIiE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorIiE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !219
   ret i64 2305843009213693951
 }
 
@@ -8483,8 +8839,8 @@ define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorIiE11_M_max_sizeE
 define linkonce_odr hidden void @_ZNSt15__new_allocatorIiEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !219
+  store ptr %1, ptr %4, align 8, !tbaa !219
   ret void
 }
 
@@ -8492,12 +8848,12 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorIiEC2ERKS0_(ptr noundef n
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIiSaIiEE12_Vector_implC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !261
+  store ptr %1, ptr %4, align 8, !tbaa !149
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSaIiEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #12
-  call void @_ZNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
+  %6 = load ptr, ptr %4, align 8, !tbaa !149
+  call void @_ZNSaIiEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #18
+  call void @_ZNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #18
   ret void
 }
 
@@ -8505,51 +8861,49 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIiSaIiEE12_Vector_implC2ERKS
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIiSaIiEE17_M_create_storageEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !258
+  store i64 %1, ptr %4, align 8, !tbaa !88
   %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !88
   %7 = call noundef ptr @_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %6)
-  %8 = getelementptr inbounds %"struct.std::_Vector_base.11", ptr %5, i32 0, i32 0
-  %9 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %8, i32 0, i32 0
-  store ptr %7, ptr %9, align 8
-  %10 = getelementptr inbounds %"struct.std::_Vector_base.11", ptr %5, i32 0, i32 0
-  %11 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds %"struct.std::_Vector_base.11", ptr %5, i32 0, i32 0
-  %14 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %13, i32 0, i32 1
-  store ptr %12, ptr %14, align 8
-  %15 = getelementptr inbounds %"struct.std::_Vector_base.11", ptr %5, i32 0, i32 0
-  %16 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %15, i32 0, i32 0
-  %17 = load ptr, ptr %16, align 8
-  %18 = load i64, ptr %4, align 8
-  %19 = getelementptr inbounds i32, ptr %17, i64 %18
-  %20 = getelementptr inbounds %"struct.std::_Vector_base.11", ptr %5, i32 0, i32 0
-  %21 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %20, i32 0, i32 2
-  store ptr %19, ptr %21, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base.11", ptr %5, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %8, i32 0, i32 0
+  store ptr %7, ptr %9, align 8, !tbaa !154
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base.11", ptr %5, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !154
+  %13 = getelementptr inbounds nuw %"struct.std::_Vector_base.11", ptr %5, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %13, i32 0, i32 1
+  store ptr %12, ptr %14, align 8, !tbaa !156
+  %15 = getelementptr inbounds nuw %"struct.std::_Vector_base.11", ptr %5, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !154
+  %18 = load i64, ptr %4, align 8, !tbaa !88
+  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base.11", ptr %5, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %20, i32 0, i32 2
+  store ptr %19, ptr %21, align 8, !tbaa !260
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12_Vector_baseIiSaIiEE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  store ptr %0, ptr %2, align 8, !tbaa !219
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !263
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %3, i32 0, i32 1
-  store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %3, i32 0, i32 2
-  store ptr null, ptr %6, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !154
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8, !tbaa !156
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %3, i32 0, i32 2
+  store ptr null, ptr %6, align 8, !tbaa !260
   ret void
 }
 
@@ -8557,16 +8911,16 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataC
 define linkonce_odr hidden noundef ptr @_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !258
+  store i64 %1, ptr %4, align 8, !tbaa !88
   %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !88
   %7 = icmp ne i64 %6, 0
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds %"struct.std::_Vector_base.11", ptr %5, i32 0, i32 0
-  %10 = load i64, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base.11", ptr %5, i32 0, i32 0
+  %10 = load i64, ptr %4, align 8, !tbaa !88
   %11 = call noundef ptr @_ZNSt16allocator_traitsISaIiEE8allocateERS0_m(ptr noundef nonnull align 1 dereferenceable(1) %9, i64 noundef %10)
   br label %13
 
@@ -8582,10 +8936,10 @@ define linkonce_odr hidden noundef ptr @_ZNSt12_Vector_baseIiSaIiEE11_M_allocate
 define linkonce_odr hidden noundef ptr @_ZNSt16allocator_traitsISaIiEE8allocateERS0_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !149
+  store i64 %1, ptr %4, align 8, !tbaa !88
+  %5 = load ptr, ptr %3, align 8, !tbaa !149
+  %6 = load i64, ptr %4, align 8, !tbaa !88
   %7 = call noundef ptr @_ZNSt15__new_allocatorIiE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
   ret ptr %7
 }
@@ -8595,48 +8949,51 @@ define linkonce_odr hidden noundef ptr @_ZNSt15__new_allocatorIiE8allocateEmPKv(
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !219
+  store i64 %1, ptr %5, align 8, !tbaa !88
+  store ptr %2, ptr %6, align 8, !tbaa !199
   %7 = load ptr, ptr %4, align 8
-  %8 = load i64, ptr %5, align 8
-  %9 = call noundef i64 @_ZNKSt15__new_allocatorIiE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #12
+  %8 = load i64, ptr %5, align 8, !tbaa !88
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorIiE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
   %10 = icmp ugt i64 %8, %9
-  br i1 %10, label %11, label %16
+  %11 = zext i1 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %19
 
-11:                                               ; preds = %3
-  %12 = load i64, ptr %5, align 8
-  %13 = icmp ugt i64 %12, 4611686018427387903
-  br i1 %13, label %14, label %15
+14:                                               ; preds = %3
+  %15 = load i64, ptr %5, align 8, !tbaa !88
+  %16 = icmp ugt i64 %15, 4611686018427387903
+  br i1 %16, label %17, label %18
 
-14:                                               ; preds = %11
-  call void @_ZSt28__throw_bad_array_new_lengthv() #14
+17:                                               ; preds = %14
+  call void @_ZSt28__throw_bad_array_new_lengthv() #20
   unreachable
 
-15:                                               ; preds = %11
-  call void @_ZSt17__throw_bad_allocv() #14
+18:                                               ; preds = %14
+  call void @_ZSt17__throw_bad_allocv() #20
   unreachable
 
-16:                                               ; preds = %3
-  %17 = load i64, ptr %5, align 8
-  %18 = mul i64 %17, 4
-  %19 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #16
-  ret ptr %19
+19:                                               ; preds = %3
+  %20 = load i64, ptr %5, align 8, !tbaa !88
+  %21 = mul i64 %20, 4
+  %22 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #22
+  ret ptr %22
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #8 comdat {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i64 %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i64, ptr %6, align 8
-  %11 = load ptr, ptr %7, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !153
+  store i64 %1, ptr %6, align 8, !tbaa !88
+  store ptr %2, ptr %7, align 8, !tbaa !153
+  store ptr %3, ptr %8, align 8, !tbaa !149
+  %9 = load ptr, ptr %5, align 8, !tbaa !153
+  %10 = load i64, ptr %6, align 8, !tbaa !88
+  %11 = load ptr, ptr %7, align 8, !tbaa !153
   %12 = call noundef ptr @_ZSt20uninitialized_fill_nIPimiET_S1_T0_RKT1_(ptr noundef %9, i64 noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
   ret ptr %12
 }
@@ -8644,26 +9001,28 @@ define linkonce_odr noundef ptr @_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RK
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIiSaIiEE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !258
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.11", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.11", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt20uninitialized_fill_nIPimiET_S1_T0_RKT1_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt20uninitialized_fill_nIPimiET_S1_T0_RKT1_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #8 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i8, align 1
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  store i8 1, ptr %7, align 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = load i64, ptr %5, align 8
-  %10 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !153
+  store i64 %1, ptr %5, align 8, !tbaa !88
+  store ptr %2, ptr %6, align 8, !tbaa !153
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #18
+  store i8 1, ptr %7, align 1, !tbaa !34
+  %8 = load ptr, ptr %4, align 8, !tbaa !153
+  %9 = load i64, ptr %5, align 8, !tbaa !88
+  %10 = load ptr, ptr %6, align 8, !tbaa !153
   %11 = call noundef ptr @_ZNSt22__uninitialized_fill_nILb1EE15__uninit_fill_nIPimiEET_S3_T0_RKT1_(ptr noundef %8, i64 noundef %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #18
   ret ptr %11
 }
 
@@ -8672,61 +9031,61 @@ define linkonce_odr hidden noundef ptr @_ZNSt22__uninitialized_fill_nILb1EE15__u
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load i64, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !153
+  store i64 %1, ptr %5, align 8, !tbaa !88
+  store ptr %2, ptr %6, align 8, !tbaa !153
+  %7 = load ptr, ptr %4, align 8, !tbaa !153
+  %8 = load i64, ptr %5, align 8, !tbaa !88
+  %9 = load ptr, ptr %6, align 8, !tbaa !153
   %10 = call noundef ptr @_ZSt6fill_nIPimiET_S1_T0_RKT1_(ptr noundef %7, i64 noundef %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
   ret ptr %10
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt6fill_nIPimiET_S1_T0_RKT1_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt6fill_nIPimiET_S1_T0_RKT1_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #8 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load i64, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !153
+  store i64 %1, ptr %5, align 8, !tbaa !88
+  store ptr %2, ptr %6, align 8, !tbaa !153
+  %7 = load ptr, ptr %4, align 8, !tbaa !153
+  %8 = load i64, ptr %5, align 8, !tbaa !88
   %9 = call noundef i64 @_ZSt17__size_to_integerm(i64 noundef %8)
-  %10 = load ptr, ptr %6, align 8
+  %10 = load ptr, ptr %6, align 8, !tbaa !153
   call void @_ZSt19__iterator_categoryIPiENSt15iterator_traitsIT_E17iterator_categoryERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %11 = call noundef ptr @_ZSt10__fill_n_aIPimiET_S1_T0_RKT1_St26random_access_iterator_tag(ptr noundef %7, i64 noundef %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   ret ptr %11
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt10__fill_n_aIPimiET_S1_T0_RKT1_St26random_access_iterator_tag(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt10__fill_n_aIPimiET_S1_T0_RKT1_St26random_access_iterator_tag(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #8 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i64 %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %8 = load i64, ptr %6, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !153
+  store i64 %1, ptr %6, align 8, !tbaa !88
+  store ptr %2, ptr %7, align 8, !tbaa !153
+  %8 = load i64, ptr %6, align 8, !tbaa !88
   %9 = icmp ule i64 %8, 0
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %3
-  %11 = load ptr, ptr %5, align 8
+  %11 = load ptr, ptr %5, align 8, !tbaa !153
   store ptr %11, ptr %4, align 8
   br label %21
 
 12:                                               ; preds = %3
-  %13 = load ptr, ptr %5, align 8
-  %14 = load ptr, ptr %5, align 8
-  %15 = load i64, ptr %6, align 8
-  %16 = getelementptr inbounds i32, ptr %14, i64 %15
-  %17 = load ptr, ptr %7, align 8
+  %13 = load ptr, ptr %5, align 8, !tbaa !153
+  %14 = load ptr, ptr %5, align 8, !tbaa !153
+  %15 = load i64, ptr %6, align 8, !tbaa !88
+  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %15
+  %17 = load ptr, ptr %7, align 8, !tbaa !153
   call void @_ZSt8__fill_aIPiiEvT_S1_RKT0_(ptr noundef %13, ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %17)
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i64, ptr %6, align 8
-  %20 = getelementptr inbounds i32, ptr %18, i64 %19
+  %18 = load ptr, ptr %5, align 8, !tbaa !153
+  %19 = load i64, ptr %6, align 8, !tbaa !88
+  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %19
   store ptr %20, ptr %4, align 8
   br label %21
 
@@ -8735,69 +9094,71 @@ define linkonce_odr noundef ptr @_ZSt10__fill_n_aIPimiET_S1_T0_RKT1_St26random_a
   ret ptr %22
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZSt17__size_to_integerm(i64 noundef %0) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZSt17__size_to_integerm(i64 noundef %0) #2 comdat {
   %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !88
+  %3 = load i64, ptr %2, align 8, !tbaa !88
   ret i64 %3
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt19__iterator_categoryIPiENSt15iterator_traitsIT_E17iterator_categoryERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt19__iterator_categoryIPiENSt15iterator_traitsIT_E17iterator_categoryERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !265
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZSt8__fill_aIPiiEvT_S1_RKT0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZSt8__fill_aIPiiEvT_S1_RKT0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #8 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !153
+  store ptr %1, ptr %5, align 8, !tbaa !153
+  store ptr %2, ptr %6, align 8, !tbaa !153
+  %7 = load ptr, ptr %4, align 8, !tbaa !153
+  %8 = load ptr, ptr %5, align 8, !tbaa !153
+  %9 = load ptr, ptr %6, align 8, !tbaa !153
   call void @_ZSt9__fill_a1IPiiEN9__gnu_cxx11__enable_ifIXsr11__is_scalarIT0_EE7__valueEvE6__typeET_S6_RKS3_(ptr noundef %7, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt9__fill_a1IPiiEN9__gnu_cxx11__enable_ifIXsr11__is_scalarIT0_EE7__valueEvE6__typeET_S6_RKS3_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt9__fill_a1IPiiEN9__gnu_cxx11__enable_ifIXsr11__is_scalarIT0_EE7__valueEvE6__typeET_S6_RKS3_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #2 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %8 = load ptr, ptr %6, align 8
-  %9 = load i32, ptr %8, align 4
-  store i32 %9, ptr %7, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !153
+  store ptr %1, ptr %5, align 8, !tbaa !153
+  store ptr %2, ptr %6, align 8, !tbaa !153
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #18
+  %8 = load ptr, ptr %6, align 8, !tbaa !153
+  %9 = load i32, ptr %8, align 4, !tbaa !23
+  store i32 %9, ptr %7, align 4, !tbaa !23
   br label %10
 
 10:                                               ; preds = %17, %3
-  %11 = load ptr, ptr %4, align 8
-  %12 = load ptr, ptr %5, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !153
+  %12 = load ptr, ptr %5, align 8, !tbaa !153
   %13 = icmp ne ptr %11, %12
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %10
-  %15 = load i32, ptr %7, align 4
-  %16 = load ptr, ptr %4, align 8
-  store i32 %15, ptr %16, align 4
+  %15 = load i32, ptr %7, align 4, !tbaa !23
+  %16 = load ptr, ptr %4, align 8, !tbaa !153
+  store i32 %15, ptr %16, align 4, !tbaa !23
   br label %17
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds i32, ptr %18, i32 1
-  store ptr %19, ptr %4, align 8
-  br label %10, !llvm.loop !23
+  %18 = load ptr, ptr %4, align 8, !tbaa !153
+  %19 = getelementptr inbounds nuw i32, ptr %18, i32 1
+  store ptr %19, ptr %4, align 8, !tbaa !153
+  br label %10, !llvm.loop !267
 
 20:                                               ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #18
   ret void
 }
 
@@ -8806,18 +9167,18 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim(
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !258
+  store ptr %1, ptr %5, align 8, !tbaa !153
+  store i64 %2, ptr %6, align 8, !tbaa !88
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !153
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds %"struct.std::_Vector_base.11", ptr %7, i32 0, i32 0
-  %12 = load ptr, ptr %5, align 8
-  %13 = load i64, ptr %6, align 8
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base.11", ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8, !tbaa !153
+  %13 = load i64, ptr %6, align 8, !tbaa !88
   call void @_ZNSt16allocator_traitsISaIiEE10deallocateERS0_Pim(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13)
   br label %14
 
@@ -8830,12 +9191,12 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIiEE10deallocateERS0_
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !149
+  store ptr %1, ptr %5, align 8, !tbaa !153
+  store i64 %2, ptr %6, align 8, !tbaa !88
+  %7 = load ptr, ptr %4, align 8, !tbaa !149
+  %8 = load ptr, ptr %5, align 8, !tbaa !153
+  %9 = load i64, ptr %6, align 8, !tbaa !88
   call void @_ZNSt15__new_allocatorIiE10deallocateEPim(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
   ret void
 }
@@ -8845,36 +9206,36 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorIiE10deallocateEPim(ptr n
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  call void @_ZdlPv(ptr noundef %7) #15
+  store ptr %0, ptr %4, align 8, !tbaa !219
+  store ptr %1, ptr %5, align 8, !tbaa !153
+  store i64 %2, ptr %6, align 8, !tbaa !88
+  %7 = load ptr, ptr %5, align 8, !tbaa !153
+  call void @_ZdlPv(ptr noundef %7) #21
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #8 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !153
+  store ptr %1, ptr %5, align 8, !tbaa !153
+  store ptr %2, ptr %6, align 8, !tbaa !149
+  %7 = load ptr, ptr %4, align 8, !tbaa !153
+  %8 = load ptr, ptr %5, align 8, !tbaa !153
   call void @_ZSt8_DestroyIPiEvT_S1_(ptr noundef %7, ptr noundef %8)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZSt8_DestroyIPiEvT_S1_(ptr noundef %0, ptr noundef %1) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZSt8_DestroyIPiEvT_S1_(ptr noundef %0, ptr noundef %1) #8 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !153
+  store ptr %1, ptr %4, align 8, !tbaa !153
+  %5 = load ptr, ptr %3, align 8, !tbaa !153
+  %6 = load ptr, ptr %4, align 8, !tbaa !153
   call void @_ZNSt12_Destroy_auxILb1EE9__destroyIPiEEvT_S3_(ptr noundef %5, ptr noundef %6)
   ret void
 }
@@ -8883,46 +9244,49 @@ define linkonce_odr void @_ZSt8_DestroyIPiEvT_S1_(ptr noundef %0, ptr noundef %1
 define linkonce_odr hidden void @_ZNSt12_Destroy_auxILb1EE9__destroyIPiEEvT_S3_(ptr noundef %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !153
+  store ptr %1, ptr %4, align 8, !tbaa !153
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZSt11make_sharedIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEJRKNS1_24HistogramPhaseUnwrapping6ParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.16") align 8 %0, ptr noundef nonnull align 4 dereferenceable(20) %1) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZSt11make_sharedIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEJRKNS1_24HistogramPhaseUnwrapping6ParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.16") align 8 %0, ptr noundef nonnull align 4 dereferenceable(20) %1) #8 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::allocator.29", align 1
   %6 = alloca %"struct.std::_Sp_alloc_shared_tag", align 8
   store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %7 = getelementptr inbounds %"struct.std::_Sp_alloc_shared_tag", ptr %6, i32 0, i32 0
-  store ptr %5, ptr %7, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"struct.std::_Sp_alloc_shared_tag", ptr %6, i32 0, i32 0
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #18
+  %7 = getelementptr inbounds nuw %"struct.std::_Sp_alloc_shared_tag", ptr %6, i32 0, i32 0
+  store ptr %5, ptr %7, align 8, !tbaa !268
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %"struct.std::_Sp_alloc_shared_tag", ptr %6, i32 0, i32 0
   %10 = load ptr, ptr %9, align 8
   call void @_ZNSt10shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEEC2ISaIvEJRKNS1_24HistogramPhaseUnwrapping6ParamsEEEESt20_Sp_alloc_shared_tagIT_EDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %10, ptr noundef nonnull align 4 dereferenceable(20) %8)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #18
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv3PtrINS_16phase_unwrapping29HistogramPhaseUnwrapping_ImplEEC2EOSt10shared_ptrIS2_E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv3PtrINS_16phase_unwrapping29HistogramPhaseUnwrapping_ImplEEC2EOSt10shared_ptrIS2_E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !161
+  store ptr %1, ptr %4, align 8, !tbaa !270
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt10shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #12
+  %6 = load ptr, ptr %4, align 8, !tbaa !270
+  call void @_ZNSt10shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !272
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt12__shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  %4 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %3, i32 0, i32 1
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
   ret void
 }
 
@@ -8932,14 +9296,14 @@ define linkonce_odr hidden void @_ZNSt10shared_ptrIN2cv16phase_unwrapping29Histo
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %"struct.std::_Sp_alloc_shared_tag", align 8
-  %8 = getelementptr inbounds %"struct.std::_Sp_alloc_shared_tag", ptr %4, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Sp_alloc_shared_tag", ptr %4, i32 0, i32 0
   store ptr %1, ptr %8, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !270
+  store ptr %2, ptr %6, align 8, !tbaa !3
   %9 = load ptr, ptr %5, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false)
-  %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds %"struct.std::_Sp_alloc_shared_tag", ptr %7, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false), !tbaa.struct !274
+  %10 = load ptr, ptr %6, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %"struct.std::_Sp_alloc_shared_tag", ptr %7, i32 0, i32 0
   %12 = load ptr, ptr %11, align 8
   call void @_ZNSt12__shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplELN9__gnu_cxx12_Lock_policyE2EEC2ISaIvEJRKNS1_24HistogramPhaseUnwrapping6ParamsEEEESt20_Sp_alloc_shared_tagIT_EDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr %12, ptr noundef nonnull align 4 dereferenceable(20) %10)
   ret void
@@ -8951,23 +9315,23 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv16phase_unwrapping29His
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %"struct.std::_Sp_alloc_shared_tag", align 8
-  %8 = getelementptr inbounds %"struct.std::_Sp_alloc_shared_tag", ptr %4, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Sp_alloc_shared_tag", ptr %4, i32 0, i32 0
   store ptr %1, ptr %8, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !272
+  store ptr %2, ptr %6, align 8, !tbaa !3
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %"class.std::__shared_ptr.17", ptr %9, i32 0, i32 0
-  store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds %"class.std::__shared_ptr.17", ptr %9, i32 0, i32 1
-  %12 = getelementptr inbounds %"class.std::__shared_ptr.17", ptr %9, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false)
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %"struct.std::_Sp_alloc_shared_tag", ptr %7, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %9, i32 0, i32 0
+  store ptr null, ptr %10, align 8, !tbaa !275
+  %11 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %9, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %9, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false), !tbaa.struct !274
+  %13 = load ptr, ptr %6, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %"struct.std::_Sp_alloc_shared_tag", ptr %7, i32 0, i32 0
   %15 = load ptr, ptr %14, align 8
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvEJRKNS5_24HistogramPhaseUnwrapping6ParamsEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr %15, ptr noundef nonnull align 4 dereferenceable(20) %13)
-  %16 = getelementptr inbounds %"class.std::__shared_ptr.17", ptr %9, i32 0, i32 0
-  %17 = load ptr, ptr %16, align 8
-  call void @_ZNSt12__shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withIS2_S2_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %17) #12
+  %16 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %9, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !275
+  call void @_ZNSt12__shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withIS2_S2_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %17) #18
   ret void
 }
 
@@ -8983,41 +9347,49 @@ define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_polic
   %12 = alloca i32, align 4
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
-  %15 = getelementptr inbounds %"struct.std::_Sp_alloc_shared_tag", ptr %5, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %"struct.std::_Sp_alloc_shared_tag", ptr %5, i32 0, i32 0
   store ptr %2, ptr %15, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !205
+  store ptr %1, ptr %7, align 8, !tbaa !277
+  store ptr %3, ptr %8, align 8, !tbaa !3
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds %"struct.std::_Sp_alloc_shared_tag", ptr %5, i32 0, i32 0
-  %18 = load ptr, ptr %17, align 8
-  call void @_ZNSaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEC2IvEERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %18) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #18
+  %17 = getelementptr inbounds nuw %"struct.std::_Sp_alloc_shared_tag", ptr %5, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !279
+  call void @_ZNSaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEC2IvEERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %18) #18
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #18
   invoke void @_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_(ptr dead_on_unwind writable sret(%"struct.std::__allocated_ptr") align 8 %10, ptr noundef nonnull align 1 dereferenceable(1) %9)
           to label %19 unwind label %31
 
 19:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #18
   %20 = invoke noundef ptr @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %21 unwind label %35
 
 21:                                               ; preds = %19
-  store ptr %20, ptr %13, align 8
-  %22 = load ptr, ptr %13, align 8
-  %23 = load ptr, ptr %8, align 8
+  store ptr %20, ptr %13, align 8, !tbaa !281
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #18
+  %22 = load ptr, ptr %13, align 8, !tbaa !281
+  %23 = load ptr, ptr %8, align 8, !tbaa !3
   invoke void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEC2IJRKNS1_24HistogramPhaseUnwrapping6ParamsEEEES3_DpOT_(ptr noundef nonnull align 8 dereferenceable(120) %22, ptr noundef nonnull align 4 dereferenceable(20) %23)
-          to label %24 unwind label %35
+          to label %24 unwind label %39
 
 24:                                               ; preds = %21
-  store ptr %22, ptr %14, align 8
-  %25 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEEaSEDn(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr null) #12
-  %26 = load ptr, ptr %14, align 8
-  %27 = getelementptr inbounds %"class.std::__shared_count", ptr %16, i32 0, i32 0
-  store ptr %26, ptr %27, align 8
-  %28 = load ptr, ptr %14, align 8
-  %29 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(120) %28) #12
-  %30 = load ptr, ptr %7, align 8
-  store ptr %29, ptr %30, align 8
-  call void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #12
-  call void @_ZNSaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #12
+  store ptr %22, ptr %14, align 8, !tbaa !281
+  %25 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEEaSEDn(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr null) #18
+  %26 = load ptr, ptr %14, align 8, !tbaa !281
+  %27 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %16, i32 0, i32 0
+  store ptr %26, ptr %27, align 8, !tbaa !207
+  %28 = load ptr, ptr %14, align 8, !tbaa !281
+  %29 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(120) %28) #18
+  %30 = load ptr, ptr %7, align 8, !tbaa !277
+  store ptr %29, ptr %30, align 8, !tbaa !16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #18
+  call void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #18
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #18
+  call void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #18
   ret void
 
 31:                                               ; preds = %4
@@ -9027,36 +9399,52 @@ define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_polic
   store ptr %33, ptr %11, align 8
   %34 = extractvalue { ptr, i32 } %32, 1
   store i32 %34, ptr %12, align 4
-  br label %39
+  br label %44
 
-35:                                               ; preds = %21, %19
+35:                                               ; preds = %19
   %36 = landingpad { ptr, i32 }
           cleanup
   %37 = extractvalue { ptr, i32 } %36, 0
   store ptr %37, ptr %11, align 8
   %38 = extractvalue { ptr, i32 } %36, 1
   store i32 %38, ptr %12, align 4
-  call void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #12
-  br label %39
+  br label %43
 
-39:                                               ; preds = %35, %31
-  call void @_ZNSaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #12
-  br label %40
+39:                                               ; preds = %21
+  %40 = landingpad { ptr, i32 }
+          cleanup
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %11, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #18
+  br label %43
 
-40:                                               ; preds = %39
-  %41 = load ptr, ptr %11, align 8
-  %42 = load i32, ptr %12, align 4
-  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
-  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
-  resume { ptr, i32 } %44
+43:                                               ; preds = %39, %35
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #18
+  call void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #18
+  br label %44
+
+44:                                               ; preds = %43, %31
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #18
+  call void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #18
+  br label %45
+
+45:                                               ; preds = %44
+  %46 = load ptr, ptr %11, align 8
+  %47 = load i32, ptr %12, align 4
+  %48 = insertvalue { ptr, i32 } poison, ptr %46, 0
+  %49 = insertvalue { ptr, i32 } %48, i32 %47, 1
+  resume { ptr, i32 } %49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withIS2_S2_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !272
+  store ptr %1, ptr %4, align 8, !tbaa !16
   ret void
 }
 
@@ -9064,10 +9452,10 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv16phase_unwrapping29His
 define linkonce_odr hidden void @_ZNSaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEC2IvEERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !283
+  store ptr %1, ptr %4, align 8, !tbaa !268
   %5 = load ptr, ptr %3, align 8
-  call void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
+  call void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   ret void
 }
 
@@ -9076,22 +9464,22 @@ define linkonce_odr void @_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplac
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !283
+  %5 = load ptr, ptr %4, align 8, !tbaa !283
+  %6 = load ptr, ptr %4, align 8, !tbaa !283
   %7 = call noundef ptr @_ZNSt16allocator_traitsISaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERS8_m(ptr noundef nonnull align 1 dereferenceable(1) %6, i64 noundef 1)
-  call void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEEC2ERS8_PS7_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %7) #12
+  call void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEEC2ERS8_PS7_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %7) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !285
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::__allocated_ptr", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt12__to_addressISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEPT_S9_(ptr noundef %5) #12
+  %4 = getelementptr inbounds nuw %"struct.std::__allocated_ptr", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !287
+  %6 = call noundef ptr @_ZSt12__to_addressISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEPT_S9_(ptr noundef %5) #18
   ret ptr %6
 }
 
@@ -9102,15 +9490,15 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwr
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !281
+  store ptr %1, ptr %5, align 8, !tbaa !3
   %8 = load ptr, ptr %4, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #12
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %8, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(104) %9) #12
-  %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(120) %8) #12
-  %11 = load ptr, ptr %5, align 8
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8, !tbaa !20
+  %9 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr_inplace", ptr %8, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(104) %9) #18
+  %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(120) %8) #18
+  %11 = load ptr, ptr %5, align 8, !tbaa !3
   invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEJRKNS4_24HistogramPhaseUnwrapping6ParamsEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10, ptr noundef nonnull align 4 dereferenceable(20) %11)
           to label %12 unwind label %13
 
@@ -9124,7 +9512,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwr
   store ptr %15, ptr %6, align 8
   %16 = extractvalue { ptr, i32 } %14, 1
   store i32 %16, ptr %7, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #12
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
   br label %17
 
 17:                                               ; preds = %13
@@ -9139,40 +9527,40 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwr
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEEaSEDn(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !285
+  store ptr %1, ptr %4, align 8, !tbaa !289
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.std::__allocated_ptr", ptr %5, i32 0, i32 1
-  store ptr null, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::__allocated_ptr", ptr %5, i32 0, i32 1
+  store ptr null, ptr %6, align 8, !tbaa !287
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(120) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !281
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %3, i32 0, i32 1
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl", ptr %4, i32 0, i32 0
-  %6 = call noundef ptr @_ZN9__gnu_cxx16__aligned_bufferIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(104) %5) #12
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr_inplace", ptr %3, i32 0, i32 1
+  %5 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr_inplace<cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl", ptr %4, i32 0, i32 0
+  %6 = call noundef ptr @_ZN9__gnu_cxx16__aligned_bufferIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(104) %5) #18
   ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !285
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::__allocated_ptr", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__allocated_ptr", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !287
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"struct.std::__allocated_ptr", ptr %3, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.std::__allocated_ptr", ptr %3, i32 0, i32 1
-  %11 = load ptr, ptr %10, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::__allocated_ptr", ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !291
+  %10 = getelementptr inbounds nuw %"struct.std::__allocated_ptr", ptr %3, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8, !tbaa !287
   invoke void @_ZNSt16allocator_traitsISaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEE10deallocateERS8_PS7_m(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef %11, i64 noundef 1)
           to label %12 unwind label %14
 
@@ -9186,23 +9574,21 @@ define linkonce_odr hidden void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_i
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #13
+  call void @__clang_call_terminate(ptr %16) #19
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  store ptr %0, ptr %2, align 8, !tbaa !292
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !292
   ret void
 }
 
@@ -9210,10 +9596,10 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inpl
 define linkonce_odr hidden noundef ptr @_ZNSt16allocator_traitsISaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERS8_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !283
+  store i64 %1, ptr %4, align 8, !tbaa !88
+  %5 = load ptr, ptr %3, align 8, !tbaa !283
+  %6 = load i64, ptr %4, align 8, !tbaa !88
   %7 = call noundef ptr @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
   ret ptr %7
 }
@@ -9223,16 +9609,16 @@ define linkonce_odr hidden void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_i
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !285
+  store ptr %1, ptr %5, align 8, !tbaa !283
+  store ptr %2, ptr %6, align 8, !tbaa !281
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"struct.std::__allocated_ptr", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.std::__allocated_ptr", ptr %7, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::__allocated_ptr", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8, !tbaa !283
+  store ptr %9, ptr %8, align 8, !tbaa !291
+  %10 = getelementptr inbounds nuw %"struct.std::__allocated_ptr", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8, !tbaa !281
+  store ptr %11, ptr %10, align 8, !tbaa !287
   ret void
 }
 
@@ -9241,60 +9627,63 @@ define linkonce_odr hidden noundef ptr @_ZNSt15__new_allocatorISt23_Sp_counted_p
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !292
+  store i64 %1, ptr %5, align 8, !tbaa !88
+  store ptr %2, ptr %6, align 8, !tbaa !199
   %7 = load ptr, ptr %4, align 8
-  %8 = load i64, ptr %5, align 8
-  %9 = call noundef i64 @_ZNKSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #12
+  %8 = load i64, ptr %5, align 8, !tbaa !88
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
   %10 = icmp ugt i64 %8, %9
-  br i1 %10, label %11, label %16
+  %11 = zext i1 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %19
 
-11:                                               ; preds = %3
-  %12 = load i64, ptr %5, align 8
-  %13 = icmp ugt i64 %12, 153722867280912930
-  br i1 %13, label %14, label %15
+14:                                               ; preds = %3
+  %15 = load i64, ptr %5, align 8, !tbaa !88
+  %16 = icmp ugt i64 %15, 153722867280912930
+  br i1 %16, label %17, label %18
 
-14:                                               ; preds = %11
-  call void @_ZSt28__throw_bad_array_new_lengthv() #14
+17:                                               ; preds = %14
+  call void @_ZSt28__throw_bad_array_new_lengthv() #20
   unreachable
 
-15:                                               ; preds = %11
-  call void @_ZSt17__throw_bad_allocv() #14
+18:                                               ; preds = %14
+  call void @_ZSt17__throw_bad_allocv() #20
   unreachable
 
-16:                                               ; preds = %3
-  %17 = load i64, ptr %5, align 8
-  %18 = mul i64 %17, 120
-  %19 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #16
-  ret ptr %19
+19:                                               ; preds = %3
+  %20 = load i64, ptr %5, align 8, !tbaa !88
+  %21 = mul i64 %20, 120
+  %22 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #22
+  ret ptr %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !292
   ret i64 76861433640456465
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZSt12__to_addressISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEPT_S9_(ptr noundef %0) #0 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !281
+  %3 = load ptr, ptr %2, align 8, !tbaa !281
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !210
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !20
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %4, align 8, !tbaa !215
+  %5 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %5, align 4, !tbaa !217
   ret void
 }
 
@@ -9302,7 +9691,7 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::allocator.29", align 1
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !294
   %4 = load ptr, ptr %3, align 8
   invoke void @_ZNSt14_Sp_ebo_helperILi0ESaIvELb1EEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %5 unwind label %6
@@ -9314,7 +9703,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwr
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #13
+  call void @__clang_call_terminate(ptr %8) #19
   unreachable
 }
 
@@ -9323,43 +9712,41 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIvEE9constructIN2cv16
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !268
+  store ptr %1, ptr %5, align 8, !tbaa !16
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  %7 = load ptr, ptr %5, align 8, !tbaa !16
+  %8 = load ptr, ptr %6, align 8, !tbaa !3
   call void @_ZSt10_ConstructIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEJRKNS1_24HistogramPhaseUnwrapping6ParamsEEEvPT_DpOT0_(ptr noundef %7, ptr noundef nonnull align 4 dereferenceable(20) %8)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #0 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  store ptr %0, ptr %2, align 8, !tbaa !210
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !281
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %3) #12
-  call void @_ZdlPv(ptr noundef %3) #15
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %3) #18
+  call void @_ZdlPv(ptr noundef %3) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !281
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %3, i32 0, i32 1
-  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE5_Impl8_M_allocEv(ptr noundef nonnull align 8 dereferenceable(104) %4) #12
-  %6 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(120) %3) #12
-  call void @_ZNSt16allocator_traitsISaIvEE7destroyIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEEEvRS0_PT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #12
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr_inplace", ptr %3, i32 0, i32 1
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE5_Impl8_M_allocEv(ptr noundef nonnull align 8 dereferenceable(104) %4) #18
+  %6 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(120) %3) #18
+  call void @_ZNSt16allocator_traitsISaIvEE7destroyIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEEEvRS0_PT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #18
   ret void
 }
 
@@ -9368,15 +9755,19 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwr
   %2 = alloca ptr, align 8
   %3 = alloca %"class.std::allocator.30", align 1
   %4 = alloca %"struct.std::__allocated_ptr", align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !281
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %5, i32 0, i32 1
-  %7 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE5_Impl8_M_allocEv(ptr noundef nonnull align 8 dereferenceable(104) %6) #12
-  call void @_ZNSaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEC2IvEERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %7) #12
-  call void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEEC2ERS8_PS7_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %5) #12
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %5) #12
-  call void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
-  call void @_ZNSaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #18
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr_inplace", ptr %5, i32 0, i32 1
+  %7 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE5_Impl8_M_allocEv(ptr noundef nonnull align 8 dereferenceable(104) %6) #18
+  call void @_ZNSaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEC2IvEERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %7) #18
+  call void @llvm.lifetime.start.p0(i64 16, ptr %4) #18
+  call void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEEC2ERS8_PS7_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %5) #18
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %5) #18
+  call void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #18
+  call void @llvm.lifetime.end.p0(i64 16, ptr %4) #18
+  call void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #18
   ret void
 }
 
@@ -9386,63 +9777,61 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16pha
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(120) %7) #12
-  store ptr %8, ptr %6, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt19_Sp_make_shared_tag5_S_tiEv() #12
-  %11 = icmp eq ptr %9, %10
-  br i1 %11, label %15, label %12
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !281
+  store ptr %1, ptr %5, align 8, !tbaa !296
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #18
+  %9 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(120) %8) #18
+  store ptr %9, ptr %6, align 8, !tbaa !16
+  %10 = load ptr, ptr %5, align 8, !tbaa !296
+  %11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt19_Sp_make_shared_tag5_S_tiEv() #18
+  %12 = icmp eq ptr %10, %11
+  br i1 %12, label %16, label %13
 
-12:                                               ; preds = %2
-  %13 = load ptr, ptr %5, align 8
-  %14 = call noundef zeroext i1 @_ZNKSt9type_infoeqERKS_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) @_ZTISt19_Sp_make_shared_tag) #12
-  br i1 %14, label %15, label %17
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %5, align 8, !tbaa !296
+  %15 = call noundef zeroext i1 @_ZNKSt9type_infoeqERKS_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) @_ZTISt19_Sp_make_shared_tag) #18
+  br i1 %15, label %16, label %18
 
-15:                                               ; preds = %12, %2
-  %16 = load ptr, ptr %6, align 8
-  store ptr %16, ptr %3, align 8
-  br label %18
+16:                                               ; preds = %13, %2
+  %17 = load ptr, ptr %6, align 8, !tbaa !16
+  store ptr %17, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %19
 
-17:                                               ; preds = %12
+18:                                               ; preds = %13
   store ptr null, ptr %3, align 8
-  br label %18
+  store i32 1, ptr %7, align 4
+  br label %19
 
-18:                                               ; preds = %17, %15
-  %19 = load ptr, ptr %3, align 8
-  ret ptr %19
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  ret void
+19:                                               ; preds = %18, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #18
+  %20 = load ptr, ptr %3, align 8
+  ret ptr %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  call void @llvm.trap() #13
+  store ptr %0, ptr %2, align 8, !tbaa !210
+  call void @llvm.trap() #19
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !210
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %3, align 8, !tbaa !20
   %7 = getelementptr inbounds ptr, ptr %6, i64 1
   %8 = load ptr, ptr %7, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  call void %8(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   br label %9
 
 9:                                                ; preds = %5, %1
@@ -9453,19 +9842,19 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
 define linkonce_odr hidden void @_ZNSt14_Sp_ebo_helperILi0ESaIvELb1EEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !298
+  store ptr %1, ptr %4, align 8, !tbaa !268
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZSt10_ConstructIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEJRKNS1_24HistogramPhaseUnwrapping6ParamsEEEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(20) %1) #1 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZSt10_ConstructIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEJRKNS1_24HistogramPhaseUnwrapping6ParamsEEEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(20) %1) #8 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !16
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
   call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplC1ERKNS0_24HistogramPhaseUnwrapping6ParamsE(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef nonnull align 4 dereferenceable(20) %6)
   ret void
 }
@@ -9474,9 +9863,9 @@ define linkonce_odr void @_ZSt10_ConstructIN2cv16phase_unwrapping29HistogramPhas
 define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIvEE7destroyIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEEEvRS0_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !268
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %4, align 8, !tbaa !16
   invoke void @_ZSt8_DestroyIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEEvPT_(ptr noundef %5)
           to label %6 unwind label %7
 
@@ -9487,14 +9876,14 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIvEE7destroyIN2cv16ph
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #13
+  call void @__clang_call_terminate(ptr %9) #19
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE5_Impl8_M_allocEv(ptr noundef nonnull align 8 dereferenceable(104) %0) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !294
   %3 = load ptr, ptr %2, align 8
   %4 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt14_Sp_ebo_helperILi0ESaIvELb1EE6_S_getERS1_(ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %5 unwind label %6
@@ -9506,27 +9895,27 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #13
+  call void @__clang_call_terminate(ptr %8) #19
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt8_DestroyIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEEvPT_(ptr noundef %0) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt8_DestroyIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEEvPT_(ptr noundef %0) #2 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
+  %4 = load ptr, ptr %3, align 8, !tbaa !20
   %5 = getelementptr inbounds ptr, ptr %4, i64 0
   %6 = load ptr, ptr %5, align 8
-  call void %6(ptr noundef nonnull align 8 dereferenceable(104) %3) #12
+  call void %6(ptr noundef nonnull align 8 dereferenceable(104) %3) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt14_Sp_ebo_helperILi0ESaIvELb1EE6_S_getERS1_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !298
+  %3 = load ptr, ptr %2, align 8, !tbaa !298
   ret ptr %3
 }
 
@@ -9535,19 +9924,19 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt19_Sp_
   ret ptr @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNKSt9type_infoeqERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNKSt9type_infoeqERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #2 comdat align 2 {
   %3 = alloca i1, align 1
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !296
+  store ptr %1, ptr %5, align 8, !tbaa !296
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"class.std::type_info", ptr %6, i32 0, i32 1
-  %8 = load ptr, ptr %7, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %"class.std::type_info", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %10, align 8
+  %7 = getelementptr inbounds nuw %"class.std::type_info", ptr %6, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8, !tbaa !300
+  %9 = load ptr, ptr %5, align 8, !tbaa !296
+  %10 = getelementptr inbounds nuw %"class.std::type_info", ptr %9, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8, !tbaa !300
   %12 = icmp eq ptr %8, %11
   br i1 %12, label %13, label %14
 
@@ -9556,20 +9945,20 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNKSt9type_infoeqERKS_(ptr nound
   br label %30
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds %"class.std::type_info", ptr %6, i32 0, i32 1
-  %16 = load ptr, ptr %15, align 8
+  %15 = getelementptr inbounds nuw %"class.std::type_info", ptr %6, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8, !tbaa !300
   %17 = getelementptr inbounds i8, ptr %16, i64 0
-  %18 = load i8, ptr %17, align 1
+  %18 = load i8, ptr %17, align 1, !tbaa !119
   %19 = sext i8 %18 to i32
   %20 = icmp ne i32 %19, 42
   br i1 %20, label %21, label %28
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds %"class.std::type_info", ptr %6, i32 0, i32 1
-  %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr %5, align 8
-  %25 = call noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) %24) #12
-  %26 = call i32 @strcmp(ptr noundef %23, ptr noundef %25) #12
+  %22 = getelementptr inbounds nuw %"class.std::type_info", ptr %6, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8, !tbaa !300
+  %24 = load ptr, ptr %5, align 8, !tbaa !296
+  %25 = call noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) %24) #18
+  %26 = call i32 @strcmp(ptr noundef %23, ptr noundef %25) #18
   %27 = icmp eq i32 %26, 0
   br label %28
 
@@ -9584,30 +9973,30 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNKSt9type_infoeqERKS_(ptr nound
 }
 
 ; Function Attrs: nounwind
-declare i32 @strcmp(ptr noundef, ptr noundef) #4
+declare i32 @strcmp(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !296
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::type_info", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::type_info", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !300
   %6 = getelementptr inbounds i8, ptr %5, i64 0
-  %7 = load i8, ptr %6, align 1
+  %7 = load i8, ptr %6, align 1, !tbaa !119
   %8 = sext i8 %7 to i32
   %9 = icmp eq i32 %8, 42
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds %"class.std::type_info", ptr %3, i32 0, i32 1
-  %12 = load ptr, ptr %11, align 8
+  %11 = getelementptr inbounds nuw %"class.std::type_info", ptr %3, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8, !tbaa !300
   %13 = getelementptr inbounds i8, ptr %12, i64 1
   br label %17
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds %"class.std::type_info", ptr %3, i32 0, i32 1
-  %16 = load ptr, ptr %15, align 8
+  %15 = getelementptr inbounds nuw %"class.std::type_info", ptr %3, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8, !tbaa !300
   br label %17
 
 17:                                               ; preds = %14, %10
@@ -9618,18 +10007,18 @@ define linkonce_odr hidden noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonn
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN9__gnu_cxx16__aligned_bufferIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(104) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !302
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZN9__gnu_cxx16__aligned_bufferIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(104) %3) #12
+  %4 = call noundef ptr @_ZN9__gnu_cxx16__aligned_bufferIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(104) %3) #18
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN9__gnu_cxx16__aligned_bufferIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(104) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !302
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.__gnu_cxx::__aligned_buffer", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.__gnu_cxx::__aligned_buffer", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
@@ -9638,12 +10027,12 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaISt23_Sp_counted_ptr_
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !283
+  store ptr %1, ptr %5, align 8, !tbaa !281
+  store i64 %2, ptr %6, align 8, !tbaa !88
+  %7 = load ptr, ptr %4, align 8, !tbaa !283
+  %8 = load ptr, ptr %5, align 8, !tbaa !281
+  %9 = load i64, ptr %6, align 8, !tbaa !88
   call void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEE10deallocateEPS7_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
   ret void
 }
@@ -9653,18 +10042,11 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inpl
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  call void @_ZdlPv(ptr noundef %7) #15
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !292
+  store ptr %1, ptr %5, align 8, !tbaa !281
+  store i64 %2, ptr %6, align 8, !tbaa !88
+  %7 = load ptr, ptr %5, align 8, !tbaa !281
+  call void @_ZdlPv(ptr noundef %7) #21
   ret void
 }
 
@@ -9672,11 +10054,11 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inpl
 define linkonce_odr hidden void @_ZNSt10shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !270
+  store ptr %1, ptr %4, align 8, !tbaa !270
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt12__shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplELN9__gnu_cxx12_Lock_policyE2EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #12
+  %6 = load ptr, ptr %4, align 8, !tbaa !270
+  call void @_ZNSt12__shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplELN9__gnu_cxx12_Lock_policyE2EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #18
   ret void
 }
 
@@ -9684,33 +10066,33 @@ define linkonce_odr hidden void @_ZNSt10shared_ptrIN2cv16phase_unwrapping29Histo
 define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplELN9__gnu_cxx12_Lock_policyE2EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !272
+  store ptr %1, ptr %4, align 8, !tbaa !272
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.std::__shared_ptr.17", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.std::__shared_ptr.17", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %6, align 8
-  %10 = getelementptr inbounds %"class.std::__shared_ptr.17", ptr %5, i32 0, i32 1
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
-  %11 = getelementptr inbounds %"class.std::__shared_ptr.17", ptr %5, i32 0, i32 1
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %"class.std::__shared_ptr.17", ptr %12, i32 0, i32 1
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE7_M_swapERS2_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %13) #12
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"class.std::__shared_ptr.17", ptr %14, i32 0, i32 0
-  store ptr null, ptr %15, align 8
+  %6 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !272
+  %8 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !275
+  store ptr %9, ptr %6, align 8, !tbaa !275
+  %10 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %5, i32 0, i32 1
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #18
+  %11 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %5, i32 0, i32 1
+  %12 = load ptr, ptr %4, align 8, !tbaa !272
+  %13 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %12, i32 0, i32 1
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE7_M_swapERS2_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %13) #18
+  %14 = load ptr, ptr %4, align 8, !tbaa !272
+  %15 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %14, i32 0, i32 0
+  store ptr null, ptr %15, align 8, !tbaa !275
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !205
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::__shared_count", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !207
   ret void
 }
 
@@ -9719,21 +10101,23 @@ define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_polic
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !205
+  store ptr %1, ptr %4, align 8, !tbaa !205
   %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %5, align 8
-  %10 = getelementptr inbounds %"class.std::__shared_count", ptr %6, i32 0, i32 0
-  %11 = load ptr, ptr %10, align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %"class.std::__shared_count", ptr %12, i32 0, i32 0
-  store ptr %11, ptr %13, align 8
-  %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds %"class.std::__shared_count", ptr %6, i32 0, i32 0
-  store ptr %14, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #18
+  %7 = load ptr, ptr %4, align 8, !tbaa !205
+  %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !207
+  store ptr %9, ptr %5, align 8, !tbaa !210
+  %10 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %6, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !207
+  %12 = load ptr, ptr %4, align 8, !tbaa !205
+  %13 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %12, i32 0, i32 0
+  store ptr %11, ptr %13, align 8, !tbaa !207
+  %14 = load ptr, ptr %5, align 8, !tbaa !210
+  %15 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %6, i32 0, i32 0
+  store ptr %14, ptr %15, align 8, !tbaa !207
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #18
   ret void
 }
 
@@ -9741,11 +10125,11 @@ define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_polic
 define linkonce_odr hidden void @_ZNSt10shared_ptrIN2cv16phase_unwrapping24HistogramPhaseUnwrappingEEC2INS1_29HistogramPhaseUnwrapping_ImplEvEEOS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !304
+  store ptr %1, ptr %4, align 8, !tbaa !270
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt12__shared_ptrIN2cv16phase_unwrapping24HistogramPhaseUnwrappingELN9__gnu_cxx12_Lock_policyE2EEC2INS1_29HistogramPhaseUnwrapping_ImplEvEEOS_IT_LS4_2EE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #12
+  %6 = load ptr, ptr %4, align 8, !tbaa !270
+  call void @_ZNSt12__shared_ptrIN2cv16phase_unwrapping24HistogramPhaseUnwrappingELN9__gnu_cxx12_Lock_policyE2EEC2INS1_29HistogramPhaseUnwrapping_ImplEvEEOS_IT_LS4_2EE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #18
   ret void
 }
 
@@ -9753,67 +10137,359 @@ define linkonce_odr hidden void @_ZNSt10shared_ptrIN2cv16phase_unwrapping24Histo
 define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv16phase_unwrapping24HistogramPhaseUnwrappingELN9__gnu_cxx12_Lock_policyE2EEC2INS1_29HistogramPhaseUnwrapping_ImplEvEEOS_IT_LS4_2EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !306
+  store ptr %1, ptr %4, align 8, !tbaa !272
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.std::__shared_ptr", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.std::__shared_ptr.17", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %6, align 8
-  %10 = getelementptr inbounds %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
-  %11 = getelementptr inbounds %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %"class.std::__shared_ptr.17", ptr %12, i32 0, i32 1
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE7_M_swapERS2_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %13) #12
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"class.std::__shared_ptr.17", ptr %14, i32 0, i32 0
-  store ptr null, ptr %15, align 8
+  %6 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !272
+  %8 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !275
+  store ptr %9, ptr %6, align 8, !tbaa !308
+  %10 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #18
+  %11 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
+  %12 = load ptr, ptr %4, align 8, !tbaa !272
+  %13 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %12, i32 0, i32 1
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE7_M_swapERS2_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %13) #18
+  %14 = load ptr, ptr %4, align 8, !tbaa !272
+  %15 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %14, i32 0, i32 0
+  store ptr null, ptr %15, align 8, !tbaa !275
   ret void
 }
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #9 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #12 = { nounwind }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { noreturn }
-attributes #15 = { builtin nounwind }
-attributes #16 = { builtin allocsize(0) }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #2 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #10 = { alwaysinline mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #11 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #13 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #14 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #15 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #16 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #17 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #18 = { nounwind }
+attributes #19 = { noreturn nounwind }
+attributes #20 = { noreturn }
+attributes #21 = { builtin nounwind }
+attributes #22 = { builtin allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN2cv16phase_unwrapping24HistogramPhaseUnwrapping6ParamsE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !10, i64 0}
+!9 = !{!"_ZTSN2cv16phase_unwrapping24HistogramPhaseUnwrapping6ParamsE", !10, i64 0, !10, i64 4, !11, i64 8, !10, i64 12, !10, i64 16}
+!10 = !{!"int", !6, i64 0}
+!11 = !{!"float", !6, i64 0}
+!12 = !{!9, !10, i64 4}
+!13 = !{!9, !11, i64 8}
+!14 = !{!9, !10, i64 12}
+!15 = !{!9, !10, i64 16}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTSN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplE", !5, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"any p2 pointer", !5, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"vtable pointer", !7, i64 0}
+!22 = !{i64 0, i64 4, !23, i64 4, i64 4, !23, i64 8, i64 4, !24, i64 12, i64 4, !23, i64 16, i64 4, !23}
+!23 = !{!10, !10, i64 0}
+!24 = !{!11, !11, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTSN2cv16phase_unwrapping24HistogramPhaseUnwrappingE", !5, i64 0}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTSSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE", !5, i64 0}
+!29 = !{!30, !31, i64 0}
+!30 = !{!"_ZTSNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE17_Vector_impl_dataE", !31, i64 0, !31, i64 8, !31, i64 16}
+!31 = !{!"p1 _ZTSN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelE", !5, i64 0}
+!32 = !{!30, !31, i64 8}
+!33 = !{!31, !31, i64 0}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"bool", !6, i64 0}
+!36 = !{!37, !11, i64 0}
+!37 = !{!"_ZTSN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelE", !11, i64 0, !10, i64 4, !35, i64 8, !11, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !35, i64 28}
+!38 = !{!37, !10, i64 4}
+!39 = !{i8 0, i8 2}
+!40 = !{}
+!41 = !{!37, !35, i64 8}
+!42 = !{!37, !11, i64 12}
+!43 = !{!37, !10, i64 16}
+!44 = !{!37, !10, i64 20}
+!45 = !{!37, !10, i64 24}
+!46 = !{!37, !35, i64 28}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTSN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeE", !5, i64 0}
+!49 = !{!50, !10, i64 0}
+!50 = !{!"_ZTSN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeE", !10, i64 0, !10, i64 4, !10, i64 8}
+!51 = !{!50, !10, i64 4}
+!52 = !{!50, !10, i64 8}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p1 _ZTSN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinE", !5, i64 0}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"p1 _ZTSSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE", !5, i64 0}
+!57 = !{!58, !11, i64 0}
+!58 = !{!"_ZTSN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinE", !11, i64 0, !11, i64 4, !59, i64 8}
+!59 = !{!"_ZTSSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE", !60, i64 0}
+!60 = !{!"_ZTSSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE", !61, i64 0}
+!61 = !{!"_ZTSNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE12_Vector_implE", !62, i64 0}
+!62 = !{!"_ZTSNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_Vector_impl_dataE", !48, i64 0, !48, i64 8, !48, i64 16}
+!63 = !{!58, !11, i64 4}
+!64 = !{!62, !48, i64 8}
+!65 = !{!62, !48, i64 16}
+!66 = !{!62, !48, i64 0}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"p1 _ZTSN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9HistogramE", !5, i64 0}
+!69 = !{!70, !70, i64 0}
+!70 = !{!"p1 _ZTSSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE", !5, i64 0}
+!71 = !{!72, !11, i64 24}
+!72 = !{!"_ZTSN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9HistogramE", !73, i64 0, !11, i64 24, !11, i64 28, !11, i64 32, !10, i64 36, !10, i64 40, !10, i64 44}
+!73 = !{!"_ZTSSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE", !74, i64 0}
+!74 = !{!"_ZTSSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE", !75, i64 0}
+!75 = !{!"_ZTSNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE12_Vector_implE", !76, i64 0}
+!76 = !{!"_ZTSNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE17_Vector_impl_dataE", !54, i64 0, !54, i64 8, !54, i64 16}
+!77 = !{!72, !10, i64 36}
+!78 = !{!72, !10, i64 40}
+!79 = !{!72, !10, i64 44}
+!80 = !{!72, !11, i64 28}
+!81 = !{!72, !11, i64 32}
+!82 = distinct !{!82, !83}
+!83 = !{!"llvm.loop.mustprogress"}
+!84 = distinct !{!84, !83}
+!85 = !{!76, !54, i64 8}
+!86 = !{!76, !54, i64 16}
+!87 = !{i64 0, i64 4, !23, i64 4, i64 4, !23, i64 8, i64 4, !23}
+!88 = !{!89, !89, i64 0}
+!89 = !{!"long", !6, i64 0}
+!90 = !{!76, !54, i64 0}
+!91 = !{!92, !92, i64 0}
+!92 = !{!"p1 _ZTSN2cv11_InputArrayE", !5, i64 0}
+!93 = !{!94, !94, i64 0}
+!94 = !{!"p1 _ZTSN2cv12_OutputArrayE", !5, i64 0}
+!95 = !{!96, !96, i64 0}
+!96 = !{!"p1 _ZTSN2cv3MatE", !5, i64 0}
+!97 = !{!98, !10, i64 12}
+!98 = !{!"_ZTSN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplE", !99, i64 0, !9, i64 8, !101, i64 32, !72, i64 56}
+!99 = !{!"_ZTSN2cv16phase_unwrapping24HistogramPhaseUnwrappingE", !100, i64 0}
+!100 = !{!"_ZTSN2cv16phase_unwrapping15PhaseUnwrappingE"}
+!101 = !{!"_ZTSSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE", !102, i64 0}
+!102 = !{!"_ZTSSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE", !103, i64 0}
+!103 = !{!"_ZTSNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE12_Vector_implE", !30, i64 0}
+!104 = !{!98, !10, i64 8}
+!105 = !{!106, !5, i64 8}
+!106 = !{!"_ZTSN2cv11_InputArrayE", !10, i64 0, !5, i64 8, !107, i64 16}
+!107 = !{!"_ZTSN2cv5Size_IiEE", !10, i64 0, !10, i64 4}
+!108 = !{!109, !109, i64 0}
+!109 = !{!"double", !6, i64 0}
+!110 = !{!111, !10, i64 0}
+!111 = !{!"_ZTSN2cv3MatE", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !112, i64 16, !112, i64 24, !112, i64 32, !112, i64 40, !113, i64 48, !114, i64 56, !115, i64 64, !117, i64 72}
+!112 = !{!"p1 omnipotent char", !5, i64 0}
+!113 = !{!"p1 _ZTSN2cv12MatAllocatorE", !5, i64 0}
+!114 = !{!"p1 _ZTSN2cv8UMatDataE", !5, i64 0}
+!115 = !{!"_ZTSN2cv7MatSizeE", !116, i64 0}
+!116 = !{!"p1 int", !5, i64 0}
+!117 = !{!"_ZTSN2cv7MatStepE", !118, i64 0, !6, i64 8}
+!118 = !{!"p1 long", !5, i64 0}
+!119 = !{!6, !6, i64 0}
+!120 = !{i64 0, i64 4, !23, i64 4, i64 4, !23}
+!121 = !{!122, !10, i64 4}
+!122 = !{!"_ZTSN2cv6Point_IiEE", !10, i64 0, !10, i64 4}
+!123 = !{!122, !10, i64 0}
+!124 = distinct !{!124, !83}
+!125 = distinct !{!125, !83}
+!126 = !{!98, !11, i64 16}
+!127 = !{!98, !10, i64 20}
+!128 = !{!98, !10, i64 24}
+!129 = distinct !{!129, !83}
+!130 = distinct !{!130, !83}
+!131 = distinct !{!131, !83}
+!132 = distinct !{!132, !83}
+!133 = distinct !{!133, !83}
+!134 = distinct !{!134, !83}
+!135 = !{!136, !136, i64 0}
+!136 = !{!"p1 _ZTSN2cv6Point_IiEE", !5, i64 0}
+!137 = !{!111, !112, i64 16}
+!138 = !{!111, !118, i64 72}
+!139 = !{!30, !31, i64 16}
+!140 = !{!141, !141, i64 0}
+!141 = !{!"p1 _ZTSN2cv5Rect_IiEE", !5, i64 0}
+!142 = !{!143, !10, i64 0}
+!143 = !{!"_ZTSN2cv5Rect_IiEE", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12}
+!144 = !{!143, !10, i64 4}
+!145 = !{!143, !10, i64 8}
+!146 = !{!143, !10, i64 12}
+!147 = !{!148, !148, i64 0}
+!148 = !{!"p1 _ZTSN2cv3VecIdLi4EEE", !5, i64 0}
+!149 = !{!150, !150, i64 0}
+!150 = !{!"p1 _ZTSSaIiE", !5, i64 0}
+!151 = !{!152, !152, i64 0}
+!152 = !{!"p1 _ZTSSt6vectorIiSaIiEE", !5, i64 0}
+!153 = !{!116, !116, i64 0}
+!154 = !{!155, !116, i64 0}
+!155 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !116, i64 0, !116, i64 8, !116, i64 16}
+!156 = !{!155, !116, i64 8}
+!157 = distinct !{!157, !83}
+!158 = distinct !{!158, !83}
+!159 = !{!160, !160, i64 0}
+!160 = !{!"p1 _ZTSN2cv3PtrINS_16phase_unwrapping24HistogramPhaseUnwrappingEEE", !5, i64 0}
+!161 = !{!162, !162, i64 0}
+!162 = !{!"p1 _ZTSN2cv3PtrINS_16phase_unwrapping29HistogramPhaseUnwrapping_ImplEEE", !5, i64 0}
+!163 = !{!164, !164, i64 0}
+!164 = !{!"p1 _ZTSN2cv9AlgorithmE", !5, i64 0}
+!165 = !{!166, !166, i64 0}
+!166 = !{!"p1 _ZTSN2cv11FileStorageE", !5, i64 0}
+!167 = !{!168, !168, i64 0}
+!168 = !{!"p1 _ZTSN2cv8FileNodeE", !5, i64 0}
+!169 = !{!170, !170, i64 0}
+!170 = !{!"p1 _ZTSN2cv16phase_unwrapping15PhaseUnwrappingE", !5, i64 0}
+!171 = !{!172, !172, i64 0}
+!172 = !{!"p1 _ZTSSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE", !5, i64 0}
+!173 = !{!174, !174, i64 0}
+!174 = !{!"p1 _ZTSNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE12_Vector_implE", !5, i64 0}
+!175 = !{!176, !176, i64 0}
+!176 = !{!"p1 _ZTSSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEE", !5, i64 0}
+!177 = !{!178, !178, i64 0}
+!178 = !{!"p1 _ZTSNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE17_Vector_impl_dataE", !5, i64 0}
+!179 = !{!180, !180, i64 0}
+!180 = !{!"p1 _ZTSSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelEE", !5, i64 0}
+!181 = !{!182, !182, i64 0}
+!182 = !{!"p1 _ZTSSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE", !5, i64 0}
+!183 = !{!184, !184, i64 0}
+!184 = !{!"p1 _ZTSNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE12_Vector_implE", !5, i64 0}
+!185 = !{!186, !186, i64 0}
+!186 = !{!"p1 _ZTSSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEE", !5, i64 0}
+!187 = !{!188, !188, i64 0}
+!188 = !{!"p1 _ZTSSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeEE", !5, i64 0}
+!189 = !{!190, !190, i64 0}
+!190 = !{!"p1 _ZTSSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE", !5, i64 0}
+!191 = !{!192, !192, i64 0}
+!192 = !{!"p1 _ZTSNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE12_Vector_implE", !5, i64 0}
+!193 = !{!194, !194, i64 0}
+!194 = !{!"p1 _ZTSSaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEE", !5, i64 0}
+!195 = !{!196, !196, i64 0}
+!196 = !{!"p1 _ZTSNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE17_Vector_impl_dataE", !5, i64 0}
+!197 = !{!198, !198, i64 0}
+!198 = !{!"p1 _ZTSSt15__new_allocatorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEE", !5, i64 0}
+!199 = !{!5, !5, i64 0}
+!200 = !{!106, !10, i64 0}
+!201 = !{!202, !202, i64 0}
+!202 = !{!"p1 _ZTSN2cv5Size_IiEE", !5, i64 0}
+!203 = !{!107, !10, i64 0}
+!204 = !{!107, !10, i64 4}
+!205 = !{!206, !206, i64 0}
+!206 = !{!"p1 _ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!207 = !{!208, !209, i64 0}
+!208 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !209, i64 0}
+!209 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!210 = !{!209, !209, i64 0}
+!211 = !{!212, !212, i64 0}
+!212 = !{!"long long", !6, i64 0}
+!213 = !{!214, !214, i64 0}
+!214 = !{!"p1 long long", !5, i64 0}
+!215 = !{!216, !10, i64 8}
+!216 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !10, i64 8, !10, i64 12}
+!217 = !{!216, !10, i64 12}
+!218 = distinct !{!218, !83}
+!219 = !{!220, !220, i64 0}
+!220 = !{!"p1 _ZTSSt15__new_allocatorIiE", !5, i64 0}
+!221 = !{!222, !222, i64 0}
+!222 = !{!"p1 _ZTSN2cv7Scalar_IdEE", !5, i64 0}
+!223 = !{!224, !224, i64 0}
+!224 = !{!"p1 _ZTSN2cv4MatxIdLi4ELi1EEE", !5, i64 0}
+!225 = distinct !{!225, !83}
+!226 = !{!112, !112, i64 0}
+!227 = !{!228, !228, i64 0}
+!228 = !{!"p1 _ZTSN9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEEE", !5, i64 0}
+!229 = !{!118, !118, i64 0}
+!230 = !{!231, !231, i64 0}
+!231 = !{!"p2 _ZTSN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeE", !19, i64 0}
+!232 = !{!233, !48, i64 0}
+!233 = !{!"_ZTSN9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEEE", !48, i64 0}
+!234 = distinct !{!234, !83}
+!235 = !{i64 0, i64 8, !47}
+!236 = distinct !{!236, !83}
+!237 = !{!238, !238, i64 0}
+!238 = !{!"p1 _ZTSN9__gnu_cxx17__normal_iteratorIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEEE", !5, i64 0}
+!239 = !{!240, !48, i64 0}
+!240 = !{!"_ZTSN9__gnu_cxx17__normal_iteratorIPKN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESt6vectorIS4_SaIS4_EEEE", !48, i64 0}
+!241 = !{!242, !242, i64 0}
+!242 = !{!"p1 _ZTSN9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESt6vectorIS4_SaIS4_EEEE", !5, i64 0}
+!243 = !{!244, !244, i64 0}
+!244 = !{!"p2 _ZTSN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinE", !19, i64 0}
+!245 = !{!246, !54, i64 0}
+!246 = !{!"_ZTSN9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESt6vectorIS4_SaIS4_EEEE", !54, i64 0}
+!247 = distinct !{!247, !83}
+!248 = !{!249, !249, i64 0}
+!249 = !{!"p1 _ZTSNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_Vector_impl_dataE", !5, i64 0}
+!250 = !{i64 0, i64 4, !24, i64 4, i64 4, !23, i64 8, i64 1, !34, i64 12, i64 4, !24, i64 16, i64 4, !23, i64 20, i64 4, !23, i64 24, i64 4, !23, i64 28, i64 1, !34}
+!251 = !{!252, !252, i64 0}
+!252 = !{!"p1 _ZTSN9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESt6vectorIS4_SaIS4_EEEE", !5, i64 0}
+!253 = !{!254, !254, i64 0}
+!254 = !{!"p2 _ZTSN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelE", !19, i64 0}
+!255 = !{!256, !31, i64 0}
+!256 = !{!"_ZTSN9__gnu_cxx17__normal_iteratorIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESt6vectorIS4_SaIS4_EEEE", !31, i64 0}
+!257 = distinct !{!257, !83}
+!258 = !{!259, !259, i64 0}
+!259 = !{!"p1 _ZTSSt12_Vector_baseIiSaIiEE", !5, i64 0}
+!260 = !{!155, !116, i64 16}
+!261 = !{!262, !262, i64 0}
+!262 = !{!"p1 _ZTSNSt12_Vector_baseIiSaIiEE12_Vector_implE", !5, i64 0}
+!263 = !{!264, !264, i64 0}
+!264 = !{!"p1 _ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !5, i64 0}
+!265 = !{!266, !266, i64 0}
+!266 = !{!"p2 int", !19, i64 0}
+!267 = distinct !{!267, !83}
+!268 = !{!269, !269, i64 0}
+!269 = !{!"p1 _ZTSSaIvE", !5, i64 0}
+!270 = !{!271, !271, i64 0}
+!271 = !{!"p1 _ZTSSt10shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEE", !5, i64 0}
+!272 = !{!273, !273, i64 0}
+!273 = !{!"p1 _ZTSSt12__shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!274 = !{i64 0, i64 8, !268}
+!275 = !{!276, !17, i64 0}
+!276 = !{!"_ZTSSt12__shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplELN9__gnu_cxx12_Lock_policyE2EE", !17, i64 0, !208, i64 8}
+!277 = !{!278, !278, i64 0}
+!278 = !{!"p2 _ZTSN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplE", !19, i64 0}
+!279 = !{!280, !269, i64 0}
+!280 = !{!"_ZTSSt20_Sp_alloc_shared_tagISaIvEE", !269, i64 0}
+!281 = !{!282, !282, i64 0}
+!282 = !{!"p1 _ZTSSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!283 = !{!284, !284, i64 0}
+!284 = !{!"p1 _ZTSSaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEE", !5, i64 0}
+!285 = !{!286, !286, i64 0}
+!286 = !{!"p1 _ZTSSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEE", !5, i64 0}
+!287 = !{!288, !282, i64 8}
+!288 = !{!"_ZTSSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEE", !284, i64 0, !282, i64 8}
+!289 = !{!290, !290, i64 0}
+!290 = !{!"std::nullptr_t", !6, i64 0}
+!291 = !{!288, !284, i64 0}
+!292 = !{!293, !293, i64 0}
+!293 = !{!"p1 _ZTSSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEE", !5, i64 0}
+!294 = !{!295, !295, i64 0}
+!295 = !{!"p1 _ZTSNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplE", !5, i64 0}
+!296 = !{!297, !297, i64 0}
+!297 = !{!"p1 _ZTSSt9type_info", !5, i64 0}
+!298 = !{!299, !299, i64 0}
+!299 = !{!"p1 _ZTSSt14_Sp_ebo_helperILi0ESaIvELb1EE", !5, i64 0}
+!300 = !{!301, !112, i64 8}
+!301 = !{!"_ZTSSt9type_info", !112, i64 8}
+!302 = !{!303, !303, i64 0}
+!303 = !{!"p1 _ZTSN9__gnu_cxx16__aligned_bufferIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEEE", !5, i64 0}
+!304 = !{!305, !305, i64 0}
+!305 = !{!"p1 _ZTSSt10shared_ptrIN2cv16phase_unwrapping24HistogramPhaseUnwrappingEE", !5, i64 0}
+!306 = !{!307, !307, i64 0}
+!307 = !{!"p1 _ZTSSt12__shared_ptrIN2cv16phase_unwrapping24HistogramPhaseUnwrappingELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!308 = !{!309, !26, i64 0}
+!309 = !{!"_ZTSSt12__shared_ptrIN2cv16phase_unwrapping24HistogramPhaseUnwrappingELN9__gnu_cxx12_Lock_policyE2EE", !26, i64 0, !208, i64 8}

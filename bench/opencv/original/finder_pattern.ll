@@ -11,8 +11,6 @@ $_ZSt3absf = comdat any
 
 $_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2EPS2_ = comdat any
 
-$_ZN5zxing6qrcode13FinderPatternD2Ev = comdat any
-
 $_ZN5zxing6qrcode13FinderPatternD0Ev = comdat any
 
 $_ZN5zxing3RefINS_6qrcode13FinderPatternEE5resetEPS2_ = comdat any
@@ -23,15 +21,15 @@ $_ZN5zxing7Counted7releaseEv = comdat any
 
 $_ZTVN5zxing6qrcode13FinderPatternE = comdat any
 
-$_ZTSN5zxing6qrcode13FinderPatternE = comdat any
-
 $_ZTIN5zxing6qrcode13FinderPatternE = comdat any
 
-@_ZTVN5zxing6qrcode13FinderPatternE = linkonce_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN5zxing6qrcode13FinderPatternE, ptr @_ZN5zxing6qrcode13FinderPatternD2Ev, ptr @_ZN5zxing6qrcode13FinderPatternD0Ev, ptr @_ZNK5zxing11ResultPoint4getXEv, ptr @_ZNK5zxing11ResultPoint4getYEv, ptr @_ZN5zxing11ResultPoint4SetXEf, ptr @_ZN5zxing11ResultPoint4SetYEf] }, comdat, align 8
+$_ZTSN5zxing6qrcode13FinderPatternE = comdat any
+
+@_ZTVN5zxing6qrcode13FinderPatternE = linkonce_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN5zxing6qrcode13FinderPatternE, ptr @_ZN5zxing11ResultPointD2Ev, ptr @_ZN5zxing6qrcode13FinderPatternD0Ev, ptr @_ZNK5zxing11ResultPoint4getXEv, ptr @_ZNK5zxing11ResultPoint4getYEv, ptr @_ZN5zxing11ResultPoint4SetXEf, ptr @_ZN5zxing11ResultPoint4SetYEf] }, comdat, align 8
+@_ZTIN5zxing6qrcode13FinderPatternE = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5zxing6qrcode13FinderPatternE, ptr @_ZTIN5zxing11ResultPointE }, comdat, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN5zxing6qrcode13FinderPatternE = linkonce_odr hidden constant [31 x i8] c"N5zxing6qrcode13FinderPatternE\00", comdat, align 1
 @_ZTIN5zxing11ResultPointE = external constant ptr
-@_ZTIN5zxing6qrcode13FinderPatternE = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5zxing6qrcode13FinderPatternE, ptr @_ZTIN5zxing11ResultPointE }, comdat, align 8
 
 @_ZN5zxing6qrcode13FinderPatternC1Efff = hidden unnamed_addr alias void (ptr, float, float, float), ptr @_ZN5zxing6qrcode13FinderPatternC2Efff
 @_ZN5zxing6qrcode13FinderPatternC1Efffi = hidden unnamed_addr alias void (ptr, float, float, float, i32), ptr @_ZN5zxing6qrcode13FinderPatternC2Efffi
@@ -42,26 +40,26 @@ define hidden void @_ZN5zxing6qrcode13FinderPatternC2Efff(ptr noundef nonnull al
   %6 = alloca float, align 4
   %7 = alloca float, align 4
   %8 = alloca float, align 4
-  store ptr %0, ptr %5, align 8
-  store float %1, ptr %6, align 4
-  store float %2, ptr %7, align 4
-  store float %3, ptr %8, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store float %1, ptr %6, align 4, !tbaa !8
+  store float %2, ptr %7, align 4, !tbaa !8
+  store float %3, ptr %8, align 4, !tbaa !8
   %9 = load ptr, ptr %5, align 8
-  %10 = load float, ptr %6, align 4
-  %11 = load float, ptr %7, align 4
+  %10 = load float, ptr %6, align 4, !tbaa !8
+  %11 = load float, ptr %7, align 4, !tbaa !8
   call void @_ZN5zxing11ResultPointC2Eff(ptr noundef nonnull align 8 dereferenceable(20) %9, float noundef %10, float noundef %11)
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN5zxing6qrcode13FinderPatternE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds %"class.zxing::qrcode::FinderPattern", ptr %9, i32 0, i32 1
-  %13 = load float, ptr %8, align 4
-  store float %13, ptr %12, align 4
-  %14 = getelementptr inbounds %"class.zxing::qrcode::FinderPattern", ptr %9, i32 0, i32 2
-  store i32 1, ptr %14, align 8
-  %15 = getelementptr inbounds %"class.zxing::qrcode::FinderPattern", ptr %9, i32 0, i32 4
-  store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds %"class.zxing::qrcode::FinderPattern", ptr %9, i32 0, i32 5
-  store i32 3, ptr %16, align 4
-  %17 = getelementptr inbounds %"class.zxing::qrcode::FinderPattern", ptr %9, i32 0, i32 3
-  store float -1.000000e+00, ptr %17, align 4
+  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN5zxing6qrcode13FinderPatternE, i32 0, i32 0, i32 2), ptr %9, align 8, !tbaa !10
+  %12 = getelementptr inbounds nuw %"class.zxing::qrcode::FinderPattern", ptr %9, i32 0, i32 1
+  %13 = load float, ptr %8, align 4, !tbaa !8
+  store float %13, ptr %12, align 4, !tbaa !12
+  %14 = getelementptr inbounds nuw %"class.zxing::qrcode::FinderPattern", ptr %9, i32 0, i32 2
+  store i32 1, ptr %14, align 8, !tbaa !18
+  %15 = getelementptr inbounds nuw %"class.zxing::qrcode::FinderPattern", ptr %9, i32 0, i32 4
+  store i32 0, ptr %15, align 8, !tbaa !19
+  %16 = getelementptr inbounds nuw %"class.zxing::qrcode::FinderPattern", ptr %9, i32 0, i32 5
+  store i32 3, ptr %16, align 4, !tbaa !20
+  %17 = getelementptr inbounds nuw %"class.zxing::qrcode::FinderPattern", ptr %9, i32 0, i32 3
+  store float -1.000000e+00, ptr %17, align 4, !tbaa !21
   ret void
 }
 
@@ -74,50 +72,50 @@ define hidden void @_ZN5zxing6qrcode13FinderPatternC2Efffi(ptr noundef nonnull a
   %8 = alloca float, align 4
   %9 = alloca float, align 4
   %10 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store float %1, ptr %7, align 4
-  store float %2, ptr %8, align 4
-  store float %3, ptr %9, align 4
-  store i32 %4, ptr %10, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store float %1, ptr %7, align 4, !tbaa !8
+  store float %2, ptr %8, align 4, !tbaa !8
+  store float %3, ptr %9, align 4, !tbaa !8
+  store i32 %4, ptr %10, align 4, !tbaa !22
   %11 = load ptr, ptr %6, align 8
-  %12 = load float, ptr %7, align 4
-  %13 = load float, ptr %8, align 4
+  %12 = load float, ptr %7, align 4, !tbaa !8
+  %13 = load float, ptr %8, align 4, !tbaa !8
   call void @_ZN5zxing11ResultPointC2Eff(ptr noundef nonnull align 8 dereferenceable(20) %11, float noundef %12, float noundef %13)
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN5zxing6qrcode13FinderPatternE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %14 = getelementptr inbounds %"class.zxing::qrcode::FinderPattern", ptr %11, i32 0, i32 1
-  %15 = load float, ptr %9, align 4
-  store float %15, ptr %14, align 4
-  %16 = getelementptr inbounds %"class.zxing::qrcode::FinderPattern", ptr %11, i32 0, i32 2
-  %17 = load i32, ptr %10, align 4
-  store i32 %17, ptr %16, align 8
-  %18 = getelementptr inbounds %"class.zxing::qrcode::FinderPattern", ptr %11, i32 0, i32 4
-  store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds %"class.zxing::qrcode::FinderPattern", ptr %11, i32 0, i32 5
-  store i32 3, ptr %19, align 4
-  %20 = getelementptr inbounds %"class.zxing::qrcode::FinderPattern", ptr %11, i32 0, i32 3
-  store float -1.000000e+00, ptr %20, align 4
+  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN5zxing6qrcode13FinderPatternE, i32 0, i32 0, i32 2), ptr %11, align 8, !tbaa !10
+  %14 = getelementptr inbounds nuw %"class.zxing::qrcode::FinderPattern", ptr %11, i32 0, i32 1
+  %15 = load float, ptr %9, align 4, !tbaa !8
+  store float %15, ptr %14, align 4, !tbaa !12
+  %16 = getelementptr inbounds nuw %"class.zxing::qrcode::FinderPattern", ptr %11, i32 0, i32 2
+  %17 = load i32, ptr %10, align 4, !tbaa !22
+  store i32 %17, ptr %16, align 8, !tbaa !18
+  %18 = getelementptr inbounds nuw %"class.zxing::qrcode::FinderPattern", ptr %11, i32 0, i32 4
+  store i32 0, ptr %18, align 8, !tbaa !19
+  %19 = getelementptr inbounds nuw %"class.zxing::qrcode::FinderPattern", ptr %11, i32 0, i32 5
+  store i32 3, ptr %19, align 4, !tbaa !20
+  %20 = getelementptr inbounds nuw %"class.zxing::qrcode::FinderPattern", ptr %11, i32 0, i32 3
+  store float -1.000000e+00, ptr %20, align 4, !tbaa !21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZNK5zxing6qrcode13FinderPattern8getCountEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #2 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.zxing::qrcode::FinderPattern", ptr %3, i32 0, i32 2
-  %5 = load i32, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.zxing::qrcode::FinderPattern", ptr %3, i32 0, i32 2
+  %5 = load i32, ptr %4, align 8, !tbaa !18
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5zxing6qrcode13FinderPattern14incrementCountEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #2 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.zxing::qrcode::FinderPattern", ptr %3, i32 0, i32 2
-  %5 = load i32, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.zxing::qrcode::FinderPattern", ptr %3, i32 0, i32 2
+  %5 = load i32, ptr %4, align 8, !tbaa !18
   %6 = add nsw i32 %5, 1
-  store i32 %6, ptr %4, align 8
+  store i32 %6, ptr %4, align 8, !tbaa !18
   ret void
 }
 
@@ -129,55 +127,57 @@ define hidden noundef zeroext i1 @_ZNK5zxing6qrcode13FinderPattern11aboutEqualsE
   %8 = alloca float, align 4
   %9 = alloca float, align 4
   %10 = alloca float, align 4
-  store ptr %0, ptr %6, align 8
-  store float %1, ptr %7, align 4
-  store float %2, ptr %8, align 4
-  store float %3, ptr %9, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store float %1, ptr %7, align 4, !tbaa !8
+  store float %2, ptr %8, align 4, !tbaa !8
+  store float %3, ptr %9, align 4, !tbaa !8
   %11 = load ptr, ptr %6, align 8
-  %12 = load float, ptr %8, align 4
-  %13 = load ptr, ptr %11, align 8
+  %12 = load float, ptr %8, align 4, !tbaa !8
+  %13 = load ptr, ptr %11, align 8, !tbaa !10
   %14 = getelementptr inbounds ptr, ptr %13, i64 3
   %15 = load ptr, ptr %14, align 8
   %16 = call noundef float %15(ptr noundef nonnull align 8 dereferenceable(20) %11)
   %17 = fsub float %12, %16
   %18 = call noundef float @_ZSt3absf(float noundef %17)
-  %19 = load float, ptr %7, align 4
+  %19 = load float, ptr %7, align 4, !tbaa !8
   %20 = fcmp ole float %18, %19
   br i1 %20, label %21, label %46
 
 21:                                               ; preds = %4
-  %22 = load float, ptr %9, align 4
-  %23 = load ptr, ptr %11, align 8
+  %22 = load float, ptr %9, align 4, !tbaa !8
+  %23 = load ptr, ptr %11, align 8, !tbaa !10
   %24 = getelementptr inbounds ptr, ptr %23, i64 2
   %25 = load ptr, ptr %24, align 8
   %26 = call noundef float %25(ptr noundef nonnull align 8 dereferenceable(20) %11)
   %27 = fsub float %22, %26
   %28 = call noundef float @_ZSt3absf(float noundef %27)
-  %29 = load float, ptr %7, align 4
+  %29 = load float, ptr %7, align 4, !tbaa !8
   %30 = fcmp ole float %28, %29
   br i1 %30, label %31, label %46
 
 31:                                               ; preds = %21
-  %32 = load float, ptr %7, align 4
-  %33 = getelementptr inbounds %"class.zxing::qrcode::FinderPattern", ptr %11, i32 0, i32 1
-  %34 = load float, ptr %33, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #9
+  %32 = load float, ptr %7, align 4, !tbaa !8
+  %33 = getelementptr inbounds nuw %"class.zxing::qrcode::FinderPattern", ptr %11, i32 0, i32 1
+  %34 = load float, ptr %33, align 4, !tbaa !12
   %35 = fsub float %32, %34
   %36 = call noundef float @_ZSt3absf(float noundef %35)
-  store float %36, ptr %10, align 4
-  %37 = load float, ptr %10, align 4
+  store float %36, ptr %10, align 4, !tbaa !8
+  %37 = load float, ptr %10, align 4, !tbaa !8
   %38 = fcmp ole float %37, 1.000000e+00
   br i1 %38, label %44, label %39
 
 39:                                               ; preds = %31
-  %40 = load float, ptr %10, align 4
-  %41 = getelementptr inbounds %"class.zxing::qrcode::FinderPattern", ptr %11, i32 0, i32 1
-  %42 = load float, ptr %41, align 4
+  %40 = load float, ptr %10, align 4, !tbaa !8
+  %41 = getelementptr inbounds nuw %"class.zxing::qrcode::FinderPattern", ptr %11, i32 0, i32 1
+  %42 = load float, ptr %41, align 4, !tbaa !12
   %43 = fcmp ole float %40, %42
   br label %44
 
 44:                                               ; preds = %39, %31
   %45 = phi i1 [ true, %31 ], [ %43, %39 ]
   store i1 %45, ptr %5, align 1
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #9
   br label %47
 
 46:                                               ; preds = %21, %4
@@ -189,22 +189,28 @@ define hidden noundef zeroext i1 @_ZNK5zxing6qrcode13FinderPattern11aboutEqualsE
   ret i1 %48
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef float @_ZSt3absf(float noundef %0) #2 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef float @_ZSt3absf(float noundef %0) #3 comdat {
   %2 = alloca float, align 4
-  store float %0, ptr %2, align 4
-  %3 = load float, ptr %2, align 4
+  store float %0, ptr %2, align 4, !tbaa !8
+  %3 = load float, ptr %2, align 4, !tbaa !8
   %4 = call float @llvm.fabs.f32(float %3)
   ret float %4
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef float @_ZNK5zxing6qrcode13FinderPattern22getEstimatedModuleSizeEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #2 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.zxing::qrcode::FinderPattern", ptr %3, i32 0, i32 1
-  %5 = load float, ptr %4, align 4
+  %4 = getelementptr inbounds nuw %"class.zxing::qrcode::FinderPattern", ptr %3, i32 0, i32 1
+  %5 = load float, ptr %4, align 4, !tbaa !12
   ret float %5
 }
 
@@ -222,81 +228,89 @@ define hidden void @_ZNK5zxing6qrcode13FinderPattern15combineEstimateEfff(ptr de
   %15 = alloca ptr, align 8
   %16 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store float %2, ptr %8, align 4
-  store float %3, ptr %9, align 4
-  store float %4, ptr %10, align 4
+  store ptr %1, ptr %7, align 8, !tbaa !3
+  store float %2, ptr %8, align 4, !tbaa !8
+  store float %3, ptr %9, align 4, !tbaa !8
+  store float %4, ptr %10, align 4, !tbaa !8
   %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds %"class.zxing::qrcode::FinderPattern", ptr %17, i32 0, i32 2
-  %19 = load i32, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #9
+  %18 = getelementptr inbounds nuw %"class.zxing::qrcode::FinderPattern", ptr %17, i32 0, i32 2
+  %19 = load i32, ptr %18, align 8, !tbaa !18
   %20 = add nsw i32 %19, 1
-  store i32 %20, ptr %11, align 4
-  %21 = load ptr, ptr %17, align 8
+  store i32 %20, ptr %11, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #9
+  %21 = load ptr, ptr %17, align 8, !tbaa !10
   %22 = getelementptr inbounds ptr, ptr %21, i64 2
   %23 = load ptr, ptr %22, align 8
   %24 = call noundef float %23(ptr noundef nonnull align 8 dereferenceable(20) %17)
-  store float %24, ptr %12, align 4
-  %25 = load ptr, ptr %17, align 8
+  store float %24, ptr %12, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #9
+  %25 = load ptr, ptr %17, align 8, !tbaa !10
   %26 = getelementptr inbounds ptr, ptr %25, i64 3
   %27 = load ptr, ptr %26, align 8
   %28 = call noundef float %27(ptr noundef nonnull align 8 dereferenceable(20) %17)
-  store float %28, ptr %13, align 4
+  store float %28, ptr %13, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #9
   %29 = call noundef float @_ZNK5zxing6qrcode13FinderPattern22getEstimatedModuleSizeEv(ptr noundef nonnull align 8 dereferenceable(40) %17)
-  store float %29, ptr %14, align 4
-  %30 = load i32, ptr %11, align 4
+  store float %29, ptr %14, align 4, !tbaa !8
+  %30 = load i32, ptr %11, align 4, !tbaa !22
   %31 = icmp sle i32 %30, 3
   br i1 %31, label %32, label %66
 
 32:                                               ; preds = %5
-  %33 = getelementptr inbounds %"class.zxing::qrcode::FinderPattern", ptr %17, i32 0, i32 2
-  %34 = load i32, ptr %33, align 8
+  %33 = getelementptr inbounds nuw %"class.zxing::qrcode::FinderPattern", ptr %17, i32 0, i32 2
+  %34 = load i32, ptr %33, align 8, !tbaa !18
   %35 = sitofp i32 %34 to float
-  %36 = load ptr, ptr %17, align 8
+  %36 = load ptr, ptr %17, align 8, !tbaa !10
   %37 = getelementptr inbounds ptr, ptr %36, i64 2
   %38 = load ptr, ptr %37, align 8
   %39 = call noundef float %38(ptr noundef nonnull align 8 dereferenceable(20) %17)
-  %40 = load float, ptr %9, align 4
+  %40 = load float, ptr %9, align 4, !tbaa !8
   %41 = call float @llvm.fmuladd.f32(float %35, float %39, float %40)
-  %42 = load i32, ptr %11, align 4
+  %42 = load i32, ptr %11, align 4, !tbaa !22
   %43 = sitofp i32 %42 to float
   %44 = fdiv float %41, %43
-  store float %44, ptr %12, align 4
-  %45 = getelementptr inbounds %"class.zxing::qrcode::FinderPattern", ptr %17, i32 0, i32 2
-  %46 = load i32, ptr %45, align 8
+  store float %44, ptr %12, align 4, !tbaa !8
+  %45 = getelementptr inbounds nuw %"class.zxing::qrcode::FinderPattern", ptr %17, i32 0, i32 2
+  %46 = load i32, ptr %45, align 8, !tbaa !18
   %47 = sitofp i32 %46 to float
-  %48 = load ptr, ptr %17, align 8
+  %48 = load ptr, ptr %17, align 8, !tbaa !10
   %49 = getelementptr inbounds ptr, ptr %48, i64 3
   %50 = load ptr, ptr %49, align 8
   %51 = call noundef float %50(ptr noundef nonnull align 8 dereferenceable(20) %17)
-  %52 = load float, ptr %8, align 4
+  %52 = load float, ptr %8, align 4, !tbaa !8
   %53 = call float @llvm.fmuladd.f32(float %47, float %51, float %52)
-  %54 = load i32, ptr %11, align 4
+  %54 = load i32, ptr %11, align 4, !tbaa !22
   %55 = sitofp i32 %54 to float
   %56 = fdiv float %53, %55
-  store float %56, ptr %13, align 4
-  %57 = getelementptr inbounds %"class.zxing::qrcode::FinderPattern", ptr %17, i32 0, i32 2
-  %58 = load i32, ptr %57, align 8
+  store float %56, ptr %13, align 4, !tbaa !8
+  %57 = getelementptr inbounds nuw %"class.zxing::qrcode::FinderPattern", ptr %17, i32 0, i32 2
+  %58 = load i32, ptr %57, align 8, !tbaa !18
   %59 = sitofp i32 %58 to float
   %60 = call noundef float @_ZNK5zxing6qrcode13FinderPattern22getEstimatedModuleSizeEv(ptr noundef nonnull align 8 dereferenceable(40) %17)
-  %61 = load float, ptr %10, align 4
+  %61 = load float, ptr %10, align 4, !tbaa !8
   %62 = call float @llvm.fmuladd.f32(float %59, float %60, float %61)
-  %63 = load i32, ptr %11, align 4
+  %63 = load i32, ptr %11, align 4, !tbaa !22
   %64 = sitofp i32 %63 to float
   %65 = fdiv float %62, %64
-  store float %65, ptr %14, align 4
+  store float %65, ptr %14, align 4, !tbaa !8
   br label %66
 
 66:                                               ; preds = %32, %5
-  %67 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #7
-  %68 = load float, ptr %12, align 4
-  %69 = load float, ptr %13, align 4
-  %70 = load float, ptr %14, align 4
-  %71 = load i32, ptr %11, align 4
+  %67 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #10
+  %68 = load float, ptr %12, align 4, !tbaa !8
+  %69 = load float, ptr %13, align 4, !tbaa !8
+  %70 = load float, ptr %14, align 4, !tbaa !8
+  %71 = load i32, ptr %11, align 4, !tbaa !22
   invoke void @_ZN5zxing6qrcode13FinderPatternC1Efffi(ptr noundef nonnull align 8 dereferenceable(40) %67, float noundef %68, float noundef %69, float noundef %70, i32 noundef %71)
           to label %72 unwind label %73
 
 72:                                               ; preds = %66
   call void @_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %67)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #9
   ret void
 
 73:                                               ; preds = %66
@@ -306,7 +320,11 @@ define hidden void @_ZNK5zxing6qrcode13FinderPattern15combineEstimateEfff(ptr de
   store ptr %75, ptr %15, align 8
   %76 = extractvalue { ptr, i32 } %74, 1
   store i32 %76, ptr %16, align 4
-  call void @_ZdlPv(ptr noundef %67) #8
+  call void @_ZdlPv(ptr noundef %67) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #9
   br label %77
 
 77:                                               ; preds = %73
@@ -318,26 +336,26 @@ define hidden void @_ZNK5zxing6qrcode13FinderPattern15combineEstimateEfff(ptr de
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #3
+declare float @llvm.fmuladd.f32(float, float, float) #5
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #4
+declare noundef nonnull ptr @_Znwm(i64 noundef) #6
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #5
+declare void @_ZdlPv(ptr noundef) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !23
+  store ptr %1, ptr %4, align 8, !tbaa !3
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.zxing::Ref", ptr %5, i32 0, i32 0
-  store ptr null, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw %"class.zxing::Ref", ptr %5, i32 0, i32 0
+  store ptr null, ptr %6, align 8, !tbaa !25
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
   call void @_ZN5zxing3RefINS_6qrcode13FinderPatternEE5resetEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %7)
   ret void
 }
@@ -346,10 +364,10 @@ define linkonce_odr hidden void @_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2EPS2
 define hidden void @_ZN5zxing6qrcode13FinderPattern23setHorizontalCheckStateEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1) #2 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !22
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
+  %6 = load i32, ptr %4, align 4, !tbaa !22
   switch i32 %6, label %13 [
     i32 0, label %7
     i32 1, label %9
@@ -357,21 +375,21 @@ define hidden void @_ZN5zxing6qrcode13FinderPattern23setHorizontalCheckStateEi(p
   ]
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds %"class.zxing::qrcode::FinderPattern", ptr %5, i32 0, i32 4
-  store i32 0, ptr %8, align 8
+  %8 = getelementptr inbounds nuw %"class.zxing::qrcode::FinderPattern", ptr %5, i32 0, i32 4
+  store i32 0, ptr %8, align 8, !tbaa !19
   br label %13
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds %"class.zxing::qrcode::FinderPattern", ptr %5, i32 0, i32 4
-  store i32 1, ptr %10, align 8
+  %10 = getelementptr inbounds nuw %"class.zxing::qrcode::FinderPattern", ptr %5, i32 0, i32 4
+  store i32 1, ptr %10, align 8, !tbaa !19
   br label %13
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds %"class.zxing::qrcode::FinderPattern", ptr %5, i32 0, i32 4
-  store i32 2, ptr %12, align 8
+  %12 = getelementptr inbounds nuw %"class.zxing::qrcode::FinderPattern", ptr %5, i32 0, i32 4
+  store i32 2, ptr %12, align 8, !tbaa !19
   br label %13
 
-13:                                               ; preds = %11, %9, %7, %2
+13:                                               ; preds = %2, %11, %9, %7
   ret void
 }
 
@@ -379,10 +397,10 @@ define hidden void @_ZN5zxing6qrcode13FinderPattern23setHorizontalCheckStateEi(p
 define hidden void @_ZN5zxing6qrcode13FinderPattern21setVerticalCheckStateEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1) #2 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !22
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
+  %6 = load i32, ptr %4, align 4, !tbaa !22
   switch i32 %6, label %13 [
     i32 0, label %7
     i32 1, label %9
@@ -390,40 +408,34 @@ define hidden void @_ZN5zxing6qrcode13FinderPattern21setVerticalCheckStateEi(ptr
   ]
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds %"class.zxing::qrcode::FinderPattern", ptr %5, i32 0, i32 5
-  store i32 3, ptr %8, align 4
+  %8 = getelementptr inbounds nuw %"class.zxing::qrcode::FinderPattern", ptr %5, i32 0, i32 5
+  store i32 3, ptr %8, align 4, !tbaa !20
   br label %13
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds %"class.zxing::qrcode::FinderPattern", ptr %5, i32 0, i32 5
-  store i32 4, ptr %10, align 4
+  %10 = getelementptr inbounds nuw %"class.zxing::qrcode::FinderPattern", ptr %5, i32 0, i32 5
+  store i32 4, ptr %10, align 4, !tbaa !20
   br label %13
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds %"class.zxing::qrcode::FinderPattern", ptr %5, i32 0, i32 5
-  store i32 5, ptr %12, align 4
+  %12 = getelementptr inbounds nuw %"class.zxing::qrcode::FinderPattern", ptr %5, i32 0, i32 5
+  store i32 5, ptr %12, align 4, !tbaa !20
   br label %13
 
-13:                                               ; preds = %11, %9, %7, %2
+13:                                               ; preds = %2, %11, %9, %7
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5zxing6qrcode13FinderPatternD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN5zxing11ResultPointD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %3) #9
-  ret void
-}
+; Function Attrs: nounwind
+declare void @_ZN5zxing11ResultPointD2Ev(ptr noundef nonnull align 8 dereferenceable(20)) unnamed_addr #8
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5zxing6qrcode13FinderPatternD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN5zxing6qrcode13FinderPatternD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN5zxing6qrcode13FinderPatternD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #9
-  call void @_ZdlPv(ptr noundef %3) #8
+  call void @_ZN5zxing11ResultPointD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #9
+  call void @_ZdlPv(ptr noundef %3) #11
   ret void
 }
 
@@ -436,77 +448,77 @@ declare void @_ZN5zxing11ResultPoint4SetXEf(ptr noundef nonnull align 8 derefere
 declare void @_ZN5zxing11ResultPoint4SetYEf(ptr noundef nonnull align 8 dereferenceable(20), float noundef) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #3
+declare float @llvm.fabs.f32(float) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5zxing3RefINS_6qrcode13FinderPatternEE5resetEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !23
+  store ptr %1, ptr %4, align 8, !tbaa !3
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
   %7 = icmp ne ptr %6, null
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !3
   %10 = call noundef ptr @_ZN5zxing7Counted6retainEv(ptr noundef nonnull align 8 dereferenceable(12) %9)
   br label %11
 
 11:                                               ; preds = %8, %2
-  %12 = getelementptr inbounds %"class.zxing::Ref", ptr %5, i32 0, i32 0
-  %13 = load ptr, ptr %12, align 8
+  %12 = getelementptr inbounds nuw %"class.zxing::Ref", ptr %5, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8, !tbaa !25
   %14 = icmp ne ptr %13, null
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds %"class.zxing::Ref", ptr %5, i32 0, i32 0
-  %17 = load ptr, ptr %16, align 8
+  %16 = getelementptr inbounds nuw %"class.zxing::Ref", ptr %5, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !25
   call void @_ZN5zxing7Counted7releaseEv(ptr noundef nonnull align 8 dereferenceable(12) %17)
   br label %18
 
 18:                                               ; preds = %15, %11
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %"class.zxing::Ref", ptr %5, i32 0, i32 0
-  store ptr %19, ptr %20, align 8
+  %19 = load ptr, ptr %4, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw %"class.zxing::Ref", ptr %5, i32 0, i32 0
+  store ptr %19, ptr %20, align 8, !tbaa !25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN5zxing7Counted6retainEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !27
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.zxing::Counted", ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.zxing::Counted", ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 8, !tbaa !29
   %6 = add i32 %5, 1
-  store i32 %6, ptr %4, align 8
+  store i32 %6, ptr %4, align 8, !tbaa !29
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5zxing7Counted7releaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !27
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.zxing::Counted", ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.zxing::Counted", ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 8, !tbaa !29
   %6 = add i32 %5, -1
-  store i32 %6, ptr %4, align 8
-  %7 = getelementptr inbounds %"class.zxing::Counted", ptr %3, i32 0, i32 1
-  %8 = load i32, ptr %7, align 8
+  store i32 %6, ptr %4, align 8, !tbaa !29
+  %7 = getelementptr inbounds nuw %"class.zxing::Counted", ptr %3, i32 0, i32 1
+  %8 = load i32, ptr %7, align 8, !tbaa !29
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %18
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds %"class.zxing::Counted", ptr %3, i32 0, i32 1
-  store i32 -559026175, ptr %11, align 8
+  %11 = getelementptr inbounds nuw %"class.zxing::Counted", ptr %3, i32 0, i32 1
+  store i32 -559026175, ptr %11, align 8, !tbaa !29
   %12 = icmp eq ptr %3, null
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr %3, align 8
+  %14 = load ptr, ptr %3, align 8, !tbaa !10
   %15 = getelementptr inbounds ptr, ptr %14, i64 1
   %16 = load ptr, ptr %15, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(12) %3) #9
@@ -519,23 +531,48 @@ define linkonce_odr hidden void @_ZN5zxing7Counted7releaseEv(ptr noundef nonnull
   ret void
 }
 
-; Function Attrs: nounwind
-declare void @_ZN5zxing11ResultPointD2Ev(ptr noundef nonnull align 8 dereferenceable(20)) unnamed_addr #6
-
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #7 = { builtin allocsize(0) }
-attributes #8 = { builtin nounwind }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind }
+attributes #10 = { builtin allocsize(0) }
+attributes #11 = { builtin nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN5zxing6qrcode13FinderPatternE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"float", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"vtable pointer", !7, i64 0}
+!12 = !{!13, !9, i64 20}
+!13 = !{!"_ZTSN5zxing6qrcode13FinderPatternE", !14, i64 0, !9, i64 20, !16, i64 24, !9, i64 28, !17, i64 32, !17, i64 36}
+!14 = !{!"_ZTSN5zxing11ResultPointE", !15, i64 0, !9, i64 12, !9, i64 16}
+!15 = !{!"_ZTSN5zxing7CountedE", !16, i64 8}
+!16 = !{!"int", !6, i64 0}
+!17 = !{!"_ZTSN5zxing6qrcode13FinderPattern10CheckStateE", !6, i64 0}
+!18 = !{!13, !16, i64 24}
+!19 = !{!13, !17, i64 32}
+!20 = !{!13, !17, i64 36}
+!21 = !{!13, !9, i64 28}
+!22 = !{!16, !16, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 _ZTSN5zxing3RefINS_6qrcode13FinderPatternEEE", !5, i64 0}
+!25 = !{!26, !4, i64 0}
+!26 = !{!"_ZTSN5zxing3RefINS_6qrcode13FinderPatternEEE", !4, i64 0}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTSN5zxing7CountedE", !5, i64 0}
+!29 = !{!15, !16, i64 8}

@@ -16,13 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { i32 }
 %"class.google::protobuf::internal::CachedSize" = type { %"struct.std::atomic" }
-%"struct.google::protobuf::internal::InternalMetadata::Container" = type { %"struct.google::protobuf::internal::InternalMetadata::ContainerBase", %"class.google::protobuf::UnknownFieldSet" }
-%"struct.google::protobuf::internal::InternalMetadata::ContainerBase" = type { ptr }
-%"class.google::protobuf::UnknownFieldSet" = type { %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl" }
-%"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl" = type { %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.google::protobuf::internal::LogMessage" = type { i32, ptr, i32, %"class.std::__cxx11::basic_string" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.3 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -32,16 +25,24 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.google::protobuf::internal::EpsCopyInputStream" = type { ptr, ptr, ptr, i32, i32, ptr, [32 x i8], i64, i32, i32 }
 %"struct.google::protobuf::internal::ParseContext::Data" = type { ptr, ptr, ptr }
 %"struct.std::pair.6" = type <{ ptr, i32, [4 x i8] }>
+%"struct.google::protobuf::internal::InternalMetadata::Container" = type { %"struct.google::protobuf::internal::InternalMetadata::ContainerBase", %"class.google::protobuf::UnknownFieldSet" }
+%"struct.google::protobuf::internal::InternalMetadata::ContainerBase" = type { ptr }
+%"class.google::protobuf::UnknownFieldSet" = type { %"class.std::vector" }
+%"class.std::vector" = type { %"struct.std::_Vector_base" }
+%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl" }
+%"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl" = type { %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.google::protobuf::io::EpsCopyOutputStream" = type <{ ptr, ptr, [32 x i8], ptr, i8, i8, i8, [5 x i8] }>
-%"struct.std::pair.9" = type { ptr, ptr }
-%"struct.google::protobuf::internal::SerialArena::CleanupNode" = type { ptr, ptr }
 %"class.google::protobuf::Arena" = type { %"class.google::protobuf::internal::ThreadSafeArena" }
 %"class.google::protobuf::internal::ThreadSafeArena" = type { i64, %"class.google::protobuf::internal::TaggedAllocationPolicyPtr", %"struct.std::atomic.4", %"struct.std::atomic.4" }
 %"class.google::protobuf::internal::TaggedAllocationPolicyPtr" = type { i64 }
 %"struct.std::atomic.4" = type { %"struct.std::__atomic_base.5" }
 %"struct.std::__atomic_base.5" = type { ptr }
 %"struct.std::pair" = type <{ ptr, i8, [7 x i8] }>
+%"struct.google::protobuf::internal::ElementCopier" = type { i8 }
 %"class.__gnu_cxx::__normal_iterator" = type { ptr }
+%"struct.std::pair.9" = type { ptr, ptr }
+%"struct.google::protobuf::internal::SerialArena::CleanupNode" = type { ptr, ptr }
 
 $_ZN6google8protobuf7MessageC2EPNS0_5ArenaEb = comdat any
 
@@ -51,9 +52,11 @@ $_ZN17opencv_tensorflow10VersionDef10SharedCtorEv = comdat any
 
 $_ZN17opencv_tensorflow10VersionDef17RegisterArenaDtorEPN6google8protobuf5ArenaE = comdat any
 
-$_ZN6google8protobuf7MessageD2Ev = comdat any
+$_ZN6google8protobuf11MessageLiteD2Ev = comdat any
 
 $_ZN6google8protobuf7MessageC2Ev = comdat any
+
+$_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_ = comdat any
 
 $_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv = comdat any
 
@@ -64,6 +67,8 @@ $_ZN17opencv_tensorflow10VersionDef10SharedDtorEv = comdat any
 $_ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv = comdat any
 
 $_ZN6google8protobuf8internal10CachedSize3SetEi = comdat any
+
+$_ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv = comdat any
 
 $_ZN6google8protobuf8internal12ParseContext4DoneEPPKc = comdat any
 
@@ -77,17 +82,31 @@ $_ZN17opencv_tensorflow10VersionDef27_internal_add_bad_consumersEi = comdat any
 
 $_ZN6google8protobuf8internal18EpsCopyInputStream10SetLastTagEj = comdat any
 
+$_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v = comdat any
+
 $_ZNK17opencv_tensorflow10VersionDef18_internal_producerEv = comdat any
 
 $_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh = comdat any
 
+$_ZN6google8protobuf8internal14WireFormatLite17WriteInt32ToArrayEiiPh = comdat any
+
 $_ZNK17opencv_tensorflow10VersionDef22_internal_min_consumerEv = comdat any
 
+$_ZNKSt13__atomic_baseIiE4loadESt12memory_order = comdat any
+
+$_ZN6google8protobuf2io19EpsCopyOutputStream16WriteInt32PackedINS0_13RepeatedFieldIiEEEEPhiRKT_iS6_ = comdat any
+
 $_ZNK17opencv_tensorflow10VersionDef23_internal_bad_consumersEv = comdat any
+
+$_ZNK6google8protobuf8internal16InternalMetadata19have_unknown_fieldsEv = comdat any
+
+$_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE = comdat any
 
 $_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi = comdat any
 
 $_ZN6google8protobuf8internal12ToCachedSizeEm = comdat any
+
+$_ZNSt13__atomic_baseIiE5storeEiSt12memory_order = comdat any
 
 $_ZN6google8protobuf8internal14WireFormatLite16Int32SizePlusOneEi = comdat any
 
@@ -95,7 +114,11 @@ $_ZN17opencv_tensorflow10VersionDef22_internal_set_producerEi = comdat any
 
 $_ZN17opencv_tensorflow10VersionDef26_internal_set_min_consumerEi = comdat any
 
+$_ZN6google8protobuf8internal16InternalMetadata12InternalSwapEPS2_ = comdat any
+
 $_ZN6google8protobuf8internal7memswapILi8EEENSt9enable_ifIXaageT_Lm8EltT_Li16EEvE4typeEPcS6_ = comdat any
+
+$_ZN6google8protobuf5Arena21CreateMessageInternalIN17opencv_tensorflow10VersionDefEEEPT_PS1_ = comdat any
 
 $_ZNK17opencv_tensorflow10VersionDef3NewEPN6google8protobuf5ArenaE = comdat any
 
@@ -111,9 +134,11 @@ $_ZNSt6atomicIiEC2Ei = comdat any
 
 $_ZNSt13__atomic_baseIiEC2Ei = comdat any
 
-$_ZN6google8protobuf11MessageLiteD2Ev = comdat any
-
 $_ZN6google8protobuf8internal16InternalMetadataD2Ev = comdat any
+
+$_ZNK6google8protobuf8internal16InternalMetadata23HasMessageOwnedArenaTagEv = comdat any
+
+$_ZNK6google8protobuf8internal16InternalMetadata5arenaEv = comdat any
 
 $_ZN6google8protobuf5ArenaD2Ev = comdat any
 
@@ -131,13 +156,25 @@ $_ZN6google8protobuf8internal11VarintParseIjEEPKcS4_PT_ = comdat any
 
 $_ZN6google8protobuf8internal15VarintParseSlowEPKcjPj = comdat any
 
+$_ZN6google8protobuf8internal14WireFormatLite15WriteTagToArrayEiNS2_8WireTypeEPh = comdat any
+
+$_ZN6google8protobuf8internal14WireFormatLite22WriteInt32NoTagToArrayEiPh = comdat any
+
+$_ZN6google8protobuf2io17CodedOutputStream15WriteTagToArrayEjPh = comdat any
+
 $_ZN6google8protobuf8internal14WireFormatLite7MakeTagEiNS2_8WireTypeE = comdat any
 
 $_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh = comdat any
 
+$_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_ = comdat any
+
 $_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh = comdat any
 
 $_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh = comdat any
+
+$_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_ = comdat any
+
+$_ZNK6google8protobuf8internal16InternalMetadata19HasUnknownFieldsTagEv = comdat any
 
 $_ZN6google8protobuf2io17CodedOutputStream24VarintSize32SignExtendedEi = comdat any
 
@@ -156,6 +193,8 @@ $_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN17opencv_tensorflow10Vers
 $_ZNK6google8protobuf8internal10CachedSize3GetEv = comdat any
 
 $_ZStanSt12memory_orderSt23__memory_order_modifier = comdat any
+
+$_ZN6google8protobuf8internal13ElementCopierIiLb1EEclEPiPKii = comdat any
 
 $_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_ = comdat any
 
@@ -195,23 +234,25 @@ $_ZNSt12_Destroy_auxILb1EE9__destroyIPN6google8protobuf12UnknownFieldEEEvT_S6_ =
 
 $_ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE13_M_deallocateEPS2_m = comdat any
 
-$_ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE12_Vector_implD2Ev = comdat any
+$_ZNSt15__new_allocatorIN6google8protobuf12UnknownFieldEED2Ev = comdat any
 
 $_ZNSt16allocator_traitsISaIN6google8protobuf12UnknownFieldEEE10deallocateERS3_PS2_m = comdat any
 
 $_ZNSt15__new_allocatorIN6google8protobuf12UnknownFieldEE10deallocateEPS2_m = comdat any
 
-$_ZNSaIN6google8protobuf12UnknownFieldEED2Ev = comdat any
-
-$_ZNSt15__new_allocatorIN6google8protobuf12UnknownFieldEED2Ev = comdat any
-
 $_ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEvv = comdat any
 
 $_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v = comdat any
 
+$_ZN6google8protobuf5Arena6CreateINS0_8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEJEEEPT_PS1_DpOT0_ = comdat any
+
+$_ZN6google8protobuf5Arena14CreateInternalINS0_8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEJEEEPT_PS1_St17integral_constantIbLb0EEDpOT0_ = comdat any
+
 $_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEC2Ev = comdat any
 
 $_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv = comdat any
+
+$_ZN6google8protobuf5Arena16AllocateInternalEmmPFvPvEPKSt9type_info = comdat any
 
 $_ZN6google8protobuf15UnknownFieldSetC2Ev = comdat any
 
@@ -231,21 +272,39 @@ $_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmmPKSt9type_info = comdat an
 
 $_ZN6google8protobuf8internal10AlignUpTo8Em = comdat any
 
+$_ZN6google8protobuf8internal7AlignToEPvm = comdat any
+
+$_ZN6google8protobuf2io19EpsCopyOutputStream17WriteVarintPackedINS0_13RepeatedFieldIiEEFmmEEEPhiRKT_iS7_RKT0_ = comdat any
+
 $_ZN6google8protobuf2io19EpsCopyOutputStream8Encode64Em = comdat any
 
-$_ZN6google8protobuf8internal9SwapBlockImEEvPcS3_ = comdat any
+$_ZN6google8protobuf2io19EpsCopyOutputStream16WriteLengthDelimEijPh = comdat any
+
+$_ZN6google8protobuf2io19EpsCopyOutputStream8WriteTagEjjPh = comdat any
+
+$_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh = comdat any
+
+$_ZN6google8protobuf8internal7memswapILi16EEENSt9enable_ifIXaageT_Lm16EltT_lsLj1ELi31EEvE4typeEPcS6_ = comdat any
+
+$_ZN6google8protobuf8internal9SwapBlockIoEEvPcS3_ = comdat any
 
 $_ZN6google8protobuf8internal7memswapILi0EEENSt9enable_ifIXeqT_Li0EEvE4typeEPcS6_ = comdat any
 
+$_ZN6google8protobuf8internal9SwapBlockImEEvPcS3_ = comdat any
+
+$_ZN6google8protobuf5Arena14InternalHelperIN17opencv_tensorflow10VersionDefEE3NewEv = comdat any
+
+$_ZN6google8protobuf5Arena15DoCreateMessageIN17opencv_tensorflow10VersionDefEJEEEPT_DpOT0_ = comdat any
+
 $_ZN6google8protobuf5Arena14InternalHelperIN17opencv_tensorflow10VersionDefEE9ConstructIJPS1_EEEPS4_PvDpOT_ = comdat any
+
+$_ZTIN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEE = comdat any
 
 $_ZTSN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEE = comdat any
 
-$_ZTSN6google8protobuf8internal16InternalMetadata13ContainerBaseE = comdat any
-
 $_ZTIN6google8protobuf8internal16InternalMetadata13ContainerBaseE = comdat any
 
-$_ZTIN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEE = comdat any
+$_ZTSN6google8protobuf8internal16InternalMetadata13ContainerBaseE = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -263,10 +322,10 @@ $_ZTIN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSe
 @_ZN17opencv_tensorflow10VersionDef12_class_data_E = hidden constant %"struct.google::protobuf::Message::ClassData" { ptr @_ZN6google8protobuf7Message17CopyWithSizeCheckEPS1_RKS1_, ptr @_ZN17opencv_tensorflow10VersionDef9MergeImplEPN6google8protobuf7MessageERKS3_ }, align 8
 @.str.2 = private unnamed_addr constant [134 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/opencv/opencv/modules/dnn/misc/tensorflow/versions.pb.cc\00", align 1
 @.str.3 = private unnamed_addr constant [34 x i8] c"CHECK failed: (&from) != (this): \00", align 1
+@_ZTIN17opencv_tensorflow10VersionDefE = hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN17opencv_tensorflow10VersionDefE, ptr @_ZTIN6google8protobuf7MessageE }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN17opencv_tensorflow10VersionDefE = hidden constant [34 x i8] c"N17opencv_tensorflow10VersionDefE\00", align 1
 @_ZTIN6google8protobuf7MessageE = external constant ptr
-@_ZTIN17opencv_tensorflow10VersionDefE = hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN17opencv_tensorflow10VersionDefE, ptr @_ZTIN6google8protobuf7MessageE }, align 8
 @_ZTVN6google8protobuf7MessageE = external unnamed_addr constant { [21 x ptr] }, align 8
 @_ZTVN6google8protobuf11MessageLiteE = external unnamed_addr constant { [15 x ptr] }, align 8
 @.str.4 = private unnamed_addr constant [145 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/opencv/opencv/3rdparty/protobuf/src/google/protobuf/metadata_lite.h\00", align 1
@@ -275,13 +334,21 @@ $_ZTIN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSe
 @.str.7 = private unnamed_addr constant [145 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/opencv/opencv/3rdparty/protobuf/src/google/protobuf/parse_context.h\00", align 1
 @.str.8 = private unnamed_addr constant [21 x i8] c"CHECK failed: *ptr: \00", align 1
 @.str.9 = private unnamed_addr constant [42 x i8] c"CHECK failed: (overrun) <= (kSlopBytes): \00", align 1
+@.str.10 = private unnamed_addr constant [146 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/opencv/opencv/3rdparty/protobuf/src/google/protobuf/repeated_field.h\00", align 1
+@.str.11 = private unnamed_addr constant [36 x i8] c"CHECK failed: (total_size_) > (0): \00", align 1
+@.str.12 = private unnamed_addr constant [53 x i8] c"CHECK failed: (total_size_ - current_size_) >= (n): \00", align 1
+@.str.13 = private unnamed_addr constant [3 x i8] c", \00", align 1
+@.str.14 = private unnamed_addr constant [31 x i8] c"CHECK failed: (index) >= (0): \00", align 1
+@.str.15 = private unnamed_addr constant [42 x i8] c"CHECK failed: (index) < (current_size_): \00", align 1
+@_ZTIN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEE = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEE, ptr @_ZTIN6google8protobuf8internal16InternalMetadata13ContainerBaseE }, comdat, align 8
 @_ZTSN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEE = linkonce_odr hidden constant [80 x i8] c"N6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEE\00", comdat, align 1
+@_ZTIN6google8protobuf8internal16InternalMetadata13ContainerBaseE = linkonce_odr hidden constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN6google8protobuf8internal16InternalMetadata13ContainerBaseE }, comdat, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTSN6google8protobuf8internal16InternalMetadata13ContainerBaseE = linkonce_odr hidden constant [61 x i8] c"N6google8protobuf8internal16InternalMetadata13ContainerBaseE\00", comdat, align 1
-@_ZTIN6google8protobuf8internal16InternalMetadata13ContainerBaseE = linkonce_odr hidden constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN6google8protobuf8internal16InternalMetadata13ContainerBaseE }, comdat, align 8
-@_ZTIN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEE = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEE, ptr @_ZTIN6google8protobuf8internal16InternalMetadata13ContainerBaseE }, comdat, align 8
-@.str.10 = private unnamed_addr constant [147 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/opencv/opencv/3rdparty/protobuf/src/google/protobuf/io/coded_stream.h\00", align 1
-@.str.11 = private unnamed_addr constant [27 x i8] c"CHECK failed: ptr < end_: \00", align 1
+@.str.16 = private unnamed_addr constant [147 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/opencv/opencv/3rdparty/protobuf/src/google/protobuf/io/coded_stream.h\00", align 1
+@.str.17 = private unnamed_addr constant [27 x i8] c"CHECK failed: ptr < end_: \00", align 1
+@.str.18 = private unnamed_addr constant [35 x i8] c"CHECK failed: (&other) != (this): \00", align 1
+@.str.19 = private unnamed_addr constant [30 x i8] c"CHECK failed: this != other: \00", align 1
 @llvm.global_ctors = appending global [2 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 102, ptr @_GLOBAL__I_000102, ptr null }, { i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_versions.pb.cc, ptr null }]
 
 @_ZN17opencv_tensorflow10VersionDefC1EPN6google8protobuf5ArenaEb = hidden unnamed_addr alias void (ptr, ptr, i1), ptr @_ZN17opencv_tensorflow10VersionDefC2EPN6google8protobuf5ArenaEb
@@ -323,34 +390,34 @@ define hidden void @_ZN17opencv_tensorflow10VersionDefC2EPN6google8protobuf5Aren
   %6 = alloca i8, align 1
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !8
   %9 = zext i1 %2 to i8
-  store i8 %9, ptr %6, align 1
+  store i8 %9, ptr %6, align 1, !tbaa !10
   %10 = load ptr, ptr %4, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = load i8, ptr %6, align 1
+  %11 = load ptr, ptr %5, align 8, !tbaa !8
+  %12 = load i8, ptr %6, align 1, !tbaa !10, !range !12, !noundef !13
   %13 = trunc i8 %12 to i1
   call void @_ZN6google8protobuf7MessageC2EPNS0_5ArenaEb(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %11, i1 noundef zeroext %13)
-  store ptr getelementptr inbounds inrange(-16, 152) ({ [21 x ptr] }, ptr @_ZTVN17opencv_tensorflow10VersionDefE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %14 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %10, i32 0, i32 1
-  %15 = load ptr, ptr %5, align 8
-  invoke void @_ZN6google8protobuf13RepeatedFieldIiEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef %15)
+  store ptr getelementptr inbounds inrange(-16, 152) ({ [21 x ptr] }, ptr @_ZTVN17opencv_tensorflow10VersionDefE, i32 0, i32 0, i32 2), ptr %10, align 8, !tbaa !14
+  %14 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %10, i32 0, i32 1
+  %15 = load ptr, ptr %5, align 8, !tbaa !8
+  invoke void @_ZN6google8protobuf13RepeatedFieldIiEC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef %15)
           to label %16 unwind label %24
 
 16:                                               ; preds = %3
-  %17 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %10, i32 0, i32 5
+  %17 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %10, i32 0, i32 5
   call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %17) #3
   invoke void @_ZN17opencv_tensorflow10VersionDef10SharedCtorEv(ptr noundef nonnull align 8 dereferenceable(48) %10)
           to label %18 unwind label %28
 
 18:                                               ; preds = %16
-  %19 = load i8, ptr %6, align 1
+  %19 = load i8, ptr %6, align 1, !tbaa !10, !range !12, !noundef !13
   %20 = trunc i8 %19 to i1
   br i1 %20, label %32, label %21
 
 21:                                               ; preds = %18
-  %22 = load ptr, ptr %5, align 8
+  %22 = load ptr, ptr %5, align 8, !tbaa !8
   invoke void @_ZN17opencv_tensorflow10VersionDef17RegisterArenaDtorEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %22)
           to label %23 unwind label %28
 
@@ -380,7 +447,7 @@ define hidden void @_ZN17opencv_tensorflow10VersionDefC2EPN6google8protobuf5Aren
   ret void
 
 33:                                               ; preds = %28, %24
-  call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
+  call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
   br label %34
 
 34:                                               ; preds = %33
@@ -391,50 +458,65 @@ define hidden void @_ZN17opencv_tensorflow10VersionDefC2EPN6google8protobuf5Aren
   resume { ptr, i32 } %38
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf7MessageC2EPNS0_5ArenaEb(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN6google8protobuf7MessageC2EPNS0_5ArenaEb(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #5 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i8, align 1
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !16
+  store ptr %1, ptr %5, align 8, !tbaa !8
   %7 = zext i1 %2 to i8
-  store i8 %7, ptr %6, align 1
+  store i8 %7, ptr %6, align 1, !tbaa !10
   %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i8, ptr %6, align 1
+  %9 = load ptr, ptr %5, align 8, !tbaa !8
+  %10 = load i8, ptr %6, align 1, !tbaa !10, !range !12, !noundef !13
   %11 = trunc i8 %10 to i1
   call void @_ZN6google8protobuf11MessageLiteC2EPNS0_5ArenaEb(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %9, i1 noundef zeroext %11)
-  store ptr getelementptr inbounds inrange(-16, 152) ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf7MessageE, i32 0, i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds inrange(-16, 152) ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf7MessageE, i32 0, i32 0, i32 2), ptr %8, align 8, !tbaa !14
   ret void
 }
 
-declare void @_ZN6google8protobuf13RepeatedFieldIiEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define available_externally void @_ZN6google8protobuf13RepeatedFieldIiEC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #6 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.google::protobuf::RepeatedField", ptr %5, i32 0, i32 0
+  store i32 0, ptr %6, align 8, !tbaa !20
+  %7 = getelementptr inbounds nuw %"class.google::protobuf::RepeatedField", ptr %5, i32 0, i32 1
+  store i32 0, ptr %7, align 4, !tbaa !23
+  %8 = getelementptr inbounds nuw %"class.google::protobuf::RepeatedField", ptr %5, i32 0, i32 2
+  %9 = load ptr, ptr %4, align 8, !tbaa !8
+  store ptr %9, ptr %8, align 8, !tbaa !24
+  ret void
+}
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) unnamed_addr #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) unnamed_addr #6 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !25
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.google::protobuf::internal::CachedSize", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.google::protobuf::internal::CachedSize", ptr %3, i32 0, i32 0
   call void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 0) #3
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN17opencv_tensorflow10VersionDef10SharedCtorEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN17opencv_tensorflow10VersionDef10SharedCtorEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #6 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %3, i32 0, i32 3
   %5 = ptrtoint ptr %4 to i64
   %6 = ptrtoint ptr %3 to i64
   %7 = sub i64 %5, %6
-  %8 = getelementptr inbounds i8, ptr %3, i64 %7
-  %9 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %3, i32 0, i32 4
-  %10 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %3, i32 0, i32 3
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %7
+  %9 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %3, i32 0, i32 4
+  %10 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %3, i32 0, i32 3
   %11 = ptrtoint ptr %9 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
@@ -443,12 +525,12 @@ define linkonce_odr hidden void @_ZN17opencv_tensorflow10VersionDef10SharedCtorE
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN17opencv_tensorflow10VersionDef17RegisterArenaDtorEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN17opencv_tensorflow10VersionDef17RegisterArenaDtorEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
   ret void
 }
 
@@ -456,11 +538,13 @@ define linkonce_odr hidden void @_ZN17opencv_tensorflow10VersionDef17RegisterAre
 declare void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !27
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !14
+  %4 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %3, i32 0, i32 1
+  call void @_ZN6google8protobuf8internal16InternalMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   ret void
 }
 
@@ -469,156 +553,148 @@ define hidden void @_ZN17opencv_tensorflow10VersionDefC2ERKS0_(ptr noundef nonnu
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca ptr, align 8
-  %13 = alloca ptr, align 8
-  %14 = alloca ptr, align 8
-  %15 = alloca i32, align 4
-  store ptr %0, ptr %12, align 8
-  store ptr %1, ptr %13, align 8
-  %16 = load ptr, ptr %12, align 8
-  call void @_ZN6google8protobuf7MessageC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16)
-  store ptr getelementptr inbounds inrange(-16, 152) ({ [21 x ptr] }, ptr @_ZTVN17opencv_tensorflow10VersionDefE, i32 0, i32 0, i32 2), ptr %16, align 8
-  %17 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %16, i32 0, i32 1
-  %18 = load ptr, ptr %13, align 8
-  %19 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %18, i32 0, i32 1
-  invoke void @_ZN6google8protobuf13RepeatedFieldIiEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %19)
-          to label %20 unwind label %63
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %7 = load ptr, ptr %3, align 8
+  call void @_ZN6google8protobuf7MessageC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  store ptr getelementptr inbounds inrange(-16, 152) ({ [21 x ptr] }, ptr @_ZTVN17opencv_tensorflow10VersionDefE, i32 0, i32 0, i32 2), ptr %7, align 8, !tbaa !14
+  %8 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  %10 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %9, i32 0, i32 1
+  invoke void @_ZN6google8protobuf13RepeatedFieldIiEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %10)
+          to label %11 unwind label %26
 
-20:                                               ; preds = %2
-  %21 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %16, i32 0, i32 5
-  call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %21) #3
-  %22 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %16, i32 0, i32 1
-  %23 = load ptr, ptr %13, align 8
-  %24 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %23, i32 0, i32 1
-  store ptr %22, ptr %10, align 8
-  store ptr %24, ptr %11, align 8
-  %25 = load ptr, ptr %10, align 8
-  %26 = load ptr, ptr %11, align 8
-  store ptr %26, ptr %9, align 8
-  %27 = load ptr, ptr %9, align 8
-  store ptr %27, ptr %3, align 8
-  %28 = load ptr, ptr %3, align 8
-  %29 = load i64, ptr %28, align 8
-  %30 = and i64 %29, 1
-  %31 = icmp ne i64 %30, 0
-  br label %32
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %7, i32 0, i32 5
+  call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %12) #3
+  %13 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %7, i32 0, i32 1
+  %14 = load ptr, ptr %4, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %14, i32 0, i32 1
+  invoke void @_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %15)
+          to label %16 unwind label %30
 
-32:                                               ; preds = %20
-  br i1 %31, label %33, label %52
-
-33:                                               ; preds = %32
-  %34 = load ptr, ptr %11, align 8
-  store ptr %34, ptr %7, align 8
-  store ptr null, ptr %8, align 8
-  %35 = load ptr, ptr %7, align 8
-  store ptr %35, ptr %5, align 8
-  %36 = load ptr, ptr %5, align 8
-  store ptr %36, ptr %4, align 8
-  %37 = load ptr, ptr %4, align 8
-  %38 = load i64, ptr %37, align 8
-  %39 = and i64 %38, 1
-  %40 = icmp ne i64 %39, 0
-  br i1 %40, label %41, label %44
-
-41:                                               ; preds = %33
-  %42 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINS0_15UnknownFieldSetEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %35)
-  %43 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %42, i32 0, i32 1
-  store ptr %43, ptr %6, align 8
-  br label %48
-
-44:                                               ; preds = %33
-  %45 = load ptr, ptr %8, align 8
-  %46 = invoke noundef nonnull align 8 dereferenceable(24) ptr %45()
-          to label %47 unwind label %67
-
-47:                                               ; preds = %44
-  store ptr %46, ptr %6, align 8
-  br label %48
-
-48:                                               ; preds = %47, %41
-  %49 = load ptr, ptr %6, align 8
-  br label %50
-
-50:                                               ; preds = %48
-  invoke void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(24) %49)
-          to label %51 unwind label %67
-
-51:                                               ; preds = %50
-  br label %52
-
-52:                                               ; preds = %51, %32
-  br label %53
-
-53:                                               ; preds = %52
-  %54 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %16, i32 0, i32 3
-  %55 = load ptr, ptr %13, align 8
-  %56 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %55, i32 0, i32 3
-  %57 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %16, i32 0, i32 4
-  %58 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %16, i32 0, i32 3
-  %59 = ptrtoint ptr %57 to i64
-  %60 = ptrtoint ptr %58 to i64
-  %61 = sub i64 %59, %60
-  %62 = add i64 %61, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %54, ptr align 4 %56, i64 %62, i1 false)
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %7, i32 0, i32 3
+  %18 = load ptr, ptr %4, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %18, i32 0, i32 3
+  %20 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %7, i32 0, i32 4
+  %21 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %7, i32 0, i32 3
+  %22 = ptrtoint ptr %20 to i64
+  %23 = ptrtoint ptr %21 to i64
+  %24 = sub i64 %22, %23
+  %25 = add i64 %24, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr align 4 %19, i64 %25, i1 false)
   ret void
 
-63:                                               ; preds = %2
-  %64 = landingpad { ptr, i32 }
+26:                                               ; preds = %2
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %14, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %15, align 4
-  br label %71
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %5, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %6, align 4
+  br label %34
 
-67:                                               ; preds = %50, %44
-  %68 = landingpad { ptr, i32 }
+30:                                               ; preds = %11
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %14, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %15, align 4
-  call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
-  br label %71
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %5, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %6, align 4
+  call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
+  br label %34
 
-71:                                               ; preds = %67, %63
-  call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
-  br label %72
+34:                                               ; preds = %30, %26
+  call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  br label %35
 
-72:                                               ; preds = %71
-  %73 = load ptr, ptr %14, align 8
-  %74 = load i32, ptr %15, align 4
-  %75 = insertvalue { ptr, i32 } poison, ptr %73, 0
-  %76 = insertvalue { ptr, i32 } %75, i32 %74, 1
-  resume { ptr, i32 } %76
+35:                                               ; preds = %34
+  %36 = load ptr, ptr %5, align 8
+  %37 = load i32, ptr %6, align 4
+  %38 = insertvalue { ptr, i32 } poison, ptr %36, 0
+  %39 = insertvalue { ptr, i32 } %38, i32 %37, 1
+  resume { ptr, i32 } %39
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf7MessageC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
   %3 = load ptr, ptr %2, align 8
   call void @_ZN6google8protobuf11MessageLiteC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds inrange(-16, 152) ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf7MessageE, i32 0, i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 152) ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf7MessageE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !14
   ret void
 }
 
-declare void @_ZN6google8protobuf13RepeatedFieldIiEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
+; Function Attrs: inlinehint mustprogress uwtable
+define available_externally void @_ZN6google8protobuf13RepeatedFieldIiEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.google::protobuf::RepeatedField", ptr %5, i32 0, i32 0
+  store i32 0, ptr %6, align 8, !tbaa !20
+  %7 = getelementptr inbounds nuw %"class.google::protobuf::RepeatedField", ptr %5, i32 0, i32 1
+  store i32 0, ptr %7, align 4, !tbaa !23
+  %8 = getelementptr inbounds nuw %"class.google::protobuf::RepeatedField", ptr %5, i32 0, i32 2
+  store ptr null, ptr %8, align 8, !tbaa !24
+  %9 = load ptr, ptr %4, align 8, !tbaa !18
+  %10 = getelementptr inbounds nuw %"class.google::protobuf::RepeatedField", ptr %9, i32 0, i32 0
+  %11 = load i32, ptr %10, align 8, !tbaa !20
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %13, label %24
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !18
+  %15 = call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14)
+  call void @_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %15)
+  %16 = load ptr, ptr %4, align 8, !tbaa !18
+  %17 = call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+  %18 = call noundef ptr @_ZN6google8protobuf13RepeatedFieldIiE19AddNAlreadyReservedEi(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %17)
+  %19 = call noundef ptr @_ZN6google8protobuf13RepeatedFieldIiE7MutableEi(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 0)
+  %20 = load ptr, ptr %4, align 8, !tbaa !18
+  %21 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf13RepeatedFieldIiE3GetEi(ptr noundef nonnull align 8 dereferenceable(16) %20, i32 noundef 0)
+  %22 = load ptr, ptr %4, align 8, !tbaa !18
+  %23 = call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %22)
+  call void @_ZN6google8protobuf13RepeatedFieldIiE9CopyArrayEPiPKii(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %19, ptr noundef %21, i32 noundef %23)
+  br label %24
+
+24:                                               ; preds = %13, %2
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden void @_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !29
+  store ptr %1, ptr %4, align 8, !tbaa !29
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !29
+  %7 = call noundef zeroext i1 @_ZNK6google8protobuf8internal16InternalMetadata19have_unknown_fieldsEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  br i1 %7, label %8, label %11
+
+8:                                                ; preds = %2
+  %9 = load ptr, ptr %4, align 8, !tbaa !29
+  %10 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef null)
+  call void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) %10)
+  br label %11
+
+11:                                               ; preds = %8, %2
+  ret void
+}
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17opencv_tensorflow10VersionDefD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17opencv_tensorflow10VersionDefD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %4 = load ptr, ptr %2, align 8
   %5 = invoke noundef ptr @_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %6 unwind label %17
@@ -636,7 +712,7 @@ define hidden void @_ZN17opencv_tensorflow10VersionDefD2Ev(ptr noundef nonnull a
           to label %10 unwind label %17
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %4, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %4, i32 0, i32 1
   invoke void @_ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv(ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %12 unwind label %17
 
@@ -645,9 +721,9 @@ define hidden void @_ZN17opencv_tensorflow10VersionDefD2Ev(ptr noundef nonnull a
   br label %13
 
 13:                                               ; preds = %12, %8
-  %14 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %4, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %4, i32 0, i32 1
   call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
-  call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   %15 = load i32, ptr %3, align 4
   switch i32 %15, label %20 [
     i32 0, label %16
@@ -661,7 +737,7 @@ define hidden void @_ZN17opencv_tensorflow10VersionDefD2Ev(ptr noundef nonnull a
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #12
+  call void @__clang_call_terminate(ptr %19) #19
   unreachable
 
 20:                                               ; preds = %13
@@ -671,44 +747,17 @@ define hidden void @_ZN17opencv_tensorflow10VersionDefD2Ev(ptr noundef nonnull a
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %7, i32 0, i32 1
-  store ptr %8, ptr %5, align 8
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %3, align 8
-  %10 = load ptr, ptr %3, align 8
-  store ptr %10, ptr %2, align 8
-  %11 = load ptr, ptr %2, align 8
-  %12 = load i64, ptr %11, align 8
-  %13 = and i64 %12, 1
-  %14 = icmp ne i64 %13, 0
-  br i1 %14, label %15, label %18
-
-15:                                               ; preds = %1
-  %16 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_13ContainerBaseEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %4, align 8
-  br label %20
-
-18:                                               ; preds = %1
-  %19 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS0_5ArenaEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr %19, ptr %4, align 8
-  br label %20
-
-20:                                               ; preds = %18, %15
-  %21 = load ptr, ptr %4, align 8
-  ret ptr %21
+  store ptr %0, ptr %2, align 8, !tbaa !27
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %3, i32 0, i32 1
+  %5 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata5arenaEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  ret ptr %5
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comdat {
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #10 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
-  call void @_ZSt9terminatev() #12
+  call void @_ZSt9terminatev() #19
   unreachable
 }
 
@@ -716,1129 +765,782 @@ declare ptr @__cxa_begin_catch(ptr)
 
 declare void @_ZSt9terminatev()
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN17opencv_tensorflow10VersionDef10SharedDtorEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN17opencv_tensorflow10VersionDef10SharedDtorEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %4 = alloca i1, align 1
-  %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
-  %7 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
-  store ptr %0, ptr %2, align 8
-  %8 = load ptr, ptr %2, align 8
-  br label %9
+  %5 = alloca i1, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %9 = load ptr, ptr %2, align 8
+  br label %10
 
-9:                                                ; preds = %21, %1
-  br i1 false, label %10, label %29
+10:                                               ; preds = %25, %1
+  br i1 false, label %11, label %41
 
-10:                                               ; preds = %9
-  %11 = call noundef ptr @_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
-  %12 = icmp eq ptr %11, null
+11:                                               ; preds = %10
+  %12 = call noundef ptr @_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
+  %13 = icmp eq ptr %12, null
   store i1 false, ptr %4, align 1
-  br i1 %12, label %13, label %14
+  store i1 false, ptr %5, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #3
+  br i1 %13, label %14, label %15
 
-13:                                               ; preds = %10
-  br label %18
+14:                                               ; preds = %11
+  br label %19
 
-14:                                               ; preds = %10
-  call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef 3, ptr noundef @.str.2, i32 noundef 122)
+15:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 56, ptr %3) #3
   store i1 true, ptr %4, align 1
-  %15 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef @.str.6)
-          to label %16 unwind label %22
+  call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef 3, ptr noundef @.str.2, i32 noundef 122)
+  store i1 true, ptr %5, align 1
+  %16 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef @.str.6)
+          to label %17 unwind label %26
 
-16:                                               ; preds = %14
-  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(56) %15)
-          to label %17 unwind label %22
+17:                                               ; preds = %15
+  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(56) %16)
+          to label %18 unwind label %30
 
-17:                                               ; preds = %16
-  br label %18
+18:                                               ; preds = %17
+  br label %19
 
-18:                                               ; preds = %17, %13
-  %19 = load i1, ptr %4, align 1
-  br i1 %19, label %20, label %21
+19:                                               ; preds = %18, %14
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #3
+  %20 = load i1, ptr %5, align 1
+  br i1 %20, label %21, label %22
 
-20:                                               ; preds = %18
+21:                                               ; preds = %19
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #3
-  br label %21
+  br label %22
 
-21:                                               ; preds = %20, %18
-  br label %9, !llvm.loop !4
+22:                                               ; preds = %21, %19
+  %23 = load i1, ptr %4, align 1
+  br i1 %23, label %24, label %25
 
-22:                                               ; preds = %16, %14
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %22
+  call void @llvm.lifetime.end.p0(i64 56, ptr %3) #3
+  br label %25
+
+25:                                               ; preds = %24, %22
+  br label %10, !llvm.loop !31
+
+26:                                               ; preds = %15
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %5, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %6, align 4
-  %26 = load i1, ptr %4, align 1
-  br i1 %26, label %27, label %28
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %6, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %7, align 4
+  br label %34
 
-27:                                               ; preds = %22
+30:                                               ; preds = %17
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %6, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #3
+  br label %34
+
+34:                                               ; preds = %30, %26
+  %35 = load i1, ptr %5, align 1
+  br i1 %35, label %36, label %37
+
+36:                                               ; preds = %34
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #3
-  br label %28
+  br label %37
 
-28:                                               ; preds = %27, %22
-  br label %30
+37:                                               ; preds = %36, %34
+  %38 = load i1, ptr %4, align 1
+  br i1 %38, label %39, label %40
 
-29:                                               ; preds = %9
+39:                                               ; preds = %37
+  call void @llvm.lifetime.end.p0(i64 56, ptr %3) #3
+  br label %40
+
+40:                                               ; preds = %39, %37
+  br label %42
+
+41:                                               ; preds = %10
   ret void
 
-30:                                               ; preds = %28
-  %31 = load ptr, ptr %5, align 8
-  %32 = load i32, ptr %6, align 4
-  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
-  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
-  resume { ptr, i32 } %34
+42:                                               ; preds = %40
+  %43 = load ptr, ptr %6, align 8
+  %44 = load i32, ptr %7, align 4
+  %45 = insertvalue { ptr, i32 } poison, ptr %43, 0
+  %46 = insertvalue { ptr, i32 } %45, i32 %44, 1
+  resume { ptr, i32 } %46
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  store ptr %5, ptr %3, align 8
-  %6 = load ptr, ptr %3, align 8
-  store ptr %6, ptr %2, align 8
-  %7 = load ptr, ptr %2, align 8
-  %8 = load i64, ptr %7, align 8
-  %9 = and i64 %8, 1
-  %10 = icmp ne i64 %9, 0
-  br i1 %10, label %11, label %12
+  store ptr %0, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNK6google8protobuf8internal16InternalMetadata19have_unknown_fieldsEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  br i1 %4, label %5, label %6
 
-11:                                               ; preds = %1
-  call void @_ZN6google8protobuf8internal16InternalMetadata21DeleteOutOfLineHelperINS0_15UnknownFieldSetEEEvv(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  br label %12
+5:                                                ; preds = %1
+  call void @_ZN6google8protobuf8internal16InternalMetadata21DeleteOutOfLineHelperINS0_15UnknownFieldSetEEEvv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  br label %6
 
-12:                                               ; preds = %11, %1
+6:                                                ; preds = %5, %1
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17opencv_tensorflow10VersionDefD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 {
+define hidden void @_ZN17opencv_tensorflow10VersionDefD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
   call void @_ZN17opencv_tensorflow10VersionDefD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #3
-  call void @_ZdlPv(ptr noundef %3) #13
+  call void @_ZdlPv(ptr noundef %3) #20
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #8
+declare void @_ZdlPv(ptr noundef) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17opencv_tensorflow10VersionDef9ArenaDtorEPv(ptr noundef %0) #5 align 2 {
+define hidden void @_ZN17opencv_tensorflow10VersionDef9ArenaDtorEPv(ptr noundef %0) #7 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  store ptr %4, ptr %3, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #3
+  %4 = load ptr, ptr %2, align 8, !tbaa !33
+  store ptr %4, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #3
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK17opencv_tensorflow10VersionDef13SetCachedSizeEi(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) unnamed_addr #4 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !34
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %5, i32 0, i32 5
-  %7 = load i32, ptr %4, align 4
+  %6 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %5, i32 0, i32 5
+  %7 = load i32, ptr %4, align 4, !tbaa !34
   call void @_ZN6google8protobuf8internal10CachedSize3SetEi(ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef %7)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf8internal10CachedSize3SetEi(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) #5 comdat align 2 {
+define linkonce_odr hidden void @_ZN6google8protobuf8internal10CachedSize3SetEi(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) #7 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  %5 = alloca i32, align 4
-  %6 = alloca i32, align 4
-  %7 = alloca i32, align 4
-  %8 = alloca ptr, align 8
-  %9 = alloca i32, align 4
-  store ptr %0, ptr %8, align 8
-  store i32 %1, ptr %9, align 4
-  %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds %"class.google::protobuf::internal::CachedSize", ptr %10, i32 0, i32 0
-  %12 = load i32, ptr %9, align 4
-  store ptr %11, ptr %3, align 8
-  store i32 %12, ptr %4, align 4
-  store i32 0, ptr %5, align 4
-  %13 = load ptr, ptr %3, align 8
-  %14 = load i32, ptr %5, align 4
-  %15 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %14, i32 noundef 65535)
-  store i32 %15, ptr %6, align 4
-  %16 = load i32, ptr %5, align 4
-  %17 = load i32, ptr %4, align 4
-  store i32 %17, ptr %7, align 4
-  switch i32 %16, label %18 [
-    i32 3, label %20
-    i32 5, label %22
-  ]
-
-18:                                               ; preds = %2
-  %19 = load i32, ptr %7, align 4
-  store atomic i32 %19, ptr %13 monotonic, align 4
-  br label %24
-
-20:                                               ; preds = %2
-  %21 = load i32, ptr %7, align 4
-  store atomic i32 %21, ptr %13 release, align 4
-  br label %24
-
-22:                                               ; preds = %2
-  %23 = load i32, ptr %7, align 4
-  store atomic i32 %23, ptr %13 seq_cst, align 4
-  br label %24
-
-24:                                               ; preds = %22, %20, %18
+  store ptr %0, ptr %3, align 8, !tbaa !25
+  store i32 %1, ptr %4, align 4, !tbaa !34
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.google::protobuf::internal::CachedSize", ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %4, align 4, !tbaa !34
+  call void @_ZNSt13__atomic_baseIiE5storeEiSt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef %7, i32 noundef 0) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN17opencv_tensorflow10VersionDef5ClearEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  %7 = load ptr, ptr %5, align 8
-  store i32 0, ptr %6, align 4
-  %8 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %7, i32 0, i32 1
-  call void @_ZN6google8protobuf13RepeatedFieldIiE5ClearEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
-  %9 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %7, i32 0, i32 3
-  %10 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %7, i32 0, i32 4
-  %11 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %7, i32 0, i32 3
-  %12 = ptrtoint ptr %10 to i64
-  %13 = ptrtoint ptr %11 to i64
-  %14 = sub i64 %12, %13
-  %15 = add i64 %14, 4
-  call void @llvm.memset.p0.i64(ptr align 4 %9, i8 0, i64 %15, i1 false)
-  %16 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %7, i32 0, i32 1
-  store ptr %16, ptr %4, align 8
-  %17 = load ptr, ptr %4, align 8
-  store ptr %17, ptr %3, align 8
-  %18 = load ptr, ptr %3, align 8
-  store ptr %18, ptr %2, align 8
-  %19 = load ptr, ptr %2, align 8
-  %20 = load i64, ptr %19, align 8
-  %21 = and i64 %20, 1
-  %22 = icmp ne i64 %21, 0
-  br i1 %22, label %23, label %24
-
-23:                                               ; preds = %1
-  call void @_ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEvv(ptr noundef nonnull align 8 dereferenceable(8) %17)
-  br label %24
-
-24:                                               ; preds = %23, %1
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #3
+  store i32 0, ptr %3, align 4, !tbaa !34
+  %5 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %4, i32 0, i32 1
+  call void @_ZN6google8protobuf13RepeatedFieldIiE5ClearEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %6 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %4, i32 0, i32 3
+  %7 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %4, i32 0, i32 4
+  %8 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %4, i32 0, i32 3
+  %9 = ptrtoint ptr %7 to i64
+  %10 = ptrtoint ptr %8 to i64
+  %11 = sub i64 %9, %10
+  %12 = add i64 %11, 4
+  call void @llvm.memset.p0.i64(ptr align 4 %6, i8 0, i64 %12, i1 false)
+  %13 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %4, i32 0, i32 1
+  call void @_ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv(ptr noundef nonnull align 8 dereferenceable(8) %13)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #3
   ret void
 }
 
-declare void @_ZN6google8protobuf13RepeatedFieldIiE5ClearEv(ptr noundef nonnull align 8 dereferenceable(16)) #1
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define available_externally void @_ZN6google8protobuf13RepeatedFieldIiE5ClearEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #6 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.google::protobuf::RepeatedField", ptr %3, i32 0, i32 0
+  store i32 0, ptr %4, align 8, !tbaa !20
+  ret void
+}
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden void @_ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv(ptr noundef nonnull align 8 dereferenceable(8) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNK6google8protobuf8internal16InternalMetadata19have_unknown_fieldsEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  br i1 %4, label %5, label %6
+
+5:                                                ; preds = %1
+  call void @_ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEvv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  br label %6
+
+6:                                                ; preds = %5, %1
+  ret void
+}
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN17opencv_tensorflow10VersionDef14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca i32, align 4
-  store ptr %0, ptr %8, align 8
-  store ptr %1, ptr %9, align 8
-  store ptr %2, ptr %10, align 8
-  %12 = load ptr, ptr %8, align 8
-  br label %13
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !35
+  store ptr %2, ptr %6, align 8, !tbaa !37
+  %9 = load ptr, ptr %4, align 8
+  br label %10
 
-13:                                               ; preds = %122, %81, %51, %36, %3
-  %14 = load ptr, ptr %10, align 8
-  %15 = call noundef zeroext i1 @_ZN6google8protobuf8internal12ParseContext4DoneEPPKc(ptr noundef nonnull align 8 dereferenceable(120) %14, ptr noundef %9)
-  %16 = xor i1 %15, true
-  br i1 %16, label %17, label %123
+10:                                               ; preds = %137, %135, %3
+  %11 = load ptr, ptr %6, align 8, !tbaa !37
+  %12 = call noundef zeroext i1 @_ZN6google8protobuf8internal12ParseContext4DoneEPPKc(ptr noundef nonnull align 8 dereferenceable(120) %11, ptr noundef %5)
+  %13 = xor i1 %12, true
+  br i1 %13, label %14, label %138
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %9, align 8
-  %19 = call noundef ptr @_ZN6google8protobuf8internal7ReadTagEPKcPjj(ptr noundef %18, ptr noundef %11, i32 noundef 0)
-  store ptr %19, ptr %9, align 8
-  %20 = load i32, ptr %11, align 4
-  %21 = lshr i32 %20, 3
-  switch i32 %21, label %82 [
-    i32 1, label %22
-    i32 2, label %37
-    i32 3, label %52
+14:                                               ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %15 = load ptr, ptr %5, align 8, !tbaa !35
+  %16 = call noundef ptr @_ZN6google8protobuf8internal7ReadTagEPKcPjj(ptr noundef %15, ptr noundef %7, i32 noundef 0)
+  store ptr %16, ptr %5, align 8, !tbaa !35
+  %17 = load i32, ptr %7, align 4, !tbaa !34
+  %18 = lshr i32 %17, 3
+  switch i32 %18, label %100 [
+    i32 1, label %19
+    i32 2, label %40
+    i32 3, label %61
   ]
 
-22:                                               ; preds = %17
-  %23 = load i32, ptr %11, align 4
-  %24 = trunc i32 %23 to i8
-  %25 = zext i8 %24 to i32
-  %26 = icmp eq i32 %25, 8
-  br i1 %26, label %27, label %35
+19:                                               ; preds = %14
+  %20 = load i32, ptr %7, align 4, !tbaa !34
+  %21 = trunc i32 %20 to i8
+  %22 = zext i8 %21 to i32
+  %23 = icmp eq i32 %22, 8
+  %24 = zext i1 %23 to i64
+  %25 = call i64 @llvm.expect.i64(i64 %24, i64 1)
+  %26 = icmp ne i64 %25, 0
+  br i1 %26, label %27, label %38
 
-27:                                               ; preds = %22
-  %28 = call noundef i32 @_ZN6google8protobuf8internal12ReadVarint32EPPKc(ptr noundef %9)
-  %29 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %12, i32 0, i32 3
-  store i32 %28, ptr %29, align 4
-  %30 = load ptr, ptr %9, align 8
+27:                                               ; preds = %19
+  %28 = call noundef i32 @_ZN6google8protobuf8internal12ReadVarint32EPPKc(ptr noundef %5)
+  %29 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %9, i32 0, i32 3
+  store i32 %28, ptr %29, align 4, !tbaa !39
+  %30 = load ptr, ptr %5, align 8, !tbaa !35
   %31 = icmp ne ptr %30, null
   %32 = xor i1 %31, true
-  br i1 %32, label %33, label %34
+  %33 = zext i1 %32 to i64
+  %34 = call i64 @llvm.expect.i64(i64 %33, i64 0)
+  %35 = icmp ne i64 %34, 0
+  br i1 %35, label %36, label %37
 
-33:                                               ; preds = %27
-  br label %126
+36:                                               ; preds = %27
+  store i32 5, ptr %8, align 4
+  br label %135
 
-34:                                               ; preds = %27
-  br label %36
+37:                                               ; preds = %27
+  br label %39
 
-35:                                               ; preds = %22
-  br label %83
+38:                                               ; preds = %19
+  br label %101
 
-36:                                               ; preds = %34
-  br label %13, !llvm.loop !6
+39:                                               ; preds = %37
+  store i32 2, ptr %8, align 4
+  br label %135, !llvm.loop !48
 
-37:                                               ; preds = %17
-  %38 = load i32, ptr %11, align 4
-  %39 = trunc i32 %38 to i8
-  %40 = zext i8 %39 to i32
-  %41 = icmp eq i32 %40, 16
-  br i1 %41, label %42, label %50
+40:                                               ; preds = %14
+  %41 = load i32, ptr %7, align 4, !tbaa !34
+  %42 = trunc i32 %41 to i8
+  %43 = zext i8 %42 to i32
+  %44 = icmp eq i32 %43, 16
+  %45 = zext i1 %44 to i64
+  %46 = call i64 @llvm.expect.i64(i64 %45, i64 1)
+  %47 = icmp ne i64 %46, 0
+  br i1 %47, label %48, label %59
 
-42:                                               ; preds = %37
-  %43 = call noundef i32 @_ZN6google8protobuf8internal12ReadVarint32EPPKc(ptr noundef %9)
-  %44 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %12, i32 0, i32 4
-  store i32 %43, ptr %44, align 8
-  %45 = load ptr, ptr %9, align 8
-  %46 = icmp ne ptr %45, null
-  %47 = xor i1 %46, true
-  br i1 %47, label %48, label %49
+48:                                               ; preds = %40
+  %49 = call noundef i32 @_ZN6google8protobuf8internal12ReadVarint32EPPKc(ptr noundef %5)
+  %50 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %9, i32 0, i32 4
+  store i32 %49, ptr %50, align 8, !tbaa !49
+  %51 = load ptr, ptr %5, align 8, !tbaa !35
+  %52 = icmp ne ptr %51, null
+  %53 = xor i1 %52, true
+  %54 = zext i1 %53 to i64
+  %55 = call i64 @llvm.expect.i64(i64 %54, i64 0)
+  %56 = icmp ne i64 %55, 0
+  br i1 %56, label %57, label %58
 
-48:                                               ; preds = %42
-  br label %126
+57:                                               ; preds = %48
+  store i32 5, ptr %8, align 4
+  br label %135
 
-49:                                               ; preds = %42
-  br label %51
+58:                                               ; preds = %48
+  br label %60
 
-50:                                               ; preds = %37
-  br label %83
+59:                                               ; preds = %40
+  br label %101
 
-51:                                               ; preds = %49
-  br label %13, !llvm.loop !6
+60:                                               ; preds = %58
+  store i32 2, ptr %8, align 4
+  br label %135, !llvm.loop !48
 
-52:                                               ; preds = %17
-  %53 = load i32, ptr %11, align 4
-  %54 = trunc i32 %53 to i8
-  %55 = zext i8 %54 to i32
-  %56 = icmp eq i32 %55, 26
-  br i1 %56, label %57, label %67
+61:                                               ; preds = %14
+  %62 = load i32, ptr %7, align 4, !tbaa !34
+  %63 = trunc i32 %62 to i8
+  %64 = zext i8 %63 to i32
+  %65 = icmp eq i32 %64, 26
+  %66 = zext i1 %65 to i64
+  %67 = call i64 @llvm.expect.i64(i64 %66, i64 1)
+  %68 = icmp ne i64 %67, 0
+  br i1 %68, label %69, label %82
 
-57:                                               ; preds = %52
-  %58 = call noundef ptr @_ZN17opencv_tensorflow10VersionDef31_internal_mutable_bad_consumersEv(ptr noundef nonnull align 8 dereferenceable(48) %12)
-  %59 = load ptr, ptr %9, align 8
-  %60 = load ptr, ptr %10, align 8
-  %61 = call noundef ptr @_ZN6google8protobuf8internal17PackedInt32ParserEPvPKcPNS1_12ParseContextE(ptr noundef %58, ptr noundef %59, ptr noundef %60)
-  store ptr %61, ptr %9, align 8
-  %62 = load ptr, ptr %9, align 8
-  %63 = icmp ne ptr %62, null
-  %64 = xor i1 %63, true
-  br i1 %64, label %65, label %66
-
-65:                                               ; preds = %57
-  br label %126
-
-66:                                               ; preds = %57
-  br label %81
-
-67:                                               ; preds = %52
-  %68 = load i32, ptr %11, align 4
-  %69 = trunc i32 %68 to i8
-  %70 = zext i8 %69 to i32
-  %71 = icmp eq i32 %70, 24
-  br i1 %71, label %72, label %79
-
-72:                                               ; preds = %67
-  %73 = call noundef i32 @_ZN6google8protobuf8internal12ReadVarint32EPPKc(ptr noundef %9)
-  call void @_ZN17opencv_tensorflow10VersionDef27_internal_add_bad_consumersEi(ptr noundef nonnull align 8 dereferenceable(48) %12, i32 noundef %73)
-  %74 = load ptr, ptr %9, align 8
+69:                                               ; preds = %61
+  %70 = call noundef ptr @_ZN17opencv_tensorflow10VersionDef31_internal_mutable_bad_consumersEv(ptr noundef nonnull align 8 dereferenceable(48) %9)
+  %71 = load ptr, ptr %5, align 8, !tbaa !35
+  %72 = load ptr, ptr %6, align 8, !tbaa !37
+  %73 = call noundef ptr @_ZN6google8protobuf8internal17PackedInt32ParserEPvPKcPNS1_12ParseContextE(ptr noundef %70, ptr noundef %71, ptr noundef %72)
+  store ptr %73, ptr %5, align 8, !tbaa !35
+  %74 = load ptr, ptr %5, align 8, !tbaa !35
   %75 = icmp ne ptr %74, null
   %76 = xor i1 %75, true
-  br i1 %76, label %77, label %78
+  %77 = zext i1 %76 to i64
+  %78 = call i64 @llvm.expect.i64(i64 %77, i64 0)
+  %79 = icmp ne i64 %78, 0
+  br i1 %79, label %80, label %81
 
-77:                                               ; preds = %72
-  br label %126
+80:                                               ; preds = %69
+  store i32 5, ptr %8, align 4
+  br label %135
 
-78:                                               ; preds = %72
-  br label %80
+81:                                               ; preds = %69
+  br label %99
 
-79:                                               ; preds = %67
-  br label %83
+82:                                               ; preds = %61
+  %83 = load i32, ptr %7, align 4, !tbaa !34
+  %84 = trunc i32 %83 to i8
+  %85 = zext i8 %84 to i32
+  %86 = icmp eq i32 %85, 24
+  br i1 %86, label %87, label %97
 
-80:                                               ; preds = %78
-  br label %81
+87:                                               ; preds = %82
+  %88 = call noundef i32 @_ZN6google8protobuf8internal12ReadVarint32EPPKc(ptr noundef %5)
+  call void @_ZN17opencv_tensorflow10VersionDef27_internal_add_bad_consumersEi(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %88)
+  %89 = load ptr, ptr %5, align 8, !tbaa !35
+  %90 = icmp ne ptr %89, null
+  %91 = xor i1 %90, true
+  %92 = zext i1 %91 to i64
+  %93 = call i64 @llvm.expect.i64(i64 %92, i64 0)
+  %94 = icmp ne i64 %93, 0
+  br i1 %94, label %95, label %96
 
-81:                                               ; preds = %80, %66
-  br label %13, !llvm.loop !6
+95:                                               ; preds = %87
+  store i32 5, ptr %8, align 4
+  br label %135
 
-82:                                               ; preds = %17
-  br label %83
+96:                                               ; preds = %87
+  br label %98
 
-83:                                               ; preds = %82, %79, %50, %35
-  %84 = load i32, ptr %11, align 4
-  %85 = icmp eq i32 %84, 0
-  br i1 %85, label %90, label %86
+97:                                               ; preds = %82
+  br label %101
 
-86:                                               ; preds = %83
-  %87 = load i32, ptr %11, align 4
-  %88 = and i32 %87, 7
-  %89 = icmp eq i32 %88, 4
-  br i1 %89, label %90, label %98
+98:                                               ; preds = %96
+  br label %99
 
-90:                                               ; preds = %86, %83
-  %91 = load ptr, ptr %9, align 8
-  %92 = icmp ne ptr %91, null
-  %93 = xor i1 %92, true
-  br i1 %93, label %94, label %95
+99:                                               ; preds = %98, %81
+  store i32 2, ptr %8, align 4
+  br label %135, !llvm.loop !48
 
-94:                                               ; preds = %90
-  br label %126
+100:                                              ; preds = %14
+  br label %101
 
-95:                                               ; preds = %90
-  %96 = load ptr, ptr %10, align 8
-  %97 = load i32, ptr %11, align 4
-  call void @_ZN6google8protobuf8internal18EpsCopyInputStream10SetLastTagEj(ptr noundef nonnull align 8 dereferenceable(88) %96, i32 noundef %97)
-  br label %124
+101:                                              ; preds = %100, %97, %59, %38
+  %102 = load i32, ptr %7, align 4, !tbaa !34
+  %103 = icmp eq i32 %102, 0
+  br i1 %103, label %108, label %104
 
-98:                                               ; preds = %86
-  %99 = load i32, ptr %11, align 4
-  %100 = zext i32 %99 to i64
-  %101 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %12, i32 0, i32 1
-  store ptr %101, ptr %7, align 8
-  %102 = load ptr, ptr %7, align 8
-  store ptr %102, ptr %5, align 8
-  %103 = load ptr, ptr %5, align 8
-  store ptr %103, ptr %4, align 8
-  %104 = load ptr, ptr %4, align 8
-  %105 = load i64, ptr %104, align 8
-  %106 = and i64 %105, 1
-  %107 = icmp ne i64 %106, 0
-  br i1 %107, label %108, label %111
+104:                                              ; preds = %101
+  %105 = load i32, ptr %7, align 4, !tbaa !34
+  %106 = and i32 %105, 7
+  %107 = icmp eq i32 %106, 4
+  br i1 %107, label %108, label %119
 
-108:                                              ; preds = %98
-  %109 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINS0_15UnknownFieldSetEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %102)
-  %110 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %109, i32 0, i32 1
-  store ptr %110, ptr %6, align 8
-  br label %113
+108:                                              ; preds = %104, %101
+  %109 = load ptr, ptr %5, align 8, !tbaa !35
+  %110 = icmp ne ptr %109, null
+  %111 = xor i1 %110, true
+  %112 = zext i1 %111 to i64
+  %113 = call i64 @llvm.expect.i64(i64 %112, i64 0)
+  %114 = icmp ne i64 %113, 0
+  br i1 %114, label %115, label %116
 
-111:                                              ; preds = %98
-  %112 = call noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %102)
-  store ptr %112, ptr %6, align 8
-  br label %113
+115:                                              ; preds = %108
+  store i32 5, ptr %8, align 4
+  br label %135
 
-113:                                              ; preds = %111, %108
-  %114 = load ptr, ptr %6, align 8
-  %115 = load ptr, ptr %9, align 8
-  %116 = load ptr, ptr %10, align 8
-  %117 = call noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(i64 noundef %100, ptr noundef %114, ptr noundef %115, ptr noundef %116)
-  store ptr %117, ptr %9, align 8
-  %118 = load ptr, ptr %9, align 8
-  %119 = icmp ne ptr %118, null
-  %120 = xor i1 %119, true
-  br i1 %120, label %121, label %122
+116:                                              ; preds = %108
+  %117 = load ptr, ptr %6, align 8, !tbaa !37
+  %118 = load i32, ptr %7, align 4, !tbaa !34
+  call void @_ZN6google8protobuf8internal18EpsCopyInputStream10SetLastTagEj(ptr noundef nonnull align 8 dereferenceable(88) %117, i32 noundef %118)
+  store i32 7, ptr %8, align 4
+  br label %135
 
-121:                                              ; preds = %113
-  br label %126
+119:                                              ; preds = %104
+  %120 = load i32, ptr %7, align 4, !tbaa !34
+  %121 = zext i32 %120 to i64
+  %122 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %9, i32 0, i32 1
+  %123 = call noundef ptr @_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %122)
+  %124 = load ptr, ptr %5, align 8, !tbaa !35
+  %125 = load ptr, ptr %6, align 8, !tbaa !37
+  %126 = call noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(i64 noundef %121, ptr noundef %123, ptr noundef %124, ptr noundef %125)
+  store ptr %126, ptr %5, align 8, !tbaa !35
+  %127 = load ptr, ptr %5, align 8, !tbaa !35
+  %128 = icmp ne ptr %127, null
+  %129 = xor i1 %128, true
+  %130 = zext i1 %129 to i64
+  %131 = call i64 @llvm.expect.i64(i64 %130, i64 0)
+  %132 = icmp ne i64 %131, 0
+  br i1 %132, label %133, label %134
 
-122:                                              ; preds = %113
-  br label %13, !llvm.loop !6
+133:                                              ; preds = %119
+  store i32 5, ptr %8, align 4
+  br label %135
 
-123:                                              ; preds = %13
-  br label %124
+134:                                              ; preds = %119
+  store i32 0, ptr %8, align 4
+  br label %135
 
-124:                                              ; preds = %126, %123, %95
-  %125 = load ptr, ptr %9, align 8
-  ret ptr %125
+135:                                              ; preds = %133, %116, %115, %95, %80, %57, %36, %134, %99, %60, %39
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  %136 = load i32, ptr %8, align 4
+  switch i32 %136, label %142 [
+    i32 0, label %137
+    i32 2, label %10
+    i32 5, label %141
+    i32 7, label %139
+  ]
 
-126:                                              ; preds = %121, %94, %77, %65, %48, %33
-  store ptr null, ptr %9, align 8
-  br label %124
+137:                                              ; preds = %135
+  br label %10, !llvm.loop !48
+
+138:                                              ; preds = %10
+  br label %139
+
+139:                                              ; preds = %141, %138, %135
+  %140 = load ptr, ptr %5, align 8, !tbaa !35
+  ret ptr %140
+
+141:                                              ; preds = %135
+  store ptr null, ptr %5, align 8, !tbaa !35
+  br label %139
+
+142:                                              ; preds = %135
+  unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf8internal12ParseContext4DoneEPPKc(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store ptr %1, ptr %4, align 8, !tbaa !50
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %5, i32 0, i32 2
-  %8 = load i32, ptr %7, align 4
+  %6 = load ptr, ptr %4, align 8, !tbaa !50
+  %7 = getelementptr inbounds nuw %"class.google::protobuf::internal::ParseContext", ptr %5, i32 0, i32 2
+  %8 = load i32, ptr %7, align 4, !tbaa !53
   %9 = call noundef zeroext i1 @_ZN6google8protobuf8internal18EpsCopyInputStream13DoneWithCheckEPPKci(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef %6, i32 noundef %8)
   ret i1 %9
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal7ReadTagEPKcPjj(ptr noundef %0, ptr noundef %1, i32 noundef %2) #4 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal7ReadTagEPKcPjj(ptr noundef %0, ptr noundef %1, i32 noundef %2) #5 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  %10 = alloca %"struct.std::pair.6", align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 0
-  %13 = load i8, ptr %12, align 1
-  %14 = zext i8 %13 to i32
-  store i32 %14, ptr %8, align 4
-  %15 = load i32, ptr %8, align 4
-  %16 = icmp ult i32 %15, 128
-  br i1 %16, label %17, label %22
+  %10 = alloca i32, align 4
+  %11 = alloca %"struct.std::pair.6", align 8
+  %12 = alloca { ptr, i32 }, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !35
+  store ptr %1, ptr %6, align 8, !tbaa !60
+  store i32 %2, ptr %7, align 4, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  %13 = load ptr, ptr %5, align 8, !tbaa !35
+  %14 = getelementptr inbounds i8, ptr %13, i64 0
+  %15 = load i8, ptr %14, align 1, !tbaa !62
+  %16 = zext i8 %15 to i32
+  store i32 %16, ptr %8, align 4, !tbaa !34
+  %17 = load i32, ptr %8, align 4, !tbaa !34
+  %18 = icmp ult i32 %17, 128
+  br i1 %18, label %19, label %24
 
-17:                                               ; preds = %3
-  %18 = load i32, ptr %8, align 4
-  %19 = load ptr, ptr %6, align 8
-  store i32 %18, ptr %19, align 4
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1
-  store ptr %21, ptr %4, align 8
-  br label %52
+19:                                               ; preds = %3
+  %20 = load i32, ptr %8, align 4, !tbaa !34
+  %21 = load ptr, ptr %6, align 8, !tbaa !60
+  store i32 %20, ptr %21, align 4, !tbaa !34
+  %22 = load ptr, ptr %5, align 8, !tbaa !35
+  %23 = getelementptr inbounds i8, ptr %22, i64 1
+  store ptr %23, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %51
 
-22:                                               ; preds = %3
-  %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 1
-  %25 = load i8, ptr %24, align 1
-  %26 = zext i8 %25 to i32
-  store i32 %26, ptr %9, align 4
-  %27 = load i32, ptr %9, align 4
-  %28 = sub i32 %27, 1
-  %29 = shl i32 %28, 7
-  %30 = load i32, ptr %8, align 4
-  %31 = add i32 %30, %29
-  store i32 %31, ptr %8, align 4
-  %32 = load i32, ptr %9, align 4
-  %33 = icmp ult i32 %32, 128
-  br i1 %33, label %34, label %39
+24:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  %25 = load ptr, ptr %5, align 8, !tbaa !35
+  %26 = getelementptr inbounds i8, ptr %25, i64 1
+  %27 = load i8, ptr %26, align 1, !tbaa !62
+  %28 = zext i8 %27 to i32
+  store i32 %28, ptr %10, align 4, !tbaa !34
+  %29 = load i32, ptr %10, align 4, !tbaa !34
+  %30 = sub i32 %29, 1
+  %31 = shl i32 %30, 7
+  %32 = load i32, ptr %8, align 4, !tbaa !34
+  %33 = add i32 %32, %31
+  store i32 %33, ptr %8, align 4, !tbaa !34
+  %34 = load i32, ptr %10, align 4, !tbaa !34
+  %35 = icmp ult i32 %34, 128
+  br i1 %35, label %36, label %41
 
-34:                                               ; preds = %22
-  %35 = load i32, ptr %8, align 4
-  %36 = load ptr, ptr %6, align 8
-  store i32 %35, ptr %36, align 4
-  %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 2
-  store ptr %38, ptr %4, align 8
-  br label %52
+36:                                               ; preds = %24
+  %37 = load i32, ptr %8, align 4, !tbaa !34
+  %38 = load ptr, ptr %6, align 8, !tbaa !60
+  store i32 %37, ptr %38, align 4, !tbaa !34
+  %39 = load ptr, ptr %5, align 8, !tbaa !35
+  %40 = getelementptr inbounds i8, ptr %39, i64 2
+  store ptr %40, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %50
 
-39:                                               ; preds = %22
-  %40 = load ptr, ptr %5, align 8
-  %41 = load i32, ptr %8, align 4
-  %42 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef %40, i32 noundef %41)
-  %43 = getelementptr inbounds { ptr, i32 }, ptr %10, i32 0, i32 0
-  %44 = extractvalue { ptr, i32 } %42, 0
-  store ptr %44, ptr %43, align 8
-  %45 = getelementptr inbounds { ptr, i32 }, ptr %10, i32 0, i32 1
-  %46 = extractvalue { ptr, i32 } %42, 1
-  store i32 %46, ptr %45, align 8
-  %47 = getelementptr inbounds %"struct.std::pair.6", ptr %10, i32 0, i32 1
-  %48 = load i32, ptr %47, align 8
-  %49 = load ptr, ptr %6, align 8
-  store i32 %48, ptr %49, align 4
-  %50 = getelementptr inbounds %"struct.std::pair.6", ptr %10, i32 0, i32 0
-  %51 = load ptr, ptr %50, align 8
-  store ptr %51, ptr %4, align 8
-  br label %52
+41:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #3
+  %42 = load ptr, ptr %5, align 8, !tbaa !35
+  %43 = load i32, ptr %8, align 4, !tbaa !34
+  %44 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef %42, i32 noundef %43)
+  store { ptr, i32 } %44, ptr %12, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %12, i64 12, i1 false)
+  %45 = getelementptr inbounds nuw %"struct.std::pair.6", ptr %11, i32 0, i32 1
+  %46 = load i32, ptr %45, align 8, !tbaa !63
+  %47 = load ptr, ptr %6, align 8, !tbaa !60
+  store i32 %46, ptr %47, align 4, !tbaa !34
+  %48 = getelementptr inbounds nuw %"struct.std::pair.6", ptr %11, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8, !tbaa !65
+  store ptr %49, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #3
+  br label %50
 
-52:                                               ; preds = %39, %34, %17
-  %53 = load ptr, ptr %4, align 8
-  ret ptr %53
+50:                                               ; preds = %41, %36
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  br label %51
+
+51:                                               ; preds = %50, %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  %52 = load ptr, ptr %4, align 8
+  ret ptr %52
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZN6google8protobuf8internal12ReadVarint32EPPKc(ptr noundef %0) #4 comdat {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #14
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef i32 @_ZN6google8protobuf8internal12ReadVarint32EPPKc(ptr noundef %0) #5 comdat {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !50
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #3
+  %4 = load ptr, ptr %2, align 8, !tbaa !50
+  %5 = load ptr, ptr %4, align 8, !tbaa !35
   %6 = call noundef ptr @_ZN6google8protobuf8internal11VarintParseIjEEPKcS4_PT_(ptr noundef %5, ptr noundef %3)
-  %7 = load ptr, ptr %2, align 8
-  store ptr %6, ptr %7, align 8
-  %8 = load i32, ptr %3, align 4
+  %7 = load ptr, ptr %2, align 8, !tbaa !50
+  store ptr %6, ptr %7, align 8, !tbaa !35
+  %8 = load i32, ptr %3, align 4, !tbaa !34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #3
   ret i32 %8
 }
 
 declare noundef ptr @_ZN6google8protobuf8internal17PackedInt32ParserEPvPKcPNS1_12ParseContextE(ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZN17opencv_tensorflow10VersionDef31_internal_mutable_bad_consumersEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN17opencv_tensorflow10VersionDef31_internal_mutable_bad_consumersEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #6 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %3, i32 0, i32 1
   ret ptr %4
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN17opencv_tensorflow10VersionDef27_internal_add_bad_consumersEi(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN17opencv_tensorflow10VersionDef27_internal_add_bad_consumersEi(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) #5 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !34
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %5, i32 0, i32 1
+  %6 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %5, i32 0, i32 1
   call void @_ZN6google8protobuf13RepeatedFieldIiE3AddERKi(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf8internal18EpsCopyInputStream10SetLastTagEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1) #5 comdat align 2 {
+define linkonce_odr hidden void @_ZN6google8protobuf8internal18EpsCopyInputStream10SetLastTagEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1) #7 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !66
+  store i32 %1, ptr %4, align 4, !tbaa !34
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
+  %6 = load i32, ptr %4, align 4, !tbaa !34
   %7 = sub i32 %6, 1
-  %8 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %5, i32 0, i32 8
-  store i32 %7, ptr %8, align 8
+  %8 = getelementptr inbounds nuw %"class.google::protobuf::internal::EpsCopyInputStream", ptr %5, i32 0, i32 8
+  store i32 %7, ptr %8, align 8, !tbaa !68
   ret void
 }
 
 declare noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(i64 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !29
+  %4 = load ptr, ptr %3, align 8
+  %5 = call noundef zeroext i1 @_ZNK6google8protobuf8internal16InternalMetadata19have_unknown_fieldsEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %6 = zext i1 %5 to i64
+  %7 = call i64 @llvm.expect.i64(i64 %6, i64 1)
+  %8 = icmp ne i64 %7, 0
+  br i1 %8, label %9, label %12
+
+9:                                                ; preds = %1
+  %10 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINS0_15UnknownFieldSetEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %11 = getelementptr inbounds nuw %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %10, i32 0, i32 1
+  store ptr %11, ptr %2, align 8
+  br label %14
+
+12:                                               ; preds = %1
+  %13 = call noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  store ptr %13, ptr %2, align 8
+  br label %14
+
+14:                                               ; preds = %12, %9
+  %15 = load ptr, ptr %2, align 8
+  ret ptr %15
+}
+
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK17opencv_tensorflow10VersionDef18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca i32, align 4
+define hidden noundef ptr @_ZNK17opencv_tensorflow10VersionDef18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 2 {
+  %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca i32, align 4
-  %11 = alloca i32, align 4
-  %12 = alloca ptr, align 8
-  %13 = alloca ptr, align 8
-  %14 = alloca i32, align 4
-  %15 = alloca i32, align 4
-  %16 = alloca ptr, align 8
-  %17 = alloca ptr, align 8
-  %18 = alloca i64, align 8
-  %19 = alloca ptr, align 8
-  %20 = alloca ptr, align 8
-  %21 = alloca i32, align 4
-  %22 = alloca ptr, align 8
-  %23 = alloca i32, align 4
-  %24 = alloca ptr, align 8
-  %25 = alloca ptr, align 8
-  %26 = alloca ptr, align 8
-  %27 = alloca ptr, align 8
-  %28 = alloca ptr, align 8
-  %29 = alloca ptr, align 8
-  %30 = alloca i32, align 4
-  %31 = alloca ptr, align 8
-  %32 = alloca i32, align 4
-  %33 = alloca ptr, align 8
-  %34 = alloca i32, align 4
-  %35 = alloca ptr, align 8
-  %36 = alloca i32, align 4
-  %37 = alloca ptr, align 8
-  %38 = alloca i32, align 4
-  %39 = alloca i32, align 4
-  %40 = alloca ptr, align 8
-  %41 = alloca i32, align 4
-  %42 = alloca i32, align 4
-  %43 = alloca ptr, align 8
-  %44 = alloca ptr, align 8
-  %45 = alloca ptr, align 8
-  %46 = alloca ptr, align 8
-  %47 = alloca ptr, align 8
-  %48 = alloca ptr, align 8
-  %49 = alloca ptr, align 8
-  %50 = alloca i32, align 4
-  %51 = alloca ptr, align 8
-  %52 = alloca i32, align 4
-  %53 = alloca ptr, align 8
-  %54 = alloca ptr, align 8
-  %55 = alloca i32, align 4
-  %56 = alloca i32, align 4
-  %57 = alloca i32, align 4
-  %58 = alloca i32, align 4
-  %59 = alloca i32, align 4
-  %60 = alloca ptr, align 8
-  %61 = alloca i32, align 4
-  %62 = alloca i32, align 4
-  %63 = alloca ptr, align 8
-  %64 = alloca ptr, align 8
-  %65 = alloca ptr, align 8
-  %66 = alloca ptr, align 8
-  %67 = alloca i32, align 4
-  %68 = alloca i32, align 4
-  store ptr %0, ptr %64, align 8
-  store ptr %1, ptr %65, align 8
-  store ptr %2, ptr %66, align 8
-  %69 = load ptr, ptr %64, align 8
-  store i32 0, ptr %67, align 4
-  %70 = call noundef i32 @_ZNK17opencv_tensorflow10VersionDef18_internal_producerEv(ptr noundef nonnull align 8 dereferenceable(48) %69)
-  %71 = icmp ne i32 %70, 0
-  br i1 %71, label %72, label %92
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !35
+  store ptr %2, ptr %6, align 8, !tbaa !69
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  store i32 0, ptr %7, align 4, !tbaa !34
+  %10 = call noundef i32 @_ZNK17opencv_tensorflow10VersionDef18_internal_producerEv(ptr noundef nonnull align 8 dereferenceable(48) %9)
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %19
 
-72:                                               ; preds = %3
-  %73 = load ptr, ptr %66, align 8
-  %74 = load ptr, ptr %65, align 8
-  %75 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh(ptr noundef nonnull align 8 dereferenceable(59) %73, ptr noundef %74)
-  store ptr %75, ptr %65, align 8
-  %76 = call noundef i32 @_ZNK17opencv_tensorflow10VersionDef18_internal_producerEv(ptr noundef nonnull align 8 dereferenceable(48) %69)
-  %77 = load ptr, ptr %65, align 8
-  store i32 1, ptr %58, align 4
-  store i32 %76, ptr %59, align 4
-  store ptr %77, ptr %60, align 8
-  %78 = load i32, ptr %58, align 4
-  %79 = load ptr, ptr %60, align 8
-  store i32 %78, ptr %41, align 4
-  store i32 0, ptr %42, align 4
-  store ptr %79, ptr %43, align 8
-  %80 = load i32, ptr %41, align 4
-  %81 = load i32, ptr %42, align 4
-  %82 = call noundef i32 @_ZN6google8protobuf8internal14WireFormatLite7MakeTagEiNS2_8WireTypeE(i32 noundef %80, i32 noundef %81)
-  %83 = load ptr, ptr %43, align 8
-  store i32 %82, ptr %30, align 4
-  store ptr %83, ptr %31, align 8
-  %84 = load i32, ptr %30, align 4
-  %85 = load ptr, ptr %31, align 8
-  %86 = call noundef ptr @_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh(i32 noundef %84, ptr noundef %85)
-  store ptr %86, ptr %60, align 8
-  %87 = load i32, ptr %59, align 4
-  %88 = load ptr, ptr %60, align 8
-  store i32 %87, ptr %36, align 4
-  store ptr %88, ptr %37, align 8
-  %89 = load i32, ptr %36, align 4
-  %90 = load ptr, ptr %37, align 8
-  %91 = call noundef ptr @_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh(i32 noundef %89, ptr noundef %90)
-  store ptr %91, ptr %65, align 8
-  br label %92
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %6, align 8, !tbaa !69
+  %14 = load ptr, ptr %5, align 8, !tbaa !35
+  %15 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh(ptr noundef nonnull align 8 dereferenceable(59) %13, ptr noundef %14)
+  store ptr %15, ptr %5, align 8, !tbaa !35
+  %16 = call noundef i32 @_ZNK17opencv_tensorflow10VersionDef18_internal_producerEv(ptr noundef nonnull align 8 dereferenceable(48) %9)
+  %17 = load ptr, ptr %5, align 8, !tbaa !35
+  %18 = call noundef ptr @_ZN6google8protobuf8internal14WireFormatLite17WriteInt32ToArrayEiiPh(i32 noundef 1, i32 noundef %16, ptr noundef %17)
+  store ptr %18, ptr %5, align 8, !tbaa !35
+  br label %19
 
-92:                                               ; preds = %72, %3
-  %93 = call noundef i32 @_ZNK17opencv_tensorflow10VersionDef22_internal_min_consumerEv(ptr noundef nonnull align 8 dereferenceable(48) %69)
-  %94 = icmp ne i32 %93, 0
-  br i1 %94, label %95, label %115
+19:                                               ; preds = %12, %3
+  %20 = call noundef i32 @_ZNK17opencv_tensorflow10VersionDef22_internal_min_consumerEv(ptr noundef nonnull align 8 dereferenceable(48) %9)
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %29
 
-95:                                               ; preds = %92
-  %96 = load ptr, ptr %66, align 8
-  %97 = load ptr, ptr %65, align 8
-  %98 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh(ptr noundef nonnull align 8 dereferenceable(59) %96, ptr noundef %97)
-  store ptr %98, ptr %65, align 8
-  %99 = call noundef i32 @_ZNK17opencv_tensorflow10VersionDef22_internal_min_consumerEv(ptr noundef nonnull align 8 dereferenceable(48) %69)
-  %100 = load ptr, ptr %65, align 8
-  store i32 2, ptr %61, align 4
-  store i32 %99, ptr %62, align 4
-  store ptr %100, ptr %63, align 8
-  %101 = load i32, ptr %61, align 4
-  %102 = load ptr, ptr %63, align 8
-  store i32 %101, ptr %38, align 4
-  store i32 0, ptr %39, align 4
-  store ptr %102, ptr %40, align 8
-  %103 = load i32, ptr %38, align 4
-  %104 = load i32, ptr %39, align 4
-  %105 = call noundef i32 @_ZN6google8protobuf8internal14WireFormatLite7MakeTagEiNS2_8WireTypeE(i32 noundef %103, i32 noundef %104)
-  %106 = load ptr, ptr %40, align 8
-  store i32 %105, ptr %32, align 4
-  store ptr %106, ptr %33, align 8
-  %107 = load i32, ptr %32, align 4
-  %108 = load ptr, ptr %33, align 8
-  %109 = call noundef ptr @_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh(i32 noundef %107, ptr noundef %108)
-  store ptr %109, ptr %63, align 8
-  %110 = load i32, ptr %62, align 4
-  %111 = load ptr, ptr %63, align 8
-  store i32 %110, ptr %34, align 4
-  store ptr %111, ptr %35, align 8
-  %112 = load i32, ptr %34, align 4
-  %113 = load ptr, ptr %35, align 8
-  %114 = call noundef ptr @_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh(i32 noundef %112, ptr noundef %113)
-  store ptr %114, ptr %65, align 8
-  br label %115
+22:                                               ; preds = %19
+  %23 = load ptr, ptr %6, align 8, !tbaa !69
+  %24 = load ptr, ptr %5, align 8, !tbaa !35
+  %25 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh(ptr noundef nonnull align 8 dereferenceable(59) %23, ptr noundef %24)
+  store ptr %25, ptr %5, align 8, !tbaa !35
+  %26 = call noundef i32 @_ZNK17opencv_tensorflow10VersionDef22_internal_min_consumerEv(ptr noundef nonnull align 8 dereferenceable(48) %9)
+  %27 = load ptr, ptr %5, align 8, !tbaa !35
+  %28 = call noundef ptr @_ZN6google8protobuf8internal14WireFormatLite17WriteInt32ToArrayEiiPh(i32 noundef 2, i32 noundef %26, ptr noundef %27)
+  store ptr %28, ptr %5, align 8, !tbaa !35
+  br label %29
 
-115:                                              ; preds = %95, %92
-  %116 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %69, i32 0, i32 2
-  store ptr %116, ptr %54, align 8
-  store i32 0, ptr %55, align 4
-  %117 = load ptr, ptr %54, align 8
-  %118 = load i32, ptr %55, align 4
-  %119 = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %118, i32 noundef 65535)
-          to label %120 unwind label %128
+29:                                               ; preds = %22, %19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  %30 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %9, i32 0, i32 2
+  %31 = call noundef i32 @_ZNKSt13__atomic_baseIiE4loadESt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %30, i32 noundef 0) #3
+  store i32 %31, ptr %8, align 4, !tbaa !34
+  %32 = load i32, ptr %8, align 4, !tbaa !34
+  %33 = icmp sgt i32 %32, 0
+  br i1 %33, label %34, label %40
 
-120:                                              ; preds = %115
-  store i32 %119, ptr %56, align 4
-  %121 = load i32, ptr %55, align 4
-  switch i32 %121, label %122 [
-    i32 1, label %124
-    i32 2, label %124
-    i32 5, label %126
-  ]
+34:                                               ; preds = %29
+  %35 = load ptr, ptr %6, align 8, !tbaa !69
+  %36 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK17opencv_tensorflow10VersionDef23_internal_bad_consumersEv(ptr noundef nonnull align 8 dereferenceable(48) %9)
+  %37 = load i32, ptr %8, align 4, !tbaa !34
+  %38 = load ptr, ptr %5, align 8, !tbaa !35
+  %39 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteInt32PackedINS0_13RepeatedFieldIiEEEEPhiRKT_iS6_(ptr noundef nonnull align 8 dereferenceable(59) %35, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %36, i32 noundef %37, ptr noundef %38)
+  store ptr %39, ptr %5, align 8, !tbaa !35
+  br label %40
 
-122:                                              ; preds = %120
-  %123 = load atomic i32, ptr %117 monotonic, align 4
-  store i32 %123, ptr %57, align 4
-  br label %131
+40:                                               ; preds = %34, %29
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  %41 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %9, i32 0, i32 1
+  %42 = call noundef zeroext i1 @_ZNK6google8protobuf8internal16InternalMetadata19have_unknown_fieldsEv(ptr noundef nonnull align 8 dereferenceable(8) %41)
+  %43 = zext i1 %42 to i64
+  %44 = call i64 @llvm.expect.i64(i64 %43, i64 0)
+  %45 = icmp ne i64 %44, 0
+  br i1 %45, label %46, label %52
 
-124:                                              ; preds = %120, %120
-  %125 = load atomic i32, ptr %117 acquire, align 4
-  store i32 %125, ptr %57, align 4
-  br label %131
+46:                                               ; preds = %40
+  %47 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %9, i32 0, i32 1
+  %48 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef @_ZN6google8protobuf15UnknownFieldSet16default_instanceEv)
+  %49 = load ptr, ptr %5, align 8, !tbaa !35
+  %50 = load ptr, ptr %6, align 8, !tbaa !69
+  %51 = call noundef ptr @_ZN6google8protobuf8internal10WireFormat37InternalSerializeUnknownFieldsToArrayERKNS0_15UnknownFieldSetEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef %49, ptr noundef %50)
+  store ptr %51, ptr %5, align 8, !tbaa !35
+  br label %52
 
-126:                                              ; preds = %120
-  %127 = load atomic i32, ptr %117 seq_cst, align 4
-  store i32 %127, ptr %57, align 4
-  br label %131
-
-128:                                              ; preds = %115
-  %129 = landingpad { ptr, i32 }
-          catch ptr null
-  %130 = extractvalue { ptr, i32 } %129, 0
-  call void @__clang_call_terminate(ptr %130) #12
-  unreachable
-
-131:                                              ; preds = %126, %124, %122
-  %132 = load i32, ptr %57, align 4
-  store i32 %132, ptr %68, align 4
-  %133 = load i32, ptr %68, align 4
-  %134 = icmp sgt i32 %133, 0
-  br i1 %134, label %135, label %297
-
-135:                                              ; preds = %131
-  %136 = load ptr, ptr %66, align 8
-  %137 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK17opencv_tensorflow10VersionDef23_internal_bad_consumersEv(ptr noundef nonnull align 8 dereferenceable(48) %69)
-  %138 = load i32, ptr %68, align 4
-  %139 = load ptr, ptr %65, align 8
-  store ptr %136, ptr %49, align 8
-  store i32 3, ptr %50, align 4
-  store ptr %137, ptr %51, align 8
-  store i32 %138, ptr %52, align 4
-  store ptr %139, ptr %53, align 8
-  %140 = load ptr, ptr %49, align 8
-  %141 = load i32, ptr %50, align 4
-  %142 = load ptr, ptr %51, align 8
-  %143 = load i32, ptr %52, align 4
-  %144 = load ptr, ptr %53, align 8
-  store ptr %140, ptr %20, align 8
-  store i32 %141, ptr %21, align 4
-  store ptr %142, ptr %22, align 8
-  store i32 %143, ptr %23, align 4
-  store ptr %144, ptr %24, align 8
-  store ptr @_ZN6google8protobuf2io19EpsCopyOutputStream8Encode64Em, ptr %25, align 8
-  %145 = load ptr, ptr %20, align 8
-  %146 = load ptr, ptr %24, align 8
-  %147 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh(ptr noundef nonnull align 8 dereferenceable(59) %145, ptr noundef %146)
-  store ptr %147, ptr %24, align 8
-  %148 = load i32, ptr %21, align 4
-  %149 = load i32, ptr %23, align 4
-  %150 = load ptr, ptr %24, align 8
-  store ptr %145, ptr %13, align 8
-  store i32 %148, ptr %14, align 4
-  store i32 %149, ptr %15, align 4
-  store ptr %150, ptr %16, align 8
-  %151 = load ptr, ptr %13, align 8
-  %152 = load i32, ptr %14, align 4
-  %153 = load ptr, ptr %16, align 8
-  store ptr %151, ptr %9, align 8
-  store i32 %152, ptr %10, align 4
-  store i32 2, ptr %11, align 4
-  store ptr %153, ptr %12, align 8
-  %154 = load i32, ptr %10, align 4
-  %155 = shl i32 %154, 3
-  %156 = load i32, ptr %11, align 4
-  %157 = or i32 %155, %156
-  %158 = load ptr, ptr %12, align 8
-  store i32 %157, ptr %7, align 4
-  store ptr %158, ptr %8, align 8
-  %159 = load i32, ptr %7, align 4
-  %160 = trunc i32 %159 to i8
-  %161 = load ptr, ptr %8, align 8
-  store i8 %160, ptr %161, align 1
-  %162 = load i32, ptr %7, align 4
-  %163 = icmp ult i32 %162, 128
-  br i1 %163, label %164, label %167
-
-164:                                              ; preds = %135
-  %165 = load ptr, ptr %8, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 1
-  store ptr %166, ptr %6, align 8
-  br label %205
-
-167:                                              ; preds = %135
-  %168 = load ptr, ptr %8, align 8
-  %169 = load i8, ptr %168, align 1
-  %170 = zext i8 %169 to i32
-  %171 = or i32 %170, 128
-  %172 = trunc i32 %171 to i8
-  store i8 %172, ptr %168, align 1
-  %173 = load i32, ptr %7, align 4
-  %174 = lshr i32 %173, 7
-  store i32 %174, ptr %7, align 4
-  %175 = load i32, ptr %7, align 4
-  %176 = trunc i32 %175 to i8
-  %177 = load ptr, ptr %8, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 1
-  store i8 %176, ptr %178, align 1
-  %179 = load i32, ptr %7, align 4
-  %180 = icmp ult i32 %179, 128
-  br i1 %180, label %181, label %184
-
-181:                                              ; preds = %167
-  %182 = load ptr, ptr %8, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 2
-  store ptr %183, ptr %6, align 8
-  br label %205
-
-184:                                              ; preds = %167
-  %185 = load ptr, ptr %8, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 2
-  store ptr %186, ptr %8, align 8
-  br label %187
-
-187:                                              ; preds = %187, %184
-  %188 = load ptr, ptr %8, align 8
-  %189 = getelementptr inbounds i8, ptr %188, i64 -1
-  %190 = load i8, ptr %189, align 1
-  %191 = zext i8 %190 to i32
-  %192 = or i32 %191, 128
-  %193 = trunc i32 %192 to i8
-  store i8 %193, ptr %189, align 1
-  %194 = load i32, ptr %7, align 4
-  %195 = lshr i32 %194, 7
-  store i32 %195, ptr %7, align 4
-  %196 = load i32, ptr %7, align 4
-  %197 = trunc i32 %196 to i8
-  %198 = load ptr, ptr %8, align 8
-  store i8 %197, ptr %198, align 1
-  %199 = load ptr, ptr %8, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i32 1
-  store ptr %200, ptr %8, align 8
-  %201 = load i32, ptr %7, align 4
-  %202 = icmp uge i32 %201, 128
-  br i1 %202, label %187, label %203, !llvm.loop !7
-
-203:                                              ; preds = %187
-  %204 = load ptr, ptr %8, align 8
-  store ptr %204, ptr %6, align 8
-  br label %205
-
-205:                                              ; preds = %203, %181, %164
-  %206 = load ptr, ptr %6, align 8
-  store ptr %206, ptr %16, align 8
-  %207 = load i32, ptr %15, align 4
-  %208 = load ptr, ptr %16, align 8
-  store i32 %207, ptr %4, align 4
-  store ptr %208, ptr %5, align 8
-  br label %209
-
-209:                                              ; preds = %212, %205
-  %210 = load i32, ptr %4, align 4
-  %211 = icmp uge i32 %210, 128
-  br i1 %211, label %212, label %221
-
-212:                                              ; preds = %209
-  %213 = load i32, ptr %4, align 4
-  %214 = or i32 %213, 128
-  %215 = trunc i32 %214 to i8
-  %216 = load ptr, ptr %5, align 8
-  store i8 %215, ptr %216, align 1
-  %217 = load i32, ptr %4, align 4
-  %218 = lshr i32 %217, 7
-  store i32 %218, ptr %4, align 4
-  %219 = load ptr, ptr %5, align 8
-  %220 = getelementptr inbounds i8, ptr %219, i32 1
-  store ptr %220, ptr %5, align 8
-  br label %209, !llvm.loop !8
-
-221:                                              ; preds = %209
-  %222 = load i32, ptr %4, align 4
-  %223 = trunc i32 %222 to i8
-  %224 = load ptr, ptr %5, align 8
-  %225 = getelementptr inbounds i8, ptr %224, i32 1
-  store ptr %225, ptr %5, align 8
-  store i8 %223, ptr %224, align 1
-  %226 = load ptr, ptr %5, align 8
-  store ptr %226, ptr %24, align 8
-  %227 = load ptr, ptr %22, align 8
-  %228 = call noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %227)
-  store ptr %228, ptr %26, align 8
-  %229 = load ptr, ptr %26, align 8
-  %230 = load ptr, ptr %22, align 8
-  %231 = call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %230)
-  %232 = sext i32 %231 to i64
-  %233 = getelementptr inbounds i32, ptr %229, i64 %232
-  store ptr %233, ptr %27, align 8
-  br label %234
-
-234:                                              ; preds = %290, %221
-  %235 = load ptr, ptr %24, align 8
-  %236 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh(ptr noundef nonnull align 8 dereferenceable(59) %145, ptr noundef %235)
-  store ptr %236, ptr %24, align 8
-  %237 = load ptr, ptr %25, align 8
-  %238 = load ptr, ptr %26, align 8
-  %239 = getelementptr inbounds i32, ptr %238, i32 1
-  store ptr %239, ptr %26, align 8
-  %240 = load i32, ptr %238, align 4
-  %241 = sext i32 %240 to i64
-  %242 = call noundef i64 %237(i64 noundef %241)
-  %243 = load ptr, ptr %24, align 8
-  store i64 %242, ptr %18, align 8
-  store ptr %243, ptr %19, align 8
-  %244 = load i64, ptr %18, align 8
-  %245 = trunc i64 %244 to i8
-  %246 = load ptr, ptr %19, align 8
-  store i8 %245, ptr %246, align 1
-  %247 = load i64, ptr %18, align 8
-  %248 = icmp ult i64 %247, 128
-  br i1 %248, label %249, label %252
-
-249:                                              ; preds = %234
-  %250 = load ptr, ptr %19, align 8
-  %251 = getelementptr inbounds i8, ptr %250, i64 1
-  store ptr %251, ptr %17, align 8
-  br label %290
-
-252:                                              ; preds = %234
-  %253 = load ptr, ptr %19, align 8
-  %254 = load i8, ptr %253, align 1
-  %255 = zext i8 %254 to i32
-  %256 = or i32 %255, 128
-  %257 = trunc i32 %256 to i8
-  store i8 %257, ptr %253, align 1
-  %258 = load i64, ptr %18, align 8
-  %259 = lshr i64 %258, 7
-  store i64 %259, ptr %18, align 8
-  %260 = load i64, ptr %18, align 8
-  %261 = trunc i64 %260 to i8
-  %262 = load ptr, ptr %19, align 8
-  %263 = getelementptr inbounds i8, ptr %262, i64 1
-  store i8 %261, ptr %263, align 1
-  %264 = load i64, ptr %18, align 8
-  %265 = icmp ult i64 %264, 128
-  br i1 %265, label %266, label %269
-
-266:                                              ; preds = %252
-  %267 = load ptr, ptr %19, align 8
-  %268 = getelementptr inbounds i8, ptr %267, i64 2
-  store ptr %268, ptr %17, align 8
-  br label %290
-
-269:                                              ; preds = %252
-  %270 = load ptr, ptr %19, align 8
-  %271 = getelementptr inbounds i8, ptr %270, i64 2
-  store ptr %271, ptr %19, align 8
-  br label %272
-
-272:                                              ; preds = %272, %269
-  %273 = load ptr, ptr %19, align 8
-  %274 = getelementptr inbounds i8, ptr %273, i64 -1
-  %275 = load i8, ptr %274, align 1
-  %276 = zext i8 %275 to i32
-  %277 = or i32 %276, 128
-  %278 = trunc i32 %277 to i8
-  store i8 %278, ptr %274, align 1
-  %279 = load i64, ptr %18, align 8
-  %280 = lshr i64 %279, 7
-  store i64 %280, ptr %18, align 8
-  %281 = load i64, ptr %18, align 8
-  %282 = trunc i64 %281 to i8
-  %283 = load ptr, ptr %19, align 8
-  store i8 %282, ptr %283, align 1
-  %284 = load ptr, ptr %19, align 8
-  %285 = getelementptr inbounds i8, ptr %284, i32 1
-  store ptr %285, ptr %19, align 8
-  %286 = load i64, ptr %18, align 8
-  %287 = icmp uge i64 %286, 128
-  br i1 %287, label %272, label %288, !llvm.loop !9
-
-288:                                              ; preds = %272
-  %289 = load ptr, ptr %19, align 8
-  store ptr %289, ptr %17, align 8
-  br label %290
-
-290:                                              ; preds = %288, %266, %249
-  %291 = load ptr, ptr %17, align 8
-  store ptr %291, ptr %24, align 8
-  %292 = load ptr, ptr %26, align 8
-  %293 = load ptr, ptr %27, align 8
-  %294 = icmp ult ptr %292, %293
-  br i1 %294, label %234, label %295, !llvm.loop !10
-
-295:                                              ; preds = %290
-  %296 = load ptr, ptr %24, align 8
-  store ptr %296, ptr %65, align 8
-  br label %297
-
-297:                                              ; preds = %295, %131
-  %298 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %69, i32 0, i32 1
-  store ptr %298, ptr %48, align 8
-  %299 = load ptr, ptr %48, align 8
-  store ptr %299, ptr %28, align 8
-  %300 = load ptr, ptr %28, align 8
-  %301 = load i64, ptr %300, align 8
-  %302 = and i64 %301, 1
-  %303 = icmp ne i64 %302, 0
-  br i1 %303, label %304, label %323
-
-304:                                              ; preds = %297
-  %305 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %69, i32 0, i32 1
-  store ptr %305, ptr %46, align 8
-  store ptr @_ZN6google8protobuf15UnknownFieldSet16default_instanceEv, ptr %47, align 8
-  %306 = load ptr, ptr %46, align 8
-  store ptr %306, ptr %44, align 8
-  %307 = load ptr, ptr %44, align 8
-  store ptr %307, ptr %29, align 8
-  %308 = load ptr, ptr %29, align 8
-  %309 = load i64, ptr %308, align 8
-  %310 = and i64 %309, 1
-  %311 = icmp ne i64 %310, 0
-  br i1 %311, label %312, label %315
-
-312:                                              ; preds = %304
-  %313 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINS0_15UnknownFieldSetEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %306)
-  %314 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %313, i32 0, i32 1
-  store ptr %314, ptr %45, align 8
-  br label %318
-
-315:                                              ; preds = %304
-  %316 = load ptr, ptr %47, align 8
-  %317 = call noundef nonnull align 8 dereferenceable(24) ptr %316()
-  store ptr %317, ptr %45, align 8
-  br label %318
-
-318:                                              ; preds = %315, %312
-  %319 = load ptr, ptr %45, align 8
-  %320 = load ptr, ptr %65, align 8
-  %321 = load ptr, ptr %66, align 8
-  %322 = call noundef ptr @_ZN6google8protobuf8internal10WireFormat37InternalSerializeUnknownFieldsToArrayERKNS0_15UnknownFieldSetEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %319, ptr noundef %320, ptr noundef %321)
-  store ptr %322, ptr %65, align 8
-  br label %323
-
-323:                                              ; preds = %318, %297
-  %324 = load ptr, ptr %65, align 8
-  ret ptr %324
+52:                                               ; preds = %46, %40
+  %53 = load ptr, ptr %5, align 8, !tbaa !35
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  ret ptr %53
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZNK17opencv_tensorflow10VersionDef18_internal_producerEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNK17opencv_tensorflow10VersionDef18_internal_producerEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #6 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %3, i32 0, i32 3
-  %5 = load i32, ptr %4, align 4
+  %4 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %3, i32 0, i32 3
+  %5 = load i32, ptr %4, align 4, !tbaa !39
   ret i32 %5
 }
 
@@ -1847,185 +1549,381 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStr
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !69
+  store ptr %1, ptr %5, align 8, !tbaa !35
   %6 = load ptr, ptr %4, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %6, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
+  %7 = load ptr, ptr %5, align 8, !tbaa !35
+  %8 = getelementptr inbounds nuw %"class.google::protobuf::io::EpsCopyOutputStream", ptr %6, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !71
   %10 = icmp uge ptr %7, %9
-  br i1 %10, label %11, label %14
-
-11:                                               ; preds = %2
-  %12 = load ptr, ptr %5, align 8
-  %13 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %6, ptr noundef %12)
-  store ptr %13, ptr %3, align 8
-  br label %16
+  %11 = zext i1 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %17
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr %5, align 8
-  store ptr %15, ptr %3, align 8
-  br label %16
+  %15 = load ptr, ptr %5, align 8, !tbaa !35
+  %16 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %6, ptr noundef %15)
+  store ptr %16, ptr %3, align 8
+  br label %19
 
-16:                                               ; preds = %14, %11
-  %17 = load ptr, ptr %3, align 8
-  ret ptr %17
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %5, align 8, !tbaa !35
+  store ptr %18, ptr %3, align 8
+  br label %19
+
+19:                                               ; preds = %17, %14
+  %20 = load ptr, ptr %3, align 8
+  ret ptr %20
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZNK17opencv_tensorflow10VersionDef22_internal_min_consumerEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #5 comdat align 2 {
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal14WireFormatLite17WriteInt32ToArrayEiiPh(i32 noundef %0, i32 noundef %1, ptr noundef %2) #8 comdat align 2 {
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store i32 %0, ptr %4, align 4, !tbaa !34
+  store i32 %1, ptr %5, align 4, !tbaa !34
+  store ptr %2, ptr %6, align 8, !tbaa !35
+  %7 = load i32, ptr %4, align 4, !tbaa !34
+  %8 = load ptr, ptr %6, align 8, !tbaa !35
+  %9 = call noundef ptr @_ZN6google8protobuf8internal14WireFormatLite15WriteTagToArrayEiNS2_8WireTypeEPh(i32 noundef %7, i32 noundef 0, ptr noundef %8)
+  store ptr %9, ptr %6, align 8, !tbaa !35
+  %10 = load i32, ptr %5, align 4, !tbaa !34
+  %11 = load ptr, ptr %6, align 8, !tbaa !35
+  %12 = call noundef ptr @_ZN6google8protobuf8internal14WireFormatLite22WriteInt32NoTagToArrayEiPh(i32 noundef %10, ptr noundef %11)
+  ret ptr %12
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNK17opencv_tensorflow10VersionDef22_internal_min_consumerEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #6 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %3, i32 0, i32 4
-  %5 = load i32, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %3, i32 0, i32 4
+  %5 = load i32, ptr %4, align 8, !tbaa !49
   ret i32 %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK17opencv_tensorflow10VersionDef23_internal_bad_consumersEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #5 comdat align 2 {
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNKSt13__atomic_baseIiE4loadESt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !74
+  store i32 %1, ptr %4, align 4, !tbaa !76
+  %7 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
+  %8 = load i32, ptr %4, align 4, !tbaa !76
+  %9 = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %8, i32 noundef 65535)
+          to label %10 unwind label %27
+
+10:                                               ; preds = %2
+  store i32 %9, ptr %5, align 4, !tbaa !76
+  br label %11
+
+11:                                               ; preds = %10
+  br label %12
+
+12:                                               ; preds = %11
+  br label %13
+
+13:                                               ; preds = %12
+  br label %14
+
+14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %14
+  br label %16
+
+16:                                               ; preds = %15
+  %17 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %7, i32 0, i32 0
+  %18 = load i32, ptr %4, align 4, !tbaa !76
+  switch i32 %18, label %19 [
+    i32 1, label %21
+    i32 2, label %21
+    i32 5, label %23
+  ]
+
+19:                                               ; preds = %16
+  %20 = load atomic i32, ptr %17 monotonic, align 4
+  store i32 %20, ptr %6, align 4
+  br label %25
+
+21:                                               ; preds = %16, %16
+  %22 = load atomic i32, ptr %17 acquire, align 4
+  store i32 %22, ptr %6, align 4
+  br label %25
+
+23:                                               ; preds = %16
+  %24 = load atomic i32, ptr %17 seq_cst, align 4
+  store i32 %24, ptr %6, align 4
+  br label %25
+
+25:                                               ; preds = %23, %21, %19
+  %26 = load i32, ptr %6, align 4, !tbaa !34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
+  ret i32 %26
+
+27:                                               ; preds = %2
+  %28 = landingpad { ptr, i32 }
+          catch ptr null
+  %29 = extractvalue { ptr, i32 } %28, 0
+  call void @__clang_call_terminate(ptr %29) #19
+  unreachable
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteInt32PackedINS0_13RepeatedFieldIiEEEEPhiRKT_iS6_(ptr noundef nonnull align 8 dereferenceable(59) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %3, ptr noundef %4) #8 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !69
+  store i32 %1, ptr %7, align 4, !tbaa !34
+  store ptr %2, ptr %8, align 8, !tbaa !18
+  store i32 %3, ptr %9, align 4, !tbaa !34
+  store ptr %4, ptr %10, align 8, !tbaa !35
+  %11 = load ptr, ptr %6, align 8
+  %12 = load i32, ptr %7, align 4, !tbaa !34
+  %13 = load ptr, ptr %8, align 8, !tbaa !18
+  %14 = load i32, ptr %9, align 4, !tbaa !34
+  %15 = load ptr, ptr %10, align 8, !tbaa !35
+  %16 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream17WriteVarintPackedINS0_13RepeatedFieldIiEEFmmEEEPhiRKT_iS7_RKT0_(ptr noundef nonnull align 8 dereferenceable(59) %11, i32 noundef %12, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef %14, ptr noundef %15, ptr noundef nonnull @_ZN6google8protobuf2io19EpsCopyOutputStream8Encode64Em)
+  ret ptr %16
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK17opencv_tensorflow10VersionDef23_internal_bad_consumersEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #6 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %3, i32 0, i32 1
   ret ptr %4
 }
 
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK6google8protobuf8internal16InternalMetadata19have_unknown_fieldsEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNK6google8protobuf8internal16InternalMetadata19HasUnknownFieldsTagEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  ret i1 %4
+}
+
 declare noundef ptr @_ZN6google8protobuf8internal10WireFormat37InternalSerializeUnknownFieldsToArrayERKNS0_15UnknownFieldSetEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, ptr noundef) #1
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !29
+  store ptr %1, ptr %5, align 8, !tbaa !33
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef zeroext i1 @_ZNK6google8protobuf8internal16InternalMetadata19have_unknown_fieldsEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %8 = zext i1 %7 to i64
+  %9 = call i64 @llvm.expect.i64(i64 %8, i64 0)
+  %10 = icmp ne i64 %9, 0
+  br i1 %10, label %11, label %14
+
+11:                                               ; preds = %2
+  %12 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINS0_15UnknownFieldSetEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %13 = getelementptr inbounds nuw %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %12, i32 0, i32 1
+  store ptr %13, ptr %3, align 8
+  br label %17
+
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %5, align 8, !tbaa !33
+  %16 = call noundef nonnull align 8 dereferenceable(24) ptr %15()
+  store ptr %16, ptr %3, align 8
+  br label %17
+
+17:                                               ; preds = %14, %11
+  %18 = load ptr, ptr %3, align 8
+  ret ptr %18
+}
 
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf15UnknownFieldSet16default_instanceEv() #1
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i64 @_ZNK17opencv_tensorflow10VersionDef12ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
+  %3 = alloca i64, align 8
   %4 = alloca i32, align 4
-  %5 = alloca i32, align 4
+  %5 = alloca i64, align 8
   %6 = alloca i32, align 4
-  %7 = alloca ptr, align 8
-  %8 = alloca i64, align 8
-  %9 = alloca i32, align 4
-  %10 = alloca i64, align 8
-  %11 = alloca i32, align 4
-  store ptr %0, ptr %7, align 8
-  %12 = load ptr, ptr %7, align 8
-  store i64 0, ptr %8, align 8
-  store i32 0, ptr %9, align 4
-  %13 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %12, i32 0, i32 1
-  %14 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite9Int32SizeERKNS0_13RepeatedFieldIiEE(ptr noundef nonnull align 8 dereferenceable(16) %13)
-  store i64 %14, ptr %10, align 8
-  %15 = load i64, ptr %10, align 8
-  %16 = icmp ugt i64 %15, 0
-  br i1 %16, label %17, label %24
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %7 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #3
+  store i64 0, ptr %3, align 8, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  store i32 0, ptr %4, align 4, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %8 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %7, i32 0, i32 1
+  %9 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite9Int32SizeERKNS0_13RepeatedFieldIiEE(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  store i64 %9, ptr %5, align 8, !tbaa !78
+  %10 = load i64, ptr %5, align 8, !tbaa !78
+  %11 = icmp ugt i64 %10, 0
+  br i1 %11, label %12, label %19
 
-17:                                               ; preds = %1
-  %18 = load i64, ptr %10, align 8
-  %19 = trunc i64 %18 to i32
-  %20 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi(i32 noundef %19)
-  %21 = add i64 1, %20
-  %22 = load i64, ptr %8, align 8
-  %23 = add i64 %22, %21
-  store i64 %23, ptr %8, align 8
-  br label %24
+12:                                               ; preds = %1
+  %13 = load i64, ptr %5, align 8, !tbaa !78
+  %14 = trunc i64 %13 to i32
+  %15 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi(i32 noundef %14)
+  %16 = add i64 1, %15
+  %17 = load i64, ptr %3, align 8, !tbaa !78
+  %18 = add i64 %17, %16
+  store i64 %18, ptr %3, align 8, !tbaa !78
+  br label %19
 
-24:                                               ; preds = %17, %1
-  %25 = load i64, ptr %10, align 8
-  %26 = call noundef i32 @_ZN6google8protobuf8internal12ToCachedSizeEm(i64 noundef %25)
-  store i32 %26, ptr %11, align 4
-  %27 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %12, i32 0, i32 2
-  %28 = load i32, ptr %11, align 4
-  store ptr %27, ptr %2, align 8
-  store i32 %28, ptr %3, align 4
-  store i32 0, ptr %4, align 4
-  %29 = load ptr, ptr %2, align 8
-  %30 = load i32, ptr %4, align 4
-  %31 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %30, i32 noundef 65535)
-  store i32 %31, ptr %5, align 4
-  %32 = load i32, ptr %4, align 4
-  %33 = load i32, ptr %3, align 4
-  store i32 %33, ptr %6, align 4
-  switch i32 %32, label %34 [
-    i32 3, label %36
-    i32 5, label %38
-  ]
+19:                                               ; preds = %12, %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  %20 = load i64, ptr %5, align 8, !tbaa !78
+  %21 = call noundef i32 @_ZN6google8protobuf8internal12ToCachedSizeEm(i64 noundef %20)
+  store i32 %21, ptr %6, align 4, !tbaa !34
+  %22 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %7, i32 0, i32 2
+  %23 = load i32, ptr %6, align 4, !tbaa !34
+  call void @_ZNSt13__atomic_baseIiE5storeEiSt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %22, i32 noundef %23, i32 noundef 0) #3
+  %24 = load i64, ptr %5, align 8, !tbaa !78
+  %25 = load i64, ptr %3, align 8, !tbaa !78
+  %26 = add i64 %25, %24
+  store i64 %26, ptr %3, align 8, !tbaa !78
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
+  %27 = call noundef i32 @_ZNK17opencv_tensorflow10VersionDef18_internal_producerEv(ptr noundef nonnull align 8 dereferenceable(48) %7)
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %34
 
-34:                                               ; preds = %24
-  %35 = load i32, ptr %6, align 4
-  store atomic i32 %35, ptr %29 monotonic, align 4
-  br label %40
+29:                                               ; preds = %19
+  %30 = call noundef i32 @_ZNK17opencv_tensorflow10VersionDef18_internal_producerEv(ptr noundef nonnull align 8 dereferenceable(48) %7)
+  %31 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite16Int32SizePlusOneEi(i32 noundef %30)
+  %32 = load i64, ptr %3, align 8, !tbaa !78
+  %33 = add i64 %32, %31
+  store i64 %33, ptr %3, align 8, !tbaa !78
+  br label %34
 
-36:                                               ; preds = %24
-  %37 = load i32, ptr %6, align 4
-  store atomic i32 %37, ptr %29 release, align 4
-  br label %40
+34:                                               ; preds = %29, %19
+  %35 = call noundef i32 @_ZNK17opencv_tensorflow10VersionDef22_internal_min_consumerEv(ptr noundef nonnull align 8 dereferenceable(48) %7)
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %37, label %42
 
-38:                                               ; preds = %24
-  %39 = load i32, ptr %6, align 4
-  store atomic i32 %39, ptr %29 seq_cst, align 4
-  br label %40
+37:                                               ; preds = %34
+  %38 = call noundef i32 @_ZNK17opencv_tensorflow10VersionDef22_internal_min_consumerEv(ptr noundef nonnull align 8 dereferenceable(48) %7)
+  %39 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite16Int32SizePlusOneEi(i32 noundef %38)
+  %40 = load i64, ptr %3, align 8, !tbaa !78
+  %41 = add i64 %40, %39
+  store i64 %41, ptr %3, align 8, !tbaa !78
+  br label %42
 
-40:                                               ; preds = %38, %36, %34
-  %41 = load i64, ptr %10, align 8
-  %42 = load i64, ptr %8, align 8
-  %43 = add i64 %42, %41
-  store i64 %43, ptr %8, align 8
-  %44 = call noundef i32 @_ZNK17opencv_tensorflow10VersionDef18_internal_producerEv(ptr noundef nonnull align 8 dereferenceable(48) %12)
-  %45 = icmp ne i32 %44, 0
-  br i1 %45, label %46, label %51
-
-46:                                               ; preds = %40
-  %47 = call noundef i32 @_ZNK17opencv_tensorflow10VersionDef18_internal_producerEv(ptr noundef nonnull align 8 dereferenceable(48) %12)
-  %48 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite16Int32SizePlusOneEi(i32 noundef %47)
-  %49 = load i64, ptr %8, align 8
-  %50 = add i64 %49, %48
-  store i64 %50, ptr %8, align 8
-  br label %51
-
-51:                                               ; preds = %46, %40
-  %52 = call noundef i32 @_ZNK17opencv_tensorflow10VersionDef22_internal_min_consumerEv(ptr noundef nonnull align 8 dereferenceable(48) %12)
-  %53 = icmp ne i32 %52, 0
-  br i1 %53, label %54, label %59
-
-54:                                               ; preds = %51
-  %55 = call noundef i32 @_ZNK17opencv_tensorflow10VersionDef22_internal_min_consumerEv(ptr noundef nonnull align 8 dereferenceable(48) %12)
-  %56 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite16Int32SizePlusOneEi(i32 noundef %55)
-  %57 = load i64, ptr %8, align 8
-  %58 = add i64 %57, %56
-  store i64 %58, ptr %8, align 8
-  br label %59
-
-59:                                               ; preds = %54, %51
-  %60 = load i64, ptr %8, align 8
-  %61 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %12, i32 0, i32 5
-  %62 = call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %60, ptr noundef %61)
-  ret i64 %62
+42:                                               ; preds = %37, %34
+  %43 = load i64, ptr %3, align 8, !tbaa !78
+  %44 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %7, i32 0, i32 5
+  %45 = call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %43, ptr noundef %44)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #3
+  ret i64 %45
 }
 
 declare noundef i64 @_ZN6google8protobuf8internal14WireFormatLite9Int32SizeERKNS0_13RepeatedFieldIiEE(ptr noundef nonnull align 8 dereferenceable(16)) #1
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i64 @_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi(i32 noundef %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef i64 @_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi(i32 noundef %0) #5 comdat align 2 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !34
+  %3 = load i32, ptr %2, align 4, !tbaa !34
   %4 = call noundef i64 @_ZN6google8protobuf2io17CodedOutputStream24VarintSize32SignExtendedEi(i32 noundef %3)
   ret i64 %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZN6google8protobuf8internal12ToCachedSizeEm(i64 noundef %0) #5 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZN6google8protobuf8internal12ToCachedSizeEm(i64 noundef %0) #6 comdat {
   %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !78
+  %3 = load i64, ptr %2, align 8, !tbaa !78
   %4 = trunc i64 %3 to i32
   ret i32 %4
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i64 @_ZN6google8protobuf8internal14WireFormatLite16Int32SizePlusOneEi(i32 noundef %0) #4 comdat align 2 {
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt13__atomic_baseIiE5storeEiSt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1, i32 noundef %2) #15 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !74
+  store i32 %1, ptr %5, align 4, !tbaa !34
+  store i32 %2, ptr %6, align 4, !tbaa !76
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %10 = load i32, ptr %6, align 4, !tbaa !76
+  %11 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %10, i32 noundef 65535)
+  store i32 %11, ptr %7, align 4, !tbaa !76
+  br label %12
+
+12:                                               ; preds = %3
+  br label %13
+
+13:                                               ; preds = %12
+  br label %14
+
+14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %14
+  br label %16
+
+16:                                               ; preds = %15
+  br label %17
+
+17:                                               ; preds = %16
+  br label %18
+
+18:                                               ; preds = %17
+  br label %19
+
+19:                                               ; preds = %18
+  br label %20
+
+20:                                               ; preds = %19
+  %21 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %9, i32 0, i32 0
+  %22 = load i32, ptr %6, align 4, !tbaa !76
+  %23 = load i32, ptr %5, align 4, !tbaa !34
+  store i32 %23, ptr %8, align 4, !tbaa !34
+  switch i32 %22, label %24 [
+    i32 3, label %26
+    i32 5, label %28
+  ]
+
+24:                                               ; preds = %20
+  %25 = load i32, ptr %8, align 4
+  store atomic i32 %25, ptr %21 monotonic, align 4
+  br label %30
+
+26:                                               ; preds = %20
+  %27 = load i32, ptr %8, align 4
+  store atomic i32 %27, ptr %21 release, align 4
+  br label %30
+
+28:                                               ; preds = %20
+  %29 = load i32, ptr %8, align 4
+  store atomic i32 %29, ptr %21 seq_cst, align 4
+  br label %30
+
+30:                                               ; preds = %28, %26, %24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef i64 @_ZN6google8protobuf8internal14WireFormatLite16Int32SizePlusOneEi(i32 noundef %0) #5 comdat align 2 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !34
+  %3 = load i32, ptr %2, align 4, !tbaa !34
   %4 = call noundef i64 @_ZN6google8protobuf2io17CodedOutputStream31VarintSize32SignExtendedPlusOneEi(i32 noundef %3)
   ret i64 %4
 }
@@ -2038,18 +1936,18 @@ declare void @_ZN6google8protobuf7Message17CopyWithSizeCheckEPS1_RKS1_(ptr nound
 define hidden void @_ZN17opencv_tensorflow10VersionDef9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #4 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8, !tbaa !16
+  %6 = load ptr, ptr %4, align 8, !tbaa !16
   call void @_ZN17opencv_tensorflow10VersionDef9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK17opencv_tensorflow10VersionDef12GetClassDataEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 {
+define hidden noundef ptr @_ZNK17opencv_tensorflow10VersionDef12GetClassDataEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   ret ptr @_ZN17opencv_tensorflow10VersionDef12_class_data_E
 }
 
@@ -2057,165 +1955,149 @@ define hidden noundef ptr @_ZNK17opencv_tensorflow10VersionDef12GetClassDataEv(p
 define hidden void @_ZN17opencv_tensorflow10VersionDef9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
+  %5 = alloca %"class.google::protobuf::internal::LogMessage", align 8
+  %6 = alloca i1, align 1
+  %7 = alloca i1, align 1
   %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca ptr, align 8
-  %13 = alloca ptr, align 8
-  %14 = alloca %"class.google::protobuf::internal::LogMessage", align 8
-  %15 = alloca i1, align 1
-  %16 = alloca ptr, align 8
-  %17 = alloca i32, align 4
-  %18 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
-  %19 = alloca i32, align 4
-  store ptr %0, ptr %12, align 8
-  store ptr %1, ptr %13, align 8
-  %20 = load ptr, ptr %12, align 8
-  br label %21
+  %9 = alloca i32, align 4
+  %10 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %12 = load ptr, ptr %3, align 8
+  br label %13
 
-21:                                               ; preds = %33, %2
-  br i1 false, label %22, label %41
+13:                                               ; preds = %28, %2
+  br i1 false, label %14, label %44
 
-22:                                               ; preds = %21
-  %23 = load ptr, ptr %13, align 8
-  %24 = icmp ne ptr %23, %20
-  store i1 false, ptr %15, align 1
-  br i1 %24, label %25, label %26
+14:                                               ; preds = %13
+  %15 = load ptr, ptr %4, align 8, !tbaa !3
+  %16 = icmp ne ptr %15, %12
+  store i1 false, ptr %6, align 1
+  store i1 false, ptr %7, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  br i1 %16, label %17, label %18
 
-25:                                               ; preds = %22
-  br label %30
+17:                                               ; preds = %14
+  br label %22
 
-26:                                               ; preds = %22
-  call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %14, i32 noundef 3, ptr noundef @.str.2, i32 noundef 290)
-  store i1 true, ptr %15, align 1
-  %27 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef @.str.3)
-          to label %28 unwind label %34
+18:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 56, ptr %5) #3
+  store i1 true, ptr %6, align 1
+  call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %5, i32 noundef 3, ptr noundef @.str.2, i32 noundef 290)
+  store i1 true, ptr %7, align 1
+  %19 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef @.str.3)
+          to label %20 unwind label %29
 
-28:                                               ; preds = %26
-  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(56) %27)
-          to label %29 unwind label %34
+20:                                               ; preds = %18
+  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(56) %19)
+          to label %21 unwind label %33
 
-29:                                               ; preds = %28
-  br label %30
+21:                                               ; preds = %20
+  br label %22
 
-30:                                               ; preds = %29, %25
-  %31 = load i1, ptr %15, align 1
-  br i1 %31, label %32, label %33
+22:                                               ; preds = %21, %17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  %23 = load i1, ptr %7, align 1
+  br i1 %23, label %24, label %25
 
-32:                                               ; preds = %30
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #3
-  br label %33
+24:                                               ; preds = %22
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #3
+  br label %25
 
-33:                                               ; preds = %32, %30
-  br label %21, !llvm.loop !11
+25:                                               ; preds = %24, %22
+  %26 = load i1, ptr %6, align 1
+  br i1 %26, label %27, label %28
 
-34:                                               ; preds = %28, %26
-  %35 = landingpad { ptr, i32 }
+27:                                               ; preds = %25
+  call void @llvm.lifetime.end.p0(i64 56, ptr %5) #3
+  br label %28
+
+28:                                               ; preds = %27, %25
+  br label %13, !llvm.loop !79
+
+29:                                               ; preds = %18
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %16, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %17, align 4
-  %38 = load i1, ptr %15, align 1
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %8, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %9, align 4
+  br label %37
+
+33:                                               ; preds = %20
+  %34 = landingpad { ptr, i32 }
+          cleanup
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %8, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  br label %37
+
+37:                                               ; preds = %33, %29
+  %38 = load i1, ptr %7, align 1
   br i1 %38, label %39, label %40
 
-39:                                               ; preds = %34
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #3
+39:                                               ; preds = %37
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #3
   br label %40
 
-40:                                               ; preds = %39, %34
-  br label %86
+40:                                               ; preds = %39, %37
+  %41 = load i1, ptr %6, align 1
+  br i1 %41, label %42, label %43
 
-41:                                               ; preds = %21
-  store i32 0, ptr %19, align 4
-  %42 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %20, i32 0, i32 1
-  %43 = load ptr, ptr %13, align 8
-  %44 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %43, i32 0, i32 1
-  call void @_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %44)
-  %45 = load ptr, ptr %13, align 8
-  %46 = call noundef i32 @_ZNK17opencv_tensorflow10VersionDef18_internal_producerEv(ptr noundef nonnull align 8 dereferenceable(48) %45)
-  %47 = icmp ne i32 %46, 0
-  br i1 %47, label %48, label %51
+42:                                               ; preds = %40
+  call void @llvm.lifetime.end.p0(i64 56, ptr %5) #3
+  br label %43
 
-48:                                               ; preds = %41
-  %49 = load ptr, ptr %13, align 8
-  %50 = call noundef i32 @_ZNK17opencv_tensorflow10VersionDef18_internal_producerEv(ptr noundef nonnull align 8 dereferenceable(48) %49)
-  call void @_ZN17opencv_tensorflow10VersionDef22_internal_set_producerEi(ptr noundef nonnull align 8 dereferenceable(48) %20, i32 noundef %50)
-  br label %51
+43:                                               ; preds = %42, %40
+  br label %65
 
-51:                                               ; preds = %48, %41
-  %52 = load ptr, ptr %13, align 8
-  %53 = call noundef i32 @_ZNK17opencv_tensorflow10VersionDef22_internal_min_consumerEv(ptr noundef nonnull align 8 dereferenceable(48) %52)
-  %54 = icmp ne i32 %53, 0
-  br i1 %54, label %55, label %58
+44:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  store i32 0, ptr %11, align 4, !tbaa !34
+  %45 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %12, i32 0, i32 1
+  %46 = load ptr, ptr %4, align 8, !tbaa !3
+  %47 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %46, i32 0, i32 1
+  call void @_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %47)
+  %48 = load ptr, ptr %4, align 8, !tbaa !3
+  %49 = call noundef i32 @_ZNK17opencv_tensorflow10VersionDef18_internal_producerEv(ptr noundef nonnull align 8 dereferenceable(48) %48)
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %51, label %54
 
-55:                                               ; preds = %51
-  %56 = load ptr, ptr %13, align 8
-  %57 = call noundef i32 @_ZNK17opencv_tensorflow10VersionDef22_internal_min_consumerEv(ptr noundef nonnull align 8 dereferenceable(48) %56)
-  call void @_ZN17opencv_tensorflow10VersionDef26_internal_set_min_consumerEi(ptr noundef nonnull align 8 dereferenceable(48) %20, i32 noundef %57)
-  br label %58
+51:                                               ; preds = %44
+  %52 = load ptr, ptr %4, align 8, !tbaa !3
+  %53 = call noundef i32 @_ZNK17opencv_tensorflow10VersionDef18_internal_producerEv(ptr noundef nonnull align 8 dereferenceable(48) %52)
+  call void @_ZN17opencv_tensorflow10VersionDef22_internal_set_producerEi(ptr noundef nonnull align 8 dereferenceable(48) %12, i32 noundef %53)
+  br label %54
 
-58:                                               ; preds = %55, %51
-  %59 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %20, i32 0, i32 1
-  %60 = load ptr, ptr %13, align 8
-  %61 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %60, i32 0, i32 1
-  store ptr %59, ptr %10, align 8
-  store ptr %61, ptr %11, align 8
-  %62 = load ptr, ptr %10, align 8
-  %63 = load ptr, ptr %11, align 8
-  store ptr %63, ptr %9, align 8
-  %64 = load ptr, ptr %9, align 8
-  store ptr %64, ptr %3, align 8
-  %65 = load ptr, ptr %3, align 8
-  %66 = load i64, ptr %65, align 8
-  %67 = and i64 %66, 1
-  %68 = icmp ne i64 %67, 0
-  br i1 %68, label %69, label %85
+54:                                               ; preds = %51, %44
+  %55 = load ptr, ptr %4, align 8, !tbaa !3
+  %56 = call noundef i32 @_ZNK17opencv_tensorflow10VersionDef22_internal_min_consumerEv(ptr noundef nonnull align 8 dereferenceable(48) %55)
+  %57 = icmp ne i32 %56, 0
+  br i1 %57, label %58, label %61
 
-69:                                               ; preds = %58
-  %70 = load ptr, ptr %11, align 8
-  store ptr %70, ptr %7, align 8
-  store ptr null, ptr %8, align 8
-  %71 = load ptr, ptr %7, align 8
-  store ptr %71, ptr %5, align 8
-  %72 = load ptr, ptr %5, align 8
-  store ptr %72, ptr %4, align 8
-  %73 = load ptr, ptr %4, align 8
-  %74 = load i64, ptr %73, align 8
-  %75 = and i64 %74, 1
-  %76 = icmp ne i64 %75, 0
-  br i1 %76, label %77, label %80
+58:                                               ; preds = %54
+  %59 = load ptr, ptr %4, align 8, !tbaa !3
+  %60 = call noundef i32 @_ZNK17opencv_tensorflow10VersionDef22_internal_min_consumerEv(ptr noundef nonnull align 8 dereferenceable(48) %59)
+  call void @_ZN17opencv_tensorflow10VersionDef26_internal_set_min_consumerEi(ptr noundef nonnull align 8 dereferenceable(48) %12, i32 noundef %60)
+  br label %61
 
-77:                                               ; preds = %69
-  %78 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINS0_15UnknownFieldSetEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %71)
-  %79 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %78, i32 0, i32 1
-  store ptr %79, ptr %6, align 8
-  br label %83
-
-80:                                               ; preds = %69
-  %81 = load ptr, ptr %8, align 8
-  %82 = call noundef nonnull align 8 dereferenceable(24) ptr %81()
-  store ptr %82, ptr %6, align 8
-  br label %83
-
-83:                                               ; preds = %80, %77
-  %84 = load ptr, ptr %6, align 8
-  call void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull align 8 dereferenceable(24) %84)
-  br label %85
-
-85:                                               ; preds = %83, %58
+61:                                               ; preds = %58, %54
+  %62 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %12, i32 0, i32 1
+  %63 = load ptr, ptr %4, align 8, !tbaa !3
+  %64 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %63, i32 0, i32 1
+  call void @_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull align 8 dereferenceable(8) %64)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
   ret void
 
-86:                                               ; preds = %40
-  %87 = load ptr, ptr %16, align 8
-  %88 = load i32, ptr %17, align 4
-  %89 = insertvalue { ptr, i32 } poison, ptr %87, 0
-  %90 = insertvalue { ptr, i32 } %89, i32 %88, 1
-  resume { ptr, i32 } %90
+65:                                               ; preds = %43
+  %66 = load ptr, ptr %8, align 8
+  %67 = load i32, ptr %9, align 4
+  %68 = insertvalue { ptr, i32 } poison, ptr %66, 0
+  %69 = insertvalue { ptr, i32 } %68, i32 %67, 1
+  resume { ptr, i32 } %69
 }
 
 declare void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56), i32 noundef, ptr noundef, i32 noundef) unnamed_addr #1
@@ -2227,31 +2109,172 @@ declare void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr
 ; Function Attrs: nounwind
 declare void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #2
 
-declare void @_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) #1
+; Function Attrs: inlinehint mustprogress uwtable
+define available_externally void @_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #5 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.google::protobuf::internal::LogMessage", align 8
+  %6 = alloca i1, align 1
+  %7 = alloca i1, align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !18
+  %12 = load ptr, ptr %3, align 8
+  br label %13
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN17opencv_tensorflow10VersionDef22_internal_set_producerEi(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) #5 comdat align 2 {
+13:                                               ; preds = %28, %2
+  br i1 false, label %14, label %44
+
+14:                                               ; preds = %13
+  %15 = load ptr, ptr %4, align 8, !tbaa !18
+  %16 = icmp ne ptr %15, %12
+  store i1 false, ptr %6, align 1
+  store i1 false, ptr %7, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %14
+  br label %22
+
+18:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 56, ptr %5) #3
+  store i1 true, ptr %6, align 1
+  call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %5, i32 noundef 3, ptr noundef @.str.10, i32 noundef 753)
+  store i1 true, ptr %7, align 1
+  %19 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef @.str.18)
+          to label %20 unwind label %29
+
+20:                                               ; preds = %18
+  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(56) %19)
+          to label %21 unwind label %33
+
+21:                                               ; preds = %20
+  br label %22
+
+22:                                               ; preds = %21, %17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  %23 = load i1, ptr %7, align 1
+  br i1 %23, label %24, label %25
+
+24:                                               ; preds = %22
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #3
+  br label %25
+
+25:                                               ; preds = %24, %22
+  %26 = load i1, ptr %6, align 1
+  br i1 %26, label %27, label %28
+
+27:                                               ; preds = %25
+  call void @llvm.lifetime.end.p0(i64 56, ptr %5) #3
+  br label %28
+
+28:                                               ; preds = %27, %25
+  br label %13, !llvm.loop !80
+
+29:                                               ; preds = %18
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %8, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %9, align 4
+  br label %37
+
+33:                                               ; preds = %20
+  %34 = landingpad { ptr, i32 }
+          cleanup
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %8, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  br label %37
+
+37:                                               ; preds = %33, %29
+  %38 = load i1, ptr %7, align 1
+  br i1 %38, label %39, label %40
+
+39:                                               ; preds = %37
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #3
+  br label %40
+
+40:                                               ; preds = %39, %37
+  %41 = load i1, ptr %6, align 1
+  br i1 %41, label %42, label %43
+
+42:                                               ; preds = %40
+  call void @llvm.lifetime.end.p0(i64 56, ptr %5) #3
+  br label %43
+
+43:                                               ; preds = %42, %40
+  br label %65
+
+44:                                               ; preds = %13
+  %45 = load ptr, ptr %4, align 8, !tbaa !18
+  %46 = getelementptr inbounds nuw %"class.google::protobuf::RepeatedField", ptr %45, i32 0, i32 0
+  %47 = load i32, ptr %46, align 8, !tbaa !20
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %49, label %64
+
+49:                                               ; preds = %44
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  %50 = call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12)
+  store i32 %50, ptr %11, align 4, !tbaa !34
+  %51 = load i32, ptr %11, align 4, !tbaa !34
+  %52 = load ptr, ptr %4, align 8, !tbaa !18
+  %53 = call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %52)
+  %54 = add nsw i32 %51, %53
+  call void @_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef %54)
+  %55 = load ptr, ptr %4, align 8, !tbaa !18
+  %56 = call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %55)
+  %57 = call noundef ptr @_ZN6google8protobuf13RepeatedFieldIiE19AddNAlreadyReservedEi(ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef %56)
+  %58 = load i32, ptr %11, align 4, !tbaa !34
+  %59 = call noundef ptr @_ZN6google8protobuf13RepeatedFieldIiE7MutableEi(ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef %58)
+  %60 = load ptr, ptr %4, align 8, !tbaa !18
+  %61 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf13RepeatedFieldIiE3GetEi(ptr noundef nonnull align 8 dereferenceable(16) %60, i32 noundef 0)
+  %62 = load ptr, ptr %4, align 8, !tbaa !18
+  %63 = call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %62)
+  call void @_ZN6google8protobuf13RepeatedFieldIiE9CopyArrayEPiPKii(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %59, ptr noundef %61, i32 noundef %63)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  br label %64
+
+64:                                               ; preds = %49, %44
+  ret void
+
+65:                                               ; preds = %43
+  %66 = load ptr, ptr %8, align 8
+  %67 = load i32, ptr %9, align 4
+  %68 = insertvalue { ptr, i32 } poison, ptr %66, 0
+  %69 = insertvalue { ptr, i32 } %68, i32 %67, 1
+  resume { ptr, i32 } %69
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN17opencv_tensorflow10VersionDef22_internal_set_producerEi(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !34
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
-  %7 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %5, i32 0, i32 3
-  store i32 %6, ptr %7, align 4
+  %6 = load i32, ptr %4, align 4, !tbaa !34
+  %7 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %5, i32 0, i32 3
+  store i32 %6, ptr %7, align 4, !tbaa !39
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN17opencv_tensorflow10VersionDef26_internal_set_min_consumerEi(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN17opencv_tensorflow10VersionDef26_internal_set_min_consumerEi(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !34
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
-  %7 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %5, i32 0, i32 4
-  store i32 %6, ptr %7, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !34
+  %7 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %5, i32 0, i32 4
+  store i32 %6, ptr %7, align 8, !tbaa !49
   ret void
 }
 
@@ -2259,10 +2282,10 @@ define linkonce_odr hidden void @_ZN17opencv_tensorflow10VersionDef26_internal_s
 define hidden void @_ZN17opencv_tensorflow10VersionDef8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) #4 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
   %7 = icmp eq ptr %6, %5
   br i1 %7, label %8, label %9
 
@@ -2271,7 +2294,7 @@ define hidden void @_ZN17opencv_tensorflow10VersionDef8CopyFromERKS0_(ptr nounde
 
 9:                                                ; preds = %2
   call void @_ZN17opencv_tensorflow10VersionDef5ClearEv(ptr noundef nonnull align 8 dereferenceable(48) %5)
-  %10 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !3
   call void @_ZN17opencv_tensorflow10VersionDef9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %10)
   br label %11
 
@@ -2280,9 +2303,9 @@ define hidden void @_ZN17opencv_tensorflow10VersionDef8CopyFromERKS0_(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK17opencv_tensorflow10VersionDef13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZNK17opencv_tensorflow10VersionDef13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   ret i1 true
 }
 
@@ -2290,45 +2313,168 @@ define hidden noundef zeroext i1 @_ZNK17opencv_tensorflow10VersionDef13IsInitial
 define hidden void @_ZN17opencv_tensorflow10VersionDef12InternalSwapEPS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) #4 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %9, i32 0, i32 1
-  store ptr %8, ptr %3, align 8
-  store ptr %10, ptr %4, align 8
-  %11 = load ptr, ptr %3, align 8
-  %12 = load ptr, ptr %4, align 8
-  call void @_ZSt4swapIlENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %13 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %7, i32 0, i32 1
-  %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %14, i32 0, i32 1
-  call void @_ZN6google8protobuf13RepeatedFieldIiE12InternalSwapEPS2_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef %15)
-  %16 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %7, i32 0, i32 3
-  %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %17, i32 0, i32 3
-  call void @_ZN6google8protobuf8internal7memswapILi8EEENSt9enable_ifIXaageT_Lm8EltT_Li16EEvE4typeEPcS6_(ptr noundef %16, ptr noundef %18)
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %7, i32 0, i32 1
+  call void @_ZN6google8protobuf8internal16InternalMetadata12InternalSwapEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %8)
+  %9 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %5, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %10, i32 0, i32 1
+  call void @_ZN6google8protobuf13RepeatedFieldIiE12InternalSwapEPS2_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %11)
+  %12 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %5, i32 0, i32 3
+  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %13, i32 0, i32 3
+  call void @_ZN6google8protobuf8internal7memswapILi8EEENSt9enable_ifIXaageT_Lm8EltT_Li16EEvE4typeEPcS6_(ptr noundef %12, ptr noundef %14)
   ret void
 }
 
-declare void @_ZN6google8protobuf13RepeatedFieldIiE12InternalSwapEPS2_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) #1
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN6google8protobuf8internal16InternalMetadata12InternalSwapEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #15 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !29
+  store ptr %1, ptr %4, align 8, !tbaa !29
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.google::protobuf::internal::InternalMetadata", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !29
+  %8 = getelementptr inbounds nuw %"class.google::protobuf::internal::InternalMetadata", ptr %7, i32 0, i32 0
+  call void @_ZSt4swapIlENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define available_externally void @_ZN6google8protobuf13RepeatedFieldIiE12InternalSwapEPS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #5 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.google::protobuf::internal::LogMessage", align 8
+  %6 = alloca i1, align 1
+  %7 = alloca i1, align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !18
+  %11 = load ptr, ptr %3, align 8
+  br label %12
+
+12:                                               ; preds = %27, %2
+  br i1 false, label %13, label %43
+
+13:                                               ; preds = %12
+  %14 = load ptr, ptr %4, align 8, !tbaa !18
+  %15 = icmp ne ptr %11, %14
+  store i1 false, ptr %6, align 1
+  store i1 false, ptr %7, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  br i1 %15, label %16, label %17
+
+16:                                               ; preds = %13
+  br label %21
+
+17:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 56, ptr %5) #3
+  store i1 true, ptr %6, align 1
+  call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %5, i32 noundef 3, ptr noundef @.str.10, i32 noundef 804)
+  store i1 true, ptr %7, align 1
+  %18 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef @.str.19)
+          to label %19 unwind label %28
+
+19:                                               ; preds = %17
+  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(56) %18)
+          to label %20 unwind label %32
+
+20:                                               ; preds = %19
+  br label %21
+
+21:                                               ; preds = %20, %16
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  %22 = load i1, ptr %7, align 1
+  br i1 %22, label %23, label %24
+
+23:                                               ; preds = %21
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #3
+  br label %24
+
+24:                                               ; preds = %23, %21
+  %25 = load i1, ptr %6, align 1
+  br i1 %25, label %26, label %27
+
+26:                                               ; preds = %24
+  call void @llvm.lifetime.end.p0(i64 56, ptr %5) #3
+  br label %27
+
+27:                                               ; preds = %26, %24
+  br label %12, !llvm.loop !81
+
+28:                                               ; preds = %17
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %8, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %9, align 4
+  br label %36
+
+32:                                               ; preds = %19
+  %33 = landingpad { ptr, i32 }
+          cleanup
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %8, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  br label %36
+
+36:                                               ; preds = %32, %28
+  %37 = load i1, ptr %7, align 1
+  br i1 %37, label %38, label %39
+
+38:                                               ; preds = %36
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #3
+  br label %39
+
+39:                                               ; preds = %38, %36
+  %40 = load i1, ptr %6, align 1
+  br i1 %40, label %41, label %42
+
+41:                                               ; preds = %39
+  call void @llvm.lifetime.end.p0(i64 56, ptr %5) #3
+  br label %42
+
+42:                                               ; preds = %41, %39
+  br label %47
+
+43:                                               ; preds = %12
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 0
+  %45 = load ptr, ptr %4, align 8, !tbaa !18
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 0
+  call void @_ZN6google8protobuf8internal7memswapILi16EEENSt9enable_ifIXaageT_Lm16EltT_lsLj1ELi31EEvE4typeEPcS6_(ptr noundef %44, ptr noundef %46)
+  ret void
+
+47:                                               ; preds = %42
+  %48 = load ptr, ptr %8, align 8
+  %49 = load i32, ptr %9, align 4
+  %50 = insertvalue { ptr, i32 } poison, ptr %48, 0
+  %51 = insertvalue { ptr, i32 } %50, i32 %49, 1
+  resume { ptr, i32 } %51
+}
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal7memswapILi8EEENSt9enable_ifIXaageT_Lm8EltT_Li16EEvE4typeEPcS6_(ptr noundef %0, ptr noundef %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !35
+  store ptr %1, ptr %4, align 8, !tbaa !35
+  %5 = load ptr, ptr %3, align 8, !tbaa !35
+  %6 = load ptr, ptr %4, align 8, !tbaa !35
   call void @_ZN6google8protobuf8internal9SwapBlockImEEvPcS3_(ptr noundef %5, ptr noundef %6)
-  %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %7 = load ptr, ptr %3, align 8, !tbaa !35
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !35
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @_ZN6google8protobuf8internal7memswapILi0EEENSt9enable_ifIXeqT_Li0EEvE4typeEPcS6_(ptr noundef %8, ptr noundef %10)
   ret void
 }
@@ -2337,12 +2483,12 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal7memswapILi8EEENSt9
 define hidden { ptr, ptr } @_ZNK17opencv_tensorflow10VersionDef11GetMetadataEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 align 2 {
   %2 = alloca %"struct.google::protobuf::Metadata", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
   %4 = call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef @_Z40descriptor_table_versions_2eproto_getterv, ptr noundef @_ZL38descriptor_table_versions_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) @_ZL36file_level_metadata_versions_2eproto)
-  %5 = getelementptr inbounds { ptr, ptr }, ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw { ptr, ptr }, ptr %2, i32 0, i32 0
   %6 = extractvalue { ptr, ptr } %4, 0
   store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %2, i32 0, i32 1
+  %7 = getelementptr inbounds nuw { ptr, ptr }, ptr %2, i32 0, i32 1
   %8 = extractvalue { ptr, ptr } %4, 1
   store ptr %8, ptr %7, align 8
   %9 = load { ptr, ptr }, ptr %2, align 8
@@ -2351,156 +2497,38 @@ define hidden { ptr, ptr } @_ZNK17opencv_tensorflow10VersionDef11GetMetadataEv(p
 
 declare { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(16)) #1
 
-; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN17opencv_tensorflow10VersionDefEJEEEPT_PS1_DpOT0_(ptr noundef %0) #4 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress noinline uwtable
+define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN17opencv_tensorflow10VersionDefEJEEEPT_PS1_DpOT0_(ptr noundef %0) #16 align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca i64, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca i64, align 8
-  %7 = alloca i64, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca %"struct.std::pair.9", align 8
-  %11 = alloca %"struct.std::pair.9", align 8
-  %12 = alloca ptr, align 8
-  %13 = alloca ptr, align 8
-  %14 = alloca ptr, align 8
-  %15 = alloca ptr, align 8
-  %16 = alloca i32, align 4
-  %17 = alloca ptr, align 8
-  %18 = alloca ptr, align 8
-  %19 = alloca ptr, align 8
-  store ptr %0, ptr %19, align 8
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr %18, align 8
-  %21 = load ptr, ptr %18, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %34
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = call noundef ptr @_ZN6google8protobuf5Arena21CreateMessageInternalIN17opencv_tensorflow10VersionDefEEEPT_PS1_(ptr noundef %3)
+  ret ptr %4
+}
 
-23:                                               ; preds = %1
-  %24 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 48) #14
-  invoke void @_ZN17opencv_tensorflow10VersionDefC1EPN6google8protobuf5ArenaEb(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef null, i1 noundef zeroext false)
-          to label %33 unwind label %25
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZN6google8protobuf5Arena21CreateMessageInternalIN17opencv_tensorflow10VersionDefEEEPT_PS1_(ptr noundef %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  %4 = load ptr, ptr %3, align 8, !tbaa !8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %6, label %8
 
-25:                                               ; preds = %23
-  %26 = landingpad { ptr, i32 }
-          cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %15, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %16, align 4
-  call void @_ZdlPv(ptr noundef %24) #13
-  %29 = load ptr, ptr %15, align 8
-  %30 = load i32, ptr %16, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+6:                                                ; preds = %1
+  %7 = call noundef ptr @_ZN6google8protobuf5Arena14InternalHelperIN17opencv_tensorflow10VersionDefEE3NewEv()
+  store ptr %7, ptr %2, align 8
+  br label %11
 
-33:                                               ; preds = %23
-  store ptr %24, ptr %17, align 8
-  br label %97
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %3, align 8, !tbaa !8
+  %10 = call noundef ptr @_ZN6google8protobuf5Arena15DoCreateMessageIN17opencv_tensorflow10VersionDefEJEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(32) %9)
+  store ptr %10, ptr %2, align 8
+  br label %11
 
-34:                                               ; preds = %1
-  %35 = load ptr, ptr %18, align 8
-  store ptr %35, ptr %13, align 8
-  %36 = load ptr, ptr %13, align 8
-  store ptr %36, ptr %5, align 8
-  store i64 48, ptr %6, align 8
-  store i64 8, ptr %7, align 8
-  store ptr null, ptr %8, align 8
-  store ptr @_ZTIN17opencv_tensorflow10VersionDefE, ptr %9, align 8
-  %37 = load ptr, ptr %5, align 8
-  %38 = load ptr, ptr %8, align 8
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %45
-
-40:                                               ; preds = %34
-  %41 = load i64, ptr %6, align 8
-  %42 = load i64, ptr %7, align 8
-  %43 = load ptr, ptr %9, align 8
-  %44 = call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %37, i64 noundef %41, i64 noundef %42, ptr noundef %43)
-  store ptr %44, ptr %4, align 8
-  br label %94
-
-45:                                               ; preds = %34
-  %46 = load i64, ptr %7, align 8
-  %47 = icmp ule i64 %46, 8
-  br i1 %47, label %48, label %64
-
-48:                                               ; preds = %45
-  %49 = load i64, ptr %6, align 8
-  %50 = call noundef i64 @_ZN6google8protobuf8internal10AlignUpTo8Em(i64 noundef %49)
-  %51 = load ptr, ptr %9, align 8
-  %52 = call { ptr, ptr } @_ZN6google8protobuf5Arena26AllocateAlignedWithCleanupEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %37, i64 noundef %50, ptr noundef %51)
-  %53 = extractvalue { ptr, ptr } %52, 0
-  store ptr %53, ptr %10, align 8
-  %54 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 1
-  %55 = extractvalue { ptr, ptr } %52, 1
-  store ptr %55, ptr %54, align 8
-  %56 = load ptr, ptr %10, align 8
-  %57 = getelementptr inbounds %"struct.std::pair.9", ptr %10, i32 0, i32 1
-  %58 = load ptr, ptr %57, align 8
-  store ptr %56, ptr %58, align 8
-  %59 = load ptr, ptr %8, align 8
-  %60 = getelementptr inbounds %"struct.std::pair.9", ptr %10, i32 0, i32 1
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds %"struct.google::protobuf::internal::SerialArena::CleanupNode", ptr %61, i32 0, i32 1
-  store ptr %59, ptr %62, align 8
-  %63 = load ptr, ptr %10, align 8
-  store ptr %63, ptr %4, align 8
-  br label %94
-
-64:                                               ; preds = %45
-  %65 = load i64, ptr %6, align 8
-  %66 = load i64, ptr %7, align 8
-  %67 = add i64 %65, %66
-  %68 = sub i64 %67, 8
-  %69 = load ptr, ptr %9, align 8
-  %70 = call { ptr, ptr } @_ZN6google8protobuf5Arena26AllocateAlignedWithCleanupEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %37, i64 noundef %68, ptr noundef %69)
-  %71 = extractvalue { ptr, ptr } %70, 0
-  store ptr %71, ptr %11, align 8
-  %72 = getelementptr inbounds { ptr, ptr }, ptr %11, i32 0, i32 1
-  %73 = extractvalue { ptr, ptr } %70, 1
-  store ptr %73, ptr %72, align 8
-  %74 = load ptr, ptr %11, align 8
-  %75 = load i64, ptr %7, align 8
-  store ptr %74, ptr %2, align 8
-  store i64 %75, ptr %3, align 8
-  %76 = load ptr, ptr %2, align 8
-  %77 = ptrtoint ptr %76 to i64
-  %78 = load i64, ptr %3, align 8
-  %79 = add i64 %77, %78
-  %80 = sub i64 %79, 1
-  %81 = load i64, ptr %3, align 8
-  %82 = xor i64 %81, -1
-  %83 = add i64 %82, 1
-  %84 = and i64 %80, %83
-  %85 = inttoptr i64 %84 to ptr
-  store ptr %85, ptr %12, align 8
-  %86 = load ptr, ptr %12, align 8
-  %87 = getelementptr inbounds %"struct.std::pair.9", ptr %11, i32 0, i32 1
-  %88 = load ptr, ptr %87, align 8
-  store ptr %86, ptr %88, align 8
-  %89 = load ptr, ptr %8, align 8
-  %90 = getelementptr inbounds %"struct.std::pair.9", ptr %11, i32 0, i32 1
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds %"struct.google::protobuf::internal::SerialArena::CleanupNode", ptr %91, i32 0, i32 1
-  store ptr %89, ptr %92, align 8
-  %93 = load ptr, ptr %12, align 8
-  store ptr %93, ptr %4, align 8
-  br label %94
-
-94:                                               ; preds = %64, %48, %40
-  %95 = load ptr, ptr %4, align 8
-  store ptr %36, ptr %14, align 8
-  %96 = call noundef ptr @_ZN6google8protobuf5Arena14InternalHelperIN17opencv_tensorflow10VersionDefEE9ConstructIJPS1_EEEPS4_PvDpOT_(ptr noundef %95, ptr noundef nonnull align 8 dereferenceable(8) %14)
-  store ptr %96, ptr %17, align 8
-  br label %97
-
-97:                                               ; preds = %94, %33
-  %98 = load ptr, ptr %17, align 8
-  ret ptr %98
+11:                                               ; preds = %8, %6
+  %12 = load ptr, ptr %2, align 8
+  ret ptr %12
 }
 
 declare void @_ZNK6google8protobuf7Message11GetTypeNameB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
@@ -2509,9 +2537,9 @@ declare void @_ZNK6google8protobuf7Message11GetTypeNameB5cxx11Ev(ptr dead_on_unw
 define linkonce_odr hidden noundef ptr @_ZNK17opencv_tensorflow10VersionDef3NewEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %4, align 8, !tbaa !8
   %6 = call noundef ptr @_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN17opencv_tensorflow10VersionDefEEEPT_PNS0_5ArenaE(ptr noundef %5)
   ret ptr %6
 }
@@ -2523,17 +2551,17 @@ declare void @_ZN6google8protobuf7Message21CheckTypeAndMergeFromERKNS0_11Message
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i32 @_ZNK17opencv_tensorflow10VersionDef13GetCachedSizeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.opencv_tensorflow::VersionDef", ptr %3, i32 0, i32 5
+  %4 = getelementptr inbounds nuw %"class.opencv_tensorflow::VersionDef", ptr %3, i32 0, i32 5
   %5 = call noundef i32 @_ZNK6google8protobuf8internal10CachedSize3GetEv(ptr noundef nonnull align 4 dereferenceable(4) %4)
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK6google8protobuf11MessageLite16InternalGetTableEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNK6google8protobuf11MessageLite16InternalGetTableEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !27
   ret ptr null
 }
 
@@ -2543,20 +2571,20 @@ declare void @_ZN6google8protobuf7Message9MergeFromERKS1_(ptr noundef nonnull al
 
 declare noundef i64 @_ZNK6google8protobuf7Message13SpaceUsedLongEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf11MessageLiteC2EPNS0_5ArenaEb(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN6google8protobuf11MessageLiteC2EPNS0_5ArenaEb(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #5 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i8, align 1
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !27
+  store ptr %1, ptr %5, align 8, !tbaa !8
   %7 = zext i1 %2 to i8
-  store i8 %7, ptr %6, align 1
+  store i8 %7, ptr %6, align 1, !tbaa !10
   %8 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %8, i32 0, i32 1
-  %10 = load ptr, ptr %5, align 8
-  %11 = load i8, ptr %6, align 1
+  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, i32 0, i32 2), ptr %8, align 8, !tbaa !14
+  %9 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %8, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8, !tbaa !8
+  %11 = load i8, ptr %6, align 1, !tbaa !10, !range !12, !noundef !13
   %12 = trunc i8 %11 to i1
   call void @_ZN6google8protobuf8internal16InternalMetadataC2EPNS0_5ArenaEb(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %10, i1 noundef zeroext %12)
   ret void
@@ -2569,239 +2597,272 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal16InternalMetadataC
   %6 = alloca i8, align 1
   %7 = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %8 = alloca i1, align 1
-  %9 = alloca ptr, align 8
-  %10 = alloca i32, align 4
-  %11 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %12 = zext i1 %2 to i8
-  store i8 %12, ptr %6, align 1
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %"class.google::protobuf::internal::InternalMetadata", ptr %13, i32 0, i32 0
-  %15 = load i8, ptr %6, align 1
-  %16 = trunc i8 %15 to i1
-  br i1 %16, label %17, label %21
+  %9 = alloca i1, align 1
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
+  store ptr %0, ptr %4, align 8, !tbaa !29
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  %13 = zext i1 %2 to i8
+  store i8 %13, ptr %6, align 1, !tbaa !10
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds nuw %"class.google::protobuf::internal::InternalMetadata", ptr %14, i32 0, i32 0
+  %16 = load i8, ptr %6, align 1, !tbaa !10, !range !12, !noundef !13
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %22
 
-17:                                               ; preds = %3
-  %18 = load ptr, ptr %5, align 8
-  %19 = ptrtoint ptr %18 to i64
-  %20 = or i64 %19, 2
-  br label %24
+18:                                               ; preds = %3
+  %19 = load ptr, ptr %5, align 8, !tbaa !8
+  %20 = ptrtoint ptr %19 to i64
+  %21 = or i64 %20, 2
+  br label %25
 
-21:                                               ; preds = %3
-  %22 = load ptr, ptr %5, align 8
-  %23 = ptrtoint ptr %22 to i64
-  br label %24
+22:                                               ; preds = %3
+  %23 = load ptr, ptr %5, align 8, !tbaa !8
+  %24 = ptrtoint ptr %23 to i64
+  br label %25
 
-24:                                               ; preds = %21, %17
-  %25 = phi i64 [ %20, %17 ], [ %23, %21 ]
-  store i64 %25, ptr %14, align 8
-  br label %26
+25:                                               ; preds = %22, %18
+  %26 = phi i64 [ %21, %18 ], [ %24, %22 ]
+  store i64 %26, ptr %15, align 8, !tbaa !82
+  br label %27
 
-26:                                               ; preds = %41, %24
-  br i1 false, label %27, label %49
+27:                                               ; preds = %45, %25
+  br i1 false, label %28, label %61
 
-27:                                               ; preds = %26
-  %28 = load i8, ptr %6, align 1
-  %29 = trunc i8 %28 to i1
+28:                                               ; preds = %27
+  %29 = load i8, ptr %6, align 1, !tbaa !10, !range !12, !noundef !13
+  %30 = trunc i8 %29 to i1
   store i1 false, ptr %8, align 1
-  br i1 %29, label %30, label %33
+  store i1 false, ptr %9, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #3
+  br i1 %30, label %31, label %34
 
-30:                                               ; preds = %27
-  %31 = load ptr, ptr %5, align 8
-  %32 = icmp ne ptr %31, null
-  br i1 %32, label %33, label %34
+31:                                               ; preds = %28
+  %32 = load ptr, ptr %5, align 8, !tbaa !8
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %34, label %35
 
-33:                                               ; preds = %30, %27
-  br label %38
+34:                                               ; preds = %31, %28
+  br label %39
 
-34:                                               ; preds = %30
-  call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %7, i32 noundef 3, ptr noundef @.str.4, i32 noundef 69)
+35:                                               ; preds = %31
+  call void @llvm.lifetime.start.p0(i64 56, ptr %7) #3
   store i1 true, ptr %8, align 1
-  %35 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef @.str.5)
-          to label %36 unwind label %42
+  call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %7, i32 noundef 3, ptr noundef @.str.4, i32 noundef 69)
+  store i1 true, ptr %9, align 1
+  %36 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef @.str.5)
+          to label %37 unwind label %46
 
-36:                                               ; preds = %34
-  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(56) %35)
-          to label %37 unwind label %42
+37:                                               ; preds = %35
+  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(56) %36)
+          to label %38 unwind label %50
 
-37:                                               ; preds = %36
-  br label %38
+38:                                               ; preds = %37
+  br label %39
 
-38:                                               ; preds = %37, %33
-  %39 = load i1, ptr %8, align 1
-  br i1 %39, label %40, label %41
+39:                                               ; preds = %38, %34
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #3
+  %40 = load i1, ptr %9, align 1
+  br i1 %40, label %41, label %42
 
-40:                                               ; preds = %38
+41:                                               ; preds = %39
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #3
-  br label %41
+  br label %42
 
-41:                                               ; preds = %40, %38
-  br label %26, !llvm.loop !12
+42:                                               ; preds = %41, %39
+  %43 = load i1, ptr %8, align 1
+  br i1 %43, label %44, label %45
 
-42:                                               ; preds = %36, %34
-  %43 = landingpad { ptr, i32 }
+44:                                               ; preds = %42
+  call void @llvm.lifetime.end.p0(i64 56, ptr %7) #3
+  br label %45
+
+45:                                               ; preds = %44, %42
+  br label %27, !llvm.loop !83
+
+46:                                               ; preds = %35
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %9, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %10, align 4
-  %46 = load i1, ptr %8, align 1
-  br i1 %46, label %47, label %48
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %10, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %11, align 4
+  br label %54
 
-47:                                               ; preds = %42
+50:                                               ; preds = %37
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %10, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #3
+  br label %54
+
+54:                                               ; preds = %50, %46
+  %55 = load i1, ptr %9, align 1
+  br i1 %55, label %56, label %57
+
+56:                                               ; preds = %54
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #3
-  br label %48
+  br label %57
 
-48:                                               ; preds = %47, %42
-  br label %50
+57:                                               ; preds = %56, %54
+  %58 = load i1, ptr %8, align 1
+  br i1 %58, label %59, label %60
 
-49:                                               ; preds = %26
+59:                                               ; preds = %57
+  call void @llvm.lifetime.end.p0(i64 56, ptr %7) #3
+  br label %60
+
+60:                                               ; preds = %59, %57
+  br label %62
+
+61:                                               ; preds = %27
   ret void
 
-50:                                               ; preds = %48
-  %51 = load ptr, ptr %9, align 8
-  %52 = load i32, ptr %10, align 4
-  %53 = insertvalue { ptr, i32 } poison, ptr %51, 0
-  %54 = insertvalue { ptr, i32 } %53, i32 %52, 1
-  resume { ptr, i32 } %54
+62:                                               ; preds = %60
+  %63 = load ptr, ptr %10, align 8
+  %64 = load i32, ptr %11, align 4
+  %65 = insertvalue { ptr, i32 } poison, ptr %63, 0
+  %66 = insertvalue { ptr, i32 } %65, i32 %64, 1
+  resume { ptr, i32 } %66
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #7 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !84
+  store i32 %1, ptr %4, align 4, !tbaa !34
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
+  %6 = load i32, ptr %4, align 4, !tbaa !34
   call void @_ZNSt13__atomic_baseIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef %6) #3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt13__atomic_baseIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt13__atomic_baseIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #7 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !74
+  store i32 %1, ptr %4, align 4, !tbaa !34
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.std::__atomic_base", ptr %5, i32 0, i32 0
-  %7 = load i32, ptr %4, align 4
-  store i32 %7, ptr %6, align 4
+  %6 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %4, align 4, !tbaa !34
+  store i32 %7, ptr %6, align 4, !tbaa !86
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZN6google8protobuf8internal16InternalMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %3, i32 0, i32 1
-  call void @_ZN6google8protobuf8internal16InternalMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  ret void
-}
+  %4 = invoke noundef zeroext i1 @_ZNK6google8protobuf8internal16InternalMetadata23HasMessageOwnedArenaTagEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %5 unwind label %13
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf8internal16InternalMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = alloca ptr, align 8
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  store ptr %0, ptr %7, align 8
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %6, align 8
-  %9 = load ptr, ptr %6, align 8
-  %10 = load i64, ptr %9, align 8
-  %11 = and i64 %10, 2
-  %12 = icmp ne i64 %11, 0
-  br label %13
+5:                                                ; preds = %1
+  br i1 %4, label %6, label %12
 
-13:                                               ; preds = %1
-  br i1 %12, label %14, label %32
+6:                                                ; preds = %5
+  %7 = invoke noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata5arenaEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %8 unwind label %13
 
-14:                                               ; preds = %13
-  store ptr %8, ptr %5, align 8
-  %15 = load ptr, ptr %5, align 8
-  store ptr %15, ptr %3, align 8
-  %16 = load ptr, ptr %3, align 8
-  store ptr %16, ptr %2, align 8
-  %17 = load ptr, ptr %2, align 8
-  %18 = load i64, ptr %17, align 8
-  %19 = and i64 %18, 1
-  %20 = icmp ne i64 %19, 0
-  br i1 %20, label %21, label %24
+8:                                                ; preds = %6
+  %9 = icmp eq ptr %7, null
+  br i1 %9, label %11, label %10
 
-21:                                               ; preds = %14
-  %22 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_13ContainerBaseEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %15)
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr %4, align 8
-  br label %26
+10:                                               ; preds = %8
+  call void @_ZN6google8protobuf5ArenaD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
+  call void @_ZdlPv(ptr noundef %7) #20
+  br label %11
 
-24:                                               ; preds = %14
-  %25 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS0_5ArenaEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %15)
-  store ptr %25, ptr %4, align 8
-  br label %26
+11:                                               ; preds = %10, %8
+  br label %12
 
-26:                                               ; preds = %24, %21
-  %27 = load ptr, ptr %4, align 8
-  br label %28
-
-28:                                               ; preds = %26
-  %29 = icmp eq ptr %27, null
-  br i1 %29, label %31, label %30
-
-30:                                               ; preds = %28
-  call void @_ZN6google8protobuf5ArenaD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #3
-  call void @_ZdlPv(ptr noundef %27) #13
-  br label %31
-
-31:                                               ; preds = %30, %28
-  br label %32
-
-32:                                               ; preds = %31, %13
+12:                                               ; preds = %11, %5
   ret void
 
-33:                                               ; No predecessors!
-  %34 = landingpad { ptr, i32 }
+13:                                               ; preds = %6, %1
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #12
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #19
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf5ArenaD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK6google8protobuf8internal16InternalMetadata23HasMessageOwnedArenaTagEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.google::protobuf::Arena", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.google::protobuf::internal::InternalMetadata", ptr %3, i32 0, i32 0
+  %5 = load i64, ptr %4, align 8, !tbaa !82
+  %6 = and i64 %5, 2
+  %7 = icmp ne i64 %6, 0
+  ret i1 %7
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata5arenaEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !29
+  %4 = load ptr, ptr %3, align 8
+  %5 = call noundef zeroext i1 @_ZNK6google8protobuf8internal16InternalMetadata19have_unknown_fieldsEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %6 = zext i1 %5 to i64
+  %7 = call i64 @llvm.expect.i64(i64 %6, i64 0)
+  %8 = icmp ne i64 %7, 0
+  br i1 %8, label %9, label %13
+
+9:                                                ; preds = %1
+  %10 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_13ContainerBaseEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %11 = getelementptr inbounds nuw %"struct.google::protobuf::internal::InternalMetadata::ContainerBase", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !87
+  store ptr %12, ptr %2, align 8
+  br label %15
+
+13:                                               ; preds = %1
+  %14 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS0_5ArenaEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  store ptr %14, ptr %2, align 8
+  br label %15
+
+15:                                               ; preds = %13, %9
+  %16 = load ptr, ptr %2, align 8
+  ret ptr %16
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN6google8protobuf5ArenaD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.google::protobuf::Arena", ptr %3, i32 0, i32 0
   call void @_ZN6google8protobuf8internal15ThreadSafeArenaD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_13ContainerBaseEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_13ContainerBaseEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.google::protobuf::internal::InternalMetadata", ptr %3, i32 0, i32 0
-  %5 = load i64, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.google::protobuf::internal::InternalMetadata", ptr %3, i32 0, i32 0
+  %5 = load i64, ptr %4, align 8, !tbaa !82
   %6 = and i64 %5, -4
   %7 = inttoptr i64 %6 to ptr
   ret ptr %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS0_5ArenaEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS0_5ArenaEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.google::protobuf::internal::InternalMetadata", ptr %3, i32 0, i32 0
-  %5 = load i64, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.google::protobuf::internal::InternalMetadata", ptr %3, i32 0, i32 0
+  %5 = load i64, ptr %4, align 8, !tbaa !82
   %6 = and i64 %5, -4
   %7 = inttoptr i64 %6 to ptr
   ret ptr %7
@@ -2813,21 +2874,21 @@ declare void @_ZN6google8protobuf8internal15ThreadSafeArenaD1Ev(ptr noundef nonn
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf11MessageLiteC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !27
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %3, i32 0, i32 1
+  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !14
+  %4 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %3, i32 0, i32 1
   call void @_ZN6google8protobuf8internal16InternalMetadataC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf8internal16InternalMetadataC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZN6google8protobuf8internal16InternalMetadataC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.google::protobuf::internal::InternalMetadata", ptr %3, i32 0, i32 0
-  store i64 0, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.google::protobuf::internal::InternalMetadata", ptr %3, i32 0, i32 0
+  store i64 0, ptr %4, align 8, !tbaa !82
   ret void
 }
 
@@ -2839,208 +2900,289 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf8internal18Eps
   %7 = alloca i32, align 4
   %8 = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %9 = alloca i1, align 1
-  %10 = alloca ptr, align 8
-  %11 = alloca i32, align 4
-  %12 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
-  %13 = alloca i32, align 4
-  %14 = alloca %"class.google::protobuf::internal::LogMessage", align 8
-  %15 = alloca i1, align 1
-  %16 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
-  %17 = alloca %"struct.std::pair", align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  %18 = load ptr, ptr %5, align 8
-  br label %19
+  %10 = alloca i1, align 1
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
+  %14 = alloca i32, align 4
+  %15 = alloca %"class.google::protobuf::internal::LogMessage", align 8
+  %16 = alloca i1, align 1
+  %17 = alloca i1, align 1
+  %18 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
+  %19 = alloca i32, align 4
+  %20 = alloca %"struct.std::pair", align 8
+  %21 = alloca { ptr, i8 }, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !66
+  store ptr %1, ptr %6, align 8, !tbaa !50
+  store i32 %2, ptr %7, align 4, !tbaa !34
+  %22 = load ptr, ptr %5, align 8
+  br label %23
 
-19:                                               ; preds = %32, %3
-  br i1 false, label %20, label %40
+23:                                               ; preds = %39, %3
+  br i1 false, label %24, label %55
 
-20:                                               ; preds = %19
-  %21 = load ptr, ptr %6, align 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = icmp ne ptr %22, null
+24:                                               ; preds = %23
+  %25 = load ptr, ptr %6, align 8, !tbaa !50
+  %26 = load ptr, ptr %25, align 8, !tbaa !35
+  %27 = icmp ne ptr %26, null
   store i1 false, ptr %9, align 1
-  br i1 %23, label %24, label %25
+  store i1 false, ptr %10, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #3
+  br i1 %27, label %28, label %29
 
-24:                                               ; preds = %20
-  br label %29
+28:                                               ; preds = %24
+  br label %33
 
-25:                                               ; preds = %20
-  call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %8, i32 noundef 3, ptr noundef @.str.7, i32 noundef 212)
+29:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 56, ptr %8) #3
   store i1 true, ptr %9, align 1
-  %26 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef @.str.8)
-          to label %27 unwind label %33
-
-27:                                               ; preds = %25
-  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(56) %26)
-          to label %28 unwind label %33
-
-28:                                               ; preds = %27
-  br label %29
-
-29:                                               ; preds = %28, %24
-  %30 = load i1, ptr %9, align 1
-  br i1 %30, label %31, label %32
+  call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %8, i32 noundef 3, ptr noundef @.str.7, i32 noundef 212)
+  store i1 true, ptr %10, align 1
+  %30 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef @.str.8)
+          to label %31 unwind label %40
 
 31:                                               ; preds = %29
+  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(56) %30)
+          to label %32 unwind label %44
+
+32:                                               ; preds = %31
+  br label %33
+
+33:                                               ; preds = %32, %28
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #3
+  %34 = load i1, ptr %10, align 1
+  br i1 %34, label %35, label %36
+
+35:                                               ; preds = %33
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #3
-  br label %32
+  br label %36
 
-32:                                               ; preds = %31, %29
-  br label %19, !llvm.loop !13
-
-33:                                               ; preds = %27, %25
-  %34 = landingpad { ptr, i32 }
-          cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %10, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %11, align 4
+36:                                               ; preds = %35, %33
   %37 = load i1, ptr %9, align 1
   br i1 %37, label %38, label %39
 
-38:                                               ; preds = %33
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #3
+38:                                               ; preds = %36
+  call void @llvm.lifetime.end.p0(i64 56, ptr %8) #3
   br label %39
 
-39:                                               ; preds = %38, %33
-  br label %107
+39:                                               ; preds = %38, %36
+  br label %23, !llvm.loop !89
 
-40:                                               ; preds = %19
-  %41 = load ptr, ptr %6, align 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %18, i32 0, i32 0
-  %44 = load ptr, ptr %43, align 8
-  %45 = icmp ult ptr %42, %44
-  br i1 %45, label %46, label %47
-
-46:                                               ; preds = %40
-  store i1 false, ptr %4, align 1
-  br label %105
-
-47:                                               ; preds = %40
-  %48 = load ptr, ptr %6, align 8
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %18, i32 0, i32 1
-  %51 = load ptr, ptr %50, align 8
-  %52 = ptrtoint ptr %49 to i64
-  %53 = ptrtoint ptr %51 to i64
-  %54 = sub i64 %52, %53
-  %55 = trunc i64 %54 to i32
-  store i32 %55, ptr %13, align 4
-  br label %56
-
-56:                                               ; preds = %68, %47
-  br i1 false, label %57, label %76
-
-57:                                               ; preds = %56
-  %58 = load i32, ptr %13, align 4
-  %59 = icmp sle i32 %58, 16
-  store i1 false, ptr %15, align 1
-  br i1 %59, label %60, label %61
-
-60:                                               ; preds = %57
-  br label %65
-
-61:                                               ; preds = %57
-  call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %14, i32 noundef 3, ptr noundef @.str.7, i32 noundef 215)
-  store i1 true, ptr %15, align 1
-  %62 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef @.str.9)
-          to label %63 unwind label %69
-
-63:                                               ; preds = %61
-  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(56) %62)
-          to label %64 unwind label %69
-
-64:                                               ; preds = %63
-  br label %65
-
-65:                                               ; preds = %64, %60
-  %66 = load i1, ptr %15, align 1
-  br i1 %66, label %67, label %68
-
-67:                                               ; preds = %65
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #3
-  br label %68
-
-68:                                               ; preds = %67, %65
-  br label %56, !llvm.loop !14
-
-69:                                               ; preds = %63, %61
-  %70 = landingpad { ptr, i32 }
+40:                                               ; preds = %29
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %71 = extractvalue { ptr, i32 } %70, 0
-  store ptr %71, ptr %10, align 8
-  %72 = extractvalue { ptr, i32 } %70, 1
-  store i32 %72, ptr %11, align 4
-  %73 = load i1, ptr %15, align 1
-  br i1 %73, label %74, label %75
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %11, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %12, align 4
+  br label %48
 
-74:                                               ; preds = %69
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #3
-  br label %75
+44:                                               ; preds = %31
+  %45 = landingpad { ptr, i32 }
+          cleanup
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %11, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #3
+  br label %48
 
-75:                                               ; preds = %74, %69
-  br label %107
+48:                                               ; preds = %44, %40
+  %49 = load i1, ptr %10, align 1
+  br i1 %49, label %50, label %51
 
-76:                                               ; preds = %56
-  %77 = load i32, ptr %13, align 4
-  %78 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %18, i32 0, i32 4
-  %79 = load i32, ptr %78, align 4
-  %80 = icmp eq i32 %77, %79
-  br i1 %80, label %81, label %91
+50:                                               ; preds = %48
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #3
+  br label %51
 
-81:                                               ; preds = %76
-  %82 = load i32, ptr %13, align 4
-  %83 = icmp sgt i32 %82, 0
-  br i1 %83, label %84, label %90
+51:                                               ; preds = %50, %48
+  %52 = load i1, ptr %9, align 1
+  br i1 %52, label %53, label %54
 
-84:                                               ; preds = %81
-  %85 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %18, i32 0, i32 2
-  %86 = load ptr, ptr %85, align 8
-  %87 = icmp eq ptr %86, null
-  br i1 %87, label %88, label %90
+53:                                               ; preds = %51
+  call void @llvm.lifetime.end.p0(i64 56, ptr %8) #3
+  br label %54
 
-88:                                               ; preds = %84
-  %89 = load ptr, ptr %6, align 8
-  store ptr null, ptr %89, align 8
-  br label %90
+54:                                               ; preds = %53, %51
+  br label %133
 
-90:                                               ; preds = %88, %84, %81
+55:                                               ; preds = %23
+  %56 = load ptr, ptr %6, align 8, !tbaa !50
+  %57 = load ptr, ptr %56, align 8, !tbaa !35
+  %58 = getelementptr inbounds nuw %"class.google::protobuf::internal::EpsCopyInputStream", ptr %22, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8, !tbaa !90
+  %60 = icmp ult ptr %57, %59
+  %61 = zext i1 %60 to i64
+  %62 = call i64 @llvm.expect.i64(i64 %61, i64 1)
+  %63 = icmp ne i64 %62, 0
+  br i1 %63, label %64, label %65
+
+64:                                               ; preds = %55
+  store i1 false, ptr %4, align 1
+  br label %131
+
+65:                                               ; preds = %55
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  %66 = load ptr, ptr %6, align 8, !tbaa !50
+  %67 = load ptr, ptr %66, align 8, !tbaa !35
+  %68 = getelementptr inbounds nuw %"class.google::protobuf::internal::EpsCopyInputStream", ptr %22, i32 0, i32 1
+  %69 = load ptr, ptr %68, align 8, !tbaa !91
+  %70 = ptrtoint ptr %67 to i64
+  %71 = ptrtoint ptr %69 to i64
+  %72 = sub i64 %70, %71
+  %73 = trunc i64 %72 to i32
+  store i32 %73, ptr %14, align 4, !tbaa !34
+  br label %74
+
+74:                                               ; preds = %89, %65
+  br i1 false, label %75, label %105
+
+75:                                               ; preds = %74
+  %76 = load i32, ptr %14, align 4, !tbaa !34
+  %77 = icmp sle i32 %76, 16
+  store i1 false, ptr %16, align 1
+  store i1 false, ptr %17, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %18) #3
+  br i1 %77, label %78, label %79
+
+78:                                               ; preds = %75
+  br label %83
+
+79:                                               ; preds = %75
+  call void @llvm.lifetime.start.p0(i64 56, ptr %15) #3
+  store i1 true, ptr %16, align 1
+  call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %15, i32 noundef 3, ptr noundef @.str.7, i32 noundef 215)
+  store i1 true, ptr %17, align 1
+  %80 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef @.str.9)
+          to label %81 unwind label %90
+
+81:                                               ; preds = %79
+  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(56) %80)
+          to label %82 unwind label %94
+
+82:                                               ; preds = %81
+  br label %83
+
+83:                                               ; preds = %82, %78
+  call void @llvm.lifetime.end.p0(i64 1, ptr %18) #3
+  %84 = load i1, ptr %17, align 1
+  br i1 %84, label %85, label %86
+
+85:                                               ; preds = %83
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %15) #3
+  br label %86
+
+86:                                               ; preds = %85, %83
+  %87 = load i1, ptr %16, align 1
+  br i1 %87, label %88, label %89
+
+88:                                               ; preds = %86
+  call void @llvm.lifetime.end.p0(i64 56, ptr %15) #3
+  br label %89
+
+89:                                               ; preds = %88, %86
+  br label %74, !llvm.loop !92
+
+90:                                               ; preds = %79
+  %91 = landingpad { ptr, i32 }
+          cleanup
+  %92 = extractvalue { ptr, i32 } %91, 0
+  store ptr %92, ptr %11, align 8
+  %93 = extractvalue { ptr, i32 } %91, 1
+  store i32 %93, ptr %12, align 4
+  br label %98
+
+94:                                               ; preds = %81
+  %95 = landingpad { ptr, i32 }
+          cleanup
+  %96 = extractvalue { ptr, i32 } %95, 0
+  store ptr %96, ptr %11, align 8
+  %97 = extractvalue { ptr, i32 } %95, 1
+  store i32 %97, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %18) #3
+  br label %98
+
+98:                                               ; preds = %94, %90
+  %99 = load i1, ptr %17, align 1
+  br i1 %99, label %100, label %101
+
+100:                                              ; preds = %98
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %15) #3
+  br label %101
+
+101:                                              ; preds = %100, %98
+  %102 = load i1, ptr %16, align 1
+  br i1 %102, label %103, label %104
+
+103:                                              ; preds = %101
+  call void @llvm.lifetime.end.p0(i64 56, ptr %15) #3
+  br label %104
+
+104:                                              ; preds = %103, %101
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  br label %133
+
+105:                                              ; preds = %74
+  %106 = load i32, ptr %14, align 4, !tbaa !34
+  %107 = getelementptr inbounds nuw %"class.google::protobuf::internal::EpsCopyInputStream", ptr %22, i32 0, i32 4
+  %108 = load i32, ptr %107, align 4, !tbaa !93
+  %109 = icmp eq i32 %106, %108
+  br i1 %109, label %110, label %120
+
+110:                                              ; preds = %105
+  %111 = load i32, ptr %14, align 4, !tbaa !34
+  %112 = icmp sgt i32 %111, 0
+  br i1 %112, label %113, label %119
+
+113:                                              ; preds = %110
+  %114 = getelementptr inbounds nuw %"class.google::protobuf::internal::EpsCopyInputStream", ptr %22, i32 0, i32 2
+  %115 = load ptr, ptr %114, align 8, !tbaa !94
+  %116 = icmp eq ptr %115, null
+  br i1 %116, label %117, label %119
+
+117:                                              ; preds = %113
+  %118 = load ptr, ptr %6, align 8, !tbaa !50
+  store ptr null, ptr %118, align 8, !tbaa !35
+  br label %119
+
+119:                                              ; preds = %117, %113, %110
   store i1 true, ptr %4, align 1
-  br label %105
+  store i32 1, ptr %19, align 4
+  br label %130
 
-91:                                               ; preds = %76
-  %92 = load i32, ptr %13, align 4
-  %93 = load i32, ptr %7, align 4
-  %94 = call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %18, i32 noundef %92, i32 noundef %93)
-  %95 = getelementptr inbounds { ptr, i8 }, ptr %17, i32 0, i32 0
-  %96 = extractvalue { ptr, i8 } %94, 0
-  store ptr %96, ptr %95, align 8
-  %97 = getelementptr inbounds { ptr, i8 }, ptr %17, i32 0, i32 1
-  %98 = extractvalue { ptr, i8 } %94, 1
-  store i8 %98, ptr %97, align 8
-  %99 = getelementptr inbounds %"struct.std::pair", ptr %17, i32 0, i32 0
-  %100 = load ptr, ptr %99, align 8
-  %101 = load ptr, ptr %6, align 8
-  store ptr %100, ptr %101, align 8
-  %102 = getelementptr inbounds %"struct.std::pair", ptr %17, i32 0, i32 1
-  %103 = load i8, ptr %102, align 8
-  %104 = trunc i8 %103 to i1
-  store i1 %104, ptr %4, align 1
-  br label %105
+120:                                              ; preds = %105
+  call void @llvm.lifetime.start.p0(i64 16, ptr %20) #3
+  %121 = load i32, ptr %14, align 4, !tbaa !34
+  %122 = load i32, ptr %7, align 4, !tbaa !34
+  %123 = call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %22, i32 noundef %121, i32 noundef %122)
+  store { ptr, i8 } %123, ptr %21, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %21, i64 9, i1 false)
+  %124 = getelementptr inbounds nuw %"struct.std::pair", ptr %20, i32 0, i32 0
+  %125 = load ptr, ptr %124, align 8, !tbaa !95
+  %126 = load ptr, ptr %6, align 8, !tbaa !50
+  store ptr %125, ptr %126, align 8, !tbaa !35
+  %127 = getelementptr inbounds nuw %"struct.std::pair", ptr %20, i32 0, i32 1
+  %128 = load i8, ptr %127, align 8, !tbaa !97, !range !12, !noundef !13
+  %129 = trunc i8 %128 to i1
+  store i1 %129, ptr %4, align 1
+  store i32 1, ptr %19, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %20) #3
+  br label %130
 
-105:                                              ; preds = %91, %90, %46
-  %106 = load i1, ptr %4, align 1
-  ret i1 %106
+130:                                              ; preds = %120, %119
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  br label %131
 
-107:                                              ; preds = %75, %39
-  %108 = load ptr, ptr %10, align 8
-  %109 = load i32, ptr %11, align 4
-  %110 = insertvalue { ptr, i32 } poison, ptr %108, 0
-  %111 = insertvalue { ptr, i32 } %110, i32 %109, 1
-  resume { ptr, i32 } %111
+131:                                              ; preds = %130, %64
+  %132 = load i1, ptr %4, align 1
+  ret i1 %132
+
+133:                                              ; preds = %104, %54
+  %134 = load ptr, ptr %11, align 8
+  %135 = load i32, ptr %12, align 4
+  %136 = insertvalue { ptr, i32 } poison, ptr %134, 0
+  %137 = insertvalue { ptr, i32 } %136, i32 %135, 1
+  resume { ptr, i32 } %137
 }
 
 declare { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88), i32 noundef, i32 noundef) #1
@@ -3055,339 +3197,606 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal11VarintPars
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %9 = load ptr, ptr %4, align 8
-  store ptr %9, ptr %6, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 0
-  %12 = load i8, ptr %11, align 1
-  %13 = zext i8 %12 to i32
-  store i32 %13, ptr %7, align 4
-  %14 = load i32, ptr %7, align 4
-  %15 = and i32 %14, 128
-  %16 = icmp ne i32 %15, 0
-  br i1 %16, label %22, label %17
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !35
+  store ptr %1, ptr %5, align 8, !tbaa !60
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  %10 = load ptr, ptr %4, align 8, !tbaa !35
+  store ptr %10, ptr %6, align 8, !tbaa !35
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %11 = load ptr, ptr %6, align 8, !tbaa !35
+  %12 = getelementptr inbounds i8, ptr %11, i64 0
+  %13 = load i8, ptr %12, align 1, !tbaa !62
+  %14 = zext i8 %13 to i32
+  store i32 %14, ptr %7, align 4, !tbaa !34
+  %15 = load i32, ptr %7, align 4, !tbaa !34
+  %16 = and i32 %15, 128
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %23, label %18
 
-17:                                               ; preds = %2
-  %18 = load i32, ptr %7, align 4
-  %19 = load ptr, ptr %5, align 8
-  store i32 %18, ptr %19, align 4
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1
-  store ptr %21, ptr %3, align 8
-  br label %45
+18:                                               ; preds = %2
+  %19 = load i32, ptr %7, align 4, !tbaa !34
+  %20 = load ptr, ptr %5, align 8, !tbaa !60
+  store i32 %19, ptr %20, align 4, !tbaa !34
+  %21 = load ptr, ptr %4, align 8, !tbaa !35
+  %22 = getelementptr inbounds i8, ptr %21, i64 1
+  store ptr %22, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %47
 
-22:                                               ; preds = %2
-  %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 1
-  %25 = load i8, ptr %24, align 1
-  %26 = zext i8 %25 to i32
-  store i32 %26, ptr %8, align 4
-  %27 = load i32, ptr %8, align 4
-  %28 = sub i32 %27, 1
-  %29 = shl i32 %28, 7
-  %30 = load i32, ptr %7, align 4
-  %31 = add i32 %30, %29
-  store i32 %31, ptr %7, align 4
-  %32 = load i32, ptr %8, align 4
-  %33 = and i32 %32, 128
-  %34 = icmp ne i32 %33, 0
-  br i1 %34, label %40, label %35
+23:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  %24 = load ptr, ptr %6, align 8, !tbaa !35
+  %25 = getelementptr inbounds i8, ptr %24, i64 1
+  %26 = load i8, ptr %25, align 1, !tbaa !62
+  %27 = zext i8 %26 to i32
+  store i32 %27, ptr %9, align 4, !tbaa !34
+  %28 = load i32, ptr %9, align 4, !tbaa !34
+  %29 = sub i32 %28, 1
+  %30 = shl i32 %29, 7
+  %31 = load i32, ptr %7, align 4, !tbaa !34
+  %32 = add i32 %31, %30
+  store i32 %32, ptr %7, align 4, !tbaa !34
+  %33 = load i32, ptr %9, align 4, !tbaa !34
+  %34 = and i32 %33, 128
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %41, label %36
 
-35:                                               ; preds = %22
-  %36 = load i32, ptr %7, align 4
-  %37 = load ptr, ptr %5, align 8
-  store i32 %36, ptr %37, align 4
-  %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 2
-  store ptr %39, ptr %3, align 8
-  br label %45
+36:                                               ; preds = %23
+  %37 = load i32, ptr %7, align 4, !tbaa !34
+  %38 = load ptr, ptr %5, align 8, !tbaa !60
+  store i32 %37, ptr %38, align 4, !tbaa !34
+  %39 = load ptr, ptr %4, align 8, !tbaa !35
+  %40 = getelementptr inbounds i8, ptr %39, i64 2
+  store ptr %40, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %46
 
-40:                                               ; preds = %22
-  %41 = load ptr, ptr %4, align 8
-  %42 = load i32, ptr %7, align 4
-  %43 = load ptr, ptr %5, align 8
-  %44 = call noundef ptr @_ZN6google8protobuf8internal15VarintParseSlowEPKcjPj(ptr noundef %41, i32 noundef %42, ptr noundef %43)
-  store ptr %44, ptr %3, align 8
-  br label %45
+41:                                               ; preds = %23
+  %42 = load ptr, ptr %4, align 8, !tbaa !35
+  %43 = load i32, ptr %7, align 4, !tbaa !34
+  %44 = load ptr, ptr %5, align 8, !tbaa !60
+  %45 = call noundef ptr @_ZN6google8protobuf8internal15VarintParseSlowEPKcjPj(ptr noundef %42, i32 noundef %43, ptr noundef %44)
+  store ptr %45, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %46
 
-45:                                               ; preds = %40, %35, %17
-  %46 = load ptr, ptr %3, align 8
-  ret ptr %46
+46:                                               ; preds = %41, %36
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  br label %47
+
+47:                                               ; preds = %46, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  %48 = load ptr, ptr %3, align 8
+  ret ptr %48
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal15VarintParseSlowEPKcjPj(ptr noundef %0, i32 noundef %1, ptr noundef %2) #4 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal15VarintParseSlowEPKcjPj(ptr noundef %0, i32 noundef %1, ptr noundef %2) #5 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca %"struct.std::pair.6", align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store ptr %2, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load i32, ptr %5, align 4
-  %10 = call { ptr, i32 } @_ZN6google8protobuf8internal17VarintParseSlow32EPKcj(ptr noundef %8, i32 noundef %9)
-  %11 = getelementptr inbounds { ptr, i32 }, ptr %7, i32 0, i32 0
-  %12 = extractvalue { ptr, i32 } %10, 0
-  store ptr %12, ptr %11, align 8
-  %13 = getelementptr inbounds { ptr, i32 }, ptr %7, i32 0, i32 1
-  %14 = extractvalue { ptr, i32 } %10, 1
-  store i32 %14, ptr %13, align 8
-  %15 = getelementptr inbounds %"struct.std::pair.6", ptr %7, i32 0, i32 1
-  %16 = load i32, ptr %15, align 8
-  %17 = load ptr, ptr %6, align 8
-  store i32 %16, ptr %17, align 4
-  %18 = getelementptr inbounds %"struct.std::pair.6", ptr %7, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  ret ptr %19
+  %8 = alloca { ptr, i32 }, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !35
+  store i32 %1, ptr %5, align 4, !tbaa !34
+  store ptr %2, ptr %6, align 8, !tbaa !60
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #3
+  %9 = load ptr, ptr %4, align 8, !tbaa !35
+  %10 = load i32, ptr %5, align 4, !tbaa !34
+  %11 = call { ptr, i32 } @_ZN6google8protobuf8internal17VarintParseSlow32EPKcj(ptr noundef %9, i32 noundef %10)
+  store { ptr, i32 } %11, ptr %8, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 12, i1 false)
+  %12 = getelementptr inbounds nuw %"struct.std::pair.6", ptr %7, i32 0, i32 1
+  %13 = load i32, ptr %12, align 8, !tbaa !63
+  %14 = load ptr, ptr %6, align 8, !tbaa !60
+  store i32 %13, ptr %14, align 4, !tbaa !34
+  %15 = getelementptr inbounds nuw %"struct.std::pair.6", ptr %7, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !65
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #3
+  ret ptr %16
 }
 
 declare { ptr, i32 } @_ZN6google8protobuf8internal17VarintParseSlow32EPKcj(ptr noundef, i32 noundef) #1
 
-declare void @_ZN6google8protobuf13RepeatedFieldIiE3AddERKi(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(4)) #1
+; Function Attrs: inlinehint mustprogress uwtable
+define available_externally void @_ZN6google8protobuf13RepeatedFieldIiE3AddERKi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #5 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !60
+  %7 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
+  %8 = getelementptr inbounds nuw %"class.google::protobuf::RepeatedField", ptr %7, i32 0, i32 0
+  %9 = load i32, ptr %8, align 8, !tbaa !20
+  store i32 %9, ptr %5, align 4, !tbaa !34
+  %10 = load i32, ptr %5, align 4, !tbaa !34
+  %11 = getelementptr inbounds nuw %"class.google::protobuf::RepeatedField", ptr %7, i32 0, i32 1
+  %12 = load i32, ptr %11, align 4, !tbaa !23
+  %13 = icmp eq i32 %10, %12
+  br i1 %13, label %14, label %25
+
+14:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  %15 = load ptr, ptr %4, align 8, !tbaa !60
+  %16 = load i32, ptr %15, align 4, !tbaa !34
+  store i32 %16, ptr %6, align 4, !tbaa !34
+  %17 = getelementptr inbounds nuw %"class.google::protobuf::RepeatedField", ptr %7, i32 0, i32 1
+  %18 = load i32, ptr %17, align 4, !tbaa !23
+  %19 = add nsw i32 %18, 1
+  call void @_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %19)
+  %20 = load i32, ptr %6, align 4, !tbaa !34
+  %21 = call noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE8elementsEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %22 = load i32, ptr %5, align 4, !tbaa !34
+  %23 = zext i32 %22 to i64
+  %24 = getelementptr inbounds nuw i32, ptr %21, i64 %23
+  store i32 %20, ptr %24, align 4, !tbaa !34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  br label %32
+
+25:                                               ; preds = %2
+  %26 = load ptr, ptr %4, align 8, !tbaa !60
+  %27 = load i32, ptr %26, align 4, !tbaa !34
+  %28 = call noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE8elementsEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %29 = load i32, ptr %5, align 4, !tbaa !34
+  %30 = zext i32 %29 to i64
+  %31 = getelementptr inbounds nuw i32, ptr %28, i64 %30
+  store i32 %27, ptr %31, align 4, !tbaa !34
+  br label %32
+
+32:                                               ; preds = %25, %14
+  %33 = load i32, ptr %5, align 4, !tbaa !34
+  %34 = add i32 %33, 1
+  %35 = getelementptr inbounds nuw %"class.google::protobuf::RepeatedField", ptr %7, i32 0, i32 0
+  store i32 %34, ptr %35, align 8, !tbaa !20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
+  ret void
+}
+
+declare void @_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) #1
+
+; Function Attrs: mustprogress uwtable
+define available_externally noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE8elementsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.google::protobuf::internal::LogMessage", align 8
+  %4 = alloca i1, align 1
+  %5 = alloca i1, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %9 = load ptr, ptr %2, align 8
+  br label %10
+
+10:                                               ; preds = %26, %1
+  br i1 false, label %11, label %42
+
+11:                                               ; preds = %10
+  %12 = getelementptr inbounds nuw %"class.google::protobuf::RepeatedField", ptr %9, i32 0, i32 1
+  %13 = load i32, ptr %12, align 4, !tbaa !23
+  %14 = icmp sgt i32 %13, 0
+  store i1 false, ptr %4, align 1
+  store i1 false, ptr %5, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #3
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %11
+  br label %20
+
+16:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 56, ptr %3) #3
+  store i1 true, ptr %4, align 1
+  call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef 3, ptr noundef @.str.10, i32 noundef 353)
+  store i1 true, ptr %5, align 1
+  %17 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef @.str.11)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(56) %17)
+          to label %19 unwind label %31
+
+19:                                               ; preds = %18
+  br label %20
+
+20:                                               ; preds = %19, %15
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #3
+  %21 = load i1, ptr %5, align 1
+  br i1 %21, label %22, label %23
+
+22:                                               ; preds = %20
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #3
+  br label %23
+
+23:                                               ; preds = %22, %20
+  %24 = load i1, ptr %4, align 1
+  br i1 %24, label %25, label %26
+
+25:                                               ; preds = %23
+  call void @llvm.lifetime.end.p0(i64 56, ptr %3) #3
+  br label %26
+
+26:                                               ; preds = %25, %23
+  br label %10, !llvm.loop !98
+
+27:                                               ; preds = %16
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %6, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %7, align 4
+  br label %35
+
+31:                                               ; preds = %18
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %6, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #3
+  br label %35
+
+35:                                               ; preds = %31, %27
+  %36 = load i1, ptr %5, align 1
+  br i1 %36, label %37, label %38
+
+37:                                               ; preds = %35
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #3
+  br label %38
+
+38:                                               ; preds = %37, %35
+  %39 = load i1, ptr %4, align 1
+  br i1 %39, label %40, label %41
+
+40:                                               ; preds = %38
+  call void @llvm.lifetime.end.p0(i64 56, ptr %3) #3
+  br label %41
+
+41:                                               ; preds = %40, %38
+  br label %44
+
+42:                                               ; preds = %10
+  %43 = call noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE15unsafe_elementsEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
+  ret ptr %43
+
+44:                                               ; preds = %41
+  %45 = load ptr, ptr %6, align 8
+  %46 = load i32, ptr %7, align 4
+  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
+  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
+  resume { ptr, i32 } %48
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE15unsafe_elementsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #7 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.google::protobuf::RepeatedField", ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8, !tbaa !24
+  ret ptr %5
+}
 
 declare noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59), ptr noundef) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZN6google8protobuf8internal14WireFormatLite7MakeTagEiNS2_8WireTypeE(i32 noundef %0, i32 noundef %1) #5 comdat align 2 {
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal14WireFormatLite15WriteTagToArrayEiNS2_8WireTypeEPh(i32 noundef %0, i32 noundef %1, ptr noundef %2) #8 comdat align 2 {
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store i32 %0, ptr %4, align 4, !tbaa !34
+  store i32 %1, ptr %5, align 4, !tbaa !99
+  store ptr %2, ptr %6, align 8, !tbaa !35
+  %7 = load i32, ptr %4, align 4, !tbaa !34
+  %8 = load i32, ptr %5, align 4, !tbaa !99
+  %9 = call noundef i32 @_ZN6google8protobuf8internal14WireFormatLite7MakeTagEiNS2_8WireTypeE(i32 noundef %7, i32 noundef %8)
+  %10 = load ptr, ptr %6, align 8, !tbaa !35
+  %11 = call noundef ptr @_ZN6google8protobuf2io17CodedOutputStream15WriteTagToArrayEjPh(i32 noundef %9, ptr noundef %10)
+  ret ptr %11
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal14WireFormatLite22WriteInt32NoTagToArrayEiPh(i32 noundef %0, ptr noundef %1) #8 comdat align 2 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !34
+  store ptr %1, ptr %4, align 8, !tbaa !35
+  %5 = load i32, ptr %3, align 4, !tbaa !34
+  %6 = load ptr, ptr %4, align 8, !tbaa !35
+  %7 = call noundef ptr @_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh(i32 noundef %5, ptr noundef %6)
+  ret ptr %7
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZN6google8protobuf2io17CodedOutputStream15WriteTagToArrayEjPh(i32 noundef %0, ptr noundef %1) #8 comdat align 2 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !34
+  store ptr %1, ptr %4, align 8, !tbaa !35
+  %5 = load i32, ptr %3, align 4, !tbaa !34
+  %6 = load ptr, ptr %4, align 8, !tbaa !35
+  %7 = call noundef ptr @_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh(i32 noundef %5, ptr noundef %6)
+  ret ptr %7
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZN6google8protobuf8internal14WireFormatLite7MakeTagEiNS2_8WireTypeE(i32 noundef %0, i32 noundef %1) #6 comdat align 2 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  store i32 %1, ptr %4, align 4
-  %5 = load i32, ptr %3, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !34
+  store i32 %1, ptr %4, align 4, !tbaa !99
+  %5 = load i32, ptr %3, align 4, !tbaa !34
   %6 = shl i32 %5, 3
-  %7 = load i32, ptr %4, align 4
+  %7 = load i32, ptr %4, align 4, !tbaa !99
   %8 = or i32 %6, %7
   ret i32 %8
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh(i32 noundef %0, ptr noundef %1) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh(i32 noundef %0, ptr noundef %1) #5 comdat align 2 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !34
+  store ptr %1, ptr %4, align 8, !tbaa !35
+  %5 = load i32, ptr %3, align 4, !tbaa !34
+  %6 = load ptr, ptr %4, align 8, !tbaa !35
+  %7 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_(i32 noundef %5, ptr noundef %6)
+  ret ptr %7
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_(i32 noundef %0, ptr noundef %1) #15 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
-  %7 = alloca ptr, align 8
-  store i32 %0, ptr %6, align 4
-  store ptr %1, ptr %7, align 8
-  %8 = load i32, ptr %6, align 4
-  %9 = load ptr, ptr %7, align 8
-  store i32 %8, ptr %4, align 4
-  store ptr %9, ptr %5, align 8
-  %10 = load i32, ptr %4, align 4
-  %11 = trunc i32 %10 to i8
-  %12 = load ptr, ptr %5, align 8
-  store i8 %11, ptr %12, align 1
-  %13 = load i32, ptr %4, align 4
-  %14 = icmp ult i32 %13, 128
-  br i1 %14, label %15, label %18
+  store i32 %0, ptr %4, align 4, !tbaa !34
+  store ptr %1, ptr %5, align 8, !tbaa !35
+  %6 = load i32, ptr %4, align 4, !tbaa !34
+  %7 = trunc i32 %6 to i8
+  %8 = load ptr, ptr %5, align 8, !tbaa !35
+  %9 = getelementptr inbounds i8, ptr %8, i64 0
+  store i8 %7, ptr %9, align 1, !tbaa !62
+  %10 = load i32, ptr %4, align 4, !tbaa !34
+  %11 = icmp ult i32 %10, 128
+  br i1 %11, label %12, label %15
+
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %5, align 8, !tbaa !35
+  %14 = getelementptr inbounds i8, ptr %13, i64 1
+  store ptr %14, ptr %3, align 8
+  br label %55
 
 15:                                               ; preds = %2
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1
-  store ptr %17, ptr %3, align 8
-  br label %56
+  %16 = load ptr, ptr %5, align 8, !tbaa !35
+  %17 = getelementptr inbounds i8, ptr %16, i64 0
+  %18 = load i8, ptr %17, align 1, !tbaa !62
+  %19 = zext i8 %18 to i32
+  %20 = or i32 %19, 128
+  %21 = trunc i32 %20 to i8
+  store i8 %21, ptr %17, align 1, !tbaa !62
+  %22 = load i32, ptr %4, align 4, !tbaa !34
+  %23 = lshr i32 %22, 7
+  store i32 %23, ptr %4, align 4, !tbaa !34
+  %24 = load i32, ptr %4, align 4, !tbaa !34
+  %25 = trunc i32 %24 to i8
+  %26 = load ptr, ptr %5, align 8, !tbaa !35
+  %27 = getelementptr inbounds i8, ptr %26, i64 1
+  store i8 %25, ptr %27, align 1, !tbaa !62
+  %28 = load i32, ptr %4, align 4, !tbaa !34
+  %29 = icmp ult i32 %28, 128
+  br i1 %29, label %30, label %33
 
-18:                                               ; preds = %2
-  %19 = load ptr, ptr %5, align 8
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i32
-  %22 = or i32 %21, 128
-  %23 = trunc i32 %22 to i8
-  store i8 %23, ptr %19, align 1
-  %24 = load i32, ptr %4, align 4
-  %25 = lshr i32 %24, 7
-  store i32 %25, ptr %4, align 4
-  %26 = load i32, ptr %4, align 4
-  %27 = trunc i32 %26 to i8
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1
-  store i8 %27, ptr %29, align 1
-  %30 = load i32, ptr %4, align 4
-  %31 = icmp ult i32 %30, 128
-  br i1 %31, label %32, label %35
+30:                                               ; preds = %15
+  %31 = load ptr, ptr %5, align 8, !tbaa !35
+  %32 = getelementptr inbounds i8, ptr %31, i64 2
+  store ptr %32, ptr %3, align 8
+  br label %55
 
-32:                                               ; preds = %18
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 2
-  store ptr %34, ptr %3, align 8
-  br label %56
+33:                                               ; preds = %15
+  %34 = load ptr, ptr %5, align 8, !tbaa !35
+  %35 = getelementptr inbounds i8, ptr %34, i64 2
+  store ptr %35, ptr %5, align 8, !tbaa !35
+  br label %36
 
-35:                                               ; preds = %18
-  %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 2
-  store ptr %37, ptr %5, align 8
-  br label %38
+36:                                               ; preds = %50, %33
+  %37 = load ptr, ptr %5, align 8, !tbaa !35
+  %38 = getelementptr inbounds i8, ptr %37, i64 -1
+  %39 = load i8, ptr %38, align 1, !tbaa !62
+  %40 = zext i8 %39 to i32
+  %41 = or i32 %40, 128
+  %42 = trunc i32 %41 to i8
+  store i8 %42, ptr %38, align 1, !tbaa !62
+  %43 = load i32, ptr %4, align 4, !tbaa !34
+  %44 = lshr i32 %43, 7
+  store i32 %44, ptr %4, align 4, !tbaa !34
+  %45 = load i32, ptr %4, align 4, !tbaa !34
+  %46 = trunc i32 %45 to i8
+  %47 = load ptr, ptr %5, align 8, !tbaa !35
+  store i8 %46, ptr %47, align 1, !tbaa !62
+  %48 = load ptr, ptr %5, align 8, !tbaa !35
+  %49 = getelementptr inbounds nuw i8, ptr %48, i32 1
+  store ptr %49, ptr %5, align 8, !tbaa !35
+  br label %50
 
-38:                                               ; preds = %38, %35
-  %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 -1
-  %41 = load i8, ptr %40, align 1
-  %42 = zext i8 %41 to i32
-  %43 = or i32 %42, 128
-  %44 = trunc i32 %43 to i8
-  store i8 %44, ptr %40, align 1
-  %45 = load i32, ptr %4, align 4
-  %46 = lshr i32 %45, 7
-  store i32 %46, ptr %4, align 4
-  %47 = load i32, ptr %4, align 4
-  %48 = trunc i32 %47 to i8
-  %49 = load ptr, ptr %5, align 8
-  store i8 %48, ptr %49, align 1
-  %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i32 1
-  store ptr %51, ptr %5, align 8
-  %52 = load i32, ptr %4, align 4
-  %53 = icmp uge i32 %52, 128
-  br i1 %53, label %38, label %54, !llvm.loop !7
+50:                                               ; preds = %36
+  %51 = load i32, ptr %4, align 4, !tbaa !34
+  %52 = icmp uge i32 %51, 128
+  br i1 %52, label %36, label %53, !llvm.loop !101
 
-54:                                               ; preds = %38
-  %55 = load ptr, ptr %5, align 8
-  store ptr %55, ptr %3, align 8
-  br label %56
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %5, align 8, !tbaa !35
+  store ptr %54, ptr %3, align 8
+  br label %55
 
-56:                                               ; preds = %54, %32, %15
-  %57 = load ptr, ptr %3, align 8
-  ret ptr %57
+55:                                               ; preds = %53, %30, %12
+  %56 = load ptr, ptr %3, align 8
+  ret ptr %56
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh(i32 noundef %0, ptr noundef %1) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh(i32 noundef %0, ptr noundef %1) #5 comdat align 2 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %5 = load i32, ptr %3, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !34
+  store ptr %1, ptr %4, align 8, !tbaa !35
+  %5 = load i32, ptr %3, align 4, !tbaa !34
   %6 = sext i32 %5 to i64
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !35
   %8 = call noundef ptr @_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh(i64 noundef %6, ptr noundef %7)
   ret ptr %8
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh(i64 noundef %0, ptr noundef %1) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh(i64 noundef %0, ptr noundef %1) #5 comdat align 2 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !78
+  store ptr %1, ptr %4, align 8, !tbaa !35
+  %5 = load i64, ptr %3, align 8, !tbaa !78
+  %6 = load ptr, ptr %4, align 8, !tbaa !35
+  %7 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_(i64 noundef %5, ptr noundef %6)
+  ret ptr %7
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_(i64 noundef %0, ptr noundef %1) #15 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
-  %6 = alloca i64, align 8
-  %7 = alloca ptr, align 8
-  store i64 %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  %8 = load i64, ptr %6, align 8
-  %9 = load ptr, ptr %7, align 8
-  store i64 %8, ptr %4, align 8
-  store ptr %9, ptr %5, align 8
-  %10 = load i64, ptr %4, align 8
-  %11 = trunc i64 %10 to i8
-  %12 = load ptr, ptr %5, align 8
-  store i8 %11, ptr %12, align 1
-  %13 = load i64, ptr %4, align 8
-  %14 = icmp ult i64 %13, 128
-  br i1 %14, label %15, label %18
+  store i64 %0, ptr %4, align 8, !tbaa !78
+  store ptr %1, ptr %5, align 8, !tbaa !35
+  %6 = load i64, ptr %4, align 8, !tbaa !78
+  %7 = trunc i64 %6 to i8
+  %8 = load ptr, ptr %5, align 8, !tbaa !35
+  %9 = getelementptr inbounds i8, ptr %8, i64 0
+  store i8 %7, ptr %9, align 1, !tbaa !62
+  %10 = load i64, ptr %4, align 8, !tbaa !78
+  %11 = icmp ult i64 %10, 128
+  br i1 %11, label %12, label %15
+
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %5, align 8, !tbaa !35
+  %14 = getelementptr inbounds i8, ptr %13, i64 1
+  store ptr %14, ptr %3, align 8
+  br label %55
 
 15:                                               ; preds = %2
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1
-  store ptr %17, ptr %3, align 8
-  br label %56
+  %16 = load ptr, ptr %5, align 8, !tbaa !35
+  %17 = getelementptr inbounds i8, ptr %16, i64 0
+  %18 = load i8, ptr %17, align 1, !tbaa !62
+  %19 = zext i8 %18 to i32
+  %20 = or i32 %19, 128
+  %21 = trunc i32 %20 to i8
+  store i8 %21, ptr %17, align 1, !tbaa !62
+  %22 = load i64, ptr %4, align 8, !tbaa !78
+  %23 = lshr i64 %22, 7
+  store i64 %23, ptr %4, align 8, !tbaa !78
+  %24 = load i64, ptr %4, align 8, !tbaa !78
+  %25 = trunc i64 %24 to i8
+  %26 = load ptr, ptr %5, align 8, !tbaa !35
+  %27 = getelementptr inbounds i8, ptr %26, i64 1
+  store i8 %25, ptr %27, align 1, !tbaa !62
+  %28 = load i64, ptr %4, align 8, !tbaa !78
+  %29 = icmp ult i64 %28, 128
+  br i1 %29, label %30, label %33
 
-18:                                               ; preds = %2
-  %19 = load ptr, ptr %5, align 8
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i32
-  %22 = or i32 %21, 128
-  %23 = trunc i32 %22 to i8
-  store i8 %23, ptr %19, align 1
-  %24 = load i64, ptr %4, align 8
-  %25 = lshr i64 %24, 7
-  store i64 %25, ptr %4, align 8
-  %26 = load i64, ptr %4, align 8
-  %27 = trunc i64 %26 to i8
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1
-  store i8 %27, ptr %29, align 1
-  %30 = load i64, ptr %4, align 8
-  %31 = icmp ult i64 %30, 128
-  br i1 %31, label %32, label %35
+30:                                               ; preds = %15
+  %31 = load ptr, ptr %5, align 8, !tbaa !35
+  %32 = getelementptr inbounds i8, ptr %31, i64 2
+  store ptr %32, ptr %3, align 8
+  br label %55
 
-32:                                               ; preds = %18
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 2
-  store ptr %34, ptr %3, align 8
-  br label %56
+33:                                               ; preds = %15
+  %34 = load ptr, ptr %5, align 8, !tbaa !35
+  %35 = getelementptr inbounds i8, ptr %34, i64 2
+  store ptr %35, ptr %5, align 8, !tbaa !35
+  br label %36
 
-35:                                               ; preds = %18
-  %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 2
-  store ptr %37, ptr %5, align 8
-  br label %38
+36:                                               ; preds = %50, %33
+  %37 = load ptr, ptr %5, align 8, !tbaa !35
+  %38 = getelementptr inbounds i8, ptr %37, i64 -1
+  %39 = load i8, ptr %38, align 1, !tbaa !62
+  %40 = zext i8 %39 to i32
+  %41 = or i32 %40, 128
+  %42 = trunc i32 %41 to i8
+  store i8 %42, ptr %38, align 1, !tbaa !62
+  %43 = load i64, ptr %4, align 8, !tbaa !78
+  %44 = lshr i64 %43, 7
+  store i64 %44, ptr %4, align 8, !tbaa !78
+  %45 = load i64, ptr %4, align 8, !tbaa !78
+  %46 = trunc i64 %45 to i8
+  %47 = load ptr, ptr %5, align 8, !tbaa !35
+  store i8 %46, ptr %47, align 1, !tbaa !62
+  %48 = load ptr, ptr %5, align 8, !tbaa !35
+  %49 = getelementptr inbounds nuw i8, ptr %48, i32 1
+  store ptr %49, ptr %5, align 8, !tbaa !35
+  br label %50
 
-38:                                               ; preds = %38, %35
-  %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 -1
-  %41 = load i8, ptr %40, align 1
-  %42 = zext i8 %41 to i32
-  %43 = or i32 %42, 128
-  %44 = trunc i32 %43 to i8
-  store i8 %44, ptr %40, align 1
-  %45 = load i64, ptr %4, align 8
-  %46 = lshr i64 %45, 7
-  store i64 %46, ptr %4, align 8
-  %47 = load i64, ptr %4, align 8
-  %48 = trunc i64 %47 to i8
-  %49 = load ptr, ptr %5, align 8
-  store i8 %48, ptr %49, align 1
-  %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i32 1
-  store ptr %51, ptr %5, align 8
-  %52 = load i64, ptr %4, align 8
-  %53 = icmp uge i64 %52, 128
-  br i1 %53, label %38, label %54, !llvm.loop !9
+50:                                               ; preds = %36
+  %51 = load i64, ptr %4, align 8, !tbaa !78
+  %52 = icmp uge i64 %51, 128
+  br i1 %52, label %36, label %53, !llvm.loop !102
 
-54:                                               ; preds = %38
-  %55 = load ptr, ptr %5, align 8
-  store ptr %55, ptr %3, align 8
-  br label %56
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %5, align 8, !tbaa !35
+  store ptr %54, ptr %3, align 8
+  br label %55
 
-56:                                               ; preds = %54, %32, %15
-  %57 = load ptr, ptr %3, align 8
-  ret ptr %57
+55:                                               ; preds = %53, %30, %12
+  %56 = load ptr, ptr %3, align 8
+  ret ptr %56
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i64 @_ZN6google8protobuf2io17CodedOutputStream24VarintSize32SignExtendedEi(i32 noundef %0) #4 comdat align 2 {
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK6google8protobuf8internal16InternalMetadata19HasUnknownFieldsTagEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #15 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.google::protobuf::internal::InternalMetadata", ptr %3, i32 0, i32 0
+  %5 = load i64, ptr %4, align 8, !tbaa !82
+  %6 = and i64 %5, 1
+  %7 = icmp ne i64 %6, 0
+  ret i1 %7
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef i64 @_ZN6google8protobuf2io17CodedOutputStream24VarintSize32SignExtendedEi(i32 noundef %0) #5 comdat align 2 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !34
+  %3 = load i32, ptr %2, align 4, !tbaa !34
   %4 = sext i32 %3 to i64
   %5 = call noundef i64 @_ZN6google8protobuf2io17CodedOutputStream12VarintSize64Em(i64 noundef %4)
   ret i64 %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i64 @_ZN6google8protobuf2io17CodedOutputStream12VarintSize64Em(i64 noundef %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef i64 @_ZN6google8protobuf2io17CodedOutputStream12VarintSize64Em(i64 noundef %0) #5 comdat align 2 {
   %2 = alloca i64, align 8
   %3 = alloca i32, align 4
-  store i64 %0, ptr %2, align 8
-  %4 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #3
+  %4 = load i64, ptr %2, align 8, !tbaa !78
   %5 = or i64 %4, 1
   %6 = call noundef i32 @_ZN6google8protobuf4Bits18Log2FloorNonZero64Em(i64 noundef %5)
-  store i32 %6, ptr %3, align 4
-  %7 = load i32, ptr %3, align 4
+  store i32 %6, ptr %3, align 4, !tbaa !34
+  %7 = load i32, ptr %3, align 4, !tbaa !34
   %8 = mul i32 %7, 9
   %9 = add i32 %8, 73
   %10 = udiv i32 %9, 64
   %11 = zext i32 %10 to i64
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #3
   ret i64 %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZN6google8protobuf4Bits18Log2FloorNonZero64Em(i64 noundef %0) #5 comdat align 2 {
+define linkonce_odr hidden noundef i32 @_ZN6google8protobuf4Bits18Log2FloorNonZero64Em(i64 noundef %0) #7 comdat align 2 {
   %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !78
+  %3 = load i64, ptr %2, align 8, !tbaa !78
   %4 = call i64 @llvm.ctlz.i64(i64 %3, i1 true)
   %5 = trunc i64 %4 to i32
   %6 = xor i32 63, %5
@@ -3395,257 +3804,790 @@ define linkonce_odr hidden noundef i32 @_ZN6google8protobuf4Bits18Log2FloorNonZe
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #10
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #17
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i64 @_ZN6google8protobuf2io17CodedOutputStream31VarintSize32SignExtendedPlusOneEi(i32 noundef %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef i64 @_ZN6google8protobuf2io17CodedOutputStream31VarintSize32SignExtendedPlusOneEi(i32 noundef %0) #5 comdat align 2 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !34
+  %3 = load i32, ptr %2, align 4, !tbaa !34
   %4 = sext i32 %3 to i64
   %5 = call noundef i64 @_ZN6google8protobuf2io17CodedOutputStream19VarintSize64PlusOneEm(i64 noundef %4)
   ret i64 %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i64 @_ZN6google8protobuf2io17CodedOutputStream19VarintSize64PlusOneEm(i64 noundef %0) #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZN6google8protobuf2io17CodedOutputStream19VarintSize64PlusOneEm(i64 noundef %0) #6 comdat align 2 {
   %2 = alloca i64, align 8
   %3 = alloca i32, align 4
-  store i64 %0, ptr %2, align 8
-  %4 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #3
+  %4 = load i64, ptr %2, align 8, !tbaa !78
   %5 = or i64 %4, 1
   %6 = call noundef i32 @_ZN6google8protobuf4Bits18Log2FloorNonZero64Em(i64 noundef %5)
-  store i32 %6, ptr %3, align 4
-  %7 = load i32, ptr %3, align 4
+  store i32 %6, ptr %3, align 4, !tbaa !34
+  %7 = load i32, ptr %3, align 4, !tbaa !34
   %8 = mul i32 %7, 9
   %9 = add i32 %8, 73
   %10 = add i32 %9, 64
   %11 = udiv i32 %10, 64
   %12 = zext i32 %11 to i64
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #3
   ret i64 %12
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt4swapIlENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt4swapIlENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #6 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load i64, ptr %6, align 8
-  store i64 %7, ptr %5, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load i64, ptr %8, align 8
-  %10 = load ptr, ptr %3, align 8
-  store i64 %9, ptr %10, align 8
-  %11 = load i64, ptr %5, align 8
-  %12 = load ptr, ptr %4, align 8
-  store i64 %11, ptr %12, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !103
+  store ptr %1, ptr %4, align 8, !tbaa !103
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %6 = load ptr, ptr %3, align 8, !tbaa !103
+  %7 = load i64, ptr %6, align 8, !tbaa !78
+  store i64 %7, ptr %5, align 8, !tbaa !78
+  %8 = load ptr, ptr %4, align 8, !tbaa !103
+  %9 = load i64, ptr %8, align 8, !tbaa !78
+  %10 = load ptr, ptr %3, align 8, !tbaa !103
+  store i64 %9, ptr %10, align 8, !tbaa !78
+  %11 = load i64, ptr %5, align 8, !tbaa !78
+  %12 = load ptr, ptr %4, align 8, !tbaa !103
+  store i64 %11, ptr %12, align 8, !tbaa !78
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN17opencv_tensorflow10VersionDefEEEPT_PNS0_5ArenaE(ptr noundef %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
   %4 = call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN17opencv_tensorflow10VersionDefEJEEEPT_PS1_DpOT0_(ptr noundef %3)
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZNK6google8protobuf8internal10CachedSize3GetEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef i32 @_ZNK6google8protobuf8internal10CachedSize3GetEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  %4 = alloca i32, align 4
-  %5 = alloca i32, align 4
-  %6 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %"class.google::protobuf::internal::CachedSize", ptr %7, i32 0, i32 0
-  store ptr %8, ptr %2, align 8
-  store i32 0, ptr %3, align 4
-  %9 = load ptr, ptr %2, align 8
-  %10 = load i32, ptr %3, align 4
-  %11 = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %10, i32 noundef 65535)
-          to label %12 unwind label %20
-
-12:                                               ; preds = %1
-  store i32 %11, ptr %4, align 4
-  %13 = load i32, ptr %3, align 4
-  switch i32 %13, label %14 [
-    i32 1, label %16
-    i32 2, label %16
-    i32 5, label %18
-  ]
-
-14:                                               ; preds = %12
-  %15 = load atomic i32, ptr %9 monotonic, align 4
-  store i32 %15, ptr %5, align 4
-  br label %23
-
-16:                                               ; preds = %12, %12
-  %17 = load atomic i32, ptr %9 acquire, align 4
-  store i32 %17, ptr %5, align 4
-  br label %23
-
-18:                                               ; preds = %12
-  %19 = load atomic i32, ptr %9 seq_cst, align 4
-  store i32 %19, ptr %5, align 4
-  br label %23
-
-20:                                               ; preds = %1
-  %21 = landingpad { ptr, i32 }
-          catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #12
-  unreachable
-
-23:                                               ; preds = %18, %16, %14
-  %24 = load i32, ptr %5, align 4
-  ret i32 %24
+  store ptr %0, ptr %2, align 8, !tbaa !25
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.google::protobuf::internal::CachedSize", ptr %3, i32 0, i32 0
+  %5 = call noundef i32 @_ZNKSt13__atomic_baseIiE4loadESt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 0) #3
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %0, i32 noundef %1) #5 comdat {
+define linkonce_odr noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %0, i32 noundef %1) #7 comdat {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  store i32 %1, ptr %4, align 4
-  %5 = load i32, ptr %3, align 4
-  %6 = load i32, ptr %4, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !76
+  store i32 %1, ptr %4, align 4, !tbaa !105
+  %5 = load i32, ptr %3, align 4, !tbaa !76
+  %6 = load i32, ptr %4, align 4, !tbaa !105
   %7 = and i32 %5, %6
   ret i32 %7
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define available_externally noundef i32 @_ZNK6google8protobuf13RepeatedFieldIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #6 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.google::protobuf::RepeatedField", ptr %3, i32 0, i32 0
+  %5 = load i32, ptr %4, align 8, !tbaa !20
+  ret i32 %5
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define available_externally noundef ptr @_ZN6google8protobuf13RepeatedFieldIiE19AddNAlreadyReservedEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca %"class.google::protobuf::internal::LogMessage", align 8
+  %6 = alloca i1, align 1
+  %7 = alloca i1, align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store i32 %1, ptr %4, align 4, !tbaa !34
+  %12 = load ptr, ptr %3, align 8
+  br label %13
+
+13:                                               ; preds = %43, %2
+  br i1 false, label %14, label %59
+
+14:                                               ; preds = %13
+  %15 = getelementptr inbounds nuw %"class.google::protobuf::RepeatedField", ptr %12, i32 0, i32 1
+  %16 = load i32, ptr %15, align 4, !tbaa !23
+  %17 = getelementptr inbounds nuw %"class.google::protobuf::RepeatedField", ptr %12, i32 0, i32 0
+  %18 = load i32, ptr %17, align 8, !tbaa !20
+  %19 = sub nsw i32 %16, %18
+  %20 = load i32, ptr %4, align 4, !tbaa !34
+  %21 = icmp sge i32 %19, %20
+  store i1 false, ptr %6, align 1
+  store i1 false, ptr %7, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  br i1 %21, label %22, label %23
+
+22:                                               ; preds = %14
+  br label %37
+
+23:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 56, ptr %5) #3
+  store i1 true, ptr %6, align 1
+  call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %5, i32 noundef 3, ptr noundef @.str.10, i32 noundef 616)
+  store i1 true, ptr %7, align 1
+  %24 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef @.str.12)
+          to label %25 unwind label %44
+
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds nuw %"class.google::protobuf::RepeatedField", ptr %12, i32 0, i32 1
+  %27 = load i32, ptr %26, align 4, !tbaa !23
+  %28 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEi(ptr noundef nonnull align 8 dereferenceable(56) %24, i32 noundef %27)
+          to label %29 unwind label %44
+
+29:                                               ; preds = %25
+  %30 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef @.str.13)
+          to label %31 unwind label %44
+
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds nuw %"class.google::protobuf::RepeatedField", ptr %12, i32 0, i32 0
+  %33 = load i32, ptr %32, align 8, !tbaa !20
+  %34 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEi(ptr noundef nonnull align 8 dereferenceable(56) %30, i32 noundef %33)
+          to label %35 unwind label %44
+
+35:                                               ; preds = %31
+  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(56) %34)
+          to label %36 unwind label %48
+
+36:                                               ; preds = %35
+  br label %37
+
+37:                                               ; preds = %36, %22
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  %38 = load i1, ptr %7, align 1
+  br i1 %38, label %39, label %40
+
+39:                                               ; preds = %37
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #3
+  br label %40
+
+40:                                               ; preds = %39, %37
+  %41 = load i1, ptr %6, align 1
+  br i1 %41, label %42, label %43
+
+42:                                               ; preds = %40
+  call void @llvm.lifetime.end.p0(i64 56, ptr %5) #3
+  br label %43
+
+43:                                               ; preds = %42, %40
+  br label %13, !llvm.loop !107
+
+44:                                               ; preds = %31, %29, %25, %23
+  %45 = landingpad { ptr, i32 }
+          cleanup
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %8, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %9, align 4
+  br label %52
+
+48:                                               ; preds = %35
+  %49 = landingpad { ptr, i32 }
+          cleanup
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %8, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  br label %52
+
+52:                                               ; preds = %48, %44
+  %53 = load i1, ptr %7, align 1
+  br i1 %53, label %54, label %55
+
+54:                                               ; preds = %52
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #3
+  br label %55
+
+55:                                               ; preds = %54, %52
+  %56 = load i1, ptr %6, align 1
+  br i1 %56, label %57, label %58
+
+57:                                               ; preds = %55
+  call void @llvm.lifetime.end.p0(i64 56, ptr %5) #3
+  br label %58
+
+58:                                               ; preds = %57, %55
+  br label %70
+
+59:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  %60 = call noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE15unsafe_elementsEv(ptr noundef nonnull align 8 dereferenceable(16) %12)
+  %61 = getelementptr inbounds nuw %"class.google::protobuf::RepeatedField", ptr %12, i32 0, i32 0
+  %62 = load i32, ptr %61, align 8, !tbaa !20
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds i32, ptr %60, i64 %63
+  store ptr %64, ptr %11, align 8, !tbaa !60
+  %65 = load i32, ptr %4, align 4, !tbaa !34
+  %66 = getelementptr inbounds nuw %"class.google::protobuf::RepeatedField", ptr %12, i32 0, i32 0
+  %67 = load i32, ptr %66, align 8, !tbaa !20
+  %68 = add nsw i32 %67, %65
+  store i32 %68, ptr %66, align 8, !tbaa !20
+  %69 = load ptr, ptr %11, align 8, !tbaa !60
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  ret ptr %69
+
+70:                                               ; preds = %58
+  %71 = load ptr, ptr %8, align 8
+  %72 = load i32, ptr %9, align 4
+  %73 = insertvalue { ptr, i32 } poison, ptr %71, 0
+  %74 = insertvalue { ptr, i32 } %73, i32 %72, 1
+  resume { ptr, i32 } %74
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define available_externally void @_ZN6google8protobuf13RepeatedFieldIiE9CopyArrayEPiPKii(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #5 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca %"struct.google::protobuf::internal::ElementCopier", align 1
+  store ptr %0, ptr %5, align 8, !tbaa !18
+  store ptr %1, ptr %6, align 8, !tbaa !60
+  store ptr %2, ptr %7, align 8, !tbaa !60
+  store i32 %3, ptr %8, align 4, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #3
+  %10 = load ptr, ptr %6, align 8, !tbaa !60
+  %11 = load ptr, ptr %7, align 8, !tbaa !60
+  %12 = load i32, ptr %8, align 4, !tbaa !34
+  call void @_ZN6google8protobuf8internal13ElementCopierIiLb1EEclEPiPKii(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef %10, ptr noundef %11, i32 noundef %12)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #3
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define available_externally noundef ptr @_ZN6google8protobuf13RepeatedFieldIiE7MutableEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) #5 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca %"class.google::protobuf::internal::LogMessage", align 8
+  %6 = alloca i1, align 1
+  %7 = alloca i1, align 1
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  %9 = load ptr, ptr %7, align 8
-  store ptr %9, ptr %6, align 8
-  %10 = load ptr, ptr %6, align 8
-  store ptr %10, ptr %4, align 8
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %3, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = load i64, ptr %12, align 8
-  %14 = and i64 %13, 1
-  %15 = icmp ne i64 %14, 0
-  br i1 %15, label %16, label %19
+  %9 = alloca i32, align 4
+  %10 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
+  %11 = alloca %"class.google::protobuf::internal::LogMessage", align 8
+  %12 = alloca i1, align 1
+  %13 = alloca i1, align 1
+  %14 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store i32 %1, ptr %4, align 4, !tbaa !34
+  %15 = load ptr, ptr %3, align 8
+  br label %16
 
-16:                                               ; preds = %2
-  %17 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINS0_15UnknownFieldSetEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %10)
-  %18 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %17, i32 0, i32 1
-  store ptr %18, ptr %5, align 8
-  br label %21
+16:                                               ; preds = %31, %2
+  br i1 false, label %17, label %47
 
-19:                                               ; preds = %2
-  %20 = call noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %10)
-  store ptr %20, ptr %5, align 8
-  br label %21
+17:                                               ; preds = %16
+  %18 = load i32, ptr %4, align 4, !tbaa !34
+  %19 = icmp sge i32 %18, 0
+  store i1 false, ptr %6, align 1
+  store i1 false, ptr %7, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  br i1 %19, label %20, label %21
 
-21:                                               ; preds = %19, %16
-  %22 = load ptr, ptr %5, align 8
-  %23 = load ptr, ptr %8, align 8
-  call void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %23)
+20:                                               ; preds = %17
+  br label %25
+
+21:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 56, ptr %5) #3
+  store i1 true, ptr %6, align 1
+  call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %5, i32 noundef 3, ptr noundef @.str.10, i32 noundef 660)
+  store i1 true, ptr %7, align 1
+  %22 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef @.str.14)
+          to label %23 unwind label %32
+
+23:                                               ; preds = %21
+  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(56) %22)
+          to label %24 unwind label %36
+
+24:                                               ; preds = %23
+  br label %25
+
+25:                                               ; preds = %24, %20
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  %26 = load i1, ptr %7, align 1
+  br i1 %26, label %27, label %28
+
+27:                                               ; preds = %25
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #3
+  br label %28
+
+28:                                               ; preds = %27, %25
+  %29 = load i1, ptr %6, align 1
+  br i1 %29, label %30, label %31
+
+30:                                               ; preds = %28
+  call void @llvm.lifetime.end.p0(i64 56, ptr %5) #3
+  br label %31
+
+31:                                               ; preds = %30, %28
+  br label %16, !llvm.loop !108
+
+32:                                               ; preds = %21
+  %33 = landingpad { ptr, i32 }
+          cleanup
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %8, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %9, align 4
+  br label %40
+
+36:                                               ; preds = %23
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %8, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  br label %40
+
+40:                                               ; preds = %36, %32
+  %41 = load i1, ptr %7, align 1
+  br i1 %41, label %42, label %43
+
+42:                                               ; preds = %40
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #3
+  br label %43
+
+43:                                               ; preds = %42, %40
+  %44 = load i1, ptr %6, align 1
+  br i1 %44, label %45, label %46
+
+45:                                               ; preds = %43
+  call void @llvm.lifetime.end.p0(i64 56, ptr %5) #3
+  br label %46
+
+46:                                               ; preds = %45, %43
+  br label %86
+
+47:                                               ; preds = %16
+  br label %48
+
+48:                                               ; preds = %65, %47
+  br i1 false, label %49, label %81
+
+49:                                               ; preds = %48
+  %50 = load i32, ptr %4, align 4, !tbaa !34
+  %51 = getelementptr inbounds nuw %"class.google::protobuf::RepeatedField", ptr %15, i32 0, i32 0
+  %52 = load i32, ptr %51, align 8, !tbaa !20
+  %53 = icmp slt i32 %50, %52
+  store i1 false, ptr %12, align 1
+  store i1 false, ptr %13, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #3
+  br i1 %53, label %54, label %55
+
+54:                                               ; preds = %49
+  br label %59
+
+55:                                               ; preds = %49
+  call void @llvm.lifetime.start.p0(i64 56, ptr %11) #3
+  store i1 true, ptr %12, align 1
+  call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %11, i32 noundef 3, ptr noundef @.str.10, i32 noundef 661)
+  store i1 true, ptr %13, align 1
+  %56 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef @.str.15)
+          to label %57 unwind label %66
+
+57:                                               ; preds = %55
+  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(56) %56)
+          to label %58 unwind label %70
+
+58:                                               ; preds = %57
+  br label %59
+
+59:                                               ; preds = %58, %54
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #3
+  %60 = load i1, ptr %13, align 1
+  br i1 %60, label %61, label %62
+
+61:                                               ; preds = %59
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #3
+  br label %62
+
+62:                                               ; preds = %61, %59
+  %63 = load i1, ptr %12, align 1
+  br i1 %63, label %64, label %65
+
+64:                                               ; preds = %62
+  call void @llvm.lifetime.end.p0(i64 56, ptr %11) #3
+  br label %65
+
+65:                                               ; preds = %64, %62
+  br label %48, !llvm.loop !109
+
+66:                                               ; preds = %55
+  %67 = landingpad { ptr, i32 }
+          cleanup
+  %68 = extractvalue { ptr, i32 } %67, 0
+  store ptr %68, ptr %8, align 8
+  %69 = extractvalue { ptr, i32 } %67, 1
+  store i32 %69, ptr %9, align 4
+  br label %74
+
+70:                                               ; preds = %57
+  %71 = landingpad { ptr, i32 }
+          cleanup
+  %72 = extractvalue { ptr, i32 } %71, 0
+  store ptr %72, ptr %8, align 8
+  %73 = extractvalue { ptr, i32 } %71, 1
+  store i32 %73, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #3
+  br label %74
+
+74:                                               ; preds = %70, %66
+  %75 = load i1, ptr %13, align 1
+  br i1 %75, label %76, label %77
+
+76:                                               ; preds = %74
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #3
+  br label %77
+
+77:                                               ; preds = %76, %74
+  %78 = load i1, ptr %12, align 1
+  br i1 %78, label %79, label %80
+
+79:                                               ; preds = %77
+  call void @llvm.lifetime.end.p0(i64 56, ptr %11) #3
+  br label %80
+
+80:                                               ; preds = %79, %77
+  br label %86
+
+81:                                               ; preds = %48
+  %82 = call noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE8elementsEv(ptr noundef nonnull align 8 dereferenceable(16) %15)
+  %83 = load i32, ptr %4, align 4, !tbaa !34
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds i32, ptr %82, i64 %84
+  ret ptr %85
+
+86:                                               ; preds = %80, %46
+  %87 = load ptr, ptr %8, align 8
+  %88 = load i32, ptr %9, align 4
+  %89 = insertvalue { ptr, i32 } poison, ptr %87, 0
+  %90 = insertvalue { ptr, i32 } %89, i32 %88, 1
+  resume { ptr, i32 } %90
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define available_externally noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf13RepeatedFieldIiE3GetEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) #5 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca %"class.google::protobuf::internal::LogMessage", align 8
+  %6 = alloca i1, align 1
+  %7 = alloca i1, align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
+  %11 = alloca %"class.google::protobuf::internal::LogMessage", align 8
+  %12 = alloca i1, align 1
+  %13 = alloca i1, align 1
+  %14 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store i32 %1, ptr %4, align 4, !tbaa !34
+  %15 = load ptr, ptr %3, align 8
+  br label %16
+
+16:                                               ; preds = %31, %2
+  br i1 false, label %17, label %47
+
+17:                                               ; preds = %16
+  %18 = load i32, ptr %4, align 4, !tbaa !34
+  %19 = icmp sge i32 %18, 0
+  store i1 false, ptr %6, align 1
+  store i1 false, ptr %7, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  br i1 %19, label %20, label %21
+
+20:                                               ; preds = %17
+  br label %25
+
+21:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 56, ptr %5) #3
+  store i1 true, ptr %6, align 1
+  call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %5, i32 noundef 3, ptr noundef @.str.10, i32 noundef 639)
+  store i1 true, ptr %7, align 1
+  %22 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef @.str.14)
+          to label %23 unwind label %32
+
+23:                                               ; preds = %21
+  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(56) %22)
+          to label %24 unwind label %36
+
+24:                                               ; preds = %23
+  br label %25
+
+25:                                               ; preds = %24, %20
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  %26 = load i1, ptr %7, align 1
+  br i1 %26, label %27, label %28
+
+27:                                               ; preds = %25
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #3
+  br label %28
+
+28:                                               ; preds = %27, %25
+  %29 = load i1, ptr %6, align 1
+  br i1 %29, label %30, label %31
+
+30:                                               ; preds = %28
+  call void @llvm.lifetime.end.p0(i64 56, ptr %5) #3
+  br label %31
+
+31:                                               ; preds = %30, %28
+  br label %16, !llvm.loop !110
+
+32:                                               ; preds = %21
+  %33 = landingpad { ptr, i32 }
+          cleanup
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %8, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %9, align 4
+  br label %40
+
+36:                                               ; preds = %23
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %8, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  br label %40
+
+40:                                               ; preds = %36, %32
+  %41 = load i1, ptr %7, align 1
+  br i1 %41, label %42, label %43
+
+42:                                               ; preds = %40
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #3
+  br label %43
+
+43:                                               ; preds = %42, %40
+  %44 = load i1, ptr %6, align 1
+  br i1 %44, label %45, label %46
+
+45:                                               ; preds = %43
+  call void @llvm.lifetime.end.p0(i64 56, ptr %5) #3
+  br label %46
+
+46:                                               ; preds = %45, %43
+  br label %86
+
+47:                                               ; preds = %16
+  br label %48
+
+48:                                               ; preds = %65, %47
+  br i1 false, label %49, label %81
+
+49:                                               ; preds = %48
+  %50 = load i32, ptr %4, align 4, !tbaa !34
+  %51 = getelementptr inbounds nuw %"class.google::protobuf::RepeatedField", ptr %15, i32 0, i32 0
+  %52 = load i32, ptr %51, align 8, !tbaa !20
+  %53 = icmp slt i32 %50, %52
+  store i1 false, ptr %12, align 1
+  store i1 false, ptr %13, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #3
+  br i1 %53, label %54, label %55
+
+54:                                               ; preds = %49
+  br label %59
+
+55:                                               ; preds = %49
+  call void @llvm.lifetime.start.p0(i64 56, ptr %11) #3
+  store i1 true, ptr %12, align 1
+  call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %11, i32 noundef 3, ptr noundef @.str.10, i32 noundef 640)
+  store i1 true, ptr %13, align 1
+  %56 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef @.str.15)
+          to label %57 unwind label %66
+
+57:                                               ; preds = %55
+  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(56) %56)
+          to label %58 unwind label %70
+
+58:                                               ; preds = %57
+  br label %59
+
+59:                                               ; preds = %58, %54
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #3
+  %60 = load i1, ptr %13, align 1
+  br i1 %60, label %61, label %62
+
+61:                                               ; preds = %59
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #3
+  br label %62
+
+62:                                               ; preds = %61, %59
+  %63 = load i1, ptr %12, align 1
+  br i1 %63, label %64, label %65
+
+64:                                               ; preds = %62
+  call void @llvm.lifetime.end.p0(i64 56, ptr %11) #3
+  br label %65
+
+65:                                               ; preds = %64, %62
+  br label %48, !llvm.loop !111
+
+66:                                               ; preds = %55
+  %67 = landingpad { ptr, i32 }
+          cleanup
+  %68 = extractvalue { ptr, i32 } %67, 0
+  store ptr %68, ptr %8, align 8
+  %69 = extractvalue { ptr, i32 } %67, 1
+  store i32 %69, ptr %9, align 4
+  br label %74
+
+70:                                               ; preds = %57
+  %71 = landingpad { ptr, i32 }
+          cleanup
+  %72 = extractvalue { ptr, i32 } %71, 0
+  store ptr %72, ptr %8, align 8
+  %73 = extractvalue { ptr, i32 } %71, 1
+  store i32 %73, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #3
+  br label %74
+
+74:                                               ; preds = %70, %66
+  %75 = load i1, ptr %13, align 1
+  br i1 %75, label %76, label %77
+
+76:                                               ; preds = %74
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #3
+  br label %77
+
+77:                                               ; preds = %76, %74
+  %78 = load i1, ptr %12, align 1
+  br i1 %78, label %79, label %80
+
+79:                                               ; preds = %77
+  call void @llvm.lifetime.end.p0(i64 56, ptr %11) #3
+  br label %80
+
+80:                                               ; preds = %79, %77
+  br label %86
+
+81:                                               ; preds = %48
+  %82 = call noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE8elementsEv(ptr noundef nonnull align 8 dereferenceable(16) %15)
+  %83 = load i32, ptr %4, align 4, !tbaa !34
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds i32, ptr %82, i64 %84
+  ret ptr %85
+
+86:                                               ; preds = %80, %46
+  %87 = load ptr, ptr %8, align 8
+  %88 = load i32, ptr %9, align 4
+  %89 = insertvalue { ptr, i32 } poison, ptr %87, 0
+  %90 = insertvalue { ptr, i32 } %89, i32 %88, 1
+  resume { ptr, i32 } %90
+}
+
+declare noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEi(ptr noundef nonnull align 8 dereferenceable(56), i32 noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN6google8protobuf8internal13ElementCopierIiLb1EEclEPiPKii(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #7 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !112
+  store ptr %1, ptr %6, align 8, !tbaa !60
+  store ptr %2, ptr %7, align 8, !tbaa !60
+  store i32 %3, ptr %8, align 4, !tbaa !34
+  %9 = load ptr, ptr %6, align 8, !tbaa !60
+  %10 = load ptr, ptr %7, align 8, !tbaa !60
+  %11 = load i32, ptr %8, align 4, !tbaa !34
+  %12 = sext i32 %11 to i64
+  %13 = mul i64 %12, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %9, ptr align 4 %10, i64 %13, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress noinline uwtable
+define linkonce_odr hidden void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #16 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !29
+  store ptr %1, ptr %4, align 8, !tbaa !114
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef ptr @_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %7 = load ptr, ptr %4, align 8, !tbaa !114
+  call void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
   ret void
 }
 
 declare void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #1
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf8internal16InternalMetadata21DeleteOutOfLineHelperINS0_15UnknownFieldSetEEEvv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+; Function Attrs: mustprogress noinline uwtable
+define linkonce_odr hidden void @_ZN6google8protobuf8internal16InternalMetadata21DeleteOutOfLineHelperINS0_15UnknownFieldSetEEEvv(ptr noundef nonnull align 8 dereferenceable(8) %0) #16 comdat align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %5, align 8
-  %8 = load ptr, ptr %5, align 8
-  store ptr %8, ptr %3, align 8
-  %9 = load ptr, ptr %3, align 8
-  store ptr %9, ptr %2, align 8
-  %10 = load ptr, ptr %2, align 8
-  %11 = load i64, ptr %10, align 8
-  %12 = and i64 %11, 1
-  %13 = icmp ne i64 %12, 0
-  br i1 %13, label %14, label %17
+  store ptr %0, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata5arenaEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %6, label %11
 
-14:                                               ; preds = %1
-  %15 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_13ContainerBaseEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %8)
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %4, align 8
-  br label %19
+6:                                                ; preds = %1
+  %7 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINS0_15UnknownFieldSetEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %10, label %9
 
-17:                                               ; preds = %1
-  %18 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS0_5ArenaEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %8)
-  store ptr %18, ptr %4, align 8
-  br label %19
+9:                                                ; preds = %6
+  call void @_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
+  call void @_ZdlPv(ptr noundef %7) #20
+  br label %10
 
-19:                                               ; preds = %17, %14
-  %20 = load ptr, ptr %4, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %27
+10:                                               ; preds = %9, %6
+  br label %11
 
-22:                                               ; preds = %19
-  %23 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINS0_15UnknownFieldSetEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %26, label %25
-
-25:                                               ; preds = %22
-  call void @_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #3
-  call void @_ZdlPv(ptr noundef %23) #13
-  br label %26
-
-26:                                               ; preds = %25, %22
-  br label %27
-
-27:                                               ; preds = %26, %19
+11:                                               ; preds = %10, %1
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINS0_15UnknownFieldSetEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINS0_15UnknownFieldSetEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.google::protobuf::internal::InternalMetadata", ptr %3, i32 0, i32 0
-  %5 = load i64, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.google::protobuf::internal::InternalMetadata", ptr %3, i32 0, i32 0
+  %5 = load i64, ptr %4, align 8, !tbaa !82
   %6 = and i64 %5, -4
   %7 = inttoptr i64 %6 to ptr
   ret ptr %7
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !116
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %3, i32 0, i32 1
   call void @_ZN6google8protobuf15UnknownFieldSetD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf15UnknownFieldSetD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN6google8protobuf15UnknownFieldSetD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !114
   %3 = load ptr, ptr %2, align 8
   invoke void @_ZN6google8protobuf15UnknownFieldSet5ClearEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %4 unwind label %6
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds %"class.google::protobuf::UnknownFieldSet", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"class.google::protobuf::UnknownFieldSet", ptr %3, i32 0, i32 0
   call void @_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   ret void
 
@@ -3653,16 +4595,16 @@ define linkonce_odr hidden void @_ZN6google8protobuf15UnknownFieldSetD2Ev(ptr no
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #12
+  call void @__clang_call_terminate(ptr %8) #19
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf15UnknownFieldSet5ClearEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN6google8protobuf15UnknownFieldSet5ClearEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !114
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.google::protobuf::UnknownFieldSet", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.google::protobuf::UnknownFieldSet", ptr %3, i32 0, i32 0
   %5 = call noundef zeroext i1 @_ZNKSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   br i1 %5, label %7, label %6
 
@@ -3675,16 +4617,16 @@ define linkonce_odr hidden void @_ZN6google8protobuf15UnknownFieldSet5ClearEv(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !118
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl_data", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !120
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !123
   %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
   invoke void @_ZSt8_DestroyIPN6google8protobuf12UnknownFieldES2_EvT_S4_RSaIT0_E(ptr noundef %6, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %11 unwind label %12
@@ -3697,133 +4639,137 @@ define linkonce_odr hidden void @_ZNSt6vectorIN6google8protobuf12UnknownFieldESa
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #12
+  call void @__clang_call_terminate(ptr %14) #19
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNKSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+define linkonce_odr hidden noundef zeroext i1 @_ZNKSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #7 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !118
   %5 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #3
   %6 = call ptr @_ZNKSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #3
   %8 = call ptr @_ZNKSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
   store ptr %8, ptr %9, align 8
   %10 = call noundef zeroext i1 @_ZN9__gnu_cxxeqIPKN6google8protobuf12UnknownFieldESt6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #3
   ret i1 %10
 }
 
 declare void @_ZN6google8protobuf15UnknownFieldSet13ClearFallbackEv(ptr noundef nonnull align 8 dereferenceable(24)) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN9__gnu_cxxeqIPKN6google8protobuf12UnknownFieldESt6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN9__gnu_cxxeqIPKN6google8protobuf12UnknownFieldESt6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #6 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !124
+  store ptr %1, ptr %4, align 8, !tbaa !124
+  %5 = load ptr, ptr %3, align 8, !tbaa !124
   %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN6google8protobuf12UnknownFieldESt6vectorIS3_SaIS3_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !126
+  %8 = load ptr, ptr %4, align 8, !tbaa !124
   %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN6google8protobuf12UnknownFieldESt6vectorIS3_SaIS3_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !126
   %11 = icmp eq ptr %7, %10
   ret i1 %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden ptr @_ZNKSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+define linkonce_odr hidden ptr @_ZNKSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #7 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !118
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl_data", ptr %5, i32 0, i32 0
   call void @_ZN9__gnu_cxx17__normal_iteratorIPKN6google8protobuf12UnknownFieldESt6vectorIS3_SaIS3_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden ptr @_ZNKSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+define linkonce_odr hidden ptr @_ZNKSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #7 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !118
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl_data", ptr %5, i32 0, i32 1
   call void @_ZN9__gnu_cxx17__normal_iteratorIPKN6google8protobuf12UnknownFieldESt6vectorIS3_SaIS3_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN6google8protobuf12UnknownFieldESt6vectorIS3_SaIS3_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN6google8protobuf12UnknownFieldESt6vectorIS3_SaIS3_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !124
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN9__gnu_cxx17__normal_iteratorIPKN6google8protobuf12UnknownFieldESt6vectorIS3_SaIS3_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZN9__gnu_cxx17__normal_iteratorIPKN6google8protobuf12UnknownFieldESt6vectorIS3_SaIS3_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #7 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !124
+  store ptr %1, ptr %4, align 8, !tbaa !127
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !127
+  %8 = load ptr, ptr %7, align 8, !tbaa !126
+  store ptr %8, ptr %6, align 8, !tbaa !129
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZSt8_DestroyIPN6google8protobuf12UnknownFieldES2_EvT_S4_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #4 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZSt8_DestroyIPN6google8protobuf12UnknownFieldES2_EvT_S4_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #5 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !126
+  store ptr %1, ptr %5, align 8, !tbaa !126
+  store ptr %2, ptr %6, align 8, !tbaa !131
+  %7 = load ptr, ptr %4, align 8, !tbaa !126
+  %8 = load ptr, ptr %5, align 8, !tbaa !126
   call void @_ZSt8_DestroyIPN6google8protobuf12UnknownFieldEEvT_S4_(ptr noundef %7, ptr noundef %8)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !133
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !133
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl_data", ptr %7, i32 0, i32 2
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  %11 = getelementptr inbounds %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl_data", ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !120
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl_data", ptr %7, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8, !tbaa !135
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl_data", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !120
   %13 = ptrtoint ptr %9 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
@@ -3832,36 +4778,36 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN6google8protobuf12UnknownF
           to label %17 unwind label %19
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  call void @_ZNSt15__new_allocatorIN6google8protobuf12UnknownFieldEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
   ret void
 
 19:                                               ; preds = %1
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #12
+  call void @__clang_call_terminate(ptr %21) #19
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZSt8_DestroyIPN6google8protobuf12UnknownFieldEEvT_S4_(ptr noundef %0, ptr noundef %1) #4 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZSt8_DestroyIPN6google8protobuf12UnknownFieldEEvT_S4_(ptr noundef %0, ptr noundef %1) #5 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !126
+  store ptr %1, ptr %4, align 8, !tbaa !126
+  %5 = load ptr, ptr %3, align 8, !tbaa !126
+  %6 = load ptr, ptr %4, align 8, !tbaa !126
   call void @_ZNSt12_Destroy_auxILb1EE9__destroyIPN6google8protobuf12UnknownFieldEEEvT_S6_(ptr noundef %5, ptr noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12_Destroy_auxILb1EE9__destroyIPN6google8protobuf12UnknownFieldEEEvT_S6_(ptr noundef %0, ptr noundef %1) #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt12_Destroy_auxILb1EE9__destroyIPN6google8protobuf12UnknownFieldEEEvT_S6_(ptr noundef %0, ptr noundef %1) #7 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !126
+  store ptr %1, ptr %4, align 8, !tbaa !126
   ret void
 }
 
@@ -3870,18 +4816,18 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN6google8protobuf12UnknownF
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !133
+  store ptr %1, ptr %5, align 8, !tbaa !126
+  store i64 %2, ptr %6, align 8, !tbaa !78
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !126
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds %"struct.std::_Vector_base", ptr %7, i32 0, i32 0
-  %12 = load ptr, ptr %5, align 8
-  %13 = load i64, ptr %6, align 8
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8, !tbaa !126
+  %13 = load i64, ptr %6, align 8, !tbaa !78
   call void @_ZNSt16allocator_traitsISaIN6google8protobuf12UnknownFieldEEE10deallocateERS3_PS2_m(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13)
   br label %14
 
@@ -3890,11 +4836,9 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN6google8protobuf12UnknownF
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIN6google8protobuf12UnknownFieldEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSaIN6google8protobuf12UnknownFieldEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %0, ptr %2, align 8, !tbaa !136
   ret void
 }
 
@@ -3903,346 +4847,305 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN6google8protobuf12U
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !131
+  store ptr %1, ptr %5, align 8, !tbaa !126
+  store i64 %2, ptr %6, align 8, !tbaa !78
+  %7 = load ptr, ptr %4, align 8, !tbaa !131
+  %8 = load ptr, ptr %5, align 8, !tbaa !126
+  %9 = load i64, ptr %6, align 8, !tbaa !78
   call void @_ZNSt15__new_allocatorIN6google8protobuf12UnknownFieldEE10deallocateEPS2_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__new_allocatorIN6google8protobuf12UnknownFieldEE10deallocateEPS2_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIN6google8protobuf12UnknownFieldEE10deallocateEPS2_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #7 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  call void @_ZdlPv(ptr noundef %7) #13
+  store ptr %0, ptr %4, align 8, !tbaa !136
+  store ptr %1, ptr %5, align 8, !tbaa !126
+  store i64 %2, ptr %6, align 8, !tbaa !78
+  %7 = load ptr, ptr %5, align 8, !tbaa !126
+  call void @_ZdlPv(ptr noundef %7) #20
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSaIN6google8protobuf12UnknownFieldEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #5 comdat align 2 {
+; Function Attrs: mustprogress noinline uwtable
+define linkonce_odr hidden void @_ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEvv(ptr noundef nonnull align 8 dereferenceable(8) %0) #16 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorIN6google8protobuf12UnknownFieldEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  %4 = call noundef ptr @_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call void @_ZN6google8protobuf15UnknownFieldSet5ClearEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__new_allocatorIN6google8protobuf12UnknownFieldEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #5 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEvv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+; Function Attrs: mustprogress noinline uwtable
+define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %0) #16 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %5, align 8
-  %8 = load ptr, ptr %5, align 8
-  store ptr %8, ptr %3, align 8
-  %9 = load ptr, ptr %3, align 8
-  store ptr %9, ptr %2, align 8
-  %10 = load ptr, ptr %2, align 8
-  %11 = load i64, ptr %10, align 8
-  %12 = and i64 %11, 1
-  %13 = icmp ne i64 %12, 0
-  br i1 %13, label %14, label %17
-
-14:                                               ; preds = %1
-  %15 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINS0_15UnknownFieldSetEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %8)
-  %16 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %15, i32 0, i32 1
-  store ptr %16, ptr %4, align 8
-  br label %19
-
-17:                                               ; preds = %1
-  %18 = call noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %8)
-  store ptr %18, ptr %4, align 8
-  br label %19
-
-19:                                               ; preds = %17, %14
-  %20 = load ptr, ptr %4, align 8
-  call void @_ZN6google8protobuf15UnknownFieldSet5ClearEv(ptr noundef nonnull align 8 dereferenceable(24) %20)
-  ret void
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
+  %6 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #3
+  %7 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata5arenaEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  store ptr %7, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #3
+  %8 = load ptr, ptr %3, align 8, !tbaa !8
+  %9 = call noundef ptr @_ZN6google8protobuf5Arena6CreateINS0_8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEJEEEPT_PS1_DpOT0_(ptr noundef %8)
+  store ptr %9, ptr %4, align 8, !tbaa !116
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %10 = getelementptr inbounds nuw %"class.google::protobuf::internal::InternalMetadata", ptr %6, i32 0, i32 0
+  %11 = load i64, ptr %10, align 8, !tbaa !82
+  %12 = and i64 %11, 2
+  store i64 %12, ptr %5, align 8, !tbaa !78
+  %13 = load ptr, ptr %4, align 8, !tbaa !116
+  %14 = ptrtoint ptr %13 to i64
+  %15 = getelementptr inbounds nuw %"class.google::protobuf::internal::InternalMetadata", ptr %6, i32 0, i32 0
+  store i64 %14, ptr %15, align 8, !tbaa !82
+  %16 = load i64, ptr %5, align 8, !tbaa !78
+  %17 = or i64 1, %16
+  %18 = getelementptr inbounds nuw %"class.google::protobuf::internal::InternalMetadata", ptr %6, i32 0, i32 0
+  %19 = load i64, ptr %18, align 8, !tbaa !82
+  %20 = or i64 %19, %17
+  store i64 %20, ptr %18, align 8, !tbaa !82
+  %21 = load ptr, ptr %3, align 8, !tbaa !8
+  %22 = load ptr, ptr %4, align 8, !tbaa !116
+  %23 = getelementptr inbounds nuw %"struct.google::protobuf::internal::InternalMetadata::ContainerBase", ptr %22, i32 0, i32 0
+  store ptr %21, ptr %23, align 8, !tbaa !87
+  %24 = load ptr, ptr %4, align 8, !tbaa !116
+  %25 = getelementptr inbounds nuw %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %24, i32 0, i32 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #3
+  ret ptr %25
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZN6google8protobuf5Arena6CreateINS0_8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEJEEEPT_PS1_DpOT0_(ptr noundef %0) #8 comdat align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = call noundef ptr @_ZN6google8protobuf5Arena14CreateInternalINS0_8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEJEEEPT_PS1_St17integral_constantIbLb0EEDpOT0_(ptr noundef %3)
+  ret ptr %4
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZN6google8protobuf5Arena14CreateInternalINS0_8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEJEEEPT_PS1_St17integral_constantIbLb0EEDpOT0_(ptr noundef %0) #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca i64, align 8
-  %7 = alloca i64, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca %"struct.std::pair.9", align 8
-  %11 = alloca %"struct.std::pair.9", align 8
-  %12 = alloca ptr, align 8
-  %13 = alloca ptr, align 8
-  %14 = alloca ptr, align 8
-  %15 = alloca ptr, align 8
-  %16 = alloca i32, align 4
-  %17 = alloca ptr, align 8
-  %18 = alloca ptr, align 8
-  %19 = alloca ptr, align 8
-  %20 = alloca ptr, align 8
-  %21 = alloca ptr, align 8
-  %22 = alloca ptr, align 8
-  %23 = alloca ptr, align 8
-  %24 = alloca ptr, align 8
-  %25 = alloca ptr, align 8
-  %26 = alloca i64, align 8
-  store ptr %0, ptr %23, align 8
-  %27 = load ptr, ptr %23, align 8
-  store ptr %27, ptr %22, align 8
-  %28 = load ptr, ptr %22, align 8
-  store ptr %28, ptr %20, align 8
-  %29 = load ptr, ptr %20, align 8
-  store ptr %29, ptr %19, align 8
-  %30 = load ptr, ptr %19, align 8
-  %31 = load i64, ptr %30, align 8
-  %32 = and i64 %31, 1
-  %33 = icmp ne i64 %32, 0
-  br i1 %33, label %34, label %37
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  %7 = load ptr, ptr %3, align 8, !tbaa !8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %9, label %16
 
-34:                                               ; preds = %1
-  %35 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_13ContainerBaseEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %28)
-  %36 = load ptr, ptr %35, align 8
-  store ptr %36, ptr %21, align 8
-  br label %39
+9:                                                ; preds = %1
+  %10 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #21
+  call void @llvm.memset.p0.i64(ptr align 16 %10, i8 0, i64 32, i1 false)
+  invoke void @_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10)
+          to label %11 unwind label %12
 
-37:                                               ; preds = %1
-  %38 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS0_5ArenaEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %28)
-  store ptr %38, ptr %21, align 8
-  br label %39
+11:                                               ; preds = %9
+  store ptr %10, ptr %2, align 8
+  br label %20
 
-39:                                               ; preds = %37, %34
-  %40 = load ptr, ptr %21, align 8
-  store ptr %40, ptr %24, align 8
-  %41 = load ptr, ptr %24, align 8
-  store ptr %41, ptr %18, align 8
-  %42 = load ptr, ptr %18, align 8
-  store ptr %42, ptr %14, align 8
-  %43 = load ptr, ptr %14, align 8
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %45, label %56
-
-45:                                               ; preds = %39
-  %46 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #14
-  call void @llvm.memset.p0.i64(ptr align 16 %46, i8 0, i64 32, i1 false)
-  invoke void @_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %46)
-          to label %47 unwind label %48
-
-47:                                               ; preds = %45
-  store ptr %46, ptr %13, align 8
-  br label %118
-
-48:                                               ; preds = %45
-  %49 = landingpad { ptr, i32 }
+12:                                               ; preds = %9
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %15, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %16, align 4
-  call void @_ZdlPv(ptr noundef %46) #13
-  %52 = load ptr, ptr %15, align 8
-  %53 = load i32, ptr %16, align 4
-  %54 = insertvalue { ptr, i32 } poison, ptr %52, 0
-  %55 = insertvalue { ptr, i32 } %54, i32 %53, 1
-  resume { ptr, i32 } %55
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %4, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %10) #20
+  br label %22
 
-56:                                               ; preds = %39
-  store ptr @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv, ptr %17, align 8
-  %57 = load ptr, ptr %14, align 8
-  %58 = load ptr, ptr %17, align 8
-  store ptr %57, ptr %5, align 8
-  store i64 32, ptr %6, align 8
-  store i64 8, ptr %7, align 8
-  store ptr %58, ptr %8, align 8
-  store ptr @_ZTIN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEE, ptr %9, align 8
-  %59 = load ptr, ptr %5, align 8
-  %60 = load ptr, ptr %8, align 8
-  %61 = icmp eq ptr %60, null
-  br i1 %61, label %62, label %67
+16:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  store ptr @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv, ptr %6, align 8, !tbaa !33
+  %17 = load ptr, ptr %3, align 8, !tbaa !8
+  %18 = load ptr, ptr %6, align 8, !tbaa !33
+  %19 = call noundef ptr @_ZN6google8protobuf5Arena16AllocateInternalEmmPFvPvEPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef 32, i64 noundef 8, ptr noundef %18, ptr noundef @_ZTIN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEE)
+  call void @llvm.memset.p0.i64(ptr align 8 %19, i8 0, i64 32, i1 false)
+  call void @_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %19)
+  store ptr %19, ptr %2, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  br label %20
 
-62:                                               ; preds = %56
-  %63 = load i64, ptr %6, align 8
-  %64 = load i64, ptr %7, align 8
-  %65 = load ptr, ptr %9, align 8
-  %66 = call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %59, i64 noundef %63, i64 noundef %64, ptr noundef %65)
-  store ptr %66, ptr %4, align 8
-  br label %116
+20:                                               ; preds = %16, %11
+  %21 = load ptr, ptr %2, align 8
+  ret ptr %21
 
-67:                                               ; preds = %56
-  %68 = load i64, ptr %7, align 8
-  %69 = icmp ule i64 %68, 8
-  br i1 %69, label %70, label %86
-
-70:                                               ; preds = %67
-  %71 = load i64, ptr %6, align 8
-  %72 = call noundef i64 @_ZN6google8protobuf8internal10AlignUpTo8Em(i64 noundef %71)
-  %73 = load ptr, ptr %9, align 8
-  %74 = call { ptr, ptr } @_ZN6google8protobuf5Arena26AllocateAlignedWithCleanupEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %59, i64 noundef %72, ptr noundef %73)
-  %75 = extractvalue { ptr, ptr } %74, 0
-  store ptr %75, ptr %10, align 8
-  %76 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 1
-  %77 = extractvalue { ptr, ptr } %74, 1
-  store ptr %77, ptr %76, align 8
-  %78 = load ptr, ptr %10, align 8
-  %79 = getelementptr inbounds %"struct.std::pair.9", ptr %10, i32 0, i32 1
-  %80 = load ptr, ptr %79, align 8
-  store ptr %78, ptr %80, align 8
-  %81 = load ptr, ptr %8, align 8
-  %82 = getelementptr inbounds %"struct.std::pair.9", ptr %10, i32 0, i32 1
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds %"struct.google::protobuf::internal::SerialArena::CleanupNode", ptr %83, i32 0, i32 1
-  store ptr %81, ptr %84, align 8
-  %85 = load ptr, ptr %10, align 8
-  store ptr %85, ptr %4, align 8
-  br label %116
-
-86:                                               ; preds = %67
-  %87 = load i64, ptr %6, align 8
-  %88 = load i64, ptr %7, align 8
-  %89 = add i64 %87, %88
-  %90 = sub i64 %89, 8
-  %91 = load ptr, ptr %9, align 8
-  %92 = call { ptr, ptr } @_ZN6google8protobuf5Arena26AllocateAlignedWithCleanupEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %59, i64 noundef %90, ptr noundef %91)
-  %93 = extractvalue { ptr, ptr } %92, 0
-  store ptr %93, ptr %11, align 8
-  %94 = getelementptr inbounds { ptr, ptr }, ptr %11, i32 0, i32 1
-  %95 = extractvalue { ptr, ptr } %92, 1
-  store ptr %95, ptr %94, align 8
-  %96 = load ptr, ptr %11, align 8
-  %97 = load i64, ptr %7, align 8
-  store ptr %96, ptr %2, align 8
-  store i64 %97, ptr %3, align 8
-  %98 = load ptr, ptr %2, align 8
-  %99 = ptrtoint ptr %98 to i64
-  %100 = load i64, ptr %3, align 8
-  %101 = add i64 %99, %100
-  %102 = sub i64 %101, 1
-  %103 = load i64, ptr %3, align 8
-  %104 = xor i64 %103, -1
-  %105 = add i64 %104, 1
-  %106 = and i64 %102, %105
-  %107 = inttoptr i64 %106 to ptr
-  store ptr %107, ptr %12, align 8
-  %108 = load ptr, ptr %12, align 8
-  %109 = getelementptr inbounds %"struct.std::pair.9", ptr %11, i32 0, i32 1
-  %110 = load ptr, ptr %109, align 8
-  store ptr %108, ptr %110, align 8
-  %111 = load ptr, ptr %8, align 8
-  %112 = getelementptr inbounds %"struct.std::pair.9", ptr %11, i32 0, i32 1
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds %"struct.google::protobuf::internal::SerialArena::CleanupNode", ptr %113, i32 0, i32 1
-  store ptr %111, ptr %114, align 8
-  %115 = load ptr, ptr %12, align 8
-  store ptr %115, ptr %4, align 8
-  br label %116
-
-116:                                              ; preds = %86, %70, %62
-  %117 = load ptr, ptr %4, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %117, i8 0, i64 32, i1 false)
-  call void @_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %117)
-  store ptr %117, ptr %13, align 8
-  br label %118
-
-118:                                              ; preds = %116, %47
-  %119 = load ptr, ptr %13, align 8
-  store ptr %119, ptr %25, align 8
-  %120 = getelementptr inbounds %"class.google::protobuf::internal::InternalMetadata", ptr %27, i32 0, i32 0
-  %121 = load i64, ptr %120, align 8
-  %122 = and i64 %121, 2
-  store i64 %122, ptr %26, align 8
-  %123 = load ptr, ptr %25, align 8
-  %124 = ptrtoint ptr %123 to i64
-  %125 = getelementptr inbounds %"class.google::protobuf::internal::InternalMetadata", ptr %27, i32 0, i32 0
-  store i64 %124, ptr %125, align 8
-  %126 = load i64, ptr %26, align 8
-  %127 = or i64 1, %126
-  %128 = getelementptr inbounds %"class.google::protobuf::internal::InternalMetadata", ptr %27, i32 0, i32 0
-  %129 = load i64, ptr %128, align 8
-  %130 = or i64 %129, %127
-  store i64 %130, ptr %128, align 8
-  %131 = load ptr, ptr %24, align 8
-  %132 = load ptr, ptr %25, align 8
-  %133 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::ContainerBase", ptr %132, i32 0, i32 0
-  store ptr %131, ptr %133, align 8
-  %134 = load ptr, ptr %25, align 8
-  %135 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %134, i32 0, i32 1
-  ret ptr %135
+22:                                               ; preds = %12
+  %23 = load ptr, ptr %4, align 8
+  %24 = load i32, ptr %5, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #11
+declare noundef nonnull ptr @_Znwm(i64 noundef) #18
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !116
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %3, i32 0, i32 1
   call void @_ZN6google8protobuf15UnknownFieldSetC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv(ptr noundef %0) #5 comdat {
+define linkonce_odr hidden void @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv(ptr noundef %0) #7 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8, !tbaa !33
   call void @_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf15UnknownFieldSetC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZN6google8protobuf5Arena16AllocateInternalEmmPFvPvEPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) #8 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca %"struct.std::pair.9", align 8
+  %13 = alloca %"struct.std::pair.9", align 8
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !8
+  store i64 %1, ptr %8, align 8, !tbaa !78
+  store i64 %2, ptr %9, align 8, !tbaa !78
+  store ptr %3, ptr %10, align 8, !tbaa !33
+  store ptr %4, ptr %11, align 8, !tbaa !138
+  %15 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %10, align 8, !tbaa !33
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %18, label %23
+
+18:                                               ; preds = %5
+  %19 = load i64, ptr %8, align 8, !tbaa !78
+  %20 = load i64, ptr %9, align 8, !tbaa !78
+  %21 = load ptr, ptr %11, align 8, !tbaa !138
+  %22 = call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %19, i64 noundef %20, ptr noundef %21)
+  store ptr %22, ptr %6, align 8
+  br label %70
+
+23:                                               ; preds = %5
+  %24 = load i64, ptr %9, align 8, !tbaa !78
+  %25 = icmp ule i64 %24, 8
+  br i1 %25, label %26, label %46
+
+26:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #3
+  %27 = load i64, ptr %8, align 8, !tbaa !78
+  %28 = call noundef i64 @_ZN6google8protobuf8internal10AlignUpTo8Em(i64 noundef %27)
+  %29 = load ptr, ptr %11, align 8, !tbaa !138
+  %30 = call { ptr, ptr } @_ZN6google8protobuf5Arena26AllocateAlignedWithCleanupEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %28, ptr noundef %29)
+  %31 = getelementptr inbounds nuw { ptr, ptr }, ptr %12, i32 0, i32 0
+  %32 = extractvalue { ptr, ptr } %30, 0
+  store ptr %32, ptr %31, align 8
+  %33 = getelementptr inbounds nuw { ptr, ptr }, ptr %12, i32 0, i32 1
+  %34 = extractvalue { ptr, ptr } %30, 1
+  store ptr %34, ptr %33, align 8
+  %35 = getelementptr inbounds nuw %"struct.std::pair.9", ptr %12, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !140
+  %37 = getelementptr inbounds nuw %"struct.std::pair.9", ptr %12, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8, !tbaa !143
+  %39 = getelementptr inbounds nuw %"struct.google::protobuf::internal::SerialArena::CleanupNode", ptr %38, i32 0, i32 0
+  store ptr %36, ptr %39, align 8, !tbaa !144
+  %40 = load ptr, ptr %10, align 8, !tbaa !33
+  %41 = getelementptr inbounds nuw %"struct.std::pair.9", ptr %12, i32 0, i32 1
+  %42 = load ptr, ptr %41, align 8, !tbaa !143
+  %43 = getelementptr inbounds nuw %"struct.google::protobuf::internal::SerialArena::CleanupNode", ptr %42, i32 0, i32 1
+  store ptr %40, ptr %43, align 8, !tbaa !146
+  %44 = getelementptr inbounds nuw %"struct.std::pair.9", ptr %12, i32 0, i32 0
+  %45 = load ptr, ptr %44, align 8, !tbaa !140
+  store ptr %45, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #3
+  br label %70
+
+46:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 16, ptr %13) #3
+  %47 = load i64, ptr %8, align 8, !tbaa !78
+  %48 = load i64, ptr %9, align 8, !tbaa !78
+  %49 = add i64 %47, %48
+  %50 = sub i64 %49, 8
+  %51 = load ptr, ptr %11, align 8, !tbaa !138
+  %52 = call { ptr, ptr } @_ZN6google8protobuf5Arena26AllocateAlignedWithCleanupEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %50, ptr noundef %51)
+  %53 = getelementptr inbounds nuw { ptr, ptr }, ptr %13, i32 0, i32 0
+  %54 = extractvalue { ptr, ptr } %52, 0
+  store ptr %54, ptr %53, align 8
+  %55 = getelementptr inbounds nuw { ptr, ptr }, ptr %13, i32 0, i32 1
+  %56 = extractvalue { ptr, ptr } %52, 1
+  store ptr %56, ptr %55, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
+  %57 = getelementptr inbounds nuw %"struct.std::pair.9", ptr %13, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8, !tbaa !140
+  %59 = load i64, ptr %9, align 8, !tbaa !78
+  %60 = call noundef ptr @_ZN6google8protobuf8internal7AlignToEPvm(ptr noundef %58, i64 noundef %59)
+  store ptr %60, ptr %14, align 8, !tbaa !33
+  %61 = load ptr, ptr %14, align 8, !tbaa !33
+  %62 = getelementptr inbounds nuw %"struct.std::pair.9", ptr %13, i32 0, i32 1
+  %63 = load ptr, ptr %62, align 8, !tbaa !143
+  %64 = getelementptr inbounds nuw %"struct.google::protobuf::internal::SerialArena::CleanupNode", ptr %63, i32 0, i32 0
+  store ptr %61, ptr %64, align 8, !tbaa !144
+  %65 = load ptr, ptr %10, align 8, !tbaa !33
+  %66 = getelementptr inbounds nuw %"struct.std::pair.9", ptr %13, i32 0, i32 1
+  %67 = load ptr, ptr %66, align 8, !tbaa !143
+  %68 = getelementptr inbounds nuw %"struct.google::protobuf::internal::SerialArena::CleanupNode", ptr %67, i32 0, i32 1
+  store ptr %65, ptr %68, align 8, !tbaa !146
+  %69 = load ptr, ptr %14, align 8, !tbaa !33
+  store ptr %69, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %13) #3
+  br label %70
+
+70:                                               ; preds = %46, %26, %18
+  %71 = load ptr, ptr %6, align 8
+  ret ptr %71
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN6google8protobuf15UnknownFieldSetC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !114
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.google::protobuf::UnknownFieldSet", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.google::protobuf::UnknownFieldSet", ptr %3, i32 0, i32 0
   call void @_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !118
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !133
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
   call void @_ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !147
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSaIN6google8protobuf12UnknownFieldEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   call void @_ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
@@ -4250,150 +5153,496 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN6google8protobuf12UnknownF
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSaIN6google8protobuf12UnknownFieldEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSaIN6google8protobuf12UnknownFieldEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !131
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt15__new_allocatorIN6google8protobuf12UnknownFieldEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !149
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl_data", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl_data", ptr %3, i32 0, i32 1
-  store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl_data", ptr %3, i32 0, i32 2
-  store ptr null, ptr %6, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl_data", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !120
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl_data", ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8, !tbaa !123
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl_data", ptr %3, i32 0, i32 2
+  store ptr null, ptr %6, align 8, !tbaa !135
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__new_allocatorIN6google8protobuf12UnknownFieldEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIN6google8protobuf12UnknownFieldEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !136
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) #4 comdat align 2 {
   %5 = alloca ptr, align 8
-  %6 = alloca i64, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca i64, align 8
-  %10 = alloca i64, align 8
-  %11 = alloca ptr, align 8
-  store ptr %0, ptr %8, align 8
-  store i64 %1, ptr %9, align 8
-  store i64 %2, ptr %10, align 8
-  store ptr %3, ptr %11, align 8
-  %12 = load ptr, ptr %8, align 8
-  %13 = load i64, ptr %10, align 8
-  %14 = icmp ule i64 %13, 8
-  br i1 %14, label %15, label %20
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !8
+  store i64 %1, ptr %7, align 8, !tbaa !78
+  store i64 %2, ptr %8, align 8, !tbaa !78
+  store ptr %3, ptr %9, align 8, !tbaa !138
+  %10 = load ptr, ptr %6, align 8
+  %11 = load i64, ptr %8, align 8, !tbaa !78
+  %12 = icmp ule i64 %11, 8
+  br i1 %12, label %13, label %18
 
-15:                                               ; preds = %4
-  %16 = load i64, ptr %9, align 8
-  %17 = call noundef i64 @_ZN6google8protobuf8internal10AlignUpTo8Em(i64 noundef %16)
-  %18 = load ptr, ptr %11, align 8
-  %19 = call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef %17, ptr noundef %18)
-  store ptr %19, ptr %7, align 8
-  br label %38
+13:                                               ; preds = %4
+  %14 = load i64, ptr %7, align 8, !tbaa !78
+  %15 = call noundef i64 @_ZN6google8protobuf8internal10AlignUpTo8Em(i64 noundef %14)
+  %16 = load ptr, ptr %9, align 8, !tbaa !138
+  %17 = call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %15, ptr noundef %16)
+  store ptr %17, ptr %5, align 8
+  br label %27
 
-20:                                               ; preds = %4
-  %21 = load i64, ptr %9, align 8
-  %22 = load i64, ptr %10, align 8
-  %23 = add i64 %21, %22
-  %24 = sub i64 %23, 8
-  %25 = load ptr, ptr %11, align 8
-  %26 = call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef %24, ptr noundef %25)
-  %27 = load i64, ptr %10, align 8
+18:                                               ; preds = %4
+  %19 = load i64, ptr %7, align 8, !tbaa !78
+  %20 = load i64, ptr %8, align 8, !tbaa !78
+  %21 = add i64 %19, %20
+  %22 = sub i64 %21, 8
+  %23 = load ptr, ptr %9, align 8, !tbaa !138
+  %24 = call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %22, ptr noundef %23)
+  %25 = load i64, ptr %8, align 8, !tbaa !78
+  %26 = call noundef ptr @_ZN6google8protobuf8internal7AlignToEPvm(ptr noundef %24, i64 noundef %25)
   store ptr %26, ptr %5, align 8
-  store i64 %27, ptr %6, align 8
-  %28 = load ptr, ptr %5, align 8
-  %29 = ptrtoint ptr %28 to i64
-  %30 = load i64, ptr %6, align 8
-  %31 = add i64 %29, %30
-  %32 = sub i64 %31, 1
-  %33 = load i64, ptr %6, align 8
-  %34 = xor i64 %33, -1
-  %35 = add i64 %34, 1
-  %36 = and i64 %32, %35
-  %37 = inttoptr i64 %36 to ptr
-  store ptr %37, ptr %7, align 8
-  br label %38
+  br label %27
 
-38:                                               ; preds = %20, %15
-  %39 = load ptr, ptr %7, align 8
-  ret ptr %39
+27:                                               ; preds = %18, %13
+  %28 = load ptr, ptr %5, align 8
+  ret ptr %28
 }
 
 declare { ptr, ptr } @_ZN6google8protobuf5Arena26AllocateAlignedWithCleanupEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i64 @_ZN6google8protobuf8internal10AlignUpTo8Em(i64 noundef %0) #5 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZN6google8protobuf8internal10AlignUpTo8Em(i64 noundef %0) #6 comdat {
   %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !78
+  %3 = load i64, ptr %2, align 8, !tbaa !78
   %4 = add i64 %3, 7
   %5 = and i64 %4, -8
   ret i64 %5
 }
 
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal7AlignToEPvm(ptr noundef %0, i64 noundef %1) #15 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !33
+  store i64 %1, ptr %4, align 8, !tbaa !78
+  %5 = load ptr, ptr %3, align 8, !tbaa !33
+  %6 = ptrtoint ptr %5 to i64
+  %7 = load i64, ptr %4, align 8, !tbaa !78
+  %8 = add i64 %6, %7
+  %9 = sub i64 %8, 1
+  %10 = load i64, ptr %4, align 8, !tbaa !78
+  %11 = xor i64 %10, -1
+  %12 = add i64 %11, 1
+  %13 = and i64 %9, %12
+  %14 = inttoptr i64 %13 to ptr
+  ret ptr %14
+}
+
 declare noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef) #1
 
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream17WriteVarintPackedINS0_13RepeatedFieldIiEEFmmEEEPhiRKT_iS7_RKT0_(ptr noundef nonnull align 8 dereferenceable(59) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull %5) #8 comdat align 2 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !69
+  store i32 %1, ptr %8, align 4, !tbaa !34
+  store ptr %2, ptr %9, align 8, !tbaa !18
+  store i32 %3, ptr %10, align 4, !tbaa !34
+  store ptr %4, ptr %11, align 8, !tbaa !35
+  store ptr %5, ptr %12, align 8, !tbaa !33
+  %15 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %11, align 8, !tbaa !35
+  %17 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh(ptr noundef nonnull align 8 dereferenceable(59) %15, ptr noundef %16)
+  store ptr %17, ptr %11, align 8, !tbaa !35
+  %18 = load i32, ptr %8, align 4, !tbaa !34
+  %19 = load i32, ptr %10, align 4, !tbaa !34
+  %20 = load ptr, ptr %11, align 8, !tbaa !35
+  %21 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteLengthDelimEijPh(ptr noundef nonnull align 8 dereferenceable(59) %15, i32 noundef %18, i32 noundef %19, ptr noundef %20)
+  store ptr %21, ptr %11, align 8, !tbaa !35
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  %22 = load ptr, ptr %9, align 8, !tbaa !18
+  %23 = call noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %22)
+  store ptr %23, ptr %13, align 8, !tbaa !60
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
+  %24 = load ptr, ptr %13, align 8, !tbaa !60
+  %25 = load ptr, ptr %9, align 8, !tbaa !18
+  %26 = call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %25)
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds i32, ptr %24, i64 %27
+  store ptr %28, ptr %14, align 8, !tbaa !60
+  br label %29
+
+29:                                               ; preds = %40, %6
+  %30 = load ptr, ptr %11, align 8, !tbaa !35
+  %31 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh(ptr noundef nonnull align 8 dereferenceable(59) %15, ptr noundef %30)
+  store ptr %31, ptr %11, align 8, !tbaa !35
+  %32 = load ptr, ptr %12, align 8, !tbaa !33
+  %33 = load ptr, ptr %13, align 8, !tbaa !60
+  %34 = getelementptr inbounds nuw i32, ptr %33, i32 1
+  store ptr %34, ptr %13, align 8, !tbaa !60
+  %35 = load i32, ptr %33, align 4, !tbaa !34
+  %36 = sext i32 %35 to i64
+  %37 = call noundef i64 %32(i64 noundef %36)
+  %38 = load ptr, ptr %11, align 8, !tbaa !35
+  %39 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_(i64 noundef %37, ptr noundef %38)
+  store ptr %39, ptr %11, align 8, !tbaa !35
+  br label %40
+
+40:                                               ; preds = %29
+  %41 = load ptr, ptr %13, align 8, !tbaa !60
+  %42 = load ptr, ptr %14, align 8, !tbaa !60
+  %43 = icmp ult ptr %41, %42
+  br i1 %43, label %29, label %44, !llvm.loop !151
+
+44:                                               ; preds = %40
+  %45 = load ptr, ptr %11, align 8, !tbaa !35
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  ret ptr %45
+}
+
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i64 @_ZN6google8protobuf2io19EpsCopyOutputStream8Encode64Em(i64 noundef %0) #5 comdat align 2 {
+define linkonce_odr hidden noundef i64 @_ZN6google8protobuf2io19EpsCopyOutputStream8Encode64Em(i64 noundef %0) #7 comdat align 2 {
   %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !78
+  %3 = load i64, ptr %2, align 8, !tbaa !78
   ret i64 %3
 }
 
-declare noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE4dataEv(ptr noundef nonnull align 8 dereferenceable(16)) #1
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteLengthDelimEijPh(ptr noundef nonnull align 8 dereferenceable(59) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #8 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !69
+  store i32 %1, ptr %6, align 4, !tbaa !34
+  store i32 %2, ptr %7, align 4, !tbaa !34
+  store ptr %3, ptr %8, align 8, !tbaa !35
+  %9 = load ptr, ptr %5, align 8
+  %10 = load i32, ptr %6, align 4, !tbaa !34
+  %11 = load ptr, ptr %8, align 8, !tbaa !35
+  %12 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream8WriteTagEjjPh(ptr noundef nonnull align 8 dereferenceable(59) %9, i32 noundef %10, i32 noundef 2, ptr noundef %11)
+  store ptr %12, ptr %8, align 8, !tbaa !35
+  %13 = load i32, ptr %7, align 4, !tbaa !34
+  %14 = load ptr, ptr %8, align 8, !tbaa !35
+  %15 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh(i32 noundef %13, ptr noundef %14)
+  ret ptr %15
+}
 
-declare noundef i32 @_ZNK6google8protobuf13RepeatedFieldIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) #1
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #6 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE15unsafe_elementsEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  ret ptr %4
+}
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf8internal9SwapBlockImEEvPcS3_(ptr noundef %0, ptr noundef %1) #5 comdat {
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream8WriteTagEjjPh(ptr noundef nonnull align 8 dereferenceable(59) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca %"class.google::protobuf::internal::LogMessage", align 8
+  %10 = alloca i1, align 1
+  %11 = alloca i1, align 1
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
+  store ptr %0, ptr %5, align 8, !tbaa !69
+  store i32 %1, ptr %6, align 4, !tbaa !34
+  store i32 %2, ptr %7, align 4, !tbaa !34
+  store ptr %3, ptr %8, align 8, !tbaa !35
+  %15 = load ptr, ptr %5, align 8
+  br label %16
+
+16:                                               ; preds = %33, %4
+  br i1 false, label %17, label %49
+
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %8, align 8, !tbaa !35
+  %19 = getelementptr inbounds nuw %"class.google::protobuf::io::EpsCopyOutputStream", ptr %15, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !71
+  %21 = icmp ult ptr %18, %20
+  store i1 false, ptr %10, align 1
+  store i1 false, ptr %11, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #3
+  br i1 %21, label %22, label %23
+
+22:                                               ; preds = %17
+  br label %27
+
+23:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 56, ptr %9) #3
+  store i1 true, ptr %10, align 1
+  call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %9, i32 noundef 3, ptr noundef @.str.16, i32 noundef 877)
+  store i1 true, ptr %11, align 1
+  %24 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef @.str.17)
+          to label %25 unwind label %34
+
+25:                                               ; preds = %23
+  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(56) %24)
+          to label %26 unwind label %38
+
+26:                                               ; preds = %25
+  br label %27
+
+27:                                               ; preds = %26, %22
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #3
+  %28 = load i1, ptr %11, align 1
+  br i1 %28, label %29, label %30
+
+29:                                               ; preds = %27
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #3
+  br label %30
+
+30:                                               ; preds = %29, %27
+  %31 = load i1, ptr %10, align 1
+  br i1 %31, label %32, label %33
+
+32:                                               ; preds = %30
+  call void @llvm.lifetime.end.p0(i64 56, ptr %9) #3
+  br label %33
+
+33:                                               ; preds = %32, %30
+  br label %16, !llvm.loop !152
+
+34:                                               ; preds = %23
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %12, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %13, align 4
+  br label %42
+
+38:                                               ; preds = %25
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %12, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #3
+  br label %42
+
+42:                                               ; preds = %38, %34
+  %43 = load i1, ptr %11, align 1
+  br i1 %43, label %44, label %45
+
+44:                                               ; preds = %42
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #3
+  br label %45
+
+45:                                               ; preds = %44, %42
+  %46 = load i1, ptr %10, align 1
+  br i1 %46, label %47, label %48
+
+47:                                               ; preds = %45
+  call void @llvm.lifetime.end.p0(i64 56, ptr %9) #3
+  br label %48
+
+48:                                               ; preds = %47, %45
+  br label %56
+
+49:                                               ; preds = %16
+  %50 = load i32, ptr %6, align 4, !tbaa !34
+  %51 = shl i32 %50, 3
+  %52 = load i32, ptr %7, align 4, !tbaa !34
+  %53 = or i32 %51, %52
+  %54 = load ptr, ptr %8, align 8, !tbaa !35
+  %55 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_(i32 noundef %53, ptr noundef %54)
+  ret ptr %55
+
+56:                                               ; preds = %48
+  %57 = load ptr, ptr %12, align 8
+  %58 = load i32, ptr %13, align 4
+  %59 = insertvalue { ptr, i32 } poison, ptr %57, 0
+  %60 = insertvalue { ptr, i32 } %59, i32 %58, 1
+  resume { ptr, i32 } %60
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh(i32 noundef %0, ptr noundef %1) #15 comdat align 2 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !34
+  store ptr %1, ptr %4, align 8, !tbaa !35
+  br label %5
+
+5:                                                ; preds = %11, %2
+  %6 = load i32, ptr %3, align 4, !tbaa !34
+  %7 = icmp uge i32 %6, 128
+  %8 = zext i1 %7 to i64
+  %9 = call i64 @llvm.expect.i64(i64 %8, i64 0)
+  %10 = icmp ne i64 %9, 0
+  br i1 %10, label %11, label %20
+
+11:                                               ; preds = %5
+  %12 = load i32, ptr %3, align 4, !tbaa !34
+  %13 = or i32 %12, 128
+  %14 = trunc i32 %13 to i8
+  %15 = load ptr, ptr %4, align 8, !tbaa !35
+  store i8 %14, ptr %15, align 1, !tbaa !62
+  %16 = load i32, ptr %3, align 4, !tbaa !34
+  %17 = lshr i32 %16, 7
+  store i32 %17, ptr %3, align 4, !tbaa !34
+  %18 = load ptr, ptr %4, align 8, !tbaa !35
+  %19 = getelementptr inbounds nuw i8, ptr %18, i32 1
+  store ptr %19, ptr %4, align 8, !tbaa !35
+  br label %5, !llvm.loop !153
+
+20:                                               ; preds = %5
+  %21 = load i32, ptr %3, align 4, !tbaa !34
+  %22 = trunc i32 %21 to i8
+  %23 = load ptr, ptr %4, align 8, !tbaa !35
+  %24 = getelementptr inbounds nuw i8, ptr %23, i32 1
+  store ptr %24, ptr %4, align 8, !tbaa !35
+  store i8 %22, ptr %23, align 1, !tbaa !62
+  %25 = load ptr, ptr %4, align 8, !tbaa !35
+  ret ptr %25
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN6google8protobuf8internal7memswapILi16EEENSt9enable_ifIXaageT_Lm16EltT_lsLj1ELi31EEvE4typeEPcS6_(ptr noundef %0, ptr noundef %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 1 %6, i64 8, i1 false)
-  %7 = load ptr, ptr %3, align 8
-  %8 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %8, i64 8, i1 false)
-  %9 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 8 %5, i64 8, i1 false)
+  store ptr %0, ptr %3, align 8, !tbaa !35
+  store ptr %1, ptr %4, align 8, !tbaa !35
+  %5 = load ptr, ptr %3, align 8, !tbaa !35
+  %6 = load ptr, ptr %4, align 8, !tbaa !35
+  call void @_ZN6google8protobuf8internal9SwapBlockIoEEvPcS3_(ptr noundef %5, ptr noundef %6)
+  %7 = load ptr, ptr %3, align 8, !tbaa !35
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = load ptr, ptr %4, align 8, !tbaa !35
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  call void @_ZN6google8protobuf8internal7memswapILi0EEENSt9enable_ifIXeqT_Li0EEvE4typeEPcS6_(ptr noundef %8, ptr noundef %10)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf8internal7memswapILi0EEENSt9enable_ifIXeqT_Li0EEvE4typeEPcS6_(ptr noundef %0, ptr noundef %1) #5 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN6google8protobuf8internal9SwapBlockIoEEvPcS3_(ptr noundef %0, ptr noundef %1) #6 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  %5 = alloca i128, align 16
+  store ptr %0, ptr %3, align 8, !tbaa !35
+  store ptr %1, ptr %4, align 8, !tbaa !35
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #3
+  %6 = load ptr, ptr %3, align 8, !tbaa !35
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %5, ptr align 1 %6, i64 16, i1 false)
+  %7 = load ptr, ptr %3, align 8, !tbaa !35
+  %8 = load ptr, ptr %4, align 8, !tbaa !35
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %8, i64 16, i1 false)
+  %9 = load ptr, ptr %4, align 8, !tbaa !35
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 16 %5, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #3
   ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN6google8protobuf8internal7memswapILi0EEENSt9enable_ifIXeqT_Li0EEvE4typeEPcS6_(ptr noundef %0, ptr noundef %1) #6 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !35
+  store ptr %1, ptr %4, align 8, !tbaa !35
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN6google8protobuf8internal9SwapBlockImEEvPcS3_(ptr noundef %0, ptr noundef %1) #6 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !35
+  store ptr %1, ptr %4, align 8, !tbaa !35
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %6 = load ptr, ptr %3, align 8, !tbaa !35
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 1 %6, i64 8, i1 false)
+  %7 = load ptr, ptr %3, align 8, !tbaa !35
+  %8 = load ptr, ptr %4, align 8, !tbaa !35
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %8, i64 8, i1 false)
+  %9 = load ptr, ptr %4, align 8, !tbaa !35
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 8 %5, i64 8, i1 false)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZN6google8protobuf5Arena14InternalHelperIN17opencv_tensorflow10VersionDefEE3NewEv() #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %1 = alloca ptr, align 8
+  %2 = alloca i32, align 4
+  %3 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 48) #21
+  invoke void @_ZN17opencv_tensorflow10VersionDefC1EPN6google8protobuf5ArenaEb(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef null, i1 noundef zeroext false)
+          to label %4 unwind label %5
+
+4:                                                ; preds = %0
+  ret ptr %3
+
+5:                                                ; preds = %0
+  %6 = landingpad { ptr, i32 }
+          cleanup
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %1, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %2, align 4
+  call void @_ZdlPv(ptr noundef %3) #20
+  br label %9
+
+9:                                                ; preds = %5
+  %10 = load ptr, ptr %1, align 8
+  %11 = load i32, ptr %2, align 4
+  %12 = insertvalue { ptr, i32 } poison, ptr %10, 0
+  %13 = insertvalue { ptr, i32 } %12, i32 %11, 1
+  resume { ptr, i32 } %13
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZN6google8protobuf5Arena15DoCreateMessageIN17opencv_tensorflow10VersionDefEJEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(32) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %4 = load ptr, ptr %2, align 8
+  %5 = call noundef ptr @_ZN6google8protobuf5Arena16AllocateInternalEmmPFvPvEPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 48, i64 noundef 8, ptr noundef null, ptr noundef @_ZTIN17opencv_tensorflow10VersionDefE)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #3
+  store ptr %4, ptr %3, align 8, !tbaa !8
+  %6 = call noundef ptr @_ZN6google8protobuf5Arena14InternalHelperIN17opencv_tensorflow10VersionDefEE9ConstructIJPS1_EEEPS4_PvDpOT_(ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #3
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN6google8protobuf5Arena14InternalHelperIN17opencv_tensorflow10VersionDefEE9ConstructIJPS1_EEEPS4_PvDpOT_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !33
+  store ptr %1, ptr %4, align 8, !tbaa !154
+  %5 = load ptr, ptr %3, align 8, !tbaa !33
+  %6 = load ptr, ptr %4, align 8, !tbaa !154
+  %7 = load ptr, ptr %6, align 8, !tbaa !8
   call void @_ZN17opencv_tensorflow10VersionDefC1EPN6google8protobuf5ArenaEb(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %7, i1 noundef zeroext false)
   ret ptr %5
 }
@@ -4410,36 +5659,184 @@ define internal void @_GLOBAL__sub_I_versions.pb.cc() #0 section ".text.startup"
   ret void
 }
 
-attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
-attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { builtin nounwind }
-attributes #14 = { builtin allocsize(0) }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #8 = { alwaysinline mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #11 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #15 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #19 = { noreturn nounwind }
+attributes #20 = { builtin nounwind }
+attributes #21 = { builtin allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN17opencv_tensorflow10VersionDefE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTSN6google8protobuf5ArenaE", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"bool", !6, i64 0}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"vtable pointer", !7, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTSN6google8protobuf7MessageE", !5, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTSN6google8protobuf13RepeatedFieldIiEE", !5, i64 0}
+!20 = !{!21, !22, i64 0}
+!21 = !{!"_ZTSN6google8protobuf13RepeatedFieldIiEE", !22, i64 0, !22, i64 4, !5, i64 8}
+!22 = !{!"int", !6, i64 0}
+!23 = !{!21, !22, i64 4}
+!24 = !{!21, !5, i64 8}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTSN6google8protobuf8internal10CachedSizeE", !5, i64 0}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTSN6google8protobuf11MessageLiteE", !5, i64 0}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 _ZTSN6google8protobuf8internal16InternalMetadataE", !5, i64 0}
+!31 = distinct !{!31, !32}
+!32 = !{!"llvm.loop.mustprogress"}
+!33 = !{!5, !5, i64 0}
+!34 = !{!22, !22, i64 0}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"p1 omnipotent char", !5, i64 0}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 _ZTSN6google8protobuf8internal12ParseContextE", !5, i64 0}
+!39 = !{!40, !22, i64 36}
+!40 = !{!"_ZTSN17opencv_tensorflow10VersionDefE", !41, i64 0, !21, i64 16, !45, i64 32, !22, i64 36, !22, i64 40, !47, i64 44}
+!41 = !{!"_ZTSN6google8protobuf7MessageE", !42, i64 0}
+!42 = !{!"_ZTSN6google8protobuf11MessageLiteE", !43, i64 8}
+!43 = !{!"_ZTSN6google8protobuf8internal16InternalMetadataE", !44, i64 0}
+!44 = !{!"long", !6, i64 0}
+!45 = !{!"_ZTSSt6atomicIiE", !46, i64 0}
+!46 = !{!"_ZTSSt13__atomic_baseIiE", !22, i64 0}
+!47 = !{!"_ZTSN6google8protobuf8internal10CachedSizeE", !45, i64 0}
+!48 = distinct !{!48, !32}
+!49 = !{!40, !22, i64 40}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p2 omnipotent char", !52, i64 0}
+!52 = !{!"any p2 pointer", !5, i64 0}
+!53 = !{!54, !22, i64 92}
+!54 = !{!"_ZTSN6google8protobuf8internal12ParseContextE", !55, i64 0, !22, i64 88, !22, i64 92, !57, i64 96}
+!55 = !{!"_ZTSN6google8protobuf8internal18EpsCopyInputStreamE", !36, i64 0, !36, i64 8, !36, i64 16, !22, i64 24, !22, i64 28, !56, i64 32, !6, i64 40, !44, i64 72, !22, i64 80, !22, i64 84}
+!56 = !{!"p1 _ZTSN6google8protobuf2io19ZeroCopyInputStreamE", !5, i64 0}
+!57 = !{!"_ZTSN6google8protobuf8internal12ParseContext4DataE", !58, i64 0, !59, i64 8, !9, i64 16}
+!58 = !{!"p1 _ZTSN6google8protobuf14DescriptorPoolE", !5, i64 0}
+!59 = !{!"p1 _ZTSN6google8protobuf14MessageFactoryE", !5, i64 0}
+!60 = !{!61, !61, i64 0}
+!61 = !{!"p1 int", !5, i64 0}
+!62 = !{!6, !6, i64 0}
+!63 = !{!64, !22, i64 8}
+!64 = !{!"_ZTSSt4pairIPKcjE", !36, i64 0, !22, i64 8}
+!65 = !{!64, !36, i64 0}
+!66 = !{!67, !67, i64 0}
+!67 = !{!"p1 _ZTSN6google8protobuf8internal18EpsCopyInputStreamE", !5, i64 0}
+!68 = !{!55, !22, i64 80}
+!69 = !{!70, !70, i64 0}
+!70 = !{!"p1 _ZTSN6google8protobuf2io19EpsCopyOutputStreamE", !5, i64 0}
+!71 = !{!72, !36, i64 0}
+!72 = !{!"_ZTSN6google8protobuf2io19EpsCopyOutputStreamE", !36, i64 0, !36, i64 8, !6, i64 16, !73, i64 48, !11, i64 56, !11, i64 57, !11, i64 58}
+!73 = !{!"p1 _ZTSN6google8protobuf2io20ZeroCopyOutputStreamE", !5, i64 0}
+!74 = !{!75, !75, i64 0}
+!75 = !{!"p1 _ZTSSt13__atomic_baseIiE", !5, i64 0}
+!76 = !{!77, !77, i64 0}
+!77 = !{!"_ZTSSt12memory_order", !6, i64 0}
+!78 = !{!44, !44, i64 0}
+!79 = distinct !{!79, !32}
+!80 = distinct !{!80, !32}
+!81 = distinct !{!81, !32}
+!82 = !{!43, !44, i64 0}
+!83 = distinct !{!83, !32}
+!84 = !{!85, !85, i64 0}
+!85 = !{!"p1 _ZTSSt6atomicIiE", !5, i64 0}
+!86 = !{!46, !22, i64 0}
+!87 = !{!88, !9, i64 0}
+!88 = !{!"_ZTSN6google8protobuf8internal16InternalMetadata13ContainerBaseE", !9, i64 0}
+!89 = distinct !{!89, !32}
+!90 = !{!55, !36, i64 0}
+!91 = !{!55, !36, i64 8}
+!92 = distinct !{!92, !32}
+!93 = !{!55, !22, i64 28}
+!94 = !{!55, !36, i64 16}
+!95 = !{!96, !36, i64 0}
+!96 = !{!"_ZTSSt4pairIPKcbE", !36, i64 0, !11, i64 8}
+!97 = !{!96, !11, i64 8}
+!98 = distinct !{!98, !32}
+!99 = !{!100, !100, i64 0}
+!100 = !{!"_ZTSN6google8protobuf8internal14WireFormatLite8WireTypeE", !6, i64 0}
+!101 = distinct !{!101, !32}
+!102 = distinct !{!102, !32}
+!103 = !{!104, !104, i64 0}
+!104 = !{!"p1 long", !5, i64 0}
+!105 = !{!106, !106, i64 0}
+!106 = !{!"_ZTSSt23__memory_order_modifier", !6, i64 0}
+!107 = distinct !{!107, !32}
+!108 = distinct !{!108, !32}
+!109 = distinct !{!109, !32}
+!110 = distinct !{!110, !32}
+!111 = distinct !{!111, !32}
+!112 = !{!113, !113, i64 0}
+!113 = !{!"p1 _ZTSN6google8protobuf8internal13ElementCopierIiLb1EEE", !5, i64 0}
+!114 = !{!115, !115, i64 0}
+!115 = !{!"p1 _ZTSN6google8protobuf15UnknownFieldSetE", !5, i64 0}
+!116 = !{!117, !117, i64 0}
+!117 = !{!"p1 _ZTSN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEEE", !5, i64 0}
+!118 = !{!119, !119, i64 0}
+!119 = !{!"p1 _ZTSSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE", !5, i64 0}
+!120 = !{!121, !122, i64 0}
+!121 = !{!"_ZTSNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE17_Vector_impl_dataE", !122, i64 0, !122, i64 8, !122, i64 16}
+!122 = !{!"p1 _ZTSN6google8protobuf12UnknownFieldE", !5, i64 0}
+!123 = !{!121, !122, i64 8}
+!124 = !{!125, !125, i64 0}
+!125 = !{!"p1 _ZTSN9__gnu_cxx17__normal_iteratorIPKN6google8protobuf12UnknownFieldESt6vectorIS3_SaIS3_EEEE", !5, i64 0}
+!126 = !{!122, !122, i64 0}
+!127 = !{!128, !128, i64 0}
+!128 = !{!"p2 _ZTSN6google8protobuf12UnknownFieldE", !52, i64 0}
+!129 = !{!130, !122, i64 0}
+!130 = !{!"_ZTSN9__gnu_cxx17__normal_iteratorIPKN6google8protobuf12UnknownFieldESt6vectorIS3_SaIS3_EEEE", !122, i64 0}
+!131 = !{!132, !132, i64 0}
+!132 = !{!"p1 _ZTSSaIN6google8protobuf12UnknownFieldEE", !5, i64 0}
+!133 = !{!134, !134, i64 0}
+!134 = !{!"p1 _ZTSSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE", !5, i64 0}
+!135 = !{!121, !122, i64 16}
+!136 = !{!137, !137, i64 0}
+!137 = !{!"p1 _ZTSSt15__new_allocatorIN6google8protobuf12UnknownFieldEE", !5, i64 0}
+!138 = !{!139, !139, i64 0}
+!139 = !{!"p1 _ZTSSt9type_info", !5, i64 0}
+!140 = !{!141, !5, i64 0}
+!141 = !{!"_ZTSSt4pairIPvPN6google8protobuf8internal11SerialArena11CleanupNodeEE", !5, i64 0, !142, i64 8}
+!142 = !{!"p1 _ZTSN6google8protobuf8internal11SerialArena11CleanupNodeE", !5, i64 0}
+!143 = !{!141, !142, i64 8}
+!144 = !{!145, !5, i64 0}
+!145 = !{!"_ZTSN6google8protobuf8internal11SerialArena11CleanupNodeE", !5, i64 0, !5, i64 8}
+!146 = !{!145, !5, i64 8}
+!147 = !{!148, !148, i64 0}
+!148 = !{!"p1 _ZTSNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE12_Vector_implE", !5, i64 0}
+!149 = !{!150, !150, i64 0}
+!150 = !{!"p1 _ZTSNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE17_Vector_impl_dataE", !5, i64 0}
+!151 = distinct !{!151, !32}
+!152 = distinct !{!152, !32}
+!153 = distinct !{!153, !32}
+!154 = !{!155, !155, i64 0}
+!155 = !{!"p2 _ZTSN6google8protobuf5ArenaE", !52, i64 0}
