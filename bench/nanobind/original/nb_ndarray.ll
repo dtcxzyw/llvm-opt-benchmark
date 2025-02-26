@@ -4,24 +4,24 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr }
 %struct.PyVarObject = type { %struct._object, i64 }
 %struct._object = type { i64, ptr }
+%struct.PyMethodDef = type { ptr, ptr, i32, ptr }
 %struct.PyType_Slot = type { i32, ptr }
 %struct._longobject = type { %struct.PyVarObject, [1 x i32] }
-%"class.nanobind::handle" = type { ptr }
 %"class.nanobind::object" = type { %"class.nanobind::handle" }
+%"class.nanobind::handle" = type { ptr }
 %"class.nanobind::str" = type { %"class.nanobind::object" }
 %"class.nanobind::detail::accessor" = type { ptr, ptr, ptr }
 %"class.nanobind::module_" = type { %"class.nanobind::object" }
-%"struct.nanobind::detail::scoped_pymalloc" = type { ptr }
 %"struct.nanobind::dlpack::dtype" = type { i8, i8, i16 }
 %"struct.nanobind::arg_v" = type { %"struct.nanobind::arg.base", %"class.nanobind::object" }
 %"struct.nanobind::arg.base" = type <{ ptr, ptr, i8, i8 }>
 %"struct.nanobind::arg" = type <{ ptr, ptr, i8, i8, [6 x i8] }>
+%"struct.nanobind::detail::scoped_pymalloc" = type { ptr }
 %"struct.nanobind::detail::scoped_pymalloc.1" = type { ptr }
-%"struct.nanobind::detail::ndarray_req" = type <{ %"struct.nanobind::dlpack::dtype", i32, ptr, i8, i8, i8, i8, i8, [3 x i8] }>
+%"struct.nanobind::detail::ndarray_config" = type { i32, i8, i8, %"struct.nanobind::dlpack::dtype", i32, ptr }
 %"struct.nanobind::detail::managed_dltensor" = type { %"struct.nanobind::dlpack::dltensor", ptr, ptr }
 %"struct.nanobind::dlpack::dltensor" = type { ptr, %"struct.nanobind::dlpack::device", i32, %"struct.nanobind::dlpack::dtype", ptr, ptr, i64 }
 %"struct.nanobind::dlpack::device" = type { i32, i32 }
-%"struct.nanobind::detail::cleanup_list" = type { i32, i32, ptr, [6 x ptr] }
 %"struct.nanobind::detail::ndarray_handle" = type <{ ptr, %"struct.std::atomic", ptr, ptr, i8, i8, i8, i8, [4 x i8] }>
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { i64 }
@@ -30,12 +30,15 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.4 = type { i8 }
 %class.anon.6 = type { i8 }
 %struct.bufferinfo = type { ptr, ptr, i64, i64, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.PyTupleObject = type { %struct.PyVarObject, [1 x ptr] }
+%"struct.nanobind::detail::cleanup_list" = type { i32, i32, ptr, [6 x ptr] }
 %"struct.nanobind::gil_scoped_acquire" = type { i32 }
 %class.anon = type { i8 }
 %"struct.nanobind::detail::nb_ndarray" = type { %struct._object, ptr }
+%"struct.nanobind::detail::lock_internals" = type { i8 }
 %struct.PyType_Spec = type { ptr, i32, i32, i32, ptr }
-%"struct.nanobind::detail::nb_internals" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, %"class.tsl::robin_map", %"class.tsl::robin_map.8", %"class.tsl::robin_map.18", %"class.tsl::robin_map", %"class.tsl::robin_map", %"struct.nanobind::detail::nb_translator_seq", i8, i8, ptr }
+%"struct.nanobind::detail::nb_internals" = type { ptr, ptr, ptr, ptr, ptr, ptr, %"struct.nanobind::detail::nb_maybe_atomic", ptr, i8, %"struct.nanobind::detail::nb_maybe_atomic", [1 x %"struct.nanobind::detail::nb_shard"], %"class.tsl::robin_map.8", %"class.tsl::robin_map.18", %"class.tsl::robin_map", %"struct.nanobind::detail::nb_translator_seq", i8, i8, ptr, i64 }
+%"struct.nanobind::detail::nb_maybe_atomic" = type { ptr }
+%"struct.nanobind::detail::nb_shard" = type { %"class.tsl::robin_map", %"class.tsl::robin_map" }
 %"class.tsl::robin_map.8" = type { %"class.tsl::detail_robin_hash::robin_hash.9" }
 %"class.tsl::detail_robin_hash::robin_hash.9" = type <{ %"class.tsl::rh::power_of_two_growth_policy", %"class.std::vector.12", ptr, i64, i64, i64, float, float, i8, i8, [6 x i8] }>
 %"class.tsl::rh::power_of_two_growth_policy" = type { i64 }
@@ -53,38 +56,57 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.nanobind::detail::nb_translator_seq" = type { ptr, ptr, ptr }
 %"struct.nanobind::error_scope" = type { ptr, ptr, ptr }
+%struct.PyTupleObject = type { %struct.PyVarObject, [1 x ptr] }
 
 $__clang_call_terminate = comdat any
 
 $_ZN8nanobind6objectC2Ev = comdat any
 
+$_ZN8nanobind5stealINS_6objectEEET_NS_6handleE = comdat any
+
+$_ZN8nanobind6handleC2EPK7_object = comdat any
+
 $_ZN8nanobind6objectaSEOS0_ = comdat any
 
-$_ZN8nanobind6objectD2Ev = comdat any
+$_ZNK8nanobind6detail3apiINS_6handleEE8is_validEv = comdat any
+
+$_ZN8nanobind6borrowINS_3strEEET_NS_6handleE = comdat any
+
+$_ZN8nanobind6handleC2EPK11_typeobject = comdat any
 
 $_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc = comdat any
 
-$_ZNK8nanobind3str5c_strEv = comdat any
+$_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEcvNS_6handleEEv = comdat any
 
-$_ZN8nanobind3strD2Ev = comdat any
+$_ZNK8nanobind3str5c_strEv = comdat any
 
 $_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev = comdat any
 
-$_ZN8nanobind7module_D2Ev = comdat any
+$_ZN8nanobind7module_7import_EPKc = comdat any
+
+$_ZN8nanobind6objectD2Ev = comdat any
 
 $_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJNS_6handleEEEENS_6objectEDpOT0_ = comdat any
 
 $_ZN8nanobind6object5resetEv = comdat any
 
+$_ZN8nanobind6borrowINS_6objectEEET_NS_6handleE = comdat any
+
+$_ZNK8nanobind6handle3ptrEv = comdat any
+
+$_ZNK8nanobind6dlpack5dtypeneERKS1_ = comdat any
+
+$_ZN8nanobind6dlpack5dtypeC2Ev = comdat any
+
 $_ZNK8nanobind6dlpack5dtypeeqERKS1_ = comdat any
-
-$_ZN8nanobind6detail15scoped_pymallocIlEC2Em = comdat any
-
-$_ZN8nanobind6detail15scoped_pymallocIlEixEm = comdat any
 
 $_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJRA11_cRcEEENS_6objectEDpOT0_ = comdat any
 
 $_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJNS_5arg_vEEEENS_6objectEDpOT0_ = comdat any
+
+$_ZN8nanobind3argC2EPKc = comdat any
+
+$_ZNK8nanobind3argaSINS_6detail8accessorINS2_8str_attrEEEEENS_5arg_vEOT_ = comdat any
 
 $_ZN8nanobind5arg_vD2Ev = comdat any
 
@@ -94,6 +116,8 @@ $_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJNS
 
 $_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJRA11_cEEENS_6objectEDpOT0_ = comdat any
 
+$_ZN8nanobind6detail12cleanup_list6appendEP7_object = comdat any
+
 $_ZN8nanobind6object7releaseEv = comdat any
 
 $_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEC2Em = comdat any
@@ -102,13 +126,17 @@ $_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv = comdat any
 
 $_ZNSt13__atomic_baseImEaSEm = comdat any
 
+$_ZN8nanobind6detail15scoped_pymallocIlEC2Em = comdat any
+
+$_ZN8nanobind6detail15scoped_pymallocIlEixEm = comdat any
+
 $_ZN8nanobind6detail15scoped_pymallocIlE7releaseEv = comdat any
+
+$_ZN8nanobind6detail15scoped_pymallocIlED2Ev = comdat any
 
 $_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEE7releaseEv = comdat any
 
 $_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEED2Ev = comdat any
-
-$_ZN8nanobind6detail15scoped_pymallocIlED2Ev = comdat any
 
 $_ZNSt13__atomic_baseImEppEv = comdat any
 
@@ -130,13 +158,21 @@ $_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEED2Ev = comdat any
 
 $_ZN8nanobind4noneEv = comdat any
 
+$_ZNK8nanobind6detail12cleanup_list4selfEv = comdat any
+
 $_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJRNS_6objectENS_5arg_vEEEES8_DpOT0_ = comdat any
+
+$_ZNK8nanobind3argaSIRbEENS_5arg_vEOT_ = comdat any
 
 $_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJRNS_6objectEEEES8_DpOT0_ = comdat any
 
 $_ZN8nanobind6handleC2Ev = comdat any
 
 $_ZNKR8nanobind6handle7dec_refEv = comdat any
+
+$_ZN8nanobind5stealINS_7module_EEET_NS_6handleE = comdat any
+
+$_ZN8nanobind7module_C2ENS_6handleENS_6detail7steal_tE = comdat any
 
 $_ZN8nanobind6detail15scoped_pymallocI10bufferinfoEC2Em = comdat any
 
@@ -152,6 +188,14 @@ $_ZN8nanobind11error_scopeC2Ev = comdat any
 
 $_ZN8nanobind11error_scopeD2Ev = comdat any
 
+$_ZN8nanobind6detail15nb_maybe_atomicIP11_typeobjectE12load_acquireEv = comdat any
+
+$_ZN8nanobind6detail14lock_internalsC2EPNS0_12nb_internalsE = comdat any
+
+$_ZN8nanobind6detail15nb_maybe_atomicIP11_typeobjectE12load_relaxedEv = comdat any
+
+$_ZN8nanobind6detail15nb_maybe_atomicIP11_typeobjectE13store_releaseES3_ = comdat any
+
 $_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE = comdat any
 
 $_ZNK8nanobind6detail3apiINS_6handleEE7derivedEv = comdat any
@@ -162,9 +206,21 @@ $_ZNKR8nanobind6handle7inc_refEv = comdat any
 
 $_ZN8nanobind6detail8accessorINS0_8str_attrEEC2IRPKcEENS_6handleEOT_ = comdat any
 
+$_ZN8nanobind3strC2ENS_6handleENS_6detail8borrow_tE = comdat any
+
 $_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv = comdat any
 
+$_ZNK8nanobind6detail8accessorINS0_8str_attrEE3ptrEv = comdat any
+
+$_ZN8nanobind6detail8str_attr3getEP7_objectPKcPS3_ = comdat any
+
 $_ZN8nanobind6detail11type_casterINS_6handleEiE8from_cppEOS2_NS_9rv_policyEPNS0_12cleanup_listE = comdat any
+
+$_ZNK8nanobind6detail8accessorINS0_8str_attrEE3keyEv = comdat any
+
+$_ZNK8nanobind6detail8accessorINS0_8str_attrEE4baseEv = comdat any
+
+$_ZN8nanobind6detail8str_attr3keyEPKc = comdat any
 
 $_ZN8nanobind6detail11type_casterIciE8from_cppEPKcNS_9rv_policyEPNS0_12cleanup_listE = comdat any
 
@@ -172,104 +228,99 @@ $_ZN8nanobind6detail11type_casterIciE8from_cppEcNS_9rv_policyEPNS0_12cleanup_lis
 
 $_ZN8nanobind4castINS_6detail8accessorINS1_8str_attrEEEEENS_6objectEOT_NS_9rv_policyE = comdat any
 
+$_ZN8nanobind5arg_vC2ERKNS_3argEONS_6objectE = comdat any
+
 $_ZN8nanobind6detail11type_casterINS0_8accessorINS0_8str_attrEEEiE8from_cppEOS4_NS_9rv_policyEPNS0_12cleanup_listE = comdat any
+
+$_ZNKR8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7inc_refEv = comdat any
 
 $_ZN8nanobind6objectC2EOS0_ = comdat any
 
+$_ZN8nanobind6detail12call_analyzeINS_5arg_vEEEvRmS3_RKT_ = comdat any
+
+$_ZN8nanobind6detail9call_initILNS_9rv_policyE1ENS_5arg_vEEEvPP7_objectS5_RmS7_mOT0_ = comdat any
+
+$_ZNSt13__atomic_baseImE5storeEmSt12memory_order = comdat any
+
 $_ZStanSt12memory_orderSt23__memory_order_modifier = comdat any
+
+$_ZNSt13__atomic_baseImE9fetch_subEmSt12memory_order = comdat any
 
 $_ZN8nanobind4castIRbEENS_6objectEOT_NS_9rv_policyE = comdat any
 
 $_ZN8nanobind6detail11type_casterIbiE8from_cppEbNS_9rv_policyEPNS0_12cleanup_listE = comdat any
 
+$_ZN8nanobind6detail12call_analyzeINS_6objectEEEvRmS3_RKT_ = comdat any
+
+$_ZN8nanobind6detail9call_initILNS_9rv_policyE1ERNS_6objectEEEvPP7_objectS6_RmS8_mOT0_ = comdat any
+
 $_ZN8nanobind6detail11type_casterINS_6objectEiE8from_cppERKS2_NS_9rv_policyEPNS0_12cleanup_listE = comdat any
-
-$_ZZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJNS_6handleEEEENS_6objectEDpOT0_E11method_call = comdat any
-
-$_ZZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJRA11_cRcEEENS_6objectEDpOT0_E11method_call = comdat any
-
-$_ZZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJNS_5arg_vEEEENS_6objectEDpOT0_E11method_call = comdat any
-
-$_ZZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJEEENS_6objectEDpOT0_E11method_call = comdat any
-
-$_ZZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJNS_6handleERA11_cEEENS_6objectEDpOT0_E11method_call = comdat any
-
-$_ZZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJRA11_cEEENS_6objectEDpOT0_E11method_call = comdat any
-
-$_ZZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJRNS_6objectENS_5arg_vEEEES8_DpOT0_E11method_call = comdat any
-
-$_ZZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJRNS_6objectEEEES8_DpOT0_E11method_call = comdat any
 
 @.str = private unnamed_addr constant [11 x i8] c"__dlpack__\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"torch.Tensor\00", align 1
 @.str.2 = private unnamed_addr constant [31 x i8] c"jaxlib.xla_extension.ArrayImpl\00", align 1
 @.str.3 = private unnamed_addr constant [44 x i8] c"tensorflow.python.framework.ops.EagerTensor\00", align 1
+@.str.4 = private unnamed_addr constant [13 x i8] c"cupy.ndarray\00", align 1
 @PyCapsule_Type = external global %struct._typeobject, align 8
-@.str.4 = private unnamed_addr constant [11 x i8] c"__module__\00", align 1
-@.str.5 = private unnamed_addr constant [12 x i8] c"tensorflow.\00", align 1
-@.str.6 = private unnamed_addr constant [31 x i8] c"tensorflow.experimental.dlpack\00", align 1
-@.str.7 = private unnamed_addr constant [6 x i8] c"torch\00", align 1
-@.str.8 = private unnamed_addr constant [19 x i8] c"torch.utils.dlpack\00", align 1
-@.str.9 = private unnamed_addr constant [7 x i8] c"jaxlib\00", align 1
-@.str.10 = private unnamed_addr constant [11 x i8] c"jax.dlpack\00", align 1
-@.str.11 = private unnamed_addr constant [10 x i8] c"to_dlpack\00", align 1
-@.str.12 = private unnamed_addr constant [9 x i8] c"dltensor\00", align 1
-@.str.13 = private unnamed_addr constant [5 x i8] c"bool\00", align 1
-@.str.14 = private unnamed_addr constant [4 x i8] c"int\00", align 1
-@.str.15 = private unnamed_addr constant [5 x i8] c"uint\00", align 1
-@.str.16 = private unnamed_addr constant [6 x i8] c"float\00", align 1
-@.str.17 = private unnamed_addr constant [8 x i8] c"complex\00", align 1
-@.str.18 = private unnamed_addr constant [5 x i8] c"%s%u\00", align 1
-@.str.19 = private unnamed_addr constant [6 x i8] c"numpy\00", align 1
-@.str.20 = private unnamed_addr constant [7 x i8] c"astype\00", align 1
-@.str.21 = private unnamed_addr constant [3 x i8] c"to\00", align 1
-@.str.22 = private unnamed_addr constant [6 x i8] c"dtype\00", align 1
-@.str.23 = private unnamed_addr constant [11 x i8] c"contiguous\00", align 1
-@.str.24 = private unnamed_addr constant [11 x i8] c"tensorflow\00", align 1
-@.str.25 = private unnamed_addr constant [5 x i8] c"cast\00", align 1
-@.str.26 = private unnamed_addr constant [14 x i8] c"used_dltensor\00", align 1
+@.str.5 = private unnamed_addr constant [11 x i8] c"__module__\00", align 1
+@.str.6 = private unnamed_addr constant [12 x i8] c"tensorflow.\00", align 1
+@.str.7 = private unnamed_addr constant [31 x i8] c"tensorflow.experimental.dlpack\00", align 1
+@.str.8 = private unnamed_addr constant [6 x i8] c"torch\00", align 1
+@.str.9 = private unnamed_addr constant [19 x i8] c"torch.utils.dlpack\00", align 1
+@.str.10 = private unnamed_addr constant [7 x i8] c"jaxlib\00", align 1
+@.str.11 = private unnamed_addr constant [11 x i8] c"jax.dlpack\00", align 1
+@.str.12 = private unnamed_addr constant [10 x i8] c"to_dlpack\00", align 1
+@.str.13 = private unnamed_addr constant [9 x i8] c"dltensor\00", align 1
+@.str.14 = private unnamed_addr constant [5 x i8] c"bool\00", align 1
+@.str.15 = private unnamed_addr constant [4 x i8] c"int\00", align 1
+@.str.16 = private unnamed_addr constant [5 x i8] c"uint\00", align 1
+@.str.17 = private unnamed_addr constant [6 x i8] c"float\00", align 1
+@.str.18 = private unnamed_addr constant [8 x i8] c"complex\00", align 1
+@.str.19 = private unnamed_addr constant [5 x i8] c"%s%u\00", align 1
+@.str.20 = private unnamed_addr constant [6 x i8] c"numpy\00", align 1
+@.str.21 = private unnamed_addr constant [5 x i8] c"cupy\00", align 1
+@.str.22 = private unnamed_addr constant [7 x i8] c"astype\00", align 1
+@.str.23 = private unnamed_addr constant [3 x i8] c"to\00", align 1
+@.str.24 = private unnamed_addr constant [6 x i8] c"dtype\00", align 1
+@.str.25 = private unnamed_addr constant [11 x i8] c"contiguous\00", align 1
+@.str.26 = private unnamed_addr constant [11 x i8] c"tensorflow\00", align 1
+@.str.27 = private unnamed_addr constant [5 x i8] c"cast\00", align 1
+@.str.28 = private unnamed_addr constant [14 x i8] c"used_dltensor\00", align 1
 @PyExc_RuntimeError = external global ptr, align 8
-@.str.27 = private unnamed_addr constant [109 x i8] c"nanobind::detail::ndarray_wrap(): reference_internal policy cannot be applied (ndarray already has an owner)\00", align 1
+@.str.29 = private unnamed_addr constant [111 x i8] c"nanobind::detail::ndarray_export(): reference_internal policy cannot be applied (ndarray already has an owner)\00", align 1
 @_ZTISt9exception = external constant ptr
-@.str.28 = private unnamed_addr constant [6 x i8] c"array\00", align 1
-@.str.29 = private unnamed_addr constant [5 x i8] c"copy\00", align 1
-@.str.30 = private unnamed_addr constant [79 x i8] c"nanobind::detail::ndarray_wrap(): could not convert ndarray to NumPy array: %s\00", align 1
-@.str.31 = private unnamed_addr constant [73 x i8] c"nanobind::detail::ndarray_wrap(): could not import ndarray framework: %s\00", align 1
+@.str.30 = private unnamed_addr constant [6 x i8] c"array\00", align 1
+@.str.31 = private unnamed_addr constant [5 x i8] c"copy\00", align 1
 @.str.32 = private unnamed_addr constant [12 x i8] c"from_dlpack\00", align 1
-@.str.33 = private unnamed_addr constant [63 x i8] c"nanobind::detail::ndarray_wrap(): could not import ndarray: %s\00", align 1
-@.str.34 = private unnamed_addr constant [50 x i8] c"nanobind::detail::ndarray_wrap(): copy failed: %s\00", align 1
-@.str.35 = private unnamed_addr constant [59 x i8] c"scoped_pymalloc(): could not allocate %zu bytes of memory!\00", align 1
+@.str.33 = private unnamed_addr constant [65 x i8] c"nanobind::detail::ndarray_export(): could not import ndarray: %s\00", align 1
+@.str.34 = private unnamed_addr constant [6 x i8] c"clone\00", align 1
+@.str.35 = private unnamed_addr constant [52 x i8] c"nanobind::detail::ndarray_export(): copy failed: %s\00", align 1
+@.str.36 = private unnamed_addr constant [59 x i8] c"scoped_pymalloc(): could not allocate %zu bytes of memory!\00", align 1
 @_Py_NoneStruct = external global %struct._object, align 8
 @_ZN8nanobind6detail9internalsE = external hidden global ptr, align 8
-@__const._ZN8nanobind6detailL13nd_ndarray_tpEv.slots = private unnamed_addr constant [4 x %struct.PyType_Slot] [%struct.PyType_Slot { i32 52, ptr @_ZN8nanobind6detailL18nb_ndarray_deallocEP7_object }, %struct.PyType_Slot { i32 1, ptr @_ZN8nanobind6detailL19nd_ndarray_tpbufferEP7_objectP10bufferinfoi }, %struct.PyType_Slot { i32 2, ptr @_ZN8nanobind6detailL24nb_ndarray_releasebufferEP7_objectP10bufferinfo }, %struct.PyType_Slot zeroinitializer], align 16
-@.str.36 = private unnamed_addr constant [20 x i8] c"nanobind.nb_ndarray\00", align 1
+@_ZN8nanobind6detailL18nb_ndarray_membersE = internal global [3 x %struct.PyMethodDef] [%struct.PyMethodDef { ptr @.str, ptr @_ZN8nanobind6detailL17nb_ndarray_dlpackEP7_objectP11_typeobjectPKS2_lS2_, i32 130, ptr null }, %struct.PyMethodDef { ptr @.str.38, ptr @_ZN8nanobind6detailL24nb_ndarray_dlpack_deviceEP7_objectP11_typeobjectPKS2_lS2_, i32 130, ptr null }, %struct.PyMethodDef zeroinitializer], align 16
+@__const._ZN8nanobind6detailL13nd_ndarray_tpEv.slots = private unnamed_addr constant [5 x %struct.PyType_Slot] [%struct.PyType_Slot { i32 52, ptr @_ZN8nanobind6detailL18nb_ndarray_deallocEP7_object }, %struct.PyType_Slot { i32 64, ptr @_ZN8nanobind6detailL18nb_ndarray_membersE }, %struct.PyType_Slot { i32 1, ptr @_ZN8nanobind6detailL19nd_ndarray_tpbufferEP7_objectP10bufferinfoi }, %struct.PyType_Slot { i32 2, ptr @_ZN8nanobind6detailL24nb_ndarray_releasebufferEP7_objectP10bufferinfo }, %struct.PyType_Slot zeroinitializer], align 16
+@.str.37 = private unnamed_addr constant [20 x i8] c"nanobind.nb_ndarray\00", align 1
+@.str.38 = private unnamed_addr constant [18 x i8] c"__dlpack_device__\00", align 1
 @PyExc_BufferError = external global ptr, align 8
-@.str.37 = private unnamed_addr constant [69 x i8] c"Only CPU-allocated ndarrays can be accessed via the buffer protocol!\00", align 1
-@.str.38 = private unnamed_addr constant [2 x i8] c"b\00", align 1
-@.str.39 = private unnamed_addr constant [2 x i8] c"h\00", align 1
-@.str.40 = private unnamed_addr constant [2 x i8] c"i\00", align 1
-@.str.41 = private unnamed_addr constant [2 x i8] c"q\00", align 1
-@.str.42 = private unnamed_addr constant [2 x i8] c"B\00", align 1
-@.str.43 = private unnamed_addr constant [2 x i8] c"H\00", align 1
-@.str.44 = private unnamed_addr constant [2 x i8] c"I\00", align 1
-@.str.45 = private unnamed_addr constant [2 x i8] c"Q\00", align 1
-@.str.46 = private unnamed_addr constant [2 x i8] c"e\00", align 1
-@.str.47 = private unnamed_addr constant [2 x i8] c"f\00", align 1
-@.str.48 = private unnamed_addr constant [2 x i8] c"d\00", align 1
-@.str.49 = private unnamed_addr constant [3 x i8] c"Zf\00", align 1
-@.str.50 = private unnamed_addr constant [3 x i8] c"Zd\00", align 1
-@.str.51 = private unnamed_addr constant [2 x i8] c"?\00", align 1
-@.str.52 = private unnamed_addr constant [68 x i8] c"Don't know how to convert DLPack dtype into buffer protocol format!\00", align 1
-@_ZZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJNS_6handleEEEENS_6objectEDpOT0_E11method_call = linkonce_odr hidden constant i8 1, comdat, align 1
-@_ZZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJRA11_cRcEEENS_6objectEDpOT0_E11method_call = linkonce_odr hidden constant i8 1, comdat, align 1
-@_ZZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJNS_5arg_vEEEENS_6objectEDpOT0_E11method_call = linkonce_odr hidden constant i8 1, comdat, align 1
-@_ZZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJEEENS_6objectEDpOT0_E11method_call = linkonce_odr hidden constant i8 1, comdat, align 1
-@_ZZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJNS_6handleERA11_cEEENS_6objectEDpOT0_E11method_call = linkonce_odr hidden constant i8 1, comdat, align 1
-@_ZZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJRA11_cEEENS_6objectEDpOT0_E11method_call = linkonce_odr hidden constant i8 1, comdat, align 1
+@.str.39 = private unnamed_addr constant [69 x i8] c"Only CPU-allocated ndarrays can be accessed via the buffer protocol!\00", align 1
+@.str.40 = private unnamed_addr constant [2 x i8] c"b\00", align 1
+@.str.41 = private unnamed_addr constant [2 x i8] c"h\00", align 1
+@.str.42 = private unnamed_addr constant [2 x i8] c"i\00", align 1
+@.str.43 = private unnamed_addr constant [2 x i8] c"q\00", align 1
+@.str.44 = private unnamed_addr constant [2 x i8] c"B\00", align 1
+@.str.45 = private unnamed_addr constant [2 x i8] c"H\00", align 1
+@.str.46 = private unnamed_addr constant [2 x i8] c"I\00", align 1
+@.str.47 = private unnamed_addr constant [2 x i8] c"Q\00", align 1
+@.str.48 = private unnamed_addr constant [2 x i8] c"e\00", align 1
+@.str.49 = private unnamed_addr constant [2 x i8] c"f\00", align 1
+@.str.50 = private unnamed_addr constant [2 x i8] c"d\00", align 1
+@.str.51 = private unnamed_addr constant [3 x i8] c"Zf\00", align 1
+@.str.52 = private unnamed_addr constant [3 x i8] c"Zd\00", align 1
+@.str.53 = private unnamed_addr constant [2 x i8] c"?\00", align 1
+@.str.54 = private unnamed_addr constant [68 x i8] c"Don't know how to convert DLPack dtype into buffer protocol format!\00", align 1
 @_Py_TrueStruct = external global %struct._longobject, align 8
 @_Py_FalseStruct = external global %struct._longobject, align 8
-@_ZZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJRNS_6objectENS_5arg_vEEEES8_DpOT0_E11method_call = linkonce_odr hidden constant i8 1, comdat, align 1
-@_ZZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJRNS_6objectEEEES8_DpOT0_E11method_call = linkonce_odr hidden constant i8 1, comdat, align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZN8nanobind6detail13ndarray_checkEP7_object(ptr noundef %0) #0 personality ptr @__gxx_personality_v0 {
@@ -282,7 +333,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail13ndarray_checkEP7_object(ptr noun
   store ptr %0, ptr %3, align 8
   %8 = load ptr, ptr %3, align 8
   %9 = invoke i32 @PyObject_HasAttrString(ptr noundef %8, ptr noundef @.str)
-          to label %10 unwind label %57
+          to label %10 unwind label %67
 
 10:                                               ; preds = %1
   %11 = icmp ne i32 %9, 0
@@ -291,7 +342,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail13ndarray_checkEP7_object(ptr noun
 12:                                               ; preds = %10
   %13 = load ptr, ptr %3, align 8
   %14 = invoke i32 @PyObject_CheckBuffer(ptr noundef %13)
-          to label %15 unwind label %57
+          to label %15 unwind label %67
 
 15:                                               ; preds = %12
   %16 = icmp ne i32 %14, 0
@@ -299,82 +350,102 @@ define noundef zeroext i1 @_ZN8nanobind6detail13ndarray_checkEP7_object(ptr noun
 
 17:                                               ; preds = %15, %10
   store i1 true, ptr %2, align 1
-  br label %55
+  br label %65
 
 18:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #17
   %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds %struct._object, ptr %19, i32 0, i32 1
+  %20 = getelementptr inbounds nuw %struct._object, ptr %19, i32 0, i32 1
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #17
   %22 = load ptr, ptr %4, align 8
-  %23 = call noundef ptr @_ZN8nanobind6detail12nb_type_nameEP7_object(ptr noundef %22) #11
+  %23 = call noundef ptr @_ZN8nanobind6detail12nb_type_nameEP7_object(ptr noundef %22) #17
   store ptr %23, ptr %5, align 8
   %24 = load ptr, ptr %5, align 8
   %25 = icmp ne ptr %24, null
   %26 = xor i1 %25, true
-  br i1 %26, label %27, label %28
+  %27 = zext i1 %26 to i64
+  %28 = call i64 @llvm.expect.i64(i64 %27, i64 0)
+  %29 = icmp ne i64 %28, 0
+  br i1 %29, label %30, label %31
 
-27:                                               ; preds = %18
-  call void @_ZN8nanobind6detail16fail_unspecifiedEv() #12
+30:                                               ; preds = %18
+  call void @_ZN8nanobind6detail16fail_unspecifiedEv() #18
   unreachable
 
-28:                                               ; preds = %18
-  %29 = load ptr, ptr %5, align 8
-  %30 = invoke ptr @PyUnicode_AsUTF8AndSize(ptr noundef %29, ptr noundef null)
-          to label %31 unwind label %57
+31:                                               ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #17
+  %32 = load ptr, ptr %5, align 8
+  %33 = invoke ptr @PyUnicode_AsUTF8AndSize(ptr noundef %32, ptr noundef null)
+          to label %34 unwind label %67
 
-31:                                               ; preds = %28
-  store ptr %30, ptr %6, align 8
-  %32 = load ptr, ptr %6, align 8
-  %33 = icmp ne ptr %32, null
-  %34 = xor i1 %33, true
-  br i1 %34, label %35, label %36
+34:                                               ; preds = %31
+  store ptr %33, ptr %6, align 8
+  %35 = load ptr, ptr %6, align 8
+  %36 = icmp ne ptr %35, null
+  %37 = xor i1 %36, true
+  %38 = zext i1 %37 to i64
+  %39 = call i64 @llvm.expect.i64(i64 %38, i64 0)
+  %40 = icmp ne i64 %39, 0
+  br i1 %40, label %41, label %42
 
-35:                                               ; preds = %31
-  call void @_ZN8nanobind6detail16fail_unspecifiedEv() #12
+41:                                               ; preds = %34
+  call void @_ZN8nanobind6detail16fail_unspecifiedEv() #18
   unreachable
 
-36:                                               ; preds = %31
-  %37 = load ptr, ptr %6, align 8
-  %38 = call i32 @strcmp(ptr noundef %37, ptr noundef @.str.1) #13
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %48, label %40
+42:                                               ; preds = %34
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #17
+  %43 = load ptr, ptr %6, align 8
+  %44 = call i32 @strcmp(ptr noundef %43, ptr noundef @.str.1) #19
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %58, label %46
 
-40:                                               ; preds = %36
-  %41 = load ptr, ptr %6, align 8
-  %42 = call i32 @strcmp(ptr noundef %41, ptr noundef @.str.2) #13
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %48, label %44
+46:                                               ; preds = %42
+  %47 = load ptr, ptr %6, align 8
+  %48 = call i32 @strcmp(ptr noundef %47, ptr noundef @.str.2) #19
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %58, label %50
 
-44:                                               ; preds = %40
-  %45 = load ptr, ptr %6, align 8
-  %46 = call i32 @strcmp(ptr noundef %45, ptr noundef @.str.3) #13
-  %47 = icmp eq i32 %46, 0
-  br label %48
+50:                                               ; preds = %46
+  %51 = load ptr, ptr %6, align 8
+  %52 = call i32 @strcmp(ptr noundef %51, ptr noundef @.str.3) #19
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %58, label %54
 
-48:                                               ; preds = %44, %40, %36
-  %49 = phi i1 [ true, %40 ], [ true, %36 ], [ %47, %44 ]
-  %50 = zext i1 %49 to i8
-  store i8 %50, ptr %7, align 1
-  %51 = load ptr, ptr %5, align 8
-  invoke void @_ZL10_Py_DECREFP7_object(ptr noundef %51)
-          to label %52 unwind label %57
+54:                                               ; preds = %50
+  %55 = load ptr, ptr %6, align 8
+  %56 = call i32 @strcmp(ptr noundef %55, ptr noundef @.str.4) #19
+  %57 = icmp eq i32 %56, 0
+  br label %58
 
-52:                                               ; preds = %48
-  %53 = load i8, ptr %7, align 1
-  %54 = trunc i8 %53 to i1
-  store i1 %54, ptr %2, align 1
-  br label %55
+58:                                               ; preds = %54, %50, %46, %42
+  %59 = phi i1 [ true, %50 ], [ true, %46 ], [ true, %42 ], [ %57, %54 ]
+  %60 = zext i1 %59 to i8
+  store i8 %60, ptr %7, align 1
+  %61 = load ptr, ptr %5, align 8
+  invoke void @_ZL10_Py_DECREFP7_object(ptr noundef %61)
+          to label %62 unwind label %67
 
-55:                                               ; preds = %52, %17
-  %56 = load i1, ptr %2, align 1
-  ret i1 %56
+62:                                               ; preds = %58
+  %63 = load i8, ptr %7, align 1, !range !3, !noundef !4
+  %64 = trunc i8 %63 to i1
+  store i1 %64, ptr %2, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #17
+  br label %65
 
-57:                                               ; preds = %48, %28, %12, %1
-  %58 = landingpad { ptr, i32 }
+65:                                               ; preds = %62, %17
+  %66 = load i1, ptr %2, align 1
+  ret i1 %66
+
+67:                                               ; preds = %58, %31, %12, %1
+  %68 = landingpad { ptr, i32 }
           catch ptr null
-  %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #12
+  %69 = extractvalue { ptr, i32 } %68, 0
+  call void @__clang_call_terminate(ptr %69) #18
   unreachable
 }
 
@@ -382,10 +453,10 @@ declare i32 @PyObject_HasAttrString(ptr noundef, ptr noundef) #1
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #2 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #11
-  call void @_ZSt9terminatev() #12
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #17
+  call void @_ZSt9terminatev() #18
   unreachable
 }
 
@@ -395,23 +466,29 @@ declare void @_ZSt9terminatev()
 
 declare i32 @PyObject_CheckBuffer(ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
 ; Function Attrs: nounwind
-declare noundef ptr @_ZN8nanobind6detail12nb_type_nameEP7_object(ptr noundef) #3
+declare noundef ptr @_ZN8nanobind6detail12nb_type_nameEP7_object(ptr noundef) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #5
 
 ; Function Attrs: noreturn nounwind
-declare hidden void @_ZN8nanobind6detail16fail_unspecifiedEv() #4
+declare hidden void @_ZN8nanobind6detail16fail_unspecifiedEv() #6
 
 declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #5
+declare i32 @strcmp(ptr noundef, ptr noundef) #7
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL10_Py_DECREFP7_object(ptr noundef %0) #6 {
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @_ZL10_Py_DECREFP7_object(ptr noundef %0) #8 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct._object, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct._object, ptr %3, i32 0, i32 0
   %5 = load i64, ptr %4, align 8
   %6 = add nsw i64 %5, -1
   store i64 %6, ptr %4, align 8
@@ -430,2064 +507,1960 @@ define internal void @_ZL10_Py_DECREFP7_object(ptr noundef %0) #6 {
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_11ndarray_reqEbPNS0_12cleanup_listE(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
+  %8 = alloca i8, align 1
   %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca ptr, align 8
-  %13 = alloca ptr, align 8
+  %10 = alloca %"class.nanobind::object", align 8
+  %11 = alloca i8, align 1
+  %12 = alloca %"class.nanobind::object", align 8
+  %13 = alloca %"class.nanobind::handle", align 8
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
-  %16 = alloca %"class.nanobind::handle", align 8
-  %17 = alloca ptr, align 8
-  %18 = alloca %"class.nanobind::handle", align 8
+  %16 = alloca %"class.nanobind::str", align 8
+  %17 = alloca %"class.nanobind::handle", align 8
+  %18 = alloca %"class.nanobind::detail::accessor", align 8
   %19 = alloca %"class.nanobind::handle", align 8
   %20 = alloca ptr, align 8
-  %21 = alloca %"class.nanobind::handle", align 8
-  %22 = alloca %"class.nanobind::handle", align 8
-  %23 = alloca ptr, align 8
-  %24 = alloca %"class.nanobind::handle", align 8
-  %25 = alloca %"class.nanobind::handle", align 8
-  %26 = alloca ptr, align 8
-  %27 = alloca %"class.nanobind::handle", align 8
+  %21 = alloca i32, align 4
+  %22 = alloca %"class.nanobind::object", align 8
+  %23 = alloca %"class.nanobind::module_", align 8
+  %24 = alloca %"class.nanobind::module_", align 8
+  %25 = alloca %"class.nanobind::module_", align 8
+  %26 = alloca %"class.nanobind::object", align 8
+  %27 = alloca %"class.nanobind::detail::accessor", align 8
   %28 = alloca %"class.nanobind::handle", align 8
-  %29 = alloca ptr, align 8
+  %29 = alloca %"class.nanobind::object", align 8
   %30 = alloca %"class.nanobind::handle", align 8
-  %31 = alloca %"class.nanobind::handle", align 8
-  %32 = alloca ptr, align 8
+  %31 = alloca i32, align 4
+  %32 = alloca %"class.nanobind::object", align 8
   %33 = alloca %"class.nanobind::handle", align 8
-  %34 = alloca %"class.nanobind::handle", align 8
+  %34 = alloca ptr, align 8
   %35 = alloca ptr, align 8
-  %36 = alloca %"class.nanobind::handle", align 8
-  %37 = alloca ptr, align 8
-  %38 = alloca %"class.nanobind::handle", align 8
-  %39 = alloca %"class.nanobind::handle", align 8
-  %40 = alloca ptr, align 8
-  %41 = alloca %"class.nanobind::handle", align 8
-  %42 = alloca %"class.nanobind::handle", align 8
-  %43 = alloca ptr, align 8
-  %44 = alloca %"class.nanobind::handle", align 8
-  %45 = alloca %"class.nanobind::handle", align 8
-  %46 = alloca ptr, align 8
-  %47 = alloca %"class.nanobind::handle", align 8
-  %48 = alloca %"class.nanobind::handle", align 8
-  %49 = alloca ptr, align 8
-  %50 = alloca %"class.nanobind::handle", align 8
-  %51 = alloca %"class.nanobind::handle", align 8
-  %52 = alloca ptr, align 8
-  %53 = alloca ptr, align 8
-  %54 = alloca ptr, align 8
-  %55 = alloca ptr, align 8
-  %56 = alloca ptr, align 8
-  %57 = alloca %"class.nanobind::object", align 8
+  %36 = alloca i8, align 1
+  %37 = alloca %"struct.nanobind::dlpack::dtype", align 2
+  %38 = alloca i8, align 1
+  %39 = alloca i8, align 1
+  %40 = alloca i8, align 1
+  %41 = alloca i8, align 1
+  %42 = alloca i8, align 1
+  %43 = alloca i8, align 1
+  %44 = alloca i8, align 1
+  %45 = alloca i32, align 4
+  %46 = alloca i64, align 8
+  %47 = alloca i32, align 4
+  %48 = alloca i8, align 1
+  %49 = alloca i8, align 1
+  %50 = alloca i8, align 1
+  %51 = alloca i32, align 4
+  %52 = alloca i32, align 4
+  %53 = alloca i64, align 8
+  %54 = alloca i64, align 8
+  %55 = alloca i64, align 8
+  %56 = alloca i64, align 8
+  %57 = alloca i8, align 1
   %58 = alloca ptr, align 8
-  %59 = alloca i32, align 4
-  %60 = alloca ptr, align 8
-  %61 = alloca ptr, align 8
-  %62 = alloca ptr, align 8
+  %59 = alloca %"class.nanobind::str", align 8
+  %60 = alloca %"class.nanobind::handle", align 8
+  %61 = alloca %"class.nanobind::detail::accessor", align 8
+  %62 = alloca %"class.nanobind::handle", align 8
   %63 = alloca ptr, align 8
-  %64 = alloca ptr, align 8
-  %65 = alloca ptr, align 8
+  %64 = alloca i8, align 1
+  %65 = alloca %"struct.nanobind::dlpack::dtype", align 2
   %66 = alloca ptr, align 8
-  %67 = alloca ptr, align 8
-  %68 = alloca ptr, align 8
-  %69 = alloca ptr, align 8
-  %70 = alloca ptr, align 8
-  %71 = alloca ptr, align 8
-  %72 = alloca ptr, align 8
-  %73 = alloca ptr, align 8
+  %67 = alloca [11 x i8], align 1
+  %68 = alloca %"class.nanobind::object", align 8
+  %69 = alloca %"class.nanobind::object", align 8
+  %70 = alloca %"class.nanobind::detail::accessor", align 8
+  %71 = alloca %"class.nanobind::handle", align 8
+  %72 = alloca %"class.nanobind::object", align 8
+  %73 = alloca %"class.nanobind::detail::accessor", align 8
   %74 = alloca %"class.nanobind::handle", align 8
-  %75 = alloca %"class.nanobind::handle", align 8
-  %76 = alloca ptr, align 8
-  %77 = alloca ptr, align 8
-  %78 = alloca ptr, align 8
-  %79 = alloca ptr, align 8
-  %80 = alloca %"class.nanobind::handle", align 8
-  %81 = alloca ptr, align 8
-  %82 = alloca ptr, align 8
-  %83 = alloca ptr, align 8
-  %84 = alloca ptr, align 8
-  %85 = alloca %"class.nanobind::handle", align 8
-  %86 = alloca ptr, align 8
-  %87 = alloca ptr, align 8
+  %75 = alloca %"struct.nanobind::arg_v", align 8
+  %76 = alloca %"class.nanobind::detail::accessor", align 8
+  %77 = alloca %"class.nanobind::module_", align 8
+  %78 = alloca %"struct.nanobind::arg", align 8
+  %79 = alloca %"class.nanobind::object", align 8
+  %80 = alloca %"class.nanobind::detail::accessor", align 8
+  %81 = alloca %"class.nanobind::object", align 8
+  %82 = alloca %"class.nanobind::detail::accessor", align 8
+  %83 = alloca %"class.nanobind::module_", align 8
+  %84 = alloca %"class.nanobind::handle", align 8
+  %85 = alloca %"class.nanobind::object", align 8
+  %86 = alloca %"class.nanobind::detail::accessor", align 8
+  %87 = alloca %"class.nanobind::handle", align 8
   %88 = alloca ptr, align 8
-  %89 = alloca ptr, align 8
-  %90 = alloca %"class.nanobind::handle", align 8
-  %91 = alloca ptr, align 8
-  %92 = alloca ptr, align 8
-  %93 = alloca ptr, align 8
-  %94 = alloca ptr, align 8
-  %95 = alloca %"class.nanobind::handle", align 8
-  %96 = alloca ptr, align 8
-  %97 = alloca ptr, align 8
-  %98 = alloca ptr, align 8
-  %99 = alloca ptr, align 8
-  %100 = alloca %"class.nanobind::handle", align 8
-  %101 = alloca ptr, align 8
-  %102 = alloca ptr, align 8
-  %103 = alloca %"class.nanobind::handle", align 8
-  %104 = alloca ptr, align 8
-  %105 = alloca ptr, align 8
-  %106 = alloca ptr, align 8
-  %107 = alloca %"class.nanobind::handle", align 8
-  %108 = alloca ptr, align 8
-  %109 = alloca ptr, align 8
-  %110 = alloca ptr, align 8
-  %111 = alloca ptr, align 8
-  %112 = alloca ptr, align 8
-  %113 = alloca ptr, align 8
-  %114 = alloca %"class.nanobind::handle", align 8
-  %115 = alloca %"class.nanobind::handle", align 8
-  %116 = alloca ptr, align 8
-  %117 = alloca %"class.nanobind::handle", align 8
-  %118 = alloca %"class.nanobind::handle", align 8
-  %119 = alloca ptr, align 8
-  %120 = alloca ptr, align 8
-  %121 = alloca ptr, align 8
-  %122 = alloca ptr, align 8
-  %123 = alloca ptr, align 8
-  %124 = alloca ptr, align 8
-  %125 = alloca ptr, align 8
-  %126 = alloca ptr, align 8
-  %127 = alloca ptr, align 8
-  %128 = alloca ptr, align 8
-  %129 = alloca ptr, align 8
-  %130 = alloca ptr, align 8
-  %131 = alloca ptr, align 8
-  %132 = alloca ptr, align 8
-  %133 = alloca ptr, align 8
-  %134 = alloca ptr, align 8
-  %135 = alloca ptr, align 8
-  %136 = alloca ptr, align 8
-  %137 = alloca ptr, align 8
-  %138 = alloca ptr, align 8
-  %139 = alloca ptr, align 8
-  %140 = alloca ptr, align 8
-  %141 = alloca %"class.nanobind::handle", align 8
-  %142 = alloca %"class.nanobind::handle", align 8
-  %143 = alloca ptr, align 8
-  %144 = alloca %"class.nanobind::handle", align 8
-  %145 = alloca %"class.nanobind::handle", align 8
-  %146 = alloca ptr, align 8
-  %147 = alloca ptr, align 8
-  %148 = alloca ptr, align 8
-  %149 = alloca i8, align 1
-  %150 = alloca ptr, align 8
-  %151 = alloca %"class.nanobind::object", align 8
-  %152 = alloca i8, align 1
-  %153 = alloca %"class.nanobind::object", align 8
-  %154 = alloca %"class.nanobind::handle", align 8
-  %155 = alloca ptr, align 8
-  %156 = alloca ptr, align 8
-  %157 = alloca %"class.nanobind::str", align 8
-  %158 = alloca %"class.nanobind::handle", align 8
-  %159 = alloca %"class.nanobind::detail::accessor", align 8
-  %160 = alloca %"class.nanobind::handle", align 8
-  %161 = alloca ptr, align 8
-  %162 = alloca i32, align 4
-  %163 = alloca %"class.nanobind::object", align 8
-  %164 = alloca %"class.nanobind::module_", align 8
-  %165 = alloca %"class.nanobind::module_", align 8
-  %166 = alloca %"class.nanobind::module_", align 8
-  %167 = alloca %"class.nanobind::object", align 8
-  %168 = alloca %"class.nanobind::detail::accessor", align 8
-  %169 = alloca %"class.nanobind::handle", align 8
-  %170 = alloca %"class.nanobind::object", align 8
-  %171 = alloca %"class.nanobind::handle", align 8
-  %172 = alloca i32, align 4
-  %173 = alloca %"class.nanobind::object", align 8
-  %174 = alloca %"class.nanobind::handle", align 8
-  %175 = alloca ptr, align 8
-  %176 = alloca ptr, align 8
-  %177 = alloca i8, align 1
-  %178 = alloca i8, align 1
-  %179 = alloca i8, align 1
-  %180 = alloca i8, align 1
-  %181 = alloca i32, align 4
-  %182 = alloca i64, align 8
-  %183 = alloca i32, align 4
-  %184 = alloca %"struct.nanobind::detail::scoped_pymalloc", align 8
-  %185 = alloca i64, align 8
-  %186 = alloca i64, align 8
-  %187 = alloca i64, align 8
-  %188 = alloca i64, align 8
-  %189 = alloca i8, align 1
-  %190 = alloca ptr, align 8
-  %191 = alloca %"class.nanobind::str", align 8
-  %192 = alloca %"class.nanobind::handle", align 8
-  %193 = alloca %"class.nanobind::detail::accessor", align 8
-  %194 = alloca %"class.nanobind::handle", align 8
-  %195 = alloca ptr, align 8
-  %196 = alloca i8, align 1
-  %197 = alloca %"struct.nanobind::dlpack::dtype", align 2
-  %198 = alloca ptr, align 8
-  %199 = alloca [11 x i8], align 1
-  %200 = alloca %"class.nanobind::object", align 8
-  %201 = alloca %"class.nanobind::object", align 8
-  %202 = alloca %"class.nanobind::detail::accessor", align 8
-  %203 = alloca %"class.nanobind::handle", align 8
-  %204 = alloca %"class.nanobind::object", align 8
-  %205 = alloca %"class.nanobind::detail::accessor", align 8
-  %206 = alloca %"class.nanobind::handle", align 8
-  %207 = alloca %"struct.nanobind::arg_v", align 8
-  %208 = alloca %"class.nanobind::detail::accessor", align 8
-  %209 = alloca %"class.nanobind::module_", align 8
-  %210 = alloca %"struct.nanobind::arg", align 8
-  %211 = alloca %"class.nanobind::object", align 8
-  %212 = alloca %"class.nanobind::detail::accessor", align 8
-  %213 = alloca %"class.nanobind::object", align 8
-  %214 = alloca %"class.nanobind::detail::accessor", align 8
-  %215 = alloca %"class.nanobind::module_", align 8
-  %216 = alloca %"class.nanobind::handle", align 8
-  %217 = alloca %"class.nanobind::object", align 8
-  %218 = alloca %"class.nanobind::detail::accessor", align 8
-  %219 = alloca %"class.nanobind::handle", align 8
-  %220 = alloca ptr, align 8
-  %221 = alloca %"class.nanobind::handle", align 8
-  %222 = alloca %"struct.nanobind::detail::scoped_pymalloc.1", align 8
-  store ptr %0, ptr %147, align 8
-  store ptr %1, ptr %148, align 8
-  %223 = zext i1 %2 to i8
-  store i8 %223, ptr %149, align 1
-  store ptr %3, ptr %150, align 8
-  call void @_ZN8nanobind6objectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %151) #11
-  %224 = load ptr, ptr %147, align 8
-  %225 = invoke noundef i32 @_ZL11_Py_IS_TYPEPK7_objectPK11_typeobject(ptr noundef %224, ptr noundef @PyCapsule_Type)
-          to label %226 unwind label %1122
+  %89 = alloca %"class.nanobind::handle", align 8
+  %90 = alloca %"struct.nanobind::detail::scoped_pymalloc", align 8
+  %91 = alloca %"struct.nanobind::detail::scoped_pymalloc.1", align 8
+  %92 = alloca i64, align 8
+  %93 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  %94 = zext i1 %2 to i8
+  store i8 %94, ptr %8, align 1
+  store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  call void @_ZN8nanobind6objectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #17
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #17
+  %95 = load ptr, ptr %6, align 8
+  %96 = invoke noundef i32 @_ZL11_Py_IS_TYPEPK7_objectPK11_typeobject(ptr noundef %95, ptr noundef @PyCapsule_Type)
+          to label %97 unwind label %940
 
-226:                                              ; preds = %4
-  %227 = icmp ne i32 %225, 0
-  %228 = zext i1 %227 to i8
-  store i8 %228, ptr %152, align 1
-  %229 = load i8, ptr %152, align 1
-  %230 = trunc i8 %229 to i1
-  br i1 %230, label %418, label %231
+97:                                               ; preds = %4
+  %98 = icmp ne i32 %96, 0
+  %99 = zext i1 %98 to i8
+  store i8 %99, ptr %11, align 1
+  %100 = load i8, ptr %11, align 1, !range !3, !noundef !4
+  %101 = trunc i8 %100 to i1
+  br i1 %101, label %229, label %102
 
-231:                                              ; preds = %226
-  %232 = load ptr, ptr %147, align 8
-  %233 = invoke ptr (ptr, ptr, ptr, ...) @PyObject_CallMethod(ptr noundef %232, ptr noundef @.str, ptr noundef null)
-          to label %234 unwind label %1122
+102:                                              ; preds = %97
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %103 = load ptr, ptr %6, align 8
+  %104 = invoke ptr (ptr, ptr, ptr, ...) @PyObject_CallMethod(ptr noundef %103, ptr noundef @.str, ptr noundef null)
+          to label %105 unwind label %940
+
+105:                                              ; preds = %102
+  invoke void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %104)
+          to label %106 unwind label %940
+
+106:                                              ; preds = %105
+  %107 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %13, i32 0, i32 0
+  %108 = load ptr, ptr %107, align 8
+  invoke void @_ZN8nanobind5stealINS_6objectEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %12, ptr %108)
+          to label %109 unwind label %940
+
+109:                                              ; preds = %106
+  %110 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %12) #17
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  %111 = invoke noundef zeroext i1 @_ZNK8nanobind6detail3apiINS_6handleEE8is_validEv(ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %112 unwind label %940
+
+112:                                              ; preds = %109
+  br i1 %111, label %208, label %113
+
+113:                                              ; preds = %112
+  invoke void @PyErr_Clear()
+          to label %114 unwind label %940
+
+114:                                              ; preds = %113
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  %115 = load ptr, ptr %6, align 8
+  %116 = getelementptr inbounds nuw %struct._object, ptr %115, i32 0, i32 1
+  %117 = load ptr, ptr %116, align 8
+  store ptr %117, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr %18) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #17
+  %118 = load ptr, ptr %14, align 8
+  invoke void @_ZN8nanobind6handleC2EPK11_typeobject(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %118)
+          to label %119 unwind label %135
+
+119:                                              ; preds = %114
+  invoke void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(ptr dead_on_unwind writable sret(%"class.nanobind::detail::accessor") align 8 %18, ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef @.str.5)
+          to label %120 unwind label %135
+
+120:                                              ; preds = %119
+  %121 = invoke ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEcvNS_6handleEEv(ptr noundef nonnull align 1 dereferenceable(1) %18)
+          to label %122 unwind label %139
+
+122:                                              ; preds = %120
+  %123 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %17, i32 0, i32 0
+  store ptr %121, ptr %123, align 8
+  %124 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %17, i32 0, i32 0
+  %125 = load ptr, ptr %124, align 8
+  invoke void @_ZN8nanobind6borrowINS_3strEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.nanobind::str") align 8 %16, ptr %125)
+          to label %126 unwind label %139
+
+126:                                              ; preds = %122
+  %127 = invoke noundef ptr @_ZNK8nanobind3str5c_strEv(ptr noundef nonnull align 8 dereferenceable(8) %16)
+          to label %128 unwind label %143
+
+128:                                              ; preds = %126
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #17
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %18) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #17
+  store ptr %127, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #17
+  call void @_ZN8nanobind6objectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #17
+  %129 = load ptr, ptr %15, align 8
+  %130 = call i32 @strncmp(ptr noundef %129, ptr noundef @.str.6, i64 noundef 11) #19
+  %131 = icmp eq i32 %130, 0
+  br i1 %131, label %132, label %153
+
+132:                                              ; preds = %128
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #17
+  invoke void @_ZN8nanobind7module_7import_EPKc(ptr dead_on_unwind writable sret(%"class.nanobind::module_") align 8 %23, ptr noundef @.str.7)
+          to label %133 unwind label %149
+
+133:                                              ; preds = %132
+  %134 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23) #17
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #17
+  br label %177
+
+135:                                              ; preds = %119, %114
+  %136 = landingpad { ptr, i32 }
+          catch ptr null
+  %137 = extractvalue { ptr, i32 } %136, 0
+  store ptr %137, ptr %20, align 8
+  %138 = extractvalue { ptr, i32 } %136, 1
+  store i32 %138, ptr %21, align 4
+  br label %148
+
+139:                                              ; preds = %122, %120
+  %140 = landingpad { ptr, i32 }
+          catch ptr null
+  %141 = extractvalue { ptr, i32 } %140, 0
+  store ptr %141, ptr %20, align 8
+  %142 = extractvalue { ptr, i32 } %140, 1
+  store i32 %142, ptr %21, align 4
+  br label %147
+
+143:                                              ; preds = %126
+  %144 = landingpad { ptr, i32 }
+          catch ptr null
+  %145 = extractvalue { ptr, i32 } %144, 0
+  store ptr %145, ptr %20, align 8
+  %146 = extractvalue { ptr, i32 } %144, 1
+  store i32 %146, ptr %21, align 4
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #17
+  br label %147
+
+147:                                              ; preds = %143, %139
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #17
+  br label %148
+
+148:                                              ; preds = %147, %135
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %18) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #17
+  br label %201
+
+149:                                              ; preds = %132
+  %150 = landingpad { ptr, i32 }
+          catch ptr null
+  %151 = extractvalue { ptr, i32 } %150, 0
+  store ptr %151, ptr %20, align 8
+  %152 = extractvalue { ptr, i32 } %150, 1
+  store i32 %152, ptr %21, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #17
+  br label %200
+
+153:                                              ; preds = %128
+  %154 = load ptr, ptr %15, align 8
+  %155 = call i32 @strcmp(ptr noundef %154, ptr noundef @.str.8) #19
+  %156 = icmp eq i32 %155, 0
+  br i1 %156, label %157, label %164
+
+157:                                              ; preds = %153
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #17
+  invoke void @_ZN8nanobind7module_7import_EPKc(ptr dead_on_unwind writable sret(%"class.nanobind::module_") align 8 %24, ptr noundef @.str.9)
+          to label %158 unwind label %160
+
+158:                                              ; preds = %157
+  %159 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %24) #17
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #17
+  br label %176
+
+160:                                              ; preds = %157
+  %161 = landingpad { ptr, i32 }
+          catch ptr null
+  %162 = extractvalue { ptr, i32 } %161, 0
+  store ptr %162, ptr %20, align 8
+  %163 = extractvalue { ptr, i32 } %161, 1
+  store i32 %163, ptr %21, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #17
+  br label %200
+
+164:                                              ; preds = %153
+  %165 = load ptr, ptr %15, align 8
+  %166 = call i32 @strncmp(ptr noundef %165, ptr noundef @.str.10, i64 noundef 6) #19
+  %167 = icmp eq i32 %166, 0
+  br i1 %167, label %168, label %175
+
+168:                                              ; preds = %164
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #17
+  invoke void @_ZN8nanobind7module_7import_EPKc(ptr dead_on_unwind writable sret(%"class.nanobind::module_") align 8 %25, ptr noundef @.str.11)
+          to label %169 unwind label %171
+
+169:                                              ; preds = %168
+  %170 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %25) #17
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #17
+  br label %175
+
+171:                                              ; preds = %168
+  %172 = landingpad { ptr, i32 }
+          catch ptr null
+  %173 = extractvalue { ptr, i32 } %172, 0
+  store ptr %173, ptr %20, align 8
+  %174 = extractvalue { ptr, i32 } %172, 1
+  store i32 %174, ptr %21, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #17
+  br label %200
+
+175:                                              ; preds = %169, %164
+  br label %176
+
+176:                                              ; preds = %175, %158
+  br label %177
+
+177:                                              ; preds = %176, %133
+  %178 = invoke noundef zeroext i1 @_ZNK8nanobind6detail3apiINS_6handleEE8is_validEv(ptr noundef nonnull align 1 dereferenceable(1) %22)
+          to label %179 unwind label %186
+
+179:                                              ; preds = %177
+  br i1 %178, label %180, label %199
+
+180:                                              ; preds = %179
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr %27) #17
+  invoke void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(ptr dead_on_unwind writable sret(%"class.nanobind::detail::accessor") align 8 %27, ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef @.str.12)
+          to label %181 unwind label %190
+
+181:                                              ; preds = %180
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #17
+  %182 = load ptr, ptr %6, align 8
+  invoke void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef %182)
+          to label %183 unwind label %194
+
+183:                                              ; preds = %181
+  invoke void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJNS_6handleEEEENS_6objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %26, ptr noundef nonnull align 1 dereferenceable(1) %27, ptr noundef nonnull align 8 dereferenceable(8) %28)
+          to label %184 unwind label %194
+
+184:                                              ; preds = %183
+  %185 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %26) #17
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #17
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %27) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #17
+  br label %199
+
+186:                                              ; preds = %177
+  %187 = landingpad { ptr, i32 }
+          catch ptr null
+  %188 = extractvalue { ptr, i32 } %187, 0
+  store ptr %188, ptr %20, align 8
+  %189 = extractvalue { ptr, i32 } %187, 1
+  store i32 %189, ptr %21, align 4
+  br label %200
+
+190:                                              ; preds = %180
+  %191 = landingpad { ptr, i32 }
+          catch ptr null
+  %192 = extractvalue { ptr, i32 } %191, 0
+  store ptr %192, ptr %20, align 8
+  %193 = extractvalue { ptr, i32 } %191, 1
+  store i32 %193, ptr %21, align 4
+  br label %198
+
+194:                                              ; preds = %183, %181
+  %195 = landingpad { ptr, i32 }
+          catch ptr null
+  %196 = extractvalue { ptr, i32 } %195, 0
+  store ptr %196, ptr %20, align 8
+  %197 = extractvalue { ptr, i32 } %195, 1
+  store i32 %197, ptr %21, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #17
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #17
+  br label %198
+
+198:                                              ; preds = %194, %190
+  call void @llvm.lifetime.end.p0(i64 24, ptr %27) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #17
+  br label %200
+
+199:                                              ; preds = %184, %179
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #17
+  br label %207
+
+200:                                              ; preds = %198, %186, %171, %160, %149
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #17
+  br label %201
+
+201:                                              ; preds = %200, %148
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #17
+  br label %202
+
+202:                                              ; preds = %201
+  %203 = load ptr, ptr %20, align 8
+  %204 = call ptr @__cxa_begin_catch(ptr %203) #17
+  invoke void @_ZN8nanobind6object5resetEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
+          to label %205 unwind label %940
+
+205:                                              ; preds = %202
+  invoke void @__cxa_end_catch()
+          to label %206 unwind label %940
+
+206:                                              ; preds = %205
+  br label %207
+
+207:                                              ; preds = %206, %199
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  br label %208
+
+208:                                              ; preds = %207, %112
+  %209 = invoke noundef zeroext i1 @_ZNK8nanobind6detail3apiINS_6handleEE8is_validEv(ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %210 unwind label %940
+
+210:                                              ; preds = %208
+  br i1 %209, label %224, label %211
+
+211:                                              ; preds = %210
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #17
+  %212 = load ptr, ptr %6, align 8
+  %213 = load ptr, ptr %7, align 8
+  %214 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_config", ptr %213, i32 0, i32 2
+  %215 = load i8, ptr %214, align 1, !range !3, !noundef !4
+  %216 = trunc i8 %215 to i1
+  %217 = invoke noundef ptr @_ZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectb(ptr noundef %212, i1 noundef zeroext %216)
+          to label %218 unwind label %940
+
+218:                                              ; preds = %211
+  invoke void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %217)
+          to label %219 unwind label %940
+
+219:                                              ; preds = %218
+  %220 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %30, i32 0, i32 0
+  %221 = load ptr, ptr %220, align 8
+  invoke void @_ZN8nanobind5stealINS_6objectEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %29, ptr %221)
+          to label %222 unwind label %940
+
+222:                                              ; preds = %219
+  %223 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %29) #17
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #17
+  br label %224
+
+224:                                              ; preds = %222, %210
+  %225 = invoke noundef zeroext i1 @_ZNK8nanobind6detail3apiINS_6handleEE8is_validEv(ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %226 unwind label %940
+
+226:                                              ; preds = %224
+  br i1 %225, label %228, label %227
+
+227:                                              ; preds = %226
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %31, align 4
+  br label %938
+
+228:                                              ; preds = %226
+  br label %236
+
+229:                                              ; preds = %97
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #17
+  %230 = load ptr, ptr %6, align 8
+  invoke void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef %230)
+          to label %231 unwind label %940
+
+231:                                              ; preds = %229
+  %232 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %33, i32 0, i32 0
+  %233 = load ptr, ptr %232, align 8
+  invoke void @_ZN8nanobind6borrowINS_6objectEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %32, ptr %233)
+          to label %234 unwind label %940
 
 234:                                              ; preds = %231
-  store ptr %154, ptr %138, align 8
-  store ptr %233, ptr %139, align 8
-  %235 = load ptr, ptr %138, align 8
-  %236 = load ptr, ptr %139, align 8
-  store ptr %236, ptr %235, align 8
-  br label %237
+  %235 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %32) #17
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #17
+  br label %236
 
-237:                                              ; preds = %234
-  %238 = getelementptr inbounds %"class.nanobind::handle", ptr %154, i32 0, i32 0
-  %239 = load ptr, ptr %238, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  store ptr %153, ptr %140, align 8, !noalias !4
-  store ptr %239, ptr %141, align 8, !noalias !4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %142, ptr align 8 %141, i64 8, i1 false), !noalias !4
-  %240 = load ptr, ptr %142, align 8, !noalias !4
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %153, ptr %240)
-  br label %241
+236:                                              ; preds = %234, %228
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #17
+  %237 = invoke noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
+          to label %238 unwind label %940
 
-241:                                              ; preds = %237
-  %242 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %151, ptr noundef nonnull align 8 dereferenceable(8) %153) #11
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %153) #11
-  store ptr %151, ptr %119, align 8
-  %243 = load ptr, ptr %119, align 8
-  %244 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8nanobind6detail3apiINS_6handleEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %243)
-  store ptr %244, ptr %72, align 8
-  %245 = load ptr, ptr %72, align 8
-  %246 = load ptr, ptr %245, align 8
-  %247 = icmp ne ptr %246, null
-  br label %248
+238:                                              ; preds = %236
+  %239 = invoke ptr @PyCapsule_GetPointer(ptr noundef %237, ptr noundef @.str.13)
+          to label %240 unwind label %940
 
-248:                                              ; preds = %241
-  br i1 %247, label %386, label %249
+240:                                              ; preds = %238
+  store ptr %239, ptr %34, align 8
+  %241 = load ptr, ptr %34, align 8
+  %242 = icmp ne ptr %241, null
+  br i1 %242, label %245, label %243
 
-249:                                              ; preds = %248
+243:                                              ; preds = %240
   invoke void @PyErr_Clear()
-          to label %250 unwind label %1122
+          to label %244 unwind label %940
 
-250:                                              ; preds = %249
-  %251 = load ptr, ptr %147, align 8
-  %252 = getelementptr inbounds %struct._object, ptr %251, i32 0, i32 1
-  %253 = load ptr, ptr %252, align 8
-  store ptr %253, ptr %155, align 8
-  %254 = load ptr, ptr %155, align 8
-  store ptr %160, ptr %111, align 8
-  store ptr %254, ptr %112, align 8
-  %255 = load ptr, ptr %111, align 8
-  %256 = load ptr, ptr %112, align 8
-  store ptr %256, ptr %255, align 8
-  br label %257
+244:                                              ; preds = %243
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %31, align 4
+  br label %937
 
-257:                                              ; preds = %250
-  invoke void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(ptr dead_on_unwind writable sret(%"class.nanobind::detail::accessor") align 8 %159, ptr noundef nonnull align 1 dereferenceable(1) %160, ptr noundef @.str.4)
-          to label %258 unwind label %304
+245:                                              ; preds = %240
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #17
+  %246 = load ptr, ptr %34, align 8
+  %247 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %246, i32 0, i32 0
+  store ptr %247, ptr %35, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %36) #17
+  %248 = load ptr, ptr %7, align 8
+  %249 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_config", ptr %248, i32 0, i32 3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %37) #17
+  call void @llvm.memset.p0.i64(ptr align 2 %37, i8 0, i64 4, i1 false)
+  call void @_ZN8nanobind6dlpack5dtypeC2Ev(ptr noundef nonnull align 2 dereferenceable(4) %37) #17
+  %250 = invoke noundef zeroext i1 @_ZNK8nanobind6dlpack5dtypeneERKS1_(ptr noundef nonnull align 2 dereferenceable(4) %249, ptr noundef nonnull align 2 dereferenceable(4) %37)
+          to label %251 unwind label %940
 
-258:                                              ; preds = %257
-  store ptr %159, ptr %104, align 8
-  %259 = load ptr, ptr %104, align 8
-  %260 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %259)
-  store ptr %260, ptr %15, align 8
-  %261 = load ptr, ptr %15, align 8
-  %262 = load ptr, ptr %261, align 8
-  %263 = getelementptr inbounds %"class.nanobind::detail::accessor", ptr %261, i32 0, i32 2
-  %264 = load ptr, ptr %263, align 8
-  %265 = getelementptr inbounds %"class.nanobind::detail::accessor", ptr %261, i32 0, i32 1
-  store ptr %262, ptr %8, align 8
-  store ptr %264, ptr %9, align 8
-  store ptr %265, ptr %10, align 8
-  %266 = load ptr, ptr %8, align 8
-  %267 = load ptr, ptr %9, align 8
-  %268 = load ptr, ptr %10, align 8
-  invoke void @_ZN8nanobind6detail16getattr_or_raiseEP7_objectPKcPS2_(ptr noundef %266, ptr noundef %267, ptr noundef %268)
-          to label %269 unwind label %308
+251:                                              ; preds = %245
+  call void @llvm.lifetime.end.p0(i64 4, ptr %37) #17
+  %252 = zext i1 %250 to i8
+  store i8 %252, ptr %36, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %38) #17
+  %253 = load ptr, ptr %7, align 8
+  %254 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_config", ptr %253, i32 0, i32 0
+  %255 = load i32, ptr %254, align 8
+  %256 = icmp ne i32 %255, 0
+  %257 = zext i1 %256 to i8
+  store i8 %257, ptr %38, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %39) #17
+  %258 = load ptr, ptr %7, align 8
+  %259 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_config", ptr %258, i32 0, i32 4
+  %260 = load i32, ptr %259, align 4
+  %261 = icmp ne i32 %260, -1
+  %262 = zext i1 %261 to i8
+  store i8 %262, ptr %39, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %40) #17
+  %263 = load ptr, ptr %7, align 8
+  %264 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_config", ptr %263, i32 0, i32 1
+  %265 = load i8, ptr %264, align 4
+  %266 = sext i8 %265 to i32
+  %267 = icmp ne i32 %266, 0
+  %268 = zext i1 %267 to i8
+  store i8 %268, ptr %40, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %41) #17
+  store i8 1, ptr %41, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %42) #17
+  store i8 1, ptr %42, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %43) #17
+  store i8 1, ptr %43, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %44) #17
+  store i8 1, ptr %44, align 1
+  %269 = load i8, ptr %36, align 1, !range !3, !noundef !4
+  %270 = trunc i8 %269 to i1
+  br i1 %270, label %271, label %279
 
-269:                                              ; preds = %258
-  br label %270
+271:                                              ; preds = %251
+  %272 = load ptr, ptr %35, align 8
+  %273 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %272, i32 0, i32 3
+  %274 = load ptr, ptr %7, align 8
+  %275 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_config", ptr %274, i32 0, i32 3
+  %276 = invoke noundef zeroext i1 @_ZNK8nanobind6dlpack5dtypeeqERKS1_(ptr noundef nonnull align 2 dereferenceable(4) %273, ptr noundef nonnull align 2 dereferenceable(4) %275)
+          to label %277 unwind label %940
 
-270:                                              ; preds = %269
-  %271 = getelementptr inbounds %"class.nanobind::detail::accessor", ptr %261, i32 0, i32 1
-  %272 = load ptr, ptr %271, align 8
-  br label %273
+277:                                              ; preds = %271
+  %278 = zext i1 %276 to i8
+  store i8 %278, ptr %41, align 1
+  br label %279
 
-273:                                              ; preds = %270
-  store ptr %103, ptr %101, align 8
-  store ptr %272, ptr %102, align 8
-  %274 = load ptr, ptr %101, align 8
-  %275 = load ptr, ptr %102, align 8
-  store ptr %275, ptr %274, align 8
-  %276 = load ptr, ptr %103, align 8
-  br label %277
+279:                                              ; preds = %277, %251
+  %280 = load i8, ptr %38, align 1, !range !3, !noundef !4
+  %281 = trunc i8 %280 to i1
+  br i1 %281, label %282, label %292
 
-277:                                              ; preds = %273
-  %278 = getelementptr inbounds %"class.nanobind::handle", ptr %158, i32 0, i32 0
-  store ptr %276, ptr %278, align 8
-  %279 = getelementptr inbounds %"class.nanobind::handle", ptr %158, i32 0, i32 0
-  %280 = load ptr, ptr %279, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  store ptr %157, ptr %113, align 8, !noalias !7
-  store ptr %280, ptr %114, align 8, !noalias !7
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %115, ptr align 8 %114, i64 8, i1 false), !noalias !7
-  %281 = load ptr, ptr %115, align 8, !noalias !7
-  store ptr %281, ptr %19, align 8
-  store ptr %157, ptr %20, align 8
-  %282 = load ptr, ptr %20, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 8 %19, i64 8, i1 false)
-  %283 = load ptr, ptr %21, align 8
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE(ptr noundef nonnull align 8 dereferenceable(8) %282, ptr %283)
-  br label %284
+282:                                              ; preds = %279
+  %283 = load ptr, ptr %35, align 8
+  %284 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %283, i32 0, i32 1
+  %285 = getelementptr inbounds nuw %"struct.nanobind::dlpack::device", ptr %284, i32 0, i32 0
+  %286 = load i32, ptr %285, align 8
+  %287 = load ptr, ptr %7, align 8
+  %288 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_config", ptr %287, i32 0, i32 0
+  %289 = load i32, ptr %288, align 8
+  %290 = icmp eq i32 %286, %289
+  %291 = zext i1 %290 to i8
+  store i8 %291, ptr %42, align 1
+  br label %292
 
-284:                                              ; preds = %277
-  %285 = invoke noundef ptr @_ZNK8nanobind3str5c_strEv(ptr noundef nonnull align 8 dereferenceable(8) %157)
-          to label %286 unwind label %312
+292:                                              ; preds = %282, %279
+  %293 = load i8, ptr %39, align 1, !range !3, !noundef !4
+  %294 = trunc i8 %293 to i1
+  br i1 %294, label %295, label %353
 
-286:                                              ; preds = %284
-  call void @_ZN8nanobind3strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %157) #11
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %159) #11
-  store ptr %285, ptr %156, align 8
-  call void @_ZN8nanobind6objectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %163) #11
-  %287 = load ptr, ptr %156, align 8
-  %288 = call i32 @strncmp(ptr noundef %287, ptr noundef @.str.5, i64 noundef 11) #13
-  %289 = icmp eq i32 %288, 0
-  br i1 %289, label %290, label %321
+295:                                              ; preds = %292
+  %296 = load ptr, ptr %7, align 8
+  %297 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_config", ptr %296, i32 0, i32 4
+  %298 = load i32, ptr %297, align 4
+  %299 = load ptr, ptr %35, align 8
+  %300 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %299, i32 0, i32 2
+  %301 = load i32, ptr %300, align 8
+  %302 = icmp eq i32 %298, %301
+  %303 = zext i1 %302 to i32
+  %304 = load i8, ptr %43, align 1, !range !3, !noundef !4
+  %305 = trunc i8 %304 to i1
+  %306 = zext i1 %305 to i32
+  %307 = and i32 %306, %303
+  %308 = icmp ne i32 %307, 0
+  %309 = zext i1 %308 to i8
+  store i8 %309, ptr %43, align 1
+  %310 = load i8, ptr %43, align 1, !range !3, !noundef !4
+  %311 = trunc i8 %310 to i1
+  br i1 %311, label %312, label %352
 
-290:                                              ; preds = %286
-  call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  store ptr %164, ptr %78, align 8, !noalias !10
-  store ptr @.str.6, ptr %79, align 8, !noalias !10
-  %291 = load ptr, ptr %79, align 8, !noalias !10
-  %292 = invoke noundef ptr @_ZN8nanobind6detail13module_importEPKc(ptr noundef %291)
-          to label %293 unwind label %317
+312:                                              ; preds = %295
+  call void @llvm.lifetime.start.p0(i64 4, ptr %45) #17
+  store i32 0, ptr %45, align 4
+  br label %313
 
-293:                                              ; preds = %290
-  store ptr %80, ptr %76, align 8, !noalias !10
-  store ptr %292, ptr %77, align 8, !noalias !10
-  %294 = load ptr, ptr %76, align 8, !noalias !10
-  %295 = load ptr, ptr %77, align 8, !noalias !10
-  store ptr %295, ptr %294, align 8
-  %296 = load ptr, ptr %80, align 8, !noalias !10
-  call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  store ptr %164, ptr %49, align 8, !noalias !13
-  store ptr %296, ptr %50, align 8, !noalias !13
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %51, ptr align 8 %50, i64 8, i1 false), !noalias !13
-  %297 = load ptr, ptr %51, align 8, !noalias !13
-  store ptr %297, ptr %22, align 8
-  store ptr %164, ptr %23, align 8
-  %298 = load ptr, ptr %23, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %24, ptr align 8 %22, i64 8, i1 false)
-  %299 = load ptr, ptr %24, align 8
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %298, ptr %299)
-  br label %300
+313:                                              ; preds = %347, %312
+  %314 = load i32, ptr %45, align 4
+  %315 = load ptr, ptr %7, align 8
+  %316 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_config", ptr %315, i32 0, i32 4
+  %317 = load i32, ptr %316, align 4
+  %318 = icmp slt i32 %314, %317
+  br i1 %318, label %320, label %319
 
-300:                                              ; preds = %293
-  br label %301
+319:                                              ; preds = %313
+  store i32 2, ptr %31, align 4
+  br label %350
 
-301:                                              ; preds = %300
-  br label %302
+320:                                              ; preds = %313
+  %321 = load ptr, ptr %7, align 8
+  %322 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_config", ptr %321, i32 0, i32 5
+  %323 = load ptr, ptr %322, align 8
+  %324 = load i32, ptr %45, align 4
+  %325 = sext i32 %324 to i64
+  %326 = getelementptr inbounds i64, ptr %323, i64 %325
+  %327 = load i64, ptr %326, align 8
+  %328 = load ptr, ptr %35, align 8
+  %329 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %328, i32 0, i32 4
+  %330 = load ptr, ptr %329, align 8
+  %331 = load i32, ptr %45, align 4
+  %332 = sext i32 %331 to i64
+  %333 = getelementptr inbounds i64, ptr %330, i64 %332
+  %334 = load i64, ptr %333, align 8
+  %335 = icmp ne i64 %327, %334
+  br i1 %335, label %336, label %346
 
-302:                                              ; preds = %301
-  %303 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %163, ptr noundef nonnull align 8 dereferenceable(8) %164) #11
-  call void @_ZN8nanobind7module_D2Ev(ptr noundef nonnull align 8 dereferenceable(8) %164) #11
-  br label %359
+336:                                              ; preds = %320
+  %337 = load ptr, ptr %7, align 8
+  %338 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_config", ptr %337, i32 0, i32 5
+  %339 = load ptr, ptr %338, align 8
+  %340 = load i32, ptr %45, align 4
+  %341 = sext i32 %340 to i64
+  %342 = getelementptr inbounds i64, ptr %339, i64 %341
+  %343 = load i64, ptr %342, align 8
+  %344 = icmp ne i64 %343, -1
+  br i1 %344, label %345, label %346
 
-304:                                              ; preds = %257
-  %305 = landingpad { ptr, i32 }
-          catch ptr null
-  %306 = extractvalue { ptr, i32 } %305, 0
-  store ptr %306, ptr %161, align 8
-  %307 = extractvalue { ptr, i32 } %305, 1
-  store i32 %307, ptr %162, align 4
-  br label %380
+345:                                              ; preds = %336
+  store i8 0, ptr %43, align 1
+  store i32 2, ptr %31, align 4
+  br label %350
 
-308:                                              ; preds = %258
-  %309 = landingpad { ptr, i32 }
-          catch ptr null
-  %310 = extractvalue { ptr, i32 } %309, 0
-  store ptr %310, ptr %161, align 8
-  %311 = extractvalue { ptr, i32 } %309, 1
-  store i32 %311, ptr %162, align 4
-  br label %316
+346:                                              ; preds = %336, %320
+  br label %347
 
-312:                                              ; preds = %284
-  %313 = landingpad { ptr, i32 }
-          catch ptr null
-  %314 = extractvalue { ptr, i32 } %313, 0
-  store ptr %314, ptr %161, align 8
-  %315 = extractvalue { ptr, i32 } %313, 1
-  store i32 %315, ptr %162, align 4
-  call void @_ZN8nanobind3strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %157) #11
-  br label %316
+347:                                              ; preds = %346
+  %348 = load i32, ptr %45, align 4
+  %349 = add nsw i32 %348, 1
+  store i32 %349, ptr %45, align 4
+  br label %313, !llvm.loop !5
 
-316:                                              ; preds = %312, %308
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %159) #11
-  br label %380
+350:                                              ; preds = %345, %319
+  call void @llvm.lifetime.end.p0(i64 4, ptr %45) #17
+  br label %351
 
-317:                                              ; preds = %366, %343, %325, %290
-  %318 = landingpad { ptr, i32 }
-          catch ptr null
-  %319 = extractvalue { ptr, i32 } %318, 0
-  store ptr %319, ptr %161, align 8
-  %320 = extractvalue { ptr, i32 } %318, 1
-  store i32 %320, ptr %162, align 4
-  br label %379
+351:                                              ; preds = %350
+  br label %352
 
-321:                                              ; preds = %286
-  %322 = load ptr, ptr %156, align 8
-  %323 = call i32 @strcmp(ptr noundef %322, ptr noundef @.str.7) #13
-  %324 = icmp eq i32 %323, 0
-  br i1 %324, label %325, label %339
-
-325:                                              ; preds = %321
-  call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  store ptr %165, ptr %83, align 8, !noalias !16
-  store ptr @.str.8, ptr %84, align 8, !noalias !16
-  %326 = load ptr, ptr %84, align 8, !noalias !16
-  %327 = invoke noundef ptr @_ZN8nanobind6detail13module_importEPKc(ptr noundef %326)
-          to label %328 unwind label %317
-
-328:                                              ; preds = %325
-  store ptr %85, ptr %81, align 8, !noalias !16
-  store ptr %327, ptr %82, align 8, !noalias !16
-  %329 = load ptr, ptr %81, align 8, !noalias !16
-  %330 = load ptr, ptr %82, align 8, !noalias !16
-  store ptr %330, ptr %329, align 8
-  %331 = load ptr, ptr %85, align 8, !noalias !16
-  call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  store ptr %165, ptr %46, align 8, !noalias !19
-  store ptr %331, ptr %47, align 8, !noalias !19
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %48, ptr align 8 %47, i64 8, i1 false), !noalias !19
-  %332 = load ptr, ptr %48, align 8, !noalias !19
-  store ptr %332, ptr %25, align 8
-  store ptr %165, ptr %26, align 8
-  %333 = load ptr, ptr %26, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %27, ptr align 8 %25, i64 8, i1 false)
-  %334 = load ptr, ptr %27, align 8
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %333, ptr %334)
-  br label %335
-
-335:                                              ; preds = %328
-  br label %336
-
-336:                                              ; preds = %335
-  br label %337
-
-337:                                              ; preds = %336
-  %338 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %163, ptr noundef nonnull align 8 dereferenceable(8) %165) #11
-  call void @_ZN8nanobind7module_D2Ev(ptr noundef nonnull align 8 dereferenceable(8) %165) #11
-  br label %358
-
-339:                                              ; preds = %321
-  %340 = load ptr, ptr %156, align 8
-  %341 = call i32 @strncmp(ptr noundef %340, ptr noundef @.str.9, i64 noundef 6) #13
-  %342 = icmp eq i32 %341, 0
-  br i1 %342, label %343, label %357
-
-343:                                              ; preds = %339
-  call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  store ptr %166, ptr %88, align 8, !noalias !22
-  store ptr @.str.10, ptr %89, align 8, !noalias !22
-  %344 = load ptr, ptr %89, align 8, !noalias !22
-  %345 = invoke noundef ptr @_ZN8nanobind6detail13module_importEPKc(ptr noundef %344)
-          to label %346 unwind label %317
-
-346:                                              ; preds = %343
-  store ptr %90, ptr %86, align 8, !noalias !22
-  store ptr %345, ptr %87, align 8, !noalias !22
-  %347 = load ptr, ptr %86, align 8, !noalias !22
-  %348 = load ptr, ptr %87, align 8, !noalias !22
-  store ptr %348, ptr %347, align 8
-  %349 = load ptr, ptr %90, align 8, !noalias !22
-  call void @llvm.experimental.noalias.scope.decl(metadata !25)
-  store ptr %166, ptr %43, align 8, !noalias !25
-  store ptr %349, ptr %44, align 8, !noalias !25
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %45, ptr align 8 %44, i64 8, i1 false), !noalias !25
-  %350 = load ptr, ptr %45, align 8, !noalias !25
-  store ptr %350, ptr %28, align 8
-  store ptr %166, ptr %29, align 8
-  %351 = load ptr, ptr %29, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %30, ptr align 8 %28, i64 8, i1 false)
-  %352 = load ptr, ptr %30, align 8
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %351, ptr %352)
+352:                                              ; preds = %351, %295
   br label %353
 
-353:                                              ; preds = %346
+353:                                              ; preds = %352, %292
+  call void @llvm.lifetime.start.p0(i64 8, ptr %46) #17
+  store i64 1, ptr %46, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %47) #17
+  store i32 0, ptr %47, align 4
   br label %354
 
-354:                                              ; preds = %353
-  br label %355
+354:                                              ; preds = %371, %353
+  %355 = load i32, ptr %47, align 4
+  %356 = load ptr, ptr %35, align 8
+  %357 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %356, i32 0, i32 2
+  %358 = load i32, ptr %357, align 8
+  %359 = icmp slt i32 %355, %358
+  br i1 %359, label %361, label %360
 
-355:                                              ; preds = %354
-  %356 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %163, ptr noundef nonnull align 8 dereferenceable(8) %166) #11
-  call void @_ZN8nanobind7module_D2Ev(ptr noundef nonnull align 8 dereferenceable(8) %166) #11
-  br label %357
+360:                                              ; preds = %354
+  store i32 5, ptr %31, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %47) #17
+  br label %374
 
-357:                                              ; preds = %355, %339
-  br label %358
-
-358:                                              ; preds = %357, %337
-  br label %359
-
-359:                                              ; preds = %358, %302
-  store ptr %163, ptr %120, align 8
-  %360 = load ptr, ptr %120, align 8
-  %361 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8nanobind6detail3apiINS_6handleEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %360)
-  store ptr %361, ptr %71, align 8
-  %362 = load ptr, ptr %71, align 8
-  %363 = load ptr, ptr %362, align 8
-  %364 = icmp ne ptr %363, null
-  br label %365
-
-365:                                              ; preds = %359
-  br i1 %364, label %366, label %378
-
-366:                                              ; preds = %365
-  invoke void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(ptr dead_on_unwind writable sret(%"class.nanobind::detail::accessor") align 8 %168, ptr noundef nonnull align 1 dereferenceable(1) %163, ptr noundef @.str.11)
-          to label %367 unwind label %317
-
-367:                                              ; preds = %366
-  %368 = load ptr, ptr %147, align 8
-  store ptr %169, ptr %136, align 8
-  store ptr %368, ptr %137, align 8
-  %369 = load ptr, ptr %136, align 8
-  %370 = load ptr, ptr %137, align 8
-  store ptr %370, ptr %369, align 8
+361:                                              ; preds = %354
+  %362 = load ptr, ptr %35, align 8
+  %363 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %362, i32 0, i32 4
+  %364 = load ptr, ptr %363, align 8
+  %365 = load i32, ptr %47, align 4
+  %366 = sext i32 %365 to i64
+  %367 = getelementptr inbounds i64, ptr %364, i64 %366
+  %368 = load i64, ptr %367, align 8
+  %369 = load i64, ptr %46, align 8
+  %370 = mul nsw i64 %369, %368
+  store i64 %370, ptr %46, align 8
   br label %371
 
-371:                                              ; preds = %367
-  invoke void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJNS_6handleEEEENS_6objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %167, ptr noundef nonnull align 1 dereferenceable(1) %168, ptr noundef nonnull align 8 dereferenceable(8) %169)
-          to label %372 unwind label %374
+371:                                              ; preds = %361
+  %372 = load i32, ptr %47, align 4
+  %373 = add nsw i32 %372, 1
+  store i32 %373, ptr %47, align 4
+  br label %354, !llvm.loop !7
 
-372:                                              ; preds = %371
-  %373 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %151, ptr noundef nonnull align 8 dereferenceable(8) %167) #11
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %167) #11
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %168) #11
-  br label %378
+374:                                              ; preds = %360
+  %375 = load i8, ptr %43, align 1, !range !3, !noundef !4
+  %376 = trunc i8 %375 to i1
+  br i1 %376, label %377, label %554
 
-374:                                              ; preds = %371
-  %375 = landingpad { ptr, i32 }
-          catch ptr null
-  %376 = extractvalue { ptr, i32 } %375, 0
-  store ptr %376, ptr %161, align 8
-  %377 = extractvalue { ptr, i32 } %375, 1
-  store i32 %377, ptr %162, align 4
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %168) #11
-  br label %379
+377:                                              ; preds = %374
+  %378 = load i8, ptr %40, align 1, !range !3, !noundef !4
+  %379 = trunc i8 %378 to i1
+  br i1 %379, label %380, label %554
 
-378:                                              ; preds = %372, %365
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %163) #11
-  br label %385
-
-379:                                              ; preds = %374, %317
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %163) #11
-  br label %380
-
-380:                                              ; preds = %379, %316, %304
-  %381 = load ptr, ptr %161, align 8
-  %382 = call ptr @__cxa_begin_catch(ptr %381) #11
-  invoke void @_ZN8nanobind6object5resetEv(ptr noundef nonnull align 8 dereferenceable(8) %151)
-          to label %383 unwind label %1122
+380:                                              ; preds = %377
+  %381 = load i64, ptr %46, align 8
+  %382 = icmp sgt i64 %381, 1
+  br i1 %382, label %383, label %554
 
 383:                                              ; preds = %380
-  invoke void @__cxa_end_catch()
-          to label %384 unwind label %1122
+  call void @llvm.lifetime.start.p0(i64 1, ptr %48) #17
+  %384 = load ptr, ptr %7, align 8
+  %385 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_config", ptr %384, i32 0, i32 1
+  %386 = load i8, ptr %385, align 4
+  store i8 %386, ptr %48, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %49) #17
+  %387 = load i8, ptr %48, align 1
+  %388 = sext i8 %387 to i32
+  %389 = icmp eq i32 %388, 67
+  br i1 %389, label %394, label %390
 
-384:                                              ; preds = %383
-  br label %385
+390:                                              ; preds = %383
+  %391 = load i8, ptr %48, align 1
+  %392 = sext i8 %391 to i32
+  %393 = icmp eq i32 %392, 65
+  br label %394
 
-385:                                              ; preds = %384, %378
-  br label %386
+394:                                              ; preds = %390, %383
+  %395 = phi i1 [ true, %383 ], [ %393, %390 ]
+  %396 = zext i1 %395 to i8
+  store i8 %396, ptr %49, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %50) #17
+  %397 = load i8, ptr %48, align 1
+  %398 = sext i8 %397 to i32
+  %399 = icmp eq i32 %398, 70
+  br i1 %399, label %404, label %400
 
-386:                                              ; preds = %385, %248
-  store ptr %151, ptr %121, align 8
-  %387 = load ptr, ptr %121, align 8
-  %388 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8nanobind6detail3apiINS_6handleEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %387)
-  store ptr %388, ptr %70, align 8
-  %389 = load ptr, ptr %70, align 8
-  %390 = load ptr, ptr %389, align 8
-  %391 = icmp ne ptr %390, null
-  br label %392
+400:                                              ; preds = %394
+  %401 = load i8, ptr %48, align 1
+  %402 = sext i8 %401 to i32
+  %403 = icmp eq i32 %402, 65
+  br label %404
 
-392:                                              ; preds = %386
-  br i1 %391, label %409, label %393
+404:                                              ; preds = %400, %394
+  %405 = phi i1 [ true, %394 ], [ %403, %400 ]
+  %406 = zext i1 %405 to i8
+  store i8 %406, ptr %50, align 1
+  %407 = load ptr, ptr %35, align 8
+  %408 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %407, i32 0, i32 5
+  %409 = load ptr, ptr %408, align 8
+  %410 = icmp ne ptr %409, null
+  br i1 %410, label %443, label %411
 
-393:                                              ; preds = %392
-  %394 = load ptr, ptr %147, align 8
-  %395 = load ptr, ptr %148, align 8
-  %396 = getelementptr inbounds %"struct.nanobind::detail::ndarray_req", ptr %395, i32 0, i32 5
-  %397 = load i8, ptr %396, align 2
-  %398 = trunc i8 %397 to i1
-  %399 = invoke noundef ptr @_ZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectb(ptr noundef %394, i1 noundef zeroext %398)
-          to label %400 unwind label %1122
+411:                                              ; preds = %404
+  %412 = load i8, ptr %49, align 1, !range !3, !noundef !4
+  %413 = trunc i8 %412 to i1
+  br i1 %413, label %414, label %415
 
-400:                                              ; preds = %393
-  store ptr %171, ptr %134, align 8
-  store ptr %399, ptr %135, align 8
-  %401 = load ptr, ptr %134, align 8
-  %402 = load ptr, ptr %135, align 8
-  store ptr %402, ptr %401, align 8
-  br label %403
+414:                                              ; preds = %411
+  store i8 1, ptr %44, align 1
+  br label %442
 
-403:                                              ; preds = %400
-  %404 = getelementptr inbounds %"class.nanobind::handle", ptr %171, i32 0, i32 0
-  %405 = load ptr, ptr %404, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  store ptr %170, ptr %143, align 8, !noalias !28
-  store ptr %405, ptr %144, align 8, !noalias !28
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %145, ptr align 8 %144, i64 8, i1 false), !noalias !28
-  %406 = load ptr, ptr %145, align 8, !noalias !28
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %170, ptr %406)
-  br label %407
+415:                                              ; preds = %411
+  call void @llvm.lifetime.start.p0(i64 4, ptr %51) #17
+  store i32 0, ptr %51, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %52) #17
+  store i32 0, ptr %52, align 4
+  br label %416
 
-407:                                              ; preds = %403
-  %408 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %151, ptr noundef nonnull align 8 dereferenceable(8) %170) #11
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %170) #11
-  br label %409
+416:                                              ; preds = %435, %415
+  %417 = load i32, ptr %52, align 4
+  %418 = load ptr, ptr %35, align 8
+  %419 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %418, i32 0, i32 2
+  %420 = load i32, ptr %419, align 8
+  %421 = icmp slt i32 %417, %420
+  br i1 %421, label %423, label %422
 
-409:                                              ; preds = %407, %392
-  store ptr %151, ptr %122, align 8
-  %410 = load ptr, ptr %122, align 8
-  %411 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8nanobind6detail3apiINS_6handleEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %410)
-  store ptr %411, ptr %69, align 8
-  %412 = load ptr, ptr %69, align 8
-  %413 = load ptr, ptr %412, align 8
-  %414 = icmp ne ptr %413, null
-  br label %415
+422:                                              ; preds = %416
+  store i32 8, ptr %31, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %52) #17
+  br label %438
 
-415:                                              ; preds = %409
-  br i1 %414, label %417, label %416
+423:                                              ; preds = %416
+  %424 = load ptr, ptr %35, align 8
+  %425 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %424, i32 0, i32 4
+  %426 = load ptr, ptr %425, align 8
+  %427 = load i32, ptr %52, align 4
+  %428 = sext i32 %427 to i64
+  %429 = getelementptr inbounds i64, ptr %426, i64 %428
+  %430 = load i64, ptr %429, align 8
+  %431 = icmp sgt i64 %430, 1
+  %432 = zext i1 %431 to i32
+  %433 = load i32, ptr %51, align 4
+  %434 = add nsw i32 %433, %432
+  store i32 %434, ptr %51, align 4
+  br label %435
 
-416:                                              ; preds = %415
-  store ptr null, ptr %146, align 8
-  store i32 1, ptr %172, align 4
-  br label %1120
+435:                                              ; preds = %423
+  %436 = load i32, ptr %52, align 4
+  %437 = add nsw i32 %436, 1
+  store i32 %437, ptr %52, align 4
+  br label %416, !llvm.loop !8
 
-417:                                              ; preds = %415
-  br label %428
+438:                                              ; preds = %422
+  %439 = load i32, ptr %51, align 4
+  %440 = icmp sle i32 %439, 1
+  %441 = zext i1 %440 to i8
+  store i8 %441, ptr %44, align 1
+  call void @llvm.lifetime.end.p0(i64 4, ptr %51) #17
+  br label %442
 
-418:                                              ; preds = %226
-  %419 = load ptr, ptr %147, align 8
-  store ptr %174, ptr %132, align 8
-  store ptr %419, ptr %133, align 8
-  %420 = load ptr, ptr %132, align 8
-  %421 = load ptr, ptr %133, align 8
-  store ptr %421, ptr %420, align 8
-  br label %422
+442:                                              ; preds = %438, %414
+  br label %553
 
-422:                                              ; preds = %418
-  %423 = getelementptr inbounds %"class.nanobind::handle", ptr %174, i32 0, i32 0
-  %424 = load ptr, ptr %423, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  store ptr %173, ptr %73, align 8, !noalias !31
-  store ptr %424, ptr %74, align 8, !noalias !31
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %75, ptr align 8 %74, i64 8, i1 false), !noalias !31
-  %425 = load ptr, ptr %75, align 8, !noalias !31
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE(ptr noundef nonnull align 8 dereferenceable(8) %173, ptr %425)
-  br label %426
+443:                                              ; preds = %404
+  %444 = load i8, ptr %49, align 1, !range !3, !noundef !4
+  %445 = trunc i8 %444 to i1
+  br i1 %445, label %446, label %494
 
-426:                                              ; preds = %422
-  %427 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %151, ptr noundef nonnull align 8 dereferenceable(8) %173) #11
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %173) #11
-  br label %428
+446:                                              ; preds = %443
+  call void @llvm.lifetime.start.p0(i64 8, ptr %53) #17
+  %447 = load ptr, ptr %35, align 8
+  %448 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %447, i32 0, i32 2
+  %449 = load i32, ptr %448, align 8
+  %450 = sub nsw i32 %449, 1
+  %451 = sext i32 %450 to i64
+  store i64 %451, ptr %53, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %54) #17
+  store i64 1, ptr %54, align 8
+  br label %452
 
-428:                                              ; preds = %426, %417
-  store ptr %151, ptr %62, align 8
-  %429 = load ptr, ptr %62, align 8
-  %430 = load ptr, ptr %429, align 8
-  br label %431
+452:                                              ; preds = %490, %446
+  %453 = load i64, ptr %53, align 8
+  %454 = icmp sge i64 %453, 0
+  br i1 %454, label %456, label %455
 
-431:                                              ; preds = %428
-  %432 = invoke ptr @PyCapsule_GetPointer(ptr noundef %430, ptr noundef @.str.12)
-          to label %433 unwind label %1122
+455:                                              ; preds = %452
+  store i32 11, ptr %31, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %54) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %53) #17
+  br label %493
 
-433:                                              ; preds = %431
-  store ptr %432, ptr %175, align 8
-  %434 = load ptr, ptr %175, align 8
-  %435 = icmp ne ptr %434, null
-  br i1 %435, label %438, label %436
+456:                                              ; preds = %452
+  %457 = load ptr, ptr %35, align 8
+  %458 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %457, i32 0, i32 4
+  %459 = load ptr, ptr %458, align 8
+  %460 = load i64, ptr %53, align 8
+  %461 = getelementptr inbounds i64, ptr %459, i64 %460
+  %462 = load i64, ptr %461, align 8
+  %463 = icmp eq i64 %462, 1
+  br i1 %463, label %473, label %464
 
-436:                                              ; preds = %433
-  invoke void @PyErr_Clear()
-          to label %437 unwind label %1122
+464:                                              ; preds = %456
+  %465 = load ptr, ptr %35, align 8
+  %466 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %465, i32 0, i32 5
+  %467 = load ptr, ptr %466, align 8
+  %468 = load i64, ptr %53, align 8
+  %469 = getelementptr inbounds i64, ptr %467, i64 %468
+  %470 = load i64, ptr %469, align 8
+  %471 = load i64, ptr %54, align 8
+  %472 = icmp eq i64 %470, %471
+  br label %473
 
-437:                                              ; preds = %436
-  store ptr null, ptr %146, align 8
-  store i32 1, ptr %172, align 4
-  br label %1120
+473:                                              ; preds = %464, %456
+  %474 = phi i1 [ true, %456 ], [ %472, %464 ]
+  %475 = zext i1 %474 to i32
+  %476 = load i8, ptr %49, align 1, !range !3, !noundef !4
+  %477 = trunc i8 %476 to i1
+  %478 = zext i1 %477 to i32
+  %479 = and i32 %478, %475
+  %480 = icmp ne i32 %479, 0
+  %481 = zext i1 %480 to i8
+  store i8 %481, ptr %49, align 1
+  %482 = load ptr, ptr %35, align 8
+  %483 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %482, i32 0, i32 4
+  %484 = load ptr, ptr %483, align 8
+  %485 = load i64, ptr %53, align 8
+  %486 = getelementptr inbounds i64, ptr %484, i64 %485
+  %487 = load i64, ptr %486, align 8
+  %488 = load i64, ptr %54, align 8
+  %489 = mul nsw i64 %488, %487
+  store i64 %489, ptr %54, align 8
+  br label %490
 
-438:                                              ; preds = %433
-  %439 = load ptr, ptr %175, align 8
-  %440 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %439, i32 0, i32 0
-  store ptr %440, ptr %176, align 8
-  store i8 1, ptr %177, align 1
-  store i8 1, ptr %178, align 1
-  store i8 1, ptr %179, align 1
-  store i8 1, ptr %180, align 1
-  %441 = load ptr, ptr %148, align 8
-  %442 = getelementptr inbounds %"struct.nanobind::detail::ndarray_req", ptr %441, i32 0, i32 4
-  %443 = load i8, ptr %442, align 1
-  %444 = trunc i8 %443 to i1
-  br i1 %444, label %445, label %453
+490:                                              ; preds = %473
+  %491 = load i64, ptr %53, align 8
+  %492 = add nsw i64 %491, -1
+  store i64 %492, ptr %53, align 8
+  br label %452, !llvm.loop !9
 
-445:                                              ; preds = %438
-  %446 = load ptr, ptr %176, align 8
-  %447 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %446, i32 0, i32 3
-  %448 = load ptr, ptr %148, align 8
-  %449 = getelementptr inbounds %"struct.nanobind::detail::ndarray_req", ptr %448, i32 0, i32 0
-  %450 = invoke noundef zeroext i1 @_ZNK8nanobind6dlpack5dtypeeqERKS1_(ptr noundef nonnull align 2 dereferenceable(4) %447, ptr noundef nonnull align 2 dereferenceable(4) %449)
-          to label %451 unwind label %1122
+493:                                              ; preds = %455
+  br label %494
 
-451:                                              ; preds = %445
-  %452 = zext i1 %450 to i8
-  store i8 %452, ptr %177, align 1
-  br label %453
+494:                                              ; preds = %493, %443
+  %495 = load i8, ptr %50, align 1, !range !3, !noundef !4
+  %496 = trunc i8 %495 to i1
+  br i1 %496, label %497, label %544
 
-453:                                              ; preds = %451, %438
-  %454 = load ptr, ptr %148, align 8
-  %455 = getelementptr inbounds %"struct.nanobind::detail::ndarray_req", ptr %454, i32 0, i32 7
-  %456 = load i8, ptr %455, align 4
-  %457 = icmp ne i8 %456, 0
-  br i1 %457, label %458, label %469
+497:                                              ; preds = %494
+  call void @llvm.lifetime.start.p0(i64 8, ptr %55) #17
+  store i64 0, ptr %55, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %56) #17
+  store i64 1, ptr %56, align 8
+  br label %498
 
-458:                                              ; preds = %453
-  %459 = load ptr, ptr %176, align 8
-  %460 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %459, i32 0, i32 1
-  %461 = getelementptr inbounds %"struct.nanobind::dlpack::device", ptr %460, i32 0, i32 0
-  %462 = load i32, ptr %461, align 8
-  %463 = load ptr, ptr %148, align 8
-  %464 = getelementptr inbounds %"struct.nanobind::detail::ndarray_req", ptr %463, i32 0, i32 7
-  %465 = load i8, ptr %464, align 4
-  %466 = zext i8 %465 to i32
-  %467 = icmp eq i32 %462, %466
-  %468 = zext i1 %467 to i8
-  store i8 %468, ptr %178, align 1
-  br label %469
+498:                                              ; preds = %540, %497
+  %499 = load i64, ptr %55, align 8
+  %500 = load ptr, ptr %35, align 8
+  %501 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %500, i32 0, i32 2
+  %502 = load i32, ptr %501, align 8
+  %503 = sext i32 %502 to i64
+  %504 = icmp slt i64 %499, %503
+  br i1 %504, label %506, label %505
 
-469:                                              ; preds = %458, %453
-  %470 = load ptr, ptr %148, align 8
-  %471 = getelementptr inbounds %"struct.nanobind::detail::ndarray_req", ptr %470, i32 0, i32 3
-  %472 = load i8, ptr %471, align 8
-  %473 = trunc i8 %472 to i1
-  br i1 %473, label %474, label %530
+505:                                              ; preds = %498
+  store i32 14, ptr %31, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %56) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %55) #17
+  br label %543
 
-474:                                              ; preds = %469
-  %475 = load ptr, ptr %148, align 8
-  %476 = getelementptr inbounds %"struct.nanobind::detail::ndarray_req", ptr %475, i32 0, i32 1
-  %477 = load i32, ptr %476, align 4
-  %478 = load ptr, ptr %176, align 8
-  %479 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %478, i32 0, i32 2
-  %480 = load i32, ptr %479, align 8
-  %481 = icmp eq i32 %477, %480
-  %482 = zext i1 %481 to i32
-  %483 = load i8, ptr %179, align 1
-  %484 = trunc i8 %483 to i1
-  %485 = zext i1 %484 to i32
-  %486 = and i32 %485, %482
-  %487 = icmp ne i32 %486, 0
-  %488 = zext i1 %487 to i8
-  store i8 %488, ptr %179, align 1
-  %489 = load i8, ptr %179, align 1
-  %490 = trunc i8 %489 to i1
-  br i1 %490, label %491, label %529
-
-491:                                              ; preds = %474
-  store i32 0, ptr %181, align 4
-  br label %492
-
-492:                                              ; preds = %525, %491
-  %493 = load i32, ptr %181, align 4
-  %494 = load ptr, ptr %148, align 8
-  %495 = getelementptr inbounds %"struct.nanobind::detail::ndarray_req", ptr %494, i32 0, i32 1
-  %496 = load i32, ptr %495, align 4
-  %497 = icmp ult i32 %493, %496
-  br i1 %497, label %498, label %528
-
-498:                                              ; preds = %492
-  %499 = load ptr, ptr %148, align 8
-  %500 = getelementptr inbounds %"struct.nanobind::detail::ndarray_req", ptr %499, i32 0, i32 2
-  %501 = load ptr, ptr %500, align 8
-  %502 = load i32, ptr %181, align 4
-  %503 = zext i32 %502 to i64
-  %504 = getelementptr inbounds i64, ptr %501, i64 %503
-  %505 = load i64, ptr %504, align 8
-  %506 = load ptr, ptr %176, align 8
-  %507 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %506, i32 0, i32 4
-  %508 = load ptr, ptr %507, align 8
-  %509 = load i32, ptr %181, align 4
-  %510 = zext i32 %509 to i64
-  %511 = getelementptr inbounds i64, ptr %508, i64 %510
+506:                                              ; preds = %498
+  %507 = load ptr, ptr %35, align 8
+  %508 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %507, i32 0, i32 4
+  %509 = load ptr, ptr %508, align 8
+  %510 = load i64, ptr %55, align 8
+  %511 = getelementptr inbounds i64, ptr %509, i64 %510
   %512 = load i64, ptr %511, align 8
-  %513 = icmp ne i64 %505, %512
-  br i1 %513, label %514, label %524
+  %513 = icmp eq i64 %512, 1
+  br i1 %513, label %523, label %514
 
-514:                                              ; preds = %498
-  %515 = load ptr, ptr %148, align 8
-  %516 = getelementptr inbounds %"struct.nanobind::detail::ndarray_req", ptr %515, i32 0, i32 2
+514:                                              ; preds = %506
+  %515 = load ptr, ptr %35, align 8
+  %516 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %515, i32 0, i32 5
   %517 = load ptr, ptr %516, align 8
-  %518 = load i32, ptr %181, align 4
-  %519 = zext i32 %518 to i64
-  %520 = getelementptr inbounds i64, ptr %517, i64 %519
-  %521 = load i64, ptr %520, align 8
-  %522 = icmp ne i64 %521, -1
-  br i1 %522, label %523, label %524
-
-523:                                              ; preds = %514
-  store i8 0, ptr %179, align 1
-  br label %528
-
-524:                                              ; preds = %514, %498
-  br label %525
-
-525:                                              ; preds = %524
-  %526 = load i32, ptr %181, align 4
-  %527 = add i32 %526, 1
-  store i32 %527, ptr %181, align 4
-  br label %492, !llvm.loop !34
-
-528:                                              ; preds = %523, %492
-  br label %529
-
-529:                                              ; preds = %528, %474
-  br label %530
-
-530:                                              ; preds = %529, %469
-  store i64 1, ptr %182, align 8
-  store i32 0, ptr %183, align 4
-  br label %531
-
-531:                                              ; preds = %547, %530
-  %532 = load i32, ptr %183, align 4
-  %533 = load ptr, ptr %148, align 8
-  %534 = getelementptr inbounds %"struct.nanobind::detail::ndarray_req", ptr %533, i32 0, i32 1
-  %535 = load i32, ptr %534, align 4
-  %536 = icmp ult i32 %532, %535
-  br i1 %536, label %537, label %550
-
-537:                                              ; preds = %531
-  %538 = load ptr, ptr %176, align 8
-  %539 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %538, i32 0, i32 4
-  %540 = load ptr, ptr %539, align 8
-  %541 = load i32, ptr %183, align 4
-  %542 = zext i32 %541 to i64
-  %543 = getelementptr inbounds i64, ptr %540, i64 %542
-  %544 = load i64, ptr %543, align 8
-  %545 = load i64, ptr %182, align 8
-  %546 = mul nsw i64 %545, %544
-  store i64 %546, ptr %182, align 8
-  br label %547
-
-547:                                              ; preds = %537
-  %548 = load i32, ptr %183, align 4
-  %549 = add i32 %548, 1
-  store i32 %549, ptr %183, align 4
-  br label %531, !llvm.loop !36
-
-550:                                              ; preds = %531
-  %551 = load ptr, ptr %176, align 8
-  %552 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %551, i32 0, i32 2
-  %553 = load i32, ptr %552, align 8
-  %554 = sext i32 %553 to i64
-  invoke void @_ZN8nanobind6detail15scoped_pymallocIlEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %184, i64 noundef %554)
-          to label %555 unwind label %1122
-
-555:                                              ; preds = %550
-  %556 = load ptr, ptr %148, align 8
-  %557 = getelementptr inbounds %"struct.nanobind::detail::ndarray_req", ptr %556, i32 0, i32 6
-  %558 = load i8, ptr %557, align 1
-  %559 = icmp ne i8 %558, 0
-  br i1 %559, label %565, label %560
-
-560:                                              ; preds = %555
-  %561 = load ptr, ptr %176, align 8
-  %562 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %561, i32 0, i32 5
-  %563 = load ptr, ptr %562, align 8
-  %564 = icmp ne ptr %563, null
-  br i1 %564, label %696, label %565
-
-565:                                              ; preds = %560, %555
-  %566 = load ptr, ptr %176, align 8
-  %567 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %566, i32 0, i32 2
-  %568 = load i32, ptr %567, align 8
-  %569 = icmp sgt i32 %568, 0
-  br i1 %569, label %570, label %696
-
-570:                                              ; preds = %565
-  store i64 1, ptr %185, align 8
-  %571 = load ptr, ptr %148, align 8
-  %572 = getelementptr inbounds %"struct.nanobind::detail::ndarray_req", ptr %571, i32 0, i32 6
-  %573 = load i8, ptr %572, align 1
-  %574 = sext i8 %573 to i32
-  %575 = icmp eq i32 %574, 67
-  br i1 %575, label %581, label %576
-
-576:                                              ; preds = %570
-  %577 = load ptr, ptr %176, align 8
-  %578 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %577, i32 0, i32 5
-  %579 = load ptr, ptr %578, align 8
-  %580 = icmp ne ptr %579, null
-  br i1 %580, label %607, label %581
-
-581:                                              ; preds = %576, %570
-  %582 = load ptr, ptr %176, align 8
-  %583 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %582, i32 0, i32 2
-  %584 = load i32, ptr %583, align 8
-  %585 = sub nsw i32 %584, 1
-  %586 = sext i32 %585 to i64
-  store i64 %586, ptr %186, align 8
-  br label %587
-
-587:                                              ; preds = %603, %581
-  %588 = load i64, ptr %185, align 8
-  %589 = load i64, ptr %186, align 8
-  %590 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6detail15scoped_pymallocIlEixEm(ptr noundef nonnull align 8 dereferenceable(8) %184, i64 noundef %589)
-          to label %591 unwind label %1122
-
-591:                                              ; preds = %587
-  store i64 %588, ptr %590, align 8
-  %592 = load ptr, ptr %176, align 8
-  %593 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %592, i32 0, i32 4
-  %594 = load ptr, ptr %593, align 8
-  %595 = load i64, ptr %186, align 8
-  %596 = getelementptr inbounds i64, ptr %594, i64 %595
-  %597 = load i64, ptr %596, align 8
-  %598 = load i64, ptr %185, align 8
-  %599 = mul nsw i64 %598, %597
-  store i64 %599, ptr %185, align 8
-  %600 = load i64, ptr %186, align 8
-  %601 = icmp eq i64 %600, 0
-  br i1 %601, label %602, label %603
-
-602:                                              ; preds = %591
-  br label %606
-
-603:                                              ; preds = %591
-  %604 = load i64, ptr %186, align 8
-  %605 = add i64 %604, -1
-  store i64 %605, ptr %186, align 8
-  br label %587, !llvm.loop !37
-
-606:                                              ; preds = %602
-  br label %640
-
-607:                                              ; preds = %576
-  %608 = load ptr, ptr %148, align 8
-  %609 = getelementptr inbounds %"struct.nanobind::detail::ndarray_req", ptr %608, i32 0, i32 6
-  %610 = load i8, ptr %609, align 1
-  %611 = sext i8 %610 to i32
-  %612 = icmp eq i32 %611, 70
-  br i1 %612, label %613, label %638
-
-613:                                              ; preds = %607
-  store i64 0, ptr %187, align 8
-  br label %614
-
-614:                                              ; preds = %634, %613
-  %615 = load i64, ptr %187, align 8
-  %616 = load ptr, ptr %176, align 8
-  %617 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %616, i32 0, i32 2
-  %618 = load i32, ptr %617, align 8
-  %619 = sext i32 %618 to i64
-  %620 = icmp ult i64 %615, %619
-  br i1 %620, label %621, label %637
-
-621:                                              ; preds = %614
-  %622 = load i64, ptr %185, align 8
-  %623 = load i64, ptr %187, align 8
-  %624 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6detail15scoped_pymallocIlEixEm(ptr noundef nonnull align 8 dereferenceable(8) %184, i64 noundef %623)
-          to label %625 unwind label %1122
-
-625:                                              ; preds = %621
-  store i64 %622, ptr %624, align 8
-  %626 = load ptr, ptr %176, align 8
-  %627 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %626, i32 0, i32 4
-  %628 = load ptr, ptr %627, align 8
-  %629 = load i64, ptr %187, align 8
-  %630 = getelementptr inbounds i64, ptr %628, i64 %629
-  %631 = load i64, ptr %630, align 8
-  %632 = load i64, ptr %185, align 8
-  %633 = mul nsw i64 %632, %631
-  store i64 %633, ptr %185, align 8
-  br label %634
-
-634:                                              ; preds = %625
-  %635 = load i64, ptr %187, align 8
-  %636 = add i64 %635, 1
-  store i64 %636, ptr %187, align 8
-  br label %614, !llvm.loop !38
-
-637:                                              ; preds = %614
-  br label %639
-
-638:                                              ; preds = %607
-  store i8 0, ptr %180, align 1
-  br label %639
-
-639:                                              ; preds = %638, %637
-  br label %640
-
-640:                                              ; preds = %639, %606
-  %641 = load ptr, ptr %148, align 8
-  %642 = getelementptr inbounds %"struct.nanobind::detail::ndarray_req", ptr %641, i32 0, i32 6
-  %643 = load i8, ptr %642, align 1
-  %644 = icmp ne i8 %643, 0
-  br i1 %644, label %645, label %695
-
-645:                                              ; preds = %640
-  %646 = load i64, ptr %182, align 8
-  %647 = icmp ne i64 %646, 0
-  br i1 %647, label %648, label %695
-
-648:                                              ; preds = %645
-  %649 = load ptr, ptr %176, align 8
-  %650 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %649, i32 0, i32 5
-  %651 = load ptr, ptr %650, align 8
-  %652 = icmp ne ptr %651, null
-  br i1 %652, label %660, label %653
-
-653:                                              ; preds = %648
-  %654 = load ptr, ptr %148, align 8
-  %655 = getelementptr inbounds %"struct.nanobind::detail::ndarray_req", ptr %654, i32 0, i32 6
-  %656 = load i8, ptr %655, align 1
-  %657 = sext i8 %656 to i32
-  %658 = icmp eq i32 %657, 67
-  %659 = zext i1 %658 to i8
-  store i8 %659, ptr %180, align 1
-  br label %694
-
-660:                                              ; preds = %648
-  store i64 0, ptr %188, align 8
-  br label %661
-
-661:                                              ; preds = %690, %660
-  %662 = load i64, ptr %188, align 8
-  %663 = load ptr, ptr %176, align 8
-  %664 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %663, i32 0, i32 2
-  %665 = load i32, ptr %664, align 8
-  %666 = sext i32 %665 to i64
-  %667 = icmp ult i64 %662, %666
-  br i1 %667, label %668, label %693
-
-668:                                              ; preds = %661
-  %669 = load ptr, ptr %176, align 8
-  %670 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %669, i32 0, i32 4
-  %671 = load ptr, ptr %670, align 8
-  %672 = load i64, ptr %188, align 8
-  %673 = getelementptr inbounds i64, ptr %671, i64 %672
-  %674 = load i64, ptr %673, align 8
-  %675 = icmp ne i64 %674, 1
-  br i1 %675, label %676, label %689
-
-676:                                              ; preds = %668
-  %677 = load i64, ptr %188, align 8
-  %678 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6detail15scoped_pymallocIlEixEm(ptr noundef nonnull align 8 dereferenceable(8) %184, i64 noundef %677)
-          to label %679 unwind label %1122
-
-679:                                              ; preds = %676
-  %680 = load i64, ptr %678, align 8
-  %681 = load ptr, ptr %176, align 8
-  %682 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %681, i32 0, i32 5
-  %683 = load ptr, ptr %682, align 8
-  %684 = load i64, ptr %188, align 8
-  %685 = getelementptr inbounds i64, ptr %683, i64 %684
-  %686 = load i64, ptr %685, align 8
-  %687 = icmp ne i64 %680, %686
-  br i1 %687, label %688, label %689
-
-688:                                              ; preds = %679
-  store i8 0, ptr %180, align 1
-  br label %693
-
-689:                                              ; preds = %679, %668
-  br label %690
-
-690:                                              ; preds = %689
-  %691 = load i64, ptr %188, align 8
-  %692 = add i64 %691, 1
-  store i64 %692, ptr %188, align 8
-  br label %661, !llvm.loop !39
-
-693:                                              ; preds = %688, %661
-  br label %694
-
-694:                                              ; preds = %693, %653
-  br label %695
-
-695:                                              ; preds = %694, %645, %640
-  br label %696
-
-696:                                              ; preds = %695, %565, %560
-  %697 = load ptr, ptr %176, align 8
-  %698 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %697, i32 0, i32 3
-  %699 = getelementptr inbounds %"struct.nanobind::dlpack::dtype", ptr %698, i32 0, i32 0
-  %700 = load i8, ptr %699, align 4
-  %701 = zext i8 %700 to i32
-  %702 = icmp eq i32 %701, 5
-  br i1 %702, label %703, label %710
-
-703:                                              ; preds = %696
-  %704 = load ptr, ptr %148, align 8
-  %705 = getelementptr inbounds %"struct.nanobind::detail::ndarray_req", ptr %704, i32 0, i32 0
-  %706 = getelementptr inbounds %"struct.nanobind::dlpack::dtype", ptr %705, i32 0, i32 0
-  %707 = load i8, ptr %706, align 8
-  %708 = zext i8 %707 to i32
-  %709 = icmp ne i32 %708, 5
-  br label %710
-
-710:                                              ; preds = %703, %696
-  %711 = phi i1 [ false, %696 ], [ %709, %703 ]
-  %712 = zext i1 %711 to i8
-  store i8 %712, ptr %189, align 1
-  %713 = load i8, ptr %178, align 1
-  %714 = trunc i8 %713 to i1
-  br i1 %714, label %715, label %1031
-
-715:                                              ; preds = %710
-  %716 = load i8, ptr %179, align 1
-  %717 = trunc i8 %716 to i1
-  br i1 %717, label %718, label %1031
-
-718:                                              ; preds = %715
-  %719 = load i8, ptr %177, align 1
-  %720 = trunc i8 %719 to i1
-  br i1 %720, label %721, label %724
-
-721:                                              ; preds = %718
-  %722 = load i8, ptr %180, align 1
-  %723 = trunc i8 %722 to i1
-  br i1 %723, label %1031, label %724
-
-724:                                              ; preds = %721, %718
-  %725 = load i8, ptr %149, align 1
-  %726 = trunc i8 %725 to i1
-  br i1 %726, label %727, label %1031
-
-727:                                              ; preds = %724
-  store ptr %151, ptr %63, align 8
-  %728 = load ptr, ptr %63, align 8
-  %729 = load ptr, ptr %728, align 8
-  br label %730
-
-730:                                              ; preds = %727
-  %731 = load ptr, ptr %147, align 8
-  %732 = icmp ne ptr %729, %731
-  br i1 %732, label %733, label %1031
-
-733:                                              ; preds = %730
-  %734 = load i8, ptr %189, align 1
-  %735 = trunc i8 %734 to i1
-  br i1 %735, label %1031, label %736
-
-736:                                              ; preds = %733
-  %737 = load ptr, ptr %147, align 8
-  %738 = getelementptr inbounds %struct._object, ptr %737, i32 0, i32 1
-  %739 = load ptr, ptr %738, align 8
-  store ptr %739, ptr %190, align 8
-  %740 = load ptr, ptr %190, align 8
-  store ptr %194, ptr %109, align 8
-  store ptr %740, ptr %110, align 8
-  %741 = load ptr, ptr %109, align 8
-  %742 = load ptr, ptr %110, align 8
-  store ptr %742, ptr %741, align 8
-  br label %743
-
-743:                                              ; preds = %736
-  invoke void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(ptr dead_on_unwind writable sret(%"class.nanobind::detail::accessor") align 8 %193, ptr noundef nonnull align 1 dereferenceable(1) %194, ptr noundef @.str.4)
-          to label %744 unwind label %1122
-
-744:                                              ; preds = %743
-  store ptr %193, ptr %108, align 8
-  %745 = load ptr, ptr %108, align 8
-  %746 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %745)
-  store ptr %746, ptr %14, align 8
-  %747 = load ptr, ptr %14, align 8
-  %748 = load ptr, ptr %747, align 8
-  %749 = getelementptr inbounds %"class.nanobind::detail::accessor", ptr %747, i32 0, i32 2
-  %750 = load ptr, ptr %749, align 8
-  %751 = getelementptr inbounds %"class.nanobind::detail::accessor", ptr %747, i32 0, i32 1
-  store ptr %748, ptr %11, align 8
-  store ptr %750, ptr %12, align 8
-  store ptr %751, ptr %13, align 8
-  %752 = load ptr, ptr %11, align 8
-  %753 = load ptr, ptr %12, align 8
-  %754 = load ptr, ptr %13, align 8
-  invoke void @_ZN8nanobind6detail16getattr_or_raiseEP7_objectPKcPS2_(ptr noundef %752, ptr noundef %753, ptr noundef %754)
-          to label %755 unwind label %1122
-
-755:                                              ; preds = %744
-  br label %756
-
-756:                                              ; preds = %755
-  %757 = getelementptr inbounds %"class.nanobind::detail::accessor", ptr %747, i32 0, i32 1
-  %758 = load ptr, ptr %757, align 8
-  br label %759
-
-759:                                              ; preds = %756
-  store ptr %107, ptr %105, align 8
-  store ptr %758, ptr %106, align 8
-  %760 = load ptr, ptr %105, align 8
-  %761 = load ptr, ptr %106, align 8
-  store ptr %761, ptr %760, align 8
-  %762 = load ptr, ptr %107, align 8
-  br label %763
-
-763:                                              ; preds = %759
-  %764 = getelementptr inbounds %"class.nanobind::handle", ptr %192, i32 0, i32 0
-  store ptr %762, ptr %764, align 8
-  %765 = getelementptr inbounds %"class.nanobind::handle", ptr %192, i32 0, i32 0
-  %766 = load ptr, ptr %765, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !40)
-  store ptr %191, ptr %116, align 8, !noalias !40
-  store ptr %766, ptr %117, align 8, !noalias !40
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %118, ptr align 8 %117, i64 8, i1 false), !noalias !40
-  %767 = load ptr, ptr %118, align 8, !noalias !40
-  store ptr %767, ptr %16, align 8
-  store ptr %191, ptr %17, align 8
-  %768 = load ptr, ptr %17, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %16, i64 8, i1 false)
-  %769 = load ptr, ptr %18, align 8
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE(ptr noundef nonnull align 8 dereferenceable(8) %768, ptr %769)
-  br label %770
-
-770:                                              ; preds = %763
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %193) #11
-  %771 = invoke noundef ptr @_ZNK8nanobind3str5c_strEv(ptr noundef nonnull align 8 dereferenceable(8) %191)
-          to label %772 unwind label %1122
-
-772:                                              ; preds = %770
-  store ptr %771, ptr %195, align 8
-  store i8 75, ptr %196, align 1
-  %773 = load ptr, ptr %148, align 8
-  %774 = getelementptr inbounds %"struct.nanobind::detail::ndarray_req", ptr %773, i32 0, i32 6
-  %775 = load i8, ptr %774, align 1
-  %776 = sext i8 %775 to i32
-  %777 = icmp ne i32 %776, 0
-  br i1 %777, label %778, label %782
-
-778:                                              ; preds = %772
-  %779 = load ptr, ptr %148, align 8
-  %780 = getelementptr inbounds %"struct.nanobind::detail::ndarray_req", ptr %779, i32 0, i32 6
-  %781 = load i8, ptr %780, align 1
-  store i8 %781, ptr %196, align 1
-  br label %782
-
-782:                                              ; preds = %778, %772
-  %783 = load ptr, ptr %148, align 8
-  %784 = getelementptr inbounds %"struct.nanobind::detail::ndarray_req", ptr %783, i32 0, i32 4
-  %785 = load i8, ptr %784, align 1
-  %786 = trunc i8 %785 to i1
-  br i1 %786, label %787, label %790
-
-787:                                              ; preds = %782
-  %788 = load ptr, ptr %148, align 8
-  %789 = getelementptr inbounds %"struct.nanobind::detail::ndarray_req", ptr %788, i32 0, i32 0
-  br label %793
-
-790:                                              ; preds = %782
-  %791 = load ptr, ptr %176, align 8
-  %792 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %791, i32 0, i32 3
-  br label %793
-
-793:                                              ; preds = %790, %787
-  %794 = phi ptr [ %789, %787 ], [ %792, %790 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %197, ptr align 4 %794, i64 4, i1 false)
-  %795 = getelementptr inbounds %"struct.nanobind::dlpack::dtype", ptr %197, i32 0, i32 2
-  %796 = load i16, ptr %795, align 2
-  %797 = zext i16 %796 to i32
-  %798 = icmp ne i32 %797, 1
-  br i1 %798, label %799, label %800
-
-799:                                              ; preds = %793
-  store ptr null, ptr %146, align 8
-  store i32 1, ptr %172, align 4
-  br label %1030
-
-800:                                              ; preds = %793
-  store ptr null, ptr %198, align 8
-  %801 = getelementptr inbounds %"struct.nanobind::dlpack::dtype", ptr %197, i32 0, i32 0
-  %802 = load i8, ptr %801, align 2
-  %803 = zext i8 %802 to i32
-  %804 = icmp eq i32 %803, 6
-  br i1 %804, label %805, label %808
-
-805:                                              ; preds = %800
-  %806 = getelementptr inbounds [11 x i8], ptr %199, i64 0, i64 0
-  %807 = call ptr @strcpy(ptr noundef %806, ptr noundef @.str.13) #11
-  br label %824
-
-808:                                              ; preds = %800
-  %809 = getelementptr inbounds %"struct.nanobind::dlpack::dtype", ptr %197, i32 0, i32 0
-  %810 = load i8, ptr %809, align 2
-  %811 = zext i8 %810 to i32
-  switch i32 %811, label %816 [
-    i32 0, label %812
-    i32 1, label %813
-    i32 2, label %814
-    i32 5, label %815
+  %518 = load i64, ptr %55, align 8
+  %519 = getelementptr inbounds i64, ptr %517, i64 %518
+  %520 = load i64, ptr %519, align 8
+  %521 = load i64, ptr %56, align 8
+  %522 = icmp eq i64 %520, %521
+  br label %523
+
+523:                                              ; preds = %514, %506
+  %524 = phi i1 [ true, %506 ], [ %522, %514 ]
+  %525 = zext i1 %524 to i32
+  %526 = load i8, ptr %50, align 1, !range !3, !noundef !4
+  %527 = trunc i8 %526 to i1
+  %528 = zext i1 %527 to i32
+  %529 = and i32 %528, %525
+  %530 = icmp ne i32 %529, 0
+  %531 = zext i1 %530 to i8
+  store i8 %531, ptr %50, align 1
+  %532 = load ptr, ptr %35, align 8
+  %533 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %532, i32 0, i32 4
+  %534 = load ptr, ptr %533, align 8
+  %535 = load i64, ptr %55, align 8
+  %536 = getelementptr inbounds i64, ptr %534, i64 %535
+  %537 = load i64, ptr %536, align 8
+  %538 = load i64, ptr %56, align 8
+  %539 = mul nsw i64 %538, %537
+  store i64 %539, ptr %56, align 8
+  br label %540
+
+540:                                              ; preds = %523
+  %541 = load i64, ptr %55, align 8
+  %542 = add nsw i64 %541, 1
+  store i64 %542, ptr %55, align 8
+  br label %498, !llvm.loop !10
+
+543:                                              ; preds = %505
+  br label %544
+
+544:                                              ; preds = %543, %494
+  %545 = load i8, ptr %49, align 1, !range !3, !noundef !4
+  %546 = trunc i8 %545 to i1
+  br i1 %546, label %550, label %547
+
+547:                                              ; preds = %544
+  %548 = load i8, ptr %50, align 1, !range !3, !noundef !4
+  %549 = trunc i8 %548 to i1
+  br label %550
+
+550:                                              ; preds = %547, %544
+  %551 = phi i1 [ true, %544 ], [ %549, %547 ]
+  %552 = zext i1 %551 to i8
+  store i8 %552, ptr %44, align 1
+  br label %553
+
+553:                                              ; preds = %550, %442
+  call void @llvm.lifetime.end.p0(i64 1, ptr %50) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %49) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %48) #17
+  br label %554
+
+554:                                              ; preds = %553, %380, %377, %374
+  call void @llvm.lifetime.start.p0(i64 1, ptr %57) #17
+  %555 = load ptr, ptr %35, align 8
+  %556 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %555, i32 0, i32 3
+  %557 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %556, i32 0, i32 0
+  %558 = load i8, ptr %557, align 4
+  %559 = zext i8 %558 to i32
+  %560 = icmp eq i32 %559, 5
+  br i1 %560, label %561, label %571
+
+561:                                              ; preds = %554
+  %562 = load i8, ptr %36, align 1, !range !3, !noundef !4
+  %563 = trunc i8 %562 to i1
+  br i1 %563, label %564, label %571
+
+564:                                              ; preds = %561
+  %565 = load ptr, ptr %7, align 8
+  %566 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_config", ptr %565, i32 0, i32 3
+  %567 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %566, i32 0, i32 0
+  %568 = load i8, ptr %567, align 2
+  %569 = zext i8 %568 to i32
+  %570 = icmp ne i32 %569, 5
+  br label %571
+
+571:                                              ; preds = %564, %561, %554
+  %572 = phi i1 [ false, %561 ], [ false, %554 ], [ %570, %564 ]
+  %573 = zext i1 %572 to i8
+  store i8 %573, ptr %57, align 1
+  %574 = load i8, ptr %42, align 1, !range !3, !noundef !4
+  %575 = trunc i8 %574 to i1
+  br i1 %575, label %576, label %819
+
+576:                                              ; preds = %571
+  %577 = load i8, ptr %43, align 1, !range !3, !noundef !4
+  %578 = trunc i8 %577 to i1
+  br i1 %578, label %579, label %819
+
+579:                                              ; preds = %576
+  %580 = load i8, ptr %41, align 1, !range !3, !noundef !4
+  %581 = trunc i8 %580 to i1
+  br i1 %581, label %582, label %585
+
+582:                                              ; preds = %579
+  %583 = load i8, ptr %44, align 1, !range !3, !noundef !4
+  %584 = trunc i8 %583 to i1
+  br i1 %584, label %819, label %585
+
+585:                                              ; preds = %582, %579
+  %586 = load i8, ptr %8, align 1, !range !3, !noundef !4
+  %587 = trunc i8 %586 to i1
+  br i1 %587, label %588, label %819
+
+588:                                              ; preds = %585
+  %589 = invoke noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
+          to label %590 unwind label %940
+
+590:                                              ; preds = %588
+  %591 = load ptr, ptr %6, align 8
+  %592 = icmp ne ptr %589, %591
+  br i1 %592, label %593, label %819
+
+593:                                              ; preds = %590
+  %594 = load i8, ptr %57, align 1, !range !3, !noundef !4
+  %595 = trunc i8 %594 to i1
+  br i1 %595, label %819, label %596
+
+596:                                              ; preds = %593
+  call void @llvm.lifetime.start.p0(i64 8, ptr %58) #17
+  %597 = load ptr, ptr %6, align 8
+  %598 = getelementptr inbounds nuw %struct._object, ptr %597, i32 0, i32 1
+  %599 = load ptr, ptr %598, align 8
+  store ptr %599, ptr %58, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %59) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr %61) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %62) #17
+  %600 = load ptr, ptr %58, align 8
+  invoke void @_ZN8nanobind6handleC2EPK11_typeobject(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef %600)
+          to label %601 unwind label %940
+
+601:                                              ; preds = %596
+  invoke void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(ptr dead_on_unwind writable sret(%"class.nanobind::detail::accessor") align 8 %61, ptr noundef nonnull align 1 dereferenceable(1) %62, ptr noundef @.str.5)
+          to label %602 unwind label %940
+
+602:                                              ; preds = %601
+  %603 = invoke ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEcvNS_6handleEEv(ptr noundef nonnull align 1 dereferenceable(1) %61)
+          to label %604 unwind label %940
+
+604:                                              ; preds = %602
+  %605 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %60, i32 0, i32 0
+  store ptr %603, ptr %605, align 8
+  %606 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %60, i32 0, i32 0
+  %607 = load ptr, ptr %606, align 8
+  invoke void @_ZN8nanobind6borrowINS_3strEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.nanobind::str") align 8 %59, ptr %607)
+          to label %608 unwind label %940
+
+608:                                              ; preds = %604
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %61) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %62) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %61) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %63) #17
+  %609 = invoke noundef ptr @_ZNK8nanobind3str5c_strEv(ptr noundef nonnull align 8 dereferenceable(8) %59)
+          to label %610 unwind label %940
+
+610:                                              ; preds = %608
+  store ptr %609, ptr %63, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %64) #17
+  store i8 75, ptr %64, align 1
+  %611 = load ptr, ptr %7, align 8
+  %612 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_config", ptr %611, i32 0, i32 1
+  %613 = load i8, ptr %612, align 4
+  %614 = icmp ne i8 %613, 0
+  br i1 %614, label %615, label %619
+
+615:                                              ; preds = %610
+  %616 = load ptr, ptr %7, align 8
+  %617 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_config", ptr %616, i32 0, i32 1
+  %618 = load i8, ptr %617, align 4
+  store i8 %618, ptr %64, align 1
+  br label %619
+
+619:                                              ; preds = %615, %610
+  call void @llvm.lifetime.start.p0(i64 4, ptr %65) #17
+  %620 = load i8, ptr %36, align 1, !range !3, !noundef !4
+  %621 = trunc i8 %620 to i1
+  br i1 %621, label %622, label %625
+
+622:                                              ; preds = %619
+  %623 = load ptr, ptr %7, align 8
+  %624 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_config", ptr %623, i32 0, i32 3
+  br label %628
+
+625:                                              ; preds = %619
+  %626 = load ptr, ptr %35, align 8
+  %627 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %626, i32 0, i32 3
+  br label %628
+
+628:                                              ; preds = %625, %622
+  %629 = phi ptr [ %624, %622 ], [ %627, %625 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %65, ptr align 2 %629, i64 4, i1 false)
+  %630 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %65, i32 0, i32 2
+  %631 = load i16, ptr %630, align 2
+  %632 = zext i16 %631 to i32
+  %633 = icmp ne i32 %632, 1
+  br i1 %633, label %634, label %635
+
+634:                                              ; preds = %628
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %31, align 4
+  br label %818
+
+635:                                              ; preds = %628
+  call void @llvm.lifetime.start.p0(i64 8, ptr %66) #17
+  store ptr null, ptr %66, align 8
+  call void @llvm.lifetime.start.p0(i64 11, ptr %67) #17
+  %636 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %65, i32 0, i32 0
+  %637 = load i8, ptr %636, align 2
+  %638 = zext i8 %637 to i32
+  %639 = icmp eq i32 %638, 6
+  br i1 %639, label %640, label %643
+
+640:                                              ; preds = %635
+  %641 = getelementptr inbounds [11 x i8], ptr %67, i64 0, i64 0
+  %642 = call ptr @strcpy(ptr noundef %641, ptr noundef @.str.14) #17
+  br label %659
+
+643:                                              ; preds = %635
+  %644 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %65, i32 0, i32 0
+  %645 = load i8, ptr %644, align 2
+  %646 = zext i8 %645 to i32
+  switch i32 %646, label %651 [
+    i32 0, label %647
+    i32 1, label %648
+    i32 2, label %649
+    i32 5, label %650
   ]
 
-812:                                              ; preds = %808
-  store ptr @.str.14, ptr %198, align 8
+647:                                              ; preds = %643
+  store ptr @.str.15, ptr %66, align 8
+  br label %652
+
+648:                                              ; preds = %643
+  store ptr @.str.16, ptr %66, align 8
+  br label %652
+
+649:                                              ; preds = %643
+  store ptr @.str.17, ptr %66, align 8
+  br label %652
+
+650:                                              ; preds = %643
+  store ptr @.str.18, ptr %66, align 8
+  br label %652
+
+651:                                              ; preds = %643
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %31, align 4
   br label %817
 
-813:                                              ; preds = %808
-  store ptr @.str.15, ptr %198, align 8
+652:                                              ; preds = %650, %649, %648, %647
+  %653 = getelementptr inbounds [11 x i8], ptr %67, i64 0, i64 0
+  %654 = load ptr, ptr %66, align 8
+  %655 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %65, i32 0, i32 1
+  %656 = load i8, ptr %655, align 1
+  %657 = zext i8 %656 to i32
+  %658 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %653, i64 noundef 11, ptr noundef @.str.19, ptr noundef %654, i32 noundef %657) #17
+  br label %659
+
+659:                                              ; preds = %652, %640
+  call void @llvm.lifetime.start.p0(i64 8, ptr %68) #17
+  call void @_ZN8nanobind6objectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %68) #17
+  %660 = load ptr, ptr %63, align 8
+  %661 = call i32 @strcmp(ptr noundef %660, ptr noundef @.str.20) #19
+  %662 = icmp eq i32 %661, 0
+  br i1 %662, label %667, label %663
+
+663:                                              ; preds = %659
+  %664 = load ptr, ptr %63, align 8
+  %665 = call i32 @strcmp(ptr noundef %664, ptr noundef @.str.21) #19
+  %666 = icmp eq i32 %665, 0
+  br i1 %666, label %667, label %682
+
+667:                                              ; preds = %663, %659
+  call void @llvm.lifetime.start.p0(i64 8, ptr %69) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr %70) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %71) #17
+  %668 = load ptr, ptr %6, align 8
+  invoke void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef %668)
+          to label %669 unwind label %673
+
+669:                                              ; preds = %667
+  invoke void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(ptr dead_on_unwind writable sret(%"class.nanobind::detail::accessor") align 8 %70, ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef @.str.22)
+          to label %670 unwind label %673
+
+670:                                              ; preds = %669
+  invoke void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJRA11_cRcEEENS_6objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %69, ptr noundef nonnull align 1 dereferenceable(1) %70, ptr noundef nonnull align 1 dereferenceable(11) %67, ptr noundef nonnull align 1 dereferenceable(1) %64)
+          to label %671 unwind label %677
+
+671:                                              ; preds = %670
+  %672 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull align 8 dereferenceable(8) %69) #17
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %69) #17
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %70) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %71) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %70) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %69) #17
+  br label %796
+
+673:                                              ; preds = %669, %667
+  %674 = landingpad { ptr, i32 }
+          catch ptr null
+  %675 = extractvalue { ptr, i32 } %674, 0
+  store ptr %675, ptr %20, align 8
+  %676 = extractvalue { ptr, i32 } %674, 1
+  store i32 %676, ptr %21, align 4
+  br label %681
+
+677:                                              ; preds = %670
+  %678 = landingpad { ptr, i32 }
+          catch ptr null
+  %679 = extractvalue { ptr, i32 } %678, 0
+  store ptr %679, ptr %20, align 8
+  %680 = extractvalue { ptr, i32 } %678, 1
+  store i32 %680, ptr %21, align 4
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %70) #17
+  br label %681
+
+681:                                              ; preds = %677, %673
+  call void @llvm.lifetime.end.p0(i64 8, ptr %71) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %70) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %69) #17
+  br label %784
+
+682:                                              ; preds = %663
+  %683 = load ptr, ptr %63, align 8
+  %684 = call i32 @strcmp(ptr noundef %683, ptr noundef @.str.8) #19
+  %685 = icmp eq i32 %684, 0
+  br i1 %685, label %686, label %740
+
+686:                                              ; preds = %682
+  call void @llvm.lifetime.start.p0(i64 8, ptr %72) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr %73) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %74) #17
+  %687 = load ptr, ptr %6, align 8
+  invoke void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %74, ptr noundef %687)
+          to label %688 unwind label %706
+
+688:                                              ; preds = %686
+  invoke void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(ptr dead_on_unwind writable sret(%"class.nanobind::detail::accessor") align 8 %73, ptr noundef nonnull align 1 dereferenceable(1) %74, ptr noundef @.str.23)
+          to label %689 unwind label %706
+
+689:                                              ; preds = %688
+  call void @llvm.lifetime.start.p0(i64 32, ptr %75) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr %76) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %77) #17
+  invoke void @_ZN8nanobind7module_7import_EPKc(ptr dead_on_unwind writable sret(%"class.nanobind::module_") align 8 %77, ptr noundef @.str.8)
+          to label %690 unwind label %710
+
+690:                                              ; preds = %689
+  %691 = getelementptr inbounds [11 x i8], ptr %67, i64 0, i64 0
+  invoke void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(ptr dead_on_unwind writable sret(%"class.nanobind::detail::accessor") align 8 %76, ptr noundef nonnull align 1 dereferenceable(1) %77, ptr noundef %691)
+          to label %692 unwind label %714
+
+692:                                              ; preds = %690
+  call void @llvm.lifetime.start.p0(i64 24, ptr %78) #17
+  invoke void @_ZN8nanobind3argC2EPKc(ptr noundef nonnull align 8 dereferenceable(18) %78, ptr noundef @.str.24)
+          to label %693 unwind label %718
+
+693:                                              ; preds = %692
+  invoke void @_ZNK8nanobind3argaSINS_6detail8accessorINS2_8str_attrEEEEENS_5arg_vEOT_(ptr dead_on_unwind writable sret(%"struct.nanobind::arg_v") align 8 %75, ptr noundef nonnull align 8 dereferenceable(18) %78, ptr noundef nonnull align 8 dereferenceable(24) %76)
+          to label %694 unwind label %718
+
+694:                                              ; preds = %693
+  invoke void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJNS_5arg_vEEEENS_6objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %72, ptr noundef nonnull align 1 dereferenceable(1) %73, ptr noundef nonnull align 8 dereferenceable(32) %75)
+          to label %695 unwind label %722
+
+695:                                              ; preds = %694
+  %696 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull align 8 dereferenceable(8) %72) #17
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %72) #17
+  call void @_ZN8nanobind5arg_vD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %75) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %78) #17
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %76) #17
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %77) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %77) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %76) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %75) #17
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %73) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %74) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %73) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %72) #17
+  %697 = load ptr, ptr %7, align 8
+  %698 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_config", ptr %697, i32 0, i32 1
+  %699 = load i8, ptr %698, align 4
+  %700 = sext i8 %699 to i32
+  %701 = icmp eq i32 %700, 67
+  br i1 %701, label %702, label %739
+
+702:                                              ; preds = %695
+  call void @llvm.lifetime.start.p0(i64 8, ptr %79) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr %80) #17
+  invoke void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(ptr dead_on_unwind writable sret(%"class.nanobind::detail::accessor") align 8 %80, ptr noundef nonnull align 1 dereferenceable(1) %68, ptr noundef @.str.25)
+          to label %703 unwind label %730
+
+703:                                              ; preds = %702
+  invoke void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJEEENS_6objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %79, ptr noundef nonnull align 1 dereferenceable(1) %80)
+          to label %704 unwind label %734
+
+704:                                              ; preds = %703
+  %705 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull align 8 dereferenceable(8) %79) #17
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %79) #17
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %80) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %80) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %79) #17
+  br label %739
+
+706:                                              ; preds = %688, %686
+  %707 = landingpad { ptr, i32 }
+          catch ptr null
+  %708 = extractvalue { ptr, i32 } %707, 0
+  store ptr %708, ptr %20, align 8
+  %709 = extractvalue { ptr, i32 } %707, 1
+  store i32 %709, ptr %21, align 4
+  br label %729
+
+710:                                              ; preds = %689
+  %711 = landingpad { ptr, i32 }
+          catch ptr null
+  %712 = extractvalue { ptr, i32 } %711, 0
+  store ptr %712, ptr %20, align 8
+  %713 = extractvalue { ptr, i32 } %711, 1
+  store i32 %713, ptr %21, align 4
+  br label %728
+
+714:                                              ; preds = %690
+  %715 = landingpad { ptr, i32 }
+          catch ptr null
+  %716 = extractvalue { ptr, i32 } %715, 0
+  store ptr %716, ptr %20, align 8
+  %717 = extractvalue { ptr, i32 } %715, 1
+  store i32 %717, ptr %21, align 4
+  br label %727
+
+718:                                              ; preds = %693, %692
+  %719 = landingpad { ptr, i32 }
+          catch ptr null
+  %720 = extractvalue { ptr, i32 } %719, 0
+  store ptr %720, ptr %20, align 8
+  %721 = extractvalue { ptr, i32 } %719, 1
+  store i32 %721, ptr %21, align 4
+  br label %726
+
+722:                                              ; preds = %694
+  %723 = landingpad { ptr, i32 }
+          catch ptr null
+  %724 = extractvalue { ptr, i32 } %723, 0
+  store ptr %724, ptr %20, align 8
+  %725 = extractvalue { ptr, i32 } %723, 1
+  store i32 %725, ptr %21, align 4
+  call void @_ZN8nanobind5arg_vD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %75) #17
+  br label %726
+
+726:                                              ; preds = %722, %718
+  call void @llvm.lifetime.end.p0(i64 24, ptr %78) #17
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %76) #17
+  br label %727
+
+727:                                              ; preds = %726, %714
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %77) #17
+  br label %728
+
+728:                                              ; preds = %727, %710
+  call void @llvm.lifetime.end.p0(i64 8, ptr %77) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %76) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %75) #17
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %73) #17
+  br label %729
+
+729:                                              ; preds = %728, %706
+  call void @llvm.lifetime.end.p0(i64 8, ptr %74) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %73) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %72) #17
+  br label %784
+
+730:                                              ; preds = %702
+  %731 = landingpad { ptr, i32 }
+          catch ptr null
+  %732 = extractvalue { ptr, i32 } %731, 0
+  store ptr %732, ptr %20, align 8
+  %733 = extractvalue { ptr, i32 } %731, 1
+  store i32 %733, ptr %21, align 4
+  br label %738
+
+734:                                              ; preds = %703
+  %735 = landingpad { ptr, i32 }
+          catch ptr null
+  %736 = extractvalue { ptr, i32 } %735, 0
+  store ptr %736, ptr %20, align 8
+  %737 = extractvalue { ptr, i32 } %735, 1
+  store i32 %737, ptr %21, align 4
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %80) #17
+  br label %738
+
+738:                                              ; preds = %734, %730
+  call void @llvm.lifetime.end.p0(i64 24, ptr %80) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %79) #17
+  br label %784
+
+739:                                              ; preds = %704, %695
+  br label %795
+
+740:                                              ; preds = %682
+  %741 = load ptr, ptr %63, align 8
+  %742 = call i32 @strncmp(ptr noundef %741, ptr noundef @.str.6, i64 noundef 11) #19
+  %743 = icmp eq i32 %742, 0
+  br i1 %743, label %744, label %765
+
+744:                                              ; preds = %740
+  call void @llvm.lifetime.start.p0(i64 8, ptr %81) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr %82) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %83) #17
+  invoke void @_ZN8nanobind7module_7import_EPKc(ptr dead_on_unwind writable sret(%"class.nanobind::module_") align 8 %83, ptr noundef @.str.26)
+          to label %745 unwind label %751
+
+745:                                              ; preds = %744
+  invoke void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(ptr dead_on_unwind writable sret(%"class.nanobind::detail::accessor") align 8 %82, ptr noundef nonnull align 1 dereferenceable(1) %83, ptr noundef @.str.27)
+          to label %746 unwind label %755
+
+746:                                              ; preds = %745
+  call void @llvm.lifetime.start.p0(i64 8, ptr %84) #17
+  %747 = load ptr, ptr %6, align 8
+  invoke void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %84, ptr noundef %747)
+          to label %748 unwind label %759
+
+748:                                              ; preds = %746
+  invoke void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJNS_6handleERA11_cEEENS_6objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %81, ptr noundef nonnull align 1 dereferenceable(1) %82, ptr noundef nonnull align 8 dereferenceable(8) %84, ptr noundef nonnull align 1 dereferenceable(11) %67)
+          to label %749 unwind label %759
+
+749:                                              ; preds = %748
+  %750 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull align 8 dereferenceable(8) %81) #17
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %81) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %84) #17
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %82) #17
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %83) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %83) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %82) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %81) #17
+  br label %794
+
+751:                                              ; preds = %744
+  %752 = landingpad { ptr, i32 }
+          catch ptr null
+  %753 = extractvalue { ptr, i32 } %752, 0
+  store ptr %753, ptr %20, align 8
+  %754 = extractvalue { ptr, i32 } %752, 1
+  store i32 %754, ptr %21, align 4
+  br label %764
+
+755:                                              ; preds = %745
+  %756 = landingpad { ptr, i32 }
+          catch ptr null
+  %757 = extractvalue { ptr, i32 } %756, 0
+  store ptr %757, ptr %20, align 8
+  %758 = extractvalue { ptr, i32 } %756, 1
+  store i32 %758, ptr %21, align 4
+  br label %763
+
+759:                                              ; preds = %748, %746
+  %760 = landingpad { ptr, i32 }
+          catch ptr null
+  %761 = extractvalue { ptr, i32 } %760, 0
+  store ptr %761, ptr %20, align 8
+  %762 = extractvalue { ptr, i32 } %760, 1
+  store i32 %762, ptr %21, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %84) #17
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %82) #17
+  br label %763
+
+763:                                              ; preds = %759, %755
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %83) #17
+  br label %764
+
+764:                                              ; preds = %763, %751
+  call void @llvm.lifetime.end.p0(i64 8, ptr %83) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %82) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %81) #17
+  br label %784
+
+765:                                              ; preds = %740
+  %766 = load ptr, ptr %63, align 8
+  %767 = call i32 @strncmp(ptr noundef %766, ptr noundef @.str.10, i64 noundef 6) #19
+  %768 = icmp eq i32 %767, 0
+  br i1 %768, label %769, label %793
+
+769:                                              ; preds = %765
+  call void @llvm.lifetime.start.p0(i64 8, ptr %85) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr %86) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %87) #17
+  %770 = load ptr, ptr %6, align 8
+  invoke void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %87, ptr noundef %770)
+          to label %771 unwind label %775
+
+771:                                              ; preds = %769
+  invoke void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(ptr dead_on_unwind writable sret(%"class.nanobind::detail::accessor") align 8 %86, ptr noundef nonnull align 1 dereferenceable(1) %87, ptr noundef @.str.22)
+          to label %772 unwind label %775
+
+772:                                              ; preds = %771
+  invoke void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJRA11_cEEENS_6objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %85, ptr noundef nonnull align 1 dereferenceable(1) %86, ptr noundef nonnull align 1 dereferenceable(11) %67)
+          to label %773 unwind label %779
+
+773:                                              ; preds = %772
+  %774 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull align 8 dereferenceable(8) %85) #17
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %85) #17
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %86) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %87) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %86) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %85) #17
+  br label %793
+
+775:                                              ; preds = %771, %769
+  %776 = landingpad { ptr, i32 }
+          catch ptr null
+  %777 = extractvalue { ptr, i32 } %776, 0
+  store ptr %777, ptr %20, align 8
+  %778 = extractvalue { ptr, i32 } %776, 1
+  store i32 %778, ptr %21, align 4
+  br label %783
+
+779:                                              ; preds = %772
+  %780 = landingpad { ptr, i32 }
+          catch ptr null
+  %781 = extractvalue { ptr, i32 } %780, 0
+  store ptr %781, ptr %20, align 8
+  %782 = extractvalue { ptr, i32 } %780, 1
+  store i32 %782, ptr %21, align 4
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %86) #17
+  br label %783
+
+783:                                              ; preds = %779, %775
+  call void @llvm.lifetime.end.p0(i64 8, ptr %87) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %86) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %85) #17
+  br label %784
+
+784:                                              ; preds = %783, %764, %738, %729, %681
+  %785 = load ptr, ptr %20, align 8
+  %786 = call ptr @__cxa_begin_catch(ptr %785) #17
+  invoke void @_ZN8nanobind6object5resetEv(ptr noundef nonnull align 8 dereferenceable(8) %68)
+          to label %787 unwind label %940
+
+787:                                              ; preds = %784
+  invoke void @__cxa_end_catch()
+          to label %788 unwind label %940
+
+788:                                              ; preds = %787
+  br label %789
+
+789:                                              ; preds = %788, %796
+  %790 = invoke noundef zeroext i1 @_ZNK8nanobind6detail3apiINS_6handleEE8is_validEv(ptr noundef nonnull align 1 dereferenceable(1) %68)
+          to label %791 unwind label %940
+
+791:                                              ; preds = %789
+  br i1 %790, label %797, label %792
+
+792:                                              ; preds = %791
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %31, align 4
+  br label %816
+
+793:                                              ; preds = %773, %765
+  br label %794
+
+794:                                              ; preds = %793, %749
+  br label %795
+
+795:                                              ; preds = %794, %739
+  br label %796
+
+796:                                              ; preds = %795, %671
+  br label %789
+
+797:                                              ; preds = %791
+  call void @llvm.lifetime.start.p0(i64 8, ptr %88) #17
+  %798 = invoke noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %68)
+          to label %799 unwind label %940
+
+799:                                              ; preds = %797
+  %800 = load ptr, ptr %7, align 8
+  %801 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %798, ptr noundef %800, i1 noundef zeroext false, ptr noundef null) #17
+  store ptr %801, ptr %88, align 8
+  %802 = load ptr, ptr %88, align 8
+  %803 = icmp ne ptr %802, null
+  br i1 %803, label %804, label %814
+
+804:                                              ; preds = %799
+  %805 = load ptr, ptr %9, align 8
+  %806 = icmp ne ptr %805, null
+  br i1 %806, label %807, label %814
+
+807:                                              ; preds = %804
+  %808 = load ptr, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %89) #17
+  %809 = invoke ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %68)
+          to label %810 unwind label %940
+
+810:                                              ; preds = %807
+  %811 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %89, i32 0, i32 0
+  store ptr %809, ptr %811, align 8
+  %812 = invoke noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %89)
+          to label %813 unwind label %940
+
+813:                                              ; preds = %810
+  call void @_ZN8nanobind6detail12cleanup_list6appendEP7_object(ptr noundef nonnull align 8 dereferenceable(64) %808, ptr noundef %812) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %89) #17
+  br label %814
+
+814:                                              ; preds = %813, %804, %799
+  %815 = load ptr, ptr %88, align 8
+  store ptr %815, ptr %5, align 8
+  store i32 1, ptr %31, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %88) #17
+  br label %816
+
+816:                                              ; preds = %814, %792
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %68) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %68) #17
   br label %817
 
-814:                                              ; preds = %808
-  store ptr @.str.16, ptr %198, align 8
-  br label %817
+817:                                              ; preds = %816, %651
+  call void @llvm.lifetime.end.p0(i64 11, ptr %67) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %66) #17
+  br label %818
 
-815:                                              ; preds = %808
-  store ptr @.str.17, ptr %198, align 8
-  br label %817
+818:                                              ; preds = %817, %634
+  call void @llvm.lifetime.end.p0(i64 4, ptr %65) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %64) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %63) #17
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %59) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %59) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %58) #17
+  br label %936
 
-816:                                              ; preds = %808
-  store ptr null, ptr %146, align 8
-  store i32 1, ptr %172, align 4
-  br label %1030
+819:                                              ; preds = %593, %590, %585, %582, %576, %571
+  %820 = load i8, ptr %41, align 1, !range !3, !noundef !4
+  %821 = trunc i8 %820 to i1
+  br i1 %821, label %822, label %831
 
-817:                                              ; preds = %815, %814, %813, %812
-  %818 = getelementptr inbounds [11 x i8], ptr %199, i64 0, i64 0
-  %819 = load ptr, ptr %198, align 8
-  %820 = getelementptr inbounds %"struct.nanobind::dlpack::dtype", ptr %197, i32 0, i32 1
-  %821 = load i8, ptr %820, align 1
-  %822 = zext i8 %821 to i32
-  %823 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %818, i64 noundef 11, ptr noundef @.str.18, ptr noundef %819, i32 noundef %822) #11
-  br label %824
+822:                                              ; preds = %819
+  %823 = load i8, ptr %42, align 1, !range !3, !noundef !4
+  %824 = trunc i8 %823 to i1
+  br i1 %824, label %825, label %831
 
-824:                                              ; preds = %817, %805
-  call void @_ZN8nanobind6objectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %200) #11
-  %825 = load ptr, ptr %195, align 8
-  %826 = call i32 @strcmp(ptr noundef %825, ptr noundef @.str.19) #13
-  %827 = icmp eq i32 %826, 0
-  br i1 %827, label %828, label %844
+825:                                              ; preds = %822
+  %826 = load i8, ptr %43, align 1, !range !3, !noundef !4
+  %827 = trunc i8 %826 to i1
+  br i1 %827, label %828, label %831
 
-828:                                              ; preds = %824
-  %829 = load ptr, ptr %147, align 8
-  store ptr %203, ptr %130, align 8
-  store ptr %829, ptr %131, align 8
-  %830 = load ptr, ptr %130, align 8
-  %831 = load ptr, ptr %131, align 8
-  store ptr %831, ptr %830, align 8
-  br label %832
+828:                                              ; preds = %825
+  %829 = load i8, ptr %44, align 1, !range !3, !noundef !4
+  %830 = trunc i8 %829 to i1
+  br i1 %830, label %832, label %831
+
+831:                                              ; preds = %828, %825, %822, %819
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %31, align 4
+  br label %936
 
 832:                                              ; preds = %828
-  invoke void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(ptr dead_on_unwind writable sret(%"class.nanobind::detail::accessor") align 8 %202, ptr noundef nonnull align 1 dereferenceable(1) %203, ptr noundef @.str.20)
-          to label %833 unwind label %836
+  call void @llvm.lifetime.start.p0(i64 8, ptr %90) #17
+  invoke void @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %90, i64 noundef 1)
+          to label %833 unwind label %940
 
 833:                                              ; preds = %832
-  invoke void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJRA11_cRcEEENS_6objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %201, ptr noundef nonnull align 1 dereferenceable(1) %202, ptr noundef nonnull align 1 dereferenceable(11) %199, ptr noundef nonnull align 1 dereferenceable(1) %196)
-          to label %834 unwind label %840
+  %834 = load ptr, ptr %34, align 8
+  %835 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %90)
+          to label %836 unwind label %940
 
-834:                                              ; preds = %833
-  %835 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %200, ptr noundef nonnull align 8 dereferenceable(8) %201) #11
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %201) #11
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %202) #11
-  br label %993
+836:                                              ; preds = %833
+  %837 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %835, i32 0, i32 0
+  store ptr %834, ptr %837, align 8
+  %838 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %90)
+          to label %839 unwind label %940
 
-836:                                              ; preds = %969, %932, %898, %852, %832
-  %837 = landingpad { ptr, i32 }
-          catch ptr null
-  %838 = extractvalue { ptr, i32 } %837, 0
-  store ptr %838, ptr %161, align 8
-  %839 = extractvalue { ptr, i32 } %837, 1
-  store i32 %839, ptr %162, align 4
-  br label %977
+839:                                              ; preds = %836
+  %840 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %838, i32 0, i32 1
+  %841 = call noundef i64 @_ZNSt13__atomic_baseImEaSEm(ptr noundef nonnull align 8 dereferenceable(8) %840, i64 noundef 0) #17
+  %842 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %90)
+          to label %843 unwind label %940
 
-840:                                              ; preds = %833
-  %841 = landingpad { ptr, i32 }
-          catch ptr null
-  %842 = extractvalue { ptr, i32 } %841, 0
-  store ptr %842, ptr %161, align 8
-  %843 = extractvalue { ptr, i32 } %841, 1
-  store i32 %843, ptr %162, align 4
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %202) #11
-  br label %977
+843:                                              ; preds = %839
+  %844 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %842, i32 0, i32 2
+  store ptr null, ptr %844, align 8
+  %845 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %90)
+          to label %846 unwind label %940
 
-844:                                              ; preds = %824
-  %845 = load ptr, ptr %195, align 8
-  %846 = call i32 @strcmp(ptr noundef %845, ptr noundef @.str.7) #13
-  %847 = icmp eq i32 %846, 0
-  br i1 %847, label %848, label %928
+846:                                              ; preds = %843
+  %847 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %845, i32 0, i32 4
+  store i8 0, ptr %847, align 8
+  %848 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %90)
+          to label %849 unwind label %940
 
-848:                                              ; preds = %844
-  %849 = load ptr, ptr %147, align 8
-  store ptr %206, ptr %128, align 8
-  store ptr %849, ptr %129, align 8
-  %850 = load ptr, ptr %128, align 8
-  %851 = load ptr, ptr %129, align 8
-  store ptr %851, ptr %850, align 8
-  br label %852
+849:                                              ; preds = %846
+  %850 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %848, i32 0, i32 6
+  store i8 1, ptr %850, align 2
+  %851 = load ptr, ptr %7, align 8
+  %852 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_config", ptr %851, i32 0, i32 2
+  %853 = load i8, ptr %852, align 1, !range !3, !noundef !4
+  %854 = trunc i8 %853 to i1
+  %855 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %90)
+          to label %856 unwind label %940
 
-852:                                              ; preds = %848
-  invoke void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(ptr dead_on_unwind writable sret(%"class.nanobind::detail::accessor") align 8 %205, ptr noundef nonnull align 1 dereferenceable(1) %206, ptr noundef @.str.21)
-          to label %853 unwind label %836
+856:                                              ; preds = %849
+  %857 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %855, i32 0, i32 7
+  %858 = zext i1 %854 to i8
+  store i8 %858, ptr %857, align 1
+  %859 = load i8, ptr %11, align 1, !range !3, !noundef !4
+  %860 = trunc i8 %859 to i1
+  br i1 %860, label %861, label %865
 
-853:                                              ; preds = %852
-  call void @llvm.experimental.noalias.scope.decl(metadata !43)
-  store ptr %209, ptr %93, align 8, !noalias !43
-  store ptr @.str.7, ptr %94, align 8, !noalias !43
-  %854 = load ptr, ptr %94, align 8, !noalias !43
-  %855 = invoke noundef ptr @_ZN8nanobind6detail13module_importEPKc(ptr noundef %854)
-          to label %856 unwind label %902
+861:                                              ; preds = %856
+  %862 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %90)
+          to label %863 unwind label %940
 
-856:                                              ; preds = %853
-  store ptr %95, ptr %91, align 8, !noalias !43
-  store ptr %855, ptr %92, align 8, !noalias !43
-  %857 = load ptr, ptr %91, align 8, !noalias !43
-  %858 = load ptr, ptr %92, align 8, !noalias !43
-  store ptr %858, ptr %857, align 8
-  %859 = load ptr, ptr %95, align 8, !noalias !43
-  call void @llvm.experimental.noalias.scope.decl(metadata !46)
-  store ptr %209, ptr %40, align 8, !noalias !46
-  store ptr %859, ptr %41, align 8, !noalias !46
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %42, ptr align 8 %41, i64 8, i1 false), !noalias !46
-  %860 = load ptr, ptr %42, align 8, !noalias !46
-  store ptr %860, ptr %31, align 8
-  store ptr %209, ptr %32, align 8
-  %861 = load ptr, ptr %32, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %33, ptr align 8 %31, i64 8, i1 false)
-  %862 = load ptr, ptr %33, align 8
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %861, ptr %862)
-  br label %863
+863:                                              ; preds = %861
+  %864 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %862, i32 0, i32 3
+  store ptr null, ptr %864, align 8
+  br label %872
 
-863:                                              ; preds = %856
-  br label %864
+865:                                              ; preds = %856
+  %866 = load ptr, ptr %6, align 8
+  %867 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %90)
+          to label %868 unwind label %940
 
-864:                                              ; preds = %863
-  br label %865
+868:                                              ; preds = %865
+  %869 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %867, i32 0, i32 3
+  store ptr %866, ptr %869, align 8
+  %870 = load ptr, ptr %6, align 8
+  invoke void @_ZL10_Py_INCREFP7_object(ptr noundef %870)
+          to label %871 unwind label %940
 
-865:                                              ; preds = %864
-  %866 = getelementptr inbounds [11 x i8], ptr %199, i64 0, i64 0
-  invoke void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(ptr dead_on_unwind writable sret(%"class.nanobind::detail::accessor") align 8 %208, ptr noundef nonnull align 1 dereferenceable(1) %209, ptr noundef %866)
-          to label %867 unwind label %906
+871:                                              ; preds = %868
+  br label %872
 
-867:                                              ; preds = %865
-  store ptr %210, ptr %60, align 8
-  store ptr @.str.22, ptr %61, align 8
-  %868 = load ptr, ptr %60, align 8
-  %869 = load ptr, ptr %61, align 8
-  store ptr %869, ptr %868, align 8
-  %870 = getelementptr inbounds %"struct.nanobind::arg", ptr %868, i32 0, i32 1
-  store ptr null, ptr %870, align 8
-  %871 = getelementptr inbounds %"struct.nanobind::arg", ptr %868, i32 0, i32 2
-  store i8 1, ptr %871, align 8
-  %872 = getelementptr inbounds %"struct.nanobind::arg", ptr %868, i32 0, i32 3
-  store i8 0, ptr %872, align 1
-  br label %873
+872:                                              ; preds = %871, %863
+  %873 = load ptr, ptr %35, align 8
+  %874 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %873, i32 0, i32 5
+  %875 = load ptr, ptr %874, align 8
+  %876 = icmp ne ptr %875, null
+  br i1 %876, label %877, label %881
 
-873:                                              ; preds = %867
-  call void @llvm.experimental.noalias.scope.decl(metadata !49)
-  store ptr %207, ptr %54, align 8, !noalias !49
-  store ptr %210, ptr %55, align 8, !noalias !49
-  store ptr %208, ptr %56, align 8, !noalias !49
-  %874 = load ptr, ptr %55, align 8, !noalias !49
-  %875 = load ptr, ptr %56, align 8, !noalias !49
-  invoke void @_ZN8nanobind4castINS_6detail8accessorINS1_8str_attrEEEEENS_6objectEOT_NS_9rv_policyE(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %57, ptr noundef nonnull align 8 dereferenceable(24) %875, i32 noundef 1)
-          to label %876 unwind label %910
+877:                                              ; preds = %872
+  %878 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %90)
+          to label %879 unwind label %940
 
-876:                                              ; preds = %873
-  store ptr %207, ptr %5, align 8
-  store ptr %874, ptr %6, align 8
-  store ptr %57, ptr %7, align 8
-  %877 = load ptr, ptr %5, align 8
-  %878 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %877, ptr align 8 %878, i64 24, i1 false)
-  %879 = getelementptr inbounds %"struct.nanobind::arg_v", ptr %877, i32 0, i32 1
-  %880 = load ptr, ptr %7, align 8
-  call void @_ZN8nanobind6objectC2EOS0_(ptr noundef nonnull align 8 dereferenceable(8) %879, ptr noundef nonnull align 8 dereferenceable(8) %880) #11
-  br label %889
-
-881:                                              ; No predecessors!
-  %882 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr null
-  %883 = extractvalue { ptr, i32 } %882, 0
-  store ptr %883, ptr %58, align 8, !noalias !49
-  %884 = extractvalue { ptr, i32 } %882, 1
-  store i32 %884, ptr %59, align 4, !noalias !49
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %57) #11
-  %885 = load ptr, ptr %58, align 8, !noalias !49
-  %886 = load i32, ptr %59, align 4, !noalias !49
-  %887 = insertvalue { ptr, i32 } poison, ptr %885, 0
-  %888 = insertvalue { ptr, i32 } %887, i32 %886, 1
-  br label %912
-
-889:                                              ; preds = %876
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %57) #11
-  br label %890
-
-890:                                              ; preds = %889
-  invoke void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJNS_5arg_vEEEENS_6objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %204, ptr noundef nonnull align 1 dereferenceable(1) %205, ptr noundef nonnull align 8 dereferenceable(32) %207)
-          to label %891 unwind label %916
-
-891:                                              ; preds = %890
-  %892 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %200, ptr noundef nonnull align 8 dereferenceable(8) %204) #11
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %204) #11
-  call void @_ZN8nanobind5arg_vD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %207) #11
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %208) #11
-  call void @_ZN8nanobind7module_D2Ev(ptr noundef nonnull align 8 dereferenceable(8) %209) #11
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %205) #11
-  %893 = load ptr, ptr %148, align 8
-  %894 = getelementptr inbounds %"struct.nanobind::detail::ndarray_req", ptr %893, i32 0, i32 6
-  %895 = load i8, ptr %894, align 1
-  %896 = sext i8 %895 to i32
-  %897 = icmp eq i32 %896, 67
-  br i1 %897, label %898, label %927
-
-898:                                              ; preds = %891
-  invoke void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(ptr dead_on_unwind writable sret(%"class.nanobind::detail::accessor") align 8 %212, ptr noundef nonnull align 1 dereferenceable(1) %200, ptr noundef @.str.23)
-          to label %899 unwind label %836
-
-899:                                              ; preds = %898
-  invoke void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJEEENS_6objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %211, ptr noundef nonnull align 1 dereferenceable(1) %212)
-          to label %900 unwind label %923
-
-900:                                              ; preds = %899
-  %901 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %200, ptr noundef nonnull align 8 dereferenceable(8) %211) #11
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %211) #11
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %212) #11
-  br label %927
-
-902:                                              ; preds = %853
-  %903 = landingpad { ptr, i32 }
-          catch ptr null
-  %904 = extractvalue { ptr, i32 } %903, 0
-  store ptr %904, ptr %161, align 8
-  %905 = extractvalue { ptr, i32 } %903, 1
-  store i32 %905, ptr %162, align 4
-  br label %922
-
-906:                                              ; preds = %865
-  %907 = landingpad { ptr, i32 }
-          catch ptr null
-  %908 = extractvalue { ptr, i32 } %907, 0
-  store ptr %908, ptr %161, align 8
-  %909 = extractvalue { ptr, i32 } %907, 1
-  store i32 %909, ptr %162, align 4
-  br label %921
-
-910:                                              ; preds = %873
-  %911 = landingpad { ptr, i32 }
-          catch ptr null
-  br label %912
-
-912:                                              ; preds = %910, %881
-  %913 = phi { ptr, i32 } [ %911, %910 ], [ %888, %881 ]
-  %914 = extractvalue { ptr, i32 } %913, 0
-  store ptr %914, ptr %161, align 8
-  %915 = extractvalue { ptr, i32 } %913, 1
-  store i32 %915, ptr %162, align 4
+879:                                              ; preds = %877
+  %880 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %878, i32 0, i32 5
+  store i8 0, ptr %880, align 1
   br label %920
 
-916:                                              ; preds = %890
-  %917 = landingpad { ptr, i32 }
-          catch ptr null
-  %918 = extractvalue { ptr, i32 } %917, 0
-  store ptr %918, ptr %161, align 8
-  %919 = extractvalue { ptr, i32 } %917, 1
-  store i32 %919, ptr %162, align 4
-  call void @_ZN8nanobind5arg_vD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %207) #11
+881:                                              ; preds = %872
+  %882 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %90)
+          to label %883 unwind label %940
+
+883:                                              ; preds = %881
+  %884 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %882, i32 0, i32 5
+  store i8 1, ptr %884, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %91) #17
+  %885 = load ptr, ptr %35, align 8
+  %886 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %885, i32 0, i32 2
+  %887 = load i32, ptr %886, align 8
+  %888 = sext i32 %887 to i64
+  invoke void @_ZN8nanobind6detail15scoped_pymallocIlEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %91, i64 noundef %888)
+          to label %889 unwind label %940
+
+889:                                              ; preds = %883
+  call void @llvm.lifetime.start.p0(i64 8, ptr %92) #17
+  %890 = load ptr, ptr %35, align 8
+  %891 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %890, i32 0, i32 2
+  %892 = load i32, ptr %891, align 8
+  %893 = sub nsw i32 %892, 1
+  %894 = sext i32 %893 to i64
+  store i64 %894, ptr %92, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %93) #17
+  store i64 1, ptr %93, align 8
+  br label %895
+
+895:                                              ; preds = %912, %889
+  %896 = load i64, ptr %92, align 8
+  %897 = icmp sge i64 %896, 0
+  br i1 %897, label %899, label %898
+
+898:                                              ; preds = %895
+  store i32 18, ptr %31, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %93) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %92) #17
+  br label %915
+
+899:                                              ; preds = %895
+  %900 = load i64, ptr %93, align 8
+  %901 = load i64, ptr %92, align 8
+  %902 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6detail15scoped_pymallocIlEixEm(ptr noundef nonnull align 8 dereferenceable(8) %91, i64 noundef %901)
+          to label %903 unwind label %940
+
+903:                                              ; preds = %899
+  store i64 %900, ptr %902, align 8
+  %904 = load ptr, ptr %35, align 8
+  %905 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %904, i32 0, i32 4
+  %906 = load ptr, ptr %905, align 8
+  %907 = load i64, ptr %92, align 8
+  %908 = getelementptr inbounds i64, ptr %906, i64 %907
+  %909 = load i64, ptr %908, align 8
+  %910 = load i64, ptr %93, align 8
+  %911 = mul nsw i64 %910, %909
+  store i64 %911, ptr %93, align 8
+  br label %912
+
+912:                                              ; preds = %903
+  %913 = load i64, ptr %92, align 8
+  %914 = add nsw i64 %913, -1
+  store i64 %914, ptr %92, align 8
+  br label %895, !llvm.loop !11
+
+915:                                              ; preds = %898
+  %916 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocIlE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %91)
+          to label %917 unwind label %940
+
+917:                                              ; preds = %915
+  %918 = load ptr, ptr %35, align 8
+  %919 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %918, i32 0, i32 5
+  store ptr %916, ptr %919, align 8
+  call void @_ZN8nanobind6detail15scoped_pymallocIlED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %91) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %91) #17
   br label %920
 
-920:                                              ; preds = %916, %912
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %208) #11
-  br label %921
-
-921:                                              ; preds = %920, %906
-  call void @_ZN8nanobind7module_D2Ev(ptr noundef nonnull align 8 dereferenceable(8) %209) #11
-  br label %922
-
-922:                                              ; preds = %921, %902
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %205) #11
-  br label %977
-
-923:                                              ; preds = %899
-  %924 = landingpad { ptr, i32 }
-          catch ptr null
-  %925 = extractvalue { ptr, i32 } %924, 0
-  store ptr %925, ptr %161, align 8
-  %926 = extractvalue { ptr, i32 } %924, 1
-  store i32 %926, ptr %162, align 4
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %212) #11
-  br label %977
-
-927:                                              ; preds = %900, %891
-  br label %992
-
-928:                                              ; preds = %844
-  %929 = load ptr, ptr %195, align 8
-  %930 = call i32 @strncmp(ptr noundef %929, ptr noundef @.str.5, i64 noundef 11) #13
-  %931 = icmp eq i32 %930, 0
-  br i1 %931, label %932, label %961
-
-932:                                              ; preds = %928
-  call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  store ptr %215, ptr %98, align 8, !noalias !52
-  store ptr @.str.24, ptr %99, align 8, !noalias !52
-  %933 = load ptr, ptr %99, align 8, !noalias !52
-  %934 = invoke noundef ptr @_ZN8nanobind6detail13module_importEPKc(ptr noundef %933)
-          to label %935 unwind label %836
-
-935:                                              ; preds = %932
-  store ptr %100, ptr %96, align 8, !noalias !52
-  store ptr %934, ptr %97, align 8, !noalias !52
-  %936 = load ptr, ptr %96, align 8, !noalias !52
-  %937 = load ptr, ptr %97, align 8, !noalias !52
-  store ptr %937, ptr %936, align 8
-  %938 = load ptr, ptr %100, align 8, !noalias !52
-  call void @llvm.experimental.noalias.scope.decl(metadata !55)
-  store ptr %215, ptr %37, align 8, !noalias !55
-  store ptr %938, ptr %38, align 8, !noalias !55
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %39, ptr align 8 %38, i64 8, i1 false), !noalias !55
-  %939 = load ptr, ptr %39, align 8, !noalias !55
-  store ptr %939, ptr %34, align 8
-  store ptr %215, ptr %35, align 8
-  %940 = load ptr, ptr %35, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr align 8 %34, i64 8, i1 false)
-  %941 = load ptr, ptr %36, align 8
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %940, ptr %941)
-  br label %942
-
-942:                                              ; preds = %935
-  br label %943
-
-943:                                              ; preds = %942
-  br label %944
-
-944:                                              ; preds = %943
-  invoke void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(ptr dead_on_unwind writable sret(%"class.nanobind::detail::accessor") align 8 %214, ptr noundef nonnull align 1 dereferenceable(1) %215, ptr noundef @.str.25)
-          to label %945 unwind label %952
-
-945:                                              ; preds = %944
-  %946 = load ptr, ptr %147, align 8
-  store ptr %216, ptr %126, align 8
-  store ptr %946, ptr %127, align 8
-  %947 = load ptr, ptr %126, align 8
-  %948 = load ptr, ptr %127, align 8
-  store ptr %948, ptr %947, align 8
-  br label %949
-
-949:                                              ; preds = %945
-  invoke void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJNS_6handleERA11_cEEENS_6objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %213, ptr noundef nonnull align 1 dereferenceable(1) %214, ptr noundef nonnull align 8 dereferenceable(8) %216, ptr noundef nonnull align 1 dereferenceable(11) %199)
-          to label %950 unwind label %956
-
-950:                                              ; preds = %949
-  %951 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %200, ptr noundef nonnull align 8 dereferenceable(8) %213) #11
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %213) #11
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %214) #11
-  call void @_ZN8nanobind7module_D2Ev(ptr noundef nonnull align 8 dereferenceable(8) %215) #11
-  br label %991
-
-952:                                              ; preds = %944
-  %953 = landingpad { ptr, i32 }
-          catch ptr null
-  %954 = extractvalue { ptr, i32 } %953, 0
-  store ptr %954, ptr %161, align 8
-  %955 = extractvalue { ptr, i32 } %953, 1
-  store i32 %955, ptr %162, align 4
-  br label %960
-
-956:                                              ; preds = %949
-  %957 = landingpad { ptr, i32 }
-          catch ptr null
-  %958 = extractvalue { ptr, i32 } %957, 0
-  store ptr %958, ptr %161, align 8
-  %959 = extractvalue { ptr, i32 } %957, 1
-  store i32 %959, ptr %162, align 4
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %214) #11
-  br label %960
-
-960:                                              ; preds = %956, %952
-  call void @_ZN8nanobind7module_D2Ev(ptr noundef nonnull align 8 dereferenceable(8) %215) #11
-  br label %977
-
-961:                                              ; preds = %928
-  %962 = load ptr, ptr %195, align 8
-  %963 = call i32 @strncmp(ptr noundef %962, ptr noundef @.str.9, i64 noundef 6) #13
-  %964 = icmp eq i32 %963, 0
-  br i1 %964, label %965, label %990
-
-965:                                              ; preds = %961
-  %966 = load ptr, ptr %147, align 8
-  store ptr %219, ptr %124, align 8
-  store ptr %966, ptr %125, align 8
-  %967 = load ptr, ptr %124, align 8
-  %968 = load ptr, ptr %125, align 8
-  store ptr %968, ptr %967, align 8
-  br label %969
-
-969:                                              ; preds = %965
-  invoke void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(ptr dead_on_unwind writable sret(%"class.nanobind::detail::accessor") align 8 %218, ptr noundef nonnull align 1 dereferenceable(1) %219, ptr noundef @.str.20)
-          to label %970 unwind label %836
-
-970:                                              ; preds = %969
-  invoke void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJRA11_cEEENS_6objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %217, ptr noundef nonnull align 1 dereferenceable(1) %218, ptr noundef nonnull align 1 dereferenceable(11) %199)
-          to label %971 unwind label %973
-
-971:                                              ; preds = %970
-  %972 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %200, ptr noundef nonnull align 8 dereferenceable(8) %217) #11
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %217) #11
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %218) #11
-  br label %990
-
-973:                                              ; preds = %970
-  %974 = landingpad { ptr, i32 }
-          catch ptr null
-  %975 = extractvalue { ptr, i32 } %974, 0
-  store ptr %975, ptr %161, align 8
-  %976 = extractvalue { ptr, i32 } %974, 1
-  store i32 %976, ptr %162, align 4
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %218) #11
-  br label %977
-
-977:                                              ; preds = %973, %960, %923, %922, %840, %836
-  %978 = load ptr, ptr %161, align 8
-  %979 = call ptr @__cxa_begin_catch(ptr %978) #11
-  invoke void @_ZN8nanobind6object5resetEv(ptr noundef nonnull align 8 dereferenceable(8) %200)
-          to label %980 unwind label %1122
-
-980:                                              ; preds = %977
-  invoke void @__cxa_end_catch()
-          to label %981 unwind label %1122
-
-981:                                              ; preds = %980
-  br label %982
-
-982:                                              ; preds = %993, %981
-  store ptr %200, ptr %123, align 8
-  %983 = load ptr, ptr %123, align 8
-  %984 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8nanobind6detail3apiINS_6handleEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %983)
-  store ptr %984, ptr %68, align 8
-  %985 = load ptr, ptr %68, align 8
-  %986 = load ptr, ptr %985, align 8
-  %987 = icmp ne ptr %986, null
-  br label %988
-
-988:                                              ; preds = %982
-  br i1 %987, label %994, label %989
-
-989:                                              ; preds = %988
-  store ptr null, ptr %146, align 8
-  store i32 1, ptr %172, align 4
-  br label %1029
-
-990:                                              ; preds = %971, %961
-  br label %991
-
-991:                                              ; preds = %990, %950
-  br label %992
-
-992:                                              ; preds = %991, %927
-  br label %993
-
-993:                                              ; preds = %992, %834
-  br label %982
-
-994:                                              ; preds = %988
-  store ptr %200, ptr %64, align 8
-  %995 = load ptr, ptr %64, align 8
-  %996 = load ptr, ptr %995, align 8
-  br label %997
-
-997:                                              ; preds = %994
-  %998 = load ptr, ptr %148, align 8
-  %999 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_11ndarray_reqEbPNS0_12cleanup_listE(ptr noundef %996, ptr noundef %998, i1 noundef zeroext false, ptr noundef null) #11
-  store ptr %999, ptr %220, align 8
-  %1000 = load ptr, ptr %220, align 8
-  %1001 = icmp ne ptr %1000, null
-  br i1 %1001, label %1002, label %1027
-
-1002:                                             ; preds = %997
-  %1003 = load ptr, ptr %150, align 8
-  %1004 = icmp ne ptr %1003, null
-  br i1 %1004, label %1005, label %1027
-
-1005:                                             ; preds = %1002
-  %1006 = load ptr, ptr %150, align 8
-  %1007 = invoke ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %200)
-          to label %1008 unwind label %1122
-
-1008:                                             ; preds = %1005
-  %1009 = getelementptr inbounds %"class.nanobind::handle", ptr %221, i32 0, i32 0
-  store ptr %1007, ptr %1009, align 8
-  store ptr %221, ptr %65, align 8
-  %1010 = load ptr, ptr %65, align 8
-  %1011 = load ptr, ptr %1010, align 8
-  br label %1012
-
-1012:                                             ; preds = %1008
-  store ptr %1006, ptr %52, align 8
-  store ptr %1011, ptr %53, align 8
-  %1013 = load ptr, ptr %52, align 8
-  %1014 = load i32, ptr %1013, align 8
-  %1015 = getelementptr inbounds %"struct.nanobind::detail::cleanup_list", ptr %1013, i32 0, i32 1
-  %1016 = load i32, ptr %1015, align 4
-  %1017 = icmp uge i32 %1014, %1016
-  br i1 %1017, label %1018, label %1019
-
-1018:                                             ; preds = %1012
-  call void @_ZN8nanobind6detail12cleanup_list6expandEv(ptr noundef nonnull align 8 dereferenceable(64) %1013) #11
-  br label %1019
-
-1019:                                             ; preds = %1018, %1012
-  %1020 = load ptr, ptr %53, align 8
-  %1021 = getelementptr inbounds %"struct.nanobind::detail::cleanup_list", ptr %1013, i32 0, i32 2
-  %1022 = load ptr, ptr %1021, align 8
-  %1023 = load i32, ptr %1013, align 8
-  %1024 = add i32 %1023, 1
-  store i32 %1024, ptr %1013, align 8
-  %1025 = zext i32 %1023 to i64
-  %1026 = getelementptr inbounds ptr, ptr %1022, i64 %1025
-  store ptr %1020, ptr %1026, align 8
-  br label %1027
-
-1027:                                             ; preds = %1019, %1002, %997
-  %1028 = load ptr, ptr %220, align 8
-  store ptr %1028, ptr %146, align 8
-  store i32 1, ptr %172, align 4
-  br label %1029
-
-1029:                                             ; preds = %1027, %989
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %200) #11
-  br label %1030
-
-1030:                                             ; preds = %1029, %816, %799
-  call void @_ZN8nanobind3strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %191) #11
-  br label %1119
-
-1031:                                             ; preds = %733, %730, %724, %721, %715, %710
-  %1032 = load i8, ptr %177, align 1
-  %1033 = trunc i8 %1032 to i1
-  br i1 %1033, label %1034, label %1043
-
-1034:                                             ; preds = %1031
-  %1035 = load i8, ptr %178, align 1
-  %1036 = trunc i8 %1035 to i1
-  br i1 %1036, label %1037, label %1043
-
-1037:                                             ; preds = %1034
-  %1038 = load i8, ptr %179, align 1
-  %1039 = trunc i8 %1038 to i1
-  br i1 %1039, label %1040, label %1043
-
-1040:                                             ; preds = %1037
-  %1041 = load i8, ptr %180, align 1
-  %1042 = trunc i8 %1041 to i1
-  br i1 %1042, label %1044, label %1043
-
-1043:                                             ; preds = %1040, %1037, %1034, %1031
-  store ptr null, ptr %146, align 8
-  store i32 1, ptr %172, align 4
-  br label %1119
-
-1044:                                             ; preds = %1040
-  invoke void @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %222, i64 noundef 1)
-          to label %1045 unwind label %1122
-
-1045:                                             ; preds = %1044
-  %1046 = load ptr, ptr %175, align 8
-  %1047 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %222)
-          to label %1048 unwind label %1122
-
-1048:                                             ; preds = %1045
-  %1049 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %1047, i32 0, i32 0
-  store ptr %1046, ptr %1049, align 8
-  %1050 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %222)
-          to label %1051 unwind label %1122
-
-1051:                                             ; preds = %1048
-  %1052 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %1050, i32 0, i32 1
-  %1053 = call noundef i64 @_ZNSt13__atomic_baseImEaSEm(ptr noundef nonnull align 8 dereferenceable(8) %1052, i64 noundef 0) #11
-  %1054 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %222)
-          to label %1055 unwind label %1122
-
-1055:                                             ; preds = %1051
-  %1056 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %1054, i32 0, i32 2
-  store ptr null, ptr %1056, align 8
-  %1057 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %222)
-          to label %1058 unwind label %1122
-
-1058:                                             ; preds = %1055
-  %1059 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %1057, i32 0, i32 4
-  store i8 0, ptr %1059, align 8
-  %1060 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %222)
-          to label %1061 unwind label %1122
-
-1061:                                             ; preds = %1058
-  %1062 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %1060, i32 0, i32 6
-  store i8 1, ptr %1062, align 2
-  %1063 = load ptr, ptr %148, align 8
-  %1064 = getelementptr inbounds %"struct.nanobind::detail::ndarray_req", ptr %1063, i32 0, i32 5
-  %1065 = load i8, ptr %1064, align 2
-  %1066 = trunc i8 %1065 to i1
-  %1067 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %222)
-          to label %1068 unwind label %1122
-
-1068:                                             ; preds = %1061
-  %1069 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %1067, i32 0, i32 7
-  %1070 = zext i1 %1066 to i8
-  store i8 %1070, ptr %1069, align 1
-  %1071 = load i8, ptr %152, align 1
-  %1072 = trunc i8 %1071 to i1
-  br i1 %1072, label %1073, label %1077
-
-1073:                                             ; preds = %1068
-  %1074 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %222)
-          to label %1075 unwind label %1122
-
-1075:                                             ; preds = %1073
-  %1076 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %1074, i32 0, i32 3
-  store ptr null, ptr %1076, align 8
-  br label %1084
-
-1077:                                             ; preds = %1068
-  %1078 = load ptr, ptr %147, align 8
-  %1079 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %222)
-          to label %1080 unwind label %1122
-
-1080:                                             ; preds = %1077
-  %1081 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %1079, i32 0, i32 3
-  store ptr %1078, ptr %1081, align 8
-  %1082 = load ptr, ptr %147, align 8
-  invoke void @_ZL10_Py_INCREFP7_object(ptr noundef %1082)
-          to label %1083 unwind label %1122
-
-1083:                                             ; preds = %1080
-  br label %1084
-
-1084:                                             ; preds = %1083, %1075
-  %1085 = load ptr, ptr %176, align 8
-  %1086 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %1085, i32 0, i32 5
-  %1087 = load ptr, ptr %1086, align 8
-  %1088 = icmp ne ptr %1087, null
-  br i1 %1088, label %1089, label %1093
-
-1089:                                             ; preds = %1084
-  %1090 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %222)
-          to label %1091 unwind label %1122
-
-1091:                                             ; preds = %1089
-  %1092 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %1090, i32 0, i32 5
-  store i8 0, ptr %1092, align 1
-  br label %1101
-
-1093:                                             ; preds = %1084
-  %1094 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %222)
-          to label %1095 unwind label %1122
-
-1095:                                             ; preds = %1093
-  %1096 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %1094, i32 0, i32 5
-  store i8 1, ptr %1096, align 1
-  %1097 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocIlE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %184)
-          to label %1098 unwind label %1122
-
-1098:                                             ; preds = %1095
-  %1099 = load ptr, ptr %176, align 8
-  %1100 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %1099, i32 0, i32 5
-  store ptr %1097, ptr %1100, align 8
-  br label %1101
-
-1101:                                             ; preds = %1098, %1091
-  store ptr %151, ptr %66, align 8
-  %1102 = load ptr, ptr %66, align 8
-  %1103 = load ptr, ptr %1102, align 8
-  br label %1104
-
-1104:                                             ; preds = %1101
-  %1105 = invoke i32 @PyCapsule_SetName(ptr noundef %1103, ptr noundef @.str.26)
-          to label %1106 unwind label %1122
-
-1106:                                             ; preds = %1104
-  %1107 = icmp ne i32 %1105, 0
-  br i1 %1107, label %1115, label %1108
-
-1108:                                             ; preds = %1106
-  store ptr %151, ptr %67, align 8
-  %1109 = load ptr, ptr %67, align 8
-  %1110 = load ptr, ptr %1109, align 8
-  br label %1111
-
-1111:                                             ; preds = %1108
-  %1112 = invoke i32 @PyCapsule_SetDestructor(ptr noundef %1110, ptr noundef null)
-          to label %1113 unwind label %1122
-
-1113:                                             ; preds = %1111
-  %1114 = icmp ne i32 %1112, 0
-  br i1 %1114, label %1115, label %1116
-
-1115:                                             ; preds = %1113, %1106
-  call void @_ZN8nanobind6detail16fail_unspecifiedEv() #12
+920:                                              ; preds = %917, %879
+  %921 = invoke noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
+          to label %922 unwind label %940
+
+922:                                              ; preds = %920
+  %923 = invoke i32 @PyCapsule_SetName(ptr noundef %921, ptr noundef @.str.28)
+          to label %924 unwind label %940
+
+924:                                              ; preds = %922
+  %925 = icmp ne i32 %923, 0
+  br i1 %925, label %932, label %926
+
+926:                                              ; preds = %924
+  %927 = invoke noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
+          to label %928 unwind label %940
+
+928:                                              ; preds = %926
+  %929 = invoke i32 @PyCapsule_SetDestructor(ptr noundef %927, ptr noundef null)
+          to label %930 unwind label %940
+
+930:                                              ; preds = %928
+  %931 = icmp ne i32 %929, 0
+  br i1 %931, label %932, label %933
+
+932:                                              ; preds = %930, %924
+  call void @_ZN8nanobind6detail16fail_unspecifiedEv() #18
   unreachable
 
-1116:                                             ; preds = %1113
-  %1117 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %222)
-          to label %1118 unwind label %1122
+933:                                              ; preds = %930
+  %934 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %90)
+          to label %935 unwind label %940
 
-1118:                                             ; preds = %1116
-  store ptr %1117, ptr %146, align 8
-  store i32 1, ptr %172, align 4
-  call void @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %222) #11
-  br label %1119
+935:                                              ; preds = %933
+  store ptr %934, ptr %5, align 8
+  store i32 1, ptr %31, align 4
+  call void @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %90) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %90) #17
+  br label %936
 
-1119:                                             ; preds = %1118, %1043, %1030
-  call void @_ZN8nanobind6detail15scoped_pymallocIlED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %184) #11
-  br label %1120
+936:                                              ; preds = %935, %831, %818
+  call void @llvm.lifetime.end.p0(i64 1, ptr %57) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %46) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %44) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %43) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %42) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %41) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %40) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %39) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %38) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %36) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #17
+  br label %937
 
-1120:                                             ; preds = %1119, %437, %416
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %151) #11
-  %1121 = load ptr, ptr %146, align 8
-  ret ptr %1121
+937:                                              ; preds = %936, %244
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #17
+  br label %938
 
-1122:                                             ; preds = %1116, %1111, %1104, %1095, %1093, %1089, %1080, %1077, %1073, %1061, %1058, %1055, %1051, %1048, %1045, %1044, %1005, %980, %977, %770, %744, %743, %676, %621, %587, %550, %445, %436, %431, %393, %383, %380, %249, %231, %4
-  %1123 = landingpad { ptr, i32 }
+938:                                              ; preds = %937, %227
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #17
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  %939 = load ptr, ptr %5, align 8
+  ret ptr %939
+
+940:                                              ; preds = %933, %928, %926, %922, %920, %915, %899, %883, %881, %877, %868, %865, %861, %849, %846, %843, %839, %836, %833, %832, %810, %807, %797, %789, %787, %784, %608, %604, %602, %601, %596, %588, %271, %245, %243, %238, %236, %231, %229, %224, %219, %218, %211, %208, %205, %202, %113, %109, %106, %105, %102, %4
+  %941 = landingpad { ptr, i32 }
           catch ptr null
-  %1124 = extractvalue { ptr, i32 } %1123, 0
-  call void @__clang_call_terminate(ptr %1124) #12
+  %942 = extractvalue { ptr, i32 } %941, 0
+  call void @__clang_call_terminate(ptr %942) #18
   unreachable
 }
 
@@ -2496,18 +2469,18 @@ define linkonce_odr hidden void @_ZN8nanobind6objectC2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN8nanobind6handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  call void @_ZN8nanobind6handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #17
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZL11_Py_IS_TYPEPK7_objectPK11_typeobject(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef i32 @_ZL11_Py_IS_TYPEPK7_objectPK11_typeobject(ptr noundef %0, ptr noundef %1) #9 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct._object, ptr %5, i32 0, i32 1
+  %6 = getelementptr inbounds nuw %struct._object, ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %4, align 8
   %9 = icmp eq ptr %7, %8
@@ -2515,60 +2488,114 @@ define internal noundef i32 @_ZL11_Py_IS_TYPEPK7_objectPK11_typeobject(ptr nound
   ret i32 %10
 }
 
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden void @_ZN8nanobind5stealINS_6objectEEET_NS_6handleE(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr %1) #10 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca %"class.nanobind::handle", align 8
+  %5 = alloca %"class.nanobind::handle", align 8
+  store ptr %0, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %4, i32 0, i32 0
+  store ptr %1, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %4, i64 8, i1 false)
+  %7 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %5, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %8)
+  ret void
+}
+
 declare ptr @PyObject_CallMethod(ptr noundef, ptr noundef, ptr noundef, ...) #1
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #11 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
+  ret void
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca %"class.nanobind::handle", align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds %"class.nanobind::handle", ptr %8, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
-  store ptr %7, ptr %3, align 8
-  store ptr %10, ptr %4, align 8
-  %11 = load ptr, ptr %3, align 8
-  %12 = load ptr, ptr %4, align 8
-  store ptr %12, ptr %11, align 8
-  br label %13
+  %5 = alloca %"class.nanobind::handle", align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #17
+  %7 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  invoke void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %8)
+          to label %9 unwind label %17
 
-13:                                               ; preds = %2
-  %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %"class.nanobind::handle", ptr %14, i32 0, i32 0
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds %"class.nanobind::handle", ptr %8, i32 0, i32 0
-  store ptr %16, ptr %17, align 8
-  %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %"class.nanobind::handle", ptr %18, i32 0, i32 0
-  store ptr null, ptr %19, align 8
-  %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
-  ret ptr %8
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %6, i32 0, i32 0
+  store ptr %12, ptr %13, align 8
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %14, i32 0, i32 0
+  store ptr null, ptr %15, align 8
+  %16 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #17
+  ret ptr %6
 
-21:                                               ; No predecessors!
-  %22 = landingpad { ptr, i32 }
+17:                                               ; preds = %2
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #12
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #18
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK8nanobind6detail3apiINS_6handleEE8is_validEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #10 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
-  ret void
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8nanobind6detail3apiINS_6handleEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  %5 = call noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %6 = icmp ne ptr %5, null
+  ret i1 %6
 }
 
 declare void @PyErr_Clear() #1
 
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden void @_ZN8nanobind6borrowINS_3strEEET_NS_6handleE(ptr dead_on_unwind noalias writable sret(%"class.nanobind::str") align 8 %0, ptr %1) #10 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca %"class.nanobind::handle", align 8
+  %5 = alloca %"class.nanobind::handle", align 8
+  store ptr %0, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %4, i32 0, i32 0
+  store ptr %1, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %4, i64 8, i1 false)
+  %7 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %5, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  call void @_ZN8nanobind3strC2ENS_6handleENS_6detail8borrow_tE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %8)
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN8nanobind6handleC2EPK11_typeobject(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #11 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
+  ret void
+}
+
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(ptr dead_on_unwind noalias writable sret(%"class.nanobind::detail::accessor") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef %2) #6 comdat align 2 {
+define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(ptr dead_on_unwind noalias writable sret(%"class.nanobind::detail::accessor") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef %2) #12 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2579,30 +2606,35 @@ define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(
   %8 = load ptr, ptr %5, align 8
   %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8nanobind6detail3apiINS_6handleEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %8)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 8, i1 false)
-  %10 = getelementptr inbounds %"class.nanobind::handle", ptr %7, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %7, i32 0, i32 0
   %11 = load ptr, ptr %10, align 8
   call void @_ZN8nanobind6detail8accessorINS0_8str_attrEEC2IRPKcEENS_6handleEOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %11, ptr noundef nonnull align 8 dereferenceable(8) %6)
   ret void
 }
 
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEcvNS_6handleEEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #10 comdat align 2 {
+  %2 = alloca %"class.nanobind::handle", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %4)
+  %6 = call noundef ptr @_ZNK8nanobind6detail8accessorINS0_8str_attrEE3ptrEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
+  call void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %6)
+  %7 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZNK8nanobind3str5c_strEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #6 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNK8nanobind3str5c_strEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.nanobind::handle", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
   %6 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %5, ptr noundef null)
   ret ptr %6
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8nanobind3strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
-  ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2610,7 +2642,7 @@ define linkonce_odr hidden void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2E
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.nanobind::detail::accessor", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %"class.nanobind::detail::accessor", ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   invoke void @_ZL11_Py_XDECREFP7_object(ptr noundef %5)
           to label %6 unwind label %7
@@ -2622,174 +2654,151 @@ define linkonce_odr hidden void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2E
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #12
+  call void @__clang_call_terminate(ptr %9) #18
   unreachable
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #5
+declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #7
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden void @_ZN8nanobind7module_7import_EPKc(ptr dead_on_unwind noalias writable sret(%"class.nanobind::module_") align 8 %0, ptr noundef %1) #10 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.nanobind::handle", align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef ptr @_ZN8nanobind6detail13module_importEPKc(ptr noundef %6)
+  call void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %7)
+  %8 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %5, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  call void @_ZN8nanobind5stealINS_7module_EEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.nanobind::module_") align 8 %0, ptr %9)
+  ret void
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8nanobind7module_D2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+define linkonce_odr hidden void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #17
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJNS_6handleEEEENS_6objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJNS_6handleEEEENS_6objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = alloca %"class.nanobind::handle", align 8
+  %7 = alloca [2 x ptr], align 16
   %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca %"class.nanobind::handle", align 8
   %11 = alloca ptr, align 8
-  %12 = alloca %"class.nanobind::handle", align 8
+  %12 = alloca ptr, align 8
   %13 = alloca %"class.nanobind::handle", align 8
-  %14 = alloca ptr, align 8
+  %14 = alloca %"class.nanobind::object", align 8
   %15 = alloca ptr, align 8
-  %16 = alloca %"class.nanobind::handle", align 8
-  %17 = alloca ptr, align 8
-  %18 = alloca ptr, align 8
-  %19 = alloca ptr, align 8
-  %20 = alloca ptr, align 8
-  %21 = alloca ptr, align 8
-  %22 = alloca ptr, align 8
-  %23 = alloca %"class.nanobind::handle", align 8
-  %24 = alloca %"class.nanobind::handle", align 8
-  %25 = alloca ptr, align 8
-  %26 = alloca ptr, align 8
-  %27 = alloca ptr, align 8
-  %28 = alloca [2 x ptr], align 16
-  %29 = alloca ptr, align 8
-  %30 = alloca i64, align 8
-  %31 = alloca %"class.nanobind::handle", align 8
-  %32 = alloca ptr, align 8
-  %33 = alloca ptr, align 8
-  %34 = alloca %"class.nanobind::handle", align 8
-  %35 = alloca %"class.nanobind::object", align 8
-  %36 = alloca ptr, align 8
-  %37 = alloca i32, align 4
-  %38 = alloca %"class.nanobind::handle", align 8
-  %39 = alloca %"class.nanobind::handle", align 8
-  store ptr %0, ptr %25, align 8
-  store ptr %1, ptr %26, align 8
-  store ptr %2, ptr %27, align 8
-  %40 = load ptr, ptr %26, align 8
-  store ptr null, ptr %29, align 8
-  store i64 0, ptr %30, align 8
-  %41 = load ptr, ptr %27, align 8
-  %42 = call ptr @_ZN8nanobind6detail11type_casterINS_6handleEiE8from_cppEOS2_NS_9rv_policyEPNS0_12cleanup_listE(ptr noundef nonnull align 8 dereferenceable(8) %41, i32 noundef 1, ptr noundef null) #11
-  %43 = getelementptr inbounds %"class.nanobind::handle", ptr %31, i32 0, i32 0
-  store ptr %42, ptr %43, align 8
-  store ptr %31, ptr %17, align 8
-  %44 = load ptr, ptr %17, align 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = load i64, ptr %30, align 8
-  %47 = add i64 %46, 1
-  store i64 %47, ptr %30, align 8
-  %48 = add i64 1, %46
-  %49 = getelementptr inbounds [2 x ptr], ptr %28, i64 0, i64 %48
-  store ptr %45, ptr %49, align 8
-  %50 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %40)
-  call void @llvm.experimental.noalias.scope.decl(metadata !58)
-  store ptr %35, ptr %14, align 8, !noalias !58
-  store ptr %50, ptr %15, align 8, !noalias !58
-  %51 = load ptr, ptr %15, align 8, !noalias !58
-  %52 = getelementptr inbounds %"class.nanobind::detail::accessor", ptr %51, i32 0, i32 2
-  %53 = load ptr, ptr %52, align 8
-  store ptr %53, ptr %4, align 8
-  %54 = load ptr, ptr %4, align 8
-  %55 = call noundef ptr @PyUnicode_InternFromString(ptr noundef %54)
-  store ptr %16, ptr %9, align 8, !noalias !58
-  store ptr %55, ptr %10, align 8, !noalias !58
-  %56 = load ptr, ptr %9, align 8, !noalias !58
-  %57 = load ptr, ptr %10, align 8, !noalias !58
-  store ptr %57, ptr %56, align 8
-  %58 = load ptr, ptr %16, align 8, !noalias !58
-  call void @llvm.experimental.noalias.scope.decl(metadata !61)
-  store ptr %35, ptr %11, align 8, !noalias !64
-  store ptr %58, ptr %12, align 8, !noalias !64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %12, i64 8, i1 false), !noalias !64
-  %59 = load ptr, ptr %13, align 8, !noalias !64
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr %59)
-  %60 = invoke ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %35)
-          to label %61 unwind label %91
+  %16 = alloca i32, align 4
+  %17 = alloca %"class.nanobind::handle", align 8
+  %18 = alloca %"class.nanobind::handle", align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %19 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  store ptr null, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  store i64 0, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  %20 = load ptr, ptr %6, align 8
+  %21 = call ptr @_ZN8nanobind6detail11type_casterINS_6handleEiE8from_cppEOS2_NS_9rv_policyEPNS0_12cleanup_listE(ptr noundef nonnull align 8 dereferenceable(8) %20, i32 noundef 1, ptr noundef null) #17
+  %22 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %10, i32 0, i32 0
+  store ptr %21, ptr %22, align 8
+  %23 = call noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %24 = load i64, ptr %9, align 8
+  %25 = add i64 %24, 1
+  store i64 %25, ptr %9, align 8
+  %26 = add i64 1, %24
+  %27 = getelementptr inbounds nuw [2 x ptr], ptr %7, i64 0, i64 %26
+  store ptr %23, ptr %27, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  %28 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %19)
+  call void @_ZNK8nanobind6detail8accessorINS0_8str_attrEE3keyEv(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %28)
+  %29 = invoke ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %30 unwind label %51
 
-61:                                               ; preds = %3
-  %62 = getelementptr inbounds %"class.nanobind::handle", ptr %34, i32 0, i32 0
-  store ptr %60, ptr %62, align 8
-  store ptr %34, ptr %18, align 8
-  %63 = load ptr, ptr %18, align 8
-  %64 = load ptr, ptr %63, align 8
-  store ptr %64, ptr %32, align 8
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #11
-  %65 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %40)
-  store ptr %65, ptr %8, align 8
-  %66 = load ptr, ptr %8, align 8
-  %67 = load ptr, ptr %66, align 8
-  store ptr %7, ptr %5, align 8
-  store ptr %67, ptr %6, align 8
-  %68 = load ptr, ptr %5, align 8
-  %69 = load ptr, ptr %6, align 8
-  store ptr %69, ptr %68, align 8
-  %70 = load ptr, ptr %7, align 8
-  %71 = getelementptr inbounds %"class.nanobind::handle", ptr %38, i32 0, i32 0
-  store ptr %70, ptr %71, align 8
-  %72 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %38) #11
-  store ptr %72, ptr %19, align 8
-  %73 = load ptr, ptr %19, align 8
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds [2 x ptr], ptr %28, i64 0, i64 0
-  store ptr %74, ptr %75, align 16
-  %76 = getelementptr inbounds [2 x ptr], ptr %28, i64 0, i64 0
-  store ptr %76, ptr %33, align 8
-  %77 = load i64, ptr %30, align 8
-  %78 = add i64 %77, 1
-  store i64 %78, ptr %30, align 8
-  %79 = load i64, ptr %30, align 8
-  %80 = or i64 %79, -9223372036854775808
-  store i64 %80, ptr %30, align 8
-  %81 = load ptr, ptr %32, align 8
-  %82 = load ptr, ptr %33, align 8
-  %83 = load i64, ptr %30, align 8
-  %84 = load ptr, ptr %29, align 8
-  %85 = call noundef ptr @_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS2_b(ptr noundef %81, ptr noundef %82, i64 noundef %83, ptr noundef %84, i1 noundef zeroext true)
-  store ptr %39, ptr %20, align 8
-  store ptr %85, ptr %21, align 8
-  %86 = load ptr, ptr %20, align 8
-  %87 = load ptr, ptr %21, align 8
-  store ptr %87, ptr %86, align 8
-  %88 = getelementptr inbounds %"class.nanobind::handle", ptr %39, i32 0, i32 0
-  %89 = load ptr, ptr %88, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !65)
-  store ptr %0, ptr %22, align 8, !noalias !65
-  store ptr %89, ptr %23, align 8, !noalias !65
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %24, ptr align 8 %23, i64 8, i1 false), !noalias !65
-  %90 = load ptr, ptr %24, align 8, !noalias !65
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %90)
+30:                                               ; preds = %3
+  %31 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %13, i32 0, i32 0
+  store ptr %29, ptr %31, align 8
+  %32 = call noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
+  store ptr %32, ptr %11, align 8
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #17
+  %33 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %19)
+  %34 = call ptr @_ZNK8nanobind6detail8accessorINS0_8str_attrEE4baseEv(ptr noundef nonnull align 8 dereferenceable(24) %33)
+  %35 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %17, i32 0, i32 0
+  store ptr %34, ptr %35, align 8
+  %36 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %17) #17
+  %37 = call noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %36)
+  %38 = getelementptr inbounds [2 x ptr], ptr %7, i64 0, i64 0
+  store ptr %37, ptr %38, align 16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #17
+  %39 = getelementptr inbounds [2 x ptr], ptr %7, i64 0, i64 0
+  store ptr %39, ptr %12, align 8
+  %40 = load i64, ptr %9, align 8
+  %41 = add i64 %40, 1
+  store i64 %41, ptr %9, align 8
+  %42 = load i64, ptr %9, align 8
+  %43 = or i64 %42, -9223372036854775808
+  store i64 %43, ptr %9, align 8
+  %44 = load ptr, ptr %11, align 8
+  %45 = load ptr, ptr %12, align 8
+  %46 = load i64, ptr %9, align 8
+  %47 = load ptr, ptr %8, align 8
+  %48 = call noundef ptr @_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS2_b(ptr noundef %44, ptr noundef %45, i64 noundef %46, ptr noundef %47, i1 noundef zeroext true)
+  call void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %48)
+  %49 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %18, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8
+  call void @_ZN8nanobind5stealINS_6objectEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %0, ptr %50)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #17
   ret void
 
-91:                                               ; preds = %3
-  %92 = landingpad { ptr, i32 }
+51:                                               ; preds = %3
+  %52 = landingpad { ptr, i32 }
           cleanup
-  %93 = extractvalue { ptr, i32 } %92, 0
-  store ptr %93, ptr %36, align 8
-  %94 = extractvalue { ptr, i32 } %92, 1
-  store i32 %94, ptr %37, align 4
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #11
-  br label %95
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %15, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %16, align 4
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #17
+  br label %55
 
-95:                                               ; preds = %91
-  %96 = load ptr, ptr %36, align 8
-  %97 = load i32, ptr %37, align 4
-  %98 = insertvalue { ptr, i32 } poison, ptr %96, 0
-  %99 = insertvalue { ptr, i32 } %98, i32 %97, 1
-  resume { ptr, i32 } %99
+55:                                               ; preds = %51
+  %56 = load ptr, ptr %15, align 8
+  %57 = load i32, ptr %16, align 4
+  %58 = insertvalue { ptr, i32 } poison, ptr %56, 0
+  %59 = insertvalue { ptr, i32 } %58, i32 %57, 1
+  resume { ptr, i32 } %59
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2797,8 +2806,8 @@ define linkonce_odr hidden void @_ZN8nanobind6object5resetEv(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
-  %5 = getelementptr inbounds %"class.nanobind::handle", ptr %3, i32 0, i32 0
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #17
+  %5 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %3, i32 0, i32 0
   store ptr null, ptr %5, align 8
   ret void
 }
@@ -2806,7 +2815,7 @@ define linkonce_odr hidden void @_ZN8nanobind6object5resetEv(ptr noundef nonnull
 declare void @__cxa_end_catch()
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectb(ptr noundef %0, i1 noundef zeroext %1) #6 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectb(ptr noundef %0, i1 noundef zeroext %1) #12 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i8, align 1
@@ -2826,545 +2835,829 @@ define internal noundef ptr @_ZN8nanobind6detailL27dlpack_from_buffer_protocolEP
   %19 = alloca i64, align 8
   %20 = alloca i64, align 8
   %21 = alloca %"struct.nanobind::dlpack::device", align 4
-  %22 = alloca %"struct.nanobind::detail::scoped_pymalloc", align 8
-  %23 = alloca %"struct.nanobind::detail::scoped_pymalloc", align 8
+  %22 = alloca %"struct.nanobind::detail::scoped_pymalloc.1", align 8
+  %23 = alloca %"struct.nanobind::detail::scoped_pymalloc.1", align 8
   %24 = alloca i64, align 8
-  %25 = alloca %class.anon.6, align 1
+  %25 = alloca i64, align 8
+  %26 = alloca i64, align 8
+  %27 = alloca %class.anon.6, align 1
   store ptr %0, ptr %4, align 8
-  %26 = zext i1 %1 to i8
-  store i8 %26, ptr %5, align 1
+  %28 = zext i1 %1 to i8
+  store i8 %28, ptr %5, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #17
   call void @_ZN8nanobind6detail15scoped_pymallocI10bufferinfoEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 1)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
   invoke void @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 1)
-          to label %27 unwind label %39
+          to label %29 unwind label %41
 
-27:                                               ; preds = %2
-  %28 = load ptr, ptr %4, align 8
-  %29 = invoke noundef ptr @_ZNK8nanobind6detail15scoped_pymallocI10bufferinfoE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %30 unwind label %43
+29:                                               ; preds = %2
+  %30 = load ptr, ptr %4, align 8
+  %31 = invoke noundef ptr @_ZNK8nanobind6detail15scoped_pymallocI10bufferinfoE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %32 unwind label %45
 
-30:                                               ; preds = %27
-  %31 = load i8, ptr %5, align 1
-  %32 = trunc i8 %31 to i1
-  %33 = select i1 %32, i32 28, i32 29
-  %34 = invoke i32 @PyObject_GetBuffer(ptr noundef %28, ptr noundef %29, i32 noundef %33)
-          to label %35 unwind label %43
+32:                                               ; preds = %29
+  %33 = load i8, ptr %5, align 1, !range !3, !noundef !4
+  %34 = trunc i8 %33 to i1
+  %35 = select i1 %34, i32 28, i32 29
+  %36 = invoke i32 @PyObject_GetBuffer(ptr noundef %30, ptr noundef %31, i32 noundef %35)
+          to label %37 unwind label %45
 
-35:                                               ; preds = %30
-  %36 = icmp ne i32 %34, 0
-  br i1 %36, label %37, label %47
+37:                                               ; preds = %32
+  %38 = icmp ne i32 %36, 0
+  br i1 %38, label %39, label %49
 
-37:                                               ; preds = %35
+39:                                               ; preds = %37
   invoke void @PyErr_Clear()
-          to label %38 unwind label %43
+          to label %40 unwind label %45
 
-38:                                               ; preds = %37
+40:                                               ; preds = %39
   store ptr null, ptr %3, align 8
   store i32 1, ptr %10, align 4
-  br label %294
+  br label %369
 
-39:                                               ; preds = %2
-  %40 = landingpad { ptr, i32 }
+41:                                               ; preds = %2
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %8, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %9, align 4
-  br label %297
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %8, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %9, align 4
+  br label %372
 
-43:                                               ; preds = %214, %210, %203, %199, %195, %191, %185, %177, %174, %171, %169, %167, %155, %47, %37, %30, %27
-  %44 = landingpad { ptr, i32 }
+45:                                               ; preds = %39, %32, %29
+  %46 = landingpad { ptr, i32 }
           cleanup
-  %45 = extractvalue { ptr, i32 } %44, 0
-  store ptr %45, ptr %8, align 8
-  %46 = extractvalue { ptr, i32 } %44, 1
-  store i32 %46, ptr %9, align 4
-  br label %296
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %8, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %9, align 4
+  br label %371
 
-47:                                               ; preds = %35
+49:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #17
   store i8 66, ptr %11, align 1
-  %48 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocI10bufferinfoEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %49 unwind label %43
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %50 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocI10bufferinfoEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %51 unwind label %59
 
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds %struct.bufferinfo, ptr %48, i32 0, i32 6
-  %51 = load ptr, ptr %50, align 8
-  store ptr %51, ptr %12, align 8
-  %52 = load ptr, ptr %12, align 8
-  %53 = icmp ne ptr %52, null
-  br i1 %53, label %54, label %57
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds nuw %struct.bufferinfo, ptr %50, i32 0, i32 6
+  %53 = load ptr, ptr %52, align 8
+  store ptr %53, ptr %12, align 8
+  %54 = load ptr, ptr %12, align 8
+  %55 = icmp ne ptr %54, null
+  br i1 %55, label %56, label %63
 
-54:                                               ; preds = %49
-  %55 = load ptr, ptr %12, align 8
-  %56 = load i8, ptr %55, align 1
-  store i8 %56, ptr %11, align 1
-  br label %57
+56:                                               ; preds = %51
+  %57 = load ptr, ptr %12, align 8
+  %58 = load i8, ptr %57, align 1
+  store i8 %58, ptr %11, align 1
+  br label %63
 
-57:                                               ; preds = %54, %49
-  %58 = load i8, ptr %11, align 1
-  %59 = sext i8 %58 to i32
-  %60 = icmp eq i32 %59, 64
-  br i1 %60, label %65, label %61
+59:                                               ; preds = %49
+  %60 = landingpad { ptr, i32 }
+          cleanup
+  %61 = extractvalue { ptr, i32 } %60, 0
+  store ptr %61, ptr %8, align 8
+  %62 = extractvalue { ptr, i32 } %60, 1
+  store i32 %62, ptr %9, align 4
+  br label %368
 
-61:                                               ; preds = %57
-  %62 = load i8, ptr %11, align 1
-  %63 = sext i8 %62 to i32
-  %64 = icmp eq i32 %63, 61
-  br label %65
+63:                                               ; preds = %56, %51
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #17
+  %64 = load i8, ptr %11, align 1
+  %65 = sext i8 %64 to i32
+  %66 = icmp eq i32 %65, 64
+  br i1 %66, label %71, label %67
 
-65:                                               ; preds = %61, %57
-  %66 = phi i1 [ true, %57 ], [ %64, %61 ]
-  %67 = zext i1 %66 to i8
-  store i8 %67, ptr %13, align 1
+67:                                               ; preds = %63
+  %68 = load i8, ptr %11, align 1
+  %69 = sext i8 %68 to i32
+  %70 = icmp eq i32 %69, 61
+  br label %71
+
+71:                                               ; preds = %67, %63
+  %72 = phi i1 [ true, %63 ], [ %70, %67 ]
+  %73 = zext i1 %72 to i8
+  store i8 %73, ptr %13, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #17
   store i32 1, ptr %14, align 4
-  %68 = load i8, ptr %14, align 4
-  %69 = zext i8 %68 to i32
-  %70 = icmp eq i32 %69, 1
-  br i1 %70, label %71, label %77
+  %74 = load i8, ptr %14, align 4
+  %75 = zext i8 %74 to i32
+  %76 = icmp eq i32 %75, 1
+  br i1 %76, label %77, label %83
 
-71:                                               ; preds = %65
-  %72 = load i8, ptr %11, align 1
-  %73 = sext i8 %72 to i32
-  %74 = icmp eq i32 %73, 60
-  br i1 %74, label %75, label %76
-
-75:                                               ; preds = %71
-  store i8 1, ptr %13, align 1
-  br label %76
-
-76:                                               ; preds = %75, %71
-  br label %87
-
-77:                                               ; preds = %65
+77:                                               ; preds = %71
   %78 = load i8, ptr %11, align 1
   %79 = sext i8 %78 to i32
-  %80 = icmp eq i32 %79, 33
-  br i1 %80, label %85, label %81
+  %80 = icmp eq i32 %79, 60
+  br i1 %80, label %81, label %82
 
 81:                                               ; preds = %77
-  %82 = load i8, ptr %11, align 1
-  %83 = sext i8 %82 to i32
-  %84 = icmp eq i32 %83, 62
-  br i1 %84, label %85, label %86
-
-85:                                               ; preds = %81, %77
   store i8 1, ptr %13, align 1
-  br label %86
+  br label %82
 
-86:                                               ; preds = %85, %81
-  br label %87
+82:                                               ; preds = %81, %77
+  br label %93
 
-87:                                               ; preds = %86, %76
-  %88 = load i8, ptr %13, align 1
-  %89 = trunc i8 %88 to i1
-  br i1 %89, label %90, label %97
+83:                                               ; preds = %71
+  %84 = load i8, ptr %11, align 1
+  %85 = sext i8 %84 to i32
+  %86 = icmp eq i32 %85, 33
+  br i1 %86, label %91, label %87
 
-90:                                               ; preds = %87
-  %91 = load ptr, ptr %12, align 8
-  %92 = icmp ne ptr %91, null
-  br i1 %92, label %93, label %97
+87:                                               ; preds = %83
+  %88 = load i8, ptr %11, align 1
+  %89 = sext i8 %88 to i32
+  %90 = icmp eq i32 %89, 62
+  br i1 %90, label %91, label %92
 
-93:                                               ; preds = %90
-  %94 = load ptr, ptr %12, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i32 1
-  store ptr %95, ptr %12, align 8
-  %96 = load i8, ptr %95, align 1
-  store i8 %96, ptr %11, align 1
-  br label %97
+91:                                               ; preds = %87, %83
+  store i8 1, ptr %13, align 1
+  br label %92
 
-97:                                               ; preds = %93, %90, %87
-  %98 = load ptr, ptr %12, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 0
-  %100 = load i8, ptr %99, align 1
-  %101 = sext i8 %100 to i32
-  %102 = icmp eq i32 %101, 90
-  %103 = zext i1 %102 to i8
-  store i8 %103, ptr %15, align 1
-  %104 = load i8, ptr %15, align 1
-  %105 = trunc i8 %104 to i1
-  br i1 %105, label %106, label %110
+92:                                               ; preds = %91, %87
+  br label %93
 
-106:                                              ; preds = %97
-  %107 = load ptr, ptr %12, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i32 1
-  store ptr %108, ptr %12, align 8
-  %109 = load i8, ptr %108, align 1
-  store i8 %109, ptr %11, align 1
-  br label %110
+93:                                               ; preds = %92, %82
+  %94 = load i8, ptr %13, align 1, !range !3, !noundef !4
+  %95 = trunc i8 %94 to i1
+  br i1 %95, label %96, label %103
 
-110:                                              ; preds = %106, %97
-  %111 = getelementptr inbounds %"struct.nanobind::dlpack::dtype", ptr %16, i32 0, i32 0
-  store i8 0, ptr %111, align 2
-  %112 = getelementptr inbounds %"struct.nanobind::dlpack::dtype", ptr %16, i32 0, i32 1
-  store i8 0, ptr %112, align 1
-  %113 = getelementptr inbounds %"struct.nanobind::dlpack::dtype", ptr %16, i32 0, i32 2
-  store i16 0, ptr %113, align 2
-  %114 = load ptr, ptr %12, align 8
-  %115 = icmp ne ptr %114, null
-  br i1 %115, label %116, label %122
+96:                                               ; preds = %93
+  %97 = load ptr, ptr %12, align 8
+  %98 = icmp ne ptr %97, null
+  br i1 %98, label %99, label %103
 
-116:                                              ; preds = %110
-  %117 = load ptr, ptr %12, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 1
-  %119 = load i8, ptr %118, align 1
-  %120 = sext i8 %119 to i32
-  %121 = icmp ne i32 %120, 0
-  br label %122
+99:                                               ; preds = %96
+  %100 = load ptr, ptr %12, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %100, i32 1
+  store ptr %101, ptr %12, align 8
+  %102 = load i8, ptr %101, align 1
+  store i8 %102, ptr %11, align 1
+  br label %103
 
-122:                                              ; preds = %116, %110
-  %123 = phi i1 [ false, %110 ], [ %121, %116 ]
-  %124 = zext i1 %123 to i8
-  store i8 %124, ptr %17, align 1
-  %125 = load i8, ptr %17, align 1
-  %126 = trunc i8 %125 to i1
-  br i1 %126, label %164, label %127
+103:                                              ; preds = %99, %96, %93
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #17
+  %104 = load ptr, ptr %12, align 8
+  %105 = getelementptr inbounds i8, ptr %104, i64 0
+  %106 = load i8, ptr %105, align 1
+  %107 = sext i8 %106 to i32
+  %108 = icmp eq i32 %107, 90
+  %109 = zext i1 %108 to i8
+  store i8 %109, ptr %15, align 1
+  %110 = load i8, ptr %15, align 1, !range !3, !noundef !4
+  %111 = trunc i8 %110 to i1
+  br i1 %111, label %112, label %116
 
-127:                                              ; preds = %122
-  %128 = load i8, ptr %11, align 1
-  %129 = sext i8 %128 to i32
-  switch i32 %129, label %138 [
-    i32 99, label %130
-    i32 98, label %130
-    i32 104, label %130
-    i32 105, label %130
-    i32 108, label %130
-    i32 113, label %130
-    i32 110, label %130
-    i32 66, label %132
-    i32 72, label %132
-    i32 73, label %132
-    i32 76, label %132
-    i32 81, label %132
-    i32 78, label %132
-    i32 101, label %134
-    i32 102, label %134
-    i32 100, label %134
-    i32 63, label %136
+112:                                              ; preds = %103
+  %113 = load ptr, ptr %12, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i32 1
+  store ptr %114, ptr %12, align 8
+  %115 = load i8, ptr %114, align 1
+  store i8 %115, ptr %11, align 1
+  br label %116
+
+116:                                              ; preds = %112, %103
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #17
+  %117 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %16, i32 0, i32 0
+  store i8 0, ptr %117, align 2
+  %118 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %16, i32 0, i32 1
+  store i8 0, ptr %118, align 1
+  %119 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %16, i32 0, i32 2
+  store i16 0, ptr %119, align 2
+  call void @llvm.lifetime.start.p0(i64 1, ptr %17) #17
+  %120 = load ptr, ptr %12, align 8
+  %121 = icmp ne ptr %120, null
+  br i1 %121, label %122, label %128
+
+122:                                              ; preds = %116
+  %123 = load ptr, ptr %12, align 8
+  %124 = getelementptr inbounds i8, ptr %123, i64 1
+  %125 = load i8, ptr %124, align 1
+  %126 = sext i8 %125 to i32
+  %127 = icmp ne i32 %126, 0
+  br label %128
+
+128:                                              ; preds = %122, %116
+  %129 = phi i1 [ false, %116 ], [ %127, %122 ]
+  %130 = zext i1 %129 to i8
+  store i8 %130, ptr %17, align 1
+  %131 = load i8, ptr %17, align 1, !range !3, !noundef !4
+  %132 = trunc i8 %131 to i1
+  br i1 %132, label %174, label %133
+
+133:                                              ; preds = %128
+  %134 = load i8, ptr %11, align 1
+  %135 = sext i8 %134 to i32
+  switch i32 %135, label %144 [
+    i32 99, label %136
+    i32 98, label %136
+    i32 104, label %136
+    i32 105, label %136
+    i32 108, label %136
+    i32 113, label %136
+    i32 110, label %136
+    i32 66, label %138
+    i32 72, label %138
+    i32 73, label %138
+    i32 76, label %138
+    i32 81, label %138
+    i32 78, label %138
+    i32 101, label %140
+    i32 102, label %140
+    i32 100, label %140
+    i32 63, label %142
   ]
 
-130:                                              ; preds = %127, %127, %127, %127, %127, %127, %127
-  %131 = getelementptr inbounds %"struct.nanobind::dlpack::dtype", ptr %16, i32 0, i32 0
-  store i8 0, ptr %131, align 2
-  br label %139
+136:                                              ; preds = %133, %133, %133, %133, %133, %133, %133
+  %137 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %16, i32 0, i32 0
+  store i8 0, ptr %137, align 2
+  br label %145
 
-132:                                              ; preds = %127, %127, %127, %127, %127, %127
-  %133 = getelementptr inbounds %"struct.nanobind::dlpack::dtype", ptr %16, i32 0, i32 0
-  store i8 1, ptr %133, align 2
-  br label %139
+138:                                              ; preds = %133, %133, %133, %133, %133, %133
+  %139 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %16, i32 0, i32 0
+  store i8 1, ptr %139, align 2
+  br label %145
 
-134:                                              ; preds = %127, %127, %127
-  %135 = getelementptr inbounds %"struct.nanobind::dlpack::dtype", ptr %16, i32 0, i32 0
-  store i8 2, ptr %135, align 2
-  br label %139
+140:                                              ; preds = %133, %133, %133
+  %141 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %16, i32 0, i32 0
+  store i8 2, ptr %141, align 2
+  br label %145
 
-136:                                              ; preds = %127
-  %137 = getelementptr inbounds %"struct.nanobind::dlpack::dtype", ptr %16, i32 0, i32 0
-  store i8 6, ptr %137, align 2
-  br label %139
+142:                                              ; preds = %133
+  %143 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %16, i32 0, i32 0
+  store i8 6, ptr %143, align 2
+  br label %145
 
-138:                                              ; preds = %127
+144:                                              ; preds = %133
   store i8 1, ptr %17, align 1
-  br label %139
+  br label %145
 
-139:                                              ; preds = %138, %136, %134, %132, %130
-  %140 = load i8, ptr %15, align 1
-  %141 = trunc i8 %140 to i1
-  br i1 %141, label %142, label %155
+145:                                              ; preds = %144, %142, %140, %138, %136
+  %146 = load i8, ptr %15, align 1, !range !3, !noundef !4
+  %147 = trunc i8 %146 to i1
+  br i1 %147, label %148, label %161
 
-142:                                              ; preds = %139
-  %143 = getelementptr inbounds %"struct.nanobind::dlpack::dtype", ptr %16, i32 0, i32 0
-  %144 = load i8, ptr %143, align 2
-  %145 = zext i8 %144 to i32
-  %146 = icmp ne i32 %145, 2
-  %147 = zext i1 %146 to i32
-  %148 = load i8, ptr %17, align 1
-  %149 = trunc i8 %148 to i1
-  %150 = zext i1 %149 to i32
-  %151 = or i32 %150, %147
-  %152 = icmp ne i32 %151, 0
-  %153 = zext i1 %152 to i8
-  store i8 %153, ptr %17, align 1
-  %154 = getelementptr inbounds %"struct.nanobind::dlpack::dtype", ptr %16, i32 0, i32 0
-  store i8 5, ptr %154, align 2
-  br label %155
+148:                                              ; preds = %145
+  %149 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %16, i32 0, i32 0
+  %150 = load i8, ptr %149, align 2
+  %151 = zext i8 %150 to i32
+  %152 = icmp ne i32 %151, 2
+  %153 = zext i1 %152 to i32
+  %154 = load i8, ptr %17, align 1, !range !3, !noundef !4
+  %155 = trunc i8 %154 to i1
+  %156 = zext i1 %155 to i32
+  %157 = or i32 %156, %153
+  %158 = icmp ne i32 %157, 0
+  %159 = zext i1 %158 to i8
+  store i8 %159, ptr %17, align 1
+  %160 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %16, i32 0, i32 0
+  store i8 5, ptr %160, align 2
+  br label %161
 
-155:                                              ; preds = %142, %139
-  %156 = getelementptr inbounds %"struct.nanobind::dlpack::dtype", ptr %16, i32 0, i32 2
-  store i16 1, ptr %156, align 2
-  %157 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocI10bufferinfoEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %158 unwind label %43
+161:                                              ; preds = %148, %145
+  %162 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %16, i32 0, i32 2
+  store i16 1, ptr %162, align 2
+  %163 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocI10bufferinfoEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %164 unwind label %170
 
-158:                                              ; preds = %155
-  %159 = getelementptr inbounds %struct.bufferinfo, ptr %157, i32 0, i32 3
-  %160 = load i64, ptr %159, align 8
-  %161 = mul nsw i64 %160, 8
-  %162 = trunc i64 %161 to i8
-  %163 = getelementptr inbounds %"struct.nanobind::dlpack::dtype", ptr %16, i32 0, i32 1
-  store i8 %162, ptr %163, align 1
-  br label %164
+164:                                              ; preds = %161
+  %165 = getelementptr inbounds nuw %struct.bufferinfo, ptr %163, i32 0, i32 3
+  %166 = load i64, ptr %165, align 8
+  %167 = mul nsw i64 %166, 8
+  %168 = trunc i64 %167 to i8
+  %169 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %16, i32 0, i32 1
+  store i8 %168, ptr %169, align 1
+  br label %174
 
-164:                                              ; preds = %158, %122
-  %165 = load i8, ptr %17, align 1
-  %166 = trunc i8 %165 to i1
-  br i1 %166, label %167, label %171
+170:                                              ; preds = %179, %177, %161
+  %171 = landingpad { ptr, i32 }
+          cleanup
+  %172 = extractvalue { ptr, i32 } %171, 0
+  store ptr %172, ptr %8, align 8
+  %173 = extractvalue { ptr, i32 } %171, 1
+  store i32 %173, ptr %9, align 4
+  br label %367
 
-167:                                              ; preds = %164
-  %168 = invoke noundef ptr @_ZNK8nanobind6detail15scoped_pymallocI10bufferinfoE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %169 unwind label %43
-
-169:                                              ; preds = %167
-  invoke void @PyBuffer_Release(ptr noundef %168)
-          to label %170 unwind label %43
-
-170:                                              ; preds = %169
-  store ptr null, ptr %3, align 8
-  store i32 1, ptr %10, align 4
-  br label %294
-
-171:                                              ; preds = %164
-  %172 = call noundef ptr @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectbENK3$_0cvPFvPNS0_16managed_dltensorEEEv"(ptr noundef nonnull align 1 dereferenceable(1) %18) #11
-  %173 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %174 unwind label %43
-
-174:                                              ; preds = %171
-  %175 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %173, i32 0, i32 2
-  store ptr %172, ptr %175, align 8
-  %176 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocI10bufferinfoEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %177 unwind label %43
+174:                                              ; preds = %164, %128
+  %175 = load i8, ptr %17, align 1, !range !3, !noundef !4
+  %176 = trunc i8 %175 to i1
+  br i1 %176, label %177, label %181
 
 177:                                              ; preds = %174
-  %178 = getelementptr inbounds %struct.bufferinfo, ptr %176, i32 0, i32 0
-  %179 = load ptr, ptr %178, align 8
-  %180 = ptrtoint ptr %179 to i64
-  store i64 %180, ptr %19, align 8
-  %181 = load i64, ptr %19, align 8
-  store i64 %181, ptr %20, align 8
-  %182 = load i64, ptr %20, align 8
-  %183 = inttoptr i64 %182 to ptr
-  %184 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %185 unwind label %43
+  %178 = invoke noundef ptr @_ZNK8nanobind6detail15scoped_pymallocI10bufferinfoE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %179 unwind label %170
 
-185:                                              ; preds = %177
-  %186 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %184, i32 0, i32 0
-  %187 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %186, i32 0, i32 0
-  store ptr %183, ptr %187, align 8
-  %188 = getelementptr inbounds %"struct.nanobind::dlpack::device", ptr %21, i32 0, i32 0
-  store i32 1, ptr %188, align 4
-  %189 = getelementptr inbounds %"struct.nanobind::dlpack::device", ptr %21, i32 0, i32 1
-  store i32 0, ptr %189, align 4
-  %190 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %191 unwind label %43
+179:                                              ; preds = %177
+  invoke void @PyBuffer_Release(ptr noundef %178)
+          to label %180 unwind label %170
 
-191:                                              ; preds = %185
-  %192 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %190, i32 0, i32 0
-  %193 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %192, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %193, ptr align 4 %21, i64 8, i1 false)
-  %194 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocI10bufferinfoEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %195 unwind label %43
+180:                                              ; preds = %179
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %10, align 4
+  br label %366
 
-195:                                              ; preds = %191
-  %196 = getelementptr inbounds %struct.bufferinfo, ptr %194, i32 0, i32 5
-  %197 = load i32, ptr %196, align 4
-  %198 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %199 unwind label %43
+181:                                              ; preds = %174
+  call void @llvm.lifetime.start.p0(i64 1, ptr %18) #17
+  %182 = call noundef ptr @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectbENK3$_0cvPFvPNS0_16managed_dltensorEEEv"(ptr noundef nonnull align 1 dereferenceable(1) %18) #17
+  %183 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %184 unwind label %248
 
-199:                                              ; preds = %195
-  %200 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %198, i32 0, i32 0
-  %201 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %200, i32 0, i32 2
-  store i32 %197, ptr %201, align 8
-  %202 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %203 unwind label %43
+184:                                              ; preds = %181
+  %185 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %183, i32 0, i32 2
+  store ptr %182, ptr %185, align 8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %18) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #17
+  %186 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocI10bufferinfoEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %187 unwind label %252
 
-203:                                              ; preds = %199
-  %204 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %202, i32 0, i32 0
-  %205 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %204, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %205, ptr align 2 %16, i64 4, i1 false)
-  %206 = load i64, ptr %19, align 8
-  %207 = load i64, ptr %20, align 8
-  %208 = sub i64 %206, %207
-  %209 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %210 unwind label %43
+187:                                              ; preds = %184
+  %188 = getelementptr inbounds nuw %struct.bufferinfo, ptr %186, i32 0, i32 0
+  %189 = load ptr, ptr %188, align 8
+  %190 = ptrtoint ptr %189 to i64
+  store i64 %190, ptr %19, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #17
+  %191 = load i64, ptr %19, align 8
+  store i64 %191, ptr %20, align 8
+  %192 = load i64, ptr %20, align 8
+  %193 = inttoptr i64 %192 to ptr
+  %194 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %195 unwind label %256
 
-210:                                              ; preds = %203
-  %211 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %209, i32 0, i32 0
-  %212 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %211, i32 0, i32 6
-  store i64 %208, ptr %212, align 8
-  %213 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocI10bufferinfoEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %214 unwind label %43
+195:                                              ; preds = %187
+  %196 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %194, i32 0, i32 0
+  %197 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %196, i32 0, i32 0
+  store ptr %193, ptr %197, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #17
+  %198 = getelementptr inbounds nuw %"struct.nanobind::dlpack::device", ptr %21, i32 0, i32 0
+  store i32 1, ptr %198, align 4
+  %199 = getelementptr inbounds nuw %"struct.nanobind::dlpack::device", ptr %21, i32 0, i32 1
+  store i32 0, ptr %199, align 4
+  %200 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %201 unwind label %260
 
-214:                                              ; preds = %210
-  %215 = getelementptr inbounds %struct.bufferinfo, ptr %213, i32 0, i32 5
-  %216 = load i32, ptr %215, align 4
-  %217 = sext i32 %216 to i64
-  invoke void @_ZN8nanobind6detail15scoped_pymallocIlEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %22, i64 noundef %217)
-          to label %218 unwind label %43
+201:                                              ; preds = %195
+  %202 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %200, i32 0, i32 0
+  %203 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %202, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %203, ptr align 4 %21, i64 8, i1 false)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #17
+  %204 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocI10bufferinfoEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %205 unwind label %256
 
-218:                                              ; preds = %214
-  %219 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocI10bufferinfoEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %220 unwind label %262
+205:                                              ; preds = %201
+  %206 = getelementptr inbounds nuw %struct.bufferinfo, ptr %204, i32 0, i32 5
+  %207 = load i32, ptr %206, align 4
+  %208 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %209 unwind label %256
 
-220:                                              ; preds = %218
-  %221 = getelementptr inbounds %struct.bufferinfo, ptr %219, i32 0, i32 5
-  %222 = load i32, ptr %221, align 4
-  %223 = sext i32 %222 to i64
-  invoke void @_ZN8nanobind6detail15scoped_pymallocIlEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %23, i64 noundef %223)
-          to label %224 unwind label %262
+209:                                              ; preds = %205
+  %210 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %208, i32 0, i32 0
+  %211 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %210, i32 0, i32 2
+  store i32 %207, ptr %211, align 8
+  %212 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %213 unwind label %256
+
+213:                                              ; preds = %209
+  %214 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %212, i32 0, i32 0
+  %215 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %214, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %215, ptr align 2 %16, i64 4, i1 false)
+  %216 = load i64, ptr %19, align 8
+  %217 = load i64, ptr %20, align 8
+  %218 = sub i64 %216, %217
+  %219 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %220 unwind label %256
+
+220:                                              ; preds = %213
+  %221 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %219, i32 0, i32 0
+  %222 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %221, i32 0, i32 6
+  store i64 %218, ptr %222, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #17
+  %223 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocI10bufferinfoEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %224 unwind label %264
 
 224:                                              ; preds = %220
-  store i64 0, ptr %24, align 8
-  br label %225
+  %225 = getelementptr inbounds nuw %struct.bufferinfo, ptr %223, i32 0, i32 5
+  %226 = load i32, ptr %225, align 4
+  %227 = sext i32 %226 to i64
+  invoke void @_ZN8nanobind6detail15scoped_pymallocIlEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %22, i64 noundef %227)
+          to label %228 unwind label %264
 
-225:                                              ; preds = %259, %224
-  %226 = load i64, ptr %24, align 8
-  %227 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocI10bufferinfoEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %228 unwind label %266
+228:                                              ; preds = %224
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #17
+  %229 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocI10bufferinfoEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %230 unwind label %268
 
-228:                                              ; preds = %225
-  %229 = getelementptr inbounds %struct.bufferinfo, ptr %227, i32 0, i32 5
-  %230 = load i32, ptr %229, align 4
-  %231 = sext i32 %230 to i64
-  %232 = icmp ult i64 %226, %231
-  br i1 %232, label %233, label %270
+230:                                              ; preds = %228
+  %231 = getelementptr inbounds nuw %struct.bufferinfo, ptr %229, i32 0, i32 5
+  %232 = load i32, ptr %231, align 4
+  %233 = sext i32 %232 to i64
+  invoke void @_ZN8nanobind6detail15scoped_pymallocIlEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %23, i64 noundef %233)
+          to label %234 unwind label %268
 
-233:                                              ; preds = %228
-  %234 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocI10bufferinfoEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %235 unwind label %266
+234:                                              ; preds = %230
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #17
+  %235 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocI10bufferinfoEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %236 unwind label %272
 
-235:                                              ; preds = %233
-  %236 = getelementptr inbounds %struct.bufferinfo, ptr %234, i32 0, i32 8
-  %237 = load ptr, ptr %236, align 8
-  %238 = load i64, ptr %24, align 8
-  %239 = getelementptr inbounds i64, ptr %237, i64 %238
-  %240 = load i64, ptr %239, align 8
+236:                                              ; preds = %234
+  %237 = getelementptr inbounds nuw %struct.bufferinfo, ptr %235, i32 0, i32 3
+  %238 = load i64, ptr %237, align 8
+  store i64 %238, ptr %24, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #17
+  store i64 0, ptr %25, align 8
+  br label %239
+
+239:                                              ; preds = %327, %236
+  %240 = load i64, ptr %25, align 8
   %241 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocI10bufferinfoEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %242 unwind label %266
+          to label %242 unwind label %276
 
-242:                                              ; preds = %235
-  %243 = getelementptr inbounds %struct.bufferinfo, ptr %241, i32 0, i32 3
-  %244 = load i64, ptr %243, align 8
-  %245 = sdiv i64 %240, %244
-  %246 = load i64, ptr %24, align 8
-  %247 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6detail15scoped_pymallocIlEixEm(ptr noundef nonnull align 8 dereferenceable(8) %22, i64 noundef %246)
-          to label %248 unwind label %266
+242:                                              ; preds = %239
+  %243 = getelementptr inbounds nuw %struct.bufferinfo, ptr %241, i32 0, i32 5
+  %244 = load i32, ptr %243, align 4
+  %245 = sext i32 %244 to i64
+  %246 = icmp ult i64 %240, %245
+  br i1 %246, label %280, label %247
 
-248:                                              ; preds = %242
-  store i64 %245, ptr %247, align 8
-  %249 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocI10bufferinfoEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %250 unwind label %266
+247:                                              ; preds = %242
+  store i32 3, ptr %10, align 4
+  br label %330
 
-250:                                              ; preds = %248
-  %251 = getelementptr inbounds %struct.bufferinfo, ptr %249, i32 0, i32 7
-  %252 = load ptr, ptr %251, align 8
-  %253 = load i64, ptr %24, align 8
-  %254 = getelementptr inbounds i64, ptr %252, i64 %253
-  %255 = load i64, ptr %254, align 8
-  %256 = load i64, ptr %24, align 8
-  %257 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6detail15scoped_pymallocIlEixEm(ptr noundef nonnull align 8 dereferenceable(8) %23, i64 noundef %256)
-          to label %258 unwind label %266
-
-258:                                              ; preds = %250
-  store i64 %255, ptr %257, align 8
-  br label %259
-
-259:                                              ; preds = %258
-  %260 = load i64, ptr %24, align 8
-  %261 = add i64 %260, 1
-  store i64 %261, ptr %24, align 8
-  br label %225, !llvm.loop !68
-
-262:                                              ; preds = %220, %218
-  %263 = landingpad { ptr, i32 }
+248:                                              ; preds = %181
+  %249 = landingpad { ptr, i32 }
           cleanup
-  %264 = extractvalue { ptr, i32 } %263, 0
-  store ptr %264, ptr %8, align 8
-  %265 = extractvalue { ptr, i32 } %263, 1
-  store i32 %265, ptr %9, align 4
-  br label %293
+  %250 = extractvalue { ptr, i32 } %249, 0
+  store ptr %250, ptr %8, align 8
+  %251 = extractvalue { ptr, i32 } %249, 1
+  store i32 %251, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %18) #17
+  br label %367
 
-266:                                              ; preds = %289, %285, %283, %279, %277, %274, %272, %270, %250, %248, %242, %235, %233, %225
-  %267 = landingpad { ptr, i32 }
+252:                                              ; preds = %184
+  %253 = landingpad { ptr, i32 }
           cleanup
-  %268 = extractvalue { ptr, i32 } %267, 0
-  store ptr %268, ptr %8, align 8
-  %269 = extractvalue { ptr, i32 } %267, 1
-  store i32 %269, ptr %9, align 4
-  call void @_ZN8nanobind6detail15scoped_pymallocIlED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #11
-  br label %293
+  %254 = extractvalue { ptr, i32 } %253, 0
+  store ptr %254, ptr %8, align 8
+  %255 = extractvalue { ptr, i32 } %253, 1
+  store i32 %255, ptr %9, align 4
+  br label %365
 
-270:                                              ; preds = %228
-  %271 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocI10bufferinfoE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %272 unwind label %266
+256:                                              ; preds = %213, %209, %205, %201, %187
+  %257 = landingpad { ptr, i32 }
+          cleanup
+  %258 = extractvalue { ptr, i32 } %257, 0
+  store ptr %258, ptr %8, align 8
+  %259 = extractvalue { ptr, i32 } %257, 1
+  store i32 %259, ptr %9, align 4
+  br label %364
 
-272:                                              ; preds = %270
-  %273 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %274 unwind label %266
+260:                                              ; preds = %195
+  %261 = landingpad { ptr, i32 }
+          cleanup
+  %262 = extractvalue { ptr, i32 } %261, 0
+  store ptr %262, ptr %8, align 8
+  %263 = extractvalue { ptr, i32 } %261, 1
+  store i32 %263, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #17
+  br label %364
 
-274:                                              ; preds = %272
-  %275 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %273, i32 0, i32 1
-  store ptr %271, ptr %275, align 8
-  %276 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocIlE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %23)
-          to label %277 unwind label %266
+264:                                              ; preds = %224, %220
+  %265 = landingpad { ptr, i32 }
+          cleanup
+  %266 = extractvalue { ptr, i32 } %265, 0
+  store ptr %266, ptr %8, align 8
+  %267 = extractvalue { ptr, i32 } %265, 1
+  store i32 %267, ptr %9, align 4
+  br label %363
 
-277:                                              ; preds = %274
-  %278 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %279 unwind label %266
+268:                                              ; preds = %230, %228
+  %269 = landingpad { ptr, i32 }
+          cleanup
+  %270 = extractvalue { ptr, i32 } %269, 0
+  store ptr %270, ptr %8, align 8
+  %271 = extractvalue { ptr, i32 } %269, 1
+  store i32 %271, ptr %9, align 4
+  br label %362
 
-279:                                              ; preds = %277
-  %280 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %278, i32 0, i32 0
-  %281 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %280, i32 0, i32 4
-  store ptr %276, ptr %281, align 8
-  %282 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocIlE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
-          to label %283 unwind label %266
+272:                                              ; preds = %348, %346, %342, %340, %337, %335, %333, %234
+  %273 = landingpad { ptr, i32 }
+          cleanup
+  %274 = extractvalue { ptr, i32 } %273, 0
+  store ptr %274, ptr %8, align 8
+  %275 = extractvalue { ptr, i32 } %273, 1
+  store i32 %275, ptr %9, align 4
+  br label %361
 
-283:                                              ; preds = %279
-  %284 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %285 unwind label %266
+276:                                              ; preds = %239
+  %277 = landingpad { ptr, i32 }
+          cleanup
+  %278 = extractvalue { ptr, i32 } %277, 0
+  store ptr %278, ptr %8, align 8
+  %279 = extractvalue { ptr, i32 } %277, 1
+  store i32 %279, ptr %9, align 4
+  br label %332
 
-285:                                              ; preds = %283
-  %286 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %284, i32 0, i32 0
-  %287 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %286, i32 0, i32 5
-  store ptr %282, ptr %287, align 8
-  %288 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %289 unwind label %266
+280:                                              ; preds = %242
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #17
+  %281 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocI10bufferinfoEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %282 unwind label %305
 
-289:                                              ; preds = %285
-  %290 = call noundef ptr @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectbENK3$_1cvPFvS2_EEv"(ptr noundef nonnull align 1 dereferenceable(1) %25) #11
-  %291 = invoke ptr @PyCapsule_New(ptr noundef %288, ptr noundef @.str.12, ptr noundef %290)
-          to label %292 unwind label %266
+282:                                              ; preds = %280
+  %283 = getelementptr inbounds nuw %struct.bufferinfo, ptr %281, i32 0, i32 8
+  %284 = load ptr, ptr %283, align 8
+  %285 = load i64, ptr %25, align 8
+  %286 = getelementptr inbounds nuw i64, ptr %284, i64 %285
+  %287 = load i64, ptr %286, align 8
+  %288 = load i64, ptr %24, align 8
+  %289 = sdiv i64 %287, %288
+  store i64 %289, ptr %26, align 8
+  %290 = load i64, ptr %26, align 8
+  %291 = load i64, ptr %24, align 8
+  %292 = mul nsw i64 %290, %291
+  %293 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocI10bufferinfoEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %294 unwind label %305
 
-292:                                              ; preds = %289
-  store ptr %291, ptr %3, align 8
+294:                                              ; preds = %282
+  %295 = getelementptr inbounds nuw %struct.bufferinfo, ptr %293, i32 0, i32 8
+  %296 = load ptr, ptr %295, align 8
+  %297 = load i64, ptr %25, align 8
+  %298 = getelementptr inbounds nuw i64, ptr %296, i64 %297
+  %299 = load i64, ptr %298, align 8
+  %300 = icmp ne i64 %292, %299
+  br i1 %300, label %301, label %309
+
+301:                                              ; preds = %294
+  %302 = invoke noundef ptr @_ZNK8nanobind6detail15scoped_pymallocI10bufferinfoE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %303 unwind label %305
+
+303:                                              ; preds = %301
+  invoke void @PyBuffer_Release(ptr noundef %302)
+          to label %304 unwind label %305
+
+304:                                              ; preds = %303
+  store ptr null, ptr %3, align 8
   store i32 1, ptr %10, align 4
-  call void @_ZN8nanobind6detail15scoped_pymallocIlED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #11
-  call void @_ZN8nanobind6detail15scoped_pymallocIlED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #11
-  br label %294
+  br label %324
 
-293:                                              ; preds = %266, %262
-  call void @_ZN8nanobind6detail15scoped_pymallocIlED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #11
-  br label %296
+305:                                              ; preds = %315, %313, %309, %303, %301, %282, %280
+  %306 = landingpad { ptr, i32 }
+          cleanup
+  %307 = extractvalue { ptr, i32 } %306, 0
+  store ptr %307, ptr %8, align 8
+  %308 = extractvalue { ptr, i32 } %306, 1
+  store i32 %308, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #17
+  br label %332
 
-294:                                              ; preds = %292, %170, %38
-  call void @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
-  call void @_ZN8nanobind6detail15scoped_pymallocI10bufferinfoED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  %295 = load ptr, ptr %3, align 8
-  ret ptr %295
+309:                                              ; preds = %294
+  %310 = load i64, ptr %26, align 8
+  %311 = load i64, ptr %25, align 8
+  %312 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6detail15scoped_pymallocIlEixEm(ptr noundef nonnull align 8 dereferenceable(8) %22, i64 noundef %311)
+          to label %313 unwind label %305
 
-296:                                              ; preds = %293, %43
-  call void @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
-  br label %297
+313:                                              ; preds = %309
+  store i64 %310, ptr %312, align 8
+  %314 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocI10bufferinfoEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %315 unwind label %305
 
-297:                                              ; preds = %296, %39
-  call void @_ZN8nanobind6detail15scoped_pymallocI10bufferinfoED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
-  br label %298
+315:                                              ; preds = %313
+  %316 = getelementptr inbounds nuw %struct.bufferinfo, ptr %314, i32 0, i32 7
+  %317 = load ptr, ptr %316, align 8
+  %318 = load i64, ptr %25, align 8
+  %319 = getelementptr inbounds nuw i64, ptr %317, i64 %318
+  %320 = load i64, ptr %319, align 8
+  %321 = load i64, ptr %25, align 8
+  %322 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6detail15scoped_pymallocIlEixEm(ptr noundef nonnull align 8 dereferenceable(8) %23, i64 noundef %321)
+          to label %323 unwind label %305
 
-298:                                              ; preds = %297
-  %299 = load ptr, ptr %8, align 8
-  %300 = load i32, ptr %9, align 4
-  %301 = insertvalue { ptr, i32 } poison, ptr %299, 0
-  %302 = insertvalue { ptr, i32 } %301, i32 %300, 1
-  resume { ptr, i32 } %302
+323:                                              ; preds = %315
+  store i64 %320, ptr %322, align 8
+  store i32 0, ptr %10, align 4
+  br label %324
+
+324:                                              ; preds = %323, %304
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #17
+  %325 = load i32, ptr %10, align 4
+  switch i32 %325, label %330 [
+    i32 0, label %326
+  ]
+
+326:                                              ; preds = %324
+  br label %327
+
+327:                                              ; preds = %326
+  %328 = load i64, ptr %25, align 8
+  %329 = add i64 %328, 1
+  store i64 %329, ptr %25, align 8
+  br label %239, !llvm.loop !12
+
+330:                                              ; preds = %324, %247
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #17
+  %331 = load i32, ptr %10, align 4
+  switch i32 %331, label %360 [
+    i32 3, label %333
+  ]
+
+332:                                              ; preds = %305, %276
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #17
+  br label %361
+
+333:                                              ; preds = %330
+  %334 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocI10bufferinfoE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %335 unwind label %272
+
+335:                                              ; preds = %333
+  %336 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %337 unwind label %272
+
+337:                                              ; preds = %335
+  %338 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %336, i32 0, i32 1
+  store ptr %334, ptr %338, align 8
+  %339 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocIlE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %23)
+          to label %340 unwind label %272
+
+340:                                              ; preds = %337
+  %341 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %342 unwind label %272
+
+342:                                              ; preds = %340
+  %343 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %341, i32 0, i32 0
+  %344 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %343, i32 0, i32 4
+  store ptr %339, ptr %344, align 8
+  %345 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocIlE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
+          to label %346 unwind label %272
+
+346:                                              ; preds = %342
+  %347 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %348 unwind label %272
+
+348:                                              ; preds = %346
+  %349 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %347, i32 0, i32 0
+  %350 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %349, i32 0, i32 5
+  store ptr %345, ptr %350, align 8
+  %351 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %352 unwind label %272
+
+352:                                              ; preds = %348
+  call void @llvm.lifetime.start.p0(i64 1, ptr %27) #17
+  %353 = call noundef ptr @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectbENK3$_1cvPFvS2_EEv"(ptr noundef nonnull align 1 dereferenceable(1) %27) #17
+  %354 = invoke ptr @PyCapsule_New(ptr noundef %351, ptr noundef @.str.13, ptr noundef %353)
+          to label %355 unwind label %356
+
+355:                                              ; preds = %352
+  store ptr %354, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %27) #17
+  store i32 1, ptr %10, align 4
+  br label %360
+
+356:                                              ; preds = %352
+  %357 = landingpad { ptr, i32 }
+          cleanup
+  %358 = extractvalue { ptr, i32 } %357, 0
+  store ptr %358, ptr %8, align 8
+  %359 = extractvalue { ptr, i32 } %357, 1
+  store i32 %359, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %27) #17
+  br label %361
+
+360:                                              ; preds = %355, %330
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #17
+  call void @_ZN8nanobind6detail15scoped_pymallocIlED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #17
+  call void @_ZN8nanobind6detail15scoped_pymallocIlED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #17
+  br label %366
+
+361:                                              ; preds = %356, %332, %272
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #17
+  call void @_ZN8nanobind6detail15scoped_pymallocIlED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #17
+  br label %362
+
+362:                                              ; preds = %361, %268
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #17
+  call void @_ZN8nanobind6detail15scoped_pymallocIlED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #17
+  br label %363
+
+363:                                              ; preds = %362, %264
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #17
+  br label %364
+
+364:                                              ; preds = %363, %260, %256
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #17
+  br label %365
+
+365:                                              ; preds = %364, %252
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #17
+  br label %367
+
+366:                                              ; preds = %360, %180
+  call void @llvm.lifetime.end.p0(i64 1, ptr %17) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #17
+  br label %369
+
+367:                                              ; preds = %365, %248, %170
+  call void @llvm.lifetime.end.p0(i64 1, ptr %17) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #17
+  br label %368
+
+368:                                              ; preds = %367, %59
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #17
+  br label %371
+
+369:                                              ; preds = %366, %40
+  call void @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  call void @_ZN8nanobind6detail15scoped_pymallocI10bufferinfoED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #17
+  %370 = load ptr, ptr %3, align 8
+  ret ptr %370
+
+371:                                              ; preds = %368, %45
+  call void @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
+  br label %372
+
+372:                                              ; preds = %371, %41
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  call void @_ZN8nanobind6detail15scoped_pymallocI10bufferinfoED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #17
+  br label %373
+
+373:                                              ; preds = %372
+  %374 = load ptr, ptr %8, align 8
+  %375 = load i32, ptr %9, align 4
+  %376 = insertvalue { ptr, i32 } poison, ptr %374, 0
+  %377 = insertvalue { ptr, i32 } %376, i32 %375, 1
+  resume { ptr, i32 } %377
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden void @_ZN8nanobind6borrowINS_6objectEEET_NS_6handleE(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr %1) #10 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca %"class.nanobind::handle", align 8
+  %5 = alloca %"class.nanobind::handle", align 8
+  store ptr %0, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %4, i32 0, i32 0
+  store ptr %1, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %4, i64 8, i1 false)
+  %7 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %5, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %8)
+  ret void
 }
 
 declare ptr @PyCapsule_GetPointer(ptr noundef, ptr noundef) #1
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #11 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK8nanobind6dlpack5dtypeneERKS1_(ptr noundef nonnull align 2 dereferenceable(4) %0, ptr noundef nonnull align 2 dereferenceable(4) %1) #12 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef zeroext i1 @_ZNK8nanobind6dlpack5dtypeeqERKS1_(ptr noundef nonnull align 2 dereferenceable(4) %5, ptr noundef nonnull align 2 dereferenceable(4) %6)
+  %8 = xor i1 %7, true
+  ret i1 %8
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN8nanobind6dlpack5dtypeC2Ev(ptr noundef nonnull align 2 dereferenceable(4) %0) unnamed_addr #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %3, i32 0, i32 0
+  store i8 0, ptr %4, align 2
+  %5 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %3, i32 0, i32 1
+  store i8 0, ptr %5, align 1
+  %6 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %3, i32 0, i32 2
+  store i16 0, ptr %6, align 2
+  ret void
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK8nanobind6dlpack5dtypeeqERKS1_(ptr noundef nonnull align 2 dereferenceable(4) %0, ptr noundef nonnull align 2 dereferenceable(4) %1) #0 comdat align 2 {
@@ -3373,33 +3666,33 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK8nanobind6dlpack5dtypeeqERKS1
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.nanobind::dlpack::dtype", ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %5, i32 0, i32 0
   %7 = load i8, ptr %6, align 2
   %8 = zext i8 %7 to i32
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %"struct.nanobind::dlpack::dtype", ptr %9, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %9, i32 0, i32 0
   %11 = load i8, ptr %10, align 2
   %12 = zext i8 %11 to i32
   %13 = icmp eq i32 %8, %12
   br i1 %13, label %14, label %32
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds %"struct.nanobind::dlpack::dtype", ptr %5, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %5, i32 0, i32 1
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
   %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %"struct.nanobind::dlpack::dtype", ptr %18, i32 0, i32 1
+  %19 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %18, i32 0, i32 1
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %22 = icmp eq i32 %17, %21
   br i1 %22, label %23, label %32
 
 23:                                               ; preds = %14
-  %24 = getelementptr inbounds %"struct.nanobind::dlpack::dtype", ptr %5, i32 0, i32 2
+  %24 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %5, i32 0, i32 2
   %25 = load i16, ptr %24, align 2
   %26 = zext i16 %25 to i32
   %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %"struct.nanobind::dlpack::dtype", ptr %27, i32 0, i32 2
+  %28 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %27, i32 0, i32 2
   %29 = load i16, ptr %28, align 2
   %30 = zext i16 %29 to i32
   %31 = icmp eq i32 %26, %30
@@ -3410,28 +3703,845 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK8nanobind6dlpack5dtypeeqERKS1
   ret i1 %33
 }
 
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
+
+; Function Attrs: nounwind
+declare ptr @strcpy(ptr noundef, ptr noundef) #4
+
+; Function Attrs: nounwind
+declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #4
+
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN8nanobind6detail15scoped_pymallocIlEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJRA11_cRcEEENS_6objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(11) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca [3 x ptr], align 16
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca %"class.nanobind::handle", align 8
+  %13 = alloca %"class.nanobind::handle", align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca %"class.nanobind::handle", align 8
+  %17 = alloca %"class.nanobind::object", align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca i32, align 4
+  %20 = alloca %"class.nanobind::handle", align 8
+  %21 = alloca %"class.nanobind::handle", align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %22 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %9) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  store ptr null, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  store i64 0, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr inbounds [11 x i8], ptr %23, i64 0, i64 0
+  %25 = call ptr @_ZN8nanobind6detail11type_casterIciE8from_cppEPKcNS_9rv_policyEPNS0_12cleanup_listE(ptr noundef %24, i32 noundef 1, ptr noundef null) #17
+  %26 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %12, i32 0, i32 0
+  store ptr %25, ptr %26, align 8
+  %27 = call noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %28 = load i64, ptr %11, align 8
+  %29 = add i64 %28, 1
+  store i64 %29, ptr %11, align 8
+  %30 = add i64 1, %28
+  %31 = getelementptr inbounds nuw [3 x ptr], ptr %9, i64 0, i64 %30
+  store ptr %27, ptr %31, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #17
+  %32 = load ptr, ptr %8, align 8
+  %33 = load i8, ptr %32, align 1
+  %34 = call ptr @_ZN8nanobind6detail11type_casterIciE8from_cppEcNS_9rv_policyEPNS0_12cleanup_listE(i8 noundef signext %33, i32 noundef 1, ptr noundef null) #17
+  %35 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %13, i32 0, i32 0
+  store ptr %34, ptr %35, align 8
+  %36 = call noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
+  %37 = load i64, ptr %11, align 8
+  %38 = add i64 %37, 1
+  store i64 %38, ptr %11, align 8
+  %39 = add i64 1, %37
+  %40 = getelementptr inbounds nuw [3 x ptr], ptr %9, i64 0, i64 %39
+  store ptr %36, ptr %40, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #17
+  %41 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %22)
+  call void @_ZNK8nanobind6detail8accessorINS0_8str_attrEE3keyEv(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %17, ptr noundef nonnull align 8 dereferenceable(24) %41)
+  %42 = invoke ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
+          to label %43 unwind label %64
+
+43:                                               ; preds = %4
+  %44 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %16, i32 0, i32 0
+  store ptr %42, ptr %44, align 8
+  %45 = call noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %16)
+  store ptr %45, ptr %14, align 8
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #17
+  %46 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %22)
+  %47 = call ptr @_ZNK8nanobind6detail8accessorINS0_8str_attrEE4baseEv(ptr noundef nonnull align 8 dereferenceable(24) %46)
+  %48 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %20, i32 0, i32 0
+  store ptr %47, ptr %48, align 8
+  %49 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %20) #17
+  %50 = call noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %49)
+  %51 = getelementptr inbounds [3 x ptr], ptr %9, i64 0, i64 0
+  store ptr %50, ptr %51, align 16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #17
+  %52 = getelementptr inbounds [3 x ptr], ptr %9, i64 0, i64 0
+  store ptr %52, ptr %15, align 8
+  %53 = load i64, ptr %11, align 8
+  %54 = add i64 %53, 1
+  store i64 %54, ptr %11, align 8
+  %55 = load i64, ptr %11, align 8
+  %56 = or i64 %55, -9223372036854775808
+  store i64 %56, ptr %11, align 8
+  %57 = load ptr, ptr %14, align 8
+  %58 = load ptr, ptr %15, align 8
+  %59 = load i64, ptr %11, align 8
+  %60 = load ptr, ptr %10, align 8
+  %61 = call noundef ptr @_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS2_b(ptr noundef %57, ptr noundef %58, i64 noundef %59, ptr noundef %60, i1 noundef zeroext true)
+  call void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef %61)
+  %62 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %21, i32 0, i32 0
+  %63 = load ptr, ptr %62, align 8
+  call void @_ZN8nanobind5stealINS_6objectEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %0, ptr %63)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #17
+  ret void
+
+64:                                               ; preds = %4
+  %65 = landingpad { ptr, i32 }
+          cleanup
+  %66 = extractvalue { ptr, i32 } %65, 0
+  store ptr %66, ptr %18, align 8
+  %67 = extractvalue { ptr, i32 } %65, 1
+  store i32 %67, ptr %19, align 4
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #17
+  br label %68
+
+68:                                               ; preds = %64
+  %69 = load ptr, ptr %18, align 8
+  %70 = load i32, ptr %19, align 4
+  %71 = insertvalue { ptr, i32 } poison, ptr %69, 0
+  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
+  resume { ptr, i32 } %72
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJNS_5arg_vEEEENS_6objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca %"class.nanobind::handle", align 8
+  %16 = alloca %"class.nanobind::object", align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca %"class.nanobind::handle", align 8
+  %20 = alloca %"class.nanobind::handle", align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %21 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  store i64 0, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  store i64 0, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  store i64 0, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  store i64 0, ptr %10, align 8
+  %22 = load ptr, ptr %6, align 8
+  call void @_ZN8nanobind6detail12call_analyzeINS_5arg_vEEEvRmS3_RKT_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %22)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  %23 = load i64, ptr %7, align 8
+  %24 = load i64, ptr %8, align 8
+  %25 = add i64 %23, %24
+  %26 = add i64 %25, 1
+  %27 = mul i64 %26, 8
+  %28 = alloca i8, i64 %27, align 16
+  store ptr %28, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %29 = load i64, ptr %8, align 8
+  %30 = icmp ne i64 %29, 0
+  br i1 %30, label %31, label %34
+
+31:                                               ; preds = %3
+  %32 = load i64, ptr %8, align 8
+  %33 = call ptr @PyTuple_New(i64 noundef %32)
+  br label %35
+
+34:                                               ; preds = %3
+  br label %35
+
+35:                                               ; preds = %34, %31
+  %36 = phi ptr [ %33, %31 ], [ null, %34 ]
+  store ptr %36, ptr %12, align 8
+  %37 = load ptr, ptr %11, align 8
+  %38 = getelementptr inbounds ptr, ptr %37, i64 1
+  %39 = load ptr, ptr %12, align 8
+  %40 = load i64, ptr %7, align 8
+  %41 = load ptr, ptr %6, align 8
+  call void @_ZN8nanobind6detail9call_initILNS_9rv_policyE1ENS_5arg_vEEEvPP7_objectS5_RmS7_mOT0_(ptr noundef %38, ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef %40, ptr noundef nonnull align 8 dereferenceable(32) %41)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #17
+  %42 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %21)
+  call void @_ZNK8nanobind6detail8accessorINS0_8str_attrEE3keyEv(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %16, ptr noundef nonnull align 8 dereferenceable(24) %42)
+  %43 = invoke ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %16)
+          to label %44 unwind label %66
+
+44:                                               ; preds = %35
+  %45 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %15, i32 0, i32 0
+  store ptr %43, ptr %45, align 8
+  %46 = call noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %15)
+  store ptr %46, ptr %13, align 8
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #17
+  %47 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %21)
+  %48 = call ptr @_ZNK8nanobind6detail8accessorINS0_8str_attrEE4baseEv(ptr noundef nonnull align 8 dereferenceable(24) %47)
+  %49 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %19, i32 0, i32 0
+  store ptr %48, ptr %49, align 8
+  %50 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %19) #17
+  %51 = call noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %50)
+  %52 = load ptr, ptr %11, align 8
+  %53 = getelementptr inbounds ptr, ptr %52, i64 0
+  store ptr %51, ptr %53, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #17
+  %54 = load ptr, ptr %11, align 8
+  store ptr %54, ptr %14, align 8
+  %55 = load i64, ptr %7, align 8
+  %56 = add i64 %55, 1
+  store i64 %56, ptr %7, align 8
+  %57 = load i64, ptr %7, align 8
+  %58 = or i64 %57, -9223372036854775808
+  store i64 %58, ptr %7, align 8
+  %59 = load ptr, ptr %13, align 8
+  %60 = load ptr, ptr %14, align 8
+  %61 = load i64, ptr %7, align 8
+  %62 = load ptr, ptr %12, align 8
+  %63 = call noundef ptr @_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS2_b(ptr noundef %59, ptr noundef %60, i64 noundef %61, ptr noundef %62, i1 noundef zeroext true)
+  call void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef %63)
+  %64 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %20, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  call void @_ZN8nanobind5stealINS_6objectEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %0, ptr %65)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  ret void
+
+66:                                               ; preds = %35
+  %67 = landingpad { ptr, i32 }
+          cleanup
+  %68 = extractvalue { ptr, i32 } %67, 0
+  store ptr %68, ptr %17, align 8
+  %69 = extractvalue { ptr, i32 } %67, 1
+  store i32 %69, ptr %18, align 4
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  br label %70
+
+70:                                               ; preds = %66
+  %71 = load ptr, ptr %17, align 8
+  %72 = load i32, ptr %18, align 4
+  %73 = insertvalue { ptr, i32 } poison, ptr %71, 0
+  %74 = insertvalue { ptr, i32 } %73, i32 %72, 1
+  resume { ptr, i32 } %74
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN8nanobind3argC2EPKc(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef %1) unnamed_addr #11 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.nanobind::arg", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds nuw %"struct.nanobind::arg", ptr %5, i32 0, i32 1
+  store ptr null, ptr %8, align 8
+  %9 = getelementptr inbounds nuw %"struct.nanobind::arg", ptr %5, i32 0, i32 2
+  store i8 1, ptr %9, align 8
+  %10 = getelementptr inbounds nuw %"struct.nanobind::arg", ptr %5, i32 0, i32 3
+  store i8 0, ptr %10, align 1
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden void @_ZNK8nanobind3argaSINS_6detail8accessorINS2_8str_attrEEEEENS_5arg_vEOT_(ptr dead_on_unwind noalias writable sret(%"struct.nanobind::arg_v") align 8 %0, ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #10 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.nanobind::object", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %11 = load ptr, ptr %6, align 8
+  call void @_ZN8nanobind4castINS_6detail8accessorINS1_8str_attrEEEEENS_6objectEOT_NS_9rv_policyE(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %11, i32 noundef 1)
+  invoke void @_ZN8nanobind5arg_vC2ERKNS_3argEONS_6objectE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(18) %10, ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %12 unwind label %13
+
+12:                                               ; preds = %3
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  ret void
+
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
+          cleanup
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %8, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %9, align 4
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  br label %17
+
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %8, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN8nanobind5arg_vD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.nanobind::arg_v", ptr %3, i32 0, i32 1
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJEEENS_6objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca [1 x ptr], align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca %"class.nanobind::handle", align 8
+  %11 = alloca %"class.nanobind::object", align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca %"class.nanobind::handle", align 8
+  %15 = alloca %"class.nanobind::handle", align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %16 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #17
+  store ptr null, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  store i64 0, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  %17 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %16)
+  call void @_ZNK8nanobind6detail8accessorINS0_8str_attrEE3keyEv(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %11, ptr noundef nonnull align 8 dereferenceable(24) %17)
+  %18 = invoke ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %19 unwind label %40
+
+19:                                               ; preds = %2
+  %20 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %10, i32 0, i32 0
+  store ptr %18, ptr %20, align 8
+  %21 = call noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  store ptr %21, ptr %8, align 8
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  %22 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %16)
+  %23 = call ptr @_ZNK8nanobind6detail8accessorINS0_8str_attrEE4baseEv(ptr noundef nonnull align 8 dereferenceable(24) %22)
+  %24 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %14, i32 0, i32 0
+  store ptr %23, ptr %24, align 8
+  %25 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #17
+  %26 = call noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %25)
+  %27 = getelementptr inbounds [1 x ptr], ptr %5, i64 0, i64 0
+  store ptr %26, ptr %27, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  %28 = getelementptr inbounds [1 x ptr], ptr %5, i64 0, i64 0
+  store ptr %28, ptr %9, align 8
+  %29 = load i64, ptr %7, align 8
+  %30 = add i64 %29, 1
+  store i64 %30, ptr %7, align 8
+  %31 = load i64, ptr %7, align 8
+  %32 = or i64 %31, -9223372036854775808
+  store i64 %32, ptr %7, align 8
+  %33 = load ptr, ptr %8, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = load i64, ptr %7, align 8
+  %36 = load ptr, ptr %6, align 8
+  %37 = call noundef ptr @_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS2_b(ptr noundef %33, ptr noundef %34, i64 noundef %35, ptr noundef %36, i1 noundef zeroext true)
+  call void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %37)
+  %38 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %15, i32 0, i32 0
+  %39 = load ptr, ptr %38, align 8
+  call void @_ZN8nanobind5stealINS_6objectEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %0, ptr %39)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #17
+  ret void
+
+40:                                               ; preds = %2
+  %41 = landingpad { ptr, i32 }
+          cleanup
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %12, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %13, align 4
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #17
+  br label %44
+
+44:                                               ; preds = %40
+  %45 = load ptr, ptr %12, align 8
+  %46 = load i32, ptr %13, align 4
+  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
+  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
+  resume { ptr, i32 } %48
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJNS_6handleERA11_cEEENS_6objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 1 dereferenceable(11) %3) #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca [3 x ptr], align 16
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca %"class.nanobind::handle", align 8
+  %13 = alloca %"class.nanobind::handle", align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca %"class.nanobind::handle", align 8
+  %17 = alloca %"class.nanobind::object", align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca i32, align 4
+  %20 = alloca %"class.nanobind::handle", align 8
+  %21 = alloca %"class.nanobind::handle", align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %22 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %9) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  store ptr null, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  store i64 0, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %23 = load ptr, ptr %7, align 8
+  %24 = call ptr @_ZN8nanobind6detail11type_casterINS_6handleEiE8from_cppEOS2_NS_9rv_policyEPNS0_12cleanup_listE(ptr noundef nonnull align 8 dereferenceable(8) %23, i32 noundef 1, ptr noundef null) #17
+  %25 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %12, i32 0, i32 0
+  store ptr %24, ptr %25, align 8
+  %26 = call noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %27 = load i64, ptr %11, align 8
+  %28 = add i64 %27, 1
+  store i64 %28, ptr %11, align 8
+  %29 = add i64 1, %27
+  %30 = getelementptr inbounds nuw [3 x ptr], ptr %9, i64 0, i64 %29
+  store ptr %26, ptr %30, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #17
+  %31 = load ptr, ptr %8, align 8
+  %32 = getelementptr inbounds [11 x i8], ptr %31, i64 0, i64 0
+  %33 = call ptr @_ZN8nanobind6detail11type_casterIciE8from_cppEPKcNS_9rv_policyEPNS0_12cleanup_listE(ptr noundef %32, i32 noundef 1, ptr noundef null) #17
+  %34 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %13, i32 0, i32 0
+  store ptr %33, ptr %34, align 8
+  %35 = call noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
+  %36 = load i64, ptr %11, align 8
+  %37 = add i64 %36, 1
+  store i64 %37, ptr %11, align 8
+  %38 = add i64 1, %36
+  %39 = getelementptr inbounds nuw [3 x ptr], ptr %9, i64 0, i64 %38
+  store ptr %35, ptr %39, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #17
+  %40 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %22)
+  call void @_ZNK8nanobind6detail8accessorINS0_8str_attrEE3keyEv(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %17, ptr noundef nonnull align 8 dereferenceable(24) %40)
+  %41 = invoke ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
+          to label %42 unwind label %63
+
+42:                                               ; preds = %4
+  %43 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %16, i32 0, i32 0
+  store ptr %41, ptr %43, align 8
+  %44 = call noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %16)
+  store ptr %44, ptr %14, align 8
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #17
+  %45 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %22)
+  %46 = call ptr @_ZNK8nanobind6detail8accessorINS0_8str_attrEE4baseEv(ptr noundef nonnull align 8 dereferenceable(24) %45)
+  %47 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %20, i32 0, i32 0
+  store ptr %46, ptr %47, align 8
+  %48 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %20) #17
+  %49 = call noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %48)
+  %50 = getelementptr inbounds [3 x ptr], ptr %9, i64 0, i64 0
+  store ptr %49, ptr %50, align 16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #17
+  %51 = getelementptr inbounds [3 x ptr], ptr %9, i64 0, i64 0
+  store ptr %51, ptr %15, align 8
+  %52 = load i64, ptr %11, align 8
+  %53 = add i64 %52, 1
+  store i64 %53, ptr %11, align 8
+  %54 = load i64, ptr %11, align 8
+  %55 = or i64 %54, -9223372036854775808
+  store i64 %55, ptr %11, align 8
+  %56 = load ptr, ptr %14, align 8
+  %57 = load ptr, ptr %15, align 8
+  %58 = load i64, ptr %11, align 8
+  %59 = load ptr, ptr %10, align 8
+  %60 = call noundef ptr @_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS2_b(ptr noundef %56, ptr noundef %57, i64 noundef %58, ptr noundef %59, i1 noundef zeroext true)
+  call void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef %60)
+  %61 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %21, i32 0, i32 0
+  %62 = load ptr, ptr %61, align 8
+  call void @_ZN8nanobind5stealINS_6objectEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %0, ptr %62)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #17
+  ret void
+
+63:                                               ; preds = %4
+  %64 = landingpad { ptr, i32 }
+          cleanup
+  %65 = extractvalue { ptr, i32 } %64, 0
+  store ptr %65, ptr %18, align 8
+  %66 = extractvalue { ptr, i32 } %64, 1
+  store i32 %66, ptr %19, align 4
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #17
+  br label %67
+
+67:                                               ; preds = %63
+  %68 = load ptr, ptr %18, align 8
+  %69 = load i32, ptr %19, align 4
+  %70 = insertvalue { ptr, i32 } poison, ptr %68, 0
+  %71 = insertvalue { ptr, i32 } %70, i32 %69, 1
+  resume { ptr, i32 } %71
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJRA11_cEEENS_6objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(11) %2) #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca [2 x ptr], align 16
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca %"class.nanobind::handle", align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %"class.nanobind::handle", align 8
+  %14 = alloca %"class.nanobind::object", align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca %"class.nanobind::handle", align 8
+  %18 = alloca %"class.nanobind::handle", align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %19 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  store ptr null, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  store i64 0, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  %20 = load ptr, ptr %6, align 8
+  %21 = getelementptr inbounds [11 x i8], ptr %20, i64 0, i64 0
+  %22 = call ptr @_ZN8nanobind6detail11type_casterIciE8from_cppEPKcNS_9rv_policyEPNS0_12cleanup_listE(ptr noundef %21, i32 noundef 1, ptr noundef null) #17
+  %23 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %10, i32 0, i32 0
+  store ptr %22, ptr %23, align 8
+  %24 = call noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %25 = load i64, ptr %9, align 8
+  %26 = add i64 %25, 1
+  store i64 %26, ptr %9, align 8
+  %27 = add i64 1, %25
+  %28 = getelementptr inbounds nuw [2 x ptr], ptr %7, i64 0, i64 %27
+  store ptr %24, ptr %28, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  %29 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %19)
+  call void @_ZNK8nanobind6detail8accessorINS0_8str_attrEE3keyEv(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %29)
+  %30 = invoke ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %31 unwind label %52
+
+31:                                               ; preds = %3
+  %32 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %13, i32 0, i32 0
+  store ptr %30, ptr %32, align 8
+  %33 = call noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
+  store ptr %33, ptr %11, align 8
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #17
+  %34 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %19)
+  %35 = call ptr @_ZNK8nanobind6detail8accessorINS0_8str_attrEE4baseEv(ptr noundef nonnull align 8 dereferenceable(24) %34)
+  %36 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %17, i32 0, i32 0
+  store ptr %35, ptr %36, align 8
+  %37 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %17) #17
+  %38 = call noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %37)
+  %39 = getelementptr inbounds [2 x ptr], ptr %7, i64 0, i64 0
+  store ptr %38, ptr %39, align 16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #17
+  %40 = getelementptr inbounds [2 x ptr], ptr %7, i64 0, i64 0
+  store ptr %40, ptr %12, align 8
+  %41 = load i64, ptr %9, align 8
+  %42 = add i64 %41, 1
+  store i64 %42, ptr %9, align 8
+  %43 = load i64, ptr %9, align 8
+  %44 = or i64 %43, -9223372036854775808
+  store i64 %44, ptr %9, align 8
+  %45 = load ptr, ptr %11, align 8
+  %46 = load ptr, ptr %12, align 8
+  %47 = load i64, ptr %9, align 8
+  %48 = load ptr, ptr %8, align 8
+  %49 = call noundef ptr @_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS2_b(ptr noundef %45, ptr noundef %46, i64 noundef %47, ptr noundef %48, i1 noundef zeroext true)
+  call void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %49)
+  %50 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %18, i32 0, i32 0
+  %51 = load ptr, ptr %50, align 8
+  call void @_ZN8nanobind5stealINS_6objectEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %0, ptr %51)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #17
+  ret void
+
+52:                                               ; preds = %3
+  %53 = landingpad { ptr, i32 }
+          cleanup
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %15, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %16, align 4
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #17
+  br label %56
+
+56:                                               ; preds = %52
+  %57 = load ptr, ptr %15, align 8
+  %58 = load i32, ptr %16, align 4
+  %59 = insertvalue { ptr, i32 } poison, ptr %57, 0
+  %60 = insertvalue { ptr, i32 } %59, i32 %58, 1
+  resume { ptr, i32 } %60
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr void @_ZN8nanobind6detail12cleanup_list6appendEP7_object(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) #11 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.nanobind::detail::cleanup_list", ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %6, align 8
+  %8 = getelementptr inbounds nuw %"struct.nanobind::detail::cleanup_list", ptr %5, i32 0, i32 1
+  %9 = load i32, ptr %8, align 4
+  %10 = icmp uge i32 %7, %9
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %2
+  call void @_ZN8nanobind6detail12cleanup_list6expandEv(ptr noundef nonnull align 8 dereferenceable(64) %5) #17
+  br label %12
+
+12:                                               ; preds = %11, %2
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds nuw %"struct.nanobind::detail::cleanup_list", ptr %5, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds nuw %"struct.nanobind::detail::cleanup_list", ptr %5, i32 0, i32 0
+  %17 = load i32, ptr %16, align 8
+  %18 = add i32 %17, 1
+  store i32 %18, ptr %16, align 8
+  %19 = zext i32 %17 to i64
+  %20 = getelementptr inbounds nuw ptr, ptr %15, i64 %19
+  store ptr %13, ptr %20, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #12 comdat align 2 {
+  %2 = alloca %"class.nanobind::handle", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  call void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %6)
+  %7 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %4, i32 0, i32 0
+  store ptr null, ptr %7, align 8
+  %8 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %2, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  ret ptr %9
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #12 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.nanobind::detail::scoped_pymalloc", ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.nanobind::detail::scoped_pymalloc", ptr %5, i32 0, i32 0
   store ptr null, ptr %6, align 8
   %7 = load i64, ptr %4, align 8
-  %8 = mul i64 %7, 8
+  %8 = mul i64 %7, 40
   %9 = call ptr @PyMem_Malloc(i64 noundef %8)
-  %10 = getelementptr inbounds %"struct.nanobind::detail::scoped_pymalloc", ptr %5, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %"struct.nanobind::detail::scoped_pymalloc", ptr %5, i32 0, i32 0
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds %"struct.nanobind::detail::scoped_pymalloc", ptr %5, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.nanobind::detail::scoped_pymalloc", ptr %5, i32 0, i32 0
   %12 = load ptr, ptr %11, align 8
   %13 = icmp ne ptr %12, null
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %2
   %15 = load i64, ptr %4, align 8
-  call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef @.str.35, i64 noundef %15) #12
+  call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef @.str.36, i64 noundef %15) #18
+  unreachable
+
+16:                                               ; preds = %2
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.nanobind::detail::scoped_pymalloc", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNSt13__atomic_baseImEaSEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  call void @_ZNSt13__atomic_baseImE5storeEmSt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %6, i32 noundef 5) #17
+  %7 = load i64, ptr %4, align 8
+  ret i64 %7
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal void @_ZL10_Py_INCREFP7_object(ptr noundef %0) #9 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct._object, ptr %3, i32 0, i32 0
+  %5 = load i64, ptr %4, align 8
+  %6 = add nsw i64 %5, 1
+  store i64 %6, ptr %4, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN8nanobind6detail15scoped_pymallocIlEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #12 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.nanobind::detail::scoped_pymalloc.1", ptr %5, i32 0, i32 0
+  store ptr null, ptr %6, align 8
+  %7 = load i64, ptr %4, align 8
+  %8 = mul i64 %7, 8
+  %9 = call ptr @PyMem_Malloc(i64 noundef %8)
+  %10 = getelementptr inbounds nuw %"struct.nanobind::detail::scoped_pymalloc.1", ptr %5, i32 0, i32 0
+  store ptr %9, ptr %10, align 8
+  %11 = getelementptr inbounds nuw %"struct.nanobind::detail::scoped_pymalloc.1", ptr %5, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %16, label %14
+
+14:                                               ; preds = %2
+  %15 = load i64, ptr %4, align 8
+  call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef @.str.36, i64 noundef %15) #18
   unreachable
 
 16:                                               ; preds = %2
@@ -3445,1019 +4555,11 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN8n
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.nanobind::detail::scoped_pymalloc", ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.nanobind::detail::scoped_pymalloc.1", ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %4, align 8
-  %9 = getelementptr inbounds i64, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw i64, ptr %7, i64 %8
   ret ptr %9
-}
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
-
-; Function Attrs: nounwind
-declare ptr @strcpy(ptr noundef, ptr noundef) #3
-
-; Function Attrs: nounwind
-declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #3
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJRA11_cRcEEENS_6objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(11) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca %"class.nanobind::handle", align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca ptr, align 8
-  %13 = alloca %"class.nanobind::handle", align 8
-  %14 = alloca %"class.nanobind::handle", align 8
-  %15 = alloca ptr, align 8
-  %16 = alloca ptr, align 8
-  %17 = alloca %"class.nanobind::handle", align 8
-  %18 = alloca ptr, align 8
-  %19 = alloca ptr, align 8
-  %20 = alloca ptr, align 8
-  %21 = alloca ptr, align 8
-  %22 = alloca ptr, align 8
-  %23 = alloca ptr, align 8
-  %24 = alloca ptr, align 8
-  %25 = alloca %"class.nanobind::handle", align 8
-  %26 = alloca %"class.nanobind::handle", align 8
-  %27 = alloca ptr, align 8
-  %28 = alloca ptr, align 8
-  %29 = alloca ptr, align 8
-  %30 = alloca ptr, align 8
-  %31 = alloca [3 x ptr], align 16
-  %32 = alloca ptr, align 8
-  %33 = alloca i64, align 8
-  %34 = alloca %"class.nanobind::handle", align 8
-  %35 = alloca %"class.nanobind::handle", align 8
-  %36 = alloca ptr, align 8
-  %37 = alloca ptr, align 8
-  %38 = alloca %"class.nanobind::handle", align 8
-  %39 = alloca %"class.nanobind::object", align 8
-  %40 = alloca ptr, align 8
-  %41 = alloca i32, align 4
-  %42 = alloca %"class.nanobind::handle", align 8
-  %43 = alloca %"class.nanobind::handle", align 8
-  store ptr %0, ptr %27, align 8
-  store ptr %1, ptr %28, align 8
-  store ptr %2, ptr %29, align 8
-  store ptr %3, ptr %30, align 8
-  %44 = load ptr, ptr %28, align 8
-  store ptr null, ptr %32, align 8
-  store i64 0, ptr %33, align 8
-  %45 = load ptr, ptr %29, align 8
-  %46 = getelementptr inbounds [11 x i8], ptr %45, i64 0, i64 0
-  %47 = call ptr @_ZN8nanobind6detail11type_casterIciE8from_cppEPKcNS_9rv_policyEPNS0_12cleanup_listE(ptr noundef %46, i32 noundef 1, ptr noundef null) #11
-  %48 = getelementptr inbounds %"class.nanobind::handle", ptr %34, i32 0, i32 0
-  store ptr %47, ptr %48, align 8
-  store ptr %34, ptr %18, align 8
-  %49 = load ptr, ptr %18, align 8
-  %50 = load ptr, ptr %49, align 8
-  %51 = load i64, ptr %33, align 8
-  %52 = add i64 %51, 1
-  store i64 %52, ptr %33, align 8
-  %53 = add i64 1, %51
-  %54 = getelementptr inbounds [3 x ptr], ptr %31, i64 0, i64 %53
-  store ptr %50, ptr %54, align 8
-  %55 = load ptr, ptr %30, align 8
-  %56 = load i8, ptr %55, align 1
-  %57 = call ptr @_ZN8nanobind6detail11type_casterIciE8from_cppEcNS_9rv_policyEPNS0_12cleanup_listE(i8 noundef signext %56, i32 noundef 1, ptr noundef null) #11
-  %58 = getelementptr inbounds %"class.nanobind::handle", ptr %35, i32 0, i32 0
-  store ptr %57, ptr %58, align 8
-  store ptr %35, ptr %19, align 8
-  %59 = load ptr, ptr %19, align 8
-  %60 = load ptr, ptr %59, align 8
-  %61 = load i64, ptr %33, align 8
-  %62 = add i64 %61, 1
-  store i64 %62, ptr %33, align 8
-  %63 = add i64 1, %61
-  %64 = getelementptr inbounds [3 x ptr], ptr %31, i64 0, i64 %63
-  store ptr %60, ptr %64, align 8
-  %65 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %44)
-  call void @llvm.experimental.noalias.scope.decl(metadata !69)
-  store ptr %39, ptr %15, align 8, !noalias !69
-  store ptr %65, ptr %16, align 8, !noalias !69
-  %66 = load ptr, ptr %16, align 8, !noalias !69
-  %67 = getelementptr inbounds %"class.nanobind::detail::accessor", ptr %66, i32 0, i32 2
-  %68 = load ptr, ptr %67, align 8
-  store ptr %68, ptr %5, align 8
-  %69 = load ptr, ptr %5, align 8
-  %70 = call noundef ptr @PyUnicode_InternFromString(ptr noundef %69)
-  store ptr %17, ptr %10, align 8, !noalias !69
-  store ptr %70, ptr %11, align 8, !noalias !69
-  %71 = load ptr, ptr %10, align 8, !noalias !69
-  %72 = load ptr, ptr %11, align 8, !noalias !69
-  store ptr %72, ptr %71, align 8
-  %73 = load ptr, ptr %17, align 8, !noalias !69
-  call void @llvm.experimental.noalias.scope.decl(metadata !72)
-  store ptr %39, ptr %12, align 8, !noalias !75
-  store ptr %73, ptr %13, align 8, !noalias !75
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %13, i64 8, i1 false), !noalias !75
-  %74 = load ptr, ptr %14, align 8, !noalias !75
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr %74)
-  %75 = invoke ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %39)
-          to label %76 unwind label %106
-
-76:                                               ; preds = %4
-  %77 = getelementptr inbounds %"class.nanobind::handle", ptr %38, i32 0, i32 0
-  store ptr %75, ptr %77, align 8
-  store ptr %38, ptr %20, align 8
-  %78 = load ptr, ptr %20, align 8
-  %79 = load ptr, ptr %78, align 8
-  store ptr %79, ptr %36, align 8
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %39) #11
-  %80 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %44)
-  store ptr %80, ptr %9, align 8
-  %81 = load ptr, ptr %9, align 8
-  %82 = load ptr, ptr %81, align 8
-  store ptr %8, ptr %6, align 8
-  store ptr %82, ptr %7, align 8
-  %83 = load ptr, ptr %6, align 8
-  %84 = load ptr, ptr %7, align 8
-  store ptr %84, ptr %83, align 8
-  %85 = load ptr, ptr %8, align 8
-  %86 = getelementptr inbounds %"class.nanobind::handle", ptr %42, i32 0, i32 0
-  store ptr %85, ptr %86, align 8
-  %87 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %42) #11
-  store ptr %87, ptr %21, align 8
-  %88 = load ptr, ptr %21, align 8
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds [3 x ptr], ptr %31, i64 0, i64 0
-  store ptr %89, ptr %90, align 16
-  %91 = getelementptr inbounds [3 x ptr], ptr %31, i64 0, i64 0
-  store ptr %91, ptr %37, align 8
-  %92 = load i64, ptr %33, align 8
-  %93 = add i64 %92, 1
-  store i64 %93, ptr %33, align 8
-  %94 = load i64, ptr %33, align 8
-  %95 = or i64 %94, -9223372036854775808
-  store i64 %95, ptr %33, align 8
-  %96 = load ptr, ptr %36, align 8
-  %97 = load ptr, ptr %37, align 8
-  %98 = load i64, ptr %33, align 8
-  %99 = load ptr, ptr %32, align 8
-  %100 = call noundef ptr @_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS2_b(ptr noundef %96, ptr noundef %97, i64 noundef %98, ptr noundef %99, i1 noundef zeroext true)
-  store ptr %43, ptr %22, align 8
-  store ptr %100, ptr %23, align 8
-  %101 = load ptr, ptr %22, align 8
-  %102 = load ptr, ptr %23, align 8
-  store ptr %102, ptr %101, align 8
-  %103 = getelementptr inbounds %"class.nanobind::handle", ptr %43, i32 0, i32 0
-  %104 = load ptr, ptr %103, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !76)
-  store ptr %0, ptr %24, align 8, !noalias !76
-  store ptr %104, ptr %25, align 8, !noalias !76
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr align 8 %25, i64 8, i1 false), !noalias !76
-  %105 = load ptr, ptr %26, align 8, !noalias !76
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %105)
-  ret void
-
-106:                                              ; preds = %4
-  %107 = landingpad { ptr, i32 }
-          cleanup
-  %108 = extractvalue { ptr, i32 } %107, 0
-  store ptr %108, ptr %40, align 8
-  %109 = extractvalue { ptr, i32 } %107, 1
-  store i32 %109, ptr %41, align 4
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %39) #11
-  br label %110
-
-110:                                              ; preds = %106
-  %111 = load ptr, ptr %40, align 8
-  %112 = load i32, ptr %41, align 4
-  %113 = insertvalue { ptr, i32 } poison, ptr %111, 0
-  %114 = insertvalue { ptr, i32 } %113, i32 %112, 1
-  resume { ptr, i32 } %114
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJNS_5arg_vEEEENS_6objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca i64, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca %"class.nanobind::handle", align 8
-  %12 = alloca ptr, align 8
-  %13 = alloca ptr, align 8
-  %14 = alloca ptr, align 8
-  %15 = alloca ptr, align 8
-  %16 = alloca ptr, align 8
-  %17 = alloca ptr, align 8
-  %18 = alloca %"class.nanobind::handle", align 8
-  %19 = alloca ptr, align 8
-  %20 = alloca ptr, align 8
-  %21 = alloca ptr, align 8
-  %22 = alloca ptr, align 8
-  %23 = alloca %"class.nanobind::handle", align 8
-  %24 = alloca %"class.nanobind::handle", align 8
-  %25 = alloca ptr, align 8
-  %26 = alloca ptr, align 8
-  %27 = alloca %"class.nanobind::handle", align 8
-  %28 = alloca ptr, align 8
-  %29 = alloca ptr, align 8
-  %30 = alloca ptr, align 8
-  %31 = alloca ptr, align 8
-  %32 = alloca ptr, align 8
-  %33 = alloca %"class.nanobind::handle", align 8
-  %34 = alloca %"class.nanobind::handle", align 8
-  %35 = alloca ptr, align 8
-  %36 = alloca ptr, align 8
-  %37 = alloca ptr, align 8
-  %38 = alloca i64, align 8
-  %39 = alloca i64, align 8
-  %40 = alloca i64, align 8
-  %41 = alloca i64, align 8
-  %42 = alloca ptr, align 8
-  %43 = alloca ptr, align 8
-  %44 = alloca ptr, align 8
-  %45 = alloca ptr, align 8
-  %46 = alloca %"class.nanobind::handle", align 8
-  %47 = alloca %"class.nanobind::object", align 8
-  %48 = alloca ptr, align 8
-  %49 = alloca i32, align 4
-  %50 = alloca %"class.nanobind::handle", align 8
-  %51 = alloca %"class.nanobind::handle", align 8
-  store ptr %0, ptr %35, align 8
-  store ptr %1, ptr %36, align 8
-  store ptr %2, ptr %37, align 8
-  %52 = load ptr, ptr %36, align 8
-  store i64 0, ptr %38, align 8
-  store i64 0, ptr %39, align 8
-  store i64 0, ptr %40, align 8
-  store i64 0, ptr %41, align 8
-  %53 = load ptr, ptr %37, align 8
-  store ptr %38, ptr %12, align 8
-  store ptr %39, ptr %13, align 8
-  store ptr %53, ptr %14, align 8
-  %54 = load ptr, ptr %13, align 8
-  %55 = load i64, ptr %54, align 8
-  %56 = add i64 %55, 1
-  store i64 %56, ptr %54, align 8
-  %57 = load i64, ptr %38, align 8
-  %58 = load i64, ptr %39, align 8
-  %59 = add i64 %57, %58
-  %60 = add i64 %59, 1
-  %61 = mul i64 %60, 8
-  %62 = alloca i8, i64 %61, align 16
-  store ptr %62, ptr %42, align 8
-  %63 = load i64, ptr %39, align 8
-  %64 = icmp ne i64 %63, 0
-  br i1 %64, label %65, label %68
-
-65:                                               ; preds = %3
-  %66 = load i64, ptr %39, align 8
-  %67 = call ptr @PyTuple_New(i64 noundef %66)
-  br label %69
-
-68:                                               ; preds = %3
-  br label %69
-
-69:                                               ; preds = %68, %65
-  %70 = phi ptr [ %67, %65 ], [ null, %68 ]
-  store ptr %70, ptr %43, align 8
-  %71 = load ptr, ptr %42, align 8
-  %72 = getelementptr inbounds ptr, ptr %71, i64 1
-  %73 = load ptr, ptr %43, align 8
-  %74 = load i64, ptr %38, align 8
-  %75 = load ptr, ptr %37, align 8
-  store ptr %72, ptr %5, align 8
-  store ptr %73, ptr %6, align 8
-  store ptr %40, ptr %7, align 8
-  store ptr %41, ptr %8, align 8
-  store i64 %74, ptr %9, align 8
-  store ptr %75, ptr %10, align 8
-  %76 = load ptr, ptr %10, align 8
-  %77 = getelementptr inbounds %"struct.nanobind::arg_v", ptr %76, i32 0, i32 1
-  %78 = call ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %77)
-  store ptr %78, ptr %11, align 8
-  store ptr %11, ptr %4, align 8
-  %79 = load ptr, ptr %4, align 8
-  %80 = load ptr, ptr %79, align 8
-  %81 = load ptr, ptr %5, align 8
-  %82 = load i64, ptr %9, align 8
-  %83 = load ptr, ptr %8, align 8
-  %84 = load i64, ptr %83, align 8
-  %85 = add i64 %82, %84
-  %86 = getelementptr inbounds ptr, ptr %81, i64 %85
-  store ptr %80, ptr %86, align 8
-  %87 = load ptr, ptr %10, align 8
-  %88 = load ptr, ptr %87, align 8
-  %89 = call ptr @PyUnicode_InternFromString(ptr noundef %88)
-  %90 = load ptr, ptr %6, align 8
-  %91 = getelementptr inbounds %struct.PyTupleObject, ptr %90, i32 0, i32 1
-  %92 = load ptr, ptr %8, align 8
-  %93 = load i64, ptr %92, align 8
-  %94 = add i64 %93, 1
-  store i64 %94, ptr %92, align 8
-  %95 = getelementptr inbounds [1 x ptr], ptr %91, i64 0, i64 %93
-  store ptr %89, ptr %95, align 8
-  %96 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %52)
-  call void @llvm.experimental.noalias.scope.decl(metadata !79)
-  store ptr %47, ptr %25, align 8, !noalias !79
-  store ptr %96, ptr %26, align 8, !noalias !79
-  %97 = load ptr, ptr %26, align 8, !noalias !79
-  %98 = getelementptr inbounds %"class.nanobind::detail::accessor", ptr %97, i32 0, i32 2
-  %99 = load ptr, ptr %98, align 8
-  store ptr %99, ptr %15, align 8
-  %100 = load ptr, ptr %15, align 8
-  %101 = call noundef ptr @PyUnicode_InternFromString(ptr noundef %100)
-  store ptr %27, ptr %20, align 8, !noalias !79
-  store ptr %101, ptr %21, align 8, !noalias !79
-  %102 = load ptr, ptr %20, align 8, !noalias !79
-  %103 = load ptr, ptr %21, align 8, !noalias !79
-  store ptr %103, ptr %102, align 8
-  %104 = load ptr, ptr %27, align 8, !noalias !79
-  call void @llvm.experimental.noalias.scope.decl(metadata !82)
-  store ptr %47, ptr %22, align 8, !noalias !85
-  store ptr %104, ptr %23, align 8, !noalias !85
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %24, ptr align 8 %23, i64 8, i1 false), !noalias !85
-  %105 = load ptr, ptr %24, align 8, !noalias !85
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr %105)
-  %106 = invoke ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %47)
-          to label %107 unwind label %138
-
-107:                                              ; preds = %69
-  %108 = getelementptr inbounds %"class.nanobind::handle", ptr %46, i32 0, i32 0
-  store ptr %106, ptr %108, align 8
-  store ptr %46, ptr %28, align 8
-  %109 = load ptr, ptr %28, align 8
-  %110 = load ptr, ptr %109, align 8
-  store ptr %110, ptr %44, align 8
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %47) #11
-  %111 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %52)
-  store ptr %111, ptr %19, align 8
-  %112 = load ptr, ptr %19, align 8
-  %113 = load ptr, ptr %112, align 8
-  store ptr %18, ptr %16, align 8
-  store ptr %113, ptr %17, align 8
-  %114 = load ptr, ptr %16, align 8
-  %115 = load ptr, ptr %17, align 8
-  store ptr %115, ptr %114, align 8
-  %116 = load ptr, ptr %18, align 8
-  %117 = getelementptr inbounds %"class.nanobind::handle", ptr %50, i32 0, i32 0
-  store ptr %116, ptr %117, align 8
-  %118 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %50) #11
-  store ptr %118, ptr %29, align 8
-  %119 = load ptr, ptr %29, align 8
-  %120 = load ptr, ptr %119, align 8
-  %121 = load ptr, ptr %42, align 8
-  %122 = getelementptr inbounds ptr, ptr %121, i64 0
-  store ptr %120, ptr %122, align 8
-  %123 = load ptr, ptr %42, align 8
-  store ptr %123, ptr %45, align 8
-  %124 = load i64, ptr %38, align 8
-  %125 = add i64 %124, 1
-  store i64 %125, ptr %38, align 8
-  %126 = load i64, ptr %38, align 8
-  %127 = or i64 %126, -9223372036854775808
-  store i64 %127, ptr %38, align 8
-  %128 = load ptr, ptr %44, align 8
-  %129 = load ptr, ptr %45, align 8
-  %130 = load i64, ptr %38, align 8
-  %131 = load ptr, ptr %43, align 8
-  %132 = call noundef ptr @_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS2_b(ptr noundef %128, ptr noundef %129, i64 noundef %130, ptr noundef %131, i1 noundef zeroext true)
-  store ptr %51, ptr %30, align 8
-  store ptr %132, ptr %31, align 8
-  %133 = load ptr, ptr %30, align 8
-  %134 = load ptr, ptr %31, align 8
-  store ptr %134, ptr %133, align 8
-  %135 = getelementptr inbounds %"class.nanobind::handle", ptr %51, i32 0, i32 0
-  %136 = load ptr, ptr %135, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !86)
-  store ptr %0, ptr %32, align 8, !noalias !86
-  store ptr %136, ptr %33, align 8, !noalias !86
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %34, ptr align 8 %33, i64 8, i1 false), !noalias !86
-  %137 = load ptr, ptr %34, align 8, !noalias !86
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %137)
-  ret void
-
-138:                                              ; preds = %69
-  %139 = landingpad { ptr, i32 }
-          cleanup
-  %140 = extractvalue { ptr, i32 } %139, 0
-  store ptr %140, ptr %48, align 8
-  %141 = extractvalue { ptr, i32 } %139, 1
-  store i32 %141, ptr %49, align 4
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %47) #11
-  br label %142
-
-142:                                              ; preds = %138
-  %143 = load ptr, ptr %48, align 8
-  %144 = load i32, ptr %49, align 4
-  %145 = insertvalue { ptr, i32 } poison, ptr %143, 0
-  %146 = insertvalue { ptr, i32 } %145, i32 %144, 1
-  resume { ptr, i32 } %146
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8nanobind5arg_vD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.nanobind::arg_v", ptr %3, i32 0, i32 1
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJEEENS_6objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca %"class.nanobind::handle", align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca %"class.nanobind::handle", align 8
-  %12 = alloca %"class.nanobind::handle", align 8
-  %13 = alloca ptr, align 8
-  %14 = alloca ptr, align 8
-  %15 = alloca %"class.nanobind::handle", align 8
-  %16 = alloca ptr, align 8
-  %17 = alloca ptr, align 8
-  %18 = alloca ptr, align 8
-  %19 = alloca ptr, align 8
-  %20 = alloca ptr, align 8
-  %21 = alloca %"class.nanobind::handle", align 8
-  %22 = alloca %"class.nanobind::handle", align 8
-  %23 = alloca ptr, align 8
-  %24 = alloca ptr, align 8
-  %25 = alloca [1 x ptr], align 8
-  %26 = alloca ptr, align 8
-  %27 = alloca i64, align 8
-  %28 = alloca ptr, align 8
-  %29 = alloca ptr, align 8
-  %30 = alloca %"class.nanobind::handle", align 8
-  %31 = alloca %"class.nanobind::object", align 8
-  %32 = alloca ptr, align 8
-  %33 = alloca i32, align 4
-  %34 = alloca %"class.nanobind::handle", align 8
-  %35 = alloca %"class.nanobind::handle", align 8
-  store ptr %0, ptr %23, align 8
-  store ptr %1, ptr %24, align 8
-  %36 = load ptr, ptr %24, align 8
-  store ptr null, ptr %26, align 8
-  store i64 0, ptr %27, align 8
-  %37 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %36)
-  call void @llvm.experimental.noalias.scope.decl(metadata !89)
-  store ptr %31, ptr %13, align 8, !noalias !89
-  store ptr %37, ptr %14, align 8, !noalias !89
-  %38 = load ptr, ptr %14, align 8, !noalias !89
-  %39 = getelementptr inbounds %"class.nanobind::detail::accessor", ptr %38, i32 0, i32 2
-  %40 = load ptr, ptr %39, align 8
-  store ptr %40, ptr %3, align 8
-  %41 = load ptr, ptr %3, align 8
-  %42 = call noundef ptr @PyUnicode_InternFromString(ptr noundef %41)
-  store ptr %15, ptr %8, align 8, !noalias !89
-  store ptr %42, ptr %9, align 8, !noalias !89
-  %43 = load ptr, ptr %8, align 8, !noalias !89
-  %44 = load ptr, ptr %9, align 8, !noalias !89
-  store ptr %44, ptr %43, align 8
-  %45 = load ptr, ptr %15, align 8, !noalias !89
-  call void @llvm.experimental.noalias.scope.decl(metadata !92)
-  store ptr %31, ptr %10, align 8, !noalias !95
-  store ptr %45, ptr %11, align 8, !noalias !95
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %11, i64 8, i1 false), !noalias !95
-  %46 = load ptr, ptr %12, align 8, !noalias !95
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr %46)
-  %47 = invoke ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %31)
-          to label %48 unwind label %78
-
-48:                                               ; preds = %2
-  %49 = getelementptr inbounds %"class.nanobind::handle", ptr %30, i32 0, i32 0
-  store ptr %47, ptr %49, align 8
-  store ptr %30, ptr %16, align 8
-  %50 = load ptr, ptr %16, align 8
-  %51 = load ptr, ptr %50, align 8
-  store ptr %51, ptr %28, align 8
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #11
-  %52 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %36)
-  store ptr %52, ptr %7, align 8
-  %53 = load ptr, ptr %7, align 8
-  %54 = load ptr, ptr %53, align 8
-  store ptr %6, ptr %4, align 8
-  store ptr %54, ptr %5, align 8
-  %55 = load ptr, ptr %4, align 8
-  %56 = load ptr, ptr %5, align 8
-  store ptr %56, ptr %55, align 8
-  %57 = load ptr, ptr %6, align 8
-  %58 = getelementptr inbounds %"class.nanobind::handle", ptr %34, i32 0, i32 0
-  store ptr %57, ptr %58, align 8
-  %59 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %34) #11
-  store ptr %59, ptr %17, align 8
-  %60 = load ptr, ptr %17, align 8
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds [1 x ptr], ptr %25, i64 0, i64 0
-  store ptr %61, ptr %62, align 8
-  %63 = getelementptr inbounds [1 x ptr], ptr %25, i64 0, i64 0
-  store ptr %63, ptr %29, align 8
-  %64 = load i64, ptr %27, align 8
-  %65 = add i64 %64, 1
-  store i64 %65, ptr %27, align 8
-  %66 = load i64, ptr %27, align 8
-  %67 = or i64 %66, -9223372036854775808
-  store i64 %67, ptr %27, align 8
-  %68 = load ptr, ptr %28, align 8
-  %69 = load ptr, ptr %29, align 8
-  %70 = load i64, ptr %27, align 8
-  %71 = load ptr, ptr %26, align 8
-  %72 = call noundef ptr @_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS2_b(ptr noundef %68, ptr noundef %69, i64 noundef %70, ptr noundef %71, i1 noundef zeroext true)
-  store ptr %35, ptr %18, align 8
-  store ptr %72, ptr %19, align 8
-  %73 = load ptr, ptr %18, align 8
-  %74 = load ptr, ptr %19, align 8
-  store ptr %74, ptr %73, align 8
-  %75 = getelementptr inbounds %"class.nanobind::handle", ptr %35, i32 0, i32 0
-  %76 = load ptr, ptr %75, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !96)
-  store ptr %0, ptr %20, align 8, !noalias !96
-  store ptr %76, ptr %21, align 8, !noalias !96
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 8 %21, i64 8, i1 false), !noalias !96
-  %77 = load ptr, ptr %22, align 8, !noalias !96
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %77)
-  ret void
-
-78:                                               ; preds = %2
-  %79 = landingpad { ptr, i32 }
-          cleanup
-  %80 = extractvalue { ptr, i32 } %79, 0
-  store ptr %80, ptr %32, align 8
-  %81 = extractvalue { ptr, i32 } %79, 1
-  store i32 %81, ptr %33, align 4
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #11
-  br label %82
-
-82:                                               ; preds = %78
-  %83 = load ptr, ptr %32, align 8
-  %84 = load i32, ptr %33, align 4
-  %85 = insertvalue { ptr, i32 } poison, ptr %83, 0
-  %86 = insertvalue { ptr, i32 } %85, i32 %84, 1
-  resume { ptr, i32 } %86
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJNS_6handleERA11_cEEENS_6objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 1 dereferenceable(11) %3) #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca %"class.nanobind::handle", align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca ptr, align 8
-  %13 = alloca %"class.nanobind::handle", align 8
-  %14 = alloca %"class.nanobind::handle", align 8
-  %15 = alloca ptr, align 8
-  %16 = alloca ptr, align 8
-  %17 = alloca %"class.nanobind::handle", align 8
-  %18 = alloca ptr, align 8
-  %19 = alloca ptr, align 8
-  %20 = alloca ptr, align 8
-  %21 = alloca ptr, align 8
-  %22 = alloca ptr, align 8
-  %23 = alloca ptr, align 8
-  %24 = alloca ptr, align 8
-  %25 = alloca %"class.nanobind::handle", align 8
-  %26 = alloca %"class.nanobind::handle", align 8
-  %27 = alloca ptr, align 8
-  %28 = alloca ptr, align 8
-  %29 = alloca ptr, align 8
-  %30 = alloca ptr, align 8
-  %31 = alloca [3 x ptr], align 16
-  %32 = alloca ptr, align 8
-  %33 = alloca i64, align 8
-  %34 = alloca %"class.nanobind::handle", align 8
-  %35 = alloca %"class.nanobind::handle", align 8
-  %36 = alloca ptr, align 8
-  %37 = alloca ptr, align 8
-  %38 = alloca %"class.nanobind::handle", align 8
-  %39 = alloca %"class.nanobind::object", align 8
-  %40 = alloca ptr, align 8
-  %41 = alloca i32, align 4
-  %42 = alloca %"class.nanobind::handle", align 8
-  %43 = alloca %"class.nanobind::handle", align 8
-  store ptr %0, ptr %27, align 8
-  store ptr %1, ptr %28, align 8
-  store ptr %2, ptr %29, align 8
-  store ptr %3, ptr %30, align 8
-  %44 = load ptr, ptr %28, align 8
-  store ptr null, ptr %32, align 8
-  store i64 0, ptr %33, align 8
-  %45 = load ptr, ptr %29, align 8
-  %46 = call ptr @_ZN8nanobind6detail11type_casterINS_6handleEiE8from_cppEOS2_NS_9rv_policyEPNS0_12cleanup_listE(ptr noundef nonnull align 8 dereferenceable(8) %45, i32 noundef 1, ptr noundef null) #11
-  %47 = getelementptr inbounds %"class.nanobind::handle", ptr %34, i32 0, i32 0
-  store ptr %46, ptr %47, align 8
-  store ptr %34, ptr %18, align 8
-  %48 = load ptr, ptr %18, align 8
-  %49 = load ptr, ptr %48, align 8
-  %50 = load i64, ptr %33, align 8
-  %51 = add i64 %50, 1
-  store i64 %51, ptr %33, align 8
-  %52 = add i64 1, %50
-  %53 = getelementptr inbounds [3 x ptr], ptr %31, i64 0, i64 %52
-  store ptr %49, ptr %53, align 8
-  %54 = load ptr, ptr %30, align 8
-  %55 = getelementptr inbounds [11 x i8], ptr %54, i64 0, i64 0
-  %56 = call ptr @_ZN8nanobind6detail11type_casterIciE8from_cppEPKcNS_9rv_policyEPNS0_12cleanup_listE(ptr noundef %55, i32 noundef 1, ptr noundef null) #11
-  %57 = getelementptr inbounds %"class.nanobind::handle", ptr %35, i32 0, i32 0
-  store ptr %56, ptr %57, align 8
-  store ptr %35, ptr %19, align 8
-  %58 = load ptr, ptr %19, align 8
-  %59 = load ptr, ptr %58, align 8
-  %60 = load i64, ptr %33, align 8
-  %61 = add i64 %60, 1
-  store i64 %61, ptr %33, align 8
-  %62 = add i64 1, %60
-  %63 = getelementptr inbounds [3 x ptr], ptr %31, i64 0, i64 %62
-  store ptr %59, ptr %63, align 8
-  %64 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %44)
-  call void @llvm.experimental.noalias.scope.decl(metadata !99)
-  store ptr %39, ptr %15, align 8, !noalias !99
-  store ptr %64, ptr %16, align 8, !noalias !99
-  %65 = load ptr, ptr %16, align 8, !noalias !99
-  %66 = getelementptr inbounds %"class.nanobind::detail::accessor", ptr %65, i32 0, i32 2
-  %67 = load ptr, ptr %66, align 8
-  store ptr %67, ptr %5, align 8
-  %68 = load ptr, ptr %5, align 8
-  %69 = call noundef ptr @PyUnicode_InternFromString(ptr noundef %68)
-  store ptr %17, ptr %10, align 8, !noalias !99
-  store ptr %69, ptr %11, align 8, !noalias !99
-  %70 = load ptr, ptr %10, align 8, !noalias !99
-  %71 = load ptr, ptr %11, align 8, !noalias !99
-  store ptr %71, ptr %70, align 8
-  %72 = load ptr, ptr %17, align 8, !noalias !99
-  call void @llvm.experimental.noalias.scope.decl(metadata !102)
-  store ptr %39, ptr %12, align 8, !noalias !105
-  store ptr %72, ptr %13, align 8, !noalias !105
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %13, i64 8, i1 false), !noalias !105
-  %73 = load ptr, ptr %14, align 8, !noalias !105
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr %73)
-  %74 = invoke ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %39)
-          to label %75 unwind label %105
-
-75:                                               ; preds = %4
-  %76 = getelementptr inbounds %"class.nanobind::handle", ptr %38, i32 0, i32 0
-  store ptr %74, ptr %76, align 8
-  store ptr %38, ptr %20, align 8
-  %77 = load ptr, ptr %20, align 8
-  %78 = load ptr, ptr %77, align 8
-  store ptr %78, ptr %36, align 8
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %39) #11
-  %79 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %44)
-  store ptr %79, ptr %9, align 8
-  %80 = load ptr, ptr %9, align 8
-  %81 = load ptr, ptr %80, align 8
-  store ptr %8, ptr %6, align 8
-  store ptr %81, ptr %7, align 8
-  %82 = load ptr, ptr %6, align 8
-  %83 = load ptr, ptr %7, align 8
-  store ptr %83, ptr %82, align 8
-  %84 = load ptr, ptr %8, align 8
-  %85 = getelementptr inbounds %"class.nanobind::handle", ptr %42, i32 0, i32 0
-  store ptr %84, ptr %85, align 8
-  %86 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %42) #11
-  store ptr %86, ptr %21, align 8
-  %87 = load ptr, ptr %21, align 8
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds [3 x ptr], ptr %31, i64 0, i64 0
-  store ptr %88, ptr %89, align 16
-  %90 = getelementptr inbounds [3 x ptr], ptr %31, i64 0, i64 0
-  store ptr %90, ptr %37, align 8
-  %91 = load i64, ptr %33, align 8
-  %92 = add i64 %91, 1
-  store i64 %92, ptr %33, align 8
-  %93 = load i64, ptr %33, align 8
-  %94 = or i64 %93, -9223372036854775808
-  store i64 %94, ptr %33, align 8
-  %95 = load ptr, ptr %36, align 8
-  %96 = load ptr, ptr %37, align 8
-  %97 = load i64, ptr %33, align 8
-  %98 = load ptr, ptr %32, align 8
-  %99 = call noundef ptr @_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS2_b(ptr noundef %95, ptr noundef %96, i64 noundef %97, ptr noundef %98, i1 noundef zeroext true)
-  store ptr %43, ptr %22, align 8
-  store ptr %99, ptr %23, align 8
-  %100 = load ptr, ptr %22, align 8
-  %101 = load ptr, ptr %23, align 8
-  store ptr %101, ptr %100, align 8
-  %102 = getelementptr inbounds %"class.nanobind::handle", ptr %43, i32 0, i32 0
-  %103 = load ptr, ptr %102, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !106)
-  store ptr %0, ptr %24, align 8, !noalias !106
-  store ptr %103, ptr %25, align 8, !noalias !106
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr align 8 %25, i64 8, i1 false), !noalias !106
-  %104 = load ptr, ptr %26, align 8, !noalias !106
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %104)
-  ret void
-
-105:                                              ; preds = %4
-  %106 = landingpad { ptr, i32 }
-          cleanup
-  %107 = extractvalue { ptr, i32 } %106, 0
-  store ptr %107, ptr %40, align 8
-  %108 = extractvalue { ptr, i32 } %106, 1
-  store i32 %108, ptr %41, align 4
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %39) #11
-  br label %109
-
-109:                                              ; preds = %105
-  %110 = load ptr, ptr %40, align 8
-  %111 = load i32, ptr %41, align 4
-  %112 = insertvalue { ptr, i32 } poison, ptr %110, 0
-  %113 = insertvalue { ptr, i32 } %112, i32 %111, 1
-  resume { ptr, i32 } %113
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJRA11_cEEENS_6objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(11) %2) #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca %"class.nanobind::handle", align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca %"class.nanobind::handle", align 8
-  %13 = alloca %"class.nanobind::handle", align 8
-  %14 = alloca ptr, align 8
-  %15 = alloca ptr, align 8
-  %16 = alloca %"class.nanobind::handle", align 8
-  %17 = alloca ptr, align 8
-  %18 = alloca ptr, align 8
-  %19 = alloca ptr, align 8
-  %20 = alloca ptr, align 8
-  %21 = alloca ptr, align 8
-  %22 = alloca ptr, align 8
-  %23 = alloca %"class.nanobind::handle", align 8
-  %24 = alloca %"class.nanobind::handle", align 8
-  %25 = alloca ptr, align 8
-  %26 = alloca ptr, align 8
-  %27 = alloca ptr, align 8
-  %28 = alloca [2 x ptr], align 16
-  %29 = alloca ptr, align 8
-  %30 = alloca i64, align 8
-  %31 = alloca %"class.nanobind::handle", align 8
-  %32 = alloca ptr, align 8
-  %33 = alloca ptr, align 8
-  %34 = alloca %"class.nanobind::handle", align 8
-  %35 = alloca %"class.nanobind::object", align 8
-  %36 = alloca ptr, align 8
-  %37 = alloca i32, align 4
-  %38 = alloca %"class.nanobind::handle", align 8
-  %39 = alloca %"class.nanobind::handle", align 8
-  store ptr %0, ptr %25, align 8
-  store ptr %1, ptr %26, align 8
-  store ptr %2, ptr %27, align 8
-  %40 = load ptr, ptr %26, align 8
-  store ptr null, ptr %29, align 8
-  store i64 0, ptr %30, align 8
-  %41 = load ptr, ptr %27, align 8
-  %42 = getelementptr inbounds [11 x i8], ptr %41, i64 0, i64 0
-  %43 = call ptr @_ZN8nanobind6detail11type_casterIciE8from_cppEPKcNS_9rv_policyEPNS0_12cleanup_listE(ptr noundef %42, i32 noundef 1, ptr noundef null) #11
-  %44 = getelementptr inbounds %"class.nanobind::handle", ptr %31, i32 0, i32 0
-  store ptr %43, ptr %44, align 8
-  store ptr %31, ptr %17, align 8
-  %45 = load ptr, ptr %17, align 8
-  %46 = load ptr, ptr %45, align 8
-  %47 = load i64, ptr %30, align 8
-  %48 = add i64 %47, 1
-  store i64 %48, ptr %30, align 8
-  %49 = add i64 1, %47
-  %50 = getelementptr inbounds [2 x ptr], ptr %28, i64 0, i64 %49
-  store ptr %46, ptr %50, align 8
-  %51 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %40)
-  call void @llvm.experimental.noalias.scope.decl(metadata !109)
-  store ptr %35, ptr %14, align 8, !noalias !109
-  store ptr %51, ptr %15, align 8, !noalias !109
-  %52 = load ptr, ptr %15, align 8, !noalias !109
-  %53 = getelementptr inbounds %"class.nanobind::detail::accessor", ptr %52, i32 0, i32 2
-  %54 = load ptr, ptr %53, align 8
-  store ptr %54, ptr %4, align 8
-  %55 = load ptr, ptr %4, align 8
-  %56 = call noundef ptr @PyUnicode_InternFromString(ptr noundef %55)
-  store ptr %16, ptr %9, align 8, !noalias !109
-  store ptr %56, ptr %10, align 8, !noalias !109
-  %57 = load ptr, ptr %9, align 8, !noalias !109
-  %58 = load ptr, ptr %10, align 8, !noalias !109
-  store ptr %58, ptr %57, align 8
-  %59 = load ptr, ptr %16, align 8, !noalias !109
-  call void @llvm.experimental.noalias.scope.decl(metadata !112)
-  store ptr %35, ptr %11, align 8, !noalias !115
-  store ptr %59, ptr %12, align 8, !noalias !115
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %12, i64 8, i1 false), !noalias !115
-  %60 = load ptr, ptr %13, align 8, !noalias !115
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr %60)
-  %61 = invoke ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %35)
-          to label %62 unwind label %92
-
-62:                                               ; preds = %3
-  %63 = getelementptr inbounds %"class.nanobind::handle", ptr %34, i32 0, i32 0
-  store ptr %61, ptr %63, align 8
-  store ptr %34, ptr %18, align 8
-  %64 = load ptr, ptr %18, align 8
-  %65 = load ptr, ptr %64, align 8
-  store ptr %65, ptr %32, align 8
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #11
-  %66 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %40)
-  store ptr %66, ptr %8, align 8
-  %67 = load ptr, ptr %8, align 8
-  %68 = load ptr, ptr %67, align 8
-  store ptr %7, ptr %5, align 8
-  store ptr %68, ptr %6, align 8
-  %69 = load ptr, ptr %5, align 8
-  %70 = load ptr, ptr %6, align 8
-  store ptr %70, ptr %69, align 8
-  %71 = load ptr, ptr %7, align 8
-  %72 = getelementptr inbounds %"class.nanobind::handle", ptr %38, i32 0, i32 0
-  store ptr %71, ptr %72, align 8
-  %73 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %38) #11
-  store ptr %73, ptr %19, align 8
-  %74 = load ptr, ptr %19, align 8
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds [2 x ptr], ptr %28, i64 0, i64 0
-  store ptr %75, ptr %76, align 16
-  %77 = getelementptr inbounds [2 x ptr], ptr %28, i64 0, i64 0
-  store ptr %77, ptr %33, align 8
-  %78 = load i64, ptr %30, align 8
-  %79 = add i64 %78, 1
-  store i64 %79, ptr %30, align 8
-  %80 = load i64, ptr %30, align 8
-  %81 = or i64 %80, -9223372036854775808
-  store i64 %81, ptr %30, align 8
-  %82 = load ptr, ptr %32, align 8
-  %83 = load ptr, ptr %33, align 8
-  %84 = load i64, ptr %30, align 8
-  %85 = load ptr, ptr %29, align 8
-  %86 = call noundef ptr @_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS2_b(ptr noundef %82, ptr noundef %83, i64 noundef %84, ptr noundef %85, i1 noundef zeroext true)
-  store ptr %39, ptr %20, align 8
-  store ptr %86, ptr %21, align 8
-  %87 = load ptr, ptr %20, align 8
-  %88 = load ptr, ptr %21, align 8
-  store ptr %88, ptr %87, align 8
-  %89 = getelementptr inbounds %"class.nanobind::handle", ptr %39, i32 0, i32 0
-  %90 = load ptr, ptr %89, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !116)
-  store ptr %0, ptr %22, align 8, !noalias !116
-  store ptr %90, ptr %23, align 8, !noalias !116
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %24, ptr align 8 %23, i64 8, i1 false), !noalias !116
-  %91 = load ptr, ptr %24, align 8, !noalias !116
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %91)
-  ret void
-
-92:                                               ; preds = %3
-  %93 = landingpad { ptr, i32 }
-          cleanup
-  %94 = extractvalue { ptr, i32 } %93, 0
-  store ptr %94, ptr %36, align 8
-  %95 = extractvalue { ptr, i32 } %93, 1
-  store i32 %95, ptr %37, align 4
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #11
-  br label %96
-
-96:                                               ; preds = %92
-  %97 = load ptr, ptr %36, align 8
-  %98 = load i32, ptr %37, align 4
-  %99 = insertvalue { ptr, i32 } poison, ptr %97, 0
-  %100 = insertvalue { ptr, i32 } %99, i32 %98, 1
-  resume { ptr, i32 } %100
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #6 comdat align 2 {
-  %2 = alloca ptr, align 8
-  %3 = alloca ptr, align 8
-  %4 = alloca %"class.nanobind::handle", align 8
-  %5 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"class.nanobind::handle", ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  store ptr %4, ptr %2, align 8
-  store ptr %8, ptr %3, align 8
-  %9 = load ptr, ptr %2, align 8
-  %10 = load ptr, ptr %3, align 8
-  store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds %"class.nanobind::handle", ptr %6, i32 0, i32 0
-  store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.nanobind::handle", ptr %4, i32 0, i32 0
-  %13 = load ptr, ptr %12, align 8
-  ret ptr %13
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #6 comdat align 2 {
-  %3 = alloca ptr, align 8
-  %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.nanobind::detail::scoped_pymalloc.1", ptr %5, i32 0, i32 0
-  store ptr null, ptr %6, align 8
-  %7 = load i64, ptr %4, align 8
-  %8 = mul i64 %7, 40
-  %9 = call ptr @PyMem_Malloc(i64 noundef %8)
-  %10 = getelementptr inbounds %"struct.nanobind::detail::scoped_pymalloc.1", ptr %5, i32 0, i32 0
-  store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds %"struct.nanobind::detail::scoped_pymalloc.1", ptr %5, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp ne ptr %12, null
-  br i1 %13, label %16, label %14
-
-14:                                               ; preds = %2
-  %15 = load i64, ptr %4, align 8
-  call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef @.str.35, i64 noundef %15) #12
-  unreachable
-
-16:                                               ; preds = %2
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.nanobind::detail::scoped_pymalloc.1", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNSt13__atomic_baseImEaSEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca ptr, align 8
-  %4 = alloca i64, align 8
-  %5 = alloca i32, align 4
-  %6 = alloca i32, align 4
-  %7 = alloca i64, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca i64, align 8
-  store ptr %0, ptr %8, align 8
-  store i64 %1, ptr %9, align 8
-  %10 = load ptr, ptr %8, align 8
-  %11 = load i64, ptr %9, align 8
-  store ptr %10, ptr %3, align 8
-  store i64 %11, ptr %4, align 8
-  store i32 5, ptr %5, align 4
-  %12 = load ptr, ptr %3, align 8
-  %13 = load i32, ptr %5, align 4
-  %14 = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %13, i32 noundef 65535)
-          to label %15 unwind label %24
-
-15:                                               ; preds = %2
-  store i32 %14, ptr %6, align 4
-  %16 = load i32, ptr %5, align 4
-  %17 = load i64, ptr %4, align 8
-  store i64 %17, ptr %7, align 8
-  switch i32 %16, label %18 [
-    i32 3, label %20
-    i32 5, label %22
-  ]
-
-18:                                               ; preds = %15
-  %19 = load i64, ptr %7, align 8
-  store atomic i64 %19, ptr %12 monotonic, align 8
-  br label %27
-
-20:                                               ; preds = %15
-  %21 = load i64, ptr %7, align 8
-  store atomic i64 %21, ptr %12 release, align 8
-  br label %27
-
-22:                                               ; preds = %15
-  %23 = load i64, ptr %7, align 8
-  store atomic i64 %23, ptr %12 seq_cst, align 8
-  br label %27
-
-24:                                               ; preds = %2
-  %25 = landingpad { ptr, i32 }
-          catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #12
-  unreachable
-
-27:                                               ; preds = %22, %20, %18
-  %28 = load i64, ptr %9, align 8
-  ret i64 %28
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL10_Py_INCREFP7_object(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct._object, ptr %3, i32 0, i32 0
-  %5 = load i64, ptr %4, align 8
-  %6 = add nsw i64 %5, 1
-  store i64 %6, ptr %4, align 8
-  ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4466,13 +4568,36 @@ define linkonce_odr hidden noundef ptr @_ZN8nanobind6detail15scoped_pymallocIlE7
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %"struct.nanobind::detail::scoped_pymalloc", ptr %4, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #17
+  %5 = getelementptr inbounds nuw %"struct.nanobind::detail::scoped_pymalloc.1", ptr %4, i32 0, i32 0
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %3, align 8
-  %7 = getelementptr inbounds %"struct.nanobind::detail::scoped_pymalloc", ptr %4, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.nanobind::detail::scoped_pymalloc.1", ptr %4, i32 0, i32 0
   store ptr null, ptr %7, align 8
   %8 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #17
   ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN8nanobind6detail15scoped_pymallocIlED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.nanobind::detail::scoped_pymalloc.1", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  invoke void @PyMem_Free(ptr noundef %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret void
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #18
+  unreachable
 }
 
 declare i32 @PyCapsule_SetName(ptr noundef, ptr noundef) #1
@@ -4485,12 +4610,14 @@ define linkonce_odr hidden noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %"struct.nanobind::detail::scoped_pymalloc.1", ptr %4, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #17
+  %5 = getelementptr inbounds nuw %"struct.nanobind::detail::scoped_pymalloc", ptr %4, i32 0, i32 0
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %3, align 8
-  %7 = getelementptr inbounds %"struct.nanobind::detail::scoped_pymalloc.1", ptr %4, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.nanobind::detail::scoped_pymalloc", ptr %4, i32 0, i32 0
   store ptr null, ptr %7, align 8
   %8 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #17
   ret ptr %8
 }
 
@@ -4499,7 +4626,7 @@ define linkonce_odr hidden void @_ZN8nanobind6detail15scoped_pymallocINS0_14ndar
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.nanobind::detail::scoped_pymalloc.1", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.nanobind::detail::scoped_pymalloc", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
   invoke void @PyMem_Free(ptr noundef %5)
           to label %6 unwind label %7
@@ -4511,28 +4638,7 @@ define linkonce_odr hidden void @_ZN8nanobind6detail15scoped_pymallocINS0_14ndar
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #12
-  unreachable
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8nanobind6detail15scoped_pymallocIlED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.nanobind::detail::scoped_pymalloc", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  invoke void @PyMem_Free(ptr noundef %5)
-          to label %6 unwind label %7
-
-6:                                                ; preds = %1
-  ret void
-
-7:                                                ; preds = %1
-  %8 = landingpad { ptr, i32 }
-          catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #12
+  call void @__clang_call_terminate(ptr %9) #18
   unreachable
 }
 
@@ -4551,12 +4657,12 @@ define noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %8, i32 0, i32 1
-  %10 = call noundef i64 @_ZNSt13__atomic_baseImEppEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  %9 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %8, i32 0, i32 1
+  %10 = call noundef i64 @_ZNSt13__atomic_baseImEppEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #17
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %11, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %11, i32 0, i32 0
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %13, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %13, i32 0, i32 0
   store ptr %14, ptr %2, align 8
   br label %15
 
@@ -4572,7 +4678,7 @@ define linkonce_odr noundef i64 @_ZNSt13__atomic_baseImEppEv(ptr noundef nonnull
   %4 = alloca i64, align 8
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %"struct.std::__atomic_base", ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %5, i32 0, i32 0
   store i64 1, ptr %3, align 8
   %7 = load i64, ptr %3, align 8
   %8 = atomicrmw add ptr %6, i64 %7 seq_cst, align 8
@@ -4594,19 +4700,20 @@ define void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr nou
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %1
-  br label %82
+  br label %83
 
 9:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #17
   %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %10, i32 0, i32 1
-  %12 = call noundef i64 @_ZNSt13__atomic_baseImEmmEi(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef 0) #11
+  %11 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %10, i32 0, i32 1
+  %12 = call noundef i64 @_ZNSt13__atomic_baseImEmmEi(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef 0) #17
   store i64 %12, ptr %3, align 8
   %13 = load i64, ptr %3, align 8
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %9
-  call void @_ZN8nanobind6detail16fail_unspecifiedEv() #12
+  call void @_ZN8nanobind6detail16fail_unspecifiedEv() #18
   unreachable
 
 16:                                               ; preds = %9
@@ -4615,89 +4722,91 @@ define void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr nou
   br i1 %18, label %19, label %81
 
 19:                                               ; preds = %16
-  call void @_ZN8nanobind18gil_scoped_acquireC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #17
+  call void @_ZN8nanobind18gil_scoped_acquireC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #17
   %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %20, i32 0, i32 2
+  %21 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %20, i32 0, i32 2
   %22 = load ptr, ptr %21, align 8
   invoke void @_ZL11_Py_XDECREFP7_object(ptr noundef %22)
-          to label %23 unwind label %83
+          to label %23 unwind label %84
 
 23:                                               ; preds = %19
   %24 = load ptr, ptr %2, align 8
-  %25 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %24, i32 0, i32 3
+  %25 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %24, i32 0, i32 3
   %26 = load ptr, ptr %25, align 8
   invoke void @_ZL11_Py_XDECREFP7_object(ptr noundef %26)
-          to label %27 unwind label %83
+          to label %27 unwind label %84
 
 27:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #17
   %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %28, i32 0, i32 0
+  %29 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %28, i32 0, i32 0
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %5, align 8
   %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %31, i32 0, i32 4
-  %33 = load i8, ptr %32, align 8
+  %32 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %31, i32 0, i32 4
+  %33 = load i8, ptr %32, align 8, !range !3, !noundef !4
   %34 = trunc i8 %33 to i1
   br i1 %34, label %35, label %44
 
 35:                                               ; preds = %27
   %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %36, i32 0, i32 0
-  %38 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %37, i32 0, i32 4
+  %37 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %36, i32 0, i32 0
+  %38 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %37, i32 0, i32 4
   %39 = load ptr, ptr %38, align 8
   invoke void @PyMem_Free(ptr noundef %39)
-          to label %40 unwind label %83
+          to label %40 unwind label %84
 
 40:                                               ; preds = %35
   %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %41, i32 0, i32 0
-  %43 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %42, i32 0, i32 4
+  %42 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %41, i32 0, i32 0
+  %43 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %42, i32 0, i32 4
   store ptr null, ptr %43, align 8
   br label %44
 
 44:                                               ; preds = %40, %27
   %45 = load ptr, ptr %2, align 8
-  %46 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %45, i32 0, i32 5
-  %47 = load i8, ptr %46, align 1
+  %46 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %45, i32 0, i32 5
+  %47 = load i8, ptr %46, align 1, !range !3, !noundef !4
   %48 = trunc i8 %47 to i1
   br i1 %48, label %49, label %58
 
 49:                                               ; preds = %44
   %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %50, i32 0, i32 0
-  %52 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %51, i32 0, i32 5
+  %51 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %50, i32 0, i32 0
+  %52 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %51, i32 0, i32 5
   %53 = load ptr, ptr %52, align 8
   invoke void @PyMem_Free(ptr noundef %53)
-          to label %54 unwind label %83
+          to label %54 unwind label %84
 
 54:                                               ; preds = %49
   %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %55, i32 0, i32 0
-  %57 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %56, i32 0, i32 5
+  %56 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %55, i32 0, i32 0
+  %57 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %56, i32 0, i32 5
   store ptr null, ptr %57, align 8
   br label %58
 
 58:                                               ; preds = %54, %44
   %59 = load ptr, ptr %2, align 8
-  %60 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %59, i32 0, i32 6
-  %61 = load i8, ptr %60, align 2
+  %60 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %59, i32 0, i32 6
+  %61 = load i8, ptr %60, align 2, !range !3, !noundef !4
   %62 = trunc i8 %61 to i1
   br i1 %62, label %63, label %75
 
 63:                                               ; preds = %58
   %64 = load ptr, ptr %5, align 8
-  %65 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %64, i32 0, i32 2
+  %65 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %64, i32 0, i32 2
   %66 = load ptr, ptr %65, align 8
   %67 = icmp ne ptr %66, null
   br i1 %67, label %68, label %74
 
 68:                                               ; preds = %63
   %69 = load ptr, ptr %5, align 8
-  %70 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %69, i32 0, i32 2
+  %70 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %69, i32 0, i32 2
   %71 = load ptr, ptr %70, align 8
   %72 = load ptr, ptr %5, align 8
   invoke void %71(ptr noundef %72)
-          to label %73 unwind label %83
+          to label %73 unwind label %84
 
 73:                                               ; preds = %68
   br label %74
@@ -4708,7 +4817,7 @@ define void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr nou
 75:                                               ; preds = %58
   %76 = load ptr, ptr %5, align 8
   invoke void @PyMem_Free(ptr noundef %76)
-          to label %77 unwind label %83
+          to label %77 unwind label %84
 
 77:                                               ; preds = %75
   br label %78
@@ -4716,86 +4825,41 @@ define void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr nou
 78:                                               ; preds = %77, %74
   %79 = load ptr, ptr %2, align 8
   invoke void @PyMem_Free(ptr noundef %79)
-          to label %80 unwind label %83
+          to label %80 unwind label %84
 
 80:                                               ; preds = %78
-  call void @_ZN8nanobind18gil_scoped_acquireD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #17
+  call void @_ZN8nanobind18gil_scoped_acquireD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #17
   br label %81
 
 81:                                               ; preds = %80, %16
   br label %82
 
-82:                                               ; preds = %81, %8
+82:                                               ; preds = %81
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #17
+  br label %83
+
+83:                                               ; preds = %82, %8
   ret void
 
-83:                                               ; preds = %78, %75, %68, %49, %35, %23, %19
-  %84 = landingpad { ptr, i32 }
+84:                                               ; preds = %78, %75, %68, %49, %35, %23, %19
+  %85 = landingpad { ptr, i32 }
           catch ptr null
-  %85 = extractvalue { ptr, i32 } %84, 0
-  call void @__clang_call_terminate(ptr %85) #12
+  %86 = extractvalue { ptr, i32 } %85, 0
+  call void @__clang_call_terminate(ptr %86) #18
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNSt13__atomic_baseImEmmEi(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
-  %4 = alloca i64, align 8
-  %5 = alloca i32, align 4
-  %6 = alloca i64, align 8
-  %7 = alloca i64, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca i32, align 4
-  store ptr %0, ptr %8, align 8
-  store i32 %1, ptr %9, align 4
-  %10 = load ptr, ptr %8, align 8
-  store ptr %10, ptr %3, align 8
-  store i64 1, ptr %4, align 8
-  store i32 5, ptr %5, align 4
-  %11 = load ptr, ptr %3, align 8
-  %12 = load i32, ptr %5, align 4
-  %13 = load i64, ptr %4, align 8
-  store i64 %13, ptr %6, align 8
-  switch i32 %12, label %14 [
-    i32 1, label %17
-    i32 2, label %17
-    i32 3, label %20
-    i32 4, label %23
-    i32 5, label %26
-  ]
-
-14:                                               ; preds = %2
-  %15 = load i64, ptr %6, align 8
-  %16 = atomicrmw sub ptr %11, i64 %15 monotonic, align 8
-  store i64 %16, ptr %7, align 8
-  br label %29
-
-17:                                               ; preds = %2, %2
-  %18 = load i64, ptr %6, align 8
-  %19 = atomicrmw sub ptr %11, i64 %18 acquire, align 8
-  store i64 %19, ptr %7, align 8
-  br label %29
-
-20:                                               ; preds = %2
-  %21 = load i64, ptr %6, align 8
-  %22 = atomicrmw sub ptr %11, i64 %21 release, align 8
-  store i64 %22, ptr %7, align 8
-  br label %29
-
-23:                                               ; preds = %2
-  %24 = load i64, ptr %6, align 8
-  %25 = atomicrmw sub ptr %11, i64 %24 acq_rel, align 8
-  store i64 %25, ptr %7, align 8
-  br label %29
-
-26:                                               ; preds = %2
-  %27 = load i64, ptr %6, align 8
-  %28 = atomicrmw sub ptr %11, i64 %27 seq_cst, align 8
-  store i64 %28, ptr %7, align 8
-  br label %29
-
-29:                                               ; preds = %26, %23, %20, %17, %14
-  %30 = load i64, ptr %7, align 8
-  ret i64 %30
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef i64 @_ZNSt13__atomic_baseImE9fetch_subEmSt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 1, i32 noundef 5) #17
+  ret i64 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4803,7 +4867,7 @@ define linkonce_odr hidden void @_ZN8nanobind18gil_scoped_acquireC2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.nanobind::gil_scoped_acquire", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.nanobind::gil_scoped_acquire", ptr %3, i32 0, i32 0
   %5 = invoke i32 @PyGILState_Ensure()
           to label %6 unwind label %7
 
@@ -4815,12 +4879,12 @@ define linkonce_odr hidden void @_ZN8nanobind18gil_scoped_acquireC2Ev(ptr nounde
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #12
+  call void @__clang_call_terminate(ptr %9) #18
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL11_Py_XDECREFP7_object(ptr noundef %0) #6 {
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @_ZL11_Py_XDECREFP7_object(ptr noundef %0) #8 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -4843,7 +4907,7 @@ define linkonce_odr hidden void @_ZN8nanobind18gil_scoped_acquireD2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.nanobind::gil_scoped_acquire", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.nanobind::gil_scoped_acquire", ptr %3, i32 0, i32 0
   %5 = load i32, ptr %4, align 4
   invoke void @PyGILState_Release(i32 noundef %5)
           to label %6 unwind label %7
@@ -4855,399 +4919,590 @@ define linkonce_odr hidden void @_ZN8nanobind18gil_scoped_acquireD2Ev(ptr nounde
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #12
+  call void @__clang_call_terminate(ptr %9) #18
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlPNS_6dlpack5dtypeEbii(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6, i32 noundef %7, i32 noundef %8) #6 personality ptr @__gxx_personality_v0 {
-  %10 = alloca ptr, align 8
-  %11 = alloca i64, align 8
+define noundef ptr @_ZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlNS_6dlpack5dtypeEbiic(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 %5, i1 noundef zeroext %6, i32 noundef %7, i32 noundef %8, i8 noundef signext %9) #12 personality ptr @__gxx_personality_v0 {
+  %11 = alloca %"struct.nanobind::dlpack::dtype", align 2
   %12 = alloca ptr, align 8
-  %13 = alloca ptr, align 8
+  %13 = alloca i64, align 8
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
-  %16 = alloca i8, align 1
-  %17 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca i8, align 1
   %18 = alloca i32, align 4
-  %19 = alloca i64, align 8
-  %20 = alloca i64, align 8
-  %21 = alloca %"struct.nanobind::detail::scoped_pymalloc.2", align 8
-  %22 = alloca %"struct.nanobind::detail::scoped_pymalloc.1", align 8
-  %23 = alloca ptr, align 8
-  %24 = alloca i32, align 4
-  %25 = alloca %"struct.nanobind::detail::scoped_pymalloc", align 8
-  %26 = alloca %"struct.nanobind::detail::scoped_pymalloc", align 8
-  %27 = alloca %class.anon, align 1
-  %28 = alloca i64, align 8
-  %29 = alloca i64, align 8
+  %19 = alloca i32, align 4
+  %20 = alloca i8, align 1
+  %21 = alloca i64, align 8
+  %22 = alloca i64, align 8
+  %23 = alloca %"struct.nanobind::detail::scoped_pymalloc.2", align 8
+  %24 = alloca %"struct.nanobind::detail::scoped_pymalloc", align 8
+  %25 = alloca ptr, align 8
+  %26 = alloca i32, align 4
+  %27 = alloca %"struct.nanobind::detail::scoped_pymalloc.1", align 8
+  %28 = alloca %"struct.nanobind::detail::scoped_pymalloc.1", align 8
+  %29 = alloca %class.anon, align 1
   %30 = alloca i64, align 8
-  store ptr %0, ptr %10, align 8
-  store i64 %1, ptr %11, align 8
-  store ptr %2, ptr %12, align 8
-  store ptr %3, ptr %13, align 8
-  store ptr %4, ptr %14, align 8
-  store ptr %5, ptr %15, align 8
-  %31 = zext i1 %6 to i8
-  store i8 %31, ptr %16, align 1
-  store i32 %7, ptr %17, align 4
-  store i32 %8, ptr %18, align 4
-  %32 = load ptr, ptr %10, align 8
-  %33 = ptrtoint ptr %32 to i64
-  store i64 %33, ptr %19, align 8
-  %34 = load i64, ptr %19, align 8
-  store i64 %34, ptr %20, align 8
-  call void @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %21, i64 noundef 1)
-  invoke void @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %22, i64 noundef 1)
-          to label %35 unwind label %55
+  %31 = alloca i64, align 8
+  %32 = alloca i64, align 8
+  %33 = alloca i64, align 8
+  %34 = alloca i64, align 8
+  store i32 %5, ptr %11, align 2
+  store ptr %0, ptr %12, align 8
+  store i64 %1, ptr %13, align 8
+  store ptr %2, ptr %14, align 8
+  store ptr %3, ptr %15, align 8
+  store ptr %4, ptr %16, align 8
+  %35 = zext i1 %6 to i8
+  store i8 %35, ptr %17, align 1
+  store i32 %7, ptr %18, align 4
+  store i32 %8, ptr %19, align 4
+  store i8 %9, ptr %20, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #17
+  %36 = load ptr, ptr %12, align 8
+  %37 = ptrtoint ptr %36 to i64
+  store i64 %37, ptr %21, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #17
+  %38 = load i64, ptr %21, align 8
+  store i64 %38, ptr %22, align 8
+  %39 = load i32, ptr %18, align 4
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %42
 
-35:                                               ; preds = %9
-  %36 = load i64, ptr %11, align 8
-  invoke void @_ZN8nanobind6detail15scoped_pymallocIlEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %25, i64 noundef %36)
-          to label %37 unwind label %59
+41:                                               ; preds = %10
+  store i32 1, ptr %18, align 4
+  br label %42
 
-37:                                               ; preds = %35
-  %38 = load i64, ptr %11, align 8
-  invoke void @_ZN8nanobind6detail15scoped_pymallocIlEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %26, i64 noundef %38)
-          to label %39 unwind label %63
+42:                                               ; preds = %41, %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #17
+  call void @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %23, i64 noundef 1)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #17
+  invoke void @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef 1)
+          to label %43 unwind label %53
 
-39:                                               ; preds = %37
-  store i64 0, ptr %28, align 8
-  br label %40
+43:                                               ; preds = %42
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #17
+  %44 = load i64, ptr %13, align 8
+  invoke void @_ZN8nanobind6detail15scoped_pymallocIlEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %27, i64 noundef %44)
+          to label %45 unwind label %57
 
-40:                                               ; preds = %52, %39
-  %41 = load i64, ptr %28, align 8
-  %42 = load i64, ptr %11, align 8
-  %43 = icmp ult i64 %41, %42
-  br i1 %43, label %44, label %71
+45:                                               ; preds = %43
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #17
+  %46 = load i64, ptr %13, align 8
+  invoke void @_ZN8nanobind6detail15scoped_pymallocIlEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %28, i64 noundef %46)
+          to label %47 unwind label %61
 
-44:                                               ; preds = %40
-  %45 = load ptr, ptr %12, align 8
-  %46 = load i64, ptr %28, align 8
-  %47 = getelementptr inbounds i64, ptr %45, i64 %46
-  %48 = load i64, ptr %47, align 8
-  %49 = load i64, ptr %28, align 8
-  %50 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6detail15scoped_pymallocIlEixEm(ptr noundef nonnull align 8 dereferenceable(8) %25, i64 noundef %49)
-          to label %51 unwind label %67
+47:                                               ; preds = %45
+  call void @llvm.lifetime.start.p0(i64 1, ptr %29) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #17
+  store i64 0, ptr %30, align 8
+  br label %48
 
-51:                                               ; preds = %44
-  store i64 %48, ptr %50, align 8
-  br label %52
+48:                                               ; preds = %73, %47
+  %49 = load i64, ptr %30, align 8
+  %50 = load i64, ptr %13, align 8
+  %51 = icmp ult i64 %49, %50
+  br i1 %51, label %65, label %52
 
-52:                                               ; preds = %51
-  %53 = load i64, ptr %28, align 8
-  %54 = add i64 %53, 1
-  store i64 %54, ptr %28, align 8
-  br label %40, !llvm.loop !119
+52:                                               ; preds = %48
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #17
+  br label %80
 
-55:                                               ; preds = %9
-  %56 = landingpad { ptr, i32 }
+53:                                               ; preds = %42
+  %54 = landingpad { ptr, i32 }
           cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %23, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %24, align 4
-  br label %202
+  %55 = extractvalue { ptr, i32 } %54, 0
+  store ptr %55, ptr %25, align 8
+  %56 = extractvalue { ptr, i32 } %54, 1
+  store i32 %56, ptr %26, align 4
+  br label %279
 
-59:                                               ; preds = %35
-  %60 = landingpad { ptr, i32 }
+57:                                               ; preds = %43
+  %58 = landingpad { ptr, i32 }
           cleanup
-  %61 = extractvalue { ptr, i32 } %60, 0
-  store ptr %61, ptr %23, align 8
-  %62 = extractvalue { ptr, i32 } %60, 1
-  store i32 %62, ptr %24, align 4
-  br label %201
+  %59 = extractvalue { ptr, i32 } %58, 0
+  store ptr %59, ptr %25, align 8
+  %60 = extractvalue { ptr, i32 } %58, 1
+  store i32 %60, ptr %26, align 4
+  br label %278
 
-63:                                               ; preds = %37
-  %64 = landingpad { ptr, i32 }
+61:                                               ; preds = %45
+  %62 = landingpad { ptr, i32 }
           cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %23, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %24, align 4
-  br label %200
+  %63 = extractvalue { ptr, i32 } %62, 0
+  store ptr %63, ptr %25, align 8
+  %64 = extractvalue { ptr, i32 } %62, 1
+  store i32 %64, ptr %26, align 4
+  br label %277
 
-67:                                               ; preds = %197, %193, %188, %185, %182, %179, %176, %171, %168, %166, %163, %159, %157, %153, %151, %147, %145, %141, %134, %129, %122, %116, %111, %107, %88, %80, %44
-  %68 = landingpad { ptr, i32 }
+65:                                               ; preds = %48
+  %66 = load ptr, ptr %14, align 8
+  %67 = load i64, ptr %30, align 8
+  %68 = getelementptr inbounds nuw i64, ptr %66, i64 %67
+  %69 = load i64, ptr %68, align 8
+  %70 = load i64, ptr %30, align 8
+  %71 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6detail15scoped_pymallocIlEixEm(ptr noundef nonnull align 8 dereferenceable(8) %27, i64 noundef %70)
+          to label %72 unwind label %76
+
+72:                                               ; preds = %65
+  store i64 %69, ptr %71, align 8
+  br label %73
+
+73:                                               ; preds = %72
+  %74 = load i64, ptr %30, align 8
+  %75 = add i64 %74, 1
+  store i64 %75, ptr %30, align 8
+  br label %48, !llvm.loop !13
+
+76:                                               ; preds = %65
+  %77 = landingpad { ptr, i32 }
           cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %23, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %24, align 4
-  call void @_ZN8nanobind6detail15scoped_pymallocIlED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #11
-  br label %200
+  %78 = extractvalue { ptr, i32 } %77, 0
+  store ptr %78, ptr %25, align 8
+  %79 = extractvalue { ptr, i32 } %77, 1
+  store i32 %79, ptr %26, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #17
+  br label %276
 
-71:                                               ; preds = %40
-  %72 = load i64, ptr %11, align 8
-  %73 = icmp ugt i64 %72, 0
-  br i1 %73, label %74, label %107
+80:                                               ; preds = %52
+  %81 = load i64, ptr %13, align 8
+  %82 = icmp ugt i64 %81, 0
+  br i1 %82, label %83, label %180
 
-74:                                               ; preds = %71
-  store i64 1, ptr %29, align 8
-  %75 = load i64, ptr %11, align 8
-  %76 = sub i64 %75, 1
-  store i64 %76, ptr %30, align 8
-  br label %77
+83:                                               ; preds = %80
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #17
+  store i64 1, ptr %31, align 8
+  %84 = load ptr, ptr %16, align 8
+  %85 = icmp ne ptr %84, null
+  br i1 %85, label %86, label %108
 
-77:                                               ; preds = %103, %74
-  %78 = load ptr, ptr %14, align 8
-  %79 = icmp ne ptr %78, null
-  br i1 %79, label %80, label %88
+86:                                               ; preds = %83
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #17
+  store i64 0, ptr %32, align 8
+  br label %87
 
-80:                                               ; preds = %77
-  %81 = load ptr, ptr %14, align 8
-  %82 = load i64, ptr %30, align 8
-  %83 = getelementptr inbounds i64, ptr %81, i64 %82
-  %84 = load i64, ptr %83, align 8
-  %85 = load i64, ptr %30, align 8
-  %86 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6detail15scoped_pymallocIlEixEm(ptr noundef nonnull align 8 dereferenceable(8) %26, i64 noundef %85)
-          to label %87 unwind label %67
+87:                                               ; preds = %100, %86
+  %88 = load i64, ptr %32, align 8
+  %89 = load i64, ptr %13, align 8
+  %90 = icmp ult i64 %88, %89
+  br i1 %90, label %92, label %91
 
-87:                                               ; preds = %80
-  store i64 %84, ptr %86, align 8
-  br label %99
-
-88:                                               ; preds = %77
-  %89 = load i64, ptr %29, align 8
-  %90 = load i64, ptr %30, align 8
-  %91 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6detail15scoped_pymallocIlEixEm(ptr noundef nonnull align 8 dereferenceable(8) %26, i64 noundef %90)
-          to label %92 unwind label %67
-
-92:                                               ; preds = %88
-  store i64 %89, ptr %91, align 8
-  %93 = load ptr, ptr %12, align 8
-  %94 = load i64, ptr %30, align 8
-  %95 = getelementptr inbounds i64, ptr %93, i64 %94
-  %96 = load i64, ptr %95, align 8
-  %97 = load i64, ptr %29, align 8
-  %98 = mul nsw i64 %97, %96
-  store i64 %98, ptr %29, align 8
-  br label %99
-
-99:                                               ; preds = %92, %87
-  %100 = load i64, ptr %30, align 8
-  %101 = icmp eq i64 %100, 0
-  br i1 %101, label %102, label %103
-
-102:                                              ; preds = %99
-  br label %106
-
-103:                                              ; preds = %99
-  %104 = load i64, ptr %30, align 8
-  %105 = add i64 %104, -1
-  store i64 %105, ptr %30, align 8
-  br label %77, !llvm.loop !120
-
-106:                                              ; preds = %102
+91:                                               ; preds = %87
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #17
   br label %107
 
-107:                                              ; preds = %106, %71
-  %108 = load i64, ptr %20, align 8
-  %109 = inttoptr i64 %108 to ptr
-  %110 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %21)
-          to label %111 unwind label %67
+92:                                               ; preds = %87
+  %93 = load ptr, ptr %16, align 8
+  %94 = load i64, ptr %32, align 8
+  %95 = getelementptr inbounds nuw i64, ptr %93, i64 %94
+  %96 = load i64, ptr %95, align 8
+  %97 = load i64, ptr %32, align 8
+  %98 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6detail15scoped_pymallocIlEixEm(ptr noundef nonnull align 8 dereferenceable(8) %28, i64 noundef %97)
+          to label %99 unwind label %103
 
-111:                                              ; preds = %107
-  %112 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %110, i32 0, i32 0
-  %113 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %112, i32 0, i32 0
-  store ptr %109, ptr %113, align 8
-  %114 = load i32, ptr %17, align 4
-  %115 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %21)
-          to label %116 unwind label %67
+99:                                               ; preds = %92
+  store i64 %96, ptr %98, align 8
+  br label %100
 
-116:                                              ; preds = %111
-  %117 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %115, i32 0, i32 0
-  %118 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %117, i32 0, i32 1
-  %119 = getelementptr inbounds %"struct.nanobind::dlpack::device", ptr %118, i32 0, i32 0
-  store i32 %114, ptr %119, align 8
-  %120 = load i32, ptr %18, align 4
-  %121 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %21)
-          to label %122 unwind label %67
+100:                                              ; preds = %99
+  %101 = load i64, ptr %32, align 8
+  %102 = add i64 %101, 1
+  store i64 %102, ptr %32, align 8
+  br label %87, !llvm.loop !14
 
-122:                                              ; preds = %116
-  %123 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %121, i32 0, i32 0
-  %124 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %123, i32 0, i32 1
-  %125 = getelementptr inbounds %"struct.nanobind::dlpack::device", ptr %124, i32 0, i32 1
-  store i32 %120, ptr %125, align 4
-  %126 = load i64, ptr %11, align 8
-  %127 = trunc i64 %126 to i32
-  %128 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %21)
-          to label %129 unwind label %67
+103:                                              ; preds = %92
+  %104 = landingpad { ptr, i32 }
+          cleanup
+  %105 = extractvalue { ptr, i32 } %104, 0
+  store ptr %105, ptr %25, align 8
+  %106 = extractvalue { ptr, i32 } %104, 1
+  store i32 %106, ptr %26, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #17
+  br label %179
+
+107:                                              ; preds = %91
+  br label %178
+
+108:                                              ; preds = %83
+  %109 = load i8, ptr %20, align 1
+  %110 = sext i8 %109 to i32
+  %111 = icmp eq i32 %110, 70
+  br i1 %111, label %112, label %137
+
+112:                                              ; preds = %108
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #17
+  store i64 0, ptr %33, align 8
+  br label %113
+
+113:                                              ; preds = %129, %112
+  %114 = load i64, ptr %33, align 8
+  %115 = load i64, ptr %13, align 8
+  %116 = icmp ult i64 %114, %115
+  br i1 %116, label %118, label %117
+
+117:                                              ; preds = %113
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #17
+  br label %136
+
+118:                                              ; preds = %113
+  %119 = load i64, ptr %31, align 8
+  %120 = load i64, ptr %33, align 8
+  %121 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6detail15scoped_pymallocIlEixEm(ptr noundef nonnull align 8 dereferenceable(8) %28, i64 noundef %120)
+          to label %122 unwind label %132
+
+122:                                              ; preds = %118
+  store i64 %119, ptr %121, align 8
+  %123 = load ptr, ptr %14, align 8
+  %124 = load i64, ptr %33, align 8
+  %125 = getelementptr inbounds nuw i64, ptr %123, i64 %124
+  %126 = load i64, ptr %125, align 8
+  %127 = load i64, ptr %31, align 8
+  %128 = mul nsw i64 %127, %126
+  store i64 %128, ptr %31, align 8
+  br label %129
 
 129:                                              ; preds = %122
-  %130 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %128, i32 0, i32 0
-  %131 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %130, i32 0, i32 2
-  store i32 %127, ptr %131, align 8
-  %132 = load ptr, ptr %15, align 8
-  %133 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %21)
-          to label %134 unwind label %67
+  %130 = load i64, ptr %33, align 8
+  %131 = add i64 %130, 1
+  store i64 %131, ptr %33, align 8
+  br label %113, !llvm.loop !15
 
-134:                                              ; preds = %129
-  %135 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %133, i32 0, i32 0
-  %136 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %135, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %136, ptr align 2 %132, i64 4, i1 false)
-  %137 = load i64, ptr %19, align 8
-  %138 = load i64, ptr %20, align 8
-  %139 = sub i64 %137, %138
-  %140 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %21)
-          to label %141 unwind label %67
+132:                                              ; preds = %118
+  %133 = landingpad { ptr, i32 }
+          cleanup
+  %134 = extractvalue { ptr, i32 } %133, 0
+  store ptr %134, ptr %25, align 8
+  %135 = extractvalue { ptr, i32 } %133, 1
+  store i32 %135, ptr %26, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #17
+  br label %179
 
-141:                                              ; preds = %134
-  %142 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %140, i32 0, i32 0
-  %143 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %142, i32 0, i32 6
-  store i64 %139, ptr %143, align 8
-  %144 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocIlE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %25)
-          to label %145 unwind label %67
+136:                                              ; preds = %117
+  br label %177
+
+137:                                              ; preds = %108
+  %138 = load i8, ptr %20, align 1
+  %139 = sext i8 %138 to i32
+  %140 = icmp eq i32 %139, 0
+  br i1 %140, label %149, label %141
+
+141:                                              ; preds = %137
+  %142 = load i8, ptr %20, align 1
+  %143 = sext i8 %142 to i32
+  %144 = icmp eq i32 %143, 65
+  br i1 %144, label %149, label %145
 
 145:                                              ; preds = %141
-  %146 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %21)
-          to label %147 unwind label %67
+  %146 = load i8, ptr %20, align 1
+  %147 = sext i8 %146 to i32
+  %148 = icmp eq i32 %147, 67
+  br i1 %148, label %149, label %175
 
-147:                                              ; preds = %145
-  %148 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %146, i32 0, i32 0
-  %149 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %148, i32 0, i32 4
-  store ptr %144, ptr %149, align 8
-  %150 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocIlE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %26)
-          to label %151 unwind label %67
+149:                                              ; preds = %145, %141, %137
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #17
+  %150 = load i64, ptr %13, align 8
+  %151 = sub nsw i64 %150, 1
+  store i64 %151, ptr %34, align 8
+  br label %152
 
-151:                                              ; preds = %147
-  %152 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %21)
-          to label %153 unwind label %67
+152:                                              ; preds = %167, %149
+  %153 = load i64, ptr %34, align 8
+  %154 = icmp sge i64 %153, 0
+  br i1 %154, label %156, label %155
 
-153:                                              ; preds = %151
-  %154 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %152, i32 0, i32 0
-  %155 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %154, i32 0, i32 5
-  store ptr %150, ptr %155, align 8
-  %156 = invoke noundef ptr @_ZNK8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
-          to label %157 unwind label %67
+155:                                              ; preds = %152
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #17
+  br label %174
 
-157:                                              ; preds = %153
-  %158 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %21)
-          to label %159 unwind label %67
+156:                                              ; preds = %152
+  %157 = load i64, ptr %31, align 8
+  %158 = load i64, ptr %34, align 8
+  %159 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6detail15scoped_pymallocIlEixEm(ptr noundef nonnull align 8 dereferenceable(8) %28, i64 noundef %158)
+          to label %160 unwind label %170
 
-159:                                              ; preds = %157
-  %160 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %158, i32 0, i32 1
-  store ptr %156, ptr %160, align 8
-  %161 = call noundef ptr @"_ZZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlPNS_6dlpack5dtypeEbiiENK3$_0cvPFvPNS0_16managed_dltensorEEEv"(ptr noundef nonnull align 1 dereferenceable(1) %27) #11
-  %162 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %21)
-          to label %163 unwind label %67
+160:                                              ; preds = %156
+  store i64 %157, ptr %159, align 8
+  %161 = load ptr, ptr %14, align 8
+  %162 = load i64, ptr %34, align 8
+  %163 = getelementptr inbounds i64, ptr %161, i64 %162
+  %164 = load i64, ptr %163, align 8
+  %165 = load i64, ptr %31, align 8
+  %166 = mul nsw i64 %165, %164
+  store i64 %166, ptr %31, align 8
+  br label %167
 
-163:                                              ; preds = %159
-  %164 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %162, i32 0, i32 2
-  store ptr %161, ptr %164, align 8
-  %165 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %21)
-          to label %166 unwind label %67
+167:                                              ; preds = %160
+  %168 = load i64, ptr %34, align 8
+  %169 = add nsw i64 %168, -1
+  store i64 %169, ptr %34, align 8
+  br label %152, !llvm.loop !16
 
-166:                                              ; preds = %163
-  %167 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
-          to label %168 unwind label %67
+170:                                              ; preds = %156
+  %171 = landingpad { ptr, i32 }
+          cleanup
+  %172 = extractvalue { ptr, i32 } %171, 0
+  store ptr %172, ptr %25, align 8
+  %173 = extractvalue { ptr, i32 } %171, 1
+  store i32 %173, ptr %26, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #17
+  br label %179
 
-168:                                              ; preds = %166
-  %169 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %167, i32 0, i32 0
-  store ptr %165, ptr %169, align 8
-  %170 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
-          to label %171 unwind label %67
+174:                                              ; preds = %155
+  br label %176
 
-171:                                              ; preds = %168
-  %172 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %170, i32 0, i32 1
-  %173 = call noundef i64 @_ZNSt13__atomic_baseImEaSEm(ptr noundef nonnull align 8 dereferenceable(8) %172, i64 noundef 0) #11
-  %174 = load ptr, ptr %13, align 8
-  %175 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
-          to label %176 unwind label %67
+175:                                              ; preds = %145
+  call void @_ZN8nanobind6detail16fail_unspecifiedEv() #18
+  unreachable
 
-176:                                              ; preds = %171
-  %177 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %175, i32 0, i32 2
-  store ptr %174, ptr %177, align 8
-  %178 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
-          to label %179 unwind label %67
+176:                                              ; preds = %174
+  br label %177
 
-179:                                              ; preds = %176
-  %180 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %178, i32 0, i32 3
-  store ptr null, ptr %180, align 8
-  %181 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
-          to label %182 unwind label %67
+177:                                              ; preds = %176, %136
+  br label %178
 
-182:                                              ; preds = %179
-  %183 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %181, i32 0, i32 4
-  store i8 1, ptr %183, align 8
-  %184 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
-          to label %185 unwind label %67
+178:                                              ; preds = %177, %107
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #17
+  br label %180
 
-185:                                              ; preds = %182
-  %186 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %184, i32 0, i32 5
-  store i8 1, ptr %186, align 1
-  %187 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
-          to label %188 unwind label %67
+179:                                              ; preds = %170, %132, %103
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #17
+  br label %276
 
-188:                                              ; preds = %185
-  %189 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %187, i32 0, i32 6
-  store i8 0, ptr %189, align 2
-  %190 = load i8, ptr %16, align 1
-  %191 = trunc i8 %190 to i1
-  %192 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
-          to label %193 unwind label %67
+180:                                              ; preds = %178, %80
+  %181 = load i64, ptr %22, align 8
+  %182 = inttoptr i64 %181 to ptr
+  %183 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %23)
+          to label %184 unwind label %272
 
-193:                                              ; preds = %188
-  %194 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %192, i32 0, i32 7
-  %195 = zext i1 %191 to i8
-  store i8 %195, ptr %194, align 1
-  %196 = load ptr, ptr %13, align 8
-  invoke void @_ZL11_Py_XINCREFP7_object(ptr noundef %196)
-          to label %197 unwind label %67
+184:                                              ; preds = %180
+  %185 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %183, i32 0, i32 0
+  %186 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %185, i32 0, i32 0
+  store ptr %182, ptr %186, align 8
+  %187 = load i32, ptr %18, align 4
+  %188 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %23)
+          to label %189 unwind label %272
 
-197:                                              ; preds = %193
-  %198 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
-          to label %199 unwind label %67
+189:                                              ; preds = %184
+  %190 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %188, i32 0, i32 0
+  %191 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %190, i32 0, i32 1
+  %192 = getelementptr inbounds nuw %"struct.nanobind::dlpack::device", ptr %191, i32 0, i32 0
+  store i32 %187, ptr %192, align 8
+  %193 = load i32, ptr %19, align 4
+  %194 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %23)
+          to label %195 unwind label %272
 
-199:                                              ; preds = %197
-  call void @_ZN8nanobind6detail15scoped_pymallocIlED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #11
-  call void @_ZN8nanobind6detail15scoped_pymallocIlED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #11
-  call void @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #11
-  call void @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #11
-  ret ptr %198
+195:                                              ; preds = %189
+  %196 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %194, i32 0, i32 0
+  %197 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %196, i32 0, i32 1
+  %198 = getelementptr inbounds nuw %"struct.nanobind::dlpack::device", ptr %197, i32 0, i32 1
+  store i32 %193, ptr %198, align 4
+  %199 = load i64, ptr %13, align 8
+  %200 = trunc i64 %199 to i32
+  %201 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %23)
+          to label %202 unwind label %272
 
-200:                                              ; preds = %67, %63
-  call void @_ZN8nanobind6detail15scoped_pymallocIlED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #11
-  br label %201
+202:                                              ; preds = %195
+  %203 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %201, i32 0, i32 0
+  %204 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %203, i32 0, i32 2
+  store i32 %200, ptr %204, align 8
+  %205 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %23)
+          to label %206 unwind label %272
 
-201:                                              ; preds = %200, %59
-  call void @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #11
-  br label %202
+206:                                              ; preds = %202
+  %207 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %205, i32 0, i32 0
+  %208 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %207, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %208, ptr align 2 %11, i64 4, i1 false)
+  %209 = load i64, ptr %21, align 8
+  %210 = load i64, ptr %22, align 8
+  %211 = sub i64 %209, %210
+  %212 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %23)
+          to label %213 unwind label %272
 
-202:                                              ; preds = %201, %55
-  call void @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #11
-  br label %203
+213:                                              ; preds = %206
+  %214 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %212, i32 0, i32 0
+  %215 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %214, i32 0, i32 6
+  store i64 %211, ptr %215, align 8
+  %216 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocIlE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %27)
+          to label %217 unwind label %272
 
-203:                                              ; preds = %202
-  %204 = load ptr, ptr %23, align 8
-  %205 = load i32, ptr %24, align 4
-  %206 = insertvalue { ptr, i32 } poison, ptr %204, 0
-  %207 = insertvalue { ptr, i32 } %206, i32 %205, 1
-  resume { ptr, i32 } %207
+217:                                              ; preds = %213
+  %218 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %23)
+          to label %219 unwind label %272
+
+219:                                              ; preds = %217
+  %220 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %218, i32 0, i32 0
+  %221 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %220, i32 0, i32 4
+  store ptr %216, ptr %221, align 8
+  %222 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocIlE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %28)
+          to label %223 unwind label %272
+
+223:                                              ; preds = %219
+  %224 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %23)
+          to label %225 unwind label %272
+
+225:                                              ; preds = %223
+  %226 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %224, i32 0, i32 0
+  %227 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %226, i32 0, i32 5
+  store ptr %222, ptr %227, align 8
+  %228 = invoke noundef ptr @_ZNK8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
+          to label %229 unwind label %272
+
+229:                                              ; preds = %225
+  %230 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %23)
+          to label %231 unwind label %272
+
+231:                                              ; preds = %229
+  %232 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %230, i32 0, i32 1
+  store ptr %228, ptr %232, align 8
+  %233 = call noundef ptr @"_ZZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlNS_6dlpack5dtypeEbiicENK3$_0cvPFvPNS0_16managed_dltensorEEEv"(ptr noundef nonnull align 1 dereferenceable(1) %29) #17
+  %234 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %23)
+          to label %235 unwind label %272
+
+235:                                              ; preds = %231
+  %236 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %234, i32 0, i32 2
+  store ptr %233, ptr %236, align 8
+  %237 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %23)
+          to label %238 unwind label %272
+
+238:                                              ; preds = %235
+  %239 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
+          to label %240 unwind label %272
+
+240:                                              ; preds = %238
+  %241 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %239, i32 0, i32 0
+  store ptr %237, ptr %241, align 8
+  %242 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
+          to label %243 unwind label %272
+
+243:                                              ; preds = %240
+  %244 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %242, i32 0, i32 1
+  %245 = call noundef i64 @_ZNSt13__atomic_baseImEaSEm(ptr noundef nonnull align 8 dereferenceable(8) %244, i64 noundef 0) #17
+  %246 = load ptr, ptr %15, align 8
+  %247 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
+          to label %248 unwind label %272
+
+248:                                              ; preds = %243
+  %249 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %247, i32 0, i32 2
+  store ptr %246, ptr %249, align 8
+  %250 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
+          to label %251 unwind label %272
+
+251:                                              ; preds = %248
+  %252 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %250, i32 0, i32 3
+  store ptr null, ptr %252, align 8
+  %253 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
+          to label %254 unwind label %272
+
+254:                                              ; preds = %251
+  %255 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %253, i32 0, i32 4
+  store i8 1, ptr %255, align 8
+  %256 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
+          to label %257 unwind label %272
+
+257:                                              ; preds = %254
+  %258 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %256, i32 0, i32 5
+  store i8 1, ptr %258, align 1
+  %259 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
+          to label %260 unwind label %272
+
+260:                                              ; preds = %257
+  %261 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %259, i32 0, i32 6
+  store i8 0, ptr %261, align 2
+  %262 = load i8, ptr %17, align 1, !range !3, !noundef !4
+  %263 = trunc i8 %262 to i1
+  %264 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
+          to label %265 unwind label %272
+
+265:                                              ; preds = %260
+  %266 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %264, i32 0, i32 7
+  %267 = zext i1 %263 to i8
+  store i8 %267, ptr %266, align 1
+  %268 = load ptr, ptr %15, align 8
+  invoke void @_ZL11_Py_XINCREFP7_object(ptr noundef %268)
+          to label %269 unwind label %272
+
+269:                                              ; preds = %265
+  %270 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
+          to label %271 unwind label %272
+
+271:                                              ; preds = %269
+  call void @llvm.lifetime.end.p0(i64 1, ptr %29) #17
+  call void @_ZN8nanobind6detail15scoped_pymallocIlED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #17
+  call void @_ZN8nanobind6detail15scoped_pymallocIlED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #17
+  call void @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #17
+  call void @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #17
+  ret ptr %270
+
+272:                                              ; preds = %269, %265, %260, %257, %254, %251, %248, %243, %240, %238, %235, %231, %229, %225, %223, %219, %217, %213, %206, %202, %195, %189, %184, %180
+  %273 = landingpad { ptr, i32 }
+          cleanup
+  %274 = extractvalue { ptr, i32 } %273, 0
+  store ptr %274, ptr %25, align 8
+  %275 = extractvalue { ptr, i32 } %273, 1
+  store i32 %275, ptr %26, align 4
+  br label %276
+
+276:                                              ; preds = %272, %179, %76
+  call void @llvm.lifetime.end.p0(i64 1, ptr %29) #17
+  call void @_ZN8nanobind6detail15scoped_pymallocIlED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #17
+  br label %277
+
+277:                                              ; preds = %276, %61
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #17
+  call void @_ZN8nanobind6detail15scoped_pymallocIlED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #17
+  br label %278
+
+278:                                              ; preds = %277, %57
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #17
+  call void @_ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #17
+  br label %279
+
+279:                                              ; preds = %278, %53
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #17
+  call void @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #17
+  br label %280
+
+280:                                              ; preds = %279
+  %281 = load ptr, ptr %25, align 8
+  %282 = load i32, ptr %26, align 4
+  %283 = insertvalue { ptr, i32 } poison, ptr %281, 0
+  %284 = insertvalue { ptr, i32 } %283, i32 %282, 1
+  resume { ptr, i32 } %284
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden void @_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #12 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.nanobind::detail::scoped_pymalloc.2", ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.nanobind::detail::scoped_pymalloc.2", ptr %5, i32 0, i32 0
   store ptr null, ptr %6, align 8
   %7 = load i64, ptr %4, align 8
   %8 = mul i64 %7, 64
   %9 = call ptr @PyMem_Malloc(i64 noundef %8)
-  %10 = getelementptr inbounds %"struct.nanobind::detail::scoped_pymalloc.2", ptr %5, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %"struct.nanobind::detail::scoped_pymalloc.2", ptr %5, i32 0, i32 0
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds %"struct.nanobind::detail::scoped_pymalloc.2", ptr %5, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.nanobind::detail::scoped_pymalloc.2", ptr %5, i32 0, i32 0
   %12 = load ptr, ptr %11, align 8
   %13 = icmp ne ptr %12, null
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %2
   %15 = load i64, ptr %4, align 8
-  call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef @.str.35, i64 noundef %15) #12
+  call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef @.str.36, i64 noundef %15) #18
   unreachable
 
 16:                                               ; preds = %2
@@ -5259,7 +5514,7 @@ define linkonce_odr hidden noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.nanobind::detail::scoped_pymalloc.2", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.nanobind::detail::scoped_pymalloc.2", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
@@ -5269,16 +5524,16 @@ define linkonce_odr hidden noundef ptr @_ZNK8nanobind6detail15scoped_pymallocINS
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.nanobind::detail::scoped_pymalloc.1", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.nanobind::detail::scoped_pymalloc", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @"_ZZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlPNS_6dlpack5dtypeEbiiENK3$_0cvPFvPNS0_16managed_dltensorEEEv"(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef ptr @"_ZZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlNS_6dlpack5dtypeEbiicENK3$_0cvPFvPNS0_16managed_dltensorEEEv"(ptr noundef nonnull align 1 dereferenceable(1) %0) #9 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  ret ptr @"_ZZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlPNS_6dlpack5dtypeEbiiEN3$_08__invokeEPNS0_16managed_dltensorE"
+  ret ptr @"_ZZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlNS_6dlpack5dtypeEbiicEN3$_08__invokeEPNS0_16managed_dltensorE"
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5287,17 +5542,19 @@ define linkonce_odr hidden noundef ptr @_ZN8nanobind6detail15scoped_pymallocINS0
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %"struct.nanobind::detail::scoped_pymalloc.2", ptr %4, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #17
+  %5 = getelementptr inbounds nuw %"struct.nanobind::detail::scoped_pymalloc.2", ptr %4, i32 0, i32 0
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %3, align 8
-  %7 = getelementptr inbounds %"struct.nanobind::detail::scoped_pymalloc.2", ptr %4, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.nanobind::detail::scoped_pymalloc.2", ptr %4, i32 0, i32 0
   store ptr null, ptr %7, align 8
   %8 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #17
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL11_Py_XINCREFP7_object(ptr noundef %0) #0 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal void @_ZL11_Py_XINCREFP7_object(ptr noundef %0) #9 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -5318,7 +5575,7 @@ define linkonce_odr hidden void @_ZN8nanobind6detail15scoped_pymallocINS0_16mana
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.nanobind::detail::scoped_pymalloc.2", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.nanobind::detail::scoped_pymalloc.2", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
   invoke void @PyMem_Free(ptr noundef %5)
           to label %6 unwind label %7
@@ -5330,1042 +5587,792 @@ define linkonce_odr hidden void @_ZN8nanobind6detail15scoped_pymallocINS0_16mana
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #12
+  call void @__clang_call_terminate(ptr %9) #18
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN8nanobind6detail12ndarray_wrapEPNS0_14ndarray_handleEiNS_9rv_policyEPNS0_12cleanup_listE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN8nanobind6detail14ndarray_exportEPNS0_14ndarray_handleEiNS_9rv_policyEPNS0_12cleanup_listE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca %"class.nanobind::handle", align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca %"class.nanobind::handle", align 8
-  %11 = alloca %"class.nanobind::handle", align 8
-  %12 = alloca ptr, align 8
-  %13 = alloca %"class.nanobind::handle", align 8
-  %14 = alloca %"class.nanobind::handle", align 8
-  %15 = alloca ptr, align 8
+  %11 = alloca %"class.nanobind::object", align 8
+  %12 = alloca i8, align 1
+  %13 = alloca i32, align 4
+  %14 = alloca %"class.nanobind::object", align 8
+  %15 = alloca %"class.nanobind::object", align 8
   %16 = alloca %"class.nanobind::handle", align 8
-  %17 = alloca %"class.nanobind::handle", align 8
-  %18 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca %"class.nanobind::object", align 8
   %19 = alloca %"class.nanobind::handle", align 8
-  %20 = alloca ptr, align 8
+  %20 = alloca %"class.nanobind::object", align 8
   %21 = alloca %"class.nanobind::handle", align 8
   %22 = alloca %"class.nanobind::handle", align 8
-  %23 = alloca ptr, align 8
-  %24 = alloca %"class.nanobind::handle", align 8
-  %25 = alloca %"class.nanobind::handle", align 8
+  %23 = alloca %"class.nanobind::object", align 8
+  %24 = alloca %"class.nanobind::detail::accessor", align 8
+  %25 = alloca %"class.nanobind::module_", align 8
   %26 = alloca ptr, align 8
-  %27 = alloca %"class.nanobind::handle", align 8
-  %28 = alloca %"class.nanobind::handle", align 8
-  %29 = alloca ptr, align 8
-  %30 = alloca %"class.nanobind::handle", align 8
-  %31 = alloca %"class.nanobind::handle", align 8
-  %32 = alloca ptr, align 8
-  %33 = alloca ptr, align 8
+  %27 = alloca i32, align 4
+  %28 = alloca %"struct.nanobind::arg_v", align 8
+  %29 = alloca %"struct.nanobind::arg", align 8
+  %30 = alloca ptr, align 8
+  %31 = alloca %"class.nanobind::object", align 8
+  %32 = alloca %"class.nanobind::detail::accessor", align 8
+  %33 = alloca %"class.nanobind::module_", align 8
   %34 = alloca ptr, align 8
-  %35 = alloca %"class.nanobind::object", align 8
-  %36 = alloca ptr, align 8
-  %37 = alloca i32, align 4
+  %35 = alloca ptr, align 8
+  %36 = alloca %"class.nanobind::object", align 8
+  %37 = alloca %"class.nanobind::detail::accessor", align 8
   %38 = alloca ptr, align 8
-  %39 = alloca ptr, align 8
-  %40 = alloca ptr, align 8
-  %41 = alloca ptr, align 8
-  %42 = alloca ptr, align 8
-  %43 = alloca ptr, align 8
-  %44 = alloca ptr, align 8
-  %45 = alloca ptr, align 8
-  %46 = alloca ptr, align 8
-  %47 = alloca %"class.nanobind::handle", align 8
-  %48 = alloca %"class.nanobind::handle", align 8
-  %49 = alloca ptr, align 8
-  %50 = alloca ptr, align 8
-  %51 = alloca ptr, align 8
-  %52 = alloca ptr, align 8
-  %53 = alloca %"class.nanobind::handle", align 8
-  %54 = alloca ptr, align 8
-  %55 = alloca ptr, align 8
-  %56 = alloca ptr, align 8
-  %57 = alloca ptr, align 8
-  %58 = alloca %"class.nanobind::handle", align 8
-  %59 = alloca ptr, align 8
-  %60 = alloca ptr, align 8
-  %61 = alloca ptr, align 8
-  %62 = alloca ptr, align 8
-  %63 = alloca %"class.nanobind::handle", align 8
-  %64 = alloca ptr, align 8
-  %65 = alloca ptr, align 8
-  %66 = alloca ptr, align 8
-  %67 = alloca ptr, align 8
-  %68 = alloca %"class.nanobind::handle", align 8
-  %69 = alloca ptr, align 8
-  %70 = alloca ptr, align 8
-  %71 = alloca ptr, align 8
-  %72 = alloca ptr, align 8
-  %73 = alloca ptr, align 8
-  %74 = alloca ptr, align 8
-  %75 = alloca ptr, align 8
-  %76 = alloca ptr, align 8
-  %77 = alloca %"class.nanobind::handle", align 8
-  %78 = alloca %"class.nanobind::handle", align 8
-  %79 = alloca ptr, align 8
-  %80 = alloca %"class.nanobind::handle", align 8
-  %81 = alloca %"class.nanobind::handle", align 8
-  %82 = alloca ptr, align 8
-  %83 = alloca ptr, align 8
-  %84 = alloca i32, align 4
-  %85 = alloca i32, align 4
-  %86 = alloca ptr, align 8
-  %87 = alloca %"class.nanobind::handle", align 8
-  %88 = alloca %"class.nanobind::object", align 8
-  %89 = alloca i8, align 1
-  %90 = alloca ptr, align 8
-  %91 = alloca ptr, align 8
-  %92 = alloca i32, align 4
-  %93 = alloca %"class.nanobind::object", align 8
-  %94 = alloca %"class.nanobind::handle", align 8
-  %95 = alloca %"class.nanobind::handle", align 8
-  %96 = alloca %"class.nanobind::object", align 8
-  %97 = alloca %"class.nanobind::detail::accessor", align 8
-  %98 = alloca %"class.nanobind::module_", align 8
-  %99 = alloca %"struct.nanobind::arg_v", align 8
-  %100 = alloca %"struct.nanobind::arg", align 8
-  %101 = alloca ptr, align 8
-  %102 = alloca %"class.nanobind::object", align 8
-  %103 = alloca %"class.nanobind::module_", align 8
-  %104 = alloca %"class.nanobind::module_", align 8
-  %105 = alloca %"class.nanobind::module_", align 8
-  %106 = alloca ptr, align 8
-  %107 = alloca i32, align 4
-  %108 = alloca %"class.nanobind::object", align 8
-  %109 = alloca %"class.nanobind::object", align 8
-  %110 = alloca %"class.nanobind::handle", align 8
-  %111 = alloca %"class.nanobind::object", align 8
-  %112 = alloca %"class.nanobind::handle", align 8
-  %113 = alloca %"class.nanobind::object", align 8
-  %114 = alloca %"class.nanobind::detail::accessor", align 8
-  %115 = alloca ptr, align 8
-  %116 = alloca %"class.nanobind::object", align 8
-  %117 = alloca %"class.nanobind::detail::accessor", align 8
-  %118 = alloca ptr, align 8
-  %119 = alloca %"class.nanobind::handle", align 8
-  store ptr %0, ptr %83, align 8
-  store i32 %1, ptr %84, align 4
-  store i32 %2, ptr %85, align 4
-  store ptr %3, ptr %86, align 8
-  %120 = load ptr, ptr %83, align 8
-  %121 = icmp ne ptr %120, null
-  br i1 %121, label %130, label %122
+  %39 = alloca %"class.nanobind::handle", align 8
+  store ptr %0, ptr %6, align 8
+  store i32 %1, ptr %7, align 4
+  store i32 %2, ptr %8, align 4
+  store ptr %3, ptr %9, align 8
+  %40 = load ptr, ptr %6, align 8
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %49, label %42
 
-122:                                              ; preds = %4
-  invoke void @_ZN8nanobind4noneEv(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %88)
-          to label %123 unwind label %503
+42:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  invoke void @_ZN8nanobind4noneEv(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %11)
+          to label %43 unwind label %323
+
+43:                                               ; preds = %42
+  %44 = invoke ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %45 unwind label %323
+
+45:                                               ; preds = %43
+  %46 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %10, i32 0, i32 0
+  store ptr %44, ptr %46, align 8
+  %47 = invoke noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
+          to label %48 unwind label %323
+
+48:                                               ; preds = %45
+  store ptr %47, ptr %5, align 8
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  br label %321
+
+49:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #17
+  %50 = load i32, ptr %8, align 4
+  switch i32 %50, label %101 [
+    i32 6, label %51
+    i32 0, label %87
+    i32 1, label %87
+    i32 3, label %100
+    i32 4, label %100
+  ]
+
+51:                                               ; preds = %49
+  %52 = load ptr, ptr %9, align 8
+  %53 = icmp ne ptr %52, null
+  br i1 %53, label %54, label %86
+
+54:                                               ; preds = %51
+  %55 = load ptr, ptr %9, align 8
+  %56 = invoke noundef ptr @_ZNK8nanobind6detail12cleanup_list4selfEv(ptr noundef nonnull align 8 dereferenceable(64) %55)
+          to label %57 unwind label %323
+
+57:                                               ; preds = %54
+  %58 = load ptr, ptr %6, align 8
+  %59 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %58, i32 0, i32 2
+  %60 = load ptr, ptr %59, align 8
+  %61 = icmp ne ptr %56, %60
+  br i1 %61, label %62, label %86
+
+62:                                               ; preds = %57
+  %63 = load ptr, ptr %6, align 8
+  %64 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %63, i32 0, i32 3
+  %65 = load ptr, ptr %64, align 8
+  %66 = icmp ne ptr %65, null
+  br i1 %66, label %86, label %67
+
+67:                                               ; preds = %62
+  %68 = load ptr, ptr %6, align 8
+  %69 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %68, i32 0, i32 2
+  %70 = load ptr, ptr %69, align 8
+  %71 = icmp ne ptr %70, null
+  br i1 %71, label %72, label %75
+
+72:                                               ; preds = %67
+  %73 = load ptr, ptr @PyExc_RuntimeError, align 8
+  invoke void @PyErr_SetString(ptr noundef %73, ptr noundef @.str.29)
+          to label %74 unwind label %323
+
+74:                                               ; preds = %72
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %13, align 4
+  br label %320
+
+75:                                               ; preds = %67
+  %76 = load ptr, ptr %9, align 8
+  %77 = invoke noundef ptr @_ZNK8nanobind6detail12cleanup_list4selfEv(ptr noundef nonnull align 8 dereferenceable(64) %76)
+          to label %78 unwind label %323
+
+78:                                               ; preds = %75
+  %79 = load ptr, ptr %6, align 8
+  %80 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %79, i32 0, i32 2
+  store ptr %77, ptr %80, align 8
+  %81 = load ptr, ptr %6, align 8
+  %82 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %81, i32 0, i32 2
+  %83 = load ptr, ptr %82, align 8
+  invoke void @_ZL10_Py_INCREFP7_object(ptr noundef %83)
+          to label %84 unwind label %323
+
+84:                                               ; preds = %78
+  br label %85
+
+85:                                               ; preds = %84
+  br label %86
+
+86:                                               ; preds = %85, %62, %57, %51
+  br label %87
+
+87:                                               ; preds = %49, %49, %86
+  %88 = load ptr, ptr %6, align 8
+  %89 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %88, i32 0, i32 2
+  %90 = load ptr, ptr %89, align 8
+  %91 = icmp eq ptr %90, null
+  br i1 %91, label %92, label %97
+
+92:                                               ; preds = %87
+  %93 = load ptr, ptr %6, align 8
+  %94 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %93, i32 0, i32 3
+  %95 = load ptr, ptr %94, align 8
+  %96 = icmp eq ptr %95, null
+  br label %97
+
+97:                                               ; preds = %92, %87
+  %98 = phi i1 [ false, %87 ], [ %96, %92 ]
+  %99 = zext i1 %98 to i8
+  store i8 %99, ptr %12, align 1
+  br label %102
+
+100:                                              ; preds = %49, %49
+  store i8 1, ptr %12, align 1
+  br label %102
+
+101:                                              ; preds = %49
+  store i8 0, ptr %12, align 1
+  br label %102
+
+102:                                              ; preds = %101, %100, %97
+  %103 = load i8, ptr %12, align 1, !range !3, !noundef !4
+  %104 = trunc i8 %103 to i1
+  br i1 %104, label %124, label %105
+
+105:                                              ; preds = %102
+  %106 = load ptr, ptr %6, align 8
+  %107 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %106, i32 0, i32 3
+  %108 = load ptr, ptr %107, align 8
+  %109 = icmp ne ptr %108, null
+  br i1 %109, label %110, label %118
+
+110:                                              ; preds = %105
+  %111 = load ptr, ptr %6, align 8
+  %112 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %111, i32 0, i32 3
+  %113 = load ptr, ptr %112, align 8
+  invoke void @_ZL10_Py_INCREFP7_object(ptr noundef %113)
+          to label %114 unwind label %323
+
+114:                                              ; preds = %110
+  %115 = load ptr, ptr %6, align 8
+  %116 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %115, i32 0, i32 3
+  %117 = load ptr, ptr %116, align 8
+  store ptr %117, ptr %5, align 8
+  store i32 1, ptr %13, align 4
+  br label %320
+
+118:                                              ; preds = %105
+  %119 = load i32, ptr %8, align 4
+  %120 = icmp eq i32 %119, 7
+  br i1 %120, label %121, label %122
+
+121:                                              ; preds = %118
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %13, align 4
+  br label %320
+
+122:                                              ; preds = %118
+  br label %123
 
 123:                                              ; preds = %122
-  %124 = invoke ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %88)
-          to label %125 unwind label %503
+  br label %124
 
-125:                                              ; preds = %123
-  %126 = getelementptr inbounds %"class.nanobind::handle", ptr %87, i32 0, i32 0
-  store ptr %124, ptr %126, align 8
-  store ptr %87, ptr %42, align 8
-  %127 = load ptr, ptr %42, align 8
-  %128 = load ptr, ptr %127, align 8
-  br label %129
+124:                                              ; preds = %123, %102
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  call void @_ZN8nanobind6objectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #17
+  %125 = load i8, ptr %12, align 1, !range !3, !noundef !4
+  %126 = trunc i8 %125 to i1
+  br i1 %126, label %127, label %144
 
-129:                                              ; preds = %125
-  store ptr %128, ptr %82, align 8
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %88) #11
-  br label %501
+127:                                              ; preds = %124
+  %128 = load i32, ptr %7, align 4
+  %129 = icmp eq i32 %128, 0
+  br i1 %129, label %130, label %144
 
-130:                                              ; preds = %4
-  %131 = load i32, ptr %85, align 4
-  switch i32 %131, label %181 [
-    i32 6, label %132
-    i32 0, label %167
-    i32 3, label %180
-    i32 4, label %180
+130:                                              ; preds = %127
+  %131 = load ptr, ptr %6, align 8
+  %132 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %131, i32 0, i32 3
+  %133 = load ptr, ptr %132, align 8
+  %134 = icmp ne ptr %133, null
+  br i1 %134, label %135, label %144
+
+135:                                              ; preds = %130
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #17
+  %136 = load ptr, ptr %6, align 8
+  %137 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %136, i32 0, i32 3
+  %138 = load ptr, ptr %137, align 8
+  invoke void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %138)
+          to label %139 unwind label %323
+
+139:                                              ; preds = %135
+  %140 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %16, i32 0, i32 0
+  %141 = load ptr, ptr %140, align 8
+  invoke void @_ZN8nanobind6borrowINS_6objectEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %15, ptr %141)
+          to label %142 unwind label %323
+
+142:                                              ; preds = %139
+  %143 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15) #17
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #17
+  br label %186
+
+144:                                              ; preds = %130, %127, %124
+  %145 = load i32, ptr %7, align 4
+  %146 = icmp eq i32 %145, 1
+  br i1 %146, label %150, label %147
+
+147:                                              ; preds = %144
+  %148 = load i32, ptr %7, align 4
+  %149 = icmp eq i32 %148, 4
+  br i1 %149, label %150, label %172
+
+150:                                              ; preds = %147, %144
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #17
+  %151 = call noundef ptr @_ZN8nanobind6detailL13nd_ndarray_tpEv() #17
+  %152 = invoke ptr @_PyObject_New(ptr noundef %151)
+          to label %153 unwind label %323
+
+153:                                              ; preds = %150
+  store ptr %152, ptr %17, align 8
+  %154 = load ptr, ptr %17, align 8
+  %155 = icmp ne ptr %154, null
+  br i1 %155, label %157, label %156
+
+156:                                              ; preds = %153
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %13, align 4
+  br label %169
+
+157:                                              ; preds = %153
+  %158 = load ptr, ptr %6, align 8
+  %159 = load ptr, ptr %17, align 8
+  %160 = getelementptr inbounds nuw %"struct.nanobind::detail::nb_ndarray", ptr %159, i32 0, i32 1
+  store ptr %158, ptr %160, align 8
+  %161 = load ptr, ptr %6, align 8
+  %162 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef %161) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #17
+  %163 = load ptr, ptr %17, align 8
+  invoke void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %163)
+          to label %164 unwind label %323
+
+164:                                              ; preds = %157
+  %165 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %19, i32 0, i32 0
+  %166 = load ptr, ptr %165, align 8
+  invoke void @_ZN8nanobind5stealINS_6objectEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %18, ptr %166)
+          to label %167 unwind label %323
+
+167:                                              ; preds = %164
+  %168 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %18) #17
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #17
+  store i32 0, ptr %13, align 4
+  br label %169
+
+169:                                              ; preds = %167, %156
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #17
+  %170 = load i32, ptr %13, align 4
+  switch i32 %170, label %319 [
+    i32 0, label %171
   ]
 
-132:                                              ; preds = %130
-  %133 = load ptr, ptr %86, align 8
-  %134 = icmp ne ptr %133, null
-  br i1 %134, label %135, label %166
+171:                                              ; preds = %169
+  br label %185
 
-135:                                              ; preds = %132
-  %136 = load ptr, ptr %86, align 8
-  store ptr %136, ptr %38, align 8
-  %137 = load ptr, ptr %38, align 8
-  %138 = getelementptr inbounds %"struct.nanobind::detail::cleanup_list", ptr %137, i32 0, i32 3
-  %139 = load ptr, ptr %138, align 8
-  br label %140
-
-140:                                              ; preds = %135
-  %141 = load ptr, ptr %83, align 8
-  %142 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %141, i32 0, i32 2
-  %143 = load ptr, ptr %142, align 8
-  %144 = icmp ne ptr %139, %143
-  br i1 %144, label %145, label %166
-
-145:                                              ; preds = %140
-  %146 = load ptr, ptr %83, align 8
-  %147 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %146, i32 0, i32 2
-  %148 = load ptr, ptr %147, align 8
-  %149 = icmp ne ptr %148, null
-  br i1 %149, label %150, label %153
-
-150:                                              ; preds = %145
-  %151 = load ptr, ptr @PyExc_RuntimeError, align 8
-  invoke void @PyErr_SetString(ptr noundef %151, ptr noundef @.str.27)
-          to label %152 unwind label %503
-
-152:                                              ; preds = %150
-  store ptr null, ptr %82, align 8
-  br label %501
-
-153:                                              ; preds = %145
-  %154 = load ptr, ptr %86, align 8
-  store ptr %154, ptr %39, align 8
-  %155 = load ptr, ptr %39, align 8
-  %156 = getelementptr inbounds %"struct.nanobind::detail::cleanup_list", ptr %155, i32 0, i32 3
-  %157 = load ptr, ptr %156, align 8
-  br label %158
-
-158:                                              ; preds = %153
-  %159 = load ptr, ptr %83, align 8
-  %160 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %159, i32 0, i32 2
-  store ptr %157, ptr %160, align 8
-  %161 = load ptr, ptr %83, align 8
-  %162 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %161, i32 0, i32 2
-  %163 = load ptr, ptr %162, align 8
-  invoke void @_ZL10_Py_INCREFP7_object(ptr noundef %163)
-          to label %164 unwind label %503
-
-164:                                              ; preds = %158
-  br label %165
-
-165:                                              ; preds = %164
-  br label %166
-
-166:                                              ; preds = %165, %140, %132
-  br label %167
-
-167:                                              ; preds = %166, %130
-  %168 = load ptr, ptr %83, align 8
-  %169 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %168, i32 0, i32 2
-  %170 = load ptr, ptr %169, align 8
-  %171 = icmp eq ptr %170, null
-  br i1 %171, label %172, label %177
-
-172:                                              ; preds = %167
-  %173 = load ptr, ptr %83, align 8
-  %174 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %173, i32 0, i32 3
+172:                                              ; preds = %147
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #17
+  %173 = load ptr, ptr %6, align 8
+  %174 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %173, i32 0, i32 0
   %175 = load ptr, ptr %174, align 8
-  %176 = icmp eq ptr %175, null
-  br label %177
+  %176 = invoke ptr @PyCapsule_New(ptr noundef %175, ptr noundef @.str.13, ptr noundef @_ZN8nanobind6detailL26ndarray_capsule_destructorEP7_object)
+          to label %177 unwind label %323
 
-177:                                              ; preds = %172, %167
-  %178 = phi i1 [ false, %167 ], [ %176, %172 ]
-  %179 = zext i1 %178 to i8
-  store i8 %179, ptr %89, align 1
-  br label %182
+177:                                              ; preds = %172
+  invoke void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef %176)
+          to label %178 unwind label %323
 
-180:                                              ; preds = %130, %130
-  store i8 1, ptr %89, align 1
-  br label %182
+178:                                              ; preds = %177
+  %179 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %21, i32 0, i32 0
+  %180 = load ptr, ptr %179, align 8
+  invoke void @_ZN8nanobind5stealINS_6objectEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %20, ptr %180)
+          to label %181 unwind label %323
 
-181:                                              ; preds = %130
-  store i8 0, ptr %89, align 1
-  br label %182
+181:                                              ; preds = %178
+  %182 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %20) #17
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #17
+  %183 = load ptr, ptr %6, align 8
+  %184 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef %183) #17
+  br label %185
 
-182:                                              ; preds = %181, %180, %177
-  %183 = load i8, ptr %89, align 1
-  %184 = trunc i8 %183 to i1
-  br i1 %184, label %204, label %185
+185:                                              ; preds = %181, %171
+  br label %186
 
-185:                                              ; preds = %182
-  %186 = load ptr, ptr %83, align 8
-  %187 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %186, i32 0, i32 3
-  %188 = load ptr, ptr %187, align 8
-  %189 = icmp ne ptr %188, null
-  br i1 %189, label %190, label %198
+186:                                              ; preds = %185, %142
+  %187 = load i32, ptr %7, align 4
+  %188 = icmp eq i32 %187, 1
+  br i1 %188, label %189, label %224
 
-190:                                              ; preds = %185
-  %191 = load ptr, ptr %83, align 8
-  %192 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %191, i32 0, i32 3
-  %193 = load ptr, ptr %192, align 8
-  invoke void @_ZL10_Py_INCREFP7_object(ptr noundef %193)
-          to label %194 unwind label %503
+189:                                              ; preds = %186
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr %24) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #17
+  invoke void @_ZN8nanobind7module_7import_EPKc(ptr dead_on_unwind writable sret(%"class.nanobind::module_") align 8 %25, ptr noundef @.str.20)
+          to label %190 unwind label %200
 
-194:                                              ; preds = %190
-  %195 = load ptr, ptr %83, align 8
-  %196 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %195, i32 0, i32 3
-  %197 = load ptr, ptr %196, align 8
-  store ptr %197, ptr %82, align 8
-  br label %501
+190:                                              ; preds = %189
+  invoke void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(ptr dead_on_unwind writable sret(%"class.nanobind::detail::accessor") align 8 %24, ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef @.str.30)
+          to label %191 unwind label %204
 
-198:                                              ; preds = %185
-  %199 = load i32, ptr %85, align 4
-  %200 = icmp eq i32 %199, 7
-  br i1 %200, label %201, label %202
+191:                                              ; preds = %190
+  call void @llvm.lifetime.start.p0(i64 32, ptr %28) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr %29) #17
+  invoke void @_ZN8nanobind3argC2EPKc(ptr noundef nonnull align 8 dereferenceable(18) %29, ptr noundef @.str.31)
+          to label %192 unwind label %208
 
-201:                                              ; preds = %198
-  store ptr null, ptr %82, align 8
-  br label %501
+192:                                              ; preds = %191
+  invoke void @_ZNK8nanobind3argaSIRbEENS_5arg_vEOT_(ptr dead_on_unwind writable sret(%"struct.nanobind::arg_v") align 8 %28, ptr noundef nonnull align 8 dereferenceable(18) %29, ptr noundef nonnull align 1 dereferenceable(1) %12)
+          to label %193 unwind label %208
 
-202:                                              ; preds = %198
-  br label %203
+193:                                              ; preds = %192
+  invoke void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJRNS_6objectENS_5arg_vEEEES8_DpOT0_(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %23, ptr noundef nonnull align 1 dereferenceable(1) %24, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(32) %28)
+          to label %194 unwind label %212
 
-203:                                              ; preds = %202
-  br label %204
+194:                                              ; preds = %193
+  %195 = invoke ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %23)
+          to label %196 unwind label %216
 
-204:                                              ; preds = %203, %182
-  %205 = load i32, ptr %84, align 4
-  %206 = icmp eq i32 %205, 1
-  br i1 %206, label %207, label %318
+196:                                              ; preds = %194
+  %197 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %22, i32 0, i32 0
+  store ptr %195, ptr %197, align 8
+  %198 = invoke noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
+          to label %199 unwind label %216
 
-207:                                              ; preds = %204
-  %208 = call noundef ptr @_ZN8nanobind6detailL13nd_ndarray_tpEv() #11
-  %209 = invoke ptr @_PyObject_New(ptr noundef %208)
-          to label %210 unwind label %214
+199:                                              ; preds = %196
+  store ptr %198, ptr %5, align 8
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #17
+  call void @_ZN8nanobind5arg_vD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %29) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %28) #17
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #17
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %24) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #17
+  store i32 1, ptr %13, align 4
+  br label %319
 
-210:                                              ; preds = %207
-  store ptr %209, ptr %90, align 8
-  %211 = load ptr, ptr %90, align 8
-  %212 = icmp ne ptr %211, null
-  br i1 %212, label %218, label %213
-
-213:                                              ; preds = %210
-  store ptr null, ptr %82, align 8
-  br label %501
-
-214:                                              ; preds = %207
-  %215 = landingpad { ptr, i32 }
+200:                                              ; preds = %189
+  %201 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
           catch ptr null
-  %216 = extractvalue { ptr, i32 } %215, 0
-  store ptr %216, ptr %91, align 8
-  %217 = extractvalue { ptr, i32 } %215, 1
-  store i32 %217, ptr %92, align 4
-  br label %301
+  %202 = extractvalue { ptr, i32 } %201, 0
+  store ptr %202, ptr %26, align 8
+  %203 = extractvalue { ptr, i32 } %201, 1
+  store i32 %203, ptr %27, align 4
+  br label %223
 
-218:                                              ; preds = %210
-  %219 = load ptr, ptr %83, align 8
-  %220 = load ptr, ptr %90, align 8
-  %221 = getelementptr inbounds %"struct.nanobind::detail::nb_ndarray", ptr %220, i32 0, i32 1
-  store ptr %219, ptr %221, align 8
-  %222 = load ptr, ptr %83, align 8
-  %223 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef %222) #11
-  %224 = load ptr, ptr %90, align 8
-  store ptr %94, ptr %74, align 8
-  store ptr %224, ptr %75, align 8
-  %225 = load ptr, ptr %74, align 8
-  %226 = load ptr, ptr %75, align 8
-  store ptr %226, ptr %225, align 8
-  br label %227
+204:                                              ; preds = %190
+  %205 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+          catch ptr null
+  %206 = extractvalue { ptr, i32 } %205, 0
+  store ptr %206, ptr %26, align 8
+  %207 = extractvalue { ptr, i32 } %205, 1
+  store i32 %207, ptr %27, align 4
+  br label %222
 
-227:                                              ; preds = %218
-  %228 = getelementptr inbounds %"class.nanobind::handle", ptr %94, i32 0, i32 0
-  %229 = load ptr, ptr %228, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !121)
-  store ptr %93, ptr %76, align 8, !noalias !121
-  store ptr %229, ptr %77, align 8, !noalias !121
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %78, ptr align 8 %77, i64 8, i1 false), !noalias !121
-  %230 = load ptr, ptr %78, align 8, !noalias !121
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr %230)
+208:                                              ; preds = %192, %191
+  %209 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+          catch ptr null
+  %210 = extractvalue { ptr, i32 } %209, 0
+  store ptr %210, ptr %26, align 8
+  %211 = extractvalue { ptr, i32 } %209, 1
+  store i32 %211, ptr %27, align 4
+  br label %221
+
+212:                                              ; preds = %193
+  %213 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+          catch ptr null
+  %214 = extractvalue { ptr, i32 } %213, 0
+  store ptr %214, ptr %26, align 8
+  %215 = extractvalue { ptr, i32 } %213, 1
+  store i32 %215, ptr %27, align 4
+  br label %220
+
+216:                                              ; preds = %196, %194
+  %217 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+          catch ptr null
+  %218 = extractvalue { ptr, i32 } %217, 0
+  store ptr %218, ptr %26, align 8
+  %219 = extractvalue { ptr, i32 } %217, 1
+  store i32 %219, ptr %27, align 4
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #17
+  br label %220
+
+220:                                              ; preds = %216, %212
+  call void @_ZN8nanobind5arg_vD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #17
+  br label %221
+
+221:                                              ; preds = %220, %208
+  call void @llvm.lifetime.end.p0(i64 24, ptr %29) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %28) #17
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #17
+  br label %222
+
+222:                                              ; preds = %221, %204
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #17
+  br label %223
+
+223:                                              ; preds = %222, %200
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %24) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #17
+  br label %254
+
+224:                                              ; preds = %186
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #17
+  %225 = load i32, ptr %7, align 4
+  switch i32 %225, label %230 [
+    i32 2, label %226
+    i32 3, label %227
+    i32 4, label %228
+    i32 5, label %229
+  ]
+
+226:                                              ; preds = %224
+  store ptr @.str.9, ptr %30, align 8
   br label %231
 
-231:                                              ; preds = %227
-  call void @llvm.experimental.noalias.scope.decl(metadata !124)
-  store ptr %98, ptr %51, align 8, !noalias !124
-  store ptr @.str.19, ptr %52, align 8, !noalias !124
-  %232 = load ptr, ptr %52, align 8, !noalias !124
-  %233 = invoke noundef ptr @_ZN8nanobind6detail13module_importEPKc(ptr noundef %232)
-          to label %234 unwind label %275
+227:                                              ; preds = %224
+  store ptr @.str.7, ptr %30, align 8
+  br label %231
+
+228:                                              ; preds = %224
+  store ptr @.str.11, ptr %30, align 8
+  br label %231
+
+229:                                              ; preds = %224
+  store ptr @.str.21, ptr %30, align 8
+  br label %231
+
+230:                                              ; preds = %224
+  store ptr null, ptr %30, align 8
+  br label %231
+
+231:                                              ; preds = %230, %229, %228, %227, %226
+  %232 = load ptr, ptr %30, align 8
+  %233 = icmp ne ptr %232, null
+  br i1 %233, label %234, label %269
 
 234:                                              ; preds = %231
-  store ptr %53, ptr %49, align 8, !noalias !124
-  store ptr %233, ptr %50, align 8, !noalias !124
-  %235 = load ptr, ptr %49, align 8, !noalias !124
-  %236 = load ptr, ptr %50, align 8, !noalias !124
-  store ptr %236, ptr %235, align 8
-  %237 = load ptr, ptr %53, align 8, !noalias !124
-  call void @llvm.experimental.noalias.scope.decl(metadata !127)
-  store ptr %98, ptr %29, align 8, !noalias !127
-  store ptr %237, ptr %30, align 8, !noalias !127
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %31, ptr align 8 %30, i64 8, i1 false), !noalias !127
-  %238 = load ptr, ptr %31, align 8, !noalias !127
-  store ptr %238, ptr %8, align 8
-  store ptr %98, ptr %9, align 8
-  %239 = load ptr, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %8, i64 8, i1 false)
-  %240 = load ptr, ptr %10, align 8
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %239, ptr %240)
-  br label %241
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr %32) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #17
+  %235 = load ptr, ptr %30, align 8
+  invoke void @_ZN8nanobind7module_7import_EPKc(ptr dead_on_unwind writable sret(%"class.nanobind::module_") align 8 %33, ptr noundef %235)
+          to label %236 unwind label %240
 
-241:                                              ; preds = %234
-  br label %242
+236:                                              ; preds = %234
+  invoke void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(ptr dead_on_unwind writable sret(%"class.nanobind::detail::accessor") align 8 %32, ptr noundef nonnull align 1 dereferenceable(1) %33, ptr noundef @.str.32)
+          to label %237 unwind label %244
 
-242:                                              ; preds = %241
-  br label %243
+237:                                              ; preds = %236
+  invoke void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJRNS_6objectEEEES8_DpOT0_(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %31, ptr noundef nonnull align 1 dereferenceable(1) %32, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %238 unwind label %248
 
-243:                                              ; preds = %242
-  invoke void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(ptr dead_on_unwind writable sret(%"class.nanobind::detail::accessor") align 8 %97, ptr noundef nonnull align 1 dereferenceable(1) %98, ptr noundef @.str.28)
-          to label %244 unwind label %279
+238:                                              ; preds = %237
+  %239 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %31) #17
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #17
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #17
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %32) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #17
+  br label %269
 
-244:                                              ; preds = %243
-  store ptr %100, ptr %40, align 8
-  store ptr @.str.29, ptr %41, align 8
-  %245 = load ptr, ptr %40, align 8
-  %246 = load ptr, ptr %41, align 8
-  store ptr %246, ptr %245, align 8
-  %247 = getelementptr inbounds %"struct.nanobind::arg", ptr %245, i32 0, i32 1
-  store ptr null, ptr %247, align 8
-  %248 = getelementptr inbounds %"struct.nanobind::arg", ptr %245, i32 0, i32 2
-  store i8 1, ptr %248, align 8
-  %249 = getelementptr inbounds %"struct.nanobind::arg", ptr %245, i32 0, i32 3
-  store i8 0, ptr %249, align 1
-  br label %250
-
-250:                                              ; preds = %244
-  call void @llvm.experimental.noalias.scope.decl(metadata !130)
-  store ptr %99, ptr %32, align 8, !noalias !130
-  store ptr %100, ptr %33, align 8, !noalias !130
-  store ptr %89, ptr %34, align 8, !noalias !130
-  %251 = load ptr, ptr %33, align 8, !noalias !130
-  %252 = load ptr, ptr %34, align 8, !noalias !130
-  invoke void @_ZN8nanobind4castIRbEENS_6objectEOT_NS_9rv_policyE(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %35, ptr noundef nonnull align 1 dereferenceable(1) %252, i32 noundef 1)
-          to label %253 unwind label %283
-
-253:                                              ; preds = %250
-  store ptr %99, ptr %5, align 8
-  store ptr %251, ptr %6, align 8
-  store ptr %35, ptr %7, align 8
-  %254 = load ptr, ptr %5, align 8
-  %255 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %254, ptr align 8 %255, i64 24, i1 false)
-  %256 = getelementptr inbounds %"struct.nanobind::arg_v", ptr %254, i32 0, i32 1
-  %257 = load ptr, ptr %7, align 8
-  call void @_ZN8nanobind6objectC2EOS0_(ptr noundef nonnull align 8 dereferenceable(8) %256, ptr noundef nonnull align 8 dereferenceable(8) %257) #11
-  br label %266
-
-258:                                              ; No predecessors!
-  %259 = landingpad { ptr, i32 }
-          cleanup
+240:                                              ; preds = %234
+  %241 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
           catch ptr null
-  %260 = extractvalue { ptr, i32 } %259, 0
-  store ptr %260, ptr %36, align 8, !noalias !130
-  %261 = extractvalue { ptr, i32 } %259, 1
-  store i32 %261, ptr %37, align 4, !noalias !130
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #11
-  %262 = load ptr, ptr %36, align 8, !noalias !130
-  %263 = load i32, ptr %37, align 4, !noalias !130
-  %264 = insertvalue { ptr, i32 } poison, ptr %262, 0
-  %265 = insertvalue { ptr, i32 } %264, i32 %263, 1
-  br label %285
+  %242 = extractvalue { ptr, i32 } %241, 0
+  store ptr %242, ptr %26, align 8
+  %243 = extractvalue { ptr, i32 } %241, 1
+  store i32 %243, ptr %27, align 4
+  br label %253
 
-266:                                              ; preds = %253
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #11
-  br label %267
-
-267:                                              ; preds = %266
-  invoke void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJRNS_6objectENS_5arg_vEEEES8_DpOT0_(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %96, ptr noundef nonnull align 1 dereferenceable(1) %97, ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull align 8 dereferenceable(32) %99)
-          to label %268 unwind label %289
-
-268:                                              ; preds = %267
-  %269 = invoke ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %96)
-          to label %270 unwind label %293
-
-270:                                              ; preds = %268
-  %271 = getelementptr inbounds %"class.nanobind::handle", ptr %95, i32 0, i32 0
-  store ptr %269, ptr %271, align 8
-  store ptr %95, ptr %43, align 8
-  %272 = load ptr, ptr %43, align 8
-  %273 = load ptr, ptr %272, align 8
-  br label %274
-
-274:                                              ; preds = %270
-  store ptr %273, ptr %82, align 8
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %96) #11
-  call void @_ZN8nanobind5arg_vD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %99) #11
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %97) #11
-  call void @_ZN8nanobind7module_D2Ev(ptr noundef nonnull align 8 dereferenceable(8) %98) #11
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %93) #11
-  br label %501
-
-275:                                              ; preds = %231
-  %276 = landingpad { ptr, i32 }
+244:                                              ; preds = %236
+  %245 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
           catch ptr null
-  %277 = extractvalue { ptr, i32 } %276, 0
-  store ptr %277, ptr %91, align 8
-  %278 = extractvalue { ptr, i32 } %276, 1
-  store i32 %278, ptr %92, align 4
-  br label %300
+  %246 = extractvalue { ptr, i32 } %245, 0
+  store ptr %246, ptr %26, align 8
+  %247 = extractvalue { ptr, i32 } %245, 1
+  store i32 %247, ptr %27, align 4
+  br label %252
 
-279:                                              ; preds = %243
-  %280 = landingpad { ptr, i32 }
+248:                                              ; preds = %237
+  %249 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
           catch ptr null
-  %281 = extractvalue { ptr, i32 } %280, 0
-  store ptr %281, ptr %91, align 8
-  %282 = extractvalue { ptr, i32 } %280, 1
-  store i32 %282, ptr %92, align 4
-  br label %299
+  %250 = extractvalue { ptr, i32 } %249, 0
+  store ptr %250, ptr %26, align 8
+  %251 = extractvalue { ptr, i32 } %249, 1
+  store i32 %251, ptr %27, align 4
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #17
+  br label %252
 
-283:                                              ; preds = %250
-  %284 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-          catch ptr null
-  br label %285
+252:                                              ; preds = %248, %244
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #17
+  br label %253
 
-285:                                              ; preds = %283, %258
-  %286 = phi { ptr, i32 } [ %284, %283 ], [ %265, %258 ]
-  %287 = extractvalue { ptr, i32 } %286, 0
-  store ptr %287, ptr %91, align 8
-  %288 = extractvalue { ptr, i32 } %286, 1
-  store i32 %288, ptr %92, align 4
-  br label %298
+253:                                              ; preds = %252, %240
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %32) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #17
+  br label %254
 
-289:                                              ; preds = %267
-  %290 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-          catch ptr null
-  %291 = extractvalue { ptr, i32 } %290, 0
-  store ptr %291, ptr %91, align 8
-  %292 = extractvalue { ptr, i32 } %290, 1
-  store i32 %292, ptr %92, align 4
-  br label %297
+254:                                              ; preds = %253, %223
+  %255 = load i32, ptr %27, align 4
+  %256 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #17
+  %257 = icmp eq i32 %255, %256
+  br i1 %257, label %258, label %326
 
-293:                                              ; preds = %268
-  %294 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-          catch ptr null
-  %295 = extractvalue { ptr, i32 } %294, 0
-  store ptr %295, ptr %91, align 8
-  %296 = extractvalue { ptr, i32 } %294, 1
-  store i32 %296, ptr %92, align 4
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %96) #11
-  br label %297
+258:                                              ; preds = %254
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #17
+  %259 = load ptr, ptr %26, align 8
+  %260 = call ptr @__cxa_begin_catch(ptr %259) #17
+  store ptr %260, ptr %34, align 8
+  %261 = load ptr, ptr @PyExc_RuntimeError, align 8
+  %262 = load ptr, ptr %34, align 8
+  %263 = load ptr, ptr %262, align 8
+  %264 = getelementptr inbounds ptr, ptr %263, i64 2
+  %265 = load ptr, ptr %264, align 8
+  %266 = call noundef ptr %265(ptr noundef nonnull align 8 dereferenceable(8) %262) #17
+  %267 = invoke ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %261, ptr noundef @.str.33, ptr noundef %266)
+          to label %268 unwind label %323
 
-297:                                              ; preds = %293, %289
-  call void @_ZN8nanobind5arg_vD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %99) #11
-  br label %298
-
-298:                                              ; preds = %297, %285
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %97) #11
-  br label %299
-
-299:                                              ; preds = %298, %279
-  call void @_ZN8nanobind7module_D2Ev(ptr noundef nonnull align 8 dereferenceable(8) %98) #11
-  br label %300
-
-300:                                              ; preds = %299, %275
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %93) #11
-  br label %301
-
-301:                                              ; preds = %300, %214
-  %302 = load i32, ptr %92, align 4
-  %303 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #11
-  %304 = icmp eq i32 %302, %303
-  br i1 %304, label %305, label %506
-
-305:                                              ; preds = %301
-  %306 = load ptr, ptr %91, align 8
-  %307 = call ptr @__cxa_begin_catch(ptr %306) #11
-  store ptr %307, ptr %101, align 8
-  %308 = load ptr, ptr @PyExc_RuntimeError, align 8
-  %309 = load ptr, ptr %101, align 8
-  %310 = load ptr, ptr %309, align 8
-  %311 = getelementptr inbounds ptr, ptr %310, i64 2
-  %312 = load ptr, ptr %311, align 8
-  %313 = call noundef ptr %312(ptr noundef nonnull align 8 dereferenceable(8) %309) #11
-  %314 = invoke ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %308, ptr noundef @.str.30, ptr noundef %313)
-          to label %315 unwind label %503
-
-315:                                              ; preds = %305
-  store ptr null, ptr %82, align 8
+268:                                              ; preds = %258
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %13, align 4
   invoke void @__cxa_end_catch()
-          to label %316 unwind label %503
+          to label %271 unwind label %323
 
-316:                                              ; preds = %315
-  br label %501
+269:                                              ; preds = %238, %231
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #17
+  br label %270
 
-317:                                              ; No predecessors!
-  br label %318
+270:                                              ; preds = %269
+  br label %272
 
-318:                                              ; preds = %317, %204
-  call void @_ZN8nanobind6objectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %102) #11
-  %319 = load i32, ptr %84, align 4
-  switch i32 %319, label %382 [
-    i32 0, label %320
-    i32 3, label %321
-    i32 2, label %354
-    i32 4, label %368
+271:                                              ; preds = %268
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #17
+  br label %319
+
+272:                                              ; preds = %270
+  %273 = load i8, ptr %12, align 1, !range !3, !noundef !4
+  %274 = trunc i8 %273 to i1
+  br i1 %274, label %275, label %313
+
+275:                                              ; preds = %272
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #17
+  store ptr @.str.31, ptr %35, align 8
+  %276 = load i32, ptr %7, align 4
+  %277 = icmp eq i32 %276, 2
+  br i1 %277, label %278, label %279
+
+278:                                              ; preds = %275
+  store ptr @.str.34, ptr %35, align 8
+  br label %279
+
+279:                                              ; preds = %278, %275
+  call void @llvm.lifetime.start.p0(i64 8, ptr %36) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr %37) #17
+  %280 = load ptr, ptr %35, align 8
+  invoke void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(ptr dead_on_unwind writable sret(%"class.nanobind::detail::accessor") align 8 %37, ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef %280)
+          to label %281 unwind label %284
+
+281:                                              ; preds = %279
+  invoke void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJEEENS_6objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %36, ptr noundef nonnull align 1 dereferenceable(1) %37)
+          to label %282 unwind label %288
+
+282:                                              ; preds = %281
+  %283 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %36) #17
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %36) #17
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %37) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %36) #17
+  br label %309
+
+284:                                              ; preds = %279
+  %285 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+          catch ptr null
+  %286 = extractvalue { ptr, i32 } %285, 0
+  store ptr %286, ptr %26, align 8
+  %287 = extractvalue { ptr, i32 } %285, 1
+  store i32 %287, ptr %27, align 4
+  br label %292
+
+288:                                              ; preds = %281
+  %289 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+          catch ptr null
+  %290 = extractvalue { ptr, i32 } %289, 0
+  store ptr %290, ptr %26, align 8
+  %291 = extractvalue { ptr, i32 } %289, 1
+  store i32 %291, ptr %27, align 4
+  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #17
+  br label %292
+
+292:                                              ; preds = %288, %284
+  call void @llvm.lifetime.end.p0(i64 24, ptr %37) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %36) #17
+  br label %293
+
+293:                                              ; preds = %292
+  %294 = load i32, ptr %27, align 4
+  %295 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #17
+  %296 = icmp eq i32 %294, %295
+  br i1 %296, label %297, label %326
+
+297:                                              ; preds = %293
+  call void @llvm.lifetime.start.p0(i64 8, ptr %38) #17
+  %298 = load ptr, ptr %26, align 8
+  %299 = call ptr @__cxa_begin_catch(ptr %298) #17
+  store ptr %299, ptr %38, align 8
+  %300 = load ptr, ptr @PyExc_RuntimeError, align 8
+  %301 = load ptr, ptr %38, align 8
+  %302 = load ptr, ptr %301, align 8
+  %303 = getelementptr inbounds ptr, ptr %302, i64 2
+  %304 = load ptr, ptr %303, align 8
+  %305 = call noundef ptr %304(ptr noundef nonnull align 8 dereferenceable(8) %301) #17
+  %306 = invoke ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %300, ptr noundef @.str.35, ptr noundef %305)
+          to label %307 unwind label %323
+
+307:                                              ; preds = %297
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %13, align 4
+  invoke void @__cxa_end_catch()
+          to label %308 unwind label %323
+
+308:                                              ; preds = %307
+  call void @llvm.lifetime.end.p0(i64 8, ptr %38) #17
+  br label %310
+
+309:                                              ; preds = %282
+  store i32 0, ptr %13, align 4
+  br label %310
+
+310:                                              ; preds = %309, %308
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #17
+  %311 = load i32, ptr %13, align 4
+  switch i32 %311, label %319 [
+    i32 0, label %312
   ]
 
-320:                                              ; preds = %318
-  br label %383
+312:                                              ; preds = %310
+  br label %313
 
-321:                                              ; preds = %318
-  call void @llvm.experimental.noalias.scope.decl(metadata !133)
-  store ptr %103, ptr %56, align 8, !noalias !133
-  store ptr @.str.8, ptr %57, align 8, !noalias !133
-  %322 = load ptr, ptr %57, align 8, !noalias !133
-  %323 = invoke noundef ptr @_ZN8nanobind6detail13module_importEPKc(ptr noundef %322)
-          to label %324 unwind label %335
+313:                                              ; preds = %312, %272
+  call void @llvm.lifetime.start.p0(i64 8, ptr %39) #17
+  %314 = invoke ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %315 unwind label %323
 
-324:                                              ; preds = %321
-  store ptr %58, ptr %54, align 8, !noalias !133
-  store ptr %323, ptr %55, align 8, !noalias !133
-  %325 = load ptr, ptr %54, align 8, !noalias !133
-  %326 = load ptr, ptr %55, align 8, !noalias !133
-  store ptr %326, ptr %325, align 8
-  %327 = load ptr, ptr %58, align 8, !noalias !133
-  call void @llvm.experimental.noalias.scope.decl(metadata !136)
-  store ptr %103, ptr %26, align 8, !noalias !136
-  store ptr %327, ptr %27, align 8, !noalias !136
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %27, i64 8, i1 false), !noalias !136
-  %328 = load ptr, ptr %28, align 8, !noalias !136
-  store ptr %328, ptr %11, align 8
-  store ptr %103, ptr %12, align 8
-  %329 = load ptr, ptr %12, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %11, i64 8, i1 false)
-  %330 = load ptr, ptr %13, align 8
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %329, ptr %330)
-  br label %331
+315:                                              ; preds = %313
+  %316 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %39, i32 0, i32 0
+  store ptr %314, ptr %316, align 8
+  %317 = invoke noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %39)
+          to label %318 unwind label %323
 
-331:                                              ; preds = %324
-  br label %332
+318:                                              ; preds = %315
+  store ptr %317, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %39) #17
+  store i32 1, ptr %13, align 4
+  br label %319
 
-332:                                              ; preds = %331
-  br label %333
+319:                                              ; preds = %318, %310, %271, %199, %169
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  br label %320
 
-333:                                              ; preds = %332
-  %334 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %102, ptr noundef nonnull align 8 dereferenceable(8) %103) #11
-  call void @_ZN8nanobind7module_D2Ev(ptr noundef nonnull align 8 dereferenceable(8) %103) #11
-  br label %383
+320:                                              ; preds = %319, %121, %114, %74
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #17
+  br label %321
 
-335:                                              ; preds = %368, %354, %321
-  %336 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
+321:                                              ; preds = %320, %48
+  %322 = load ptr, ptr %5, align 8
+  ret ptr %322
+
+323:                                              ; preds = %315, %313, %307, %297, %268, %258, %178, %177, %172, %164, %157, %150, %139, %135, %110, %78, %75, %72, %54, %45, %43, %42
+  %324 = landingpad { ptr, i32 }
           catch ptr null
-  %337 = extractvalue { ptr, i32 } %336, 0
-  store ptr %337, ptr %91, align 8
-  %338 = extractvalue { ptr, i32 } %336, 1
-  store i32 %338, ptr %92, align 4
-  br label %339
-
-339:                                              ; preds = %335
-  %340 = load i32, ptr %92, align 4
-  %341 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #11
-  %342 = icmp eq i32 %340, %341
-  br i1 %342, label %343, label %506
-
-343:                                              ; preds = %339
-  %344 = load ptr, ptr %91, align 8
-  %345 = call ptr @__cxa_begin_catch(ptr %344) #11
-  store ptr %345, ptr %106, align 8
-  %346 = load ptr, ptr @PyExc_RuntimeError, align 8
-  %347 = load ptr, ptr %106, align 8
-  %348 = load ptr, ptr %347, align 8
-  %349 = getelementptr inbounds ptr, ptr %348, i64 2
-  %350 = load ptr, ptr %349, align 8
-  %351 = call noundef ptr %350(ptr noundef nonnull align 8 dereferenceable(8) %347) #11
-  %352 = invoke ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %346, ptr noundef @.str.31, ptr noundef %351)
-          to label %353 unwind label %503
-
-353:                                              ; preds = %343
-  store ptr null, ptr %82, align 8
-  store i32 1, ptr %107, align 4
-  invoke void @__cxa_end_catch()
-          to label %384 unwind label %503
-
-354:                                              ; preds = %318
-  call void @llvm.experimental.noalias.scope.decl(metadata !139)
-  store ptr %104, ptr %61, align 8, !noalias !139
-  store ptr @.str.6, ptr %62, align 8, !noalias !139
-  %355 = load ptr, ptr %62, align 8, !noalias !139
-  %356 = invoke noundef ptr @_ZN8nanobind6detail13module_importEPKc(ptr noundef %355)
-          to label %357 unwind label %335
-
-357:                                              ; preds = %354
-  store ptr %63, ptr %59, align 8, !noalias !139
-  store ptr %356, ptr %60, align 8, !noalias !139
-  %358 = load ptr, ptr %59, align 8, !noalias !139
-  %359 = load ptr, ptr %60, align 8, !noalias !139
-  store ptr %359, ptr %358, align 8
-  %360 = load ptr, ptr %63, align 8, !noalias !139
-  call void @llvm.experimental.noalias.scope.decl(metadata !142)
-  store ptr %104, ptr %23, align 8, !noalias !142
-  store ptr %360, ptr %24, align 8, !noalias !142
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 %24, i64 8, i1 false), !noalias !142
-  %361 = load ptr, ptr %25, align 8, !noalias !142
-  store ptr %361, ptr %14, align 8
-  store ptr %104, ptr %15, align 8
-  %362 = load ptr, ptr %15, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %14, i64 8, i1 false)
-  %363 = load ptr, ptr %16, align 8
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %362, ptr %363)
-  br label %364
-
-364:                                              ; preds = %357
-  br label %365
-
-365:                                              ; preds = %364
-  br label %366
-
-366:                                              ; preds = %365
-  %367 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %102, ptr noundef nonnull align 8 dereferenceable(8) %104) #11
-  call void @_ZN8nanobind7module_D2Ev(ptr noundef nonnull align 8 dereferenceable(8) %104) #11
-  br label %383
-
-368:                                              ; preds = %318
-  call void @llvm.experimental.noalias.scope.decl(metadata !145)
-  store ptr %105, ptr %66, align 8, !noalias !145
-  store ptr @.str.10, ptr %67, align 8, !noalias !145
-  %369 = load ptr, ptr %67, align 8, !noalias !145
-  %370 = invoke noundef ptr @_ZN8nanobind6detail13module_importEPKc(ptr noundef %369)
-          to label %371 unwind label %335
-
-371:                                              ; preds = %368
-  store ptr %68, ptr %64, align 8, !noalias !145
-  store ptr %370, ptr %65, align 8, !noalias !145
-  %372 = load ptr, ptr %64, align 8, !noalias !145
-  %373 = load ptr, ptr %65, align 8, !noalias !145
-  store ptr %373, ptr %372, align 8
-  %374 = load ptr, ptr %68, align 8, !noalias !145
-  call void @llvm.experimental.noalias.scope.decl(metadata !148)
-  store ptr %105, ptr %20, align 8, !noalias !148
-  store ptr %374, ptr %21, align 8, !noalias !148
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 8 %21, i64 8, i1 false), !noalias !148
-  %375 = load ptr, ptr %22, align 8, !noalias !148
-  store ptr %375, ptr %17, align 8
-  store ptr %105, ptr %18, align 8
-  %376 = load ptr, ptr %18, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %17, i64 8, i1 false)
-  %377 = load ptr, ptr %19, align 8
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %376, ptr %377)
-  br label %378
-
-378:                                              ; preds = %371
-  br label %379
-
-379:                                              ; preds = %378
-  br label %380
-
-380:                                              ; preds = %379
-  %381 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %102, ptr noundef nonnull align 8 dereferenceable(8) %105) #11
-  call void @_ZN8nanobind7module_D2Ev(ptr noundef nonnull align 8 dereferenceable(8) %105) #11
-  br label %383
-
-382:                                              ; preds = %318
-  call void @_ZN8nanobind6detail16fail_unspecifiedEv() #12
+  %325 = extractvalue { ptr, i32 } %324, 0
+  call void @__clang_call_terminate(ptr %325) #18
   unreachable
 
-383:                                              ; preds = %380, %366, %333, %320
-  br label %385
-
-384:                                              ; preds = %353
-  br label %500
-
-385:                                              ; preds = %383
-  call void @_ZN8nanobind6objectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %108) #11
-  %386 = load i8, ptr %89, align 1
-  %387 = trunc i8 %386 to i1
-  br i1 %387, label %388, label %408
-
-388:                                              ; preds = %385
-  %389 = load i32, ptr %84, align 4
-  %390 = icmp eq i32 %389, 0
-  br i1 %390, label %391, label %408
-
-391:                                              ; preds = %388
-  %392 = load ptr, ptr %83, align 8
-  %393 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %392, i32 0, i32 3
-  %394 = load ptr, ptr %393, align 8
-  %395 = icmp ne ptr %394, null
-  br i1 %395, label %396, label %408
-
-396:                                              ; preds = %391
-  %397 = load ptr, ptr %83, align 8
-  %398 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %397, i32 0, i32 3
-  %399 = load ptr, ptr %398, align 8
-  store ptr %110, ptr %72, align 8
-  store ptr %399, ptr %73, align 8
-  %400 = load ptr, ptr %72, align 8
-  %401 = load ptr, ptr %73, align 8
-  store ptr %401, ptr %400, align 8
-  br label %402
-
-402:                                              ; preds = %396
-  %403 = getelementptr inbounds %"class.nanobind::handle", ptr %110, i32 0, i32 0
-  %404 = load ptr, ptr %403, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !151)
-  store ptr %109, ptr %46, align 8, !noalias !151
-  store ptr %404, ptr %47, align 8, !noalias !151
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %48, ptr align 8 %47, i64 8, i1 false), !noalias !151
-  %405 = load ptr, ptr %48, align 8, !noalias !151
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE(ptr noundef nonnull align 8 dereferenceable(8) %109, ptr %405)
-  br label %406
-
-406:                                              ; preds = %402
-  %407 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %108, ptr noundef nonnull align 8 dereferenceable(8) %109) #11
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %109) #11
-  br label %424
-
-408:                                              ; preds = %391, %388, %385
-  %409 = load ptr, ptr %83, align 8
-  %410 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %409, i32 0, i32 0
-  %411 = load ptr, ptr %410, align 8
-  %412 = invoke ptr @PyCapsule_New(ptr noundef %411, ptr noundef @.str.12, ptr noundef @_ZN8nanobind6detailL26ndarray_capsule_destructorEP7_object)
-          to label %413 unwind label %503
-
-413:                                              ; preds = %408
-  store ptr %112, ptr %70, align 8
-  store ptr %412, ptr %71, align 8
-  %414 = load ptr, ptr %70, align 8
-  %415 = load ptr, ptr %71, align 8
-  store ptr %415, ptr %414, align 8
-  br label %416
-
-416:                                              ; preds = %413
-  %417 = getelementptr inbounds %"class.nanobind::handle", ptr %112, i32 0, i32 0
-  %418 = load ptr, ptr %417, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !154)
-  store ptr %111, ptr %79, align 8, !noalias !154
-  store ptr %418, ptr %80, align 8, !noalias !154
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %81, ptr align 8 %80, i64 8, i1 false), !noalias !154
-  %419 = load ptr, ptr %81, align 8, !noalias !154
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %111, ptr %419)
-  br label %420
-
-420:                                              ; preds = %416
-  %421 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %108, ptr noundef nonnull align 8 dereferenceable(8) %111) #11
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %111) #11
-  %422 = load ptr, ptr %83, align 8
-  %423 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef %422) #11
-  br label %424
-
-424:                                              ; preds = %420, %406
-  store ptr %102, ptr %69, align 8
-  %425 = load ptr, ptr %69, align 8
-  %426 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8nanobind6detail3apiINS_6handleEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %425)
-  store ptr %426, ptr %45, align 8
-  %427 = load ptr, ptr %45, align 8
-  %428 = load ptr, ptr %427, align 8
-  %429 = icmp ne ptr %428, null
-  br label %430
-
-430:                                              ; preds = %424
-  br i1 %429, label %431, label %460
-
-431:                                              ; preds = %430
-  invoke void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(ptr dead_on_unwind writable sret(%"class.nanobind::detail::accessor") align 8 %114, ptr noundef nonnull align 1 dereferenceable(1) %102, ptr noundef @.str.32)
-          to label %432 unwind label %435
-
-432:                                              ; preds = %431
-  invoke void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJRNS_6objectEEEES8_DpOT0_(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %113, ptr noundef nonnull align 1 dereferenceable(1) %114, ptr noundef nonnull align 8 dereferenceable(8) %108)
-          to label %433 unwind label %439
-
-433:                                              ; preds = %432
-  %434 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %108, ptr noundef nonnull align 8 dereferenceable(8) %113) #11
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %113) #11
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %114) #11
-  br label %459
-
-435:                                              ; preds = %431
-  %436 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-          catch ptr null
-  %437 = extractvalue { ptr, i32 } %436, 0
-  store ptr %437, ptr %91, align 8
-  %438 = extractvalue { ptr, i32 } %436, 1
-  store i32 %438, ptr %92, align 4
-  br label %443
-
-439:                                              ; preds = %432
-  %440 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-          catch ptr null
-  %441 = extractvalue { ptr, i32 } %440, 0
-  store ptr %441, ptr %91, align 8
-  %442 = extractvalue { ptr, i32 } %440, 1
-  store i32 %442, ptr %92, align 4
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %114) #11
-  br label %443
-
-443:                                              ; preds = %439, %435
-  %444 = load i32, ptr %92, align 4
-  %445 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #11
-  %446 = icmp eq i32 %444, %445
-  br i1 %446, label %447, label %506
-
-447:                                              ; preds = %443
-  %448 = load ptr, ptr %91, align 8
-  %449 = call ptr @__cxa_begin_catch(ptr %448) #11
-  store ptr %449, ptr %115, align 8
-  %450 = load ptr, ptr @PyExc_RuntimeError, align 8
-  %451 = load ptr, ptr %115, align 8
-  %452 = load ptr, ptr %451, align 8
-  %453 = getelementptr inbounds ptr, ptr %452, i64 2
-  %454 = load ptr, ptr %453, align 8
-  %455 = call noundef ptr %454(ptr noundef nonnull align 8 dereferenceable(8) %451) #11
-  %456 = invoke ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %450, ptr noundef @.str.33, ptr noundef %455)
-          to label %457 unwind label %503
-
-457:                                              ; preds = %447
-  store ptr null, ptr %82, align 8
-  store i32 1, ptr %107, align 4
-  invoke void @__cxa_end_catch()
-          to label %458 unwind label %503
-
-458:                                              ; preds = %457
-  br label %499
-
-459:                                              ; preds = %433
-  br label %460
-
-460:                                              ; preds = %459, %430
-  %461 = load i8, ptr %89, align 1
-  %462 = trunc i8 %461 to i1
-  br i1 %462, label %463, label %492
-
-463:                                              ; preds = %460
-  invoke void @_ZNK8nanobind6detail3apiINS_6handleEE4attrEPKc(ptr dead_on_unwind writable sret(%"class.nanobind::detail::accessor") align 8 %117, ptr noundef nonnull align 1 dereferenceable(1) %108, ptr noundef @.str.29)
-          to label %464 unwind label %467
-
-464:                                              ; preds = %463
-  invoke void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJEEENS_6objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %116, ptr noundef nonnull align 1 dereferenceable(1) %117)
-          to label %465 unwind label %471
-
-465:                                              ; preds = %464
-  %466 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6objectaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %108, ptr noundef nonnull align 8 dereferenceable(8) %116) #11
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %116) #11
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %117) #11
-  br label %491
-
-467:                                              ; preds = %463
-  %468 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-          catch ptr null
-  %469 = extractvalue { ptr, i32 } %468, 0
-  store ptr %469, ptr %91, align 8
-  %470 = extractvalue { ptr, i32 } %468, 1
-  store i32 %470, ptr %92, align 4
-  br label %475
-
-471:                                              ; preds = %464
-  %472 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-          catch ptr null
-  %473 = extractvalue { ptr, i32 } %472, 0
-  store ptr %473, ptr %91, align 8
-  %474 = extractvalue { ptr, i32 } %472, 1
-  store i32 %474, ptr %92, align 4
-  call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %117) #11
-  br label %475
-
-475:                                              ; preds = %471, %467
-  %476 = load i32, ptr %92, align 4
-  %477 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #11
-  %478 = icmp eq i32 %476, %477
-  br i1 %478, label %479, label %506
-
-479:                                              ; preds = %475
-  %480 = load ptr, ptr %91, align 8
-  %481 = call ptr @__cxa_begin_catch(ptr %480) #11
-  store ptr %481, ptr %118, align 8
-  %482 = load ptr, ptr @PyExc_RuntimeError, align 8
-  %483 = load ptr, ptr %118, align 8
-  %484 = load ptr, ptr %483, align 8
-  %485 = getelementptr inbounds ptr, ptr %484, i64 2
-  %486 = load ptr, ptr %485, align 8
-  %487 = call noundef ptr %486(ptr noundef nonnull align 8 dereferenceable(8) %483) #11
-  %488 = invoke ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %482, ptr noundef @.str.34, ptr noundef %487)
-          to label %489 unwind label %503
-
-489:                                              ; preds = %479
-  store ptr null, ptr %82, align 8
-  store i32 1, ptr %107, align 4
-  invoke void @__cxa_end_catch()
-          to label %490 unwind label %503
-
-490:                                              ; preds = %489
-  br label %499
-
-491:                                              ; preds = %465
-  br label %492
-
-492:                                              ; preds = %491, %460
-  %493 = invoke ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %108)
-          to label %494 unwind label %503
-
-494:                                              ; preds = %492
-  %495 = getelementptr inbounds %"class.nanobind::handle", ptr %119, i32 0, i32 0
-  store ptr %493, ptr %495, align 8
-  store ptr %119, ptr %44, align 8
-  %496 = load ptr, ptr %44, align 8
-  %497 = load ptr, ptr %496, align 8
-  br label %498
-
-498:                                              ; preds = %494
-  store ptr %497, ptr %82, align 8
-  store i32 1, ptr %107, align 4
-  br label %499
-
-499:                                              ; preds = %498, %490, %458
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %108) #11
-  br label %500
-
-500:                                              ; preds = %499, %384
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %102) #11
-  br label %501
-
-501:                                              ; preds = %500, %316, %274, %213, %201, %194, %152, %129
-  %502 = load ptr, ptr %82, align 8
-  ret ptr %502
-
-503:                                              ; preds = %492, %489, %479, %457, %447, %408, %353, %343, %315, %305, %190, %158, %150, %123, %122
-  %504 = landingpad { ptr, i32 }
-          catch ptr null
-  %505 = extractvalue { ptr, i32 } %504, 0
-  call void @__clang_call_terminate(ptr %505) #12
-  unreachable
-
-506:                                              ; preds = %475, %443, %339, %301
-  %507 = load ptr, ptr %91, align 8
-  call void @__clang_call_terminate(ptr %507) #12
+326:                                              ; preds = %293, %254
+  %327 = load ptr, ptr %26, align 8
+  call void @__clang_call_terminate(ptr %327) #18
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN8nanobind4noneEv(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0) #6 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN8nanobind4noneEv(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0) #8 comdat {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.nanobind::handle", align 8
-  %4 = alloca %"class.nanobind::handle", align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca %"class.nanobind::handle", align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %8, ptr %5, align 8
-  store ptr @_Py_NoneStruct, ptr %6, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %6, align 8
-  store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds %"class.nanobind::handle", ptr %8, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !157)
-  store ptr %0, ptr %2, align 8, !noalias !157
-  store ptr %12, ptr %3, align 8, !noalias !157
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %3, i64 8, i1 false), !noalias !157
-  %13 = load ptr, ptr %4, align 8, !noalias !157
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %13)
+  store ptr %0, ptr %2, align 8
+  call void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef @_Py_NoneStruct)
+  %4 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZN8nanobind6borrowINS_6objectEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %0, ptr %5)
   ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNK8nanobind6detail12cleanup_list4selfEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #11 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.nanobind::detail::cleanup_list", ptr %3, i32 0, i32 3
+  %5 = getelementptr inbounds [6 x ptr], ptr %4, i64 0, i64 0
+  %6 = load ptr, ptr %5, align 8
+  ret ptr %6
 }
 
 declare void @PyErr_SetString(ptr noundef, ptr noundef) #1
@@ -6375,348 +6382,145 @@ declare ptr @_PyObject_New(ptr noundef) #1
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef ptr @_ZN8nanobind6detailL13nd_ndarray_tpEv() #0 personality ptr @__gxx_personality_v0 {
   %1 = alloca ptr, align 8
-  %2 = alloca [4 x %struct.PyType_Slot], align 16
-  %3 = alloca %struct.PyType_Spec, align 8
-  %4 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
-  %5 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %4, i32 0, i32 9
-  %6 = load ptr, ptr %5, align 8
-  store ptr %6, ptr %1, align 8
-  %7 = load ptr, ptr %1, align 8
-  %8 = icmp ne ptr %7, null
-  %9 = xor i1 %8, true
-  br i1 %9, label %10, label %27
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca %"struct.nanobind::detail::lock_internals", align 1
+  %5 = alloca i32, align 4
+  %6 = alloca [5 x %struct.PyType_Slot], align 16
+  %7 = alloca %struct.PyType_Spec, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #17
+  %8 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
+  store ptr %8, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #17
+  %9 = load ptr, ptr %2, align 8
+  %10 = getelementptr inbounds nuw %"struct.nanobind::detail::nb_internals", ptr %9, i32 0, i32 9
+  %11 = invoke noundef ptr @_ZN8nanobind6detail15nb_maybe_atomicIP11_typeobjectE12load_acquireEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
+          to label %12 unwind label %58
 
-10:                                               ; preds = %0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %2, ptr align 16 @__const._ZN8nanobind6detailL13nd_ndarray_tpEv.slots, i64 64, i1 false)
-  %11 = getelementptr inbounds %struct.PyType_Spec, ptr %3, i32 0, i32 0
-  store ptr @.str.36, ptr %11, align 8
-  %12 = getelementptr inbounds %struct.PyType_Spec, ptr %3, i32 0, i32 1
-  store i32 24, ptr %12, align 8
-  %13 = getelementptr inbounds %struct.PyType_Spec, ptr %3, i32 0, i32 2
-  store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds %struct.PyType_Spec, ptr %3, i32 0, i32 3
-  store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds %struct.PyType_Spec, ptr %3, i32 0, i32 4
-  %16 = getelementptr inbounds [4 x %struct.PyType_Slot], ptr %2, i64 0, i64 0
-  store ptr %16, ptr %15, align 8
-  %17 = invoke ptr @PyType_FromSpec(ptr noundef %3)
-          to label %18 unwind label %29
+12:                                               ; preds = %0
+  store ptr %11, ptr %3, align 8
+  %13 = load ptr, ptr %3, align 8
+  %14 = icmp ne ptr %13, null
+  %15 = xor i1 %14, true
+  %16 = zext i1 %15 to i64
+  %17 = call i64 @llvm.expect.i64(i64 %16, i64 0)
+  %18 = icmp ne i64 %17, 0
+  br i1 %18, label %19, label %54
 
-18:                                               ; preds = %10
-  store ptr %17, ptr %1, align 8
-  %19 = load ptr, ptr %1, align 8
-  %20 = icmp ne ptr %19, null
-  %21 = xor i1 %20, true
-  br i1 %21, label %22, label %23
+19:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %4) #17
+  %20 = load ptr, ptr %2, align 8
+  invoke void @_ZN8nanobind6detail14lock_internalsC2EPNS0_12nb_internalsE(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef %20)
+          to label %21 unwind label %58
 
-22:                                               ; preds = %18
-  call void @_ZN8nanobind6detail16fail_unspecifiedEv() #12
+21:                                               ; preds = %19
+  %22 = load ptr, ptr %2, align 8
+  %23 = getelementptr inbounds nuw %"struct.nanobind::detail::nb_internals", ptr %22, i32 0, i32 9
+  %24 = invoke noundef ptr @_ZN8nanobind6detail15nb_maybe_atomicIP11_typeobjectE12load_relaxedEv(ptr noundef nonnull align 8 dereferenceable(8) %23)
+          to label %25 unwind label %58
+
+25:                                               ; preds = %21
+  store ptr %24, ptr %3, align 8
+  %26 = load ptr, ptr %3, align 8
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %28, label %30
+
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %3, align 8
+  store ptr %29, ptr %1, align 8
+  store i32 1, ptr %5, align 4
+  br label %51
+
+30:                                               ; preds = %25
+  call void @llvm.lifetime.start.p0(i64 80, ptr %6) #17
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %6, ptr align 16 @__const._ZN8nanobind6detailL13nd_ndarray_tpEv.slots, i64 80, i1 false)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %7) #17
+  %31 = getelementptr inbounds nuw %struct.PyType_Spec, ptr %7, i32 0, i32 0
+  store ptr @.str.37, ptr %31, align 8
+  %32 = getelementptr inbounds nuw %struct.PyType_Spec, ptr %7, i32 0, i32 1
+  store i32 24, ptr %32, align 8
+  %33 = getelementptr inbounds nuw %struct.PyType_Spec, ptr %7, i32 0, i32 2
+  store i32 0, ptr %33, align 4
+  %34 = getelementptr inbounds nuw %struct.PyType_Spec, ptr %7, i32 0, i32 3
+  store i32 0, ptr %34, align 8
+  %35 = getelementptr inbounds nuw %struct.PyType_Spec, ptr %7, i32 0, i32 4
+  %36 = getelementptr inbounds [5 x %struct.PyType_Slot], ptr %6, i64 0, i64 0
+  store ptr %36, ptr %35, align 8
+  %37 = invoke ptr @PyType_FromSpec(ptr noundef %7)
+          to label %38 unwind label %58
+
+38:                                               ; preds = %30
+  store ptr %37, ptr %3, align 8
+  %39 = load ptr, ptr %3, align 8
+  %40 = icmp ne ptr %39, null
+  %41 = xor i1 %40, true
+  %42 = zext i1 %41 to i64
+  %43 = call i64 @llvm.expect.i64(i64 %42, i64 0)
+  %44 = icmp ne i64 %43, 0
+  br i1 %44, label %45, label %46
+
+45:                                               ; preds = %38
+  call void @_ZN8nanobind6detail16fail_unspecifiedEv() #18
   unreachable
 
-23:                                               ; preds = %18
-  %24 = load ptr, ptr %1, align 8
-  %25 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
-  %26 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %25, i32 0, i32 9
-  store ptr %24, ptr %26, align 8
-  br label %27
+46:                                               ; preds = %38
+  %47 = load ptr, ptr %2, align 8
+  %48 = getelementptr inbounds nuw %"struct.nanobind::detail::nb_internals", ptr %47, i32 0, i32 9
+  %49 = load ptr, ptr %3, align 8
+  invoke void @_ZN8nanobind6detail15nb_maybe_atomicIP11_typeobjectE13store_releaseES3_(ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef %49)
+          to label %50 unwind label %58
 
-27:                                               ; preds = %23, %0
-  %28 = load ptr, ptr %1, align 8
-  ret ptr %28
+50:                                               ; preds = %46
+  call void @llvm.lifetime.end.p0(i64 32, ptr %7) #17
+  call void @llvm.lifetime.end.p0(i64 80, ptr %6) #17
+  store i32 0, ptr %5, align 4
+  br label %51
 
-29:                                               ; preds = %10
-  %30 = landingpad { ptr, i32 }
+51:                                               ; preds = %50, %28
+  call void @llvm.lifetime.end.p0(i64 1, ptr %4) #17
+  %52 = load i32, ptr %5, align 4
+  switch i32 %52, label %56 [
+    i32 0, label %53
+  ]
+
+53:                                               ; preds = %51
+  br label %54
+
+54:                                               ; preds = %53, %12
+  %55 = load ptr, ptr %3, align 8
+  store ptr %55, ptr %1, align 8
+  store i32 1, ptr %5, align 4
+  br label %56
+
+56:                                               ; preds = %54, %51
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #17
+  %57 = load ptr, ptr %1, align 8
+  ret ptr %57
+
+58:                                               ; preds = %46, %30, %21, %19, %0
+  %59 = landingpad { ptr, i32 }
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #12
+  %60 = extractvalue { ptr, i32 } %59, 0
+  call void @__clang_call_terminate(ptr %60) #18
   unreachable
 }
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJRNS_6objectENS_5arg_vEEEES8_DpOT0_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca i64, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca %"class.nanobind::handle", align 8
-  %13 = alloca ptr, align 8
-  %14 = alloca ptr, align 8
-  %15 = alloca ptr, align 8
-  %16 = alloca ptr, align 8
-  %17 = alloca ptr, align 8
-  %18 = alloca ptr, align 8
-  %19 = alloca ptr, align 8
-  %20 = alloca ptr, align 8
-  %21 = alloca i64, align 8
-  %22 = alloca ptr, align 8
-  %23 = alloca %"class.nanobind::handle", align 8
-  %24 = alloca ptr, align 8
-  %25 = alloca ptr, align 8
-  %26 = alloca ptr, align 8
-  %27 = alloca ptr, align 8
-  %28 = alloca ptr, align 8
-  %29 = alloca ptr, align 8
-  %30 = alloca %"class.nanobind::handle", align 8
-  %31 = alloca ptr, align 8
-  %32 = alloca ptr, align 8
-  %33 = alloca ptr, align 8
-  %34 = alloca ptr, align 8
-  %35 = alloca %"class.nanobind::handle", align 8
-  %36 = alloca %"class.nanobind::handle", align 8
-  %37 = alloca ptr, align 8
-  %38 = alloca ptr, align 8
-  %39 = alloca %"class.nanobind::handle", align 8
-  %40 = alloca ptr, align 8
-  %41 = alloca ptr, align 8
-  %42 = alloca ptr, align 8
-  %43 = alloca ptr, align 8
-  %44 = alloca ptr, align 8
-  %45 = alloca %"class.nanobind::handle", align 8
-  %46 = alloca %"class.nanobind::handle", align 8
-  %47 = alloca ptr, align 8
-  %48 = alloca ptr, align 8
-  %49 = alloca ptr, align 8
-  %50 = alloca ptr, align 8
-  %51 = alloca i64, align 8
-  %52 = alloca i64, align 8
-  %53 = alloca i64, align 8
-  %54 = alloca i64, align 8
-  %55 = alloca ptr, align 8
-  %56 = alloca ptr, align 8
-  %57 = alloca ptr, align 8
-  %58 = alloca ptr, align 8
-  %59 = alloca %"class.nanobind::handle", align 8
-  %60 = alloca %"class.nanobind::object", align 8
-  %61 = alloca ptr, align 8
-  %62 = alloca i32, align 4
-  %63 = alloca %"class.nanobind::handle", align 8
-  %64 = alloca %"class.nanobind::handle", align 8
-  store ptr %0, ptr %47, align 8
-  store ptr %1, ptr %48, align 8
-  store ptr %2, ptr %49, align 8
-  store ptr %3, ptr %50, align 8
-  %65 = load ptr, ptr %48, align 8
-  store i64 0, ptr %51, align 8
-  store i64 0, ptr %52, align 8
-  store i64 0, ptr %53, align 8
-  store i64 0, ptr %54, align 8
-  %66 = load ptr, ptr %49, align 8
-  store ptr %51, ptr %13, align 8
-  store ptr %52, ptr %14, align 8
-  store ptr %66, ptr %15, align 8
-  %67 = load ptr, ptr %13, align 8
-  %68 = load i64, ptr %67, align 8
-  %69 = add i64 %68, 1
-  store i64 %69, ptr %67, align 8
-  %70 = load ptr, ptr %50, align 8
-  store ptr %51, ptr %24, align 8
-  store ptr %52, ptr %25, align 8
-  store ptr %70, ptr %26, align 8
-  %71 = load ptr, ptr %25, align 8
-  %72 = load i64, ptr %71, align 8
-  %73 = add i64 %72, 1
-  store i64 %73, ptr %71, align 8
-  %74 = load i64, ptr %51, align 8
-  %75 = load i64, ptr %52, align 8
-  %76 = add i64 %74, %75
-  %77 = add i64 %76, 1
-  %78 = mul i64 %77, 8
-  %79 = alloca i8, i64 %78, align 16
-  store ptr %79, ptr %55, align 8
-  %80 = load i64, ptr %52, align 8
-  %81 = icmp ne i64 %80, 0
-  br i1 %81, label %82, label %85
-
-82:                                               ; preds = %4
-  %83 = load i64, ptr %52, align 8
-  %84 = call ptr @PyTuple_New(i64 noundef %83)
-  br label %86
-
-85:                                               ; preds = %4
-  br label %86
-
-86:                                               ; preds = %85, %82
-  %87 = phi ptr [ %84, %82 ], [ null, %85 ]
-  store ptr %87, ptr %56, align 8
-  %88 = load ptr, ptr %55, align 8
-  %89 = getelementptr inbounds ptr, ptr %88, i64 1
-  %90 = load ptr, ptr %56, align 8
-  %91 = load i64, ptr %51, align 8
-  %92 = load ptr, ptr %49, align 8
-  store ptr %89, ptr %6, align 8
-  store ptr %90, ptr %7, align 8
-  store ptr %53, ptr %8, align 8
-  store ptr %54, ptr %9, align 8
-  store i64 %91, ptr %10, align 8
-  store ptr %92, ptr %11, align 8
-  %93 = load ptr, ptr %11, align 8
-  %94 = call ptr @_ZN8nanobind6detail11type_casterINS_6objectEiE8from_cppERKS2_NS_9rv_policyEPNS0_12cleanup_listE(ptr noundef nonnull align 8 dereferenceable(8) %93, i32 noundef 1, ptr noundef null) #11
-  store ptr %94, ptr %12, align 8
-  store ptr %12, ptr %5, align 8
-  %95 = load ptr, ptr %5, align 8
-  %96 = load ptr, ptr %95, align 8
-  %97 = load ptr, ptr %6, align 8
-  %98 = load ptr, ptr %8, align 8
-  %99 = load i64, ptr %98, align 8
-  %100 = add i64 %99, 1
-  store i64 %100, ptr %98, align 8
-  %101 = getelementptr inbounds ptr, ptr %97, i64 %99
-  store ptr %96, ptr %101, align 8
-  %102 = load ptr, ptr %55, align 8
-  %103 = getelementptr inbounds ptr, ptr %102, i64 1
-  %104 = load ptr, ptr %56, align 8
-  %105 = load i64, ptr %51, align 8
-  %106 = load ptr, ptr %50, align 8
-  store ptr %103, ptr %17, align 8
-  store ptr %104, ptr %18, align 8
-  store ptr %53, ptr %19, align 8
-  store ptr %54, ptr %20, align 8
-  store i64 %105, ptr %21, align 8
-  store ptr %106, ptr %22, align 8
-  %107 = load ptr, ptr %22, align 8
-  %108 = getelementptr inbounds %"struct.nanobind::arg_v", ptr %107, i32 0, i32 1
-  %109 = call ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %108)
-  store ptr %109, ptr %23, align 8
-  store ptr %23, ptr %16, align 8
-  %110 = load ptr, ptr %16, align 8
-  %111 = load ptr, ptr %110, align 8
-  %112 = load ptr, ptr %17, align 8
-  %113 = load i64, ptr %21, align 8
-  %114 = load ptr, ptr %20, align 8
-  %115 = load i64, ptr %114, align 8
-  %116 = add i64 %113, %115
-  %117 = getelementptr inbounds ptr, ptr %112, i64 %116
-  store ptr %111, ptr %117, align 8
-  %118 = load ptr, ptr %22, align 8
-  %119 = load ptr, ptr %118, align 8
-  %120 = call ptr @PyUnicode_InternFromString(ptr noundef %119)
-  %121 = load ptr, ptr %18, align 8
-  %122 = getelementptr inbounds %struct.PyTupleObject, ptr %121, i32 0, i32 1
-  %123 = load ptr, ptr %20, align 8
-  %124 = load i64, ptr %123, align 8
-  %125 = add i64 %124, 1
-  store i64 %125, ptr %123, align 8
-  %126 = getelementptr inbounds [1 x ptr], ptr %122, i64 0, i64 %124
-  store ptr %120, ptr %126, align 8
-  %127 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %65)
-  call void @llvm.experimental.noalias.scope.decl(metadata !160)
-  store ptr %60, ptr %37, align 8, !noalias !160
-  store ptr %127, ptr %38, align 8, !noalias !160
-  %128 = load ptr, ptr %38, align 8, !noalias !160
-  %129 = getelementptr inbounds %"class.nanobind::detail::accessor", ptr %128, i32 0, i32 2
-  %130 = load ptr, ptr %129, align 8
-  store ptr %130, ptr %27, align 8
-  %131 = load ptr, ptr %27, align 8
-  %132 = call noundef ptr @PyUnicode_InternFromString(ptr noundef %131)
-  store ptr %39, ptr %32, align 8, !noalias !160
-  store ptr %132, ptr %33, align 8, !noalias !160
-  %133 = load ptr, ptr %32, align 8, !noalias !160
-  %134 = load ptr, ptr %33, align 8, !noalias !160
-  store ptr %134, ptr %133, align 8
-  %135 = load ptr, ptr %39, align 8, !noalias !160
-  call void @llvm.experimental.noalias.scope.decl(metadata !163)
-  store ptr %60, ptr %34, align 8, !noalias !166
-  store ptr %135, ptr %35, align 8, !noalias !166
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr align 8 %35, i64 8, i1 false), !noalias !166
-  %136 = load ptr, ptr %36, align 8, !noalias !166
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %60, ptr %136)
-  %137 = invoke ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %60)
-          to label %138 unwind label %169
-
-138:                                              ; preds = %86
-  %139 = getelementptr inbounds %"class.nanobind::handle", ptr %59, i32 0, i32 0
-  store ptr %137, ptr %139, align 8
-  store ptr %59, ptr %40, align 8
-  %140 = load ptr, ptr %40, align 8
-  %141 = load ptr, ptr %140, align 8
-  store ptr %141, ptr %57, align 8
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %60) #11
-  %142 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %65)
-  store ptr %142, ptr %31, align 8
-  %143 = load ptr, ptr %31, align 8
-  %144 = load ptr, ptr %143, align 8
-  store ptr %30, ptr %28, align 8
-  store ptr %144, ptr %29, align 8
-  %145 = load ptr, ptr %28, align 8
-  %146 = load ptr, ptr %29, align 8
-  store ptr %146, ptr %145, align 8
-  %147 = load ptr, ptr %30, align 8
-  %148 = getelementptr inbounds %"class.nanobind::handle", ptr %63, i32 0, i32 0
-  store ptr %147, ptr %148, align 8
-  %149 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %63) #11
-  store ptr %149, ptr %41, align 8
-  %150 = load ptr, ptr %41, align 8
-  %151 = load ptr, ptr %150, align 8
-  %152 = load ptr, ptr %55, align 8
-  %153 = getelementptr inbounds ptr, ptr %152, i64 0
-  store ptr %151, ptr %153, align 8
-  %154 = load ptr, ptr %55, align 8
-  store ptr %154, ptr %58, align 8
-  %155 = load i64, ptr %51, align 8
-  %156 = add i64 %155, 1
-  store i64 %156, ptr %51, align 8
-  %157 = load i64, ptr %51, align 8
-  %158 = or i64 %157, -9223372036854775808
-  store i64 %158, ptr %51, align 8
-  %159 = load ptr, ptr %57, align 8
-  %160 = load ptr, ptr %58, align 8
-  %161 = load i64, ptr %51, align 8
-  %162 = load ptr, ptr %56, align 8
-  %163 = call noundef ptr @_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS2_b(ptr noundef %159, ptr noundef %160, i64 noundef %161, ptr noundef %162, i1 noundef zeroext true)
-  store ptr %64, ptr %42, align 8
-  store ptr %163, ptr %43, align 8
-  %164 = load ptr, ptr %42, align 8
-  %165 = load ptr, ptr %43, align 8
-  store ptr %165, ptr %164, align 8
-  %166 = getelementptr inbounds %"class.nanobind::handle", ptr %64, i32 0, i32 0
-  %167 = load ptr, ptr %166, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !167)
-  store ptr %0, ptr %44, align 8, !noalias !167
-  store ptr %167, ptr %45, align 8, !noalias !167
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %46, ptr align 8 %45, i64 8, i1 false), !noalias !167
-  %168 = load ptr, ptr %46, align 8, !noalias !167
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %168)
-  ret void
-
-169:                                              ; preds = %86
-  %170 = landingpad { ptr, i32 }
-          cleanup
-  %171 = extractvalue { ptr, i32 } %170, 0
-  store ptr %171, ptr %61, align 8
-  %172 = extractvalue { ptr, i32 } %170, 1
-  store i32 %172, ptr %62, align 4
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %60) #11
-  br label %173
-
-173:                                              ; preds = %169
-  %174 = load ptr, ptr %61, align 8
-  %175 = load i32, ptr %62, align 4
-  %176 = insertvalue { ptr, i32 } poison, ptr %174, 0
-  %177 = insertvalue { ptr, i32 } %176, i32 %175, 1
-  resume { ptr, i32 } %177
-}
-
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #8
-
-declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) #1
 
 declare ptr @PyCapsule_New(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8nanobind6detailL26ndarray_capsule_destructorEP7_object(ptr noundef %0) #6 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8nanobind6detailL26ndarray_capsule_destructorEP7_object(ptr noundef %0) #12 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %"struct.nanobind::error_scope", align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %3) #17
   call void @_ZN8nanobind11error_scopeC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #17
   %7 = load ptr, ptr %2, align 8
-  %8 = invoke ptr @PyCapsule_GetPointer(ptr noundef %7, ptr noundef @.str.12)
+  %8 = invoke ptr @PyCapsule_GetPointer(ptr noundef %7, ptr noundef @.str.13)
           to label %9 unwind label %16
 
 9:                                                ; preds = %1
@@ -6727,9 +6531,9 @@ define internal void @_ZN8nanobind6detailL26ndarray_capsule_destructorEP7_object
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %13, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %13, i32 0, i32 1
   %15 = load ptr, ptr %14, align 8
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %15) #11
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %15) #17
   br label %22
 
 16:                                               ; preds = %20, %1
@@ -6739,7 +6543,9 @@ define internal void @_ZN8nanobind6detailL26ndarray_capsule_destructorEP7_object
   store ptr %18, ptr %5, align 8
   %19 = extractvalue { ptr, i32 } %17, 1
   store i32 %19, ptr %6, align 4
-  call void @_ZN8nanobind11error_scopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #17
+  call void @_ZN8nanobind11error_scopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #17
   br label %23
 
 20:                                               ; preds = %9
@@ -6750,7 +6556,9 @@ define internal void @_ZN8nanobind6detailL26ndarray_capsule_destructorEP7_object
   br label %22
 
 22:                                               ; preds = %21, %12
-  call void @_ZN8nanobind11error_scopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #17
+  call void @_ZN8nanobind11error_scopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #17
   ret void
 
 23:                                               ; preds = %16
@@ -6762,158 +6570,322 @@ define internal void @_ZN8nanobind6detailL26ndarray_capsule_destructorEP7_object
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJRNS_6objectEEEES8_DpOT0_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJRNS_6objectENS_5arg_vEEEES8_DpOT0_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca %"class.nanobind::handle", align 8
+  %18 = alloca %"class.nanobind::object", align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca i32, align 4
+  %21 = alloca %"class.nanobind::handle", align 8
+  %22 = alloca %"class.nanobind::handle", align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %23 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  store i64 0, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  store i64 0, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  store i64 0, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  store i64 0, ptr %12, align 8
+  %24 = load ptr, ptr %7, align 8
+  call void @_ZN8nanobind6detail12call_analyzeINS_6objectEEEvRmS3_RKT_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %24)
+  %25 = load ptr, ptr %8, align 8
+  call void @_ZN8nanobind6detail12call_analyzeINS_5arg_vEEEvRmS3_RKT_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(32) %25)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #17
+  %26 = load i64, ptr %9, align 8
+  %27 = load i64, ptr %10, align 8
+  %28 = add i64 %26, %27
+  %29 = add i64 %28, 1
+  %30 = mul i64 %29, 8
+  %31 = alloca i8, i64 %30, align 16
+  store ptr %31, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  %32 = load i64, ptr %10, align 8
+  %33 = icmp ne i64 %32, 0
+  br i1 %33, label %34, label %37
+
+34:                                               ; preds = %4
+  %35 = load i64, ptr %10, align 8
+  %36 = call ptr @PyTuple_New(i64 noundef %35)
+  br label %38
+
+37:                                               ; preds = %4
+  br label %38
+
+38:                                               ; preds = %37, %34
+  %39 = phi ptr [ %36, %34 ], [ null, %37 ]
+  store ptr %39, ptr %14, align 8
+  %40 = load ptr, ptr %13, align 8
+  %41 = getelementptr inbounds ptr, ptr %40, i64 1
+  %42 = load ptr, ptr %14, align 8
+  %43 = load i64, ptr %9, align 8
+  %44 = load ptr, ptr %7, align 8
+  call void @_ZN8nanobind6detail9call_initILNS_9rv_policyE1ERNS_6objectEEEvPP7_objectS6_RmS8_mOT0_(ptr noundef %41, ptr noundef %42, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef %43, ptr noundef nonnull align 8 dereferenceable(8) %44)
+  %45 = load ptr, ptr %13, align 8
+  %46 = getelementptr inbounds ptr, ptr %45, i64 1
+  %47 = load ptr, ptr %14, align 8
+  %48 = load i64, ptr %9, align 8
+  %49 = load ptr, ptr %8, align 8
+  call void @_ZN8nanobind6detail9call_initILNS_9rv_policyE1ENS_5arg_vEEEvPP7_objectS5_RmS7_mOT0_(ptr noundef %46, ptr noundef %47, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef %48, ptr noundef nonnull align 8 dereferenceable(32) %49)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #17
+  %50 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %23)
+  call void @_ZNK8nanobind6detail8accessorINS0_8str_attrEE3keyEv(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %18, ptr noundef nonnull align 8 dereferenceable(24) %50)
+  %51 = invoke ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %18)
+          to label %52 unwind label %74
+
+52:                                               ; preds = %38
+  %53 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %17, i32 0, i32 0
+  store ptr %51, ptr %53, align 8
+  %54 = call noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
+  store ptr %54, ptr %15, align 8
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #17
+  %55 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %23)
+  %56 = call ptr @_ZNK8nanobind6detail8accessorINS0_8str_attrEE4baseEv(ptr noundef nonnull align 8 dereferenceable(24) %55)
+  %57 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %21, i32 0, i32 0
+  store ptr %56, ptr %57, align 8
+  %58 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %21) #17
+  %59 = call noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %58)
+  %60 = load ptr, ptr %13, align 8
+  %61 = getelementptr inbounds ptr, ptr %60, i64 0
+  store ptr %59, ptr %61, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #17
+  %62 = load ptr, ptr %13, align 8
+  store ptr %62, ptr %16, align 8
+  %63 = load i64, ptr %9, align 8
+  %64 = add i64 %63, 1
+  store i64 %64, ptr %9, align 8
+  %65 = load i64, ptr %9, align 8
+  %66 = or i64 %65, -9223372036854775808
+  store i64 %66, ptr %9, align 8
+  %67 = load ptr, ptr %15, align 8
+  %68 = load ptr, ptr %16, align 8
+  %69 = load i64, ptr %9, align 8
+  %70 = load ptr, ptr %14, align 8
+  %71 = call noundef ptr @_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS2_b(ptr noundef %67, ptr noundef %68, i64 noundef %69, ptr noundef %70, i1 noundef zeroext true)
+  call void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef %71)
+  %72 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %22, i32 0, i32 0
+  %73 = load ptr, ptr %72, align 8
+  call void @_ZN8nanobind5stealINS_6objectEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %0, ptr %73)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  ret void
+
+74:                                               ; preds = %38
+  %75 = landingpad { ptr, i32 }
+          cleanup
+  %76 = extractvalue { ptr, i32 } %75, 0
+  store ptr %76, ptr %19, align 8
+  %77 = extractvalue { ptr, i32 } %75, 1
+  store i32 %77, ptr %20, align 4
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  br label %78
+
+78:                                               ; preds = %74
+  %79 = load ptr, ptr %19, align 8
+  %80 = load i32, ptr %20, align 4
+  %81 = insertvalue { ptr, i32 } poison, ptr %79, 0
+  %82 = insertvalue { ptr, i32 } %81, i32 %80, 1
+  resume { ptr, i32 } %82
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden void @_ZNK8nanobind3argaSIRbEENS_5arg_vEOT_(ptr dead_on_unwind noalias writable sret(%"struct.nanobind::arg_v") align 8 %0, ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = alloca %"class.nanobind::handle", align 8
+  %7 = alloca %"class.nanobind::object", align 8
   %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca %"class.nanobind::handle", align 8
-  %13 = alloca %"class.nanobind::handle", align 8
-  %14 = alloca ptr, align 8
-  %15 = alloca ptr, align 8
-  %16 = alloca %"class.nanobind::handle", align 8
-  %17 = alloca ptr, align 8
-  %18 = alloca ptr, align 8
-  %19 = alloca ptr, align 8
-  %20 = alloca ptr, align 8
-  %21 = alloca ptr, align 8
-  %22 = alloca ptr, align 8
-  %23 = alloca %"class.nanobind::handle", align 8
-  %24 = alloca %"class.nanobind::handle", align 8
-  %25 = alloca ptr, align 8
-  %26 = alloca ptr, align 8
-  %27 = alloca ptr, align 8
-  %28 = alloca [2 x ptr], align 16
-  %29 = alloca ptr, align 8
-  %30 = alloca i64, align 8
-  %31 = alloca %"class.nanobind::handle", align 8
-  %32 = alloca ptr, align 8
-  %33 = alloca ptr, align 8
-  %34 = alloca %"class.nanobind::handle", align 8
-  %35 = alloca %"class.nanobind::object", align 8
-  %36 = alloca ptr, align 8
-  %37 = alloca i32, align 4
-  %38 = alloca %"class.nanobind::handle", align 8
-  %39 = alloca %"class.nanobind::handle", align 8
-  store ptr %0, ptr %25, align 8
-  store ptr %1, ptr %26, align 8
-  store ptr %2, ptr %27, align 8
-  %40 = load ptr, ptr %26, align 8
-  store ptr null, ptr %29, align 8
-  store i64 0, ptr %30, align 8
-  %41 = load ptr, ptr %27, align 8
-  %42 = call ptr @_ZN8nanobind6detail11type_casterINS_6objectEiE8from_cppERKS2_NS_9rv_policyEPNS0_12cleanup_listE(ptr noundef nonnull align 8 dereferenceable(8) %41, i32 noundef 1, ptr noundef null) #11
-  %43 = getelementptr inbounds %"class.nanobind::handle", ptr %31, i32 0, i32 0
-  store ptr %42, ptr %43, align 8
-  store ptr %31, ptr %17, align 8
-  %44 = load ptr, ptr %17, align 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = load i64, ptr %30, align 8
-  %47 = add i64 %46, 1
-  store i64 %47, ptr %30, align 8
-  %48 = add i64 1, %46
-  %49 = getelementptr inbounds [2 x ptr], ptr %28, i64 0, i64 %48
-  store ptr %45, ptr %49, align 8
-  %50 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %40)
-  call void @llvm.experimental.noalias.scope.decl(metadata !170)
-  store ptr %35, ptr %14, align 8, !noalias !170
-  store ptr %50, ptr %15, align 8, !noalias !170
-  %51 = load ptr, ptr %15, align 8, !noalias !170
-  %52 = getelementptr inbounds %"class.nanobind::detail::accessor", ptr %51, i32 0, i32 2
-  %53 = load ptr, ptr %52, align 8
-  store ptr %53, ptr %4, align 8
-  %54 = load ptr, ptr %4, align 8
-  %55 = call noundef ptr @PyUnicode_InternFromString(ptr noundef %54)
-  store ptr %16, ptr %9, align 8, !noalias !170
-  store ptr %55, ptr %10, align 8, !noalias !170
-  %56 = load ptr, ptr %9, align 8, !noalias !170
-  %57 = load ptr, ptr %10, align 8, !noalias !170
-  store ptr %57, ptr %56, align 8
-  %58 = load ptr, ptr %16, align 8, !noalias !170
-  call void @llvm.experimental.noalias.scope.decl(metadata !173)
-  store ptr %35, ptr %11, align 8, !noalias !176
-  store ptr %58, ptr %12, align 8, !noalias !176
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %12, i64 8, i1 false), !noalias !176
-  %59 = load ptr, ptr %13, align 8, !noalias !176
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr %59)
-  %60 = invoke ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %35)
-          to label %61 unwind label %91
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %11 = load ptr, ptr %6, align 8
+  call void @_ZN8nanobind4castIRbEENS_6objectEOT_NS_9rv_policyE(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %7, ptr noundef nonnull align 1 dereferenceable(1) %11, i32 noundef 1)
+  invoke void @_ZN8nanobind5arg_vC2ERKNS_3argEONS_6objectE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(18) %10, ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %12 unwind label %13
 
-61:                                               ; preds = %3
-  %62 = getelementptr inbounds %"class.nanobind::handle", ptr %34, i32 0, i32 0
-  store ptr %60, ptr %62, align 8
-  store ptr %34, ptr %18, align 8
-  %63 = load ptr, ptr %18, align 8
-  %64 = load ptr, ptr %63, align 8
-  store ptr %64, ptr %32, align 8
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #11
-  %65 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %40)
-  store ptr %65, ptr %8, align 8
-  %66 = load ptr, ptr %8, align 8
-  %67 = load ptr, ptr %66, align 8
-  store ptr %7, ptr %5, align 8
-  store ptr %67, ptr %6, align 8
-  %68 = load ptr, ptr %5, align 8
-  %69 = load ptr, ptr %6, align 8
-  store ptr %69, ptr %68, align 8
-  %70 = load ptr, ptr %7, align 8
-  %71 = getelementptr inbounds %"class.nanobind::handle", ptr %38, i32 0, i32 0
-  store ptr %70, ptr %71, align 8
-  %72 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %38) #11
-  store ptr %72, ptr %19, align 8
-  %73 = load ptr, ptr %19, align 8
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds [2 x ptr], ptr %28, i64 0, i64 0
-  store ptr %74, ptr %75, align 16
-  %76 = getelementptr inbounds [2 x ptr], ptr %28, i64 0, i64 0
-  store ptr %76, ptr %33, align 8
-  %77 = load i64, ptr %30, align 8
-  %78 = add i64 %77, 1
-  store i64 %78, ptr %30, align 8
-  %79 = load i64, ptr %30, align 8
-  %80 = or i64 %79, -9223372036854775808
-  store i64 %80, ptr %30, align 8
-  %81 = load ptr, ptr %32, align 8
-  %82 = load ptr, ptr %33, align 8
-  %83 = load i64, ptr %30, align 8
-  %84 = load ptr, ptr %29, align 8
-  %85 = call noundef ptr @_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS2_b(ptr noundef %81, ptr noundef %82, i64 noundef %83, ptr noundef %84, i1 noundef zeroext true)
-  store ptr %39, ptr %20, align 8
-  store ptr %85, ptr %21, align 8
-  %86 = load ptr, ptr %20, align 8
-  %87 = load ptr, ptr %21, align 8
-  store ptr %87, ptr %86, align 8
-  %88 = getelementptr inbounds %"class.nanobind::handle", ptr %39, i32 0, i32 0
-  %89 = load ptr, ptr %88, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !177)
-  store ptr %0, ptr %22, align 8, !noalias !177
-  store ptr %89, ptr %23, align 8, !noalias !177
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %24, ptr align 8 %23, i64 8, i1 false), !noalias !177
-  %90 = load ptr, ptr %24, align 8, !noalias !177
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %90)
+12:                                               ; preds = %3
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
   ret void
 
-91:                                               ; preds = %3
-  %92 = landingpad { ptr, i32 }
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %93 = extractvalue { ptr, i32 } %92, 0
-  store ptr %93, ptr %36, align 8
-  %94 = extractvalue { ptr, i32 } %92, 1
-  store i32 %94, ptr %37, align 4
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #11
-  br label %95
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %8, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %9, align 4
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  br label %17
 
-95:                                               ; preds = %91
-  %96 = load ptr, ptr %36, align 8
-  %97 = load i32, ptr %37, align 4
-  %98 = insertvalue { ptr, i32 } poison, ptr %96, 0
-  %99 = insertvalue { ptr, i32 } %98, i32 %97, 1
-  resume { ptr, i32 } %99
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %8, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEclILNS_9rv_policyE1EJRNS_6objectEEEES8_DpOT0_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca [2 x ptr], align 16
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca %"class.nanobind::handle", align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %"class.nanobind::handle", align 8
+  %14 = alloca %"class.nanobind::object", align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca %"class.nanobind::handle", align 8
+  %18 = alloca %"class.nanobind::handle", align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %19 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  store ptr null, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  store i64 0, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  %20 = load ptr, ptr %6, align 8
+  %21 = call ptr @_ZN8nanobind6detail11type_casterINS_6objectEiE8from_cppERKS2_NS_9rv_policyEPNS0_12cleanup_listE(ptr noundef nonnull align 8 dereferenceable(8) %20, i32 noundef 1, ptr noundef null) #17
+  %22 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %10, i32 0, i32 0
+  store ptr %21, ptr %22, align 8
+  %23 = call noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %24 = load i64, ptr %9, align 8
+  %25 = add i64 %24, 1
+  store i64 %25, ptr %9, align 8
+  %26 = add i64 1, %24
+  %27 = getelementptr inbounds nuw [2 x ptr], ptr %7, i64 0, i64 %26
+  store ptr %23, ptr %27, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  %28 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %19)
+  call void @_ZNK8nanobind6detail8accessorINS0_8str_attrEE3keyEv(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %28)
+  %29 = invoke ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %30 unwind label %51
+
+30:                                               ; preds = %3
+  %31 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %13, i32 0, i32 0
+  store ptr %29, ptr %31, align 8
+  %32 = call noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
+  store ptr %32, ptr %11, align 8
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #17
+  %33 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %19)
+  %34 = call ptr @_ZNK8nanobind6detail8accessorINS0_8str_attrEE4baseEv(ptr noundef nonnull align 8 dereferenceable(24) %33)
+  %35 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %17, i32 0, i32 0
+  store ptr %34, ptr %35, align 8
+  %36 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %17) #17
+  %37 = call noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %36)
+  %38 = getelementptr inbounds [2 x ptr], ptr %7, i64 0, i64 0
+  store ptr %37, ptr %38, align 16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #17
+  %39 = getelementptr inbounds [2 x ptr], ptr %7, i64 0, i64 0
+  store ptr %39, ptr %12, align 8
+  %40 = load i64, ptr %9, align 8
+  %41 = add i64 %40, 1
+  store i64 %41, ptr %9, align 8
+  %42 = load i64, ptr %9, align 8
+  %43 = or i64 %42, -9223372036854775808
+  store i64 %43, ptr %9, align 8
+  %44 = load ptr, ptr %11, align 8
+  %45 = load ptr, ptr %12, align 8
+  %46 = load i64, ptr %9, align 8
+  %47 = load ptr, ptr %8, align 8
+  %48 = call noundef ptr @_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS2_b(ptr noundef %44, ptr noundef %45, i64 noundef %46, ptr noundef %47, i1 noundef zeroext true)
+  call void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %48)
+  %49 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %18, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8
+  call void @_ZN8nanobind5stealINS_6objectEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %0, ptr %50)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #17
+  ret void
+
+51:                                               ; preds = %3
+  %52 = landingpad { ptr, i32 }
+          cleanup
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %15, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %16, align 4
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #17
+  br label %55
+
+55:                                               ; preds = %51
+  %56 = load ptr, ptr %15, align 8
+  %57 = load i32, ptr %16, align 4
+  %58 = insertvalue { ptr, i32 } poison, ptr %56, 0
+  %59 = insertvalue { ptr, i32 } %58, i32 %57, 1
+  resume { ptr, i32 } %59
+}
+
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #15
+
+declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) #1
 
 declare void @_Py_Dealloc(ptr noundef) #1
 
@@ -6922,7 +6894,7 @@ define linkonce_odr hidden void @_ZN8nanobind6handleC2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.nanobind::handle", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %3, i32 0, i32 0
   store ptr null, ptr %4, align 8
   ret void
 }
@@ -6932,7 +6904,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.nanobind::handle", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
   invoke void @_ZL11_Py_XDECREFP7_object(ptr noundef %5)
           to label %6 unwind label %7
@@ -6944,34 +6916,65 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #12
+  call void @__clang_call_terminate(ptr %9) #18
   unreachable
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden void @_ZN8nanobind5stealINS_7module_EEET_NS_6handleE(ptr dead_on_unwind noalias writable sret(%"class.nanobind::module_") align 8 %0, ptr %1) #10 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca %"class.nanobind::handle", align 8
+  %5 = alloca %"class.nanobind::handle", align 8
+  store ptr %0, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %4, i32 0, i32 0
+  store ptr %1, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %4, i64 8, i1 false)
+  %7 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %5, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  call void @_ZN8nanobind7module_C2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %8)
+  ret void
 }
 
 declare noundef ptr @_ZN8nanobind6detail13module_importEPKc(ptr noundef) #1
 
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden void @_ZN8nanobind7module_C2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1) unnamed_addr #10 comdat align 2 {
+  %3 = alloca %"class.nanobind::handle", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.nanobind::handle", align 8
+  %6 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %3, i32 0, i32 0
+  store ptr %1, ptr %6, align 8
+  store ptr %0, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %3, i64 8, i1 false)
+  %8 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %5, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr %9)
+  ret void
+}
+
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN8nanobind6detail15scoped_pymallocI10bufferinfoEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden void @_ZN8nanobind6detail15scoped_pymallocI10bufferinfoEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #12 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.nanobind::detail::scoped_pymalloc.3", ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.nanobind::detail::scoped_pymalloc.3", ptr %5, i32 0, i32 0
   store ptr null, ptr %6, align 8
   %7 = load i64, ptr %4, align 8
   %8 = mul i64 %7, 80
   %9 = call ptr @PyMem_Malloc(i64 noundef %8)
-  %10 = getelementptr inbounds %"struct.nanobind::detail::scoped_pymalloc.3", ptr %5, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %"struct.nanobind::detail::scoped_pymalloc.3", ptr %5, i32 0, i32 0
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds %"struct.nanobind::detail::scoped_pymalloc.3", ptr %5, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.nanobind::detail::scoped_pymalloc.3", ptr %5, i32 0, i32 0
   %12 = load ptr, ptr %11, align 8
   %13 = icmp ne ptr %12, null
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %2
   %15 = load i64, ptr %4, align 8
-  call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef @.str.35, i64 noundef %15) #12
+  call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef @.str.36, i64 noundef %15) #18
   unreachable
 
 16:                                               ; preds = %2
@@ -6985,7 +6988,7 @@ define linkonce_odr hidden noundef ptr @_ZNK8nanobind6detail15scoped_pymallocI10
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.nanobind::detail::scoped_pymalloc.3", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.nanobind::detail::scoped_pymalloc.3", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
@@ -6995,15 +6998,15 @@ define linkonce_odr hidden noundef ptr @_ZN8nanobind6detail15scoped_pymallocI10b
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.nanobind::detail::scoped_pymalloc.3", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.nanobind::detail::scoped_pymalloc.3", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
 
 declare void @PyBuffer_Release(ptr noundef) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectbENK3$_0cvPFvPNS0_16managed_dltensorEEEv"(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef ptr @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectbENK3$_0cvPFvPNS0_16managed_dltensorEEEv"(ptr noundef nonnull align 1 dereferenceable(1) %0) #9 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   ret ptr @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectbEN3$_08__invokeEPNS0_16managed_dltensorE"
@@ -7015,17 +7018,19 @@ define linkonce_odr hidden noundef ptr @_ZN8nanobind6detail15scoped_pymallocI10b
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %"struct.nanobind::detail::scoped_pymalloc.3", ptr %4, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #17
+  %5 = getelementptr inbounds nuw %"struct.nanobind::detail::scoped_pymalloc.3", ptr %4, i32 0, i32 0
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %3, align 8
-  %7 = getelementptr inbounds %"struct.nanobind::detail::scoped_pymalloc.3", ptr %4, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.nanobind::detail::scoped_pymalloc.3", ptr %4, i32 0, i32 0
   store ptr null, ptr %7, align 8
   %8 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #17
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectbENK3$_1cvPFvS2_EEv"(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef ptr @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectbENK3$_1cvPFvS2_EEv"(ptr noundef nonnull align 1 dereferenceable(1) %0) #9 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   ret ptr @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectbEN3$_18__invokeES2_"
@@ -7036,7 +7041,7 @@ define linkonce_odr hidden void @_ZN8nanobind6detail15scoped_pymallocI10bufferin
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.nanobind::detail::scoped_pymalloc.3", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.nanobind::detail::scoped_pymalloc.3", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
   invoke void @PyMem_Free(ptr noundef %5)
           to label %6 unwind label %7
@@ -7048,17 +7053,17 @@ define linkonce_odr hidden void @_ZN8nanobind6detail15scoped_pymallocI10bufferin
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #12
+  call void @__clang_call_terminate(ptr %9) #18
   unreachable
 }
 
 declare ptr @PyMem_Malloc(i64 noundef) #1
 
 ; Function Attrs: noreturn nounwind
-declare void @_ZN8nanobind6detail4failEPKcz(ptr noundef, ...) #4
+declare void @_ZN8nanobind6detail4failEPKcz(ptr noundef, ...) #6
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectbEN3$_08__invokeEPNS0_16managed_dltensorE"(ptr noundef %0) #6 align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectbEN3$_08__invokeEPNS0_16managed_dltensorE"(ptr noundef %0) #8 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca %class.anon.4, align 1
   store ptr %0, ptr %2, align 8
@@ -7067,8 +7072,8 @@ define internal void @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_obj
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectbENK3$_0clEPNS0_16managed_dltensorE"(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #6 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectbENK3$_0clEPNS0_16managed_dltensorE"(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"struct.nanobind::gil_scoped_acquire", align 4
@@ -7077,60 +7082,73 @@ define internal void @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_obj
   %8 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  call void @_ZN8nanobind18gil_scoped_acquireC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #17
+  call void @_ZN8nanobind18gil_scoped_acquireC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #17
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %6, align 8
   %12 = load ptr, ptr %6, align 8
   invoke void @PyBuffer_Release(ptr noundef %12)
-          to label %13 unwind label %26
+          to label %13 unwind label %30
 
 13:                                               ; preds = %2
   %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %14, i32 0, i32 0
-  %16 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %15, i32 0, i32 4
-  %17 = load ptr, ptr %16, align 8
-  invoke void @PyMem_Free(ptr noundef %17)
-          to label %18 unwind label %26
+  %15 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %14, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8
+  invoke void @PyMem_Free(ptr noundef %16)
+          to label %17 unwind label %30
 
-18:                                               ; preds = %13
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %19, i32 0, i32 0
-  %21 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %20, i32 0, i32 5
-  %22 = load ptr, ptr %21, align 8
-  invoke void @PyMem_Free(ptr noundef %22)
-          to label %23 unwind label %26
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %18, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %19, i32 0, i32 4
+  %21 = load ptr, ptr %20, align 8
+  invoke void @PyMem_Free(ptr noundef %21)
+          to label %22 unwind label %30
 
-23:                                               ; preds = %18
-  %24 = load ptr, ptr %4, align 8
-  invoke void @PyMem_Free(ptr noundef %24)
-          to label %25 unwind label %26
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %4, align 8
+  %24 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %23, i32 0, i32 0
+  %25 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %24, i32 0, i32 5
+  %26 = load ptr, ptr %25, align 8
+  invoke void @PyMem_Free(ptr noundef %26)
+          to label %27 unwind label %30
 
-25:                                               ; preds = %23
-  call void @_ZN8nanobind18gil_scoped_acquireD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #11
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %4, align 8
+  invoke void @PyMem_Free(ptr noundef %28)
+          to label %29 unwind label %30
+
+29:                                               ; preds = %27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #17
+  call void @_ZN8nanobind18gil_scoped_acquireD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #17
   ret void
 
-26:                                               ; preds = %23, %18, %13, %2
-  %27 = landingpad { ptr, i32 }
+30:                                               ; preds = %27, %22, %17, %13, %2
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %7, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %8, align 4
-  call void @_ZN8nanobind18gil_scoped_acquireD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #11
-  br label %30
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %7, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #17
+  call void @_ZN8nanobind18gil_scoped_acquireD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #17
+  br label %34
 
-30:                                               ; preds = %26
-  %31 = load ptr, ptr %7, align 8
-  %32 = load i32, ptr %8, align 4
-  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
-  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
-  resume { ptr, i32 } %34
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %7, align 8
+  %36 = load i32, ptr %8, align 4
+  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
+  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
+  resume { ptr, i32 } %38
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectbEN3$_18__invokeES2_"(ptr noundef %0) #6 align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectbEN3$_18__invokeES2_"(ptr noundef %0) #8 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca %class.anon.6, align 1
   store ptr %0, ptr %2, align 8
@@ -7139,8 +7157,8 @@ define internal void @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_obj
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectbENK3$_1clES2_"(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #6 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_objectbENK3$_1clES2_"(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"struct.nanobind::error_scope", align 8
@@ -7149,9 +7167,11 @@ define internal void @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_obj
   %8 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #17
   call void @_ZN8nanobind11error_scopeC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #17
   %9 = load ptr, ptr %4, align 8
-  %10 = invoke ptr @PyCapsule_GetPointer(ptr noundef %9, ptr noundef @.str.12)
+  %10 = invoke ptr @PyCapsule_GetPointer(ptr noundef %9, ptr noundef @.str.13)
           to label %11 unwind label %25
 
 11:                                               ; preds = %2
@@ -7162,14 +7182,14 @@ define internal void @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_obj
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %15, i32 0, i32 2
+  %16 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %15, i32 0, i32 2
   %17 = load ptr, ptr %16, align 8
   %18 = icmp ne ptr %17, null
   br i1 %18, label %19, label %29
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %20, i32 0, i32 2
+  %21 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %20, i32 0, i32 2
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %6, align 8
   invoke void %22(ptr noundef %23)
@@ -7185,7 +7205,9 @@ define internal void @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_obj
   store ptr %27, ptr %7, align 8
   %28 = extractvalue { ptr, i32 } %26, 1
   store i32 %28, ptr %8, align 4
-  call void @_ZN8nanobind11error_scopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #17
+  call void @_ZN8nanobind11error_scopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #17
   br label %33
 
 29:                                               ; preds = %24, %14
@@ -7199,7 +7221,9 @@ define internal void @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_obj
   br label %32
 
 32:                                               ; preds = %31, %29
-  call void @_ZN8nanobind11error_scopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #17
+  call void @_ZN8nanobind11error_scopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #17
   ret void
 
 33:                                               ; preds = %25
@@ -7211,13 +7235,13 @@ define internal void @"_ZZN8nanobind6detailL27dlpack_from_buffer_protocolEP7_obj
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN8nanobind11error_scopeC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden void @_ZN8nanobind11error_scopeC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.nanobind::error_scope", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.nanobind::error_scope", ptr %3, i32 0, i32 1
-  %6 = getelementptr inbounds %"struct.nanobind::error_scope", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds nuw %"struct.nanobind::error_scope", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.nanobind::error_scope", ptr %3, i32 0, i32 1
+  %6 = getelementptr inbounds nuw %"struct.nanobind::error_scope", ptr %3, i32 0, i32 2
   call void @PyErr_Fetch(ptr noundef %4, ptr noundef %5, ptr noundef %6)
   ret void
 }
@@ -7227,11 +7251,11 @@ define linkonce_odr hidden void @_ZN8nanobind11error_scopeD2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.nanobind::error_scope", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.nanobind::error_scope", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %"struct.nanobind::error_scope", ptr %3, i32 0, i32 1
+  %6 = getelementptr inbounds nuw %"struct.nanobind::error_scope", ptr %3, i32 0, i32 1
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %"struct.nanobind::error_scope", ptr %3, i32 0, i32 2
+  %8 = getelementptr inbounds nuw %"struct.nanobind::error_scope", ptr %3, i32 0, i32 2
   %9 = load ptr, ptr %8, align 8
   invoke void @PyErr_Restore(ptr noundef %5, ptr noundef %7, ptr noundef %9)
           to label %10 unwind label %11
@@ -7243,7 +7267,7 @@ define linkonce_odr hidden void @_ZN8nanobind11error_scopeD2Ev(ptr noundef nonnu
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #12
+  call void @__clang_call_terminate(ptr %13) #18
   unreachable
 }
 
@@ -7252,456 +7276,535 @@ declare void @PyErr_Fetch(ptr noundef, ptr noundef, ptr noundef) #1
 declare void @PyErr_Restore(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind
-declare void @_ZN8nanobind6detail12cleanup_list6expandEv(ptr noundef nonnull align 8 dereferenceable(64)) #3
+declare void @_ZN8nanobind6detail12cleanup_list6expandEv(ptr noundef nonnull align 8 dereferenceable(64)) #4
 
 declare i32 @PyGILState_Ensure() #1
 
 declare void @PyGILState_Release(i32 noundef) #1
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlPNS_6dlpack5dtypeEbiiEN3$_08__invokeEPNS0_16managed_dltensorE"(ptr noundef %0) #6 align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @"_ZZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlNS_6dlpack5dtypeEbiicEN3$_08__invokeEPNS0_16managed_dltensorE"(ptr noundef %0) #8 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca %class.anon, align 1
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  call void @"_ZZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlPNS_6dlpack5dtypeEbiiENK3$_0clEPNS0_16managed_dltensorE"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %4)
+  call void @"_ZZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlNS_6dlpack5dtypeEbiicENK3$_0clEPNS0_16managed_dltensorE"(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %4)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlPNS_6dlpack5dtypeEbiiENK3$_0clEPNS0_16managed_dltensorE"(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal void @"_ZZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlNS_6dlpack5dtypeEbiicENK3$_0clEPNS0_16managed_dltensorE"(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #9 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"struct.nanobind::gil_scoped_acquire", align 4
   %6 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  call void @_ZN8nanobind18gil_scoped_acquireC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #17
+  call void @_ZN8nanobind18gil_scoped_acquireC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #17
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %7, i32 0, i32 1
+  %8 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %6, align 8
   %10 = load ptr, ptr %6, align 8
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %10) #11
-  call void @_ZN8nanobind18gil_scoped_acquireD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #11
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #17
+  call void @_ZN8nanobind18gil_scoped_acquireD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #17
   ret void
 }
 
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN8nanobind6detail15nb_maybe_atomicIP11_typeobjectE12load_acquireEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.nanobind::detail::nb_maybe_atomic", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN8nanobind6detail14lock_internalsC2EPNS0_12nb_internalsE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN8nanobind6detail15nb_maybe_atomicIP11_typeobjectE12load_relaxedEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.nanobind::detail::nb_maybe_atomic", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8nanobind6detailL18nb_ndarray_deallocEP7_object(ptr noundef %0) #6 {
+define internal void @_ZN8nanobind6detailL18nb_ndarray_deallocEP7_object(ptr noundef %0) #12 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #17
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct._object, ptr %4, i32 0, i32 1
+  %5 = getelementptr inbounds nuw %struct._object, ptr %4, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %3, align 8
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %"struct.nanobind::detail::nb_ndarray", ptr %7, i32 0, i32 1
+  %8 = getelementptr inbounds nuw %"struct.nanobind::detail::nb_ndarray", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %8, align 8
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %9) #11
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %9) #17
   %10 = load ptr, ptr %2, align 8
   call void @PyObject_Free(ptr noundef %10)
   %11 = load ptr, ptr %3, align 8
   call void @_ZL10_Py_DECREFP7_object(ptr noundef %11)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #17
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN8nanobind6detailL19nd_ndarray_tpbufferEP7_objectP10bufferinfoi(ptr noundef %0, ptr noundef %1, i32 noundef %2) #6 personality ptr @__gxx_personality_v0 {
+define internal noundef i32 @_ZN8nanobind6detailL19nd_ndarray_tpbufferEP7_objectP10bufferinfoi(ptr noundef %0, ptr noundef %1, i32 noundef %2) #12 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca i64, align 8
-  %12 = alloca %"struct.nanobind::detail::scoped_pymalloc", align 8
-  %13 = alloca %"struct.nanobind::detail::scoped_pymalloc", align 8
-  %14 = alloca ptr, align 8
-  %15 = alloca i32, align 4
-  %16 = alloca i64, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca %"struct.nanobind::detail::scoped_pymalloc.1", align 8
+  %14 = alloca %"struct.nanobind::detail::scoped_pymalloc.1", align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca i64, align 8
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
-  %17 = load ptr, ptr %5, align 8
-  store ptr %17, ptr %8, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds %"struct.nanobind::detail::nb_ndarray", ptr %18, i32 0, i32 1
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %20, i32 0, i32 0
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %"struct.nanobind::detail::managed_dltensor", ptr %22, i32 0, i32 0
-  store ptr %23, ptr %9, align 8
-  %24 = load ptr, ptr %9, align 8
-  %25 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %24, i32 0, i32 1
-  %26 = getelementptr inbounds %"struct.nanobind::dlpack::device", ptr %25, i32 0, i32 0
-  %27 = load i32, ptr %26, align 8
-  %28 = icmp ne i32 %27, 1
-  br i1 %28, label %29, label %31
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  %18 = load ptr, ptr %5, align 8
+  store ptr %18, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  %19 = load ptr, ptr %8, align 8
+  %20 = getelementptr inbounds nuw %"struct.nanobind::detail::nb_ndarray", ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %23, i32 0, i32 0
+  store ptr %24, ptr %9, align 8
+  %25 = load ptr, ptr %9, align 8
+  %26 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %25, i32 0, i32 1
+  %27 = getelementptr inbounds nuw %"struct.nanobind::dlpack::device", ptr %26, i32 0, i32 0
+  %28 = load i32, ptr %27, align 8
+  %29 = icmp ne i32 %28, 1
+  br i1 %29, label %30, label %32
 
-29:                                               ; preds = %3
-  %30 = load ptr, ptr @PyExc_BufferError, align 8
-  call void @PyErr_SetString(ptr noundef %30, ptr noundef @.str.37)
+30:                                               ; preds = %3
+  %31 = load ptr, ptr @PyExc_BufferError, align 8
+  call void @PyErr_SetString(ptr noundef %31, ptr noundef @.str.39)
   store i32 -1, ptr %4, align 4
-  br label %211
+  store i32 1, ptr %10, align 4
+  br label %219
 
-31:                                               ; preds = %3
-  store ptr null, ptr %10, align 8
-  %32 = load ptr, ptr %9, align 8
-  %33 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %32, i32 0, i32 3
-  %34 = getelementptr inbounds %"struct.nanobind::dlpack::dtype", ptr %33, i32 0, i32 0
-  %35 = load i8, ptr %34, align 4
-  switch i8 %35, label %78 [
-    i8 0, label %36
-    i8 1, label %47
-    i8 2, label %58
-    i8 5, label %68
-    i8 6, label %77
+32:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  store ptr null, ptr %11, align 8
+  %33 = load ptr, ptr %9, align 8
+  %34 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %33, i32 0, i32 3
+  %35 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %34, i32 0, i32 0
+  %36 = load i8, ptr %35, align 4
+  switch i8 %36, label %79 [
+    i8 0, label %37
+    i8 1, label %48
+    i8 2, label %59
+    i8 5, label %69
+    i8 6, label %78
   ]
 
-36:                                               ; preds = %31
-  %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %37, i32 0, i32 3
-  %39 = getelementptr inbounds %"struct.nanobind::dlpack::dtype", ptr %38, i32 0, i32 1
-  %40 = load i8, ptr %39, align 1
-  %41 = zext i8 %40 to i32
-  switch i32 %41, label %46 [
-    i32 8, label %42
-    i32 16, label %43
-    i32 32, label %44
-    i32 64, label %45
+37:                                               ; preds = %32
+  %38 = load ptr, ptr %9, align 8
+  %39 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %38, i32 0, i32 3
+  %40 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %39, i32 0, i32 1
+  %41 = load i8, ptr %40, align 1
+  %42 = zext i8 %41 to i32
+  switch i32 %42, label %47 [
+    i32 8, label %43
+    i32 16, label %44
+    i32 32, label %45
+    i32 64, label %46
   ]
 
-42:                                               ; preds = %36
-  store ptr @.str.38, ptr %10, align 8
-  br label %46
+43:                                               ; preds = %37
+  store ptr @.str.40, ptr %11, align 8
+  br label %47
 
-43:                                               ; preds = %36
-  store ptr @.str.39, ptr %10, align 8
-  br label %46
+44:                                               ; preds = %37
+  store ptr @.str.41, ptr %11, align 8
+  br label %47
 
-44:                                               ; preds = %36
-  store ptr @.str.40, ptr %10, align 8
-  br label %46
+45:                                               ; preds = %37
+  store ptr @.str.42, ptr %11, align 8
+  br label %47
 
-45:                                               ; preds = %36
-  store ptr @.str.41, ptr %10, align 8
-  br label %46
+46:                                               ; preds = %37
+  store ptr @.str.43, ptr %11, align 8
+  br label %47
 
-46:                                               ; preds = %45, %44, %43, %42, %36
-  br label %79
+47:                                               ; preds = %37, %46, %45, %44, %43
+  br label %80
 
-47:                                               ; preds = %31
-  %48 = load ptr, ptr %9, align 8
-  %49 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %48, i32 0, i32 3
-  %50 = getelementptr inbounds %"struct.nanobind::dlpack::dtype", ptr %49, i32 0, i32 1
-  %51 = load i8, ptr %50, align 1
-  %52 = zext i8 %51 to i32
-  switch i32 %52, label %57 [
-    i32 8, label %53
-    i32 16, label %54
-    i32 32, label %55
-    i32 64, label %56
+48:                                               ; preds = %32
+  %49 = load ptr, ptr %9, align 8
+  %50 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %49, i32 0, i32 3
+  %51 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %50, i32 0, i32 1
+  %52 = load i8, ptr %51, align 1
+  %53 = zext i8 %52 to i32
+  switch i32 %53, label %58 [
+    i32 8, label %54
+    i32 16, label %55
+    i32 32, label %56
+    i32 64, label %57
   ]
 
-53:                                               ; preds = %47
-  store ptr @.str.42, ptr %10, align 8
-  br label %57
+54:                                               ; preds = %48
+  store ptr @.str.44, ptr %11, align 8
+  br label %58
 
-54:                                               ; preds = %47
-  store ptr @.str.43, ptr %10, align 8
-  br label %57
+55:                                               ; preds = %48
+  store ptr @.str.45, ptr %11, align 8
+  br label %58
 
-55:                                               ; preds = %47
-  store ptr @.str.44, ptr %10, align 8
-  br label %57
+56:                                               ; preds = %48
+  store ptr @.str.46, ptr %11, align 8
+  br label %58
 
-56:                                               ; preds = %47
-  store ptr @.str.45, ptr %10, align 8
-  br label %57
+57:                                               ; preds = %48
+  store ptr @.str.47, ptr %11, align 8
+  br label %58
 
-57:                                               ; preds = %56, %55, %54, %53, %47
-  br label %79
+58:                                               ; preds = %48, %57, %56, %55, %54
+  br label %80
 
-58:                                               ; preds = %31
-  %59 = load ptr, ptr %9, align 8
-  %60 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %59, i32 0, i32 3
-  %61 = getelementptr inbounds %"struct.nanobind::dlpack::dtype", ptr %60, i32 0, i32 1
-  %62 = load i8, ptr %61, align 1
-  %63 = zext i8 %62 to i32
-  switch i32 %63, label %67 [
-    i32 16, label %64
-    i32 32, label %65
-    i32 64, label %66
+59:                                               ; preds = %32
+  %60 = load ptr, ptr %9, align 8
+  %61 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %60, i32 0, i32 3
+  %62 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %61, i32 0, i32 1
+  %63 = load i8, ptr %62, align 1
+  %64 = zext i8 %63 to i32
+  switch i32 %64, label %68 [
+    i32 16, label %65
+    i32 32, label %66
+    i32 64, label %67
   ]
 
-64:                                               ; preds = %58
-  store ptr @.str.46, ptr %10, align 8
-  br label %67
+65:                                               ; preds = %59
+  store ptr @.str.48, ptr %11, align 8
+  br label %68
 
-65:                                               ; preds = %58
-  store ptr @.str.47, ptr %10, align 8
-  br label %67
+66:                                               ; preds = %59
+  store ptr @.str.49, ptr %11, align 8
+  br label %68
 
-66:                                               ; preds = %58
-  store ptr @.str.48, ptr %10, align 8
-  br label %67
+67:                                               ; preds = %59
+  store ptr @.str.50, ptr %11, align 8
+  br label %68
 
-67:                                               ; preds = %66, %65, %64, %58
-  br label %79
+68:                                               ; preds = %59, %67, %66, %65
+  br label %80
 
-68:                                               ; preds = %31
-  %69 = load ptr, ptr %9, align 8
-  %70 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %69, i32 0, i32 3
-  %71 = getelementptr inbounds %"struct.nanobind::dlpack::dtype", ptr %70, i32 0, i32 1
-  %72 = load i8, ptr %71, align 1
-  %73 = zext i8 %72 to i32
-  switch i32 %73, label %76 [
-    i32 64, label %74
-    i32 128, label %75
+69:                                               ; preds = %32
+  %70 = load ptr, ptr %9, align 8
+  %71 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %70, i32 0, i32 3
+  %72 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %71, i32 0, i32 1
+  %73 = load i8, ptr %72, align 1
+  %74 = zext i8 %73 to i32
+  switch i32 %74, label %77 [
+    i32 64, label %75
+    i32 128, label %76
   ]
 
-74:                                               ; preds = %68
-  store ptr @.str.49, ptr %10, align 8
-  br label %76
+75:                                               ; preds = %69
+  store ptr @.str.51, ptr %11, align 8
+  br label %77
 
-75:                                               ; preds = %68
-  store ptr @.str.50, ptr %10, align 8
-  br label %76
+76:                                               ; preds = %69
+  store ptr @.str.52, ptr %11, align 8
+  br label %77
 
-76:                                               ; preds = %75, %74, %68
-  br label %79
+77:                                               ; preds = %69, %76, %75
+  br label %80
 
-77:                                               ; preds = %31
-  store ptr @.str.51, ptr %10, align 8
-  br label %79
+78:                                               ; preds = %32
+  store ptr @.str.53, ptr %11, align 8
+  br label %80
 
-78:                                               ; preds = %31
-  br label %79
+79:                                               ; preds = %32
+  br label %80
 
-79:                                               ; preds = %78, %77, %76, %67, %57, %46
-  %80 = load ptr, ptr %10, align 8
-  %81 = icmp ne ptr %80, null
-  br i1 %81, label %82, label %89
+80:                                               ; preds = %79, %78, %77, %68, %58, %47
+  %81 = load ptr, ptr %11, align 8
+  %82 = icmp ne ptr %81, null
+  br i1 %82, label %83, label %90
 
-82:                                               ; preds = %79
-  %83 = load ptr, ptr %9, align 8
-  %84 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %83, i32 0, i32 3
-  %85 = getelementptr inbounds %"struct.nanobind::dlpack::dtype", ptr %84, i32 0, i32 2
-  %86 = load i16, ptr %85, align 2
-  %87 = zext i16 %86 to i32
-  %88 = icmp ne i32 %87, 1
-  br i1 %88, label %89, label %91
+83:                                               ; preds = %80
+  %84 = load ptr, ptr %9, align 8
+  %85 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %84, i32 0, i32 3
+  %86 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %85, i32 0, i32 2
+  %87 = load i16, ptr %86, align 2
+  %88 = zext i16 %87 to i32
+  %89 = icmp ne i32 %88, 1
+  br i1 %89, label %90, label %92
 
-89:                                               ; preds = %82, %79
-  %90 = load ptr, ptr @PyExc_BufferError, align 8
-  call void @PyErr_SetString(ptr noundef %90, ptr noundef @.str.52)
+90:                                               ; preds = %83, %80
+  %91 = load ptr, ptr @PyExc_BufferError, align 8
+  call void @PyErr_SetString(ptr noundef %91, ptr noundef @.str.54)
   store i32 -1, ptr %4, align 4
-  br label %211
+  store i32 1, ptr %10, align 4
+  br label %218
 
-91:                                               ; preds = %82
-  %92 = load ptr, ptr %10, align 8
-  %93 = load ptr, ptr %6, align 8
-  %94 = getelementptr inbounds %struct.bufferinfo, ptr %93, i32 0, i32 6
-  store ptr %92, ptr %94, align 8
-  %95 = load ptr, ptr %9, align 8
-  %96 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %95, i32 0, i32 3
-  %97 = getelementptr inbounds %"struct.nanobind::dlpack::dtype", ptr %96, i32 0, i32 1
-  %98 = load i8, ptr %97, align 1
-  %99 = zext i8 %98 to i32
-  %100 = sdiv i32 %99, 8
-  %101 = sext i32 %100 to i64
-  %102 = load ptr, ptr %6, align 8
-  %103 = getelementptr inbounds %struct.bufferinfo, ptr %102, i32 0, i32 3
-  store i64 %101, ptr %103, align 8
-  %104 = load ptr, ptr %9, align 8
-  %105 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %104, i32 0, i32 0
-  %106 = load ptr, ptr %105, align 8
-  %107 = ptrtoint ptr %106 to i64
-  %108 = load ptr, ptr %9, align 8
-  %109 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %108, i32 0, i32 6
-  %110 = load i64, ptr %109, align 8
-  %111 = add i64 %107, %110
-  %112 = inttoptr i64 %111 to ptr
-  %113 = load ptr, ptr %6, align 8
-  %114 = getelementptr inbounds %struct.bufferinfo, ptr %113, i32 0, i32 0
-  store ptr %112, ptr %114, align 8
-  %115 = load ptr, ptr %5, align 8
-  %116 = load ptr, ptr %6, align 8
-  %117 = getelementptr inbounds %struct.bufferinfo, ptr %116, i32 0, i32 1
-  store ptr %115, ptr %117, align 8
-  %118 = load ptr, ptr %5, align 8
-  call void @_ZL10_Py_INCREFP7_object(ptr noundef %118)
-  %119 = load ptr, ptr %6, align 8
-  %120 = getelementptr inbounds %struct.bufferinfo, ptr %119, i32 0, i32 3
-  %121 = load i64, ptr %120, align 8
-  store i64 %121, ptr %11, align 8
-  %122 = load ptr, ptr %9, align 8
-  %123 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %122, i32 0, i32 2
-  %124 = load i32, ptr %123, align 8
-  %125 = sext i32 %124 to i64
-  call void @_ZN8nanobind6detail15scoped_pymallocIlEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef %125)
-  %126 = load ptr, ptr %9, align 8
-  %127 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %126, i32 0, i32 2
-  %128 = load i32, ptr %127, align 8
-  %129 = sext i32 %128 to i64
-  invoke void @_ZN8nanobind6detail15scoped_pymallocIlEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef %129)
-          to label %130 unwind label %172
+92:                                               ; preds = %83
+  %93 = load ptr, ptr %11, align 8
+  %94 = load ptr, ptr %6, align 8
+  %95 = getelementptr inbounds nuw %struct.bufferinfo, ptr %94, i32 0, i32 6
+  store ptr %93, ptr %95, align 8
+  %96 = load ptr, ptr %9, align 8
+  %97 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %96, i32 0, i32 3
+  %98 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dtype", ptr %97, i32 0, i32 1
+  %99 = load i8, ptr %98, align 1
+  %100 = zext i8 %99 to i32
+  %101 = sdiv i32 %100, 8
+  %102 = sext i32 %101 to i64
+  %103 = load ptr, ptr %6, align 8
+  %104 = getelementptr inbounds nuw %struct.bufferinfo, ptr %103, i32 0, i32 3
+  store i64 %102, ptr %104, align 8
+  %105 = load ptr, ptr %9, align 8
+  %106 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %105, i32 0, i32 0
+  %107 = load ptr, ptr %106, align 8
+  %108 = ptrtoint ptr %107 to i64
+  %109 = load ptr, ptr %9, align 8
+  %110 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %109, i32 0, i32 6
+  %111 = load i64, ptr %110, align 8
+  %112 = add i64 %108, %111
+  %113 = inttoptr i64 %112 to ptr
+  %114 = load ptr, ptr %6, align 8
+  %115 = getelementptr inbounds nuw %struct.bufferinfo, ptr %114, i32 0, i32 0
+  store ptr %113, ptr %115, align 8
+  %116 = load ptr, ptr %5, align 8
+  %117 = load ptr, ptr %6, align 8
+  %118 = getelementptr inbounds nuw %struct.bufferinfo, ptr %117, i32 0, i32 1
+  store ptr %116, ptr %118, align 8
+  %119 = load ptr, ptr %5, align 8
+  call void @_ZL10_Py_INCREFP7_object(ptr noundef %119)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %120 = load ptr, ptr %6, align 8
+  %121 = getelementptr inbounds nuw %struct.bufferinfo, ptr %120, i32 0, i32 3
+  %122 = load i64, ptr %121, align 8
+  store i64 %122, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #17
+  %123 = load ptr, ptr %9, align 8
+  %124 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %123, i32 0, i32 2
+  %125 = load i32, ptr %124, align 8
+  %126 = sext i32 %125 to i64
+  call void @_ZN8nanobind6detail15scoped_pymallocIlEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef %126)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  %127 = load ptr, ptr %9, align 8
+  %128 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %127, i32 0, i32 2
+  %129 = load i32, ptr %128, align 8
+  %130 = sext i32 %129 to i64
+  invoke void @_ZN8nanobind6detail15scoped_pymallocIlEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef %130)
+          to label %131 unwind label %140
 
-130:                                              ; preds = %91
-  store i64 0, ptr %16, align 8
-  br label %131
+131:                                              ; preds = %92
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #17
+  store i64 0, ptr %17, align 8
+  br label %132
 
-131:                                              ; preds = %169, %130
-  %132 = load i64, ptr %16, align 8
-  %133 = load ptr, ptr %9, align 8
-  %134 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %133, i32 0, i32 2
-  %135 = load i32, ptr %134, align 8
-  %136 = sext i32 %135 to i64
-  %137 = icmp ult i64 %132, %136
-  br i1 %137, label %138, label %180
+132:                                              ; preds = %175, %131
+  %133 = load i64, ptr %17, align 8
+  %134 = load ptr, ptr %9, align 8
+  %135 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %134, i32 0, i32 2
+  %136 = load i32, ptr %135, align 8
+  %137 = sext i32 %136 to i64
+  %138 = icmp ult i64 %133, %137
+  br i1 %138, label %144, label %139
 
-138:                                              ; preds = %131
-  %139 = load ptr, ptr %9, align 8
-  %140 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %139, i32 0, i32 4
-  %141 = load ptr, ptr %140, align 8
-  %142 = load i64, ptr %16, align 8
-  %143 = getelementptr inbounds i64, ptr %141, i64 %142
-  %144 = load i64, ptr %143, align 8
-  %145 = load i64, ptr %11, align 8
-  %146 = mul nsw i64 %145, %144
-  store i64 %146, ptr %11, align 8
-  %147 = load ptr, ptr %9, align 8
-  %148 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %147, i32 0, i32 5
-  %149 = load ptr, ptr %148, align 8
-  %150 = load i64, ptr %16, align 8
-  %151 = getelementptr inbounds i64, ptr %149, i64 %150
-  %152 = load i64, ptr %151, align 8
-  %153 = load ptr, ptr %6, align 8
-  %154 = getelementptr inbounds %struct.bufferinfo, ptr %153, i32 0, i32 3
-  %155 = load i64, ptr %154, align 8
-  %156 = mul nsw i64 %152, %155
-  %157 = load i64, ptr %16, align 8
-  %158 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6detail15scoped_pymallocIlEixEm(ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef %157)
-          to label %159 unwind label %176
+139:                                              ; preds = %132
+  store i32 7, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #17
+  br label %182
 
-159:                                              ; preds = %138
-  store i64 %156, ptr %158, align 8
-  %160 = load ptr, ptr %9, align 8
-  %161 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %160, i32 0, i32 4
-  %162 = load ptr, ptr %161, align 8
-  %163 = load i64, ptr %16, align 8
-  %164 = getelementptr inbounds i64, ptr %162, i64 %163
-  %165 = load i64, ptr %164, align 8
-  %166 = load i64, ptr %16, align 8
-  %167 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6detail15scoped_pymallocIlEixEm(ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef %166)
-          to label %168 unwind label %176
-
-168:                                              ; preds = %159
-  store i64 %165, ptr %167, align 8
-  br label %169
-
-169:                                              ; preds = %168
-  %170 = load i64, ptr %16, align 8
-  %171 = add i64 %170, 1
-  store i64 %171, ptr %16, align 8
-  br label %131, !llvm.loop !180
-
-172:                                              ; preds = %91
-  %173 = landingpad { ptr, i32 }
+140:                                              ; preds = %92
+  %141 = landingpad { ptr, i32 }
           cleanup
-  %174 = extractvalue { ptr, i32 } %173, 0
-  store ptr %174, ptr %14, align 8
-  %175 = extractvalue { ptr, i32 } %173, 1
-  store i32 %175, ptr %15, align 4
-  br label %210
+  %142 = extractvalue { ptr, i32 } %141, 0
+  store ptr %142, ptr %15, align 8
+  %143 = extractvalue { ptr, i32 } %141, 1
+  store i32 %143, ptr %16, align 4
+  br label %217
 
-176:                                              ; preds = %203, %180, %159, %138
-  %177 = landingpad { ptr, i32 }
+144:                                              ; preds = %132
+  %145 = load ptr, ptr %9, align 8
+  %146 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %145, i32 0, i32 4
+  %147 = load ptr, ptr %146, align 8
+  %148 = load i64, ptr %17, align 8
+  %149 = getelementptr inbounds nuw i64, ptr %147, i64 %148
+  %150 = load i64, ptr %149, align 8
+  %151 = load i64, ptr %12, align 8
+  %152 = mul nsw i64 %151, %150
+  store i64 %152, ptr %12, align 8
+  %153 = load ptr, ptr %9, align 8
+  %154 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %153, i32 0, i32 5
+  %155 = load ptr, ptr %154, align 8
+  %156 = load i64, ptr %17, align 8
+  %157 = getelementptr inbounds nuw i64, ptr %155, i64 %156
+  %158 = load i64, ptr %157, align 8
+  %159 = load ptr, ptr %6, align 8
+  %160 = getelementptr inbounds nuw %struct.bufferinfo, ptr %159, i32 0, i32 3
+  %161 = load i64, ptr %160, align 8
+  %162 = mul nsw i64 %158, %161
+  %163 = load i64, ptr %17, align 8
+  %164 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6detail15scoped_pymallocIlEixEm(ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef %163)
+          to label %165 unwind label %178
+
+165:                                              ; preds = %144
+  store i64 %162, ptr %164, align 8
+  %166 = load ptr, ptr %9, align 8
+  %167 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %166, i32 0, i32 4
+  %168 = load ptr, ptr %167, align 8
+  %169 = load i64, ptr %17, align 8
+  %170 = getelementptr inbounds nuw i64, ptr %168, i64 %169
+  %171 = load i64, ptr %170, align 8
+  %172 = load i64, ptr %17, align 8
+  %173 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nanobind6detail15scoped_pymallocIlEixEm(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef %172)
+          to label %174 unwind label %178
+
+174:                                              ; preds = %165
+  store i64 %171, ptr %173, align 8
+  br label %175
+
+175:                                              ; preds = %174
+  %176 = load i64, ptr %17, align 8
+  %177 = add i64 %176, 1
+  store i64 %177, ptr %17, align 8
+  br label %132, !llvm.loop !17
+
+178:                                              ; preds = %165, %144
+  %179 = landingpad { ptr, i32 }
           cleanup
-  %178 = extractvalue { ptr, i32 } %177, 0
-  store ptr %178, ptr %14, align 8
-  %179 = extractvalue { ptr, i32 } %177, 1
-  store i32 %179, ptr %15, align 4
-  call void @_ZN8nanobind6detail15scoped_pymallocIlED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #11
-  br label %210
+  %180 = extractvalue { ptr, i32 } %179, 0
+  store ptr %180, ptr %15, align 8
+  %181 = extractvalue { ptr, i32 } %179, 1
+  store i32 %181, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #17
+  br label %216
 
-180:                                              ; preds = %131
-  %181 = load ptr, ptr %9, align 8
-  %182 = getelementptr inbounds %"struct.nanobind::dlpack::dltensor", ptr %181, i32 0, i32 2
-  %183 = load i32, ptr %182, align 8
-  %184 = load ptr, ptr %6, align 8
-  %185 = getelementptr inbounds %struct.bufferinfo, ptr %184, i32 0, i32 5
-  store i32 %183, ptr %185, align 4
-  %186 = load i64, ptr %11, align 8
-  %187 = load ptr, ptr %6, align 8
-  %188 = getelementptr inbounds %struct.bufferinfo, ptr %187, i32 0, i32 2
-  store i64 %186, ptr %188, align 8
-  %189 = load ptr, ptr %8, align 8
-  %190 = getelementptr inbounds %"struct.nanobind::detail::nb_ndarray", ptr %189, i32 0, i32 1
-  %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds %"struct.nanobind::detail::ndarray_handle", ptr %191, i32 0, i32 7
-  %193 = load i8, ptr %192, align 1
-  %194 = trunc i8 %193 to i1
-  %195 = zext i1 %194 to i32
-  %196 = load ptr, ptr %6, align 8
-  %197 = getelementptr inbounds %struct.bufferinfo, ptr %196, i32 0, i32 4
-  store i32 %195, ptr %197, align 8
+182:                                              ; preds = %139
+  %183 = load ptr, ptr %9, align 8
+  %184 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %183, i32 0, i32 2
+  %185 = load i32, ptr %184, align 8
+  %186 = load ptr, ptr %6, align 8
+  %187 = getelementptr inbounds nuw %struct.bufferinfo, ptr %186, i32 0, i32 5
+  store i32 %185, ptr %187, align 4
+  %188 = load i64, ptr %12, align 8
+  %189 = load ptr, ptr %6, align 8
+  %190 = getelementptr inbounds nuw %struct.bufferinfo, ptr %189, i32 0, i32 2
+  store i64 %188, ptr %190, align 8
+  %191 = load ptr, ptr %8, align 8
+  %192 = getelementptr inbounds nuw %"struct.nanobind::detail::nb_ndarray", ptr %191, i32 0, i32 1
+  %193 = load ptr, ptr %192, align 8
+  %194 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %193, i32 0, i32 7
+  %195 = load i8, ptr %194, align 1, !range !3, !noundef !4
+  %196 = trunc i8 %195 to i1
+  %197 = zext i1 %196 to i32
   %198 = load ptr, ptr %6, align 8
-  %199 = getelementptr inbounds %struct.bufferinfo, ptr %198, i32 0, i32 9
-  store ptr null, ptr %199, align 8
+  %199 = getelementptr inbounds nuw %struct.bufferinfo, ptr %198, i32 0, i32 4
+  store i32 %197, ptr %199, align 8
   %200 = load ptr, ptr %6, align 8
-  %201 = getelementptr inbounds %struct.bufferinfo, ptr %200, i32 0, i32 10
+  %201 = getelementptr inbounds nuw %struct.bufferinfo, ptr %200, i32 0, i32 9
   store ptr null, ptr %201, align 8
-  %202 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocIlE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %203 unwind label %176
+  %202 = load ptr, ptr %6, align 8
+  %203 = getelementptr inbounds nuw %struct.bufferinfo, ptr %202, i32 0, i32 10
+  store ptr null, ptr %203, align 8
+  %204 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocIlE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %205 unwind label %212
 
-203:                                              ; preds = %180
-  %204 = load ptr, ptr %6, align 8
-  %205 = getelementptr inbounds %struct.bufferinfo, ptr %204, i32 0, i32 8
-  store ptr %202, ptr %205, align 8
-  %206 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocIlE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %207 unwind label %176
+205:                                              ; preds = %182
+  %206 = load ptr, ptr %6, align 8
+  %207 = getelementptr inbounds nuw %struct.bufferinfo, ptr %206, i32 0, i32 8
+  store ptr %204, ptr %207, align 8
+  %208 = invoke noundef ptr @_ZN8nanobind6detail15scoped_pymallocIlE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %209 unwind label %212
 
-207:                                              ; preds = %203
-  %208 = load ptr, ptr %6, align 8
-  %209 = getelementptr inbounds %struct.bufferinfo, ptr %208, i32 0, i32 7
-  store ptr %206, ptr %209, align 8
+209:                                              ; preds = %205
+  %210 = load ptr, ptr %6, align 8
+  %211 = getelementptr inbounds nuw %struct.bufferinfo, ptr %210, i32 0, i32 7
+  store ptr %208, ptr %211, align 8
   store i32 0, ptr %4, align 4
-  call void @_ZN8nanobind6detail15scoped_pymallocIlED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #11
-  call void @_ZN8nanobind6detail15scoped_pymallocIlED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #11
-  br label %211
+  store i32 1, ptr %10, align 4
+  call void @_ZN8nanobind6detail15scoped_pymallocIlED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  call void @_ZN8nanobind6detail15scoped_pymallocIlED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  br label %218
 
-210:                                              ; preds = %176, %172
-  call void @_ZN8nanobind6detail15scoped_pymallocIlED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #11
-  br label %213
+212:                                              ; preds = %205, %182
+  %213 = landingpad { ptr, i32 }
+          cleanup
+  %214 = extractvalue { ptr, i32 } %213, 0
+  store ptr %214, ptr %15, align 8
+  %215 = extractvalue { ptr, i32 } %213, 1
+  store i32 %215, ptr %16, align 4
+  br label %216
 
-211:                                              ; preds = %207, %89, %29
-  %212 = load i32, ptr %4, align 4
-  ret i32 %212
+216:                                              ; preds = %212, %178
+  call void @_ZN8nanobind6detail15scoped_pymallocIlED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #17
+  br label %217
 
-213:                                              ; preds = %210
-  %214 = load ptr, ptr %14, align 8
-  %215 = load i32, ptr %15, align 4
-  %216 = insertvalue { ptr, i32 } poison, ptr %214, 0
-  %217 = insertvalue { ptr, i32 } %216, i32 %215, 1
-  resume { ptr, i32 } %217
+217:                                              ; preds = %216, %140
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  call void @_ZN8nanobind6detail15scoped_pymallocIlED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  br label %221
+
+218:                                              ; preds = %209, %90
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  br label %219
+
+219:                                              ; preds = %218, %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  %220 = load i32, ptr %4, align 4
+  ret i32 %220
+
+221:                                              ; preds = %217
+  %222 = load ptr, ptr %15, align 8
+  %223 = load i32, ptr %16, align 4
+  %224 = insertvalue { ptr, i32 } poison, ptr %222, 0
+  %225 = insertvalue { ptr, i32 } %224, i32 %223, 1
+  resume { ptr, i32 } %225
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8nanobind6detailL24nb_ndarray_releasebufferEP7_objectP10bufferinfo(ptr noundef %0, ptr noundef %1) #6 {
+define internal void @_ZN8nanobind6detailL24nb_ndarray_releasebufferEP7_objectP10bufferinfo(ptr noundef %0, ptr noundef %1) #12 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %struct.bufferinfo, ptr %5, i32 0, i32 7
+  %6 = getelementptr inbounds nuw %struct.bufferinfo, ptr %5, i32 0, i32 7
   %7 = load ptr, ptr %6, align 8
   call void @PyMem_Free(ptr noundef %7)
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.bufferinfo, ptr %8, i32 0, i32 8
+  %9 = getelementptr inbounds nuw %struct.bufferinfo, ptr %8, i32 0, i32 8
   %10 = load ptr, ptr %9, align 8
   call void @PyMem_Free(ptr noundef %10)
   ret void
@@ -7709,13 +7812,176 @@ define internal void @_ZN8nanobind6detailL24nb_ndarray_releasebufferEP7_objectP1
 
 declare ptr @PyType_FromSpec(ptr noundef) #1
 
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN8nanobind6detail15nb_maybe_atomicIP11_typeobjectE13store_releaseES3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"struct.nanobind::detail::nb_maybe_atomic", ptr %5, i32 0, i32 0
+  store ptr %6, ptr %7, align 8
+  ret void
+}
+
 declare void @PyObject_Free(ptr noundef) #1
+
+; Function Attrs: mustprogress uwtable
+define internal noundef ptr @_ZN8nanobind6detailL17nb_ndarray_dlpackEP7_objectP11_typeobjectPKS2_lS2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #12 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store i64 %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  %14 = load ptr, ptr %6, align 8
+  store ptr %14, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %15 = load ptr, ptr %11, align 8
+  %16 = getelementptr inbounds nuw %"struct.nanobind::detail::nb_ndarray", ptr %15, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  store ptr %17, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #17
+  %18 = load ptr, ptr %12, align 8
+  %19 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8
+  %21 = call ptr @PyCapsule_New(ptr noundef %20, ptr noundef @.str.13, ptr noundef @_ZN8nanobind6detailL26ndarray_capsule_destructorEP7_object)
+  store ptr %21, ptr %13, align 8
+  %22 = load ptr, ptr %13, align 8
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %27
+
+24:                                               ; preds = %5
+  %25 = load ptr, ptr %12, align 8
+  %26 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef %25) #17
+  br label %27
+
+27:                                               ; preds = %24, %5
+  %28 = load ptr, ptr %13, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  ret ptr %28
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef ptr @_ZN8nanobind6detailL24nb_ndarray_dlpack_deviceEP7_objectP11_typeobjectPKS2_lS2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #12 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %18 = load ptr, ptr %7, align 8
+  store ptr %18, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #17
+  %19 = load ptr, ptr %12, align 8
+  %20 = getelementptr inbounds nuw %"struct.nanobind::detail::nb_ndarray", ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds nuw %"struct.nanobind::detail::ndarray_handle", ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds nuw %"struct.nanobind::detail::managed_dltensor", ptr %23, i32 0, i32 0
+  store ptr %24, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  %25 = call ptr @PyTuple_New(i64 noundef 2)
+  store ptr %25, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #17
+  %26 = load ptr, ptr %13, align 8
+  %27 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %26, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %"struct.nanobind::dlpack::device", ptr %27, i32 0, i32 0
+  %29 = load i32, ptr %28, align 8
+  %30 = sext i32 %29 to i64
+  %31 = call ptr @PyLong_FromLong(i64 noundef %30)
+  store ptr %31, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #17
+  %32 = load ptr, ptr %13, align 8
+  %33 = getelementptr inbounds nuw %"struct.nanobind::dlpack::dltensor", ptr %32, i32 0, i32 1
+  %34 = getelementptr inbounds nuw %"struct.nanobind::dlpack::device", ptr %33, i32 0, i32 1
+  %35 = load i32, ptr %34, align 4
+  %36 = sext i32 %35 to i64
+  %37 = call ptr @PyLong_FromLong(i64 noundef %36)
+  store ptr %37, ptr %16, align 8
+  %38 = load ptr, ptr %14, align 8
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %40, label %46
+
+40:                                               ; preds = %5
+  %41 = load ptr, ptr %15, align 8
+  %42 = icmp ne ptr %41, null
+  br i1 %42, label %43, label %46
+
+43:                                               ; preds = %40
+  %44 = load ptr, ptr %16, align 8
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %50, label %46
+
+46:                                               ; preds = %43, %40, %5
+  %47 = load ptr, ptr %14, align 8
+  call void @_ZL11_Py_XDECREFP7_object(ptr noundef %47)
+  %48 = load ptr, ptr %15, align 8
+  call void @_ZL11_Py_XDECREFP7_object(ptr noundef %48)
+  %49 = load ptr, ptr %16, align 8
+  call void @_ZL11_Py_XDECREFP7_object(ptr noundef %49)
+  store ptr null, ptr %6, align 8
+  store i32 1, ptr %17, align 4
+  br label %60
+
+50:                                               ; preds = %43
+  %51 = load ptr, ptr %15, align 8
+  %52 = load ptr, ptr %14, align 8
+  %53 = getelementptr inbounds nuw %struct.PyTupleObject, ptr %52, i32 0, i32 1
+  %54 = getelementptr inbounds [1 x ptr], ptr %53, i64 0, i64 0
+  store ptr %51, ptr %54, align 8
+  %55 = load ptr, ptr %16, align 8
+  %56 = load ptr, ptr %14, align 8
+  %57 = getelementptr inbounds nuw %struct.PyTupleObject, ptr %56, i32 0, i32 1
+  %58 = getelementptr inbounds [1 x ptr], ptr %57, i64 0, i64 1
+  store ptr %55, ptr %58, align 8
+  %59 = load ptr, ptr %14, align 8
+  store ptr %59, ptr %6, align 8
+  store i32 1, ptr %17, align 4
+  br label %60
+
+60:                                               ; preds = %50, %46
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  %61 = load ptr, ptr %6, align 8
+  ret ptr %61
+}
+
+declare ptr @PyTuple_New(i64 noundef) #1
+
+declare ptr @PyLong_FromLong(i64 noundef) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca %"class.nanobind::handle", align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds %"class.nanobind::handle", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %3, i32 0, i32 0
   store ptr %1, ptr %5, align 8
   store ptr %0, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
@@ -7735,12 +8001,12 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8
 define linkonce_odr hidden void @_ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca %"class.nanobind::handle", align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds %"class.nanobind::handle", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %3, i32 0, i32 0
   store ptr %1, ptr %5, align 8
   store ptr %0, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %3, i64 8, i1 false)
-  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
   ret void
 }
 
@@ -7749,7 +8015,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.nanobind::handle", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
   call void @_ZL11_Py_XINCREFP7_object(ptr noundef %5)
   ret ptr %3
@@ -7757,26 +8023,39 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8nanobind6detail8accessorINS0_8str_attrEEC2IRPKcEENS_6handleEOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca %"class.nanobind::handle", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %4, i32 0, i32 0
+  store ptr %1, ptr %7, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = getelementptr inbounds nuw %"class.nanobind::detail::accessor", ptr %8, i32 0, i32 0
+  %10 = call noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds nuw %"class.nanobind::detail::accessor", ptr %8, i32 0, i32 1
+  store ptr null, ptr %11, align 8
+  %12 = getelementptr inbounds nuw %"class.nanobind::detail::accessor", ptr %8, i32 0, i32 2
+  %13 = load ptr, ptr %6, align 8
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %12, align 8
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN8nanobind3strC2ENS_6handleENS_6detail8borrow_tE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1) unnamed_addr #11 comdat align 2 {
+  %3 = alloca %"class.nanobind::handle", align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.nanobind::handle", align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds %"class.nanobind::handle", ptr %5, i32 0, i32 0
-  store ptr %1, ptr %8, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %"class.nanobind::detail::accessor", ptr %9, i32 0, i32 0
-  store ptr %5, ptr %4, align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr %10, align 8
-  %13 = getelementptr inbounds %"class.nanobind::detail::accessor", ptr %9, i32 0, i32 1
-  store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds %"class.nanobind::detail::accessor", ptr %9, i32 0, i32 2
-  %15 = load ptr, ptr %7, align 8
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %14, align 8
+  %6 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %3, i32 0, i32 0
+  store ptr %1, ptr %6, align 8
+  store ptr %0, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %3, i64 8, i1 false)
+  %8 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %5, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr %9)
   ret void
 }
 
@@ -7786,6 +8065,37 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZNK8nanobind6detail8accessorINS0_8str_attrEE3ptrEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #10 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.nanobind::detail::accessor", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw %"class.nanobind::detail::accessor", ptr %3, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds nuw %"class.nanobind::detail::accessor", ptr %3, i32 0, i32 1
+  call void @_ZN8nanobind6detail8str_attr3getEP7_objectPKcPS3_(ptr noundef %5, ptr noundef %7, ptr noundef %8)
+  %9 = getelementptr inbounds nuw %"class.nanobind::detail::accessor", ptr %3, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  ret ptr %10
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden void @_ZN8nanobind6detail8str_attr3getEP7_objectPKcPS3_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #10 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  call void @_ZN8nanobind6detail16getattr_or_raiseEP7_objectPKcPS2_(ptr noundef %7, ptr noundef %8, ptr noundef %9)
+  ret void
 }
 
 declare void @_ZN8nanobind6detail16getattr_or_raiseEP7_objectPKcPS2_(ptr noundef, ptr noundef, ptr noundef) #1
@@ -7800,111 +8110,136 @@ define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterINS_6handleEiE8f
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   %8 = load ptr, ptr %5, align 8
-  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #17
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %9, i64 8, i1 false)
-  %10 = getelementptr inbounds %"class.nanobind::handle", ptr %4, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %4, i32 0, i32 0
   %11 = load ptr, ptr %10, align 8
   ret ptr %11
 }
 
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden void @_ZNK8nanobind6detail8accessorINS0_8str_attrEE3keyEv(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #10 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.nanobind::handle", align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"class.nanobind::detail::accessor", ptr %6, i32 0, i32 2
+  %8 = load ptr, ptr %7, align 8
+  %9 = call noundef ptr @_ZN8nanobind6detail8str_attr3keyEPKc(ptr noundef %8)
+  call void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %9)
+  %10 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %5, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  call void @_ZN8nanobind5stealINS_6objectEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %0, ptr %11)
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden ptr @_ZNK8nanobind6detail8accessorINS0_8str_attrEE4baseEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #10 comdat align 2 {
+  %2 = alloca %"class.nanobind::handle", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.nanobind::detail::accessor", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  call void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %6)
+  %7 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
 declare noundef ptr @_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS2_b(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext) #1
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZN8nanobind6detail8str_attr3keyEPKc(ptr noundef %0) #10 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call ptr @PyUnicode_InternFromString(ptr noundef %3)
+  ret ptr %4
+}
 
 declare ptr @PyUnicode_InternFromString(ptr noundef) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterIciE8from_cppEPKcNS_9rv_policyEPNS0_12cleanup_listE(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca ptr, align 8
+  %4 = alloca %"class.nanobind::handle", align 8
   %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
+  %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
-  %8 = alloca %"class.nanobind::handle", align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca i32, align 4
-  %11 = alloca ptr, align 8
-  %12 = alloca ptr, align 8
-  store ptr %0, ptr %9, align 8
-  store i32 %1, ptr %10, align 4
-  store ptr %2, ptr %11, align 8
-  %13 = load ptr, ptr %9, align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %21
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %15
 
-15:                                               ; preds = %3
-  store ptr @_Py_NoneStruct, ptr %12, align 8
-  %16 = load ptr, ptr %12, align 8
-  call void @_ZL10_Py_INCREFP7_object(ptr noundef %16)
-  %17 = load ptr, ptr %12, align 8
-  store ptr %8, ptr %6, align 8
-  store ptr %17, ptr %7, align 8
-  %18 = load ptr, ptr %6, align 8
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %18, align 8
+11:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  store ptr @_Py_NoneStruct, ptr %8, align 8
+  %12 = load ptr, ptr %8, align 8
+  call void @_ZL10_Py_INCREFP7_object(ptr noundef %12)
+  %13 = load ptr, ptr %8, align 8
+  invoke void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %13)
+          to label %14 unwind label %23
+
+14:                                               ; preds = %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
   br label %20
 
-20:                                               ; preds = %15
-  br label %28
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %5, align 8
+  %17 = invoke ptr @PyUnicode_FromString(ptr noundef %16)
+          to label %18 unwind label %23
 
-21:                                               ; preds = %3
-  %22 = load ptr, ptr %9, align 8
-  %23 = invoke ptr @PyUnicode_FromString(ptr noundef %22)
-          to label %24 unwind label %31
+18:                                               ; preds = %15
+  invoke void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %17)
+          to label %19 unwind label %23
 
-24:                                               ; preds = %21
-  store ptr %8, ptr %4, align 8
-  store ptr %23, ptr %5, align 8
-  %25 = load ptr, ptr %4, align 8
-  %26 = load ptr, ptr %5, align 8
-  store ptr %26, ptr %25, align 8
-  br label %27
+19:                                               ; preds = %18
+  br label %20
 
-27:                                               ; preds = %24
-  br label %28
+20:                                               ; preds = %19, %14
+  %21 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %4, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8
+  ret ptr %22
 
-28:                                               ; preds = %27, %20
-  %29 = getelementptr inbounds %"class.nanobind::handle", ptr %8, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  ret ptr %30
-
-31:                                               ; preds = %21
-  %32 = landingpad { ptr, i32 }
+23:                                               ; preds = %18, %15, %11
+  %24 = landingpad { ptr, i32 }
           catch ptr null
-  %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #12
+  %25 = extractvalue { ptr, i32 } %24, 0
+  call void @__clang_call_terminate(ptr %25) #18
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterIciE8from_cppEcNS_9rv_policyEPNS0_12cleanup_listE(i8 noundef signext %0, i32 noundef %1, ptr noundef %2) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca %"class.nanobind::handle", align 8
-  %7 = alloca i8, align 1
-  %8 = alloca i32, align 4
-  %9 = alloca ptr, align 8
-  store i8 %0, ptr %7, align 1
-  store i32 %1, ptr %8, align 4
-  store ptr %2, ptr %9, align 8
-  %10 = invoke ptr @PyUnicode_FromStringAndSize(ptr noundef %7, i64 noundef 1)
-          to label %11 unwind label %17
+  %4 = alloca %"class.nanobind::handle", align 8
+  %5 = alloca i8, align 1
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  store i8 %0, ptr %5, align 1
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  %8 = invoke ptr @PyUnicode_FromStringAndSize(ptr noundef %5, i64 noundef 1)
+          to label %9 unwind label %13
 
-11:                                               ; preds = %3
-  store ptr %6, ptr %4, align 8
-  store ptr %10, ptr %5, align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = load ptr, ptr %5, align 8
-  store ptr %13, ptr %12, align 8
-  br label %14
+9:                                                ; preds = %3
+  invoke void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %8)
+          to label %10 unwind label %13
 
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds %"class.nanobind::handle", ptr %6, i32 0, i32 0
-  %16 = load ptr, ptr %15, align 8
-  ret ptr %16
+10:                                               ; preds = %9
+  %11 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %4, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  ret ptr %12
 
-17:                                               ; preds = %3
-  %18 = landingpad { ptr, i32 }
+13:                                               ; preds = %9, %3
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #12
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #18
   unreachable
 }
 
@@ -7913,124 +8248,103 @@ declare ptr @PyUnicode_FromString(ptr noundef) #1
 declare ptr @PyUnicode_FromStringAndSize(ptr noundef, i64 noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN8nanobind4castINS_6detail8accessorINS1_8str_attrEEEEENS_6objectEOT_NS_9rv_policyE(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) #6 comdat {
+define linkonce_odr hidden void @_ZN8nanobind4castINS_6detail8accessorINS1_8str_attrEEEEENS_6objectEOT_NS_9rv_policyE(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) #12 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %"class.nanobind::handle", align 8
+  %8 = alloca %"class.nanobind::handle", align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %9 = load ptr, ptr %5, align 8
+  %10 = load i32, ptr %6, align 4
+  %11 = call ptr @_ZN8nanobind6detail11type_casterINS0_8accessorINS0_8str_attrEEEiE8from_cppEOS4_NS_9rv_policyEPNS0_12cleanup_listE(ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef %10, ptr noundef null) #17
+  %12 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %7, i32 0, i32 0
+  store ptr %11, ptr %12, align 8
+  %13 = call noundef zeroext i1 @_ZNK8nanobind6detail3apiINS_6handleEE8is_validEv(ptr noundef nonnull align 1 dereferenceable(1) %7)
+  br i1 %13, label %15, label %14
+
+14:                                               ; preds = %3
+  call void @_ZN8nanobind6detail16raise_cast_errorEv() #20
+  unreachable
+
+15:                                               ; preds = %3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %7, i64 8, i1 false)
+  %16 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %8, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8
+  call void @_ZN8nanobind5stealINS_6objectEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %0, ptr %17)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN8nanobind5arg_vC2ERKNS_3argEONS_6objectE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #11 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = alloca %"class.nanobind::handle", align 8
-  %8 = alloca %"class.nanobind::handle", align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca i32, align 4
-  %12 = alloca %"class.nanobind::handle", align 8
-  %13 = alloca %"class.nanobind::handle", align 8
-  store ptr %0, ptr %9, align 8
-  store ptr %1, ptr %10, align 8
-  store i32 %2, ptr %11, align 4
-  %14 = load ptr, ptr %10, align 8
-  %15 = load i32, ptr %11, align 4
-  %16 = call ptr @_ZN8nanobind6detail11type_casterINS0_8accessorINS0_8str_attrEEEiE8from_cppEOS4_NS_9rv_policyEPNS0_12cleanup_listE(ptr noundef nonnull align 8 dereferenceable(24) %14, i32 noundef %15, ptr noundef null) #11
-  %17 = getelementptr inbounds %"class.nanobind::handle", ptr %12, i32 0, i32 0
-  store ptr %16, ptr %17, align 8
-  store ptr %12, ptr %5, align 8
-  %18 = load ptr, ptr %5, align 8
-  %19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8nanobind6detail3apiINS_6handleEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %18)
-  store ptr %19, ptr %4, align 8
-  %20 = load ptr, ptr %4, align 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp ne ptr %21, null
-  br i1 %22, label %24, label %23
-
-23:                                               ; preds = %3
-  call void @_ZN8nanobind6detail16raise_cast_errorEv() #14
-  unreachable
-
-24:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %12, i64 8, i1 false)
-  %25 = getelementptr inbounds %"class.nanobind::handle", ptr %13, i32 0, i32 0
-  %26 = load ptr, ptr %25, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !181)
-  store ptr %0, ptr %6, align 8, !noalias !181
-  store ptr %26, ptr %7, align 8, !noalias !181
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %7, i64 8, i1 false), !noalias !181
-  %27 = load ptr, ptr %8, align 8, !noalias !181
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %27)
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 24, i1 false)
+  %9 = getelementptr inbounds nuw %"struct.nanobind::arg_v", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %6, align 8
+  call void @_ZN8nanobind6objectC2EOS0_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterINS0_8accessorINS0_8str_attrEEEiE8from_cppEOS4_NS_9rv_policyEPNS0_12cleanup_listE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef %2) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca ptr, align 8
+  %4 = alloca %"class.nanobind::handle", align 8
   %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
+  %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca %"class.nanobind::handle", align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca %"class.nanobind::handle", align 8
-  %13 = alloca ptr, align 8
-  %14 = alloca %"class.nanobind::handle", align 8
-  %15 = alloca %"class.nanobind::handle", align 8
-  %16 = alloca ptr, align 8
-  %17 = alloca i32, align 4
-  %18 = alloca ptr, align 8
-  store ptr %0, ptr %16, align 8
-  store i32 %1, ptr %17, align 4
-  store ptr %2, ptr %18, align 8
-  %19 = load ptr, ptr %16, align 8
-  store ptr %19, ptr %13, align 8
-  %20 = load ptr, ptr %13, align 8
-  store ptr %20, ptr %11, align 8
-  %21 = load ptr, ptr %11, align 8
-  %22 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %21)
-  store ptr %22, ptr %7, align 8
-  %23 = load ptr, ptr %7, align 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %"class.nanobind::detail::accessor", ptr %23, i32 0, i32 2
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds %"class.nanobind::detail::accessor", ptr %23, i32 0, i32 1
-  store ptr %24, ptr %4, align 8
-  store ptr %26, ptr %5, align 8
-  store ptr %27, ptr %6, align 8
-  %28 = load ptr, ptr %4, align 8
-  %29 = load ptr, ptr %5, align 8
-  %30 = load ptr, ptr %6, align 8
-  invoke void @_ZN8nanobind6detail16getattr_or_raiseEP7_objectPKcPS2_(ptr noundef %28, ptr noundef %29, ptr noundef %30)
-          to label %31 unwind label %43
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = invoke ptr @_ZNKR8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7inc_refEv(ptr noundef nonnull align 1 dereferenceable(1) %8)
+          to label %10 unwind label %14
 
-31:                                               ; preds = %3
-  %32 = getelementptr inbounds %"class.nanobind::detail::accessor", ptr %23, i32 0, i32 1
-  %33 = load ptr, ptr %32, align 8
-  store ptr %10, ptr %8, align 8
-  store ptr %33, ptr %9, align 8
-  %34 = load ptr, ptr %8, align 8
-  %35 = load ptr, ptr %9, align 8
-  store ptr %35, ptr %34, align 8
-  %36 = load ptr, ptr %10, align 8
-  store ptr %36, ptr %14, align 8
-  %37 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %37, i64 8, i1 false)
-  %38 = load ptr, ptr %12, align 8
-  br label %39
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %4, i32 0, i32 0
+  store ptr %9, ptr %11, align 8
+  %12 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %4, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8
+  ret ptr %13
 
-39:                                               ; preds = %31
-  %40 = getelementptr inbounds %"class.nanobind::handle", ptr %15, i32 0, i32 0
-  store ptr %38, ptr %40, align 8
-  %41 = getelementptr inbounds %"class.nanobind::handle", ptr %15, i32 0, i32 0
-  %42 = load ptr, ptr %41, align 8
-  ret ptr %42
-
-43:                                               ; preds = %3
-  %44 = landingpad { ptr, i32 }
+14:                                               ; preds = %3
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %45 = extractvalue { ptr, i32 } %44, 0
-  call void @__clang_call_terminate(ptr %45) #12
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #18
   unreachable
 }
 
 ; Function Attrs: noreturn
-declare void @_ZN8nanobind6detail16raise_cast_errorEv() #9
+declare void @_ZN8nanobind6detail16raise_cast_errorEv() #16
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden ptr @_ZNKR8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEE7inc_refEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #10 comdat align 2 {
+  %2 = alloca %"class.nanobind::handle", align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca %"class.nanobind::handle", align 8
+  store ptr %0, ptr %3, align 8
+  %5 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #17
+  %6 = call ptr @_ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_attrEEEEcvNS_6handleEEv(ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %7 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %4, i32 0, i32 0
+  store ptr %6, ptr %7, align 8
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %8, i64 8, i1 false)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #17
+  %9 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %2, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  ret ptr %10
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8nanobind6objectC2EOS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
@@ -8042,12 +8356,151 @@ define linkonce_odr hidden void @_ZN8nanobind6objectC2EOS0_(ptr noundef nonnull 
   %6 = load ptr, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %6, i64 8, i1 false)
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.nanobind::handle", ptr %7, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %7, i32 0, i32 0
   store ptr null, ptr %8, align 8
   ret void
 }
 
-declare ptr @PyTuple_New(i64 noundef) #1
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN8nanobind6detail12call_analyzeINS_5arg_vEEEvRmS3_RKT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #11 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load i64, ptr %7, align 8
+  %9 = add i64 %8, 1
+  store i64 %9, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden void @_ZN8nanobind6detail9call_initILNS_9rv_policyE1ENS_5arg_vEEEvPP7_objectS5_RmS7_mOT0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(32) %5) #10 comdat {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %"class.nanobind::handle", align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store i64 %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #17
+  %14 = load ptr, ptr %12, align 8
+  %15 = getelementptr inbounds nuw %"struct.nanobind::arg_v", ptr %14, i32 0, i32 1
+  %16 = call ptr @_ZN8nanobind6object7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %15)
+  %17 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %13, i32 0, i32 0
+  store ptr %16, ptr %17, align 8
+  %18 = call noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
+  %19 = load ptr, ptr %7, align 8
+  %20 = load i64, ptr %11, align 8
+  %21 = load ptr, ptr %10, align 8
+  %22 = load i64, ptr %21, align 8
+  %23 = add i64 %20, %22
+  %24 = getelementptr inbounds nuw ptr, ptr %19, i64 %23
+  store ptr %18, ptr %24, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #17
+  %25 = load ptr, ptr %12, align 8
+  %26 = getelementptr inbounds nuw %"struct.nanobind::arg", ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8
+  %28 = call ptr @PyUnicode_InternFromString(ptr noundef %27)
+  %29 = load ptr, ptr %8, align 8
+  %30 = getelementptr inbounds nuw %struct.PyTupleObject, ptr %29, i32 0, i32 1
+  %31 = load ptr, ptr %10, align 8
+  %32 = load i64, ptr %31, align 8
+  %33 = add i64 %32, 1
+  store i64 %33, ptr %31, align 8
+  %34 = getelementptr inbounds nuw [1 x ptr], ptr %30, i64 0, i64 %32
+  store ptr %28, ptr %34, align 8
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt13__atomic_baseImE5storeEmSt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1, i32 noundef %2) #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store i32 %2, ptr %6, align 4
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #17
+  %10 = load i32, ptr %6, align 4
+  %11 = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %10, i32 noundef 65535)
+          to label %12 unwind label %32
+
+12:                                               ; preds = %3
+  store i32 %11, ptr %7, align 4
+  br label %13
+
+13:                                               ; preds = %12
+  br label %14
+
+14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %14
+  br label %16
+
+16:                                               ; preds = %15
+  br label %17
+
+17:                                               ; preds = %16
+  br label %18
+
+18:                                               ; preds = %17
+  br label %19
+
+19:                                               ; preds = %18
+  br label %20
+
+20:                                               ; preds = %19
+  br label %21
+
+21:                                               ; preds = %20
+  %22 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %9, i32 0, i32 0
+  %23 = load i32, ptr %6, align 4
+  %24 = load i64, ptr %5, align 8
+  store i64 %24, ptr %8, align 8
+  switch i32 %23, label %25 [
+    i32 3, label %27
+    i32 5, label %29
+  ]
+
+25:                                               ; preds = %21
+  %26 = load i64, ptr %8, align 8
+  store atomic i64 %26, ptr %22 monotonic, align 8
+  br label %31
+
+27:                                               ; preds = %21
+  %28 = load i64, ptr %8, align 8
+  store atomic i64 %28, ptr %22 release, align 8
+  br label %31
+
+29:                                               ; preds = %21
+  %30 = load i64, ptr %8, align 8
+  store atomic i64 %30, ptr %22 seq_cst, align 8
+  br label %31
+
+31:                                               ; preds = %29, %27, %25
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #17
+  ret void
+
+32:                                               ; preds = %3
+  %33 = landingpad { ptr, i32 }
+          catch ptr null
+  %34 = extractvalue { ptr, i32 } %33, 0
+  call void @__clang_call_terminate(ptr %34) #18
+  unreachable
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %0, i32 noundef %1) #0 comdat {
@@ -8061,90 +8514,177 @@ define linkonce_odr noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifi
   ret i32 %7
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN8nanobind4castIRbEENS_6objectEOT_NS_9rv_policyE(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2) #6 comdat {
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNSt13__atomic_baseImE9fetch_subEmSt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1, i32 noundef %2) #11 comdat align 2 {
   %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca %"class.nanobind::handle", align 8
-  %8 = alloca %"class.nanobind::handle", align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca i32, align 4
-  %12 = alloca %"class.nanobind::handle", align 8
-  %13 = alloca %"class.nanobind::handle", align 8
-  store ptr %0, ptr %9, align 8
-  store ptr %1, ptr %10, align 8
-  store i32 %2, ptr %11, align 4
-  %14 = load ptr, ptr %10, align 8
-  %15 = load i8, ptr %14, align 1
-  %16 = trunc i8 %15 to i1
-  %17 = load i32, ptr %11, align 4
-  %18 = call ptr @_ZN8nanobind6detail11type_casterIbiE8from_cppEbNS_9rv_policyEPNS0_12cleanup_listE(i1 noundef zeroext %16, i32 noundef %17, ptr noundef null) #11
-  %19 = getelementptr inbounds %"class.nanobind::handle", ptr %12, i32 0, i32 0
-  store ptr %18, ptr %19, align 8
-  store ptr %12, ptr %5, align 8
-  %20 = load ptr, ptr %5, align 8
-  %21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8nanobind6detail3apiINS_6handleEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %20)
-  store ptr %21, ptr %4, align 8
-  %22 = load ptr, ptr %4, align 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = icmp ne ptr %23, null
-  br i1 %24, label %26, label %25
+  %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store i32 %2, ptr %6, align 4
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %9, i32 0, i32 0
+  %11 = load i32, ptr %6, align 4
+  %12 = load i64, ptr %5, align 8
+  store i64 %12, ptr %7, align 8
+  switch i32 %11, label %13 [
+    i32 1, label %16
+    i32 2, label %16
+    i32 3, label %19
+    i32 4, label %22
+    i32 5, label %25
+  ]
+
+13:                                               ; preds = %3
+  %14 = load i64, ptr %7, align 8
+  %15 = atomicrmw sub ptr %10, i64 %14 monotonic, align 8
+  store i64 %15, ptr %8, align 8
+  br label %28
+
+16:                                               ; preds = %3, %3
+  %17 = load i64, ptr %7, align 8
+  %18 = atomicrmw sub ptr %10, i64 %17 acquire, align 8
+  store i64 %18, ptr %8, align 8
+  br label %28
+
+19:                                               ; preds = %3
+  %20 = load i64, ptr %7, align 8
+  %21 = atomicrmw sub ptr %10, i64 %20 release, align 8
+  store i64 %21, ptr %8, align 8
+  br label %28
+
+22:                                               ; preds = %3
+  %23 = load i64, ptr %7, align 8
+  %24 = atomicrmw sub ptr %10, i64 %23 acq_rel, align 8
+  store i64 %24, ptr %8, align 8
+  br label %28
 
 25:                                               ; preds = %3
-  call void @_ZN8nanobind6detail16raise_cast_errorEv() #14
+  %26 = load i64, ptr %7, align 8
+  %27 = atomicrmw sub ptr %10, i64 %26 seq_cst, align 8
+  store i64 %27, ptr %8, align 8
+  br label %28
+
+28:                                               ; preds = %25, %22, %19, %16, %13
+  %29 = load i64, ptr %8, align 8
+  ret i64 %29
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN8nanobind4castIRbEENS_6objectEOT_NS_9rv_policyE(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2) #12 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %"class.nanobind::handle", align 8
+  %8 = alloca %"class.nanobind::handle", align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %9 = load ptr, ptr %5, align 8
+  %10 = load i8, ptr %9, align 1, !range !3, !noundef !4
+  %11 = trunc i8 %10 to i1
+  %12 = load i32, ptr %6, align 4
+  %13 = call ptr @_ZN8nanobind6detail11type_casterIbiE8from_cppEbNS_9rv_policyEPNS0_12cleanup_listE(i1 noundef zeroext %11, i32 noundef %12, ptr noundef null) #17
+  %14 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %7, i32 0, i32 0
+  store ptr %13, ptr %14, align 8
+  %15 = call noundef zeroext i1 @_ZNK8nanobind6detail3apiINS_6handleEE8is_validEv(ptr noundef nonnull align 1 dereferenceable(1) %7)
+  br i1 %15, label %17, label %16
+
+16:                                               ; preds = %3
+  call void @_ZN8nanobind6detail16raise_cast_errorEv() #20
   unreachable
 
-26:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %12, i64 8, i1 false)
-  %27 = getelementptr inbounds %"class.nanobind::handle", ptr %13, i32 0, i32 0
-  %28 = load ptr, ptr %27, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !184)
-  store ptr %0, ptr %6, align 8, !noalias !184
-  store ptr %28, ptr %7, align 8, !noalias !184
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %7, i64 8, i1 false), !noalias !184
-  %29 = load ptr, ptr %8, align 8, !noalias !184
-  call void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %29)
+17:                                               ; preds = %3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %7, i64 8, i1 false)
+  %18 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %8, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  call void @_ZN8nanobind5stealINS_6objectEEET_NS_6handleE(ptr dead_on_unwind writable sret(%"class.nanobind::object") align 8 %0, ptr %19)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterIbiE8from_cppEbNS_9rv_policyEPNS0_12cleanup_listE(i1 noundef zeroext %0, i32 noundef %1, ptr noundef %2) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca %"class.nanobind::handle", align 8
-  %7 = alloca i8, align 1
-  %8 = alloca i32, align 4
-  %9 = alloca ptr, align 8
-  %10 = alloca %"class.nanobind::handle", align 8
-  %11 = zext i1 %0 to i8
-  store i8 %11, ptr %7, align 1
-  store i32 %1, ptr %8, align 4
-  store ptr %2, ptr %9, align 8
-  %12 = load i8, ptr %7, align 1
-  %13 = trunc i8 %12 to i1
-  %14 = select i1 %13, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
-  store ptr %10, ptr %4, align 8
-  store ptr %14, ptr %5, align 8
-  %15 = load ptr, ptr %4, align 8
-  %16 = load ptr, ptr %5, align 8
-  store ptr %16, ptr %15, align 8
-  br label %17
+  %4 = alloca %"class.nanobind::handle", align 8
+  %5 = alloca i8, align 1
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca %"class.nanobind::handle", align 8
+  %9 = zext i1 %0 to i8
+  store i8 %9, ptr %5, align 1
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  %10 = load i8, ptr %5, align 1, !range !3, !noundef !4
+  %11 = trunc i8 %10 to i1
+  %12 = select i1 %11, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
+  invoke void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %12)
+          to label %13 unwind label %17
+
+13:                                               ; preds = %3
+  %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #17
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %14, i64 8, i1 false)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  %15 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %4, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8
+  ret ptr %16
 
 17:                                               ; preds = %3
-  %18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %18, i64 8, i1 false)
-  %19 = getelementptr inbounds %"class.nanobind::handle", ptr %6, i32 0, i32 0
-  %20 = load ptr, ptr %19, align 8
-  ret ptr %20
-
-21:                                               ; No predecessors!
-  %22 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #12
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #18
   unreachable
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN8nanobind6detail12call_analyzeINS_6objectEEEvRmS3_RKT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #11 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %7, align 8
+  %9 = add i64 %8, 1
+  store i64 %9, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN8nanobind6detail9call_initILNS_9rv_policyE1ERNS_6objectEEEvPP7_objectS6_RmS8_mOT0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #11 comdat {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %"class.nanobind::handle", align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store i64 %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #17
+  %14 = load ptr, ptr %12, align 8
+  %15 = call ptr @_ZN8nanobind6detail11type_casterINS_6objectEiE8from_cppERKS2_NS_9rv_policyEPNS0_12cleanup_listE(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef 1, ptr noundef null) #17
+  %16 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %13, i32 0, i32 0
+  store ptr %15, ptr %16, align 8
+  %17 = call noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
+  %18 = load ptr, ptr %7, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = load i64, ptr %19, align 8
+  %21 = add i64 %20, 1
+  store i64 %21, ptr %19, align 8
+  %22 = getelementptr inbounds nuw ptr, ptr %18, i64 %20
+  store ptr %17, ptr %22, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #17
+  ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8157,218 +8697,52 @@ define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterINS_6objectEiE8f
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   %8 = load ptr, ptr %5, align 8
-  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #11
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7inc_refEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #17
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %9, i64 8, i1 false)
-  %10 = getelementptr inbounds %"class.nanobind::handle", ptr %4, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %4, i32 0, i32 0
   %11 = load ptr, ptr %10, align 8
   ret ptr %11
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #10
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #6 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { alwaysinline mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nounwind memory(none) }
+attributes #16 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nounwind }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { nounwind willreturn memory(read) }
+attributes #20 = { noreturn }
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind memory(none) }
-attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { nounwind willreturn memory(read) }
-attributes #14 = { noreturn }
-
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE: argument 0"}
-!6 = distinct !{!6, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE"}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN8nanobind6borrowINS_3strEEET_NS_6handleE: argument 0"}
-!9 = distinct !{!9, !"_ZN8nanobind6borrowINS_3strEEET_NS_6handleE"}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN8nanobind7module_7import_EPKc: argument 0"}
-!12 = distinct !{!12, !"_ZN8nanobind7module_7import_EPKc"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN8nanobind5stealINS_7module_EEET_NS_6handleE: argument 0"}
-!15 = distinct !{!15, !"_ZN8nanobind5stealINS_7module_EEET_NS_6handleE"}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZN8nanobind7module_7import_EPKc: argument 0"}
-!18 = distinct !{!18, !"_ZN8nanobind7module_7import_EPKc"}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZN8nanobind5stealINS_7module_EEET_NS_6handleE: argument 0"}
-!21 = distinct !{!21, !"_ZN8nanobind5stealINS_7module_EEET_NS_6handleE"}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN8nanobind7module_7import_EPKc: argument 0"}
-!24 = distinct !{!24, !"_ZN8nanobind7module_7import_EPKc"}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN8nanobind5stealINS_7module_EEET_NS_6handleE: argument 0"}
-!27 = distinct !{!27, !"_ZN8nanobind5stealINS_7module_EEET_NS_6handleE"}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE: argument 0"}
-!30 = distinct !{!30, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN8nanobind6borrowINS_6objectEEET_NS_6handleE: argument 0"}
-!33 = distinct !{!33, !"_ZN8nanobind6borrowINS_6objectEEET_NS_6handleE"}
-!34 = distinct !{!34, !35}
-!35 = !{!"llvm.loop.mustprogress"}
-!36 = distinct !{!36, !35}
-!37 = distinct !{!37, !35}
-!38 = distinct !{!38, !35}
-!39 = distinct !{!39, !35}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZN8nanobind6borrowINS_3strEEET_NS_6handleE: argument 0"}
-!42 = distinct !{!42, !"_ZN8nanobind6borrowINS_3strEEET_NS_6handleE"}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZN8nanobind7module_7import_EPKc: argument 0"}
-!45 = distinct !{!45, !"_ZN8nanobind7module_7import_EPKc"}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZN8nanobind5stealINS_7module_EEET_NS_6handleE: argument 0"}
-!48 = distinct !{!48, !"_ZN8nanobind5stealINS_7module_EEET_NS_6handleE"}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZNK8nanobind3argaSINS_6detail8accessorINS2_8str_attrEEEEENS_5arg_vEOT_: argument 0"}
-!51 = distinct !{!51, !"_ZNK8nanobind3argaSINS_6detail8accessorINS2_8str_attrEEEEENS_5arg_vEOT_"}
-!52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZN8nanobind7module_7import_EPKc: argument 0"}
-!54 = distinct !{!54, !"_ZN8nanobind7module_7import_EPKc"}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZN8nanobind5stealINS_7module_EEET_NS_6handleE: argument 0"}
-!57 = distinct !{!57, !"_ZN8nanobind5stealINS_7module_EEET_NS_6handleE"}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZNK8nanobind6detail8accessorINS0_8str_attrEE3keyEv: argument 0"}
-!60 = distinct !{!60, !"_ZNK8nanobind6detail8accessorINS0_8str_attrEE3keyEv"}
-!61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE: argument 0"}
-!63 = distinct !{!63, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE"}
-!64 = !{!62, !59}
-!65 = !{!66}
-!66 = distinct !{!66, !67, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE: argument 0"}
-!67 = distinct !{!67, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE"}
-!68 = distinct !{!68, !35}
-!69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZNK8nanobind6detail8accessorINS0_8str_attrEE3keyEv: argument 0"}
-!71 = distinct !{!71, !"_ZNK8nanobind6detail8accessorINS0_8str_attrEE3keyEv"}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE: argument 0"}
-!74 = distinct !{!74, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE"}
-!75 = !{!73, !70}
-!76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE: argument 0"}
-!78 = distinct !{!78, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE"}
-!79 = !{!80}
-!80 = distinct !{!80, !81, !"_ZNK8nanobind6detail8accessorINS0_8str_attrEE3keyEv: argument 0"}
-!81 = distinct !{!81, !"_ZNK8nanobind6detail8accessorINS0_8str_attrEE3keyEv"}
-!82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE: argument 0"}
-!84 = distinct !{!84, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE"}
-!85 = !{!83, !80}
-!86 = !{!87}
-!87 = distinct !{!87, !88, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE: argument 0"}
-!88 = distinct !{!88, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE"}
-!89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZNK8nanobind6detail8accessorINS0_8str_attrEE3keyEv: argument 0"}
-!91 = distinct !{!91, !"_ZNK8nanobind6detail8accessorINS0_8str_attrEE3keyEv"}
-!92 = !{!93}
-!93 = distinct !{!93, !94, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE: argument 0"}
-!94 = distinct !{!94, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE"}
-!95 = !{!93, !90}
-!96 = !{!97}
-!97 = distinct !{!97, !98, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE: argument 0"}
-!98 = distinct !{!98, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE"}
-!99 = !{!100}
-!100 = distinct !{!100, !101, !"_ZNK8nanobind6detail8accessorINS0_8str_attrEE3keyEv: argument 0"}
-!101 = distinct !{!101, !"_ZNK8nanobind6detail8accessorINS0_8str_attrEE3keyEv"}
-!102 = !{!103}
-!103 = distinct !{!103, !104, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE: argument 0"}
-!104 = distinct !{!104, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE"}
-!105 = !{!103, !100}
-!106 = !{!107}
-!107 = distinct !{!107, !108, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE: argument 0"}
-!108 = distinct !{!108, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE"}
-!109 = !{!110}
-!110 = distinct !{!110, !111, !"_ZNK8nanobind6detail8accessorINS0_8str_attrEE3keyEv: argument 0"}
-!111 = distinct !{!111, !"_ZNK8nanobind6detail8accessorINS0_8str_attrEE3keyEv"}
-!112 = !{!113}
-!113 = distinct !{!113, !114, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE: argument 0"}
-!114 = distinct !{!114, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE"}
-!115 = !{!113, !110}
-!116 = !{!117}
-!117 = distinct !{!117, !118, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE: argument 0"}
-!118 = distinct !{!118, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE"}
-!119 = distinct !{!119, !35}
-!120 = distinct !{!120, !35}
-!121 = !{!122}
-!122 = distinct !{!122, !123, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE: argument 0"}
-!123 = distinct !{!123, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE"}
-!124 = !{!125}
-!125 = distinct !{!125, !126, !"_ZN8nanobind7module_7import_EPKc: argument 0"}
-!126 = distinct !{!126, !"_ZN8nanobind7module_7import_EPKc"}
-!127 = !{!128}
-!128 = distinct !{!128, !129, !"_ZN8nanobind5stealINS_7module_EEET_NS_6handleE: argument 0"}
-!129 = distinct !{!129, !"_ZN8nanobind5stealINS_7module_EEET_NS_6handleE"}
-!130 = !{!131}
-!131 = distinct !{!131, !132, !"_ZNK8nanobind3argaSIRbEENS_5arg_vEOT_: argument 0"}
-!132 = distinct !{!132, !"_ZNK8nanobind3argaSIRbEENS_5arg_vEOT_"}
-!133 = !{!134}
-!134 = distinct !{!134, !135, !"_ZN8nanobind7module_7import_EPKc: argument 0"}
-!135 = distinct !{!135, !"_ZN8nanobind7module_7import_EPKc"}
-!136 = !{!137}
-!137 = distinct !{!137, !138, !"_ZN8nanobind5stealINS_7module_EEET_NS_6handleE: argument 0"}
-!138 = distinct !{!138, !"_ZN8nanobind5stealINS_7module_EEET_NS_6handleE"}
-!139 = !{!140}
-!140 = distinct !{!140, !141, !"_ZN8nanobind7module_7import_EPKc: argument 0"}
-!141 = distinct !{!141, !"_ZN8nanobind7module_7import_EPKc"}
-!142 = !{!143}
-!143 = distinct !{!143, !144, !"_ZN8nanobind5stealINS_7module_EEET_NS_6handleE: argument 0"}
-!144 = distinct !{!144, !"_ZN8nanobind5stealINS_7module_EEET_NS_6handleE"}
-!145 = !{!146}
-!146 = distinct !{!146, !147, !"_ZN8nanobind7module_7import_EPKc: argument 0"}
-!147 = distinct !{!147, !"_ZN8nanobind7module_7import_EPKc"}
-!148 = !{!149}
-!149 = distinct !{!149, !150, !"_ZN8nanobind5stealINS_7module_EEET_NS_6handleE: argument 0"}
-!150 = distinct !{!150, !"_ZN8nanobind5stealINS_7module_EEET_NS_6handleE"}
-!151 = !{!152}
-!152 = distinct !{!152, !153, !"_ZN8nanobind6borrowINS_6objectEEET_NS_6handleE: argument 0"}
-!153 = distinct !{!153, !"_ZN8nanobind6borrowINS_6objectEEET_NS_6handleE"}
-!154 = !{!155}
-!155 = distinct !{!155, !156, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE: argument 0"}
-!156 = distinct !{!156, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE"}
-!157 = !{!158}
-!158 = distinct !{!158, !159, !"_ZN8nanobind6borrowINS_6objectEEET_NS_6handleE: argument 0"}
-!159 = distinct !{!159, !"_ZN8nanobind6borrowINS_6objectEEET_NS_6handleE"}
-!160 = !{!161}
-!161 = distinct !{!161, !162, !"_ZNK8nanobind6detail8accessorINS0_8str_attrEE3keyEv: argument 0"}
-!162 = distinct !{!162, !"_ZNK8nanobind6detail8accessorINS0_8str_attrEE3keyEv"}
-!163 = !{!164}
-!164 = distinct !{!164, !165, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE: argument 0"}
-!165 = distinct !{!165, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE"}
-!166 = !{!164, !161}
-!167 = !{!168}
-!168 = distinct !{!168, !169, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE: argument 0"}
-!169 = distinct !{!169, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE"}
-!170 = !{!171}
-!171 = distinct !{!171, !172, !"_ZNK8nanobind6detail8accessorINS0_8str_attrEE3keyEv: argument 0"}
-!172 = distinct !{!172, !"_ZNK8nanobind6detail8accessorINS0_8str_attrEE3keyEv"}
-!173 = !{!174}
-!174 = distinct !{!174, !175, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE: argument 0"}
-!175 = distinct !{!175, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE"}
-!176 = !{!174, !171}
-!177 = !{!178}
-!178 = distinct !{!178, !179, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE: argument 0"}
-!179 = distinct !{!179, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE"}
-!180 = distinct !{!180, !35}
-!181 = !{!182}
-!182 = distinct !{!182, !183, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE: argument 0"}
-!183 = distinct !{!183, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE"}
-!184 = !{!185}
-!185 = distinct !{!185, !186, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE: argument 0"}
-!186 = distinct !{!186, !"_ZN8nanobind5stealINS_6objectEEET_NS_6handleE"}
+!3 = !{i8 0, i8 2}
+!4 = !{}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}

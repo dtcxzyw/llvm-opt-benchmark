@@ -110,6 +110,7 @@ supported_project = [
     "mixbox",
     "mold",
     "msgpack",
+    "nanobind",
 ]
 
 modify_only = [

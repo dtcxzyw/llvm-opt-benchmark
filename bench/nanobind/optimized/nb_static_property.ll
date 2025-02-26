@@ -23,10 +23,11 @@ define hidden noundef ptr @_ZN8nanobind6detail21nb_static_property_tpEv() local_
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %6, label %26
+  br i1 %.not, label %6, label %24, !prof !3
 
 6:                                                ; preds = %0
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyProperty_Type, i64 240), align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #7
   store i32 48, ptr %1, align 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @PyProperty_Type, ptr %8, align 8
@@ -42,6 +43,7 @@ define hidden noundef ptr @_ZN8nanobind6detail21nb_static_property_tpEv() local_
   store i32 0, ptr %13, align 16
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr null, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #7
   store ptr @.str, ptr %2, align 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %15, align 8
@@ -52,43 +54,60 @@ define hidden noundef ptr @_ZN8nanobind6detail21nb_static_property_tpEv() local_
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %1, ptr %18, align 8
   %19 = invoke ptr @PyType_FromSpec(ptr noundef nonnull %2)
-          to label %20 unwind label %27
+          to label %20 unwind label %25
 
 20:                                               ; preds = %6
-  %.not5 = icmp eq ptr %19, null
-  br i1 %.not5, label %21, label %22
+  %.not17 = icmp eq ptr %19, null
+  br i1 %.not17, label %21, label %22, !prof !3
 
 21:                                               ; preds = %20
-  call void @_ZN8nanobind6detail16fail_unspecifiedEv() #6
+  call void @_ZN8nanobind6detail16fail_unspecifiedEv() #8
   unreachable
 
 22:                                               ; preds = %20
-  %23 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  store ptr %19, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 64
-  store ptr @_ZN8nanobind6detailL28nb_static_property_descr_setEP7_objectS2_S2_, ptr %25, align 8
-  br label %26
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  store ptr @_ZN8nanobind6detailL28nb_static_property_descr_setEP7_objectS2_S2_, ptr %23, align 8
+  store ptr %19, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1) #7
+  br label %24
 
-26:                                               ; preds = %22, %0
-  %.0 = phi ptr [ %19, %22 ], [ %5, %0 ]
-  ret ptr %.0
+24:                                               ; preds = %22, %0
+  %.1 = phi ptr [ %5, %0 ], [ %19, %22 ]
+  ret ptr %.1
 
-27:                                               ; preds = %6
-  %28 = landingpad { ptr, i32 }
+25:                                               ; preds = %6
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #6
+  %27 = extractvalue { ptr, i32 } %26, 0
+  call void @__clang_call_terminate(ptr %27) #8
   unreachable
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #2 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #7
+  tail call void @_ZSt9terminatev() #8
+  unreachable
+}
+
+declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
+
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #3
+
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN8nanobind6detailL28nb_static_property_descr_getEP7_objectS2_S2_(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #1 {
+define internal noundef ptr @_ZN8nanobind6detailL28nb_static_property_descr_getEP7_objectS2_S2_(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #4 {
   %4 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %6 = load i8, ptr %5, align 8
-  %7 = trunc i8 %6 to i1
-  br i1 %7, label %8, label %11
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %6 = load i8, ptr %5, align 8, !range !4, !noundef !5
+  %7 = trunc nuw i8 %6 to i1
+  br i1 %7, label %11, label %8
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyProperty_Type, i64 272), align 8
@@ -102,31 +121,17 @@ define internal noundef ptr @_ZN8nanobind6detailL28nb_static_property_descr_getE
   br label %14
 
 14:                                               ; preds = %11, %8
-  %.0 = phi ptr [ %10, %8 ], [ %0, %11 ]
+  %.0 = phi ptr [ %0, %11 ], [ %10, %8 ]
   ret ptr %.0
 }
 
-declare ptr @PyType_FromSpec(ptr noundef) local_unnamed_addr #2
-
-declare i32 @__gxx_personality_v0(...)
-
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #7
-  tail call void @_ZSt9terminatev() #6
-  unreachable
-}
-
-declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
-
-; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #4
+declare ptr @PyType_FromSpec(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: noreturn nounwind
-declare hidden void @_ZN8nanobind6detail16fail_unspecifiedEv() local_unnamed_addr #5
+declare hidden void @_ZN8nanobind6detail16fail_unspecifiedEv() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN8nanobind6detailL28nb_static_property_descr_setEP7_objectS2_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
+define internal noundef i32 @_ZN8nanobind6detailL28nb_static_property_descr_setEP7_objectS2_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 {
   %4 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 168
@@ -139,18 +144,24 @@ define internal noundef i32 @_ZN8nanobind6detailL28nb_static_property_descr_setE
   ret i32 %8
 }
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold nofree noreturn }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind }
-attributes #7 = { nounwind }
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold nofree noreturn }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { noreturn nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!4 = !{i8 0, i8 2}
+!5 = !{}

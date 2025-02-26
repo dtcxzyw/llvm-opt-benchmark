@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 $__clang_call_terminate = comdat any
 
 @_ZN8nanobind6detail9internalsE = external hidden local_unnamed_addr global ptr, align 8
-@_ZN8nanobind6detail14current_ticketE = hidden thread_local local_unnamed_addr global ptr null, align 8
+@_ZN8nanobind6detailL14current_ticketE = internal thread_local unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [81 x i8] c"nanobind::detail::get_trampoline('%s()'): tried to call a pure virtual function!\00", align 1
 @_Py_NoneStruct = external global %struct._object, align 8
 @.str.1 = private unnamed_addr constant [38 x i8] c"tried to call a pure virtual function\00", align 1
@@ -35,27 +35,27 @@ define void @_ZN8nanobind6detail14trampoline_newEPPvmS1_(ptr noundef writeonly c
   %15 = load i64, ptr %5, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %17 = load ptr, ptr %16, align 8
-  %.0812.i.i.i.i.i = and i64 %15, %14
-  %18 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry", ptr %17, i64 %.0812.i.i.i.i.i
+  %.0813.i.i.i.i.i = and i64 %15, %14
+  %18 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %17, i64 %.0813.i.i.i.i.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i16, ptr %19, align 4
-  %.not13.i.i.i.i.i = icmp slt i16 %20, 0
-  br i1 %.not13.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
+  %.not14.i.i.i.i.i = icmp slt i16 %20, 0
+  br i1 %.not14.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %3, %25
   %21 = phi ptr [ %28, %25 ], [ %18, %3 ]
-  %.0815.i.i.i.i.i = phi i64 [ %.08.i.i.i.i.i, %25 ], [ %.0812.i.i.i.i.i, %3 ]
-  %.014.i.i.i.i.i = phi i16 [ %27, %25 ], [ 0, %3 ]
+  %.0816.i.i.i.i.i = phi i64 [ %.08.i.i.i.i.i, %25 ], [ %.0813.i.i.i.i.i, %3 ]
+  %.015.i.i.i.i.i = phi i16 [ %27, %25 ], [ 0, %3 ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, %2
-  br i1 %24, label %.loopexit.loopexit, label %25
+  br i1 %24, label %.loopexit.loopexit, label %25, !prof !3
 
 25:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %26 = add i64 %.0815.i.i.i.i.i, 1
-  %27 = add i16 %.014.i.i.i.i.i, 1
+  %26 = add i64 %.0816.i.i.i.i.i, 1
+  %27 = add i16 %.015.i.i.i.i.i, 1
   %.08.i.i.i.i.i = and i64 %26, %15
-  %28 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry", ptr %17, i64 %.08.i.i.i.i.i
+  %28 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %17, i64 %.08.i.i.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i16, ptr %29, align 4
   %.not.i.i.i.i.i = icmp sgt i16 %27, %30
@@ -64,7 +64,7 @@ define void @_ZN8nanobind6detail14trampoline_newEPPvmS1_(ptr noundef writeonly c
 ._crit_edge.i.i.i.i.i:                            ; preds = %25, %3
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry", ptr %17, i64 %32
+  %33 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %17, i64 %32
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %.lr.ph.i.i.i.i.i
@@ -74,18 +74,18 @@ define void @_ZN8nanobind6detail14trampoline_newEPPvmS1_(ptr noundef writeonly c
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge.i.i.i.i.i
   %34 = phi i64 [ %32, %._crit_edge.i.i.i.i.i ], [ %.pre, %.loopexit.loopexit ]
-  %.sroa.0.0.i.i.i.i.i = phi ptr [ %33, %._crit_edge.i.i.i.i.i ], [ %21, %.loopexit.loopexit ]
-  %35 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry", ptr %17, i64 %34
-  %.not = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %35
-  br i1 %.not, label %.critedge, label %36
+  %.sroa.09.0.i.i.i.i.i = phi ptr [ %33, %._crit_edge.i.i.i.i.i ], [ %21, %.loopexit.loopexit ]
+  %35 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %17, i64 %34
+  %.not = icmp eq ptr %.sroa.09.0.i.i.i.i.i, %35
+  br i1 %.not, label %.critedge, label %36, !prof !6
 
 36:                                               ; preds = %.loopexit
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i.i.i.i.i, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %40 = and i64 %39, 1
-  %.not7 = icmp eq i64 %40, 0
-  br i1 %.not7, label %41, label %.critedge
+  %.not10 = icmp eq i64 %40, 0
+  br i1 %.not10, label %41, label %.critedge, !prof !3
 
 .critedge:                                        ; preds = %.loopexit, %36
   tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #9
@@ -101,7 +101,7 @@ define void @_ZN8nanobind6detail14trampoline_newEPPvmS1_(ptr noundef writeonly c
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #1 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
   tail call void @_ZSt9terminatev() #9
@@ -125,6 +125,9 @@ define void @_ZN8nanobind6detail18trampoline_releaseEPPvm(ptr noundef readonly c
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
+._crit_edge:                                      ; preds = %_ZL11_Py_XDECREFP7_object.exit, %2
+  ret void
+
 .lr.ph:                                           ; preds = %2, %_ZL11_Py_XDECREFP7_object.exit
   %.04 = phi i64 [ %8, %_ZL11_Py_XDECREFP7_object.exit ], [ 0, %2 ]
   %.idx = shl i64 %.04, 4
@@ -147,10 +150,7 @@ define void @_ZN8nanobind6detail18trampoline_releaseEPPvm(ptr noundef readonly c
 _ZL11_Py_XDECREFP7_object.exit:                   ; preds = %4, %.lr.ph, %7
   %8 = add nuw i64 %.04, 1
   %exitcond.not = icmp eq i64 %8, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
-
-._crit_edge:                                      ; preds = %_ZL11_Py_XDECREFP7_object.exit, %2
-  ret void
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 9:                                                ; preds = %7
   %10 = landingpad { ptr, i32 }
@@ -162,129 +162,131 @@ _ZL11_Py_XDECREFP7_object.exit:                   ; preds = %4, %.lr.ph, %7
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8nanobind6detail16trampoline_enterEPPvmPKcbPNS0_6ticketE(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #5 {
+  %6 = load ptr, ptr %0, align 8
   %invariant.gep.i = getelementptr i8, ptr %0, i64 16
-  %.not119.i = icmp eq i64 %1, 0
-  br i1 %.not119.i, label %.preheader.thread.i, label %.lr.ph.i
+  %.not138142.not.i = icmp eq i64 %1, 0
+  br i1 %.not138142.not.i, label %.thread127.preheader.thread.i, label %.lr.ph.i
 
-.preheader.thread.i:                              ; preds = %5
-  %6 = tail call i32 @PyGILState_Ensure()
-  br label %._crit_edge116.i
+.thread127.preheader.thread.i:                    ; preds = %5
+  %7 = tail call i32 @PyGILState_Ensure()
+  br label %._crit_edge.i
 
-7:                                                ; preds = %.lr.ph.i
-  %8 = add nuw i64 %.088106.i, 1
-  %exitcond.not.i = icmp eq i64 %8, %1
-  br i1 %exitcond.not.i, label %.lr.ph111.preheader.i, label %.lr.ph.i, !llvm.loop !7
+8:                                                ; preds = %.lr.ph.i
+  %9 = add nuw i64 %.093143.i, 1
+  %exitcond.not.i = icmp eq i64 %9, %1
+  br i1 %exitcond.not.i, label %.lr.ph148.preheader.i, label %.lr.ph.i, !llvm.loop !8
 
-.lr.ph.i:                                         ; preds = %5, %7
-  %.088106.i = phi i64 [ %8, %7 ], [ 0, %5 ]
-  %9 = shl i64 %.088106.i, 1
-  %10 = or disjoint i64 %9, 1
-  %11 = getelementptr inbounds ptr, ptr %0, i64 %10
-  %12 = load ptr, ptr %11, align 8
-  %gep.i = getelementptr ptr, ptr %invariant.gep.i, i64 %9
-  %13 = load ptr, ptr %gep.i, align 8
-  %14 = icmp eq ptr %2, %12
-  %15 = icmp ne ptr %13, null
-  %or.cond.i = select i1 %14, i1 %15, i1 false
-  br i1 %or.cond.i, label %16, label %7
+.lr.ph.i:                                         ; preds = %5, %8
+  %.093143.i = phi i64 [ %9, %8 ], [ 0, %5 ]
+  %10 = shl i64 %.093143.i, 1
+  %11 = or disjoint i64 %10, 1
+  %12 = getelementptr inbounds nuw ptr, ptr %0, i64 %11
+  %13 = load ptr, ptr %12, align 8
+  %gep.i = getelementptr ptr, ptr %invariant.gep.i, i64 %10
+  %14 = load ptr, ptr %gep.i, align 8
+  %15 = icmp ne ptr %2, %13
+  %16 = icmp eq ptr %14, null
+  %or.cond.not.i = select i1 %15, i1 true, i1 %16
+  br i1 %or.cond.not.i, label %8, label %17
 
-16:                                               ; preds = %.lr.ph.i
-  %.not100.i = icmp eq ptr %13, @_Py_NoneStruct
-  br i1 %.not100.i, label %21, label %17
+17:                                               ; preds = %.lr.ph.i
+  %.not.i = icmp eq ptr %14, @_Py_NoneStruct
+  br i1 %.not.i, label %23, label %18
 
-17:                                               ; preds = %16
-  %18 = tail call i32 @PyGILState_Ensure()
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 %18, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %13, ptr %20, align 8
+18:                                               ; preds = %17
+  %19 = tail call i32 @PyGILState_Ensure()
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i32 %19, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %22 = ptrtoint ptr %14 to i64
+  store i64 %22, ptr %21, align 8
   br label %_ZN8nanobind6detailL25trampoline_enter_internalEPPvmPKcbPNS0_6ticketE.exit
 
-21:                                               ; preds = %16
-  br i1 %3, label %22, label %_ZN8nanobind6detailL25trampoline_enter_internalEPPvmPKcbPNS0_6ticketE.exit
+23:                                               ; preds = %17
+  br i1 %3, label %.thread116.i, label %_ZN8nanobind6detailL25trampoline_enter_internalEPPvmPKcbPNS0_6ticketE.exit
 
-22:                                               ; preds = %21
-  %23 = tail call i32 @PyGILState_Ensure()
-  br label %._crit_edge116.thread.i
-
-.lr.ph111.preheader.i:                            ; preds = %7
+.thread116.i:                                     ; preds = %23
   %24 = tail call i32 @PyGILState_Ensure()
-  br label %.lr.ph111.i
+  br label %.thread127.thread135.i
 
-25:                                               ; preds = %.lr.ph111.i
-  %26 = add nuw i64 %.086109.i, 1
-  %exitcond125.not.i = icmp eq i64 %26, %1
-  br i1 %exitcond125.not.i, label %.lr.ph115.i, label %.lr.ph111.i, !llvm.loop !8
+.lr.ph148.preheader.i:                            ; preds = %8
+  %25 = tail call i32 @PyGILState_Ensure()
+  br label %.lr.ph148.i
 
-.lr.ph111.i:                                      ; preds = %25, %.lr.ph111.preheader.i
-  %.086109.i = phi i64 [ %26, %25 ], [ 0, %.lr.ph111.preheader.i ]
-  %27 = shl i64 %.086109.i, 1
-  %28 = or disjoint i64 %27, 1
-  %29 = getelementptr inbounds ptr, ptr %0, i64 %28
-  %30 = load ptr, ptr %29, align 8
-  %gep108.i = getelementptr ptr, ptr %invariant.gep.i, i64 %27
-  %31 = load ptr, ptr %gep108.i, align 8
-  %32 = icmp eq ptr %2, %30
-  %33 = icmp ne ptr %31, null
-  %or.cond3.i = select i1 %32, i1 %33, i1 false
-  br i1 %or.cond3.i, label %34, label %25
+26:                                               ; preds = %.lr.ph148.i
+  %27 = add nuw i64 %.087147.i, 1
+  %exitcond160.not.i = icmp eq i64 %27, %1
+  br i1 %exitcond160.not.i, label %.lr.ph152.i, label %.lr.ph148.i, !llvm.loop !9
 
-34:                                               ; preds = %.lr.ph111.i
-  %.not99.i = icmp eq ptr %31, @_Py_NoneStruct
-  br i1 %.not99.i, label %38, label %35
+.lr.ph148.i:                                      ; preds = %26, %.lr.ph148.preheader.i
+  %.087147.i = phi i64 [ %27, %26 ], [ 0, %.lr.ph148.preheader.i ]
+  %28 = shl i64 %.087147.i, 1
+  %29 = or disjoint i64 %28, 1
+  %30 = getelementptr inbounds nuw ptr, ptr %0, i64 %29
+  %31 = load ptr, ptr %30, align 8
+  %gep146.i = getelementptr ptr, ptr %invariant.gep.i, i64 %28
+  %32 = load ptr, ptr %gep146.i, align 8
+  %33 = icmp ne ptr %2, %31
+  %34 = icmp eq ptr %32, null
+  %or.cond5.not.i = select i1 %33, i1 true, i1 %34
+  br i1 %or.cond5.not.i, label %26, label %35
 
-35:                                               ; preds = %34
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 %24, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %31, ptr %37, align 8
+35:                                               ; preds = %.lr.ph148.i
+  %.not102.i = icmp eq ptr %32, @_Py_NoneStruct
+  br i1 %.not102.i, label %40, label %36
+
+36:                                               ; preds = %35
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i32 %25, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %39 = ptrtoint ptr %32 to i64
+  store i64 %39, ptr %38, align 8
   br label %_ZN8nanobind6detailL25trampoline_enter_internalEPPvmPKcbPNS0_6ticketE.exit
 
-38:                                               ; preds = %34
-  br i1 %3, label %._crit_edge116.thread.i, label %39
+40:                                               ; preds = %35
+  br i1 %3, label %.thread127.thread135.i, label %41
 
-39:                                               ; preds = %38
-  tail call void @PyGILState_Release(i32 noundef %24)
+41:                                               ; preds = %40
+  tail call void @PyGILState_Release(i32 noundef %25)
   br label %_ZN8nanobind6detailL25trampoline_enter_internalEPPvmPKcbPNS0_6ticketE.exit
 
-.lr.ph115.i:                                      ; preds = %25, %48
-  %.087114.i = phi i64 [ %49, %48 ], [ 0, %25 ]
-  %40 = shl i64 %.087114.i, 1
-  %41 = or disjoint i64 %40, 1
-  %42 = getelementptr inbounds ptr, ptr %0, i64 %41
-  %43 = load ptr, ptr %42, align 8
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %45, label %48
+.lr.ph152.i:                                      ; preds = %26, %.thread127.i
+  %.088151.i = phi i64 [ %50, %.thread127.i ], [ 0, %26 ]
+  %42 = shl i64 %.088151.i, 1
+  %43 = or disjoint i64 %42, 1
+  %44 = getelementptr inbounds nuw ptr, ptr %0, i64 %43
+  %45 = load ptr, ptr %44, align 8
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %47, label %.thread127.i
 
-45:                                               ; preds = %.lr.ph115.i
-  %gep113.i = getelementptr ptr, ptr %invariant.gep.i, i64 %40
-  %46 = load ptr, ptr %gep113.i, align 8
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %._crit_edge116.i, label %48
+47:                                               ; preds = %.lr.ph152.i
+  %gep150.i = getelementptr ptr, ptr %invariant.gep.i, i64 %42
+  %48 = load ptr, ptr %gep150.i, align 8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %._crit_edge.i, label %.thread127.i
 
-48:                                               ; preds = %45, %.lr.ph115.i
-  %49 = add nuw i64 %.087114.i, 1
-  %exitcond126.not.i = icmp eq i64 %49, %1
-  br i1 %exitcond126.not.i, label %._crit_edge116.thread.i, label %.lr.ph115.i, !llvm.loop !9
+.thread127.i:                                     ; preds = %47, %.lr.ph152.i
+  %50 = add nuw i64 %.088151.i, 1
+  %exitcond161.not.i = icmp eq i64 %50, %1
+  br i1 %exitcond161.not.i, label %.thread127.thread135.i, label %.lr.ph152.i, !llvm.loop !10
 
-._crit_edge116.i:                                 ; preds = %45, %.preheader.thread.i
-  %50 = phi i32 [ %6, %.preheader.thread.i ], [ %24, %45 ]
-  %.087.lcssa.i = phi i64 [ 0, %.preheader.thread.i ], [ %.087114.i, %45 ]
-  %51 = icmp eq i64 %.087.lcssa.i, %1
-  br i1 %51, label %._crit_edge116.thread.i, label %52
+._crit_edge.i:                                    ; preds = %47, %.thread127.preheader.thread.i
+  %51 = phi i32 [ %7, %.thread127.preheader.thread.i ], [ %25, %47 ]
+  %.088.lcssa.i = phi i64 [ 0, %.thread127.preheader.thread.i ], [ %.088151.i, %47 ]
+  %52 = icmp eq i64 %.088.lcssa.i, %1
+  br i1 %52, label %.thread127.thread135.i, label %53
 
-52:                                               ; preds = %._crit_edge116.i
-  %53 = tail call ptr @PyUnicode_InternFromString(ptr noundef %2)
-  %.not.i = icmp eq ptr %53, null
-  br i1 %.not.i, label %._crit_edge116.thread.i, label %54
+53:                                               ; preds = %._crit_edge.i
+  %54 = tail call ptr @PyUnicode_InternFromString(ptr noundef %2)
+  %.not105.i = icmp eq ptr %54, null
+  br i1 %.not105.i, label %.thread127.thread135.i, label %55
 
-54:                                               ; preds = %52
-  %55 = load ptr, ptr %0, align 8
-  %56 = tail call ptr @PyObject_GetAttr(ptr noundef %55, ptr noundef nonnull %53)
-  %.not97.i = icmp eq ptr %56, null
-  br i1 %.not97.i, label %._crit_edge116.thread.i, label %57
+55:                                               ; preds = %53
+  %56 = tail call ptr @PyObject_GetAttr(ptr noundef %6, ptr noundef nonnull %54)
+  %.not106.i = icmp eq ptr %56, null
+  br i1 %.not106.i, label %.thread127.thread135.i, label %57
 
-57:                                               ; preds = %54
+57:                                               ; preds = %55
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = load i64, ptr %56, align 8
@@ -317,109 +319,110 @@ _ZL10_Py_DECREFP7_object.exit.i:                  ; preds = %62, %57
   br i1 %74, label %75, label %86
 
 75:                                               ; preds = %71, %67, %_ZL10_Py_DECREFP7_object.exit.i
-  %76 = load i64, ptr %53, align 8
+  %76 = load i64, ptr %54, align 8
   %77 = add nsw i64 %76, -1
-  store i64 %77, ptr %53, align 8
-  %.not.i101.i = icmp eq i64 %77, 0
-  br i1 %.not.i101.i, label %78, label %_ZL10_Py_DECREFP7_object.exit102.i
+  store i64 %77, ptr %54, align 8
+  %.not.i108.i = icmp eq i64 %77, 0
+  br i1 %.not.i108.i, label %78, label %_ZL10_Py_DECREFP7_object.exit109.i
 
 78:                                               ; preds = %75
-  tail call void @_Py_Dealloc(ptr noundef nonnull %53)
-  br label %_ZL10_Py_DECREFP7_object.exit102.i
+  tail call void @_Py_Dealloc(ptr noundef nonnull %54)
+  br label %_ZL10_Py_DECREFP7_object.exit109.i
 
-_ZL10_Py_DECREFP7_object.exit102.i:               ; preds = %78, %75
-  br i1 %3, label %._crit_edge116.thread.i, label %.thread.i
+_ZL10_Py_DECREFP7_object.exit109.i:               ; preds = %78, %75
+  br i1 %3, label %.thread127.thread135.i, label %.thread130.i
 
-.thread.i:                                        ; preds = %_ZL10_Py_DECREFP7_object.exit102.i
+.thread130.i:                                     ; preds = %_ZL10_Py_DECREFP7_object.exit109.i
   %79 = load i64, ptr @_Py_NoneStruct, align 8
   %80 = add nsw i64 %79, 1
   store i64 %80, ptr @_Py_NoneStruct, align 8
-  %81 = shl i64 %.087.lcssa.i, 1
+  %81 = shl i64 %.088.lcssa.i, 1
   %82 = or disjoint i64 %81, 1
-  %83 = getelementptr inbounds ptr, ptr %0, i64 %82
+  %83 = getelementptr inbounds nuw ptr, ptr %0, i64 %82
   store ptr %2, ptr %83, align 8
   %84 = getelementptr ptr, ptr %0, i64 %81
   %85 = getelementptr i8, ptr %84, i64 16
   store ptr @_Py_NoneStruct, ptr %85, align 8
-  br label %95
+  br label %96
 
 86:                                               ; preds = %71
-  %87 = shl i64 %.087.lcssa.i, 1
+  %87 = shl i64 %.088.lcssa.i, 1
   %88 = or disjoint i64 %87, 1
-  %89 = getelementptr inbounds ptr, ptr %0, i64 %88
+  %89 = getelementptr inbounds nuw ptr, ptr %0, i64 %88
   store ptr %2, ptr %89, align 8
   %90 = getelementptr ptr, ptr %0, i64 %87
   %91 = getelementptr i8, ptr %90, i64 16
-  store ptr %53, ptr %91, align 8
-  %.not98.i = icmp eq ptr %53, @_Py_NoneStruct
-  br i1 %.not98.i, label %95, label %92
+  store ptr %54, ptr %91, align 8
+  %.not107.i = icmp eq ptr %54, @_Py_NoneStruct
+  br i1 %.not107.i, label %96, label %92
 
 92:                                               ; preds = %86
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 %50, ptr %93, align 8
+  store i32 %51, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %53, ptr %94, align 8
+  %95 = ptrtoint ptr %54 to i64
+  store i64 %95, ptr %94, align 8
   br label %_ZN8nanobind6detailL25trampoline_enter_internalEPPvmPKcbPNS0_6ticketE.exit
 
-95:                                               ; preds = %86, %.thread.i
-  tail call void @PyGILState_Release(i32 noundef %50)
+96:                                               ; preds = %86, %.thread130.i
+  tail call void @PyGILState_Release(i32 noundef %51)
   br label %_ZN8nanobind6detailL25trampoline_enter_internalEPPvmPKcbPNS0_6ticketE.exit
 
-._crit_edge116.thread.i:                          ; preds = %48, %_ZL10_Py_DECREFP7_object.exit102.i, %54, %52, %._crit_edge116.i, %38, %22
-  %.084.i = phi ptr [ @.str.1, %22 ], [ @.str.1, %38 ], [ @.str.2, %._crit_edge116.i ], [ @.str.3, %52 ], [ @.str.4, %54 ], [ @.str.1, %_ZL10_Py_DECREFP7_object.exit102.i ], [ @.str.2, %48 ]
-  %.0.i = phi i32 [ %23, %22 ], [ %24, %38 ], [ %50, %._crit_edge116.i ], [ %50, %52 ], [ %50, %54 ], [ %50, %_ZL10_Py_DECREFP7_object.exit102.i ], [ %24, %48 ]
-  %96 = load ptr, ptr %0, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %98 = load ptr, ptr %97, align 8
-  tail call void @PyGILState_Release(i32 noundef %.0.i)
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 896
-  %100 = load ptr, ptr %99, align 8
-  tail call void (ptr, ...) @_ZN8nanobind6detail5raiseEPKcz(ptr noundef nonnull @.str.5, ptr noundef %100, ptr noundef %2, ptr noundef nonnull %.084.i) #11
+.thread127.thread135.i:                           ; preds = %.thread127.i, %_ZL10_Py_DECREFP7_object.exit109.i, %55, %53, %._crit_edge.i, %40, %.thread116.i
+  %97 = phi i32 [ %24, %.thread116.i ], [ %51, %._crit_edge.i ], [ %51, %53 ], [ %51, %55 ], [ %51, %_ZL10_Py_DECREFP7_object.exit109.i ], [ %25, %40 ], [ %25, %.thread127.i ]
+  %.3.i = phi ptr [ @.str.1, %.thread116.i ], [ @.str.2, %._crit_edge.i ], [ @.str.3, %53 ], [ @.str.4, %55 ], [ @.str.1, %_ZL10_Py_DECREFP7_object.exit109.i ], [ @.str.1, %40 ], [ @.str.2, %.thread127.i ]
+  %98 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %99 = load ptr, ptr %98, align 8
+  tail call void @PyGILState_Release(i32 noundef %97)
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 896
+  %101 = load ptr, ptr %100, align 8
+  tail call void (ptr, ...) @_ZN8nanobind6detail5raiseEPKcz(ptr noundef nonnull @.str.5, ptr noundef %101, ptr noundef %2, ptr noundef nonnull %.3.i) #11
   unreachable
 
-_ZN8nanobind6detailL25trampoline_enter_internalEPPvmPKcbPNS0_6ticketE.exit: ; preds = %17, %21, %35, %39, %92, %95
-  %101 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %102 = load ptr, ptr %101, align 8
-  %.not = icmp eq ptr %102, null
-  br i1 %.not, label %120, label %103
+_ZN8nanobind6detailL25trampoline_enter_internalEPPvmPKcbPNS0_6ticketE.exit: ; preds = %18, %23, %36, %41, %92, %96
+  %102 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %103 = load ptr, ptr %102, align 8
+  %.not25 = icmp eq ptr %103, null
+  br i1 %.not25, label %122, label %104
 
-103:                                              ; preds = %_ZN8nanobind6detailL25trampoline_enter_internalEPPvmPKcbPNS0_6ticketE.exit
-  %104 = load ptr, ptr %0, align 8
-  store ptr %104, ptr %4, align 8
-  %105 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN8nanobind6detail14current_ticketE)
-  %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %106, ptr %107, align 8
-  %.not32 = icmp eq ptr %106, null
-  br i1 %.not32, label %119, label %108
+104:                                              ; preds = %_ZN8nanobind6detailL25trampoline_enter_internalEPPvmPKcbPNS0_6ticketE.exit
+  %105 = load ptr, ptr %0, align 8
+  %106 = ptrtoint ptr %105 to i64
+  store i64 %106, ptr %4, align 8
+  %107 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN8nanobind6detailL14current_ticketE)
+  %108 = load ptr, ptr %107, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %108, ptr %109, align 8
+  %.not = icmp eq ptr %108, null
+  br i1 %.not, label %121, label %110
 
-108:                                              ; preds = %103
-  %109 = load ptr, ptr %106, align 8
-  %110 = icmp eq ptr %109, %104
-  br i1 %110, label %111, label %119
+110:                                              ; preds = %104
+  %111 = load ptr, ptr %108, align 8
+  %112 = icmp eq ptr %111, %105
+  br i1 %112, label %113, label %121
 
-111:                                              ; preds = %108
-  %112 = getelementptr inbounds nuw i8, ptr %106, i64 8
-  %113 = load ptr, ptr %112, align 8
-  %114 = icmp eq ptr %113, %102
-  br i1 %114, label %115, label %119
+113:                                              ; preds = %110
+  %114 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  %115 = load ptr, ptr %114, align 8
+  %116 = icmp eq ptr %115, %103
+  br i1 %116, label %117, label %121
 
-115:                                              ; preds = %111
-  %116 = getelementptr inbounds nuw i8, ptr %4, i64 24
+117:                                              ; preds = %113
+  %118 = getelementptr inbounds nuw i8, ptr %4, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %117 = load i32, ptr %116, align 8
-  tail call void @PyGILState_Release(i32 noundef %117)
-  br i1 %3, label %118, label %120
+  %119 = load i32, ptr %118, align 8
+  tail call void @PyGILState_Release(i32 noundef %119)
+  br i1 %3, label %120, label %122
 
-118:                                              ; preds = %115
+120:                                              ; preds = %117
   tail call void (ptr, ...) @_ZN8nanobind6detail5raiseEPKcz(ptr noundef nonnull @.str, ptr noundef %2) #11
   unreachable
 
-119:                                              ; preds = %111, %108, %103
-  store ptr %4, ptr %105, align 8
-  br label %120
+121:                                              ; preds = %113, %110, %104
+  store ptr %4, ptr %107, align 8
+  br label %122
 
-120:                                              ; preds = %115, %119, %_ZN8nanobind6detailL25trampoline_enter_internalEPPvmPKcbPNS0_6ticketE.exit
+122:                                              ; preds = %117, %121, %_ZN8nanobind6detailL25trampoline_enter_internalEPPvmPKcbPNS0_6ticketE.exit
   ret void
 }
 
@@ -441,7 +444,7 @@ define void @_ZN8nanobind6detail16trampoline_leaveEPNS0_6ticketE(ptr noundef rea
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN8nanobind6detail14current_ticketE)
+  %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN8nanobind6detailL14current_ticketE)
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
@@ -467,28 +470,29 @@ declare ptr @PyUnicode_InternFromString(ptr noundef) local_unnamed_addr #7
 
 declare ptr @PyObject_GetAttr(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold nofree noreturn }
-attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { noreturn nounwind }
 attributes #10 = { nounwind }
 attributes #11 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!6 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

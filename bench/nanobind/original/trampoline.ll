@@ -2,36 +2,46 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct._object = type { i64, ptr }
+%"struct.nanobind::detail::lock_shard" = type { i8 }
 %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator" = type { ptr }
-%"struct.nanobind::detail::nb_internals" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, %"class.tsl::robin_map", %"class.tsl::robin_map.0", %"class.tsl::robin_map.10", %"class.tsl::robin_map", %"class.tsl::robin_map", %"struct.nanobind::detail::nb_translator_seq", i8, i8, ptr }
+%"struct.nanobind::detail::nb_shard" = type { %"class.tsl::robin_map", %"class.tsl::robin_map" }
+%"class.tsl::robin_map" = type { %"class.tsl::detail_robin_hash::robin_hash" }
+%"class.tsl::detail_robin_hash::robin_hash" = type <{ %"class.tsl::rh::power_of_two_growth_policy", %"class.std::vector", ptr, i64, i64, i64, float, float, i8, i8, [6 x i8] }>
+%"class.tsl::rh::power_of_two_growth_policy" = type { i64 }
+%"class.std::vector" = type { %"struct.std::_Vector_base" }
+%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>>>::_Vector_impl" }
+%"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>>>::_Vector_impl" = type { %"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"struct.std::pair" = type { ptr, ptr }
+%"struct.nanobind::detail::nb_internals" = type { ptr, ptr, ptr, ptr, ptr, ptr, %"struct.nanobind::detail::nb_maybe_atomic", ptr, i8, %"struct.nanobind::detail::nb_maybe_atomic", [1 x %"struct.nanobind::detail::nb_shard"], %"class.tsl::robin_map.0", %"class.tsl::robin_map.10", %"class.tsl::robin_map", %"struct.nanobind::detail::nb_translator_seq", i8, i8, ptr, i64 }
+%"struct.nanobind::detail::nb_maybe_atomic" = type { ptr }
 %"class.tsl::robin_map.0" = type { %"class.tsl::detail_robin_hash::robin_hash.1" }
 %"class.tsl::detail_robin_hash::robin_hash.1" = type <{ %"class.tsl::rh::power_of_two_growth_policy", %"class.std::vector.4", ptr, i64, i64, i64, float, float, i8, i8, [6 x i8] }>
-%"class.tsl::rh::power_of_two_growth_policy" = type { i64 }
 %"class.std::vector.4" = type { %"struct.std::_Vector_base.5" }
 %"struct.std::_Vector_base.5" = type { %"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<const std::type_info *, nanobind::detail::type_data *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<const std::type_info *, nanobind::detail::type_data *>, true>>>::_Vector_impl" }
 %"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<const std::type_info *, nanobind::detail::type_data *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<const std::type_info *, nanobind::detail::type_data *>, true>>>::_Vector_impl" = type { %"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<const std::type_info *, nanobind::detail::type_data *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<const std::type_info *, nanobind::detail::type_data *>, true>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<const std::type_info *, nanobind::detail::type_data *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<const std::type_info *, nanobind::detail::type_data *>, true>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.tsl::robin_map.10" = type { %"class.tsl::detail_robin_hash::robin_hash.11" }
 %"class.tsl::detail_robin_hash::robin_hash.11" = type <{ %"class.tsl::rh::power_of_two_growth_policy", %"class.std::vector.4", ptr, i64, i64, i64, float, float, i8, i8, [6 x i8] }>
-%"class.tsl::robin_map" = type { %"class.tsl::detail_robin_hash::robin_hash" }
-%"class.tsl::detail_robin_hash::robin_hash" = type <{ %"class.tsl::rh::power_of_two_growth_policy", %"class.std::vector", ptr, i64, i64, i64, float, float, i8, i8, [6 x i8] }>
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>>>::_Vector_impl" }
-%"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>>>::_Vector_impl" = type { %"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.nanobind::detail::nb_translator_seq" = type { ptr, ptr, ptr }
-%"struct.std::pair" = type { ptr, ptr }
 %"class.nanobind::handle" = type { ptr }
 %"struct.nanobind::detail::ticket" = type <{ %"class.nanobind::handle", %"class.nanobind::handle", ptr, i32, [4 x i8] }>
-%"struct.nanobind::detail::type_data" = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.13" = type { ptr }
+%"struct.nanobind::ft_object_guard" = type { i8 }
+%"struct.nanobind::detail::type_data" = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %union.anon, ptr, ptr }
+%union.anon = type { %struct.anon }
+%struct.anon = type { ptr, ptr }
+%"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.14" = type { ptr }
 %"class.tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect" = type { i8 }
 %"class.tsl::detail_robin_hash::bucket_entry" = type { %"class.tsl::detail_robin_hash::bucket_entry_hash", i16, i8, i8, [16 x i8] }
 %"class.tsl::detail_robin_hash::bucket_entry_hash" = type { i32 }
 
-$_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKS1_ = comdat any
+$_ZN8nanobind6detail12nb_internals5shardEPv = comdat any
 
 $__clang_call_terminate = comdat any
+
+$_ZN8nanobind6detail10lock_shardC2ERNS0_8nb_shardE = comdat any
+
+$_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKS1_ = comdat any
 
 $_ZN3tsl17detail_robin_hashneERKNS0_10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E14robin_iteratorILb0EEESM_ = comdat any
 
@@ -39,7 +49,21 @@ $_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1
 
 $_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E14robin_iteratorILb0EEptEv = comdat any
 
+$_ZNK8nanobind6handlecvbEv = comdat any
+
+$_ZN8nanobind6handleC2EPK7_object = comdat any
+
+$_ZNK8nanobind6detail3apiINS_6handleEE2isES2_ = comdat any
+
 $_ZN8nanobind6handleC2Ev = comdat any
+
+$_ZN8nanobind15ft_object_guardC2ENS_6handleE = comdat any
+
+$_ZN8nanobind6detail12nb_type_dataEP11_typeobject = comdat any
+
+$_ZNK8nanobind6detail3apiINS_6handleEE7derivedEv = comdat any
+
+$_ZNK8nanobind6handle3ptrEv = comdat any
 
 $_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E4findIS3_EENSI_14robin_iteratorILb0EEERKT_ = comdat any
 
@@ -85,10 +109,8 @@ $_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nano
 
 $_ZN3tsl17detail_robin_hasheqERKNS0_10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E14robin_iteratorILb0EEESM_ = comdat any
 
-$_ZNK8nanobind6detail3apiINS_6handleEE7derivedEv = comdat any
-
 @_ZN8nanobind6detail9internalsE = external hidden global ptr, align 8
-@_ZN8nanobind6detail14current_ticketE = hidden thread_local global ptr null, align 8
+@_ZN8nanobind6detailL14current_ticketE = internal thread_local global ptr null, align 8
 @.str = private unnamed_addr constant [81 x i8] c"nanobind::detail::get_trampoline('%s()'): tried to call a pure virtual function!\00", align 1
 @_Py_NoneStruct = external global %struct._object, align 8
 @.str.1 = private unnamed_addr constant [38 x i8] c"tried to call a pure virtual function\00", align 1
@@ -103,101 +125,125 @@ define void @_ZN8nanobind6detail14trampoline_newEPPvmS1_(ptr noundef %0, i64 nou
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  %8 = alloca %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", align 8
-  %9 = alloca %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", align 8
+  %8 = alloca %"struct.nanobind::detail::lock_shard", align 1
+  %9 = alloca ptr, align 8
+  %10 = alloca %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", align 8
+  %11 = alloca %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", align 8
   store ptr %0, ptr %4, align 8
   store i64 %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
-  %10 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
-  %11 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %10, i32 0, i32 10
-  store ptr %11, ptr %7, align 8
-  %12 = load ptr, ptr %7, align 8
-  %13 = invoke ptr @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKS1_(ptr noundef nonnull align 8 dereferenceable(80) %12, ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %14 unwind label %44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #15
+  %12 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
+  %13 = load ptr, ptr %6, align 8
+  %14 = invoke noundef nonnull align 8 dereferenceable(160) ptr @_ZN8nanobind6detail12nb_internals5shardEPv(ptr noundef nonnull align 8 dereferenceable(528) %12, ptr noundef %13)
+          to label %15 unwind label %55
 
-14:                                               ; preds = %3
-  %15 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %8, i32 0, i32 0
-  store ptr %13, ptr %15, align 8
+15:                                               ; preds = %3
+  store ptr %14, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #15
   %16 = load ptr, ptr %7, align 8
-  %17 = call ptr @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(80) %16) #9
-  %18 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %9, i32 0, i32 0
-  store ptr %17, ptr %18, align 8
-  %19 = invoke noundef zeroext i1 @_ZN3tsl17detail_robin_hashneERKNS0_10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E14robin_iteratorILb0EEESM_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %20 unwind label %44
+  invoke void @_ZN8nanobind6detail10lock_shardC2ERNS0_8nb_shardE(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(160) %16)
+          to label %17 unwind label %55
 
-20:                                               ; preds = %14
-  br i1 %19, label %21, label %29
+17:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #15
+  %18 = load ptr, ptr %7, align 8
+  %19 = getelementptr inbounds nuw %"struct.nanobind::detail::nb_shard", ptr %18, i32 0, i32 0
+  store ptr %19, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #15
+  %20 = load ptr, ptr %9, align 8
+  %21 = invoke ptr @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKS1_(ptr noundef nonnull align 8 dereferenceable(80) %20, ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %22 unwind label %55
 
-21:                                               ; preds = %20
-  %22 = invoke noundef ptr @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E14robin_iteratorILb0EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %23 unwind label %44
+22:                                               ; preds = %17
+  %23 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %10, i32 0, i32 0
+  store ptr %21, ptr %23, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #15
+  %24 = load ptr, ptr %9, align 8
+  %25 = call ptr @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(80) %24) #15
+  %26 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %11, i32 0, i32 0
+  store ptr %25, ptr %26, align 8
+  %27 = invoke noundef zeroext i1 @_ZN3tsl17detail_robin_hashneERKNS0_10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E14robin_iteratorILb0EEESM_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %28 unwind label %55
 
-23:                                               ; preds = %21
-  %24 = getelementptr inbounds %"struct.std::pair", ptr %22, i32 0, i32 1
-  %25 = load ptr, ptr %24, align 8
-  %26 = ptrtoint ptr %25 to i64
-  %27 = and i64 %26, 1
-  %28 = icmp eq i64 %27, 0
-  br label %29
+28:                                               ; preds = %22
+  br i1 %27, label %29, label %37
 
-29:                                               ; preds = %23, %20
-  %30 = phi i1 [ false, %20 ], [ %28, %23 ]
-  %31 = xor i1 %30, true
-  br i1 %31, label %32, label %33
+29:                                               ; preds = %28
+  %30 = invoke noundef ptr @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E14robin_iteratorILb0EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
+          to label %31 unwind label %55
 
-32:                                               ; preds = %29
-  call void @_ZN8nanobind6detail16fail_unspecifiedEv() #10
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds nuw %"struct.std::pair", ptr %30, i32 0, i32 1
+  %33 = load ptr, ptr %32, align 8
+  %34 = ptrtoint ptr %33 to i64
+  %35 = and i64 %34, 1
+  %36 = icmp eq i64 %35, 0
+  br label %37
+
+37:                                               ; preds = %31, %28
+  %38 = phi i1 [ false, %28 ], [ %36, %31 ]
+  %39 = xor i1 %38, true
+  %40 = zext i1 %39 to i64
+  %41 = call i64 @llvm.expect.i64(i64 %40, i64 0)
+  %42 = icmp ne i64 %41, 0
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #15
+  br i1 %42, label %43, label %44
+
+43:                                               ; preds = %37
+  call void @_ZN8nanobind6detail16fail_unspecifiedEv() #16
   unreachable
 
-33:                                               ; preds = %29
-  %34 = invoke noundef ptr @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E14robin_iteratorILb0EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %35 unwind label %44
+44:                                               ; preds = %37
+  %45 = invoke noundef ptr @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E14robin_iteratorILb0EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
+          to label %46 unwind label %55
 
-35:                                               ; preds = %33
-  %36 = getelementptr inbounds %"struct.std::pair", ptr %34, i32 0, i32 1
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 0
-  store ptr %37, ptr %39, align 8
-  %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds ptr, ptr %40, i64 1
-  %42 = load i64, ptr %5, align 8
-  %43 = mul i64 16, %42
-  call void @llvm.memset.p0.i64(ptr align 8 %41, i8 0, i64 %43, i1 false)
+46:                                               ; preds = %44
+  %47 = getelementptr inbounds nuw %"struct.std::pair", ptr %45, i32 0, i32 1
+  %48 = load ptr, ptr %47, align 8
+  %49 = load ptr, ptr %4, align 8
+  %50 = getelementptr inbounds ptr, ptr %49, i64 0
+  store ptr %48, ptr %50, align 8
+  %51 = load ptr, ptr %4, align 8
+  %52 = getelementptr inbounds ptr, ptr %51, i64 1
+  %53 = load i64, ptr %5, align 8
+  %54 = mul i64 16, %53
+  call void @llvm.memset.p0.i64(ptr align 8 %52, i8 0, i64 %54, i1 false)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #15
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #15
   ret void
 
-44:                                               ; preds = %33, %21, %14, %3
-  %45 = landingpad { ptr, i32 }
+55:                                               ; preds = %44, %29, %22, %17, %15, %3
+  %56 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #10
+  %57 = extractvalue { ptr, i32 } %56, 0
+  call void @__clang_call_terminate(ptr %57) #16
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKS1_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat align 2 {
-  %3 = alloca %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", align 8
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN8nanobind6detail12nb_internals5shardEPv(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"class.tsl::robin_map", ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %5, align 8
-  %9 = call ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E4findIS3_EENSI_14robin_iteratorILb0EEERKT_(ptr noundef nonnull align 8 dereferenceable(74) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  %10 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %3, i32 0, i32 0
-  store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %3, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
-  ret ptr %12
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.nanobind::detail::nb_internals", ptr %5, i32 0, i32 10
+  %7 = getelementptr inbounds [1 x %"struct.nanobind::detail::nb_shard"], ptr %6, i64 0, i64 0
+  ret ptr %7
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #2 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #9
-  call void @_ZSt9terminatev() #10
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #3 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #15
+  call void @_ZSt9terminatev() #16
   unreachable
 }
 
@@ -205,8 +251,35 @@ declare ptr @__cxa_begin_catch(ptr)
 
 declare void @_ZSt9terminatev()
 
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN8nanobind6detail10lock_shardC2ERNS0_8nb_shardE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  ret void
+}
+
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN3tsl17detail_robin_hashneERKNS0_10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E14robin_iteratorILb0EEESM_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat {
+define linkonce_odr hidden ptr @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKS1_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat align 2 {
+  %3 = alloca %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"class.tsl::robin_map", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %5, align 8
+  %9 = call ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E4findIS3_EENSI_14robin_iteratorILb0EEERKT_(ptr noundef nonnull align 8 dereferenceable(74) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %10 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %3, i32 0, i32 0
+  store ptr %9, ptr %10, align 8
+  %11 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %3, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  ret ptr %12
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN3tsl17detail_robin_hashneERKNS0_10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E14robin_iteratorILb0EEESM_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -224,11 +297,11 @@ define linkonce_odr hidden ptr @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_has
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"class.tsl::robin_map", ptr %4, i32 0, i32 0
-  %6 = call ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E3endEv(ptr noundef nonnull align 8 dereferenceable(74) %5) #9
-  %7 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"class.tsl::robin_map", ptr %4, i32 0, i32 0
+  %6 = call ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E3endEv(ptr noundef nonnull align 8 dereferenceable(74) %5) #15
+  %7 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %2, i32 0, i32 0
   store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %2, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %2, i32 0, i32 0
   %9 = load ptr, ptr %8, align 8
   ret ptr %9
 }
@@ -238,17 +311,23 @@ define linkonce_odr hidden noundef ptr @_ZNK3tsl17detail_robin_hash10robin_hashI
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5valueEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
+  %6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5valueEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #15
   ret ptr %6
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: noreturn nounwind
-declare hidden void @_ZN8nanobind6detail16fail_unspecifiedEv() #3
+declare hidden void @_ZN8nanobind6detail16fail_unspecifiedEv() #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8nanobind6detail18trampoline_releaseEPPvm(ptr noundef %0, i64 noundef %1) #0 personality ptr @__gxx_personality_v0 {
@@ -257,47 +336,52 @@ define void @_ZN8nanobind6detail18trampoline_releaseEPPvm(ptr noundef %0, i64 no
   %5 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #15
   store i64 0, ptr %5, align 8
   br label %6
 
-6:                                                ; preds = %18, %2
+6:                                                ; preds = %19, %2
   %7 = load i64, ptr %5, align 8
   %8 = load i64, ptr %4, align 8
   %9 = icmp ult i64 %7, %8
-  br i1 %9, label %10, label %21
+  br i1 %9, label %11, label %10
 
 10:                                               ; preds = %6
-  %11 = load ptr, ptr %3, align 8
-  %12 = load i64, ptr %5, align 8
-  %13 = mul i64 %12, 2
-  %14 = add i64 %13, 2
-  %15 = getelementptr inbounds ptr, ptr %11, i64 %14
-  %16 = load ptr, ptr %15, align 8
-  invoke void @_ZL11_Py_XDECREFP7_object(ptr noundef %16)
-          to label %17 unwind label %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #15
+  br label %22
 
-17:                                               ; preds = %10
-  br label %18
+11:                                               ; preds = %6
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i64, ptr %5, align 8
+  %14 = mul i64 %13, 2
+  %15 = add i64 %14, 2
+  %16 = getelementptr inbounds nuw ptr, ptr %12, i64 %15
+  %17 = load ptr, ptr %16, align 8
+  invoke void @_ZL11_Py_XDECREFP7_object(ptr noundef %17)
+          to label %18 unwind label %23
 
-18:                                               ; preds = %17
-  %19 = load i64, ptr %5, align 8
-  %20 = add i64 %19, 1
-  store i64 %20, ptr %5, align 8
-  br label %6, !llvm.loop !4
+18:                                               ; preds = %11
+  br label %19
 
-21:                                               ; preds = %6
-  ret void
+19:                                               ; preds = %18
+  %20 = load i64, ptr %5, align 8
+  %21 = add i64 %20, 1
+  store i64 %21, ptr %5, align 8
+  br label %6, !llvm.loop !3
 
 22:                                               ; preds = %10
-  %23 = landingpad { ptr, i32 }
+  ret void
+
+23:                                               ; preds = %11
+  %24 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #10
+  %25 = extractvalue { ptr, i32 } %24, 0
+  call void @__clang_call_terminate(ptr %25) #16
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL11_Py_XDECREFP7_object(ptr noundef %0) #1 {
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @_ZL11_Py_XDECREFP7_object(ptr noundef %0) #8 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -314,639 +398,730 @@ define internal void @_ZL11_Py_XDECREFP7_object(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8nanobind6detail16trampoline_enterEPPvmPKcbPNS0_6ticketE(ptr noundef %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4) #1 {
+define void @_ZN8nanobind6detail16trampoline_enterEPPvmPKcbPNS0_6ticketE(ptr noundef %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4) #4 {
   %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
+  %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca %"class.nanobind::handle", align 8
-  %11 = alloca ptr, align 8
+  %9 = alloca i8, align 1
+  %10 = alloca ptr, align 8
+  %11 = alloca %"class.nanobind::handle", align 8
   %12 = alloca %"class.nanobind::handle", align 8
+  %13 = alloca %"class.nanobind::handle", align 8
+  %14 = alloca %"class.nanobind::handle", align 8
+  %15 = alloca %"class.nanobind::handle", align 8
+  store ptr %0, ptr %6, align 8
+  store i64 %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  %16 = zext i1 %3 to i8
+  store i8 %16, ptr %9, align 1
+  store ptr %4, ptr %10, align 8
+  %17 = load ptr, ptr %6, align 8
+  %18 = load i64, ptr %7, align 8
+  %19 = load ptr, ptr %8, align 8
+  %20 = load i8, ptr %9, align 1, !range !5, !noundef !6
+  %21 = trunc i8 %20 to i1
+  %22 = load ptr, ptr %10, align 8
+  call void @_ZN8nanobind6detailL25trampoline_enter_internalEPPvmPKcbPNS0_6ticketE(ptr noundef %17, i64 noundef %18, ptr noundef %19, i1 noundef zeroext %21, ptr noundef %22)
+  %23 = load ptr, ptr %10, align 8
+  %24 = getelementptr inbounds nuw %"struct.nanobind::detail::ticket", ptr %23, i32 0, i32 1
+  %25 = call noundef zeroext i1 @_ZNK8nanobind6handlecvbEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
+  br i1 %25, label %26, label %78
+
+26:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #15
+  %27 = load ptr, ptr %6, align 8
+  %28 = getelementptr inbounds ptr, ptr %27, i64 0
+  %29 = load ptr, ptr %28, align 8
+  call void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %29)
+  %30 = load ptr, ptr %10, align 8
+  %31 = getelementptr inbounds nuw %"struct.nanobind::detail::ticket", ptr %30, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %31, ptr align 8 %11, i64 8, i1 false)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #15
+  %32 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN8nanobind6detailL14current_ticketE)
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr %10, align 8
+  %35 = getelementptr inbounds nuw %"struct.nanobind::detail::ticket", ptr %34, i32 0, i32 2
+  store ptr %33, ptr %35, align 8
+  %36 = load ptr, ptr %10, align 8
+  %37 = getelementptr inbounds nuw %"struct.nanobind::detail::ticket", ptr %36, i32 0, i32 2
+  %38 = load ptr, ptr %37, align 8
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %40, label %75
+
+40:                                               ; preds = %26
+  %41 = load ptr, ptr %10, align 8
+  %42 = getelementptr inbounds nuw %"struct.nanobind::detail::ticket", ptr %41, i32 0, i32 2
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds nuw %"struct.nanobind::detail::ticket", ptr %43, i32 0, i32 0
+  %45 = load ptr, ptr %10, align 8
+  %46 = getelementptr inbounds nuw %"struct.nanobind::detail::ticket", ptr %45, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %46, i64 8, i1 false)
+  %47 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %12, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8
+  %49 = call noundef zeroext i1 @_ZNK8nanobind6detail3apiINS_6handleEE2isES2_(ptr noundef nonnull align 1 dereferenceable(1) %44, ptr %48)
+  br i1 %49, label %50, label %75
+
+50:                                               ; preds = %40
+  %51 = load ptr, ptr %10, align 8
+  %52 = getelementptr inbounds nuw %"struct.nanobind::detail::ticket", ptr %51, i32 0, i32 2
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds nuw %"struct.nanobind::detail::ticket", ptr %53, i32 0, i32 1
+  %55 = load ptr, ptr %10, align 8
+  %56 = getelementptr inbounds nuw %"struct.nanobind::detail::ticket", ptr %55, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %56, i64 8, i1 false)
+  %57 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %13, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8
+  %59 = call noundef zeroext i1 @_ZNK8nanobind6detail3apiINS_6handleEE2isES2_(ptr noundef nonnull align 1 dereferenceable(1) %54, ptr %58)
+  br i1 %59, label %60, label %75
+
+60:                                               ; preds = %50
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 8, i1 false)
+  call void @_ZN8nanobind6handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #15
+  %61 = load ptr, ptr %10, align 8
+  %62 = getelementptr inbounds nuw %"struct.nanobind::detail::ticket", ptr %61, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %62, ptr align 8 %14, i64 8, i1 false)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #15
+  call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 8, i1 false)
+  call void @_ZN8nanobind6handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #15
+  %63 = load ptr, ptr %10, align 8
+  %64 = getelementptr inbounds nuw %"struct.nanobind::detail::ticket", ptr %63, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %64, ptr align 8 %15, i64 8, i1 false)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #15
+  %65 = load ptr, ptr %10, align 8
+  %66 = getelementptr inbounds nuw %"struct.nanobind::detail::ticket", ptr %65, i32 0, i32 2
+  store ptr null, ptr %66, align 8
+  %67 = load ptr, ptr %10, align 8
+  %68 = getelementptr inbounds nuw %"struct.nanobind::detail::ticket", ptr %67, i32 0, i32 3
+  %69 = load i32, ptr %68, align 8
+  call void @PyGILState_Release(i32 noundef %69)
+  %70 = load i8, ptr %9, align 1, !range !5, !noundef !6
+  %71 = trunc i8 %70 to i1
+  br i1 %71, label %72, label %74
+
+72:                                               ; preds = %60
+  %73 = load ptr, ptr %8, align 8
+  call void (ptr, ...) @_ZN8nanobind6detail5raiseEPKcz(ptr noundef @.str, ptr noundef %73) #17
+  unreachable
+
+74:                                               ; preds = %60
+  br label %78
+
+75:                                               ; preds = %50, %40, %26
+  %76 = load ptr, ptr %10, align 8
+  %77 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN8nanobind6detailL14current_ticketE)
+  store ptr %76, ptr %77, align 8
+  br label %78
+
+78:                                               ; preds = %74, %75, %5
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZN8nanobind6detailL25trampoline_enter_internalEPPvmPKcbPNS0_6ticketE(ptr noundef %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4) #4 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i8, align 1
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
   %16 = alloca ptr, align 8
   %17 = alloca ptr, align 8
   %18 = alloca i64, align 8
-  %19 = alloca ptr, align 8
-  %20 = alloca i8, align 1
+  %19 = alloca i64, align 8
+  %20 = alloca i32, align 4
   %21 = alloca ptr, align 8
-  %22 = alloca %"class.nanobind::handle", align 8
+  %22 = alloca ptr, align 8
   %23 = alloca %"class.nanobind::handle", align 8
-  %24 = alloca %"class.nanobind::handle", align 8
+  %24 = alloca %"struct.nanobind::ft_object_guard", align 1
   %25 = alloca %"class.nanobind::handle", align 8
-  %26 = alloca %"class.nanobind::handle", align 8
-  store ptr %0, ptr %17, align 8
-  store i64 %1, ptr %18, align 8
-  store ptr %2, ptr %19, align 8
-  %27 = zext i1 %3 to i8
-  store i8 %27, ptr %20, align 1
-  store ptr %4, ptr %21, align 8
-  %28 = load ptr, ptr %17, align 8
-  %29 = load i64, ptr %18, align 8
-  %30 = load ptr, ptr %19, align 8
-  %31 = load i8, ptr %20, align 1
-  %32 = trunc i8 %31 to i1
-  %33 = load ptr, ptr %21, align 8
-  call void @_ZN8nanobind6detailL25trampoline_enter_internalEPPvmPKcbPNS0_6ticketE(ptr noundef %28, i64 noundef %29, ptr noundef %30, i1 noundef zeroext %32, ptr noundef %33)
-  %34 = load ptr, ptr %21, align 8
-  %35 = getelementptr inbounds %"struct.nanobind::detail::ticket", ptr %34, i32 0, i32 1
-  store ptr %35, ptr %16, align 8
-  %36 = load ptr, ptr %16, align 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = icmp ne ptr %37, null
-  br i1 %38, label %39, label %105
+  %26 = alloca i64, align 8
+  %27 = alloca ptr, align 8
+  %28 = alloca ptr, align 8
+  %29 = alloca %"class.nanobind::handle", align 8
+  %30 = alloca ptr, align 8
+  %31 = alloca %"class.nanobind::handle", align 8
+  %32 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store i64 %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  %33 = zext i1 %3 to i8
+  store i8 %33, ptr %9, align 1
+  store ptr %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #15
+  store ptr @_Py_NoneStruct, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #15
+  store i32 0, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #15
+  store ptr null, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #15
+  store ptr null, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #15
+  store ptr null, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #15
+  %34 = load ptr, ptr %6, align 8
+  %35 = getelementptr inbounds ptr, ptr %34, i64 0
+  %36 = load ptr, ptr %35, align 8
+  store ptr %36, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #15
+  store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #15
+  store i64 0, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #15
+  store i64 0, ptr %19, align 8
+  br label %37
 
-39:                                               ; preds = %5
-  %40 = load ptr, ptr %17, align 8
-  %41 = getelementptr inbounds ptr, ptr %40, i64 0
-  %42 = load ptr, ptr %41, align 8
-  store ptr %22, ptr %14, align 8
-  store ptr %42, ptr %15, align 8
-  %43 = load ptr, ptr %14, align 8
-  %44 = load ptr, ptr %15, align 8
-  store ptr %44, ptr %43, align 8
-  %45 = load ptr, ptr %21, align 8
-  %46 = getelementptr inbounds %"struct.nanobind::detail::ticket", ptr %45, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %46, ptr align 8 %22, i64 8, i1 false)
-  %47 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN8nanobind6detail14current_ticketE)
+37:                                               ; preds = %81, %5
+  %38 = load i64, ptr %19, align 8
+  %39 = load i64, ptr %7, align 8
+  %40 = icmp ult i64 %38, %39
+  br i1 %40, label %42, label %41
+
+41:                                               ; preds = %37
+  store i32 2, ptr %20, align 4
+  br label %84
+
+42:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #15
+  %43 = load ptr, ptr %6, align 8
+  %44 = load i64, ptr %19, align 8
+  %45 = mul i64 2, %44
+  %46 = add i64 %45, 1
+  %47 = getelementptr inbounds nuw ptr, ptr %43, i64 %46
   %48 = load ptr, ptr %47, align 8
-  %49 = load ptr, ptr %21, align 8
-  %50 = getelementptr inbounds %"struct.nanobind::detail::ticket", ptr %49, i32 0, i32 2
-  store ptr %48, ptr %50, align 8
-  %51 = load ptr, ptr %21, align 8
-  %52 = getelementptr inbounds %"struct.nanobind::detail::ticket", ptr %51, i32 0, i32 2
-  %53 = load ptr, ptr %52, align 8
-  %54 = icmp ne ptr %53, null
-  br i1 %54, label %55, label %102
-
-55:                                               ; preds = %39
+  store ptr %48, ptr %21, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #15
+  %49 = load ptr, ptr %6, align 8
+  %50 = load i64, ptr %19, align 8
+  %51 = mul i64 2, %50
+  %52 = add i64 %51, 2
+  %53 = getelementptr inbounds nuw ptr, ptr %49, i64 %52
+  %54 = load ptr, ptr %53, align 8
+  store ptr %54, ptr %22, align 8
+  %55 = load ptr, ptr %8, align 8
   %56 = load ptr, ptr %21, align 8
-  %57 = getelementptr inbounds %"struct.nanobind::detail::ticket", ptr %56, i32 0, i32 2
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds %"struct.nanobind::detail::ticket", ptr %58, i32 0, i32 0
-  %60 = load ptr, ptr %21, align 8
-  %61 = getelementptr inbounds %"struct.nanobind::detail::ticket", ptr %60, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %61, i64 8, i1 false)
-  %62 = getelementptr inbounds %"class.nanobind::handle", ptr %23, i32 0, i32 0
-  %63 = load ptr, ptr %62, align 8
-  store ptr %63, ptr %10, align 8
-  store ptr %59, ptr %11, align 8
-  %64 = load ptr, ptr %11, align 8
-  %65 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8nanobind6detail3apiINS_6handleEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %64)
-  store ptr %65, ptr %8, align 8
-  %66 = load ptr, ptr %8, align 8
-  %67 = load ptr, ptr %66, align 8
-  store ptr %10, ptr %9, align 8
-  %68 = load ptr, ptr %9, align 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = icmp eq ptr %67, %69
-  br i1 %70, label %71, label %102
+  %57 = icmp eq ptr %55, %56
+  br i1 %57, label %58, label %77
 
-71:                                               ; preds = %55
-  %72 = load ptr, ptr %21, align 8
-  %73 = getelementptr inbounds %"struct.nanobind::detail::ticket", ptr %72, i32 0, i32 2
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds %"struct.nanobind::detail::ticket", ptr %74, i32 0, i32 1
-  %76 = load ptr, ptr %21, align 8
-  %77 = getelementptr inbounds %"struct.nanobind::detail::ticket", ptr %76, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %24, ptr align 8 %77, i64 8, i1 false)
-  %78 = getelementptr inbounds %"class.nanobind::handle", ptr %24, i32 0, i32 0
-  %79 = load ptr, ptr %78, align 8
-  store ptr %79, ptr %12, align 8
-  store ptr %75, ptr %13, align 8
-  %80 = load ptr, ptr %13, align 8
-  %81 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8nanobind6detail3apiINS_6handleEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %80)
-  store ptr %81, ptr %6, align 8
-  %82 = load ptr, ptr %6, align 8
-  %83 = load ptr, ptr %82, align 8
-  store ptr %12, ptr %7, align 8
-  %84 = load ptr, ptr %7, align 8
-  %85 = load ptr, ptr %84, align 8
-  %86 = icmp eq ptr %83, %85
-  br i1 %86, label %87, label %102
+58:                                               ; preds = %42
+  %59 = load ptr, ptr %22, align 8
+  %60 = icmp ne ptr %59, null
+  br i1 %60, label %61, label %77
 
-87:                                               ; preds = %71
-  call void @llvm.memset.p0.i64(ptr align 8 %25, i8 0, i64 8, i1 false)
-  call void @_ZN8nanobind6handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #9
-  %88 = load ptr, ptr %21, align 8
-  %89 = getelementptr inbounds %"struct.nanobind::detail::ticket", ptr %88, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %89, ptr align 8 %25, i64 8, i1 false)
-  call void @llvm.memset.p0.i64(ptr align 8 %26, i8 0, i64 8, i1 false)
-  call void @_ZN8nanobind6handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #9
-  %90 = load ptr, ptr %21, align 8
-  %91 = getelementptr inbounds %"struct.nanobind::detail::ticket", ptr %90, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %91, ptr align 8 %26, i64 8, i1 false)
-  %92 = load ptr, ptr %21, align 8
-  %93 = getelementptr inbounds %"struct.nanobind::detail::ticket", ptr %92, i32 0, i32 2
-  store ptr null, ptr %93, align 8
-  %94 = load ptr, ptr %21, align 8
-  %95 = getelementptr inbounds %"struct.nanobind::detail::ticket", ptr %94, i32 0, i32 3
-  %96 = load i32, ptr %95, align 8
-  call void @PyGILState_Release(i32 noundef %96)
-  %97 = load i8, ptr %20, align 1
-  %98 = trunc i8 %97 to i1
-  br i1 %98, label %99, label %101
+61:                                               ; preds = %58
+  %62 = load ptr, ptr %22, align 8
+  %63 = load ptr, ptr %11, align 8
+  %64 = icmp ne ptr %62, %63
+  br i1 %64, label %65, label %72
 
-99:                                               ; preds = %87
-  %100 = load ptr, ptr %19, align 8
-  call void (ptr, ...) @_ZN8nanobind6detail5raiseEPKcz(ptr noundef @.str, ptr noundef %100) #11
+65:                                               ; preds = %61
+  %66 = call i32 @PyGILState_Ensure()
+  %67 = load ptr, ptr %10, align 8
+  %68 = getelementptr inbounds nuw %"struct.nanobind::detail::ticket", ptr %67, i32 0, i32 3
+  store i32 %66, ptr %68, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #15
+  %69 = load ptr, ptr %22, align 8
+  call void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef %69)
+  %70 = load ptr, ptr %10, align 8
+  %71 = getelementptr inbounds nuw %"struct.nanobind::detail::ticket", ptr %70, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %71, ptr align 8 %23, i64 8, i1 false)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #15
+  store i32 1, ptr %20, align 4
+  br label %78
+
+72:                                               ; preds = %61
+  %73 = load i8, ptr %9, align 1, !range !5, !noundef !6
+  %74 = trunc i8 %73 to i1
+  br i1 %74, label %75, label %76
+
+75:                                               ; preds = %72
+  store ptr @.str.1, ptr %13, align 8
+  store i32 2, ptr %20, align 4
+  br label %78
+
+76:                                               ; preds = %72
+  store i32 1, ptr %20, align 4
+  br label %78
+
+77:                                               ; preds = %58, %42
+  store i32 0, ptr %20, align 4
+  br label %78
+
+78:                                               ; preds = %77, %76, %75, %65
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #15
+  %79 = load i32, ptr %20, align 4
+  switch i32 %79, label %84 [
+    i32 0, label %80
+  ]
+
+80:                                               ; preds = %78
+  br label %81
+
+81:                                               ; preds = %80
+  %82 = load i64, ptr %19, align 8
+  %83 = add i64 %82, 1
+  store i64 %83, ptr %19, align 8
+  br label %37, !llvm.loop !7
+
+84:                                               ; preds = %78, %41
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #15
+  %85 = load i32, ptr %20, align 4
+  switch i32 %85, label %262 [
+    i32 2, label %86
+  ]
+
+86:                                               ; preds = %84
+  %87 = call i32 @PyGILState_Ensure()
+  store i32 %87, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %24) #15
+  %88 = load ptr, ptr %16, align 8
+  call void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %88)
+  %89 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %25, i32 0, i32 0
+  %90 = load ptr, ptr %89, align 8
+  call void @_ZN8nanobind15ft_object_guardC2ENS_6handleE(ptr noundef nonnull align 1 dereferenceable(1) %24, ptr %90)
+  %91 = load ptr, ptr %13, align 8
+  %92 = icmp ne ptr %91, null
+  br i1 %92, label %93, label %94
+
+93:                                               ; preds = %86
+  br label %250
+
+94:                                               ; preds = %86
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #15
+  store i64 0, ptr %26, align 8
+  br label %95
+
+95:                                               ; preds = %140, %94
+  %96 = load i64, ptr %26, align 8
+  %97 = load i64, ptr %7, align 8
+  %98 = icmp ult i64 %96, %97
+  br i1 %98, label %100, label %99
+
+99:                                               ; preds = %95
+  store i32 6, ptr %20, align 4
+  br label %143
+
+100:                                              ; preds = %95
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #15
+  %101 = load ptr, ptr %6, align 8
+  %102 = load i64, ptr %26, align 8
+  %103 = mul i64 2, %102
+  %104 = add i64 %103, 1
+  %105 = getelementptr inbounds nuw ptr, ptr %101, i64 %104
+  %106 = load ptr, ptr %105, align 8
+  store ptr %106, ptr %27, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #15
+  %107 = load ptr, ptr %6, align 8
+  %108 = load i64, ptr %26, align 8
+  %109 = mul i64 2, %108
+  %110 = add i64 %109, 2
+  %111 = getelementptr inbounds nuw ptr, ptr %107, i64 %110
+  %112 = load ptr, ptr %111, align 8
+  store ptr %112, ptr %28, align 8
+  %113 = load ptr, ptr %8, align 8
+  %114 = load ptr, ptr %27, align 8
+  %115 = icmp eq ptr %113, %114
+  br i1 %115, label %116, label %136
+
+116:                                              ; preds = %100
+  %117 = load ptr, ptr %28, align 8
+  %118 = icmp ne ptr %117, null
+  br i1 %118, label %119, label %136
+
+119:                                              ; preds = %116
+  %120 = load ptr, ptr %28, align 8
+  %121 = load ptr, ptr %11, align 8
+  %122 = icmp ne ptr %120, %121
+  br i1 %122, label %123, label %130
+
+123:                                              ; preds = %119
+  %124 = load i32, ptr %12, align 4
+  %125 = load ptr, ptr %10, align 8
+  %126 = getelementptr inbounds nuw %"struct.nanobind::detail::ticket", ptr %125, i32 0, i32 3
+  store i32 %124, ptr %126, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #15
+  %127 = load ptr, ptr %28, align 8
+  call void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef %127)
+  %128 = load ptr, ptr %10, align 8
+  %129 = getelementptr inbounds nuw %"struct.nanobind::detail::ticket", ptr %128, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %129, ptr align 8 %29, i64 8, i1 false)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #15
+  store i32 1, ptr %20, align 4
+  br label %137
+
+130:                                              ; preds = %119
+  %131 = load i8, ptr %9, align 1, !range !5, !noundef !6
+  %132 = trunc i8 %131 to i1
+  br i1 %132, label %133, label %134
+
+133:                                              ; preds = %130
+  store ptr @.str.1, ptr %13, align 8
+  store i32 5, ptr %20, align 4
+  br label %137
+
+134:                                              ; preds = %130
+  %135 = load i32, ptr %12, align 4
+  call void @PyGILState_Release(i32 noundef %135)
+  store i32 1, ptr %20, align 4
+  br label %137
+
+136:                                              ; preds = %116, %100
+  store i32 0, ptr %20, align 4
+  br label %137
+
+137:                                              ; preds = %133, %136, %134, %123
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #15
+  %138 = load i32, ptr %20, align 4
+  switch i32 %138, label %143 [
+    i32 0, label %139
+  ]
+
+139:                                              ; preds = %137
+  br label %140
+
+140:                                              ; preds = %139
+  %141 = load i64, ptr %26, align 8
+  %142 = add i64 %141, 1
+  store i64 %142, ptr %26, align 8
+  br label %95, !llvm.loop !8
+
+143:                                              ; preds = %137, %99
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #15
+  %144 = load i32, ptr %20, align 4
+  switch i32 %144, label %261 [
+    i32 6, label %145
+    i32 5, label %250
+  ]
+
+145:                                              ; preds = %143
+  br label %146
+
+146:                                              ; preds = %168, %145
+  %147 = load i64, ptr %18, align 8
+  %148 = load i64, ptr %7, align 8
+  %149 = icmp ult i64 %147, %148
+  br i1 %149, label %150, label %171
+
+150:                                              ; preds = %146
+  %151 = load ptr, ptr %6, align 8
+  %152 = load i64, ptr %18, align 8
+  %153 = mul i64 2, %152
+  %154 = add i64 %153, 1
+  %155 = getelementptr inbounds nuw ptr, ptr %151, i64 %154
+  %156 = load ptr, ptr %155, align 8
+  %157 = icmp eq ptr %156, null
+  br i1 %157, label %158, label %167
+
+158:                                              ; preds = %150
+  %159 = load ptr, ptr %6, align 8
+  %160 = load i64, ptr %18, align 8
+  %161 = mul i64 2, %160
+  %162 = add i64 %161, 2
+  %163 = getelementptr inbounds nuw ptr, ptr %159, i64 %162
+  %164 = load ptr, ptr %163, align 8
+  %165 = icmp eq ptr %164, null
+  br i1 %165, label %166, label %167
+
+166:                                              ; preds = %158
+  br label %171
+
+167:                                              ; preds = %158, %150
+  br label %168
+
+168:                                              ; preds = %167
+  %169 = load i64, ptr %18, align 8
+  %170 = add i64 %169, 1
+  store i64 %170, ptr %18, align 8
+  br label %146, !llvm.loop !9
+
+171:                                              ; preds = %166, %146
+  %172 = load i64, ptr %18, align 8
+  %173 = load i64, ptr %7, align 8
+  %174 = icmp eq i64 %172, %173
+  br i1 %174, label %175, label %176
+
+175:                                              ; preds = %171
+  store ptr @.str.2, ptr %13, align 8
+  br label %250
+
+176:                                              ; preds = %171
+  %177 = load ptr, ptr %8, align 8
+  %178 = call ptr @PyUnicode_InternFromString(ptr noundef %177)
+  store ptr %178, ptr %14, align 8
+  %179 = load ptr, ptr %14, align 8
+  %180 = icmp ne ptr %179, null
+  br i1 %180, label %182, label %181
+
+181:                                              ; preds = %176
+  store ptr @.str.3, ptr %13, align 8
+  br label %250
+
+182:                                              ; preds = %176
+  %183 = load ptr, ptr %16, align 8
+  %184 = load ptr, ptr %14, align 8
+  %185 = call ptr @PyObject_GetAttr(ptr noundef %183, ptr noundef %184)
+  store ptr %185, ptr %15, align 8
+  %186 = load ptr, ptr %15, align 8
+  %187 = icmp ne ptr %186, null
+  br i1 %187, label %189, label %188
+
+188:                                              ; preds = %182
+  store ptr @.str.4, ptr %13, align 8
+  br label %250
+
+189:                                              ; preds = %182
+  %190 = load ptr, ptr %15, align 8
+  %191 = getelementptr inbounds nuw %struct._object, ptr %190, i32 0, i32 1
+  %192 = load ptr, ptr %191, align 8
+  store ptr %192, ptr %17, align 8
+  br label %193
+
+193:                                              ; preds = %189
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #15
+  %194 = load ptr, ptr %15, align 8
+  store ptr %194, ptr %30, align 8
+  %195 = load ptr, ptr %30, align 8
+  %196 = icmp ne ptr %195, null
+  br i1 %196, label %197, label %199
+
+197:                                              ; preds = %193
+  store ptr null, ptr %15, align 8
+  %198 = load ptr, ptr %30, align 8
+  call void @_ZL10_Py_DECREFP7_object(ptr noundef %198)
+  br label %199
+
+199:                                              ; preds = %197, %193
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #15
+  br label %200
+
+200:                                              ; preds = %199
+  br label %201
+
+201:                                              ; preds = %200
+  %202 = load ptr, ptr %17, align 8
+  %203 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
+  %204 = getelementptr inbounds nuw %"struct.nanobind::detail::nb_internals", ptr %203, i32 0, i32 3
+  %205 = load ptr, ptr %204, align 8
+  %206 = icmp eq ptr %202, %205
+  br i1 %206, label %219, label %207
+
+207:                                              ; preds = %201
+  %208 = load ptr, ptr %17, align 8
+  %209 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
+  %210 = getelementptr inbounds nuw %"struct.nanobind::detail::nb_internals", ptr %209, i32 0, i32 4
+  %211 = load ptr, ptr %210, align 8
+  %212 = icmp eq ptr %208, %211
+  br i1 %212, label %219, label %213
+
+213:                                              ; preds = %207
+  %214 = load ptr, ptr %17, align 8
+  %215 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
+  %216 = getelementptr inbounds nuw %"struct.nanobind::detail::nb_internals", ptr %215, i32 0, i32 5
+  %217 = load ptr, ptr %216, align 8
+  %218 = icmp eq ptr %214, %217
+  br i1 %218, label %219, label %225
+
+219:                                              ; preds = %213, %207, %201
+  %220 = load ptr, ptr %14, align 8
+  call void @_ZL10_Py_DECREFP7_object(ptr noundef %220)
+  %221 = load i8, ptr %9, align 1, !range !5, !noundef !6
+  %222 = trunc i8 %221 to i1
+  br i1 %222, label %223, label %224
+
+223:                                              ; preds = %219
+  store ptr @.str.1, ptr %13, align 8
+  br label %250
+
+224:                                              ; preds = %219
+  call void @_ZL10_Py_INCREFP7_object(ptr noundef @_Py_NoneStruct)
+  store ptr @_Py_NoneStruct, ptr %14, align 8
+  br label %225
+
+225:                                              ; preds = %224, %213
+  %226 = load ptr, ptr %8, align 8
+  %227 = load ptr, ptr %6, align 8
+  %228 = load i64, ptr %18, align 8
+  %229 = mul i64 2, %228
+  %230 = add i64 %229, 1
+  %231 = getelementptr inbounds nuw ptr, ptr %227, i64 %230
+  store ptr %226, ptr %231, align 8
+  %232 = load ptr, ptr %14, align 8
+  %233 = load ptr, ptr %6, align 8
+  %234 = load i64, ptr %18, align 8
+  %235 = mul i64 2, %234
+  %236 = add i64 %235, 2
+  %237 = getelementptr inbounds nuw ptr, ptr %233, i64 %236
+  store ptr %232, ptr %237, align 8
+  %238 = load ptr, ptr %14, align 8
+  %239 = load ptr, ptr %11, align 8
+  %240 = icmp ne ptr %238, %239
+  br i1 %240, label %241, label %248
+
+241:                                              ; preds = %225
+  %242 = load i32, ptr %12, align 4
+  %243 = load ptr, ptr %10, align 8
+  %244 = getelementptr inbounds nuw %"struct.nanobind::detail::ticket", ptr %243, i32 0, i32 3
+  store i32 %242, ptr %244, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #15
+  %245 = load ptr, ptr %14, align 8
+  call void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef %245)
+  %246 = load ptr, ptr %10, align 8
+  %247 = getelementptr inbounds nuw %"struct.nanobind::detail::ticket", ptr %246, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %247, ptr align 8 %31, i64 8, i1 false)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #15
+  store i32 1, ptr %20, align 4
+  br label %261
+
+248:                                              ; preds = %225
+  %249 = load i32, ptr %12, align 4
+  call void @PyGILState_Release(i32 noundef %249)
+  store i32 1, ptr %20, align 4
+  br label %261
+
+250:                                              ; preds = %143, %223, %188, %181, %175, %93
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #15
+  %251 = load ptr, ptr %16, align 8
+  %252 = getelementptr inbounds nuw %struct._object, ptr %251, i32 0, i32 1
+  %253 = load ptr, ptr %252, align 8
+  %254 = call noundef ptr @_ZN8nanobind6detail12nb_type_dataEP11_typeobject(ptr noundef %253) #15
+  store ptr %254, ptr %32, align 8
+  %255 = load i32, ptr %12, align 4
+  call void @PyGILState_Release(i32 noundef %255)
+  %256 = load ptr, ptr %32, align 8
+  %257 = getelementptr inbounds nuw %"struct.nanobind::detail::type_data", ptr %256, i32 0, i32 2
+  %258 = load ptr, ptr %257, align 8
+  %259 = load ptr, ptr %8, align 8
+  %260 = load ptr, ptr %13, align 8
+  call void (ptr, ...) @_ZN8nanobind6detail5raiseEPKcz(ptr noundef @.str.5, ptr noundef %258, ptr noundef %259, ptr noundef %260) #17
   unreachable
 
-101:                                              ; preds = %87
-  br label %105
+261:                                              ; preds = %248, %241, %143
+  call void @llvm.lifetime.end.p0(i64 1, ptr %24) #15
+  br label %262
 
-102:                                              ; preds = %71, %55, %39
-  %103 = load ptr, ptr %21, align 8
-  %104 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN8nanobind6detail14current_ticketE)
-  store ptr %103, ptr %104, align 8
-  br label %105
-
-105:                                              ; preds = %102, %101, %5
+262:                                              ; preds = %261, %84
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #15
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN8nanobind6detailL25trampoline_enter_internalEPPvmPKcbPNS0_6ticketE(ptr noundef %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4) #1 {
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca ptr, align 8
-  %13 = alloca ptr, align 8
-  %14 = alloca i64, align 8
-  %15 = alloca ptr, align 8
-  %16 = alloca i8, align 1
-  %17 = alloca ptr, align 8
-  %18 = alloca ptr, align 8
-  %19 = alloca i32, align 4
-  %20 = alloca ptr, align 8
-  %21 = alloca ptr, align 8
-  %22 = alloca ptr, align 8
-  %23 = alloca ptr, align 8
-  %24 = alloca i64, align 8
-  %25 = alloca i64, align 8
-  %26 = alloca ptr, align 8
-  %27 = alloca ptr, align 8
-  %28 = alloca %"class.nanobind::handle", align 8
-  %29 = alloca i64, align 8
-  %30 = alloca ptr, align 8
-  %31 = alloca ptr, align 8
-  %32 = alloca %"class.nanobind::handle", align 8
-  %33 = alloca ptr, align 8
-  %34 = alloca %"class.nanobind::handle", align 8
-  %35 = alloca ptr, align 8
-  store ptr %0, ptr %13, align 8
-  store i64 %1, ptr %14, align 8
-  store ptr %2, ptr %15, align 8
-  %36 = zext i1 %3 to i8
-  store i8 %36, ptr %16, align 1
-  store ptr %4, ptr %17, align 8
-  store ptr @_Py_NoneStruct, ptr %18, align 8
-  store i32 0, ptr %19, align 4
-  store ptr null, ptr %20, align 8
-  store ptr null, ptr %21, align 8
-  store ptr null, ptr %22, align 8
-  store ptr null, ptr %23, align 8
-  store i64 0, ptr %24, align 8
-  store i64 0, ptr %25, align 8
-  br label %37
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK8nanobind6handlecvbEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp ne ptr %5, null
+  ret i1 %6
+}
 
-37:                                               ; preds = %80, %5
-  %38 = load i64, ptr %25, align 8
-  %39 = load i64, ptr %14, align 8
-  %40 = icmp ult i64 %38, %39
-  br i1 %40, label %41, label %83
-
-41:                                               ; preds = %37
-  %42 = load ptr, ptr %13, align 8
-  %43 = load i64, ptr %25, align 8
-  %44 = mul i64 2, %43
-  %45 = add i64 %44, 1
-  %46 = getelementptr inbounds ptr, ptr %42, i64 %45
-  %47 = load ptr, ptr %46, align 8
-  store ptr %47, ptr %26, align 8
-  %48 = load ptr, ptr %13, align 8
-  %49 = load i64, ptr %25, align 8
-  %50 = mul i64 2, %49
-  %51 = add i64 %50, 2
-  %52 = getelementptr inbounds ptr, ptr %48, i64 %51
-  %53 = load ptr, ptr %52, align 8
-  store ptr %53, ptr %27, align 8
-  %54 = load ptr, ptr %15, align 8
-  %55 = load ptr, ptr %26, align 8
-  %56 = icmp eq ptr %54, %55
-  br i1 %56, label %57, label %79
-
-57:                                               ; preds = %41
-  %58 = load ptr, ptr %27, align 8
-  %59 = icmp ne ptr %58, null
-  br i1 %59, label %60, label %79
-
-60:                                               ; preds = %57
-  %61 = load ptr, ptr %27, align 8
-  %62 = load ptr, ptr %18, align 8
-  %63 = icmp ne ptr %61, %62
-  br i1 %63, label %64, label %73
-
-64:                                               ; preds = %60
-  %65 = call i32 @PyGILState_Ensure()
-  %66 = load ptr, ptr %17, align 8
-  %67 = getelementptr inbounds %"struct.nanobind::detail::ticket", ptr %66, i32 0, i32 3
-  store i32 %65, ptr %67, align 8
-  %68 = load ptr, ptr %27, align 8
-  store ptr %28, ptr %11, align 8
-  store ptr %68, ptr %12, align 8
-  %69 = load ptr, ptr %11, align 8
-  %70 = load ptr, ptr %12, align 8
-  store ptr %70, ptr %69, align 8
-  %71 = load ptr, ptr %17, align 8
-  %72 = getelementptr inbounds %"struct.nanobind::detail::ticket", ptr %71, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %72, ptr align 8 %28, i64 8, i1 false)
-  br label %253
-
-73:                                               ; preds = %60
-  %74 = load i8, ptr %16, align 1
-  %75 = trunc i8 %74 to i1
-  br i1 %75, label %76, label %78
-
-76:                                               ; preds = %73
-  store ptr @.str.1, ptr %20, align 8
-  %77 = call i32 @PyGILState_Ensure()
-  store i32 %77, ptr %19, align 4
-  br label %239
-
-78:                                               ; preds = %73
-  br label %253
-
-79:                                               ; preds = %57, %41
-  br label %80
-
-80:                                               ; preds = %79
-  %81 = load i64, ptr %25, align 8
-  %82 = add i64 %81, 1
-  store i64 %82, ptr %25, align 8
-  br label %37, !llvm.loop !6
-
-83:                                               ; preds = %37
-  %84 = call i32 @PyGILState_Ensure()
-  store i32 %84, ptr %19, align 4
-  store i64 0, ptr %29, align 8
-  br label %85
-
-85:                                               ; preds = %128, %83
-  %86 = load i64, ptr %29, align 8
-  %87 = load i64, ptr %14, align 8
-  %88 = icmp ult i64 %86, %87
-  br i1 %88, label %89, label %131
-
-89:                                               ; preds = %85
-  %90 = load ptr, ptr %13, align 8
-  %91 = load i64, ptr %29, align 8
-  %92 = mul i64 2, %91
-  %93 = add i64 %92, 1
-  %94 = getelementptr inbounds ptr, ptr %90, i64 %93
-  %95 = load ptr, ptr %94, align 8
-  store ptr %95, ptr %30, align 8
-  %96 = load ptr, ptr %13, align 8
-  %97 = load i64, ptr %29, align 8
-  %98 = mul i64 2, %97
-  %99 = add i64 %98, 2
-  %100 = getelementptr inbounds ptr, ptr %96, i64 %99
-  %101 = load ptr, ptr %100, align 8
-  store ptr %101, ptr %31, align 8
-  %102 = load ptr, ptr %15, align 8
-  %103 = load ptr, ptr %30, align 8
-  %104 = icmp eq ptr %102, %103
-  br i1 %104, label %105, label %127
-
-105:                                              ; preds = %89
-  %106 = load ptr, ptr %31, align 8
-  %107 = icmp ne ptr %106, null
-  br i1 %107, label %108, label %127
-
-108:                                              ; preds = %105
-  %109 = load ptr, ptr %31, align 8
-  %110 = load ptr, ptr %18, align 8
-  %111 = icmp ne ptr %109, %110
-  br i1 %111, label %112, label %121
-
-112:                                              ; preds = %108
-  %113 = load i32, ptr %19, align 4
-  %114 = load ptr, ptr %17, align 8
-  %115 = getelementptr inbounds %"struct.nanobind::detail::ticket", ptr %114, i32 0, i32 3
-  store i32 %113, ptr %115, align 8
-  %116 = load ptr, ptr %31, align 8
-  store ptr %32, ptr %9, align 8
-  store ptr %116, ptr %10, align 8
-  %117 = load ptr, ptr %9, align 8
-  %118 = load ptr, ptr %10, align 8
-  store ptr %118, ptr %117, align 8
-  %119 = load ptr, ptr %17, align 8
-  %120 = getelementptr inbounds %"struct.nanobind::detail::ticket", ptr %119, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %120, ptr align 8 %32, i64 8, i1 false)
-  br label %253
-
-121:                                              ; preds = %108
-  %122 = load i8, ptr %16, align 1
-  %123 = trunc i8 %122 to i1
-  br i1 %123, label %124, label %125
-
-124:                                              ; preds = %121
-  store ptr @.str.1, ptr %20, align 8
-  br label %239
-
-125:                                              ; preds = %121
-  %126 = load i32, ptr %19, align 4
-  call void @PyGILState_Release(i32 noundef %126)
-  br label %253
-
-127:                                              ; preds = %105, %89
-  br label %128
-
-128:                                              ; preds = %127
-  %129 = load i64, ptr %29, align 8
-  %130 = add i64 %129, 1
-  store i64 %130, ptr %29, align 8
-  br label %85, !llvm.loop !7
-
-131:                                              ; preds = %85
-  br label %132
-
-132:                                              ; preds = %154, %131
-  %133 = load i64, ptr %24, align 8
-  %134 = load i64, ptr %14, align 8
-  %135 = icmp ult i64 %133, %134
-  br i1 %135, label %136, label %157
-
-136:                                              ; preds = %132
-  %137 = load ptr, ptr %13, align 8
-  %138 = load i64, ptr %24, align 8
-  %139 = mul i64 2, %138
-  %140 = add i64 %139, 1
-  %141 = getelementptr inbounds ptr, ptr %137, i64 %140
-  %142 = load ptr, ptr %141, align 8
-  %143 = icmp eq ptr %142, null
-  br i1 %143, label %144, label %153
-
-144:                                              ; preds = %136
-  %145 = load ptr, ptr %13, align 8
-  %146 = load i64, ptr %24, align 8
-  %147 = mul i64 2, %146
-  %148 = add i64 %147, 2
-  %149 = getelementptr inbounds ptr, ptr %145, i64 %148
-  %150 = load ptr, ptr %149, align 8
-  %151 = icmp eq ptr %150, null
-  br i1 %151, label %152, label %153
-
-152:                                              ; preds = %144
-  br label %157
-
-153:                                              ; preds = %144, %136
-  br label %154
-
-154:                                              ; preds = %153
-  %155 = load i64, ptr %24, align 8
-  %156 = add i64 %155, 1
-  store i64 %156, ptr %24, align 8
-  br label %132, !llvm.loop !8
-
-157:                                              ; preds = %152, %132
-  %158 = load i64, ptr %24, align 8
-  %159 = load i64, ptr %14, align 8
-  %160 = icmp eq i64 %158, %159
-  br i1 %160, label %161, label %162
-
-161:                                              ; preds = %157
-  store ptr @.str.2, ptr %20, align 8
-  br label %239
-
-162:                                              ; preds = %157
-  %163 = load ptr, ptr %15, align 8
-  %164 = call ptr @PyUnicode_InternFromString(ptr noundef %163)
-  store ptr %164, ptr %21, align 8
-  %165 = load ptr, ptr %21, align 8
-  %166 = icmp ne ptr %165, null
-  br i1 %166, label %168, label %167
-
-167:                                              ; preds = %162
-  store ptr @.str.3, ptr %20, align 8
-  br label %239
-
-168:                                              ; preds = %162
-  %169 = load ptr, ptr %13, align 8
-  %170 = getelementptr inbounds ptr, ptr %169, i64 0
-  %171 = load ptr, ptr %170, align 8
-  %172 = load ptr, ptr %21, align 8
-  %173 = call ptr @PyObject_GetAttr(ptr noundef %171, ptr noundef %172)
-  store ptr %173, ptr %22, align 8
-  %174 = load ptr, ptr %22, align 8
-  %175 = icmp ne ptr %174, null
-  br i1 %175, label %177, label %176
-
-176:                                              ; preds = %168
-  store ptr @.str.4, ptr %20, align 8
-  br label %239
-
-177:                                              ; preds = %168
-  %178 = load ptr, ptr %22, align 8
-  %179 = getelementptr inbounds %struct._object, ptr %178, i32 0, i32 1
-  %180 = load ptr, ptr %179, align 8
-  store ptr %180, ptr %23, align 8
-  br label %181
-
-181:                                              ; preds = %177
-  %182 = load ptr, ptr %22, align 8
-  store ptr %182, ptr %33, align 8
-  %183 = load ptr, ptr %33, align 8
-  %184 = icmp ne ptr %183, null
-  br i1 %184, label %185, label %187
-
-185:                                              ; preds = %181
-  store ptr null, ptr %22, align 8
-  %186 = load ptr, ptr %33, align 8
-  call void @_ZL10_Py_DECREFP7_object(ptr noundef %186)
-  br label %187
-
-187:                                              ; preds = %185, %181
-  br label %188
-
-188:                                              ; preds = %187
-  %189 = load ptr, ptr %23, align 8
-  %190 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
-  %191 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %190, i32 0, i32 3
-  %192 = load ptr, ptr %191, align 8
-  %193 = icmp eq ptr %189, %192
-  br i1 %193, label %206, label %194
-
-194:                                              ; preds = %188
-  %195 = load ptr, ptr %23, align 8
-  %196 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
-  %197 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %196, i32 0, i32 4
-  %198 = load ptr, ptr %197, align 8
-  %199 = icmp eq ptr %195, %198
-  br i1 %199, label %206, label %200
-
-200:                                              ; preds = %194
-  %201 = load ptr, ptr %23, align 8
-  %202 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
-  %203 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %202, i32 0, i32 5
-  %204 = load ptr, ptr %203, align 8
-  %205 = icmp eq ptr %201, %204
-  br i1 %205, label %206, label %212
-
-206:                                              ; preds = %200, %194, %188
-  %207 = load ptr, ptr %21, align 8
-  call void @_ZL10_Py_DECREFP7_object(ptr noundef %207)
-  %208 = load i8, ptr %16, align 1
-  %209 = trunc i8 %208 to i1
-  br i1 %209, label %210, label %211
-
-210:                                              ; preds = %206
-  store ptr @.str.1, ptr %20, align 8
-  br label %239
-
-211:                                              ; preds = %206
-  call void @_ZL10_Py_INCREFP7_object(ptr noundef @_Py_NoneStruct)
-  store ptr @_Py_NoneStruct, ptr %21, align 8
-  br label %212
-
-212:                                              ; preds = %211, %200
-  %213 = load ptr, ptr %15, align 8
-  %214 = load ptr, ptr %13, align 8
-  %215 = load i64, ptr %24, align 8
-  %216 = mul i64 2, %215
-  %217 = add i64 %216, 1
-  %218 = getelementptr inbounds ptr, ptr %214, i64 %217
-  store ptr %213, ptr %218, align 8
-  %219 = load ptr, ptr %21, align 8
-  %220 = load ptr, ptr %13, align 8
-  %221 = load i64, ptr %24, align 8
-  %222 = mul i64 2, %221
-  %223 = add i64 %222, 2
-  %224 = getelementptr inbounds ptr, ptr %220, i64 %223
-  store ptr %219, ptr %224, align 8
-  %225 = load ptr, ptr %21, align 8
-  %226 = load ptr, ptr %18, align 8
-  %227 = icmp ne ptr %225, %226
-  br i1 %227, label %228, label %237
-
-228:                                              ; preds = %212
-  %229 = load i32, ptr %19, align 4
-  %230 = load ptr, ptr %17, align 8
-  %231 = getelementptr inbounds %"struct.nanobind::detail::ticket", ptr %230, i32 0, i32 3
-  store i32 %229, ptr %231, align 8
-  %232 = load ptr, ptr %21, align 8
-  store ptr %34, ptr %7, align 8
-  store ptr %232, ptr %8, align 8
-  %233 = load ptr, ptr %7, align 8
-  %234 = load ptr, ptr %8, align 8
-  store ptr %234, ptr %233, align 8
-  %235 = load ptr, ptr %17, align 8
-  %236 = getelementptr inbounds %"struct.nanobind::detail::ticket", ptr %235, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %236, ptr align 8 %34, i64 8, i1 false)
-  br label %253
-
-237:                                              ; preds = %212
-  %238 = load i32, ptr %19, align 4
-  call void @PyGILState_Release(i32 noundef %238)
-  br label %253
-
-239:                                              ; preds = %210, %176, %167, %161, %124, %76
-  %240 = load ptr, ptr %13, align 8
-  %241 = getelementptr inbounds ptr, ptr %240, i64 0
-  %242 = load ptr, ptr %241, align 8
-  %243 = getelementptr inbounds %struct._object, ptr %242, i32 0, i32 1
-  %244 = load ptr, ptr %243, align 8
-  store ptr %244, ptr %6, align 8
-  %245 = load ptr, ptr %6, align 8
-  %246 = getelementptr inbounds i8, ptr %245, i64 888
-  store ptr %246, ptr %35, align 8
-  %247 = load i32, ptr %19, align 4
-  call void @PyGILState_Release(i32 noundef %247)
-  %248 = load ptr, ptr %35, align 8
-  %249 = getelementptr inbounds %"struct.nanobind::detail::type_data", ptr %248, i32 0, i32 2
-  %250 = load ptr, ptr %249, align 8
-  %251 = load ptr, ptr %15, align 8
-  %252 = load ptr, ptr %20, align 8
-  call void (ptr, ...) @_ZN8nanobind6detail5raiseEPKcz(ptr noundef @.str.5, ptr noundef %250, ptr noundef %251, ptr noundef %252) #11
-  unreachable
-
-253:                                              ; preds = %237, %228, %125, %112, %78, %64
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN8nanobind6handleC2EPK7_object(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #9 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #6
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #11
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK8nanobind6detail3apiINS_6handleEE2isES2_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %1) #12 comdat align 2 {
+  %3 = alloca %"class.nanobind::handle", align 8
+  %4 = alloca ptr, align 8
+  %5 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %3, i32 0, i32 0
+  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8nanobind6detail3apiINS_6handleEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
+  %8 = call noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %9 = call noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %10 = icmp eq ptr %8, %9
+  ret i1 %10
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8nanobind6handleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.nanobind::handle", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %3, i32 0, i32 0
   store ptr null, ptr %4, align 8
   ret void
 }
 
-declare void @PyGILState_Release(i32 noundef) #7
+declare void @PyGILState_Release(i32 noundef) #13
 
 ; Function Attrs: noreturn
-declare void @_ZN8nanobind6detail5raiseEPKcz(ptr noundef, ...) #8
+declare void @_ZN8nanobind6detail5raiseEPKcz(ptr noundef, ...) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8nanobind6detail16trampoline_leaveEPNS0_6ticketE(ptr noundef %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.nanobind::detail::ticket", ptr %4, i32 0, i32 1
-  store ptr %5, ptr %2, align 8
-  %6 = load ptr, ptr %2, align 8
-  %7 = load ptr, ptr %6, align 8
-  %8 = icmp ne ptr %7, null
-  br label %9
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.nanobind::detail::ticket", ptr %3, i32 0, i32 1
+  %5 = invoke noundef zeroext i1 @_ZNK8nanobind6handlecvbEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %6 unwind label %17
 
-9:                                                ; preds = %1
-  br i1 %8, label %11, label %10
+6:                                                ; preds = %1
+  br i1 %5, label %8, label %7
 
-10:                                               ; preds = %9
-  br label %19
+7:                                                ; preds = %6
+  br label %16
 
-11:                                               ; preds = %9
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %"struct.nanobind::detail::ticket", ptr %12, i32 0, i32 2
-  %14 = load ptr, ptr %13, align 8
-  %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN8nanobind6detail14current_ticketE)
-  store ptr %14, ptr %15, align 8
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %"struct.nanobind::detail::ticket", ptr %16, i32 0, i32 3
-  %18 = load i32, ptr %17, align 8
-  invoke void @PyGILState_Release(i32 noundef %18)
-          to label %19 unwind label %20
+8:                                                ; preds = %6
+  %9 = load ptr, ptr %2, align 8
+  %10 = getelementptr inbounds nuw %"struct.nanobind::detail::ticket", ptr %9, i32 0, i32 2
+  %11 = load ptr, ptr %10, align 8
+  %12 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN8nanobind6detailL14current_ticketE)
+  store ptr %11, ptr %12, align 8
+  %13 = load ptr, ptr %2, align 8
+  %14 = getelementptr inbounds nuw %"struct.nanobind::detail::ticket", ptr %13, i32 0, i32 3
+  %15 = load i32, ptr %14, align 8
+  invoke void @PyGILState_Release(i32 noundef %15)
+          to label %16 unwind label %17
 
-19:                                               ; preds = %11, %10
+16:                                               ; preds = %7, %8
   ret void
 
-20:                                               ; preds = %11
-  %21 = landingpad { ptr, i32 }
+17:                                               ; preds = %8, %1
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #10
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #16
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL10_Py_DECREFP7_object(ptr noundef %0) #1 {
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @_ZL10_Py_DECREFP7_object(ptr noundef %0) #8 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct._object, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct._object, ptr %3, i32 0, i32 0
   %5 = load i64, ptr %4, align 8
   %6 = add nsw i64 %5, -1
   store i64 %6, ptr %4, align 8
@@ -965,28 +1140,65 @@ define internal void @_ZL10_Py_DECREFP7_object(ptr noundef %0) #1 {
   ret void
 }
 
-declare void @_Py_Dealloc(ptr noundef) #7
+declare void @_Py_Dealloc(ptr noundef) #13
 
-declare i32 @PyGILState_Ensure() #7
-
-declare ptr @PyUnicode_InternFromString(ptr noundef) #7
-
-declare ptr @PyObject_GetAttr(ptr noundef, ptr noundef) #7
+declare i32 @PyGILState_Ensure() #13
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL10_Py_INCREFP7_object(ptr noundef %0) #0 {
+define linkonce_odr hidden void @_ZN8nanobind15ft_object_guardC2ENS_6handleE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca %"class.nanobind::handle", align 8
+  %4 = alloca ptr, align 8
+  %5 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %3, i32 0, i32 0
+  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8
+  ret void
+}
+
+declare ptr @PyUnicode_InternFromString(ptr noundef) #13
+
+declare ptr @PyObject_GetAttr(ptr noundef, ptr noundef) #13
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal void @_ZL10_Py_INCREFP7_object(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct._object, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct._object, ptr %3, i32 0, i32 0
   %5 = load i64, ptr %4, align 8
   %6 = add nsw i64 %5, 1
   store i64 %6, ptr %4, align 8
   ret void
 }
 
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN8nanobind6detail12nb_type_dataEP11_typeobject(ptr noundef %0) #9 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 888
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8nanobind6detail3apiINS_6handleEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK8nanobind6handle3ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.nanobind::handle", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E4findIS3_EENSI_14robin_iteratorILb0EEERKT_(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat align 2 {
+define linkonce_odr hidden ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E4findIS3_EENSI_14robin_iteratorILb0EEERKT_(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat align 2 {
   %3 = alloca %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -997,20 +1209,20 @@ define linkonce_odr hidden ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIP
   %8 = load ptr, ptr %5, align 8
   %9 = call noundef i64 @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E8hash_keyIS3_EEmRKT_(ptr noundef nonnull align 8 dereferenceable(74) %6, ptr noundef nonnull align 8 dereferenceable(8) %8)
   %10 = call ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E9find_implIS3_EENSI_14robin_iteratorILb0EEERKT_m(ptr noundef nonnull align 8 dereferenceable(74) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef %9)
-  %11 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %3, i32 0, i32 0
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %3, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %3, i32 0, i32 0
   %13 = load ptr, ptr %12, align 8
   ret ptr %13
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E9find_implIS3_EENSI_14robin_iteratorILb0EEERKT_m(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2) #1 comdat align 2 {
+define linkonce_odr hidden ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E9find_implIS3_EENSI_14robin_iteratorILb0EEERKT_m(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2) #4 comdat align 2 {
   %4 = alloca %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
-  %8 = alloca %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.13", align 8
+  %8 = alloca %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.14", align 8
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store i64 %2, ptr %7, align 8
@@ -1018,20 +1230,20 @@ define linkonce_odr hidden ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIP
   %10 = load ptr, ptr %6, align 8
   %11 = load i64, ptr %7, align 8
   %12 = call ptr @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E4findIS3_EENSI_14robin_iteratorILb1EEERKT_m(ptr noundef nonnull align 8 dereferenceable(74) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef %11)
-  %13 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.13", ptr %8, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.14", ptr %8, i32 0, i32 0
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.13", ptr %8, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.14", ptr %8, i32 0, i32 0
   %15 = load ptr, ptr %14, align 8
   %16 = call ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E16mutable_iteratorENSI_14robin_iteratorILb1EEE(ptr noundef nonnull align 8 dereferenceable(74) %9, ptr %15)
-  %17 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %4, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %4, i32 0, i32 0
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %4, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %4, i32 0, i32 0
   %19 = load ptr, ptr %18, align 8
   ret ptr %19
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i64 @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E8hash_keyIS3_EEmRKT_(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat align 2 {
+define linkonce_odr hidden noundef i64 @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E8hash_keyIS3_EEmRKT_(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -1046,22 +1258,22 @@ define linkonce_odr hidden noundef i64 @_ZNK3tsl17detail_robin_hash10robin_hashI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E16mutable_iteratorENSI_14robin_iteratorILb1EEE(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr %1) #0 comdat align 2 {
   %3 = alloca %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", align 8
-  %4 = alloca %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.13", align 8
+  %4 = alloca %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.14", align 8
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.13", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.14", ptr %4, i32 0, i32 0
   store ptr %1, ptr %6, align 8
   store ptr %0, ptr %5, align 8
-  %7 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.13", ptr %4, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.14", ptr %4, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
-  call void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E14robin_iteratorILb0EEC2EPNS0_12bucket_entryIS4_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %8) #9
-  %9 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %3, i32 0, i32 0
+  call void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E14robin_iteratorILb0EEC2EPNS0_12bucket_entryIS4_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %8) #15
+  %9 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %3, i32 0, i32 0
   %10 = load ptr, ptr %9, align 8
   ret ptr %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E4findIS3_EENSI_14robin_iteratorILb1EEERKT_m(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2) #1 comdat align 2 {
-  %4 = alloca %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.13", align 8
+define linkonce_odr hidden ptr @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E4findIS3_EENSI_14robin_iteratorILb1EEERKT_m(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2) #4 comdat align 2 {
+  %4 = alloca %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.14", align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
@@ -1072,9 +1284,9 @@ define linkonce_odr hidden ptr @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairI
   %9 = load ptr, ptr %6, align 8
   %10 = load i64, ptr %7, align 8
   %11 = call ptr @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E9find_implIS3_EENSI_14robin_iteratorILb1EEERKT_m(ptr noundef nonnull align 8 dereferenceable(74) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, i64 noundef %10)
-  %12 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.13", ptr %4, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.14", ptr %4, i32 0, i32 0
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.13", ptr %4, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.14", ptr %4, i32 0, i32 0
   %14 = load ptr, ptr %13, align 8
   ret ptr %14
 }
@@ -1086,83 +1298,95 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E9find_implIS3_EENSI_14robin_iteratorILb1EEERKT_m(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2) #1 comdat align 2 {
-  %4 = alloca %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.13", align 8
+define linkonce_odr hidden ptr @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E9find_implIS3_EENSI_14robin_iteratorILb1EEERKT_m(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2) #4 comdat align 2 {
+  %4 = alloca %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.14", align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i16, align 2
   %10 = alloca %"class.tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect", align 1
+  %11 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store i64 %2, ptr %7, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = load i64, ptr %7, align 8
-  %13 = call noundef i64 @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E15bucket_for_hashEm(ptr noundef nonnull align 8 dereferenceable(74) %11, i64 noundef %12)
-  store i64 %13, ptr %8, align 8
+  %12 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #15
+  %13 = load i64, ptr %7, align 8
+  %14 = call noundef i64 @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E15bucket_for_hashEm(ptr noundef nonnull align 8 dereferenceable(74) %12, i64 noundef %13)
+  store i64 %14, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #15
   store i16 0, ptr %9, align 2
-  br label %14
+  br label %15
 
-14:                                               ; preds = %40, %3
-  %15 = load i16, ptr %9, align 2
-  %16 = sext i16 %15 to i32
-  %17 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash", ptr %11, i32 0, i32 2
-  %18 = load ptr, ptr %17, align 8
-  %19 = load i64, ptr %8, align 8
-  %20 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry", ptr %18, i64 %19
-  %21 = call noundef signext i16 @_ZNK3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE22dist_from_ideal_bucketEv(ptr noundef nonnull align 8 dereferenceable(24) %20) #9
-  %22 = sext i16 %21 to i32
-  %23 = icmp sle i32 %16, %22
-  br i1 %23, label %24, label %45
+15:                                               ; preds = %44, %3
+  %16 = load i16, ptr %9, align 2
+  %17 = sext i16 %16 to i32
+  %18 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash", ptr %12, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8
+  %20 = load i64, ptr %8, align 8
+  %21 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %19, i64 %20
+  %22 = call noundef signext i16 @_ZNK3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE22dist_from_ideal_bucketEv(ptr noundef nonnull align 8 dereferenceable(24) %21) #15
+  %23 = sext i16 %22 to i32
+  %24 = icmp sle i32 %17, %23
+  br i1 %24, label %25, label %49
 
-24:                                               ; preds = %14
-  %25 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash", ptr %11, i32 0, i32 2
-  %26 = load ptr, ptr %25, align 8
-  %27 = load i64, ptr %8, align 8
-  %28 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry", ptr %26, i64 %27
-  %29 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5valueEv(ptr noundef nonnull align 8 dereferenceable(24) %28) #9
-  %30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectclERS8_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(16) %29) #9
-  %31 = load ptr, ptr %6, align 8
-  %32 = call noundef zeroext i1 @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E12compare_keysIS3_S3_EEbRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(74) %11, ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %31)
-  %33 = xor i1 %32, true
+25:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #15
+  %26 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash", ptr %12, i32 0, i32 2
+  %27 = load ptr, ptr %26, align 8
+  %28 = load i64, ptr %8, align 8
+  %29 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %27, i64 %28
+  %30 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5valueEv(ptr noundef nonnull align 8 dereferenceable(24) %29) #15
+  %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectclERS8_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(16) %30) #15
+  %32 = load ptr, ptr %6, align 8
+  %33 = call noundef zeroext i1 @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E12compare_keysIS3_S3_EEbRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(74) %12, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(8) %32)
   %34 = xor i1 %33, true
-  br i1 %34, label %35, label %40
+  %35 = xor i1 %34, true
+  %36 = zext i1 %35 to i64
+  %37 = call i64 @llvm.expect.i64(i64 %36, i64 1)
+  %38 = icmp ne i64 %37, 0
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #15
+  br i1 %38, label %39, label %44
 
-35:                                               ; preds = %24
-  %36 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash", ptr %11, i32 0, i32 2
-  %37 = load ptr, ptr %36, align 8
-  %38 = load i64, ptr %8, align 8
-  %39 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry", ptr %37, i64 %38
-  call void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E14robin_iteratorILb1EEC2EPKNS0_12bucket_entryIS4_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %39) #9
-  br label %48
+39:                                               ; preds = %25
+  %40 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash", ptr %12, i32 0, i32 2
+  %41 = load ptr, ptr %40, align 8
+  %42 = load i64, ptr %8, align 8
+  %43 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %41, i64 %42
+  call void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E14robin_iteratorILb1EEC2EPKNS0_12bucket_entryIS4_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %43) #15
+  store i32 1, ptr %11, align 4
+  br label %52
 
-40:                                               ; preds = %24
-  %41 = load i64, ptr %8, align 8
-  %42 = call noundef i64 @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E11next_bucketISE_TnPNSt9enable_ifIXsr22is_power_of_two_policyIT_EE5valueEvE4typeELS3_0EEEmm(ptr noundef nonnull align 8 dereferenceable(74) %11, i64 noundef %41) #9
-  store i64 %42, ptr %8, align 8
-  %43 = load i16, ptr %9, align 2
-  %44 = add i16 %43, 1
-  store i16 %44, ptr %9, align 2
-  br label %14, !llvm.loop !9
+44:                                               ; preds = %25
+  %45 = load i64, ptr %8, align 8
+  %46 = call noundef i64 @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E11next_bucketISE_TnPNSt9enable_ifIXsr22is_power_of_two_policyIT_EE5valueEvE4typeELS3_0EEEmm(ptr noundef nonnull align 8 dereferenceable(74) %12, i64 noundef %45) #15
+  store i64 %46, ptr %8, align 8
+  %47 = load i16, ptr %9, align 2
+  %48 = add i16 %47, 1
+  store i16 %48, ptr %9, align 2
+  br label %15, !llvm.loop !10
 
-45:                                               ; preds = %14
-  %46 = call ptr @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E4cendEv(ptr noundef nonnull align 8 dereferenceable(74) %11) #9
-  %47 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.13", ptr %4, i32 0, i32 0
-  store ptr %46, ptr %47, align 8
-  br label %48
+49:                                               ; preds = %15
+  %50 = call ptr @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E4cendEv(ptr noundef nonnull align 8 dereferenceable(74) %12) #15
+  %51 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.14", ptr %4, i32 0, i32 0
+  store ptr %50, ptr %51, align 8
+  store i32 1, ptr %11, align 4
+  br label %52
 
-48:                                               ; preds = %45, %35
-  %49 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.13", ptr %4, i32 0, i32 0
-  %50 = load ptr, ptr %49, align 8
-  ret ptr %50
+52:                                               ; preds = %49, %39
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #15
+  %53 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.14", ptr %4, i32 0, i32 0
+  %54 = load ptr, ptr %53, align 8
+  ret ptr %54
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1173,10 +1397,12 @@ define linkonce_odr hidden noundef i64 @_ZNK3tsl17detail_robin_hash10robin_hashI
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #15
   %7 = load i64, ptr %4, align 8
-  %8 = call noundef i64 @_ZNK3tsl2rh26power_of_two_growth_policyILm2EE15bucket_for_hashEm(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %7) #9
+  %8 = call noundef i64 @_ZNK3tsl2rh26power_of_two_growth_policyILm2EE15bucket_for_hashEm(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %7) #15
   store i64 %8, ptr %5, align 8
   %9 = load i64, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #15
   ret i64 %9
 }
 
@@ -1185,13 +1411,13 @@ define linkonce_odr hidden noundef signext i16 @_ZNK3tsl17detail_robin_hash12buc
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %3, i32 0, i32 1
   %5 = load i16, ptr %4, align 4
   ret i16 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E12compare_keysIS3_S3_EEbRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #1 comdat align 2 {
+define linkonce_odr hidden noundef zeroext i1 @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E12compare_keysIS3_S3_EEbRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #4 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1212,7 +1438,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3t
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %"struct.std::pair", ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::pair", ptr %5, i32 0, i32 0
   ret ptr %6
 }
 
@@ -1221,8 +1447,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN3
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry", ptr %3, i32 0, i32 4
-  %5 = call noundef ptr @_ZSt7launderISt4pairIPvS1_EEPT_S4_(ptr noundef %4) #9
+  %4 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %3, i32 0, i32 4
+  %5 = call noundef ptr @_ZSt7launderISt4pairIPvS1_EEPT_S4_(ptr noundef %4) #15
   ret ptr %5
 }
 
@@ -1233,7 +1459,7 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.13", ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.14", ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
   ret void
@@ -1248,7 +1474,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3tsl17detail_robin_hash10robin_hashI
   %5 = load ptr, ptr %3, align 8
   %6 = load i64, ptr %4, align 8
   %7 = add i64 %6, 1
-  %8 = getelementptr inbounds %"class.tsl::rh::power_of_two_growth_policy", ptr %5, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"class.tsl::rh::power_of_two_growth_policy", ptr %5, i32 0, i32 0
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %7, %9
   ret i64 %10
@@ -1256,17 +1482,17 @@ define linkonce_odr hidden noundef i64 @_ZNK3tsl17detail_robin_hash10robin_hashI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden ptr @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E4cendEv(ptr noundef nonnull align 8 dereferenceable(74) %0) #0 comdat align 2 {
-  %2 = alloca %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.13", align 8
+  %2 = alloca %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.14", align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash", ptr %4, i32 0, i32 2
+  %5 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash", ptr %4, i32 0, i32 2
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash", ptr %4, i32 0, i32 3
+  %7 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash", ptr %4, i32 0, i32 3
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry", ptr %6, i64 %8
-  call void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E14robin_iteratorILb1EEC2EPKNS0_12bucket_entryIS4_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %9) #9
-  %10 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.13", ptr %2, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %6, i64 %8
+  call void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E14robin_iteratorILb1EEC2EPKNS0_12bucket_entryIS4_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %9) #15
+  %10 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator.14", ptr %2, i32 0, i32 0
   %11 = load ptr, ptr %10, align 8
   ret ptr %11
 }
@@ -1279,7 +1505,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3tsl2rh26power_of_two_growth_policyI
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load i64, ptr %4, align 8
-  %7 = getelementptr inbounds %"class.tsl::rh::power_of_two_growth_policy", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"class.tsl::rh::power_of_two_growth_policy", ptr %5, i32 0, i32 0
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %6, %8
   ret i64 %9
@@ -1310,7 +1536,7 @@ define linkonce_odr noundef ptr @_ZSt7launderISt4pairIPvS1_EEPT_S4_(ptr noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i64 @_ZNK8nanobind6detail8ptr_hashclEPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #1 comdat align 2 {
+define linkonce_odr hidden noundef i64 @_ZNK8nanobind6detail8ptr_hashclEPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -1321,8 +1547,8 @@ define linkonce_odr hidden noundef i64 @_ZNK8nanobind6detail8ptr_hashclEPKv(ptr 
   ret i64 %7
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i64 @_Z6fmix64m(i64 noundef %0) #0 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_Z6fmix64m(i64 noundef %0) #2 comdat {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -1356,13 +1582,13 @@ define linkonce_odr hidden ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIP
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash", ptr %4, i32 0, i32 2
+  %5 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash", ptr %4, i32 0, i32 2
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash", ptr %4, i32 0, i32 3
+  %7 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash", ptr %4, i32 0, i32 3
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry", ptr %6, i64 %8
-  call void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E14robin_iteratorILb0EEC2EPNS0_12bucket_entryIS4_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %9) #9
-  %10 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %2, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %6, i64 %8
+  call void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E14robin_iteratorILb0EEC2EPNS0_12bucket_entryIS4_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %9) #15
+  %10 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %2, i32 0, i32 0
   %11 = load ptr, ptr %10, align 8
   ret ptr %11
 }
@@ -1374,45 +1600,44 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3tsl17detail_robin_hasheqERKNS
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %8, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %8, i32 0, i32 0
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %7, %10
   ret i1 %11
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8nanobind6detail3apiINS_6handleEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  ret ptr %3
-}
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #6 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { alwaysinline mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nounwind }
+attributes #16 = { noreturn nounwind }
+attributes #17 = { noreturn }
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind }
-attributes #10 = { noreturn nounwind }
-attributes #11 = { noreturn }
-
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.mustprogress"}
+!5 = !{i8 0, i8 2}
+!6 = !{}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
