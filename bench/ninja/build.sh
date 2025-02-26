@@ -1,8 +1,12 @@
 #!/bin/bash
 
-mkdir -p bench_build
+rm -rf original
+mkdir original
+export DUMP_PREFIX=$(pwd)/original
+sed "s/CMAKE_INTERPROCEDURAL_OPTIMIZATION_RELEASE TRUE/CMAKE_INTERPROCEDURAL_OPTIMIZATION_RELEASE FALSE/g" -i ninja/CMakeLists.txt
+rm -rf bench_build
+mkdir bench_build
 cd bench_build
 ../../../scripts/configure_cmake.sh ../ninja -DBUILD_SHARED_LIBS=ON
 cmake --build . -j
-cd ..
-find bench_build/CMakeFiles/ -name "*.o" -exec ../../scripts/extract_bc.sh {} \;
+git -C ../ninja checkout .

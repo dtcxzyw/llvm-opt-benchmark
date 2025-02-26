@@ -113,6 +113,7 @@ supported_project = [
     "nanobind",
     "ncnn",
     "nghttp2",
+    "ninja",
 ]
 
 modify_only = [
