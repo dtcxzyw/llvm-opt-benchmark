@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/oiio/original/RunLengthEncoding.ll'
 source_filename = "bench/oiio/original/RunLengthEncoding.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 
@@ -9,16 +9,16 @@ target triple = "x86_64-unknown-linux-gnu"
 @__dso_handle = external hidden global i8
 @_ZTVN3dpx17RunLengthEncodingE = hidden unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3dpx17RunLengthEncodingE, ptr @_ZN3dpx17RunLengthEncodingD2Ev, ptr @_ZN3dpx17RunLengthEncodingD0Ev, ptr @_ZN3dpx17RunLengthEncoding5ResetEv, ptr @_ZN3dpx17RunLengthEncoding4ReadERKNS_6HeaderEPNS_17ElementReadStreamEiRKNS_5BlockEPvNS_8DataSizeE] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
+@_ZTIN3dpx17RunLengthEncodingE = hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3dpx17RunLengthEncodingE, ptr @_ZTIN3dpx5CodecE }, align 8
 @_ZTSN3dpx17RunLengthEncodingE = hidden constant [26 x i8] c"N3dpx17RunLengthEncodingE\00", align 1
 @_ZTIN3dpx5CodecE = external constant ptr
-@_ZTIN3dpx17RunLengthEncodingE = hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3dpx17RunLengthEncodingE, ptr @_ZTIN3dpx5CodecE }, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_RunLengthEncoding.cpp, ptr null }]
 
 @_ZN3dpx17RunLengthEncodingC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN3dpx17RunLengthEncodingC2Ev
 @_ZN3dpx17RunLengthEncodingD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN3dpx17RunLengthEncodingD2Ev
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #0
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
@@ -29,32 +29,30 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3dpx17RunLengthEncodingC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 {
-entry:
-  tail call void @_ZN3dpx5CodecC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3dpx17RunLengthEncodingE, i64 16), ptr %this, align 8
-  %buf = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr null, ptr %buf, align 8
+define hidden void @_ZN3dpx17RunLengthEncodingC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 align 2 {
+  tail call void @_ZN3dpx5CodecC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3dpx17RunLengthEncodingE, i64 16), ptr %0, align 8, !tbaa !3
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr null, ptr %2, align 8, !tbaa !6
   ret void
 }
 
 declare void @_ZN3dpx5CodecC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3dpx17RunLengthEncodingD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3dpx17RunLengthEncodingE, i64 16), ptr %this, align 8
-  %buf = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %buf, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.end, label %delete.notnull
+define hidden void @_ZN3dpx17RunLengthEncodingD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3dpx17RunLengthEncodingE, i64 16), ptr %0, align 8, !tbaa !3
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = load ptr, ptr %2, align 8, !tbaa !6
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %5, label %4
 
-delete.notnull:                                   ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #8
-  br label %if.end
+4:                                                ; preds = %1
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #8
+  br label %5
 
-if.end:                                           ; preds = %delete.notnull, %entry
-  tail call void @_ZN3dpx5CodecD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #9
+5:                                                ; preds = %4, %1
+  tail call void @_ZN3dpx5CodecD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   ret void
 }
 
@@ -65,114 +63,111 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #0
 declare void @_ZN3dpx5CodecD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3dpx17RunLengthEncodingD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3dpx17RunLengthEncodingE, i64 16), ptr %this, align 8
-  %buf.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %buf.i, align 8
-  %tobool.not.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i, label %_ZN3dpx17RunLengthEncodingD2Ev.exit, label %delete.notnull.i
+define hidden void @_ZN3dpx17RunLengthEncodingD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3dpx17RunLengthEncodingE, i64 16), ptr %0, align 8, !tbaa !3
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = load ptr, ptr %2, align 8, !tbaa !6
+  %.not.i = icmp eq ptr %3, null
+  br i1 %.not.i, label %_ZN3dpx17RunLengthEncodingD2Ev.exit, label %4
 
-delete.notnull.i:                                 ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #8
+4:                                                ; preds = %1
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #8
   br label %_ZN3dpx17RunLengthEncodingD2Ev.exit
 
-_ZN3dpx17RunLengthEncodingD2Ev.exit:              ; preds = %entry, %delete.notnull.i
-  tail call void @_ZN3dpx5CodecD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #9
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #8
+_ZN3dpx17RunLengthEncodingD2Ev.exit:              ; preds = %1, %4
+  tail call void @_ZN3dpx5CodecD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #9
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3dpx17RunLengthEncoding5ResetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this) unnamed_addr #5 align 2 {
-entry:
-  %buf = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %buf, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.end, label %delete.notnull
+define hidden void @_ZN3dpx17RunLengthEncoding5ResetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = load ptr, ptr %2, align 8, !tbaa !6
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %5, label %4
 
-delete.notnull:                                   ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #8
-  store ptr null, ptr %buf, align 8
-  br label %if.end
+4:                                                ; preds = %1
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #8
+  store ptr null, ptr %2, align 8, !tbaa !6
+  br label %5
 
-if.end:                                           ; preds = %delete.notnull, %entry
+5:                                                ; preds = %4, %1
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3dpx17RunLengthEncoding4ReadERKNS_6HeaderEPNS_17ElementReadStreamEiRKNS_5BlockEPvNS_8DataSizeE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(2049) %dpxHeader, ptr noundef %fd, i32 noundef %element, ptr nonnull readnone align 4 captures(none) %block, ptr readnone captures(none) %data, i32 noundef %size) unnamed_addr #4 align 2 {
-entry:
-  %or.cond.i = icmp ugt i32 %element, 7
-  br i1 %or.cond.i, label %return, label %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit
+define hidden noundef zeroext i1 @_ZN3dpx17RunLengthEncoding4ReadERKNS_6HeaderEPNS_17ElementReadStreamEiRKNS_5BlockEPvNS_8DataSizeE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(2049) %1, ptr noundef %2, i32 noundef %3, ptr nonnull readnone align 4 captures(none) %4, ptr readnone captures(none) %5, i32 noundef %6) unnamed_addr #4 align 2 {
+  %or.cond.i = icmp ugt i32 %3, 7
+  br i1 %or.cond.i, label %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit.thread, label %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit
 
-_ZNK3dpx13GenericHeader13ImageEncodingEi.exit:    ; preds = %entry
-  %chan.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 780
-  %narrow.i = mul nuw nsw i32 %element, 72
-  %0 = zext nneg i32 %narrow.i to i64
-  %1 = getelementptr inbounds nuw i8, ptr %chan.i, i64 %0
-  %encoding.i = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %2 = load i16, ptr %encoding.i, align 2
-  %cmp3.i = icmp eq i16 %2, 1
-  br i1 %cmp3.i, label %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit, label %return
+_ZNK3dpx13GenericHeader13ImageEncodingEi.exit:    ; preds = %7
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 780
+  %narrow.i = mul nuw nsw i32 %3, 72
+  %9 = zext nneg i32 %narrow.i to i64
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 26
+  %12 = load i16, ptr %11, align 2, !tbaa !13
+  %13 = icmp eq i16 %12, 1
+  br i1 %13, label %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit, label %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit.thread
 
 _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit
-  %call2 = tail call noundef i32 @_ZNK3dpx13GenericHeader26ImageElementComponentCountEi(ptr noundef nonnull align 4 dereferenceable(1664) %dpxHeader, i32 noundef %element)
-  %call3 = tail call noundef i32 @_ZNK3dpx6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2049) %dpxHeader)
-  %call4 = tail call noundef i32 @_ZNK3dpx6Header6HeightEv(ptr noundef nonnull align 4 dereferenceable(2049) %dpxHeader)
-  %call5 = tail call noundef i32 @_ZNK3dpx13GenericHeader18ComponentByteCountEi(ptr noundef nonnull align 4 dereferenceable(1664) %dpxHeader, i32 noundef %element)
-  %endOfLinePadding.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %3 = load i32, ptr %endOfLinePadding.i, align 4
-  %cmp3.i47 = icmp eq i32 %3, -1
-  %..i = select i1 %cmp3.i47, i32 0, i32 %3
-  %buf = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %4 = load ptr, ptr %buf, align 8
-  %cmp7 = icmp eq ptr %4, null
-  br i1 %cmp7, label %_ZNK3dpx13GenericHeader8BitDepthEi.exit, label %return
+  %14 = tail call noundef i32 @_ZNK3dpx13GenericHeader26ImageElementComponentCountEi(ptr noundef nonnull align 4 dereferenceable(1664) %1, i32 noundef %3)
+  %15 = tail call noundef i32 @_ZNK3dpx6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2049) %1)
+  %16 = tail call noundef i32 @_ZNK3dpx6Header6HeightEv(ptr noundef nonnull align 4 dereferenceable(2049) %1)
+  %17 = tail call noundef i32 @_ZNK3dpx13GenericHeader18ComponentByteCountEi(ptr noundef nonnull align 4 dereferenceable(1664) %1, i32 noundef %3)
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %19 = load i32, ptr %18, align 4, !tbaa !18
+  %20 = icmp eq i32 %19, -1
+  %..i = select i1 %20, i32 0, i32 %19
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %22 = load ptr, ptr %21, align 8, !tbaa !6
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %_ZNK3dpx13GenericHeader8BitDepthEi.exit, label %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit.thread
 
 _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
-  %bitDepth.i = getelementptr inbounds nuw i8, ptr %1, i64 23
-  %5 = load i8, ptr %bitDepth.i, align 1
-  %cmp13.not = icmp eq i32 %..i, 0
-  br i1 %cmp13.not, label %if.else, label %switch.early.test
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 23
+  %25 = load i8, ptr %24, align 1, !tbaa !19
+  %.not = icmp eq i32 %..i, 0
+  br i1 %.not, label %26, label %switch.early.test
 
 switch.early.test:                                ; preds = %_ZNK3dpx13GenericHeader8BitDepthEi.exit
-  switch i8 %5, label %return [
-    i8 16, label %if.else
-    i8 8, label %if.else
+  switch i8 %25, label %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit.thread [
+    i8 16, label %26
+    i8 8, label %26
   ]
 
-if.else:                                          ; preds = %switch.early.test, %switch.early.test, %_ZNK3dpx13GenericHeader8BitDepthEi.exit
-  %cmp15 = icmp eq i8 %5, 16
-  %6 = and i32 %..i, -3
-  %7 = icmp ne i32 %6, 0
-  %or.cond3 = and i1 %7, %cmp15
-  %8 = add i32 %size, -3
-  %or.cond4 = icmp ult i32 %8, 2
-  %or.cond42 = or i1 %or.cond4, %or.cond3
-  br i1 %or.cond42, label %return, label %_ZNK3dpx13GenericHeader10DataOffsetEi.exit
+26:                                               ; preds = %switch.early.test, %switch.early.test, %_ZNK3dpx13GenericHeader8BitDepthEi.exit
+  %27 = icmp eq i8 %25, 16
+  %28 = and i32 %..i, -3
+  %29 = icmp ne i32 %28, 0
+  %or.cond7 = and i1 %29, %27
+  %30 = add i32 %6, -3
+  %or.cond9 = icmp ult i32 %30, 2
+  %or.cond76 = or i1 %or.cond9, %or.cond7
+  br i1 %or.cond76, label %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit.thread, label %_ZNK3dpx13GenericHeader10DataOffsetEi.exit
 
-_ZNK3dpx13GenericHeader10DataOffsetEi.exit:       ; preds = %if.else
-  %conv43 = sext i32 %call3 to i64
-  %conv44 = sext i32 %call4 to i64
-  %conv45 = sext i32 %call2 to i64
-  %conv47 = sext i32 %call5 to i64
-  %mul = mul nsw i64 %conv43, %conv45
-  %mul46 = mul i64 %mul, %conv44
-  %mul48 = mul i64 %mul46, %conv47
-  %call49 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %mul48) #10
-  store ptr %call49, ptr %buf, align 8
-  %call51 = tail call noalias noundef nonnull dereferenceable(53440) ptr @_Znam(i64 noundef 53440) #10
-  %vtable = load ptr, ptr %fd, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
-  %9 = load ptr, ptr %vfn, align 8
-  %call54 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2049) %dpxHeader, i32 noundef %element, i64 noundef 0, ptr noundef nonnull %call51, i64 noundef 40080)
-  tail call void @_ZdaPv(ptr noundef nonnull %call51) #8
-  br label %return
+_ZNK3dpx13GenericHeader10DataOffsetEi.exit:       ; preds = %26
+  %31 = sext i32 %15 to i64
+  %32 = sext i32 %16 to i64
+  %33 = sext i32 %14 to i64
+  %34 = sext i32 %17 to i64
+  %35 = mul nsw i64 %31, %33
+  %36 = mul i64 %35, %32
+  %37 = mul i64 %36, %34
+  %38 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %37) #10
+  store ptr %38, ptr %21, align 8, !tbaa !6
+  %39 = tail call noalias noundef nonnull dereferenceable(53440) ptr @_Znam(i64 noundef 53440) #10
+  %40 = load ptr, ptr %2, align 8, !tbaa !3
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  %42 = load ptr, ptr %41, align 8
+  %43 = tail call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %1, i32 noundef %3, i64 noundef 0, ptr noundef nonnull %39, i64 noundef 40080)
+  tail call void @_ZdaPv(ptr noundef nonnull %39) #8
+  br label %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit.thread
 
-return:                                           ; preds = %entry, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit, %if.else, %switch.early.test, %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit
-  %retval.0 = phi i1 [ false, %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit ], [ false, %switch.early.test ], [ false, %if.else ], [ true, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit ], [ true, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit ], [ false, %entry ]
-  ret i1 %retval.0
+_ZNK3dpx13GenericHeader13ImageEncodingEi.exit.thread: ; preds = %7, %26, %switch.early.test, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit, %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit
+  %.0 = phi i1 [ false, %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit ], [ false, %26 ], [ false, %switch.early.test ], [ true, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit ], [ true, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit ], [ false, %7 ]
+  ret i1 %.0
 }
 
 declare noundef i32 @_ZNK3dpx13GenericHeader26ImageElementComponentCountEi(ptr noundef nonnull align 4 dereferenceable(1664), i32 noundef) local_unnamed_addr #1
@@ -188,27 +183,42 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_RunLengthEncoding.cpp() #7 section ".text.startup" {
-entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #9
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #9
   ret void
 }
 
-attributes #0 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind }
-attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { builtin nounwind }
 attributes #9 = { nounwind }
 attributes #10 = { builtin allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"vtable pointer", !5, i64 0}
+!5 = !{!"Simple C++ TBAA"}
+!6 = !{!7, !12, i64 16}
+!7 = !{!"_ZTSN3dpx17RunLengthEncodingE", !8, i64 0, !12, i64 16}
+!8 = !{!"_ZTSN3dpx5CodecE", !9, i64 8}
+!9 = !{!"p1 int", !10, i64 0}
+!10 = !{!"any pointer", !11, i64 0}
+!11 = !{!"omnipotent char", !5, i64 0}
+!12 = !{!"p1 omnipotent char", !10, i64 0}
+!13 = !{!14, !17, i64 26}
+!14 = !{!"_ZTSN3dpx12ImageElementE", !15, i64 0, !15, i64 4, !16, i64 8, !15, i64 12, !16, i64 16, !11, i64 20, !11, i64 21, !11, i64 22, !11, i64 23, !17, i64 24, !17, i64 26, !15, i64 28, !15, i64 32, !15, i64 36, !11, i64 40}
+!15 = !{!"int", !11, i64 0}
+!16 = !{!"float", !11, i64 0}
+!17 = !{!"short", !11, i64 0}
+!18 = !{!14, !15, i64 32}
+!19 = !{!14, !11, i64 23}

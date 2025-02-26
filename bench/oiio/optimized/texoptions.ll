@@ -1,15 +1,16 @@
 ; ModuleID = 'bench/oiio/original/texoptions.ll'
 source_filename = "bench/oiio/original/texoptions.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.OpenImageIO_v2_6_0::ustring" = type { ptr }
-%"class.OpenImageIO_v2_6_0::basic_string_view" = type { ptr, i64 }
+%"class.OpenImageIO::v3_1_0::ustring" = type { ptr }
+%"class.OpenImageIO::v3_1_0::ustringhash" = type { i64 }
+%"class.OpenImageIO::v3_1_0::basic_string_view" = type { ptr, i64 }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE = internal unnamed_addr global [8 x %"class.OpenImageIO_v2_6_0::ustring"] zeroinitializer, align 16
+@_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE = internal global [8 x %"class.OpenImageIO::v3_1_0::ustring"] zeroinitializer, align 16
 @.str = private unnamed_addr constant [8 x i8] c"default\00", align 1
 @.str.2 = private unnamed_addr constant [6 x i8] c"black\00", align 1
 @.str.3 = private unnamed_addr constant [6 x i8] c"clamp\00", align 1
@@ -17,17 +18,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [7 x i8] c"mirror\00", align 1
 @.str.6 = private unnamed_addr constant [14 x i8] c"periodic_pow2\00", align 1
 @.str.7 = private unnamed_addr constant [22 x i8] c"periodic_sharedborder\00", align 1
-@_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112default_blurE = internal global float 0.000000e+00, align 4
-@_ZN18OpenImageIO_v2_6_012_GLOBAL__N_113default_widthE = internal global float 1.000000e+00, align 4
-@_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112default_timeE = internal global float 0.000000e+00, align 4
-@_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112default_biasE = internal global float 0.000000e+00, align 4
-@_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112default_fillE = internal global float 0.000000e+00, align 4
-@_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115default_samplesE = internal global i32 1, align 4
+@_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE = internal global [8 x %"class.OpenImageIO::v3_1_0::ustringhash"] zeroinitializer, align 16
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_texoptions.cpp, ptr null }]
-
-@_ZN18OpenImageIO_v2_6_014TextureOptionsC1Ev = unnamed_addr alias void (ptr), ptr @_ZN18OpenImageIO_v2_6_014TextureOptionsC2Ev
-@_ZN18OpenImageIO_v2_6_014TextureOptionsC1ERKNS_10TextureOptE = unnamed_addr alias void (ptr, ptr), ptr @_ZN18OpenImageIO_v2_6_014TextureOptionsC2ERKNS_10TextureOptE
-@_ZN18OpenImageIO_v2_6_010TextureOptC1ERKNS_14TextureOptionsEi = unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN18OpenImageIO_v2_6_010TextureOptC2ERKNS_14TextureOptionsEi
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
@@ -37,570 +29,417 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
-declare i32 @__gxx_personality_v0(...)
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN18OpenImageIO_v2_6_014TextureOptionsC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((0, 37), (40, 52), (56, 68), (72, 84), (88, 100), (104, 116), (120, 132), (136, 148), (152, 164), (168, 180), (184, 188), (192, 204), (208, 220)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-invoke.cont11:
-  %interpmode = getelementptr inbounds nuw i8, ptr %this, i64 28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %this, i8 0, i64 28, i1 false)
-  store i32 3, ptr %interpmode, align 4
-  %anisotropic = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store i32 32, ptr %anisotropic, align 8
-  %conservative_filter = getelementptr inbounds nuw i8, ptr %this, i64 36
-  store i8 1, ptr %conservative_filter, align 4
-  %sblur = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112default_blurE, ptr %sblur, align 8
-  %m_step.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store i32 0, ptr %m_step.i.i, align 8
-  %tblur = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112default_blurE, ptr %tblur, align 8
-  %m_step.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store i32 0, ptr %m_step.i.i1, align 8
-  %swidth = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_113default_widthE, ptr %swidth, align 8
-  %m_step.i.i2 = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store i32 0, ptr %m_step.i.i2, align 8
-  %twidth = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_113default_widthE, ptr %twidth, align 8
-  %m_step.i.i3 = getelementptr inbounds nuw i8, ptr %this, i64 96
-  store i32 0, ptr %m_step.i.i3, align 8
-  %time = getelementptr inbounds nuw i8, ptr %this, i64 104
-  store ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112default_timeE, ptr %time, align 8
-  %m_step.i.i4 = getelementptr inbounds nuw i8, ptr %this, i64 112
-  store i32 0, ptr %m_step.i.i4, align 8
-  %bias = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112default_biasE, ptr %bias, align 8
-  %m_step.i.i5 = getelementptr inbounds nuw i8, ptr %this, i64 128
-  store i32 0, ptr %m_step.i.i5, align 8
-  %fill = getelementptr inbounds nuw i8, ptr %this, i64 136
-  store ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112default_fillE, ptr %fill, align 8
-  %m_step.i.i6 = getelementptr inbounds nuw i8, ptr %this, i64 144
-  store i32 0, ptr %m_step.i.i6, align 8
-  %missingcolor = getelementptr inbounds nuw i8, ptr %this, i64 152
-  store ptr null, ptr %missingcolor, align 8
-  %m_step.i.i7 = getelementptr inbounds nuw i8, ptr %this, i64 160
-  store i32 0, ptr %m_step.i.i7, align 8
-  %samples = getelementptr inbounds nuw i8, ptr %this, i64 168
-  store ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115default_samplesE, ptr %samples, align 8
-  %m_step.i.i8 = getelementptr inbounds nuw i8, ptr %this, i64 176
-  store i32 0, ptr %m_step.i.i8, align 8
-  %rwrap = getelementptr inbounds nuw i8, ptr %this, i64 184
-  store i32 0, ptr %rwrap, align 8
-  %rblur = getelementptr inbounds nuw i8, ptr %this, i64 192
-  store ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112default_blurE, ptr %rblur, align 8
-  %m_step.i.i9 = getelementptr inbounds nuw i8, ptr %this, i64 200
-  store i32 0, ptr %m_step.i.i9, align 8
-  %rwidth = getelementptr inbounds nuw i8, ptr %this, i64 208
-  store ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_113default_widthE, ptr %rwidth, align 8
-  %m_step.i.i10 = getelementptr inbounds nuw i8, ptr %this, i64 216
-  store i32 0, ptr %m_step.i.i10, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN18OpenImageIO_v2_6_014TextureOptionsC2ERKNS_10TextureOptE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((0, 37), (40, 52), (56, 68), (72, 84), (88, 100), (104, 116), (120, 132), (136, 148), (152, 164), (168, 180), (184, 188), (192, 204), (208, 220)) %this, ptr noundef nonnull align 8 dereferenceable(104) %opt) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load i32, ptr %opt, align 8
-  store i32 %0, ptr %this, align 8
-  %subimage = getelementptr inbounds nuw i8, ptr %this, i64 4
-  %subimage3 = getelementptr inbounds nuw i8, ptr %opt, i64 4
-  %1 = load i32, ptr %subimage3, align 4
-  store i32 %1, ptr %subimage, align 4
-  %subimagename = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %subimagename4 = getelementptr inbounds nuw i8, ptr %opt, i64 8
-  %2 = load ptr, ptr %subimagename4, align 8
-  store ptr %2, ptr %subimagename, align 8
-  %swrap = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %swrap5 = getelementptr inbounds nuw i8, ptr %opt, i64 16
-  %3 = load i32, ptr %swrap5, align 8
-  store i32 %3, ptr %swrap, align 8
-  %twrap = getelementptr inbounds nuw i8, ptr %this, i64 20
-  %twrap6 = getelementptr inbounds nuw i8, ptr %opt, i64 20
-  %4 = load i32, ptr %twrap6, align 4
-  store i32 %4, ptr %twrap, align 4
-  %mipmode = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %mipmode7 = getelementptr inbounds nuw i8, ptr %opt, i64 24
-  %5 = load i32, ptr %mipmode7, align 8
-  store i32 %5, ptr %mipmode, align 8
-  %interpmode = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %interpmode8 = getelementptr inbounds nuw i8, ptr %opt, i64 28
-  %6 = load i32, ptr %interpmode8, align 4
-  store i32 %6, ptr %interpmode, align 4
-  %anisotropic = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %anisotropic9 = getelementptr inbounds nuw i8, ptr %opt, i64 32
-  %7 = load i32, ptr %anisotropic9, align 8
-  store i32 %7, ptr %anisotropic, align 8
-  %conservative_filter = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %conservative_filter10 = getelementptr inbounds nuw i8, ptr %opt, i64 36
-  %8 = load i8, ptr %conservative_filter10, align 4
-  %frombool = and i8 %8, 1
-  store i8 %frombool, ptr %conservative_filter, align 4
-  %sblur = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %sblur11 = getelementptr inbounds nuw i8, ptr %opt, i64 40
-  store ptr %sblur11, ptr %sblur, align 8
-  %m_step.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store i32 0, ptr %m_step.i.i, align 8
-  %tblur = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %tblur12 = getelementptr inbounds nuw i8, ptr %opt, i64 44
-  store ptr %tblur12, ptr %tblur, align 8
-  %m_step.i.i21 = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store i32 0, ptr %m_step.i.i21, align 8
-  %swidth = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %swidth14 = getelementptr inbounds nuw i8, ptr %opt, i64 48
-  store ptr %swidth14, ptr %swidth, align 8
-  %m_step.i.i22 = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store i32 0, ptr %m_step.i.i22, align 8
-  %twidth = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %twidth16 = getelementptr inbounds nuw i8, ptr %opt, i64 52
-  store ptr %twidth16, ptr %twidth, align 8
-  %m_step.i.i23 = getelementptr inbounds nuw i8, ptr %this, i64 96
-  store i32 0, ptr %m_step.i.i23, align 8
-  %time = getelementptr inbounds nuw i8, ptr %this, i64 104
-  %time18 = getelementptr inbounds nuw i8, ptr %opt, i64 72
-  store ptr %time18, ptr %time, align 8
-  %m_step.i.i24 = getelementptr inbounds nuw i8, ptr %this, i64 112
-  store i32 0, ptr %m_step.i.i24, align 8
-  %bias = getelementptr inbounds nuw i8, ptr %this, i64 120
-  %9 = getelementptr inbounds nuw i8, ptr %opt, i64 76
-  store ptr %9, ptr %bias, align 8
-  %m_step.i.i25 = getelementptr inbounds nuw i8, ptr %this, i64 128
-  store i32 0, ptr %m_step.i.i25, align 8
-  %fill = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %fill21 = getelementptr inbounds nuw i8, ptr %opt, i64 56
-  store ptr %fill21, ptr %fill, align 8
-  %m_step.i.i26 = getelementptr inbounds nuw i8, ptr %this, i64 144
-  store i32 0, ptr %m_step.i.i26, align 8
-  %missingcolor = getelementptr inbounds nuw i8, ptr %this, i64 152
-  %missingcolor23 = getelementptr inbounds nuw i8, ptr %opt, i64 64
-  %10 = load ptr, ptr %missingcolor23, align 8
-  store ptr %10, ptr %missingcolor, align 8
-  %m_step.i.i27 = getelementptr inbounds nuw i8, ptr %this, i64 160
-  store i32 0, ptr %m_step.i.i27, align 8
-  %samples = getelementptr inbounds nuw i8, ptr %this, i64 168
-  %samples25 = getelementptr inbounds nuw i8, ptr %opt, i64 80
-  store ptr %samples25, ptr %samples, align 8
-  %m_step.i.i28 = getelementptr inbounds nuw i8, ptr %this, i64 176
-  store i32 0, ptr %m_step.i.i28, align 8
-  %rwrap = getelementptr inbounds nuw i8, ptr %this, i64 184
-  %rwrap27 = getelementptr inbounds nuw i8, ptr %opt, i64 84
-  %11 = load i32, ptr %rwrap27, align 4
-  store i32 %11, ptr %rwrap, align 8
-  %rblur = getelementptr inbounds nuw i8, ptr %this, i64 192
-  %rblur28 = getelementptr inbounds nuw i8, ptr %opt, i64 88
-  store ptr %rblur28, ptr %rblur, align 8
-  %m_step.i.i29 = getelementptr inbounds nuw i8, ptr %this, i64 200
-  store i32 0, ptr %m_step.i.i29, align 8
-  %rwidth = getelementptr inbounds nuw i8, ptr %this, i64 208
-  %rwidth30 = getelementptr inbounds nuw i8, ptr %opt, i64 92
-  store ptr %rwidth30, ptr %rwidth, align 8
-  %m_step.i.i30 = getelementptr inbounds nuw i8, ptr %this, i64 216
-  store i32 0, ptr %m_step.i.i30, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN18OpenImageIO_v2_6_010TextureOptC2ERKNS_14TextureOptionsEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) initializes((0, 37), (40, 60), (64, 96), (100, 104)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %opt, i32 noundef %index) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load i32, ptr %opt, align 8
-  store i32 %0, ptr %this, align 8
-  %subimage = getelementptr inbounds nuw i8, ptr %this, i64 4
-  %subimage3 = getelementptr inbounds nuw i8, ptr %opt, i64 4
-  %1 = load i32, ptr %subimage3, align 4
-  store i32 %1, ptr %subimage, align 4
-  %subimagename = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %subimagename4 = getelementptr inbounds nuw i8, ptr %opt, i64 8
-  %2 = load ptr, ptr %subimagename4, align 8
-  store ptr %2, ptr %subimagename, align 8
-  %swrap = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %swrap5 = getelementptr inbounds nuw i8, ptr %opt, i64 16
-  %3 = load i32, ptr %swrap5, align 8
-  store i32 %3, ptr %swrap, align 8
-  %twrap = getelementptr inbounds nuw i8, ptr %this, i64 20
-  %twrap6 = getelementptr inbounds nuw i8, ptr %opt, i64 20
-  %4 = load i32, ptr %twrap6, align 4
-  store i32 %4, ptr %twrap, align 4
-  %mipmode = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %mipmode7 = getelementptr inbounds nuw i8, ptr %opt, i64 24
-  %5 = load i32, ptr %mipmode7, align 8
-  store i32 %5, ptr %mipmode, align 8
-  %interpmode = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %interpmode8 = getelementptr inbounds nuw i8, ptr %opt, i64 28
-  %6 = load i32, ptr %interpmode8, align 4
-  store i32 %6, ptr %interpmode, align 4
-  %anisotropic = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %anisotropic9 = getelementptr inbounds nuw i8, ptr %opt, i64 32
-  %7 = load i32, ptr %anisotropic9, align 8
-  store i32 %7, ptr %anisotropic, align 8
-  %conservative_filter = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %conservative_filter10 = getelementptr inbounds nuw i8, ptr %opt, i64 36
-  %8 = load i8, ptr %conservative_filter10, align 4
-  %frombool = and i8 %8, 1
-  store i8 %frombool, ptr %conservative_filter, align 4
-  %sblur = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %sblur11 = getelementptr inbounds nuw i8, ptr %opt, i64 40
-  %9 = load ptr, ptr %sblur11, align 8
-  %m_step.i = getelementptr inbounds nuw i8, ptr %opt, i64 48
-  %10 = load i32, ptr %m_step.i, align 8
-  %mul.i = mul nsw i32 %10, %index
-  %idx.ext.i = sext i32 %mul.i to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %9, i64 %idx.ext.i
-  %11 = load float, ptr %add.ptr.i, align 4
-  store float %11, ptr %sblur, align 8
-  %tblur = getelementptr inbounds nuw i8, ptr %this, i64 44
-  %tblur12 = getelementptr inbounds nuw i8, ptr %opt, i64 56
-  %12 = load ptr, ptr %tblur12, align 8
-  %m_step.i32 = getelementptr inbounds nuw i8, ptr %opt, i64 64
-  %13 = load i32, ptr %m_step.i32, align 8
-  %mul.i33 = mul nsw i32 %13, %index
-  %idx.ext.i34 = sext i32 %mul.i33 to i64
-  %add.ptr.i35 = getelementptr inbounds i8, ptr %12, i64 %idx.ext.i34
-  %14 = load float, ptr %add.ptr.i35, align 4
-  store float %14, ptr %tblur, align 4
-  %swidth = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %swidth15 = getelementptr inbounds nuw i8, ptr %opt, i64 72
-  %15 = load ptr, ptr %swidth15, align 8
-  %m_step.i36 = getelementptr inbounds nuw i8, ptr %opt, i64 80
-  %16 = load i32, ptr %m_step.i36, align 8
-  %mul.i37 = mul nsw i32 %16, %index
-  %idx.ext.i38 = sext i32 %mul.i37 to i64
-  %add.ptr.i39 = getelementptr inbounds i8, ptr %15, i64 %idx.ext.i38
-  %17 = load float, ptr %add.ptr.i39, align 4
-  store float %17, ptr %swidth, align 8
-  %twidth = getelementptr inbounds nuw i8, ptr %this, i64 52
-  %twidth18 = getelementptr inbounds nuw i8, ptr %opt, i64 88
-  %18 = load ptr, ptr %twidth18, align 8
-  %m_step.i40 = getelementptr inbounds nuw i8, ptr %opt, i64 96
-  %19 = load i32, ptr %m_step.i40, align 8
-  %mul.i41 = mul nsw i32 %19, %index
-  %idx.ext.i42 = sext i32 %mul.i41 to i64
-  %add.ptr.i43 = getelementptr inbounds i8, ptr %18, i64 %idx.ext.i42
-  %20 = load float, ptr %add.ptr.i43, align 4
-  store float %20, ptr %twidth, align 4
-  %fill = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %fill21 = getelementptr inbounds nuw i8, ptr %opt, i64 136
-  %21 = load ptr, ptr %fill21, align 8
-  %m_step.i44 = getelementptr inbounds nuw i8, ptr %opt, i64 144
-  %22 = load i32, ptr %m_step.i44, align 8
-  %mul.i45 = mul nsw i32 %22, %index
-  %idx.ext.i46 = sext i32 %mul.i45 to i64
-  %add.ptr.i47 = getelementptr inbounds i8, ptr %21, i64 %idx.ext.i46
-  %23 = load float, ptr %add.ptr.i47, align 4
-  store float %23, ptr %fill, align 8
-  %missingcolor24 = getelementptr inbounds nuw i8, ptr %opt, i64 152
-  %24 = load ptr, ptr %missingcolor24, align 8
-  %tobool27.not = icmp eq ptr %24, null
-  %m_step.i48 = getelementptr inbounds nuw i8, ptr %opt, i64 160
-  %25 = load i32, ptr %m_step.i48, align 8
-  %mul.i49 = mul nsw i32 %25, %index
-  %idx.ext.i50 = sext i32 %mul.i49 to i64
-  %add.ptr.i51 = getelementptr inbounds i8, ptr %24, i64 %idx.ext.i50
-  %cond = select i1 %tobool27.not, ptr null, ptr %add.ptr.i51
-  %missingcolor = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr %cond, ptr %missingcolor, align 8
-  %time = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %time31 = getelementptr inbounds nuw i8, ptr %opt, i64 104
-  %26 = load ptr, ptr %time31, align 8
-  %m_step.i52 = getelementptr inbounds nuw i8, ptr %opt, i64 112
-  %27 = load i32, ptr %m_step.i52, align 8
-  %mul.i53 = mul nsw i32 %27, %index
-  %idx.ext.i54 = sext i32 %mul.i53 to i64
-  %add.ptr.i55 = getelementptr inbounds i8, ptr %26, i64 %idx.ext.i54
-  %28 = load float, ptr %add.ptr.i55, align 4
-  store float %28, ptr %time, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %this, i64 76
-  %bias = getelementptr inbounds nuw i8, ptr %opt, i64 120
-  %30 = load ptr, ptr %bias, align 8
-  %m_step.i56 = getelementptr inbounds nuw i8, ptr %opt, i64 128
-  %31 = load i32, ptr %m_step.i56, align 8
-  %mul.i57 = mul nsw i32 %31, %index
-  %idx.ext.i58 = sext i32 %mul.i57 to i64
-  %add.ptr.i59 = getelementptr inbounds i8, ptr %30, i64 %idx.ext.i58
-  %32 = load float, ptr %add.ptr.i59, align 4
-  store float %32, ptr %29, align 4
-  %samples = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %samples36 = getelementptr inbounds nuw i8, ptr %opt, i64 168
-  %33 = load ptr, ptr %samples36, align 8
-  %m_step.i60 = getelementptr inbounds nuw i8, ptr %opt, i64 176
-  %34 = load i32, ptr %m_step.i60, align 8
-  %mul.i61 = mul nsw i32 %34, %index
-  %idx.ext.i62 = sext i32 %mul.i61 to i64
-  %add.ptr.i63 = getelementptr inbounds i8, ptr %33, i64 %idx.ext.i62
-  %35 = load i32, ptr %add.ptr.i63, align 4
-  store i32 %35, ptr %samples, align 8
-  %rwrap = getelementptr inbounds nuw i8, ptr %this, i64 84
-  %rwrap39 = getelementptr inbounds nuw i8, ptr %opt, i64 184
-  %36 = load i32, ptr %rwrap39, align 8
-  store i32 %36, ptr %rwrap, align 4
-  %rblur = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %rblur40 = getelementptr inbounds nuw i8, ptr %opt, i64 192
-  %37 = load ptr, ptr %rblur40, align 8
-  %m_step.i64 = getelementptr inbounds nuw i8, ptr %opt, i64 200
-  %38 = load i32, ptr %m_step.i64, align 8
-  %mul.i65 = mul nsw i32 %38, %index
-  %idx.ext.i66 = sext i32 %mul.i65 to i64
-  %add.ptr.i67 = getelementptr inbounds i8, ptr %37, i64 %idx.ext.i66
-  %39 = load float, ptr %add.ptr.i67, align 4
-  store float %39, ptr %rblur, align 8
-  %rwidth = getelementptr inbounds nuw i8, ptr %this, i64 92
-  %rwidth43 = getelementptr inbounds nuw i8, ptr %opt, i64 208
-  %40 = load ptr, ptr %rwidth43, align 8
-  %m_step.i68 = getelementptr inbounds nuw i8, ptr %opt, i64 216
-  %41 = load i32, ptr %m_step.i68, align 8
-  %mul.i69 = mul nsw i32 %41, %index
-  %idx.ext.i70 = sext i32 %mul.i69 to i64
-  %add.ptr.i71 = getelementptr inbounds i8, ptr %40, i64 %idx.ext.i70
-  %42 = load float, ptr %add.ptr.i71, align 4
-  store float %42, ptr %rwidth, align 4
-  %envlayout = getelementptr inbounds nuw i8, ptr %this, i64 100
-  store i32 0, ptr %envlayout, align 4
-  ret void
-}
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 7) i32 @_ZN18OpenImageIO_v2_6_03Tex15decode_wrapmodeEPKc(ptr noundef readonly captures(none) %name) local_unnamed_addr #6 {
-entry:
-  br label %for.body
+define noundef zeroext i8 @_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+  br label %2
 
-for.body:                                         ; preds = %entry, %for.inc
-  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds nuw [8 x %"class.OpenImageIO_v2_6_0::ustring"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 0, i64 %indvars.iv
-  %0 = load ptr, ptr %arrayidx, align 8
-  %call1 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %0) #13
-  %tobool.not = icmp eq i32 %call1, 0
-  br i1 %tobool.not, label %return.split.loop.exit6, label %for.inc
+2:                                                ; preds = %1, %8
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %8 ]
+  %3 = getelementptr inbounds nuw [8 x %"class.OpenImageIO::v3_1_0::ustring"], ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 0, i64 %indvars.iv
+  %4 = load ptr, ptr %3, align 8, !tbaa !3
+  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #9
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %6, label %8
 
-for.inc:                                          ; preds = %for.body
+6:                                                ; preds = %2
+  %7 = trunc i64 %indvars.iv to i8
+  br label %.loopexit
+
+8:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !4
+  %exitcond = icmp eq i64 %indvars.iv.next, 7
+  br i1 %exitcond, label %.loopexit, label %2, !llvm.loop !9
 
-return.split.loop.exit6:                          ; preds = %for.body
-  %1 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %return
-
-return:                                           ; preds = %for.inc, %return.split.loop.exit6
-  %retval.0 = phi i32 [ %1, %return.split.loop.exit6 ], [ 0, %for.inc ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %8, %6
+  %spec.select = phi i8 [ %7, %6 ], [ 0, %8 ]
+  ret i8 %spec.select
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 7) i32 @_ZN18OpenImageIO_v2_6_03Tex15decode_wrapmodeENS_7ustringE(ptr noundef readonly captures(none) %name) local_unnamed_addr #8 {
-entry:
-  %0 = load ptr, ptr %name, align 8
-  br label %for.body
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
-for.body:                                         ; preds = %entry, %for.inc
-  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds nuw [8 x %"class.OpenImageIO_v2_6_0::ustring"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 0, i64 %indvars.iv
-  %1 = load ptr, ptr %arrayidx, align 8
-  %cmp.i = icmp eq ptr %0, %1
-  br i1 %cmp.i, label %return.split.loop.exit6, label %for.inc
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+define noundef zeroext i8 @_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeENS0_7ustringE(ptr readnone %0) local_unnamed_addr #6 {
+  br label %2
 
-for.inc:                                          ; preds = %for.body
+2:                                                ; preds = %1, %8
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %8 ]
+  %3 = getelementptr inbounds nuw [8 x %"class.OpenImageIO::v3_1_0::ustring"], ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 0, i64 %indvars.iv
+  %4 = load ptr, ptr %3, align 8, !tbaa !3
+  %5 = icmp eq ptr %0, %4
+  br i1 %5, label %6, label %8
+
+6:                                                ; preds = %2
+  %7 = trunc i64 %indvars.iv to i8
+  br label %.loopexit
+
+8:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !6
+  %exitcond = icmp eq i64 %indvars.iv.next, 7
+  br i1 %exitcond, label %.loopexit, label %2, !llvm.loop !11
 
-return.split.loop.exit6:                          ; preds = %for.body
-  %2 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %return
+.loopexit:                                        ; preds = %8, %6
+  %spec.select = phi i8 [ %7, %6 ], [ 0, %8 ]
+  ret i8 %spec.select
+}
 
-return:                                           ; preds = %for.inc, %return.split.loop.exit6
-  %retval.0 = phi i32 [ %2, %return.split.loop.exit6 ], [ 0, %for.inc ]
-  ret i32 %retval.0
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+define noundef zeroext i8 @_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeENS0_11ustringhashE(i64 %0) local_unnamed_addr #6 {
+  br label %2
+
+2:                                                ; preds = %1, %8
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %8 ]
+  %3 = getelementptr inbounds nuw [8 x %"class.OpenImageIO::v3_1_0::ustringhash"], ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE, i64 0, i64 %indvars.iv
+  %4 = load i64, ptr %3, align 8, !tbaa !12
+  %5 = icmp eq i64 %0, %4
+  br i1 %5, label %6, label %8
+
+6:                                                ; preds = %2
+  %7 = trunc i64 %indvars.iv to i8
+  br label %.loopexit
+
+8:                                                ; preds = %2
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond = icmp eq i64 %indvars.iv.next, 7
+  br i1 %exitcond, label %.loopexit, label %2, !llvm.loop !15
+
+.loopexit:                                        ; preds = %8, %6
+  %spec.select = phi i8 [ %7, %6 ], [ 0, %8 ]
+  ret i8 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN18OpenImageIO_v2_6_03Tex15parse_wrapmodesEPKcRNS0_4WrapES4_(ptr noundef readonly captures(none) %wrapmodes, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %swrapcode, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %twrapcode) local_unnamed_addr #9 {
-entry:
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %wrapmodes) #13
-  %add = add i64 %call, 1
-  %cmp.not = icmp eq i64 %add, 0
-  br i1 %cmp.not, label %cond.end, label %cond.true
+define void @_ZN11OpenImageIO6v3_1_03Tex15parse_wrapmodesEPKcRNS1_4WrapES5_(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %1, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %2) local_unnamed_addr #7 {
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
+  %5 = add i64 %4, 1
+  %.not = icmp eq i64 %5, 0
+  br i1 %.not, label %8, label %6
 
-cond.true:                                        ; preds = %entry
-  %0 = alloca i8, i64 %add, align 16
-  br label %cond.end
+6:                                                ; preds = %3
+  %7 = alloca i8, i64 %5, align 16
+  br label %8
 
-cond.end:                                         ; preds = %entry, %cond.true
-  %cond = phi ptr [ %0, %cond.true ], [ null, %entry ]
-  br label %for.cond
+8:                                                ; preds = %3, %6
+  %9 = phi ptr [ %7, %6 ], [ null, %3 ]
+  br label %10
 
-for.cond:                                         ; preds = %for.body, %cond.end
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %cond.end ]
-  %arrayidx = getelementptr inbounds nuw i8, ptr %wrapmodes, i64 %indvars.iv
-  %1 = load i8, ptr %arrayidx, align 1
-  switch i8 %1, label %for.body [
-    i8 0, label %for.end
-    i8 44, label %for.end
+10:                                               ; preds = %13, %8
+  %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %8 ]
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %12 = load i8, ptr %11, align 1, !tbaa !16
+  switch i8 %12, label %13 [
+    i8 0, label %.critedge
+    i8 44, label %.critedge
   ]
 
-for.body:                                         ; preds = %for.cond
-  %arrayidx9 = getelementptr inbounds nuw i8, ptr %cond, i64 %indvars.iv
-  store i8 %1, ptr %arrayidx9, align 1
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
+  store i8 %12, ptr %14, align 1, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %for.cond, !llvm.loop !7
+  br label %10, !llvm.loop !17
 
-for.end:                                          ; preds = %for.cond, %for.cond
-  %arrayidx.le = getelementptr inbounds nuw i8, ptr %wrapmodes, i64 %indvars.iv
-  %arrayidx11 = getelementptr inbounds nuw i8, ptr %cond, i64 %indvars.iv
-  store i8 0, ptr %arrayidx11, align 1
-  %cmp15 = icmp eq i8 %1, 44
-  %add.ptr16 = getelementptr inbounds nuw i8, ptr %arrayidx.le, i64 1
-  %twrap.0 = select i1 %cmp15, ptr %add.ptr16, ptr %cond
-  br label %for.body.i
+.critedge:                                        ; preds = %10, %10
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
+  store i8 0, ptr %16, align 1, !tbaa !16
+  %17 = icmp eq i8 %12, 44
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 1
+  %.021 = select i1 %17, ptr %18, ptr %9
+  br label %19
 
-for.body.i:                                       ; preds = %for.inc.i, %for.end
-  %indvars.iv.i = phi i64 [ 0, %for.end ], [ %indvars.iv.next.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds nuw [8 x %"class.OpenImageIO_v2_6_0::ustring"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 0, i64 %indvars.iv.i
-  %2 = load ptr, ptr %arrayidx.i, align 8
-  %call1.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %cond, ptr noundef nonnull dereferenceable(1) %2) #13
-  %tobool.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool.not.i, label %return.split.loop.exit6.i, label %for.inc.i
+19:                                               ; preds = %25, %.critedge
+  %indvars.iv.i = phi i64 [ 0, %.critedge ], [ %indvars.iv.next.i, %25 ]
+  %20 = getelementptr inbounds nuw [8 x %"class.OpenImageIO::v3_1_0::ustring"], ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 0, i64 %indvars.iv.i
+  %21 = load ptr, ptr %20, align 8, !tbaa !3
+  %22 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %21) #9
+  %.not.i = icmp eq i32 %22, 0
+  br i1 %.not.i, label %23, label %25
 
-for.inc.i:                                        ; preds = %for.body.i
+23:                                               ; preds = %19
+  %24 = trunc i64 %indvars.iv.i to i8
+  br label %_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit
+
+25:                                               ; preds = %19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %_ZN18OpenImageIO_v2_6_03Tex15decode_wrapmodeEPKc.exit, label %for.body.i, !llvm.loop !4
+  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 7
+  br i1 %exitcond.i, label %_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit, label %19, !llvm.loop !9
 
-return.split.loop.exit6.i:                        ; preds = %for.body.i
-  %3 = trunc nuw nsw i64 %indvars.iv.i to i32
-  br label %_ZN18OpenImageIO_v2_6_03Tex15decode_wrapmodeEPKc.exit
+_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit: ; preds = %25, %23
+  %spec.select.i = phi i8 [ %24, %23 ], [ 0, %25 ]
+  store i8 %spec.select.i, ptr %1, align 1, !tbaa !18
+  br label %26
 
-_ZN18OpenImageIO_v2_6_03Tex15decode_wrapmodeEPKc.exit: ; preds = %for.inc.i, %return.split.loop.exit6.i
-  %retval.0.i = phi i32 [ %3, %return.split.loop.exit6.i ], [ 0, %for.inc.i ]
-  store i32 %retval.0.i, ptr %swrapcode, align 4
-  br label %for.body.i17
+26:                                               ; preds = %32, %_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit
+  %indvars.iv.i26 = phi i64 [ 0, %_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit ], [ %indvars.iv.next.i28, %32 ]
+  %27 = getelementptr inbounds nuw [8 x %"class.OpenImageIO::v3_1_0::ustring"], ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 0, i64 %indvars.iv.i26
+  %28 = load ptr, ptr %27, align 8, !tbaa !3
+  %29 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.021, ptr noundef nonnull dereferenceable(1) %28) #9
+  %.not.i27 = icmp eq i32 %29, 0
+  br i1 %.not.i27, label %30, label %32
 
-for.body.i17:                                     ; preds = %for.inc.i22, %_ZN18OpenImageIO_v2_6_03Tex15decode_wrapmodeEPKc.exit
-  %indvars.iv.i18 = phi i64 [ 0, %_ZN18OpenImageIO_v2_6_03Tex15decode_wrapmodeEPKc.exit ], [ %indvars.iv.next.i23, %for.inc.i22 ]
-  %arrayidx.i19 = getelementptr inbounds nuw [8 x %"class.OpenImageIO_v2_6_0::ustring"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 0, i64 %indvars.iv.i18
-  %4 = load ptr, ptr %arrayidx.i19, align 8
-  %call1.i20 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %twrap.0, ptr noundef nonnull dereferenceable(1) %4) #13
-  %tobool.not.i21 = icmp eq i32 %call1.i20, 0
-  br i1 %tobool.not.i21, label %return.split.loop.exit6.i26, label %for.inc.i22
+30:                                               ; preds = %26
+  %31 = trunc i64 %indvars.iv.i26 to i8
+  br label %_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit31
 
-for.inc.i22:                                      ; preds = %for.body.i17
-  %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i18, 1
-  %exitcond.not.i24 = icmp eq i64 %indvars.iv.next.i23, 7
-  br i1 %exitcond.not.i24, label %_ZN18OpenImageIO_v2_6_03Tex15decode_wrapmodeEPKc.exit27, label %for.body.i17, !llvm.loop !4
+32:                                               ; preds = %26
+  %indvars.iv.next.i28 = add nuw nsw i64 %indvars.iv.i26, 1
+  %exitcond.i29 = icmp eq i64 %indvars.iv.next.i28, 7
+  br i1 %exitcond.i29, label %_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit31, label %26, !llvm.loop !9
 
-return.split.loop.exit6.i26:                      ; preds = %for.body.i17
-  %5 = trunc nuw nsw i64 %indvars.iv.i18 to i32
-  br label %_ZN18OpenImageIO_v2_6_03Tex15decode_wrapmodeEPKc.exit27
-
-_ZN18OpenImageIO_v2_6_03Tex15decode_wrapmodeEPKc.exit27: ; preds = %for.inc.i22, %return.split.loop.exit6.i26
-  %retval.0.i25 = phi i32 [ %5, %return.split.loop.exit6.i26 ], [ 0, %for.inc.i22 ]
-  store i32 %retval.0.i25, ptr %twrapcode, align 4
+_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit31: ; preds = %32, %30
+  %spec.select.i30 = phi i8 [ %31, %30 ], [ 0, %32 ]
+  store i8 %spec.select.i30, ptr %2, align 1, !tbaa !18
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
-declare noundef ptr @_ZN18OpenImageIO_v2_6_07ustring11make_uniqueENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef) local_unnamed_addr #0
+declare noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef) local_unnamed_addr #0
+
+declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_texoptions.cpp() #10 section ".text.startup" personality ptr @__gxx_personality_v0 {
-entry:
-  %agg.tmp.i27.i = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
-  %agg.tmp.i22.i = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
-  %agg.tmp.i17.i = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
-  %agg.tmp.i12.i = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
-  %agg.tmp.i7.i = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
-  %agg.tmp.i2.i = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
-  %agg.tmp.i.i = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
+define internal void @_GLOBAL__sub_I_texoptions.cpp() #8 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
+  %2 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
+  %3 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
+  %4 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
+  %5 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
+  %6 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
+  %7 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
+  %8 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
+  %9 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
+  %10 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
+  %11 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
+  %12 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
+  %13 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
+  %14 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i)
-  store ptr @.str, ptr %agg.tmp.i.i, align 8
-  %m_len.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 8
-  store i64 7, ptr %m_len.i.i.i, align 8
-  %call.i1.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07ustring11make_uniqueENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %agg.tmp.i.i)
-  store ptr %call.i1.i, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i2.i)
-  store ptr @.str.2, ptr %agg.tmp.i2.i, align 8
-  %m_len.i.i4.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i2.i, i64 8
-  store i64 5, ptr %m_len.i.i4.i, align 8
-  %call.i5.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07ustring11make_uniqueENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %agg.tmp.i2.i)
-  store ptr %call.i5.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 8), align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i2.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i7.i)
-  store ptr @.str.3, ptr %agg.tmp.i7.i, align 8
-  %m_len.i.i9.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i7.i, i64 8
-  store i64 5, ptr %m_len.i.i9.i, align 8
-  %call.i10.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07ustring11make_uniqueENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %agg.tmp.i7.i)
-  store ptr %call.i10.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 16), align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i7.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i12.i)
-  store ptr @.str.4, ptr %agg.tmp.i12.i, align 8
-  %m_len.i.i14.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i12.i, i64 8
-  store i64 8, ptr %m_len.i.i14.i, align 8
-  %call.i15.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07ustring11make_uniqueENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %agg.tmp.i12.i)
-  store ptr %call.i15.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 24), align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i12.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i17.i)
-  store ptr @.str.5, ptr %agg.tmp.i17.i, align 8
-  %m_len.i.i19.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i17.i, i64 8
-  store i64 6, ptr %m_len.i.i19.i, align 8
-  %call.i20.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07ustring11make_uniqueENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %agg.tmp.i17.i)
-  store ptr %call.i20.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 32), align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i17.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i22.i)
-  store ptr @.str.6, ptr %agg.tmp.i22.i, align 8
-  %m_len.i.i24.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i22.i, i64 8
-  store i64 13, ptr %m_len.i.i24.i, align 8
-  %call.i25.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07ustring11make_uniqueENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %agg.tmp.i22.i)
-  store ptr %call.i25.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 40), align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i22.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i27.i)
-  store ptr @.str.7, ptr %agg.tmp.i27.i, align 8
-  %m_len.i.i29.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i27.i, i64 8
-  store i64 21, ptr %m_len.i.i29.i, align 8
-  %call.i30.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07ustring11make_uniqueENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %agg.tmp.i27.i)
-  store ptr %call.i30.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 48), align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i27.i)
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_114wrap_type_nameE, i64 56), align 8
+  %15 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #10
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
+  store ptr @.str, ptr %14, align 8, !tbaa !20
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store i64 7, ptr %16, align 8, !tbaa !22
+  %17 = call noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %14)
+  store ptr %17, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, align 16, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
+  store ptr @.str.2, ptr %13, align 8, !tbaa !20
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i64 5, ptr %18, align 8, !tbaa !22
+  %19 = call noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %13)
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 8), align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
+  store ptr @.str.3, ptr %12, align 8, !tbaa !20
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i64 5, ptr %20, align 8, !tbaa !22
+  %21 = call noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %12)
+  store ptr %21, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 16), align 16, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
+  store ptr @.str.4, ptr %11, align 8, !tbaa !20
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i64 8, ptr %22, align 8, !tbaa !22
+  %23 = call noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %11)
+  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 24), align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  store ptr @.str.5, ptr %10, align 8, !tbaa !20
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 6, ptr %24, align 8, !tbaa !22
+  %25 = call noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %10)
+  store ptr %25, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 32), align 16, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  store ptr @.str.6, ptr %9, align 8, !tbaa !20
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 13, ptr %26, align 8, !tbaa !22
+  %27 = call noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %9)
+  store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 40), align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  store ptr @.str.7, ptr %8, align 8, !tbaa !20
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 21, ptr %28, align 8, !tbaa !22
+  %29 = call noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %8)
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 48), align 16, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 56), align 8, !tbaa !3
+  %30 = call ptr @llvm.invariant.start.p0(i64 64, ptr nonnull @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  store ptr @.str, ptr %7, align 8, !tbaa !20
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 7, ptr %31, align 8, !tbaa !22
+  %32 = call noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  %.not.i2.i.i = icmp eq ptr %32, null
+  br i1 %.not.i2.i.i, label %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit.i, label %33
+
+33:                                               ; preds = %0
+  %34 = getelementptr inbounds i8, ptr %32, i64 -64
+  %35 = load i64, ptr %34, align 8, !tbaa !23
+  br label %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit.i
+
+_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit.i: ; preds = %33, %0
+  %.0.i.i.i = phi i64 [ %35, %33 ], [ 0, %0 ]
+  store i64 %.0.i.i.i, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE, align 16, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  store ptr @.str.2, ptr %6, align 8, !tbaa !20
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 5, ptr %36, align 8, !tbaa !22
+  %37 = call noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  %.not.i2.i1.i = icmp eq ptr %37, null
+  br i1 %.not.i2.i1.i, label %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit3.i, label %38
+
+38:                                               ; preds = %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit.i
+  %39 = getelementptr inbounds i8, ptr %37, i64 -64
+  %40 = load i64, ptr %39, align 8, !tbaa !23
+  br label %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit3.i
+
+_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit3.i: ; preds = %38, %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit.i
+  %.0.i.i2.i = phi i64 [ %40, %38 ], [ 0, %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit.i ]
+  store i64 %.0.i.i2.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE, i64 8), align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  store ptr @.str.3, ptr %5, align 8, !tbaa !20
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 5, ptr %41, align 8, !tbaa !22
+  %42 = call noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  %.not.i2.i4.i = icmp eq ptr %42, null
+  br i1 %.not.i2.i4.i, label %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit6.i, label %43
+
+43:                                               ; preds = %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit3.i
+  %44 = getelementptr inbounds i8, ptr %42, i64 -64
+  %45 = load i64, ptr %44, align 8, !tbaa !23
+  br label %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit6.i
+
+_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit6.i: ; preds = %43, %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit3.i
+  %.0.i.i5.i = phi i64 [ %45, %43 ], [ 0, %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit3.i ]
+  store i64 %.0.i.i5.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE, i64 16), align 16, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  store ptr @.str.4, ptr %4, align 8, !tbaa !20
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 8, ptr %46, align 8, !tbaa !22
+  %47 = call noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  %.not.i2.i7.i = icmp eq ptr %47, null
+  br i1 %.not.i2.i7.i, label %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit9.i, label %48
+
+48:                                               ; preds = %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit6.i
+  %49 = getelementptr inbounds i8, ptr %47, i64 -64
+  %50 = load i64, ptr %49, align 8, !tbaa !23
+  br label %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit9.i
+
+_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit9.i: ; preds = %48, %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit6.i
+  %.0.i.i8.i = phi i64 [ %50, %48 ], [ 0, %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit6.i ]
+  store i64 %.0.i.i8.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE, i64 24), align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  store ptr @.str.5, ptr %3, align 8, !tbaa !20
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 6, ptr %51, align 8, !tbaa !22
+  %52 = call noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  %.not.i2.i10.i = icmp eq ptr %52, null
+  br i1 %.not.i2.i10.i, label %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit12.i, label %53
+
+53:                                               ; preds = %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit9.i
+  %54 = getelementptr inbounds i8, ptr %52, i64 -64
+  %55 = load i64, ptr %54, align 8, !tbaa !23
+  br label %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit12.i
+
+_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit12.i: ; preds = %53, %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit9.i
+  %.0.i.i11.i = phi i64 [ %55, %53 ], [ 0, %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit9.i ]
+  store i64 %.0.i.i11.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE, i64 32), align 16, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  store ptr @.str.6, ptr %2, align 8, !tbaa !20
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 13, ptr %56, align 8, !tbaa !22
+  %57 = call noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  %.not.i2.i13.i = icmp eq ptr %57, null
+  br i1 %.not.i2.i13.i, label %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit15.i, label %58
+
+58:                                               ; preds = %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit12.i
+  %59 = getelementptr inbounds i8, ptr %57, i64 -64
+  %60 = load i64, ptr %59, align 8, !tbaa !23
+  br label %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit15.i
+
+_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit15.i: ; preds = %58, %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit12.i
+  %.0.i.i14.i = phi i64 [ %60, %58 ], [ 0, %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit12.i ]
+  store i64 %.0.i.i14.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE, i64 40), align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
+  store ptr @.str.7, ptr %1, align 8, !tbaa !20
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 21, ptr %61, align 8, !tbaa !22
+  %62 = call noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %1)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
+  %.not.i2.i16.i = icmp eq ptr %62, null
+  br i1 %.not.i2.i16.i, label %__cxx_global_var_init.8.exit, label %63
+
+63:                                               ; preds = %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit15.i
+  %64 = getelementptr inbounds i8, ptr %62, i64 -64
+  %65 = load i64, ptr %64, align 8, !tbaa !23
+  br label %__cxx_global_var_init.8.exit
+
+__cxx_global_var_init.8.exit:                     ; preds = %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit15.i, %63
+  %.0.i.i17.i = phi i64 [ %65, %63 ], [ 0, %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit15.i ]
+  store i64 %.0.i.i17.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE, i64 48), align 16, !tbaa !12
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE, i64 56), align 8, !tbaa !12
+  %66 = call ptr @llvm.invariant.start.p0(i64 64, ptr nonnull @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE)
   ret void
 }
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
-
-attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind willreturn memory(read) }
-attributes #14 = { nounwind }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind willreturn memory(read) }
+attributes #10 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"_ZTSN11OpenImageIO6v3_1_07ustringE", !5, i64 0}
+!5 = !{!"p1 omnipotent char", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = distinct !{!11, !10}
+!12 = !{!13, !14, i64 0}
+!13 = !{!"_ZTSN11OpenImageIO6v3_1_011ustringhashE", !14, i64 0}
+!14 = !{!"long", !7, i64 0}
+!15 = distinct !{!15, !10}
+!16 = !{!7, !7, i64 0}
+!17 = distinct !{!17, !10}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"_ZTSN11OpenImageIO6v3_1_03Tex4WrapE", !7, i64 0}
+!20 = !{!21, !5, i64 0}
+!21 = !{!"_ZTSN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEE", !5, i64 0, !14, i64 8}
+!22 = !{!21, !14, i64 8}
+!23 = !{!24, !14, i64 0}
+!24 = !{!"_ZTSN11OpenImageIO6v3_1_07ustring8TableRepE", !14, i64 0, !25, i64 8, !14, i64 40, !14, i64 48, !27, i64 56}
+!25 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !26, i64 0, !14, i64 8, !7, i64 16}
+!26 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !5, i64 0}
+!27 = !{!"int", !7, i64 0}

@@ -1,23 +1,23 @@
 ; ModuleID = 'bench/oiio/original/ElementReadStream.ll'
 source_filename = "bench/oiio/original/ElementReadStream.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZTVN6cineon17ElementReadStreamE = hidden unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN6cineon17ElementReadStreamE, ptr @_ZN6cineon17ElementReadStreamD2Ev, ptr @_ZN6cineon17ElementReadStreamD0Ev, ptr @_ZN6cineon17ElementReadStream5ResetEv, ptr @_ZN6cineon17ElementReadStream4ReadERKNS_6HeaderElPvm, ptr @_ZN6cineon17ElementReadStream10ReadDirectERKNS_6HeaderElPvm] }, align 8
+@_ZTVN3dpx17ElementReadStreamE = hidden unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN3dpx17ElementReadStreamE, ptr @_ZN3dpx17ElementReadStreamD2Ev, ptr @_ZN3dpx17ElementReadStreamD0Ev, ptr @_ZN3dpx17ElementReadStream5ResetEv, ptr @_ZN3dpx17ElementReadStream4ReadERKNS_6HeaderEilPvm, ptr @_ZN3dpx17ElementReadStream10ReadDirectERKNS_6HeaderEilPvm] }, align 8
+@_ZTIN3dpx17ElementReadStreamE = hidden constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN3dpx17ElementReadStreamE }, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
-@_ZTSN6cineon17ElementReadStreamE = hidden constant [29 x i8] c"N6cineon17ElementReadStreamE\00", align 1
-@_ZTIN6cineon17ElementReadStreamE = hidden constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN6cineon17ElementReadStreamE }, align 8
+@_ZTSN3dpx17ElementReadStreamE = hidden constant [26 x i8] c"N3dpx17ElementReadStreamE\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_ElementReadStream.cpp, ptr null }]
 
-@_ZN6cineon17ElementReadStreamC1EPNS_8InStreamE = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN6cineon17ElementReadStreamC2EPNS_8InStreamE
-@_ZN6cineon17ElementReadStreamD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6cineon17ElementReadStreamD2Ev
+@_ZN3dpx17ElementReadStreamC1EP8InStream = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN3dpx17ElementReadStreamC2EP8InStream
+@_ZN3dpx17ElementReadStreamD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN3dpx17ElementReadStreamD2Ev
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #0
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
@@ -28,268 +28,270 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6cineon17ElementReadStreamC2EPNS_8InStreamE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef %fd) unnamed_addr #4 align 2 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6cineon17ElementReadStreamE, i64 16), ptr %this, align 8
-  %fd2 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr %fd, ptr %fd2, align 8
+define hidden void @_ZN3dpx17ElementReadStreamC2EP8InStream(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #4 align 2 {
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3dpx17ElementReadStreamE, i64 16), ptr %0, align 8, !tbaa !3
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %1, ptr %3, align 8, !tbaa !6
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN6cineon17ElementReadStreamD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
-entry:
+define hidden void @_ZN3dpx17ElementReadStreamD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6cineon17ElementReadStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #6 align 2 {
-entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #9
+define hidden void @_ZN3dpx17ElementReadStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN6cineon17ElementReadStream5ResetEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
-entry:
+define hidden void @_ZN3dpx17ElementReadStream5ResetEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6cineon17ElementReadStream4ReadERKNS_6HeaderElPvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %offset, ptr noundef %buf, i64 noundef %size) unnamed_addr #7 align 2 {
-entry:
-  %imageOffset.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 4
-  %0 = load i32, ptr %imageOffset.i, align 4
-  %conv = zext i32 %0 to i64
-  %add = add nsw i64 %offset, %conv
-  %fd = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %fd, align 8
-  %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
-  %2 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %add, i32 noundef 0)
-  br i1 %call2, label %if.end, label %return
+define hidden noundef zeroext i1 @_ZN3dpx17ElementReadStream4ReadERKNS_6HeaderEilPvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(2049) %1, i32 noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #7 align 2 {
+  %or.cond.i = icmp ugt i32 %2, 7
+  br i1 %or.cond.i, label %_ZNK3dpx13GenericHeader10DataOffsetEi.exit, label %7
 
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %fd, align 8
-  %vtable5 = load ptr, ptr %3, align 8
-  %vfn6 = getelementptr inbounds nuw i8, ptr %vtable5, i64 40
-  %4 = load ptr, ptr %vfn6, align 8
-  %call7 = tail call noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %buf, i64 noundef %size)
-  %cmp8.not = icmp eq i64 %call7, %size
-  br i1 %cmp8.not, label %if.end10, label %return
+7:                                                ; preds = %6
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 780
+  %narrow.i = mul nuw nsw i32 %2, 72
+  %9 = zext nneg i32 %narrow.i to i64
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 28
+  %12 = load i32, ptr %11, align 4, !tbaa !11
+  %13 = zext i32 %12 to i64
+  br label %_ZNK3dpx13GenericHeader10DataOffsetEi.exit
 
-if.end10:                                         ; preds = %if.end
-  tail call void @_ZN6cineon17ElementReadStream15EndianDataCheckERKNS_6HeaderEPvm(ptr nonnull align 8 poison, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %buf, i64 noundef %size)
-  br label %return
+_ZNK3dpx13GenericHeader10DataOffsetEi.exit:       ; preds = %6, %7
+  %.0.i = phi i64 [ %13, %7 ], [ 4294967295, %6 ]
+  %14 = add nsw i64 %.0.i, %3
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !6
+  %17 = load ptr, ptr %16, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %16, i64 noundef %14, i32 noundef 0)
+  br i1 %20, label %21, label %28
 
-return:                                           ; preds = %if.end, %entry, %if.end10
-  %retval.0 = phi i1 [ true, %if.end10 ], [ false, %entry ], [ false, %if.end ]
-  ret i1 %retval.0
+21:                                               ; preds = %_ZNK3dpx13GenericHeader10DataOffsetEi.exit
+  %22 = load ptr, ptr %15, align 8, !tbaa !6
+  %23 = load ptr, ptr %22, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %25 = load ptr, ptr %24, align 8
+  %26 = tail call noundef i64 %25(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef %4, i64 noundef %5)
+  %.not = icmp eq i64 %26, %5
+  br i1 %.not, label %27, label %28
+
+27:                                               ; preds = %21
+  tail call void @_ZN3dpx17ElementReadStream15EndianDataCheckERKNS_6HeaderEiPvm(ptr nonnull align 8 poison, ptr noundef nonnull align 4 dereferenceable(2049) %1, i32 noundef %2, ptr noundef %4, i64 noundef %5)
+  br label %28
+
+28:                                               ; preds = %21, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit, %27
+  %.0 = phi i1 [ true, %27 ], [ false, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit ], [ false, %21 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6cineon17ElementReadStream15EndianDataCheckERKNS_6HeaderEPvm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef captures(none) %buf, i64 noundef %size) local_unnamed_addr #7 align 2 {
-entry:
-  %0 = load i32, ptr %dpxHeader, align 4
-  %call.i = tail call noundef zeroext i1 @_ZNK6cineon6Header17DetermineByteSwapEj(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i32 noundef %0)
-  br i1 %call.i, label %if.then, label %if.end14
+define hidden void @_ZN3dpx17ElementReadStream15EndianDataCheckERKNS_6HeaderEiPvm(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 4 dereferenceable(2049) %1, i32 noundef %2, ptr noundef captures(none) %3, i64 noundef %4) local_unnamed_addr #7 align 2 {
+  %6 = load i32, ptr %1, align 4, !tbaa !16
+  %7 = tail call noundef zeroext i1 @_ZNK3dpx6Header17DetermineByteSwapEj(ptr noundef nonnull align 4 dereferenceable(2049) %1, i32 noundef %6)
+  br i1 %7, label %8, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit
 
-if.then:                                          ; preds = %entry
-  %bitDepth.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 198
-  %1 = load i8, ptr %bitDepth.i, align 2
-  switch i8 %1, label %sw.default [
-    i8 8, label %if.end14
-    i8 12, label %sw.bb3
-    i8 16, label %sw.bb9
+8:                                                ; preds = %5
+  %or.cond.i = icmp ugt i32 %2, 7
+  br i1 %or.cond.i, label %_ZNK3dpx13GenericHeader8BitDepthEi.exit.thread, label %_ZNK3dpx13GenericHeader8BitDepthEi.exit
+
+_ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 780
+  %narrow.i = mul nuw nsw i32 %2, 72
+  %10 = zext nneg i32 %narrow.i to i64
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 23
+  %13 = load i8, ptr %12, align 1, !tbaa !18
+  switch i8 %13, label %_ZNK3dpx13GenericHeader8BitDepthEi.exit.thread [
+    i8 8, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit
+    i8 12, label %_ZNK3dpx13GenericHeader12ImagePackingEi.exit
+    i8 16, label %33
   ]
 
-sw.bb3:                                           ; preds = %if.then
-  %packing.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 681
-  %2 = load i8, ptr %packing.i, align 1
-  %cmp = icmp eq i8 %2, 0
-  br i1 %cmp, label %if.then5, label %if.else
+_ZNK3dpx13GenericHeader12ImagePackingEi.exit:     ; preds = %_ZNK3dpx13GenericHeader8BitDepthEi.exit
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %15 = load i16, ptr %14, align 4, !tbaa !19
+  %16 = icmp eq i16 %15, 0
+  br i1 %16, label %17, label %25
 
-if.then5:                                         ; preds = %sw.bb3
-  %3 = and i64 %size, 17179869180
-  %cmp3.not.i.i = icmp eq i64 %3, 0
-  br i1 %cmp3.not.i.i, label %if.end14, label %for.body.preheader.i.i
+17:                                               ; preds = %_ZNK3dpx13GenericHeader12ImagePackingEi.exit
+  %18 = shl i64 %4, 30
+  %19 = ashr i64 %18, 32
+  %20 = and i64 %4, 17179869180
+  %.not.i.i.i = icmp eq i64 %20, 0
+  br i1 %.not.i.i.i, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i
 
-for.body.preheader.i.i:                           ; preds = %if.then5
-  %div11 = lshr i64 %size, 2
-  %wide.trip.count.i.i = and i64 %div11, 4294967295
-  br label %for.body.i.i
+.lr.ph.i.i.i:                                     ; preds = %17, %.lr.ph.i.i.i
+  %.06.i.i.i = phi i64 [ %24, %.lr.ph.i.i.i ], [ 0, %17 ]
+  %21 = getelementptr inbounds nuw i32, ptr %3, i64 %.06.i.i.i
+  %22 = load i32, ptr %21, align 4, !tbaa !20
+  %23 = tail call noundef i32 @llvm.bswap.i32(i32 %22)
+  store i32 %23, ptr %21, align 4, !tbaa !20
+  %24 = add nuw i64 %.06.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %24, %19
+  br i1 %exitcond.not.i.i.i, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i, !llvm.loop !21
 
-for.body.i.i:                                     ; preds = %_ZN6cineon9SwapBytesIjEET_RS1_.exit.i.i, %for.body.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %_ZN6cineon9SwapBytesIjEET_RS1_.exit.i.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr %buf, i64 %indvars.iv.i.i
-  %add.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 3
-  br label %for.body.i.i.i
+25:                                               ; preds = %_ZNK3dpx13GenericHeader12ImagePackingEi.exit
+  %26 = shl i64 %4, 31
+  %27 = ashr i64 %26, 32
+  %28 = and i64 %4, 8589934590
+  %.not.i.i.i15 = icmp eq i64 %28, 0
+  br i1 %.not.i.i.i15, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i16
 
-for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i.i
-  %i.011.i.i.i = phi i64 [ 2, %for.body.i.i ], [ %dec.i.i.i, %for.body.i.i.i ]
-  %pe.010.i.i.i = phi ptr [ %add.ptr1.i.i.i, %for.body.i.i ], [ %incdec.ptr2.i.i.i, %for.body.i.i.i ]
-  %ps.09.i.i.i = phi ptr [ %arrayidx.i.i, %for.body.i.i ], [ %incdec.ptr.i.i.i, %for.body.i.i.i ]
-  %4 = load i8, ptr %ps.09.i.i.i, align 1
-  %5 = load i8, ptr %pe.010.i.i.i, align 1
-  store i8 %5, ptr %ps.09.i.i.i, align 1
-  store i8 %4, ptr %pe.010.i.i.i, align 1
-  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %ps.09.i.i.i, i64 1
-  %incdec.ptr2.i.i.i = getelementptr inbounds i8, ptr %pe.010.i.i.i, i64 -1
-  %dec.i.i.i = add nsw i64 %i.011.i.i.i, -1
-  %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZN6cineon9SwapBytesIjEET_RS1_.exit.i.i, label %for.body.i.i.i, !llvm.loop !4
+.lr.ph.i.i.i16:                                   ; preds = %25, %.lr.ph.i.i.i16
+  %.06.i.i.i17 = phi i64 [ %32, %.lr.ph.i.i.i16 ], [ 0, %25 ]
+  %29 = getelementptr inbounds nuw i16, ptr %3, i64 %.06.i.i.i17
+  %30 = load i16, ptr %29, align 2, !tbaa !23
+  %31 = tail call noundef i16 @llvm.bswap.i16(i16 %30)
+  store i16 %31, ptr %29, align 2, !tbaa !23
+  %32 = add nuw i64 %.06.i.i.i17, 1
+  %exitcond.not.i.i.i18 = icmp eq i64 %32, %27
+  br i1 %exitcond.not.i.i.i18, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i16, !llvm.loop !24
 
-_ZN6cineon9SwapBytesIjEET_RS1_.exit.i.i:          ; preds = %for.body.i.i.i
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %if.end14, label %for.body.i.i, !llvm.loop !6
+33:                                               ; preds = %_ZNK3dpx13GenericHeader8BitDepthEi.exit
+  %34 = shl i64 %4, 31
+  %35 = ashr i64 %34, 32
+  %36 = and i64 %4, 8589934590
+  %.not.i.i.i19 = icmp eq i64 %36, 0
+  br i1 %.not.i.i.i19, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i20
 
-if.else:                                          ; preds = %sw.bb3
-  %6 = and i64 %size, 8589934590
-  %cmp3.not.i.i13 = icmp eq i64 %6, 0
-  br i1 %cmp3.not.i.i13, label %if.end14, label %for.body.preheader.i.i14
+.lr.ph.i.i.i20:                                   ; preds = %33, %.lr.ph.i.i.i20
+  %.06.i.i.i21 = phi i64 [ %40, %.lr.ph.i.i.i20 ], [ 0, %33 ]
+  %37 = getelementptr inbounds nuw i16, ptr %3, i64 %.06.i.i.i21
+  %38 = load i16, ptr %37, align 2, !tbaa !23
+  %39 = tail call noundef i16 @llvm.bswap.i16(i16 %38)
+  store i16 %39, ptr %37, align 2, !tbaa !23
+  %40 = add nuw i64 %.06.i.i.i21, 1
+  %exitcond.not.i.i.i22 = icmp eq i64 %40, %35
+  br i1 %exitcond.not.i.i.i22, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i20, !llvm.loop !24
 
-for.body.preheader.i.i14:                         ; preds = %if.else
-  %div710 = lshr i64 %size, 1
-  %wide.trip.count.i.i15 = and i64 %div710, 4294967295
-  br label %for.body.i.i16
+_ZNK3dpx13GenericHeader8BitDepthEi.exit.thread:   ; preds = %8, %_ZNK3dpx13GenericHeader8BitDepthEi.exit
+  %41 = shl i64 %4, 30
+  %42 = ashr i64 %41, 32
+  %43 = and i64 %4, 17179869180
+  %.not.i.i.i24 = icmp eq i64 %43, 0
+  br i1 %.not.i.i.i24, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i25
 
-for.body.i.i16:                                   ; preds = %for.body.i.i16, %for.body.preheader.i.i14
-  %indvars.iv.i.i17 = phi i64 [ 0, %for.body.preheader.i.i14 ], [ %indvars.iv.next.i.i19, %for.body.i.i16 ]
-  %arrayidx.i.i18 = getelementptr inbounds nuw i16, ptr %buf, i64 %indvars.iv.i.i17
-  %7 = load i8, ptr %arrayidx.i.i18, align 1
-  %arrayidx1.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i18, i64 1
-  %8 = load i8, ptr %arrayidx1.i.i.i, align 1
-  store i8 %8, ptr %arrayidx.i.i18, align 1
-  store i8 %7, ptr %arrayidx1.i.i.i, align 1
-  %indvars.iv.next.i.i19 = add nuw nsw i64 %indvars.iv.i.i17, 1
-  %exitcond.not.i.i20 = icmp eq i64 %indvars.iv.next.i.i19, %wide.trip.count.i.i15
-  br i1 %exitcond.not.i.i20, label %if.end14, label %for.body.i.i16, !llvm.loop !7
+.lr.ph.i.i.i25:                                   ; preds = %_ZNK3dpx13GenericHeader8BitDepthEi.exit.thread, %.lr.ph.i.i.i25
+  %.06.i.i.i26 = phi i64 [ %47, %.lr.ph.i.i.i25 ], [ 0, %_ZNK3dpx13GenericHeader8BitDepthEi.exit.thread ]
+  %44 = getelementptr inbounds nuw i32, ptr %3, i64 %.06.i.i.i26
+  %45 = load i32, ptr %44, align 4, !tbaa !20
+  %46 = tail call noundef i32 @llvm.bswap.i32(i32 %45)
+  store i32 %46, ptr %44, align 4, !tbaa !20
+  %47 = add nuw i64 %.06.i.i.i26, 1
+  %exitcond.not.i.i.i27 = icmp eq i64 %47, %42
+  br i1 %exitcond.not.i.i.i27, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i25, !llvm.loop !21
 
-sw.bb9:                                           ; preds = %if.then
-  %9 = and i64 %size, 8589934590
-  %cmp3.not.i.i21 = icmp eq i64 %9, 0
-  br i1 %cmp3.not.i.i21, label %if.end14, label %for.body.preheader.i.i22
-
-for.body.preheader.i.i22:                         ; preds = %sw.bb9
-  %div109 = lshr i64 %size, 1
-  %wide.trip.count.i.i23 = and i64 %div109, 4294967295
-  br label %for.body.i.i24
-
-for.body.i.i24:                                   ; preds = %for.body.i.i24, %for.body.preheader.i.i22
-  %indvars.iv.i.i25 = phi i64 [ 0, %for.body.preheader.i.i22 ], [ %indvars.iv.next.i.i28, %for.body.i.i24 ]
-  %arrayidx.i.i26 = getelementptr inbounds nuw i16, ptr %buf, i64 %indvars.iv.i.i25
-  %10 = load i8, ptr %arrayidx.i.i26, align 1
-  %arrayidx1.i.i.i27 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i26, i64 1
-  %11 = load i8, ptr %arrayidx1.i.i.i27, align 1
-  store i8 %11, ptr %arrayidx.i.i26, align 1
-  store i8 %10, ptr %arrayidx1.i.i.i27, align 1
-  %indvars.iv.next.i.i28 = add nuw nsw i64 %indvars.iv.i.i25, 1
-  %exitcond.not.i.i29 = icmp eq i64 %indvars.iv.next.i.i28, %wide.trip.count.i.i23
-  br i1 %exitcond.not.i.i29, label %if.end14, label %for.body.i.i24, !llvm.loop !7
-
-sw.default:                                       ; preds = %if.then
-  %12 = and i64 %size, 17179869180
-  %cmp3.not.i.i31 = icmp eq i64 %12, 0
-  br i1 %cmp3.not.i.i31, label %if.end14, label %for.body.preheader.i.i32
-
-for.body.preheader.i.i32:                         ; preds = %sw.default
-  %div1212 = lshr i64 %size, 2
-  %wide.trip.count.i.i33 = and i64 %div1212, 4294967295
-  br label %for.body.i.i34
-
-for.body.i.i34:                                   ; preds = %_ZN6cineon9SwapBytesIjEET_RS1_.exit.i.i46, %for.body.preheader.i.i32
-  %indvars.iv.i.i35 = phi i64 [ 0, %for.body.preheader.i.i32 ], [ %indvars.iv.next.i.i47, %_ZN6cineon9SwapBytesIjEET_RS1_.exit.i.i46 ]
-  %arrayidx.i.i36 = getelementptr inbounds nuw i32, ptr %buf, i64 %indvars.iv.i.i35
-  %add.ptr1.i.i.i37 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i36, i64 3
-  br label %for.body.i.i.i38
-
-for.body.i.i.i38:                                 ; preds = %for.body.i.i.i38, %for.body.i.i34
-  %i.011.i.i.i39 = phi i64 [ 2, %for.body.i.i34 ], [ %dec.i.i.i44, %for.body.i.i.i38 ]
-  %pe.010.i.i.i40 = phi ptr [ %add.ptr1.i.i.i37, %for.body.i.i34 ], [ %incdec.ptr2.i.i.i43, %for.body.i.i.i38 ]
-  %ps.09.i.i.i41 = phi ptr [ %arrayidx.i.i36, %for.body.i.i34 ], [ %incdec.ptr.i.i.i42, %for.body.i.i.i38 ]
-  %13 = load i8, ptr %ps.09.i.i.i41, align 1
-  %14 = load i8, ptr %pe.010.i.i.i40, align 1
-  store i8 %14, ptr %ps.09.i.i.i41, align 1
-  store i8 %13, ptr %pe.010.i.i.i40, align 1
-  %incdec.ptr.i.i.i42 = getelementptr inbounds nuw i8, ptr %ps.09.i.i.i41, i64 1
-  %incdec.ptr2.i.i.i43 = getelementptr inbounds i8, ptr %pe.010.i.i.i40, i64 -1
-  %dec.i.i.i44 = add nsw i64 %i.011.i.i.i39, -1
-  %cmp.not.i.i.i45 = icmp eq i64 %dec.i.i.i44, 0
-  br i1 %cmp.not.i.i.i45, label %_ZN6cineon9SwapBytesIjEET_RS1_.exit.i.i46, label %for.body.i.i.i38, !llvm.loop !4
-
-_ZN6cineon9SwapBytesIjEET_RS1_.exit.i.i46:        ; preds = %for.body.i.i.i38
-  %indvars.iv.next.i.i47 = add nuw nsw i64 %indvars.iv.i.i35, 1
-  %exitcond.not.i.i48 = icmp eq i64 %indvars.iv.next.i.i47, %wide.trip.count.i.i33
-  br i1 %exitcond.not.i.i48, label %if.end14, label %for.body.i.i34, !llvm.loop !6
-
-if.end14:                                         ; preds = %for.body.i.i24, %for.body.i.i16, %_ZN6cineon9SwapBytesIjEET_RS1_.exit.i.i, %_ZN6cineon9SwapBytesIjEET_RS1_.exit.i.i46, %sw.default, %sw.bb9, %if.else, %if.then5, %if.then, %entry
+_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit: ; preds = %.lr.ph.i.i.i20, %.lr.ph.i.i.i16, %.lr.ph.i.i.i, %.lr.ph.i.i.i25, %_ZNK3dpx13GenericHeader8BitDepthEi.exit.thread, %33, %25, %17, %_ZNK3dpx13GenericHeader8BitDepthEi.exit, %5
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6cineon17ElementReadStream10ReadDirectERKNS_6HeaderElPvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %offset, ptr noundef %buf, i64 noundef %size) unnamed_addr #7 align 2 {
-entry:
-  %imageOffset.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 4
-  %0 = load i32, ptr %imageOffset.i, align 4
-  %conv = zext i32 %0 to i64
-  %add = add nsw i64 %offset, %conv
-  %fd = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %fd, align 8
-  %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
-  %2 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %add, i32 noundef 0)
-  br i1 %call2, label %if.end, label %return
+define hidden noundef zeroext i1 @_ZN3dpx17ElementReadStream10ReadDirectERKNS_6HeaderEilPvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(2049) %1, i32 noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #7 align 2 {
+  %or.cond.i = icmp ugt i32 %2, 7
+  br i1 %or.cond.i, label %_ZNK3dpx13GenericHeader10DataOffsetEi.exit, label %7
 
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %fd, align 8
-  %vtable5 = load ptr, ptr %3, align 8
-  %vfn6 = getelementptr inbounds nuw i8, ptr %vtable5, i64 48
-  %4 = load ptr, ptr %vfn6, align 8
-  %call7 = tail call noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %buf, i64 noundef %size)
-  %cmp8.not = icmp eq i64 %call7, %size
-  br i1 %cmp8.not, label %if.end10, label %return
+7:                                                ; preds = %6
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 780
+  %narrow.i = mul nuw nsw i32 %2, 72
+  %9 = zext nneg i32 %narrow.i to i64
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 28
+  %12 = load i32, ptr %11, align 4, !tbaa !11
+  %13 = zext i32 %12 to i64
+  br label %_ZNK3dpx13GenericHeader10DataOffsetEi.exit
 
-if.end10:                                         ; preds = %if.end
-  tail call void @_ZN6cineon17ElementReadStream15EndianDataCheckERKNS_6HeaderEPvm(ptr nonnull align 8 poison, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %buf, i64 noundef %size)
-  br label %return
+_ZNK3dpx13GenericHeader10DataOffsetEi.exit:       ; preds = %6, %7
+  %.0.i = phi i64 [ %13, %7 ], [ 4294967295, %6 ]
+  %14 = add nsw i64 %.0.i, %3
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !6
+  %17 = load ptr, ptr %16, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %16, i64 noundef %14, i32 noundef 0)
+  br i1 %20, label %21, label %28
 
-return:                                           ; preds = %if.end, %entry, %if.end10
-  %retval.0 = phi i1 [ true, %if.end10 ], [ false, %entry ], [ false, %if.end ]
-  ret i1 %retval.0
+21:                                               ; preds = %_ZNK3dpx13GenericHeader10DataOffsetEi.exit
+  %22 = load ptr, ptr %15, align 8, !tbaa !6
+  %23 = load ptr, ptr %22, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %25 = load ptr, ptr %24, align 8
+  %26 = tail call noundef i64 %25(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef %4, i64 noundef %5)
+  %.not = icmp eq i64 %26, %5
+  br i1 %.not, label %27, label %28
+
+27:                                               ; preds = %21
+  tail call void @_ZN3dpx17ElementReadStream15EndianDataCheckERKNS_6HeaderEiPvm(ptr nonnull align 8 poison, ptr noundef nonnull align 4 dereferenceable(2049) %1, i32 noundef %2, ptr noundef %4, i64 noundef %5)
+  br label %28
+
+28:                                               ; preds = %21, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit, %27
+  %.0 = phi i1 [ true, %27 ], [ false, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit ], [ false, %21 ]
+  ret i1 %.0
 }
 
-declare noundef zeroext i1 @_ZNK6cineon6Header17DetermineByteSwapEj(ptr noundef nonnull align 4 dereferenceable(2048), i32 noundef) local_unnamed_addr #1
+declare noundef zeroext i1 @_ZNK3dpx6Header17DetermineByteSwapEj(ptr noundef nonnull align 4 dereferenceable(2049), i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.bswap.i32(i32) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.bswap.i16(i16) #8
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_ElementReadStream.cpp() #8 section ".text.startup" {
-entry:
+define internal void @_GLOBAL__sub_I_ElementReadStream.cpp() #9 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #10
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #11
   ret void
 }
 
-attributes #0 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { builtin nounwind }
-attributes #10 = { nounwind }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { builtin nounwind }
+attributes #11 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"vtable pointer", !5, i64 0}
+!5 = !{!"Simple C++ TBAA"}
+!6 = !{!7, !8, i64 8}
+!7 = !{!"_ZTSN3dpx17ElementReadStreamE", !8, i64 8}
+!8 = !{!"p1 _ZTS8InStream", !9, i64 0}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !5, i64 0}
+!11 = !{!12, !13, i64 28}
+!12 = !{!"_ZTSN3dpx12ImageElementE", !13, i64 0, !13, i64 4, !14, i64 8, !13, i64 12, !14, i64 16, !10, i64 20, !10, i64 21, !10, i64 22, !10, i64 23, !15, i64 24, !15, i64 26, !13, i64 28, !13, i64 32, !13, i64 36, !10, i64 40}
+!13 = !{!"int", !10, i64 0}
+!14 = !{!"float", !10, i64 0}
+!15 = !{!"short", !10, i64 0}
+!16 = !{!17, !13, i64 0}
+!17 = !{!"_ZTSN3dpx13GenericHeaderE", !13, i64 0, !13, i64 4, !10, i64 8, !13, i64 16, !13, i64 20, !13, i64 24, !13, i64 28, !13, i64 32, !10, i64 36, !10, i64 136, !10, i64 160, !10, i64 260, !10, i64 460, !13, i64 660, !10, i64 664, !15, i64 768, !15, i64 770, !13, i64 772, !13, i64 776, !10, i64 780, !10, i64 1356, !13, i64 1408, !13, i64 1412, !14, i64 1416, !14, i64 1420, !13, i64 1424, !13, i64 1428, !10, i64 1432, !10, i64 1532, !10, i64 1556, !10, i64 1588, !10, i64 1620, !10, i64 1628, !14, i64 1636, !14, i64 1640, !10, i64 1644}
+!18 = !{!12, !10, i64 23}
+!19 = !{!12, !15, i64 24}
+!20 = !{!13, !13, i64 0}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.mustprogress"}
+!23 = !{!15, !15, i64 0}
+!24 = distinct !{!24, !22}
