@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @pj_qsc(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %46, label %2
+  br i1 %.not, label %45, label %2
 
 2:                                                ; preds = %1
   %3 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #7
@@ -23,13 +23,13 @@ define hidden noundef ptr @pj_qsc(ptr noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %3, ptr %8, align 8
+  store ptr %3, ptr %8, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @_ZL13qsc_e_inverse5PJ_XYP8PJconsts, ptr %9, align 8
+  store ptr @_ZL13qsc_e_inverse5PJ_XYP8PJconsts, ptr %9, align 8, !tbaa !36
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr @_ZL13qsc_e_forward5PJ_LPP8PJconsts, ptr %10, align 8
+  store ptr @_ZL13qsc_e_forward5PJ_LPP8PJconsts, ptr %10, align 8, !tbaa !37
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %12 = load double, ptr %11, align 8
+  %12 = load double, ptr %11, align 8, !tbaa !38
   %13 = fcmp ult double %12, 0x3FF2D97C7F3321D2
   br i1 %13, label %14, label %.sink.split.i
 
@@ -39,7 +39,7 @@ define hidden noundef ptr @pj_qsc(ptr noundef %0) local_unnamed_addr #0 {
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %18 = load double, ptr %17, align 8
+  %18 = load double, ptr %17, align 8, !tbaa !39
   %19 = tail call double @llvm.fabs.f64(double %18)
   %20 = fcmp ugt double %19, 0x3FE921FB54442D18
   br i1 %20, label %21, label %26
@@ -55,57 +55,56 @@ define hidden noundef ptr @pj_qsc(ptr noundef %0) local_unnamed_addr #0 {
 
 .sink.split.i:                                    ; preds = %23, %21, %14, %7
   %.sink.i = phi i32 [ %25, %23 ], [ 4, %7 ], [ 5, %14 ], [ 2, %21 ]
-  store i32 %.sink.i, ptr %3, align 8
+  store i32 %.sink.i, ptr %3, align 8, !tbaa !40
   br label %26
 
 26:                                               ; preds = %.sink.split.i, %16
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %28 = load double, ptr %27, align 8
+  %28 = load double, ptr %27, align 8, !tbaa !43
   %29 = fcmp une double %28, 0.000000e+00
   br i1 %29, label %30, label %_Z32pj_projection_specific_setup_qscP8PJconsts.exit
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %32 = load double, ptr %31, align 8
+  %32 = load double, ptr %31, align 8, !tbaa !44
   %33 = fmul double %32, %32
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store double %33, ptr %34, align 8
+  store double %33, ptr %34, align 8, !tbaa !45
   %35 = fsub double 1.000000e+00, %28
-  %36 = tail call double @sqrt(double noundef %35) #8
+  %36 = tail call double @sqrt(double noundef %35) #8, !tbaa !46
   %37 = fmul double %32, %36
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store double %37, ptr %38, align 8
-  %39 = load double, ptr %31, align 8
-  %40 = fsub double %39, %37
-  %41 = fdiv double %40, %39
-  %42 = fsub double 1.000000e+00, %41
-  %43 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store double %42, ptr %43, align 8
-  %44 = fmul double %42, %42
-  %45 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store double %44, ptr %45, align 8
+  store double %37, ptr %38, align 8, !tbaa !47
+  %39 = fsub double %32, %37
+  %40 = fdiv double %39, %32
+  %41 = fsub double 1.000000e+00, %40
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store double %41, ptr %42, align 8, !tbaa !48
+  %43 = fmul double %41, %41
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store double %43, ptr %44, align 8, !tbaa !49
   br label %_Z32pj_projection_specific_setup_qscP8PJconsts.exit
 
-46:                                               ; preds = %1
-  %47 = tail call noundef ptr @_Z6pj_newv()
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %_Z32pj_projection_specific_setup_qscP8PJconsts.exit, label %49
+45:                                               ; preds = %1
+  %46 = tail call noundef ptr @_Z6pj_newv()
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %_Z32pj_projection_specific_setup_qscP8PJconsts.exit, label %48
 
-49:                                               ; preds = %46
-  %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store ptr @.str, ptr %50, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  store ptr @_ZL7des_qsc, ptr %51, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %47, i64 360
-  store i32 1, ptr %52, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %47, i64 380
-  store i32 4, ptr %53, align 4
-  %54 = getelementptr inbounds nuw i8, ptr %47, i64 384
-  store i32 1, ptr %54, align 8
+48:                                               ; preds = %45
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  store ptr @.str, ptr %49, align 8, !tbaa !50
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  store ptr @_ZL7des_qsc, ptr %50, align 8, !tbaa !51
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 360
+  store i32 1, ptr %51, align 8, !tbaa !52
+  %52 = getelementptr inbounds nuw i8, ptr %46, i64 380
+  store i32 4, ptr %52, align 4, !tbaa !53
+  %53 = getelementptr inbounds nuw i8, ptr %46, i64 384
+  store i32 1, ptr %53, align 8, !tbaa !54
   br label %_Z32pj_projection_specific_setup_qscP8PJconsts.exit
 
-_Z32pj_projection_specific_setup_qscP8PJconsts.exit: ; preds = %30, %26, %5, %46, %49
-  %.0 = phi ptr [ %47, %49 ], [ null, %46 ], [ %6, %5 ], [ %0, %30 ], [ %0, %26 ]
+_Z32pj_projection_specific_setup_qscP8PJconsts.exit: ; preds = %30, %26, %5, %45, %48
+  %.0 = phi ptr [ %46, %48 ], [ null, %45 ], [ %6, %5 ], [ %0, %30 ], [ %0, %26 ]
   ret ptr %.0
 }
 
@@ -117,17 +116,17 @@ define hidden noundef ptr @_Z32pj_projection_specific_setup_qscP8PJconsts(ptr no
 
 4:                                                ; preds = %1
   %5 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %0, i32 noundef 4096)
-  br label %45
+  br label %44
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %2, ptr %7, align 8
+  store ptr %2, ptr %7, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @_ZL13qsc_e_inverse5PJ_XYP8PJconsts, ptr %8, align 8
+  store ptr @_ZL13qsc_e_inverse5PJ_XYP8PJconsts, ptr %8, align 8, !tbaa !36
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr @_ZL13qsc_e_forward5PJ_LPP8PJconsts, ptr %9, align 8
+  store ptr @_ZL13qsc_e_forward5PJ_LPP8PJconsts, ptr %9, align 8, !tbaa !37
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %11 = load double, ptr %10, align 8
+  %11 = load double, ptr %10, align 8, !tbaa !38
   %12 = fcmp ult double %11, 0x3FF2D97C7F3321D2
   br i1 %12, label %13, label %.sink.split
 
@@ -137,7 +136,7 @@ define hidden noundef ptr @_Z32pj_projection_specific_setup_qscP8PJconsts(ptr no
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %17 = load double, ptr %16, align 8
+  %17 = load double, ptr %16, align 8, !tbaa !39
   %18 = tail call double @llvm.fabs.f64(double %17)
   %19 = fcmp ugt double %18, 0x3FE921FB54442D18
   br i1 %19, label %20, label %25
@@ -153,38 +152,37 @@ define hidden noundef ptr @_Z32pj_projection_specific_setup_qscP8PJconsts(ptr no
 
 .sink.split:                                      ; preds = %20, %13, %6, %22
   %.sink = phi i32 [ %24, %22 ], [ 4, %6 ], [ 5, %13 ], [ 2, %20 ]
-  store i32 %.sink, ptr %2, align 8
+  store i32 %.sink, ptr %2, align 8, !tbaa !40
   br label %25
 
 25:                                               ; preds = %.sink.split, %15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %27 = load double, ptr %26, align 8
+  %27 = load double, ptr %26, align 8, !tbaa !43
   %28 = fcmp une double %27, 0.000000e+00
-  br i1 %28, label %29, label %45
+  br i1 %28, label %29, label %44
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %31 = load double, ptr %30, align 8
+  %31 = load double, ptr %30, align 8, !tbaa !44
   %32 = fmul double %31, %31
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store double %32, ptr %33, align 8
+  store double %32, ptr %33, align 8, !tbaa !45
   %34 = fsub double 1.000000e+00, %27
-  %35 = tail call double @sqrt(double noundef %34) #8
+  %35 = tail call double @sqrt(double noundef %34) #8, !tbaa !46
   %36 = fmul double %31, %35
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store double %36, ptr %37, align 8
-  %38 = load double, ptr %30, align 8
-  %39 = fsub double %38, %36
-  %40 = fdiv double %39, %38
-  %41 = fsub double 1.000000e+00, %40
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store double %41, ptr %42, align 8
-  %43 = fmul double %41, %41
-  %44 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store double %43, ptr %44, align 8
-  br label %45
+  store double %36, ptr %37, align 8, !tbaa !47
+  %38 = fsub double %31, %36
+  %39 = fdiv double %38, %31
+  %40 = fsub double 1.000000e+00, %39
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store double %40, ptr %41, align 8, !tbaa !48
+  %42 = fmul double %40, %40
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store double %42, ptr %43, align 8, !tbaa !49
+  br label %44
 
-45:                                               ; preds = %25, %29, %4
+44:                                               ; preds = %25, %29, %4
   %.0 = phi ptr [ %5, %4 ], [ %0, %29 ], [ %0, %25 ]
   ret ptr %.0
 }
@@ -199,12 +197,12 @@ declare noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef, i32 nound
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define internal { double, double } @_ZL13qsc_e_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr noundef readonly captures(none) %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = fmul double %1, %1
   %7 = tail call double @llvm.fmuladd.f64(double %0, double %0, double %6)
   %sqrt = tail call double @llvm.sqrt.f64(double %7)
-  %8 = tail call double @atan(double noundef %sqrt) #8
-  %9 = tail call double @atan2(double noundef %1, double noundef %0) #8
+  %8 = tail call double @atan(double noundef %sqrt) #8, !tbaa !46
+  %9 = tail call double @atan2(double noundef %1, double noundef %0) #8, !tbaa !46
   %10 = fcmp oge double %0, 0.000000e+00
   %11 = tail call double @llvm.fabs.f64(double %1)
   %12 = fcmp oge double %0, %11
@@ -226,8 +224,8 @@ define internal { double, double } @_ZL13qsc_e_inverse5PJ_XYP8PJconsts(double %0
   %20 = fcmp uge double %0, 0.000000e+00
   %21 = fneg double %0
   %22 = fcmp ugt double %11, %21
-  %or.cond137 = or i1 %20, %22
-  br i1 %or.cond137, label %26, label %23
+  %or.cond145 = or i1 %20, %22
+  br i1 %or.cond145, label %26, label %23
 
 23:                                               ; preds = %19
   %24 = fcmp olt double %9, 0.000000e+00
@@ -244,21 +242,21 @@ define internal { double, double } @_ZL13qsc_e_inverse5PJ_XYP8PJconsts(double %0
   %30 = phi i1 [ false, %17 ], [ true, %23 ], [ false, %26 ], [ false, %3 ]
   %31 = phi i1 [ false, %17 ], [ false, %23 ], [ true, %26 ], [ false, %3 ]
   %.0 = phi double [ %18, %17 ], [ %25, %23 ], [ %27, %26 ], [ %9, %3 ]
-  %32 = tail call double @tan(double noundef %.0) #8
+  %32 = tail call double @tan(double noundef %.0) #8, !tbaa !46
   %33 = fmul double %32, 0x3FD0C152382D7365
-  %34 = tail call double @sin(double noundef %33) #8
-  %35 = tail call double @cos(double noundef %33) #8
+  %34 = tail call double @sin(double noundef %33) #8, !tbaa !46
+  %35 = tail call double @cos(double noundef %33) #8, !tbaa !46
   %36 = fadd double %35, 0xBFE6A09E667F3BCC
   %37 = fdiv double %34, %36
-  %38 = tail call double @atan(double noundef %37) #8
-  %39 = tail call double @cos(double noundef %.0) #8
-  %40 = tail call double @tan(double noundef %8) #8
+  %38 = tail call double @atan(double noundef %37) #8, !tbaa !46
+  %39 = tail call double @cos(double noundef %.0) #8, !tbaa !46
+  %40 = tail call double @tan(double noundef %8) #8, !tbaa !46
   %41 = fmul double %39, %39
   %42 = fmul double %41, %40
-  %43 = tail call double @cos(double noundef %38) #8
+  %43 = tail call double @cos(double noundef %38) #8, !tbaa !46
   %44 = fdiv double 1.000000e+00, %43
-  %45 = tail call double @atan(double noundef %44) #8
-  %46 = tail call double @cos(double noundef %45) #8
+  %45 = tail call double @atan(double noundef %44) #8, !tbaa !46
+  %46 = tail call double @cos(double noundef %45) #8, !tbaa !46
   %47 = fsub double 1.000000e+00, %46
   %48 = fneg double %40
   %49 = fmul double %42, %48
@@ -275,14 +273,14 @@ define internal { double, double } @_ZL13qsc_e_inverse5PJ_XYP8PJconsts(double %0
 
 55:                                               ; preds = %28, %52, %54
   %.0116 = phi double [ 1.000000e+00, %54 ], [ %50, %52 ], [ -1.000000e+00, %28 ]
-  %56 = load i32, ptr %5, align 8
+  %56 = load i32, ptr %5, align 8, !tbaa !40
   switch i32 %56, label %83 [
     i32 4, label %57
     i32 5, label %69
   ]
 
 57:                                               ; preds = %55
-  %58 = tail call double @acos(double noundef %.0116) #8
+  %58 = tail call double @acos(double noundef %.0116) #8, !tbaa !46
   %59 = fsub double 0x3FF921FB54442D18, %58
   br i1 %or.cond.not, label %60, label %62
 
@@ -307,7 +305,7 @@ define internal { double, double } @_ZL13qsc_e_inverse5PJ_XYP8PJconsts(double %0
   br label %_ZL26qsc_shift_longitude_origindd.exit
 
 69:                                               ; preds = %55
-  %70 = tail call double @acos(double noundef %.0116) #8
+  %70 = tail call double @acos(double noundef %.0116) #8, !tbaa !46
   %71 = fadd double %70, 0xBFF921FB54442D18
   br i1 %or.cond.not, label %72, label %74
 
@@ -342,8 +340,8 @@ define internal { double, double } @_ZL13qsc_e_inverse5PJ_XYP8PJconsts(double %0
 
 86:                                               ; preds = %83
   %87 = fsub double 1.000000e+00, %84
-  %88 = tail call double @sqrt(double noundef %87) #8
-  %89 = tail call double @sin(double noundef %38) #8
+  %88 = tail call double @sqrt(double noundef %87) #8, !tbaa !46
+  %89 = tail call double @sin(double noundef %38) #8, !tbaa !46
   %90 = fmul double %88, %89
   br label %91
 
@@ -355,7 +353,7 @@ define internal { double, double } @_ZL13qsc_e_inverse5PJ_XYP8PJconsts(double %0
 
 94:                                               ; preds = %91
   %95 = fsub double 1.000000e+00, %92
-  %96 = tail call double @sqrt(double noundef %95) #8
+  %96 = tail call double @sqrt(double noundef %95) #8, !tbaa !46
   br label %97
 
 97:                                               ; preds = %91, %94
@@ -384,128 +382,121 @@ define internal { double, double } @_ZL13qsc_e_inverse5PJ_XYP8PJconsts(double %0
 107:                                              ; preds = %101, %105, %104, %98
   %.1113 = phi double [ %99, %98 ], [ %102, %101 ], [ %.0111, %105 ], [ %.0112, %104 ]
   %.1 = phi double [ %.0112, %98 ], [ %103, %101 ], [ %106, %105 ], [ %.0111, %104 ]
-  %108 = load i32, ptr %5, align 8
-  switch i32 %108, label %116 [
-    i32 1, label %109
-    i32 2, label %111
-    i32 3, label %114
+  switch i32 %56, label %130 [
+    i32 1, label %.thread
+    i32 2, label %.thread138
+    i32 3, label %.thread141
   ]
 
-109:                                              ; preds = %107
-  %110 = fneg double %.1113
-  br label %116
+.thread:                                          ; preds = %107
+  %108 = fneg double %.1113
+  %109 = fneg double %.1
+  %110 = tail call double @acos(double noundef %109) #8, !tbaa !46
+  %111 = fadd double %110, 0xBFF921FB54442D18
+  %112 = tail call double @atan2(double noundef %.0116, double noundef %108) #8, !tbaa !46
+  %113 = fadd double %112, 0xBFF921FB54442D18
+  %114 = fcmp olt double %113, 0xC00921FB54442D18
+  br i1 %114, label %135, label %137
 
-111:                                              ; preds = %107
-  %112 = fneg double %.0116
-  %113 = fneg double %.1113
-  br label %116
-
-114:                                              ; preds = %107
+.thread138:                                       ; preds = %107
   %115 = fneg double %.0116
-  br label %116
-
-116:                                              ; preds = %107, %111, %114, %109
-  %.0114 = phi double [ %110, %109 ], [ %112, %111 ], [ %.1113, %114 ], [ %.0116, %107 ]
-  %.2 = phi double [ %.0116, %109 ], [ %113, %111 ], [ %115, %114 ], [ %.1113, %107 ]
+  %116 = fneg double %.1113
   %117 = fneg double %.1
-  %118 = tail call double @acos(double noundef %117) #8
+  %118 = tail call double @acos(double noundef %117) #8, !tbaa !46
   %119 = fadd double %118, 0xBFF921FB54442D18
-  %120 = tail call double @atan2(double noundef %.2, double noundef %.0114) #8
-  %121 = load i32, ptr %5, align 8
-  switch i32 %121, label %_ZL26qsc_shift_longitude_origindd.exit [
-    i32 1, label %122
-    i32 2, label %131
-    i32 3, label %140
-  ]
+  %120 = tail call double @atan2(double noundef %116, double noundef %115) #8, !tbaa !46
+  %121 = fadd double %120, 0xC00921FB54442D18
+  %122 = fcmp olt double %121, 0xC00921FB54442D18
+  br i1 %122, label %141, label %143
 
-122:                                              ; preds = %116
-  %123 = fadd double %120, 0xBFF921FB54442D18
-  %124 = fcmp olt double %123, 0xC00921FB54442D18
-  br i1 %124, label %125, label %127
+.thread141:                                       ; preds = %107
+  %123 = fneg double %.0116
+  %124 = fneg double %.1
+  %125 = tail call double @acos(double noundef %124) #8, !tbaa !46
+  %126 = fadd double %125, 0xBFF921FB54442D18
+  %127 = tail call double @atan2(double noundef %123, double noundef %.1113) #8, !tbaa !46
+  %128 = fadd double %127, 0x3FF921FB54442D18
+  %129 = fcmp olt double %128, 0xC00921FB54442D18
+  br i1 %129, label %147, label %149
 
-125:                                              ; preds = %122
-  %126 = fadd double %123, 0x401921FB54442D18
+130:                                              ; preds = %107
+  %131 = fneg double %.1
+  %132 = tail call double @acos(double noundef %131) #8, !tbaa !46
+  %133 = fadd double %132, 0xBFF921FB54442D18
+  %134 = tail call double @atan2(double noundef %.1113, double noundef %.0116) #8, !tbaa !46
   br label %_ZL26qsc_shift_longitude_origindd.exit
 
-127:                                              ; preds = %122
-  %128 = fcmp ogt double %123, 0x400921FB54442D18
-  br i1 %128, label %129, label %_ZL26qsc_shift_longitude_origindd.exit
-
-129:                                              ; preds = %127
-  %130 = fadd double %123, 0xC01921FB54442D18
+135:                                              ; preds = %.thread
+  %136 = fadd double %113, 0x401921FB54442D18
   br label %_ZL26qsc_shift_longitude_origindd.exit
 
-131:                                              ; preds = %116
-  %132 = fadd double %120, 0xC00921FB54442D18
-  %133 = fcmp olt double %132, 0xC00921FB54442D18
-  br i1 %133, label %134, label %136
+137:                                              ; preds = %.thread
+  %138 = fcmp ogt double %113, 0x400921FB54442D18
+  br i1 %138, label %139, label %_ZL26qsc_shift_longitude_origindd.exit
 
-134:                                              ; preds = %131
-  %135 = fadd double %132, 0x401921FB54442D18
+139:                                              ; preds = %137
+  %140 = fadd double %113, 0xC01921FB54442D18
   br label %_ZL26qsc_shift_longitude_origindd.exit
 
-136:                                              ; preds = %131
-  %137 = fcmp ogt double %132, 0x400921FB54442D18
-  br i1 %137, label %138, label %_ZL26qsc_shift_longitude_origindd.exit
-
-138:                                              ; preds = %136
-  %139 = fadd double %132, 0xC01921FB54442D18
+141:                                              ; preds = %.thread138
+  %142 = fadd double %121, 0x401921FB54442D18
   br label %_ZL26qsc_shift_longitude_origindd.exit
 
-140:                                              ; preds = %116
-  %141 = fadd double %120, 0x3FF921FB54442D18
-  %142 = fcmp olt double %141, 0xC00921FB54442D18
-  br i1 %142, label %143, label %145
+143:                                              ; preds = %.thread138
+  %144 = fcmp ogt double %121, 0x400921FB54442D18
+  br i1 %144, label %145, label %_ZL26qsc_shift_longitude_origindd.exit
 
-143:                                              ; preds = %140
-  %144 = fadd double %141, 0x401921FB54442D18
+145:                                              ; preds = %143
+  %146 = fadd double %121, 0xC01921FB54442D18
   br label %_ZL26qsc_shift_longitude_origindd.exit
 
-145:                                              ; preds = %140
-  %146 = fcmp ogt double %141, 0x400921FB54442D18
-  br i1 %146, label %147, label %_ZL26qsc_shift_longitude_origindd.exit
-
-147:                                              ; preds = %145
-  %148 = fadd double %141, 0xC01921FB54442D18
+147:                                              ; preds = %.thread141
+  %148 = fadd double %128, 0x401921FB54442D18
   br label %_ZL26qsc_shift_longitude_origindd.exit
 
-_ZL26qsc_shift_longitude_origindd.exit:           ; preds = %147, %145, %143, %138, %136, %134, %129, %127, %125, %116, %66, %75, %80, %78, %72, %60, %67, %63
-  %.sroa.17.0 = phi double [ %59, %60 ], [ %59, %63 ], [ %59, %67 ], [ %71, %72 ], [ %71, %75 ], [ %71, %78 ], [ %71, %80 ], [ %59, %66 ], [ %119, %116 ], [ %119, %125 ], [ %119, %127 ], [ %119, %129 ], [ %119, %134 ], [ %119, %136 ], [ %119, %138 ], [ %119, %143 ], [ %119, %145 ], [ %119, %147 ]
-  %.sroa.0106.0 = phi double [ %61, %60 ], [ %65, %63 ], [ %68, %67 ], [ %73, %72 ], [ %76, %75 ], [ %79, %78 ], [ %82, %80 ], [ %38, %66 ], [ %120, %116 ], [ %126, %125 ], [ %123, %127 ], [ %130, %129 ], [ %135, %134 ], [ %132, %136 ], [ %139, %138 ], [ %144, %143 ], [ %141, %145 ], [ %148, %147 ]
-  %149 = getelementptr inbounds nuw i8, ptr %2, i64 216
-  %150 = load double, ptr %149, align 8
-  %151 = fcmp une double %150, 0.000000e+00
-  br i1 %151, label %152, label %175
+149:                                              ; preds = %.thread141
+  %150 = fcmp ogt double %128, 0x400921FB54442D18
+  br i1 %150, label %151, label %_ZL26qsc_shift_longitude_origindd.exit
 
-152:                                              ; preds = %_ZL26qsc_shift_longitude_origindd.exit
-  %153 = fcmp olt double %.sroa.17.0, 0.000000e+00
-  %154 = tail call double @tan(double noundef %.sroa.17.0) #8
-  %155 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %156 = load double, ptr %155, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %158 = load double, ptr %157, align 8
-  %159 = tail call double @llvm.fmuladd.f64(double %154, double %154, double %158)
-  %160 = tail call double @sqrt(double noundef %159) #8
-  %161 = fdiv double %156, %160
-  %162 = getelementptr inbounds nuw i8, ptr %2, i64 168
-  %163 = load double, ptr %162, align 8
-  %164 = fneg double %161
-  %165 = fmul double %161, %164
-  %166 = tail call double @llvm.fmuladd.f64(double %163, double %163, double %165)
-  %167 = tail call double @sqrt(double noundef %166) #8
-  %168 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %169 = load double, ptr %168, align 8
-  %170 = fmul double %161, %169
-  %171 = fdiv double %167, %170
-  %172 = tail call double @atan(double noundef %171) #8
-  br i1 %153, label %173, label %175
+151:                                              ; preds = %149
+  %152 = fadd double %128, 0xC01921FB54442D18
+  br label %_ZL26qsc_shift_longitude_origindd.exit
 
-173:                                              ; preds = %152
-  %174 = fneg double %172
-  br label %175
+_ZL26qsc_shift_longitude_origindd.exit:           ; preds = %130, %151, %149, %147, %145, %143, %141, %139, %137, %135, %66, %75, %80, %78, %72, %60, %67, %63
+  %.sroa.17.0 = phi double [ %59, %60 ], [ %59, %63 ], [ %59, %67 ], [ %71, %72 ], [ %71, %75 ], [ %71, %78 ], [ %71, %80 ], [ %59, %66 ], [ %133, %130 ], [ %111, %135 ], [ %111, %137 ], [ %111, %139 ], [ %119, %141 ], [ %119, %143 ], [ %119, %145 ], [ %126, %147 ], [ %126, %149 ], [ %126, %151 ]
+  %.sroa.0106.0 = phi double [ %61, %60 ], [ %65, %63 ], [ %68, %67 ], [ %73, %72 ], [ %76, %75 ], [ %79, %78 ], [ %82, %80 ], [ %38, %66 ], [ %134, %130 ], [ %136, %135 ], [ %113, %137 ], [ %140, %139 ], [ %142, %141 ], [ %121, %143 ], [ %146, %145 ], [ %148, %147 ], [ %128, %149 ], [ %152, %151 ]
+  %153 = getelementptr inbounds nuw i8, ptr %2, i64 216
+  %154 = load double, ptr %153, align 8, !tbaa !43
+  %155 = fcmp une double %154, 0.000000e+00
+  br i1 %155, label %156, label %178
 
-175:                                              ; preds = %152, %173, %_ZL26qsc_shift_longitude_origindd.exit
-  %.sroa.17.1 = phi double [ %174, %173 ], [ %172, %152 ], [ %.sroa.17.0, %_ZL26qsc_shift_longitude_origindd.exit ]
+156:                                              ; preds = %_ZL26qsc_shift_longitude_origindd.exit
+  %157 = fcmp olt double %.sroa.17.0, 0.000000e+00
+  %158 = tail call double @tan(double noundef %.sroa.17.0) #8, !tbaa !46
+  %159 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %160 = load double, ptr %159, align 8, !tbaa !47
+  %161 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %162 = load double, ptr %161, align 8, !tbaa !49
+  %163 = tail call double @llvm.fmuladd.f64(double %158, double %158, double %162)
+  %164 = tail call double @sqrt(double noundef %163) #8, !tbaa !46
+  %165 = fdiv double %160, %164
+  %166 = getelementptr inbounds nuw i8, ptr %2, i64 168
+  %167 = load double, ptr %166, align 8, !tbaa !44
+  %168 = fneg double %165
+  %169 = fmul double %165, %168
+  %170 = tail call double @llvm.fmuladd.f64(double %167, double %167, double %169)
+  %171 = tail call double @sqrt(double noundef %170) #8, !tbaa !46
+  %172 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %173 = load double, ptr %172, align 8, !tbaa !48
+  %174 = fmul double %165, %173
+  %175 = fdiv double %171, %174
+  %176 = tail call double @atan(double noundef %175) #8, !tbaa !46
+  %177 = fneg double %176
+  %.sroa.17.2 = select i1 %157, double %177, double %176
+  br label %178
+
+178:                                              ; preds = %156, %_ZL26qsc_shift_longitude_origindd.exit
+  %.sroa.17.1 = phi double [ %.sroa.17.2, %156 ], [ %.sroa.17.0, %_ZL26qsc_shift_longitude_origindd.exit ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0106.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.17.1, 1
   ret { double, double } %.fca.1.insert
@@ -514,23 +505,23 @@ _ZL26qsc_shift_longitude_origindd.exit:           ; preds = %147, %145, %143, %1
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define internal { double, double } @_ZL13qsc_e_forward5PJ_LPP8PJconsts(double %0, double %1, ptr noundef readonly captures(none) %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 216
-  %7 = load double, ptr %6, align 8
+  %7 = load double, ptr %6, align 8, !tbaa !43
   %8 = fcmp une double %7, 0.000000e+00
   br i1 %8, label %9, label %15
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %11 = load double, ptr %10, align 8
-  %12 = tail call double @tan(double noundef %1) #8
+  %11 = load double, ptr %10, align 8, !tbaa !49
+  %12 = tail call double @tan(double noundef %1) #8, !tbaa !46
   %13 = fmul double %11, %12
-  %14 = tail call double @atan(double noundef %13) #8
+  %14 = tail call double @atan(double noundef %13) #8, !tbaa !46
   br label %15
 
 15:                                               ; preds = %3, %9
   %.0 = phi double [ %14, %9 ], [ %1, %3 ]
-  %16 = load i32, ptr %5, align 8
+  %16 = load i32, ptr %5, align 8, !tbaa !40
   switch i32 %16, label %_ZL26qsc_shift_longitude_origindd.exit [
     i32 4, label %17
     i32 5, label %34
@@ -662,226 +653,225 @@ define internal { double, double } @_ZL13qsc_e_forward5PJ_LPP8PJconsts(double %0
 
 _ZL26qsc_shift_longitude_origindd.exit:           ; preds = %78, %76, %74, %69, %67, %65, %60, %58, %56, %15
   %.092 = phi double [ %0, %15 ], [ %57, %56 ], [ %61, %60 ], [ %54, %58 ], [ %66, %65 ], [ %70, %69 ], [ %63, %67 ], [ %75, %74 ], [ %79, %78 ], [ %72, %76 ]
-  %80 = tail call double @sin(double noundef %.0) #8
-  %81 = tail call double @cos(double noundef %.0) #8
-  %82 = tail call double @sin(double noundef %.092) #8
-  %83 = tail call double @cos(double noundef %.092) #8
+  %80 = tail call double @sin(double noundef %.0) #8, !tbaa !46
+  %81 = tail call double @cos(double noundef %.0) #8, !tbaa !46
+  %82 = tail call double @sin(double noundef %.092) #8, !tbaa !46
+  %83 = tail call double @cos(double noundef %.092) #8, !tbaa !46
   %84 = fmul double %81, %83
   %85 = fmul double %81, %82
-  %86 = load i32, ptr %5, align 8
-  switch i32 %86, label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit [
-    i32 0, label %87
-    i32 1, label %107
-    i32 2, label %128
-    i32 3, label %150
+  switch i32 %16, label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit [
+    i32 0, label %86
+    i32 1, label %106
+    i32 2, label %127
+    i32 3, label %149
   ]
 
-87:                                               ; preds = %_ZL26qsc_shift_longitude_origindd.exit
-  %88 = tail call double @acos(double noundef %84) #8
-  %89 = fcmp olt double %88, 1.000000e-10
-  br i1 %89, label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit, label %90
+86:                                               ; preds = %_ZL26qsc_shift_longitude_origindd.exit
+  %87 = tail call double @acos(double noundef %84) #8, !tbaa !46
+  %88 = fcmp olt double %87, 1.000000e-10
+  br i1 %88, label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit, label %89
 
-90:                                               ; preds = %87
-  %91 = tail call double @atan2(double noundef %80, double noundef %85) #8
-  %92 = tail call double @llvm.fabs.f64(double %91)
-  %93 = fcmp ugt double %92, 0x3FE921FB54442D18
-  br i1 %93, label %94, label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
+89:                                               ; preds = %86
+  %90 = tail call double @atan2(double noundef %80, double noundef %85) #8, !tbaa !46
+  %91 = tail call double @llvm.fabs.f64(double %90)
+  %92 = fcmp ugt double %91, 0x3FE921FB54442D18
+  br i1 %92, label %93, label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
 
-94:                                               ; preds = %90
-  %95 = fcmp ogt double %91, 0x3FE921FB54442D18
-  %96 = fcmp ole double %91, 0x4002D97C7F3321D2
-  %or.cond.i = and i1 %95, %96
-  br i1 %or.cond.i, label %97, label %99
+93:                                               ; preds = %89
+  %94 = fcmp ogt double %90, 0x3FE921FB54442D18
+  %95 = fcmp ole double %90, 0x4002D97C7F3321D2
+  %or.cond.i = and i1 %94, %95
+  br i1 %or.cond.i, label %96, label %98
 
-97:                                               ; preds = %94
-  %98 = fadd double %91, 0xBFF921FB54442D18
+96:                                               ; preds = %93
+  %97 = fadd double %90, 0xBFF921FB54442D18
   br label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
 
-99:                                               ; preds = %94
-  %100 = fcmp ogt double %91, 0x4002D97C7F3321D2
-  %101 = fcmp ole double %91, 0xC002D97C7F3321D2
-  %or.cond3.i = or i1 %100, %101
-  br i1 %or.cond3.i, label %102, label %105
+98:                                               ; preds = %93
+  %99 = fcmp ogt double %90, 0x4002D97C7F3321D2
+  %100 = fcmp ole double %90, 0xC002D97C7F3321D2
+  %or.cond3.i = or i1 %99, %100
+  br i1 %or.cond3.i, label %101, label %104
 
-102:                                              ; preds = %99
-  %103 = fcmp oge double %91, 0.000000e+00
-  %.v.i = select i1 %103, double 0xC00921FB54442D18, double 0x400921FB54442D18
-  %104 = fadd double %91, %.v.i
+101:                                              ; preds = %98
+  %102 = fcmp oge double %90, 0.000000e+00
+  %.v.i = select i1 %102, double 0xC00921FB54442D18, double 0x400921FB54442D18
+  %103 = fadd double %90, %.v.i
   br label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
 
-105:                                              ; preds = %99
-  %106 = fadd double %91, 0x3FF921FB54442D18
+104:                                              ; preds = %98
+  %105 = fadd double %90, 0x3FF921FB54442D18
   br label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
 
-107:                                              ; preds = %_ZL26qsc_shift_longitude_origindd.exit
-  %108 = tail call double @acos(double noundef %85) #8
-  %109 = fcmp olt double %108, 1.000000e-10
-  br i1 %109, label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit, label %110
+106:                                              ; preds = %_ZL26qsc_shift_longitude_origindd.exit
+  %107 = tail call double @acos(double noundef %85) #8, !tbaa !46
+  %108 = fcmp olt double %107, 1.000000e-10
+  br i1 %108, label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit, label %109
 
-110:                                              ; preds = %107
-  %111 = fneg double %84
-  %112 = tail call double @atan2(double noundef %80, double noundef %111) #8
-  %113 = tail call double @llvm.fabs.f64(double %112)
-  %114 = fcmp ugt double %113, 0x3FE921FB54442D18
-  br i1 %114, label %115, label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
+109:                                              ; preds = %106
+  %110 = fneg double %84
+  %111 = tail call double @atan2(double noundef %80, double noundef %110) #8, !tbaa !46
+  %112 = tail call double @llvm.fabs.f64(double %111)
+  %113 = fcmp ugt double %112, 0x3FE921FB54442D18
+  br i1 %113, label %114, label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
 
-115:                                              ; preds = %110
-  %116 = fcmp ogt double %112, 0x3FE921FB54442D18
-  %117 = fcmp ole double %112, 0x4002D97C7F3321D2
-  %or.cond.i106 = and i1 %116, %117
-  br i1 %or.cond.i106, label %118, label %120
+114:                                              ; preds = %109
+  %115 = fcmp ogt double %111, 0x3FE921FB54442D18
+  %116 = fcmp ole double %111, 0x4002D97C7F3321D2
+  %or.cond.i107 = and i1 %115, %116
+  br i1 %or.cond.i107, label %117, label %119
 
-118:                                              ; preds = %115
-  %119 = fadd double %112, 0xBFF921FB54442D18
+117:                                              ; preds = %114
+  %118 = fadd double %111, 0xBFF921FB54442D18
   br label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
 
-120:                                              ; preds = %115
-  %121 = fcmp ogt double %112, 0x4002D97C7F3321D2
-  %122 = fcmp ole double %112, 0xC002D97C7F3321D2
-  %or.cond3.i107 = or i1 %121, %122
-  br i1 %or.cond3.i107, label %123, label %126
+119:                                              ; preds = %114
+  %120 = fcmp ogt double %111, 0x4002D97C7F3321D2
+  %121 = fcmp ole double %111, 0xC002D97C7F3321D2
+  %or.cond3.i108 = or i1 %120, %121
+  br i1 %or.cond3.i108, label %122, label %125
 
-123:                                              ; preds = %120
-  %124 = fcmp oge double %112, 0.000000e+00
-  %.v.i108 = select i1 %124, double 0xC00921FB54442D18, double 0x400921FB54442D18
-  %125 = fadd double %112, %.v.i108
+122:                                              ; preds = %119
+  %123 = fcmp oge double %111, 0.000000e+00
+  %.v.i109 = select i1 %123, double 0xC00921FB54442D18, double 0x400921FB54442D18
+  %124 = fadd double %111, %.v.i109
   br label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
 
-126:                                              ; preds = %120
-  %127 = fadd double %112, 0x3FF921FB54442D18
+125:                                              ; preds = %119
+  %126 = fadd double %111, 0x3FF921FB54442D18
   br label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
 
-128:                                              ; preds = %_ZL26qsc_shift_longitude_origindd.exit
-  %129 = fneg double %84
-  %130 = tail call double @acos(double noundef %129) #8
-  %131 = fcmp olt double %130, 1.000000e-10
-  br i1 %131, label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit, label %132
+127:                                              ; preds = %_ZL26qsc_shift_longitude_origindd.exit
+  %128 = fneg double %84
+  %129 = tail call double @acos(double noundef %128) #8, !tbaa !46
+  %130 = fcmp olt double %129, 1.000000e-10
+  br i1 %130, label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit, label %131
 
-132:                                              ; preds = %128
-  %133 = fneg double %85
-  %134 = tail call double @atan2(double noundef %80, double noundef %133) #8
-  %135 = tail call double @llvm.fabs.f64(double %134)
-  %136 = fcmp ugt double %135, 0x3FE921FB54442D18
-  br i1 %136, label %137, label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
+131:                                              ; preds = %127
+  %132 = fneg double %85
+  %133 = tail call double @atan2(double noundef %80, double noundef %132) #8, !tbaa !46
+  %134 = tail call double @llvm.fabs.f64(double %133)
+  %135 = fcmp ugt double %134, 0x3FE921FB54442D18
+  br i1 %135, label %136, label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
 
-137:                                              ; preds = %132
-  %138 = fcmp ogt double %134, 0x3FE921FB54442D18
-  %139 = fcmp ole double %134, 0x4002D97C7F3321D2
-  %or.cond.i111 = and i1 %138, %139
-  br i1 %or.cond.i111, label %140, label %142
+136:                                              ; preds = %131
+  %137 = fcmp ogt double %133, 0x3FE921FB54442D18
+  %138 = fcmp ole double %133, 0x4002D97C7F3321D2
+  %or.cond.i112 = and i1 %137, %138
+  br i1 %or.cond.i112, label %139, label %141
 
-140:                                              ; preds = %137
-  %141 = fadd double %134, 0xBFF921FB54442D18
+139:                                              ; preds = %136
+  %140 = fadd double %133, 0xBFF921FB54442D18
   br label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
 
-142:                                              ; preds = %137
-  %143 = fcmp ogt double %134, 0x4002D97C7F3321D2
-  %144 = fcmp ole double %134, 0xC002D97C7F3321D2
-  %or.cond3.i112 = or i1 %143, %144
-  br i1 %or.cond3.i112, label %145, label %148
+141:                                              ; preds = %136
+  %142 = fcmp ogt double %133, 0x4002D97C7F3321D2
+  %143 = fcmp ole double %133, 0xC002D97C7F3321D2
+  %or.cond3.i113 = or i1 %142, %143
+  br i1 %or.cond3.i113, label %144, label %147
 
-145:                                              ; preds = %142
-  %146 = fcmp oge double %134, 0.000000e+00
-  %.v.i113 = select i1 %146, double 0xC00921FB54442D18, double 0x400921FB54442D18
-  %147 = fadd double %134, %.v.i113
+144:                                              ; preds = %141
+  %145 = fcmp oge double %133, 0.000000e+00
+  %.v.i114 = select i1 %145, double 0xC00921FB54442D18, double 0x400921FB54442D18
+  %146 = fadd double %133, %.v.i114
   br label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
 
-148:                                              ; preds = %142
-  %149 = fadd double %134, 0x3FF921FB54442D18
+147:                                              ; preds = %141
+  %148 = fadd double %133, 0x3FF921FB54442D18
   br label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
 
-150:                                              ; preds = %_ZL26qsc_shift_longitude_origindd.exit
-  %151 = fneg double %85
-  %152 = tail call double @acos(double noundef %151) #8
-  %153 = fcmp olt double %152, 1.000000e-10
-  br i1 %153, label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit, label %154
+149:                                              ; preds = %_ZL26qsc_shift_longitude_origindd.exit
+  %150 = fneg double %85
+  %151 = tail call double @acos(double noundef %150) #8, !tbaa !46
+  %152 = fcmp olt double %151, 1.000000e-10
+  br i1 %152, label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit, label %153
 
-154:                                              ; preds = %150
-  %155 = tail call double @atan2(double noundef %80, double noundef %84) #8
-  %156 = tail call double @llvm.fabs.f64(double %155)
-  %157 = fcmp ugt double %156, 0x3FE921FB54442D18
-  br i1 %157, label %158, label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
+153:                                              ; preds = %149
+  %154 = tail call double @atan2(double noundef %80, double noundef %84) #8, !tbaa !46
+  %155 = tail call double @llvm.fabs.f64(double %154)
+  %156 = fcmp ugt double %155, 0x3FE921FB54442D18
+  br i1 %156, label %157, label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
 
-158:                                              ; preds = %154
-  %159 = fcmp ogt double %155, 0x3FE921FB54442D18
-  %160 = fcmp ole double %155, 0x4002D97C7F3321D2
-  %or.cond.i116 = and i1 %159, %160
-  br i1 %or.cond.i116, label %161, label %163
+157:                                              ; preds = %153
+  %158 = fcmp ogt double %154, 0x3FE921FB54442D18
+  %159 = fcmp ole double %154, 0x4002D97C7F3321D2
+  %or.cond.i117 = and i1 %158, %159
+  br i1 %or.cond.i117, label %160, label %162
 
-161:                                              ; preds = %158
-  %162 = fadd double %155, 0xBFF921FB54442D18
+160:                                              ; preds = %157
+  %161 = fadd double %154, 0xBFF921FB54442D18
   br label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
 
-163:                                              ; preds = %158
-  %164 = fcmp ogt double %155, 0x4002D97C7F3321D2
-  %165 = fcmp ole double %155, 0xC002D97C7F3321D2
-  %or.cond3.i117 = or i1 %164, %165
-  br i1 %or.cond3.i117, label %166, label %169
+162:                                              ; preds = %157
+  %163 = fcmp ogt double %154, 0x4002D97C7F3321D2
+  %164 = fcmp ole double %154, 0xC002D97C7F3321D2
+  %or.cond3.i118 = or i1 %163, %164
+  br i1 %or.cond3.i118, label %165, label %168
 
-166:                                              ; preds = %163
-  %167 = fcmp oge double %155, 0.000000e+00
-  %.v.i118 = select i1 %167, double 0xC00921FB54442D18, double 0x400921FB54442D18
-  %168 = fadd double %155, %.v.i118
+165:                                              ; preds = %162
+  %166 = fcmp oge double %154, 0.000000e+00
+  %.v.i119 = select i1 %166, double 0xC00921FB54442D18, double 0x400921FB54442D18
+  %167 = fadd double %154, %.v.i119
   br label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
 
-169:                                              ; preds = %163
-  %170 = fadd double %155, 0x3FF921FB54442D18
+168:                                              ; preds = %162
+  %169 = fadd double %154, 0x3FF921FB54442D18
   br label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
 
-_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit: ; preds = %_ZL26qsc_shift_longitude_origindd.exit, %169, %166, %161, %150, %154, %148, %145, %140, %128, %132, %126, %123, %118, %107, %110, %105, %102, %97, %87, %90, %29, %43, %50, %48, %38, %21, %32, %26
-  %.0120 = phi i32 [ 0, %38 ], [ 1, %43 ], [ 2, %48 ], [ 3, %50 ], [ 0, %21 ], [ 1, %26 ], [ 2, %32 ], [ 3, %29 ], [ 1, %97 ], [ 2, %102 ], [ 3, %105 ], [ 0, %87 ], [ 0, %90 ], [ 1, %118 ], [ 2, %123 ], [ 3, %126 ], [ 0, %107 ], [ 0, %110 ], [ 1, %140 ], [ 2, %145 ], [ 3, %148 ], [ 0, %128 ], [ 0, %132 ], [ 1, %161 ], [ 2, %166 ], [ 3, %169 ], [ 0, %150 ], [ 0, %154 ], [ 0, %_ZL26qsc_shift_longitude_origindd.exit ]
-  %.094 = phi double [ %35, %38 ], [ %35, %43 ], [ %35, %48 ], [ %35, %50 ], [ %18, %21 ], [ %18, %26 ], [ %18, %32 ], [ %18, %29 ], [ %88, %97 ], [ %88, %102 ], [ %88, %105 ], [ %88, %87 ], [ %88, %90 ], [ %108, %118 ], [ %108, %123 ], [ %108, %126 ], [ %108, %107 ], [ %108, %110 ], [ %130, %140 ], [ %130, %145 ], [ %130, %148 ], [ %130, %128 ], [ %130, %132 ], [ %152, %161 ], [ %152, %166 ], [ %152, %169 ], [ %152, %150 ], [ %152, %154 ], [ 0.000000e+00, %_ZL26qsc_shift_longitude_origindd.exit ]
-  %.093 = phi double [ %39, %38 ], [ %44, %43 ], [ %49, %48 ], [ %52, %50 ], [ %22, %21 ], [ %28, %26 ], [ %33, %32 ], [ %0, %29 ], [ %98, %97 ], [ %104, %102 ], [ %106, %105 ], [ 0.000000e+00, %87 ], [ %91, %90 ], [ %119, %118 ], [ %125, %123 ], [ %127, %126 ], [ 0.000000e+00, %107 ], [ %112, %110 ], [ %141, %140 ], [ %147, %145 ], [ %149, %148 ], [ 0.000000e+00, %128 ], [ %134, %132 ], [ %162, %161 ], [ %168, %166 ], [ %170, %169 ], [ 0.000000e+00, %150 ], [ %155, %154 ], [ 0.000000e+00, %_ZL26qsc_shift_longitude_origindd.exit ]
-  %171 = tail call double @sin(double noundef %.093) #8
-  %172 = fmul double %171, 0x3FE6A09E667F3BCD
-  %173 = tail call double @acos(double noundef %172) #8
-  %174 = fadd double %.093, %173
-  %175 = fadd double %174, 0xBFF921FB54442D18
-  %176 = fmul double %175, 0x400E8EC8A4AEACC4
-  %177 = tail call double @atan(double noundef %176) #8
-  %178 = tail call double @cos(double noundef %.094) #8
-  %179 = fsub double 1.000000e+00, %178
-  %180 = tail call double @cos(double noundef %177) #8
-  %181 = tail call double @cos(double noundef %177) #8
-  %182 = fmul double %180, %181
-  %183 = fdiv double %179, %182
-  %184 = tail call double @cos(double noundef %.093) #8
-  %185 = fdiv double 1.000000e+00, %184
-  %186 = tail call double @atan(double noundef %185) #8
-  %187 = tail call double @cos(double noundef %186) #8
-  %188 = fsub double 1.000000e+00, %187
-  %189 = fdiv double %183, %188
-  %190 = tail call double @sqrt(double noundef %189) #8
-  switch i32 %.0120, label %default.unreachable [
-    i32 1, label %191
-    i32 2, label %193
-    i32 3, label %195
-    i32 0, label %197
+_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit: ; preds = %_ZL26qsc_shift_longitude_origindd.exit, %168, %165, %160, %149, %153, %147, %144, %139, %127, %131, %125, %122, %117, %106, %109, %104, %101, %96, %86, %89, %29, %43, %50, %48, %38, %21, %32, %26
+  %.0121 = phi i32 [ 0, %38 ], [ 1, %43 ], [ 2, %48 ], [ 3, %50 ], [ 0, %21 ], [ 1, %26 ], [ 2, %32 ], [ 3, %29 ], [ 1, %96 ], [ 2, %101 ], [ 3, %104 ], [ 0, %86 ], [ 0, %89 ], [ 1, %117 ], [ 2, %122 ], [ 3, %125 ], [ 0, %106 ], [ 0, %109 ], [ 1, %139 ], [ 2, %144 ], [ 3, %147 ], [ 0, %127 ], [ 0, %131 ], [ 1, %160 ], [ 2, %165 ], [ 3, %168 ], [ 0, %149 ], [ 0, %153 ], [ 0, %_ZL26qsc_shift_longitude_origindd.exit ]
+  %.094 = phi double [ %35, %38 ], [ %35, %43 ], [ %35, %48 ], [ %35, %50 ], [ %18, %21 ], [ %18, %26 ], [ %18, %32 ], [ %18, %29 ], [ %87, %96 ], [ %87, %101 ], [ %87, %104 ], [ %87, %86 ], [ %87, %89 ], [ %107, %117 ], [ %107, %122 ], [ %107, %125 ], [ %107, %106 ], [ %107, %109 ], [ %129, %139 ], [ %129, %144 ], [ %129, %147 ], [ %129, %127 ], [ %129, %131 ], [ %151, %160 ], [ %151, %165 ], [ %151, %168 ], [ %151, %149 ], [ %151, %153 ], [ 0.000000e+00, %_ZL26qsc_shift_longitude_origindd.exit ]
+  %.093 = phi double [ %39, %38 ], [ %44, %43 ], [ %49, %48 ], [ %52, %50 ], [ %22, %21 ], [ %28, %26 ], [ %33, %32 ], [ %0, %29 ], [ %97, %96 ], [ %103, %101 ], [ %105, %104 ], [ 0.000000e+00, %86 ], [ %90, %89 ], [ %118, %117 ], [ %124, %122 ], [ %126, %125 ], [ 0.000000e+00, %106 ], [ %111, %109 ], [ %140, %139 ], [ %146, %144 ], [ %148, %147 ], [ 0.000000e+00, %127 ], [ %133, %131 ], [ %161, %160 ], [ %167, %165 ], [ %169, %168 ], [ 0.000000e+00, %149 ], [ %154, %153 ], [ 0.000000e+00, %_ZL26qsc_shift_longitude_origindd.exit ]
+  %170 = tail call double @sin(double noundef %.093) #8, !tbaa !46
+  %171 = fmul double %170, 0x3FE6A09E667F3BCD
+  %172 = tail call double @acos(double noundef %171) #8, !tbaa !46
+  %173 = fadd double %.093, %172
+  %174 = fadd double %173, 0xBFF921FB54442D18
+  %175 = fmul double %174, 0x400E8EC8A4AEACC4
+  %176 = tail call double @atan(double noundef %175) #8, !tbaa !46
+  %177 = tail call double @cos(double noundef %.094) #8, !tbaa !46
+  %178 = fsub double 1.000000e+00, %177
+  %179 = tail call double @cos(double noundef %176) #8, !tbaa !46
+  %180 = tail call double @cos(double noundef %176) #8, !tbaa !46
+  %181 = fmul double %179, %180
+  %182 = fdiv double %178, %181
+  %183 = tail call double @cos(double noundef %.093) #8, !tbaa !46
+  %184 = fdiv double 1.000000e+00, %183
+  %185 = tail call double @atan(double noundef %184) #8, !tbaa !46
+  %186 = tail call double @cos(double noundef %185) #8, !tbaa !46
+  %187 = fsub double 1.000000e+00, %186
+  %188 = fdiv double %182, %187
+  %189 = tail call double @sqrt(double noundef %188) #8, !tbaa !46
+  switch i32 %.0121, label %default.unreachable [
+    i32 1, label %190
+    i32 2, label %192
+    i32 3, label %194
+    i32 0, label %196
   ]
 
-191:                                              ; preds = %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
-  %192 = fadd double %177, 0x3FF921FB54442D18
-  br label %197
+190:                                              ; preds = %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
+  %191 = fadd double %176, 0x3FF921FB54442D18
+  br label %196
 
-193:                                              ; preds = %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
-  %194 = fadd double %177, 0x400921FB54442D18
-  br label %197
+192:                                              ; preds = %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
+  %193 = fadd double %176, 0x400921FB54442D18
+  br label %196
 
-195:                                              ; preds = %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
-  %196 = fadd double %177, 0x4012D97C7F3321D2
-  br label %197
+194:                                              ; preds = %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
+  %195 = fadd double %176, 0x4012D97C7F3321D2
+  br label %196
 
 default.unreachable:                              ; preds = %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
   unreachable
 
-197:                                              ; preds = %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit, %193, %195, %191
-  %.095 = phi double [ %192, %191 ], [ %194, %193 ], [ %196, %195 ], [ %177, %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit ]
-  %198 = tail call double @cos(double noundef %.095) #8
-  %199 = fmul double %190, %198
-  %200 = tail call double @sin(double noundef %.095) #8
-  %201 = fmul double %190, %200
-  %.fca.0.insert = insertvalue { double, double } poison, double %199, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %201, 1
+196:                                              ; preds = %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit, %192, %194, %190
+  %.096 = phi double [ %191, %190 ], [ %193, %192 ], [ %195, %194 ], [ %176, %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit ]
+  %197 = tail call double @cos(double noundef %.096) #8, !tbaa !46
+  %198 = fmul double %189, %197
+  %199 = tail call double @sin(double noundef %.096) #8, !tbaa !46
+  %200 = fmul double %189, %199
+  %.fca.0.insert = insertvalue { double, double } poison, double %198, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %200, 1
   ret { double, double } %.fca.1.insert
 }
 
@@ -915,19 +905,70 @@ declare double @acos(double noundef) local_unnamed_addr #5
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #6
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind allocsize(0,1) }
 attributes #8 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !6, i64 88}
+!4 = !{!"_ZTS8PJconsts", !5, i64 0, !9, i64 8, !9, i64 16, !10, i64 24, !9, i64 32, !11, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !12, i64 80, !6, i64 88, !13, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !14, i64 168, !14, i64 176, !14, i64 184, !14, i64 192, !14, i64 200, !14, i64 208, !14, i64 216, !14, i64 224, !14, i64 232, !14, i64 240, !14, i64 248, !14, i64 256, !14, i64 264, !14, i64 272, !14, i64 280, !14, i64 288, !14, i64 296, !14, i64 304, !14, i64 312, !14, i64 320, !14, i64 328, !14, i64 336, !13, i64 344, !13, i64 348, !13, i64 352, !13, i64 356, !13, i64 360, !13, i64 364, !13, i64 368, !13, i64 372, !13, i64 376, !15, i64 380, !15, i64 384, !11, i64 392, !11, i64 400, !11, i64 408, !11, i64 416, !11, i64 424, !11, i64 432, !14, i64 440, !14, i64 448, !14, i64 456, !14, i64 464, !14, i64 472, !14, i64 480, !14, i64 488, !14, i64 496, !14, i64 504, !14, i64 512, !14, i64 520, !13, i64 528, !7, i64 536, !13, i64 592, !6, i64 600, !6, i64 608, !14, i64 616, !14, i64 624, !13, i64 632, !7, i64 636, !16, i64 640, !21, i64 656, !14, i64 664, !21, i64 672, !22, i64 680, !22, i64 712, !22, i64 744, !21, i64 776, !25, i64 784, !30, i64 808, !31, i64 816, !13, i64 840, !21, i64 844, !21, i64 845, !21, i64 846, !11, i64 848}
+!5 = !{!"p1 _ZTS6pj_ctx", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!"p1 omnipotent char", !6, i64 0}
+!10 = !{!"p1 _ZTS8ARG_list", !6, i64 0}
+!11 = !{!"p1 _ZTS8PJconsts", !6, i64 0}
+!12 = !{!"p1 _ZTS13geod_geodesic", !6, i64 0}
+!13 = !{!"int", !7, i64 0}
+!14 = !{!"double", !7, i64 0}
+!15 = !{!"_ZTS11pj_io_units", !7, i64 0}
+!16 = !{!"_ZTSSt10shared_ptrIN5osgeo4proj4util10BaseObjectEE", !17, i64 0}
+!17 = !{!"_ZTSSt12__shared_ptrIN5osgeo4proj4util10BaseObjectELN9__gnu_cxx12_Lock_policyE2EE", !18, i64 0, !19, i64 8}
+!18 = !{!"p1 _ZTSN5osgeo4proj4util10BaseObjectE", !6, i64 0}
+!19 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !20, i64 0}
+!20 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !6, i64 0}
+!21 = !{!"bool", !7, i64 0}
+!22 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !23, i64 0, !24, i64 8, !7, i64 16}
+!23 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !9, i64 0}
+!24 = !{!"long", !7, i64 0}
+!25 = !{!"_ZTSSt6vectorIN5osgeo4proj9operation15GridDescriptionESaIS3_EE", !26, i64 0}
+!26 = !{!"_ZTSSt12_Vector_baseIN5osgeo4proj9operation15GridDescriptionESaIS3_EE", !27, i64 0}
+!27 = !{!"_ZTSNSt12_Vector_baseIN5osgeo4proj9operation15GridDescriptionESaIS3_EE12_Vector_implE", !28, i64 0}
+!28 = !{!"_ZTSNSt12_Vector_baseIN5osgeo4proj9operation15GridDescriptionESaIS3_EE17_Vector_impl_dataE", !29, i64 0, !29, i64 8, !29, i64 16}
+!29 = !{!"p1 _ZTSN5osgeo4proj9operation15GridDescriptionE", !6, i64 0}
+!30 = !{!"_ZTS7PJ_TYPE", !7, i64 0}
+!31 = !{!"_ZTSSt6vectorI16PJCoordOperationSaIS0_EE", !32, i64 0}
+!32 = !{!"_ZTSSt12_Vector_baseI16PJCoordOperationSaIS0_EE", !33, i64 0}
+!33 = !{!"_ZTSNSt12_Vector_baseI16PJCoordOperationSaIS0_EE12_Vector_implE", !34, i64 0}
+!34 = !{!"_ZTSNSt12_Vector_baseI16PJCoordOperationSaIS0_EE17_Vector_impl_dataE", !35, i64 0, !35, i64 8, !35, i64 16}
+!35 = !{!"p1 _ZTS16PJCoordOperation", !6, i64 0}
+!36 = !{!4, !6, i64 112}
+!37 = !{!4, !6, i64 104}
+!38 = !{!4, !14, i64 448}
+!39 = !{!4, !14, i64 440}
+!40 = !{!41, !42, i64 0}
+!41 = !{!"_ZTSN12_GLOBAL__N_111pj_qsc_dataE", !42, i64 0, !14, i64 8, !14, i64 16, !14, i64 24, !14, i64 32}
+!42 = !{!"_ZTSN9pj_qsc_ns4FaceE", !7, i64 0}
+!43 = !{!4, !14, i64 216}
+!44 = !{!4, !14, i64 168}
+!45 = !{!41, !14, i64 8}
+!46 = !{!13, !13, i64 0}
+!47 = !{!41, !14, i64 16}
+!48 = !{!41, !14, i64 24}
+!49 = !{!41, !14, i64 32}
+!50 = !{!4, !9, i64 8}
+!51 = !{!4, !9, i64 16}
+!52 = !{!4, !13, i64 360}
+!53 = !{!4, !15, i64 380}
+!54 = !{!4, !15, i64 384}

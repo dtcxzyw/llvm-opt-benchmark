@@ -9,9 +9,9 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden { double, double } @_Z9pj_zpoly17COMPLEXPKS_i(double %0, double %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = sext i32 %3 to i64
   %6 = getelementptr inbounds %struct.COMPLEX, ptr %2, i64 %5
-  %.sroa.012.0.copyload = load double, ptr %6, align 8
+  %.sroa.012.0.copyload = load double, ptr %6, align 8, !tbaa !3
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 8
+  %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !3
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -26,15 +26,15 @@ define hidden { double, double } @_Z9pj_zpoly17COMPLEXPKS_i(double %0, double %1
   %.sroa.012.018 = phi double [ %.sroa.012.0.copyload, %.lr.ph ], [ %14, %9 ]
   %10 = add nsw i32 %.021, -1
   %11 = getelementptr inbounds i8, ptr %.01720, i64 -16
-  %12 = load double, ptr %11, align 8
+  %12 = load double, ptr %11, align 8, !tbaa !7
   %13 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.012.018, double %12)
   %14 = tail call double @llvm.fmuladd.f64(double %8, double %.sroa.6.019, double %13)
   %15 = getelementptr inbounds i8, ptr %.01720, i64 -8
-  %16 = load double, ptr %15, align 8
+  %16 = load double, ptr %15, align 8, !tbaa !9
   %17 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.6.019, double %16)
   %18 = tail call double @llvm.fmuladd.f64(double %1, double %.sroa.012.018, double %17)
   %19 = icmp samesign ugt i32 %.021, 1
-  br i1 %19, label %9, label %._crit_edge, !llvm.loop !4
+  br i1 %19, label %9, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %9, %4
   %.sroa.012.0.lcssa = phi double [ %.sroa.012.0.copyload, %4 ], [ %14, %9 ]
@@ -56,9 +56,9 @@ declare double @llvm.fmuladd.f64(double, double, double) #1
 define hidden { double, double } @_Z10pj_zpolyd17COMPLEXPKS_iPS_(double %0, double %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #2 {
   %6 = sext i32 %3 to i64
   %7 = getelementptr inbounds %struct.COMPLEX, ptr %2, i64 %6
-  %.sroa.032.0.copyload = load double, ptr %7, align 8
+  %.sroa.032.0.copyload = load double, ptr %7, align 8, !tbaa !3
   %.sroa.936.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.936.0.copyload = load double, ptr %.sroa.936.0..sroa_idx, align 8
+  %.sroa.936.0.copyload = load double, ptr %.sroa.936.0..sroa_idx, align 8, !tbaa !3
   %8 = icmp sgt i32 %3, 0
   %9 = fneg double %1
   br i1 %8, label %.lr.ph, label %._crit_edge
@@ -67,7 +67,7 @@ define hidden { double, double } @_Z10pj_zpolyd17COMPLEXPKS_iPS_(double %0, doub
   %.in = phi i32 [ %10, %16 ], [ %3, %5 ]
   %.not49 = phi i1 [ true, %16 ], [ false, %5 ]
   %.sroa.0.048 = phi double [ %.sroa.0.1, %16 ], [ %.sroa.032.0.copyload, %5 ]
-  %.sroa.6.047 = phi double [ %.sroa.6.1, %16 ], [ %.sroa.936.0.copyload, %5 ]
+  %.sroa.8.047 = phi double [ %.sroa.8.1, %16 ], [ %.sroa.936.0.copyload, %5 ]
   %.sroa.936.046 = phi double [ %24, %16 ], [ %.sroa.936.0.copyload, %5 ]
   %.04345 = phi ptr [ %17, %16 ], [ %7, %5 ]
   %.sroa.032.044 = phi double [ %20, %16 ], [ %.sroa.032.0.copyload, %5 ]
@@ -76,57 +76,63 @@ define hidden { double, double } @_Z10pj_zpolyd17COMPLEXPKS_iPS_(double %0, doub
 
 11:                                               ; preds = %.lr.ph
   %12 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.0.048, double %.sroa.032.044)
-  %13 = tail call double @llvm.fmuladd.f64(double %9, double %.sroa.6.047, double %12)
-  %14 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.6.047, double %.sroa.936.046)
+  %13 = tail call double @llvm.fmuladd.f64(double %9, double %.sroa.8.047, double %12)
+  %14 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.8.047, double %.sroa.936.046)
   %15 = tail call double @llvm.fmuladd.f64(double %1, double %.sroa.0.048, double %14)
   br label %16
 
 16:                                               ; preds = %.lr.ph, %11
-  %.sroa.6.1 = phi double [ %15, %11 ], [ %.sroa.6.047, %.lr.ph ]
+  %.sroa.8.1 = phi double [ %15, %11 ], [ %.sroa.8.047, %.lr.ph ]
   %.sroa.0.1 = phi double [ %13, %11 ], [ %.sroa.0.048, %.lr.ph ]
   %17 = getelementptr inbounds i8, ptr %.04345, i64 -16
-  %18 = load double, ptr %17, align 8
+  %18 = load double, ptr %17, align 8, !tbaa !7
   %19 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.032.044, double %18)
   %20 = tail call double @llvm.fmuladd.f64(double %9, double %.sroa.936.046, double %19)
   %21 = getelementptr inbounds i8, ptr %.04345, i64 -8
-  %22 = load double, ptr %21, align 8
+  %22 = load double, ptr %21, align 8, !tbaa !9
   %23 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.936.046, double %22)
   %24 = tail call double @llvm.fmuladd.f64(double %1, double %.sroa.032.044, double %23)
   %25 = icmp samesign ugt i32 %.in, 1
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %16, %5
   %.sroa.032.0.lcssa = phi double [ %.sroa.032.0.copyload, %5 ], [ %20, %16 ]
   %.sroa.936.0.lcssa = phi double [ %.sroa.936.0.copyload, %5 ], [ %24, %16 ]
-  %.sroa.6.0.lcssa = phi double [ %.sroa.936.0.copyload, %5 ], [ %.sroa.6.1, %16 ]
+  %.sroa.8.0.lcssa = phi double [ %.sroa.936.0.copyload, %5 ], [ %.sroa.8.1, %16 ]
   %.sroa.0.0.lcssa = phi double [ %.sroa.032.0.copyload, %5 ], [ %.sroa.0.1, %16 ]
   %26 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.0.0.lcssa, double %.sroa.032.0.lcssa)
-  %27 = tail call double @llvm.fmuladd.f64(double %9, double %.sroa.6.0.lcssa, double %26)
-  %28 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.6.0.lcssa, double %.sroa.936.0.lcssa)
+  %27 = tail call double @llvm.fmuladd.f64(double %9, double %.sroa.8.0.lcssa, double %26)
+  %28 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.8.0.lcssa, double %.sroa.936.0.lcssa)
   %29 = tail call double @llvm.fmuladd.f64(double %1, double %.sroa.0.0.lcssa, double %28)
   %30 = fneg double %.sroa.936.0.lcssa
   %31 = fmul double %1, %30
   %32 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.032.0.lcssa, double %31)
   %33 = fmul double %1, %.sroa.032.0.lcssa
   %34 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.936.0.lcssa, double %33)
-  store double %27, ptr %4, align 8
-  %.sroa.6.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store double %29, ptr %.sroa.6.0..sroa_idx6, align 8
+  store double %27, ptr %4, align 8, !tbaa !3
+  %.sroa.8.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store double %29, ptr %.sroa.8.0..sroa_idx6, align 8, !tbaa !3
   %.fca.0.insert = insertvalue { double, double } poison, double %32, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %34, 1
   ret { double, double } %.fca.1.insert
 }
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"double", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = !{!8, !4, i64 0}
+!8 = !{!"_ZTS7COMPLEX", !4, i64 0, !4, i64 8}
+!9 = !{!8, !4, i64 8}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = distinct !{!12, !11}

@@ -23,15 +23,15 @@ define hidden noundef ptr @pj_imoll_o(ptr noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr @.str, ptr %8, align 8
+  store ptr @.str, ptr %8, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr @_ZL11des_imoll_o, ptr %9, align 8
+  store ptr @_ZL11des_imoll_o, ptr %9, align 8, !tbaa !36
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 360
-  store i32 1, ptr %10, align 8
+  store i32 1, ptr %10, align 8, !tbaa !37
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 380
-  store i32 4, ptr %11, align 4
+  store i32 4, ptr %11, align 4, !tbaa !38
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 384
-  store i32 1, ptr %12, align 8
+  store i32 1, ptr %12, align 8, !tbaa !39
   br label %13
 
 13:                                               ; preds = %4, %7, %2
@@ -41,210 +41,207 @@ define hidden noundef ptr @pj_imoll_o(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z36pj_projection_specific_setup_imoll_oP8PJconsts(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #3
+  %2 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #3
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
   %5 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %0, i32 noundef 4096)
-  br label %109
+  br label %102
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %2, ptr %7, align 8
+  store ptr %2, ptr %7, align 8, !tbaa !40
   %8 = tail call noundef ptr @pj_moll(ptr noundef null)
-  store ptr %8, ptr %2, align 8
+  store ptr %8, ptr %2, align 8, !tbaa !41
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd.exit.thread, label %9
 
 9:                                                ; preds = %6
   %10 = tail call noundef ptr @pj_moll(ptr noundef nonnull %8)
-  store ptr %10, ptr %2, align 8
+  store ptr %10, ptr %2, align 8, !tbaa !41
   %.not22.i = icmp eq ptr %10, null
   br i1 %.not22.i, label %_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd.exit.thread, label %11
 
 11:                                               ; preds = %9
-  %12 = load ptr, ptr %0, align 8
-  store ptr %12, ptr %10, align 8
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 456
-  store double 0xC0038C35418A5BF6, ptr %14, align 8
-  %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 464
-  store double 0.000000e+00, ptr %16, align 8
-  %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 440
-  store double 0xC0038C35418A5BF6, ptr %18, align 8
-  %19 = tail call noundef ptr @pj_moll(ptr noundef null)
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %19, ptr %20, align 8
-  %.not.i34 = icmp eq ptr %19, null
-  br i1 %.not.i34, label %_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd.exit.thread, label %21
+  %12 = load ptr, ptr %0, align 8, !tbaa !42
+  store ptr %12, ptr %10, align 8, !tbaa !42
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 456
+  store double 0xC0038C35418A5BF6, ptr %13, align 8, !tbaa !43
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 464
+  store double 0.000000e+00, ptr %14, align 8, !tbaa !44
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 440
+  store double 0xC0038C35418A5BF6, ptr %15, align 8, !tbaa !45
+  %16 = tail call noundef ptr @pj_moll(ptr noundef null)
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %16, ptr %17, align 8, !tbaa !41
+  %.not.i42 = icmp eq ptr %16, null
+  br i1 %.not.i42, label %_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd.exit.thread, label %18
 
-21:                                               ; preds = %11
-  %22 = tail call noundef ptr @pj_moll(ptr noundef nonnull %19)
-  store ptr %22, ptr %20, align 8
-  %.not22.i35 = icmp eq ptr %22, null
-  br i1 %.not22.i35, label %_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd.exit.thread, label %23
+18:                                               ; preds = %11
+  %19 = tail call noundef ptr @pj_moll(ptr noundef nonnull %16)
+  store ptr %19, ptr %17, align 8, !tbaa !41
+  %.not22.i43 = icmp eq ptr %19, null
+  br i1 %.not22.i43, label %_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd.exit.thread, label %20
 
-23:                                               ; preds = %21
-  %24 = load ptr, ptr %0, align 8
-  store ptr %24, ptr %22, align 8
-  %25 = load ptr, ptr %20, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 456
-  store double 0xBFC657184AE74487, ptr %26, align 8
-  %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 464
-  store double 0.000000e+00, ptr %28, align 8
-  %29 = load ptr, ptr %20, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 440
-  store double 0xBFC657184AE74487, ptr %30, align 8
-  %31 = tail call noundef ptr @pj_moll(ptr noundef null)
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %31, ptr %32, align 8
-  %.not.i38 = icmp eq ptr %31, null
-  br i1 %.not.i38, label %_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd.exit.thread, label %33
+20:                                               ; preds = %18
+  %21 = load ptr, ptr %0, align 8, !tbaa !42
+  store ptr %21, ptr %19, align 8, !tbaa !42
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 456
+  store double 0xBFC657184AE74487, ptr %22, align 8, !tbaa !43
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 464
+  store double 0.000000e+00, ptr %23, align 8, !tbaa !44
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 440
+  store double 0xBFC657184AE74487, ptr %24, align 8, !tbaa !45
+  %25 = tail call noundef ptr @pj_moll(ptr noundef null)
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr %25, ptr %26, align 8, !tbaa !41
+  %.not.i46 = icmp eq ptr %25, null
+  br i1 %.not.i46, label %_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd.exit.thread, label %27
 
-33:                                               ; preds = %23
-  %34 = tail call noundef ptr @pj_moll(ptr noundef nonnull %31)
-  store ptr %34, ptr %32, align 8
-  %.not22.i39 = icmp eq ptr %34, null
-  br i1 %.not22.i39, label %_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd.exit.thread, label %35
+27:                                               ; preds = %20
+  %28 = tail call noundef ptr @pj_moll(ptr noundef nonnull %25)
+  store ptr %28, ptr %26, align 8, !tbaa !41
+  %.not22.i47 = icmp eq ptr %28, null
+  br i1 %.not22.i47, label %_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd.exit.thread, label %29
 
-35:                                               ; preds = %33
-  %36 = load ptr, ptr %0, align 8
-  store ptr %36, ptr %34, align 8
-  %37 = load ptr, ptr %32, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 456
-  store double 0x400226C3BCDBE7AE, ptr %38, align 8
-  %39 = load ptr, ptr %32, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 464
-  store double 0.000000e+00, ptr %40, align 8
-  %41 = load ptr, ptr %32, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 440
-  store double 0x400226C3BCDBE7AE, ptr %42, align 8
+29:                                               ; preds = %27
+  %30 = load ptr, ptr %0, align 8, !tbaa !42
+  store ptr %30, ptr %28, align 8, !tbaa !42
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 456
+  store double 0x400226C3BCDBE7AE, ptr %31, align 8, !tbaa !43
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 464
+  store double 0.000000e+00, ptr %32, align 8, !tbaa !44
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 440
+  store double 0x400226C3BCDBE7AE, ptr %33, align 8, !tbaa !45
+  %34 = tail call noundef ptr @pj_moll(ptr noundef null)
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store ptr %34, ptr %35, align 8, !tbaa !41
+  %.not.i50 = icmp eq ptr %34, null
+  br i1 %.not.i50, label %_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd.exit.thread, label %36
+
+36:                                               ; preds = %29
+  %37 = tail call noundef ptr @pj_moll(ptr noundef nonnull %34)
+  store ptr %37, ptr %35, align 8, !tbaa !41
+  %.not22.i51 = icmp eq ptr %37, null
+  br i1 %.not22.i51, label %_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd.exit.thread, label %38
+
+38:                                               ; preds = %36
+  %39 = load ptr, ptr %0, align 8, !tbaa !42
+  store ptr %39, ptr %37, align 8, !tbaa !42
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 456
+  store double 0xBFFEB7C166FDFE3A, ptr %40, align 8, !tbaa !43
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 464
+  store double 0.000000e+00, ptr %41, align 8, !tbaa !44
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 440
+  store double 0xBFFEB7C166FDFE3A, ptr %42, align 8, !tbaa !45
   %43 = tail call noundef ptr @pj_moll(ptr noundef null)
-  %44 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %43, ptr %44, align 8
-  %.not.i42 = icmp eq ptr %43, null
-  br i1 %.not.i42, label %_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd.exit.thread, label %45
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store ptr %43, ptr %44, align 8, !tbaa !41
+  %.not.i54 = icmp eq ptr %43, null
+  br i1 %.not.i54, label %_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd.exit.thread, label %45
 
-45:                                               ; preds = %35
+45:                                               ; preds = %38
   %46 = tail call noundef ptr @pj_moll(ptr noundef nonnull %43)
-  store ptr %46, ptr %44, align 8
-  %.not22.i43 = icmp eq ptr %46, null
-  br i1 %.not22.i43, label %_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd.exit.thread, label %47
+  store ptr %46, ptr %44, align 8, !tbaa !41
+  %.not22.i55 = icmp eq ptr %46, null
+  br i1 %.not22.i55, label %_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd.exit.thread, label %47
 
 47:                                               ; preds = %45
-  %48 = load ptr, ptr %0, align 8
-  store ptr %48, ptr %46, align 8
-  %49 = load ptr, ptr %44, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 456
-  store double 0xBFFEB7C166FDFE3A, ptr %50, align 8
-  %51 = load ptr, ptr %44, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 464
-  store double 0.000000e+00, ptr %52, align 8
-  %53 = load ptr, ptr %44, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 440
-  store double 0xBFFEB7C166FDFE3A, ptr %54, align 8
-  %55 = tail call noundef ptr @pj_moll(ptr noundef null)
-  %56 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr %55, ptr %56, align 8
-  %.not.i46 = icmp eq ptr %55, null
-  br i1 %.not.i46, label %_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd.exit.thread, label %57
+  %48 = load ptr, ptr %0, align 8, !tbaa !42
+  store ptr %48, ptr %46, align 8, !tbaa !42
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 456
+  store double 0x3FD657184AE74487, ptr %49, align 8, !tbaa !43
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 464
+  store double 0.000000e+00, ptr %50, align 8, !tbaa !44
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 440
+  store double 0x3FD657184AE74487, ptr %51, align 8, !tbaa !45
+  %52 = tail call fastcc noundef zeroext i1 @_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 6, double noundef 0x4004F1A6C638D03F, double noundef 0x4004F1A6C638D03F)
+  br i1 %52, label %63, label %_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd.exit.thread
 
-57:                                               ; preds = %47
-  %58 = tail call noundef ptr @pj_moll(ptr noundef nonnull %55)
-  store ptr %58, ptr %56, align 8
-  %.not22.i47 = icmp eq ptr %58, null
-  br i1 %.not22.i47, label %_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd.exit.thread, label %59
+_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd.exit.thread: ; preds = %45, %38, %36, %29, %27, %20, %18, %11, %9, %6, %47
+  %53 = load ptr, ptr %7, align 8, !tbaa !40
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %_ZL21pj_imoll_o_destructorP8PJconstsi.exit, label %.preheader.i
 
-59:                                               ; preds = %57
-  %60 = load ptr, ptr %0, align 8
-  store ptr %60, ptr %58, align 8
-  %61 = load ptr, ptr %56, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 456
-  store double 0x3FD657184AE74487, ptr %62, align 8
-  %63 = load ptr, ptr %56, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 464
-  store double 0.000000e+00, ptr %64, align 8
-  %65 = load ptr, ptr %56, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 440
-  store double 0x3FD657184AE74487, ptr %66, align 8
-  %67 = tail call fastcc noundef zeroext i1 @_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 6, double noundef 0x4004F1A6C638D03F, double noundef 0x4004F1A6C638D03F)
-  br i1 %67, label %78, label %_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd.exit.thread
+.preheader.i:                                     ; preds = %_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd.exit.thread, %61
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %61 ], [ 0, %_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd.exit.thread ]
+  %55 = getelementptr inbounds nuw [6 x ptr], ptr %53, i64 0, i64 %indvars.iv.i
+  %56 = load ptr, ptr %55, align 8, !tbaa !41
+  %.not.i58 = icmp eq ptr %56, null
+  br i1 %.not.i58, label %61, label %57
 
-_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd.exit.thread: ; preds = %57, %47, %45, %35, %33, %23, %21, %11, %9, %6, %59
-  %68 = load ptr, ptr %7, align 8
-  %69 = icmp eq ptr %68, null
-  br i1 %69, label %_ZL21pj_imoll_o_destructorP8PJconstsi.exit, label %.preheader.i
+57:                                               ; preds = %.preheader.i
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 152
+  %59 = load ptr, ptr %58, align 8, !tbaa !46
+  %60 = tail call noundef ptr %59(ptr noundef nonnull %56, i32 noundef 4096)
+  br label %61
 
-.preheader.i:                                     ; preds = %_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd.exit.thread, %76
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %76 ], [ 0, %_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd.exit.thread ]
-  %70 = getelementptr inbounds nuw [6 x ptr], ptr %68, i64 0, i64 %indvars.iv.i
-  %71 = load ptr, ptr %70, align 8
-  %.not.i50 = icmp eq ptr %71, null
-  br i1 %.not.i50, label %76, label %72
-
-72:                                               ; preds = %.preheader.i
-  %73 = getelementptr inbounds nuw i8, ptr %71, i64 152
-  %74 = load ptr, ptr %73, align 8
-  %75 = tail call noundef ptr %74(ptr noundef nonnull %71, i32 noundef 4096)
-  br label %76
-
-76:                                               ; preds = %72, %.preheader.i
+61:                                               ; preds = %57, %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %_ZL21pj_imoll_o_destructorP8PJconstsi.exit, label %.preheader.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %_ZL21pj_imoll_o_destructorP8PJconstsi.exit, label %.preheader.i, !llvm.loop !47
 
-_ZL21pj_imoll_o_destructorP8PJconstsi.exit:       ; preds = %76, %_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd.exit.thread
-  %77 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 4096)
-  br label %109
+_ZL21pj_imoll_o_destructorP8PJconstsi.exit:       ; preds = %61, %_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd.exit.thread
+  %62 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 4096)
+  br label %102
 
-78:                                               ; preds = %59
-  %79 = tail call fastcc noundef double @_ZL30pj_imoll_o_compute_zone_offsetPN13pj_imoll_o_ns15pj_imoll_o_dataEiiddd(ptr noundef %2, i32 noundef 2, i32 noundef 1, double noundef 0xBFF921FB54442D18, double noundef 1.000000e-10)
-  %80 = load ptr, ptr %20, align 8
+63:                                               ; preds = %47
+  %64 = tail call fastcc noundef double @_ZL30pj_imoll_o_compute_zone_offsetPN13pj_imoll_o_ns15pj_imoll_o_dataEiiddd(ptr noundef %2, i32 noundef 2, i32 noundef 1, double noundef 0xBFF921FB54442D18, double noundef 1.000000e-10)
+  %65 = load ptr, ptr %17, align 8, !tbaa !41
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 456
+  %67 = load double, ptr %66, align 8, !tbaa !43
+  %68 = fadd double %64, %67
+  store double %68, ptr %66, align 8, !tbaa !43
+  %69 = tail call fastcc noundef double @_ZL30pj_imoll_o_compute_zone_offsetPN13pj_imoll_o_ns15pj_imoll_o_dataEiiddd(ptr noundef %2, i32 noundef 3, i32 noundef 2, double noundef 0x3FF0C152382D7365, double noundef 1.000000e-10)
+  %70 = load ptr, ptr %26, align 8, !tbaa !41
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 456
+  %72 = load double, ptr %71, align 8, !tbaa !43
+  %73 = fadd double %69, %72
+  store double %73, ptr %71, align 8, !tbaa !43
+  %74 = tail call fastcc noundef double @_ZL30pj_imoll_o_compute_zone_offsetPN13pj_imoll_o_ns15pj_imoll_o_dataEiiddd(ptr noundef %2, i32 noundef 4, i32 noundef 1, double noundef 0xC00921FB54442D18, double noundef -1.000000e-10)
+  %75 = load ptr, ptr %35, align 8, !tbaa !41
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 456
+  %77 = load double, ptr %76, align 8, !tbaa !43
+  %78 = fadd double %74, %77
+  store double %78, ptr %76, align 8, !tbaa !43
+  %79 = tail call fastcc noundef double @_ZL30pj_imoll_o_compute_zone_offsetPN13pj_imoll_o_ns15pj_imoll_o_dataEiiddd(ptr noundef %2, i32 noundef 5, i32 noundef 2, double noundef 0xBFF0C152382D7365, double noundef -1.000000e-10)
+  %80 = load ptr, ptr %44, align 8, !tbaa !41
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 456
-  %82 = load double, ptr %81, align 8
+  %82 = load double, ptr %81, align 8, !tbaa !43
   %83 = fadd double %79, %82
-  store double %83, ptr %81, align 8
-  %84 = tail call fastcc noundef double @_ZL30pj_imoll_o_compute_zone_offsetPN13pj_imoll_o_ns15pj_imoll_o_dataEiiddd(ptr noundef %2, i32 noundef 3, i32 noundef 2, double noundef 0x3FF0C152382D7365, double noundef 1.000000e-10)
-  %85 = load ptr, ptr %32, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 456
-  %87 = load double, ptr %86, align 8
-  %88 = fadd double %84, %87
-  store double %88, ptr %86, align 8
-  %89 = tail call fastcc noundef double @_ZL30pj_imoll_o_compute_zone_offsetPN13pj_imoll_o_ns15pj_imoll_o_dataEiiddd(ptr noundef %2, i32 noundef 4, i32 noundef 1, double noundef 0xC00921FB54442D18, double noundef -1.000000e-10)
-  %90 = load ptr, ptr %44, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 456
-  %92 = load double, ptr %91, align 8
-  %93 = fadd double %89, %92
-  store double %93, ptr %91, align 8
-  %94 = tail call fastcc noundef double @_ZL30pj_imoll_o_compute_zone_offsetPN13pj_imoll_o_ns15pj_imoll_o_dataEiiddd(ptr noundef %2, i32 noundef 5, i32 noundef 2, double noundef 0xBFF0C152382D7365, double noundef -1.000000e-10)
-  %95 = load ptr, ptr %56, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 456
-  %97 = load double, ptr %96, align 8
-  %98 = fadd double %94, %97
-  store double %98, ptr %96, align 8
-  %99 = tail call fastcc noundef double @_ZL30pj_imoll_o_compute_zone_offsetPN13pj_imoll_o_ns15pj_imoll_o_dataEiiddd(ptr noundef %2, i32 noundef 6, i32 noundef 3, double noundef 0x3FF921FB54442D18, double noundef -1.000000e-10)
-  %100 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 456
-  %103 = load double, ptr %102, align 8
-  %104 = fadd double %99, %103
-  store double %104, ptr %102, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @_ZL17imoll_o_s_inverse5PJ_XYP8PJconsts, ptr %105, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr @_ZL17imoll_o_s_forward5PJ_LPP8PJconsts, ptr %106, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store ptr @_ZL21pj_imoll_o_destructorP8PJconstsi, ptr %107, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store double 0.000000e+00, ptr %108, align 8
-  br label %109
+  store double %83, ptr %81, align 8, !tbaa !43
+  %84 = tail call fastcc noundef double @_ZL30pj_imoll_o_compute_zone_offsetPN13pj_imoll_o_ns15pj_imoll_o_dataEiiddd(ptr noundef %2, i32 noundef 6, i32 noundef 3, double noundef 0x3FF921FB54442D18, double noundef -1.000000e-10)
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %86 = load ptr, ptr %85, align 8, !tbaa !41
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 456
+  %88 = load double, ptr %87, align 8, !tbaa !43
+  %89 = fadd double %84, %88
+  store double %89, ptr %87, align 8, !tbaa !43
+  %90 = tail call fastcc noundef double @_ZL34pj_imoll_o_compute_zone_x_boundaryP8PJconstsdd(ptr noundef nonnull %0, double noundef 0xBFF921FB54442D18, double noundef 1.000000e-10)
+  %91 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  store double %90, ptr %91, align 8, !tbaa !49
+  %92 = tail call fastcc noundef double @_ZL34pj_imoll_o_compute_zone_x_boundaryP8PJconstsdd(ptr noundef nonnull %0, double noundef 0x3FF0C152382D7365, double noundef 1.000000e-10)
+  %93 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  store double %92, ptr %93, align 8, !tbaa !51
+  %94 = tail call fastcc noundef double @_ZL34pj_imoll_o_compute_zone_x_boundaryP8PJconstsdd(ptr noundef nonnull %0, double noundef 0xBFF0C152382D7365, double noundef -1.000000e-10)
+  %95 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  store double %94, ptr %95, align 8, !tbaa !52
+  %96 = tail call fastcc noundef double @_ZL34pj_imoll_o_compute_zone_x_boundaryP8PJconstsdd(ptr noundef nonnull %0, double noundef 0x3FF921FB54442D18, double noundef -1.000000e-10)
+  %97 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store double %96, ptr %97, align 8, !tbaa !53
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr @_ZL17imoll_o_s_inverse5PJ_XYP8PJconsts, ptr %98, align 8, !tbaa !54
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store ptr @_ZL17imoll_o_s_forward5PJ_LPP8PJconsts, ptr %99, align 8, !tbaa !55
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store ptr @_ZL21pj_imoll_o_destructorP8PJconstsi, ptr %100, align 8, !tbaa !46
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  store double 0.000000e+00, ptr %101, align 8, !tbaa !56
+  br label %102
 
-109:                                              ; preds = %78, %_ZL21pj_imoll_o_destructorP8PJconstsi.exit, %4
-  %.0 = phi ptr [ %5, %4 ], [ %0, %78 ], [ %77, %_ZL21pj_imoll_o_destructorP8PJconstsi.exit ]
+102:                                              ; preds = %63, %_ZL21pj_imoll_o_destructorP8PJconstsi.exit, %4
+  %.0 = phi ptr [ %5, %4 ], [ %0, %63 ], [ %62, %_ZL21pj_imoll_o_destructorP8PJconstsi.exit ]
   ret ptr %.0
 }
 
@@ -256,36 +253,33 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, i32 noundef range(i32 1, 7) %2, double noundef %3, double noundef %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, i32 noundef range(i32 1, 7) %2, double noundef %3, double noundef %4) unnamed_addr #0 {
   %6 = tail call noundef ptr @pj_moll(ptr noundef null)
   %7 = add nsw i32 %2, -1
   %8 = zext nneg i32 %7 to i64
   %9 = getelementptr inbounds nuw [6 x ptr], ptr %1, i64 0, i64 %8
-  store ptr %6, ptr %9, align 8
+  store ptr %6, ptr %9, align 8, !tbaa !41
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %20, label %10
+  br i1 %.not, label %17, label %10
 
 10:                                               ; preds = %5
   %11 = tail call noundef ptr @pj_moll(ptr noundef nonnull %6)
-  store ptr %11, ptr %9, align 8
+  store ptr %11, ptr %9, align 8, !tbaa !41
   %.not22 = icmp eq ptr %11, null
-  br i1 %.not22, label %20, label %12
+  br i1 %.not22, label %17, label %12
 
 12:                                               ; preds = %10
-  %13 = load ptr, ptr %0, align 8
-  store ptr %13, ptr %11, align 8
-  %14 = load ptr, ptr %9, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 456
-  store double %3, ptr %15, align 8
-  %16 = load ptr, ptr %9, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 464
-  store double 0.000000e+00, ptr %17, align 8
-  %18 = load ptr, ptr %9, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 440
-  store double %4, ptr %19, align 8
-  br label %20
+  %13 = load ptr, ptr %0, align 8, !tbaa !42
+  store ptr %13, ptr %11, align 8, !tbaa !42
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 456
+  store double %3, ptr %14, align 8, !tbaa !43
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 464
+  store double 0.000000e+00, ptr %15, align 8, !tbaa !44
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 440
+  store double %4, ptr %16, align 8, !tbaa !45
+  br label %17
 
-20:                                               ; preds = %10, %5, %12
+17:                                               ; preds = %10, %5, %12
   %.0 = phi i1 [ true, %12 ], [ false, %5 ], [ false, %10 ]
   ret i1 %.0
 }
@@ -299,27 +293,27 @@ define internal noundef ptr @_ZL21pj_imoll_o_destructorP8PJconstsi(ptr noundef %
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !40
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.sink.split, label %.preheader
 
 .preheader:                                       ; preds = %4, %14
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %4 ]
   %8 = getelementptr inbounds nuw [6 x ptr], ptr %6, i64 0, i64 %indvars.iv
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !41
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %.preheader
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 152
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !46
   %13 = tail call noundef ptr %12(ptr noundef nonnull %9, i32 noundef %1)
   br label %14
 
 14:                                               ; preds = %.preheader, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %.sink.split, label %.preheader, !llvm.loop !4
+  br i1 %exitcond.not, label %.sink.split, label %.preheader, !llvm.loop !47
 
 .sink.split:                                      ; preds = %14, %4
   %15 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef %1)
@@ -335,175 +329,266 @@ define internal fastcc noundef double @_ZL30pj_imoll_o_compute_zone_offsetPN13pj
   %6 = add nsw i32 %1, -1
   %7 = zext nneg i32 %6 to i64
   %8 = getelementptr inbounds nuw [6 x ptr], ptr %0, i64 0, i64 %7
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !41
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 440
-  %11 = load double, ptr %10, align 8
+  %11 = load double, ptr %10, align 8, !tbaa !45
   %12 = fsub double %3, %11
   %13 = add nsw i32 %2, -1
   %14 = zext nneg i32 %13 to i64
   %15 = getelementptr inbounds nuw [6 x ptr], ptr %0, i64 0, i64 %14
-  %16 = load ptr, ptr %15, align 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !41
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 440
-  %18 = load double, ptr %17, align 8
+  %18 = load double, ptr %17, align 8, !tbaa !45
   %19 = fsub double %3, %18
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 104
-  %21 = load ptr, ptr %20, align 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !55
   %22 = tail call { double, double } %21(double %12, double %4, ptr noundef %9)
   %23 = extractvalue { double, double } %22, 0
-  %24 = load ptr, ptr %15, align 8
+  %24 = load ptr, ptr %15, align 8, !tbaa !41
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 104
-  %26 = load ptr, ptr %25, align 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !55
   %27 = tail call { double, double } %26(double %19, double 1.000000e-10, ptr noundef %24)
   %28 = extractvalue { double, double } %27, 0
-  %29 = load ptr, ptr %15, align 8
+  %29 = load ptr, ptr %15, align 8, !tbaa !41
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 456
-  %31 = load double, ptr %30, align 8
+  %31 = load double, ptr %30, align 8, !tbaa !43
   %32 = fadd double %28, %31
-  %33 = load ptr, ptr %8, align 8
+  %33 = load ptr, ptr %8, align 8, !tbaa !41
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 456
-  %35 = load double, ptr %34, align 8
+  %35 = load double, ptr %34, align 8, !tbaa !43
   %36 = fadd double %23, %35
   %37 = fsub double %32, %36
   ret double %37
 }
 
 ; Function Attrs: mustprogress uwtable
+define internal fastcc noundef double @_ZL34pj_imoll_o_compute_zone_x_boundaryP8PJconstsdd(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2) unnamed_addr #0 {
+  %4 = fadd double %1, -1.000000e-10
+  %5 = fadd double %1, 1.000000e-10
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %7 = load ptr, ptr %6, align 8, !tbaa !40
+  %8 = fcmp ult double %2, 0.000000e+00
+  br i1 %8, label %13, label %9
+
+9:                                                ; preds = %3
+  %10 = fcmp ugt double %4, 0xBFF921FB54442D18
+  br i1 %10, label %11, label %_ZL17imoll_o_s_forward5PJ_LPP8PJconsts.exit
+
+11:                                               ; preds = %9
+  %12 = fcmp ult double %4, 0x3FF0C152382D7365
+  %..i = select i1 %12, i64 1, i64 2
+  br label %_ZL17imoll_o_s_forward5PJ_LPP8PJconsts.exit
+
+13:                                               ; preds = %3
+  %14 = fcmp ugt double %4, 0xBFF0C152382D7365
+  br i1 %14, label %15, label %_ZL17imoll_o_s_forward5PJ_LPP8PJconsts.exit
+
+15:                                               ; preds = %13
+  %16 = fcmp ult double %4, 0x3FF921FB54442D18
+  %.19.i = select i1 %16, i64 4, i64 5
+  br label %_ZL17imoll_o_s_forward5PJ_LPP8PJconsts.exit
+
+_ZL17imoll_o_s_forward5PJ_LPP8PJconsts.exit:      ; preds = %9, %11, %13, %15
+  %.0.i = phi i64 [ 0, %9 ], [ %..i, %11 ], [ 3, %13 ], [ %.19.i, %15 ]
+  %17 = getelementptr inbounds nuw [6 x ptr], ptr %7, i64 0, i64 %.0.i
+  %18 = load ptr, ptr %17, align 8, !tbaa !41
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 440
+  %20 = load double, ptr %19, align 8, !tbaa !45
+  %21 = fsub double %4, %20
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 104
+  %23 = load ptr, ptr %22, align 8, !tbaa !55
+  %24 = tail call { double, double } %23(double %21, double %2, ptr noundef %18)
+  %25 = load ptr, ptr %17, align 8, !tbaa !41
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 456
+  %27 = load double, ptr %26, align 8, !tbaa !43
+  %28 = load ptr, ptr %6, align 8, !tbaa !40
+  br i1 %8, label %33, label %29
+
+29:                                               ; preds = %_ZL17imoll_o_s_forward5PJ_LPP8PJconsts.exit
+  %30 = fcmp ugt double %5, 0xBFF921FB54442D18
+  br i1 %30, label %31, label %_ZL17imoll_o_s_forward5PJ_LPP8PJconsts.exit24
+
+31:                                               ; preds = %29
+  %32 = fcmp ult double %5, 0x3FF0C152382D7365
+  %..i22 = select i1 %32, i64 1, i64 2
+  br label %_ZL17imoll_o_s_forward5PJ_LPP8PJconsts.exit24
+
+33:                                               ; preds = %_ZL17imoll_o_s_forward5PJ_LPP8PJconsts.exit
+  %34 = fcmp ugt double %5, 0xBFF0C152382D7365
+  br i1 %34, label %35, label %_ZL17imoll_o_s_forward5PJ_LPP8PJconsts.exit24
+
+35:                                               ; preds = %33
+  %36 = fcmp ult double %5, 0x3FF921FB54442D18
+  %.19.i23 = select i1 %36, i64 4, i64 5
+  br label %_ZL17imoll_o_s_forward5PJ_LPP8PJconsts.exit24
+
+_ZL17imoll_o_s_forward5PJ_LPP8PJconsts.exit24:    ; preds = %29, %31, %33, %35
+  %.0.i19 = phi i64 [ 0, %29 ], [ %..i22, %31 ], [ 3, %33 ], [ %.19.i23, %35 ]
+  %37 = extractvalue { double, double } %24, 0
+  %38 = fadd double %37, %27
+  %39 = getelementptr inbounds nuw [6 x ptr], ptr %28, i64 0, i64 %.0.i19
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 440
+  %42 = load double, ptr %41, align 8, !tbaa !45
+  %43 = fsub double %5, %42
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 104
+  %45 = load ptr, ptr %44, align 8, !tbaa !55
+  %46 = tail call { double, double } %45(double %43, double %2, ptr noundef %40)
+  %47 = extractvalue { double, double } %46, 0
+  %48 = load ptr, ptr %39, align 8, !tbaa !41
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 456
+  %50 = load double, ptr %49, align 8, !tbaa !43
+  %51 = fadd double %47, %50
+  %52 = fadd double %38, %51
+  %53 = fmul double %52, 5.000000e-01
+  ret double %53
+}
+
+; Function Attrs: mustprogress uwtable
 define internal { double, double } @_ZL17imoll_o_s_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !40
   %6 = fcmp ogt double %1, 0x3FF6A09E66861B05
   %7 = fcmp olt double %1, 0xBFF6A09E66785C95
-  %or.cond68 = or i1 %6, %7
-  br i1 %or.cond68, label %63, label %8
+  %or.cond71 = or i1 %6, %7
+  br i1 %or.cond71, label %71, label %8
 
 8:                                                ; preds = %3
   %9 = fcmp ult double %1, 0.000000e+00
-  br i1 %9, label %14, label %10
+  br i1 %9, label %18, label %10
 
 10:                                               ; preds = %8
-  %11 = fcmp ugt double %0, 0xBFF921FB54442D18
-  br i1 %11, label %12, label %18
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %12 = load double, ptr %11, align 8, !tbaa !49
+  %13 = fcmp ugt double %0, %12
+  br i1 %13, label %14, label %26
 
-12:                                               ; preds = %10
-  %13 = fcmp ult double %0, 0x3FF0C152382D7365
-  br i1 %13, label %select.unfold79, label %18
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %16 = load double, ptr %15, align 8, !tbaa !51
+  %17 = fcmp ult double %0, %16
+  br i1 %17, label %select.unfold82, label %26
 
-14:                                               ; preds = %8
-  %15 = fcmp ugt double %0, 0xBFF0C152382D7365
-  br i1 %15, label %16, label %18
+18:                                               ; preds = %8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %20 = load double, ptr %19, align 8, !tbaa !52
+  %21 = fcmp ugt double %0, %20
+  br i1 %21, label %22, label %26
 
-16:                                               ; preds = %14
-  %17 = fcmp ult double %0, 0x3FF921FB54442D18
-  br i1 %17, label %select.unfold, label %18
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %24 = load double, ptr %23, align 8, !tbaa !53
+  %25 = fcmp ult double %0, %24
+  br i1 %25, label %select.unfold, label %26
 
-select.unfold:                                    ; preds = %16
-  br label %18
+select.unfold:                                    ; preds = %22
+  br label %26
 
-select.unfold79:                                  ; preds = %12
-  br label %18
+select.unfold82:                                  ; preds = %14
+  br label %26
 
-18:                                               ; preds = %12, %16, %10, %select.unfold79, %14, %select.unfold
-  %.063.ph = phi i32 [ 6, %16 ], [ 4, %14 ], [ 3, %12 ], [ 1, %10 ], [ 5, %select.unfold ], [ 2, %select.unfold79 ]
-  %19 = add nsw i32 %.063.ph, -1
-  %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [6 x ptr], ptr %5, i64 0, i64 %20
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 456
-  %24 = load double, ptr %23, align 8
-  %25 = fsub double %0, %24
-  %26 = getelementptr inbounds nuw i8, ptr %22, i64 464
-  %27 = load double, ptr %26, align 8
-  %28 = fsub double %1, %27
-  %29 = getelementptr inbounds nuw i8, ptr %22, i64 112
-  %30 = load ptr, ptr %29, align 8
-  %31 = tail call { double, double } %30(double %25, double %28, ptr noundef %22)
-  %32 = extractvalue { double, double } %31, 0
-  %33 = extractvalue { double, double } %31, 1
-  %34 = load ptr, ptr %21, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 440
-  %36 = load double, ptr %35, align 8
-  %37 = fadd double %32, %36
-  switch i32 %.063.ph, label %default.unreachable95 [
-    i32 1, label %58
-    i32 2, label %38
-    i32 3, label %42
-    i32 4, label %46
-    i32 5, label %50
-    i32 6, label %54
+26:                                               ; preds = %14, %22, %10, %select.unfold82, %18, %select.unfold
+  %.066.ph = phi i32 [ 6, %22 ], [ 4, %18 ], [ 3, %14 ], [ 1, %10 ], [ 5, %select.unfold ], [ 2, %select.unfold82 ]
+  %27 = add nsw i32 %.066.ph, -1
+  %28 = zext nneg i32 %27 to i64
+  %29 = getelementptr inbounds nuw [6 x ptr], ptr %5, i64 0, i64 %28
+  %30 = load ptr, ptr %29, align 8, !tbaa !41
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 456
+  %32 = load double, ptr %31, align 8, !tbaa !43
+  %33 = fsub double %0, %32
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 464
+  %35 = load double, ptr %34, align 8, !tbaa !44
+  %36 = fsub double %1, %35
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 112
+  %38 = load ptr, ptr %37, align 8, !tbaa !54
+  %39 = tail call { double, double } %38(double %33, double %36, ptr noundef %30)
+  %40 = extractvalue { double, double } %39, 0
+  %41 = extractvalue { double, double } %39, 1
+  %42 = load ptr, ptr %29, align 8, !tbaa !41
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 440
+  %44 = load double, ptr %43, align 8, !tbaa !45
+  %45 = fadd double %40, %44
+  switch i32 %.066.ph, label %default.unreachable98 [
+    i32 1, label %66
+    i32 2, label %46
+    i32 3, label %50
+    i32 4, label %54
+    i32 5, label %58
+    i32 6, label %62
   ]
 
-38:                                               ; preds = %18
-  %39 = fcmp oge double %37, 0xBFF921FB544B0C50
-  %40 = fcmp ole double %37, 0x3FF0C1523834529D
-  %or.cond5 = and i1 %39, %40
-  %41 = fcmp oge double %33, -1.000000e-10
-  %spec.select70 = select i1 %or.cond5, i1 %41, i1 false
-  %.0.fr100 = freeze i1 %spec.select70
-  br i1 %.0.fr100, label %62, label %63
+46:                                               ; preds = %26
+  %47 = fcmp oge double %45, 0xBFF921FB544B0C50
+  %48 = fcmp ole double %45, 0x3FF0C1523834529D
+  %or.cond5 = and i1 %47, %48
+  %49 = fcmp oge double %41, -1.000000e-10
+  %spec.select73 = select i1 %or.cond5, i1 %49, i1 false
+  %.0.fr103 = freeze i1 %spec.select73
+  br i1 %.0.fr103, label %70, label %71
 
-42:                                               ; preds = %18
-  %43 = fcmp oge double %37, 0x3FF0C1523826942D
-  %44 = fcmp ole double %37, 0x400921FB54479CB4
-  %or.cond8 = and i1 %43, %44
-  %45 = fcmp oge double %33, -1.000000e-10
-  %spec.select71 = select i1 %or.cond8, i1 %45, i1 false
-  %.0.fr99 = freeze i1 %spec.select71
-  br i1 %.0.fr99, label %62, label %63
+50:                                               ; preds = %26
+  %51 = fcmp oge double %45, 0x3FF0C1523826942D
+  %52 = fcmp ole double %45, 0x400921FB54479CB4
+  %or.cond8 = and i1 %51, %52
+  %53 = fcmp oge double %41, -1.000000e-10
+  %spec.select74 = select i1 %or.cond8, i1 %53, i1 false
+  %.0.fr102 = freeze i1 %spec.select74
+  br i1 %.0.fr102, label %70, label %71
 
-46:                                               ; preds = %18
-  %47 = fcmp oge double %37, 0xC00921FB54479CB4
-  %48 = fcmp ole double %37, 0xBFF0C1523826942D
-  %or.cond11 = and i1 %47, %48
-  %49 = fcmp ole double %33, 1.000000e-10
-  %spec.select72 = select i1 %or.cond11, i1 %49, i1 false
-  %.0.fr98 = freeze i1 %spec.select72
-  br i1 %.0.fr98, label %62, label %63
+54:                                               ; preds = %26
+  %55 = fcmp oge double %45, 0xC00921FB54479CB4
+  %56 = fcmp ole double %45, 0xBFF0C1523826942D
+  %or.cond11 = and i1 %55, %56
+  %57 = fcmp ole double %41, 1.000000e-10
+  %spec.select75 = select i1 %or.cond11, i1 %57, i1 false
+  %.0.fr101 = freeze i1 %spec.select75
+  br i1 %.0.fr101, label %70, label %71
 
-50:                                               ; preds = %18
-  %51 = fcmp oge double %37, 0xBFF0C1523834529D
-  %52 = fcmp ole double %37, 0x3FF921FB544B0C50
-  %or.cond14 = and i1 %51, %52
-  %53 = fcmp ole double %33, 1.000000e-10
-  %spec.select73 = select i1 %or.cond14, i1 %53, i1 false
-  %.0.fr97 = freeze i1 %spec.select73
-  br i1 %.0.fr97, label %62, label %63
+58:                                               ; preds = %26
+  %59 = fcmp oge double %45, 0xBFF0C1523834529D
+  %60 = fcmp ole double %45, 0x3FF921FB544B0C50
+  %or.cond14 = and i1 %59, %60
+  %61 = fcmp ole double %41, 1.000000e-10
+  %spec.select76 = select i1 %or.cond14, i1 %61, i1 false
+  %.0.fr100 = freeze i1 %spec.select76
+  br i1 %.0.fr100, label %70, label %71
 
-54:                                               ; preds = %18
-  %55 = fcmp oge double %37, 0x3FF921FB543D4DE0
-  %56 = fcmp ole double %37, 0x400921FB54479CB4
-  %or.cond17 = and i1 %55, %56
-  %57 = fcmp ole double %33, 1.000000e-10
-  %spec.select74 = select i1 %or.cond17, i1 %57, i1 false
-  %.0.fr96 = freeze i1 %spec.select74
-  br i1 %.0.fr96, label %62, label %63
+62:                                               ; preds = %26
+  %63 = fcmp oge double %45, 0x3FF921FB543D4DE0
+  %64 = fcmp ole double %45, 0x400921FB54479CB4
+  %or.cond17 = and i1 %63, %64
+  %65 = fcmp ole double %41, 1.000000e-10
+  %spec.select77 = select i1 %or.cond17, i1 %65, i1 false
+  %.0.fr99 = freeze i1 %spec.select77
+  br i1 %.0.fr99, label %70, label %71
 
-default.unreachable95:                            ; preds = %18
+default.unreachable98:                            ; preds = %26
   unreachable
 
-58:                                               ; preds = %18
-  %59 = fcmp oge double %37, 0xC00921FB54479CB4
-  %60 = fcmp ole double %37, 0xBFF921FB543D4DE0
-  %or.cond = and i1 %59, %60
-  %61 = fcmp oge double %33, -1.000000e-10
-  %spec.select = select i1 %or.cond, i1 %61, i1 false
+66:                                               ; preds = %26
+  %67 = fcmp oge double %45, 0xC00921FB54479CB4
+  %68 = fcmp ole double %45, 0xBFF921FB543D4DE0
+  %or.cond = and i1 %67, %68
+  %69 = fcmp oge double %41, -1.000000e-10
+  %spec.select = select i1 %or.cond, i1 %69, i1 false
   %.0.fr = freeze i1 %spec.select
-  br i1 %.0.fr, label %62, label %63
+  br i1 %.0.fr, label %70, label %71
 
-62:                                               ; preds = %38, %42, %46, %50, %54, %58
-  br label %63
+70:                                               ; preds = %46, %50, %54, %58, %62, %66
+  br label %71
 
-63:                                               ; preds = %38, %42, %46, %50, %54, %62, %3, %58
-  %64 = phi double [ %37, %62 ], [ 0x7FF0000000000000, %3 ], [ 0x7FF0000000000000, %58 ], [ 0x7FF0000000000000, %54 ], [ 0x7FF0000000000000, %50 ], [ 0x7FF0000000000000, %46 ], [ 0x7FF0000000000000, %42 ], [ 0x7FF0000000000000, %38 ]
-  %65 = phi double [ %33, %62 ], [ 0x7FF0000000000000, %3 ], [ 0x7FF0000000000000, %58 ], [ 0x7FF0000000000000, %54 ], [ 0x7FF0000000000000, %50 ], [ 0x7FF0000000000000, %46 ], [ 0x7FF0000000000000, %42 ], [ 0x7FF0000000000000, %38 ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %64, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %65, 1
+71:                                               ; preds = %46, %50, %54, %58, %62, %70, %3, %66
+  %72 = phi double [ %45, %70 ], [ 0x7FF0000000000000, %3 ], [ 0x7FF0000000000000, %66 ], [ 0x7FF0000000000000, %62 ], [ 0x7FF0000000000000, %58 ], [ 0x7FF0000000000000, %54 ], [ 0x7FF0000000000000, %50 ], [ 0x7FF0000000000000, %46 ]
+  %73 = phi double [ %41, %70 ], [ 0x7FF0000000000000, %3 ], [ 0x7FF0000000000000, %66 ], [ 0x7FF0000000000000, %62 ], [ 0x7FF0000000000000, %58 ], [ 0x7FF0000000000000, %54 ], [ 0x7FF0000000000000, %50 ], [ 0x7FF0000000000000, %46 ]
+  %.fca.0.insert = insertvalue { double, double } poison, double %72, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %73, 1
   ret { double, double } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal { double, double } @_ZL17imoll_o_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !40
   %6 = fcmp ult double %1, 0.000000e+00
   br i1 %6, label %11, label %7
 
@@ -528,37 +613,88 @@ define internal { double, double } @_ZL17imoll_o_s_forward5PJ_LPP8PJconsts(doubl
 15:                                               ; preds = %13, %11, %9, %7
   %.0 = phi i64 [ 0, %7 ], [ %., %9 ], [ 3, %11 ], [ %.19, %13 ]
   %16 = getelementptr inbounds nuw [6 x ptr], ptr %5, i64 0, i64 %.0
-  %17 = load ptr, ptr %16, align 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !41
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 440
-  %19 = load double, ptr %18, align 8
+  %19 = load double, ptr %18, align 8, !tbaa !45
   %20 = fsub double %0, %19
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 104
-  %22 = load ptr, ptr %21, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !55
   %23 = tail call { double, double } %22(double %20, double %1, ptr noundef %17)
   %24 = extractvalue { double, double } %23, 0
   %25 = extractvalue { double, double } %23, 1
-  %26 = load ptr, ptr %16, align 8
+  %26 = load ptr, ptr %16, align 8, !tbaa !41
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 456
-  %28 = load double, ptr %27, align 8
+  %28 = load double, ptr %27, align 8, !tbaa !43
   %29 = fadd double %24, %28
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 464
-  %31 = load double, ptr %30, align 8
+  %31 = load double, ptr %30, align 8, !tbaa !44
   %32 = fadd double %25, %31
   %.fca.0.insert = insertvalue { double, double } poison, double %29, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %32, 1
   ret { double, double } %.fca.1.insert
 }
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind allocsize(0,1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !9, i64 8}
+!4 = !{!"_ZTS8PJconsts", !5, i64 0, !9, i64 8, !9, i64 16, !10, i64 24, !9, i64 32, !11, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !12, i64 80, !6, i64 88, !13, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !14, i64 168, !14, i64 176, !14, i64 184, !14, i64 192, !14, i64 200, !14, i64 208, !14, i64 216, !14, i64 224, !14, i64 232, !14, i64 240, !14, i64 248, !14, i64 256, !14, i64 264, !14, i64 272, !14, i64 280, !14, i64 288, !14, i64 296, !14, i64 304, !14, i64 312, !14, i64 320, !14, i64 328, !14, i64 336, !13, i64 344, !13, i64 348, !13, i64 352, !13, i64 356, !13, i64 360, !13, i64 364, !13, i64 368, !13, i64 372, !13, i64 376, !15, i64 380, !15, i64 384, !11, i64 392, !11, i64 400, !11, i64 408, !11, i64 416, !11, i64 424, !11, i64 432, !14, i64 440, !14, i64 448, !14, i64 456, !14, i64 464, !14, i64 472, !14, i64 480, !14, i64 488, !14, i64 496, !14, i64 504, !14, i64 512, !14, i64 520, !13, i64 528, !7, i64 536, !13, i64 592, !6, i64 600, !6, i64 608, !14, i64 616, !14, i64 624, !13, i64 632, !7, i64 636, !16, i64 640, !21, i64 656, !14, i64 664, !21, i64 672, !22, i64 680, !22, i64 712, !22, i64 744, !21, i64 776, !25, i64 784, !30, i64 808, !31, i64 816, !13, i64 840, !21, i64 844, !21, i64 845, !21, i64 846, !11, i64 848}
+!5 = !{!"p1 _ZTS6pj_ctx", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!"p1 omnipotent char", !6, i64 0}
+!10 = !{!"p1 _ZTS8ARG_list", !6, i64 0}
+!11 = !{!"p1 _ZTS8PJconsts", !6, i64 0}
+!12 = !{!"p1 _ZTS13geod_geodesic", !6, i64 0}
+!13 = !{!"int", !7, i64 0}
+!14 = !{!"double", !7, i64 0}
+!15 = !{!"_ZTS11pj_io_units", !7, i64 0}
+!16 = !{!"_ZTSSt10shared_ptrIN5osgeo4proj4util10BaseObjectEE", !17, i64 0}
+!17 = !{!"_ZTSSt12__shared_ptrIN5osgeo4proj4util10BaseObjectELN9__gnu_cxx12_Lock_policyE2EE", !18, i64 0, !19, i64 8}
+!18 = !{!"p1 _ZTSN5osgeo4proj4util10BaseObjectE", !6, i64 0}
+!19 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !20, i64 0}
+!20 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !6, i64 0}
+!21 = !{!"bool", !7, i64 0}
+!22 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !23, i64 0, !24, i64 8, !7, i64 16}
+!23 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !9, i64 0}
+!24 = !{!"long", !7, i64 0}
+!25 = !{!"_ZTSSt6vectorIN5osgeo4proj9operation15GridDescriptionESaIS3_EE", !26, i64 0}
+!26 = !{!"_ZTSSt12_Vector_baseIN5osgeo4proj9operation15GridDescriptionESaIS3_EE", !27, i64 0}
+!27 = !{!"_ZTSNSt12_Vector_baseIN5osgeo4proj9operation15GridDescriptionESaIS3_EE12_Vector_implE", !28, i64 0}
+!28 = !{!"_ZTSNSt12_Vector_baseIN5osgeo4proj9operation15GridDescriptionESaIS3_EE17_Vector_impl_dataE", !29, i64 0, !29, i64 8, !29, i64 16}
+!29 = !{!"p1 _ZTSN5osgeo4proj9operation15GridDescriptionE", !6, i64 0}
+!30 = !{!"_ZTS7PJ_TYPE", !7, i64 0}
+!31 = !{!"_ZTSSt6vectorI16PJCoordOperationSaIS0_EE", !32, i64 0}
+!32 = !{!"_ZTSSt12_Vector_baseI16PJCoordOperationSaIS0_EE", !33, i64 0}
+!33 = !{!"_ZTSNSt12_Vector_baseI16PJCoordOperationSaIS0_EE12_Vector_implE", !34, i64 0}
+!34 = !{!"_ZTSNSt12_Vector_baseI16PJCoordOperationSaIS0_EE17_Vector_impl_dataE", !35, i64 0, !35, i64 8, !35, i64 16}
+!35 = !{!"p1 _ZTS16PJCoordOperation", !6, i64 0}
+!36 = !{!4, !9, i64 16}
+!37 = !{!4, !13, i64 360}
+!38 = !{!4, !15, i64 380}
+!39 = !{!4, !15, i64 384}
+!40 = !{!4, !6, i64 88}
+!41 = !{!11, !11, i64 0}
+!42 = !{!4, !5, i64 0}
+!43 = !{!4, !14, i64 456}
+!44 = !{!4, !14, i64 464}
+!45 = !{!4, !14, i64 440}
+!46 = !{!4, !6, i64 152}
+!47 = distinct !{!47, !48}
+!48 = !{!"llvm.loop.mustprogress"}
+!49 = !{!50, !14, i64 48}
+!50 = !{!"_ZTSN13pj_imoll_o_ns15pj_imoll_o_dataE", !7, i64 0, !14, i64 48, !14, i64 56, !14, i64 64, !14, i64 72}
+!51 = !{!50, !14, i64 56}
+!52 = !{!50, !14, i64 64}
+!53 = !{!50, !14, i64 72}
+!54 = !{!4, !6, i64 112}
+!55 = !{!4, !6, i64 104}
+!56 = !{!4, !14, i64 216}

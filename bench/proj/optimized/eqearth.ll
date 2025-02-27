@@ -23,15 +23,15 @@ define hidden noundef ptr @pj_eqearth(ptr noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr @.str, ptr %8, align 8
+  store ptr @.str, ptr %8, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr @_ZL11des_eqearth, ptr %9, align 8
+  store ptr @_ZL11des_eqearth, ptr %9, align 8, !tbaa !36
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 360
-  store i32 1, ptr %10, align 8
+  store i32 1, ptr %10, align 8, !tbaa !37
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 380
-  store i32 4, ptr %11, align 4
+  store i32 4, ptr %11, align 4, !tbaa !38
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 384
-  store i32 1, ptr %12, align 8
+  store i32 1, ptr %12, align 8, !tbaa !39
   br label %13
 
 13:                                               ; preds = %4, %7, %2
@@ -51,35 +51,35 @@ define hidden noundef ptr @_Z36pj_projection_specific_setup_eqearthP8PJconsts(pt
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %2, ptr %7, align 8
+  store ptr %2, ptr %7, align 8, !tbaa !40
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store ptr @_ZL10destructorP8PJconstsi, ptr %8, align 8
+  store ptr @_ZL10destructorP8PJconstsi, ptr %8, align 8, !tbaa !41
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr @_ZL17eqearth_e_forward5PJ_LPP8PJconsts, ptr %9, align 8
+  store ptr @_ZL17eqearth_e_forward5PJ_LPP8PJconsts, ptr %9, align 8, !tbaa !42
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @_ZL17eqearth_e_inverse5PJ_XYP8PJconsts, ptr %10, align 8
+  store ptr @_ZL17eqearth_e_inverse5PJ_XYP8PJconsts, ptr %10, align 8, !tbaa !43
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store double 1.000000e+00, ptr %11, align 8
+  store double 1.000000e+00, ptr %11, align 8, !tbaa !44
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %13 = load double, ptr %12, align 8
+  %13 = load double, ptr %12, align 8, !tbaa !47
   %14 = fcmp une double %13, 0.000000e+00
   br i1 %14, label %15, label %34
 
 15:                                               ; preds = %6
   %16 = tail call noundef ptr @_Z10pj_authsetd(double noundef %13)
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %16, ptr %17, align 8
+  store ptr %16, ptr %17, align 8, !tbaa !48
   %18 = icmp eq ptr %16, null
   br i1 %18, label %19, label %26
 
 19:                                               ; preds = %15
-  %20 = load ptr, ptr %7, align 8
+  %20 = load ptr, ptr %7, align 8, !tbaa !40
   %21 = icmp eq ptr %20, null
   br i1 %21, label %_ZL10destructorP8PJconstsi.exit, label %22
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %24 = load ptr, ptr %23, align 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !48
   tail call void @free(ptr noundef %24) #7
   br label %_ZL10destructorP8PJconstsi.exit
 
@@ -89,14 +89,14 @@ _ZL10destructorP8PJconstsi.exit:                  ; preds = %19, %22
 
 26:                                               ; preds = %15
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %28 = load double, ptr %27, align 8
+  %28 = load double, ptr %27, align 8, !tbaa !49
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %30 = load double, ptr %29, align 8
+  %30 = load double, ptr %29, align 8, !tbaa !50
   %31 = tail call noundef double @_Z7pj_qsfnddd(double noundef 1.000000e+00, double noundef %28, double noundef %30)
-  store double %31, ptr %2, align 8
+  store double %31, ptr %2, align 8, !tbaa !51
   %32 = fmul double %31, 5.000000e-01
-  %33 = tail call double @sqrt(double noundef %32) #7
-  store double %33, ptr %11, align 8
+  %33 = tail call double @sqrt(double noundef %32) #7, !tbaa !52
+  store double %33, ptr %11, align 8, !tbaa !44
   br label %34
 
 34:                                               ; preds = %6, %26, %_ZL10destructorP8PJconstsi.exit, %4
@@ -118,13 +118,13 @@ define internal noundef ptr @_ZL10destructorP8PJconstsi(ptr noundef %0, i32 noun
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !40
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.sink.split, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !48
   tail call void @free(ptr noundef %10) #7
   br label %.sink.split
 
@@ -140,19 +140,19 @@ define internal noundef ptr @_ZL10destructorP8PJconstsi(ptr noundef %0, i32 noun
 ; Function Attrs: mustprogress uwtable
 define internal { double, double } @_ZL17eqearth_e_forward5PJ_LPP8PJconsts(double %0, double %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %5 = load ptr, ptr %4, align 8
-  %6 = tail call double @sin(double noundef %1) #7
+  %5 = load ptr, ptr %4, align 8, !tbaa !40
+  %6 = tail call double @sin(double noundef %1) #7, !tbaa !52
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 216
-  %8 = load double, ptr %7, align 8
+  %8 = load double, ptr %7, align 8, !tbaa !47
   %9 = fcmp une double %8, 0.000000e+00
   br i1 %9, label %10, label %22
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 208
-  %12 = load double, ptr %11, align 8
+  %12 = load double, ptr %11, align 8, !tbaa !49
   %13 = fsub double 1.000000e+00, %8
   %14 = tail call noundef double @_Z7pj_qsfnddd(double noundef %6, double noundef %12, double noundef %13)
-  %15 = load double, ptr %5, align 8
+  %15 = load double, ptr %5, align 8, !tbaa !51
   %16 = fdiv double %14, %15
   %17 = tail call double @llvm.fabs.f64(double %16)
   %18 = fcmp ogt double %17, 1.000000e+00
@@ -166,11 +166,11 @@ define internal { double, double } @_ZL17eqearth_e_forward5PJ_LPP8PJconsts(doubl
 22:                                               ; preds = %10, %19, %3
   %.0 = phi double [ %21, %19 ], [ %16, %10 ], [ %6, %3 ]
   %23 = fmul double %.0, 0x3FEBB67AE8584CAA
-  %24 = tail call double @asin(double noundef %23) #7
+  %24 = tail call double @asin(double noundef %23) #7, !tbaa !52
   %25 = fmul double %24, %24
   %26 = fmul double %25, %25
   %27 = fmul double %25, %26
-  %28 = tail call double @cos(double noundef %24) #7
+  %28 = tail call double @cos(double noundef %24) #7, !tbaa !52
   %29 = fmul double %0, %28
   %30 = tail call double @llvm.fmuladd.f64(double %25, double 0xBFCF250B524399B2, double 0x3FF571B8AA00192A)
   %31 = tail call double @llvm.fmuladd.f64(double %25, double 3.416400e-02, double 0x3F799AA60913A4F9)
@@ -182,7 +182,7 @@ define internal { double, double } @_ZL17eqearth_e_forward5PJ_LPP8PJconsts(doubl
   %37 = tail call double @llvm.fmuladd.f64(double %27, double %36, double %35)
   %38 = fmul double %24, %37
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %40 = load double, ptr %39, align 8
+  %40 = load double, ptr %39, align 8, !tbaa !44
   %41 = fmul double %40, %34
   %42 = fmul double %40, %38
   %.fca.0.insert = insertvalue { double, double } poison, double %41, 0
@@ -193,9 +193,9 @@ define internal { double, double } @_ZL17eqearth_e_forward5PJ_LPP8PJconsts(doubl
 ; Function Attrs: mustprogress uwtable
 define internal { double, double } @_ZL17eqearth_e_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !40
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load double, ptr %6, align 8
+  %7 = load double, ptr %6, align 8, !tbaa !44
   %8 = fdiv double %0, %7
   %9 = fdiv double %1, %7
   %10 = fcmp ogt double %9, 0x3FF513EAF8F8CA2B
@@ -214,31 +214,31 @@ define internal { double, double } @_ZL17eqearth_e_inverse5PJ_XYP8PJconsts(doubl
   br label %18
 
 16:                                               ; preds = %18
-  %17 = add nsw i32 %.045, -1
+  %17 = add nsw i32 %.04247, -1
   %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %33, label %18, !llvm.loop !4
+  br i1 %.not, label %33, label %18, !llvm.loop !53
 
 18:                                               ; preds = %14, %16
-  %.045 = phi i32 [ 12, %14 ], [ %17, %16 ]
-  %.04144 = phi double [ %.sroa.4.0, %14 ], [ %30, %16 ]
-  %19 = fmul double %.04144, %.04144
+  %.04247 = phi i32 [ 12, %14 ], [ %17, %16 ]
+  %.04346 = phi double [ %.sroa.4.0, %14 ], [ %30, %16 ]
+  %19 = fmul double %.04346, %.04346
   %20 = fmul double %19, %19
   %21 = fmul double %19, %20
   %22 = tail call double @llvm.fmuladd.f64(double %19, double 0xBFB4C35CE1826677, double 0x3FF571B8AA00192A)
   %23 = tail call double @llvm.fmuladd.f64(double %19, double 3.796000e-03, double 8.930000e-04)
   %24 = tail call double @llvm.fmuladd.f64(double %21, double %23, double %22)
-  %25 = tail call double @llvm.fmuladd.f64(double %.04144, double %24, double %15)
+  %25 = tail call double @llvm.fmuladd.f64(double %.04346, double %24, double %15)
   %26 = tail call double @llvm.fmuladd.f64(double %19, double 0xBFCF250B524399B2, double 0x3FF571B8AA00192A)
   %27 = tail call double @llvm.fmuladd.f64(double %19, double 3.416400e-02, double 0x3F799AA60913A4F9)
   %28 = tail call double @llvm.fmuladd.f64(double %21, double %27, double %26)
   %29 = fdiv double %25, %28
-  %30 = fsub double %.04144, %29
+  %30 = fsub double %.04346, %29
   %31 = tail call double @llvm.fabs.f64(double %29)
   %32 = fcmp olt double %31, 0x3DA5FD7FE1796495
   br i1 %32, label %35, label %16
 
 33:                                               ; preds = %16
-  %34 = load ptr, ptr %2, align 8
+  %34 = load ptr, ptr %2, align 8, !tbaa !55
   tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %34, i32 noundef 2050)
   br label %56
 
@@ -251,26 +251,26 @@ define internal { double, double } @_ZL17eqearth_e_inverse5PJ_XYP8PJconsts(doubl
   %41 = tail call double @llvm.fmuladd.f64(double %36, double 3.416400e-02, double 0x3F799AA60913A4F9)
   %42 = tail call double @llvm.fmuladd.f64(double %38, double %41, double %40)
   %43 = fmul double %39, %42
-  %44 = tail call double @cos(double noundef %30) #7
+  %44 = tail call double @cos(double noundef %30) #7, !tbaa !52
   %45 = fdiv double %43, %44
-  %46 = tail call double @sin(double noundef %30) #7
+  %46 = tail call double @sin(double noundef %30) #7, !tbaa !52
   %47 = fdiv double %46, 0x3FEBB67AE8584CAA
-  %48 = tail call double @asin(double noundef %47) #7
+  %48 = tail call double @asin(double noundef %47) #7, !tbaa !52
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 216
-  %50 = load double, ptr %49, align 8
+  %50 = load double, ptr %49, align 8, !tbaa !47
   %51 = fcmp une double %50, 0.000000e+00
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %35
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %54 = load ptr, ptr %53, align 8
+  %54 = load ptr, ptr %53, align 8, !tbaa !48
   %55 = tail call noundef double @_Z10pj_authlatdPd(double noundef %48, ptr noundef %54)
   br label %56
 
 56:                                               ; preds = %35, %52, %33
   %.sroa.3.0 = phi double [ 0.000000e+00, %33 ], [ %55, %52 ], [ %48, %35 ]
-  %.sroa.040.0 = phi double [ 0.000000e+00, %33 ], [ %45, %52 ], [ %45, %35 ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.040.0, 0
+  %.sroa.041.0 = phi double [ 0.000000e+00, %33 ], [ %45, %52 ], [ %45, %35 ]
+  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.041.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.3.0, 1
   ret { double, double } %.fca.1.insert
 }
@@ -304,20 +304,70 @@ declare void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef, i32 noundef) loca
 
 declare noundef double @_Z10pj_authlatdPd(double noundef, ptr noundef) local_unnamed_addr #1
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind allocsize(0,1) }
 attributes #7 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !9, i64 8}
+!4 = !{!"_ZTS8PJconsts", !5, i64 0, !9, i64 8, !9, i64 16, !10, i64 24, !9, i64 32, !11, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !12, i64 80, !6, i64 88, !13, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !14, i64 168, !14, i64 176, !14, i64 184, !14, i64 192, !14, i64 200, !14, i64 208, !14, i64 216, !14, i64 224, !14, i64 232, !14, i64 240, !14, i64 248, !14, i64 256, !14, i64 264, !14, i64 272, !14, i64 280, !14, i64 288, !14, i64 296, !14, i64 304, !14, i64 312, !14, i64 320, !14, i64 328, !14, i64 336, !13, i64 344, !13, i64 348, !13, i64 352, !13, i64 356, !13, i64 360, !13, i64 364, !13, i64 368, !13, i64 372, !13, i64 376, !15, i64 380, !15, i64 384, !11, i64 392, !11, i64 400, !11, i64 408, !11, i64 416, !11, i64 424, !11, i64 432, !14, i64 440, !14, i64 448, !14, i64 456, !14, i64 464, !14, i64 472, !14, i64 480, !14, i64 488, !14, i64 496, !14, i64 504, !14, i64 512, !14, i64 520, !13, i64 528, !7, i64 536, !13, i64 592, !6, i64 600, !6, i64 608, !14, i64 616, !14, i64 624, !13, i64 632, !7, i64 636, !16, i64 640, !21, i64 656, !14, i64 664, !21, i64 672, !22, i64 680, !22, i64 712, !22, i64 744, !21, i64 776, !25, i64 784, !30, i64 808, !31, i64 816, !13, i64 840, !21, i64 844, !21, i64 845, !21, i64 846, !11, i64 848}
+!5 = !{!"p1 _ZTS6pj_ctx", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!"p1 omnipotent char", !6, i64 0}
+!10 = !{!"p1 _ZTS8ARG_list", !6, i64 0}
+!11 = !{!"p1 _ZTS8PJconsts", !6, i64 0}
+!12 = !{!"p1 _ZTS13geod_geodesic", !6, i64 0}
+!13 = !{!"int", !7, i64 0}
+!14 = !{!"double", !7, i64 0}
+!15 = !{!"_ZTS11pj_io_units", !7, i64 0}
+!16 = !{!"_ZTSSt10shared_ptrIN5osgeo4proj4util10BaseObjectEE", !17, i64 0}
+!17 = !{!"_ZTSSt12__shared_ptrIN5osgeo4proj4util10BaseObjectELN9__gnu_cxx12_Lock_policyE2EE", !18, i64 0, !19, i64 8}
+!18 = !{!"p1 _ZTSN5osgeo4proj4util10BaseObjectE", !6, i64 0}
+!19 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !20, i64 0}
+!20 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !6, i64 0}
+!21 = !{!"bool", !7, i64 0}
+!22 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !23, i64 0, !24, i64 8, !7, i64 16}
+!23 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !9, i64 0}
+!24 = !{!"long", !7, i64 0}
+!25 = !{!"_ZTSSt6vectorIN5osgeo4proj9operation15GridDescriptionESaIS3_EE", !26, i64 0}
+!26 = !{!"_ZTSSt12_Vector_baseIN5osgeo4proj9operation15GridDescriptionESaIS3_EE", !27, i64 0}
+!27 = !{!"_ZTSNSt12_Vector_baseIN5osgeo4proj9operation15GridDescriptionESaIS3_EE12_Vector_implE", !28, i64 0}
+!28 = !{!"_ZTSNSt12_Vector_baseIN5osgeo4proj9operation15GridDescriptionESaIS3_EE17_Vector_impl_dataE", !29, i64 0, !29, i64 8, !29, i64 16}
+!29 = !{!"p1 _ZTSN5osgeo4proj9operation15GridDescriptionE", !6, i64 0}
+!30 = !{!"_ZTS7PJ_TYPE", !7, i64 0}
+!31 = !{!"_ZTSSt6vectorI16PJCoordOperationSaIS0_EE", !32, i64 0}
+!32 = !{!"_ZTSSt12_Vector_baseI16PJCoordOperationSaIS0_EE", !33, i64 0}
+!33 = !{!"_ZTSNSt12_Vector_baseI16PJCoordOperationSaIS0_EE12_Vector_implE", !34, i64 0}
+!34 = !{!"_ZTSNSt12_Vector_baseI16PJCoordOperationSaIS0_EE17_Vector_impl_dataE", !35, i64 0, !35, i64 8, !35, i64 16}
+!35 = !{!"p1 _ZTS16PJCoordOperation", !6, i64 0}
+!36 = !{!4, !9, i64 16}
+!37 = !{!4, !13, i64 360}
+!38 = !{!4, !15, i64 380}
+!39 = !{!4, !15, i64 384}
+!40 = !{!4, !6, i64 88}
+!41 = !{!4, !6, i64 152}
+!42 = !{!4, !6, i64 104}
+!43 = !{!4, !6, i64 112}
+!44 = !{!45, !14, i64 8}
+!45 = !{!"_ZTSN12_GLOBAL__N_110pj_eqearthE", !14, i64 0, !14, i64 8, !46, i64 16}
+!46 = !{!"p1 double", !6, i64 0}
+!47 = !{!4, !14, i64 216}
+!48 = !{!45, !46, i64 16}
+!49 = !{!4, !14, i64 208}
+!50 = !{!4, !14, i64 256}
+!51 = !{!45, !14, i64 0}
+!52 = !{!13, !13, i64 0}
+!53 = distinct !{!53, !54}
+!54 = !{!"llvm.loop.mustprogress"}
+!55 = !{!4, !5, i64 0}

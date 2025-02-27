@@ -10,83 +10,105 @@ define hidden noundef double @_Z7pj_qsfnddd(double noundef %0, double noundef %1
   %8 = alloca double, align 8
   %9 = alloca double, align 8
   %10 = alloca double, align 8
-  store double %0, ptr %5, align 8
-  store double %1, ptr %6, align 8
-  store double %2, ptr %7, align 8
-  %11 = load double, ptr %6, align 8
-  %12 = fcmp oge double %11, 0x3E7AD7F29ABCAF48
-  br i1 %12, label %13, label %44
+  %11 = alloca i32, align 4
+  store double %0, ptr %5, align 8, !tbaa !3
+  store double %1, ptr %6, align 8, !tbaa !3
+  store double %2, ptr %7, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  %12 = load double, ptr %6, align 8, !tbaa !3
+  %13 = fcmp oge double %12, 0x3E7AD7F29ABCAF48
+  br i1 %13, label %14, label %45
 
-13:                                               ; preds = %3
-  %14 = load double, ptr %6, align 8
-  %15 = load double, ptr %5, align 8
-  %16 = fmul double %14, %15
-  store double %16, ptr %8, align 8
-  %17 = load double, ptr %8, align 8
-  %18 = load double, ptr %8, align 8
-  %19 = fneg double %17
-  %20 = call double @llvm.fmuladd.f64(double %19, double %18, double 1.000000e+00)
-  store double %20, ptr %9, align 8
-  %21 = load double, ptr %8, align 8
-  %22 = fadd double 1.000000e+00, %21
-  store double %22, ptr %10, align 8
-  %23 = load double, ptr %9, align 8
-  %24 = fcmp oeq double %23, 0.000000e+00
-  br i1 %24, label %28, label %25
+14:                                               ; preds = %3
+  %15 = load double, ptr %6, align 8, !tbaa !3
+  %16 = load double, ptr %5, align 8, !tbaa !3
+  %17 = fmul double %15, %16
+  store double %17, ptr %8, align 8, !tbaa !3
+  %18 = load double, ptr %8, align 8, !tbaa !3
+  %19 = load double, ptr %8, align 8, !tbaa !3
+  %20 = fneg double %18
+  %21 = call double @llvm.fmuladd.f64(double %20, double %19, double 1.000000e+00)
+  store double %21, ptr %9, align 8, !tbaa !3
+  %22 = load double, ptr %8, align 8, !tbaa !3
+  %23 = fadd double 1.000000e+00, %22
+  store double %23, ptr %10, align 8, !tbaa !3
+  %24 = load double, ptr %9, align 8, !tbaa !3
+  %25 = fcmp oeq double %24, 0.000000e+00
+  br i1 %25, label %29, label %26
 
-25:                                               ; preds = %13
-  %26 = load double, ptr %10, align 8
-  %27 = fcmp oeq double %26, 0.000000e+00
-  br i1 %27, label %28, label %29
+26:                                               ; preds = %14
+  %27 = load double, ptr %10, align 8, !tbaa !3
+  %28 = fcmp oeq double %27, 0.000000e+00
+  br i1 %28, label %29, label %30
 
-28:                                               ; preds = %25, %13
+29:                                               ; preds = %26, %14
   store double 0x7FF0000000000000, ptr %4, align 8
-  br label %48
+  store i32 1, ptr %11, align 4
+  br label %49
 
-29:                                               ; preds = %25
-  %30 = load double, ptr %7, align 8
-  %31 = load double, ptr %5, align 8
-  %32 = load double, ptr %9, align 8
-  %33 = fdiv double %31, %32
-  %34 = load double, ptr %6, align 8
-  %35 = fdiv double 5.000000e-01, %34
-  %36 = load double, ptr %8, align 8
-  %37 = fsub double 1.000000e+00, %36
-  %38 = load double, ptr %10, align 8
-  %39 = fdiv double %37, %38
-  %40 = call double @log(double noundef %39) #3
-  %41 = fneg double %35
-  %42 = call double @llvm.fmuladd.f64(double %41, double %40, double %33)
-  %43 = fmul double %30, %42
-  store double %43, ptr %4, align 8
-  br label %48
+30:                                               ; preds = %26
+  %31 = load double, ptr %7, align 8, !tbaa !3
+  %32 = load double, ptr %5, align 8, !tbaa !3
+  %33 = load double, ptr %9, align 8, !tbaa !3
+  %34 = fdiv double %32, %33
+  %35 = load double, ptr %6, align 8, !tbaa !3
+  %36 = fdiv double 5.000000e-01, %35
+  %37 = load double, ptr %8, align 8, !tbaa !3
+  %38 = fsub double 1.000000e+00, %37
+  %39 = load double, ptr %10, align 8, !tbaa !3
+  %40 = fdiv double %38, %39
+  %41 = call double @log(double noundef %40) #4, !tbaa !7
+  %42 = fneg double %36
+  %43 = call double @llvm.fmuladd.f64(double %42, double %41, double %34)
+  %44 = fmul double %31, %43
+  store double %44, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %49
 
-44:                                               ; preds = %3
-  %45 = load double, ptr %5, align 8
-  %46 = load double, ptr %5, align 8
-  %47 = fadd double %45, %46
-  store double %47, ptr %4, align 8
-  br label %48
+45:                                               ; preds = %3
+  %46 = load double, ptr %5, align 8, !tbaa !3
+  %47 = load double, ptr %5, align 8, !tbaa !3
+  %48 = fadd double %46, %47
+  store double %48, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %49
 
-48:                                               ; preds = %44, %29, %28
-  %49 = load double, ptr %4, align 8
-  ret double %49
+49:                                               ; preds = %45, %30, %29
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  %50 = load double, ptr %4, align 8
+  ret double %50
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #1
+declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: nounwind
-declare double @log(double noundef) #2
+declare double @log(double noundef) #3
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"double", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"int", !5, i64 0}

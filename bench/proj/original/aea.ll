@@ -1,7 +1,7 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.PJconsts = type <{ ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, double, double, double, double, double, double, double, double, double, double, double, i32, [4 x i8], [7 x double], i32, [4 x i8], ptr, ptr, double, double, i32, [4 x i8], %"class.std::shared_ptr", i8, [7 x i8], double, i8, [7 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, [7 x i8], %"class.std::vector", i32, [4 x i8], %"class.std::vector.3", i32, i8, i8, i8, i8 }>
+%struct.PJconsts = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, double, double, double, double, double, double, double, double, double, double, double, i32, [7 x double], i32, ptr, ptr, double, double, i32, [4 x i8], %"class.std::shared_ptr", i8, double, i8, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, %"class.std::vector", i32, %"class.std::vector.3", i32, i8, i8, i8, ptr }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
@@ -39,21 +39,21 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden ptr @pj_aea(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = icmp ne ptr %4, null
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %3, align 8
+  %7 = load ptr, ptr %3, align 8, !tbaa !3
   %8 = call noundef ptr @_Z32pj_projection_specific_setup_aeaP8PJconsts(ptr noundef %7)
   store ptr %8, ptr %2, align 8
   br label %26
 
 9:                                                ; preds = %1
   %10 = call noundef ptr @_Z6pj_newv()
-  store ptr %10, ptr %3, align 8
-  %11 = load ptr, ptr %3, align 8
+  store ptr %10, ptr %3, align 8, !tbaa !3
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
   %12 = icmp eq ptr null, %11
   br i1 %12, label %13, label %14
 
@@ -62,22 +62,22 @@ define hidden ptr @pj_aea(ptr noundef %0) #0 {
   br label %26
 
 14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.PJconsts, ptr %15, i32 0, i32 1
-  store ptr @.str, ptr %16, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.PJconsts, ptr %17, i32 0, i32 2
-  store ptr @_ZL7des_aea, ptr %18, align 8
-  %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds %struct.PJconsts, ptr %19, i32 0, i32 48
-  store i32 1, ptr %20, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.PJconsts, ptr %21, i32 0, i32 53
-  store i32 4, ptr %22, align 4
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.PJconsts, ptr %23, i32 0, i32 54
-  store i32 1, ptr %24, align 8
-  %25 = load ptr, ptr %3, align 8
+  %15 = load ptr, ptr %3, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw %struct.PJconsts, ptr %15, i32 0, i32 1
+  store ptr @.str, ptr %16, align 8, !tbaa !8
+  %17 = load ptr, ptr %3, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.PJconsts, ptr %17, i32 0, i32 2
+  store ptr @_ZL7des_aea, ptr %18, align 8, !tbaa !37
+  %19 = load ptr, ptr %3, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw %struct.PJconsts, ptr %19, i32 0, i32 47
+  store i32 1, ptr %20, align 8, !tbaa !38
+  %21 = load ptr, ptr %3, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %struct.PJconsts, ptr %21, i32 0, i32 52
+  store i32 4, ptr %22, align 4, !tbaa !39
+  %23 = load ptr, ptr %3, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw %struct.PJconsts, ptr %23, i32 0, i32 53
+  store i32 1, ptr %24, align 8, !tbaa !40
+  %25 = load ptr, ptr %3, align 8, !tbaa !3
   store ptr %25, ptr %2, align 8
   br label %26
 
@@ -91,69 +91,81 @@ define hidden noundef ptr @_Z32pj_projection_specific_setup_aeaP8PJconsts(ptr no
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = alloca %union.PROJVALUE, align 8
+  %5 = alloca i32, align 4
   %6 = alloca %union.PROJVALUE, align 8
-  store ptr %0, ptr %3, align 8
-  %7 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 88) #7
-  store ptr %7, ptr %4, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = icmp eq ptr null, %8
-  br i1 %9, label %10, label %13
+  %7 = alloca %union.PROJVALUE, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %8 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 88) #9
+  store ptr %8, ptr %4, align 8, !tbaa !41
+  %9 = load ptr, ptr %4, align 8, !tbaa !41
+  %10 = icmp eq ptr null, %9
+  br i1 %10, label %11, label %14
 
-10:                                               ; preds = %1
-  %11 = load ptr, ptr %3, align 8
-  %12 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %11, i32 noundef 4096)
-  store ptr %12, ptr %2, align 8
-  br label %43
+11:                                               ; preds = %1
+  %12 = load ptr, ptr %3, align 8, !tbaa !3
+  %13 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %12, i32 noundef 4096)
+  store ptr %13, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %44
 
-13:                                               ; preds = %1
-  %14 = load ptr, ptr %4, align 8
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.PJconsts, ptr %15, i32 0, i32 11
-  store ptr %14, ptr %16, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.PJconsts, ptr %17, i32 0, i32 20
-  store ptr @_ZL17pj_aea_destructorP8PJconstsi, ptr %18, align 8
-  %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds %struct.PJconsts, ptr %19, i32 0, i32 0
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.PJconsts, ptr %22, i32 0, i32 3
-  %24 = load ptr, ptr %23, align 8
-  %25 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %21, ptr noundef %24, ptr noundef @.str.1)
-  %26 = getelementptr inbounds %union.PROJVALUE, ptr %5, i32 0, i32 0
-  store i64 %25, ptr %26, align 8
-  %27 = load double, ptr %5, align 8
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %28, i32 0, i32 7
-  store double %27, ptr %29, align 8
-  %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds %struct.PJconsts, ptr %30, i32 0, i32 0
-  %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds %struct.PJconsts, ptr %33, i32 0, i32 3
-  %35 = load ptr, ptr %34, align 8
-  %36 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %32, ptr noundef %35, ptr noundef @.str.2)
-  %37 = getelementptr inbounds %union.PROJVALUE, ptr %6, i32 0, i32 0
-  store i64 %36, ptr %37, align 8
-  %38 = load double, ptr %6, align 8
-  %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %39, i32 0, i32 8
-  store double %38, ptr %40, align 8
-  %41 = load ptr, ptr %3, align 8
-  %42 = call noundef ptr @_ZL5setupP8PJconsts(ptr noundef %41)
-  store ptr %42, ptr %2, align 8
-  br label %43
+14:                                               ; preds = %1
+  %15 = load ptr, ptr %4, align 8, !tbaa !41
+  %16 = load ptr, ptr %3, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.PJconsts, ptr %16, i32 0, i32 11
+  store ptr %15, ptr %17, align 8, !tbaa !43
+  %18 = load ptr, ptr %3, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.PJconsts, ptr %18, i32 0, i32 19
+  store ptr @_ZL17pj_aea_destructorP8PJconstsi, ptr %19, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %20 = load ptr, ptr %3, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %struct.PJconsts, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8, !tbaa !45
+  %23 = load ptr, ptr %3, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw %struct.PJconsts, ptr %23, i32 0, i32 3
+  %25 = load ptr, ptr %24, align 8, !tbaa !46
+  %26 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %22, ptr noundef %25, ptr noundef @.str.1)
+  %27 = getelementptr inbounds nuw %union.PROJVALUE, ptr %6, i32 0, i32 0
+  store i64 %26, ptr %27, align 8
+  %28 = load double, ptr %6, align 8, !tbaa !47
+  %29 = load ptr, ptr %4, align 8, !tbaa !41
+  %30 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %29, i32 0, i32 7
+  store double %28, ptr %30, align 8, !tbaa !48
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %31 = load ptr, ptr %3, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw %struct.PJconsts, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !45
+  %34 = load ptr, ptr %3, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw %struct.PJconsts, ptr %34, i32 0, i32 3
+  %36 = load ptr, ptr %35, align 8, !tbaa !46
+  %37 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %33, ptr noundef %36, ptr noundef @.str.2)
+  %38 = getelementptr inbounds nuw %union.PROJVALUE, ptr %7, i32 0, i32 0
+  store i64 %37, ptr %38, align 8
+  %39 = load double, ptr %7, align 8, !tbaa !47
+  %40 = load ptr, ptr %4, align 8, !tbaa !41
+  %41 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %40, i32 0, i32 8
+  store double %39, ptr %41, align 8, !tbaa !51
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  %42 = load ptr, ptr %3, align 8, !tbaa !3
+  %43 = call noundef ptr @_ZL5setupP8PJconsts(ptr noundef %42)
+  store ptr %43, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %44
 
-43:                                               ; preds = %13, %10
-  %44 = load ptr, ptr %2, align 8
-  ret ptr %44
+44:                                               ; preds = %14, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %45 = load ptr, ptr %2, align 8
+  ret ptr %45
 }
 
 declare noundef ptr @_Z6pj_newv() #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: nounwind allocsize(0,1)
-declare noalias ptr @calloc(i64 noundef, i64 noundef) #2
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #3
 
 declare noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef, i32 noundef) #1
 
@@ -162,9 +174,9 @@ define internal noundef ptr @_ZL17pj_aea_destructorP8PJconstsi(ptr noundef %0, i
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !52
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
   %7 = icmp eq ptr null, %6
   br i1 %7, label %8, label %9
 
@@ -173,28 +185,28 @@ define internal noundef ptr @_ZL17pj_aea_destructorP8PJconstsi(ptr noundef %0, i
   br label %27
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.PJconsts, ptr %10, i32 0, i32 11
-  %12 = load ptr, ptr %11, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.PJconsts, ptr %10, i32 0, i32 11
+  %12 = load ptr, ptr %11, align 8, !tbaa !43
   %13 = icmp eq ptr null, %12
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %9
-  %15 = load ptr, ptr %4, align 8
-  %16 = load i32, ptr %5, align 4
+  %15 = load ptr, ptr %4, align 8, !tbaa !3
+  %16 = load i32, ptr %5, align 4, !tbaa !52
   %17 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %15, i32 noundef %16)
   store ptr %17, ptr %3, align 8
   br label %27
 
 18:                                               ; preds = %9
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct.PJconsts, ptr %19, i32 0, i32 11
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %21, i32 0, i32 9
-  %23 = load ptr, ptr %22, align 8
+  %19 = load ptr, ptr %4, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw %struct.PJconsts, ptr %19, i32 0, i32 11
+  %21 = load ptr, ptr %20, align 8, !tbaa !43
+  %22 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %21, i32 0, i32 9
+  %23 = load ptr, ptr %22, align 8, !tbaa !53
   call void @free(ptr noundef %23) #8
-  %24 = load ptr, ptr %4, align 8
-  %25 = load i32, ptr %5, align 4
+  %24 = load ptr, ptr %4, align 8, !tbaa !3
+  %25 = load i32, ptr %5, align 4, !tbaa !52
   %26 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %24, i32 noundef %25)
   store ptr %26, ptr %3, align 8
   br label %27
@@ -206,402 +218,452 @@ define internal noundef ptr @_ZL17pj_aea_destructorP8PJconstsi(ptr noundef %0, i
 
 declare i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @_ZL5setupP8PJconsts(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = alloca double, align 8
+  %5 = alloca i32, align 4
   %6 = alloca double, align 8
-  %7 = alloca i32, align 4
-  %8 = alloca double, align 8
+  %7 = alloca double, align 8
+  %8 = alloca i32, align 4
   %9 = alloca double, align 8
   %10 = alloca double, align 8
   %11 = alloca double, align 8
-  store ptr %0, ptr %3, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.PJconsts, ptr %12, i32 0, i32 11
-  %14 = load ptr, ptr %13, align 8
-  store ptr %14, ptr %4, align 8
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.PJconsts, ptr %15, i32 0, i32 15
-  store ptr @_ZL13aea_e_inverse5PJ_XYP8PJconsts, ptr %16, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.PJconsts, ptr %17, i32 0, i32 14
-  store ptr @_ZL13aea_e_forward5PJ_LPP8PJconsts, ptr %18, align 8
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %19, i32 0, i32 7
-  %21 = load double, ptr %20, align 8
-  %22 = call double @llvm.fabs.f64(double %21)
-  %23 = fcmp ogt double %22, 0x3FF921FB54442D18
-  br i1 %23, label %24, label %28
+  %12 = alloca double, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %13 = load ptr, ptr %3, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %struct.PJconsts, ptr %13, i32 0, i32 11
+  %15 = load ptr, ptr %14, align 8, !tbaa !43
+  store ptr %15, ptr %4, align 8, !tbaa !41
+  %16 = load ptr, ptr %3, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.PJconsts, ptr %16, i32 0, i32 14
+  store ptr @_ZL13aea_e_inverse5PJ_XYP8PJconsts, ptr %17, align 8, !tbaa !54
+  %18 = load ptr, ptr %3, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.PJconsts, ptr %18, i32 0, i32 13
+  store ptr @_ZL13aea_e_forward5PJ_LPP8PJconsts, ptr %19, align 8, !tbaa !55
+  %20 = load ptr, ptr %4, align 8, !tbaa !41
+  %21 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %20, i32 0, i32 7
+  %22 = load double, ptr %21, align 8, !tbaa !48
+  %23 = call double @llvm.fabs.f64(double %22)
+  %24 = fcmp ogt double %23, 0x3FF921FB54442D18
+  br i1 %24, label %25, label %29
 
-24:                                               ; preds = %1
-  %25 = load ptr, ptr %3, align 8
-  call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef %25, ptr noundef @.str.5)
-  %26 = load ptr, ptr %3, align 8
-  %27 = call noundef ptr @_ZL17pj_aea_destructorP8PJconstsi(ptr noundef %26, i32 noundef 1027)
-  store ptr %27, ptr %2, align 8
-  br label %295
+25:                                               ; preds = %1
+  %26 = load ptr, ptr %3, align 8, !tbaa !3
+  call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef %26, ptr noundef @.str.5)
+  %27 = load ptr, ptr %3, align 8, !tbaa !3
+  %28 = call noundef ptr @_ZL17pj_aea_destructorP8PJconstsi(ptr noundef %27, i32 noundef 1027)
+  store ptr %28, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %303
 
-28:                                               ; preds = %1
-  %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %29, i32 0, i32 8
-  %31 = load double, ptr %30, align 8
-  %32 = call double @llvm.fabs.f64(double %31)
-  %33 = fcmp ogt double %32, 0x3FF921FB54442D18
-  br i1 %33, label %34, label %38
+29:                                               ; preds = %1
+  %30 = load ptr, ptr %4, align 8, !tbaa !41
+  %31 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %30, i32 0, i32 8
+  %32 = load double, ptr %31, align 8, !tbaa !51
+  %33 = call double @llvm.fabs.f64(double %32)
+  %34 = fcmp ogt double %33, 0x3FF921FB54442D18
+  br i1 %34, label %35, label %39
 
-34:                                               ; preds = %28
-  %35 = load ptr, ptr %3, align 8
-  call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef %35, ptr noundef @.str.6)
-  %36 = load ptr, ptr %3, align 8
-  %37 = call noundef ptr @_ZL17pj_aea_destructorP8PJconstsi(ptr noundef %36, i32 noundef 1027)
-  store ptr %37, ptr %2, align 8
-  br label %295
+35:                                               ; preds = %29
+  %36 = load ptr, ptr %3, align 8, !tbaa !3
+  call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef %36, ptr noundef @.str.6)
+  %37 = load ptr, ptr %3, align 8, !tbaa !3
+  %38 = call noundef ptr @_ZL17pj_aea_destructorP8PJconstsi(ptr noundef %37, i32 noundef 1027)
+  store ptr %38, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %303
 
-38:                                               ; preds = %28
-  %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %39, i32 0, i32 7
-  %41 = load double, ptr %40, align 8
-  %42 = load ptr, ptr %4, align 8
-  %43 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %42, i32 0, i32 8
-  %44 = load double, ptr %43, align 8
-  %45 = fadd double %41, %44
-  %46 = call double @llvm.fabs.f64(double %45)
-  %47 = fcmp olt double %46, 1.000000e-10
-  br i1 %47, label %48, label %52
+39:                                               ; preds = %29
+  %40 = load ptr, ptr %4, align 8, !tbaa !41
+  %41 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %40, i32 0, i32 7
+  %42 = load double, ptr %41, align 8, !tbaa !48
+  %43 = load ptr, ptr %4, align 8, !tbaa !41
+  %44 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %43, i32 0, i32 8
+  %45 = load double, ptr %44, align 8, !tbaa !51
+  %46 = fadd double %42, %45
+  %47 = call double @llvm.fabs.f64(double %46)
+  %48 = fcmp olt double %47, 1.000000e-10
+  br i1 %48, label %49, label %53
 
-48:                                               ; preds = %38
-  %49 = load ptr, ptr %3, align 8
-  call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef %49, ptr noundef @.str.7)
-  %50 = load ptr, ptr %3, align 8
-  %51 = call noundef ptr @_ZL17pj_aea_destructorP8PJconstsi(ptr noundef %50, i32 noundef 1027)
-  store ptr %51, ptr %2, align 8
-  br label %295
+49:                                               ; preds = %39
+  %50 = load ptr, ptr %3, align 8, !tbaa !3
+  call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef %50, ptr noundef @.str.7)
+  %51 = load ptr, ptr %3, align 8, !tbaa !3
+  %52 = call noundef ptr @_ZL17pj_aea_destructorP8PJconstsi(ptr noundef %51, i32 noundef 1027)
+  store ptr %52, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %303
 
-52:                                               ; preds = %38
-  %53 = load ptr, ptr %4, align 8
-  %54 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %53, i32 0, i32 7
-  %55 = load double, ptr %54, align 8
-  %56 = call double @sin(double noundef %55) #8
-  store double %56, ptr %5, align 8
-  %57 = load double, ptr %5, align 8
-  %58 = load ptr, ptr %4, align 8
-  %59 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %58, i32 0, i32 1
-  store double %57, ptr %59, align 8
-  %60 = load ptr, ptr %4, align 8
-  %61 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %60, i32 0, i32 7
-  %62 = load double, ptr %61, align 8
-  %63 = call double @cos(double noundef %62) #8
-  store double %63, ptr %6, align 8
-  %64 = load ptr, ptr %4, align 8
-  %65 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %64, i32 0, i32 7
-  %66 = load double, ptr %65, align 8
-  %67 = load ptr, ptr %4, align 8
-  %68 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %67, i32 0, i32 8
-  %69 = load double, ptr %68, align 8
-  %70 = fsub double %66, %69
-  %71 = call double @llvm.fabs.f64(double %70)
-  %72 = fcmp oge double %71, 1.000000e-10
-  %73 = zext i1 %72 to i32
-  store i32 %73, ptr %7, align 4
-  %74 = load ptr, ptr %3, align 8
-  %75 = getelementptr inbounds %struct.PJconsts, ptr %74, i32 0, i32 28
-  %76 = load double, ptr %75, align 8
-  %77 = fcmp ogt double %76, 0.000000e+00
-  %78 = zext i1 %77 to i32
-  %79 = load ptr, ptr %4, align 8
-  %80 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %79, i32 0, i32 10
-  store i32 %78, ptr %80, align 8
-  %81 = load ptr, ptr %4, align 8
-  %82 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %81, i32 0, i32 10
-  %83 = load i32, ptr %82, align 8
-  %84 = icmp ne i32 %83, 0
-  br i1 %84, label %85, label %233
+53:                                               ; preds = %39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %54 = load ptr, ptr %4, align 8, !tbaa !41
+  %55 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %54, i32 0, i32 7
+  %56 = load double, ptr %55, align 8, !tbaa !48
+  %57 = call double @sin(double noundef %56) #8, !tbaa !52
+  store double %57, ptr %6, align 8, !tbaa !56
+  %58 = load double, ptr %6, align 8, !tbaa !56
+  %59 = load ptr, ptr %4, align 8, !tbaa !41
+  %60 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %59, i32 0, i32 1
+  store double %58, ptr %60, align 8, !tbaa !57
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %61 = load ptr, ptr %4, align 8, !tbaa !41
+  %62 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %61, i32 0, i32 7
+  %63 = load double, ptr %62, align 8, !tbaa !48
+  %64 = call double @cos(double noundef %63) #8, !tbaa !52
+  store double %64, ptr %7, align 8, !tbaa !56
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  %65 = load ptr, ptr %4, align 8, !tbaa !41
+  %66 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %65, i32 0, i32 7
+  %67 = load double, ptr %66, align 8, !tbaa !48
+  %68 = load ptr, ptr %4, align 8, !tbaa !41
+  %69 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %68, i32 0, i32 8
+  %70 = load double, ptr %69, align 8, !tbaa !51
+  %71 = fsub double %67, %70
+  %72 = call double @llvm.fabs.f64(double %71)
+  %73 = fcmp oge double %72, 1.000000e-10
+  %74 = zext i1 %73 to i32
+  store i32 %74, ptr %8, align 4, !tbaa !52
+  %75 = load ptr, ptr %3, align 8, !tbaa !3
+  %76 = getelementptr inbounds nuw %struct.PJconsts, ptr %75, i32 0, i32 27
+  %77 = load double, ptr %76, align 8, !tbaa !58
+  %78 = fcmp ogt double %77, 0.000000e+00
+  %79 = zext i1 %78 to i32
+  %80 = load ptr, ptr %4, align 8, !tbaa !41
+  %81 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %80, i32 0, i32 10
+  store i32 %79, ptr %81, align 8, !tbaa !59
+  %82 = load ptr, ptr %4, align 8, !tbaa !41
+  %83 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %82, i32 0, i32 10
+  %84 = load i32, ptr %83, align 8, !tbaa !59
+  %85 = icmp ne i32 %84, 0
+  br i1 %85, label %86, label %240
 
-85:                                               ; preds = %52
-  %86 = load ptr, ptr %3, align 8
-  %87 = getelementptr inbounds %struct.PJconsts, ptr %86, i32 0, i32 37
-  %88 = load double, ptr %87, align 8
-  %89 = call noundef ptr @_Z7pj_enfnd(double noundef %88)
-  %90 = load ptr, ptr %4, align 8
-  %91 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %90, i32 0, i32 9
-  store ptr %89, ptr %91, align 8
-  %92 = load ptr, ptr %4, align 8
-  %93 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %92, i32 0, i32 9
-  %94 = load ptr, ptr %93, align 8
-  %95 = icmp eq ptr %94, null
-  br i1 %95, label %96, label %99
+86:                                               ; preds = %53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %87 = load ptr, ptr %3, align 8, !tbaa !3
+  %88 = getelementptr inbounds nuw %struct.PJconsts, ptr %87, i32 0, i32 36
+  %89 = load double, ptr %88, align 8, !tbaa !60
+  %90 = call noundef ptr @_Z7pj_enfnd(double noundef %89)
+  %91 = load ptr, ptr %4, align 8, !tbaa !41
+  %92 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %91, i32 0, i32 9
+  store ptr %90, ptr %92, align 8, !tbaa !53
+  %93 = load ptr, ptr %4, align 8, !tbaa !41
+  %94 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %93, i32 0, i32 9
+  %95 = load ptr, ptr %94, align 8, !tbaa !53
+  %96 = icmp eq ptr %95, null
+  br i1 %96, label %97, label %100
 
-96:                                               ; preds = %85
-  %97 = load ptr, ptr %3, align 8
-  %98 = call noundef ptr @_ZL17pj_aea_destructorP8PJconstsi(ptr noundef %97, i32 noundef 0)
-  store ptr %98, ptr %2, align 8
-  br label %295
+97:                                               ; preds = %86
+  %98 = load ptr, ptr %3, align 8, !tbaa !3
+  %99 = call noundef ptr @_ZL17pj_aea_destructorP8PJconstsi(ptr noundef %98, i32 noundef 0)
+  store ptr %99, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %237
 
-99:                                               ; preds = %85
-  %100 = load double, ptr %5, align 8
-  %101 = load double, ptr %6, align 8
-  %102 = load ptr, ptr %3, align 8
-  %103 = getelementptr inbounds %struct.PJconsts, ptr %102, i32 0, i32 28
-  %104 = load double, ptr %103, align 8
-  %105 = call noundef double @_Z7pj_msfnddd(double noundef %100, double noundef %101, double noundef %104)
-  store double %105, ptr %9, align 8
-  %106 = load double, ptr %5, align 8
-  %107 = load ptr, ptr %3, align 8
-  %108 = getelementptr inbounds %struct.PJconsts, ptr %107, i32 0, i32 27
-  %109 = load double, ptr %108, align 8
-  %110 = load ptr, ptr %3, align 8
-  %111 = getelementptr inbounds %struct.PJconsts, ptr %110, i32 0, i32 33
-  %112 = load double, ptr %111, align 8
-  %113 = call noundef double @_Z7pj_qsfnddd(double noundef %106, double noundef %109, double noundef %112)
-  store double %113, ptr %8, align 8
-  %114 = load i32, ptr %7, align 4
-  %115 = icmp ne i32 %114, 0
-  br i1 %115, label %116, label %168
+100:                                              ; preds = %86
+  %101 = load double, ptr %6, align 8, !tbaa !56
+  %102 = load double, ptr %7, align 8, !tbaa !56
+  %103 = load ptr, ptr %3, align 8, !tbaa !3
+  %104 = getelementptr inbounds nuw %struct.PJconsts, ptr %103, i32 0, i32 27
+  %105 = load double, ptr %104, align 8, !tbaa !58
+  %106 = call noundef double @_Z7pj_msfnddd(double noundef %101, double noundef %102, double noundef %105)
+  store double %106, ptr %10, align 8, !tbaa !56
+  %107 = load double, ptr %6, align 8, !tbaa !56
+  %108 = load ptr, ptr %3, align 8, !tbaa !3
+  %109 = getelementptr inbounds nuw %struct.PJconsts, ptr %108, i32 0, i32 26
+  %110 = load double, ptr %109, align 8, !tbaa !61
+  %111 = load ptr, ptr %3, align 8, !tbaa !3
+  %112 = getelementptr inbounds nuw %struct.PJconsts, ptr %111, i32 0, i32 32
+  %113 = load double, ptr %112, align 8, !tbaa !62
+  %114 = call noundef double @_Z7pj_qsfnddd(double noundef %107, double noundef %110, double noundef %113)
+  store double %114, ptr %9, align 8, !tbaa !56
+  %115 = load i32, ptr %8, align 4, !tbaa !52
+  %116 = icmp ne i32 %115, 0
+  br i1 %116, label %117, label %172
 
-116:                                              ; preds = %99
-  %117 = load ptr, ptr %4, align 8
-  %118 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %117, i32 0, i32 8
-  %119 = load double, ptr %118, align 8
-  %120 = call double @sin(double noundef %119) #8
-  store double %120, ptr %5, align 8
-  %121 = load ptr, ptr %4, align 8
-  %122 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %121, i32 0, i32 8
-  %123 = load double, ptr %122, align 8
-  %124 = call double @cos(double noundef %123) #8
-  store double %124, ptr %6, align 8
-  %125 = load double, ptr %5, align 8
-  %126 = load double, ptr %6, align 8
-  %127 = load ptr, ptr %3, align 8
-  %128 = getelementptr inbounds %struct.PJconsts, ptr %127, i32 0, i32 28
-  %129 = load double, ptr %128, align 8
-  %130 = call noundef double @_Z7pj_msfnddd(double noundef %125, double noundef %126, double noundef %129)
-  store double %130, ptr %11, align 8
-  %131 = load double, ptr %5, align 8
-  %132 = load ptr, ptr %3, align 8
-  %133 = getelementptr inbounds %struct.PJconsts, ptr %132, i32 0, i32 27
-  %134 = load double, ptr %133, align 8
-  %135 = load ptr, ptr %3, align 8
-  %136 = getelementptr inbounds %struct.PJconsts, ptr %135, i32 0, i32 33
-  %137 = load double, ptr %136, align 8
-  %138 = call noundef double @_Z7pj_qsfnddd(double noundef %131, double noundef %134, double noundef %137)
-  store double %138, ptr %10, align 8
-  %139 = load double, ptr %10, align 8
-  %140 = load double, ptr %8, align 8
-  %141 = fcmp oeq double %139, %140
-  br i1 %141, label %142, label %145
+117:                                              ; preds = %100
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  %118 = load ptr, ptr %4, align 8, !tbaa !41
+  %119 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %118, i32 0, i32 8
+  %120 = load double, ptr %119, align 8, !tbaa !51
+  %121 = call double @sin(double noundef %120) #8, !tbaa !52
+  store double %121, ptr %6, align 8, !tbaa !56
+  %122 = load ptr, ptr %4, align 8, !tbaa !41
+  %123 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %122, i32 0, i32 8
+  %124 = load double, ptr %123, align 8, !tbaa !51
+  %125 = call double @cos(double noundef %124) #8, !tbaa !52
+  store double %125, ptr %7, align 8, !tbaa !56
+  %126 = load double, ptr %6, align 8, !tbaa !56
+  %127 = load double, ptr %7, align 8, !tbaa !56
+  %128 = load ptr, ptr %3, align 8, !tbaa !3
+  %129 = getelementptr inbounds nuw %struct.PJconsts, ptr %128, i32 0, i32 27
+  %130 = load double, ptr %129, align 8, !tbaa !58
+  %131 = call noundef double @_Z7pj_msfnddd(double noundef %126, double noundef %127, double noundef %130)
+  store double %131, ptr %12, align 8, !tbaa !56
+  %132 = load double, ptr %6, align 8, !tbaa !56
+  %133 = load ptr, ptr %3, align 8, !tbaa !3
+  %134 = getelementptr inbounds nuw %struct.PJconsts, ptr %133, i32 0, i32 26
+  %135 = load double, ptr %134, align 8, !tbaa !61
+  %136 = load ptr, ptr %3, align 8, !tbaa !3
+  %137 = getelementptr inbounds nuw %struct.PJconsts, ptr %136, i32 0, i32 32
+  %138 = load double, ptr %137, align 8, !tbaa !62
+  %139 = call noundef double @_Z7pj_qsfnddd(double noundef %132, double noundef %135, double noundef %138)
+  store double %139, ptr %11, align 8, !tbaa !56
+  %140 = load double, ptr %11, align 8, !tbaa !56
+  %141 = load double, ptr %9, align 8, !tbaa !56
+  %142 = fcmp oeq double %140, %141
+  br i1 %142, label %143, label %146
 
-142:                                              ; preds = %116
-  %143 = load ptr, ptr %3, align 8
-  %144 = call noundef ptr @_ZL17pj_aea_destructorP8PJconstsi(ptr noundef %143, i32 noundef 0)
-  store ptr %144, ptr %2, align 8
-  br label %295
+143:                                              ; preds = %117
+  %144 = load ptr, ptr %3, align 8, !tbaa !3
+  %145 = call noundef ptr @_ZL17pj_aea_destructorP8PJconstsi(ptr noundef %144, i32 noundef 0)
+  store ptr %145, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %169
 
-145:                                              ; preds = %116
-  %146 = load double, ptr %9, align 8
-  %147 = load double, ptr %9, align 8
-  %148 = load double, ptr %11, align 8
-  %149 = load double, ptr %11, align 8
-  %150 = fmul double %148, %149
-  %151 = fneg double %150
-  %152 = call double @llvm.fmuladd.f64(double %146, double %147, double %151)
-  %153 = load double, ptr %10, align 8
-  %154 = load double, ptr %8, align 8
-  %155 = fsub double %153, %154
-  %156 = fdiv double %152, %155
-  %157 = load ptr, ptr %4, align 8
-  %158 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %157, i32 0, i32 1
-  store double %156, ptr %158, align 8
-  %159 = load ptr, ptr %4, align 8
-  %160 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %159, i32 0, i32 1
-  %161 = load double, ptr %160, align 8
-  %162 = fcmp oeq double %161, 0.000000e+00
-  br i1 %162, label %163, label %167
+146:                                              ; preds = %117
+  %147 = load double, ptr %10, align 8, !tbaa !56
+  %148 = load double, ptr %10, align 8, !tbaa !56
+  %149 = load double, ptr %12, align 8, !tbaa !56
+  %150 = load double, ptr %12, align 8, !tbaa !56
+  %151 = fmul double %149, %150
+  %152 = fneg double %151
+  %153 = call double @llvm.fmuladd.f64(double %147, double %148, double %152)
+  %154 = load double, ptr %11, align 8, !tbaa !56
+  %155 = load double, ptr %9, align 8, !tbaa !56
+  %156 = fsub double %154, %155
+  %157 = fdiv double %153, %156
+  %158 = load ptr, ptr %4, align 8, !tbaa !41
+  %159 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %158, i32 0, i32 1
+  store double %157, ptr %159, align 8, !tbaa !57
+  %160 = load ptr, ptr %4, align 8, !tbaa !41
+  %161 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %160, i32 0, i32 1
+  %162 = load double, ptr %161, align 8, !tbaa !57
+  %163 = fcmp oeq double %162, 0.000000e+00
+  br i1 %163, label %164, label %168
 
-163:                                              ; preds = %145
-  %164 = load ptr, ptr %3, align 8
-  call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef %164, ptr noundef @.str.8)
-  %165 = load ptr, ptr %3, align 8
-  %166 = call noundef ptr @_ZL17pj_aea_destructorP8PJconstsi(ptr noundef %165, i32 noundef 1027)
-  store ptr %166, ptr %2, align 8
-  br label %295
+164:                                              ; preds = %146
+  %165 = load ptr, ptr %3, align 8, !tbaa !3
+  call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef %165, ptr noundef @.str.8)
+  %166 = load ptr, ptr %3, align 8, !tbaa !3
+  %167 = call noundef ptr @_ZL17pj_aea_destructorP8PJconstsi(ptr noundef %166, i32 noundef 1027)
+  store ptr %167, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %169
 
-167:                                              ; preds = %145
-  br label %168
+168:                                              ; preds = %146
+  store i32 0, ptr %5, align 4
+  br label %169
 
-168:                                              ; preds = %167, %99
-  %169 = load ptr, ptr %3, align 8
-  %170 = getelementptr inbounds %struct.PJconsts, ptr %169, i32 0, i32 33
-  %171 = load double, ptr %170, align 8
-  %172 = fmul double 5.000000e-01, %171
-  %173 = load ptr, ptr %3, align 8
-  %174 = getelementptr inbounds %struct.PJconsts, ptr %173, i32 0, i32 27
-  %175 = load double, ptr %174, align 8
-  %176 = fsub double 1.000000e+00, %175
-  %177 = load ptr, ptr %3, align 8
-  %178 = getelementptr inbounds %struct.PJconsts, ptr %177, i32 0, i32 27
-  %179 = load double, ptr %178, align 8
-  %180 = fadd double 1.000000e+00, %179
-  %181 = fdiv double %176, %180
-  %182 = call double @log(double noundef %181) #8
-  %183 = fmul double %172, %182
-  %184 = load ptr, ptr %3, align 8
-  %185 = getelementptr inbounds %struct.PJconsts, ptr %184, i32 0, i32 27
-  %186 = load double, ptr %185, align 8
-  %187 = fdiv double %183, %186
-  %188 = fsub double 1.000000e+00, %187
-  %189 = load ptr, ptr %4, align 8
-  %190 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %189, i32 0, i32 0
-  store double %188, ptr %190, align 8
-  %191 = load double, ptr %9, align 8
-  %192 = load double, ptr %9, align 8
-  %193 = load ptr, ptr %4, align 8
-  %194 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %193, i32 0, i32 1
-  %195 = load double, ptr %194, align 8
-  %196 = load double, ptr %8, align 8
-  %197 = fmul double %195, %196
-  %198 = call double @llvm.fmuladd.f64(double %191, double %192, double %197)
-  %199 = load ptr, ptr %4, align 8
-  %200 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %199, i32 0, i32 2
-  store double %198, ptr %200, align 8
-  %201 = load ptr, ptr %4, align 8
-  %202 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %201, i32 0, i32 1
-  %203 = load double, ptr %202, align 8
-  %204 = fdiv double 1.000000e+00, %203
-  %205 = load ptr, ptr %4, align 8
-  %206 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %205, i32 0, i32 3
-  store double %204, ptr %206, align 8
-  %207 = load ptr, ptr %4, align 8
-  %208 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %207, i32 0, i32 3
-  %209 = load double, ptr %208, align 8
-  %210 = load ptr, ptr %4, align 8
-  %211 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %210, i32 0, i32 2
-  %212 = load double, ptr %211, align 8
-  %213 = load ptr, ptr %4, align 8
-  %214 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %213, i32 0, i32 1
-  %215 = load double, ptr %214, align 8
-  %216 = load ptr, ptr %3, align 8
-  %217 = getelementptr inbounds %struct.PJconsts, ptr %216, i32 0, i32 63
-  %218 = load double, ptr %217, align 8
-  %219 = call double @sin(double noundef %218) #8
-  %220 = load ptr, ptr %3, align 8
-  %221 = getelementptr inbounds %struct.PJconsts, ptr %220, i32 0, i32 27
-  %222 = load double, ptr %221, align 8
-  %223 = load ptr, ptr %3, align 8
-  %224 = getelementptr inbounds %struct.PJconsts, ptr %223, i32 0, i32 33
-  %225 = load double, ptr %224, align 8
-  %226 = call noundef double @_Z7pj_qsfnddd(double noundef %219, double noundef %222, double noundef %225)
-  %227 = fneg double %215
-  %228 = call double @llvm.fmuladd.f64(double %227, double %226, double %212)
-  %229 = call double @sqrt(double noundef %228) #8
-  %230 = fmul double %209, %229
-  %231 = load ptr, ptr %4, align 8
-  %232 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %231, i32 0, i32 5
-  store double %230, ptr %232, align 8
-  br label %293
+169:                                              ; preds = %168, %164, %143
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  %170 = load i32, ptr %5, align 4
+  switch i32 %170, label %237 [
+    i32 0, label %171
+  ]
 
-233:                                              ; preds = %52
-  %234 = load i32, ptr %7, align 4
-  %235 = icmp ne i32 %234, 0
-  br i1 %235, label %236, label %248
+171:                                              ; preds = %169
+  br label %172
 
-236:                                              ; preds = %233
-  %237 = load ptr, ptr %4, align 8
-  %238 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %237, i32 0, i32 1
-  %239 = load double, ptr %238, align 8
-  %240 = load ptr, ptr %4, align 8
-  %241 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %240, i32 0, i32 8
-  %242 = load double, ptr %241, align 8
-  %243 = call double @sin(double noundef %242) #8
-  %244 = fadd double %239, %243
-  %245 = fmul double 5.000000e-01, %244
-  %246 = load ptr, ptr %4, align 8
-  %247 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %246, i32 0, i32 1
-  store double %245, ptr %247, align 8
-  br label %248
+172:                                              ; preds = %171, %100
+  %173 = load ptr, ptr %3, align 8, !tbaa !3
+  %174 = getelementptr inbounds nuw %struct.PJconsts, ptr %173, i32 0, i32 32
+  %175 = load double, ptr %174, align 8, !tbaa !62
+  %176 = fmul double 5.000000e-01, %175
+  %177 = load ptr, ptr %3, align 8, !tbaa !3
+  %178 = getelementptr inbounds nuw %struct.PJconsts, ptr %177, i32 0, i32 26
+  %179 = load double, ptr %178, align 8, !tbaa !61
+  %180 = fsub double 1.000000e+00, %179
+  %181 = load ptr, ptr %3, align 8, !tbaa !3
+  %182 = getelementptr inbounds nuw %struct.PJconsts, ptr %181, i32 0, i32 26
+  %183 = load double, ptr %182, align 8, !tbaa !61
+  %184 = fadd double 1.000000e+00, %183
+  %185 = fdiv double %180, %184
+  %186 = call double @log(double noundef %185) #8, !tbaa !52
+  %187 = fmul double %176, %186
+  %188 = load ptr, ptr %3, align 8, !tbaa !3
+  %189 = getelementptr inbounds nuw %struct.PJconsts, ptr %188, i32 0, i32 26
+  %190 = load double, ptr %189, align 8, !tbaa !61
+  %191 = fdiv double %187, %190
+  %192 = fsub double 1.000000e+00, %191
+  %193 = load ptr, ptr %4, align 8, !tbaa !41
+  %194 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %193, i32 0, i32 0
+  store double %192, ptr %194, align 8, !tbaa !63
+  %195 = load double, ptr %10, align 8, !tbaa !56
+  %196 = load double, ptr %10, align 8, !tbaa !56
+  %197 = load ptr, ptr %4, align 8, !tbaa !41
+  %198 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %197, i32 0, i32 1
+  %199 = load double, ptr %198, align 8, !tbaa !57
+  %200 = load double, ptr %9, align 8, !tbaa !56
+  %201 = fmul double %199, %200
+  %202 = call double @llvm.fmuladd.f64(double %195, double %196, double %201)
+  %203 = load ptr, ptr %4, align 8, !tbaa !41
+  %204 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %203, i32 0, i32 2
+  store double %202, ptr %204, align 8, !tbaa !64
+  %205 = load ptr, ptr %4, align 8, !tbaa !41
+  %206 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %205, i32 0, i32 1
+  %207 = load double, ptr %206, align 8, !tbaa !57
+  %208 = fdiv double 1.000000e+00, %207
+  %209 = load ptr, ptr %4, align 8, !tbaa !41
+  %210 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %209, i32 0, i32 3
+  store double %208, ptr %210, align 8, !tbaa !65
+  %211 = load ptr, ptr %4, align 8, !tbaa !41
+  %212 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %211, i32 0, i32 3
+  %213 = load double, ptr %212, align 8, !tbaa !65
+  %214 = load ptr, ptr %4, align 8, !tbaa !41
+  %215 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %214, i32 0, i32 2
+  %216 = load double, ptr %215, align 8, !tbaa !64
+  %217 = load ptr, ptr %4, align 8, !tbaa !41
+  %218 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %217, i32 0, i32 1
+  %219 = load double, ptr %218, align 8, !tbaa !57
+  %220 = load ptr, ptr %3, align 8, !tbaa !3
+  %221 = getelementptr inbounds nuw %struct.PJconsts, ptr %220, i32 0, i32 61
+  %222 = load double, ptr %221, align 8, !tbaa !66
+  %223 = call double @sin(double noundef %222) #8, !tbaa !52
+  %224 = load ptr, ptr %3, align 8, !tbaa !3
+  %225 = getelementptr inbounds nuw %struct.PJconsts, ptr %224, i32 0, i32 26
+  %226 = load double, ptr %225, align 8, !tbaa !61
+  %227 = load ptr, ptr %3, align 8, !tbaa !3
+  %228 = getelementptr inbounds nuw %struct.PJconsts, ptr %227, i32 0, i32 32
+  %229 = load double, ptr %228, align 8, !tbaa !62
+  %230 = call noundef double @_Z7pj_qsfnddd(double noundef %223, double noundef %226, double noundef %229)
+  %231 = fneg double %219
+  %232 = call double @llvm.fmuladd.f64(double %231, double %230, double %216)
+  %233 = call double @sqrt(double noundef %232) #8, !tbaa !52
+  %234 = fmul double %213, %233
+  %235 = load ptr, ptr %4, align 8, !tbaa !41
+  %236 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %235, i32 0, i32 5
+  store double %234, ptr %236, align 8, !tbaa !67
+  store i32 0, ptr %5, align 4
+  br label %237
 
-248:                                              ; preds = %236, %233
-  %249 = load ptr, ptr %4, align 8
-  %250 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %249, i32 0, i32 1
-  %251 = load double, ptr %250, align 8
-  %252 = load ptr, ptr %4, align 8
-  %253 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %252, i32 0, i32 1
-  %254 = load double, ptr %253, align 8
-  %255 = fadd double %251, %254
-  %256 = load ptr, ptr %4, align 8
-  %257 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %256, i32 0, i32 4
-  store double %255, ptr %257, align 8
-  %258 = load double, ptr %6, align 8
-  %259 = load double, ptr %6, align 8
-  %260 = load ptr, ptr %4, align 8
-  %261 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %260, i32 0, i32 4
-  %262 = load double, ptr %261, align 8
-  %263 = load double, ptr %5, align 8
-  %264 = fmul double %262, %263
-  %265 = call double @llvm.fmuladd.f64(double %258, double %259, double %264)
-  %266 = load ptr, ptr %4, align 8
-  %267 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %266, i32 0, i32 2
-  store double %265, ptr %267, align 8
-  %268 = load ptr, ptr %4, align 8
-  %269 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %268, i32 0, i32 1
-  %270 = load double, ptr %269, align 8
-  %271 = fdiv double 1.000000e+00, %270
-  %272 = load ptr, ptr %4, align 8
-  %273 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %272, i32 0, i32 3
-  store double %271, ptr %273, align 8
-  %274 = load ptr, ptr %4, align 8
-  %275 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %274, i32 0, i32 3
-  %276 = load double, ptr %275, align 8
-  %277 = load ptr, ptr %4, align 8
-  %278 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %277, i32 0, i32 2
-  %279 = load double, ptr %278, align 8
-  %280 = load ptr, ptr %4, align 8
-  %281 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %280, i32 0, i32 4
-  %282 = load double, ptr %281, align 8
-  %283 = load ptr, ptr %3, align 8
-  %284 = getelementptr inbounds %struct.PJconsts, ptr %283, i32 0, i32 63
-  %285 = load double, ptr %284, align 8
-  %286 = call double @sin(double noundef %285) #8
-  %287 = fneg double %282
-  %288 = call double @llvm.fmuladd.f64(double %287, double %286, double %279)
-  %289 = call double @sqrt(double noundef %288) #8
-  %290 = fmul double %276, %289
-  %291 = load ptr, ptr %4, align 8
-  %292 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %291, i32 0, i32 5
-  store double %290, ptr %292, align 8
-  br label %293
+237:                                              ; preds = %172, %169, %97
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  %238 = load i32, ptr %5, align 4
+  switch i32 %238, label %302 [
+    i32 0, label %239
+  ]
 
-293:                                              ; preds = %248, %168
-  %294 = load ptr, ptr %3, align 8
-  store ptr %294, ptr %2, align 8
-  br label %295
+239:                                              ; preds = %237
+  br label %300
 
-295:                                              ; preds = %293, %163, %142, %96, %48, %34, %24
-  %296 = load ptr, ptr %2, align 8
-  ret ptr %296
+240:                                              ; preds = %53
+  %241 = load i32, ptr %8, align 4, !tbaa !52
+  %242 = icmp ne i32 %241, 0
+  br i1 %242, label %243, label %255
+
+243:                                              ; preds = %240
+  %244 = load ptr, ptr %4, align 8, !tbaa !41
+  %245 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %244, i32 0, i32 1
+  %246 = load double, ptr %245, align 8, !tbaa !57
+  %247 = load ptr, ptr %4, align 8, !tbaa !41
+  %248 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %247, i32 0, i32 8
+  %249 = load double, ptr %248, align 8, !tbaa !51
+  %250 = call double @sin(double noundef %249) #8, !tbaa !52
+  %251 = fadd double %246, %250
+  %252 = fmul double 5.000000e-01, %251
+  %253 = load ptr, ptr %4, align 8, !tbaa !41
+  %254 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %253, i32 0, i32 1
+  store double %252, ptr %254, align 8, !tbaa !57
+  br label %255
+
+255:                                              ; preds = %243, %240
+  %256 = load ptr, ptr %4, align 8, !tbaa !41
+  %257 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %256, i32 0, i32 1
+  %258 = load double, ptr %257, align 8, !tbaa !57
+  %259 = load ptr, ptr %4, align 8, !tbaa !41
+  %260 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %259, i32 0, i32 1
+  %261 = load double, ptr %260, align 8, !tbaa !57
+  %262 = fadd double %258, %261
+  %263 = load ptr, ptr %4, align 8, !tbaa !41
+  %264 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %263, i32 0, i32 4
+  store double %262, ptr %264, align 8, !tbaa !68
+  %265 = load double, ptr %7, align 8, !tbaa !56
+  %266 = load double, ptr %7, align 8, !tbaa !56
+  %267 = load ptr, ptr %4, align 8, !tbaa !41
+  %268 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %267, i32 0, i32 4
+  %269 = load double, ptr %268, align 8, !tbaa !68
+  %270 = load double, ptr %6, align 8, !tbaa !56
+  %271 = fmul double %269, %270
+  %272 = call double @llvm.fmuladd.f64(double %265, double %266, double %271)
+  %273 = load ptr, ptr %4, align 8, !tbaa !41
+  %274 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %273, i32 0, i32 2
+  store double %272, ptr %274, align 8, !tbaa !64
+  %275 = load ptr, ptr %4, align 8, !tbaa !41
+  %276 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %275, i32 0, i32 1
+  %277 = load double, ptr %276, align 8, !tbaa !57
+  %278 = fdiv double 1.000000e+00, %277
+  %279 = load ptr, ptr %4, align 8, !tbaa !41
+  %280 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %279, i32 0, i32 3
+  store double %278, ptr %280, align 8, !tbaa !65
+  %281 = load ptr, ptr %4, align 8, !tbaa !41
+  %282 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %281, i32 0, i32 3
+  %283 = load double, ptr %282, align 8, !tbaa !65
+  %284 = load ptr, ptr %4, align 8, !tbaa !41
+  %285 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %284, i32 0, i32 2
+  %286 = load double, ptr %285, align 8, !tbaa !64
+  %287 = load ptr, ptr %4, align 8, !tbaa !41
+  %288 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %287, i32 0, i32 4
+  %289 = load double, ptr %288, align 8, !tbaa !68
+  %290 = load ptr, ptr %3, align 8, !tbaa !3
+  %291 = getelementptr inbounds nuw %struct.PJconsts, ptr %290, i32 0, i32 61
+  %292 = load double, ptr %291, align 8, !tbaa !66
+  %293 = call double @sin(double noundef %292) #8, !tbaa !52
+  %294 = fneg double %289
+  %295 = call double @llvm.fmuladd.f64(double %294, double %293, double %286)
+  %296 = call double @sqrt(double noundef %295) #8, !tbaa !52
+  %297 = fmul double %283, %296
+  %298 = load ptr, ptr %4, align 8, !tbaa !41
+  %299 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %298, i32 0, i32 5
+  store double %297, ptr %299, align 8, !tbaa !67
+  br label %300
+
+300:                                              ; preds = %255, %239
+  %301 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %301, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %302
+
+302:                                              ; preds = %300, %237
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  br label %303
+
+303:                                              ; preds = %302, %49, %35, %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %304 = load ptr, ptr %2, align 8
+  ret ptr %304
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden ptr @pj_leac(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = icmp ne ptr %4, null
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %3, align 8
+  %7 = load ptr, ptr %3, align 8, !tbaa !3
   %8 = call noundef ptr @_Z33pj_projection_specific_setup_leacP8PJconsts(ptr noundef %7)
   store ptr %8, ptr %2, align 8
   br label %26
 
 9:                                                ; preds = %1
   %10 = call noundef ptr @_Z6pj_newv()
-  store ptr %10, ptr %3, align 8
-  %11 = load ptr, ptr %3, align 8
+  store ptr %10, ptr %3, align 8, !tbaa !3
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
   %12 = icmp eq ptr null, %11
   br i1 %12, label %13, label %14
 
@@ -610,22 +672,22 @@ define hidden ptr @pj_leac(ptr noundef %0) #0 {
   br label %26
 
 14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.PJconsts, ptr %15, i32 0, i32 1
-  store ptr @.str.3, ptr %16, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.PJconsts, ptr %17, i32 0, i32 2
-  store ptr @_ZL8des_leac, ptr %18, align 8
-  %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds %struct.PJconsts, ptr %19, i32 0, i32 48
-  store i32 1, ptr %20, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.PJconsts, ptr %21, i32 0, i32 53
-  store i32 4, ptr %22, align 4
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.PJconsts, ptr %23, i32 0, i32 54
-  store i32 1, ptr %24, align 8
-  %25 = load ptr, ptr %3, align 8
+  %15 = load ptr, ptr %3, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw %struct.PJconsts, ptr %15, i32 0, i32 1
+  store ptr @.str.3, ptr %16, align 8, !tbaa !8
+  %17 = load ptr, ptr %3, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.PJconsts, ptr %17, i32 0, i32 2
+  store ptr @_ZL8des_leac, ptr %18, align 8, !tbaa !37
+  %19 = load ptr, ptr %3, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw %struct.PJconsts, ptr %19, i32 0, i32 47
+  store i32 1, ptr %20, align 8, !tbaa !38
+  %21 = load ptr, ptr %3, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %struct.PJconsts, ptr %21, i32 0, i32 52
+  store i32 4, ptr %22, align 4, !tbaa !39
+  %23 = load ptr, ptr %3, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw %struct.PJconsts, ptr %23, i32 0, i32 53
+  store i32 1, ptr %24, align 8, !tbaa !40
+  %25 = load ptr, ptr %3, align 8, !tbaa !3
   store ptr %25, ptr %2, align 8
   br label %26
 
@@ -639,69 +701,78 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_leacP8PJconsts(ptr n
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = alloca %union.PROJVALUE, align 8
+  %5 = alloca i32, align 4
   %6 = alloca %union.PROJVALUE, align 8
-  store ptr %0, ptr %3, align 8
-  %7 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 88) #7
-  store ptr %7, ptr %4, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = icmp eq ptr null, %8
-  br i1 %9, label %10, label %13
+  %7 = alloca %union.PROJVALUE, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %8 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 88) #9
+  store ptr %8, ptr %4, align 8, !tbaa !41
+  %9 = load ptr, ptr %4, align 8, !tbaa !41
+  %10 = icmp eq ptr null, %9
+  br i1 %10, label %11, label %14
 
-10:                                               ; preds = %1
-  %11 = load ptr, ptr %3, align 8
-  %12 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %11, i32 noundef 4096)
-  store ptr %12, ptr %2, align 8
-  br label %45
+11:                                               ; preds = %1
+  %12 = load ptr, ptr %3, align 8, !tbaa !3
+  %13 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %12, i32 noundef 4096)
+  store ptr %13, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %46
 
-13:                                               ; preds = %1
-  %14 = load ptr, ptr %4, align 8
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.PJconsts, ptr %15, i32 0, i32 11
-  store ptr %14, ptr %16, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.PJconsts, ptr %17, i32 0, i32 20
-  store ptr @_ZL17pj_aea_destructorP8PJconstsi, ptr %18, align 8
-  %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds %struct.PJconsts, ptr %19, i32 0, i32 0
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.PJconsts, ptr %22, i32 0, i32 3
-  %24 = load ptr, ptr %23, align 8
-  %25 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %21, ptr noundef %24, ptr noundef @.str.1)
-  %26 = getelementptr inbounds %union.PROJVALUE, ptr %5, i32 0, i32 0
-  store i64 %25, ptr %26, align 8
-  %27 = load double, ptr %5, align 8
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %28, i32 0, i32 8
-  store double %27, ptr %29, align 8
-  %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds %struct.PJconsts, ptr %30, i32 0, i32 0
-  %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds %struct.PJconsts, ptr %33, i32 0, i32 3
-  %35 = load ptr, ptr %34, align 8
-  %36 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %32, ptr noundef %35, ptr noundef @.str.4)
-  %37 = getelementptr inbounds %union.PROJVALUE, ptr %6, i32 0, i32 0
-  store i64 %36, ptr %37, align 8
-  %38 = load i32, ptr %6, align 8
-  %39 = icmp ne i32 %38, 0
-  %40 = select i1 %39, double 0xBFF921FB54442D18, double 0x3FF921FB54442D18
-  %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %41, i32 0, i32 7
-  store double %40, ptr %42, align 8
-  %43 = load ptr, ptr %3, align 8
-  %44 = call noundef ptr @_ZL5setupP8PJconsts(ptr noundef %43)
-  store ptr %44, ptr %2, align 8
-  br label %45
+14:                                               ; preds = %1
+  %15 = load ptr, ptr %4, align 8, !tbaa !41
+  %16 = load ptr, ptr %3, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.PJconsts, ptr %16, i32 0, i32 11
+  store ptr %15, ptr %17, align 8, !tbaa !43
+  %18 = load ptr, ptr %3, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.PJconsts, ptr %18, i32 0, i32 19
+  store ptr @_ZL17pj_aea_destructorP8PJconstsi, ptr %19, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %20 = load ptr, ptr %3, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %struct.PJconsts, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8, !tbaa !45
+  %23 = load ptr, ptr %3, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw %struct.PJconsts, ptr %23, i32 0, i32 3
+  %25 = load ptr, ptr %24, align 8, !tbaa !46
+  %26 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %22, ptr noundef %25, ptr noundef @.str.1)
+  %27 = getelementptr inbounds nuw %union.PROJVALUE, ptr %6, i32 0, i32 0
+  store i64 %26, ptr %27, align 8
+  %28 = load double, ptr %6, align 8, !tbaa !47
+  %29 = load ptr, ptr %4, align 8, !tbaa !41
+  %30 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %29, i32 0, i32 8
+  store double %28, ptr %30, align 8, !tbaa !51
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %31 = load ptr, ptr %3, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw %struct.PJconsts, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !45
+  %34 = load ptr, ptr %3, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw %struct.PJconsts, ptr %34, i32 0, i32 3
+  %36 = load ptr, ptr %35, align 8, !tbaa !46
+  %37 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %33, ptr noundef %36, ptr noundef @.str.4)
+  %38 = getelementptr inbounds nuw %union.PROJVALUE, ptr %7, i32 0, i32 0
+  store i64 %37, ptr %38, align 8
+  %39 = load i32, ptr %7, align 8, !tbaa !47
+  %40 = icmp ne i32 %39, 0
+  %41 = select i1 %40, double 0xBFF921FB54442D18, double 0x3FF921FB54442D18
+  %42 = load ptr, ptr %4, align 8, !tbaa !41
+  %43 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %42, i32 0, i32 7
+  store double %41, ptr %43, align 8, !tbaa !48
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  %44 = load ptr, ptr %3, align 8, !tbaa !3
+  %45 = call noundef ptr @_ZL5setupP8PJconsts(ptr noundef %44)
+  store ptr %45, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %46
 
-45:                                               ; preds = %13, %10
-  %46 = load ptr, ptr %2, align 8
-  ret ptr %46
+46:                                               ; preds = %14, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %47 = load ptr, ptr %2, align 8
+  ret ptr %47
 }
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #3
+declare void @free(ptr noundef) #4
 
 ; Function Attrs: mustprogress uwtable
 define internal { double, double } @_ZL13aea_e_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr noundef %2) #0 {
@@ -709,231 +780,237 @@ define internal { double, double } @_ZL13aea_e_inverse5PJ_XYP8PJconsts(double %0
   %5 = alloca %struct.PJ_XY, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds { double, double }, ptr %5, i32 0, i32 0
-  store double %0, ptr %8, align 8
-  %9 = getelementptr inbounds { double, double }, ptr %5, i32 0, i32 1
-  store double %1, ptr %9, align 8
-  store ptr %2, ptr %6, align 8
+  %8 = alloca i32, align 4
+  %9 = getelementptr inbounds nuw { double, double }, ptr %5, i32 0, i32 0
+  store double %0, ptr %9, align 8
+  %10 = getelementptr inbounds nuw { double, double }, ptr %5, i32 0, i32 1
+  store double %1, ptr %10, align 8
+  store ptr %2, ptr %6, align 8, !tbaa !3
   call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 16, i1 false)
-  %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds %struct.PJconsts, ptr %10, i32 0, i32 11
-  %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr %7, align 8
-  %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %13, i32 0, i32 5
-  %15 = load double, ptr %14, align 8
-  %16 = getelementptr inbounds %struct.PJ_XY, ptr %5, i32 0, i32 1
-  %17 = load double, ptr %16, align 8
-  %18 = fsub double %15, %17
-  %19 = getelementptr inbounds %struct.PJ_XY, ptr %5, i32 0, i32 1
-  store double %18, ptr %19, align 8
-  %20 = getelementptr inbounds %struct.PJ_XY, ptr %5, i32 0, i32 0
-  %21 = load double, ptr %20, align 8
-  %22 = getelementptr inbounds %struct.PJ_XY, ptr %5, i32 0, i32 1
-  %23 = load double, ptr %22, align 8
-  %24 = call double @hypot(double noundef %21, double noundef %23) #8
-  %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %25, i32 0, i32 6
-  store double %24, ptr %26, align 8
-  %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %27, i32 0, i32 6
-  %29 = load double, ptr %28, align 8
-  %30 = fcmp une double %29, 0.000000e+00
-  br i1 %30, label %31, label %163
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %11 = load ptr, ptr %6, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct.PJconsts, ptr %11, i32 0, i32 11
+  %13 = load ptr, ptr %12, align 8, !tbaa !43
+  store ptr %13, ptr %7, align 8, !tbaa !41
+  %14 = load ptr, ptr %7, align 8, !tbaa !41
+  %15 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %14, i32 0, i32 5
+  %16 = load double, ptr %15, align 8, !tbaa !67
+  %17 = getelementptr inbounds nuw %struct.PJ_XY, ptr %5, i32 0, i32 1
+  %18 = load double, ptr %17, align 8, !tbaa !69
+  %19 = fsub double %16, %18
+  %20 = getelementptr inbounds nuw %struct.PJ_XY, ptr %5, i32 0, i32 1
+  store double %19, ptr %20, align 8, !tbaa !69
+  %21 = getelementptr inbounds nuw %struct.PJ_XY, ptr %5, i32 0, i32 0
+  %22 = load double, ptr %21, align 8, !tbaa !71
+  %23 = getelementptr inbounds nuw %struct.PJ_XY, ptr %5, i32 0, i32 1
+  %24 = load double, ptr %23, align 8, !tbaa !69
+  %25 = call double @hypot(double noundef %22, double noundef %24) #8, !tbaa !52
+  %26 = load ptr, ptr %7, align 8, !tbaa !41
+  %27 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %26, i32 0, i32 6
+  store double %25, ptr %27, align 8, !tbaa !72
+  %28 = load ptr, ptr %7, align 8, !tbaa !41
+  %29 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %28, i32 0, i32 6
+  %30 = load double, ptr %29, align 8, !tbaa !72
+  %31 = fcmp une double %30, 0.000000e+00
+  br i1 %31, label %32, label %164
 
-31:                                               ; preds = %3
-  %32 = load ptr, ptr %7, align 8
-  %33 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %32, i32 0, i32 1
-  %34 = load double, ptr %33, align 8
-  %35 = fcmp olt double %34, 0.000000e+00
-  br i1 %35, label %36, label %51
+32:                                               ; preds = %3
+  %33 = load ptr, ptr %7, align 8, !tbaa !41
+  %34 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %33, i32 0, i32 1
+  %35 = load double, ptr %34, align 8, !tbaa !57
+  %36 = fcmp olt double %35, 0.000000e+00
+  br i1 %36, label %37, label %52
 
-36:                                               ; preds = %31
-  %37 = load ptr, ptr %7, align 8
-  %38 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %37, i32 0, i32 6
-  %39 = load double, ptr %38, align 8
-  %40 = fneg double %39
-  %41 = load ptr, ptr %7, align 8
-  %42 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %41, i32 0, i32 6
-  store double %40, ptr %42, align 8
-  %43 = getelementptr inbounds %struct.PJ_XY, ptr %5, i32 0, i32 0
-  %44 = load double, ptr %43, align 8
-  %45 = fneg double %44
-  %46 = getelementptr inbounds %struct.PJ_XY, ptr %5, i32 0, i32 0
-  store double %45, ptr %46, align 8
-  %47 = getelementptr inbounds %struct.PJ_XY, ptr %5, i32 0, i32 1
-  %48 = load double, ptr %47, align 8
-  %49 = fneg double %48
-  %50 = getelementptr inbounds %struct.PJ_XY, ptr %5, i32 0, i32 1
-  store double %49, ptr %50, align 8
-  br label %51
+37:                                               ; preds = %32
+  %38 = load ptr, ptr %7, align 8, !tbaa !41
+  %39 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %38, i32 0, i32 6
+  %40 = load double, ptr %39, align 8, !tbaa !72
+  %41 = fneg double %40
+  %42 = load ptr, ptr %7, align 8, !tbaa !41
+  %43 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %42, i32 0, i32 6
+  store double %41, ptr %43, align 8, !tbaa !72
+  %44 = getelementptr inbounds nuw %struct.PJ_XY, ptr %5, i32 0, i32 0
+  %45 = load double, ptr %44, align 8, !tbaa !71
+  %46 = fneg double %45
+  %47 = getelementptr inbounds nuw %struct.PJ_XY, ptr %5, i32 0, i32 0
+  store double %46, ptr %47, align 8, !tbaa !71
+  %48 = getelementptr inbounds nuw %struct.PJ_XY, ptr %5, i32 0, i32 1
+  %49 = load double, ptr %48, align 8, !tbaa !69
+  %50 = fneg double %49
+  %51 = getelementptr inbounds nuw %struct.PJ_XY, ptr %5, i32 0, i32 1
+  store double %50, ptr %51, align 8, !tbaa !69
+  br label %52
 
-51:                                               ; preds = %36, %31
-  %52 = load ptr, ptr %7, align 8
-  %53 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %52, i32 0, i32 6
-  %54 = load double, ptr %53, align 8
-  %55 = load ptr, ptr %7, align 8
-  %56 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %55, i32 0, i32 3
-  %57 = load double, ptr %56, align 8
-  %58 = fdiv double %54, %57
-  %59 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
-  store double %58, ptr %59, align 8
-  %60 = load ptr, ptr %7, align 8
-  %61 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %60, i32 0, i32 10
-  %62 = load i32, ptr %61, align 8
-  %63 = icmp ne i32 %62, 0
-  br i1 %63, label %64, label %121
+52:                                               ; preds = %37, %32
+  %53 = load ptr, ptr %7, align 8, !tbaa !41
+  %54 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %53, i32 0, i32 6
+  %55 = load double, ptr %54, align 8, !tbaa !72
+  %56 = load ptr, ptr %7, align 8, !tbaa !41
+  %57 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %56, i32 0, i32 3
+  %58 = load double, ptr %57, align 8, !tbaa !65
+  %59 = fdiv double %55, %58
+  %60 = getelementptr inbounds nuw %struct.PJ_LP, ptr %4, i32 0, i32 1
+  store double %59, ptr %60, align 8, !tbaa !73
+  %61 = load ptr, ptr %7, align 8, !tbaa !41
+  %62 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %61, i32 0, i32 10
+  %63 = load i32, ptr %62, align 8, !tbaa !59
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %65, label %122
 
-64:                                               ; preds = %51
-  %65 = load ptr, ptr %7, align 8
-  %66 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %65, i32 0, i32 2
-  %67 = load double, ptr %66, align 8
-  %68 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
-  %69 = load double, ptr %68, align 8
-  %70 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
-  %71 = load double, ptr %70, align 8
-  %72 = fneg double %69
-  %73 = call double @llvm.fmuladd.f64(double %72, double %71, double %67)
-  %74 = load ptr, ptr %7, align 8
-  %75 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %74, i32 0, i32 1
-  %76 = load double, ptr %75, align 8
-  %77 = fdiv double %73, %76
-  %78 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
-  store double %77, ptr %78, align 8
-  %79 = load ptr, ptr %7, align 8
-  %80 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %79, i32 0, i32 0
-  %81 = load double, ptr %80, align 8
-  %82 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
-  %83 = load double, ptr %82, align 8
-  %84 = call double @llvm.fabs.f64(double %83)
-  %85 = fsub double %81, %84
-  %86 = call double @llvm.fabs.f64(double %85)
-  %87 = fcmp ogt double %86, 0x3E7AD7F29ABCAF48
-  br i1 %87, label %88, label %114
+65:                                               ; preds = %52
+  %66 = load ptr, ptr %7, align 8, !tbaa !41
+  %67 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %66, i32 0, i32 2
+  %68 = load double, ptr %67, align 8, !tbaa !64
+  %69 = getelementptr inbounds nuw %struct.PJ_LP, ptr %4, i32 0, i32 1
+  %70 = load double, ptr %69, align 8, !tbaa !73
+  %71 = getelementptr inbounds nuw %struct.PJ_LP, ptr %4, i32 0, i32 1
+  %72 = load double, ptr %71, align 8, !tbaa !73
+  %73 = fneg double %70
+  %74 = call double @llvm.fmuladd.f64(double %73, double %72, double %68)
+  %75 = load ptr, ptr %7, align 8, !tbaa !41
+  %76 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %75, i32 0, i32 1
+  %77 = load double, ptr %76, align 8, !tbaa !57
+  %78 = fdiv double %74, %77
+  %79 = getelementptr inbounds nuw %struct.PJ_LP, ptr %4, i32 0, i32 1
+  store double %78, ptr %79, align 8, !tbaa !73
+  %80 = load ptr, ptr %7, align 8, !tbaa !41
+  %81 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %80, i32 0, i32 0
+  %82 = load double, ptr %81, align 8, !tbaa !63
+  %83 = getelementptr inbounds nuw %struct.PJ_LP, ptr %4, i32 0, i32 1
+  %84 = load double, ptr %83, align 8, !tbaa !73
+  %85 = call double @llvm.fabs.f64(double %84)
+  %86 = fsub double %82, %85
+  %87 = call double @llvm.fabs.f64(double %86)
+  %88 = fcmp ogt double %87, 0x3E7AD7F29ABCAF48
+  br i1 %88, label %89, label %115
 
-88:                                               ; preds = %64
-  %89 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
-  %90 = load double, ptr %89, align 8
-  %91 = call double @llvm.fabs.f64(double %90)
-  %92 = fcmp ogt double %91, 2.000000e+00
-  br i1 %92, label %93, label %96
+89:                                               ; preds = %65
+  %90 = getelementptr inbounds nuw %struct.PJ_LP, ptr %4, i32 0, i32 1
+  %91 = load double, ptr %90, align 8, !tbaa !73
+  %92 = call double @llvm.fabs.f64(double %91)
+  %93 = fcmp ogt double %92, 2.000000e+00
+  br i1 %93, label %94, label %97
 
-93:                                               ; preds = %88
-  %94 = load ptr, ptr %6, align 8
-  %95 = call i32 @proj_errno_set(ptr noundef %94, i32 noundef 2050)
-  br label %172
+94:                                               ; preds = %89
+  %95 = load ptr, ptr %6, align 8, !tbaa !3
+  %96 = call i32 @proj_errno_set(ptr noundef %95, i32 noundef 2050)
+  store i32 1, ptr %8, align 4
+  br label %173
 
-96:                                               ; preds = %88
-  %97 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
-  %98 = load double, ptr %97, align 8
-  %99 = load ptr, ptr %6, align 8
-  %100 = getelementptr inbounds %struct.PJconsts, ptr %99, i32 0, i32 27
-  %101 = load double, ptr %100, align 8
-  %102 = load ptr, ptr %6, align 8
-  %103 = getelementptr inbounds %struct.PJconsts, ptr %102, i32 0, i32 33
-  %104 = load double, ptr %103, align 8
-  %105 = call noundef double @_ZL5phi1_ddd(double noundef %98, double noundef %101, double noundef %104)
-  %106 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
-  store double %105, ptr %106, align 8
-  %107 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
-  %108 = load double, ptr %107, align 8
-  %109 = fcmp oeq double %108, 0x7FF0000000000000
-  br i1 %109, label %110, label %113
+97:                                               ; preds = %89
+  %98 = getelementptr inbounds nuw %struct.PJ_LP, ptr %4, i32 0, i32 1
+  %99 = load double, ptr %98, align 8, !tbaa !73
+  %100 = load ptr, ptr %6, align 8, !tbaa !3
+  %101 = getelementptr inbounds nuw %struct.PJconsts, ptr %100, i32 0, i32 26
+  %102 = load double, ptr %101, align 8, !tbaa !61
+  %103 = load ptr, ptr %6, align 8, !tbaa !3
+  %104 = getelementptr inbounds nuw %struct.PJconsts, ptr %103, i32 0, i32 32
+  %105 = load double, ptr %104, align 8, !tbaa !62
+  %106 = call noundef double @_ZL5phi1_ddd(double noundef %99, double noundef %102, double noundef %105)
+  %107 = getelementptr inbounds nuw %struct.PJ_LP, ptr %4, i32 0, i32 1
+  store double %106, ptr %107, align 8, !tbaa !73
+  %108 = getelementptr inbounds nuw %struct.PJ_LP, ptr %4, i32 0, i32 1
+  %109 = load double, ptr %108, align 8, !tbaa !73
+  %110 = fcmp oeq double %109, 0x7FF0000000000000
+  br i1 %110, label %111, label %114
 
-110:                                              ; preds = %96
-  %111 = load ptr, ptr %6, align 8
-  %112 = call i32 @proj_errno_set(ptr noundef %111, i32 noundef 2050)
-  br label %172
+111:                                              ; preds = %97
+  %112 = load ptr, ptr %6, align 8, !tbaa !3
+  %113 = call i32 @proj_errno_set(ptr noundef %112, i32 noundef 2050)
+  store i32 1, ptr %8, align 4
+  br label %173
 
-113:                                              ; preds = %96
-  br label %120
+114:                                              ; preds = %97
+  br label %121
 
-114:                                              ; preds = %64
-  %115 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
-  %116 = load double, ptr %115, align 8
-  %117 = fcmp olt double %116, 0.000000e+00
-  %118 = select i1 %117, double 0xBFF921FB54442D18, double 0x3FF921FB54442D18
-  %119 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
-  store double %118, ptr %119, align 8
-  br label %120
+115:                                              ; preds = %65
+  %116 = getelementptr inbounds nuw %struct.PJ_LP, ptr %4, i32 0, i32 1
+  %117 = load double, ptr %116, align 8, !tbaa !73
+  %118 = fcmp olt double %117, 0.000000e+00
+  %119 = select i1 %118, double 0xBFF921FB54442D18, double 0x3FF921FB54442D18
+  %120 = getelementptr inbounds nuw %struct.PJ_LP, ptr %4, i32 0, i32 1
+  store double %119, ptr %120, align 8, !tbaa !73
+  br label %121
 
-120:                                              ; preds = %114, %113
+121:                                              ; preds = %115, %114
+  br label %153
+
+122:                                              ; preds = %52
+  %123 = load ptr, ptr %7, align 8, !tbaa !41
+  %124 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %123, i32 0, i32 2
+  %125 = load double, ptr %124, align 8, !tbaa !64
+  %126 = getelementptr inbounds nuw %struct.PJ_LP, ptr %4, i32 0, i32 1
+  %127 = load double, ptr %126, align 8, !tbaa !73
+  %128 = getelementptr inbounds nuw %struct.PJ_LP, ptr %4, i32 0, i32 1
+  %129 = load double, ptr %128, align 8, !tbaa !73
+  %130 = fneg double %127
+  %131 = call double @llvm.fmuladd.f64(double %130, double %129, double %125)
+  %132 = load ptr, ptr %7, align 8, !tbaa !41
+  %133 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %132, i32 0, i32 4
+  %134 = load double, ptr %133, align 8, !tbaa !68
+  %135 = fdiv double %131, %134
+  %136 = getelementptr inbounds nuw %struct.PJ_LP, ptr %4, i32 0, i32 1
+  store double %135, ptr %136, align 8, !tbaa !73
+  %137 = getelementptr inbounds nuw %struct.PJ_LP, ptr %4, i32 0, i32 1
+  %138 = load double, ptr %137, align 8, !tbaa !73
+  %139 = call double @llvm.fabs.f64(double %138)
+  %140 = fcmp ole double %139, 1.000000e+00
+  br i1 %140, label %141, label %146
+
+141:                                              ; preds = %122
+  %142 = getelementptr inbounds nuw %struct.PJ_LP, ptr %4, i32 0, i32 1
+  %143 = load double, ptr %142, align 8, !tbaa !73
+  %144 = call double @asin(double noundef %143) #8, !tbaa !52
+  %145 = getelementptr inbounds nuw %struct.PJ_LP, ptr %4, i32 0, i32 1
+  store double %144, ptr %145, align 8, !tbaa !73
   br label %152
 
-121:                                              ; preds = %51
-  %122 = load ptr, ptr %7, align 8
-  %123 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %122, i32 0, i32 2
-  %124 = load double, ptr %123, align 8
-  %125 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
-  %126 = load double, ptr %125, align 8
-  %127 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
-  %128 = load double, ptr %127, align 8
-  %129 = fneg double %126
-  %130 = call double @llvm.fmuladd.f64(double %129, double %128, double %124)
-  %131 = load ptr, ptr %7, align 8
-  %132 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %131, i32 0, i32 4
-  %133 = load double, ptr %132, align 8
-  %134 = fdiv double %130, %133
-  %135 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
-  store double %134, ptr %135, align 8
-  %136 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
-  %137 = load double, ptr %136, align 8
-  %138 = call double @llvm.fabs.f64(double %137)
-  %139 = fcmp ole double %138, 1.000000e+00
-  br i1 %139, label %140, label %145
-
-140:                                              ; preds = %121
-  %141 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
-  %142 = load double, ptr %141, align 8
-  %143 = call double @asin(double noundef %142) #8
-  %144 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
-  store double %143, ptr %144, align 8
-  br label %151
-
-145:                                              ; preds = %121
-  %146 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
-  %147 = load double, ptr %146, align 8
-  %148 = fcmp olt double %147, 0.000000e+00
-  %149 = select i1 %148, double 0xBFF921FB54442D18, double 0x3FF921FB54442D18
-  %150 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
-  store double %149, ptr %150, align 8
-  br label %151
-
-151:                                              ; preds = %145, %140
+146:                                              ; preds = %122
+  %147 = getelementptr inbounds nuw %struct.PJ_LP, ptr %4, i32 0, i32 1
+  %148 = load double, ptr %147, align 8, !tbaa !73
+  %149 = fcmp olt double %148, 0.000000e+00
+  %150 = select i1 %149, double 0xBFF921FB54442D18, double 0x3FF921FB54442D18
+  %151 = getelementptr inbounds nuw %struct.PJ_LP, ptr %4, i32 0, i32 1
+  store double %150, ptr %151, align 8, !tbaa !73
   br label %152
 
-152:                                              ; preds = %151, %120
-  %153 = getelementptr inbounds %struct.PJ_XY, ptr %5, i32 0, i32 0
-  %154 = load double, ptr %153, align 8
-  %155 = getelementptr inbounds %struct.PJ_XY, ptr %5, i32 0, i32 1
-  %156 = load double, ptr %155, align 8
-  %157 = call double @atan2(double noundef %154, double noundef %156) #8
-  %158 = load ptr, ptr %7, align 8
-  %159 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %158, i32 0, i32 1
-  %160 = load double, ptr %159, align 8
-  %161 = fdiv double %157, %160
-  %162 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 0
-  store double %161, ptr %162, align 8
-  br label %171
+152:                                              ; preds = %146, %141
+  br label %153
 
-163:                                              ; preds = %3
-  %164 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 0
-  store double 0.000000e+00, ptr %164, align 8
-  %165 = load ptr, ptr %7, align 8
-  %166 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %165, i32 0, i32 1
-  %167 = load double, ptr %166, align 8
-  %168 = fcmp ogt double %167, 0.000000e+00
-  %169 = select i1 %168, double 0x3FF921FB54442D18, double 0xBFF921FB54442D18
-  %170 = getelementptr inbounds %struct.PJ_LP, ptr %4, i32 0, i32 1
-  store double %169, ptr %170, align 8
-  br label %171
-
-171:                                              ; preds = %163, %152
+153:                                              ; preds = %152, %121
+  %154 = getelementptr inbounds nuw %struct.PJ_XY, ptr %5, i32 0, i32 0
+  %155 = load double, ptr %154, align 8, !tbaa !71
+  %156 = getelementptr inbounds nuw %struct.PJ_XY, ptr %5, i32 0, i32 1
+  %157 = load double, ptr %156, align 8, !tbaa !69
+  %158 = call double @atan2(double noundef %155, double noundef %157) #8, !tbaa !52
+  %159 = load ptr, ptr %7, align 8, !tbaa !41
+  %160 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %159, i32 0, i32 1
+  %161 = load double, ptr %160, align 8, !tbaa !57
+  %162 = fdiv double %158, %161
+  %163 = getelementptr inbounds nuw %struct.PJ_LP, ptr %4, i32 0, i32 0
+  store double %162, ptr %163, align 8, !tbaa !75
   br label %172
 
-172:                                              ; preds = %171, %110, %93
-  %173 = load { double, double }, ptr %4, align 8
-  ret { double, double } %173
+164:                                              ; preds = %3
+  %165 = getelementptr inbounds nuw %struct.PJ_LP, ptr %4, i32 0, i32 0
+  store double 0.000000e+00, ptr %165, align 8, !tbaa !75
+  %166 = load ptr, ptr %7, align 8, !tbaa !41
+  %167 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %166, i32 0, i32 1
+  %168 = load double, ptr %167, align 8, !tbaa !57
+  %169 = fcmp ogt double %168, 0.000000e+00
+  %170 = select i1 %169, double 0x3FF921FB54442D18, double 0xBFF921FB54442D18
+  %171 = getelementptr inbounds nuw %struct.PJ_LP, ptr %4, i32 0, i32 1
+  store double %170, ptr %171, align 8, !tbaa !73
+  br label %172
+
+172:                                              ; preds = %164, %153
+  store i32 1, ptr %8, align 4
+  br label %173
+
+173:                                              ; preds = %172, %111, %94
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  %174 = load { double, double }, ptr %4, align 8
+  ret { double, double } %174
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -942,127 +1019,132 @@ define internal { double, double } @_ZL13aea_e_forward5PJ_LPP8PJconsts(double %0
   %5 = alloca %struct.PJ_LP, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds { double, double }, ptr %5, i32 0, i32 0
-  store double %0, ptr %8, align 8
-  %9 = getelementptr inbounds { double, double }, ptr %5, i32 0, i32 1
-  store double %1, ptr %9, align 8
-  store ptr %2, ptr %6, align 8
+  %8 = alloca i32, align 4
+  %9 = getelementptr inbounds nuw { double, double }, ptr %5, i32 0, i32 0
+  store double %0, ptr %9, align 8
+  %10 = getelementptr inbounds nuw { double, double }, ptr %5, i32 0, i32 1
+  store double %1, ptr %10, align 8
+  store ptr %2, ptr %6, align 8, !tbaa !3
   call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 16, i1 false)
-  %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds %struct.PJconsts, ptr %10, i32 0, i32 11
-  %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr %7, align 8
-  %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %13, i32 0, i32 2
-  %15 = load double, ptr %14, align 8
-  %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %16, i32 0, i32 10
-  %18 = load i32, ptr %17, align 8
-  %19 = icmp ne i32 %18, 0
-  br i1 %19, label %20, label %35
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %11 = load ptr, ptr %6, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct.PJconsts, ptr %11, i32 0, i32 11
+  %13 = load ptr, ptr %12, align 8, !tbaa !43
+  store ptr %13, ptr %7, align 8, !tbaa !41
+  %14 = load ptr, ptr %7, align 8, !tbaa !41
+  %15 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %14, i32 0, i32 2
+  %16 = load double, ptr %15, align 8, !tbaa !64
+  %17 = load ptr, ptr %7, align 8, !tbaa !41
+  %18 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %17, i32 0, i32 10
+  %19 = load i32, ptr %18, align 8, !tbaa !59
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %36
 
-20:                                               ; preds = %3
-  %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %21, i32 0, i32 1
-  %23 = load double, ptr %22, align 8
-  %24 = getelementptr inbounds %struct.PJ_LP, ptr %5, i32 0, i32 1
-  %25 = load double, ptr %24, align 8
-  %26 = call double @sin(double noundef %25) #8
-  %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds %struct.PJconsts, ptr %27, i32 0, i32 27
-  %29 = load double, ptr %28, align 8
-  %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds %struct.PJconsts, ptr %30, i32 0, i32 33
-  %32 = load double, ptr %31, align 8
-  %33 = call noundef double @_Z7pj_qsfnddd(double noundef %26, double noundef %29, double noundef %32)
-  %34 = fmul double %23, %33
-  br label %43
+21:                                               ; preds = %3
+  %22 = load ptr, ptr %7, align 8, !tbaa !41
+  %23 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %22, i32 0, i32 1
+  %24 = load double, ptr %23, align 8, !tbaa !57
+  %25 = getelementptr inbounds nuw %struct.PJ_LP, ptr %5, i32 0, i32 1
+  %26 = load double, ptr %25, align 8, !tbaa !73
+  %27 = call double @sin(double noundef %26) #8, !tbaa !52
+  %28 = load ptr, ptr %6, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw %struct.PJconsts, ptr %28, i32 0, i32 26
+  %30 = load double, ptr %29, align 8, !tbaa !61
+  %31 = load ptr, ptr %6, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw %struct.PJconsts, ptr %31, i32 0, i32 32
+  %33 = load double, ptr %32, align 8, !tbaa !62
+  %34 = call noundef double @_Z7pj_qsfnddd(double noundef %27, double noundef %30, double noundef %33)
+  %35 = fmul double %24, %34
+  br label %44
 
-35:                                               ; preds = %3
-  %36 = load ptr, ptr %7, align 8
-  %37 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %36, i32 0, i32 4
-  %38 = load double, ptr %37, align 8
-  %39 = getelementptr inbounds %struct.PJ_LP, ptr %5, i32 0, i32 1
-  %40 = load double, ptr %39, align 8
-  %41 = call double @sin(double noundef %40) #8
-  %42 = fmul double %38, %41
-  br label %43
+36:                                               ; preds = %3
+  %37 = load ptr, ptr %7, align 8, !tbaa !41
+  %38 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %37, i32 0, i32 4
+  %39 = load double, ptr %38, align 8, !tbaa !68
+  %40 = getelementptr inbounds nuw %struct.PJ_LP, ptr %5, i32 0, i32 1
+  %41 = load double, ptr %40, align 8, !tbaa !73
+  %42 = call double @sin(double noundef %41) #8, !tbaa !52
+  %43 = fmul double %39, %42
+  br label %44
 
-43:                                               ; preds = %35, %20
-  %44 = phi double [ %34, %20 ], [ %42, %35 ]
-  %45 = fsub double %15, %44
-  %46 = load ptr, ptr %7, align 8
-  %47 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %46, i32 0, i32 6
-  store double %45, ptr %47, align 8
-  %48 = load ptr, ptr %7, align 8
-  %49 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %48, i32 0, i32 6
-  %50 = load double, ptr %49, align 8
-  %51 = fcmp olt double %50, 0.000000e+00
-  br i1 %51, label %52, label %55
+44:                                               ; preds = %36, %21
+  %45 = phi double [ %35, %21 ], [ %43, %36 ]
+  %46 = fsub double %16, %45
+  %47 = load ptr, ptr %7, align 8, !tbaa !41
+  %48 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %47, i32 0, i32 6
+  store double %46, ptr %48, align 8, !tbaa !72
+  %49 = load ptr, ptr %7, align 8, !tbaa !41
+  %50 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %49, i32 0, i32 6
+  %51 = load double, ptr %50, align 8, !tbaa !72
+  %52 = fcmp olt double %51, 0.000000e+00
+  br i1 %52, label %53, label %56
 
-52:                                               ; preds = %43
-  %53 = load ptr, ptr %6, align 8
-  %54 = call i32 @proj_errno_set(ptr noundef %53, i32 noundef 2050)
-  br label %92
+53:                                               ; preds = %44
+  %54 = load ptr, ptr %6, align 8, !tbaa !3
+  %55 = call i32 @proj_errno_set(ptr noundef %54, i32 noundef 2050)
+  store i32 1, ptr %8, align 4
+  br label %93
 
-55:                                               ; preds = %43
-  %56 = load ptr, ptr %7, align 8
-  %57 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %56, i32 0, i32 3
-  %58 = load double, ptr %57, align 8
-  %59 = load ptr, ptr %7, align 8
-  %60 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %59, i32 0, i32 6
-  %61 = load double, ptr %60, align 8
-  %62 = call double @sqrt(double noundef %61) #8
-  %63 = fmul double %58, %62
-  %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %64, i32 0, i32 6
-  store double %63, ptr %65, align 8
-  %66 = load ptr, ptr %7, align 8
-  %67 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %66, i32 0, i32 1
-  %68 = load double, ptr %67, align 8
-  %69 = getelementptr inbounds %struct.PJ_LP, ptr %5, i32 0, i32 0
-  %70 = load double, ptr %69, align 8
-  %71 = fmul double %70, %68
-  store double %71, ptr %69, align 8
-  %72 = load ptr, ptr %7, align 8
-  %73 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %72, i32 0, i32 6
-  %74 = load double, ptr %73, align 8
-  %75 = getelementptr inbounds %struct.PJ_LP, ptr %5, i32 0, i32 0
-  %76 = load double, ptr %75, align 8
-  %77 = call double @sin(double noundef %76) #8
-  %78 = fmul double %74, %77
-  %79 = getelementptr inbounds %struct.PJ_XY, ptr %4, i32 0, i32 0
-  store double %78, ptr %79, align 8
-  %80 = load ptr, ptr %7, align 8
-  %81 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %80, i32 0, i32 5
-  %82 = load double, ptr %81, align 8
-  %83 = load ptr, ptr %7, align 8
-  %84 = getelementptr inbounds %"struct.(anonymous namespace)::pj_aea", ptr %83, i32 0, i32 6
-  %85 = load double, ptr %84, align 8
-  %86 = getelementptr inbounds %struct.PJ_LP, ptr %5, i32 0, i32 0
-  %87 = load double, ptr %86, align 8
-  %88 = call double @cos(double noundef %87) #8
-  %89 = fneg double %85
-  %90 = call double @llvm.fmuladd.f64(double %89, double %88, double %82)
-  %91 = getelementptr inbounds %struct.PJ_XY, ptr %4, i32 0, i32 1
-  store double %90, ptr %91, align 8
-  br label %92
+56:                                               ; preds = %44
+  %57 = load ptr, ptr %7, align 8, !tbaa !41
+  %58 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %57, i32 0, i32 3
+  %59 = load double, ptr %58, align 8, !tbaa !65
+  %60 = load ptr, ptr %7, align 8, !tbaa !41
+  %61 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %60, i32 0, i32 6
+  %62 = load double, ptr %61, align 8, !tbaa !72
+  %63 = call double @sqrt(double noundef %62) #8, !tbaa !52
+  %64 = fmul double %59, %63
+  %65 = load ptr, ptr %7, align 8, !tbaa !41
+  %66 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %65, i32 0, i32 6
+  store double %64, ptr %66, align 8, !tbaa !72
+  %67 = load ptr, ptr %7, align 8, !tbaa !41
+  %68 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %67, i32 0, i32 1
+  %69 = load double, ptr %68, align 8, !tbaa !57
+  %70 = getelementptr inbounds nuw %struct.PJ_LP, ptr %5, i32 0, i32 0
+  %71 = load double, ptr %70, align 8, !tbaa !75
+  %72 = fmul double %71, %69
+  store double %72, ptr %70, align 8, !tbaa !75
+  %73 = load ptr, ptr %7, align 8, !tbaa !41
+  %74 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %73, i32 0, i32 6
+  %75 = load double, ptr %74, align 8, !tbaa !72
+  %76 = getelementptr inbounds nuw %struct.PJ_LP, ptr %5, i32 0, i32 0
+  %77 = load double, ptr %76, align 8, !tbaa !75
+  %78 = call double @sin(double noundef %77) #8, !tbaa !52
+  %79 = fmul double %75, %78
+  %80 = getelementptr inbounds nuw %struct.PJ_XY, ptr %4, i32 0, i32 0
+  store double %79, ptr %80, align 8, !tbaa !71
+  %81 = load ptr, ptr %7, align 8, !tbaa !41
+  %82 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %81, i32 0, i32 5
+  %83 = load double, ptr %82, align 8, !tbaa !67
+  %84 = load ptr, ptr %7, align 8, !tbaa !41
+  %85 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_aea", ptr %84, i32 0, i32 6
+  %86 = load double, ptr %85, align 8, !tbaa !72
+  %87 = getelementptr inbounds nuw %struct.PJ_LP, ptr %5, i32 0, i32 0
+  %88 = load double, ptr %87, align 8, !tbaa !75
+  %89 = call double @cos(double noundef %88) #8, !tbaa !52
+  %90 = fneg double %86
+  %91 = call double @llvm.fmuladd.f64(double %90, double %89, double %83)
+  %92 = getelementptr inbounds nuw %struct.PJ_XY, ptr %4, i32 0, i32 1
+  store double %91, ptr %92, align 8, !tbaa !69
+  store i32 1, ptr %8, align 4
+  br label %93
 
-92:                                               ; preds = %55, %52
-  %93 = load { double, double }, ptr %4, align 8
-  ret { double, double } %93
+93:                                               ; preds = %56, %53
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  %94 = load { double, double }, ptr %4, align 8
+  ret { double, double } %94
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #4
+declare double @llvm.fabs.f64(double) #5
 
 declare void @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef, ptr noundef, ...) #1
 
 ; Function Attrs: nounwind
-declare double @sin(double noundef) #3
+declare double @sin(double noundef) #4
 
 ; Function Attrs: nounwind
-declare double @cos(double noundef) #3
+declare double @cos(double noundef) #4
 
 declare noundef ptr @_Z7pj_enfnd(double noundef) #1
 
@@ -1071,24 +1153,24 @@ declare noundef double @_Z7pj_msfnddd(double noundef, double noundef, double nou
 declare noundef double @_Z7pj_qsfnddd(double noundef, double noundef, double noundef) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #4
+declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: nounwind
-declare double @log(double noundef) #3
+declare double @log(double noundef) #4
 
 ; Function Attrs: nounwind
-declare double @sqrt(double noundef) #3
+declare double @sqrt(double noundef) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind
-declare double @hypot(double noundef, double noundef) #3
+declare double @hypot(double noundef, double noundef) #4
 
 declare i32 @proj_errno_set(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef double @_ZL5phi1_ddd(double noundef %0, double noundef %1, double noundef %2) #6 {
+define internal noundef double @_ZL5phi1_ddd(double noundef %0, double noundef %1, double noundef %2) #7 {
   %4 = alloca double, align 8
   %5 = alloca double, align 8
   %6 = alloca double, align 8
@@ -1100,121 +1182,212 @@ define internal noundef double @_ZL5phi1_ddd(double noundef %0, double noundef %
   %12 = alloca double, align 8
   %13 = alloca double, align 8
   %14 = alloca double, align 8
-  store double %0, ptr %5, align 8
-  store double %1, ptr %6, align 8
-  store double %2, ptr %7, align 8
-  %15 = load double, ptr %5, align 8
-  %16 = fmul double 5.000000e-01, %15
-  %17 = call double @asin(double noundef %16) #8
-  store double %17, ptr %9, align 8
-  %18 = load double, ptr %6, align 8
-  %19 = fcmp olt double %18, 0x3E7AD7F29ABCAF48
-  br i1 %19, label %20, label %22
+  %15 = alloca i32, align 4
+  store double %0, ptr %5, align 8, !tbaa !56
+  store double %1, ptr %6, align 8, !tbaa !56
+  store double %2, ptr %7, align 8, !tbaa !56
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  %16 = load double, ptr %5, align 8, !tbaa !56
+  %17 = fmul double 5.000000e-01, %16
+  %18 = call double @asin(double noundef %17) #8, !tbaa !52
+  store double %18, ptr %9, align 8, !tbaa !56
+  %19 = load double, ptr %6, align 8, !tbaa !56
+  %20 = fcmp olt double %19, 0x3E7AD7F29ABCAF48
+  br i1 %20, label %21, label %23
 
-20:                                               ; preds = %3
-  %21 = load double, ptr %9, align 8
-  store double %21, ptr %4, align 8
-  br label %73
+21:                                               ; preds = %3
+  %22 = load double, ptr %9, align 8, !tbaa !56
+  store double %22, ptr %4, align 8
+  store i32 1, ptr %15, align 4
+  br label %74
 
-22:                                               ; preds = %3
-  store i32 15, ptr %8, align 4
-  br label %23
+23:                                               ; preds = %3
+  store i32 15, ptr %8, align 4, !tbaa !52
+  br label %24
 
-23:                                               ; preds = %69, %22
-  %24 = load double, ptr %9, align 8
-  %25 = call double @sin(double noundef %24) #8
-  store double %25, ptr %10, align 8
-  %26 = load double, ptr %9, align 8
-  %27 = call double @cos(double noundef %26) #8
-  store double %27, ptr %11, align 8
-  %28 = load double, ptr %6, align 8
-  %29 = load double, ptr %10, align 8
-  %30 = fmul double %28, %29
-  store double %30, ptr %12, align 8
-  %31 = load double, ptr %12, align 8
-  %32 = load double, ptr %12, align 8
-  %33 = fneg double %31
-  %34 = call double @llvm.fmuladd.f64(double %33, double %32, double 1.000000e+00)
-  store double %34, ptr %13, align 8
-  %35 = load double, ptr %13, align 8
-  %36 = fmul double 5.000000e-01, %35
-  %37 = load double, ptr %13, align 8
-  %38 = fmul double %36, %37
-  %39 = load double, ptr %11, align 8
-  %40 = fdiv double %38, %39
-  %41 = load double, ptr %5, align 8
-  %42 = load double, ptr %7, align 8
-  %43 = fdiv double %41, %42
-  %44 = load double, ptr %10, align 8
-  %45 = load double, ptr %13, align 8
-  %46 = fdiv double %44, %45
-  %47 = fsub double %43, %46
-  %48 = load double, ptr %6, align 8
-  %49 = fdiv double 5.000000e-01, %48
-  %50 = load double, ptr %12, align 8
-  %51 = fsub double 1.000000e+00, %50
-  %52 = load double, ptr %12, align 8
-  %53 = fadd double 1.000000e+00, %52
-  %54 = fdiv double %51, %53
-  %55 = call double @log(double noundef %54) #8
-  %56 = call double @llvm.fmuladd.f64(double %49, double %55, double %47)
-  %57 = fmul double %40, %56
-  store double %57, ptr %14, align 8
-  %58 = load double, ptr %14, align 8
-  %59 = load double, ptr %9, align 8
-  %60 = fadd double %59, %58
-  store double %60, ptr %9, align 8
-  %61 = load double, ptr %14, align 8
-  %62 = call double @llvm.fabs.f64(double %61)
-  %63 = fcmp ogt double %62, 1.000000e-10
-  br i1 %63, label %66, label %64
+24:                                               ; preds = %70, %23
+  %25 = load double, ptr %9, align 8, !tbaa !56
+  %26 = call double @sin(double noundef %25) #8, !tbaa !52
+  store double %26, ptr %10, align 8, !tbaa !56
+  %27 = load double, ptr %9, align 8, !tbaa !56
+  %28 = call double @cos(double noundef %27) #8, !tbaa !52
+  store double %28, ptr %11, align 8, !tbaa !56
+  %29 = load double, ptr %6, align 8, !tbaa !56
+  %30 = load double, ptr %10, align 8, !tbaa !56
+  %31 = fmul double %29, %30
+  store double %31, ptr %12, align 8, !tbaa !56
+  %32 = load double, ptr %12, align 8, !tbaa !56
+  %33 = load double, ptr %12, align 8, !tbaa !56
+  %34 = fneg double %32
+  %35 = call double @llvm.fmuladd.f64(double %34, double %33, double 1.000000e+00)
+  store double %35, ptr %13, align 8, !tbaa !56
+  %36 = load double, ptr %13, align 8, !tbaa !56
+  %37 = fmul double 5.000000e-01, %36
+  %38 = load double, ptr %13, align 8, !tbaa !56
+  %39 = fmul double %37, %38
+  %40 = load double, ptr %11, align 8, !tbaa !56
+  %41 = fdiv double %39, %40
+  %42 = load double, ptr %5, align 8, !tbaa !56
+  %43 = load double, ptr %7, align 8, !tbaa !56
+  %44 = fdiv double %42, %43
+  %45 = load double, ptr %10, align 8, !tbaa !56
+  %46 = load double, ptr %13, align 8, !tbaa !56
+  %47 = fdiv double %45, %46
+  %48 = fsub double %44, %47
+  %49 = load double, ptr %6, align 8, !tbaa !56
+  %50 = fdiv double 5.000000e-01, %49
+  %51 = load double, ptr %12, align 8, !tbaa !56
+  %52 = fsub double 1.000000e+00, %51
+  %53 = load double, ptr %12, align 8, !tbaa !56
+  %54 = fadd double 1.000000e+00, %53
+  %55 = fdiv double %52, %54
+  %56 = call double @log(double noundef %55) #8, !tbaa !52
+  %57 = call double @llvm.fmuladd.f64(double %50, double %56, double %48)
+  %58 = fmul double %41, %57
+  store double %58, ptr %14, align 8, !tbaa !56
+  %59 = load double, ptr %14, align 8, !tbaa !56
+  %60 = load double, ptr %9, align 8, !tbaa !56
+  %61 = fadd double %60, %59
+  store double %61, ptr %9, align 8, !tbaa !56
+  %62 = load double, ptr %14, align 8, !tbaa !56
+  %63 = call double @llvm.fabs.f64(double %62)
+  %64 = fcmp ogt double %63, 1.000000e-10
+  br i1 %64, label %67, label %65
 
-64:                                               ; preds = %23
-  %65 = load double, ptr %9, align 8
-  store double %65, ptr %4, align 8
-  br label %73
+65:                                               ; preds = %24
+  %66 = load double, ptr %9, align 8, !tbaa !56
+  store double %66, ptr %4, align 8
+  store i32 1, ptr %15, align 4
+  br label %74
 
-66:                                               ; preds = %23
-  %67 = load i32, ptr %8, align 4
-  %68 = add nsw i32 %67, -1
-  store i32 %68, ptr %8, align 4
-  br label %69
+67:                                               ; preds = %24
+  %68 = load i32, ptr %8, align 4, !tbaa !52
+  %69 = add nsw i32 %68, -1
+  store i32 %69, ptr %8, align 4, !tbaa !52
+  br label %70
 
-69:                                               ; preds = %66
-  %70 = load i32, ptr %8, align 4
-  %71 = icmp sge i32 %70, 0
-  br i1 %71, label %23, label %72, !llvm.loop !4
+70:                                               ; preds = %67
+  %71 = load i32, ptr %8, align 4, !tbaa !52
+  %72 = icmp sge i32 %71, 0
+  br i1 %72, label %24, label %73, !llvm.loop !76
 
-72:                                               ; preds = %69
+73:                                               ; preds = %70
   store double 0x7FF0000000000000, ptr %4, align 8
-  br label %73
+  store i32 1, ptr %15, align 4
+  br label %74
 
-73:                                               ; preds = %72, %64, %20
-  %74 = load double, ptr %4, align 8
-  ret double %74
+74:                                               ; preds = %73, %65, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  %75 = load double, ptr %4, align 8
+  ret double %75
 }
 
 ; Function Attrs: nounwind
-declare double @asin(double noundef) #3
+declare double @asin(double noundef) #4
 
 ; Function Attrs: nounwind
-declare double @atan2(double noundef, double noundef) #3
+declare double @atan2(double noundef, double noundef) #4
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind allocsize(0,1) }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind }
+attributes #9 = { nounwind allocsize(0,1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS8PJconsts", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !11, i64 8}
+!9 = !{!"_ZTS8PJconsts", !10, i64 0, !11, i64 8, !11, i64 16, !12, i64 24, !11, i64 32, !4, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !13, i64 80, !5, i64 88, !14, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !5, i64 144, !5, i64 152, !5, i64 160, !15, i64 168, !15, i64 176, !15, i64 184, !15, i64 192, !15, i64 200, !15, i64 208, !15, i64 216, !15, i64 224, !15, i64 232, !15, i64 240, !15, i64 248, !15, i64 256, !15, i64 264, !15, i64 272, !15, i64 280, !15, i64 288, !15, i64 296, !15, i64 304, !15, i64 312, !15, i64 320, !15, i64 328, !15, i64 336, !14, i64 344, !14, i64 348, !14, i64 352, !14, i64 356, !14, i64 360, !14, i64 364, !14, i64 368, !14, i64 372, !14, i64 376, !16, i64 380, !16, i64 384, !4, i64 392, !4, i64 400, !4, i64 408, !4, i64 416, !4, i64 424, !4, i64 432, !15, i64 440, !15, i64 448, !15, i64 456, !15, i64 464, !15, i64 472, !15, i64 480, !15, i64 488, !15, i64 496, !15, i64 504, !15, i64 512, !15, i64 520, !14, i64 528, !6, i64 536, !14, i64 592, !5, i64 600, !5, i64 608, !15, i64 616, !15, i64 624, !14, i64 632, !6, i64 636, !17, i64 640, !22, i64 656, !15, i64 664, !22, i64 672, !23, i64 680, !23, i64 712, !23, i64 744, !22, i64 776, !26, i64 784, !31, i64 808, !32, i64 816, !14, i64 840, !22, i64 844, !22, i64 845, !22, i64 846, !4, i64 848}
+!10 = !{!"p1 _ZTS6pj_ctx", !5, i64 0}
+!11 = !{!"p1 omnipotent char", !5, i64 0}
+!12 = !{!"p1 _ZTS8ARG_list", !5, i64 0}
+!13 = !{!"p1 _ZTS13geod_geodesic", !5, i64 0}
+!14 = !{!"int", !6, i64 0}
+!15 = !{!"double", !6, i64 0}
+!16 = !{!"_ZTS11pj_io_units", !6, i64 0}
+!17 = !{!"_ZTSSt10shared_ptrIN5osgeo4proj4util10BaseObjectEE", !18, i64 0}
+!18 = !{!"_ZTSSt12__shared_ptrIN5osgeo4proj4util10BaseObjectELN9__gnu_cxx12_Lock_policyE2EE", !19, i64 0, !20, i64 8}
+!19 = !{!"p1 _ZTSN5osgeo4proj4util10BaseObjectE", !5, i64 0}
+!20 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !21, i64 0}
+!21 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!22 = !{!"bool", !6, i64 0}
+!23 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !24, i64 0, !25, i64 8, !6, i64 16}
+!24 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !11, i64 0}
+!25 = !{!"long", !6, i64 0}
+!26 = !{!"_ZTSSt6vectorIN5osgeo4proj9operation15GridDescriptionESaIS3_EE", !27, i64 0}
+!27 = !{!"_ZTSSt12_Vector_baseIN5osgeo4proj9operation15GridDescriptionESaIS3_EE", !28, i64 0}
+!28 = !{!"_ZTSNSt12_Vector_baseIN5osgeo4proj9operation15GridDescriptionESaIS3_EE12_Vector_implE", !29, i64 0}
+!29 = !{!"_ZTSNSt12_Vector_baseIN5osgeo4proj9operation15GridDescriptionESaIS3_EE17_Vector_impl_dataE", !30, i64 0, !30, i64 8, !30, i64 16}
+!30 = !{!"p1 _ZTSN5osgeo4proj9operation15GridDescriptionE", !5, i64 0}
+!31 = !{!"_ZTS7PJ_TYPE", !6, i64 0}
+!32 = !{!"_ZTSSt6vectorI16PJCoordOperationSaIS0_EE", !33, i64 0}
+!33 = !{!"_ZTSSt12_Vector_baseI16PJCoordOperationSaIS0_EE", !34, i64 0}
+!34 = !{!"_ZTSNSt12_Vector_baseI16PJCoordOperationSaIS0_EE12_Vector_implE", !35, i64 0}
+!35 = !{!"_ZTSNSt12_Vector_baseI16PJCoordOperationSaIS0_EE17_Vector_impl_dataE", !36, i64 0, !36, i64 8, !36, i64 16}
+!36 = !{!"p1 _ZTS16PJCoordOperation", !5, i64 0}
+!37 = !{!9, !11, i64 16}
+!38 = !{!9, !14, i64 360}
+!39 = !{!9, !16, i64 380}
+!40 = !{!9, !16, i64 384}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 _ZTSN12_GLOBAL__N_16pj_aeaE", !5, i64 0}
+!43 = !{!9, !5, i64 88}
+!44 = !{!9, !5, i64 152}
+!45 = !{!9, !10, i64 0}
+!46 = !{!9, !12, i64 24}
+!47 = !{!6, !6, i64 0}
+!48 = !{!49, !15, i64 56}
+!49 = !{!"_ZTSN12_GLOBAL__N_16pj_aeaE", !15, i64 0, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !15, i64 40, !15, i64 48, !15, i64 56, !15, i64 64, !50, i64 72, !14, i64 80}
+!50 = !{!"p1 double", !5, i64 0}
+!51 = !{!49, !15, i64 64}
+!52 = !{!14, !14, i64 0}
+!53 = !{!49, !50, i64 72}
+!54 = !{!9, !5, i64 112}
+!55 = !{!9, !5, i64 104}
+!56 = !{!15, !15, i64 0}
+!57 = !{!49, !15, i64 8}
+!58 = !{!9, !15, i64 216}
+!59 = !{!49, !14, i64 80}
+!60 = !{!9, !15, i64 288}
+!61 = !{!9, !15, i64 208}
+!62 = !{!9, !15, i64 256}
+!63 = !{!49, !15, i64 0}
+!64 = !{!49, !15, i64 16}
+!65 = !{!49, !15, i64 24}
+!66 = !{!9, !15, i64 448}
+!67 = !{!49, !15, i64 40}
+!68 = !{!49, !15, i64 32}
+!69 = !{!70, !15, i64 8}
+!70 = !{!"_ZTS5PJ_XY", !15, i64 0, !15, i64 8}
+!71 = !{!70, !15, i64 0}
+!72 = !{!49, !15, i64 48}
+!73 = !{!74, !15, i64 8}
+!74 = !{!"_ZTS5PJ_LP", !15, i64 0, !15, i64 8}
+!75 = !{!74, !15, i64 0}
+!76 = distinct !{!76, !77}
+!77 = !{!"llvm.loop.mustprogress"}

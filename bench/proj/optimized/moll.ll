@@ -29,18 +29,18 @@ define hidden noundef ptr @pj_moll(ptr noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %3, ptr %8, align 8
+  store ptr %3, ptr %8, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store double 0.000000e+00, ptr %9, align 8
-  store double 0x3FECCF6429BE6622, ptr %3, align 8
+  store double 0.000000e+00, ptr %9, align 8, !tbaa !36
+  store double 0x3FECCF6429BE6622, ptr %3, align 8, !tbaa !37
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store double 0x3FF6A09E667F3BCD, ptr %10, align 8
+  store double 0x3FF6A09E667F3BCD, ptr %10, align 8, !tbaa !39
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store double 0x400921FB54442D18, ptr %11, align 8
+  store double 0x400921FB54442D18, ptr %11, align 8, !tbaa !40
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @_ZL14moll_s_inverse5PJ_XYP8PJconsts, ptr %12, align 8
+  store ptr @_ZL14moll_s_inverse5PJ_XYP8PJconsts, ptr %12, align 8, !tbaa !41
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr @_ZL14moll_s_forward5PJ_LPP8PJconsts, ptr %13, align 8
+  store ptr @_ZL14moll_s_forward5PJ_LPP8PJconsts, ptr %13, align 8, !tbaa !42
   br label %_Z33pj_projection_specific_setup_mollP8PJconsts.exit
 
 14:                                               ; preds = %1
@@ -50,15 +50,15 @@ define hidden noundef ptr @pj_moll(ptr noundef %0) local_unnamed_addr #0 {
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr @.str, ptr %18, align 8
+  store ptr @.str, ptr %18, align 8, !tbaa !43
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store ptr @_ZL8des_moll, ptr %19, align 8
+  store ptr @_ZL8des_moll, ptr %19, align 8, !tbaa !44
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 360
-  store i32 1, ptr %20, align 8
+  store i32 1, ptr %20, align 8, !tbaa !45
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 380
-  store i32 4, ptr %21, align 4
+  store i32 4, ptr %21, align 4, !tbaa !46
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 384
-  store i32 1, ptr %22, align 8
+  store i32 1, ptr %22, align 8, !tbaa !47
   br label %_Z33pj_projection_specific_setup_mollP8PJconsts.exit
 
 _Z33pj_projection_specific_setup_mollP8PJconsts.exit: ; preds = %7, %5, %14, %17
@@ -78,18 +78,18 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_mollP8PJconsts(ptr n
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %2, ptr %7, align 8
+  store ptr %2, ptr %7, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store double 0.000000e+00, ptr %8, align 8
-  store double 0x3FECCF6429BE6622, ptr %2, align 8
+  store double 0.000000e+00, ptr %8, align 8, !tbaa !36
+  store double 0x3FECCF6429BE6622, ptr %2, align 8, !tbaa !37
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store double 0x3FF6A09E667F3BCD, ptr %9, align 8
+  store double 0x3FF6A09E667F3BCD, ptr %9, align 8, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store double 0x400921FB54442D18, ptr %10, align 8
+  store double 0x400921FB54442D18, ptr %10, align 8, !tbaa !40
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @_ZL14moll_s_inverse5PJ_XYP8PJconsts, ptr %11, align 8
+  store ptr @_ZL14moll_s_inverse5PJ_XYP8PJconsts, ptr %11, align 8, !tbaa !41
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr @_ZL14moll_s_forward5PJ_LPP8PJconsts, ptr %12, align 8
+  store ptr @_ZL14moll_s_forward5PJ_LPP8PJconsts, ptr %12, align 8, !tbaa !42
   br label %13
 
 13:                                               ; preds = %6, %4
@@ -120,18 +120,18 @@ define hidden noundef ptr @pj_wag4(ptr noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %3, ptr %8, align 8
+  store ptr %3, ptr %8, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store double 0.000000e+00, ptr %9, align 8
-  store double 0x3FEB9E79B2E4BC99, ptr %3, align 8
+  store double 0.000000e+00, ptr %9, align 8, !tbaa !36
+  store double 0x3FEB9E79B2E4BC99, ptr %3, align 8, !tbaa !37
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store double 0x3FF90C363DC36826, ptr %10, align 8
+  store double 0x3FF90C363DC36826, ptr %10, align 8, !tbaa !39
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store double 0x4007AEF0F2438690, ptr %11, align 8
+  store double 0x4007AEF0F2438690, ptr %11, align 8, !tbaa !40
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @_ZL14moll_s_inverse5PJ_XYP8PJconsts, ptr %12, align 8
+  store ptr @_ZL14moll_s_inverse5PJ_XYP8PJconsts, ptr %12, align 8, !tbaa !41
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr @_ZL14moll_s_forward5PJ_LPP8PJconsts, ptr %13, align 8
+  store ptr @_ZL14moll_s_forward5PJ_LPP8PJconsts, ptr %13, align 8, !tbaa !42
   br label %_Z33pj_projection_specific_setup_wag4P8PJconsts.exit
 
 14:                                               ; preds = %1
@@ -141,15 +141,15 @@ define hidden noundef ptr @pj_wag4(ptr noundef %0) local_unnamed_addr #0 {
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr @.str.1, ptr %18, align 8
+  store ptr @.str.1, ptr %18, align 8, !tbaa !43
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store ptr @_ZL8des_wag4, ptr %19, align 8
+  store ptr @_ZL8des_wag4, ptr %19, align 8, !tbaa !44
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 360
-  store i32 1, ptr %20, align 8
+  store i32 1, ptr %20, align 8, !tbaa !45
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 380
-  store i32 4, ptr %21, align 4
+  store i32 4, ptr %21, align 4, !tbaa !46
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 384
-  store i32 1, ptr %22, align 8
+  store i32 1, ptr %22, align 8, !tbaa !47
   br label %_Z33pj_projection_specific_setup_wag4P8PJconsts.exit
 
 _Z33pj_projection_specific_setup_wag4P8PJconsts.exit: ; preds = %7, %5, %14, %17
@@ -169,18 +169,18 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_wag4P8PJconsts(ptr n
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %2, ptr %7, align 8
+  store ptr %2, ptr %7, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store double 0.000000e+00, ptr %8, align 8
-  store double 0x3FEB9E79B2E4BC99, ptr %2, align 8
+  store double 0.000000e+00, ptr %8, align 8, !tbaa !36
+  store double 0x3FEB9E79B2E4BC99, ptr %2, align 8, !tbaa !37
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store double 0x3FF90C363DC36826, ptr %9, align 8
+  store double 0x3FF90C363DC36826, ptr %9, align 8, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store double 0x4007AEF0F2438690, ptr %10, align 8
+  store double 0x4007AEF0F2438690, ptr %10, align 8, !tbaa !40
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @_ZL14moll_s_inverse5PJ_XYP8PJconsts, ptr %11, align 8
+  store ptr @_ZL14moll_s_inverse5PJ_XYP8PJconsts, ptr %11, align 8, !tbaa !41
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr @_ZL14moll_s_forward5PJ_LPP8PJconsts, ptr %12, align 8
+  store ptr @_ZL14moll_s_forward5PJ_LPP8PJconsts, ptr %12, align 8, !tbaa !42
   br label %13
 
 13:                                               ; preds = %6, %4
@@ -204,18 +204,18 @@ define hidden noundef ptr @pj_wag5(ptr noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %3, ptr %8, align 8
+  store ptr %3, ptr %8, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store double 0.000000e+00, ptr %9, align 8
-  store double 0x3FED1CD5F99C38B0, ptr %3, align 8
+  store double 0.000000e+00, ptr %9, align 8, !tbaa !36
+  store double 0x3FED1CD5F99C38B0, ptr %3, align 8, !tbaa !37
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store double 1.650140e+00, ptr %10, align 8
+  store double 1.650140e+00, ptr %10, align 8, !tbaa !39
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store double 3.008960e+00, ptr %11, align 8
+  store double 3.008960e+00, ptr %11, align 8, !tbaa !40
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @_ZL14moll_s_inverse5PJ_XYP8PJconsts, ptr %12, align 8
+  store ptr @_ZL14moll_s_inverse5PJ_XYP8PJconsts, ptr %12, align 8, !tbaa !41
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr @_ZL14moll_s_forward5PJ_LPP8PJconsts, ptr %13, align 8
+  store ptr @_ZL14moll_s_forward5PJ_LPP8PJconsts, ptr %13, align 8, !tbaa !42
   br label %_Z33pj_projection_specific_setup_wag5P8PJconsts.exit
 
 14:                                               ; preds = %1
@@ -225,15 +225,15 @@ define hidden noundef ptr @pj_wag5(ptr noundef %0) local_unnamed_addr #0 {
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr @.str.2, ptr %18, align 8
+  store ptr @.str.2, ptr %18, align 8, !tbaa !43
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store ptr @_ZL8des_wag5, ptr %19, align 8
+  store ptr @_ZL8des_wag5, ptr %19, align 8, !tbaa !44
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 360
-  store i32 1, ptr %20, align 8
+  store i32 1, ptr %20, align 8, !tbaa !45
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 380
-  store i32 4, ptr %21, align 4
+  store i32 4, ptr %21, align 4, !tbaa !46
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 384
-  store i32 1, ptr %22, align 8
+  store i32 1, ptr %22, align 8, !tbaa !47
   br label %_Z33pj_projection_specific_setup_wag5P8PJconsts.exit
 
 _Z33pj_projection_specific_setup_wag5P8PJconsts.exit: ; preds = %7, %5, %14, %17
@@ -253,18 +253,18 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_wag5P8PJconsts(ptr n
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %2, ptr %7, align 8
+  store ptr %2, ptr %7, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store double 0.000000e+00, ptr %8, align 8
-  store double 0x3FED1CD5F99C38B0, ptr %2, align 8
+  store double 0.000000e+00, ptr %8, align 8, !tbaa !36
+  store double 0x3FED1CD5F99C38B0, ptr %2, align 8, !tbaa !37
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store double 1.650140e+00, ptr %9, align 8
+  store double 1.650140e+00, ptr %9, align 8, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store double 3.008960e+00, ptr %10, align 8
+  store double 3.008960e+00, ptr %10, align 8, !tbaa !40
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @_ZL14moll_s_inverse5PJ_XYP8PJconsts, ptr %11, align 8
+  store ptr @_ZL14moll_s_inverse5PJ_XYP8PJconsts, ptr %11, align 8, !tbaa !41
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr @_ZL14moll_s_forward5PJ_LPP8PJconsts, ptr %12, align 8
+  store ptr @_ZL14moll_s_forward5PJ_LPP8PJconsts, ptr %12, align 8, !tbaa !42
   br label %13
 
 13:                                               ; preds = %6, %4
@@ -275,14 +275,14 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_wag5P8PJconsts(ptr n
 ; Function Attrs: mustprogress uwtable
 define internal { double, double } @_ZL14moll_s_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr %2, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !3
+  %6 = load ptr, ptr %2, align 8, !tbaa !48
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load double, ptr %7, align 8
+  %8 = load double, ptr %7, align 8, !tbaa !39
   %9 = fdiv double %1, %8
   %10 = tail call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %6, double noundef %9)
-  %11 = load double, ptr %5, align 8
-  %12 = tail call double @cos(double noundef %10) #7
+  %11 = load double, ptr %5, align 8, !tbaa !37
+  %12 = tail call double @cos(double noundef %10) #7, !tbaa !49
   %13 = fmul double %11, %12
   %14 = fdiv double %0, %13
   %15 = tail call double @llvm.fabs.f64(double %14)
@@ -291,11 +291,11 @@ define internal { double, double } @_ZL14moll_s_inverse5PJ_XYP8PJconsts(double %
 
 17:                                               ; preds = %3
   %18 = fadd double %10, %10
-  %19 = load ptr, ptr %2, align 8
-  %20 = tail call double @sin(double noundef %18) #7
+  %19 = load ptr, ptr %2, align 8, !tbaa !48
+  %20 = tail call double @sin(double noundef %18) #7, !tbaa !49
   %21 = fadd double %18, %20
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %23 = load double, ptr %22, align 8
+  %23 = load double, ptr %22, align 8, !tbaa !40
   %24 = fdiv double %21, %23
   %25 = tail call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %19, double noundef %24)
   br label %26
@@ -311,28 +311,28 @@ define internal { double, double } @_ZL14moll_s_inverse5PJ_XYP8PJconsts(double %
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define internal { double, double } @_ZL14moll_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr noundef readonly captures(none) %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = load double, ptr %6, align 8
-  %8 = tail call double @sin(double noundef %1) #7
+  %7 = load double, ptr %6, align 8, !tbaa !40
+  %8 = tail call double @sin(double noundef %1) #7, !tbaa !49
   %9 = fmul double %7, %8
   br label %12
 
 10:                                               ; preds = %12
-  %11 = add nsw i32 %.022, -1
+  %11 = add nsw i32 %.01924, -1
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %22, label %12, !llvm.loop !4
+  br i1 %.not, label %22, label %12, !llvm.loop !50
 
 12:                                               ; preds = %3, %10
-  %.022 = phi i32 [ 30, %3 ], [ %11, %10 ]
-  %.sroa.2.021 = phi double [ %1, %3 ], [ %19, %10 ]
-  %13 = tail call double @sin(double noundef %.sroa.2.021) #7
-  %14 = fadd double %.sroa.2.021, %13
+  %.01924 = phi i32 [ 30, %3 ], [ %11, %10 ]
+  %.sroa.2.023 = phi double [ %1, %3 ], [ %19, %10 ]
+  %13 = tail call double @sin(double noundef %.sroa.2.023) #7, !tbaa !49
+  %14 = fadd double %.sroa.2.023, %13
   %15 = fsub double %14, %9
-  %16 = tail call double @cos(double noundef %.sroa.2.021) #7
+  %16 = tail call double @cos(double noundef %.sroa.2.023) #7, !tbaa !49
   %17 = fadd double %16, 1.000000e+00
   %18 = fdiv double %15, %17
-  %19 = fsub double %.sroa.2.021, %18
+  %19 = fsub double %.sroa.2.023, %18
   %20 = tail call double @llvm.fabs.f64(double %18)
   %21 = fcmp olt double %20, 0x3E7AD7F29ABCAF48
   br i1 %21, label %25, label %10
@@ -348,13 +348,13 @@ define internal { double, double } @_ZL14moll_s_forward5PJ_LPP8PJconsts(double %
 
 27:                                               ; preds = %25, %22
   %.sroa.2.2 = phi double [ %26, %25 ], [ %24, %22 ]
-  %28 = load double, ptr %5, align 8
+  %28 = load double, ptr %5, align 8, !tbaa !37
   %29 = fmul double %0, %28
-  %30 = tail call double @cos(double noundef %.sroa.2.2) #7
+  %30 = tail call double @cos(double noundef %.sroa.2.2) #7, !tbaa !49
   %31 = fmul double %29, %30
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %33 = load double, ptr %32, align 8
-  %34 = tail call double @sin(double noundef %.sroa.2.2) #7
+  %33 = load double, ptr %32, align 8, !tbaa !39
+  %34 = tail call double @sin(double noundef %.sroa.2.2) #7, !tbaa !49
   %35 = fmul double %33, %34
   %.fca.0.insert = insertvalue { double, double } poison, double %31, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %35, 1
@@ -372,20 +372,66 @@ declare double @cos(double noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #5
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind allocsize(0,1) }
 attributes #7 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !6, i64 88}
+!4 = !{!"_ZTS8PJconsts", !5, i64 0, !9, i64 8, !9, i64 16, !10, i64 24, !9, i64 32, !11, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !12, i64 80, !6, i64 88, !13, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !14, i64 168, !14, i64 176, !14, i64 184, !14, i64 192, !14, i64 200, !14, i64 208, !14, i64 216, !14, i64 224, !14, i64 232, !14, i64 240, !14, i64 248, !14, i64 256, !14, i64 264, !14, i64 272, !14, i64 280, !14, i64 288, !14, i64 296, !14, i64 304, !14, i64 312, !14, i64 320, !14, i64 328, !14, i64 336, !13, i64 344, !13, i64 348, !13, i64 352, !13, i64 356, !13, i64 360, !13, i64 364, !13, i64 368, !13, i64 372, !13, i64 376, !15, i64 380, !15, i64 384, !11, i64 392, !11, i64 400, !11, i64 408, !11, i64 416, !11, i64 424, !11, i64 432, !14, i64 440, !14, i64 448, !14, i64 456, !14, i64 464, !14, i64 472, !14, i64 480, !14, i64 488, !14, i64 496, !14, i64 504, !14, i64 512, !14, i64 520, !13, i64 528, !7, i64 536, !13, i64 592, !6, i64 600, !6, i64 608, !14, i64 616, !14, i64 624, !13, i64 632, !7, i64 636, !16, i64 640, !21, i64 656, !14, i64 664, !21, i64 672, !22, i64 680, !22, i64 712, !22, i64 744, !21, i64 776, !25, i64 784, !30, i64 808, !31, i64 816, !13, i64 840, !21, i64 844, !21, i64 845, !21, i64 846, !11, i64 848}
+!5 = !{!"p1 _ZTS6pj_ctx", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!"p1 omnipotent char", !6, i64 0}
+!10 = !{!"p1 _ZTS8ARG_list", !6, i64 0}
+!11 = !{!"p1 _ZTS8PJconsts", !6, i64 0}
+!12 = !{!"p1 _ZTS13geod_geodesic", !6, i64 0}
+!13 = !{!"int", !7, i64 0}
+!14 = !{!"double", !7, i64 0}
+!15 = !{!"_ZTS11pj_io_units", !7, i64 0}
+!16 = !{!"_ZTSSt10shared_ptrIN5osgeo4proj4util10BaseObjectEE", !17, i64 0}
+!17 = !{!"_ZTSSt12__shared_ptrIN5osgeo4proj4util10BaseObjectELN9__gnu_cxx12_Lock_policyE2EE", !18, i64 0, !19, i64 8}
+!18 = !{!"p1 _ZTSN5osgeo4proj4util10BaseObjectE", !6, i64 0}
+!19 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !20, i64 0}
+!20 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !6, i64 0}
+!21 = !{!"bool", !7, i64 0}
+!22 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !23, i64 0, !24, i64 8, !7, i64 16}
+!23 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !9, i64 0}
+!24 = !{!"long", !7, i64 0}
+!25 = !{!"_ZTSSt6vectorIN5osgeo4proj9operation15GridDescriptionESaIS3_EE", !26, i64 0}
+!26 = !{!"_ZTSSt12_Vector_baseIN5osgeo4proj9operation15GridDescriptionESaIS3_EE", !27, i64 0}
+!27 = !{!"_ZTSNSt12_Vector_baseIN5osgeo4proj9operation15GridDescriptionESaIS3_EE12_Vector_implE", !28, i64 0}
+!28 = !{!"_ZTSNSt12_Vector_baseIN5osgeo4proj9operation15GridDescriptionESaIS3_EE17_Vector_impl_dataE", !29, i64 0, !29, i64 8, !29, i64 16}
+!29 = !{!"p1 _ZTSN5osgeo4proj9operation15GridDescriptionE", !6, i64 0}
+!30 = !{!"_ZTS7PJ_TYPE", !7, i64 0}
+!31 = !{!"_ZTSSt6vectorI16PJCoordOperationSaIS0_EE", !32, i64 0}
+!32 = !{!"_ZTSSt12_Vector_baseI16PJCoordOperationSaIS0_EE", !33, i64 0}
+!33 = !{!"_ZTSNSt12_Vector_baseI16PJCoordOperationSaIS0_EE12_Vector_implE", !34, i64 0}
+!34 = !{!"_ZTSNSt12_Vector_baseI16PJCoordOperationSaIS0_EE17_Vector_impl_dataE", !35, i64 0, !35, i64 8, !35, i64 16}
+!35 = !{!"p1 _ZTS16PJCoordOperation", !6, i64 0}
+!36 = !{!4, !14, i64 216}
+!37 = !{!38, !14, i64 0}
+!38 = !{!"_ZTSN12_GLOBAL__N_112pj_moll_dataE", !14, i64 0, !14, i64 8, !14, i64 16}
+!39 = !{!38, !14, i64 8}
+!40 = !{!38, !14, i64 16}
+!41 = !{!4, !6, i64 112}
+!42 = !{!4, !6, i64 104}
+!43 = !{!4, !9, i64 8}
+!44 = !{!4, !9, i64 16}
+!45 = !{!4, !13, i64 360}
+!46 = !{!4, !15, i64 380}
+!47 = !{!4, !15, i64 384}
+!48 = !{!4, !5, i64 0}
+!49 = !{!13, !13, i64 0}
+!50 = distinct !{!50, !51}
+!51 = !{!"llvm.loop.mustprogress"}

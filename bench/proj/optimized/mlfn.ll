@@ -19,15 +19,15 @@ define hidden noalias noundef ptr @_Z7pj_enfnd(double noundef %0) local_unnamed_
   %.011.i = phi double [ %7, %.lr.ph.i ], [ 3.906250e-03, %1 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %5 = getelementptr inbounds nuw double, ptr @_ZZ7pj_enfndE9coeff_rad, i64 %indvars.iv.next.i
-  %6 = load double, ptr %5, align 8
+  %6 = load double, ptr %5, align 8, !tbaa !3
   %7 = tail call double @llvm.fmuladd.f64(double %.011.i, double %2, double %6)
   %8 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %8, label %.lr.ph.i, label %_ZL7polyvaldPKdi.exit, !llvm.loop !4
+  br i1 %8, label %.lr.ph.i, label %_ZL7polyvaldPKdi.exit, !llvm.loop !7
 
 _ZL7polyvaldPKdi.exit:                            ; preds = %.lr.ph.i
   %9 = fadd double %0, 1.000000e+00
   %10 = fdiv double %7, %9
-  store double %10, ptr %3, align 8
+  store double %10, ptr %3, align 8, !tbaa !3
   %invariant.gep = getelementptr inbounds nuw i8, ptr %3, i64 56
   br label %11
 
@@ -42,7 +42,7 @@ _ZL7polyvaldPKdi.exit:                            ; preds = %.lr.ph.i
   %16 = getelementptr inbounds nuw double, ptr @_ZZ7pj_enfndE12coeff_mu_phi, i64 %15
   %17 = zext nneg i32 %14 to i64
   %18 = getelementptr inbounds nuw double, ptr %16, i64 %17
-  %19 = load double, ptr %18, align 8
+  %19 = load double, ptr %18, align 8, !tbaa !3
   %.not.i = icmp samesign ugt i64 %indvars.iv, 3
   br i1 %.not.i, label %_ZL7polyvaldPKdi.exit35.thread, label %.lr.ph.i31
 
@@ -50,10 +50,10 @@ _ZL7polyvaldPKdi.exit35.thread:                   ; preds = %11
   %20 = fmul double %.02946, %19
   %21 = add nuw nsw i64 %indvars.iv, 1
   %22 = getelementptr inbounds nuw double, ptr %3, i64 %21
-  store double %20, ptr %22, align 8
+  store double %20, ptr %22, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw double, ptr @_ZZ7pj_enfndE12coeff_phi_mu, i64 %15
   %24 = getelementptr inbounds nuw double, ptr %23, i64 %17
-  %25 = load double, ptr %24, align 8
+  %25 = load double, ptr %24, align 8, !tbaa !3
   br label %_ZL7polyvaldPKdi.exit42
 
 .lr.ph.i31:                                       ; preds = %11, %.lr.ph.i31
@@ -61,19 +61,19 @@ _ZL7polyvaldPKdi.exit35.thread:                   ; preds = %11
   %.011.i33 = phi double [ %28, %.lr.ph.i31 ], [ %19, %11 ]
   %indvars.iv.next.i34 = add nsw i64 %indvars.iv.i32, -1
   %26 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv.next.i34
-  %27 = load double, ptr %26, align 8
+  %27 = load double, ptr %26, align 8, !tbaa !3
   %28 = tail call double @llvm.fmuladd.f64(double %.011.i33, double %2, double %27)
   %29 = icmp samesign ugt i64 %indvars.iv.i32, 1
-  br i1 %29, label %.lr.ph.i31, label %_ZL7polyvaldPKdi.exit35, !llvm.loop !4
+  br i1 %29, label %.lr.ph.i31, label %_ZL7polyvaldPKdi.exit35, !llvm.loop !7
 
 _ZL7polyvaldPKdi.exit35:                          ; preds = %.lr.ph.i31
   %30 = fmul double %.02946, %28
   %31 = add nuw nsw i64 %indvars.iv, 1
   %32 = getelementptr inbounds nuw double, ptr %3, i64 %31
-  store double %30, ptr %32, align 8
+  store double %30, ptr %32, align 8, !tbaa !3
   %33 = getelementptr inbounds nuw double, ptr @_ZZ7pj_enfndE12coeff_phi_mu, i64 %15
   %34 = getelementptr inbounds nuw double, ptr %33, i64 %17
-  %35 = load double, ptr %34, align 8
+  %35 = load double, ptr %34, align 8, !tbaa !3
   br label %.lr.ph.i37
 
 .lr.ph.i37:                                       ; preds = %_ZL7polyvaldPKdi.exit35, %.lr.ph.i37
@@ -81,22 +81,22 @@ _ZL7polyvaldPKdi.exit35:                          ; preds = %.lr.ph.i31
   %.011.i39 = phi double [ %38, %.lr.ph.i37 ], [ %35, %_ZL7polyvaldPKdi.exit35 ]
   %indvars.iv.next.i40 = add nsw i64 %indvars.iv.i38, -1
   %36 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv.next.i40
-  %37 = load double, ptr %36, align 8
+  %37 = load double, ptr %36, align 8, !tbaa !3
   %38 = tail call double @llvm.fmuladd.f64(double %.011.i39, double %2, double %37)
   %39 = icmp samesign ugt i64 %indvars.iv.i38, 1
-  br i1 %39, label %.lr.ph.i37, label %_ZL7polyvaldPKdi.exit42, !llvm.loop !4
+  br i1 %39, label %.lr.ph.i37, label %_ZL7polyvaldPKdi.exit42, !llvm.loop !7
 
 _ZL7polyvaldPKdi.exit42:                          ; preds = %.lr.ph.i37, %_ZL7polyvaldPKdi.exit35.thread
   %indvars.iv.next.pre-phi = phi i64 [ %21, %_ZL7polyvaldPKdi.exit35.thread ], [ %31, %.lr.ph.i37 ]
   %.0.lcssa.i41 = phi double [ %25, %_ZL7polyvaldPKdi.exit35.thread ], [ %38, %.lr.ph.i37 ]
   %40 = fmul double %.02946, %.0.lcssa.i41
   %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
-  store double %40, ptr %gep, align 8
+  store double %40, ptr %gep, align 8, !tbaa !3
   %41 = fmul double %0, %.02946
   %42 = add nuw nsw i32 %.02748, 1
   %43 = add nuw nsw i32 %42, %14
   %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, 6
-  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !6
+  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !9
 
 .loopexit:                                        ; preds = %_ZL7polyvaldPKdi.exit42, %1
   ret ptr %3
@@ -107,7 +107,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef double @_Z7pj_mlfndddPKd(double noundef %0, double noundef %1, double noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #2 {
-  %5 = load double, ptr %3, align 8
+  %5 = load double, ptr %3, align 8, !tbaa !3
   %6 = fsub double %2, %1
   %7 = fmul double %6, 2.000000e+00
   %8 = fadd double %1, %2
@@ -122,10 +122,10 @@ define hidden noundef double @_Z7pj_mlfndddPKd(double noundef %0, double noundef
   %12 = tail call double @llvm.fmuladd.f64(double %9, double %.01417.i, double %11)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %13 = getelementptr double, ptr %3, i64 %indvars.iv.i
-  %14 = load double, ptr %13, align 8
+  %14 = load double, ptr %13, align 8, !tbaa !3
   %15 = fadd double %12, %14
   %16 = icmp ugt i64 %indvars.iv.i, 1
-  br i1 %16, label %10, label %_ZL8clenshawddPKdi.exit, !llvm.loop !7
+  br i1 %16, label %10, label %_ZL8clenshawddPKdi.exit, !llvm.loop !10
 
 _ZL8clenshawddPKdi.exit:                          ; preds = %10
   %17 = fmul double %1, 2.000000e+00
@@ -138,10 +138,10 @@ _ZL8clenshawddPKdi.exit:                          ; preds = %10
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
 define hidden noundef double @_Z11pj_inv_mlfndPKd(double noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
-  %3 = load double, ptr %1, align 8
+  %3 = load double, ptr %1, align 8, !tbaa !3
   %4 = fdiv double %0, %3
-  %5 = tail call double @sin(double noundef %4) #7
-  %6 = tail call double @cos(double noundef %4) #7
+  %5 = tail call double @sin(double noundef %4) #7, !tbaa !11
+  %6 = tail call double @cos(double noundef %4) #7, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %8 = fsub double %6, %5
   %9 = fmul double %8, 2.000000e+00
@@ -157,10 +157,10 @@ define hidden noundef double @_Z11pj_inv_mlfndPKd(double noundef %0, ptr noundef
   %14 = tail call double @llvm.fmuladd.f64(double %11, double %.01417.i, double %13)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %15 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.next.i
-  %16 = load double, ptr %15, align 8
+  %16 = load double, ptr %15, align 8, !tbaa !3
   %17 = fadd double %14, %16
   %18 = icmp ugt i64 %indvars.iv.i, 1
-  br i1 %18, label %12, label %_ZL8clenshawddPKdi.exit, !llvm.loop !7
+  br i1 %18, label %12, label %_ZL8clenshawddPKdi.exit, !llvm.loop !10
 
 _ZL8clenshawddPKdi.exit:                          ; preds = %12
   %19 = fmul double %5, 2.000000e+00
@@ -179,22 +179,27 @@ declare double @cos(double noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #5
 
-attributes #0 = { mustprogress nofree nounwind memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree nounwind memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind allocsize(0) }
 attributes #7 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"double", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !5, i64 0}
