@@ -124,6 +124,7 @@ supported_project = [
     "pcg-cpp",
     "proj",
     "pugixml",
+    "pybind11",
 ]
 
 modify_only = [
