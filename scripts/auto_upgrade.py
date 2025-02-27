@@ -130,6 +130,7 @@ supported_project = [
     "rocksdb",
     "sentencepiece",
     "simdjson",
+    "snappy",
 ]
 
 modify_only = [
@@ -171,6 +172,7 @@ modify_only = [
     "pbrt-v4",
     "readerwriterqueue",
     "sentencepiece",
+    "snappy",
 ]
 
 
